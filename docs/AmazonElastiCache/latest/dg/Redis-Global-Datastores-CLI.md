@@ -43,25 +43,212 @@ uniqueness of the global datastore name across multiple Regions.
 The following table lists each AWS Region and its global datastore ID
 prefix.
 
-| Region Name/Region                               | Prefix  |
-| ------------------------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (Ohio) Region `us-east-2`                | `fpkhr` |
-| US East (N. Virginia) Region `us-east-1`         | `ldgnf` |
-| US West (N. California) Region `us-west-1`       | `virxk` |
-| US West (Oregon) Region `us-west-2`              | `sgaui` |
-| Canada (Central) Region `ca-central-1`           | `bxodz` |
-| Asia Pacific (Mumbai) Region `ap-south-1`        | `erpgt` |
-| Asia Pacific (Tokyo) Region `ap-northeast-1`     | `quwsw` |
-| Asia Pacific (Seoul) Region `ap-northeast-2`     | `lfqnh` |
-| Asia Pacific (Osaka) Region `ap-northeast-3`     | `nlapn` |
-| Asia Pacific (Singapore) Region `ap-southeast-1` | `vlqxn` |
-| Asia Pacific (Sydney) Region `ap-southeast-2`    | `vbgxd` |
-| Europe (Frankfurt) Region `eu-central-1`         | `iudkw` |
-| Europe (Ireland) Region `eu-west-1`              | `gxeiz` |
-| Europe (London) Region `eu-west-2`               | `okuqm` |
-| EU (Paris) Region `eu-west-3`                    | `fgjhi` |
-| South America (São Paulo) Region `sa-east-1`     | `juxlw` |
-| China (Beijing) Region `cn-north-1`              | `emvgo` |
-| China (Ningxia) Region `cn-northwest-1`          | `ckbem` |
-| Asia Pacific (Hong Kong) Region `ap-east-1`      | `knjmp` |
-| AWS GovCloud (US-West) `us-gov-west-1`           | `sgwui` | <br>• [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md") – Use this operation to create secondary clusters for a global datastore by supplying the name of the global datastore to the `--global-replication-group-id` parameter. `` aws elasticache create-replication-group \ --replication-group-id `secondary replication group name` \ --replication-group-description `“Replication group description"` \ --global-replication-group-id `global datastore name` `` When calling this operation and passing in a `--global-replication-group-id` value, ElastiCache will infer the values from the primary replication group of the global replication group for the following paramaeters. Do not pass in values for these parameters: `"PrimaryClusterId",` `"AutomaticFailoverEnabled",` `"NumNodeGroups",` `"CacheParameterGroupName",` `"CacheNodeType",` `"Engine",` `"EngineVersion",` `"CacheSecurityGroupNames",` `"EnableTransitEncryption",` `"AtRestEncryptionEnabled",` `"SnapshotArns",` `"SnapshotName"` <br>• [describe-global-replication-groups](../../../cli/latest/reference/elasticache/describe-global-replication-groups.md "../../../cli/latest/reference/elasticache/describe-global-replication-groups.md") `` aws elasticache describe-global-replication-groups \ --global-replication-group-id `my global datastore`  \ --show-member-info `an optional parameter that returns a list of the primary and secondary clusters that make up the global datastore` `` <br>• [modify-global-replication-group](../../../cli/latest/reference/elasticache/modify-global-replication-group.md "../../../cli/latest/reference/elasticache/modify-global-replication-group.md") `` aws elasticache modify-global-replication-group \ --global-replication-group-id `my global datastore`  \ --automatic-failover-enabled \ --cache-node-type `node type` \ --cache-parameter-group-name `parameter group name` \ --engine-version `engine version` \ -—apply-immediately \ --global-replication-group-description `description` `` **Redis to OSS Valkey cross-engine upgrade for ElastiCache GlobalDataStore** You can upgrade an existing Redis OSS global replication group to Valkey using the Console, API or CLI. If you have an existing Redis OSS global replication group you can upgrade to Valkey by specifying the new engine and engine version with modify-global-replication-group API. For Linux, macOS, or Unix: `aws elasticache modify-global-replication-group \ --global-replication-group-id myGlobalReplGroup \ --engine valkey \ --apply-immediately \ --engine-version 8.0` For Windows: `aws elasticache modify-global-replication-group ^ --global-replication-group-id myGlobalReplGroup ^ --engine valkey ^ --apply-immediately ^ --engine-version 8.0` If you have a custom cache parameter group applied to the existing Redis OSS global replication group you wish to upgrade, you will need to pass a custom Valkey cache parameter group in the request as well. The input Valkey custom parameter group must have the same Redis OSS static parameter values as the existing Redis OSS custom parameter group. For Linux, macOS, or Unix: `aws elasticache modify-global-replication-group \ --global-replication-group-id myGlobalReplGroup \ --engine valkey \ --engine-version 8.0 \ --apply-immediately \ --cache-parameter-group-name myParamGroup` For Windows: `aws elasticache modify-global-replication-group ^ --global-replication-group-id myGlobalReplGroup ^ --engine valkey ^ --engine-version 8.0 ^ --apply-immediately ^ --cache-parameter-group-name myParamGroup` <br>• [delete-global-replication-group](../../../cli/latest/reference/elasticache/delete-global-replication-group.md "../../../cli/latest/reference/elasticache/delete-global-replication-group.md") `` aws elasticache delete-global-replication-group \ --global-replication-group-id `my global datastore`  \ --retain-primary-replication-group `defaults to true` `` <br>• [disassociate-global-replication-group](../../../cli/latest/reference/elasticache/disassociate-global-replication-group.md "../../../cli/latest/reference/elasticache/disassociate-global-replication-group.md") `` aws elasticache disassociate-global-replication-group \ --global-replication-group-id `my global datastore`  \ --replication-group-id `my secondary cluster`  \ --replication-group-region `the AWS Region in which the secondary cluster resides` `` <br>• [failover-global-replication-group](../../../cli/latest/reference/elasticache/failover-global-replication-group.md "../../../cli/latest/reference/elasticache/failover-global-replication-group.md") `` aws elasticache failover-replication-group \ --global-replication-group-id `my global datastore` \ --primary-region `The AWS Region of the primary cluster` \ --primary-replication-group-id  `The name of the global datastore, including the suffix.` `` <br>• [increase-node-groups-in-global-replication-group](../../../cli/latest/reference/elasticache/increase-node-groups-in-global-replication-group.md "../../../cli/latest/reference/elasticache/increase-node-groups-in-global-replication-group.md") `` aws elasticache increase-node-groups-in-global-replication-group \ --apply-immediately `yes` \ --global-replication-group-id `global-replication-group-name` \ --node-group-count `3` `` <br>• [decrease-node-groups-in-global-replication-group](../../../cli/latest/reference/elasticache/decrease-node-groups-in-global-replication-group.md "../../../cli/latest/reference/elasticache/decrease-node-groups-in-global-replication-group.md") `` aws elasticache decrease-node-groups-in-global-replication-group \ --apply-immediately `yes` \ --global-replication-group-id `global-replication-group-name` \ --node-group-count `3` `` <br>• [rebalance-shards-in-global-replication-group](../../../cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.md "../../../cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.md") `` aws elasticache rebalance-shards-in-global-replication-group \ --apply-immediately `yes` \ --global-replication-group-id `global-replication-group-name` `` Use help to list all available commands for ElastiCache for Valkey or Redis OSS. `aws elasticache help` You can also use help to describe a specific command and learn more about its usage: `aws elasticache create-global-replication-group help` |
+| Region Name/Region                                  | Prefix  |
+| --------------------------------------------------- | ------- |
+| US East (Ohio) Region<br>`us-east-2`                | `fpkhr` |
+| US East (N. Virginia) Region<br>`us-east-1`         | `ldgnf` |
+| US West (N. California) Region<br>`us-west-1`       | `virxk` |
+| US West (Oregon) Region<br>`us-west-2`              | `sgaui` |
+| Canada (Central) Region<br>`ca-central-1`           | `bxodz` |
+| Asia Pacific (Mumbai) Region<br>`ap-south-1`        | `erpgt` |
+| Asia Pacific (Tokyo) Region<br>`ap-northeast-1`     | `quwsw` |
+| Asia Pacific (Seoul) Region<br>`ap-northeast-2`     | `lfqnh` |
+| Asia Pacific (Osaka) Region<br>`ap-northeast-3`     | `nlapn` |
+| Asia Pacific (Singapore) Region<br>`ap-southeast-1` | `vlqxn` |
+| Asia Pacific (Sydney) Region<br>`ap-southeast-2`    | `vbgxd` |
+| Europe (Frankfurt) Region<br>`eu-central-1`         | `iudkw` |
+| Europe (Ireland) Region<br>`eu-west-1`              | `gxeiz` |
+| Europe (London) Region<br>`eu-west-2`               | `okuqm` |
+| EU (Paris) Region<br>`eu-west-3`                    | `fgjhi` |
+| South America (São Paulo) Region<br>`sa-east-1`     | `juxlw` |
+| China (Beijing) Region<br>`cn-north-1`              | `emvgo` |
+| China (Ningxia) Region<br>`cn-northwest-1`          | `ckbem` |
+| Asia Pacific (Hong Kong) Region<br>`ap-east-1`      | `knjmp` |
+| AWS GovCloud (US-West)<br>`us-gov-west-1`           | `sgwui` |
+
+- [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md") – Use this operation to create
+  secondary clusters for a global datastore by supplying the name of the global
+  datastore to the `--global-replication-group-id` parameter.
+
+```
+aws elasticache create-replication-group \
+  --replication-group-id `secondary replication group name` \
+  --replication-group-description `“Replication group description"` \
+  --global-replication-group-id `global datastore name`
+
+
+```
+
+When calling this operation and passing in a
+`--global-replication-group-id` value, ElastiCache will infer the values
+from the primary replication group of the global replication group for the
+following paramaeters. Do not pass in values for these parameters:
+
+`"PrimaryClusterId",`
+
+`"AutomaticFailoverEnabled",`
+
+`"NumNodeGroups",`
+
+`"CacheParameterGroupName",`
+
+`"CacheNodeType",`
+
+`"Engine",`
+
+`"EngineVersion",`
+
+`"CacheSecurityGroupNames",`
+
+`"EnableTransitEncryption",`
+
+`"AtRestEncryptionEnabled",`
+
+`"SnapshotArns",`
+
+`"SnapshotName"`
+
+- [describe-global-replication-groups](../../../cli/latest/reference/elasticache/describe-global-replication-groups.md "../../../cli/latest/reference/elasticache/describe-global-replication-groups.md")
+
+```
+aws elasticache describe-global-replication-groups \
+   --global-replication-group-id `my global datastore`  \
+   --show-member-info `an optional parameter that returns a list of the primary and secondary clusters that make up the global datastore`
+
+```
+
+- [modify-global-replication-group](../../../cli/latest/reference/elasticache/modify-global-replication-group.md "../../../cli/latest/reference/elasticache/modify-global-replication-group.md")
+
+```
+aws elasticache modify-global-replication-group \
+   --global-replication-group-id `my global datastore`  \
+   --automatic-failover-enabled \
+   --cache-node-type `node type` \
+   --cache-parameter-group-name `parameter group name` \
+   --engine-version `engine version` \
+   -—apply-immediately \
+   --global-replication-group-description `description`
+
+
+```
+
+**Redis to OSS Valkey cross-engine upgrade for ElastiCache GlobalDataStore**
+
+You can upgrade an existing Redis OSS global replication group to Valkey using the Console, API or CLI.
+
+If you have an existing Redis OSS global replication group you can upgrade to Valkey by specifying the new engine and engine version with modify-global-replication-group API.
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache modify-global-replication-group \
+   --global-replication-group-id myGlobalReplGroup \
+   --engine valkey \
+   --apply-immediately \
+   --engine-version 8.0
+```
+
+For Windows:
+
+```
+aws elasticache modify-global-replication-group ^
+   --global-replication-group-id myGlobalReplGroup ^
+   --engine valkey ^
+   --apply-immediately ^
+   --engine-version 8.0
+```
+
+If you have a custom cache parameter group applied to the existing Redis OSS global replication group you wish to upgrade, you will need to pass a custom Valkey cache parameter group in the request as well. The input Valkey custom parameter group must have the same Redis OSS static parameter values as the existing Redis OSS custom parameter group.
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache modify-global-replication-group \
+   --global-replication-group-id myGlobalReplGroup \
+   --engine valkey \
+   --engine-version 8.0 \
+   --apply-immediately \
+   --cache-parameter-group-name myParamGroup
+```
+
+For Windows:
+
+```
+aws elasticache modify-global-replication-group ^
+   --global-replication-group-id myGlobalReplGroup ^
+   --engine valkey ^
+   --engine-version 8.0 ^
+   --apply-immediately ^
+   --cache-parameter-group-name myParamGroup
+```
+
+- [delete-global-replication-group](../../../cli/latest/reference/elasticache/delete-global-replication-group.md "../../../cli/latest/reference/elasticache/delete-global-replication-group.md")
+
+```
+aws elasticache delete-global-replication-group \
+   --global-replication-group-id `my global datastore`  \
+   --retain-primary-replication-group `defaults to true`
+
+```
+
+- [disassociate-global-replication-group](../../../cli/latest/reference/elasticache/disassociate-global-replication-group.md "../../../cli/latest/reference/elasticache/disassociate-global-replication-group.md")
+
+```
+aws elasticache disassociate-global-replication-group \
+   --global-replication-group-id `my global datastore`  \
+   --replication-group-id `my secondary cluster`  \
+   --replication-group-region `the AWS Region in which the secondary cluster resides`
+
+```
+
+- [failover-global-replication-group](../../../cli/latest/reference/elasticache/failover-global-replication-group.md "../../../cli/latest/reference/elasticache/failover-global-replication-group.md")
+
+```
+aws elasticache failover-replication-group \
+   --global-replication-group-id `my global datastore` \
+   --primary-region `The AWS Region of the primary cluster` \
+   --primary-replication-group-id  `The name of the global datastore, including the suffix.`
+
+```
+
+- [increase-node-groups-in-global-replication-group](../../../cli/latest/reference/elasticache/increase-node-groups-in-global-replication-group.md "../../../cli/latest/reference/elasticache/increase-node-groups-in-global-replication-group.md")
+
+```
+aws elasticache increase-node-groups-in-global-replication-group \
+   --apply-immediately `yes` \
+   --global-replication-group-id `global-replication-group-name` \
+   --node-group-count `3`
+
+```
+
+- [decrease-node-groups-in-global-replication-group](../../../cli/latest/reference/elasticache/decrease-node-groups-in-global-replication-group.md "../../../cli/latest/reference/elasticache/decrease-node-groups-in-global-replication-group.md")
+
+```
+aws elasticache decrease-node-groups-in-global-replication-group \
+   --apply-immediately `yes` \
+   --global-replication-group-id `global-replication-group-name` \
+   --node-group-count `3`
+
+```
+
+- [rebalance-shards-in-global-replication-group](../../../cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.md "../../../cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.md")
+
+```
+aws elasticache rebalance-shards-in-global-replication-group \
+   --apply-immediately `yes` \
+   --global-replication-group-id `global-replication-group-name`
+
+
+```
+
+Use help to list all available commands for ElastiCache for Valkey or Redis OSS.
+
+```
+aws elasticache help
+```
+
+You can also use help to describe a specific command and learn more about its usage:
+
+```
+aws elasticache create-global-replication-group help
+```

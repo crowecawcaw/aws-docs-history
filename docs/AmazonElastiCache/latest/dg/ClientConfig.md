@@ -1,15 +1,9 @@
-# Restricted commands
+# Connecting for using auto discovery
 
-To deliver a managed service experience, ElastiCache restricts access to certain cache engine-specific commands that require advanced privileges.
-For clusters running Redis OSS, the following commands are unavailable:
+If your applications use Auto Discovery, you only need to know the configuration
+endpoint for the cluster, rather than the individual endpoints for each cache node. For
+more information, see [Automatically identify nodes in your cluster (Memcached)](AutoDiscovery.md "AutoDiscovery.md").
 
-- `bgrewriteaof`
-- `bgsave`
-- `config`
-- `debug`
-- `migrate`
-- `replicaof`
-- `save`
-- `slaveof`
-- `shutdown`
-- `sync`
+###### Note
+
+At this time, Auto Discovery is only available for clusters running Memcached.

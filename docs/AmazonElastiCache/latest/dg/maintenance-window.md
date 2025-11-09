@@ -12,7 +12,7 @@ default maintenance windows are assigned.
 You may choose a preferred maintenance window outside the region's maintenance window block.
 
 | Region Code      | Region Name                      | Region Maintenance Window |
-| ---------------- | -------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------- | -------------------------------- | ------------------------- |
 | `ap-northeast-1` | Asia Pacific (Tokyo) Region      | 13:00–21:00 UTC           |
 | `ap-northeast-2` | Asia Pacific (Seoul) Region      | 12:00–20:00 UTC           |
 | `ap-northeast-3` | Asia Pacific (Osaka) Region      | 12:00–20:00 UTC           |
@@ -36,4 +36,28 @@ You may choose a preferred maintenance window outside the region's maintenance w
 | `us-east-2`      | US East (Ohio) Region            | 04:00–12:00 UTC           |
 | `us-gov-west-1`  | AWS GovCloud (US) region         | 06:00–14:00 UTC           |
 | `us-west-1`      | US West (N. California) Region   | 06:00–14:00 UTC           |
-| `us-west-2`      | US West (Oregon) Region          | 06:00–14:00 UTC           | ###### Changing your cluster's or replication group's maintenance window The maintenance window should fall at the time of lowest usage and thus might need modification from time to time. You can modify your cluster or replication group to specify a time range of up to 24 hours in duration during which any maintenance activities you have requested should occur. Any deferred or pending cluster modifications you requested occur during this time. ###### Note If you want to apply node type modifications and/or engine upgrades immediately using the AWS Management Console select the **Apply now** box. Otherwise these modifications will be applied during your next scheduled maintenance window. To the use the API, see [modify-replication-group](../../../cli/latest/reference/elasticache/modify-replication-group.md "../../../cli/latest/reference/elasticache/modify-replication-group.md") or [modify-cache-cluster](../../../cli/latest/reference/elasticache/modify-cache-cluster.md "../../../cli/latest/reference/elasticache/modify-cache-cluster.md"). ###### More information For information on your maintenance window and node replacement, see the following: <br>• [ElastiCache Maintenance](https://aws.amazon.com/elasticache/elasticache-maintenance/ "https://aws.amazon.com/elasticache/elasticache-maintenance/")—FAQ on maintenance and node replacement <br>• [Replacing nodes (Memcached)](CacheNodes.md "CacheNodes.md")—Managing node replacement for Memcached <br>• [Modifying an ElastiCache cluster](Clusters.md "Clusters.md")—Changing a cluster's maintenance window <br>• [Replacing nodes (Valkey and Redis OSS)](CacheNodes.md "CacheNodes.md")—Managing node replacement <br>• [Modifying a replication group](Replication.md "Replication.md")—Changing a replication group's maintenance window |
+| `us-west-2`      | US West (Oregon) Region          | 06:00–14:00 UTC           |
+
+###### Changing your cluster's or replication group's maintenance window
+
+The maintenance window should fall at the time of lowest usage and thus might need
+modification from time to time. You can modify your cluster or replication group
+to specify a time range of up to 24 hours in duration during which any maintenance
+activities you have requested should occur. Any deferred or pending cluster modifications
+you requested occur during this time.
+
+###### Note
+
+If you want to apply node type modifications and/or engine upgrades immediately using the AWS Management Console select the **Apply now** box. Otherwise these modifications will be applied during your next scheduled maintenance window.
+To the use the API, see [modify-replication-group](../../../cli/latest/reference/elasticache/modify-replication-group.md "../../../cli/latest/reference/elasticache/modify-replication-group.md") or
+[modify-cache-cluster](../../../cli/latest/reference/elasticache/modify-cache-cluster.md "../../../cli/latest/reference/elasticache/modify-cache-cluster.md").
+
+###### More information
+
+For information on your maintenance window and node replacement, see the following:
+
+- [ElastiCache Maintenance](https://aws.amazon.com/elasticache/elasticache-maintenance/ "https://aws.amazon.com/elasticache/elasticache-maintenance/")—FAQ on maintenance and node replacement
+- [Replacing nodes (Memcached)](CacheNodes.md "CacheNodes.md")—Managing node replacement for Memcached
+- [Modifying an ElastiCache cluster](Clusters.md "Clusters.md")—Changing a cluster's maintenance window
+- [Replacing nodes (Valkey and Redis OSS)](CacheNodes.md "CacheNodes.md")—Managing node replacement
+- [Modifying a replication group](Replication.md "Replication.md")—Changing a replication group's maintenance window

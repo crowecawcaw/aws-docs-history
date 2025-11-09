@@ -47,8 +47,8 @@ If you're using the Amazon ElastiCache API, the AWS CLI, or an AWS SDK, you can 
 - `PurchaseReservedCacheNodesOffering`
   The following table describes the ElastiCache resources that can be tagged, and the resources that can be tagged on creation using the ElastiCache API, the AWS CLI, or an AWS SDK.
 
-| Tagging support for ElastiCache resources | Resource | Supports tags | Supports tagging on creation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ----------------------------------------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tagging support for ElastiCache resources | Resource | Supports tags | Supports tagging on creation |
+| ----------------------------------------- | -------- | ------------- | ---------------------------- |
 | serverlesscache                           | Yes      | Yes           |
 | parametergroup                            | Yes      | Yes           |
 | securitygroup                             | Yes      | Yes           |
@@ -59,4 +59,361 @@ If you're using the Amazon ElastiCache API, the AWS CLI, or an AWS SDK, you can 
 | serverlesscachesnapshot                   | Yes      | Yes           |
 | snapshot                                  | Yes      | Yes           |
 | user                                      | Yes      | Yes           |
-| usergroup                                 | Yes      | Yes           | ###### Note You cannot tag Global Datastores. You can apply tag-based resource-level permissions in your IAM policies to the ElastiCache API actions that support tagging on creation to implement granular control over the users and groups that can tag resources on creation. Your resources are properly secured from creation—tags that are applied immediately to your resources. Therefore any tag-based resource-level permissions controlling the use of resources are immediately effective. Your resources can be tracked and reported on more accurately. You can enforce the use of tagging on new resources, and control which tag keys and values are set on your resources. For more information, see [Tagging resources examples](#Tagging-your-resources-example "#Tagging-your-resources-example"). For more information about tagging your resources for billing, see [Monitoring costs with cost allocation tags](Tagging.md "Tagging.md"). The following rules apply to tagging as part of request operations: <br>• **CreateReplicationGroup**: + If the `--primary-cluster-id` and `--tags` parameters are included in the request, the request tags will be added to the replication group and propagate to all clusters in the replication group. If the primary cluster has existing tags, these will be overwritten with the request tags to have consistent tags across all nodes. If there are no request tags, the primary cluster tags will be added to the replication group and propagated to all clusters. + If the `--snapshot-name` or `--serverless-cache-snapshot-name` is supplied: If tags are included in the request, the replication group will be tagged only with those tags. If no tags are included in the request, the snapshot tags will be added to the replication group. + If the `--global-replication-group-id` is supplied: If tags are included in the request, the request tags will be added to the replication group and propagate to all clusters. <br>• **CreateCacheCluster** : + If the `--replication-group-id` is supplied: If tags are included in the request, the cluster will be tagged only with those tags. If no tags are included in the request, the cluster will inherit the replication group tags instead of the primary cluster's tags. + If the `--snapshot-name` is supplied: If tags are included in the request, the cluster will be tagged only with those tags. If no tags are included in the request, the snapshot tags will be added to the cluster. <br>• **CreateServerlessCache** : + If tags are included in the request, only the request tags will be added to the serverless cache. <br>• **CreateSnapshot** : + If the `--replication-group-id` is supplied: If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request, the replication group tags will be added to the snapshot. + If the `--cache-cluster-id` is supplied: If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request, the cluster tags will be added to the snapshot. + For automatic snapshots: Tags will propagate from the replication group tags. <br>• **CreateServerlessCacheSnapshot** : + If tags are included in the request, only the request tags will be added to the serverless cache snapshot. <br>• **CopySnapshot** : + If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request, the source snapshot tags will be added to the copied snapshot. <br>• **CopyServerlessCacheSnapshot** : + If tags are included in the request, only the request tags will be added to the serverless cache snapshot. <br>• **AddTagsToResource** and **RemoveTagsFromResource** : + Tags will be added/removed from the replication group and the action will be propagated to all clusters in the replication group. ###### Note **AddTagsToResource** and **RemoveTagsFromResource** cannot be used for default parameter and security groups. <br>• **IncreaseReplicaCount** and **ModifyReplicationGroupShardConfiguration**: + All new clusters added to the replication group will have the same tags applied as the replication group. The following basic restrictions apply to tags: <br>• Maximum number of tags per resource – 50 <br>• For each resource, each tag key must be unique, and each tag key can have only one value. <br>• Maximum key length – 128 Unicode characters in UTF-8. <br>• Maximum value length – 256 Unicode characters in UTF-8. <br>• Although ElastiCache allows for any character in its tags, other services can be restrictive. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @ <br>• Tag keys and values are case-sensitive. <br>• The `aws:` prefix is reserved for AWS use. If a tag has a tag key with this prefix, then you can't edit or delete the tag's key or value. Tags with the `aws:` prefix do not count against your tags per resource limit. You can't terminate, stop, or delete a resource based solely on its tags; you must specify the resource identifier. For example, to delete snapshots that you tagged with a tag key called `DeleteMe`, you must use the `DeleteSnapshot` action with the resource identifiers of the snapshots, such as `snap-1234567890abcdef0`. For more information on ElastiCache resources you can tag, see [Resources you can tag](#Tagging-your-resources "#Tagging-your-resources"). <br>• Creating a serverless cache using tags. This example uses Memcached as the engine. `aws elasticache create-serverless-cache \ --serverless-cache-name CacheName \ --engine memcached --tags Key="Cost Center", Value="1110001" Key="project",Value="XYZ"` <br>• Adding tags to a serverless cache `aws elasticache add-tags-to-resource \ --resource-name arn:aws:elasticache:us-east-1:111111222233:serverlesscache:my-cache \ --tags Key="project",Value="XYZ" Key="Elasticache",Value="Service"` <br>• Adding tags to a Replication Group. ``aws elasticache add-tags-to-resource \ --resource-name arn:aws:elasticache:us-east-1:`111111222233`:replicationgroup:my-rg \ --tags Key="project",Value="XYZ" Key="Elasticache",Value="Service"`` <br>• Creating a Cache Cluster using tags. `aws elasticache create-cache-cluster \ --cluster-id testing-tags \ --cluster-description cluster-test \ --cache-subnet-group-name test \ --cache-node-type cache.t2.micro \ --engine valkey \ --tags Key="project",Value="XYZ" Key="Elasticache",Value="Service"` <br>• Creating a Cache Cluster using tags. This example uses Redis as the engine. `aws elasticache create-cache-cluster \ --cluster-id testing-tags \ --cluster-description cluster-test \ --cache-subnet-group-name test \ --cache-node-type cache.t2.micro \ --engine valkey \ --tags Key="project",Value="XYZ" Key="Elasticache",Value="Service"` <br>• Creating a serverless snapshot with tags. This example uses Memcached as the engine. `aws elasticache create-serverless-cache-snapshot \ --serverless-cache-name testing-tags \ --serverless-cache-snapshot-name bkp-testing-tags-scs \ --tags Key="work",Value="foo"` <br>• Creating a Snapshot with tags. Snapshots are currently only available for Redis. For this case, if you add tags on request, even if the replication group contains tags, the snapshot will receive only the request tags. `aws elasticache create-snapshot \ --replication-group-id testing-tags \ --snapshot-name bkp-testing-tags-rg \ --tags Key="work",Value="foo"` 1. Allowing `AddTagsToResource` action to a cluster only if the cluster has the tag Project=XYZ. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "elasticache:AddTagsToResource", "Resource": [ "arn:aws:elasticache:*:*:cluster:*" ], "Condition": { "StringEquals": { "aws:ResourceTag/Project": "XYZ" } } } ] }` `` 2. Allowing to `RemoveTagsFromResource` action from a replication group if it contains the tags Project and Service and keys are different from Project and Service. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "elasticache:RemoveTagsFromResource", "Resource": [ "arn:aws:elasticache:*:*:replicationgroup:*" ], "Condition": { "StringEquals": { "aws:ResourceTag/Service": "Elasticache", "aws:ResourceTag/Project": "XYZ" }, "ForAnyValue:StringNotEqualsIgnoreCase": { "aws:TagKeys": [ "Project", "Service" ] } } } ] }` `` 3. Allowing `AddTagsToResource` to any resource only if tags are different from Project and Service. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "elasticache:AddTagsToResource", "Resource": [ "arn:aws:elasticache:*:*:*:*" ], "Condition": { "ForAnyValue:StringNotEqualsIgnoreCase": { "aws:TagKeys": [ "Service", "Project" ] } } } ] }` `` 4. Denying `CreateReplicationGroup` action if request has `Tag Project=Foo`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Deny", "Action": "elasticache:CreateReplicationGroup", "Resource": [ "arn:aws:elasticache:*:*:replicationgroup:*" ], "Condition": { "StringEquals": { "aws:RequestTag/Project": "Foo" } } } ] }` `` 5. Denying `CopySnapshot` action if source snapshot has tag Project=XYZ and request tag is Service=Elasticache. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Deny", "Action": "elasticache:CopySnapshot", "Resource": [ "arn:aws:elasticache:*:*:snapshot:*" ], "Condition": { "StringEquals": { "aws:ResourceTag/Project": "XYZ", "aws:RequestTag/Service": "Elasticache" } } } ] }` `` 6. Denying `CreateCacheCluster` action if the request tag `Project` is missing or is not equal to `Dev`, `QA` or `Prod`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "elasticache:CreateCacheCluster" ], "Resource": [ "arn:aws:elasticache:*:*:parametergroup:*", "arn:aws:elasticache:*:*:subnetgroup:*", "arn:aws:elasticache:*:*:securitygroup:*", "arn:aws:elasticache:*:*:replicationgroup:*" ] }, { "Effect": "Deny", "Action": [ "elasticache:CreateCacheCluster" ], "Resource": [ "arn:aws:elasticache:*:*:cluster:*" ], "Condition": { "Null": { "aws:RequestTag/Project": "true" } } }, { "Effect": "Allow", "Action": [ "elasticache:CreateCacheCluster", "elasticache:AddTagsToResource" ], "Resource": "arn:aws:elasticache:*:*:cluster:*", "Condition": { "StringEquals": { "aws:RequestTag/Project": [ "Dev", "Prod", "QA" ] } } } ] }` `` For related information on condition keys, see [Using condition keys](IAM.md "IAM.md"). |
+| usergroup                                 | Yes      | Yes           |
+
+###### Note
+
+You cannot tag Global Datastores.
+
+You can apply tag-based resource-level permissions in your IAM policies to the ElastiCache API actions that support tagging on creation to implement granular control over the users and groups that can tag resources on creation.
+Your resources are properly secured from creation—tags that are applied immediately to your resources. Therefore any tag-based resource-level permissions controlling the use of resources are immediately effective.
+Your resources can be tracked and reported on more accurately. You can enforce the use of tagging on new resources, and control which tag keys and values are set on your resources.
+
+For more information, see [Tagging resources examples](#Tagging-your-resources-example "#Tagging-your-resources-example").
+
+For more information about tagging your resources for billing, see [Monitoring costs with cost allocation tags](Tagging.md "Tagging.md").
+
+The following rules apply to tagging as part of request operations:
+
+- **CreateReplicationGroup**:
+  - If the `--primary-cluster-id` and `--tags` parameters are included in the request,
+    the request tags will be added to the replication group and propagate to all clusters in the replication group.
+    If the primary cluster has existing tags, these will be overwritten with the request tags to have consistent tags across all nodes.
+
+  If there are no request tags, the primary cluster tags will be added to the replication group and propagated to all clusters.
+  - If the `--snapshot-name` or `--serverless-cache-snapshot-name` is supplied:
+
+  If tags are included in the request, the replication group will be tagged only with those tags. If no tags are included in the request,
+  the snapshot tags will be added to the replication group.
+  - If the `--global-replication-group-id` is supplied:
+
+  If tags are included in the request, the request tags will be added to the replication group and propagate to all clusters.
+
+- **CreateCacheCluster** :
+  - If the `--replication-group-id` is supplied:
+
+  If tags are included in the request, the cluster will be tagged only with those tags. If no tags are included in the request,
+  the cluster will inherit the replication group tags instead of the primary cluster's tags.
+  - If the `--snapshot-name` is supplied:
+
+  If tags are included in the request, the cluster will be tagged only with those tags. If no tags are included in the request,
+  the snapshot tags will be added to the cluster.
+
+- **CreateServerlessCache** :
+  - If tags are included in the request, only the request tags will be added to the serverless cache.
+
+- **CreateSnapshot** :
+  - If the `--replication-group-id` is supplied:
+
+  If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request,
+  the replication group tags will be added to the snapshot.
+  - If the `--cache-cluster-id` is supplied:
+
+  If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request,
+  the cluster tags will be added to the snapshot.
+  - For automatic snapshots:
+
+  Tags will propagate from the replication group tags.
+
+- **CreateServerlessCacheSnapshot** :
+  - If tags are included in the request, only the request tags will be added to the serverless cache snapshot.
+
+- **CopySnapshot** :
+  - If tags are included in the request, only the request tags will be added to the snapshot.
+    If no tags are included in the request,
+    the source snapshot tags will be added to the copied snapshot.
+
+- **CopyServerlessCacheSnapshot** :
+  - If tags are included in the request, only the request tags will be added to the serverless cache snapshot.
+
+- **AddTagsToResource** and **RemoveTagsFromResource** :
+  - Tags will be added/removed from the replication group and the action will be propagated to all clusters in the replication group.
+
+###### Note
+
+**AddTagsToResource** and **RemoveTagsFromResource** cannot be used for default parameter and security groups.
+
+- **IncreaseReplicaCount** and **ModifyReplicationGroupShardConfiguration**:
+
+      + All new clusters added to the replication group will have the same tags applied as the replication group.
+
+  The following basic restrictions apply to tags:
+
+- Maximum number of tags per resource – 50
+- For each resource, each tag key must be unique, and each tag key can have only one value.
+- Maximum key length – 128 Unicode characters in UTF-8.
+- Maximum value length – 256 Unicode characters in UTF-8.
+- Although ElastiCache allows for any character in its tags, other services can be restrictive. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @
+- Tag keys and values are case-sensitive.
+- The `aws:` prefix is reserved for AWS use. If a tag has a tag key with this prefix, then you can't edit or delete the tag's key or value. Tags with the `aws:` prefix do not count against your tags per resource limit.
+  You can't terminate, stop, or delete a resource based solely on its tags; you must specify the resource identifier. For example, to delete snapshots that you tagged with a tag key called `DeleteMe`,
+  you must use the `DeleteSnapshot` action with the resource identifiers of the snapshots, such as `snap-1234567890abcdef0`.
+
+For more information on ElastiCache resources you can tag, see [Resources you can tag](#Tagging-your-resources "#Tagging-your-resources").
+
+- Creating a serverless cache using tags. This example uses Memcached as the engine.
+
+```
+aws elasticache create-serverless-cache \
+    --serverless-cache-name CacheName \
+    --engine memcached
+    --tags Key="Cost Center", Value="1110001" Key="project",Value="XYZ"
+```
+
+- Adding tags to a serverless cache
+
+```
+aws elasticache add-tags-to-resource \
+--resource-name arn:aws:elasticache:us-east-1:111111222233:serverlesscache:my-cache \
+--tags Key="project",Value="XYZ" Key="Elasticache",Value="Service"
+```
+
+- Adding tags to a Replication Group.
+
+```
+aws elasticache add-tags-to-resource \
+--resource-name arn:aws:elasticache:us-east-1:`111111222233`:replicationgroup:my-rg \
+--tags Key="project",Value="XYZ" Key="Elasticache",Value="Service"
+```
+
+- Creating a Cache Cluster using tags.
+
+```
+aws elasticache create-cache-cluster \
+--cluster-id testing-tags \
+--cluster-description cluster-test \
+--cache-subnet-group-name test \
+--cache-node-type cache.t2.micro \
+--engine valkey \
+--tags Key="project",Value="XYZ" Key="Elasticache",Value="Service"
+
+
+```
+
+- Creating a Cache Cluster using tags. This example uses Redis as the engine.
+
+```
+aws elasticache create-cache-cluster \
+--cluster-id testing-tags \
+--cluster-description cluster-test \
+--cache-subnet-group-name test \
+--cache-node-type cache.t2.micro \
+--engine valkey \
+--tags Key="project",Value="XYZ" Key="Elasticache",Value="Service"
+
+
+```
+
+- Creating a serverless snapshot with tags. This example uses Memcached as the engine.
+
+```
+aws elasticache create-serverless-cache-snapshot \
+--serverless-cache-name testing-tags \
+--serverless-cache-snapshot-name bkp-testing-tags-scs \
+--tags Key="work",Value="foo"
+```
+
+- Creating a Snapshot with tags.
+
+Snapshots are currently only available for Redis. For this case, if you add tags on request, even if the replication group contains tags, the snapshot will receive only the request tags.
+
+```
+aws elasticache create-snapshot \
+--replication-group-id testing-tags \
+--snapshot-name bkp-testing-tags-rg \
+--tags Key="work",Value="foo"
+```
+
+1. Allowing `AddTagsToResource` action to a cluster only if the cluster has the tag Project=XYZ.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "elasticache:AddTagsToResource",
+ "Resource": [
+ "arn:aws:elasticache:*:*:cluster:*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/Project": "XYZ"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+2. Allowing to `RemoveTagsFromResource` action from a replication group if it contains the tags Project and Service and keys are different from Project and Service.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "elasticache:RemoveTagsFromResource",
+ "Resource": [
+ "arn:aws:elasticache:*:*:replicationgroup:*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/Service": "Elasticache",
+ "aws:ResourceTag/Project": "XYZ"
+ },
+ "ForAnyValue:StringNotEqualsIgnoreCase": {
+ "aws:TagKeys": [
+ "Project",
+ "Service"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+3. Allowing `AddTagsToResource` to any resource only if tags are different from Project and Service.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "elasticache:AddTagsToResource",
+ "Resource": [
+ "arn:aws:elasticache:*:*:*:*"
+ ],
+ "Condition": {
+ "ForAnyValue:StringNotEqualsIgnoreCase": {
+ "aws:TagKeys": [
+ "Service",
+ "Project"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+4. Denying `CreateReplicationGroup` action if request has `Tag Project=Foo`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Action": "elasticache:CreateReplicationGroup",
+ "Resource": [
+ "arn:aws:elasticache:*:*:replicationgroup:*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/Project": "Foo"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+5. Denying `CopySnapshot` action if source snapshot has tag Project=XYZ and request tag is Service=Elasticache.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Action": "elasticache:CopySnapshot",
+ "Resource": [
+ "arn:aws:elasticache:*:*:snapshot:*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/Project": "XYZ",
+ "aws:RequestTag/Service": "Elasticache"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+6. Denying `CreateCacheCluster` action if the request tag `Project` is missing or is not equal to `Dev`, `QA` or `Prod`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "elasticache:CreateCacheCluster"
+ ],
+ "Resource": [
+ "arn:aws:elasticache:*:*:parametergroup:*",
+ "arn:aws:elasticache:*:*:subnetgroup:*",
+ "arn:aws:elasticache:*:*:securitygroup:*",
+ "arn:aws:elasticache:*:*:replicationgroup:*"
+ ]
+ },
+ {
+ "Effect": "Deny",
+ "Action": [
+ "elasticache:CreateCacheCluster"
+ ],
+ "Resource": [
+ "arn:aws:elasticache:*:*:cluster:*"
+ ],
+ "Condition": {
+ "Null": {
+ "aws:RequestTag/Project": "true"
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "elasticache:CreateCacheCluster",
+ "elasticache:AddTagsToResource"
+ ],
+ "Resource": "arn:aws:elasticache:*:*:cluster:*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/Project": [
+ "Dev",
+ "Prod",
+ "QA"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+For related information on condition keys, see [Using condition keys](IAM.md "IAM.md").

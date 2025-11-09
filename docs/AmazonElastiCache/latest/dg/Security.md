@@ -8,5 +8,6 @@ Amazon ElastiCache uses the following techniques to secure your cache data and p
 ###### Topics
 
 - [Amazon VPCs and ElastiCache security](VPCs.md "VPCs.md")
-- [ElastiCache API and interface VPC endpoints (AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md")
+- [ElastiCache API and interface VPC endpoints
+  (AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md")
 - [Subnets and subnet groups](SubnetGroups.md "SubnetGroups.md")

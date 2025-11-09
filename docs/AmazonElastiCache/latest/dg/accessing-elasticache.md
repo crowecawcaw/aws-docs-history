@@ -169,19 +169,159 @@ The NAT instance security group and the cluster instance should have the followi
     	+ A second rule to allow SSH access to trusted clients.
 
 
-    NAT instance security group - inbound rules with Memcached|  Type  |  Protocol  |  Port range  |  Source  |
+    NAT instance security group - inbound rules with Memcached| Type | Protocol | Port range | Source |
+    | --- | --- | --- | --- |
+    | Custom TCP Rule | TCP | 11211-11213 | 198.51.100.27/32 |
+    | SSH | TCP | 22 | 198.51.100.27/32 |
 
-| --- | --- | --- | --- |
-| Custom TCP Rule | TCP | 11211-11213 | 198.51.100.27/32 |
-| SSH | TCP | 22 | 198.51.100.27/32 | NAT instance security group - inbound rules with Valkey or Redis OSS| Type | Protocol | Port range | Source |
-| --- | --- | --- | --- |
-| Custom TCP Rule | TCP | 6379-6380 | 198.51.100.27/32 |
-| SSH | TCP | 22 | 203.0.113.73/32 | <br>• With Memcached, an outbound rule to allow TCP connections to cache port (11211). NAT instance security group - outbound rule| Type | Protocol | Port range | Destination |
-| --- | --- | --- | --- |
-| Custom TCP Rule | TCP | 11211 | sg-ce56b7a9 (NAT Security Group) | <br>• With Valkey or Redis OSS, an outbound rule to allow TCP connections to cache port (6379). NAT instance security group - outbound rule| Type | Protocol | Port range | Destination |
-| --- | --- | --- | --- |
-| Custom TCP Rule | TCP | 6379 | sg-ce56b7a9 (NAT Security Group) | <br>• With Memcached, an inbound rule for the cluster's security group that allows TCP connections from the NAT instance to the cache port (11211). Cluster instance security group - inbound rule| Type | Protocol | Port range | Source |
-| --- | --- | --- | --- |
-| Custom TCP Rule | TCP | 11211 | sg-ce56b7a9 (NAT Security Group) | <br>• With Valkey or Redis OSS, an inbound rule for the cluster's security group that allows TCP connections from the NAT instance to the cache port (6379). Cluster instance security group - inbound rule| Type | Protocol | Port range | Source |
-| --- | --- | --- | --- |
-| Custom TCP Rule | TCP | 6379 | sg-ce56b7a9 (NAT Security Group) | 3. Validate the rules. <br>• Confirm that the trusted client is able to SSH to the NAT instance. <br>• Confirm that the trusted client is able to connect to the cluster from the NAT instance. 4. **Memcached** Add an iptables rule to the NAT instance. An iptables rule must be added to the NAT table for each node in the cluster to forward the cache port from the NAT instance to the cluster node. An example might look like the following: `iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 11211 -j DNAT --to 10.0.1.230:11211` The port number must be unique for each node in the cluster. For example, if working with a three node Memcached cluster using ports 11211 - 11213, the rules would look like the following: `iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 11211 -j DNAT --to 10.0.1.230:11211 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 11212 -j DNAT --to 10.0.1.231:11211 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 11213 -j DNAT --to 10.0.1.232:11211` Confirm that the trusted client is able to connect to the cluster. The trusted client should connect to the EIP associated with the NAT instance and the cluster port corresponding to the appropriate cluster node. For example, the connection string for PHP might look like the following: `$memcached->connect( '203.0.113.73', 11211 ); $memcached->connect( '203.0.113.73', 11212 ); $memcached->connect( '203.0.113.73', 11213 );` A telnet client can also be used to verify the connection. For example: `telnet 203.0.113.73 11211 telnet 203.0.113.73 11212 telnet 203.0.113.73 11213` **Valkey or Redis OSS** Add an iptables rule to the NAT instance. An iptables rule must be added to the NAT table for each node in the cluster to forward the cache port from the NAT instance to the cluster node. An example might look like the following: `iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6379 -j DNAT --to 10.0.1.230:6379` The port number must be unique for each node in the cluster. For example, if working with a three node Redis OSS cluster using ports 6379 - 6381, the rules would look like the following: `iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6379 -j DNAT --to 10.0.1.230:6379 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6380 -j DNAT --to 10.0.1.231:6379 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6381 -j DNAT --to 10.0.1.232:6379` Confirm that the trusted client is able to connect to the cluster. The trusted client should connect to the EIP associated with the NAT instance and the cluster port corresponding to the appropriate cluster node. For example, the connection string for PHP might look like the following: `redis->connect( '203.0.113.73', 6379 ); redis->connect( '203.0.113.73', 6380 ); redis->connect( '203.0.113.73', 6381 );` A telnet client can also be used to verify the connection. For example: `telnet 203.0.113.73 6379 telnet 203.0.113.73 6380 telnet 203.0.113.73 6381` 5. Save the iptables configuration. Save the rules after you test and verify them. If you are using a Redhat-based Linux distribution (like Amazon Linux), run the following command: `service iptables save` #### Related topics The following topics may be of additional interest. <br>• [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md") <br>• [Accessing an ElastiCache Cache from an Application Running in a Customer's Data Center](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center "elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center") <br>• [NAT Instances](../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md "../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md") <br>• [Configuring ElastiCache Clients](ClientConfig.md "ClientConfig.md") <br>• [High Availability for Amazon VPC NAT Instances: An Example](https://aws.amazon.com/articles/2781451301784570 "https://aws.amazon.com/articles/2781451301784570")
+
+
+
+    NAT instance security group - inbound rules with Valkey or Redis OSS| Type | Protocol | Port range | Source |
+    | --- | --- | --- | --- |
+    | Custom TCP Rule | TCP | 6379-6380 | 198.51.100.27/32 |
+    | SSH | TCP | 22 | 203.0.113.73/32 |
+    * With Memcached, an outbound rule to allow TCP connections to cache port (11211).
+
+
+
+
+    NAT instance security group - outbound rule| Type | Protocol | Port range | Destination |
+    | --- | --- | --- | --- |
+    | Custom TCP Rule | TCP | 11211 | sg-ce56b7a9<br>(NAT Security Group) |
+    * With Valkey or Redis OSS, an outbound rule to allow TCP connections to cache port (6379).
+
+
+
+
+    NAT instance security group - outbound rule| Type | Protocol | Port range | Destination |
+    | --- | --- | --- | --- |
+    | Custom TCP Rule | TCP | 6379 | sg-ce56b7a9<br>(NAT Security Group) |
+    * With Memcached, an inbound rule for the cluster's security group
+     that allows TCP connections from the NAT instance to
+     the cache port (11211).
+
+
+
+
+    Cluster instance security group - inbound rule| Type | Protocol | Port range | Source |
+    | --- | --- | --- | --- |
+    | Custom TCP Rule | TCP | 11211 | sg-ce56b7a9 (NAT Security Group) |
+    * With Valkey or Redis OSS, an inbound rule for the cluster's security group
+     that allows TCP connections from the NAT instance to
+     the cache port (6379).
+
+
+
+
+    Cluster instance security group - inbound rule| Type | Protocol | Port range | Source |
+    | --- | --- | --- | --- |
+    | Custom TCP Rule | TCP | 6379 | sg-ce56b7a9 (NAT Security Group) |
+
+3. Validate the rules.
+   - Confirm that the trusted client is able to SSH to the NAT instance.
+   - Confirm that the trusted client is able to connect to the cluster from the NAT instance.
+
+4. **Memcached**
+
+Add an iptables rule to the NAT instance.
+
+An iptables rule must be added to the NAT table for each node in the cluster
+to forward the cache port from the NAT instance to the cluster node.
+An example might look like the following:
+
+```
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 11211 -j DNAT --to 10.0.1.230:11211
+```
+
+The port number must be unique for each node in the cluster.
+For example, if working with a three node Memcached cluster using ports 11211 - 11213,
+the rules would look like the following:
+
+```
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 11211 -j DNAT --to 10.0.1.230:11211
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 11212 -j DNAT --to 10.0.1.231:11211
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 11213 -j DNAT --to 10.0.1.232:11211
+```
+
+Confirm that the trusted client is able to connect to the cluster.
+
+The trusted client should connect to the EIP associated with the NAT instance and
+the cluster port corresponding to the appropriate cluster node.
+For example, the connection string for PHP might look like the following:
+
+```
+$memcached->connect( '203.0.113.73', 11211 );
+$memcached->connect( '203.0.113.73', 11212 );
+$memcached->connect( '203.0.113.73', 11213 );
+```
+
+A telnet client can also be used to verify the connection. For example:
+
+```
+telnet 203.0.113.73 11211
+telnet 203.0.113.73 11212
+telnet 203.0.113.73 11213
+```
+
+**Valkey or Redis OSS**
+
+Add an iptables rule to the NAT instance.
+
+An iptables rule must be added to the NAT table for each node in the cluster
+to forward the cache port from the NAT instance to the cluster node.
+An example might look like the following:
+
+```
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6379 -j DNAT --to 10.0.1.230:6379
+```
+
+The port number must be unique for each node in the cluster.
+For example, if working with a three node Redis OSS cluster using ports 6379 - 6381,
+the rules would look like the following:
+
+```
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6379 -j DNAT --to 10.0.1.230:6379
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6380 -j DNAT --to 10.0.1.231:6379
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6381 -j DNAT --to 10.0.1.232:6379
+```
+
+Confirm that the trusted client is able to connect to the cluster.
+
+The trusted client should connect to the EIP associated with the NAT instance and
+the cluster port corresponding to the appropriate cluster node.
+For example, the connection string for PHP might look like the following:
+
+```
+redis->connect( '203.0.113.73', 6379 );
+redis->connect( '203.0.113.73', 6380 );
+redis->connect( '203.0.113.73', 6381 );
+```
+
+A telnet client can also be used to verify the connection. For example:
+
+```
+telnet 203.0.113.73 6379
+telnet 203.0.113.73 6380
+telnet 203.0.113.73 6381
+```
+
+5. Save the iptables configuration.
+
+Save the rules after you test and verify them.
+If you are using a Redhat-based Linux distribution (like Amazon Linux),
+run the following command:
+
+```
+service iptables save
+```
+
+#### Related topics
+
+The following topics may be of additional interest.
+
+- [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md")
+- [Accessing an ElastiCache Cache from an Application Running in a Customer's Data Center](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center "elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center")
+- [NAT Instances](../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md "../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md")
+- [Configuring ElastiCache Clients](ClientConfig.md "ClientConfig.md")
+- [High Availability for Amazon VPC NAT Instances: An Example](https://aws.amazon.com/articles/2781451301784570 "https://aws.amazon.com/articles/2781451301784570")

@@ -381,8 +381,12 @@ As an example, create a query against the CloudWatch Log group that
 contains the Valkey or Redis OSS engine logs that will return events with a LogLevel of
 ‘WARNING’, such as:
 
-````
+```
 fields @timestamp, LogLevel, Message
 | sort @timestamp desc
-| filter LogLevel = "WARNING" ``` **[Resources]:**[Analyzing log data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md")
-````
+| filter LogLevel = "WARNING"
+
+```
+
+**[Resources]:**[Analyzing log
+data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md")

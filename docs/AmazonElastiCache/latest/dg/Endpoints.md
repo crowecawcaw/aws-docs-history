@@ -3,7 +3,8 @@
 Your application connects to your ElastiCache cluster using endpoints.
 An endpoint is a node or cluster's unique address.
 
-You can also establish a private connection between your VPC and ElastiCache API endpoints by creating an interface VPC endpoint through AWS PrivateLink. For more information, see [ElastiCache API and interface VPC endpoints (AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md").
+You can also establish a private connection between your VPC and ElastiCache API endpoints by creating an interface VPC endpoint through AWS PrivateLink. For more information, see [ElastiCache API and interface VPC endpoints
+(AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md").
 
 **Which endpoints to use with Valkey or Redis OSS.**
 
