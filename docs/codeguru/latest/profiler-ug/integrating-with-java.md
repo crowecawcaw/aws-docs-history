@@ -39,7 +39,10 @@ a custom authentication provider, you might want to choose the code option.
 The following table helps summarize these options.
 
 | Option                         | Command line                     | Code                     |
-| ------------------------------ | -------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | -------------------------------- | ------------------------ |
 | Profile existing application   | Yes                              | No (requires re-compile) |
 | Custom authentication provider | No                               | Yes                      |
-| Control when profiling starts  | No (profiling begins at startup) | Yes                      | You can always choose a different option later. All of the profiling data is stored in the CodeGuru Profiler service, and is available even when switching the CodeGuru Profiler agent. |
+| Control when profiling starts  | No (profiling begins at startup) | Yes                      |
+
+You can always choose a different option later. All of the profiling data is stored in the
+CodeGuru Profiler service, and is available even when switching the CodeGuru Profiler agent.

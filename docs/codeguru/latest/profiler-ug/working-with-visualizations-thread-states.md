@@ -35,5 +35,20 @@ your profile data. You can also choose whether to color the frames based on thre
 between CPU view and latency view
 
 | CPU view         | Latency view         |
-| ---------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Image: CPU view. | Image: Latency view. | The `callOtherService` function appears smaller in the **CPU** view because it's not showing the time when the thread was in a waiting state. In the **Latency view**, we still see the part where the CPU was active (in red), but we also see when the threads were waiting (in green). If you're trying to reduce your CPU usage, the **CPU view** shows you that `localActions` is the most CPU heavy inside `handleServiceCall`, and you might want to optimize this part. If you're trying to improve the latency of `handleServiceCall`, the **Latency view** shows you that most of the time is spent in `callOtherService`. You can check if this is expected and try to reduce the number of calls or speed up the execution of calls (for example, caching or batching the requests, or calling a closer AWS Region). |
+| ---------------- | -------------------- |
+| Image: CPU view. | Image: Latency view. |
+
+The `callOtherService` function appears smaller in the
+**CPU** view because it's not showing the time when the thread was in a
+waiting state. In the **Latency view**, we still see the part where the
+CPU was active (in red), but we also see when the threads were waiting (in green).
+
+If you're trying to reduce your CPU usage, the **CPU view** shows you
+that `localActions` is the most CPU heavy inside
+`handleServiceCall`, and you might want to optimize this part.
+
+If you're trying to improve the latency of `handleServiceCall`, the
+**Latency view** shows you that most of the time is spent in
+`callOtherService`. You can check if this is expected and try to reduce the
+number of calls or speed up the execution of calls (for example, caching or batching the
+requests, or calling a closer AWS Region).

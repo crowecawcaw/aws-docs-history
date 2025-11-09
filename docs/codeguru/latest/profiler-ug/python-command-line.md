@@ -15,7 +15,30 @@ different from the default credentials. For more information about credential pr
 or as a command line option.
 
 | Option                                | Environment variable                  | Command line option             |
-| ------------------------------------- | ------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------- | ------------------------------------- | ------------------------------- |
 | Profiling group name (required)       | `AWS_CODEGURU_PROFILER_GROUP_NAME`    | `-p, --profiling-group-name`    |
 | Region                                | `AWS_CODEGURU_PROFILER_TARGET_REGION` | `-r, --region`                  |
-| (Alternative) credential profile name | Not available                         | `-c, --credential-profile-name` | The following is an example that uses environment variables. In this example, `my_script.py` is your main script that you would otherwise call directly with `python my_script.py`. `#!/bin/bash export AWS_CODEGURU_PROFILER_GROUP_NAME=MyProfilingGroup export AWS_CODEGURU_PROFILER_TARGET_REGION=us-west-2 python -m codeguru_profiler_agent my_script.py` The following is an example that uses command line arguments to specify the configuration options. `python -m codeguru_profiler_agent -p MyProfilingGroup -r us-west-2 \ -c prod-credential-profile my_script.py` You can find more details about each command line option by running it with `-h` to display the list of available options. |
+| (Alternative) credential profile name | Not available                         | `-c, --credential-profile-name` |
+
+The following is an example that uses environment variables. In this example,
+`my_script.py` is your main script that you would otherwise call directly with
+`python my_script.py`.
+
+```
+#!/bin/bash
+export AWS_CODEGURU_PROFILER_GROUP_NAME=MyProfilingGroup
+export AWS_CODEGURU_PROFILER_TARGET_REGION=us-west-2
+
+python -m codeguru_profiler_agent my_script.py
+```
+
+The following is an example that uses command line arguments to specify the configuration
+options.
+
+```
+python -m codeguru_profiler_agent -p MyProfilingGroup -r us-west-2 \
+-c prod-credential-profile my_script.py
+```
+
+You can find more details about each command line option by running it with
+`-h` to display the list of available options.

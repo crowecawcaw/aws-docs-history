@@ -9,6 +9,11 @@ Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/AlarmThat
 
 You can track the following metric per profiling group.
 
-| Metric            | Description                                                                                                                           |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Recommendations` | The number of recommendations for a profiling group. Units: Count Valid CloudWatch statistic: Maximum Valid CloudWatch period: Hourly | ###### Topics <br>• [Monitoring profiling groups with CloudWatch metrics](cloudwatch-metric.md "cloudwatch-metric.md") <br>• [Monitoring profiling groups with CloudWatch alarms](cloudwatch-alarm.md "cloudwatch-alarm.md") |
+| Metric            | Description                                                                                                                                    |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Recommendations` | The number of recommendations for a profiling group.<br>Units: Count<br>Valid CloudWatch statistic: Maximum<br>Valid CloudWatch period: Hourly |
+
+###### Topics
+
+- [Monitoring profiling groups with CloudWatch metrics](cloudwatch-metric.md "cloudwatch-metric.md")
+- [Monitoring profiling groups with CloudWatch alarms](cloudwatch-alarm.md "cloudwatch-alarm.md")

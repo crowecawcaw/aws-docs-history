@@ -83,8 +83,100 @@ It is not recommended to enable heap summary data collection in your production
 environments, as it might increase latency in your application.
 
 | Type                                    | API call                                          |
-| --------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------------- | ------------------------------------------------- |
 | Profiling group name (required)         | `.profilingGroupName(String)`                     |
 | AWS Credentials Provider                | `.awsCredentialsProvider(AwsCredentialsProvider)` |
 | Region                                  | `.awsRegionToReportTo(Region)`                    |
-| Heap summary data collection (optional) | `.withHeapSummary(Boolean)`                       | The following is an example of command line API calls. `Profiler.builder() .profilingGroupName(“MyProfilingGroup”) .withHeapSummary(true) // optional - to start without heap profiling, set to false or remove line .build() .start();` We recommend that you configure and start the agent inside the startup or `main` function. The following example shows how to add the configuration to the `main` function. `import software.amazon.codeguruprofilerjavaagent.Profiler; class MyApplication { public static void main(String[] args) { Profiler.builder() .profilingGroupName("MyProfilingGroup") .withHeapSummary(true) .build() .start(); ... } }` If you don't have access to a startup or `main` function, you can add a static initializer to your `main` class to configure and start the agent. This configures and starts the agent during the first time your application class is used inside the application container, as shown in the following example. `import software.amazon.codeguruprofilerjavaagent.Profiler; class MyClass { static { Profiler.builder() .profilingGroupName("MyProfilingGroup") .build() .start(); } ... }` When your application is running, data is available in the CodeGuru Profiler console. To view your profiling data, choose **Profiler** in the navigation pane, choose **Profiling groups**, and then select your profiling group. After your application has run for more than 15 minutes, data is available for you to visualize. For example, you can use an **Overview** visualization to identify code paths that are executed frequently. For more information about visualizations, see [Working with visualizations](working-with-visualizations.md "working-with-visualizations.md"). When your application has run for an hour, the first **Recommendations** report is available. After the first report, new reports are generated hourly. For more information, see [Working with anomalies and recommendation reports](working-with-recommendation-reports.md "working-with-recommendation-reports.md"). ###### Note If you don't want to use the default credentials to run the profiler, you can provide custom credentials by using following code. For more information about custom credentials, see [Supplying and Retrieving AWS Credentials](../../../sdk-for-java/v2/developer-guide/credentials.md "../../../sdk-for-java/v2/developer-guide/credentials.md"). `public static void main(String[] args) { Profiler.builder() .profilingGroupName("MyProfilingGroup") .awsCredentialsProvider(myAwsCredentialsProvider).build().start(); }` ## Supported languages The following topics provide code that you can add to your application to enable the Amazon CodeGuru Profiler agent. ###### Topics <br>• [Java](java-language-support.md "java-language-support.md") <br>• [Scala](scala-language-support.md "scala-language-support.md") <br>• [Kotlin](kotlin-language-support.md "kotlin-language-support.md") <br>• [Groovy](groovy-language-support.md "groovy-language-support.md") <br>• [Jython](jython-language-support.md "jython-language-support.md") <br>• [JRuby](jruby-language-support.md "jruby-language-support.md") <br>• [Clojure](clojure-language-support.md "clojure-language-support.md") |
+| Heap summary data collection (optional) | `.withHeapSummary(Boolean)`                       |
+
+The following is an example of command line API calls.
+
+```
+Profiler.builder()
+    .profilingGroupName(“MyProfilingGroup”)
+    .withHeapSummary(true) // optional - to start without heap profiling, set to false or remove line 
+    .build()
+    .start();
+```
+
+We recommend that you configure and start the agent inside the startup or
+`main` function. The following example shows how to add the configuration to
+the `main` function.
+
+```
+import software.amazon.codeguruprofilerjavaagent.Profiler;
+
+class MyApplication {
+    public static void main(String[] args) {
+        Profiler.builder()
+            .profilingGroupName("MyProfilingGroup")
+            .withHeapSummary(true)
+            .build()
+            .start();
+        ...
+    }
+}
+```
+
+If you don't have access to a startup or `main` function, you can add a
+static initializer to your `main` class to configure and start the agent. This
+configures and starts the agent during the first time your application class is used inside
+the application container, as shown in the following example.
+
+```
+import software.amazon.codeguruprofilerjavaagent.Profiler;
+
+class MyClass {
+
+    static {
+        Profiler.builder()
+            .profilingGroupName("MyProfilingGroup")
+            .build()
+            .start();
+    }
+    ...
+}
+```
+
+When your application is running, data is available in the CodeGuru Profiler console. To view your
+profiling data, choose **Profiler** in the navigation pane, choose
+**Profiling groups**, and then select your profiling group.
+
+After your application has run for more than 15 minutes, data is available for you to
+visualize. For example, you can use an **Overview** visualization to
+identify code paths that are executed frequently. For more information about visualizations,
+see [Working with visualizations](working-with-visualizations.md "working-with-visualizations.md").
+
+When your application has run for an hour, the first
+**Recommendations** report is available. After the first report, new
+reports are generated hourly. For more information, see [Working with anomalies and recommendation
+reports](working-with-recommendation-reports.md "working-with-recommendation-reports.md").
+
+###### Note
+
+If you don't want to use the default credentials to run the profiler, you can provide
+custom credentials by using following code. For more information about custom credentials,
+see [Supplying and Retrieving AWS Credentials](../../../sdk-for-java/v2/developer-guide/credentials.md "../../../sdk-for-java/v2/developer-guide/credentials.md").
+
+```
+public static void main(String[] args) {
+     Profiler.builder()
+          .profilingGroupName("MyProfilingGroup")
+          .awsCredentialsProvider(myAwsCredentialsProvider).build().start();
+ }
+```
+
+## Supported languages
+
+The following topics provide code that you can add to your application to enable the
+Amazon CodeGuru Profiler agent.
+
+###### Topics
+
+- [Java](java-language-support.md "java-language-support.md")
+- [Scala](scala-language-support.md "scala-language-support.md")
+- [Kotlin](kotlin-language-support.md "kotlin-language-support.md")
+- [Groovy](groovy-language-support.md "groovy-language-support.md")
+- [Jython](jython-language-support.md "jython-language-support.md")
+- [JRuby](jruby-language-support.md "jruby-language-support.md")
+- [Clojure](clojure-language-support.md "clojure-language-support.md")

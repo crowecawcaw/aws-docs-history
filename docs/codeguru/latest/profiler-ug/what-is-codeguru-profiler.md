@@ -28,9 +28,16 @@ and Python 3.6 or later. The following table explains which features of CodeGuru
 language.
 
 | Feature                                                | Java/JVM | Python |
-| ------------------------------------------------------ | -------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------ | -------- | ------ |
 | CPU profiling                                          | Yes      | Yes    |
 | Support for AWS Lambda and other AWS compute platforms | Yes      | Yes    |
 | Anomalies and recommendation reports                   | Yes      | Yes    |
 | Colored thread states                                  | Yes      | Yes    |
-| Heap summary visualization                             | Yes      | No     | ## How do I get started with CodeGuru Profiler? 1. Prepare to use CodeGuru Profiler by following the steps in [Setting up CodeGuru Profiler](setting-up.md "setting-up.md"). 2. Learn how to use recommendation reports by following the steps in [Working with anomalies and recommendation reports](working-with-recommendation-reports.md "working-with-recommendation-reports.md"). 3. Graphically explore your application data by following the steps in [Working with visualizations](working-with-visualizations.md "working-with-visualizations.md"). |
+| Heap summary visualization                             | Yes      | No     |
+
+## How do I get started with CodeGuru Profiler?
+
+1. Prepare to use CodeGuru Profiler by following the steps in [Setting up CodeGuru Profiler](setting-up.md "setting-up.md").
+2. Learn how to use recommendation reports by following the steps in [Working with anomalies and recommendation
+   reports](working-with-recommendation-reports.md "working-with-recommendation-reports.md").
+3. Graphically explore your application data by following the steps in [Working with visualizations](working-with-visualizations.md "working-with-visualizations.md").

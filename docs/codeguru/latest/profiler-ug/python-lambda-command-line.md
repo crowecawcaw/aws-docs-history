@@ -13,7 +13,22 @@ provide the profiling group ARN directly, which contains both the name and Regio
 the profiling group name or ARN must be provided.
 
 | Option               | Environment variable key              | Environment variable value                                                    | Decorator argument example                                  |
-| -------------------- | ------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | Profiling group name | `AWS_CODEGURU_PROFILER_GROUP_NAME`    | `MyGroupName`                                                                 | `@with_lambda_profiler(profiling_group_name="MyGroupName")` |
 | Profiling group ARN  | `AWS_CODEGURU_PROFILER_GROUP_ARN`     | `arn:aws:codeguru-profiler:us-east-1:123456789123:profilingGroup/MyGroupName` | An ARN cannot be passed as a decorator argument             |
-| Region               | `AWS_CODEGURU_PROFILER_TARGET_REGION` | `us-east-1`                                                                   | `@with_lambda_profiler(region_name="us-east-1")`            | Decorate your handler function with `@with_lambda_profiler()`. The following example shows what your handler function code looks like with CodeGuru Profiler turned on. `from codeguru_profiler_agent import with_lambda_profiler @with_lambda_profiler(profiling_group_name="MyGroupName") def handler_name(event, context): return "Hello World"` Only decorate your handler function. You do not have to decorate other internal functions. You can pass the profiling group name directly in the decorator, or with environment variables. |
+| Region               | `AWS_CODEGURU_PROFILER_TARGET_REGION` | `us-east-1`                                                                   | `@with_lambda_profiler(region_name="us-east-1")`            |
+
+Decorate your handler function with `@with_lambda_profiler()`. The following
+example shows what your handler function code looks like with CodeGuru Profiler turned on.
+
+```
+from codeguru_profiler_agent import with_lambda_profiler
+
+@with_lambda_profiler(profiling_group_name="MyGroupName")
+def handler_name(event, context):
+    return "Hello World"
+```
+
+Only decorate your handler function. You do not have to decorate other internal
+functions. You can pass the profiling group name directly in the decorator, or with
+environment variables.
