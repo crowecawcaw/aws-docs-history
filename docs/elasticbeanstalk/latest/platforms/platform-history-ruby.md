@@ -6,1597 +6,2694 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## October 27, 2025 – present
+## November 5, 2025 – present
 
-The following Elastic Beanstalk platform versions for Ruby have been current since October 27, 2025:
+The following Elastic Beanstalk platform versions for Ruby have been current since November 5, 2025:
 
-| Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.7.2** _64bit Amazon Linux 2023 v4.7.2 running Ruby 3.4_ | 2023.9.20251014 | Ruby 3.4.7-p58 | RubyGems 3.6.9 | Puma 7.1.0 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.7.2** _64bit Amazon Linux 2023 v4.7.2 running Ruby 3.3_ | 2023.9.20251014 | Ruby 3.3.10-p183 | RubyGems 3.5.22 | Puma 7.1.0 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.7.2** _64bit Amazon Linux 2023 v4.7.2 running Ruby 3.2_ | 2023.9.20251014 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 7.1.0 | 3.3.15 | nginx 1.28.0 | ## October 16, 2025 – October 26, 2025 The following Elastic Beanstalk platform versions for Ruby were current between October 16, 2025 and October 26, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.7.1** _64bit Amazon Linux 2023 v4.7.1 running Ruby 3.4_ | 2023.9.20250929 | Ruby 3.4.6-p54 | RubyGems 3.6.9 | Puma 7.0.4 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.7.1** _64bit Amazon Linux 2023 v4.7.1 running Ruby 3.3_ | 2023.9.20250929 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 7.0.4 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.7.1** _64bit Amazon Linux 2023 v4.7.1 running Ruby 3.2_ | 2023.9.20250929 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 7.0.4 | 3.3.15 | nginx 1.28.0 | ## October 7, 2025 – October 15, 2025 The following Elastic Beanstalk platform versions for Ruby were current between October 7, 2025 and October 15, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.7.1** _64bit Amazon Linux 2023 v4.7.1 running Ruby 3.4_ | 2023.9.20250929 | Ruby 3.4.6-p54 | RubyGems 3.6.9 | Puma 7.0.4 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.7.1** _64bit Amazon Linux 2023 v4.7.1 running Ruby 3.3_ | 2023.9.20250929 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 7.0.4 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.7.1** _64bit Amazon Linux 2023 v4.7.1 running Ruby 3.2_ | 2023.9.20250929 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 7.0.4 | 3.3.15 | nginx 1.28.0 | ## September 16, 2025 – October 6, 2025 The following Elastic Beanstalk platform versions for Ruby were current between September 16, 2025 and October 6, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.7.0** _64bit Amazon Linux 2023 v4.7.0 running Ruby 3.4_ | 2023.8.20250908 | Ruby 3.4.5-p51 | RubyGems 3.6.9 | Puma 7.0.2 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.7.0** _64bit Amazon Linux 2023 v4.7.0 running Ruby 3.3_ | 2023.8.20250908 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 7.0.2 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.7.0** _64bit Amazon Linux 2023 v4.7.0 running Ruby 3.2_ | 2023.8.20250908 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 7.0.2 | 3.3.15 | nginx 1.28.0 | ## August 22, 2025 – September 15, 2025 The following Elastic Beanstalk platform versions for Ruby were current between August 22, 2025 and September 15, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.6.4** _64bit Amazon Linux 2023 v4.6.4 running Ruby 3.4_ | 2023.8.20250818 | Ruby 3.4.5-p51 | RubyGems 3.6.9 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.6.4** _64bit Amazon Linux 2023 v4.6.4 running Ruby 3.3_ | 2023.8.20250818 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.6.4** _64bit Amazon Linux 2023 v4.6.4 running Ruby 3.2_ | 2023.8.20250818 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 | ## August 20, 2025 – August 21, 2025 The following Elastic Beanstalk platform versions for Ruby were current between August 20, 2025 and August 21, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.6.4** _64bit Amazon Linux 2023 v4.6.4 running Ruby 3.4_ | 2023.8.20250818 | Ruby 3.4.5-p51 | RubyGems 3.6.9 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.6.4** _64bit Amazon Linux 2023 v4.6.4 running Ruby 3.3_ | 2023.8.20250818 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.6.4** _64bit Amazon Linux 2023 v4.6.4 running Ruby 3.2_ | 2023.8.20250818 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 | ## August 7, 2025 – August 19, 2025 The following Elastic Beanstalk platform versions for Ruby were current between August 7, 2025 and August 19, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.6.3** _64bit Amazon Linux 2023 v4.6.3 running Ruby 3.4_ | 2023.8.20250804 | Ruby 3.4.5-p51 | RubyGems 3.6.9 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.6.3** _64bit Amazon Linux 2023 v4.6.3 running Ruby 3.3_ | 2023.8.20250804 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.6.3** _64bit Amazon Linux 2023 v4.6.3 running Ruby 3.2_ | 2023.8.20250804 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.1 | 3.3.15 | nginx 1.28.0 | ## July 31, 2025 – August 6, 2025 The following Elastic Beanstalk platform versions for Ruby were current between July 31, 2025 and August 6, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.6.2** _64bit Amazon Linux 2023 v4.6.2 running Ruby 3.4_ | 2023.8.20250721 | Ruby 3.4.5-p51 | RubyGems 3.6.9 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.6.2** _64bit Amazon Linux 2023 v4.6.2 running Ruby 3.3_ | 2023.8.20250721 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.6.2** _64bit Amazon Linux 2023 v4.6.2 running Ruby 3.2_ | 2023.8.20250721 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 | ## July 30, 2025 – July 30, 2025 The following Elastic Beanstalk platform versions for Ruby were current between July 30, 2025 and July 30, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.6.1** _64bit Amazon Linux 2023 v4.6.1 running Ruby 3.4_ | 2023.8.20250707 | Ruby 3.4.5-p51 | RubyGems 3.6.9 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.6.1** _64bit Amazon Linux 2023 v4.6.1 running Ruby 3.3_ | 2023.8.20250707 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.6.1** _64bit Amazon Linux 2023 v4.6.1 running Ruby 3.2_ | 2023.8.20250707 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 | ## July 17, 2025 – July 29, 2025 The following Elastic Beanstalk platform versions for Ruby were current between July 17, 2025 and July 29, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.6.1** _64bit Amazon Linux 2023 v4.6.1 running Ruby 3.4_ | 2023.8.20250707 | Ruby 3.4.5-p51 | RubyGems 3.6.9 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.6.1** _64bit Amazon Linux 2023 v4.6.1 running Ruby 3.3_ | 2023.8.20250707 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.6.1** _64bit Amazon Linux 2023 v4.6.1 running Ruby 3.2_ | 2023.8.20250707 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.0 | 3.3.15 | nginx 1.28.0 | ## June 27, 2025 – July 16, 2025 The following Elastic Beanstalk platform versions for Ruby were current between June 27, 2025 and July 16, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.6.0** _64bit Amazon Linux 2023 v4.6.0 running Ruby 3.4_ | 2023.7.20250623 | Ruby 3.4.4-p34 | RubyGems 3.6.7 | Puma 6.6.0 | 3.3.14 | nginx 1.28.0 |
-| **Ruby 3.3 AL2023 version 4.6.0** _64bit Amazon Linux 2023 v4.6.0 running Ruby 3.3_ | 2023.7.20250623 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.14 | nginx 1.28.0 |
-| **Ruby 3.2 AL2023 version 4.6.0** _64bit Amazon Linux 2023 v4.6.0 running Ruby 3.2_ | 2023.7.20250623 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.0 | 3.3.14 | nginx 1.28.0 | ## June 26, 2025 – June 26, 2025 The following Elastic Beanstalk platform versions for Ruby were current between June 26, 2025 and June 26, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.5.2** _64bit Amazon Linux 2023 v4.5.2 running Ruby 3.4_ | 2023.7.20250512 | Ruby 3.4.4-p34 | RubyGems 3.6.7 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.3 AL2023 version 4.5.2** _64bit Amazon Linux 2023 v4.5.2 running Ruby 3.3_ | 2023.7.20250512 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.2 AL2023 version 4.5.2** _64bit Amazon Linux 2023 v4.5.2 running Ruby 3.2_ | 2023.7.20250512 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 | ## May 20, 2025 – June 25, 2025 The following Elastic Beanstalk platform versions for Ruby were current between May 20, 2025 and June 25, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.5.2** _64bit Amazon Linux 2023 v4.5.2 running Ruby 3.4_ | 2023.7.20250512 | Ruby 3.4.4-p34 | RubyGems 3.6.7 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.3 AL2023 version 4.5.2** _64bit Amazon Linux 2023 v4.5.2 running Ruby 3.3_ | 2023.7.20250512 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.2 AL2023 version 4.5.2** _64bit Amazon Linux 2023 v4.5.2 running Ruby 3.2_ | 2023.7.20250512 | Ruby 3.2.8 | RubyGems 3.4.19 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 | ## April 24, 2025 – May 19, 2025 The following Elastic Beanstalk platform versions for Ruby were current between April 24, 2025 and May 19, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.5.1** _64bit Amazon Linux 2023 v4.5.1 running Ruby 3.4_ | 2023.7.20250414 | Ruby 3.4.3-p32 | RubyGems 3.6.7 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.3 AL2023 version 4.5.1** _64bit Amazon Linux 2023 v4.5.1 running Ruby 3.3_ | 2023.7.20250414 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.2 AL2023 version 4.5.1** _64bit Amazon Linux 2023 v4.5.1 running Ruby 3.2_ | 2023.7.20250414 | Ruby 3.2.7 | RubyGems 3.4.19 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 | ## April 22, 2025 – April 23, 2025 The following Elastic Beanstalk platform versions for Ruby were current between April 22, 2025 and April 23, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.5.1** _64bit Amazon Linux 2023 v4.5.1 running Ruby 3.4_ | 2023.7.20250414 | Ruby 3.4.3-p32 | RubyGems 3.6.7 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.3 AL2023 version 4.5.1** _64bit Amazon Linux 2023 v4.5.1 running Ruby 3.3_ | 2023.7.20250414 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.2 AL2023 version 4.5.1** _64bit Amazon Linux 2023 v4.5.1 running Ruby 3.2_ | 2023.7.20250414 | Ruby 3.2.7 | RubyGems 3.4.19 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 | ## March 28, 2025 – April 21, 2025 The following Elastic Beanstalk platform versions for Ruby were current between March 28, 2025 and April 21, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.5.0** _64bit Amazon Linux 2023 v4.5.0 running Ruby 3.4_ | 2023.6.20250317 | Ruby 3.4.2-p28 | RubyGems 3.6.2 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.3 AL2023 version 4.5.0** _64bit Amazon Linux 2023 v4.5.0 running Ruby 3.3_ | 2023.6.20250317 | Ruby 3.3.7-p123 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.2 AL2023 version 4.5.0** _64bit Amazon Linux 2023 v4.5.0 running Ruby 3.2_ | 2023.6.20250317 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 | ## February 27, 2025 – March 27, 2025 The following Elastic Beanstalk platform versions for Ruby were current between February 27, 2025 and March 27, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.4.0** _64bit Amazon Linux 2023 v4.4.0 running Ruby 3.4_ | 2023.6.20250218 | Ruby 3.4.2-p28 | RubyGems 3.6.2 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.3 AL2023 version 4.4.0** _64bit Amazon Linux 2023 v4.4.0 running Ruby 3.3_ | 2023.6.20250218 | Ruby 3.3.7-p123 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.2 AL2023 version 4.4.0** _64bit Amazon Linux 2023 v4.4.0 running Ruby 3.2_ | 2023.6.20250218 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 | ## February 25, 2025 – February 26, 2025 The following Elastic Beanstalk platform versions for Ruby were current between February 25, 2025 and February 26, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.4 AL2023 version 4.4.0** _64bit Amazon Linux 2023 v4.4.0 running Ruby 3.4_ | 2023.6.20250218 | Ruby 3.4.2-p28 | RubyGems 3.6.2 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.3 AL2023 version 4.4.0** _64bit Amazon Linux 2023 v4.4.0 running Ruby 3.3_ | 2023.6.20250218 | Ruby 3.3.7-p123 | RubyGems 3.5.22 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 |
-| **Ruby 3.2 AL2023 version 4.4.0** _64bit Amazon Linux 2023 v4.4.0 running Ruby 3.2_ | 2023.6.20250218 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.6.0 | 3.3.14 | nginx 1.26.3 | ## January 28, 2025 – February 24, 2025 The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2025 and February 24, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.3 AL2023 version 4.3.1** _64bit Amazon Linux 2023 v4.3.1 running Ruby 3.3_ | 2023.6.20250123 | Ruby 3.3.7-p123 | RubyGems 3.5.22 | Puma 6.5.0 | 3.3.13 | nginx 1.26.2 |
-| **Ruby 3.2 AL2023 version 4.3.1** _64bit Amazon Linux 2023 v4.3.1 running Ruby 3.2_ | 2023.6.20250123 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.5.0 | 3.3.13 | nginx 1.26.2 | ## January 3, 2025 – January 27, 2025 The following Elastic Beanstalk platform versions for Ruby were current between January 3, 2025 and January 27, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.3 AL2023 version 4.3.0** _64bit Amazon Linux 2023 v4.3.0 running Ruby 3.3_ | 2023.6.20241212 | Ruby 3.3.6-p108 | RubyGems 3.5.22 | Puma 6.5.0 | 3.3.13 | nginx 1.26.2 |
-| **Ruby 3.2 AL2023 version 4.3.0** _64bit Amazon Linux 2023 v4.3.0 running Ruby 3.2_ | 2023.6.20241212 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.5.0 | 3.3.13 | nginx 1.26.2 | ## December 19, 2024 – January 2, 2025 The following Elastic Beanstalk platform versions for Ruby were current between December 19, 2024 and January 2, 2025:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.3 AL2023 version 4.3.0** _64bit Amazon Linux 2023 v4.3.0 running Ruby 3.3_ | 2023.6.20241212 | Ruby 3.3.6-p108 | RubyGems 3.5.22 | Puma 6.5.0 | 3.3.13 | nginx 1.26.2 |
-| **Ruby 3.2 AL2023 version 4.3.0** _64bit Amazon Linux 2023 v4.3.0 running Ruby 3.2_ | 2023.6.20241212 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.5.0 | 3.3.13 | nginx 1.26.2 | ## November 21, 2024 – December 18, 2024 The following Elastic Beanstalk platform versions for Ruby were current between November 21, 2024 and December 18, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.3 AL2023 version 4.2.0** _64bit Amazon Linux 2023 v4.2.0 running Ruby 3.3_ | 2023.6.20241111 | Ruby 3.3.6-p108 | RubyGems 3.5.22 | Puma 6.4.3 | 3.3.13 | nginx 1.26.2 |
-| **Ruby 3.2 AL2023 version 4.2.0** _64bit Amazon Linux 2023 v4.2.0 running Ruby 3.2_ | 2023.6.20241111 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.3 | 3.3.13 | nginx 1.26.2 | ## November 19, 2024 – November 20, 2024 The following Elastic Beanstalk platform versions for Ruby were current between November 19, 2024 and November 20, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.1.0** _64bit Amazon Linux 2023 v4.1.0 running Ruby 3.2_ | 2023.6.20241031 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.3 | 3.3.13 | nginx 1.26.2 | ## November 8, 2024 – November 18, 2024 The following Elastic Beanstalk platform versions for Ruby were current between November 8, 2024 and November 18, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.1.0** _64bit Amazon Linux 2023 v4.1.0 running Ruby 3.2_ | 2023.6.20241031 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.3 | 3.3.13 | nginx 1.26.2 | ## October 10, 2024 – November 7, 2024 The following Elastic Beanstalk platform versions for Ruby were current between October 10, 2024 and November 7, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.13** _64bit Amazon Linux 2023 v4.0.13 running Ruby 3.2_ | 2023.5.20241001 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.3 | 3.3.13 | nginx 1.24.0 | ## October 8, 2024 – October 9, 2024 The following Elastic Beanstalk platform versions for Ruby were current between October 8, 2024 and October 9, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.13** _64bit Amazon Linux 2023 v4.0.13 running Ruby 3.2_ | 2023.5.20241001 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.3 | 3.3.13 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.7** _64bit Amazon Linux 2 v3.7.7 running Ruby 3.0_ | 2.0.20241001 | Ruby 3.0.7-p220 | RubyGems 3.5.20 | Puma 6.4.3 | 3.3.13 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.7** _64bit Amazon Linux 2 v3.7.7 running Ruby 2.7_ | 2.0.20241001 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.3 | 3.3.13 | nginx 1.22.1 | ## October 4, 2024 – October 7, 2024 The following Elastic Beanstalk platform versions for Ruby were current between October 4, 2024 and October 7, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.12** _64bit Amazon Linux 2023 v4.0.12 running Ruby 3.2_ | 2023.5.20240903 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.3.13 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.7** _64bit Amazon Linux 2 v3.7.7 running Ruby 3.0_ | 2.0.20241001 | Ruby 3.0.7-p220 | RubyGems 3.5.20 | Puma 6.4.3 | 3.3.13 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.7** _64bit Amazon Linux 2 v3.7.7 running Ruby 2.7_ | 2.0.20241001 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.3 | 3.3.13 | nginx 1.22.1 | ## September 12, 2024 – October 3, 2024 The following Elastic Beanstalk platform versions for Ruby were current between September 12, 2024 and October 3, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.12** _64bit Amazon Linux 2023 v4.0.12 running Ruby 3.2_ | 2023.5.20240903 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.3.13 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.6** _64bit Amazon Linux 2 v3.7.6 running Ruby 3.0_ | 2.0.20240903 | Ruby 3.0.7-p220 | RubyGems 3.5.17 | Puma 6.4.2 | 3.3.13 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.6** _64bit Amazon Linux 2 v3.7.6 running Ruby 2.7_ | 2.0.20240903 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.3.13 | nginx 1.22.1 | ## September 10, 2024 – September 11, 2024 The following Elastic Beanstalk platform versions for Ruby were current between September 10, 2024 and September 11, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.12** _64bit Amazon Linux 2023 v4.0.12 running Ruby 3.2_ | 2023.5.20240903 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.3.13 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.5** _64bit Amazon Linux 2 v3.7.5 running Ruby 3.0_ | 2.0.20240809 | Ruby 3.0.7-p220 | RubyGems 3.5.17 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.5** _64bit Amazon Linux 2 v3.7.5 running Ruby 2.7_ | 2.0.20240809 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 | ## August 16, 2024 – September 9, 2024 The following Elastic Beanstalk platform versions for Ruby were current between August 16, 2024 and September 9, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.11** _64bit Amazon Linux 2023 v4.0.11 running Ruby 3.2_ | 2023.5.20240805 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.3.12 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.5** _64bit Amazon Linux 2 v3.7.5 running Ruby 3.0_ | 2.0.20240809 | Ruby 3.0.7-p220 | RubyGems 3.5.17 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.5** _64bit Amazon Linux 2 v3.7.5 running Ruby 2.7_ | 2.0.20240809 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 | ## August 12, 2024 – August 15, 2024 The following Elastic Beanstalk platform versions for Ruby were current between August 12, 2024 and August 15, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.11** _64bit Amazon Linux 2023 v4.0.11 running Ruby 3.2_ | 2023.5.20240805 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.3.12 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.4** _64bit Amazon Linux 2 v3.7.4 running Ruby 3.0_ | 2.0.20240709 | Ruby 3.0.7-p220 | RubyGems 3.5.15 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.4** _64bit Amazon Linux 2 v3.7.4 running Ruby 2.7_ | 2.0.20240709 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 | ## July 29, 2024 – August 11, 2024 The following Elastic Beanstalk platform versions for Ruby were current between July 29, 2024 and August 11, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.10** _64bit Amazon Linux 2023 v4.0.10 running Ruby 3.2_ | 2023.5.20240722 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.3.12 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.4** _64bit Amazon Linux 2 v3.7.4 running Ruby 3.0_ | 2.0.20240709 | Ruby 3.0.7-p220 | RubyGems 3.5.15 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.4** _64bit Amazon Linux 2 v3.7.4 running Ruby 2.7_ | 2.0.20240709 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 | ## July 18, 2024 – July 28, 2024 The following Elastic Beanstalk platform versions for Ruby were current between July 18, 2024 and July 28, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.9** _64bit Amazon Linux 2023 v4.0.9 running Ruby 3.2_ | 2023.5.20240701 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.3.12 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.4** _64bit Amazon Linux 2 v3.7.4 running Ruby 3.0_ | 2.0.20240709 | Ruby 3.0.7-p220 | RubyGems 3.5.15 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.4** _64bit Amazon Linux 2 v3.7.4 running Ruby 2.7_ | 2.0.20240709 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.3.12 | nginx 1.22.1 | ## July 3, 2024 – July 17, 2024 The following Elastic Beanstalk platform versions for Ruby were current between July 3, 2024 and July 17, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.9** _64bit Amazon Linux 2023 v4.0.9 running Ruby 3.2_ | 2023.5.20240701 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.3.12 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.3** _64bit Amazon Linux 2 v3.7.3 running Ruby 3.0_ | 2.0.20240610 | Ruby 3.0.7-p220 | RubyGems 3.5.11 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.3** _64bit Amazon Linux 2 v3.7.3 running Ruby 2.7_ | 2.0.20240610 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## June 18, 2024 – July 2, 2024 The following Elastic Beanstalk platform versions for Ruby were current between June 18, 2024 and July 2, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.8** _64bit Amazon Linux 2023 v4.0.8 running Ruby 3.2_ | 2023.4.20240611 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.3** _64bit Amazon Linux 2 v3.7.3 running Ruby 3.0_ | 2.0.20240610 | Ruby 3.0.7-p220 | RubyGems 3.5.11 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.3** _64bit Amazon Linux 2 v3.7.3 running Ruby 2.7_ | 2.0.20240610 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## June 13, 2024 – June 17, 2024 The following Elastic Beanstalk platform versions for Ruby were current between June 13, 2024 and June 17, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.8** _64bit Amazon Linux 2023 v4.0.8 running Ruby 3.2_ | 2023.4.20240611 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.2** _64bit Amazon Linux 2 v3.7.2 running Ruby 3.0_ | 2.0.20240521 | Ruby 3.0.7-p220 | RubyGems 3.5.10 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.2** _64bit Amazon Linux 2 v3.7.2 running Ruby 2.7_ | 2.0.20240521 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## May 28, 2024 – June 12, 2024 The following Elastic Beanstalk platform versions for Ruby were current between May 28, 2024 and June 12, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.7** _64bit Amazon Linux 2023 v4.0.7 running Ruby 3.2_ | 2023.4.20240513 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.2** _64bit Amazon Linux 2 v3.7.2 running Ruby 3.0_ | 2.0.20240521 | Ruby 3.0.7-p220 | RubyGems 3.5.10 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.2** _64bit Amazon Linux 2 v3.7.2 running Ruby 2.7_ | 2.0.20240521 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## May 16, 2024 – May 27, 2024 The following Elastic Beanstalk platform versions for Ruby were current between May 16, 2024 and May 27, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.7** _64bit Amazon Linux 2023 v4.0.7 running Ruby 3.2_ | 2023.4.20240513 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.1** _64bit Amazon Linux 2 v3.7.1 running Ruby 3.0_ | 2.0.20240412 | Ruby 3.0.6-p216 | RubyGems 3.5.9 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.1** _64bit Amazon Linux 2 v3.7.1 running Ruby 2.7_ | 2.0.20240412 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## April 26, 2024 – May 15, 2024 The following Elastic Beanstalk platform versions for Ruby were current between April 26, 2024 and May 15, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.6** _64bit Amazon Linux 2023 v4.0.6 running Ruby 3.2_ | 2023.4.20240416 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.1** _64bit Amazon Linux 2 v3.7.1 running Ruby 3.0_ | 2.0.20240412 | Ruby 3.0.6-p216 | RubyGems 3.5.9 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.1** _64bit Amazon Linux 2 v3.7.1 running Ruby 2.7_ | 2.0.20240412 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## April 23, 2024 – April 25, 2024 The following Elastic Beanstalk platform versions for Ruby were current between April 23, 2024 and April 25, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.6** _64bit Amazon Linux 2023 v4.0.6 running Ruby 3.2_ | 2023.4.20240416 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.0** _64bit Amazon Linux 2 v3.7.0 running Ruby 3.0_ | 2.0.20240318 | Ruby 3.0.6-p216 | RubyGems 3.5.7 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.0** _64bit Amazon Linux 2 v3.7.0 running Ruby 2.7_ | 2.0.20240318 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## March 28, 2024 – April 22, 2024 The following Elastic Beanstalk platform versions for Ruby were current between March 28, 2024 and April 22, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.5** _64bit Amazon Linux 2023 v4.0.5 running Ruby 3.2_ | 2023.4.20240319 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.7.0** _64bit Amazon Linux 2 v3.7.0 running Ruby 3.0_ | 2.0.20240318 | Ruby 3.0.6-p216 | RubyGems 3.5.7 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.7.0** _64bit Amazon Linux 2 v3.7.0 running Ruby 2.7_ | 2.0.20240318 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## March 26, 2024 – March 27, 2024 The following Elastic Beanstalk platform versions for Ruby were current between March 26, 2024 and March 27, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.5** _64bit Amazon Linux 2023 v4.0.5 running Ruby 3.2_ | 2023.4.20240319 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.17** _64bit Amazon Linux 2 v3.6.17 running Ruby 3.0_ | 2.0.20240223 | Ruby 3.0.6-p216 | RubyGems 3.5.6 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.17** _64bit Amazon Linux 2 v3.6.17 running Ruby 2.7_ | 2.0.20240223 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## February 28, 2024 – March 25, 2024 The following Elastic Beanstalk platform versions for Ruby were current between February 28, 2024 and March 25, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.4** _64bit Amazon Linux 2023 v4.0.4 running Ruby 3.2_ | 2023.3.20240219 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.17** _64bit Amazon Linux 2 v3.6.17 running Ruby 3.0_ | 2.0.20240223 | Ruby 3.0.6-p216 | RubyGems 3.5.6 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.17** _64bit Amazon Linux 2 v3.6.17 running Ruby 2.7_ | 2.0.20240223 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## February 22, 2024 – February 27, 2024 The following Elastic Beanstalk platform versions for Ruby were current between February 22, 2024 and February 27, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.4** _64bit Amazon Linux 2023 v4.0.4 running Ruby 3.2_ | 2023.3.20240219 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.16** _64bit Amazon Linux 2 v3.6.16 running Ruby 3.0_ | 2.0.20240124 | Ruby 3.0.6-p216 | RubyGems 3.5.4 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.16** _64bit Amazon Linux 2 v3.6.16 running Ruby 2.7_ | 2.0.20240124 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## January 29, 2024 – February 21, 2024 The following Elastic Beanstalk platform versions for Ruby were current between January 29, 2024 and February 21, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.3** _64bit Amazon Linux 2023 v4.0.3 running Ruby 3.2_ | 2023.3.20240122 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.16** _64bit Amazon Linux 2 v3.6.16 running Ruby 3.0_ | 2.0.20240124 | Ruby 3.0.6-p216 | RubyGems 3.5.4 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.16** _64bit Amazon Linux 2 v3.6.16 running Ruby 2.7_ | 2.0.20240124 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2 | 3.2.0 | nginx 1.22.1 | ## January 25, 2024 – January 28, 2024 The following Elastic Beanstalk platform versions for Ruby were current between January 25, 2024 and January 28, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.3** _64bit Amazon Linux 2023 v4.0.3 running Ruby 3.2_ | 2023.3.20240122 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.2 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.15** _64bit Amazon Linux 2 v3.6.15 running Ruby 3.0_ | 2.0.20231206 | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.15** _64bit Amazon Linux 2 v3.6.15 running Ruby 2.7_ | 2.0.20231206 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 | ## December 19, 2023 – January 24, 2024 The following Elastic Beanstalk platform versions for Ruby were current between December 19, 2023 and January 24, 2024:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.2** _64bit Amazon Linux 2023 v4.0.2 running Ruby 3.2_ | 2023.3.20231211 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.0 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.15** _64bit Amazon Linux 2 v3.6.15 running Ruby 3.0_ | 2.0.20231206 | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.15** _64bit Amazon Linux 2 v3.6.15 running Ruby 2.7_ | 2.0.20231206 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 | ## December 15, 2023 – December 18, 2023 The following Elastic Beanstalk platform versions for Ruby were current between December 15, 2023 and December 18, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.1** _64bit Amazon Linux 2023 v4.0.1 running Ruby 3.2_ | 2023.2.20231113 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.0 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.15** _64bit Amazon Linux 2 v3.6.15 running Ruby 3.0_ | 2.0.20231206 | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.15** _64bit Amazon Linux 2 v3.6.15 running Ruby 2.7_ | 2.0.20231206 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 | ## November 17, 2023 – December 14, 2023 The following Elastic Beanstalk platform versions for Ruby were current between November 17, 2023 and December 14, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.1** _64bit Amazon Linux 2023 v4.0.1 running Ruby 3.2_ | 2023.2.20231113 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.0 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.14** _64bit Amazon Linux 2 v3.6.14 running Ruby 3.0_ | 2.0.20231101 | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.14** _64bit Amazon Linux 2 v3.6.14 running Ruby 2.7_ | 2.0.20231101 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 | ## November 15, 2023 – November 16, 2023 The following Elastic Beanstalk platform versions for Ruby were current between November 15, 2023 and November 16, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.0** _64bit Amazon Linux 2023 v4.0.0 running Ruby 3.2_ | 2023.2.20231016 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.0 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.14** _64bit Amazon Linux 2 v3.6.14 running Ruby 3.0_ | 2.0.20231101 | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.14** _64bit Amazon Linux 2 v3.6.14 running Ruby 2.7_ | 2.0.20231101 | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 | ## October 24, 2023 – November 14, 2023 The following Elastic Beanstalk platform versions for Ruby were current between October 24, 2023 and November 14, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.0** _64bit Amazon Linux 2023 v4.0.0 running Ruby 3.2_ | 2023.2.20231016 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.0 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.13** _64bit Amazon Linux 2 v3.6.13 running Ruby 3.0_ | 2.0.20231012 | Ruby 3.0.6-p216 | RubyGems 3.4.20 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.13** _64bit Amazon Linux 2 v3.6.13 running Ruby 2.7_ | 2.0.20231012 | Ruby 2.7.8-p225 | RubyGems 3.4.20 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 | ## October 19, 2023 – October 23, 2023 The following Elastic Beanstalk platform versions for Ruby were current between October 19, 2023 and October 23, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.2 AL2023 version 4.0.0** _64bit Amazon Linux 2023 v4.0.0 running Ruby 3.2_ | 2023.2.20231016 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.0 | 3.2.0 | nginx 1.24.0 |
-| **Ruby 3.0 AL2 version 3.6.12** _64bit Amazon Linux 2 v3.6.12 running Ruby 3.0_ | 2.0.20230926 | Ruby 3.0.6-p216 | RubyGems 3.4.20 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.12** _64bit Amazon Linux 2 v3.6.12 running Ruby 2.7_ | 2.0.20230926 | Ruby 2.7.8-p225 | RubyGems 3.4.20 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 | ## October 6, 2023 – October 18, 2023 The following Elastic Beanstalk platform versions for Ruby were current between October 6, 2023 and October 18, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.12** _64bit Amazon Linux 2 v3.6.12 running Ruby 3.0_ | 2.0.20230926 | Ruby 3.0.6-p216 | RubyGems 3.4.20 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.12** _64bit Amazon Linux 2 v3.6.12 running Ruby 2.7_ | 2.0.20230926 | Ruby 2.7.8-p225 | RubyGems 3.4.20 | Puma 6.4.0 | 3.2.0 | nginx 1.22.1 | ## September 5, 2023 – October 5, 2023 The following Elastic Beanstalk platform versions for Ruby were current between September 5, 2023 and October 5, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.11** _64bit Amazon Linux 2 v3.6.11 running Ruby 3.0_ | 2.0.20230822 | Ruby 3.0.6-p216 | RubyGems 3.4.19 | Puma 6.3.1 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.11** _64bit Amazon Linux 2 v3.6.11 running Ruby 2.7_ | 2.0.20230822 | Ruby 2.7.8-p225 | RubyGems 3.4.19 | Puma 6.3.1 | 3.2.0 | nginx 1.22.1 | ## July 28, 2023 – September 4, 2023 The following Elastic Beanstalk platform versions for Ruby were current between July 28, 2023 and September 4, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.10** _64bit Amazon Linux 2 v3.6.10 running Ruby 3.0_ | 2.0.20230719 | Ruby 3.0.6-p216 | RubyGems 3.4.17 | Puma 6.3.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.10** _64bit Amazon Linux 2 v3.6.10 running Ruby 2.7_ | 2.0.20230719 | Ruby 2.7.8-p225 | RubyGems 3.4.17 | Puma 6.3.0 | 3.2.0 | nginx 1.22.1 | ## June 30, 2023 – July 27, 2023 The following Elastic Beanstalk platform versions for Ruby were current between June 30, 2023 and July 27, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.9** _64bit Amazon Linux 2 v3.6.9 running Ruby 3.0_ | 2.0.20230612 | Ruby 3.0.6-p216 | RubyGems 3.4.14 | Puma 6.3.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.9** _64bit Amazon Linux 2 v3.6.9 running Ruby 2.7_ | 2.0.20230612 | Ruby 2.7.8-p225 | RubyGems 3.4.14 | Puma 6.3.0 | 3.2.0 | nginx 1.22.1 | ## May 31, 2023 – June 29, 2023 The following Elastic Beanstalk platform versions for Ruby were current between May 31, 2023 and June 29, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.8** _64bit Amazon Linux 2 v3.6.8 running Ruby 3.0_ | 2.0.20230515 | Ruby 3.0.6-p216 | RubyGems 3.4.13 | Puma 6.2.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.8** _64bit Amazon Linux 2 v3.6.8 running Ruby 2.7_ | 2.0.20230515 | Ruby 2.7.8-p225 | RubyGems 3.4.13 | Puma 6.2.2 | 3.2.0 | nginx 1.22.1 | ## April 28, 2023 – May 30, 2023 The following Elastic Beanstalk platform versions for Ruby were current between April 28, 2023 and May 30, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.7** _64bit Amazon Linux 2 v3.6.7 running Ruby 3.0_ | 2.0.20230418 | Ruby 3.0.6-p216 | RubyGems 3.4.12 | Puma 6.2.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.7** _64bit Amazon Linux 2 v3.6.7 running Ruby 2.7_ | 2.0.20230418 | Ruby 2.7.8-p225 | RubyGems 3.4.12 | Puma 6.2.2 | 3.2.0 | nginx 1.22.1 | ## April 19, 2023 – April 27, 2023 The following Elastic Beanstalk platform versions for Ruby were current between April 19, 2023 and April 27, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.6** _64bit Amazon Linux 2 v3.6.6 running Ruby 3.0_ | 2.0.20230404 | Ruby 3.0.6-p216 | RubyGems 3.4.10 | Puma 6.2.1 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.6** _64bit Amazon Linux 2 v3.6.6 running Ruby 2.7_ | 2.0.20230404 | Ruby 2.7.8-p225 | RubyGems 3.4.10 | Puma 6.2.1 | 3.2.0 | nginx 1.22.1 | ## April 3, 2023 – April 18, 2023 The following Elastic Beanstalk platform versions for Ruby were current between April 3, 2023 and April 18, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.5** _64bit Amazon Linux 2 v3.6.5 running Ruby 3.0_ | 2.0.20230320 | Ruby 3.0.5-p211 | RubyGems 3.4.10 | Puma 6.2.0 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.5** _64bit Amazon Linux 2 v3.6.5 running Ruby 2.7_ | 2.0.20230320 | Ruby 2.7.7-p221 | RubyGems 3.4.10 | Puma 6.2.0 | 3.2.0 | nginx 1.22.1 | ## March 7, 2023 – April 2, 2023 The following Elastic Beanstalk platform versions for Ruby were current between March 7, 2023 and April 2, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.4** _64bit Amazon Linux 2 v3.6.4 running Ruby 3.0_ | 2.0.20230221 | Ruby 3.0.5-p211 | RubyGems 3.4.7 | Puma 6.1.1 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.4** _64bit Amazon Linux 2 v3.6.4 running Ruby 2.7_ | 2.0.20230221 | Ruby 2.7.7-p221 | RubyGems 3.4.7 | Puma 6.1.1 | 3.2.0 | nginx 1.22.1 | ## February 1, 2023 – March 6, 2023 The following Elastic Beanstalk platform versions for Ruby were current between February 1, 2023 and March 6, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.3** _64bit Amazon Linux 2 v3.6.3 running Ruby 3.0_ | 2.0.20230119 | Ruby 3.0.5-p211 | RubyGems 3.4.3 | Puma 6.0.2 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.3** _64bit Amazon Linux 2 v3.6.3 running Ruby 2.7_ | 2.0.20230119 | Ruby 2.7.7-p221 | RubyGems 3.4.3 | Puma 6.0.2 | 3.2.0 | nginx 1.22.1 | ## December 29, 2022 – January 31, 2023 The following Elastic Beanstalk platform versions for Ruby were current between December 29, 2022 and January 31, 2023:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.2** _64bit Amazon Linux 2 v3.6.2 running Ruby 3.0_ | 2.0.20221210 | Ruby 3.0.5-p211 | RubyGems 3.4.1 | Puma 6.0.1 | 3.2.0 | nginx 1.22.0 |
-| **Ruby 2.7 AL2 version 3.6.2** _64bit Amazon Linux 2 v3.6.2 running Ruby 2.7_ | 2.0.20221210 | Ruby 2.7.7-p221 | RubyGems 3.4.1 | Puma 6.0.1 | 3.2.0 | nginx 1.22.0 | ## December 23, 2022 – December 28, 2022 The following Elastic Beanstalk platform versions for Ruby were current between December 23, 2022 and December 28, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.1** _64bit Amazon Linux 2 v3.6.1 running Ruby 3.0_ | 2.0.20221103 | Ruby 3.0.5-p211 | RubyGems 3.3.26 | Puma 6.0.0 | 3.2.0 | nginx 1.22.0 |
-| **Ruby 2.7 AL2 version 3.6.1** _64bit Amazon Linux 2 v3.6.1 running Ruby 2.7_ | 2.0.20221103 | Ruby 2.7.7-p221 | RubyGems 3.3.26 | Puma 6.0.0 | 3.2.0 | nginx 1.22.0 | ## December 6, 2022 – December 22, 2022 The following Elastic Beanstalk platform versions for Ruby were current between December 6, 2022 and December 22, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.1** _64bit Amazon Linux 2 v3.6.1 running Ruby 3.0_ | 2.0.20221103 | Ruby 3.0.5-p211 | RubyGems 3.3.26 | Puma 6.0.0 | 3.2.0 | nginx 1.22.0 |
-| **Ruby 2.7 AL2 version 3.6.1** _64bit Amazon Linux 2 v3.6.1 running Ruby 2.7_ | 2.0.20221103 | Ruby 2.7.7-p221 | RubyGems 3.3.26 | Puma 6.0.0 | 3.2.0 | nginx 1.22.0 |
-| **Ruby 2.6 AL2 version 3.6.1** _64bit Amazon Linux 2 v3.6.1 running Ruby 2.6_ | 2.0.20221103 | Ruby 2.6.10-p210 | RubyGems 3.3.26 | Puma 6.0.0 | 3.2.0 | nginx 1.22.0 | ## November 4, 2022 – December 5, 2022 The following Elastic Beanstalk platform versions for Ruby were current between November 4, 2022 and December 5, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.0** _64bit Amazon Linux 2 v3.6.0 running Ruby 3.0_ | 2.0.20221004 | Ruby 3.0.4-p208 | RubyGems 3.3.23 | Puma 6.0.0 | 3.2.0 | nginx 1.22.0 |
-| **Ruby 2.7 AL2 version 3.6.0** _64bit Amazon Linux 2 v3.6.0 running Ruby 2.7_ | 2.0.20221004 | Ruby 2.7.6-p219 | RubyGems 3.3.23 | Puma 6.0.0 | 3.2.0 | nginx 1.22.0 |
-| **Ruby 2.6 AL2 version 3.6.0** _64bit Amazon Linux 2 v3.6.0 running Ruby 2.6_ | 2.0.20221004 | Ruby 2.6.10-p210 | RubyGems 3.3.23 | Puma 6.0.0 | 3.2.0 | nginx 1.22.0 | ## October 3, 2022 – November 3, 2022 The following Elastic Beanstalk platform versions for Ruby were current between October 3, 2022 and November 3, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.5.0** _64bit Amazon Linux 2 v3.5.0 running Ruby 3.0_ | 2.0.20220912 | Ruby 3.0.4-p208 | RubyGems 3.3.22 | Puma 5.6.5 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.5.0** _64bit Amazon Linux 2 v3.5.0 running Ruby 2.7_ | 2.0.20220912 | Ruby 2.7.6-p219 | RubyGems 3.3.22 | Puma 5.6.5 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.5.0** _64bit Amazon Linux 2 v3.5.0 running Ruby 2.6_ | 2.0.20220912 | Ruby 2.6.10-p210 | RubyGems 3.3.22 | Puma 5.6.5 | 3.2.0 | nginx 1.20.0 | ## August 31, 2022 – October 2, 2022 The following Elastic Beanstalk platform versions for Ruby were current between August 31, 2022 and October 2, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.10** _64bit Amazon Linux 2 v3.4.10 running Ruby 3.0_ | 2.0.20220805 | Ruby 3.0.4-p208 | RubyGems 3.3.20 | Puma 5.6.5 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.10** _64bit Amazon Linux 2 v3.4.10 running Ruby 2.7_ | 2.0.20220805 | Ruby 2.7.6-p219 | RubyGems 3.3.20 | Puma 5.6.5 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.10** _64bit Amazon Linux 2 v3.4.10 running Ruby 2.6_ | 2.0.20220805 | Ruby 2.6.10-p210 | RubyGems 3.3.20 | Puma 5.6.5 | 3.2.0 | nginx 1.20.0 | ## August 8, 2022 – August 30, 2022 The following Elastic Beanstalk platform versions for Ruby were current between August 8, 2022 and August 30, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.9** _64bit Amazon Linux 2 v3.4.9 running Ruby 3.0_ | 2.0.20220719 | Ruby 3.0.4-p208 | RubyGems 3.3.18 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.9** _64bit Amazon Linux 2 v3.4.9 running Ruby 2.7_ | 2.0.20220719 | Ruby 2.7.6-p219 | RubyGems 3.3.18 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.9** _64bit Amazon Linux 2 v3.4.9 running Ruby 2.6_ | 2.0.20220719 | Ruby 2.6.10-p210 | RubyGems 3.3.18 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 | ## July 18, 2022 – August 7, 2022 The following Elastic Beanstalk platform versions for Ruby were current between July 18, 2022 and August 7, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 3.0_ | 2.0.20220606 | Ruby 3.0.4-p208 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 2.7_ | 2.0.20220606 | Ruby 2.7.6-p219 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 2.6_ | 2.0.20220606 | Ruby 2.6.10-p210 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 | ## June 29, 2022 – July 17, 2022 The following Elastic Beanstalk platform versions for Ruby were current between June 29, 2022 and July 17, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 3.0_ | 2.0.20220606 | Ruby 3.0.4-p208 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 2.7_ | 2.0.20220606 | Ruby 2.7.6-p219 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 2.6_ | 2.0.20220606 | Ruby 2.6.10-p210 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## June 22, 2022 – June 28, 2022 The following Elastic Beanstalk platform versions for Ruby were current between June 22, 2022 and June 28, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 3.0_ | 2.0.20220606 | Ruby 3.0.4-p208 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 2.7_ | 2.0.20220606 | Ruby 2.7.6-p219 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 2.6_ | 2.0.20220606 | Ruby 2.6.10-p210 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.8** _64bit Amazon Linux 2 v3.4.8 running Ruby 2.5_ | 2.0.20220606 | Ruby 2.5.9-p229 | RubyGems 3.3.15 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.20** _64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## May 26, 2022 – June 21, 2022 The following Elastic Beanstalk platform versions for Ruby were current between May 26, 2022 and June 21, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.7** _64bit Amazon Linux 2 v3.4.7 running Ruby 3.0_ | 2.0.20220426 | Ruby 3.0.4-p208 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.7** _64bit Amazon Linux 2 v3.4.7 running Ruby 2.7_ | 2.0.20220426 | Ruby 2.7.6-p219 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.7** _64bit Amazon Linux 2 v3.4.7 running Ruby 2.6_ | 2.0.20220426 | Ruby 2.6.10-p210 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.7** _64bit Amazon Linux 2 v3.4.7 running Ruby 2.5_ | 2.0.20220426 | Ruby 2.5.9-p229 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.19** _64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.19** _64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.19** _64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.19** _64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.19** _64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.19** _64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## May 4, 2022 – May 25, 2022 The following Elastic Beanstalk platform versions for Ruby were current between May 4, 2022 and May 25, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.6** _64bit Amazon Linux 2 v3.4.6 running Ruby 3.0_ | 2.0.20220419 | Ruby 3.0.4-p208 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.6** _64bit Amazon Linux 2 v3.4.6 running Ruby 2.7_ | 2.0.20220419 | Ruby 2.7.6-p219 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.6** _64bit Amazon Linux 2 v3.4.6 running Ruby 2.6_ | 2.0.20220419 | Ruby 2.6.10-p210 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.6** _64bit Amazon Linux 2 v3.4.6 running Ruby 2.5_ | 2.0.20220419 | Ruby 2.5.9-p229 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## April 29, 2022 – May 3, 2022 The following Elastic Beanstalk platform versions for Ruby were current between April 29, 2022 and May 3, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.5** _64bit Amazon Linux 2 v3.4.5 running Ruby 3.0_ | 2.0.20220419 | Ruby 3.0.3-p157 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.5** _64bit Amazon Linux 2 v3.4.5 running Ruby 2.7_ | 2.0.20220419 | Ruby 2.7.6-p219 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.5** _64bit Amazon Linux 2 v3.4.5 running Ruby 2.6_ | 2.0.20220419 | Ruby 2.6.10-p210 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.5** _64bit Amazon Linux 2 v3.4.5 running Ruby 2.5_ | 2.0.20220419 | Ruby 2.5.9-p229 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.18** _64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## March 31, 2022 – April 28, 2022 The following Elastic Beanstalk platform versions for Ruby were current between March 31, 2022 and April 28, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.4** _64bit Amazon Linux 2 v3.4.4 running Ruby 3.0_ | 2.0.20220316 | Ruby 3.0.3-p157 | RubyGems 3.3.10 | Puma 5.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.4** _64bit Amazon Linux 2 v3.4.4 running Ruby 2.7_ | 2.0.20220316 | Ruby 2.7.5-p203 | RubyGems 3.3.10 | Puma 5.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.4** _64bit Amazon Linux 2 v3.4.4 running Ruby 2.6_ | 2.0.20220316 | Ruby 2.6.9-p207 | RubyGems 3.3.10 | Puma 5.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.4** _64bit Amazon Linux 2 v3.4.4 running Ruby 2.5_ | 2.0.20220316 | Ruby 2.5.9-p229 | RubyGems 3.3.10 | Puma 5.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.17** _64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.17** _64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.17** _64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.17** _64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.17** _64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.17** _64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## March 2, 2022 – March 30, 2022 The following Elastic Beanstalk platform versions for Ruby were current between March 2, 2022 and March 30, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.3** _64bit Amazon Linux 2 v3.4.3 running Ruby 3.0_ | 2.0.20220207 | Ruby 3.0.3-p157 | RubyGems 3.3.7 | Puma 5.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.3** _64bit Amazon Linux 2 v3.4.3 running Ruby 2.7_ | 2.0.20220207 | Ruby 2.7.5-p203 | RubyGems 3.3.7 | Puma 5.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.3** _64bit Amazon Linux 2 v3.4.3 running Ruby 2.6_ | 2.0.20220207 | Ruby 2.6.9-p207 | RubyGems 3.3.7 | Puma 5.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.3** _64bit Amazon Linux 2 v3.4.3 running Ruby 2.5_ | 2.0.20220207 | Ruby 2.5.9-p229 | RubyGems 3.3.7 | Puma 5.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.16** _64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.16** _64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.16** _64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.16** _64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.16** _64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.16** _64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## February 3, 2022 – March 1, 2022 The following Elastic Beanstalk platform versions for Ruby were current between February 3, 2022 and March 1, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.2** _64bit Amazon Linux 2 v3.4.2 running Ruby 3.0_ | 2.0.20220121 | Ruby 3.0.3-p157 | RubyGems 3.3.6 | Puma 5.6.1 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.2** _64bit Amazon Linux 2 v3.4.2 running Ruby 2.7_ | 2.0.20220121 | Ruby 2.7.5-p203 | RubyGems 3.3.6 | Puma 5.6.1 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.2** _64bit Amazon Linux 2 v3.4.2 running Ruby 2.6_ | 2.0.20220121 | Ruby 2.6.9-p207 | RubyGems 3.3.6 | Puma 5.6.1 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.2** _64bit Amazon Linux 2 v3.4.2 running Ruby 2.5_ | 2.0.20220121 | Ruby 2.5.9-p229 | RubyGems 3.3.6 | Puma 5.6.1 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.15** _64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.15** _64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.15** _64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.15** _64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.15** _64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.15** _64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## December 21, 2021 – February 2, 2022 The following Elastic Beanstalk platform versions for Ruby were current between December 21, 2021 and February 2, 2022:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.1** _64bit Amazon Linux 2 v3.4.1 running Ruby 3.0_ | 2.0.20211201 | Ruby 3.0.3-p157 | RubyGems 3.2.32 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.1** _64bit Amazon Linux 2 v3.4.1 running Ruby 2.7_ | 2.0.20211201 | Ruby 2.7.5-p203 | RubyGems 3.2.32 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.1** _64bit Amazon Linux 2 v3.4.1 running Ruby 2.6_ | 2.0.20211201 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.1** _64bit Amazon Linux 2 v3.4.1 running Ruby 2.5_ | 2.0.20211201 | Ruby 2.5.9-p229 | RubyGems 3.2.32 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.14** _64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.14** _64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.9-p207 | RubyGems 3.2.32 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.14** _64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.14** _64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.14** _64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.14** _64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## November 24, 2021 – December 20, 2021 The following Elastic Beanstalk platform versions for Ruby were current between November 24, 2021 and December 20, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.0** _64bit Amazon Linux 2 v3.4.0 running Ruby 3.0_ | 2.0.20211103 | Ruby 3.0.2-p107 | RubyGems 3.2.30 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.0** _64bit Amazon Linux 2 v3.4.0 running Ruby 2.7_ | 2.0.20211103 | Ruby 2.7.4-p191 | RubyGems 3.2.30 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.0** _64bit Amazon Linux 2 v3.4.0 running Ruby 2.6_ | 2.0.20211103 | Ruby 2.6.8-p205 | RubyGems 3.2.30 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.0** _64bit Amazon Linux 2 v3.4.0 running Ruby 2.5_ | 2.0.20211103 | Ruby 2.5.9-p229 | RubyGems 3.2.30 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.13** _64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.13** _64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.13** _64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.13** _64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.13** _64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.13** _64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## November 19, 2021 – November 23, 2021 The following Elastic Beanstalk platform versions for Ruby were current between November 19, 2021 and November 23, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.0** _64bit Amazon Linux 2 v3.4.0 running Ruby 3.0_ | 2.0.20211103 | Ruby 3.0.2-p107 | RubyGems 3.2.30 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.0** _64bit Amazon Linux 2 v3.4.0 running Ruby 2.7_ | 2.0.20211103 | Ruby 2.7.4-p191 | RubyGems 3.2.30 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.4.0** _64bit Amazon Linux 2 v3.4.0 running Ruby 2.6_ | 2.0.20211103 | Ruby 2.6.8-p205 | RubyGems 3.2.30 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.4.0** _64bit Amazon Linux 2 v3.4.0 running Ruby 2.5_ | 2.0.20211103 | Ruby 2.5.9-p229 | RubyGems 3.2.30 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## October 21, 2021 – November 18, 2021 The following Elastic Beanstalk platform versions for Ruby were current between October 21, 2021 and November 18, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.7** _64bit Amazon Linux 2 v3.3.7 running Ruby 2.7_ | 2.0.20211001 | Ruby 2.7.4-p191 | RubyGems 3.2.29 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.7** _64bit Amazon Linux 2 v3.3.7 running Ruby 2.6_ | 2.0.20211001 | Ruby 2.6.8-p205 | RubyGems 3.2.29 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.3.7** _64bit Amazon Linux 2 v3.3.7 running Ruby 2.5_ | 2.0.20211001 | Ruby 2.5.9-p229 | RubyGems 3.2.29 | Puma 5.5.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.12** _64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## October 3, 2021 – October 20, 2021 The following Elastic Beanstalk platform versions for Ruby were current between October 3, 2021 and October 20, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.6** _64bit Amazon Linux 2 v3.3.6 running Ruby 2.7_ | 2.0.20210813 | Ruby 2.7.4-p191 | RubyGems 3.2.25 | Puma 5.5.0 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.6** _64bit Amazon Linux 2 v3.3.6 running Ruby 2.6_ | 2.0.20210813 | Ruby 2.6.8-p205 | RubyGems 3.2.25 | Puma 5.5.0 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.3.6** _64bit Amazon Linux 2 v3.3.6 running Ruby 2.5_ | 2.0.20210813 | Ruby 2.5.9-p229 | RubyGems 3.2.25 | Puma 5.5.0 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.11** _64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.11** _64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.11** _64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.11** _64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.11** _64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.11** _64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## September 2, 2021 – October 2, 2021 The following Elastic Beanstalk platform versions for Ruby were current between September 2, 2021 and October 2, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.5** _64bit Amazon Linux 2 v3.3.5 running Ruby 2.7_ | 2.0.20210721 | Ruby 2.7.4-p191 | RubyGems 3.2.25 | Puma 5.4.0 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.5** _64bit Amazon Linux 2 v3.3.5 running Ruby 2.6_ | 2.0.20210721 | Ruby 2.6.8-p205 | RubyGems 3.2.25 | Puma 5.4.0 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.3.5** _64bit Amazon Linux 2 v3.3.5 running Ruby 2.5_ | 2.0.20210721 | Ruby 2.5.9-p229 | RubyGems 3.2.25 | Puma 5.4.0 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## July 30, 2021 – September 1, 2021 The following Elastic Beanstalk platform versions for Ruby were current between July 30, 2021 and September 1, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.4** _64bit Amazon Linux 2 v3.3.4 running Ruby 2.7_ | 2.0.20210721 | Ruby 2.7.4-p191 | RubyGems 3.2.22 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.4** _64bit Amazon Linux 2 v3.3.4 running Ruby 2.6_ | 2.0.20210721 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.3.4** _64bit Amazon Linux 2 v3.3.4 running Ruby 2.5_ | 2.0.20210721 | Ruby 2.5.9-p229 | RubyGems 3.2.22 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.10** _64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## July 21, 2021 – July 29, 2021 The following Elastic Beanstalk platform versions for Ruby were current between July 21, 2021 and July 29, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.3** _64bit Amazon Linux 2 v3.3.3 running Ruby 2.7_ | 2.0.20210701 | Ruby 2.7.4-p191 | RubyGems 3.2.22 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.3** _64bit Amazon Linux 2 v3.3.3 running Ruby 2.6_ | 2.0.20210701 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.3.3** _64bit Amazon Linux 2 v3.3.3 running Ruby 2.5_ | 2.0.20210701 | Ruby 2.5.9-p229 | RubyGems 3.2.22 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.9** _64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.9** _64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.8-p205 | RubyGems 3.2.22 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.9** _64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.9** _64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.9** _64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.9** _64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## July 8, 2021 – July 20, 2021 The following Elastic Beanstalk platform versions for Ruby were current between July 8, 2021 and July 20, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.1** _64bit Amazon Linux 2 v3.3.1 running Ruby 2.7_ | 2.0.20210525 | Ruby 2.7.3-p183 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.1** _64bit Amazon Linux 2 v3.3.1 running Ruby 2.6_ | 2.0.20210525 | Ruby 2.6.7-p197 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 AL2 version 3.3.1** _64bit Amazon Linux 2 v3.3.1 running Ruby 2.5_ | 2.0.20210525 | Ruby 2.5.9-p229 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.8** _64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.8** _64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.8** _64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.8** _64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.8** _64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.8** _64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## July 7, 2021 – July 7, 2021 The following Elastic Beanstalk platform versions for Ruby were current between July 7, 2021 and July 7, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.2** _64bit Amazon Linux 2 v3.3.2 running Ruby 2.7_ | 2.0.20210617 | Ruby 2.7.3-p183 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.2** _64bit Amazon Linux 2 v3.3.2 running Ruby 2.6_ | 2.0.20210617 | Ruby 2.6.7-p197 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.3.2** _64bit Amazon Linux 2 v3.3.2 running Ruby 2.5_ | 2.0.20210617 | Ruby 2.5.9-p229 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## June 11, 2021 – July 6, 2021 The following Elastic Beanstalk platform versions for Ruby were current between June 11, 2021 and July 6, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.1** _64bit Amazon Linux 2 v3.3.1 running Ruby 2.7_ | 2.0.20210525 | Ruby 2.7.3-p183 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.1** _64bit Amazon Linux 2 v3.3.1 running Ruby 2.6_ | 2.0.20210525 | Ruby 2.6.7-p197 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.3.1** _64bit Amazon Linux 2 v3.3.1 running Ruby 2.5_ | 2.0.20210525 | Ruby 2.5.9-p229 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## June 1, 2021 – June 10, 2021 The following Elastic Beanstalk platform versions for Ruby were current between June 1, 2021 and June 10, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.3.0** _64bit Amazon Linux 2 v3.3.0 running Ruby 2.7_ | 2.0.20210427 | Ruby 2.7.3-p183 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.0** _64bit Amazon Linux 2 v3.3.0 running Ruby 2.6_ | 2.0.20210427 | Ruby 2.6.7-p197 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.6 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.3.0** _64bit Amazon Linux 2 v3.3.0 running Ruby 2.5_ | 2.0.20210427 | Ruby 2.5.9-p229 | RubyGems 3.2.17 | Puma 5.3.2 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.5 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## May 26, 2021 – May 31, 2021 The following Elastic Beanstalk platform versions for Ruby were current between May 26, 2021 and May 31, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.5** _64bit Amazon Linux 2 v3.2.5 running Ruby 2.7_ | 2.0.20210421 | Ruby 2.7.3-p183 | RubyGems 3.2.15 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.5** _64bit Amazon Linux 2 v3.2.5 running Ruby 2.6_ | 2.0.20210421 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.5** _64bit Amazon Linux 2 v3.2.5 running Ruby 2.5_ | 2.0.20210421 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.7** _64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## May 3, 2021 – May 25, 2021 The following Elastic Beanstalk platform versions for Ruby were current between May 3, 2021 and May 25, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.5** _64bit Amazon Linux 2 v3.2.5 running Ruby 2.7_ | 2.0.20210421 | Ruby 2.7.3-p183 | RubyGems 3.2.15 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.5** _64bit Amazon Linux 2 v3.2.5 running Ruby 2.6_ | 2.0.20210421 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.5** _64bit Amazon Linux 2 v3.2.5 running Ruby 2.5_ | 2.0.20210421 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## April 21, 2021 – May 2, 2021 The following Elastic Beanstalk platform versions for Ruby were current between April 21, 2021 and May 2, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.4** _64bit Amazon Linux 2 v3.2.4 running Ruby 2.7_ | 2.0.20210326 | Ruby 2.7.2-p137 | RubyGems 3.2.14 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.4** _64bit Amazon Linux 2 v3.2.4 running Ruby 2.6_ | 2.0.20210326 | Ruby 2.6.6-p146 | RubyGems 3.2.14 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.4** _64bit Amazon Linux 2 v3.2.4 running Ruby 2.5_ | 2.0.20210326 | Ruby 2.5.8-p224 | RubyGems 3.2.14 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.7-p197 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.9-p229 | RubyGems 3.2.15 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.6** _64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## March 31, 2021 – April 20, 2021 The following Elastic Beanstalk platform versions for Ruby were current between March 31, 2021 and April 20, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.4** _64bit Amazon Linux 2 v3.2.4 running Ruby 2.7_ | 2.0.20210326 | Ruby 2.7.2-p137 | RubyGems 3.2.14 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.4** _64bit Amazon Linux 2 v3.2.4 running Ruby 2.6_ | 2.0.20210326 | Ruby 2.6.6-p146 | RubyGems 3.2.14 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.4** _64bit Amazon Linux 2 v3.2.4 running Ruby 2.5_ | 2.0.20210326 | Ruby 2.5.8-p224 | RubyGems 3.2.14 | Puma 5.2.2 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## March 30, 2021 – March 30, 2021 The following Elastic Beanstalk platform versions for Ruby were current between March 30, 2021 and March 30, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.7_ | 2.0.20210219 | Ruby 2.7.2-p137 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.6_ | 2.0.20210219 | Ruby 2.6.6-p146 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.5_ | 2.0.20210219 | Ruby 2.5.8-p224 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.5** _64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## March 1, 2021 – March 29, 2021 The following Elastic Beanstalk platform versions for Ruby were current between March 1, 2021 and March 29, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.7_ | 2.0.20210219 | Ruby 2.7.2-p137 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.6_ | 2.0.20210219 | Ruby 2.6.6-p146 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.5_ | 2.0.20210219 | Ruby 2.5.8-p224 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.4** _64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.4** _64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.4** _64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.4** _64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.4** _64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.4** _64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## February 26, 2021 – February 28, 2021 The following Elastic Beanstalk platform versions for Ruby were current between February 26, 2021 and February 28, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.7_ | 2.0.20210219 | Ruby 2.7.2-p137 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.6_ | 2.0.20210219 | Ruby 2.6.6-p146 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.3** _64bit Amazon Linux 2 v3.2.3 running Ruby 2.5_ | 2.0.20210219 | Ruby 2.5.8-p224 | RubyGems 3.2.8 | Puma 5.2.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## January 29, 2021 – February 25, 2021 The following Elastic Beanstalk platform versions for Ruby were current between January 29, 2021 and February 25, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.2** _64bit Amazon Linux 2 v3.2.2 running Ruby 2.7_ | 2.0.20210126 | Ruby 2.7.2-p137 | RubyGems 3.2.7 | Puma 5.2.0 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.2** _64bit Amazon Linux 2 v3.2.2 running Ruby 2.6_ | 2.0.20210126 | Ruby 2.6.6-p146 | RubyGems 3.2.7 | Puma 5.2.0 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.2** _64bit Amazon Linux 2 v3.2.2 running Ruby 2.5_ | 2.0.20210126 | Ruby 2.5.8-p224 | RubyGems 3.2.7 | Puma 5.2.0 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## January 28, 2021 – January 28, 2021 The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2021 and January 28, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.7_ | 2.0.20201218 | Ruby 2.7.2-p137 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.6_ | 2.0.20201218 | Ruby 2.6.6-p146 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.5_ | 2.0.20201218 | Ruby 2.5.8-p224 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.3** _64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## December 30, 2020 – January 27, 2021 The following Elastic Beanstalk platform versions for Ruby were current between December 30, 2020 and January 27, 2021:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.7_ | 2.0.20201218 | Ruby 2.7.2-p137 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.6_ | 2.0.20201218 | Ruby 2.6.6-p146 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.5_ | 2.0.20201218 | Ruby 2.5.8-p224 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.2** _64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.2** _64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.2** _64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.2** _64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.2** _64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.2** _64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## December 29, 2020 – December 29, 2020 The following Elastic Beanstalk platform versions for Ruby were current between December 29, 2020 and December 29, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.7_ | 2.0.20201218 | Ruby 2.7.2-p137 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.6_ | 2.0.20201218 | Ruby 2.6.6-p146 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.1** _64bit Amazon Linux 2 v3.2.1 running Ruby 2.5_ | 2.0.20201218 | Ruby 2.5.8-p224 | RubyGems 3.2.0 | Puma 5.1.1 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## November 11, 2020 – December 28, 2020 The following Elastic Beanstalk platform versions for Ruby were current between November 11, 2020 and December 28, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.0** _64bit Amazon Linux 2 v3.2.0 running Ruby 2.7_ | 2.0.20200917 | Ruby 2.7.2-p137 | RubyGems 3.1.4 | Puma 5.0.4 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.0** _64bit Amazon Linux 2 v3.2.0 running Ruby 2.6_ | 2.0.20200917 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 5.0.4 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.0** _64bit Amazon Linux 2 v3.2.0 running Ruby 2.5_ | 2.0.20200917 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 5.0.4 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.1** _64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## November 10, 2020 – November 10, 2020 The following Elastic Beanstalk platform versions for Ruby were current between November 10, 2020 and November 10, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.2.0** _64bit Amazon Linux 2 v3.2.0 running Ruby 2.7_ | 2.0.20200917 | Ruby 2.7.2-p137 | RubyGems 3.1.4 | Puma 5.0.4 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.2.0** _64bit Amazon Linux 2 v3.2.0 running Ruby 2.6_ | 2.0.20200917 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 5.0.4 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.2.0** _64bit Amazon Linux 2 v3.2.0 running Ruby 2.5_ | 2.0.20200917 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 5.0.4 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.3 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.3 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.2 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.2 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.1 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.1 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.0 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.0 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 1.9 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## October 7, 2020 – November 9, 2020 The following Elastic Beanstalk platform versions for Ruby were current between October 7, 2020 and November 9, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.1.2** _64bit Amazon Linux 2 v3.1.2 running Ruby 2.7_ | 2.0.20200928 | Ruby 2.7.1-p83 | RubyGems 3.1.4 | Puma 4.3.6 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.1.2** _64bit Amazon Linux 2 v3.1.2 running Ruby 2.6_ | 2.0.20200928 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 4.3.6 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.1.2** _64bit Amazon Linux 2 v3.1.2 running Ruby 2.5_ | 2.0.20200928 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 4.3.6 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.5 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.4 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.3 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.3 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.2 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.2 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.1 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.1 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.0 with Puma version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 2.0 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 |
-| **Ruby 1.9 with Passenger version 2.12.0** _64bit Amazon Linux 2018.03 v2.12.0 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.18.0 | ## October 6, 2020 – October 6, 2020 The following Elastic Beanstalk platform versions for Ruby were current between October 6, 2020 and October 6, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.1.2** _64bit Amazon Linux 2 v3.1.2 running Ruby 2.7_ | 2.0.20200928 | Ruby 2.7.1-p83 | RubyGems 3.1.4 | Puma 4.3.6 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.1.2** _64bit Amazon Linux 2 v3.1.2 running Ruby 2.6_ | 2.0.20200928 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 4.3.6 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.1.2** _64bit Amazon Linux 2 v3.1.2 running Ruby 2.5_ | 2.0.20200928 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 4.3.6 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## September 10, 2020 – October 5, 2020 The following Elastic Beanstalk platform versions for Ruby were current between September 10, 2020 and October 5, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.1.1** _64bit Amazon Linux 2 v3.1.1 running Ruby 2.7_ | 2.0.20200827 | Ruby 2.7.1-p83 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.1.1** _64bit Amazon Linux 2 v3.1.1 running Ruby 2.6_ | 2.0.20200827 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.1.1** _64bit Amazon Linux 2 v3.1.1 running Ruby 2.5_ | 2.0.20200827 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.10** _64bit Amazon Linux 2018.03 v2.11.10 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## September 3, 2020 – September 9, 2020 The following Elastic Beanstalk platform versions for Ruby were current between September 3, 2020 and September 9, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.1.1** _64bit Amazon Linux 2 v3.1.1 running Ruby 2.7_ | 2.0.20200827 | Ruby 2.7.1-p83 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.1.1** _64bit Amazon Linux 2 v3.1.1 running Ruby 2.6_ | 2.0.20200827 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.1.1** _64bit Amazon Linux 2 v3.1.1 running Ruby 2.5_ | 2.0.20200827 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## August 7, 2020 – September 2, 2020 The following Elastic Beanstalk platform versions for Ruby were current between August 7, 2020 and September 2, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.1.0** _64bit Amazon Linux 2 v3.1.0 running Ruby 2.7_ | 2.0.20200723 | Ruby 2.7.1-p83 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.1.0** _64bit Amazon Linux 2 v3.1.0 running Ruby 2.6_ | 2.0.20200723 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.1.0** _64bit Amazon Linux 2 v3.1.0 running Ruby 2.5_ | 2.0.20200723 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.9** _64bit Amazon Linux 2018.03 v2.11.9 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## August 4, 2020 – August 6, 2020 The following Elastic Beanstalk platform versions for Ruby were current between August 4, 2020 and August 6, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.1.0** _64bit Amazon Linux 2 v3.1.0 running Ruby 2.7_ | 2.0.20200723 | Ruby 2.7.1-p83 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 AL2 version 3.1.0** _64bit Amazon Linux 2 v3.1.0 running Ruby 2.6_ | 2.0.20200723 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.5 AL2 version 3.1.0** _64bit Amazon Linux 2 v3.1.0 running Ruby 2.5_ | 2.0.20200723 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.18.0 |
-| **Ruby 2.6 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## July 6, 2020 – August 3, 2020 The following Elastic Beanstalk platform versions for Ruby were current between July 6, 2020 and August 3, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.0.3** _64bit Amazon Linux 2 v3.0.3 running Ruby 2.7_ | 2.0.20200603 | Ruby 2.7.1-p83 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 AL2 version 3.0.3** _64bit Amazon Linux 2 v3.0.3 running Ruby 2.6_ | 2.0.20200603 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.5 AL2 version 3.0.3** _64bit Amazon Linux 2 v3.0.3 running Ruby 2.5_ | 2.0.20200603 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.8** _64bit Amazon Linux 2018.03 v2.11.8 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## June 23, 2020 – July 5, 2020 The following Elastic Beanstalk platform versions for Ruby were current between June 23, 2020 and July 5, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.0.3** _64bit Amazon Linux 2 v3.0.3 running Ruby 2.7_ | 2.0.20200603 | Ruby 2.7.1-p83 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 AL2 version 3.0.3** _64bit Amazon Linux 2 v3.0.3 running Ruby 2.6_ | 2.0.20200603 | Ruby 2.6.6-p146 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.5 AL2 version 3.0.3** _64bit Amazon Linux 2 v3.0.3 running Ruby 2.5_ | 2.0.20200603 | Ruby 2.5.8-p224 | RubyGems 3.1.4 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## June 5, 2020 – June 22, 2020 The following Elastic Beanstalk platform versions for Ruby were current between June 5, 2020 and June 22, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.0.2** _64bit Amazon Linux 2 v3.0.2 running Ruby 2.7_ | 2.0.20200520 | Ruby 2.7.1-p83 | RubyGems 3.1.3 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 AL2 version 3.0.2** _64bit Amazon Linux 2 v3.0.2 running Ruby 2.6_ | 2.0.20200520 | Ruby 2.6.6-p146 | RubyGems 3.1.3 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.5 AL2 version 3.0.2** _64bit Amazon Linux 2 v3.0.2 running Ruby 2.5_ | 2.0.20200520 | Ruby 2.5.8-p224 | RubyGems 3.1.3 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.7** _64bit Amazon Linux 2018.03 v2.11.7 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## June 3, 2020 – June 4, 2020 The following Elastic Beanstalk platform versions for Ruby were current between June 3, 2020 and June 4, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.0.2** _64bit Amazon Linux 2 v3.0.2 running Ruby 2.7_ | 2.0.20200520 | Ruby 2.7.1-p83 | RubyGems 3.1.3 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 AL2 version 3.0.2** _64bit Amazon Linux 2 v3.0.2 running Ruby 2.6_ | 2.0.20200520 | Ruby 2.6.6-p146 | RubyGems 3.1.3 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.5 AL2 version 3.0.2** _64bit Amazon Linux 2 v3.0.2 running Ruby 2.5_ | 2.0.20200520 | Ruby 2.5.8-p224 | RubyGems 3.1.3 | Puma 4.3.5 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## May 6, 2020 – June 2, 2020 The following Elastic Beanstalk platform versions for Ruby were current between May 6, 2020 and June 2, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.0.1** _64bit Amazon Linux 2 v3.0.1 running Ruby 2.7_ | 2.0.20200430 | Ruby 2.7.1-p83 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 AL2 version 3.0.1** _64bit Amazon Linux 2 v3.0.1 running Ruby 2.6_ | 2.0.20200430 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.5 AL2 version 3.0.1** _64bit Amazon Linux 2 v3.0.1 running Ruby 2.5_ | 2.0.20200430 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## May 4, 2020 – May 5, 2020 The following Elastic Beanstalk platform versions for Ruby were current between May 4, 2020 and May 5, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.0.0** _64bit Amazon Linux 2 v3.0.0 running Ruby 2.7_ | 2.0.20200406 | Ruby 2.7.1-p83 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 AL2 version 3.0.0** _64bit Amazon Linux 2 v3.0.0 running Ruby 2.6_ | 2.0.20200406 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.5 AL2 version 3.0.0** _64bit Amazon Linux 2 v3.0.0 running Ruby 2.5_ | 2.0.20200406 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.10-p364 | RubyGems 3.1.2 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.6** _64bit Amazon Linux 2018.03 v2.11.6 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## April 30, 2020 – May 3, 2020 The following Elastic Beanstalk platform versions for Ruby were current between April 30, 2020 and May 3, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.7 AL2 version 3.0.0** _64bit Amazon Linux 2 v3.0.0 running Ruby 2.7_ | 2.0.20200406 | Ruby 2.7.1-p83 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 AL2 version 3.0.0** _64bit Amazon Linux 2 v3.0.0 running Ruby 2.6_ | 2.0.20200406 | Ruby 2.6.6-p146 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.5 AL2 version 3.0.0** _64bit Amazon Linux 2 v3.0.0 running Ruby 2.5_ | 2.0.20200406 | Ruby 2.5.8-p224 | RubyGems 3.1.2 | Puma 4.3.3 | 3.2.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## March 27, 2020 – April 29, 2020 The following Elastic Beanstalk platform versions for Ruby were current between March 27, 2020 and April 29, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.4** _64bit Amazon Linux 2018.03 v2.11.4 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## February 28, 2020 – March 26, 2020 The following Elastic Beanstalk platform versions for Ruby were current between February 28, 2020 and March 26, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.3** _64bit Amazon Linux 2018.03 v2.11.3 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## January 21, 2020 – February 27, 2020 The following Elastic Beanstalk platform versions for Ruby were current between January 21, 2020 and February 27, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.2** _64bit Amazon Linux 2018.03 v2.11.2 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## November 25, 2019 – January 20, 2020 The following Elastic Beanstalk platform versions for Ruby were current between November 25, 2019 and January 20, 2020:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.1** _64bit Amazon Linux 2018.03 v2.11.1 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## October 17, 2019 – November 24, 2019 The following Elastic Beanstalk platform versions for Ruby were current between October 17, 2019 and November 24, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.5-p114 | RubyGems 3.0.3 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.6 with Passenger version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p114 | RubyGems 3.0.3 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Puma version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.7-p206 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.5 with Passenger version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p206 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Puma version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.9-p362 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.4 with Passenger version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p362 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Puma version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.3 with Passenger version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Puma version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.2 with Passenger version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Puma version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.1 with Passenger version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Puma version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 2.0 with Passenger version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 |
-| **Ruby 1.9 with Passenger version 2.11.0** _64bit Amazon Linux 2018.03 v2.11.0 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.16.1 | ## September 18, 2019 – October 16, 2019 The following Elastic Beanstalk platform versions for Ruby were current between September 18, 2019 and October 16, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.6-p201 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.6-p201 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.7-p357 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.7-p357 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 | ## September 6, 2019 – September 17, 2019 The following Elastic Beanstalk platform versions for Ruby were current between September 6, 2019 and September 17, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.4-p104 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.4-p104 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.6-p201 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.6-p201 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.7-p357 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.7-p357 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.10.2** _64bit Amazon Linux 2018.03 v2.10.2 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 | ## August 8, 2019 – September 5, 2019 The following Elastic Beanstalk platform versions for Ruby were current between August 8, 2019 and September 5, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.10.1** _64bit Amazon Linux 2018.03 v2.10.1 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.1.0 | nginx 1.14.1 | ## June 17, 2019 – August 7, 2019 The following Elastic Beanstalk platform versions for Ruby were current between June 17, 2019 and August 7, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.9.6** _64bit Amazon Linux 2018.03 v2.9.6 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 | The following Elastic Beanstalk platform versions for Ruby were current between June 14, 2019 and June 16, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.9.5** _64bit Amazon Linux 2018.03 v2.9.5 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 | The following Elastic Beanstalk platform versions for Ruby were current between June 7, 2019 and June 13, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.9.4** _64bit Amazon Linux 2018.03 v2.9.4 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 | The following Elastic Beanstalk platform versions for Ruby were current between April 30, 2019 and June 6, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.9.3** _64bit Amazon Linux 2018.03 v2.9.3 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 | The following Elastic Beanstalk platform versions for Ruby were current between April 2, 2019 and April 29, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.2-p47 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.2-p47 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157 | RubyGems 2.7.9 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.9.2** _64bit Amazon Linux 2018.03 v2.9.2 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 | The following Elastic Beanstalk platform versions for Ruby were current between February 21, 2019 and April 1, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.1-p33 | RubyGems 2.7.8 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.1-p33 | RubyGems 2.7.8 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.9.1** _64bit Amazon Linux 2018.03 v2.9.1 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 | The following Elastic Beanstalk platform versions for Ruby were current between January 23, 2019 and February 20, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.6 with Puma version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.6 (Puma)_ | 2018.03.0 | Ruby 2.6.0-p0 | RubyGems 3.0.2 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.6 with Passenger version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.0-p0 | RubyGems 3.0.2 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Puma version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.5 with Passenger version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Puma version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.4 with Passenger version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Puma version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.3 (Puma)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.3 with Passenger version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Puma version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.2 with Passenger version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Puma version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.1 with Passenger version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Puma version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.0 (Puma)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 2.0 with Passenger version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 |
-| **Ruby 1.9 with Passenger version 2.9.0** _64bit Amazon Linux 2018.03 v2.9.0 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | 3.0.0 | nginx 1.14.1 | The following Elastic Beanstalk platform versions for Ruby were current between December 17, 2018 and January 22, 2019:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.5 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.3 (Puma)_
-| 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.2 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.0 (Puma)_
-| 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.8.7** _64bit Amazon Linux 2018.03 v2.8.7 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between November 16, 2018 and December 16, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.5 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.3 (Puma)_
-| 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.2 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.0 (Puma)_
-| 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.8.6** _64bit Amazon Linux 2018.03 v2.8.6 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between October 29, 2018 and November 15, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.5 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.5.3-p105 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.3 (Puma)_
-| 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459 | RubyGems 2.7.7 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.2 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.0 (Puma)_
-| 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.8.5** _64bit Amazon Linux 2018.03 v2.8.5 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between September 25, 2018 and October 28, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.5 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.3 (Puma)_
-| 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.2 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.0 (Puma)_
-| 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.8.4** _64bit Amazon Linux 2018.03 v2.8.4 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between August 20, 2018 and September 24, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.5 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.3 (Puma)_
-| 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.2 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.0 (Puma)_
-| 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.8.3** _64bit Amazon Linux 2018.03 v2.8.3 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between August 15, 2018 and August 19, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.5 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.3 (Puma)_
-| 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.2 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.0 (Puma)_
-| 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.8.2** _64bit Amazon Linux 2018.03 v2.8.2 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between June 21, 2018 and August 14, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.5 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.3 (Puma)_
-| 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.2 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.0 (Puma)_
-| 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.8.1** _64bit Amazon Linux 2018.03 v2.8.1 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between May 11, 2018 and June 20, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.5 (Puma)_ | 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.5 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.5.1-p57 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.4 (Puma)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.3 (Puma)_
-| 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.2 (Puma)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.2 (Passenger Standalone)_
-| 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.1 (Puma)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.0 (Puma)_
-| 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.8.0** _64bit Amazon Linux 2018.03 v2.8.0 running Ruby 1.9.3_ | 2018.03.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between April 2, 2018 and May 10, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.5 (Puma)_ | 2017.09.1 | Ruby 2.5.0-p0 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.5 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.5.0-p0 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.4 (Puma)_ | 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.3 (Puma)_
-| 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.2 (Puma)_ | 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.2 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.1 (Puma)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.0 (Puma)_
-| 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.7.2** _64bit Amazon Linux 2017.09 v2.7.2 running Ruby 1.9.3_ | 2017.09.1 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between February 22, 2018 and April 1, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.5 with Puma version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.5 (Puma)_ | 2017.09.1 | Ruby 2.5.0-p0 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.5 with Passenger version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.5 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.5.0-p0 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.4 with Puma version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.4 (Puma)_ | 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.4 with Passenger version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.3 (Puma)_
-| 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.2 with Puma version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.2 (Puma)_ | 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.2 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.1 (Puma)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.1 with Passenger version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.0 (Puma)_
-| 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 1.9 with Passenger version 2.7.1** _64bit Amazon Linux 2017.09 v2.7.1 running Ruby 1.9.3_ | 2017.09.1 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between January 19, 2018 and February 21, 2018: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.4 with Puma version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.4 (Puma)_ | 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.4 with Passenger version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.4 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.3 (Puma)_ | 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.3 with Passenger version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.2 with Puma version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.2 (Puma)_
-| 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.1 with Puma version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.1 (Puma)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.1 with Passenger version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.1 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.0 (Puma)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.0 with Passenger version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 1.9 with Passenger version 2.6.5** _64bit Amazon Linux 2017.09 v2.6.5 running Ruby 1.9.3_
-| 2017.09.1 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between January 10, 2018 and January 18, 2018: | Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server |
-| --- | --- | --- | --- | --- | --- | | **Ruby 2.4 with Puma version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.4 (Puma)_
-| 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.4 with Passenger version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.3 with Puma version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.3 (Puma)_ | 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.3 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.2 with Puma version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.2 (Puma)_ | 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.2 with Passenger version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.1 (Puma)_
-| 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.1 with Passenger version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.0 with Puma version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.0 (Puma)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.0 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 1.9 with Passenger version 2.6.4** _64bit Amazon Linux 2017.09 v2.6.4 running Ruby 1.9.3_ | 2017.09.1 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between January 6, 2018 and January 9, 2018:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.4 with Puma version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.4 (Puma)_ | 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.4 with Passenger version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.4 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.3 (Puma)_ | 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.3 with Passenger version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.2 with Puma version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.2 (Puma)_
-| 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.1 with Puma version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.1 (Puma)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.1 with Passenger version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.1 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.0 (Puma)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.0 with Passenger version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 1.9 with Passenger version 2.6.3** _64bit Amazon Linux 2017.09 v2.6.3 running Ruby 1.9.3_
-| 2017.09.1 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between December 20, 2017 and January 5, 2018: | Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server |
-| --- | --- | --- | --- | --- | --- | | **Ruby 2.4 with Puma version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.4 (Puma)_
-| 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.4 with Passenger version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.3 with Puma version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.3 (Puma)_ | 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.3 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.3.6-p384 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.2 with Puma version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.2 (Puma)_ | 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.2 with Passenger version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480 | RubyGems 2.7.3 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.1 (Puma)_
-| 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.1 with Passenger version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.0 with Puma version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.0 (Puma)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.0 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 1.9 with Passenger version 2.6.2** _64bit Amazon Linux 2017.09 v2.6.2 running Ruby 1.9.3_ | 2017.09.1 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between November 14, 2017 and December 19, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.4 with Puma version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.4 (Puma)_ | 2017.09.1 | Ruby 2.4.2-p198 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.4 with Passenger version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.4 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.4.2-p198 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.3 with Puma version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.3 (Puma)_ | 2017.09.1 | Ruby 2.3.5-p376 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.3 with Passenger version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.5-p376 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.2 with Puma version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.2 (Puma)_
-| 2017.09.1 | Ruby 2.2.8-p477 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.8-p477 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.1 with Puma version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.1 (Puma)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.1 with Passenger version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.1 (Passenger Standalone)_
-| 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.0 with Puma version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.0 (Puma)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.0 with Passenger version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 1.9 with Passenger version 2.6.1** _64bit Amazon Linux 2017.09 v2.6.1 running Ruby 1.9.3_
-| 2017.09.1 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between October 19, 2017 and November 13, 2017: | Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server |
-| --- | --- | --- | --- | --- | --- | | **Ruby 2.4 with Puma version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.4 (Puma)_
-| 2017.09.0 | Ruby 2.4.2-p198 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.4 with Passenger version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.0 | Ruby 2.4.2-p198 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.3 with Puma version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.3 (Puma)_ | 2017.09.0 | Ruby 2.3.5-p376 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.3 with Passenger version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.3 (Passenger Standalone)_
-| 2017.09.0 | Ruby 2.3.5-p376 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.2 with Puma version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.2 (Puma)_ | 2017.09.0 | Ruby 2.2.8-p477 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.2 with Passenger version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.0 | Ruby 2.2.8-p477 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 2.1 with Puma version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.1 (Puma)_
-| 2017.09.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.1 with Passenger version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 |
-| **Ruby 2.0 with Puma version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.0 (Puma)_ | 2017.09.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.0 with Passenger version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.0 (Passenger Standalone)_
-| 2017.09.0 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | | **Ruby 1.9 with Passenger version 2.6.0** _64bit Amazon Linux 2017.09 v2.6.0 running Ruby 1.9.3_ | 2017.09.0 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.12.1 | The following Elastic Beanstalk platform versions for Ruby were current between September 25, 2017 and October 18, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.4 with Puma version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.4 (Puma)_ | 2017.03.1 | Ruby 2.4.1-p111 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.4 with Passenger version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.4 (Passenger Standalone)_
-| 2017.03.1 | Ruby 2.4.1-p111 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.3 with Puma version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.3 (Puma)_ | 2017.03.1 | Ruby 2.3.4-p301 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.3 with Passenger version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.3 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.3.4-p301 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.2 with Puma version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.2 (Puma)_
-| 2017.03.1 | Ruby 2.2.7-p470 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.2 with Passenger version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.2.7-p470 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.10.2 |
-| **Ruby 2.1 with Puma version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.1 (Puma)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 | | **Ruby 2.1 with Passenger version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.1 (Passenger Standalone)_
-| 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.0 with Puma version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.0 (Puma)_ | 2017.03.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Puma 2.16.0 | nginx 1.12.1 |
-| **Ruby 2.0 with Passenger version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.0 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.0.0-p648 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 1.9 with Passenger version 2.5.0** _64bit Amazon Linux 2017.03 v2.5.0 running Ruby 1.9.3_
-| 2017.03.1 | Ruby 1.9.3-p551 | RubyGems 2.6.13 | Passenger 4.0.60 | nginx 1.10.2 | The following Elastic Beanstalk platform versions for Ruby were current between August 30, 2017 and September 24, 2017: | Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server |
-| --- | --- | --- | --- | --- | --- | | **Ruby 2.3 with Puma version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.3 (Puma)_
-| 2017.03.1 | Ruby 2.3.4-p301 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.3 with Passenger version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.3 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.3.4-p301 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.10.2 |
-| **Ruby 2.2 with Puma version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.2 (Puma)_ | 2017.03.1 | Ruby 2.2.7-p470 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.2 with Passenger version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.2 (Passenger Standalone)_
-| 2017.03.1 | Ruby 2.2.7-p470 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.1 with Puma version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.1 (Puma)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.3 |
-| **Ruby 2.1 with Passenger version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.0 with Puma version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.0 (Puma)_
-| 2017.03.1 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.0 with Passenger version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.0 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.10.2 |
-| **Ruby 1.9 with Passenger version 2.4.4** _64bit Amazon Linux 2017.03 v2.4.4 running Ruby 1.9.3_ | 2017.03.1 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.10.2 | The following Elastic Beanstalk platform versions for Ruby were current between August 11, 2017 and August 29, 2017: | Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.3 (Puma)_ | 2017.03.1 | Ruby 2.3.4-p301 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.3 with Passenger version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.3 (Passenger Standalone)_
-| 2017.03.1 | Ruby 2.3.4-p301 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.2 with Puma version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.2 (Puma)_ | 2017.03.1 | Ruby 2.2.7-p470 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.3 |
-| **Ruby 2.2 with Passenger version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.2.7-p470 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.1 with Puma version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.1 (Puma)_
-| 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.1 with Passenger version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.10.2 |
-| **Ruby 2.0 with Puma version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.0 (Puma)_ | 2017.03.1 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.0 with Passenger version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.0 (Passenger Standalone)_
-| 2017.03.1 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 1.9 with Passenger version 2.4.3** _64bit Amazon Linux 2017.03 v2.4.3 running Ruby 1.9.3_ | 2017.03.1 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.10.2 | The following Elastic Beanstalk platform versions for Ruby were current between July 20, 2017 and August 10, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.3 (Puma)_ | 2017.03.1 | Ruby 2.3.4-p301 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.3 with Passenger version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.3 (Passenger Standalone)_
-| 2017.03.1 | Ruby 2.3.4-p301 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.2 with Puma version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.2 (Puma)_ | 2017.03.1 | Ruby 2.2.7-p470 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.3 |
-| **Ruby 2.2 with Passenger version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.2.7-p470 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 2.1 with Puma version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.1 (Puma)_
-| 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.1 with Passenger version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.10.2 |
-| **Ruby 2.0 with Puma version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.0 (Puma)_ | 2017.03.1 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.3 | | **Ruby 2.0 with Passenger version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.0 (Passenger Standalone)_
-| 2017.03.1 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.10.2 | | **Ruby 1.9 with Passenger version 2.4.2** _64bit Amazon Linux 2017.03 v2.4.2 running Ruby 1.9.3_ | 2017.03.1 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.10.2 | The following Elastic Beanstalk platform versions for Ruby were current between June 27, 2017 and July 19, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.3 (Puma)_ | 2017.03.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.2 | | **Ruby 2.3 with Passenger version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.3 (Passenger Standalone)_
-| 2017.03.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 2.2 with Puma version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.2 (Puma)_ | 2017.03.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.2 |
-| **Ruby 2.2 with Passenger version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 2.1 with Puma version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.1 (Puma)_
-| 2017.03.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.2 | | **Ruby 2.1 with Passenger version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.8.1 |
-| **Ruby 2.0 with Puma version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.0 (Puma)_ | 2017.03.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.2 | | **Ruby 2.0 with Passenger version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.0 (Passenger Standalone)_
-| 2017.03.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 1.9 with Passenger version 2.4.1** _64bit Amazon Linux 2017.03 v2.4.1 running Ruby 1.9.3_ | 2017.03.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.8.1 | The following Elastic Beanstalk platform versions for Ruby were current between May 19, 2017 and June 26, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.3 (Puma)_ | 2017.03.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.2 | | **Ruby 2.3 with Passenger version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.3 (Passenger Standalone)_
-| 2017.03.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 2.2 with Puma version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.2 (Puma)_ | 2017.03.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.2 |
-| **Ruby 2.2 with Passenger version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 2.1 with Puma version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.1 (Puma)_
-| 2017.03.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.2 | | **Ruby 2.1 with Passenger version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.8.1 |
-| **Ruby 2.0 with Puma version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.0 (Puma)_ | 2017.03.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.2 | | **Ruby 2.0 with Passenger version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.0 (Passenger Standalone)_
-| 2017.03.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 1.9 with Passenger version 2.4.0** _64bit Amazon Linux 2017.03 v2.4.0 running Ruby 1.9.3_ | 2017.03.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.8.1 | The following Elastic Beanstalk platform versions for Ruby were current between April 5, 2017 and May 18, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Puma)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.3 with Passenger version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.2 with Puma version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Puma)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.1 |
-| **Ruby 2.2 with Passenger version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.1 with Puma version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Puma)_
-| 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.1 with Passenger version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.10.1 |
-| **Ruby 2.0 with Puma version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Puma)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.0 with Passenger version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 1.9 with Passenger version 2.3.3** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 1.9.3_ | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.10.1 | The following Elastic Beanstalk platform versions for Ruby were current between March 8, 2017 and April 4, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Puma)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.3 with Passenger version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.2 with Puma version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Puma)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.1 |
-| **Ruby 2.2 with Passenger version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.1 with Puma version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Puma)_
-| 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.1 with Passenger version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.10.1 |
-| **Ruby 2.0 with Puma version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Puma)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.0 with Passenger version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 1.9 with Passenger version 2.3.2** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 1.9.3_ | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.10.1 | The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2017 and March 7, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Puma)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.3 with Passenger version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.2 with Puma version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Puma)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.1 |
-| **Ruby 2.2 with Passenger version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.1 with Puma version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Puma)_
-| 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.1 with Passenger version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.10.1 |
-| **Ruby 2.0 with Puma version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Puma)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.0 with Passenger version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 1.9 with Passenger version 2.3.1** _64bit Amazon Linux 2016.09 v2.3.1 running Ruby 1.9.3_ | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.10.1 | The following Elastic Beanstalk platform versions for Ruby were current between December 22, 2016 and January 27, 2017:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.3 (Puma)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.3 with Passenger version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.3 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.2 with Puma version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.2 (Puma)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.1 |
-| **Ruby 2.2 with Passenger version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.2 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.1 with Puma version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.1 (Puma)_
-| 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.1 with Passenger version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.1 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.10.1 |
-| **Ruby 2.0 with Puma version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.0 (Puma)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.0 with Passenger version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.0 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 1.9 with Passenger version 2.3.0** _64bit Amazon Linux 2016.09 v2.3.0 running Ruby 1.9.3_ | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.10.1 | The following Elastic Beanstalk platform versions for Ruby were current between October 28, 2016 and December 21, 2016:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.3 (Puma)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.3 with Passenger version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.3 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.2 with Puma version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.2 (Puma)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.10.1 |
-| **Ruby 2.2 with Passenger version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.2 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 2.1 with Puma version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.1 (Puma)_
-| 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.1 with Passenger version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.1 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.10.1 |
-| **Ruby 2.0 with Puma version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.0 (Puma)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.10.1 | | **Ruby 2.0 with Passenger version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.0 (Passenger Standalone)_
-| 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.10.1 | | **Ruby 1.9 with Passenger version 2.2.0** _64bit Amazon Linux 2016.09 v2.2.0 running Ruby 1.9.3_ | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.10.1 | The following Elastic Beanstalk platform versions for Ruby were current between August 24, 2016 and October 27, 2016:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.3 (Puma)_ | 2016.03.3 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.8.1 | | **Ruby 2.3 with Passenger version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.3 (Passenger Standalone)_
-| 2016.03.3 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 2.2 with Puma version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.2 (Puma)_ | 2016.03.3 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.8.1 |
-| **Ruby 2.2 with Passenger version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.2 (Passenger Standalone)_ | 2016.03.3 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 2.1 with Puma version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.1 (Puma)_
-| 2016.03.3 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.8.1 | | **Ruby 2.1 with Passenger version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.1 (Passenger Standalone)_ | 2016.03.3 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.8.1 |
-| **Ruby 2.0 with Puma version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.0 (Puma)_ | 2016.03.3 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.8.1 | | **Ruby 2.0 with Passenger version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.0 (Passenger Standalone)_
-| 2016.03.3 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 1.9 with Passenger version 2.1.6** _64bit Amazon Linux 2016.03 v2.1.6 running Ruby 1.9.3_ | 2016.03.3 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.8.1 | The following Elastic Beanstalk platform versions for Ruby were current between June 26, 2016 and August 24, 2016:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.3 (Puma)_ | 2016.03.2 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Puma 2.16.0 | nginx 1.8.1 | | **Ruby 2.3 with Passenger version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.3 (Passenger Standalone)_
-| 2016.03.2 | Ruby 2.3.1-p112 | RubyGems 2.5.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 2.2 with Puma version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.2 (Puma)_ | 2016.03.2 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Puma 2.16.0 | nginx 1.8.1 |
-| **Ruby 2.2 with Passenger version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.2 (Passenger Standalone)_ | 2016.03.2 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 2.1 with Puma version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.1 (Puma)_
-| 2016.03.2 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Puma 2.16.0 | nginx 1.8.1 | | **Ruby 2.1 with Passenger version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.1 (Passenger Standalone)_ | 2016.03.2 | Ruby 2.1.9-p490 | RubyGems 2.2.5 | Passenger 4.0.60 | nginx 1.8.1 |
-| **Ruby 2.0 with Puma version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.0 (Puma)_ | 2016.03.2 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0 | nginx 1.8.1 | | **Ruby 2.0 with Passenger version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.0 (Passenger Standalone)_
-| 2016.03.2 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60 | nginx 1.8.1 | | **Ruby 1.9 with Passenger version 2.1.3** _64bit Amazon Linux 2016.03 v2.1.3 running Ruby 1.9.3_ | 2016.03.2 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60 | nginx 1.8.1 | The following Elastic Beanstalk platform versions for Ruby were current between May 13, 2016 and June 26, 2016:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.3 (Puma)_ | 2016.03 | Ruby 2.3 | RubyGems 2.5.1 | Puma 2.10.2 | nginx 1.8.1 | | **Ruby 2.3 with Passenger version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.3 (Passenger Standalone)_
-| 2016.03 | Ruby 2.3 | RubyGems 2.5.1 | Passenger 4.0.59 | nginx 1.8.1 | | **Ruby 2.2 with Puma version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.2 (Puma)_ | 2016.03 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1 | Puma 2.10.2 | nginx 1.8.1 |
-| **Ruby 2.2 with Passenger version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.2 (Passenger Standalone)_ | 2016.03 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1 | Passenger 4.0.59 | nginx 1.8.1 | | **Ruby 2.1 with Puma version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.1 (Puma)_
-| 2016.03 | Ruby 2.1.8-p440 | RubyGems 2.2.5 | Puma 2.10.2 | nginx 1.8.1 | | **Ruby 2.1 with Passenger version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.1 (Passenger Standalone)_ | 2016.03 | Ruby 2.1.8-p440 | RubyGems 2.2.5 | Passenger 4.0.59 | nginx 1.8.1 |
-| **Ruby 2.0 with Puma version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.0 (Puma)_ | 2016.03 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.10.2 | nginx 1.8.1 | | **Ruby 2.0 with Passenger version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.0 (Passenger Standalone)_
-| 2016.03 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.59 | nginx 1.8.1 | | **Ruby 1.9 with Passenger version 2.1.2** _64bit Amazon Linux 2016.03 v2.1.2 running Ruby 1.9.3_ | 2016.03 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59 | nginx 1.8.1 | The following Elastic Beanstalk platform versions for Ruby were current between April 7, 2016 and May 13, 2016:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Proxy Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.3 with Puma version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.3 (Puma)_ | 2016.03 | Ruby 2.3 | RubyGems 2.5.1 | Puma 2.10.2 | nginx 1.8.1 | | **Ruby 2.3 with Passenger version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.3 (Passenger Standalone)_ | 2016.03 | Ruby 2.3 | RubyGems 2.5.1 | Passenger 4.0.59 | nginx 1.8.1 |
-| **Ruby 2.2 with Puma version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.2 (Puma)_ | 2016.03 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1 | Puma 2.10.2 | nginx 1.8.1 | | **Ruby 2.2 with Passenger version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.2 (Passenger Standalone)_ | 2016.03 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1 | Passenger 4.0.59 | nginx 1.8.1 |
-| **Ruby 2.1 with Puma version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.1 (Puma)_ | 2016.03 | Ruby 2.1.8-p440 | RubyGems 2.2.5 | Puma 2.10.2 | nginx 1.8.1 | | **Ruby 2.1 with Passenger version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.1 (Passenger Standalone)_ | 2016.03 | Ruby 2.1.8-p440 | RubyGems 2.2.5 | Passenger 4.0.59 | nginx 1.8.1 |
-| **Ruby 2.0 with Puma version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.0 (Puma)_ | 2016.03 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.10.2 | nginx 1.8.1 | | **Ruby 2.0 with Passenger version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.0 (Passenger Standalone)_ | 2016.03 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.59 | nginx 1.8.1 |
-| **Ruby 1.9 with Passenger version 2.1.0** _64bit Amazon Linux 2016.03 v2.1.0 running Ruby 1.9.3_ | 2016.03 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59 | nginx 1.8.1 | The following Elastic Beanstalk platform versions for Ruby were current between February 26, 2016 and April 7, 2016: | Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Web Server |
-| --- | --- | --- | --- | --- | --- | | **Ruby 2.2 with Puma version 2.0.8** _64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.2 (Puma)_ | 2015.09 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1 | Puma 2.10.2 | nginx 1.8.0 |
-| **Ruby 2.2 with Passenger version 2.0.8** _64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.2 (Passenger Standalone)_ | 2015.09 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1 | Passenger 4.0.59 | nginx 1.8.0 | | **Ruby 2.1 with Puma version 2.0.8** _64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.1 (Puma)_ | 2015.09 | Ruby 2.1.8-p440 | RubyGems 2.2.5 | Puma 2.10.2 | nginx 1.8.0 |
-| **Ruby 2.1 with Passenger version 2.0.8** _64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.1 (Passenger Standalone)_ | 2015.09 | Ruby 2.1.8-p440 | RubyGems 2.2.5 | Passenger 4.0.59 | nginx 1.8.0 | | **Ruby 2.0 with Puma version 2.0.8** _64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.0 (Puma)_ | 2015.09 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.10.2 | nginx 1.8.0 |
-| **Ruby 2.0 with Passenger version 2.0.8** _64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.0 (Passenger Standalone)_ | 2015.09 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.59 | nginx 1.8.0 | | **Ruby 1.9 with Passenger version 2.0.8** _64bit Amazon Linux 2015.09 v2.0.8 running Ruby 1.9.3_ | 2015.09 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59 | nginx 1.8.0 | The following Elastic Beanstalk platform versions for Ruby were current between January 11, 2016 and February 26, 2016:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Web Server | | --- | --- | --- | --- | --- | --- |
-| **Ruby 2.2 with Puma version 2.0.6** _64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.2 (Puma)_ | 2015.09 | Ruby 2.2.3 | RubyGems 2.4.5.1 | Puma 2.10.2 | nginx 1.8.0 | | **Ruby 2.2 with Passenger version 2.0.6** _64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.2 (Passenger Standalone)_ | 2015.09 | Ruby 2.2.3 | RubyGems 2.4.5.1 | Passenger 4.0.59 | nginx 1.8.0 |
-| **Ruby 2.1 with Puma version 2.0.6** _64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.1 (Puma)_ | 2015.09 | Ruby 2.1.7 | RubyGems 2.2.5 | Puma 2.10.2 | nginx 1.8.0 | | **Ruby 2.1 with Passenger version 2.0.6** _64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.1 (Passenger Standalone)_ | 2015.09 | Ruby 2.1.7 | RubyGems 2.2.5 | Passenger 4.0.59 | nginx 1.8.0 |
-| **Ruby 2.0 with Puma version 2.0.6** _64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.0 (Puma)_ | 2015.09 | Ruby 2.0.0-p647 | RubyGems 2.0.14.1 | Puma 2.10.2 | nginx 1.8.0 | | **Ruby 2.0 with Passenger version 2.0.6** _64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.0 (Passenger Standalone)_ | 2015.09 | Ruby 2.0.0-p647 | RubyGems 2.0.14.1 | Passenger 4.0.59 | nginx 1.8.0 |
-| **Ruby 1.9 with Passenger version 2.0.6** _64bit Amazon Linux 2015.09 v2.0.6 running Ruby 1.9.3_ | 2015.09 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59 | nginx 1.8.0 | The following Elastic Beanstalk platform versions for Ruby were current between November 4, 2015 and January 11, 2016: | Platform Version and _Solution Stack Name_ | AMI | Language | Package Manager | Application Server | Web Server |
-| --- | --- | --- | --- | --- | --- | | **Ruby 2.2 with Puma version 2.0.4** _64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.2 (Puma)_ | 2015.09 | Ruby 2.2.3 | RubyGems 2.4.5.1 | Puma 2.10.2 | nginx 1.8.0 |
-| **Ruby 2.2 with Passenger version 2.0.4** _64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.2 (Passenger Standalone)_ | 2015.09 | Ruby 2.2.3 | RubyGems 2.4.5.1 | Passenger 4.0.59 | nginx 1.8.0 | | **Ruby 2.1 with Puma version 2.0.4** _64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.1 (Puma)_ | 2015.09 | Ruby 2.1.7 | RubyGems 2.2.5 | Puma 2.10.2 | nginx 1.8.0 |
-| **Ruby 2.1 with Passenger version 2.0.4** _64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.1 (Passenger Standalone)_ | 2015.09 | Ruby 2.1.7 | RubyGems 2.2.5 | Passenger 4.0.59 | nginx 1.8.0 | | **Ruby 2.0 with Puma version 2.0.4** _64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.0 (Puma)_ | 2015.09 | Ruby 2.0.0-p647 | RubyGems 2.0.14.1 | Puma 2.10.2 | nginx 1.8.0 |
-| **Ruby 2.0 with Passenger version 2.0.4** _64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.0 (Passenger Standalone)_ | 2015.09 | Ruby 2.0.0-p647 | RubyGems 2.0.14.1 | Passenger 4.0.59 | nginx 1.8.0 | | **Ruby 1.9 with Passenger version 2.0.4** _64bit Amazon Linux 2015.09 v2.0.4 running Ruby 1.9.3_ | 2015.09 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59 | nginx 1.8.0 | The following Elastic Beanstalk platform versions for Ruby were current between September 18, 2015 and November 4, 2015:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Application Server | Web Server | | --- | --- | --- | --- | --- |
-| **Ruby 2.2 with Puma version 2.0.1** _64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.2 (Puma)_ | 2015.03 | Ruby 2.2.2 | Puma 2.10.2 | Nginx 1.6.2 | | **Ruby 2.2 with Passenger version 2.0.1** _64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.2 (Passenger Standalone)_ | 2015.03 | Ruby 2.2.2 | Passenger 4.0.59 | Nginx 1.6.2 |
-| **Ruby 2.1 with Puma version 2.0.1** _64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.1 (Puma)_ | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2 | Nginx 1.6.2 | | **Ruby 2.1 with Passenger version 2.0.1** _64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.1 (Passenger Standalone)_ | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 | Nginx 1.6.2 |
-| **Ruby 2.0 with Puma version 2.0.1** _64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.0 (Puma)_ | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2 | Nginx 1.6.2 | | **Ruby 2.0 with Passenger version 2.0.1** _64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.0 (Passenger Standalone)_ | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 | Nginx 1.6.2 |
-| **Ruby 1.9 with Passenger version 2.0.1** _64bit Amazon Linux 2015.03 v2.0.1 running Ruby 1.9.3_ | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 | Nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between August 11, 2015 and September 18, 2015: | Platform Version and _Solution Stack Name_ | AMI | Language | Application Server | Web Server |
-| --- | --- | --- | --- | --- | | **Ruby 2.2 with Puma version 2.0.0** _64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.2 (Puma)_ | 2015.03 | Ruby 2.2.2 | Puma 2.10.2 | nginx 1.6.2 |
-| **Ruby 2.2 with Passenger version 2.0.0** _64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.2 (Passenger Standalone)_ | 2015.03 | Ruby 2.2.2 | Passenger 4.0.59 | nginx 1.6.2 | | **Ruby 2.1 with Puma version 2.0.0** _64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.1 (Puma)_ | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2 | nginx 1.6.2 |
-| **Ruby 2.1 with Passenger version 2.0.0** _64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.1 (Passenger Standalone)_ | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 | nginx 1.6.2 | | **Ruby 2.0 with Puma version 2.0.0** _64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.0 (Puma)_ | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2 | nginx 1.6.2 |
-| **Ruby 2.0 with Passenger version 2.0.0** _64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.0 (Passenger Standalone)_ | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 | nginx 1.6.2 | | **Ruby 1.9 with Passenger version 2.0.0** _64bit Amazon Linux 2015.03 v2.0.0 running Ruby 1.9.3_ | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 | nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between August 3, 2015 and August 11, 2015:
-| Platform Version and _Solution Stack Name_ | AMI | Language | Application Server | Web Server | | --- | --- | --- | --- | --- |
-| **Ruby 2.2 with Puma version 1.4.6** _64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.2 (Puma)_ | 2015.03 | Ruby 2.2.2 | Puma 2.10.2 | nginx 1.6.2 | | **Ruby 2.2 with Passenger version 1.4.6** _64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.2 (Passenger Standalone)_ | 2015.03 | Ruby 2.2.2 | Passenger 4.0.59 | nginx 1.6.2 |
-| **Ruby 2.1 with Puma version 1.4.6** _64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.1 (Puma)_ | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2 | nginx 1.6.2 | | **Ruby 2.1 with Passenger version 1.4.6** _64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.1 (Passenger Standalone)_ | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 | nginx 1.6.2 |
-| **Ruby 2.0 with Puma version 1.4.6** _64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.0 (Puma)_ | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2 | nginx 1.6.2 | | **Ruby 2.0 with Passenger version 1.4.6** _64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.0 (Passenger Standalone)_ | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 | nginx 1.6.2 |
-| **Ruby 1.9 with Passenger version 1.4.6** _64bit Amazon Linux 2015.03 v1.4.6 running Ruby 1.9.3_ | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 | nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between June 15, 2015 and August 3, 2015: | Platform Version and _Solution Stack Name_ | AMI | Language | Application Server | Web Server |
-| --- | --- | --- | --- | --- | | **Ruby 2.2 with Puma version 1.4.3** _64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.2 (Puma)_ | 2015.03 | Ruby 2.2.2 | Puma 2.10.2 | nginx 1.6.2 |
-| **Ruby 2.2 with Passenger version 1.4.3** _64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.2 (Passenger Standalone)_ | 2015.03 | Ruby 2.2.2 | Passenger 4.0.59 | nginx 1.6.2 | | **Ruby 2.1 with Puma version 1.4.3** _64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.1 (Puma)_ | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2 | nginx 1.6.2 |
-| **Ruby 2.1 with Passenger version 1.4.3** _64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.1 (Passenger Standalone)_ | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 | nginx 1.6.2 | | **Ruby 2.0 with Puma version 1.4.3** _64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.0 (Puma)_ | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2 | nginx 1.6.2 |
-| **Ruby 2.0 with Passenger version 1.4.3** _64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.0 (Passenger Standalone)_ | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 | nginx 1.6.2 | | **Ruby 1.9 with Passenger version 1.4.3** _64bit Amazon Linux 2015.03 v1.4.3 running Ruby 1.9.3_ | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 | nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between May 27, 2015 and June 15, 2015:
-| **Ruby Configurations** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.2 (Puma) | 2015.03 | Ruby 2.2.2 | Puma 2.10.2 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2 | Passenger 4.0.59 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.1 (Puma) | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.1 (Passenger Standalone) | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.0 (Puma) | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.0 (Passenger Standalone) | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 1.9.3 | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 and nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between April 22, 2015 and May 26, 2015: | **Ruby Container Types** | | --- |
-| **Name** | **AMI** | **Language** | **Application/Web Server** | | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Puma) | 2015.03 | Ruby 2.2.2 | Puma 2.10.2 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2 | Passenger 4.0.59 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.1 (Puma) | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.1 (Passenger Standalone) | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.0 (Puma) | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.0 (Passenger Standalone) | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 1.9.3 | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 and nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between April 8, 2015 and April 21, 2015:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Puma) | 2015.03 | Ruby 2.2.2 | Puma 2.9.1 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2 | Passenger 4.0.59 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.1 (Puma) | 2015.03 | Ruby 2.1.5-p273 | Puma 2.9.1 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.1 (Passenger Standalone) | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.0 (Puma) | 2015.03 | Ruby 2.0.0-p598 | Puma 2.9.1 and nginx 1.6.2 | | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.0 (Passenger Standalone) | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 and nginx 1.6.2 |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 1.9.3 | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 and nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between March 24, 2015 and April 7, 2015: | **Ruby Container Types** | | --- |
-| **Name** | **AMI** | **Language** | **Application/Web Server** | | 64bit Amazon Linux 2014.09 v1.2.1 running Ruby 2.2 (Puma) | 2014.09 | Ruby 2.2.0 | Puma 2.9.1 and nginx 1.6.2 |
-| 64bit Amazon Linux 2014.09 v1.2.1 running Ruby 2.2 (Passenger Standalone) | 2014.09 | Ruby 2.2.0 | Passenger 4.0.59 and nginx 1.6.2 | | 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Puma) | 2014.09 | Ruby 2.1.5-p273 | Puma 2.9.1 and nginx 1.6.2 |
-| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.5-p273 | Passenger 4.0.53 and nginx 1.6.2 | | 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.0 (Puma) | 2014.09 | Ruby 2.0.0-p598 | Puma 2.9.1 and nginx 1.6.2 |
-| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.0 (Passenger Standalone) | 2014.09 | Ruby 2.0.0-p598 | Passenger 4.0.53 and nginx 1.6.2 | | 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 1.9.3 | 2014.09 | Ruby 1.9.3-p551 | Passenger 4.0.53 and nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between February 17, 2015 and March 23, 2015:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Puma) | 2014.09 | Ruby 2.1.5-p273 | Puma 2.9.1 and nginx 1.6.2 | | 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.5-p273 | Passenger 4.0.53 and nginx 1.6.2 |
-| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.0 (Puma) | 2014.09 | Ruby 2.0.0-p598 | Puma 2.9.1 and nginx 1.6.2 | | 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.0 (Passenger Standalone) | 2014.09 | Ruby 2.0.0-p598 | Passenger 4.0.53 and nginx 1.6.2 |
-| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 1.9.3 | 2014.09 | Ruby 1.9.3-p551 | Passenger 4.0.53 and nginx 1.6.2 | The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2015 and February 16, 2015: | **Ruby Container Types** | | --- |
-| **Name** | **AMI** | **Language** | **Application/Web Server** | | 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.1 (Puma) | 2014.09 | Ruby 2.1.4 | Puma 2.9.1 and nginx 1.6.2 |
-| 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.4 | Passenger 4.0.53 | | 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.0 (Puma) | 2014.09 | Ruby 2.0.0-p594 | Puma 2.9.1 and nginx 1.6.2 |
-| 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.0 (Passenger Standalone) | 2014.09 | Ruby 2.0.0-p594 | Passenger 4.0.53 | | 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 1.9.3 | 2014.09 | Ruby 1.9.3-p550 | Passenger 4.0.53 |
-| 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 2.1 (Puma) | 2014.03 | Ruby 2.1.2-p95 | Puma 2.8.1 and nginx 1.4.7 | | 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 2.1 (Passenger Standalone) | 2014.03 | Ruby 2.1.2 | Passenger 4.0.37 |
-| 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0-p481 | Puma 2.8.1 and nginx 1.4.7 | | 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2014.03 v1.1.01 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | The following Elastic Beanstalk platform versions for Ruby were current between October 31, 2014 and January 27, 2015:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.1 (Puma) | 2014.09 | Ruby 2.1.4 | Puma 2.9.1 and nginx 1.6.2 | | 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.4 | Passenger 4.0.53 |
-| 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.0 (Puma) | 2014.09 | Ruby 2.0.0-p594 | Puma 2.9.1 and nginx 1.6.2 | | 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.0 (Passenger Standalone) | 2014.09 | Ruby 2.0.0-p594 | Passenger 4.0.53 |
-| 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 1.9.3 | 2014.09 | Ruby 1.9.3-p550 | Passenger 4.0.53 | The following Elastic Beanstalk platform versions for Ruby were current between October 16, 2014 and October 30, 2014: | **Ruby Container Types** | | --- |
-| **Name** | **AMI** | **Language** | **Application/Web Server** | | 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.1 (Puma) | 2014.03 | Ruby 2.1.2 | Puma 2.8.1 and nginx 1.4.7 |
-| 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.1 (Passenger Standalone) | 2014.03 | Ruby 2.1.2 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 |
-| 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 | | 32bit Amazon Linux 2014.03 v1.0.91 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 |
-| 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | 1[CVE-2014-3566 Advisory](https://aws.amazon.com/security/security-bulletins/CVE-2014-3566-advisory/ "https://aws.amazon.com/security/security-bulletins/CVE-2014-3566-advisory/") The following Elastic Beanstalk platform versions for Ruby were current between September 24, 2014 and October 15, 2014: | **Ruby Container Types** | | --- |
-| **Name** | **AMI** | **Language** | **Application/Web Server** | | 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.1 (Puma) | 2014.03 | Ruby 2.1.2 | Puma 2.8.1 and nginx 1.4.7 |
-| 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.1 (Passenger Standalone) | 2014.03 | Ruby 2.1.2 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 |
-| 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 | | 32bit Amazon Linux 2014.03 v1.0.71 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 |
-| 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | 1 [CVE-2014-6271 Advisory](http://aws.amazon.com/security/security-bulletins/CVE_2014_6271_advisory/ "http://aws.amazon.com/security/security-bulletins/CVE_2014_6271_advisory/") and [ALAS-2014-419](https://alas.aws.amazon.com/ALAS-2014-419.html "https://alas.aws.amazon.com/ALAS-2014-419.html") The following Elastic Beanstalk platform versions for Ruby were current between August 14, 2014 and September 23, 2014: | **Ruby Container Types** | | --- |
-| **Name** | **AMI** | **Language** | **Application/Web Server** | | 64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Puma) | 2014.03 | Ruby 2.1.2 | Puma 2.8.1 and nginx 1.4.7 |
-| 64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Passenger Standalone) | 2014.03 | Ruby 2.1.2 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 |
-| 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | The following Elastic Beanstalk platform versions for Ruby were current between June 30, 2014 and August 13, 2014:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 | | 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 |
-| 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | The following Elastic Beanstalk platform versions for Ruby were current between June 5, 2014 and June 29, 2014: | **Ruby Container Types** | | --- |
-| **Name** | **AMI** | **Language** | **Application/Web Server** | | 64bit Amazon Linux 2014.03 v1.0.41 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 |
-| 64bit Amazon Linux 2014.03 v1.0.31 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 | | 32bit Amazon Linux 2014.03 v1.0.31 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 |
-| 64bit Amazon Linux 2014.03 v1.0.31 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | 1 [OpenSSL Security Advisory](http://aws.amazon.com/security/security-bulletins/openssl-security-advisory/ "http://aws.amazon.com/security/security-bulletins/openssl-security-advisory/") The following Elastic Beanstalk platform versions for Ruby were current between May 14, 2014 and June 4, 2014: | **Ruby Container Types** | | --- |
-| **Name** | **AMI** | **Language** | **Application/Web Server** | | 64bit Amazon Linux 2014.03 v1.0.3 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 | The following Elastic Beanstalk platform versions for Ruby were current between May 5, 2014 and May 13, 2014:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 64bit Amazon Linux 2014.03 v1.0.2 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 | | 64bit Amazon Linux 2014.03 v1.0.2 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2014.03 v1.0.2 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.03 v1.0.2 running Ruby 1.9.3 | 2014.03 | Ruby 1.9.3 | Passenger 4.0.37 | The following Elastic Beanstalk platform versions for Ruby were current between April 7, 2014 and May 4, 2014:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 64bit Amazon Linux 2014.03 v1.0.12 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 | | 64bit Amazon Linux 2014.03 v1.0.12 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2014.02 v1.0.11 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.02 v1.0.11 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2014.02 v1.0.11 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.02 v1.0.11 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2013.09 v1.0.11 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.20 | | 64bit Amazon Linux 2013.09 v1.0.11 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.20 |
-| 32bit Amazon Linux 2013.09 v1.0.11 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.20 | | 64bit Amazon Linux 2013.09 v1.0.11 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.20 | 1 [openssl-1.0.1e-4.58.amzn1](https://forums.aws.amazon.com/message.jspa?messageID=535563#535563 "https://forums.aws.amazon.com/message.jspa?messageID=535563#535563") 2 [openssl-1.0.1e-37.66.amzn1](https://aws.amazon.com/amazon-linux-ami/security-bulletins/ALAS-2014-320/ "https://aws.amazon.com/amazon-linux-ami/security-bulletins/ALAS-2014-320/") The following Elastic Beanstalk platform versions for Ruby were current between April 2, 2014 and April 6, 2014:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 64bit Amazon Linux 2014.03 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0 | Puma 2.8.1 and nginx 1.4.7 | | 64bit Amazon Linux 2014.03 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2014.02 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.02 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2014.02 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.02 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.20 | | 64bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.20 |
-| 32bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.20 | | 64bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.20 | The following Elastic Beanstalk platform versions for Ruby were current between March 18, 2014 and April 1, 2014:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 32bit Amazon Linux 2014.02 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.02 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2014.02 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.37 | | 64bit Amazon Linux 2014.02 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.37 |
-| 32bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.20 | | 64bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.20 |
-| 32bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.20 | | 64bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.20 | The following Elastic Beanstalk platform versions for Ruby were current between November 9, 2013 and March 17, 2014:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 32bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.20 | | 64bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3 | Passenger 4.0.20 |
-| 32bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.20 | | 64bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7 | Passenger 4.0.20 | The following Elastic Beanstalk platform versions for Ruby were current prior to November 9, 2013:
-| **Ruby Container Types** | | --- | | **Name** | **AMI** | **Language** | **Application/Web Server** |
-| 32bit Amazon Linux running Ruby 1.9.3 | 2012.09 | Ruby 1.9.3 | Passenger 3.0.17 | | 64bit Amazon Linux running Ruby 1.9.3 | 2012.09 | Ruby 1.9.3 | Passenger 3.0.17 |
-| 32bit Amazon Linux running Ruby 1.8.7 | 2012.09 | Ruby 1.8.7 | Passenger 3.0.17 | | 64bit Amazon Linux running Ruby 1.8.7 | 2012.09 | Ruby 1.8.7 | Passenger 3.0.17 |
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.7.3**<br>_64bit Amazon Linux 2023 v4.7.3 running Ruby 3.4_ | 2023.9.20251027 | Ruby 3.4.7-p58   | RubyGems 3.6.9  | Puma 7.1.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.7.3**<br>_64bit Amazon Linux 2023 v4.7.3 running Ruby 3.3_ | 2023.9.20251027 | Ruby 3.3.10-p183 | RubyGems 3.5.22 | Puma 7.1.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.7.3**<br>_64bit Amazon Linux 2023 v4.7.3 running Ruby 3.2_ | 2023.9.20251027 | Ruby 3.2.8       | RubyGems 3.4.19 | Puma 7.1.0         | 3.3.15    | nginx 1.28.0 |
+
+## October 27, 2025 – November 4, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 27, 2025 and November 4, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.7.2**<br>_64bit Amazon Linux 2023 v4.7.2 running Ruby 3.4_ | 2023.9.20251014 | Ruby 3.4.7-p58   | RubyGems 3.6.9  | Puma 7.1.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.7.2**<br>_64bit Amazon Linux 2023 v4.7.2 running Ruby 3.3_ | 2023.9.20251014 | Ruby 3.3.10-p183 | RubyGems 3.5.22 | Puma 7.1.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.7.2**<br>_64bit Amazon Linux 2023 v4.7.2 running Ruby 3.2_ | 2023.9.20251014 | Ruby 3.2.8       | RubyGems 3.4.19 | Puma 7.1.0         | 3.3.15    | nginx 1.28.0 |
+
+## October 16, 2025 – October 26, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 16, 2025 and October 26, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.7.1**<br>_64bit Amazon Linux 2023 v4.7.1 running Ruby 3.4_ | 2023.9.20250929 | Ruby 3.4.6-p54  | RubyGems 3.6.9  | Puma 7.0.4         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.7.1**<br>_64bit Amazon Linux 2023 v4.7.1 running Ruby 3.3_ | 2023.9.20250929 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 7.0.4         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.7.1**<br>_64bit Amazon Linux 2023 v4.7.1 running Ruby 3.2_ | 2023.9.20250929 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 7.0.4         | 3.3.15    | nginx 1.28.0 |
+
+## October 7, 2025 – October 15, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 7, 2025 and October 15, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.7.1**<br>_64bit Amazon Linux 2023 v4.7.1 running Ruby 3.4_ | 2023.9.20250929 | Ruby 3.4.6-p54  | RubyGems 3.6.9  | Puma 7.0.4         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.7.1**<br>_64bit Amazon Linux 2023 v4.7.1 running Ruby 3.3_ | 2023.9.20250929 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 7.0.4         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.7.1**<br>_64bit Amazon Linux 2023 v4.7.1 running Ruby 3.2_ | 2023.9.20250929 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 7.0.4         | 3.3.15    | nginx 1.28.0 |
+
+## September 16, 2025 – October 6, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 16, 2025 and October 6, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.7.0**<br>_64bit Amazon Linux 2023 v4.7.0 running Ruby 3.4_ | 2023.8.20250908 | Ruby 3.4.5-p51  | RubyGems 3.6.9  | Puma 7.0.2         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.7.0**<br>_64bit Amazon Linux 2023 v4.7.0 running Ruby 3.3_ | 2023.8.20250908 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 7.0.2         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.7.0**<br>_64bit Amazon Linux 2023 v4.7.0 running Ruby 3.2_ | 2023.8.20250908 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 7.0.2         | 3.3.15    | nginx 1.28.0 |
+
+## August 22, 2025 – September 15, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 22, 2025 and September 15, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.6.4**<br>_64bit Amazon Linux 2023 v4.6.4 running Ruby 3.4_ | 2023.8.20250818 | Ruby 3.4.5-p51  | RubyGems 3.6.9  | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.6.4**<br>_64bit Amazon Linux 2023 v4.6.4 running Ruby 3.3_ | 2023.8.20250818 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.6.4**<br>_64bit Amazon Linux 2023 v4.6.4 running Ruby 3.2_ | 2023.8.20250818 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+
+## August 20, 2025 – August 21, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 20, 2025 and August 21, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.6.4**<br>_64bit Amazon Linux 2023 v4.6.4 running Ruby 3.4_ | 2023.8.20250818 | Ruby 3.4.5-p51  | RubyGems 3.6.9  | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.6.4**<br>_64bit Amazon Linux 2023 v4.6.4 running Ruby 3.3_ | 2023.8.20250818 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.6.4**<br>_64bit Amazon Linux 2023 v4.6.4 running Ruby 3.2_ | 2023.8.20250818 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+
+## August 7, 2025 – August 19, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 7, 2025 and August 19, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.6.3**<br>_64bit Amazon Linux 2023 v4.6.3 running Ruby 3.4_ | 2023.8.20250804 | Ruby 3.4.5-p51  | RubyGems 3.6.9  | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.6.3**<br>_64bit Amazon Linux 2023 v4.6.3 running Ruby 3.3_ | 2023.8.20250804 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.6.3**<br>_64bit Amazon Linux 2023 v4.6.3 running Ruby 3.2_ | 2023.8.20250804 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.1         | 3.3.15    | nginx 1.28.0 |
+
+## July 31, 2025 – August 6, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 31, 2025 and August 6, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.6.2**<br>_64bit Amazon Linux 2023 v4.6.2 running Ruby 3.4_ | 2023.8.20250721 | Ruby 3.4.5-p51  | RubyGems 3.6.9  | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.6.2**<br>_64bit Amazon Linux 2023 v4.6.2 running Ruby 3.3_ | 2023.8.20250721 | Ruby 3.3.9-p170 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.6.2**<br>_64bit Amazon Linux 2023 v4.6.2 running Ruby 3.2_ | 2023.8.20250721 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+
+## July 30, 2025 – July 30, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 30, 2025 and July 30, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.6.1**<br>_64bit Amazon Linux 2023 v4.6.1 running Ruby 3.4_ | 2023.8.20250707 | Ruby 3.4.5-p51  | RubyGems 3.6.9  | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.6.1**<br>_64bit Amazon Linux 2023 v4.6.1 running Ruby 3.3_ | 2023.8.20250707 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.6.1**<br>_64bit Amazon Linux 2023 v4.6.1 running Ruby 3.2_ | 2023.8.20250707 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+
+## July 17, 2025 – July 29, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 17, 2025 and July 29, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.6.1**<br>_64bit Amazon Linux 2023 v4.6.1 running Ruby 3.4_ | 2023.8.20250707 | Ruby 3.4.5-p51  | RubyGems 3.6.9  | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.6.1**<br>_64bit Amazon Linux 2023 v4.6.1 running Ruby 3.3_ | 2023.8.20250707 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.6.1**<br>_64bit Amazon Linux 2023 v4.6.1 running Ruby 3.2_ | 2023.8.20250707 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.0         | 3.3.15    | nginx 1.28.0 |
+
+## June 27, 2025 – July 16, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 27, 2025 and July 16, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.6.0**<br>_64bit Amazon Linux 2023 v4.6.0 running Ruby 3.4_ | 2023.7.20250623 | Ruby 3.4.4-p34  | RubyGems 3.6.7  | Puma 6.6.0         | 3.3.14    | nginx 1.28.0 |
+| **Ruby 3.3 AL2023 version 4.6.0**<br>_64bit Amazon Linux 2023 v4.6.0 running Ruby 3.3_ | 2023.7.20250623 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.14    | nginx 1.28.0 |
+| **Ruby 3.2 AL2023 version 4.6.0**<br>_64bit Amazon Linux 2023 v4.6.0 running Ruby 3.2_ | 2023.7.20250623 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.0         | 3.3.14    | nginx 1.28.0 |
+
+## June 26, 2025 – June 26, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 26, 2025 and June 26, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.5.2**<br>_64bit Amazon Linux 2023 v4.5.2 running Ruby 3.4_ | 2023.7.20250512 | Ruby 3.4.4-p34  | RubyGems 3.6.7  | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.3 AL2023 version 4.5.2**<br>_64bit Amazon Linux 2023 v4.5.2 running Ruby 3.3_ | 2023.7.20250512 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.2 AL2023 version 4.5.2**<br>_64bit Amazon Linux 2023 v4.5.2 running Ruby 3.2_ | 2023.7.20250512 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+
+## May 20, 2025 – June 25, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 20, 2025 and June 25, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.5.2**<br>_64bit Amazon Linux 2023 v4.5.2 running Ruby 3.4_ | 2023.7.20250512 | Ruby 3.4.4-p34  | RubyGems 3.6.7  | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.3 AL2023 version 4.5.2**<br>_64bit Amazon Linux 2023 v4.5.2 running Ruby 3.3_ | 2023.7.20250512 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.2 AL2023 version 4.5.2**<br>_64bit Amazon Linux 2023 v4.5.2 running Ruby 3.2_ | 2023.7.20250512 | Ruby 3.2.8      | RubyGems 3.4.19 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+
+## April 24, 2025 – May 19, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 24, 2025 and May 19, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.5.1**<br>_64bit Amazon Linux 2023 v4.5.1 running Ruby 3.4_ | 2023.7.20250414 | Ruby 3.4.3-p32  | RubyGems 3.6.7  | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.3 AL2023 version 4.5.1**<br>_64bit Amazon Linux 2023 v4.5.1 running Ruby 3.3_ | 2023.7.20250414 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.2 AL2023 version 4.5.1**<br>_64bit Amazon Linux 2023 v4.5.1 running Ruby 3.2_ | 2023.7.20250414 | Ruby 3.2.7      | RubyGems 3.4.19 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+
+## April 22, 2025 – April 23, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 22, 2025 and April 23, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.5.1**<br>_64bit Amazon Linux 2023 v4.5.1 running Ruby 3.4_ | 2023.7.20250414 | Ruby 3.4.3-p32  | RubyGems 3.6.7  | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.3 AL2023 version 4.5.1**<br>_64bit Amazon Linux 2023 v4.5.1 running Ruby 3.3_ | 2023.7.20250414 | Ruby 3.3.8-p144 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.2 AL2023 version 4.5.1**<br>_64bit Amazon Linux 2023 v4.5.1 running Ruby 3.2_ | 2023.7.20250414 | Ruby 3.2.7      | RubyGems 3.4.19 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+
+## March 28, 2025 – April 21, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 28, 2025 and April 21, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.5.0**<br>_64bit Amazon Linux 2023 v4.5.0 running Ruby 3.4_ | 2023.6.20250317 | Ruby 3.4.2-p28  | RubyGems 3.6.2  | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.3 AL2023 version 4.5.0**<br>_64bit Amazon Linux 2023 v4.5.0 running Ruby 3.3_ | 2023.6.20250317 | Ruby 3.3.7-p123 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.2 AL2023 version 4.5.0**<br>_64bit Amazon Linux 2023 v4.5.0 running Ruby 3.2_ | 2023.6.20250317 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+
+## February 27, 2025 – March 27, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 27, 2025 and March 27, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.4.0**<br>_64bit Amazon Linux 2023 v4.4.0 running Ruby 3.4_ | 2023.6.20250218 | Ruby 3.4.2-p28  | RubyGems 3.6.2  | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.3 AL2023 version 4.4.0**<br>_64bit Amazon Linux 2023 v4.4.0 running Ruby 3.3_ | 2023.6.20250218 | Ruby 3.3.7-p123 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.2 AL2023 version 4.4.0**<br>_64bit Amazon Linux 2023 v4.4.0 running Ruby 3.2_ | 2023.6.20250218 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+
+## February 25, 2025 – February 26, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 25, 2025 and February 26, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.4 AL2023 version 4.4.0**<br>_64bit Amazon Linux 2023 v4.4.0 running Ruby 3.4_ | 2023.6.20250218 | Ruby 3.4.2-p28  | RubyGems 3.6.2  | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.3 AL2023 version 4.4.0**<br>_64bit Amazon Linux 2023 v4.4.0 running Ruby 3.3_ | 2023.6.20250218 | Ruby 3.3.7-p123 | RubyGems 3.5.22 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+| **Ruby 3.2 AL2023 version 4.4.0**<br>_64bit Amazon Linux 2023 v4.4.0 running Ruby 3.2_ | 2023.6.20250218 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.6.0         | 3.3.14    | nginx 1.26.3 |
+
+## January 28, 2025 – February 24, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2025 and February 24, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.3 AL2023 version 4.3.1**<br>_64bit Amazon Linux 2023 v4.3.1 running Ruby 3.3_ | 2023.6.20250123 | Ruby 3.3.7-p123 | RubyGems 3.5.22 | Puma 6.5.0         | 3.3.13    | nginx 1.26.2 |
+| **Ruby 3.2 AL2023 version 4.3.1**<br>_64bit Amazon Linux 2023 v4.3.1 running Ruby 3.2_ | 2023.6.20250123 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.5.0         | 3.3.13    | nginx 1.26.2 |
+
+## January 3, 2025 – January 27, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 3, 2025 and January 27, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.3 AL2023 version 4.3.0**<br>_64bit Amazon Linux 2023 v4.3.0 running Ruby 3.3_ | 2023.6.20241212 | Ruby 3.3.6-p108 | RubyGems 3.5.22 | Puma 6.5.0         | 3.3.13    | nginx 1.26.2 |
+| **Ruby 3.2 AL2023 version 4.3.0**<br>_64bit Amazon Linux 2023 v4.3.0 running Ruby 3.2_ | 2023.6.20241212 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.5.0         | 3.3.13    | nginx 1.26.2 |
+
+## December 19, 2024 – January 2, 2025
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 19, 2024 and January 2, 2025:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.3 AL2023 version 4.3.0**<br>_64bit Amazon Linux 2023 v4.3.0 running Ruby 3.3_ | 2023.6.20241212 | Ruby 3.3.6-p108 | RubyGems 3.5.22 | Puma 6.5.0         | 3.3.13    | nginx 1.26.2 |
+| **Ruby 3.2 AL2023 version 4.3.0**<br>_64bit Amazon Linux 2023 v4.3.0 running Ruby 3.2_ | 2023.6.20241212 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.5.0         | 3.3.13    | nginx 1.26.2 |
+
+## November 21, 2024 – December 18, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 21, 2024 and December 18, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.3 AL2023 version 4.2.0**<br>_64bit Amazon Linux 2023 v4.2.0 running Ruby 3.3_ | 2023.6.20241111 | Ruby 3.3.6-p108 | RubyGems 3.5.22 | Puma 6.4.3         | 3.3.13    | nginx 1.26.2 |
+| **Ruby 3.2 AL2023 version 4.2.0**<br>_64bit Amazon Linux 2023 v4.2.0 running Ruby 3.2_ | 2023.6.20241111 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.3         | 3.3.13    | nginx 1.26.2 |
+
+## November 19, 2024 – November 20, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 19, 2024 and November 20, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language   | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | ---------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.1.0**<br>_64bit Amazon Linux 2023 v4.1.0 running Ruby 3.2_ | 2023.6.20241031 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.3         | 3.3.13    | nginx 1.26.2 |
+
+## November 8, 2024 – November 18, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 8, 2024 and November 18, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language   | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | ---------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.1.0**<br>_64bit Amazon Linux 2023 v4.1.0 running Ruby 3.2_ | 2023.6.20241031 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.3         | 3.3.13    | nginx 1.26.2 |
+
+## October 10, 2024 – November 7, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 10, 2024 and November 7, 2024:
+
+| Platform Version and _Solution Stack Name_                                               | AMI             | Language   | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | --------------- | ---------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.13**<br>_64bit Amazon Linux 2023 v4.0.13 running Ruby 3.2_ | 2023.5.20241001 | Ruby 3.2.2 | RubyGems 3.4.10 | Puma 6.4.3         | 3.3.13    | nginx 1.24.0 |
+
+## October 8, 2024 – October 9, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 8, 2024 and October 9, 2024:
+
+| Platform Version and _Solution Stack Name_                                               | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.13**<br>_64bit Amazon Linux 2023 v4.0.13 running Ruby 3.2_ | 2023.5.20241001 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.3         | 3.3.13    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.7**<br>_64bit Amazon Linux 2 v3.7.7 running Ruby 3.0_         | 2.0.20241001    | Ruby 3.0.7-p220 | RubyGems 3.5.20 | Puma 6.4.3         | 3.3.13    | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.7**<br>_64bit Amazon Linux 2 v3.7.7 running Ruby 2.7_         | 2.0.20241001    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.3         | 3.3.13    | nginx 1.22.1 |
+
+## October 4, 2024 – October 7, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 4, 2024 and October 7, 2024:
+
+| Platform Version and _Solution Stack Name_                                               | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.12**<br>_64bit Amazon Linux 2023 v4.0.12 running Ruby 3.2_ | 2023.5.20240903 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.3.13    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.7**<br>_64bit Amazon Linux 2 v3.7.7 running Ruby 3.0_         | 2.0.20241001    | Ruby 3.0.7-p220 | RubyGems 3.5.20 | Puma 6.4.3         | 3.3.13    | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.7**<br>_64bit Amazon Linux 2 v3.7.7 running Ruby 2.7_         | 2.0.20241001    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.3         | 3.3.13    | nginx 1.22.1 |
+
+## September 12, 2024 – October 3, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 12, 2024 and October 3, 2024:
+
+| Platform Version and _Solution Stack Name_                                               | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.12**<br>_64bit Amazon Linux 2023 v4.0.12 running Ruby 3.2_ | 2023.5.20240903 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.3.13    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.6**<br>_64bit Amazon Linux 2 v3.7.6 running Ruby 3.0_         | 2.0.20240903    | Ruby 3.0.7-p220 | RubyGems 3.5.17 | Puma 6.4.2         | 3.3.13    | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.6**<br>_64bit Amazon Linux 2 v3.7.6 running Ruby 2.7_         | 2.0.20240903    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.3.13    | nginx 1.22.1 |
+
+## September 10, 2024 – September 11, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 10, 2024 and September 11, 2024:
+
+| Platform Version and _Solution Stack Name_                                               | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.12**<br>_64bit Amazon Linux 2023 v4.0.12 running Ruby 3.2_ | 2023.5.20240903 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.3.13    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.5**<br>_64bit Amazon Linux 2 v3.7.5 running Ruby 3.0_         | 2.0.20240809    | Ruby 3.0.7-p220 | RubyGems 3.5.17 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.5**<br>_64bit Amazon Linux 2 v3.7.5 running Ruby 2.7_         | 2.0.20240809    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+
+## August 16, 2024 – September 9, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 16, 2024 and September 9, 2024:
+
+| Platform Version and _Solution Stack Name_                                               | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.11**<br>_64bit Amazon Linux 2023 v4.0.11 running Ruby 3.2_ | 2023.5.20240805 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.3.12    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.5**<br>_64bit Amazon Linux 2 v3.7.5 running Ruby 3.0_         | 2.0.20240809    | Ruby 3.0.7-p220 | RubyGems 3.5.17 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.5**<br>_64bit Amazon Linux 2 v3.7.5 running Ruby 2.7_         | 2.0.20240809    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+
+## August 12, 2024 – August 15, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 12, 2024 and August 15, 2024:
+
+| Platform Version and _Solution Stack Name_                                               | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.11**<br>_64bit Amazon Linux 2023 v4.0.11 running Ruby 3.2_ | 2023.5.20240805 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.3.12    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.4**<br>_64bit Amazon Linux 2 v3.7.4 running Ruby 3.0_         | 2.0.20240709    | Ruby 3.0.7-p220 | RubyGems 3.5.15 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.4**<br>_64bit Amazon Linux 2 v3.7.4 running Ruby 2.7_         | 2.0.20240709    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+
+## July 29, 2024 – August 11, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 29, 2024 and August 11, 2024:
+
+| Platform Version and _Solution Stack Name_                                               | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.10**<br>_64bit Amazon Linux 2023 v4.0.10 running Ruby 3.2_ | 2023.5.20240722 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.3.12    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.4**<br>_64bit Amazon Linux 2 v3.7.4 running Ruby 3.0_         | 2.0.20240709    | Ruby 3.0.7-p220 | RubyGems 3.5.15 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.4**<br>_64bit Amazon Linux 2 v3.7.4 running Ruby 2.7_         | 2.0.20240709    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+
+## July 18, 2024 – July 28, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 18, 2024 and July 28, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.9**<br>_64bit Amazon Linux 2023 v4.0.9 running Ruby 3.2_ | 2023.5.20240701 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.3.12    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.4**<br>_64bit Amazon Linux 2 v3.7.4 running Ruby 3.0_       | 2.0.20240709    | Ruby 3.0.7-p220 | RubyGems 3.5.15 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.4**<br>_64bit Amazon Linux 2 v3.7.4 running Ruby 2.7_       | 2.0.20240709    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.3.12    | nginx 1.22.1 |
+
+## July 3, 2024 – July 17, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 3, 2024 and July 17, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.9**<br>_64bit Amazon Linux 2023 v4.0.9 running Ruby 3.2_ | 2023.5.20240701 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.3.12    | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.3**<br>_64bit Amazon Linux 2 v3.7.3 running Ruby 3.0_       | 2.0.20240610    | Ruby 3.0.7-p220 | RubyGems 3.5.11 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.3**<br>_64bit Amazon Linux 2 v3.7.3 running Ruby 2.7_       | 2.0.20240610    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## June 18, 2024 – July 2, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 18, 2024 and July 2, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.8**<br>_64bit Amazon Linux 2023 v4.0.8 running Ruby 3.2_ | 2023.4.20240611 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.3**<br>_64bit Amazon Linux 2 v3.7.3 running Ruby 3.0_       | 2.0.20240610    | Ruby 3.0.7-p220 | RubyGems 3.5.11 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.3**<br>_64bit Amazon Linux 2 v3.7.3 running Ruby 2.7_       | 2.0.20240610    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## June 13, 2024 – June 17, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 13, 2024 and June 17, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.8**<br>_64bit Amazon Linux 2023 v4.0.8 running Ruby 3.2_ | 2023.4.20240611 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.2**<br>_64bit Amazon Linux 2 v3.7.2 running Ruby 3.0_       | 2.0.20240521    | Ruby 3.0.7-p220 | RubyGems 3.5.10 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.2**<br>_64bit Amazon Linux 2 v3.7.2 running Ruby 2.7_       | 2.0.20240521    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## May 28, 2024 – June 12, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 28, 2024 and June 12, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.7**<br>_64bit Amazon Linux 2023 v4.0.7 running Ruby 3.2_ | 2023.4.20240513 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.2**<br>_64bit Amazon Linux 2 v3.7.2 running Ruby 3.0_       | 2.0.20240521    | Ruby 3.0.7-p220 | RubyGems 3.5.10 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.2**<br>_64bit Amazon Linux 2 v3.7.2 running Ruby 2.7_       | 2.0.20240521    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## May 16, 2024 – May 27, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 16, 2024 and May 27, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.7**<br>_64bit Amazon Linux 2023 v4.0.7 running Ruby 3.2_ | 2023.4.20240513 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.1**<br>_64bit Amazon Linux 2 v3.7.1 running Ruby 3.0_       | 2.0.20240412    | Ruby 3.0.6-p216 | RubyGems 3.5.9  | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.1**<br>_64bit Amazon Linux 2 v3.7.1 running Ruby 2.7_       | 2.0.20240412    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## April 26, 2024 – May 15, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 26, 2024 and May 15, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.6**<br>_64bit Amazon Linux 2023 v4.0.6 running Ruby 3.2_ | 2023.4.20240416 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.1**<br>_64bit Amazon Linux 2 v3.7.1 running Ruby 3.0_       | 2.0.20240412    | Ruby 3.0.6-p216 | RubyGems 3.5.9  | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.1**<br>_64bit Amazon Linux 2 v3.7.1 running Ruby 2.7_       | 2.0.20240412    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## April 23, 2024 – April 25, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 23, 2024 and April 25, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.6**<br>_64bit Amazon Linux 2023 v4.0.6 running Ruby 3.2_ | 2023.4.20240416 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.0**<br>_64bit Amazon Linux 2 v3.7.0 running Ruby 3.0_       | 2.0.20240318    | Ruby 3.0.6-p216 | RubyGems 3.5.7  | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.0**<br>_64bit Amazon Linux 2 v3.7.0 running Ruby 2.7_       | 2.0.20240318    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## March 28, 2024 – April 22, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 28, 2024 and April 22, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.5**<br>_64bit Amazon Linux 2023 v4.0.5 running Ruby 3.2_ | 2023.4.20240319 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.7.0**<br>_64bit Amazon Linux 2 v3.7.0 running Ruby 3.0_       | 2.0.20240318    | Ruby 3.0.6-p216 | RubyGems 3.5.7  | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.7.0**<br>_64bit Amazon Linux 2 v3.7.0 running Ruby 2.7_       | 2.0.20240318    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## March 26, 2024 – March 27, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 26, 2024 and March 27, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.5**<br>_64bit Amazon Linux 2023 v4.0.5 running Ruby 3.2_ | 2023.4.20240319 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.17**<br>_64bit Amazon Linux 2 v3.6.17 running Ruby 3.0_     | 2.0.20240223    | Ruby 3.0.6-p216 | RubyGems 3.5.6  | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.17**<br>_64bit Amazon Linux 2 v3.6.17 running Ruby 2.7_     | 2.0.20240223    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## February 28, 2024 – March 25, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 28, 2024 and March 25, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.4**<br>_64bit Amazon Linux 2023 v4.0.4 running Ruby 3.2_ | 2023.3.20240219 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.17**<br>_64bit Amazon Linux 2 v3.6.17 running Ruby 3.0_     | 2.0.20240223    | Ruby 3.0.6-p216 | RubyGems 3.5.6  | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.17**<br>_64bit Amazon Linux 2 v3.6.17 running Ruby 2.7_     | 2.0.20240223    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## February 22, 2024 – February 27, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 22, 2024 and February 27, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.4**<br>_64bit Amazon Linux 2023 v4.0.4 running Ruby 3.2_ | 2023.3.20240219 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.16**<br>_64bit Amazon Linux 2 v3.6.16 running Ruby 3.0_     | 2.0.20240124    | Ruby 3.0.6-p216 | RubyGems 3.5.4  | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.16**<br>_64bit Amazon Linux 2 v3.6.16 running Ruby 2.7_     | 2.0.20240124    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## January 29, 2024 – February 21, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 29, 2024 and February 21, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.3**<br>_64bit Amazon Linux 2023 v4.0.3 running Ruby 3.2_ | 2023.3.20240122 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.16**<br>_64bit Amazon Linux 2 v3.6.16 running Ruby 3.0_     | 2.0.20240124    | Ruby 3.0.6-p216 | RubyGems 3.5.4  | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.16**<br>_64bit Amazon Linux 2 v3.6.16 running Ruby 2.7_     | 2.0.20240124    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.2         | 3.2.0     | nginx 1.22.1 |
+
+## January 25, 2024 – January 28, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 25, 2024 and January 28, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.3**<br>_64bit Amazon Linux 2023 v4.0.3 running Ruby 3.2_ | 2023.3.20240122 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.2         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.15**<br>_64bit Amazon Linux 2 v3.6.15 running Ruby 3.0_     | 2.0.20231206    | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.15**<br>_64bit Amazon Linux 2 v3.6.15 running Ruby 2.7_     | 2.0.20231206    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+
+## December 19, 2023 – January 24, 2024
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 19, 2023 and January 24, 2024:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.2**<br>_64bit Amazon Linux 2023 v4.0.2 running Ruby 3.2_ | 2023.3.20231211 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.0         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.15**<br>_64bit Amazon Linux 2 v3.6.15 running Ruby 3.0_     | 2.0.20231206    | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.15**<br>_64bit Amazon Linux 2 v3.6.15 running Ruby 2.7_     | 2.0.20231206    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+
+## December 15, 2023 – December 18, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 15, 2023 and December 18, 2023:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.1**<br>_64bit Amazon Linux 2023 v4.0.1 running Ruby 3.2_ | 2023.2.20231113 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.0         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.15**<br>_64bit Amazon Linux 2 v3.6.15 running Ruby 3.0_     | 2.0.20231206    | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.15**<br>_64bit Amazon Linux 2 v3.6.15 running Ruby 2.7_     | 2.0.20231206    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+
+## November 17, 2023 – December 14, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 17, 2023 and December 14, 2023:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.1**<br>_64bit Amazon Linux 2023 v4.0.1 running Ruby 3.2_ | 2023.2.20231113 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.0         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.14**<br>_64bit Amazon Linux 2 v3.6.14 running Ruby 3.0_     | 2.0.20231101    | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.14**<br>_64bit Amazon Linux 2 v3.6.14 running Ruby 2.7_     | 2.0.20231101    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+
+## November 15, 2023 – November 16, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 15, 2023 and November 16, 2023:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.0**<br>_64bit Amazon Linux 2023 v4.0.0 running Ruby 3.2_ | 2023.2.20231016 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.0         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.14**<br>_64bit Amazon Linux 2 v3.6.14 running Ruby 3.0_     | 2.0.20231101    | Ruby 3.0.6-p216 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.14**<br>_64bit Amazon Linux 2 v3.6.14 running Ruby 2.7_     | 2.0.20231101    | Ruby 2.7.8-p225 | RubyGems 3.4.22 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+
+## October 24, 2023 – November 14, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 24, 2023 and November 14, 2023:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.0**<br>_64bit Amazon Linux 2023 v4.0.0 running Ruby 3.2_ | 2023.2.20231016 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.0         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.13**<br>_64bit Amazon Linux 2 v3.6.13 running Ruby 3.0_     | 2.0.20231012    | Ruby 3.0.6-p216 | RubyGems 3.4.20 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.13**<br>_64bit Amazon Linux 2 v3.6.13 running Ruby 2.7_     | 2.0.20231012    | Ruby 2.7.8-p225 | RubyGems 3.4.20 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+
+## October 19, 2023 – October 23, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 19, 2023 and October 23, 2023:
+
+| Platform Version and _Solution Stack Name_                                             | AMI             | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------- | --------------- | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.2 AL2023 version 4.0.0**<br>_64bit Amazon Linux 2023 v4.0.0 running Ruby 3.2_ | 2023.2.20231016 | Ruby 3.2.2      | RubyGems 3.4.10 | Puma 6.4.0         | 3.2.0     | nginx 1.24.0 |
+| **Ruby 3.0 AL2 version 3.6.12**<br>_64bit Amazon Linux 2 v3.6.12 running Ruby 3.0_     | 2.0.20230926    | Ruby 3.0.6-p216 | RubyGems 3.4.20 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.12**<br>_64bit Amazon Linux 2 v3.6.12 running Ruby 2.7_     | 2.0.20230926    | Ruby 2.7.8-p225 | RubyGems 3.4.20 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+
+## October 6, 2023 – October 18, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 6, 2023 and October 18, 2023:
+
+| Platform Version and _Solution Stack Name_                                         | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.12**<br>_64bit Amazon Linux 2 v3.6.12 running Ruby 3.0_ | 2.0.20230926 | Ruby 3.0.6-p216 | RubyGems 3.4.20 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.12**<br>_64bit Amazon Linux 2 v3.6.12 running Ruby 2.7_ | 2.0.20230926 | Ruby 2.7.8-p225 | RubyGems 3.4.20 | Puma 6.4.0         | 3.2.0     | nginx 1.22.1 |
+
+## September 5, 2023 – October 5, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 5, 2023 and October 5, 2023:
+
+| Platform Version and _Solution Stack Name_                                         | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.11**<br>_64bit Amazon Linux 2 v3.6.11 running Ruby 3.0_ | 2.0.20230822 | Ruby 3.0.6-p216 | RubyGems 3.4.19 | Puma 6.3.1         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.11**<br>_64bit Amazon Linux 2 v3.6.11 running Ruby 2.7_ | 2.0.20230822 | Ruby 2.7.8-p225 | RubyGems 3.4.19 | Puma 6.3.1         | 3.2.0     | nginx 1.22.1 |
+
+## July 28, 2023 – September 4, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 28, 2023 and September 4, 2023:
+
+| Platform Version and _Solution Stack Name_                                         | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.10**<br>_64bit Amazon Linux 2 v3.6.10 running Ruby 3.0_ | 2.0.20230719 | Ruby 3.0.6-p216 | RubyGems 3.4.17 | Puma 6.3.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.10**<br>_64bit Amazon Linux 2 v3.6.10 running Ruby 2.7_ | 2.0.20230719 | Ruby 2.7.8-p225 | RubyGems 3.4.17 | Puma 6.3.0         | 3.2.0     | nginx 1.22.1 |
+
+## June 30, 2023 – July 27, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 30, 2023 and July 27, 2023:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.9**<br>_64bit Amazon Linux 2 v3.6.9 running Ruby 3.0_ | 2.0.20230612 | Ruby 3.0.6-p216 | RubyGems 3.4.14 | Puma 6.3.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.9**<br>_64bit Amazon Linux 2 v3.6.9 running Ruby 2.7_ | 2.0.20230612 | Ruby 2.7.8-p225 | RubyGems 3.4.14 | Puma 6.3.0         | 3.2.0     | nginx 1.22.1 |
+
+## May 31, 2023 – June 29, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 31, 2023 and June 29, 2023:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.8**<br>_64bit Amazon Linux 2 v3.6.8 running Ruby 3.0_ | 2.0.20230515 | Ruby 3.0.6-p216 | RubyGems 3.4.13 | Puma 6.2.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.8**<br>_64bit Amazon Linux 2 v3.6.8 running Ruby 2.7_ | 2.0.20230515 | Ruby 2.7.8-p225 | RubyGems 3.4.13 | Puma 6.2.2         | 3.2.0     | nginx 1.22.1 |
+
+## April 28, 2023 – May 30, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 28, 2023 and May 30, 2023:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.7**<br>_64bit Amazon Linux 2 v3.6.7 running Ruby 3.0_ | 2.0.20230418 | Ruby 3.0.6-p216 | RubyGems 3.4.12 | Puma 6.2.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.7**<br>_64bit Amazon Linux 2 v3.6.7 running Ruby 2.7_ | 2.0.20230418 | Ruby 2.7.8-p225 | RubyGems 3.4.12 | Puma 6.2.2         | 3.2.0     | nginx 1.22.1 |
+
+## April 19, 2023 – April 27, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 19, 2023 and April 27, 2023:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.6**<br>_64bit Amazon Linux 2 v3.6.6 running Ruby 3.0_ | 2.0.20230404 | Ruby 3.0.6-p216 | RubyGems 3.4.10 | Puma 6.2.1         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.6**<br>_64bit Amazon Linux 2 v3.6.6 running Ruby 2.7_ | 2.0.20230404 | Ruby 2.7.8-p225 | RubyGems 3.4.10 | Puma 6.2.1         | 3.2.0     | nginx 1.22.1 |
+
+## April 3, 2023 – April 18, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 3, 2023 and April 18, 2023:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.5**<br>_64bit Amazon Linux 2 v3.6.5 running Ruby 3.0_ | 2.0.20230320 | Ruby 3.0.5-p211 | RubyGems 3.4.10 | Puma 6.2.0         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.5**<br>_64bit Amazon Linux 2 v3.6.5 running Ruby 2.7_ | 2.0.20230320 | Ruby 2.7.7-p221 | RubyGems 3.4.10 | Puma 6.2.0         | 3.2.0     | nginx 1.22.1 |
+
+## March 7, 2023 – April 2, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 7, 2023 and April 2, 2023:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.4**<br>_64bit Amazon Linux 2 v3.6.4 running Ruby 3.0_ | 2.0.20230221 | Ruby 3.0.5-p211 | RubyGems 3.4.7  | Puma 6.1.1         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.4**<br>_64bit Amazon Linux 2 v3.6.4 running Ruby 2.7_ | 2.0.20230221 | Ruby 2.7.7-p221 | RubyGems 3.4.7  | Puma 6.1.1         | 3.2.0     | nginx 1.22.1 |
+
+## February 1, 2023 – March 6, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 1, 2023 and March 6, 2023:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.3**<br>_64bit Amazon Linux 2 v3.6.3 running Ruby 3.0_ | 2.0.20230119 | Ruby 3.0.5-p211 | RubyGems 3.4.3  | Puma 6.0.2         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.3**<br>_64bit Amazon Linux 2 v3.6.3 running Ruby 2.7_ | 2.0.20230119 | Ruby 2.7.7-p221 | RubyGems 3.4.3  | Puma 6.0.2         | 3.2.0     | nginx 1.22.1 |
+
+## December 29, 2022 – January 31, 2023
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 29, 2022 and January 31, 2023:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.2**<br>_64bit Amazon Linux 2 v3.6.2 running Ruby 3.0_ | 2.0.20221210 | Ruby 3.0.5-p211 | RubyGems 3.4.1  | Puma 6.0.1         | 3.2.0     | nginx 1.22.0 |
+| **Ruby 2.7 AL2 version 3.6.2**<br>_64bit Amazon Linux 2 v3.6.2 running Ruby 2.7_ | 2.0.20221210 | Ruby 2.7.7-p221 | RubyGems 3.4.1  | Puma 6.0.1         | 3.2.0     | nginx 1.22.0 |
+
+## December 23, 2022 – December 28, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 23, 2022 and December 28, 2022:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.1**<br>_64bit Amazon Linux 2 v3.6.1 running Ruby 3.0_ | 2.0.20221103 | Ruby 3.0.5-p211 | RubyGems 3.3.26 | Puma 6.0.0         | 3.2.0     | nginx 1.22.0 |
+| **Ruby 2.7 AL2 version 3.6.1**<br>_64bit Amazon Linux 2 v3.6.1 running Ruby 2.7_ | 2.0.20221103 | Ruby 2.7.7-p221 | RubyGems 3.3.26 | Puma 6.0.0         | 3.2.0     | nginx 1.22.0 |
+
+## December 6, 2022 – December 22, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 6, 2022 and December 22, 2022:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.1**<br>_64bit Amazon Linux 2 v3.6.1 running Ruby 3.0_ | 2.0.20221103 | Ruby 3.0.5-p211  | RubyGems 3.3.26 | Puma 6.0.0         | 3.2.0     | nginx 1.22.0 |
+| **Ruby 2.7 AL2 version 3.6.1**<br>_64bit Amazon Linux 2 v3.6.1 running Ruby 2.7_ | 2.0.20221103 | Ruby 2.7.7-p221  | RubyGems 3.3.26 | Puma 6.0.0         | 3.2.0     | nginx 1.22.0 |
+| **Ruby 2.6 AL2 version 3.6.1**<br>_64bit Amazon Linux 2 v3.6.1 running Ruby 2.6_ | 2.0.20221103 | Ruby 2.6.10-p210 | RubyGems 3.3.26 | Puma 6.0.0         | 3.2.0     | nginx 1.22.0 |
+
+## November 4, 2022 – December 5, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 4, 2022 and December 5, 2022:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.0**<br>_64bit Amazon Linux 2 v3.6.0 running Ruby 3.0_ | 2.0.20221004 | Ruby 3.0.4-p208  | RubyGems 3.3.23 | Puma 6.0.0         | 3.2.0     | nginx 1.22.0 |
+| **Ruby 2.7 AL2 version 3.6.0**<br>_64bit Amazon Linux 2 v3.6.0 running Ruby 2.7_ | 2.0.20221004 | Ruby 2.7.6-p219  | RubyGems 3.3.23 | Puma 6.0.0         | 3.2.0     | nginx 1.22.0 |
+| **Ruby 2.6 AL2 version 3.6.0**<br>_64bit Amazon Linux 2 v3.6.0 running Ruby 2.6_ | 2.0.20221004 | Ruby 2.6.10-p210 | RubyGems 3.3.23 | Puma 6.0.0         | 3.2.0     | nginx 1.22.0 |
+
+## October 3, 2022 – November 3, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 3, 2022 and November 3, 2022:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.5.0**<br>_64bit Amazon Linux 2 v3.5.0 running Ruby 3.0_ | 2.0.20220912 | Ruby 3.0.4-p208  | RubyGems 3.3.22 | Puma 5.6.5         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.5.0**<br>_64bit Amazon Linux 2 v3.5.0 running Ruby 2.7_ | 2.0.20220912 | Ruby 2.7.6-p219  | RubyGems 3.3.22 | Puma 5.6.5         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.5.0**<br>_64bit Amazon Linux 2 v3.5.0 running Ruby 2.6_ | 2.0.20220912 | Ruby 2.6.10-p210 | RubyGems 3.3.22 | Puma 5.6.5         | 3.2.0     | nginx 1.20.0 |
+
+## August 31, 2022 – October 2, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 31, 2022 and October 2, 2022:
+
+| Platform Version and _Solution Stack Name_                                         | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.10**<br>_64bit Amazon Linux 2 v3.4.10 running Ruby 3.0_ | 2.0.20220805 | Ruby 3.0.4-p208  | RubyGems 3.3.20 | Puma 5.6.5         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.10**<br>_64bit Amazon Linux 2 v3.4.10 running Ruby 2.7_ | 2.0.20220805 | Ruby 2.7.6-p219  | RubyGems 3.3.20 | Puma 5.6.5         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.10**<br>_64bit Amazon Linux 2 v3.4.10 running Ruby 2.6_ | 2.0.20220805 | Ruby 2.6.10-p210 | RubyGems 3.3.20 | Puma 5.6.5         | 3.2.0     | nginx 1.20.0 |
+
+## August 8, 2022 – August 30, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 8, 2022 and August 30, 2022:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.9**<br>_64bit Amazon Linux 2 v3.4.9 running Ruby 3.0_ | 2.0.20220719 | Ruby 3.0.4-p208  | RubyGems 3.3.18 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.9**<br>_64bit Amazon Linux 2 v3.4.9 running Ruby 2.7_ | 2.0.20220719 | Ruby 2.7.6-p219  | RubyGems 3.3.18 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.9**<br>_64bit Amazon Linux 2 v3.4.9 running Ruby 2.6_ | 2.0.20220719 | Ruby 2.6.10-p210 | RubyGems 3.3.18 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+
+## July 18, 2022 – August 7, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 18, 2022 and August 7, 2022:
+
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 3.0_ | 2.0.20220606 | Ruby 3.0.4-p208  | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 2.7_ | 2.0.20220606 | Ruby 2.7.6-p219  | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 2.6_ | 2.0.20220606 | Ruby 2.6.10-p210 | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+
+## June 29, 2022 – July 17, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 29, 2022 and July 17, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 3.0_                                             | 2.0.20220606 | Ruby 3.0.4-p208  | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 2.7_                                             | 2.0.20220606 | Ruby 2.7.6-p219  | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 2.6_                                             | 2.0.20220606 | Ruby 2.6.10-p210 | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## June 22, 2022 – June 28, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 22, 2022 and June 28, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 3.0_                                             | 2.0.20220606 | Ruby 3.0.4-p208  | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 2.7_                                             | 2.0.20220606 | Ruby 2.7.6-p219  | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 2.6_                                             | 2.0.20220606 | Ruby 2.6.10-p210 | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.8**<br>_64bit Amazon Linux 2 v3.4.8 running Ruby 2.5_                                             | 2.0.20220606 | Ruby 2.5.9-p229  | RubyGems 3.3.15 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.20**<br>_64bit Amazon Linux 2018.03 v2.12.20 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## May 26, 2022 – June 21, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 26, 2022 and June 21, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.7**<br>_64bit Amazon Linux 2 v3.4.7 running Ruby 3.0_                                             | 2.0.20220426 | Ruby 3.0.4-p208  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.7**<br>_64bit Amazon Linux 2 v3.4.7 running Ruby 2.7_                                             | 2.0.20220426 | Ruby 2.7.6-p219  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.7**<br>_64bit Amazon Linux 2 v3.4.7 running Ruby 2.6_                                             | 2.0.20220426 | Ruby 2.6.10-p210 | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.7**<br>_64bit Amazon Linux 2 v3.4.7 running Ruby 2.5_                                             | 2.0.20220426 | Ruby 2.5.9-p229  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.19**<br>_64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.19**<br>_64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.19**<br>_64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.19**<br>_64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.19**<br>_64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.19**<br>_64bit Amazon Linux 2018.03 v2.12.19 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## May 4, 2022 – May 25, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 4, 2022 and May 25, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.6**<br>_64bit Amazon Linux 2 v3.4.6 running Ruby 3.0_                                             | 2.0.20220419 | Ruby 3.0.4-p208  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.6**<br>_64bit Amazon Linux 2 v3.4.6 running Ruby 2.7_                                             | 2.0.20220419 | Ruby 2.7.6-p219  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.6**<br>_64bit Amazon Linux 2 v3.4.6 running Ruby 2.6_                                             | 2.0.20220419 | Ruby 2.6.10-p210 | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.6**<br>_64bit Amazon Linux 2 v3.4.6 running Ruby 2.5_                                             | 2.0.20220419 | Ruby 2.5.9-p229  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## April 29, 2022 – May 3, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 29, 2022 and May 3, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.5**<br>_64bit Amazon Linux 2 v3.4.5 running Ruby 3.0_                                             | 2.0.20220419 | Ruby 3.0.3-p157  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.5**<br>_64bit Amazon Linux 2 v3.4.5 running Ruby 2.7_                                             | 2.0.20220419 | Ruby 2.7.6-p219  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.5**<br>_64bit Amazon Linux 2 v3.4.5 running Ruby 2.6_                                             | 2.0.20220419 | Ruby 2.6.10-p210 | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.5**<br>_64bit Amazon Linux 2 v3.4.5 running Ruby 2.5_                                             | 2.0.20220419 | Ruby 2.5.9-p229  | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.18**<br>_64bit Amazon Linux 2018.03 v2.12.18 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## March 31, 2022 – April 28, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 31, 2022 and April 28, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.4**<br>_64bit Amazon Linux 2 v3.4.4 running Ruby 3.0_                                             | 2.0.20220316 | Ruby 3.0.3-p157  | RubyGems 3.3.10 | Puma 5.6.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.4**<br>_64bit Amazon Linux 2 v3.4.4 running Ruby 2.7_                                             | 2.0.20220316 | Ruby 2.7.5-p203  | RubyGems 3.3.10 | Puma 5.6.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.4**<br>_64bit Amazon Linux 2 v3.4.4 running Ruby 2.6_                                             | 2.0.20220316 | Ruby 2.6.9-p207  | RubyGems 3.3.10 | Puma 5.6.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.4**<br>_64bit Amazon Linux 2 v3.4.4 running Ruby 2.5_                                             | 2.0.20220316 | Ruby 2.5.9-p229  | RubyGems 3.3.10 | Puma 5.6.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.17**<br>_64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.17**<br>_64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.17**<br>_64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.17**<br>_64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.17**<br>_64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.17**<br>_64bit Amazon Linux 2018.03 v2.12.17 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## March 2, 2022 – March 30, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 2, 2022 and March 30, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.3**<br>_64bit Amazon Linux 2 v3.4.3 running Ruby 3.0_                                             | 2.0.20220207 | Ruby 3.0.3-p157  | RubyGems 3.3.7  | Puma 5.6.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.3**<br>_64bit Amazon Linux 2 v3.4.3 running Ruby 2.7_                                             | 2.0.20220207 | Ruby 2.7.5-p203  | RubyGems 3.3.7  | Puma 5.6.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.3**<br>_64bit Amazon Linux 2 v3.4.3 running Ruby 2.6_                                             | 2.0.20220207 | Ruby 2.6.9-p207  | RubyGems 3.3.7  | Puma 5.6.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.3**<br>_64bit Amazon Linux 2 v3.4.3 running Ruby 2.5_                                             | 2.0.20220207 | Ruby 2.5.9-p229  | RubyGems 3.3.7  | Puma 5.6.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.16**<br>_64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.16**<br>_64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.16**<br>_64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.16**<br>_64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.16**<br>_64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.16**<br>_64bit Amazon Linux 2018.03 v2.12.16 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## February 3, 2022 – March 1, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 3, 2022 and March 1, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.2**<br>_64bit Amazon Linux 2 v3.4.2 running Ruby 3.0_                                             | 2.0.20220121 | Ruby 3.0.3-p157  | RubyGems 3.3.6  | Puma 5.6.1         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.2**<br>_64bit Amazon Linux 2 v3.4.2 running Ruby 2.7_                                             | 2.0.20220121 | Ruby 2.7.5-p203  | RubyGems 3.3.6  | Puma 5.6.1         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.2**<br>_64bit Amazon Linux 2 v3.4.2 running Ruby 2.6_                                             | 2.0.20220121 | Ruby 2.6.9-p207  | RubyGems 3.3.6  | Puma 5.6.1         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.2**<br>_64bit Amazon Linux 2 v3.4.2 running Ruby 2.5_                                             | 2.0.20220121 | Ruby 2.5.9-p229  | RubyGems 3.3.6  | Puma 5.6.1         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.15**<br>_64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.15**<br>_64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.15**<br>_64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.15**<br>_64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.15**<br>_64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.15**<br>_64bit Amazon Linux 2018.03 v2.12.15 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## December 21, 2021 – February 2, 2022
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 21, 2021 and February 2, 2022:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.1**<br>_64bit Amazon Linux 2 v3.4.1 running Ruby 3.0_                                             | 2.0.20211201 | Ruby 3.0.3-p157  | RubyGems 3.2.32 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.1**<br>_64bit Amazon Linux 2 v3.4.1 running Ruby 2.7_                                             | 2.0.20211201 | Ruby 2.7.5-p203  | RubyGems 3.2.32 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.1**<br>_64bit Amazon Linux 2 v3.4.1 running Ruby 2.6_                                             | 2.0.20211201 | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.1**<br>_64bit Amazon Linux 2 v3.4.1 running Ruby 2.5_                                             | 2.0.20211201 | Ruby 2.5.9-p229  | RubyGems 3.2.32 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.14**<br>_64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.14**<br>_64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.9-p207  | RubyGems 3.2.32 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.14**<br>_64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.14**<br>_64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.14**<br>_64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.14**<br>_64bit Amazon Linux 2018.03 v2.12.14 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## November 24, 2021 – December 20, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 24, 2021 and December 20, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.0**<br>_64bit Amazon Linux 2 v3.4.0 running Ruby 3.0_                                             | 2.0.20211103 | Ruby 3.0.2-p107  | RubyGems 3.2.30 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.0**<br>_64bit Amazon Linux 2 v3.4.0 running Ruby 2.7_                                             | 2.0.20211103 | Ruby 2.7.4-p191  | RubyGems 3.2.30 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.0**<br>_64bit Amazon Linux 2 v3.4.0 running Ruby 2.6_                                             | 2.0.20211103 | Ruby 2.6.8-p205  | RubyGems 3.2.30 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.0**<br>_64bit Amazon Linux 2 v3.4.0 running Ruby 2.5_                                             | 2.0.20211103 | Ruby 2.5.9-p229  | RubyGems 3.2.30 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.13**<br>_64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.13**<br>_64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.13**<br>_64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.13**<br>_64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.13**<br>_64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.13**<br>_64bit Amazon Linux 2018.03 v2.12.13 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## November 19, 2021 – November 23, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 19, 2021 and November 23, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.0**<br>_64bit Amazon Linux 2 v3.4.0 running Ruby 3.0_                                             | 2.0.20211103 | Ruby 3.0.2-p107  | RubyGems 3.2.30 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.0**<br>_64bit Amazon Linux 2 v3.4.0 running Ruby 2.7_                                             | 2.0.20211103 | Ruby 2.7.4-p191  | RubyGems 3.2.30 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.4.0**<br>_64bit Amazon Linux 2 v3.4.0 running Ruby 2.6_                                             | 2.0.20211103 | Ruby 2.6.8-p205  | RubyGems 3.2.30 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.4.0**<br>_64bit Amazon Linux 2 v3.4.0 running Ruby 2.5_                                             | 2.0.20211103 | Ruby 2.5.9-p229  | RubyGems 3.2.30 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## October 21, 2021 – November 18, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 21, 2021 and November 18, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.7**<br>_64bit Amazon Linux 2 v3.3.7 running Ruby 2.7_                                             | 2.0.20211001 | Ruby 2.7.4-p191  | RubyGems 3.2.29 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.7**<br>_64bit Amazon Linux 2 v3.3.7 running Ruby 2.6_                                             | 2.0.20211001 | Ruby 2.6.8-p205  | RubyGems 3.2.29 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.3.7**<br>_64bit Amazon Linux 2 v3.3.7 running Ruby 2.5_                                             | 2.0.20211001 | Ruby 2.5.9-p229  | RubyGems 3.2.29 | Puma 5.5.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.12**<br>_64bit Amazon Linux 2018.03 v2.12.12 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## October 3, 2021 – October 20, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 3, 2021 and October 20, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running Ruby 2.7_                                             | 2.0.20210813 | Ruby 2.7.4-p191  | RubyGems 3.2.25 | Puma 5.5.0         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running Ruby 2.6_                                             | 2.0.20210813 | Ruby 2.6.8-p205  | RubyGems 3.2.25 | Puma 5.5.0         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running Ruby 2.5_                                             | 2.0.20210813 | Ruby 2.5.9-p229  | RubyGems 3.2.25 | Puma 5.5.0         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.11**<br>_64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.11**<br>_64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.11**<br>_64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.11**<br>_64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.11**<br>_64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.11**<br>_64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## September 2, 2021 – October 2, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 2, 2021 and October 2, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.5**<br>_64bit Amazon Linux 2 v3.3.5 running Ruby 2.7_                                             | 2.0.20210721 | Ruby 2.7.4-p191  | RubyGems 3.2.25 | Puma 5.4.0         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.5**<br>_64bit Amazon Linux 2 v3.3.5 running Ruby 2.6_                                             | 2.0.20210721 | Ruby 2.6.8-p205  | RubyGems 3.2.25 | Puma 5.4.0         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.3.5**<br>_64bit Amazon Linux 2 v3.3.5 running Ruby 2.5_                                             | 2.0.20210721 | Ruby 2.5.9-p229  | RubyGems 3.2.25 | Puma 5.4.0         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## July 30, 2021 – September 1, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 30, 2021 and September 1, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.4**<br>_64bit Amazon Linux 2 v3.3.4 running Ruby 2.7_                                             | 2.0.20210721 | Ruby 2.7.4-p191  | RubyGems 3.2.22 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.4**<br>_64bit Amazon Linux 2 v3.3.4 running Ruby 2.6_                                             | 2.0.20210721 | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.3.4**<br>_64bit Amazon Linux 2 v3.3.4 running Ruby 2.5_                                             | 2.0.20210721 | Ruby 2.5.9-p229  | RubyGems 3.2.22 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.10**<br>_64bit Amazon Linux 2018.03 v2.12.10 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## July 21, 2021 – July 29, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 21, 2021 and July 29, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.3**<br>_64bit Amazon Linux 2 v3.3.3 running Ruby 2.7_                                           | 2.0.20210701 | Ruby 2.7.4-p191  | RubyGems 3.2.22 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.3**<br>_64bit Amazon Linux 2 v3.3.3 running Ruby 2.6_                                           | 2.0.20210701 | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.3.3**<br>_64bit Amazon Linux 2 v3.3.3 running Ruby 2.5_                                           | 2.0.20210701 | Ruby 2.5.9-p229  | RubyGems 3.2.22 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.9**<br>_64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.9**<br>_64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.8-p205  | RubyGems 3.2.22 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.9**<br>_64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.9**<br>_64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.9**<br>_64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.9**<br>_64bit Amazon Linux 2018.03 v2.12.9 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## July 8, 2021 – July 20, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 8, 2021 and July 20, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.1**<br>_64bit Amazon Linux 2 v3.3.1 running Ruby 2.7_                                           | 2.0.20210525 | Ruby 2.7.3-p183  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.1**<br>_64bit Amazon Linux 2 v3.3.1 running Ruby 2.6_                                           | 2.0.20210525 | Ruby 2.6.7-p197  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 AL2 version 3.3.1**<br>_64bit Amazon Linux 2 v3.3.1 running Ruby 2.5_                                           | 2.0.20210525 | Ruby 2.5.9-p229  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.8**<br>_64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.8**<br>_64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.8**<br>_64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.8**<br>_64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.8**<br>_64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.8**<br>_64bit Amazon Linux 2018.03 v2.12.8 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## July 7, 2021 – July 7, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 7, 2021 and July 7, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.2**<br>_64bit Amazon Linux 2 v3.3.2 running Ruby 2.7_                                           | 2.0.20210617 | Ruby 2.7.3-p183  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.2**<br>_64bit Amazon Linux 2 v3.3.2 running Ruby 2.6_                                           | 2.0.20210617 | Ruby 2.6.7-p197  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.3.2**<br>_64bit Amazon Linux 2 v3.3.2 running Ruby 2.5_                                           | 2.0.20210617 | Ruby 2.5.9-p229  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## June 11, 2021 – July 6, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 11, 2021 and July 6, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.1**<br>_64bit Amazon Linux 2 v3.3.1 running Ruby 2.7_                                           | 2.0.20210525 | Ruby 2.7.3-p183  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.1**<br>_64bit Amazon Linux 2 v3.3.1 running Ruby 2.6_                                           | 2.0.20210525 | Ruby 2.6.7-p197  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.3.1**<br>_64bit Amazon Linux 2 v3.3.1 running Ruby 2.5_                                           | 2.0.20210525 | Ruby 2.5.9-p229  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## June 1, 2021 – June 10, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 1, 2021 and June 10, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.3.0**<br>_64bit Amazon Linux 2 v3.3.0 running Ruby 2.7_                                           | 2.0.20210427 | Ruby 2.7.3-p183  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 AL2 version 3.3.0**<br>_64bit Amazon Linux 2 v3.3.0 running Ruby 2.6_                                           | 2.0.20210427 | Ruby 2.6.7-p197  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.6 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.3.0**<br>_64bit Amazon Linux 2 v3.3.0 running Ruby 2.5_                                           | 2.0.20210427 | Ruby 2.5.9-p229  | RubyGems 3.2.17 | Puma 5.3.2         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.5 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## May 26, 2021 – May 31, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 26, 2021 and May 31, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running Ruby 2.7_                                           | 2.0.20210421 | Ruby 2.7.3-p183  | RubyGems 3.2.15 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running Ruby 2.6_                                           | 2.0.20210421 | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running Ruby 2.5_                                           | 2.0.20210421 | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.7**<br>_64bit Amazon Linux 2018.03 v2.12.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## May 3, 2021 – May 25, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 3, 2021 and May 25, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running Ruby 2.7_                                           | 2.0.20210421 | Ruby 2.7.3-p183  | RubyGems 3.2.15 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running Ruby 2.6_                                           | 2.0.20210421 | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running Ruby 2.5_                                           | 2.0.20210421 | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## April 21, 2021 – May 2, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 21, 2021 and May 2, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.4**<br>_64bit Amazon Linux 2 v3.2.4 running Ruby 2.7_                                           | 2.0.20210326 | Ruby 2.7.2-p137  | RubyGems 3.2.14 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.4**<br>_64bit Amazon Linux 2 v3.2.4 running Ruby 2.6_                                           | 2.0.20210326 | Ruby 2.6.6-p146  | RubyGems 3.2.14 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.4**<br>_64bit Amazon Linux 2 v3.2.4 running Ruby 2.5_                                           | 2.0.20210326 | Ruby 2.5.8-p224  | RubyGems 3.2.14 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.7-p197  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.9-p229  | RubyGems 3.2.15 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.6**<br>_64bit Amazon Linux 2018.03 v2.12.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## March 31, 2021 – April 20, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 31, 2021 and April 20, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.4**<br>_64bit Amazon Linux 2 v3.2.4 running Ruby 2.7_                                           | 2.0.20210326 | Ruby 2.7.2-p137  | RubyGems 3.2.14 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.4**<br>_64bit Amazon Linux 2 v3.2.4 running Ruby 2.6_                                           | 2.0.20210326 | Ruby 2.6.6-p146  | RubyGems 3.2.14 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.4**<br>_64bit Amazon Linux 2 v3.2.4 running Ruby 2.5_                                           | 2.0.20210326 | Ruby 2.5.8-p224  | RubyGems 3.2.14 | Puma 5.2.2         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## March 30, 2021 – March 30, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 30, 2021 and March 30, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.7_                                           | 2.0.20210219 | Ruby 2.7.2-p137  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.6_                                           | 2.0.20210219 | Ruby 2.6.6-p146  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.5_                                           | 2.0.20210219 | Ruby 2.5.8-p224  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.5**<br>_64bit Amazon Linux 2018.03 v2.12.5 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## March 1, 2021 – March 29, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 1, 2021 and March 29, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.7_                                           | 2.0.20210219 | Ruby 2.7.2-p137  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.6_                                           | 2.0.20210219 | Ruby 2.6.6-p146  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.5_                                           | 2.0.20210219 | Ruby 2.5.8-p224  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.4**<br>_64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.4**<br>_64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.4**<br>_64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.4**<br>_64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.4**<br>_64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.4**<br>_64bit Amazon Linux 2018.03 v2.12.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## February 26, 2021 – February 28, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 26, 2021 and February 28, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.7_                                           | 2.0.20210219 | Ruby 2.7.2-p137  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.6_                                           | 2.0.20210219 | Ruby 2.6.6-p146  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Ruby 2.5_                                           | 2.0.20210219 | Ruby 2.5.8-p224  | RubyGems 3.2.8  | Puma 5.2.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## January 29, 2021 – February 25, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 29, 2021 and February 25, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.2**<br>_64bit Amazon Linux 2 v3.2.2 running Ruby 2.7_                                           | 2.0.20210126 | Ruby 2.7.2-p137  | RubyGems 3.2.7  | Puma 5.2.0         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.2**<br>_64bit Amazon Linux 2 v3.2.2 running Ruby 2.6_                                           | 2.0.20210126 | Ruby 2.6.6-p146  | RubyGems 3.2.7  | Puma 5.2.0         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.2**<br>_64bit Amazon Linux 2 v3.2.2 running Ruby 2.5_                                           | 2.0.20210126 | Ruby 2.5.8-p224  | RubyGems 3.2.7  | Puma 5.2.0         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## January 28, 2021 – January 28, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2021 and January 28, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.7_                                           | 2.0.20201218 | Ruby 2.7.2-p137  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.6_                                           | 2.0.20201218 | Ruby 2.6.6-p146  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.5_                                           | 2.0.20201218 | Ruby 2.5.8-p224  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.3**<br>_64bit Amazon Linux 2018.03 v2.12.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## December 30, 2020 – January 27, 2021
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 30, 2020 and January 27, 2021:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.7_                                           | 2.0.20201218 | Ruby 2.7.2-p137  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.6_                                           | 2.0.20201218 | Ruby 2.6.6-p146  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.5_                                           | 2.0.20201218 | Ruby 2.5.8-p224  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.2**<br>_64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.2**<br>_64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.2**<br>_64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.2**<br>_64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.2**<br>_64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.2**<br>_64bit Amazon Linux 2018.03 v2.12.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## December 29, 2020 – December 29, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 29, 2020 and December 29, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.7_                                           | 2.0.20201218 | Ruby 2.7.2-p137  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.6_                                           | 2.0.20201218 | Ruby 2.6.6-p146  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Ruby 2.5_                                           | 2.0.20201218 | Ruby 2.5.8-p224  | RubyGems 3.2.0  | Puma 5.1.1         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## November 11, 2020 – December 28, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 11, 2020 and December 28, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.0**<br>_64bit Amazon Linux 2 v3.2.0 running Ruby 2.7_                                           | 2.0.20200917 | Ruby 2.7.2-p137  | RubyGems 3.1.4  | Puma 5.0.4         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.0**<br>_64bit Amazon Linux 2 v3.2.0 running Ruby 2.6_                                           | 2.0.20200917 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 5.0.4         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.0**<br>_64bit Amazon Linux 2 v3.2.0 running Ruby 2.5_                                           | 2.0.20200917 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 5.0.4         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.1**<br>_64bit Amazon Linux 2018.03 v2.12.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## November 10, 2020 – November 10, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 10, 2020 and November 10, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.2.0**<br>_64bit Amazon Linux 2 v3.2.0 running Ruby 2.7_                                           | 2.0.20200917 | Ruby 2.7.2-p137  | RubyGems 3.1.4  | Puma 5.0.4         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.2.0**<br>_64bit Amazon Linux 2 v3.2.0 running Ruby 2.6_                                           | 2.0.20200917 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 5.0.4         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.2.0**<br>_64bit Amazon Linux 2 v3.2.0 running Ruby 2.5_                                           | 2.0.20200917 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 5.0.4         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.3 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.3 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.2 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.2 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.1 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.1 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.0 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.0 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 1.9 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## October 7, 2020 – November 9, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 7, 2020 and November 9, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Ruby 2.7_                                           | 2.0.20200928 | Ruby 2.7.1-p83   | RubyGems 3.1.4  | Puma 4.3.6         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Ruby 2.6_                                           | 2.0.20200928 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 4.3.6         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Ruby 2.5_                                           | 2.0.20200928 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 4.3.6         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.5 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.4 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.3 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.3 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.2 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.2 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.1 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.1 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.0 with Puma version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.18.0 |
+| **Ruby 2.0 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+| **Ruby 1.9 with Passenger version 2.12.0**<br>_64bit Amazon Linux 2018.03 v2.12.0 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.18.0 |
+
+## October 6, 2020 – October 6, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 6, 2020 and October 6, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Ruby 2.7_                                             | 2.0.20200928 | Ruby 2.7.1-p83   | RubyGems 3.1.4  | Puma 4.3.6         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Ruby 2.6_                                             | 2.0.20200928 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 4.3.6         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Ruby 2.5_                                             | 2.0.20200928 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 4.3.6         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## September 10, 2020 – October 5, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 10, 2020 and October 5, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                   | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Ruby 2.7_                                             | 2.0.20200827 | Ruby 2.7.1-p83   | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Ruby 2.6_                                             | 2.0.20200827 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Ruby 2.5_                                             | 2.0.20200827 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## September 3, 2020 – September 9, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 3, 2020 and September 9, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Ruby 2.7_                                           | 2.0.20200827 | Ruby 2.7.1-p83   | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Ruby 2.6_                                           | 2.0.20200827 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Ruby 2.5_                                           | 2.0.20200827 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## August 7, 2020 – September 2, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 7, 2020 and September 2, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.1.0**<br>_64bit Amazon Linux 2 v3.1.0 running Ruby 2.7_                                           | 2.0.20200723 | Ruby 2.7.1-p83   | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.1.0**<br>_64bit Amazon Linux 2 v3.1.0 running Ruby 2.6_                                           | 2.0.20200723 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.1.0**<br>_64bit Amazon Linux 2 v3.1.0 running Ruby 2.5_                                           | 2.0.20200723 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## August 4, 2020 – August 6, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 4, 2020 and August 6, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.1.0**<br>_64bit Amazon Linux 2 v3.1.0 running Ruby 2.7_                                           | 2.0.20200723 | Ruby 2.7.1-p83   | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 AL2 version 3.1.0**<br>_64bit Amazon Linux 2 v3.1.0 running Ruby 2.6_                                           | 2.0.20200723 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.5 AL2 version 3.1.0**<br>_64bit Amazon Linux 2 v3.1.0 running Ruby 2.5_                                           | 2.0.20200723 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.18.0 |
+| **Ruby 2.6 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## July 6, 2020 – August 3, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 6, 2020 and August 3, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Ruby 2.7_                                           | 2.0.20200603 | Ruby 2.7.1-p83   | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 AL2 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Ruby 2.6_                                           | 2.0.20200603 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.5 AL2 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Ruby 2.5_                                           | 2.0.20200603 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## June 23, 2020 – July 5, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 23, 2020 and July 5, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Ruby 2.7_                                           | 2.0.20200603 | Ruby 2.7.1-p83   | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 AL2 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Ruby 2.6_                                           | 2.0.20200603 | Ruby 2.6.6-p146  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.5 AL2 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Ruby 2.5_                                           | 2.0.20200603 | Ruby 2.5.8-p224  | RubyGems 3.1.4  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## June 5, 2020 – June 22, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 5, 2020 and June 22, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Ruby 2.7_                                           | 2.0.20200520 | Ruby 2.7.1-p83   | RubyGems 3.1.3  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 AL2 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Ruby 2.6_                                           | 2.0.20200520 | Ruby 2.6.6-p146  | RubyGems 3.1.3  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.5 AL2 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Ruby 2.5_                                           | 2.0.20200520 | Ruby 2.5.8-p224  | RubyGems 3.1.3  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## June 3, 2020 – June 4, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 3, 2020 and June 4, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Ruby 2.7_                                           | 2.0.20200520 | Ruby 2.7.1-p83   | RubyGems 3.1.3  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 AL2 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Ruby 2.6_                                           | 2.0.20200520 | Ruby 2.6.6-p146  | RubyGems 3.1.3  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.5 AL2 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Ruby 2.5_                                           | 2.0.20200520 | Ruby 2.5.8-p224  | RubyGems 3.1.3  | Puma 4.3.5         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## May 6, 2020 – June 2, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 6, 2020 and June 2, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.0.1**<br>_64bit Amazon Linux 2 v3.0.1 running Ruby 2.7_                                           | 2.0.20200430 | Ruby 2.7.1-p83   | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 AL2 version 3.0.1**<br>_64bit Amazon Linux 2 v3.0.1 running Ruby 2.6_                                           | 2.0.20200430 | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.5 AL2 version 3.0.1**<br>_64bit Amazon Linux 2 v3.0.1 running Ruby 2.5_                                           | 2.0.20200430 | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## May 4, 2020 – May 5, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 4, 2020 and May 5, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Ruby 2.7_                                           | 2.0.20200406 | Ruby 2.7.1-p83   | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 AL2 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Ruby 2.6_                                           | 2.0.20200406 | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.5 AL2 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Ruby 2.5_                                           | 2.0.20200406 | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.10-p364 | RubyGems 3.1.2  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.6**<br>_64bit Amazon Linux 2018.03 v2.11.6 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## April 30, 2020 – May 3, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 30, 2020 and May 3, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI          | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.7 AL2 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Ruby 2.7_                                           | 2.0.20200406 | Ruby 2.7.1-p83   | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 AL2 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Ruby 2.6_                                           | 2.0.20200406 | Ruby 2.6.6-p146  | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.5 AL2 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Ruby 2.5_                                           | 2.0.20200406 | Ruby 2.5.8-p224  | RubyGems 3.1.2  | Puma 4.3.3         | 3.2.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.6 (Puma)_                      | 2018.03.0    | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.5 (Puma)_                      | 2018.03.0    | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.4 (Puma)_                      | 2018.03.0    | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.3 (Puma)_                      | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.2 (Puma)_                      | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.1 (Puma)_                      | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.0 (Puma)_                      | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0    | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 1.9.3_                      | 2018.03.0    | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## March 27, 2020 – April 29, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 27, 2020 and April 29, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## February 28, 2020 – March 26, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 28, 2020 and March 26, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## January 21, 2020 – February 27, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 21, 2020 and February 27, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## November 25, 2019 – January 20, 2020
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 25, 2019 and January 20, 2020:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## October 17, 2019 – November 24, 2019
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 17, 2019 and November 24, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.5-p114  | RubyGems 3.0.3  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.6 with Passenger version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.5-p114  | RubyGems 3.0.3  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Puma version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.7-p206  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.5 with Passenger version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.7-p206  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Puma version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.9-p362  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.4 with Passenger version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.9-p362  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Puma version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.3 with Passenger version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Puma version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.2 with Passenger version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Puma version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.1 with Passenger version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Puma version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.16.1 |
+| **Ruby 2.0 with Passenger version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+| **Ruby 1.9 with Passenger version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.16.1 |
+
+## September 18, 2019 – October 16, 2019
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 18, 2019 and October 16, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.6-p201  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.6-p201  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.7-p357  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.7-p357  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+
+## September 6, 2019 – September 17, 2019
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 6, 2019 and September 17, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.4-p104  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.4-p104  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.6-p201  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.6-p201  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.7-p357  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.7-p357  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+
+## August 8, 2019 – September 5, 2019
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 8, 2019 and September 5, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                                 | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.1.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.1.0     | nginx 1.14.1 |
+
+## June 17, 2019 – August 7, 2019
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 17, 2019 and August 7, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 14, 2019 and June 16, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.9.5**<br>_64bit Amazon Linux 2018.03 v2.9.5 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 7, 2019 and June 13, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.9.4**<br>_64bit Amazon Linux 2018.03 v2.9.4 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 30, 2019 and June 6, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.3-p62   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.6-p354  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.9.3**<br>_64bit Amazon Linux 2018.03 v2.9.3 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 2, 2019 and April 29, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.2-p47   | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.2-p47   | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.5-p157  | RubyGems 2.7.9  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 21, 2019 and April 1, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.1-p33   | RubyGems 2.7.8  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.1-p33   | RubyGems 2.7.8  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 23, 2019 and February 20, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 2.6 with Puma version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.6 (Puma)_                      | 2018.03.0 | Ruby 2.6.0-p0    | RubyGems 3.0.2  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.6 with Passenger version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.6 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.6.0-p0    | RubyGems 3.0.2  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Puma version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.5 with Passenger version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Puma version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.4 with Passenger version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Puma version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.3 with Passenger version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Puma version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.2 with Passenger version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Puma version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.1 with Passenger version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Puma version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | 3.0.0     | nginx 1.14.1 |
+| **Ruby 2.0 with Passenger version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+| **Ruby 1.9 with Passenger version 2.9.0**<br>_64bit Amazon Linux 2018.03 v2.9.0 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | 3.0.0     | nginx 1.14.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 17, 2018 and January 22, 2019:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.8.7**<br>_64bit Amazon Linux 2018.03 v2.8.7 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 16, 2018 and December 16, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 29, 2018 and November 15, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.3-p105  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.5-p335  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.8-p459  | RubyGems 2.7.7  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 25, 2018 and October 28, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 20, 2018 and September 24, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 15, 2018 and August 19, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 21, 2018 and August 14, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 11, 2018 and June 20, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.5 (Puma)_                      | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.5 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.5.1-p57   | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.4 (Puma)_                      | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.4 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.4.4-p296  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.3 (Puma)_                      | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.3 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.3.7-p456  | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.2 (Puma)_                      | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.2 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.2.10-p489 | RubyGems 2.7.6  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.1 (Puma)_                      | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.1 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.0 (Puma)_                      | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 2.0 (Passenger Standalone)_ | 2018.03.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Ruby 1.9.3_                      | 2018.03.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 2, 2018 and May 10, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.5 (Puma)_                      | 2017.09.1 | Ruby 2.5.0-p0    | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.5 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.5.0-p0    | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.4 (Puma)_                      | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.3 (Puma)_                      | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.2 (Puma)_                      | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.1 (Puma)_                      | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.0 (Puma)_                      | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Ruby 1.9.3_                      | 2017.09.1 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 22, 2018 and April 1, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.5 with Puma version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.5 (Puma)_                      | 2017.09.1 | Ruby 2.5.0-p0    | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.5 with Passenger version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.5 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.5.0-p0    | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.4 with Puma version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.4 (Puma)_                      | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.3 (Puma)_                      | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.2 (Puma)_                      | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.1 (Puma)_                      | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.0 (Puma)_                      | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Ruby 1.9.3_                      | 2017.09.1 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 19, 2018 and February 21, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.4 with Puma version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.4 (Puma)_                      | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.3 (Puma)_                      | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.2 (Puma)_                      | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.1 (Puma)_                      | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.0 (Puma)_                      | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Ruby 1.9.3_                      | 2017.09.1 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 10, 2018 and January 18, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.4 with Puma version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.4 (Puma)_                      | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.3 (Puma)_                      | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.2 (Puma)_                      | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.1 (Puma)_                      | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.0 (Puma)_                      | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Ruby 1.9.3_                      | 2017.09.1 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 6, 2018 and January 9, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.4 with Puma version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.4 (Puma)_                      | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.3 (Puma)_                      | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.2 (Puma)_                      | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.1 (Puma)_                      | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.0 (Puma)_                      | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Ruby 1.9.3_                      | 2017.09.1 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 20, 2017 and January 5, 2018:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.4 with Puma version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.4 (Puma)_                      | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.3-p205  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.3 (Puma)_                      | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.6-p384  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.2 (Puma)_                      | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.9-p480  | RubyGems 2.7.3  | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.1 (Puma)_                      | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.0 (Puma)_                      | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Ruby 1.9.3_                      | 2017.09.1 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 14, 2017 and December 19, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.4 with Puma version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.4 (Puma)_                      | 2017.09.1 | Ruby 2.4.2-p198  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.4.2-p198  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.3 (Puma)_                      | 2017.09.1 | Ruby 2.3.5-p376  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.3.5-p376  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.2 (Puma)_                      | 2017.09.1 | Ruby 2.2.8-p477  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.2.8-p477  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.1 (Puma)_                      | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.0 (Puma)_                      | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Ruby 1.9.3_                      | 2017.09.1 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 19, 2017 and November 13, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.4 with Puma version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.4 (Puma)_                      | 2017.09.0 | Ruby 2.4.2-p198  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.4 (Passenger Standalone)_ | 2017.09.0 | Ruby 2.4.2-p198  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.3 with Puma version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.3 (Puma)_                      | 2017.09.0 | Ruby 2.3.5-p376  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.3 (Passenger Standalone)_ | 2017.09.0 | Ruby 2.3.5-p376  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.2 with Puma version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.2 (Puma)_                      | 2017.09.0 | Ruby 2.2.8-p477  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.2 (Passenger Standalone)_ | 2017.09.0 | Ruby 2.2.8-p477  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.1 with Puma version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.1 (Puma)_                      | 2017.09.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.1 (Passenger Standalone)_ | 2017.09.0 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 2.0 with Puma version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.0 (Puma)_                      | 2017.09.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 2.0 (Passenger Standalone)_ | 2017.09.0 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+| **Ruby 1.9 with Passenger version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Ruby 1.9.3_                      | 2017.09.0 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.12.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 25, 2017 and October 18, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | --------------- | ------------------ | ------------ |
+| **Ruby 2.4 with Puma version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.4 (Puma)_                      | 2017.03.1 | Ruby 2.4.1-p111  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.4 with Passenger version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.4 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.4.1-p111  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.3 with Puma version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.3 (Puma)_                      | 2017.03.1 | Ruby 2.3.4-p301  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.3 with Passenger version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.3 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.3.4-p301  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.2 with Puma version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.2 (Puma)_                      | 2017.03.1 | Ruby 2.2.7-p470  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.2 with Passenger version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.2.7-p470  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.1 with Puma version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.1 (Puma)_                      | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.1 with Passenger version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.0 with Puma version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.0 (Puma)_                      | 2017.03.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Puma 2.16.0        | nginx 1.12.1 |
+| **Ruby 2.0 with Passenger version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 2.0 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.0.0-p648  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 1.9 with Passenger version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Ruby 1.9.3_                      | 2017.03.1 | Ruby 1.9.3-p551  | RubyGems 2.6.13 | Passenger 4.0.60   | nginx 1.10.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 30, 2017 and September 24, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager   | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.3 (Puma)_                      | 2017.03.1 | Ruby 2.3.4-p301  | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.3 with Passenger version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.3 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.3.4-p301  | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.2 with Puma version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.2 (Puma)_                      | 2017.03.1 | Ruby 2.2.7-p470  | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.2 with Passenger version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.2.7-p470  | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.1 with Puma version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.1 (Puma)_                      | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.1 with Passenger version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.0 with Puma version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.0 (Puma)_                      | 2017.03.1 | Ruby 2.0.0-p648  | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.0 with Passenger version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 2.0 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.0.0-p648  | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 1.9 with Passenger version 2.4.4**<br>_64bit Amazon Linux 2017.03 v2.4.4 running Ruby 1.9.3_                      | 2017.03.1 | Ruby 1.9.3-p551  | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.10.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 11, 2017 and August 29, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager   | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.3 (Puma)_                      | 2017.03.1 | Ruby 2.3.4-p301  | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.3 with Passenger version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.3 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.3.4-p301  | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.2 with Puma version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.2 (Puma)_                      | 2017.03.1 | Ruby 2.2.7-p470  | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.2 with Passenger version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.2.7-p470  | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.1 with Puma version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.1 (Puma)_                      | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.1 with Passenger version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.0 with Puma version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.0 (Puma)_                      | 2017.03.1 | Ruby 2.0.0-p648  | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.0 with Passenger version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 2.0 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.0.0-p648  | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 1.9 with Passenger version 2.4.3**<br>_64bit Amazon Linux 2017.03 v2.4.3 running Ruby 1.9.3_                      | 2017.03.1 | Ruby 1.9.3-p551  | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.10.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between July 20, 2017 and August 10, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language         | Package Manager   | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ---------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.3 (Puma)_                      | 2017.03.1 | Ruby 2.3.4-p301  | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.3 with Passenger version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.3 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.3.4-p301  | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.2 with Puma version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.2 (Puma)_                      | 2017.03.1 | Ruby 2.2.7-p470  | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.2 with Passenger version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.2.7-p470  | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.1 with Puma version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.1 (Puma)_                      | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.1 with Passenger version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.1.10-p492 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 2.0 with Puma version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.0 (Puma)_                      | 2017.03.1 | Ruby 2.0.0-p648  | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.3 |
+| **Ruby 2.0 with Passenger version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 2.0 (Passenger Standalone)_ | 2017.03.1 | Ruby 2.0.0-p648  | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.10.2 |
+| **Ruby 1.9 with Passenger version 2.4.2**<br>_64bit Amazon Linux 2017.03 v2.4.2 running Ruby 1.9.3_                      | 2017.03.1 | Ruby 1.9.3-p551  | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.10.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 27, 2017 and July 19, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.3 (Puma)_                      | 2017.03.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.2 |
+| **Ruby 2.3 with Passenger version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.3 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.2 with Puma version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.2 (Puma)_                      | 2017.03.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.2 |
+| **Ruby 2.2 with Passenger version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.1 with Puma version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.1 (Puma)_                      | 2017.03.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.2 |
+| **Ruby 2.1 with Passenger version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.0 with Puma version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.0 (Puma)_                      | 2017.03.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.2 |
+| **Ruby 2.0 with Passenger version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 2.0 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 1.9 with Passenger version 2.4.1**<br>_64bit Amazon Linux 2017.03 v2.4.1 running Ruby 1.9.3_                      | 2017.03.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.8.1  |
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 19, 2017 and June 26, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.3 (Puma)_                      | 2017.03.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.2 |
+| **Ruby 2.3 with Passenger version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.3 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.2 with Puma version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.2 (Puma)_                      | 2017.03.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.2 |
+| **Ruby 2.2 with Passenger version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.2 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.1 with Puma version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.1 (Puma)_                      | 2017.03.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.2 |
+| **Ruby 2.1 with Passenger version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.1 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.0 with Puma version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.0 (Puma)_                      | 2017.03.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.2 |
+| **Ruby 2.0 with Passenger version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 2.0 (Passenger Standalone)_ | 2017.03.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 1.9 with Passenger version 2.4.0**<br>_64bit Amazon Linux 2017.03 v2.4.0 running Ruby 1.9.3_                      | 2017.03.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.8.1  |
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 5, 2017 and May 18, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Puma)_                      | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.3 with Passenger version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.2 with Puma version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Puma)_                      | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.2 with Passenger version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.1 with Puma version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Puma)_                      | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.1 with Passenger version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.0 with Puma version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Puma)_                      | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.0 with Passenger version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 1.9 with Passenger version 2.3.3**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 1.9.3_                      | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.10.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 8, 2017 and April 4, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                               | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Puma)_                      | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.3 with Passenger version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.2 with Puma version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Puma)_                      | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.2 with Passenger version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.1 with Puma version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Puma)_                      | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.1 with Passenger version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.0 with Puma version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Puma)_                      | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.0 with Passenger version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Passenger Standalone)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 1.9 with Passenger version 2.3.2**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 1.9.3_                      | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.10.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2017 and March 7, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| --------------------------------------------------------------------------------------------------------------------------- | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Puma)_                         | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.3 with Passenger version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.3 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.2 with Puma version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Puma)_                         | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.2 with Passenger version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.2 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.1 with Puma version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Puma)_                         | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.1 with Passenger version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.1 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.0 with Puma version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Puma)_                         | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.0 with Passenger version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 2.0 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 1.9 with Passenger version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Ruby 1.9.3_                         | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.10.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between December 22, 2016 and January 27, 2017:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| --------------------------------------------------------------------------------------------------------------------------- | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.3 (Puma)_                         | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.3 with Passenger version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.3 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.2 with Puma version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.2 (Puma)_                         | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.2 with Passenger version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.2 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.1 with Puma version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.1 (Puma)_                         | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.1 with Passenger version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.1 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.0 with Puma version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.0 (Puma)_                         | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.0 with Passenger version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 2.0 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 1.9 with Passenger version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Ruby 1.9.3_                         | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.10.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 28, 2016 and December 21, 2016:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| --------------------------------------------------------------------------------------------------------------------------- | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.3 (Puma)_                         | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.3 with Passenger version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.3 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.2 with Puma version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.2 (Puma)_                         | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.2 with Passenger version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.2 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.1 with Puma version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.1 (Puma)_                         | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.1 with Passenger version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.1 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 2.0 with Puma version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.0 (Puma)_                         | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.10.1 |
+| **Ruby 2.0 with Passenger version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.0 (Passenger<br>Standalone)_ | 2016.09.0 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.10.1 |
+| **Ruby 1.9 with Passenger version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Ruby 1.9.3_                         | 2016.09.0 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.10.1 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 24, 2016 and October 27, 2016:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| --------------------------------------------------------------------------------------------------------------------------- | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.3 (Puma)_                         | 2016.03.3 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.8.1  |
+| **Ruby 2.3 with Passenger version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.3 (Passenger<br>Standalone)_ | 2016.03.3 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.2 with Puma version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.2 (Puma)_                         | 2016.03.3 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.8.1  |
+| **Ruby 2.2 with Passenger version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.2 (Passenger<br>Standalone)_ | 2016.03.3 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.1 with Puma version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.1 (Puma)_                         | 2016.03.3 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.8.1  |
+| **Ruby 2.1 with Passenger version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.1 (Passenger<br>Standalone)_ | 2016.03.3 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.0 with Puma version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.0 (Puma)_                         | 2016.03.3 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.8.1  |
+| **Ruby 2.0 with Passenger version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 2.0 (Passenger<br>Standalone)_ | 2016.03.3 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 1.9 with Passenger version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Ruby 1.9.3_                         | 2016.03.3 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.8.1  |
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 26, 2016 and August 24, 2016:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI       | Language        | Package Manager   | Application Server | Proxy Server |
+| --------------------------------------------------------------------------------------------------------------------------- | --------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.3 (Puma)_                         | 2016.03.2 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Puma 2.16.0        | nginx 1.8.1  |
+| **Ruby 2.3 with Passenger version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.3 (Passenger<br>Standalone)_ | 2016.03.2 | Ruby 2.3.1-p112 | RubyGems 2.5.1    | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.2 with Puma version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.2 (Puma)_                         | 2016.03.2 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Puma 2.16.0        | nginx 1.8.1  |
+| **Ruby 2.2 with Passenger version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.2 (Passenger<br>Standalone)_ | 2016.03.2 | Ruby 2.2.5-p319 | RubyGems 2.4.5.1  | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.1 with Puma version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.1 (Puma)_                         | 2016.03.2 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Puma 2.16.0        | nginx 1.8.1  |
+| **Ruby 2.1 with Passenger version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.1 (Passenger<br>Standalone)_ | 2016.03.2 | Ruby 2.1.9-p490 | RubyGems 2.2.5    | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 2.0 with Puma version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.0 (Puma)_                         | 2016.03.2 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.16.0        | nginx 1.8.1  |
+| **Ruby 2.0 with Passenger version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 2.0 (Passenger<br>Standalone)_ | 2016.03.2 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.60   | nginx 1.8.1  |
+| **Ruby 1.9 with Passenger version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Ruby 1.9.3_                         | 2016.03.2 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.60   | nginx 1.8.1  |
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 13, 2016 and June 26, 2016:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI     | Language        | Package Manager   | Application Server | Proxy Server |
+| --------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.3 (Puma)_                         | 2016.03 | Ruby 2.3        | RubyGems 2.5.1    | Puma 2.10.2        | nginx 1.8.1  |
+| **Ruby 2.3 with Passenger version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.3 (Passenger<br>Standalone)_ | 2016.03 | Ruby 2.3        | RubyGems 2.5.1    | Passenger 4.0.59   | nginx 1.8.1  |
+| **Ruby 2.2 with Puma version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.2 (Puma)_                         | 2016.03 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1  | Puma 2.10.2        | nginx 1.8.1  |
+| **Ruby 2.2 with Passenger version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.2 (Passenger<br>Standalone)_ | 2016.03 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1  | Passenger 4.0.59   | nginx 1.8.1  |
+| **Ruby 2.1 with Puma version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.1 (Puma)_                         | 2016.03 | Ruby 2.1.8-p440 | RubyGems 2.2.5    | Puma 2.10.2        | nginx 1.8.1  |
+| **Ruby 2.1 with Passenger version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.1 (Passenger<br>Standalone)_ | 2016.03 | Ruby 2.1.8-p440 | RubyGems 2.2.5    | Passenger 4.0.59   | nginx 1.8.1  |
+| **Ruby 2.0 with Puma version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.0 (Puma)_                         | 2016.03 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.10.2        | nginx 1.8.1  |
+| **Ruby 2.0 with Passenger version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 2.0 (Passenger<br>Standalone)_ | 2016.03 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.59   | nginx 1.8.1  |
+| **Ruby 1.9 with Passenger version 2.1.2**<br>_64bit Amazon Linux 2016.03 v2.1.2 running Ruby 1.9.3_                         | 2016.03 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59   | nginx 1.8.1  |
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 7, 2016 and May 13, 2016:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI     | Language        | Package Manager   | Application Server | Proxy Server |
+| --------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- | ----------------- | ------------------ | ------------ |
+| **Ruby 2.3 with Puma version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.3<br>(Puma)_                      | 2016.03 | Ruby 2.3        | RubyGems 2.5.1    | Puma 2.10.2        | nginx 1.8.1  |
+| **Ruby 2.3 with Passenger version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.3 (Passenger<br>Standalone)_ | 2016.03 | Ruby 2.3        | RubyGems 2.5.1    | Passenger 4.0.59   | nginx 1.8.1  |
+| **Ruby 2.2 with Puma version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.2<br>(Puma)_                      | 2016.03 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1  | Puma 2.10.2        | nginx 1.8.1  |
+| **Ruby 2.2 with Passenger version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.2 (Passenger<br>Standalone)_ | 2016.03 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1  | Passenger 4.0.59   | nginx 1.8.1  |
+| **Ruby 2.1 with Puma version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.1<br>(Puma)_                      | 2016.03 | Ruby 2.1.8-p440 | RubyGems 2.2.5    | Puma 2.10.2        | nginx 1.8.1  |
+| **Ruby 2.1 with Passenger version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.1 (Passenger<br>Standalone)_ | 2016.03 | Ruby 2.1.8-p440 | RubyGems 2.2.5    | Passenger 4.0.59   | nginx 1.8.1  |
+| **Ruby 2.0 with Puma version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.0<br>(Puma)_                      | 2016.03 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.10.2        | nginx 1.8.1  |
+| **Ruby 2.0 with Passenger version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.0 (Passenger<br>Standalone)_ | 2016.03 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.59   | nginx 1.8.1  |
+| **Ruby 1.9 with Passenger version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Ruby 1.9.3_                         | 2016.03 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59   | nginx 1.8.1  |
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 26, 2016 and April 7, 2016:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI     | Language        | Package Manager   | Application Server | Web Server  |
+| --------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- | ----------------- | ------------------ | ----------- |
+| **Ruby 2.2 with Puma version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.2<br>(Puma)_                      | 2015.09 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1  | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.2 with Passenger version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.2 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.2.4-p230 | RubyGems 2.4.5.1  | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 2.1 with Puma version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.1<br>(Puma)_                      | 2015.09 | Ruby 2.1.8-p440 | RubyGems 2.2.5    | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.1 with Passenger version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.1 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.1.8-p440 | RubyGems 2.2.5    | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 2.0 with Puma version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.0<br>(Puma)_                      | 2015.09 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.0 with Passenger version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Ruby 2.0 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.0.0-p648 | RubyGems 2.0.14.1 | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 1.9 with Passenger version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Ruby 1.9.3_                         | 2015.09 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59   | nginx 1.8.0 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 11, 2016 and February 26, 2016:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI     | Language        | Package Manager   | Application Server | Web Server  |
+| --------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- | ----------------- | ------------------ | ----------- |
+| **Ruby 2.2 with Puma version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.2<br>(Puma)_                      | 2015.09 | Ruby 2.2.3      | RubyGems 2.4.5.1  | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.2 with Passenger version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.2 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.2.3      | RubyGems 2.4.5.1  | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 2.1 with Puma version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.1<br>(Puma)_                      | 2015.09 | Ruby 2.1.7      | RubyGems 2.2.5    | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.1 with Passenger version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.1 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.1.7      | RubyGems 2.2.5    | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 2.0 with Puma version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.0<br>(Puma)_                      | 2015.09 | Ruby 2.0.0-p647 | RubyGems 2.0.14.1 | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.0 with Passenger version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Ruby 2.0 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.0.0-p647 | RubyGems 2.0.14.1 | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 1.9 with Passenger version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Ruby 1.9.3_                         | 2015.09 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59   | nginx 1.8.0 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 4, 2015 and January 11, 2016:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI     | Language        | Package Manager   | Application Server | Web Server  |
+| --------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- | ----------------- | ------------------ | ----------- |
+| **Ruby 2.2 with Puma version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.2<br>(Puma)_                      | 2015.09 | Ruby 2.2.3      | RubyGems 2.4.5.1  | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.2 with Passenger version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.2 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.2.3      | RubyGems 2.4.5.1  | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 2.1 with Puma version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.1<br>(Puma)_                      | 2015.09 | Ruby 2.1.7      | RubyGems 2.2.5    | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.1 with Passenger version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.1 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.1.7      | RubyGems 2.2.5    | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 2.0 with Puma version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.0<br>(Puma)_                      | 2015.09 | Ruby 2.0.0-p647 | RubyGems 2.0.14.1 | Puma 2.10.2        | nginx 1.8.0 |
+| **Ruby 2.0 with Passenger version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Ruby 2.0 (Passenger<br>Standalone)_ | 2015.09 | Ruby 2.0.0-p647 | RubyGems 2.0.14.1 | Passenger 4.0.59   | nginx 1.8.0 |
+| **Ruby 1.9 with Passenger version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Ruby 1.9.3_                         | 2015.09 | Ruby 1.9.3-p551 | RubyGems 1.8.23.2 | Passenger 4.0.59   | nginx 1.8.0 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 18, 2015 and November 4, 2015:
+
+| Platform Version and _Solution Stack Name_                                                                                  | AMI     | Language        | Application Server | Web Server  |
+| --------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- | ------------------ | ----------- |
+| **Ruby 2.2 with Puma version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.2<br>(Puma)_                      | 2015.03 | Ruby 2.2.2      | Puma 2.10.2        | Nginx 1.6.2 |
+| **Ruby 2.2 with Passenger version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.2 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59   | Nginx 1.6.2 |
+| **Ruby 2.1 with Puma version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.1<br>(Puma)_                      | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2        | Nginx 1.6.2 |
+| **Ruby 2.1 with Passenger version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.1 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59   | Nginx 1.6.2 |
+| **Ruby 2.0 with Puma version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.0<br>(Puma)_                      | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2        | Nginx 1.6.2 |
+| **Ruby 2.0 with Passenger version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Ruby 2.0 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59   | Nginx 1.6.2 |
+| **Ruby 1.9 with Passenger version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Ruby 1.9.3_                         | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59   | Nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 11, 2015 and September 18, 2015:
+
+| Platform Version and _Solution Stack Name_                                                                                     | AMI     | Language        | Application Server | Web Server  |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------- | --------------- | ------------------ | ----------- |
+| **Ruby 2.2 with Puma version 2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.2<br>(Puma)_                         | 2015.03 | Ruby 2.2.2      | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.2 with Passenger version<br>2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.2 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 2.1 with Puma version 2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.1<br>(Puma)_                         | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.1 with Passenger version<br>2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.1 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 2.0 with Puma version 2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.0<br>(Puma)_                         | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.0 with Passenger version<br>2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.0 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 1.9 with Passenger version<br>2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Ruby<br>1.9.3_                      | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59   | nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 3, 2015 and August 11, 2015:
+
+| Platform Version and _Solution Stack Name_                                                                                     | AMI     | Language        | Application Server | Web Server  |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------- | --------------- | ------------------ | ----------- |
+| **Ruby 2.2 with Puma version 1.4.6**<br>_64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.2<br>(Puma)_                         | 2015.03 | Ruby 2.2.2      | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.2 with Passenger version<br>1.4.6**<br>_64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.2 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 2.1 with Puma version 1.4.6**<br>_64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.1<br>(Puma)_                         | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.1 with Passenger version<br>1.4.6**<br>_64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.1 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 2.0 with Puma version 1.4.6**<br>_64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.0<br>(Puma)_                         | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.0 with Passenger version<br>1.4.6**<br>_64bit Amazon Linux 2015.03 v1.4.6 running Ruby 2.0 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 1.9 with Passenger version<br>1.4.6**<br>_64bit Amazon Linux 2015.03 v1.4.6 running Ruby<br>1.9.3_                      | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59   | nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 15, 2015 and August 3, 2015:
+
+| Platform Version and _Solution Stack Name_                                                                                     | AMI     | Language        | Application Server | Web Server  |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------- | --------------- | ------------------ | ----------- |
+| **Ruby 2.2 with Puma version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.2<br>(Puma)_                         | 2015.03 | Ruby 2.2.2      | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.2 with Passenger version<br>1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.2 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 2.1 with Puma version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.1<br>(Puma)_                         | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.1 with Passenger version<br>1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.1 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 2.0 with Puma version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.0<br>(Puma)_                         | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2        | nginx 1.6.2 |
+| **Ruby 2.0 with Passenger version<br>1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.0 (Passenger<br>Standalone)_ | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59   | nginx 1.6.2 |
+| **Ruby 1.9 with Passenger version<br>1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Ruby<br>1.9.3_                      | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59   | nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 27, 2015 and June 15, 2015:
+
+| **Ruby Configurations**                                                   |
+| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.2 (Puma)                 | 2015.03 | Ruby 2.2.2      | Puma 2.10.2 and nginx 1.6.2      |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.1 (Puma)                 | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2 and nginx 1.6.2      |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.1 (Passenger Standalone) | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.0 (Puma)                 | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2 and nginx 1.6.2      |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.0 (Passenger Standalone) | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 1.9.3                      | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 and nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 22, 2015 and May 26, 2015:
+
+| **Ruby Container Types**                                                  |
+| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Puma)                 | 2015.03 | Ruby 2.2.2      | Puma 2.10.2 and nginx 1.6.2      |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.1 (Puma)                 | 2015.03 | Ruby 2.1.5-p273 | Puma 2.10.2 and nginx 1.6.2      |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.1 (Passenger Standalone) | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.0 (Puma)                 | 2015.03 | Ruby 2.0.0-p598 | Puma 2.10.2 and nginx 1.6.2      |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.0 (Passenger Standalone) | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 1.9.3                      | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 and nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 8, 2015 and April 21, 2015:
+
+| **Ruby Container Types**                                                  |
+| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Puma)                 | 2015.03 | Ruby 2.2.2      | Puma 2.9.1 and nginx 1.6.2       |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.1 (Puma)                 | 2015.03 | Ruby 2.1.5-p273 | Puma 2.9.1 and nginx 1.6.2       |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.1 (Passenger Standalone) | 2015.03 | Ruby 2.1.5-p273 | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.0 (Puma)                 | 2015.03 | Ruby 2.0.0-p598 | Puma 2.9.1 and nginx 1.6.2       |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.0 (Passenger Standalone) | 2015.03 | Ruby 2.0.0-p598 | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 1.9.3                      | 2015.03 | Ruby 1.9.3-p551 | Passenger 4.0.59 and nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 24, 2015 and April 7, 2015:
+
+| **Ruby Container Types**                                                  |
+| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
+| 64bit Amazon Linux 2014.09 v1.2.1 running Ruby 2.2 (Puma)                 | 2014.09 | Ruby 2.2.0      | Puma 2.9.1 and nginx 1.6.2       |
+| 64bit Amazon Linux 2014.09 v1.2.1 running Ruby 2.2 (Passenger Standalone) | 2014.09 | Ruby 2.2.0      | Passenger 4.0.59 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Puma)                 | 2014.09 | Ruby 2.1.5-p273 | Puma 2.9.1 and nginx 1.6.2       |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.5-p273 | Passenger 4.0.53 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.0 (Puma)                 | 2014.09 | Ruby 2.0.0-p598 | Puma 2.9.1 and nginx 1.6.2       |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.0 (Passenger Standalone) | 2014.09 | Ruby 2.0.0-p598 | Passenger 4.0.53 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 1.9.3                      | 2014.09 | Ruby 1.9.3-p551 | Passenger 4.0.53 and nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between February 17, 2015 and March 23, 2015:
+
+| **Ruby Container Types**                                                  |
+| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Puma)                 | 2014.09 | Ruby 2.1.5-p273 | Puma 2.9.1 and nginx 1.6.2       |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.5-p273 | Passenger 4.0.53 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.0 (Puma)                 | 2014.09 | Ruby 2.0.0-p598 | Puma 2.9.1 and nginx 1.6.2       |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.0 (Passenger Standalone) | 2014.09 | Ruby 2.0.0-p598 | Passenger 4.0.53 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 1.9.3                      | 2014.09 | Ruby 1.9.3-p551 | Passenger 4.0.53 and nginx 1.6.2 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2015 and February 16, 2015:
+
+| **Ruby Container Types**                                                      |
+| ----------------------------------------------------------------------------- | ------- | --------------- | -------------------------- |
+| **Name**                                                                      | **AMI** | **Language**    | **Application/Web Server** |
+| 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.1<br>(Puma)                 | 2014.09 | Ruby 2.1.4      | Puma 2.9.1 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.1<br>(Passenger Standalone) | 2014.09 | Ruby 2.1.4      | Passenger 4.0.53           |
+| 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.0<br>(Puma)                 | 2014.09 | Ruby 2.0.0-p594 | Puma 2.9.1 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.0<br>(Passenger Standalone) | 2014.09 | Ruby 2.0.0-p594 | Passenger 4.0.53           |
+| 64bit Amazon Linux 2014.09 v1.1.01 running Ruby<br>1.9.3                      | 2014.09 | Ruby 1.9.3-p550 | Passenger 4.0.53           |
+| 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 2.1<br>(Puma)                 | 2014.03 | Ruby 2.1.2-p95  | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 2.1<br>(Passenger Standalone) | 2014.03 | Ruby 2.1.2      | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 2.0<br>(Puma)                 | 2014.03 | Ruby 2.0.0-p481 | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.1.01 running Ruby 2.0<br>(Passenger Standalone) | 2014.03 | Ruby 2.0.0      | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.03 v1.1.01 running Ruby<br>1.9.3                      | 2014.03 | Ruby 1.9.3      | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.1.01 running Ruby<br>1.9.3                      | 2014.03 | Ruby 1.9.3      | Passenger 4.0.37           |
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 31, 2014 and January 27, 2015:
+
+| **Ruby Container Types**                                                  |
+| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------- |
+| **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server** |
+| 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.1 (Puma)                 | 2014.09 | Ruby 2.1.4      | Puma 2.9.1 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.4      | Passenger 4.0.53           |
+| 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.0 (Puma)                 | 2014.09 | Ruby 2.0.0-p594 | Puma 2.9.1 and nginx 1.6.2 |
+| 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.0 (Passenger Standalone) | 2014.09 | Ruby 2.0.0-p594 | Passenger 4.0.53           |
+| 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 1.9.3                      | 2014.09 | Ruby 1.9.3-p550 | Passenger 4.0.53           |
+
+The following Elastic Beanstalk platform versions for Ruby were current between October 16, 2014 and October 30, 2014:
+
+| **Ruby Container Types**                                                      |
+| ----------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                                                      | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.1<br>(Puma)                 | 2014.03 | Ruby 2.1.2   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.1<br>(Passenger Standalone) | 2014.03 | Ruby 2.1.2   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.0<br>(Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.0<br>(Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.03 v1.0.91 running Ruby<br>1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Ruby<br>1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+
+1[CVE-2014-3566 Advisory](https://aws.amazon.com/security/security-bulletins/CVE-2014-3566-advisory/ "https://aws.amazon.com/security/security-bulletins/CVE-2014-3566-advisory/")
+
+The following Elastic Beanstalk platform versions for Ruby were current between September 24, 2014 and October 15, 2014:
+
+| **Ruby Container Types**                                                      |
+| ----------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                                                      | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.1<br>(Puma)                 | 2014.03 | Ruby 2.1.2   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.1<br>(Passenger Standalone) | 2014.03 | Ruby 2.1.2   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.0<br>(Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.0<br>(Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.03 v1.0.71 running Ruby<br>1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.71 running Ruby<br>1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+
+1
+[CVE-2014-6271 Advisory](http://aws.amazon.com/security/security-bulletins/CVE_2014_6271_advisory/ "http://aws.amazon.com/security/security-bulletins/CVE_2014_6271_advisory/") and [ALAS-2014-419](https://alas.aws.amazon.com/ALAS-2014-419.html "https://alas.aws.amazon.com/ALAS-2014-419.html")
+
+The following Elastic Beanstalk platform versions for Ruby were current between August 14, 2014 and September 23, 2014:
+
+| **Ruby Container Types**                                                  |
+| ------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                                                  | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Puma)                 | 2014.03 | Ruby 2.1.2   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Passenger Standalone) | 2014.03 | Ruby 2.1.2   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 30, 2014 and August 13, 2014:
+
+| **Ruby Container Types**                                                  |
+| ------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                                                  | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+
+The following Elastic Beanstalk platform versions for Ruby were current between June 5, 2014 and June 29, 2014:
+
+| **Ruby Container Types**                                                      |
+| ----------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                                                      | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.41 running Ruby 2.0<br>(Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.31 running Ruby 2.0<br>(Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.03 v1.0.31 running Ruby<br>1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.31 running Ruby<br>1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+
+1
+[OpenSSL Security Advisory](http://aws.amazon.com/security/security-bulletins/openssl-security-advisory/ "http://aws.amazon.com/security/security-bulletins/openssl-security-advisory/")
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 14, 2014 and June 4, 2014:
+
+| **Ruby Container Types**                                  |
+| --------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                                  | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.3 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 5, 2014 and May 13, 2014:
+
+| **Ruby Container Types**                                                  |
+| ------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                                                  | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.2 running Ruby 2.0 (Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.2 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.03 v1.0.2 running Ruby 1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.03 v1.0.2 running Ruby 1.9.3                      | 2014.03 | Ruby 1.9.3   | Passenger 4.0.37           |
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 7, 2014 and May 4, 2014:
+
+| **Ruby Container Types**                                                      |
+| ----------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                                                      | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.12 running Ruby 2.0<br>(Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 v1.0.12 running Ruby 2.0<br>(Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.02 v1.0.11 running Ruby<br>1.9.3                      | 2013.09 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.02 v1.0.11 running Ruby<br>1.9.3                      | 2013.09 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.02 v1.0.11 running Ruby<br>1.8.7                      | 2013.09 | Ruby 1.8.7   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.02 v1.0.11 running Ruby<br>1.8.7                      | 2013.09 | Ruby 1.8.7   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2013.09 v1.0.11 running Ruby<br>1.9.3                      | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
+| 64bit Amazon Linux 2013.09 v1.0.11 running Ruby<br>1.9.3                      | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
+| 32bit Amazon Linux 2013.09 v1.0.11 running Ruby<br>1.8.7                      | 2013.09 | Ruby 1.8.7   | Passenger 4.0.20           |
+| 64bit Amazon Linux 2013.09 v1.0.11 running Ruby<br>1.8.7                      | 2013.09 | Ruby 1.8.7   | Passenger 4.0.20           |
+
+1
+[openssl-1.0.1e-4.58.amzn1](https://forums.aws.amazon.com/message.jspa?messageID=535563#535563 "https://forums.aws.amazon.com/message.jspa?messageID=535563#535563")
+
+2
+[openssl-1.0.1e-37.66.amzn1](https://aws.amazon.com/amazon-linux-ami/security-bulletins/ALAS-2014-320/ "https://aws.amazon.com/amazon-linux-ami/security-bulletins/ALAS-2014-320/")
+
+The following Elastic Beanstalk platform versions for Ruby were current between April 2, 2014 and April 6, 2014:
+
+| **Ruby Container Types**                                           |
+| ------------------------------------------------------------------ | ------- | ------------ | -------------------------- |
+| **Name**                                                           | **AMI** | **Language** | **Application/Web Server** |
+| 64bit Amazon Linux 2014.03 running Ruby 2.0 (Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
+| 64bit Amazon Linux 2014.03 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.02 running Ruby 1.9.3                      | 2013.09 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.02 running Ruby 1.9.3                      | 2013.09 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.02 running Ruby 1.8.7                      | 2013.09 | Ruby 1.8.7   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.02 running Ruby 1.8.7                      | 2013.09 | Ruby 1.8.7   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2013.09 running Ruby 1.9.3                      | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
+| 64bit Amazon Linux 2013.09 running Ruby 1.9.3                      | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
+| 32bit Amazon Linux 2013.09 running Ruby 1.8.7                      | 2013.09 | Ruby 1.8.7   | Passenger 4.0.20           |
+| 64bit Amazon Linux 2013.09 running Ruby 1.8.7                      | 2013.09 | Ruby 1.8.7   | Passenger 4.0.20           |
+
+The following Elastic Beanstalk platform versions for Ruby were current between March 18, 2014 and April 1, 2014:
+
+| **Ruby Container Types**                      |
+| --------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                      | **AMI** | **Language** | **Application/Web Server** |
+| 32bit Amazon Linux 2014.02 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.02 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2014.02 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7   | Passenger 4.0.37           |
+| 64bit Amazon Linux 2014.02 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7   | Passenger 4.0.37           |
+| 32bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
+| 64bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
+| 32bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7   | Passenger 4.0.20           |
+| 64bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7   | Passenger 4.0.20           |
+
+The following Elastic Beanstalk platform versions for Ruby were current between November 9, 2013 and March 17, 2014:
+
+| **Ruby Container Types**                      |
+| --------------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                                      | **AMI** | **Language** | **Application/Web Server** |
+| 32bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
+| 64bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
+| 32bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7   | Passenger 4.0.20           |
+| 64bit Amazon Linux 2013.09 running Ruby 1.8.7 | 2013.09 | Ruby 1.8.7   | Passenger 4.0.20           |
+
+The following Elastic Beanstalk platform versions for Ruby were current prior to November 9, 2013:
+
+| **Ruby Container Types**              |
+| ------------------------------------- | ------- | ------------ | -------------------------- |
+| **Name**                              | **AMI** | **Language** | **Application/Web Server** |
+| 32bit Amazon Linux running Ruby 1.9.3 | 2012.09 | Ruby 1.9.3   | Passenger 3.0.17           |
+| 64bit Amazon Linux running Ruby 1.9.3 | 2012.09 | Ruby 1.9.3   | Passenger 3.0.17           |
+| 32bit Amazon Linux running Ruby 1.8.7 | 2012.09 | Ruby 1.8.7   | Passenger 3.0.17           |
+| 64bit Amazon Linux running Ruby 1.8.7 | 2012.09 | Ruby 1.8.7   | Passenger 3.0.17           |
