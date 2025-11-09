@@ -292,14 +292,17 @@ send analytics data to another service or application. Each `KpiResult`
 object contains some or all of the following standard objects and fields, depending on
 the metric.
 
-| Object or field         | Description                                                                                                                                                       |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Rows`                  | An array of objects that contains the result set for a query.                                                                                                     |
-| `Rows.GroupedBys`       | For a multiple-value metric, an array of fields that defines the field and values that were used to group data in query results.                                  |
-| `Rows.GroupedBys.Key`   | For a multiple-value metric, the name of the property or field that stores the value specified in the `GroupedBys.Value` field.                                   |
-| `Rows.GroupedBys.Type`  | For a multiple-value metric, the data type of the value specified in the `GroupedBys.Value` field.                                                                |
-| `Rows.GroupedBys.Value` | For a multiple-value metric, the actual value for the field that was used to group data in query results. This value correlates to an associated `Values` object. |
-| `Rows.Values`           | An array of fields that contains query results.                                                                                                                   |
-| `Rows.Values.Key`       | The friendly name of the metric that was queried. The metric's value is specified in the `Values.Value` field.                                                    |
-| `Rows.Values.Type`      | The data type of the value specified in the `Values.Value` field.                                                                                                 |
-| `Rows.Values.Value`     | The actual value for the metric that was queried, including any filters that were applied.                                                                        | For information about the fields in a JSON response to a query for a journey execution metric or journey activity execution metric, see [Standard metrics that apply to Amazon Pinpoint projects, campaigns, and journeys](analytics-standard-metrics.md "analytics-standard-metrics.md"). |
+| Object or field         | Description                                                                                                                                                             |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Rows`                  | An array of objects that contains the result set for a query.                                                                                                           |
+| `Rows.GroupedBys`       | For a multiple-value metric, an array of fields that defines the<br>field and values that were used to group data in query results.                                     |
+| `Rows.GroupedBys.Key`   | For a multiple-value metric, the name of the property or field that<br>stores the value specified in the `GroupedBys.Value`<br>field.                                   |
+| `Rows.GroupedBys.Type`  | For a multiple-value metric, the data type of the value specified in<br>the `GroupedBys.Value` field.                                                                   |
+| `Rows.GroupedBys.Value` | For a multiple-value metric, the actual value for the field that was<br>used to group data in query results. This value correlates to an<br>associated `Values` object. |
+| `Rows.Values`           | An array of fields that contains query results.                                                                                                                         |
+| `Rows.Values.Key`       | The friendly name of the metric that was queried. The metric's value<br>is specified in the `Values.Value` field.                                                       |
+| `Rows.Values.Type`      | The data type of the value specified in the `Values.Value`<br>field.                                                                                                    |
+| `Rows.Values.Value`     | The actual value for the metric that was queried, including any<br>filters that were applied.                                                                           |
+
+For information about the fields in a JSON response to a query for a journey
+execution metric or journey activity execution metric, see [Standard metrics that apply to Amazon Pinpoint projects, campaigns, and journeys](analytics-standard-metrics.md "analytics-standard-metrics.md").
