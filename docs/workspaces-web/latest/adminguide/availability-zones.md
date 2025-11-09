@@ -32,15 +32,18 @@ following table lists the AZ IDs that you can use for each Region. To see the ma
 IDs to Availability Zones in your account, see [AZ IDs for Your Resources](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") in
 the _AWS RAM User Guide_.
 
-| Region name              | Region code      | Supported AZ IDs                                           |
-| ------------------------ | ---------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (N. Virginia)    | `us-east-1`      | `use1-az1`, `use1-az2`, `use1-az4`, `use1-az5`, `use1-az6` |
-| US West (Oregon)         | `us-west-2`      | `usw2-az1`, `usw2-az2`, `usw2-az3`                         |
-| Asia Pacific (Mumbai)    | `ap-south-1`     | `aps1-az1`, `aps1-az3`                                     |
-| Asia Pacific (Singapore) | `ap-southeast-1` | `apse1-az1`, `apse1-az2`, `apse1-az3`                      |
-| Asia Pacific (Sydney)    | `ap-southeast-2` | `apse2-az1`, `apse2-az2`, `apse2-az3`                      |
-| Asia Pacific (Tokyo)     | `ap-northeast-1` | `apne1-az1`, `apne1-az2`, `apne1-az4`                      |
-| Canada (Central)         | `ca-central-1`   | `cac1-az1`, `cac1-az2`, `cac1-az4`                         |
-| Europe (Frankfurt)       | `eu-central-1`   | `euc1-az2`, `euc1-az2`, `euc1-az3`                         |
-| Europe (Ireland)         | `eu-west-1`      | `euw1-az1`, `euw1-az2`, `euw1-az3`                         |
-| Europe (London)          | `eu-west-2`      | `euw2-az1`, `euw2-az2`                                     | For more information about Availability Zones and AZ IDs, see [Regions, Availability Zones, and Local Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _Amazon EC2 User Guide_. |
+| Region name              | Region code      | Supported AZ IDs                                              |
+| ------------------------ | ---------------- | ------------------------------------------------------------- |
+| US East (N. Virginia)    | `us-east-1`      | `use1-az1`, `use1-az2`, `use1-az4`,<br>`use1-az5`, `use1-az6` |
+| US West (Oregon)         | `us-west-2`      | `usw2-az1`, `usw2-az2`, `usw2-az3`                            |
+| Asia Pacific (Mumbai)    | `ap-south-1`     | `aps1-az1`, `aps1-az3`                                        |
+| Asia Pacific (Singapore) | `ap-southeast-1` | `apse1-az1`, `apse1-az2`, `apse1-az3`                         |
+| Asia Pacific (Sydney)    | `ap-southeast-2` | `apse2-az1`, `apse2-az2`, `apse2-az3`                         |
+| Asia Pacific (Tokyo)     | `ap-northeast-1` | `apne1-az1`, `apne1-az2`, `apne1-az4`                         |
+| Canada (Central)         | `ca-central-1`   | `cac1-az1`, `cac1-az2`, `cac1-az4`                            |
+| Europe (Frankfurt)       | `eu-central-1`   | `euc1-az2`, `euc1-az2`, `euc1-az3`                            |
+| Europe (Ireland)         | `eu-west-1`      | `euw1-az1`, `euw1-az2`, `euw1-az3`                            |
+| Europe (London)          | `eu-west-2`      | `euw2-az1`, `euw2-az2`                                        |
+
+For more information about Availability Zones and AZ IDs, see [Regions, Availability Zones, and Local Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the
+_Amazon EC2 User Guide_.

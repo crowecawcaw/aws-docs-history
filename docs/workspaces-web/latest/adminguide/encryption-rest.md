@@ -10,27 +10,21 @@ If you choose to pass a CMK, the key provided must be a symmetric encryption AWS
 and you, as the administrator, must have the following permissions:
 
 ```
-kms:DescribeKey
-
-kms:GenerateDataKey
-
-kms:GenerateDataKeyWithoutPlaintext
-
-kms:Decrypt
-
+kms:DescribeKey 
+kms:GenerateDataKey 
+kms:GenerateDataKeyWithoutPlaintext 
+kms:Decrypt 
 kms:ReEncryptTo
 kms:ReEncryptFrom
 ```
 
 If you use a CMK, you will need to allowlist the WorkSpaces Secure Browser external service principal
-to access to the key.
-For more information, see Example of Scoped CMK Key Policy with
+to access to the key.  For more information, see Example of Scoped CMK Key Policy with
 aws:SourceAccount
 
 Whenever possible, WorkSpaces Secure Browser will use Forward Access Sessions (FAS) credentials to access
 your key. For more information about FAS, see [Forward access
-sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
-There are cases where WorkSpaces Secure Browser may need to access your key asynchronously.
+sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").  There are cases where WorkSpaces Secure Browser may need to access your key asynchronously.
 By allowlisting the WorkSpaces Secure Browser external service principal in your key policy, WorkSpaces Secure Browser will be able
 to perform the allowlisted set of cryptographic operations with your key.
 
@@ -40,8 +34,7 @@ you, as the administrator accessing the resource, must have the following permis
 ```
 kms:GenerateDataKey
 kms:GenerateDataKeyWithoutPlaintext
-kms:Decrypt
-
+kms:Decrypt 
 kms:ReEncryptTo
 kms:ReEncryptFrom
 ```

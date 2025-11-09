@@ -11,7 +11,7 @@ web browsers, without burdening IT with managing appliances, infrastructure, spe
 software, or virtual private network (VPN) connections. Web content is streamed to the user's web
 browser, while the actual browser and web content is isolated in AWS. By using the same
 underlying technologies that power AWS End User Computing services like Amazon WorkSpaces and
-Amazon AppStream 2.0, WorkSpaces Secure Browser can be more cost effective than traditional virtual desktops, and reduce
+Amazon WorkSpaces Applications, WorkSpaces Secure Browser can be more cost effective than traditional virtual desktops, and reduce
 complexity compared to providing company-owned devices with management software. WorkSpaces Secure Browser reduces the
 risk of data exfiltration by streaming web content. No HTML, document object model (DOM), or
 sensitive company data is transmitted to the local machine. By isolating the device, corporate

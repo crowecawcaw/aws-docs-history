@@ -19,25 +19,154 @@ The following fields are included in all events:
 - **Client IP**
 - **Session ID**
 
-| Name                                      | Description                                                                                                                                                                                                                                                                                                               | Additional fields included in the event                                                               |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | --------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------- | ----------------------------- | ----------------------------------------------------------- | ---------------------------------------- | ---------------------------------- | ------------------------------------------------------------------- | ----------------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ----------- | --------- | ---------- | ---- |
-| SessionStart                              | A secure browser session was launched, but the user has not connected yet.                                                                                                                                                                                                                                                |                                                                                                       |
-| SessionConnect                            | The user is connected to the secure browser session.                                                                                                                                                                                                                                                                      |                                                                                                       |
-| TabOpen                                   | In their secure browser session, the user opened a new tab, or they opened a link in a new tab.                                                                                                                                                                                                                           | Hostname, path, URL (if the user opens a link in a new tab), none (if the user opens a new tab)       |
-| UrlVisit                                  | In their browser session, the user navigated to a URL.                                                                                                                                                                                                                                                                    | Hostname, path, URL                                                                                   |
-| WebsiteInteract                           | The user changed a standard HTML element on a website (e.g., clicks a checkbox, radio-button, or button, or selects an item in the drop-down).                                                                                                                                                                            | Hostname, path, URL                                                                                   |
-| TabClose                                  | In their browser session, the user closed a tab.                                                                                                                                                                                                                                                                          | Hostname, path, URL (if the user closes a tab they navigated to), none (if the user closes a new tab) |
-| ContentTransferFromLocalToRemoteClipboard | The user updated the clipboard within the secure browser using content from their local browser (outside the secure environment). This update can occur either by copying content through the in-session toolbar or by transferring data via keyboard shortcuts (Ctrl+C / Ctrl+V).                                        |                                                                                                       |
-| ContentCopyFromWebsite                    | The user updated the clipboard within the secure browser using content from the secure browser (inside the secure environment).                                                                                                                                                                                           | Hostname, path, URL                                                                                   |
-| ContentPasteToWebsite                     | Clipboard content was pasted into a webpage within the browser. (This event does not capture instances where clipboard content is pasted into the browser's URL bar.)                                                                                                                                                     | Hostname, path, URL                                                                                   |
-| PrintJobSubmit                            | The user submitted a request job to the browser’s virtual printer (“DCV Printer”). The content is saved as PDF on the user’s local machine.                                                                                                                                                                               | Filename, size, extension                                                                             |
-| FileDownloadFromSecureBrowserToRemoteDisk | A file was saved from the session to the remote instance’s local disk.                                                                                                                                                                                                                                                    | Hostname, path, URLfilename, size, extension                                                          |
-| FileTransferFromRemoteToLocalDisk         | A file was downloaded from the remote instance’s disk to the user’s local device.                                                                                                                                                                                                                                         | Filename, size, extension                                                                             |
-| FileUploadFromRemoteDiskToSecureBrowser   | A file stored on the remote instance’s local disk was uploaded to a file-sharing SaaS platform (e.g., Google Drive, Box, or File.io) via the browser session.                                                                                                                                                             |                                                                                                       |
-| FileTransferFromLocalToRemoteDisk         | A file was uploaded from the user device to the secure browser session.                                                                                                                                                                                                                                                   | Filename, size, and extension                                                                         |
-| SessionDisconnection                      | The user is disconnected from the secure browser session.                                                                                                                                                                                                                                                                 |                                                                                                       |
-| SessionEnd                                | The secure browser session has terminated. Termination can occur in one of three ways: the administrator ends the session via the User Session Manager in the console, the user manually ends the session using End Session in the toolbar, or the session times out after exceeding a duration set by the administrator. |                                                                                                       | Each event follows the [OCSF standard](https://github.com/ocsf "https://github.com/ocsf") and includes a list of attributes that are common to all events: ``` { activity_name : String | A human readable name of the event | eg. UrlLoad activity_id : Integer | OCSF standard value 99 for 'others' category_name : "WorkSpacesSecureBrowser" | The category name where the event belongs to. category_id : 2 | Numerical identifier for category, metadata : link | Required { product : link { vendor_name : "wsb", name : "WorkSpacesSecureBrowser" } version : String | Version of the schema | eg. 1.0.0 }, severity_id : 1 | The severity of the event. All events will have a severity of 1, meaning 'Informational', type_id : class_uid \* 100 + activity_id time : The time the event happened (RFC3339 format), observables : link [ { name : "session_detail.portal_id", type_id : 10 //Resource UID value : //Generated value }, { name : "session_detail.session_id", type_id : 10 //Resource UID value : //Generated value }, { name : "session_detail.client_ip", type_id : 2 //IP Address value : //Generated value }, { name : "session_detail.portal_ip", type_id : 2 //IP Address value : //Generated value }, { name : "session_detail.username", type_id : 10 //Resource UID value : //Generated value } ], // New Events session_detail : { portal_id : String | UUID of the Portal | eg. 1ebe42de-86bb-4073-88a4-34284bc5bcbb, session_id : String | SessionId of the user session | eg. 17be80fa-7bc2-4675-b17a-791243938cdf client_ip : String | IP Address from which user LoggedIn From | eg. 31.65.180.9 portal_ip : String | IP Address of the AWS AppStream Instance that is running the Portal | eg.240.62.100.169 username : String | The logged-in username | eg. bobross } } `Below is an example of the URLVisit event:` { activity_id : 99, activity_name : "URLVisit", ... observables : [ ... { name : "url", type_id : 23 //Unified Resource Locator } ] ... url : { url_string : String | Full URL path, hostname : String | The hostname in the URL path : String | Path in the domain } } `Below is an example of the PrintJobSubmit event:` { activity_id : 99, activity_name : "PrintJobSubmitted", observable : [ ... { name : "file.name", type_id : 24 // File } ] ... file : { name : String | The file name, type_id : 1 //Regular file size : Long | Size in bytes ext : String | File extension } } ``` ## Session Logger metrics for Amazon WorkSpaces Secure Browser Session Logger emits the following Amazon CloudWatch metrics. You can use the **SessionLoggerEventDelivered** metric to monitor the aggregate number of events from your portal, or see the number of log files that were delivered by counting the number of data points rather than summing values. We recommend configuring alarms on the **SessionLoggerTargetNotFoundError** and SessionLoggerAccessDeniedError metrics to detect accidental resource or permissions deletion. ###### Note Metric data points are collected by each session once per minute and published to Amazon CloudWatch once every 5 minutes. Session Logger metrics are emitted immediately, for each Log File delivery. Session Logger metrics | Metric | Description | Dimension | Statistics | Unit |
-| ---                                       | ---                                                                                                                                                                                                                                                                                                                       | ---                                                                                                   | ---                                                                                                                                                                                     | ---                                |
-| **SessionLoggerEventDelivered**           | The number of events each delivered Session Logger file has.                                                                                                                                                                                                                                                              | [PortalId]                                                                                            | Average, Sum, Maximum, Minimum                                                                                                                                                          | Count                              |
-| **SessionLoggerTargetNotFoundError**      | The number of log file deliveries that resulted in bucket not found.                                                                                                                                                                                                                                                      | [PortalId]                                                                                            | Average, Sum, Maximum, Minimum                                                                                                                                                          | Count                              |
-| **SessionLoggerAccessDeniedError**        | The number of log file deliveries that resulted in permissions denied.                                                                                                                                                                                                                                                    | [PortalId]                                                                                            | Average, Sum, Maximum, Minimum                                                                                                                                                          | Count                              |
+| Name                                      | Description                                                                                                                                                                                                                                                                                                                        | Additional fields included in the event                                                                  |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| SessionStart                              | A secure browser session was launched, but the user has not connected<br>yet.                                                                                                                                                                                                                                                      |                                                                                                          |
+| SessionConnect                            | The user is connected to the secure browser session.                                                                                                                                                                                                                                                                               |                                                                                                          |
+| TabOpen                                   | In their secure browser session, the user opened a new tab, or they opened a<br>link in a new tab.                                                                                                                                                                                                                                 | Hostname, path, URL (if the user opens a link in a new tab), none (if the user<br>opens a new tab)       |
+| UrlVisit                                  | In their browser session, the user navigated to a URL.                                                                                                                                                                                                                                                                             | Hostname, path, URL                                                                                      |
+| WebsiteInteract                           | The user changed a standard HTML element on a website (e.g., clicks a checkbox,<br>radio-button, or button, or selects an item in the drop-down).                                                                                                                                                                                  | Hostname, path, URL                                                                                      |
+| TabClose                                  | In their browser session, the user closed a tab.                                                                                                                                                                                                                                                                                   | Hostname, path, URL (if the user closes a tab they navigated to), none (if the<br>user closes a new tab) |
+| ContentTransferFromLocalToRemoteClipboard | The user updated the clipboard within the secure browser using content from<br>their local browser (outside the secure environment). This update can occur either<br>by copying content through the in-session toolbar or by transferring data via<br>keyboard shortcuts (Ctrl+C / Ctrl+V).                                        |                                                                                                          |
+| ContentCopyFromWebsite                    | The user updated the clipboard within the secure browser using content from the<br>secure browser (inside the secure environment).                                                                                                                                                                                                 | Hostname, path, URL                                                                                      |
+| ContentPasteToWebsite                     | Clipboard content was pasted into a webpage within the browser. (This event<br>does not capture instances where clipboard content is pasted into the browser's URL<br>bar.)                                                                                                                                                        | Hostname, path, URL                                                                                      |
+| PrintJobSubmit                            | The user submitted a request job to the browser’s virtual printer (“DCV<br>Printer”). The content is saved as PDF on the user’s local machine.                                                                                                                                                                                     | Filename, size, extension                                                                                |
+| FileDownloadFromSecureBrowserToRemoteDisk | A file was saved from the session to the remote instance’s local disk.                                                                                                                                                                                                                                                             | Hostname, path, URLfilename, size, extension                                                             |
+| FileTransferFromRemoteToLocalDisk         | A file was downloaded from the remote instance’s disk to the user’s local<br>device.                                                                                                                                                                                                                                               | Filename, size, extension                                                                                |
+| FileUploadFromRemoteDiskToSecureBrowser   | A file stored on the remote instance’s local disk was uploaded to a<br>file-sharing SaaS platform (e.g., Google Drive, Box, or File.io) via the browser<br>session.                                                                                                                                                                |                                                                                                          |
+| FileTransferFromLocalToRemoteDisk         | A file was uploaded from the user device to the secure browser session.                                                                                                                                                                                                                                                            | Filename, size, and extension                                                                            |
+| SessionDisconnection                      | The user is disconnected from the secure browser session.                                                                                                                                                                                                                                                                          |                                                                                                          |
+| SessionEnd                                | The secure browser session has terminated. Termination can occur in one of<br>three ways: the administrator ends the session via the User Session Manager in the<br>console, the user manually ends the session using End Session in the toolbar, or the<br>session times out after exceeding a duration set by the administrator. |                                                                                                          |
+
+Each event follows the [OCSF standard](https://github.com/ocsf "https://github.com/ocsf") and
+includes a list of attributes that are common to all events:
+
+```
+
+{
+    activity_name : String | A human readable name of the event | eg. UrlLoad
+    activity_id : Integer | OCSF standard value 99 for 'others'
+    category_name : "WorkSpacesSecureBrowser" | The category name where the event belongs to.
+    category_id : 2 | Numerical identifier for category,
+    metadata : link | Required {
+        product : link {
+            vendor_name : "wsb",
+            name : "WorkSpacesSecureBrowser"
+        }
+        version : String | Version of the schema | eg. 1.0.0
+    },
+    severity_id : 1 | The severity of the event. All events will have a severity of 1, meaning 'Informational',
+    type_id : class_uid * 100 + activity_id
+    time : The time the event happened (RFC3339 format),
+    observables : link [
+        {
+            name : "session_detail.portal_id",
+            type_id : 10 //Resource UID
+            value : //Generated value
+        },
+        {
+            name : "session_detail.session_id",
+            type_id : 10 //Resource UID
+            value : //Generated value
+        },
+        {
+            name : "session_detail.client_ip",
+            type_id : 2 //IP Address
+            value : //Generated value
+        },
+        {
+            name : "session_detail.portal_ip",
+            type_id : 2 //IP Address
+            value : //Generated value
+        },
+        {
+            name : "session_detail.username",
+            type_id : 10 //Resource UID
+            value : //Generated value
+        }
+    ],
+
+    // New Events
+    session_detail : {
+        portal_id : String | UUID of the Portal | eg. 1ebe42de-86bb-4073-88a4-34284bc5bcbb,
+        session_id : String | SessionId of the user session | eg. 17be80fa-7bc2-4675-b17a-791243938cdf
+        client_ip : String | IP Address from which user LoggedIn From | eg. 31.65.180.9
+        portal_ip : String | IP Address of the AWS AppStream Instance that is running the Portal | eg.240.62.100.169
+        username : String | The logged-in username | eg. bobross
+    }
+}
+
+```
+
+Below is an example of the URLVisit event:
+
+```
+
+{
+    activity_id : 99,
+    activity_name : "URLVisit",
+    ...
+    observables : [
+        ...
+        {
+            name : "url",
+            type_id : 23 //Unified Resource Locator
+        }
+    ]
+    ...
+    url : {
+        url_string : String | Full URL path,
+        hostname : String | The hostname in the URL
+        path : String | Path in the domain
+    }
+}
+
+```
+
+Below is an example of the PrintJobSubmit event:
+
+```
+
+{
+    activity_id : 99,
+    activity_name : "PrintJobSubmitted",
+    observable : [
+        ...
+        {
+            name : "file.name",
+            type_id : 24 // File
+        }
+    ]
+    ...
+    file : {
+        name : String | The file name,
+        type_id : 1 //Regular file
+        size : Long | Size in bytes
+        ext : String | File extension
+    }
+}
+
+```
+
+## Session Logger metrics for Amazon WorkSpaces Secure Browser
+
+Session Logger emits the following Amazon CloudWatch metrics.
+
+You can use the **SessionLoggerEventDelivered** metric to monitor the
+aggregate number of events from your portal, or see the number of log files that were
+delivered by counting the number of data points rather than summing values. We recommend
+configuring alarms on the **SessionLoggerTargetNotFoundError** and
+SessionLoggerAccessDeniedError metrics to detect accidental resource or
+permissions deletion.
+
+###### Note
+
+Metric data points are collected by each session once per minute and published to
+Amazon CloudWatch once every 5 minutes. Session Logger metrics are emitted
+immediately, for each Log File delivery.
+
+| Session Logger metrics               | Metric                                                                    | Description | Dimension                      | Statistics | Unit |
+| ------------------------------------ | ------------------------------------------------------------------------- | ----------- | ------------------------------ | ---------- | ---- |
+| **SessionLoggerEventDelivered**      | The number of events each delivered Session Logger file has.              | [PortalId]  | Average, Sum, Maximum, Minimum | Count      |
+| **SessionLoggerTargetNotFoundError** | The number of log file deliveries that resulted in bucket not found.      | [PortalId]  | Average, Sum, Maximum, Minimum | Count      |
+| **SessionLoggerAccessDeniedError**   | The number of log file deliveries that resulted in permissions<br>denied. | [PortalId]  | Average, Sum, Maximum, Minimum | Count      |

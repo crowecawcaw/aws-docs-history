@@ -27,12 +27,33 @@ are correct for your route table:
    other traffic through the VPC's internet gateway. The following table describes
    these two routes:
 
-| Destination                                                                                                    | Target            | Description                                                                                                                                         |
-| -------------------------------------------------------------------------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Public subnet IPv4 CIDR block (for example, 10.0.0/20)                                                         | Local             | All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block. This traffic is routed locally within the VPC. |
-| Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0)                                          | Outbound (igw-ID) | Traffic destined for all other IPv4 addresses is routed to the internet gateway (identified by igw-ID) that was created by the VPC wizard.          | 5. In the navigation pane, choose **Subnets**. Then, select the first private subnet that you created (for example, `WorkSpaces Secure Browser Private Subnet1`). 6. On the **Route Table** tab, choose the route table's ID. 7. Select the route table. Under **Name**, choose the edit (pencil) icon, and enter a name for the table. For example, enter the name `workspacesweb-private-routetable`. Then choose the check mark to save the name. 8. On the **Routes** tab, verify that the route table includes the following routes: |
-| Destination                                                                                                    | Target            | Description                                                                                                                                         |
-| ---                                                                                                            | ---               | ---                                                                                                                                                 |
-| Public subnet IPv4 CIDR block (for example, 10.0.0/20)                                                         | Local             | All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC.               |
-| Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0)                                          | Outbound (nat-ID) | Traffic destined for all other IPv4 addresses is routed to the NAT gateway (identified by nat-ID).                                                  |
-| Traffic destined for S3 buckets (applicable if you specified an S3 endpoint) [pl-ID (com.amazonaws.region.s3)] | Storage (vpce-ID) | Traffic destined for S3 buckets is routed to the S3 endpoint (identified by vpce-ID).                                                               | 9. In the navigation pane, choose **Subnets**. Then select the second private subnet that you created (for example, `WorkSpaces Secure Browser Private Subnet2`). 10. On the **Route Table** tab, verify that the selected route table is the private route table (for example, `workspacesweb-private-routetable`). If the route table is different, choose **Edit** and select your private route table instead.                                                                                                                        |
+| Destination                                                              | Target            | Description                                                                                                                                               |
+| ------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Public subnet IPv4 CIDR block (for example,<br>10.0.0/20)                | Local             | All traffic from the resources destined for IPv4 addresses within the<br>public subnet IPv4 CIDR block. This traffic is routed locally within the<br>VPC. |
+| Traffic destined to all other IPv4 addresses (for example,<br>0.0.0.0/0) | Outbound (igw-ID) | Traffic destined for all other IPv4 addresses is routed to the internet<br>gateway (identified by igw-ID) that was created by the VPC wizard.             |
+
+5. In the navigation pane, choose **Subnets**. Then, select the
+   first private subnet that you created (for example, `WorkSpaces Secure Browser
+Private Subnet1`).
+6. On the **Route Table** tab, choose the route table's ID.
+7. Select the route table. Under **Name**, choose the edit
+   (pencil) icon, and enter a name for the table. For example, enter the name
+   `workspacesweb-private-routetable`. Then choose the check
+   mark to save the name.
+8. On the **Routes** tab, verify that the route table includes the
+   following routes:
+
+| Destination                                                                                                       | Target            | Description                                                                                                                              |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Public subnet IPv4 CIDR block (for example,<br>10.0.0/20)                                                         | Local             | All traffic from the resources destined for IPv4 addresses within the<br>public subnet IPv4 CIDR block is routed locally within the VPC. |
+| Traffic destined to all other IPv4 addresses (for example,<br>0.0.0.0/0)                                          | Outbound (nat-ID) | Traffic destined for all other IPv4 addresses is routed to the NAT<br>gateway (identified by nat-ID).                                    |
+| Traffic destined for S3 buckets (applicable if you specified an S3<br>endpoint) [pl-ID (com.amazonaws.region.s3)] | Storage (vpce-ID) | Traffic destined for S3 buckets is routed to the S3 endpoint<br>(identified by vpce-ID).                                                 |
+
+9. In the navigation pane, choose **Subnets**. Then select the
+   second private subnet that you created (for example, `WorkSpaces Secure Browser
+Private Subnet2`).
+10. On the **Route Table** tab, verify that the selected route
+    table is the private route table (for example,
+    `workspacesweb-private-routetable`). If the route table is
+    different, choose **Edit** and select your private route table
+    instead.
