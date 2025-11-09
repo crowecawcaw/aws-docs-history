@@ -624,10 +624,304 @@ A value that controls scaling of the output album art:
 The following table shows possible effects of **SizingPolicy** settings on the output album art:
 
 | SizingPolicy     | Output Album Art May Be Scaled Up | Output Album Art May Be Padded When Padding Policy Is "Pad" | Output Album Art May Have a Different Pixel Aspect Ratio than Input Album Art | Output Album Art May Be Cropped |
-| ---------------- | --------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Fit**          | Yes                               | Yes                                                         |                                                                               |                                 |
-| **Fill**         | Yes                               |                                                             |                                                                               | Yes                             |
-| **Stretch**      | Yes                               |                                                             | Yes                                                                           |                                 |
-| **Keep**         | Yes                               | Yes                                                         |                                                                               | Yes                             |
-| **ShrinkToFit**  |                                   | Yes                                                         |                                                                               |                                 |
-| **ShrinkToFill** |                                   | Yes                                                         |                                                                               | Yes                             | **Album Art Padding Policy** When you set **PaddingPolicy** to `Pad`, Elastic Transcoder might add white bars to the top and bottom and/or left and right sides of the output album art to make the total size of the output art match the values that you specified for **MaxWidth** and **MaxHeight**. For more information, see the table at `AlbumArt:Art:SizingPolicy`. ![Artwork screenshot.](images/job-create-artwork.png) ![Artwork Encryption screenshot.](images/job-create-artwork-encryption.png) ## (Optional) User Metadata User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in `key/value` pairs. You can use the `key/value` pairs to track details about a file, for example, `Season 1: Episode 3`. You can add up to 10 key/value pairs to each job. Elastic Transcoder does not guarantee that `key/value` pairs are returned in the same order in which you specify them. **Metadata Key** The key of the metadata `key/value` pair that you want returned with the output file. Each key must be a unique string between `1-128` characters, and must use only characters from the following list: <br>• `0-9` <br>• `A-Z` and `a-z` <br>• `Space` <br>• The following symbols: `_.:/=+-%@` You can use keys as a numbering system for organizing your metadata, for storing an extra 128 characters of metadata, or for labeling the metadata stored in the **value**. If you want to use only value metadata, you can put throw-away strings in your keys such as `key1`, and ignore the keys when you retrieve your metadata from Elastic Transcoder. ###### Important You must specify unique strings for all of the keys in a job. If the same string is used for more than one key in a job, Elastic Transcoder returns only one of the key/value pairs that use that key. There is no way to guarantee which value is returned. **Metadata Value** The value of the metadata `key/value` pair that you want returned with your job. Each value must be a string between `0-256` characters, and must use only characters from the following list: <br>• `0-9` <br>• `A-Z` and `a-z` <br>• `Space` <br>• The following symbols: `_.:/=+-%@` ![User Metadata screenshot.](images/job-create-metadata.png) ## (Fragmented MP4/MPEG-TS Outputs Only) Playlist If you choose a preset in the **Preset** list for which the value of **Container** is either **ts** (MPEG-TS) or **fmp4** (Fragmented MP4), use the settings in this section to specify information about the master playlists that you want Elastic Transcoder to create. We recommend that you create at most one master playlist per playlist format. **Master Playlist Name** The name that you want Elastic Transcoder to assign to a master playlist. If the name includes a `/` character, the section of the name before the last **/** must be identical for all **Playlist Names**. If you create more than one master playlist, each must have a unique name. ###### Note Elastic Transcoder automatically appends the relevant file extension to the file name (**.m3u8** for **HLSv3** and **HLSv4** playlists, **.mpd** for **MPEG-DASH** playlists, and **.ism** and **.ismc** for **Smooth** playlists). If you include a file extension in **Master Playlist Name**, the file name will have two extensions. Any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For **Smooth** playlists, the **Audio:Profile**, **Video:Profile**, and **Frame Rate** to **Maximum Number of Frames Between Keyframes** ratio must be the same for all outputs. **Playlist Format** The format for the playlist. Valid formats include **HLSv3**, **HLSv4**, **MPEG-DASH**, and **Smooth**. **Outputs in Master Playlist** For each output in this job that you want to include in a master playlist, the value of the **Output Key** field. If you include more than one output in a playlist, the value of **Segment Duration** for all of the outputs must be the same. For **HLSv4** master playlists, Elastic Transcoder chooses which combinations of audio and video inputs will be linked in the output playlists. The first audio and video inputs will be linked and rendered as the default playback experience, allowing you to choose your preferred playback default. For other individual playlists in the master playlist, Elastic Transcoder chooses which audio and video bit rate combinations will provide the best playback. ![Playlist screenshot.](images/job-create-playlist.png) ## (Fragmented MP4/MPEG-TS Outputs Only, Optional) HLS Content Protection ###### Note HLS content protection encrypts each individual segment of a file, and Elastic Transcoder does not support HLS content protection combined with file-level encryption. If you choose a preset in the **Preset** list for which the value of **Container** is either **ts** (MPEG-TS) or **fmp4** (Fragmented MP4) with a **Smooth** playlist, you can specify encryption settings for streaming your file. You cannot combine data stream encryption with file or caption encryption. If you choose to encrypt your data stream, use the settings in this section to specify information about the data stream encryption. To use HLS content protection, you must have a web server that can authenticate sessions (such as Amazon Elastic Compute Cloud), a way to distribute your streamed media files (such as Amazon CloudFront), and a way to play encrypted streamed media (such as a player-enabled browser). **Method** The content protection method for your output. The only valid value is: `aes-128`. This value will be written into the `method` attribute of the `EXT-X-KEY` metadata tag in the output playlist. **Key** If you want Elastic Transcoder to generate a key for you, leave this field blank. Once Elastic Transcoder has generated the key, you can retrieve the key by calling `ReadJob`. The key is not included in the `CreateJobResponse` object. If you choose to supply your own key, you must encrypt the key by using AWS KMS. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded: `96` (AES-GCM only), `128`, `192`, or `256`. If you configured Elastic Transcoder to generate a key for you, Elastic Transcoder leaves this field blank in the `CreateJob` response. To retrieve your generated data encryption key, submit a `ReadJob` request. For more information about encrypting your key with AWS KMS, see [Encrypting and Decrypting Data](../../../kms/latest/developerguide/programming-encryption.md "../../../kms/latest/developerguide/programming-encryption.md") in the _AWS Key Management Service Developer Guide_. If you choose an HLS content protection method of `aes-128`, the key must be `128` bits. If you have a `relative` **KeyStoragePolicy** set, Elastic Transcoder writes your key to an Amazon S3 bucket with Amazon S3 server-side encryption. **Key MD5 (Required if an Encryption Key is supplied)** The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded. If Elastic Transcoder is generating your key for you, you must leave this field blank. **Initialization Vector (Required if an Encryption Key is supplied)** The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded. If Elastic Transcoder is generating your key for you, you must leave this field blank. For more information, go to [Initialization Vector](http://en.wikipedia.org/wiki/Initialization_vector "http://en.wikipedia.org/wiki/Initialization_vector"). **License Acquisition URL** The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file. For example: `https://www.example.com/exampleKey/` **Key Storage Policy** Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose `WithVariantPlaylists`, Elastic Transcoder will write your encrypted key into the same Amazon S3 bucket as the associated playlist. ###### Important If you chose `NoStore`, Elastic Transcoder will not store your key. You are responsible for storing it and providing it to your users by giving them the **License Acquisition URL** where you are storing the key. ![Playlist HLS Content Protection screenshot.](images/job-create-playlist-hls.png) ## (HLSv3 and Smooth Playlists Only, Optional) Digital Rights Management If you choose a preset in the **Preset** list for which the value of **Container** is either **fmp4** (Fragmented MP4) or **ts** (MPEG-TS), and your **Playlist** is of type **HLSv3** or **Smooth**, you can specify DRM settings for your file. If you choose to use DRM to protect your files, use the settings in this section to specify information about your DRM settings. To use DRM, you must have a license provider server that can track and grant licenses, a web server that can authenticate users, a package server to encrypt your files with DRM (such as Elastic Transcoder), a way to distribute your media files (such as Amazon CloudFront), and a way to play DRM-protected media (such as a DRM-enabled player). ###### Note PlayReady DRM, HLS content protection, and output encryption are mutually exclusive options. **(Optional) PlayReady DRM** The DRM settings used to restrict who can watch your files. This is done by including a PlayReady DRM header in your output playlist. This is not usable for artwork, captions, thumbnails, or watermarks. PlayReady DRM encrypts your media files using `aes-ctr` encryption. If you use DRM for an **HLSv3** playlist, your outputs must have a master playlist. For more information, see [Digital Rights Management](drm.md "drm.md"). **(Required for DRM protection) DRM Format** The DRM format for your output playlist. Valid formats are `discretix-3.0` and `microsoft`. For playlists of type **Smooth**, specify `microsoft`. For playlists of type **HLSv3**, specify `discretix-3.0`. **(Required for DRM protection) DRM Key** The DRM key for your file, provided by your DRM license provider. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded: `128`, `192`, or `256`. The key must also be encrypted by using AWS KMS. For more information, see [Encrypting and Decrypting Data](../../../kms/latest/developerguide/programming-encryption.md "../../../kms/latest/developerguide/programming-encryption.md") in the _AWS Key Management Service Developer Guide_. **(Required for DRM protection) DRM Key Id** The ID for your DRM key, so that your DRM license provider knows which key to provide. The key ID must be provided in big endian, and Elastic Transcoder will convert it to little endian before inserting it into the PlayReady DRM headers. If you are unsure whether your license server provides your key ID in big or little endian, check with your DRM provider. **(Required for DRM protection) DRM Key MD5** The MD5 digest of the key used for DRM on your file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded. **(Required for DRM protection) DRM Initialization Vector** The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your files. The initialization vector must be base64-encoded, and it must be exactly 8 bytes long before being base64-encoded. If no initialization vector is provided, Elastic Transcoder generates one for you. For more information, go to [Initialization Vector](http://en.wikipedia.org/wiki/Initialization_vector "http://en.wikipedia.org/wiki/Initialization_vector"). **(Required for DRM protection) DRM License Acquisition Url** The location of the license key required to play DRM content. The URL must be an absolute path, and is referenced by the PlayReady header. The PlayReady header is referenced in the protection header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL looks like this: `https://www.example.com/exampleKey/` ![Playlist Digital Rights Management screenshot.](images/job-create-playlist-drm.png) |
+| ---------------- | --------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------- |
+| **Fit**          | Yes                               | Yes                                                         |                                                                               |                                 |
+| **Fill**         | Yes                               |                                                             |                                                                               | Yes                             |
+| **Stretch**      | Yes                               |                                                             | Yes                                                                           |                                 |
+| **Keep**         | Yes                               | Yes                                                         |                                                                               | Yes                             |
+| **ShrinkToFit**  |                                   | Yes                                                         |                                                                               |                                 |
+| **ShrinkToFill** |                                   | Yes                                                         |                                                                               | Yes                             |
+
+**Album Art Padding Policy**
+
+When you set **PaddingPolicy** to `Pad`, Elastic Transcoder might add white bars to the top and bottom and/or
+left and right sides of the output album art to make the total size of the output art match the values that you specified for
+**MaxWidth** and **MaxHeight**. For more information, see the table at `AlbumArt:Art:SizingPolicy`.
+
+![Artwork screenshot.](images/job-create-artwork.png)
+
+![Artwork Encryption screenshot.](images/job-create-artwork-encryption.png)
+
+## (Optional) User Metadata
+
+User-defined metadata that you want to associate with an Elastic Transcoder job.
+
+You specify metadata in `key/value` pairs. You can use the `key/value`
+pairs to track details about a file, for example, `Season 1: Episode 3`.
+
+You can add up to 10 key/value pairs to each job. Elastic Transcoder does not guarantee that
+`key/value` pairs are returned in the same
+order in which you specify them.
+
+**Metadata Key**
+
+The key of the metadata `key/value` pair that you want returned with
+the output file. Each key must be a unique string between `1-128` characters, and must
+use only characters from the following list:
+
+- `0-9`
+- `A-Z` and `a-z`
+- `Space`
+- The following symbols: `_.:/=+-%@`
+
+You can use keys as a numbering system for organizing your metadata,
+for storing an extra 128 characters of metadata, or for
+labeling the metadata stored in the **value**. If you
+want to use only value metadata, you can put throw-away strings in your keys such
+as `key1`, and ignore the keys when you retrieve your metadata from Elastic Transcoder.
+
+###### Important
+
+You must specify unique strings for all of the keys in a job. If the same string
+is used for more than one key in a job, Elastic Transcoder returns only one of the key/value pairs that use that key.
+There is no way to guarantee which value is returned.
+
+**Metadata Value**
+
+The value of the metadata `key/value` pair that you want returned
+with your job. Each value must be a string between `0-256` characters, and must
+use only characters from the following list:
+
+- `0-9`
+- `A-Z` and `a-z`
+- `Space`
+- The following symbols: `_.:/=+-%@`
+
+![User Metadata screenshot.](images/job-create-metadata.png)
+
+## (Fragmented MP4/MPEG-TS Outputs Only) Playlist
+
+If you choose a preset in the **Preset** list for which the value of **Container** is
+either **ts** (MPEG-TS) or **fmp4** (Fragmented MP4), use
+the settings in this section to specify information about the master playlists
+that you want Elastic Transcoder to create. We recommend that you create at most one master playlist per playlist format.
+
+**Master Playlist Name**
+
+The name that you want Elastic Transcoder to assign to a master playlist.
+If the name includes a `/` character, the section of the name before the last
+**/** must be identical for all **Playlist Names**.
+If you create more than one master playlist, each must have a unique name.
+
+###### Note
+
+Elastic Transcoder automatically appends the relevant file extension to the file name (**.m3u8**
+for **HLSv3** and **HLSv4** playlists, **.mpd** for
+**MPEG-DASH** playlists, and **.ism** and
+**.ismc** for **Smooth** playlists). If you include a file extension
+in **Master Playlist Name**, the file name will have two extensions.
+
+Any segment duration settings, clip settings, or caption settings must be the
+same for all outputs in the playlist. For **Smooth** playlists, the **Audio:Profile**,
+**Video:Profile**, and **Frame Rate** to
+**Maximum Number of Frames Between Keyframes** ratio
+must be the same for all outputs.
+
+**Playlist Format**
+
+The format for the playlist. Valid formats include **HLSv3**,
+**HLSv4**, **MPEG-DASH**, and **Smooth**.
+
+**Outputs in Master Playlist**
+
+For each output in this job that you want to include in a master playlist, the
+value of the **Output Key**
+field. If you include more than one output in a playlist, the value of
+**Segment Duration** for all of the
+outputs must be the same.
+
+For **HLSv4** master playlists, Elastic Transcoder chooses which combinations
+of audio and video inputs will be linked in the output playlists. The first audio
+and video inputs will be linked and rendered as the default playback experience,
+allowing you to choose your preferred playback default. For other individual
+playlists in the master playlist, Elastic Transcoder chooses
+which audio and video bit rate combinations will provide the best playback.
+
+![Playlist screenshot.](images/job-create-playlist.png)
+
+## (Fragmented MP4/MPEG-TS Outputs Only, Optional) HLS Content Protection
+
+###### Note
+
+HLS content protection encrypts each individual segment of a file, and Elastic Transcoder does not support HLS content
+protection combined with file-level encryption.
+
+If you choose a preset in the **Preset** list for which the value of **Container**
+is either **ts** (MPEG-TS) or **fmp4** (Fragmented MP4) with a
+**Smooth** playlist, you can
+specify encryption settings for streaming your file. You cannot combine
+data stream encryption with file or caption encryption. If you choose to encrypt your data stream, use the
+settings in this section to specify information about the data stream encryption.
+
+To use HLS content protection, you must have a web server that can authenticate sessions (such
+as Amazon Elastic Compute Cloud), a way to distribute your streamed media files (such as Amazon CloudFront), and a way to play encrypted
+streamed media (such as a player-enabled browser).
+
+**Method**
+
+The content protection method for your output.
+The only valid value is:
+
+`aes-128`.
+
+This value will be written into the `method` attribute of the
+`EXT-X-KEY` metadata tag in the output playlist.
+
+**Key**
+
+If you want Elastic Transcoder to generate a key for you, leave this field blank. Once Elastic Transcoder
+has generated the key, you can retrieve the key by calling `ReadJob`. The key is not included
+in the `CreateJobResponse` object.
+
+If you choose to supply your own key, you must encrypt the key by using AWS KMS.
+The key must be base64-encoded, and it must be one of the following bit lengths before
+being base64-encoded:
+
+`96` (AES-GCM only), `128`, `192`, or `256`.
+
+If you configured Elastic Transcoder to generate a key for you, Elastic Transcoder leaves this field blank in the
+`CreateJob` response. To retrieve your generated data encryption key, submit a
+`ReadJob` request.
+
+For more information about encrypting your key with AWS KMS, see
+[Encrypting and Decrypting Data](../../../kms/latest/developerguide/programming-encryption.md "../../../kms/latest/developerguide/programming-encryption.md")
+in the _AWS Key Management Service Developer Guide_.
+
+If you choose an HLS content protection method of `aes-128`, the
+key must be `128` bits. If you have a `relative` **KeyStoragePolicy**
+set, Elastic Transcoder writes your key to an Amazon S3 bucket with Amazon S3 server-side encryption.
+
+**Key MD5 (Required if an Encryption Key is supplied)**
+
+The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file,
+and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit.
+The key MD5 must be base64-encoded, and it must be exactly 16 bytes
+before being base64-encoded.
+
+If Elastic Transcoder is generating your key for you, you must leave this field blank.
+
+**Initialization
+Vector (Required if an Encryption Key is supplied)**
+
+The series of random bits created by a random bit generator, unique for every
+encryption operation, that you want Elastic Transcoder to use to encrypt your output files.
+The initialization vector must be base64-encoded, and it must be exactly 16 bytes
+before being base64-encoded.
+
+If Elastic Transcoder is generating your key for you, you must leave this field blank.
+
+For more information, go to
+[Initialization Vector](http://en.wikipedia.org/wiki/Initialization_vector "http://en.wikipedia.org/wiki/Initialization_vector").
+
+**License Acquisition URL**
+
+The location of the license key required to decrypt your HLS playlist. The URL
+must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist
+file. For example:
+
+```
+https://www.example.com/exampleKey/
+```
+
+**Key Storage Policy**
+
+Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket.
+If you choose `WithVariantPlaylists`, Elastic Transcoder will write your encrypted key into the same Amazon S3
+bucket as the associated playlist.
+
+###### Important
+
+If you chose `NoStore`, Elastic Transcoder will not store your key. You are responsible
+for storing it and providing it to your users by giving them the **License Acquisition URL**
+where you are storing the key.
+
+![Playlist HLS Content Protection screenshot.](images/job-create-playlist-hls.png)
+
+## (HLSv3 and Smooth Playlists Only, Optional)
+
+Digital Rights Management
+
+If you choose a preset in the **Preset** list for which the value of **Container** is
+either **fmp4** (Fragmented MP4) or **ts** (MPEG-TS), and your
+**Playlist** is of type **HLSv3** or **Smooth**, you can
+specify DRM settings for your file. If you choose to use DRM to protect your files, use the
+settings in this section to specify information about your DRM settings.
+
+To use DRM, you must have a license provider server that can track and grant licenses,
+a web server that can authenticate users, a package server to encrypt your files with DRM (such as Elastic Transcoder),
+a way to distribute your media files (such as Amazon CloudFront),
+and a way to play DRM-protected media (such as a DRM-enabled player).
+
+###### Note
+
+PlayReady DRM, HLS content protection, and output encryption are mutually exclusive
+options.
+
+**(Optional) PlayReady DRM**
+
+The DRM settings used to restrict who can watch your files. This is done
+by including a PlayReady DRM header in your output playlist.
+This is not usable for artwork, captions, thumbnails, or watermarks. PlayReady DRM encrypts your media files
+using `aes-ctr` encryption.
+
+If you use DRM for an **HLSv3** playlist, your outputs must have a master playlist.
+
+For more information, see [Digital Rights Management](drm.md "drm.md").
+
+**(Required for DRM protection) DRM Format**
+
+The DRM format for your output playlist. Valid formats are
+`discretix-3.0` and `microsoft`.
+
+For playlists of type **Smooth**, specify `microsoft`.
+For playlists of type **HLSv3**, specify `discretix-3.0`.
+
+**(Required for DRM protection) DRM Key**
+
+The DRM key for your file, provided by your DRM license provider.
+The key must be base64-encoded, and it must be one of the following bit lengths before
+being base64-encoded:
+
+`128`, `192`, or `256`.
+
+The key must also be encrypted by using AWS KMS. For more information, see
+[Encrypting and Decrypting Data](../../../kms/latest/developerguide/programming-encryption.md "../../../kms/latest/developerguide/programming-encryption.md")
+in the _AWS Key Management Service Developer Guide_.
+
+**(Required for DRM protection) DRM Key Id**
+
+The ID for your DRM key, so that your DRM license provider knows which key to provide.
+
+The key ID must be provided in big endian, and Elastic Transcoder will convert it to little endian before
+inserting it into the PlayReady DRM headers. If you are unsure whether your license server
+provides your key ID in big or little endian, check with your DRM provider.
+
+**(Required for DRM protection) DRM Key MD5**
+
+The MD5 digest of the key used for DRM on your file, and
+that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit.
+The key MD5 must be base64-encoded, and it must be exactly 16 bytes
+before being base64-encoded.
+
+**(Required for DRM protection) DRM Initialization Vector**
+
+The series of random bits created by a random bit generator, unique for every
+encryption operation, that you want Elastic Transcoder to use to encrypt your files. The initialization vector
+must be base64-encoded, and it must be exactly 8 bytes long before being base64-encoded.
+If no initialization vector is provided, Elastic Transcoder generates one for you.
+
+For more information, go to
+[Initialization Vector](http://en.wikipedia.org/wiki/Initialization_vector "http://en.wikipedia.org/wiki/Initialization_vector").
+
+**(Required for DRM protection) DRM License Acquisition Url**
+
+The location of the license key required to play DRM content. The URL must be an absolute path,
+and is referenced by the PlayReady header. The PlayReady header is referenced in the protection
+header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO
+metadata tags for HLS playlist outputs. An example URL looks like this:
+
+```
+https://www.example.com/exampleKey/
+```
+
+![Playlist Digital Rights Management screenshot.](images/job-create-playlist-drm.png)

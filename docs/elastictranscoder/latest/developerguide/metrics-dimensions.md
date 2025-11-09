@@ -41,18 +41,25 @@ The metrics and dimensions that Elastic Transcoder sends to Amazon CloudWatch ar
 
 The `AWS/ElasticTranscoder` namespace includes the following metrics.
 
-| Metric                | Description                                                                                                                                                                     |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Billed HD Output`    | The number of billable seconds of HD output for a pipeline. Valid Dimensions: PipelineId Unit: Seconds                                                                          |
-| `Billed SD Output`    | The number of billable seconds of SD output for a pipeline. Valid Dimensions: PipelineId Unit: Seconds                                                                          |
-| `Billed Audio Output` | The number of billable seconds of audio output for a pipeline. Valid Dimensions: PipelineId Unit: Seconds                                                                       |
-| `Jobs Completed`      | The number of jobs completed by this pipeline. Valid Dimensions: PipelineId Unit: Count                                                                                         |
-| `Jobs Errored`        | The number of jobs that failed because of invalid inputs, such as a request to transcode a file that is not in the given input bucket. Valid Dimensions: PipelineId Unit: Count |
-| `Outputs per Job`     | The number of outputs Elastic Transcoder created for a job. Valid Dimensions: PipelineId Unit: Count                                                                            |
-| `Standby Time`        | The number of seconds before Elastic Transcoder started transcoding a job. Valid Dimensions: PipelineId Unit: Seconds                                                           |
-| `Errors`              | The number of errors caused by invalid operation parameters, such as a request for a job status that does not include the job ID. Valid Dimensions: Operation Unit: Count       |
-| `Throttles`           | The number of times that Elastic Transcoder automatically throttled an operation. Valid Dimensions: Operation Unit: Count                                                       | ### Dimensions for Elastic Transcoder Metrics Elastic Transcoder metrics use the Elastic Transcoder namespace and provide metrics for the following dimension(s): |
-| Dimension             | Description                                                                                                                                                                     |
-| ---                   | ---                                                                                                                                                                             |
-| `PipelineId`          | The ID of a pipeline. This dimension filters the data you request for an Elastic Transcoder pipeline.                                                                           |
-| `Operation`           | This dimension filters the data you request for the APIs that Elastic Transcoder provides.                                                                                      |
+| Metric                | Description                                                                                                                                                                              |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Billed HD Output`    | The number of billable seconds of HD output for a pipeline.<br>Valid Dimensions: PipelineId<br>Unit: Seconds                                                                             |
+| `Billed SD Output`    | The number of billable seconds of SD output for a pipeline.<br>Valid Dimensions: PipelineId<br>Unit: Seconds                                                                             |
+| `Billed Audio Output` | The number of billable seconds of audio output for a pipeline.<br>Valid Dimensions: PipelineId<br>Unit: Seconds                                                                          |
+| `Jobs Completed`      | The number of jobs completed by this pipeline.<br>Valid Dimensions: PipelineId<br>Unit: Count                                                                                            |
+| `Jobs Errored`        | The number of jobs that failed because of invalid inputs, such as a request to<br>transcode a file that is not in the given input bucket.<br>Valid Dimensions: PipelineId<br>Unit: Count |
+| `Outputs per Job`     | The number of outputs Elastic Transcoder created for a job.<br>Valid Dimensions: PipelineId<br>Unit: Count                                                                               |
+| `Standby Time`        | The number of seconds before Elastic Transcoder started transcoding a job.<br>Valid Dimensions: PipelineId<br>Unit: Seconds                                                              |
+| `Errors`              | The number of errors caused by invalid operation parameters, such as a request for a job status that<br>does not include the job ID.<br>Valid Dimensions: Operation<br>Unit: Count       |
+| `Throttles`           | The number of times that Elastic Transcoder automatically throttled an operation.<br>Valid Dimensions: Operation<br>Unit: Count                                                          |
+
+### Dimensions for Elastic Transcoder Metrics
+
+Elastic Transcoder metrics use the
+Elastic Transcoder namespace and provide metrics for the following
+dimension(s):
+
+| Dimension    | Description                                                                                           |
+| ------------ | ----------------------------------------------------------------------------------------------------- |
+| `PipelineId` | The ID of a pipeline. This dimension filters the data you request for an Elastic Transcoder pipeline. |
+| `Operation`  | This dimension filters the data you request for the APIs that Elastic Transcoder provides.            |

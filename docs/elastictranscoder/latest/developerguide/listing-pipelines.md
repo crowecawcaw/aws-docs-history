@@ -22,6 +22,6 @@ For information about how to use the API to:
    pane lists the pipelines that are associated with the current account.
 4. To display detailed information about a pipeline, click the
 
-![Arrow to display the settings for a pipeline.](/images/elastictranscoder/latest/developerguide/images/magnifying-glass-icon.png)
+![Arrow to display the settings for a pipeline.](images/magnifying-glass-icon.png)
 
 icon next to the pipeline.
