@@ -24,14 +24,15 @@ AWS Launch Wizard supports the following operating systems and SQL Server versio
 
 ###### Deployments on Windows
 
-- Windows Server 2022/2019
+- Windows Server 2025/2022/2019
 - Enterprise and Standard Editions of Microsoft SQL Server
-  2022/2019
+  2025/2022/2019
+- Developer Edition of Microsoft SQL Server 2025/2022
 
 ###### Amazon FSx for Failover Clustering (FCI) deployments on Windows
 
-- Windows Server 2022/2019
-- Enterprise and Standard Editions of Microsoft SQL Server 2022/2019
+- Windows Server 2025/2022/2019
+- Enterprise and Standard Editions of Microsoft SQL Server 2025/2022/2019
 
 CUs are installed at the same time as public AMIs for SQL license-included
 AMIs. CUs and service packs are not installed for license-included Windows AMIs
@@ -167,11 +168,7 @@ validations:
   - Compliant versions of Windows and SQL Server
 
 - Dedicated Hosts (deployment on Windows)
-  - AMIs are filtered according to the billing code. When you select
-    Dedicated Host tenancy in the application, the AMI selection
-    dropdown list filters out AMIs for which the usage operation is set
-    to include SQL Server Enterprise or SQL Server Standard, per the
-    [details and usage operation values](../../../AWSEC2/latest/UserGuide/ami-billing-info.md#billing-info "../../../AWSEC2/latest/UserGuide/ami-billing-info.md#billing-info"). This filtering
+  - AMIs are filtered according to the billing code. This filtering
     behavior is the result of restrictions described in the [Dedicated Host restrictions](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md#dedicated-hosts-limitations "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md#dedicated-hosts-limitations") page.
   - Supported instance type
   - Sufficient capacity to launch number of nodes and instances

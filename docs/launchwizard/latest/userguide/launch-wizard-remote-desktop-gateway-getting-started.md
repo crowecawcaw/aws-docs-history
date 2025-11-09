@@ -106,18 +106,40 @@ is Service Quotas?](../../../servicequotas/latest/userguide/intro.md "../../../s
 Existing VPC Service Quotas:
 
 | Resource                                                 | Default quota     | This deployment uses |
-| -------------------------------------------------------- | ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------- | ----------------- | -------------------- |
 | Elastic IP Addresses                                     | 5 per Region      | 2                    |
 | AWS Identity and Access Management (IAM) security groups | 300 per account   | 1                    |
 | IAM roles                                                | 1,000 per account | 1                    |
 | Auto Scaling groups                                      | 200 per Region    | 1                    |
-| Amazon EC2 On-Demand Instances (Standard)                | 5 per Region      | 1-4                  | New VPC Service Quotas:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Amazon EC2 On-Demand Instances (Standard)                | 5 per Region      | 1-4                  |
+
+New VPC Service Quotas:
+
 | Resource                                                 | Default quota     | This deployment uses |
-| ---                                                      | ---               | ---                  |
+| -------------------------------------------------------- | ----------------- | -------------------- |
 | VPCs                                                     | 5 per Region      | 1                    |
 | Elastic IP Addresses                                     | 5 per Region      | 2                    |
 | Internet Gateway                                         | 5 per Region      | 1                    |
 | AWS Identity and Access Management (IAM) security groups | 300 per account   | 1                    |
 | IAM roles                                                | 1,000 per account | 1                    |
 | Auto Scaling groups                                      | 200 per Region    | 1                    |
-| Amazon EC2 On-Demand Instances (Standard)                | 5 per Region      | 1-4                  | ## Amazon Elastic Compute Cloud key pairs Ensure that at least one Amazon EC2 key pair exists in your AWS account in the Region where you plan to deploy the Launch Wizard application. Note the key pair name because you will use it during deployment. To create a key pair, see [Amazon EC2 key pairs and EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md"). For testing or proof-of-concept purposes, we recommend creating a new key pair instead of using one that’s already being used by a production instance. ## AWS Identity and Access Management permissions Before deploying the Launch Wizard application, you must sign in to the AWS Management Console with IAM permissions for the resources that the templates deploy. The _AdministratorAccess_ managed policy within IAM provides sufficient permissions, although your organization may choose to use a custom policy with more restrictions. For more information, see [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md"). |
+| Amazon EC2 On-Demand Instances (Standard)                | 5 per Region      | 1-4                  |
+
+## Amazon Elastic Compute Cloud key pairs
+
+Ensure that at least one Amazon EC2 key pair exists in your AWS account in the Region where you
+plan to deploy the Launch Wizard application. Note the key pair name because you will use it during
+deployment. To create a key pair, see [Amazon EC2 key pairs and EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md").
+
+For testing or proof-of-concept purposes, we recommend creating a new key pair instead of
+using one that’s already being used by a production instance.
+
+## AWS Identity and Access Management
+
+permissions
+
+Before deploying the Launch Wizard application, you must sign in to the AWS Management Console with IAM
+permissions for the resources that the templates deploy. The _AdministratorAccess_ managed policy within IAM provides sufficient permissions,
+although your organization may choose to use a custom policy with more restrictions. For more
+information, see [AWS managed policies for job
+functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md").

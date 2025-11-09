@@ -52,17 +52,77 @@ Network configuration
     * **VPC Settings:** Launch Wizard creates your VPC in this case. The
      following shows Input fields that define VPC configuration.
 
-| Parameter label (name)                              | Default value        | Description                                                                                                      |
-| --------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| VPC tenancy                                         | default              | The allowed tenancy of instances launched into the VPC.                                                          |
-| VPC CIDR                                            | 10.0.0.0/16          | CIDR block for the VPC.                                                                                          |
-| Private subnet 1 CIDR                               | 10.0.0.0/19          | CIDR block for private subnet 1 located in Availability Zone 1.                                                  |
-| Private subnet 2 CIDR                               | 10.0.32.0/19         | CIDR block for private subnet 2 located in Availability Zone 2.                                                  |
-| Public subnet 1 CIDR                                | 10.0.128.0/20        | CIDR Block for the public DMZ subnet 1 located in Availability Zone 1.                                           |
-| Public subnet 2 CIDR                                | 10.0.144.0/20        | CIDR Block for the public DMZ subnet 2 located in Availability Zone 2.                                           |
-| Allowed Remote Desktop Gateway external access CIDR | **_Requires input_** | Allowed CIDR block for external access to the Remote Desktop Gateways.                                           | Microsoft Remote Desktop Gateway configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Parameter label (name)                              | Default value        | Description                                                                                                      |
-| ---                                                 | ---                  | ---                                                                                                              |
-| Number of RDGW hosts                                | 1                    | Enter the number of Remote Desktop Gateway hosts to create.                                                      |
-| Admin user name                                     | StackAdmin           | User name for the new local administrator account.                                                               |
-| Admin password                                      | **_Requires input_** | Password for the administrative account. Must be at least 8 characters containing letters, numbers, and symbols. | 4. When you are satisfied with your infrastructure selections, select **Next**. If you don't want to complete the configuration, select **Cancel**. When you select **Cancel**, all of the selections on the specification page are lost and you are returned to the landing page. To go to the previous screen, select **Previous**. 5. After configuring your application, you are prompted to define the infrastructure requirements for the new deployment on the **Define infrastructure requirements** page. The following tabs provide information about the input fields. Compute <br>• **Infrastructure requirements based on instance type**. You can choose to select your instances or use AWS recommended resources. If you choose to use AWS recommended resources, you have the option of defining your performance needs. If no selections are made, default values are assigned. <br>• **Number of instance cores**. Choose the number of CPU cores for your infrastructure. The default value assigned is 4. <br>• **Network performance**. Choose your preferred network performance in Gbps. <br>• **Memory (GB)**. Choose the amount of RAM that you want to attach to your EC2 instances. The default value assigned is 4 GB. <br>• **Recommended resources**. Launch Wizard displays the system-recommended resources based on your infrastructure selections. If you want to change the recommended resources, select different infrastructure requirements. <br>• **Infrastructure requirements based on instance type**. You can choose to select your instance or use AWS recommended resources. If no selections are made, default values are assigned. <br>• **Instance type**. Select your preferred instance type from the dropdown list. 6. When you are satisfied with your infrastructure selections, select **Next**. If you don't want to complete the configuration, select **Cancel**. When you select **Cancel**, all of the selections on the specification page are lost and you are returned to the landing page. To go to the previous screen, select **Previous**. 7. On the **Review and deploy** page, review your configuration details. If you want to make changes, select **Previous**. To stop, select **Cancel**. When you select **Cancel**, all of the selections on the specification page are lost and you are returned to the landing page. When you choose **Deploy**, you agree to the terms of the **Acknowledgment**. Launch Wizard validates the inputs and notifies you of any issues you must address. 8. When validation is complete, Launch Wizard deploys your AWS resources and configures your **Microsoft Remote Desktop Gateway** application. Launch Wizard provides you with status updates about the progress of the deployment on the **Deployments** page. From the **Deployments** page, you can view the list of current and previous deployments 9. When your deployment is ready, a notification informs you that your **Remote Desktop Gateway** application is successfully deployed. If you have set up an Amazon SNS notification, you are also alerted through Amazon SNS. To manage and access all of the resources related to your application, select the deployment, and from the **Actions** dropdown list, select **Manage**. 10. When the application is deployed, you can access your EC2 instances through the Amazon EC2 console. |
+
+
+
+    | Parameter label (name) | Default value | Description |
+    | --- | --- | --- |
+    | VPC tenancy | default | The allowed tenancy of instances launched into the VPC. |
+    | VPC CIDR | 10.0.0.0/16 | CIDR block for the VPC. |
+    | Private subnet 1 CIDR | 10.0.0.0/19 | CIDR block for private subnet 1 located in Availability Zone 1. |
+    | Private subnet 2 CIDR | 10.0.32.0/19 | CIDR block for private subnet 2 located in Availability Zone 2. |
+    | Public subnet 1 CIDR | 10.0.128.0/20 | CIDR Block for the public DMZ subnet 1 located in Availability Zone 1. |
+    | Public subnet 2 CIDR | 10.0.144.0/20 | CIDR Block for the public DMZ subnet 2 located in Availability Zone 2. |
+    | Allowed Remote Desktop Gateway external access CIDR | ***Requires<br>input*** | Allowed CIDR block for external access to the Remote Desktop Gateways. |
+
+Microsoft Remote Desktop Gateway configuration
+
+| Parameter label (name) | Default value           | Description                                                                                                         |
+| ---------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Number of RDGW hosts   | 1                       | Enter the number of Remote Desktop Gateway hosts to create.                                                         |
+| Admin user name        | StackAdmin              | User name for the new local administrator account.                                                                  |
+| Admin password         | **_Requires<br>input_** | Password for the administrative account. Must be at least 8 characters containing<br>letters, numbers, and symbols. |
+
+4. When you are satisfied with your infrastructure selections, select
+   **Next**. If you don't want to complete the configuration, select
+   **Cancel**. When you select **Cancel**, all of the selections
+   on the specification page are lost and you are returned to the landing page. To go to the
+   previous screen, select **Previous**.
+5. After configuring your application, you are prompted to define the infrastructure
+   requirements for the new deployment on the **Define infrastructure
+   requirements** page. The following tabs provide information about the input
+   fields.
+
+Compute
+
+    * **Infrastructure requirements based on instance type**.
+     You can choose to select your instances or use AWS recommended resources. If you choose
+     to use AWS recommended resources, you have the option of defining your performance needs.
+     If no selections are made, default values are assigned.
+    * **Number of instance cores**. Choose the number of CPU
+     cores for your infrastructure. The default value assigned is 4.
+    * **Network performance**. Choose your preferred network
+     performance in Gbps.
+    * **Memory (GB)**. Choose the amount of RAM that you want
+     to attach to your EC2 instances. The default value assigned is 4 GB.
+    * **Recommended resources**. Launch Wizard displays the
+     system-recommended resources based on your infrastructure selections. If you want to change
+     the recommended resources, select different infrastructure requirements.
+    * **Infrastructure requirements based on instance type**.
+     You can choose to select your instance or use AWS recommended resources. If no selections
+     are made, default values are assigned.
+    * **Instance type**. Select your preferred instance type
+     from the dropdown list.
+
+6. When you are satisfied with your infrastructure selections, select
+   **Next**. If you don't want to complete the configuration, select
+   **Cancel**. When you select **Cancel**, all of the selections
+   on the specification page are lost and you are returned to the landing page. To go to the
+   previous screen, select **Previous**.
+7. On the **Review and deploy** page, review your configuration details. If
+   you want to make changes, select **Previous**. To stop, select
+   **Cancel**. When you select **Cancel**, all of the selections
+   on the specification page are lost and you are returned to the landing page. When you choose
+   **Deploy**, you agree to the terms of the **Acknowledgment**. Launch Wizard validates the inputs and notifies you of any issues you must
+   address.
+8. When validation is complete, Launch Wizard deploys your AWS resources and configures your
+   **Microsoft Remote Desktop Gateway** application. Launch Wizard provides
+   you with status updates about the progress of the deployment on the
+   **Deployments** page. From the **Deployments** page, you can
+   view the list of current and previous deployments
+9. When your deployment is ready, a notification informs you that your **Remote Desktop Gateway** application is successfully deployed. If you have set up an
+   Amazon SNS notification, you are also alerted through Amazon SNS. To manage and access all of the
+   resources related to your application, select the deployment, and from the
+   **Actions** dropdown list, select **Manage**.
+10. When the application is deployed, you can access your EC2 instances through the Amazon EC2
+    console.

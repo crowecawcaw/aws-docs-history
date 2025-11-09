@@ -115,14 +115,122 @@ By default, your provisioned Amazon EC2 instances are retained when a deployment
 you created your Launch Wizard deployment with these default settings, you can navigate to the
 following paths for further evaluation.
 
-| Directory                          | Purpose                                                                                                                                                                 |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/root/install`                    | The working directory of Launch Wizard SAP deployment.                                                                                                                  |
-| `/root/install/scripts`            | The home directory of Launch Wizard SAP deployment. It contains all the scripts called by Launch Wizard.                                                                |
-| `/root/install/scripts/log`        | All the logs related to the deployment (`install.log` file).                                                                                                            |
-| `/tmp/`                            | Based on the SAP components that are deployed on an Amazon EC2 instance, Launch Wizard creates a folder in this directory for SAP software application deployment logs. |
-| `/var/log/messages`                | The unhandled exceptions of an Amazon EC2 instance.                                                                                                                     |
-| `/var/log/zypper.log`              | All the logs for SLES operating system package installation failures.                                                                                                   |
-| `/var/log/yum.log`                 | All the logs for RHEL operating system package installation failures.                                                                                                   |
-| `/var/log/pacemaker`               | All the logs for pacemaker cluster.                                                                                                                                     |
-| `/var/log/pacemaker/pacemaker.log` |                                                                                                                                                                         | `/var/log/cluster/corosync.log` | ## SAP application software deployment logs Depending on which SAP components are deployed on an instance, Launch Wizard creates a folder in `/tmp` to log all of the SAP software application deployment logs. If a database component is deployed on an instance, the folder name in the file will be `NW_ABAP_DB`. If an application server is deployed, the folder name will be `NW_ABAP_APP`. For single node deployments, there will be multiple folders, such as `NW_ABAP_DB` and `NW_ABAP_CI`, which represent the different components deployed on the instance. ## Errors ###### Your requested instance type is not supported in your requested Availability Zone <br>• **Cause:** This failure might occur during the launch of your instance, or during the validation of the instances that Launch Wizard launches in your selected subnets. <br>• **Solution:** For this scenario, you must choose a different Availability Zone and retry the deployment from the initial page of the Launch Wizard console. ###### Infrastructure template already exists <br>• **Cause:** This failure occurs when you choose to create a new infrastructure configuration and then navigate back to the first step in the wizard to review or adjust any settings. Launch Wizard has already registered the configuration template, so choosing **Next** results in the error "Template name already exists. Select a new template name." <br>• **Solution:** Perform one of the following actions to continue with your deployment. + Change the name of the configuration template and continue. + Choose another template and continue. + Delete the template causing the error by navigating to the **Saved Infrastructure Setting** tab under **Deployments – SAP**, and then continue with your configuration using the same configuration name. ## AWS Systems Manager for SAP ###### An Internal Error Occurred <br>• **Cause:** For users using AWS Systems Manager for the first time, the CloudFormation resource (`AWS::SystemsManagerSAP::Application`) can fail with a message `An Internal Error Occurred` due to issues during the SLR (service-linked role) `AWSSSMForSAPServiceLinkedRolePolicy` creation. <br>• **Solution:** 1. Use the [IAM console](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home") to ensure that `AWSSSMForSAPServiceLinkedRolePolicy` is in your account. 2. Retry the Launch Wizard deployment to complete the registration successfully. 3. If errors persist, contact [Support](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case") For more information, see [Troubleshooting AWS Systems Manager for SAP](../../../ssm-sap/latest/userguide/troubleshooting.md "../../../ssm-sap/latest/userguide/troubleshooting.md"). ## Support If your deployment is failing after following the troubleshooting steps listed here, we recommend you to create a support case with the following information. `[Error description]:<Provide a brief description of the error.> [Deployment information]: Provide information about the failed deployment. Account number: <AWS account number> Deployment name: <Enter deployment name> Deployment type: <Single-instance/Multi-instance/High availability> SAP HANA version: <Enter SAP HANA database version> SAP application: <Enter SAP application name> OS type: <Enter operating system> OS version: <Enter operating system version> Amazon EC2 instance family: <Enter Amazon EC2 instance family> Amazon EC2 instance type: <Enter Amazon EC2 instance type> If used proxy: <Yes/No> AMI type: <BYOI/BYOS/Marketplace> Instances retained: <Yes/No> FailedStackID (optional): [Required logs] Provide the following logs. Based on the scenario and state of deployment, some logs may not be available. /root/install/scripts/log/ /tmp/install.log /tmp/inputs.json /var/log/cloud-init.log /var/log/hdblcm.log (If SAP HANA install is selected) /tmp/NW directory (If SAP HANA install is selected) If you haven't retained your Amazon EC2 instance, provide the logs extracted from CloudWatch logs. [Troubleshooting] Provide the details of the troubleshooting steps that you carried out and the results from them.` For more information, see [Creating a support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case"). |
+| Directory                          | Purpose                                                                                                                                                                       |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/root/install`                    | The working directory of Launch Wizard SAP deployment.                                                                                                                        |
+| `/root/install/scripts`            | The home directory of Launch Wizard SAP deployment. It contains all the<br>scripts called by Launch Wizard.                                                                   |
+| `/root/install/scripts/log`        | All the logs related to the deployment (`install.log`<br>file).                                                                                                               |
+| `/tmp/`                            | Based on the SAP components that are deployed on an Amazon EC2 instance,<br>Launch Wizard creates a folder in this directory for SAP software application<br>deployment logs. |
+| `/var/log/messages`                | The unhandled exceptions of an Amazon EC2 instance.                                                                                                                           |
+| `/var/log/zypper.log`              | All the logs for SLES operating system package installation<br>failures.                                                                                                      |
+| `/var/log/yum.log`                 | All the logs for RHEL operating system package installation<br>failures.                                                                                                      |
+| `/var/log/pacemaker`               | All the logs for pacemaker cluster.                                                                                                                                           |
+| `/var/log/pacemaker/pacemaker.log` |
+| `/var/log/cluster/corosync.log`    |
+
+## SAP application software deployment
+
+logs
+
+Depending on which SAP components are deployed on an instance, Launch Wizard creates a folder
+in `/tmp` to log all of the SAP software application deployment logs. If a
+database component is deployed on an instance, the folder name in the file will be
+`NW_ABAP_DB`. If an application server is deployed, the folder name will
+be `NW_ABAP_APP`. For single node deployments, there will be multiple
+folders, such as `NW_ABAP_DB` and `NW_ABAP_CI`, which represent
+the different components deployed on the instance.
+
+## Errors
+
+###### Your requested instance type is not supported in your requested Availability
+
+Zone
+
+- **Cause:** This failure might occur during the
+  launch of your instance, or during the validation of the instances that Launch Wizard
+  launches in your selected subnets.
+- **Solution:** For this scenario, you must choose
+  a different Availability Zone and retry the deployment from the initial page of
+  the Launch Wizard console.
+
+###### Infrastructure template already exists
+
+- **Cause:** This failure occurs when you choose to
+  create a new infrastructure configuration and then navigate back to the first
+  step in the wizard to review or adjust any settings. Launch Wizard has already registered
+  the configuration template, so choosing **Next** results in the
+  error "Template name already exists. Select a new template name."
+- **Solution:**
+
+Perform one of the following actions to continue with your
+deployment.
+
+    + Change the name of the configuration template and continue.
+    + Choose another template and continue.
+    + Delete the template causing the error by navigating to the
+     **Saved Infrastructure Setting** tab under
+     **Deployments – SAP**, and then continue with your
+     configuration using the same configuration name.
+
+## AWS Systems Manager for SAP
+
+###### An Internal Error Occurred
+
+- **Cause:** For users using AWS Systems Manager for the
+  first time, the CloudFormation resource
+  (`AWS::SystemsManagerSAP::Application`) can fail with a message
+  `An Internal Error Occurred` due to issues during the
+  SLR (service-linked role)
+  `AWSSSMForSAPServiceLinkedRolePolicy` creation.
+- **Solution:**
+  1.  Use the [IAM console](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home") to ensure that
+      `AWSSSMForSAPServiceLinkedRolePolicy` is in your
+      account.
+  2.  Retry the Launch Wizard deployment to complete the registration
+      successfully.
+  3.  If errors persist, contact [Support](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case")
+
+For more information, see [Troubleshooting AWS Systems Manager for
+SAP](../../../ssm-sap/latest/userguide/troubleshooting.md "../../../ssm-sap/latest/userguide/troubleshooting.md").
+
+## Support
+
+If your deployment is failing after following the troubleshooting steps listed here,
+we recommend you to create a support case with the following information.
+
+```
+
+            [Error description]:<Provide a brief description of the error.>
+
+            [Deployment information]: Provide information about the failed deployment.
+            Account number: <AWS account number>
+            Deployment name: <Enter deployment name>
+            Deployment type: <Single-instance/Multi-instance/High availability>
+            SAP HANA version: <Enter SAP HANA database version>
+            SAP application: <Enter SAP application name>
+            OS type: <Enter operating system>
+            OS version: <Enter operating system version>
+            Amazon EC2 instance family: <Enter Amazon EC2 instance family>
+            Amazon EC2 instance type: <Enter Amazon EC2 instance type>
+            If used proxy: <Yes/No>
+            AMI type: <BYOI/BYOS/Marketplace>
+            Instances retained: <Yes/No>
+            FailedStackID (optional):
+
+            [Required logs] Provide the following logs. Based on the scenario and state of deployment, some logs may not be available.
+            /root/install/scripts/log/
+            /tmp/install.log
+            /tmp/inputs.json
+            /var/log/cloud-init.log
+            /var/log/hdblcm.log (If SAP HANA install is selected)
+            /tmp/NW directory (If SAP HANA install is selected)
+
+            If you haven't retained your Amazon EC2 instance, provide the logs extracted from CloudWatch logs.
+
+            [Troubleshooting]
+            Provide the details of the troubleshooting steps that you carried out and the results from them.
+
+```
+
+For more information, see [Creating a
+support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case").

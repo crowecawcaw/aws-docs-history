@@ -150,10 +150,76 @@ Private Link](../../../vpc/latest/userguide/endpoint-services-overview.md "../..
 connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md").
 
 | Resource                                       | Minimum number of resources required for deployment |
-| ---------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------- | --------------------------------------------------- |
 | Virtual private clouds (VPCs)                  | 1                                                   |
 | VPC security groups                            | 3                                                   |
 | AWS Identity and Access Management (IAM) roles | 2                                                   |
 | General purpose EC2 instances                  | Existing VPC: 1                                     |
 | New Active Directory infrastructure: 2         |
-| AWS Secrets Manager secrets                    | 2                                                   | If you have an existing environment that uses these resources and you think that deploying domain controllers in this environment using Launch Wizard may exceed your default quotas, you can [request service quota increases](https://console.aws.amazon.com/servicequotas "https://console.aws.amazon.com/servicequotas") for these resources. For default quotas, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md"). ## Related services ###### The following services are used when you deploy self-managed domain controllers with AWS Launch Wizard: <br>• [AWS CloudFormation](#launch-wizard-ad-related-services-cloudformation "#launch-wizard-ad-related-services-cloudformation") <br>• [Amazon Simple Notification Service (SNS)](#launch-wizard-ad-related-services-sns "#launch-wizard-ad-related-services-sns") <br>• [Amazon CloudWatch Logs](#launch-wizard-ad-related-services-cloudwatch-logs "#launch-wizard-ad-related-services-cloudwatch-logs") <br>• [AWS Secrets Manager](#launch-wizard-ad-related-services-secrets-manager "#launch-wizard-ad-related-services-secrets-manager") ### AWS CloudFormation [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") is a service for modeling and setting up your AWS resources, enabling you to spend more time focusing on your applications that run in AWS . You create a template that describes all of the AWS resources that you want to use (for example, EC2 instances), and AWS CloudFormation provisions and configures those resources for you. With Launch Wizard, you don’t have to sift through CloudFormation templates to deploy your application. Instead, Launch Wizard combines infrastructure provisioning and configuration (with an AWS CloudFormation template and PowerShell scripts) to provision a new Active Directory infrastructure or additional domain controllers in your account. For more information, see the _[AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md")_. ### Amazon Simple Notification Service (SNS) [Amazon Simple Notification Service](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md") (Amazon SNS) is a highly available, durable, secure, fully managed publish/subscribe messaging service that provides topics for high-throughput, push-based, many-to-many messaging. Using Amazon SNS topics, your publisher systems can fan out messages to a large number of subscriber endpoints and send notifications to end users using mobile push, SMS, and email. You can use Amazon SNS topics for your Launch Wizard deployments to stay up to date on deployment progress. For more information, see the [_Amazon Simple Notification Service Developer Guide_](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md"). ### Amazon CloudWatch Logs [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") enables you to centralize the logs from all of your systems, applications, and AWS services that you use, in a single, highly scalable service. You can then easily view them, search them for specific error codes or patterns, filter them based on specific fields, or archive them securely for future analysis. Amazon CloudWatch Logs enables you to see all of your logs, regardless of their source, as a single and consistent flow of events ordered by time, and you can query them and sort them based on other dimensions, group them by specific fields, create custom computations with a powerful query language, and visualize log data in dashboards. Launch Wizard streams provisioning logs from all of the AWS log sources that you can view on the CloudWatch console. ### AWS Secrets Manager With [AWS Secrets Manager](../../../secretsmanager.md "../../../secretsmanager.md") you can replace hard-coded credentials in your code, including passwords, with an API call to Secrets Manager to programmatically retrieve the secret. This helps ensure the secret can't be compromised by someone examining your code. Also, you can configure Secrets Manager to automatically rotate the secret for you according to a specified schedule. Launch Wizard uses Secrets Manager to join your domain controllers to Active Directory and promote them. |
+| AWS Secrets Manager secrets                    | 2                                                   |
+
+If you have an existing environment that uses these resources and you think that
+deploying domain controllers in this environment using Launch Wizard may exceed your default
+quotas, you can [request service quota
+increases](https://console.aws.amazon.com/servicequotas "https://console.aws.amazon.com/servicequotas") for these resources. For default quotas, see [AWS service
+quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
+
+## Related services
+
+###### The following services are used when you deploy self-managed domain
+
+controllers with AWS Launch Wizard:
+
+- [AWS CloudFormation](#launch-wizard-ad-related-services-cloudformation "#launch-wizard-ad-related-services-cloudformation")
+- [Amazon Simple Notification
+  Service (SNS)](#launch-wizard-ad-related-services-sns "#launch-wizard-ad-related-services-sns")
+- [Amazon CloudWatch Logs](#launch-wizard-ad-related-services-cloudwatch-logs "#launch-wizard-ad-related-services-cloudwatch-logs")
+- [AWS Secrets Manager](#launch-wizard-ad-related-services-secrets-manager "#launch-wizard-ad-related-services-secrets-manager")
+
+### AWS CloudFormation
+
+[AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") is a service for modeling and setting up your AWS resources, enabling you
+to spend more time focusing on your applications that run in AWS . You create a
+template that describes all of the AWS resources that you want to use (for
+example, EC2 instances), and AWS CloudFormation provisions and configures those resources for
+you. With Launch Wizard, you don’t have to sift through CloudFormation templates to deploy
+your application. Instead, Launch Wizard combines infrastructure provisioning and
+configuration (with an AWS CloudFormation template and PowerShell scripts) to provision a new
+Active Directory infrastructure or additional domain controllers in your account.
+For more information, see the _[AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md")_.
+
+### Amazon Simple Notification
+
+Service (SNS)
+
+[Amazon Simple Notification Service](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md")
+(Amazon SNS) is a highly available, durable, secure, fully managed publish/subscribe
+messaging service that provides topics for high-throughput, push-based, many-to-many
+messaging. Using Amazon SNS topics, your publisher systems can fan out messages to a
+large number of subscriber endpoints and send notifications to end users using
+mobile push, SMS, and email. You can use Amazon SNS topics for your Launch Wizard deployments to
+stay up to date on deployment progress. For more information, see the [_Amazon Simple Notification Service Developer Guide_](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md").
+
+### Amazon CloudWatch Logs
+
+[Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
+enables you to centralize the logs from all of your systems, applications, and AWS
+services that you use, in a single, highly scalable service. You can then easily
+view them, search them for specific error codes or patterns, filter them based on
+specific fields, or archive them securely for future analysis. Amazon CloudWatch Logs enables you
+to see all of your logs, regardless of their source, as a single and consistent flow
+of events ordered by time, and you can query them and sort them based on other
+dimensions, group them by specific fields, create custom computations with a
+powerful query language, and visualize log data in dashboards. Launch Wizard streams
+provisioning logs from all of the AWS log sources that you can view on the CloudWatch
+console.
+
+### AWS Secrets Manager
+
+With [AWS Secrets Manager](../../../secretsmanager.md "../../../secretsmanager.md") you can
+replace hard-coded credentials in your code, including passwords, with an API call
+to Secrets Manager to programmatically retrieve the secret. This helps ensure the secret
+can't be compromised by someone examining your code. Also, you can configure
+Secrets Manager to automatically rotate the secret for you according to a specified
+schedule. Launch Wizard uses Secrets Manager to join your domain controllers to Active Directory
+and promote them.
