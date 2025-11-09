@@ -134,5 +134,124 @@ _application_. AWS Serverless Application Repository applications have unique Am
 Names (ARNs) associated with them, as shown in the following table.
 
 | AWS Resource Type | Amazon Resource Name (ARN) Format                                                    |
-| ----------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Application       | arn:`partition`:serverlessrepo:`region`:`account-id`:applications/`application-name` | For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"). The following is an example policy that grants permissions for the `serverlessrepo:ListApplications` action on all AWS resources. In the current implementation, the AWS Serverless Application Repository doesn't support identifying specific AWS resources by using the AWS resource ARNs (also referred to as resource-level permissions) for some of the API actions. In these cases, you must specify a wildcard character (\*). JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ListExistingApplications", "Effect": "Allow", "Action": [ "serverlessrepo:ListApplications" ], "Resource": "*" } ] }` `` For a table showing all of the AWS Serverless Application Repository API actions and the AWS resources that they apply to, see [AWS Serverless Application Repository API Permissions: Actions and Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md"). ### Condition Keys The AWS Serverless Application Repository doesn't provide any service-specific condition keys, but it does support using some global condition keys. To see all AWS global condition keys, see [AWS Global Condition Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_. ### Examples To view examples of AWS Serverless Application Repository identity-based policies, see [AWS Serverless Application Repository Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). ## AWS Serverless Application Repository Application Policies Application policies determine the actions that a specified principal or principalOrg can perform on an AWS Serverless Application Repository application. You can add permissions to the policy associated with an AWS Serverless Application Repository application. Permissions policies attached to AWS Serverless Application Repository applications are referred to as _application policies_. [Application policies](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md") are extensions of [IAM resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md"). The primary resource is the AWS Serverless Application Repository application. You can use AWS Serverless Application Repository application policies to manage application deployment permissions. AWS Serverless Application Repository application policies are primarily used by publishers to grant permission to consumers to deploy their applications, and related operations such as to search for and view details of those applications. Publishers can set application permissions to the following three categories: <br>• **Private** – Applications that were created with the same account, and haven't been shared with any other account. You have permission to deploy applications that were created using your AWS account. <br>• **Privately shared** – Applications that the publisher has explicitly shared with a specific set of AWS accounts or AWS Organizations. You have permission to deploy applications that have been shared with your AWS account or AWS Organization. <br>• **Publicly shared** – Applications that the publisher has shared with everyone. You have permission to deploy any publicly shared application. You can grant permissions by using the AWS CLI, the AWS SDKs, or the AWS Management Console. ### Examples To view examples of managing AWS Serverless Application Repository application policies, see [AWS Serverless Application Repository Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md"). ## Authorization Based on AWS Serverless Application Repository Tags The AWS Serverless Application Repository doesn't support controlling access to resources or actions based on tags. ## AWS Serverless Application Repository IAM Roles An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your AWS account that has specific permissions. ### Using Temporary Credentials with the AWS Serverless Application Repository You can use temporary credentials to sign in with federation, to assume an IAM role, or to assume a cross-account role. You obtain temporary security credentials by calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md"). The AWS Serverless Application Repository supports using temporary credentials. ### Service-Linked Roles The AWS Serverless Application Repository doesn't support service-linked roles. ### Service Roles The AWS Serverless Application Repository doesn't support service roles. |
+| ----------------- | ------------------------------------------------------------------------------------ |
+| Application       | arn:`partition`:serverlessrepo:`region`:`account-id`:applications/`application-name` |
+
+For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").
+
+The following is an example policy that grants permissions for the
+`serverlessrepo:ListApplications` action on all AWS resources. In the
+current implementation, the AWS Serverless Application Repository doesn't support identifying specific AWS resources
+by using the AWS resource ARNs (also referred to as resource-level permissions) for
+some of the API actions. In these cases, you must specify a wildcard character
+(\*).
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListExistingApplications",
+ "Effect": "Allow",
+ "Action": [
+ "serverlessrepo:ListApplications"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+For a table showing all of the AWS Serverless Application Repository API actions and the AWS resources that
+they apply to, see [AWS Serverless Application Repository API Permissions: Actions and
+Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md").
+
+### Condition Keys
+
+The AWS Serverless Application Repository doesn't provide any service-specific condition keys, but it
+does support using some global condition keys. To see all AWS global condition
+keys, see [AWS
+Global Condition Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.
+
+### Examples
+
+To view examples of AWS Serverless Application Repository identity-based policies, see [AWS Serverless Application Repository Identity-Based
+Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## AWS Serverless Application Repository
+
+Application Policies
+
+Application policies determine the actions that a
+specified principal or principalOrg can perform on an AWS Serverless Application Repository application.
+
+You can add permissions to the policy associated with an AWS Serverless Application Repository application.
+Permissions policies attached to AWS Serverless Application Repository applications are referred to as
+_application policies_. [Application policies](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md") are extensions of
+[IAM
+resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md"). The primary resource is the AWS Serverless Application Repository
+application. You can use AWS Serverless Application Repository application policies to manage application
+deployment permissions.
+
+AWS Serverless Application Repository application policies are primarily used by publishers to grant permission to
+consumers to deploy their applications, and related operations such as to search for and
+view details of those applications. Publishers can set application permissions to the
+following three categories:
+
+- **Private** – Applications that were
+  created with the same account, and haven't been shared with any other account.
+  You have permission to deploy applications that were created using your AWS
+  account.
+- **Privately shared** – Applications that
+  the publisher has explicitly shared with a specific set of AWS accounts or
+  AWS Organizations. You
+  have permission to deploy applications that have been shared with your AWS
+  account or AWS Organization.
+- **Publicly shared** – Applications that
+  the publisher has shared with everyone. You have permission to deploy any
+  publicly shared application.
+
+You can grant permissions by using the AWS CLI, the AWS SDKs, or the AWS Management Console.
+
+### Examples
+
+To view examples of managing AWS Serverless Application Repository application policies, see [AWS Serverless Application Repository
+Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+
+## Authorization Based on
+
+AWS Serverless Application Repository Tags
+
+The AWS Serverless Application Repository doesn't support controlling access to resources or actions based
+on tags.
+
+## AWS Serverless Application Repository IAM
+
+Roles
+
+An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
+your AWS account that has specific permissions.
+
+### Using Temporary
+
+Credentials with the AWS Serverless Application Repository
+
+You can use temporary credentials to sign in with federation, to assume an IAM
+role, or to assume a cross-account role. You obtain temporary security credentials
+by calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md").
+
+The AWS Serverless Application Repository supports using temporary credentials.
+
+### Service-Linked
+
+Roles
+
+The AWS Serverless Application Repository doesn't support service-linked roles.
+
+### Service Roles
+
+The AWS Serverless Application Repository doesn't support service roles.

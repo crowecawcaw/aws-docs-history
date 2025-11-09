@@ -30,8 +30,10 @@ follow these steps:
 5. In **Versions**, enter the following application
    information:
 
-| Property             | Required | Description                                                                                                                                                                                                                           |
-| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| **Semantic version** | TRUE     | The semantic version of the application. For more information, see the [Semantic Versioning website](https://semver.org/ "https://semver.org/"). You must provide a value for this property in order to make your application public. |
-| **Source code Url**  | FALSE    | A link to a public repository for the source code of your application.                                                                                                                                                                |
-| **SAM template**     | TRUE     | A valid AWS Serverless Application Model (AWS SAM) template that defines the AWS resources that are used.                                                                                                                             | 6. Choose **Publish version**. |
+| Property             | Required | Description                                                                                                                                                                                                                                    |
+| -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Semantic version** | TRUE     | The semantic version of the application. For more<br>information, see the [Semantic Versioning website](https://semver.org/ "https://semver.org/").<br>You must provide a value for this property in order to<br>make your application public. |
+| **Source code Url**  | FALSE    | A link to a public repository for the source code of your<br>application.                                                                                                                                                                      |
+| **SAM template**     | TRUE     | A valid AWS Serverless Application Model (AWS SAM) template that defines the<br>AWS resources that are used.                                                                                                                                   |
+
+6. Choose **Publish version**.
