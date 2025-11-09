@@ -43,14 +43,14 @@ spark-sql \
 The following support matrix lists some core features of Apache Iceberg with
 Lake Formation:
 
-|                                        | Copy on Write | Merge on Read |
-| -------------------------------------- | ------------- | ------------- |
-| **Snapshot queries - Spark SQL**       | ✓             | ✓             |
-| **Read-optimized queries - Spark SQL** | ✓             | ✓             |
-| **Incremental queries**                | ✓             | ✓             |
-| **Time travel queries**                | ✓             | ✓             |
-| **Metadata tables**                    | ✓             | ✓             |
-| **DML `INSERT` commands**              | ✓             | ✓             |
-| **DDL commands**                       |               |               |
-| **Spark datasource queries**           |               |               |
-| **Spark datasource writes**            |               |               |
+|                                              | Copy on Write | Merge on Read |
+| -------------------------------------------- | ------------- | ------------- |
+| **Snapshot queries<br>• Spark<br>SQL**       | ✓             | ✓             |
+| **Read-optimized queries<br>• Spark<br>SQL** | ✓             | ✓             |
+| **Incremental queries**                      | ✓             | ✓             |
+| **Time travel queries**                      | ✓             | ✓             |
+| **Metadata tables**                          | ✓             | ✓             |
+| **DML `INSERT`<br>commands**                 | ✓             | ✓             |
+| **DDL commands**                             |               |               |
+| **Spark datasource queries**                 |               |               |
+| **Spark datasource writes**                  |               |               |

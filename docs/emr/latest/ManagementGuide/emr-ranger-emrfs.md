@@ -163,19 +163,196 @@ with multiple common prefixes as shown in the following examples.
 Suppose you want permissions to list all the parquet files in an S3
 bucket organized as follows.
 
-````
+```
 s3://sales-reports/americas/
     +- year=2000
-|      +- data-q1.parquet
-|      +- data-q2.parquet +- year=2019
-|      +- data-q1.json
-|      +- data-q2.json
-|      +- data-q3.json
-|      +- data-q4.json
-| +- year=2020
-|      +- data-q1.parquet
-|      +- data-q2.parquet
-|      +- data-q3.parquet
-|      +- data-q4.parquet
-|      +- annual-summary.parquet +- year=2021 ``` First, consider the parquet files with the prefix `s3://sales-reports/americas/year=2000`. You can grant GetObject permissions to all of them in two ways: **Using non-recursive policies**: One option is to use two separate non-recursive policies, one for the directory and the other for the files. The first policy grants permission to the prefix `s3://sales-reports/americas/year=2020` (there is no trailing `/`). ``` <br>• S3 resource = "sales-reports/americas/year=2000" <br>• permission = "GetObject" <br>• user = "analyst" ``` The second policy uses wildcard expression to grant permissions all the files with prefix `sales-reports/americas/year=2020/` (note the trailing `/`). ``` <br>• S3 resource = "sales-reports/americas/year=2020/*" <br>• permission = "GetObject" <br>• user = "analyst" ``` **Using a recursive policy**: A more convenient alternative is to use a single recursive policy and grant recursive permission to the prefix. ``` <br>• S3 resource = "sales-reports/americas/year=2020" <br>• permission = "GetObject" <br>• user = "analyst" <br>• is recursive = "True" ``` So far, only the parquet files with the prefix `s3://sales-reports/americas/year=2000` have been included. You can now also include the parquet files with a different prefix, `s3://sales-reports/americas/year=2020`, into the same recursive policy by introducing a wildcard expression as follows. ``` <br>• S3 resource = "sales-reports/americas/year=20?0" <br>• permission = "GetObject" <br>• user = "analyst" <br>• is recursive = "True" ``` ### Policies for PutObject and DeleteObject permissions Writing policies for `PutObject` and `DeleteObject` permissions to files on EMRFS need special care because, unlike GetObject permissions, they need additional recursive permissions granted to the prefix. ###### Example Policies for PutObject and DeleteObject permissions For example, deleting the file `annual-summary.parquet` requires not only a DeleteObject permission to the actual file. ``` <br>• S3 resource = "sales-reports/americas/year=2020/annual-summary.parquet" <br>• permission = "DeleteObject" <br>• user = "analyst" ``` It also requires a policy granting recursive `GetObject` and `PutObject` permissions to its prefix. Similarly, modifying the file `annual-summary.parquet`, requires not only a `PutObject` permission to the actual file. ``` <br>• S3 resource = "sales-reports/americas/year=2020/annual-summary.parquet" <br>• permission = "PutObject" <br>• user = "analyst" ``` It also requires a policy granting recursive `GetObject` permission to its prefix. ``` <br>• S3 resource = "sales-reports/americas/year=2020" <br>• permission = "GetObject" <br>• user = "analyst" <br>• is recursive = "True" ``` ### Wildcards in policies There are two areas in which wildcards can be specified. When specifying an S3 resource, the "\*" and "?" can be used. The "\*" provides matching against an S3 path and matches everything after the prefix. For example, the following policy. ``` S3 resource = "sales-reports/americas/*" ``` This matches the following S3 paths. ``` sales-reports/americas/year=2020/ sales-reports/americas/year=2019/ sales-reports/americas/year=2019/month=12/day=1/afile.parquet sales-reports/americas/year=2018/month=6/day=1/afile.parquet sales-reports/americas/year=2017/afile.parquet ``` The "?" wildcard matches only a single character. For example, for the policy. ``` S3 resource = "sales-reports/americas/year=201?/" ``` This matches the following S3 paths. ``` sales-reports/americas/year=2019/ sales-reports/americas/year=2018/ sales-reports/americas/year=2017/ ``` ### Wildcards in users There are two built-in wildcards when assigning users to provide access to users. The first is the "{USER}" wildcard that provides access to all users. The second wildcard is "{OWNER}", which provides access to the owner of a particular object or directly. However, the "{USER}" wildcard is currently not supported. ## Limitations The following are current limitations of the EMRFS S3 plugin: <br>• Apache Ranger policies can have at most three policies. <br>• Access to S3 must be done through EMRFS and can be used with Hadoop-related applications. The following is not supported: <br>• Boto3 libraries <br>• AWS SDK and AWK CLI <br>• S3A open source connector <br>• Apache Ranger deny policies are not supported. <br>• Operations on S3 with keys having CSE-KMS encryption are currently not supported. <br>• Cross-Region support is not supported. <br>• Apache Ranger’s Security Zone feature is not supported. Access control restrictions defined using the Security Zone feature are not applied on your Amazon EMR clusters. <br>• The Hadoop user does not generate any audit events as Hadoop always accesses the EC2 Instance Profile. <br>• It's recommended that you disable Amazon EMR Consistency View. S3 is strongly consistent, so it's no longer needed. See [Amazon S3 strong consistency](https://aws.amazon.com/s3/consistency/ "https://aws.amazon.com/s3/consistency/") for more information. <br>• The EMRFS S3 plugin makes numerous STS calls. It's advised that you do load testing on a development account and monitor STS call volume. It is also recommended that you make an STS request to raise AssumeRole service limits. <br>• The Ranger Admin server doesn't support auto-complete.
-````
+    |      +- data-q1.parquet
+    |      +- data-q2.parquet
+    +- year=2019
+    |      +- data-q1.json
+    |      +- data-q2.json
+    |      +- data-q3.json
+    |      +- data-q4.json
+    |
+    +- year=2020
+    |      +- data-q1.parquet
+    |      +- data-q2.parquet
+    |      +- data-q3.parquet
+    |      +- data-q4.parquet
+    |      +- annual-summary.parquet
+    +- year=2021
+```
+
+First, consider the parquet files with the prefix
+`s3://sales-reports/americas/year=2000`. You can grant
+GetObject permissions to all of them in two ways:
+
+**Using non-recursive policies**: One
+option is to use two separate non-recursive policies, one for the
+directory and the other for the files.
+
+The first policy grants permission to the prefix
+`s3://sales-reports/americas/year=2020` (there is no
+trailing `/`).
+
+```
+- S3 resource = "sales-reports/americas/year=2000"
+- permission = "GetObject"
+- user = "analyst"
+```
+
+The second policy uses wildcard expression to grant permissions all
+the files with prefix `sales-reports/americas/year=2020/`
+(note the trailing `/`).
+
+```
+- S3 resource = "sales-reports/americas/year=2020/*"
+- permission = "GetObject"
+- user = "analyst"
+```
+
+**Using a recursive policy**: A more
+convenient alternative is to use a single recursive policy and grant
+recursive permission to the prefix.
+
+```
+ - S3 resource = "sales-reports/americas/year=2020"
+ - permission = "GetObject"
+ - user = "analyst"
+ - is recursive = "True"
+```
+
+So far, only the parquet files with the prefix
+`s3://sales-reports/americas/year=2000` have been
+included. You can now also include the parquet files with a different
+prefix, `s3://sales-reports/americas/year=2020`, into the
+same recursive policy by introducing a wildcard expression as
+follows.
+
+```
+ - S3 resource = "sales-reports/americas/year=20?0"
+ - permission = "GetObject"
+ - user = "analyst"
+ - is recursive = "True"
+```
+
+### Policies for
+
+PutObject and DeleteObject permissions
+
+Writing policies for `PutObject` and `DeleteObject`
+permissions to files on EMRFS need special care because, unlike GetObject
+permissions, they need additional recursive permissions granted to the
+prefix.
+
+###### Example Policies for PutObject and DeleteObject permissions
+
+For example, deleting the file `annual-summary.parquet`
+requires not only a DeleteObject permission to the actual file.
+
+```
+- S3 resource = "sales-reports/americas/year=2020/annual-summary.parquet"
+- permission = "DeleteObject"
+- user = "analyst"
+```
+
+It also requires a policy granting recursive `GetObject`
+and `PutObject` permissions to its prefix.
+
+Similarly, modifying the file `annual-summary.parquet`,
+requires not only a `PutObject` permission to the actual
+file.
+
+```
+- S3 resource = "sales-reports/americas/year=2020/annual-summary.parquet"
+- permission = "PutObject"
+- user = "analyst"
+```
+
+It also requires a policy granting recursive `GetObject`
+permission to its prefix.
+
+```
+- S3 resource = "sales-reports/americas/year=2020"
+- permission = "GetObject"
+- user = "analyst"
+- is recursive = "True"
+```
+
+### Wildcards in
+
+policies
+
+There are two areas in which wildcards can be specified. When specifying
+an S3 resource, the "\*" and "?" can be used. The "\*" provides matching
+against an S3 path and matches everything after the prefix. For example, the
+following policy.
+
+```
+S3 resource = "sales-reports/americas/*"
+```
+
+This matches the following S3 paths.
+
+```
+sales-reports/americas/year=2020/
+sales-reports/americas/year=2019/
+sales-reports/americas/year=2019/month=12/day=1/afile.parquet
+sales-reports/americas/year=2018/month=6/day=1/afile.parquet
+sales-reports/americas/year=2017/afile.parquet
+```
+
+The "?" wildcard matches only a single character. For example, for the
+policy.
+
+```
+S3 resource = "sales-reports/americas/year=201?/"
+```
+
+This matches the following S3 paths.
+
+```
+sales-reports/americas/year=2019/
+sales-reports/americas/year=2018/
+sales-reports/americas/year=2017/
+```
+
+### Wildcards in users
+
+There are two built-in wildcards when assigning users to provide access to
+users. The first is the "{USER}" wildcard that provides access to all users.
+The second wildcard is "{OWNER}", which provides access to the owner of a
+particular object or directly. However, the "{USER}" wildcard is currently
+not supported.
+
+## Limitations
+
+The following are current limitations of the EMRFS S3 plugin:
+
+- Apache Ranger policies can have at most three policies.
+- Access to S3 must be done through EMRFS and can be used with
+  Hadoop-related applications. The following is not supported:
+
+* Boto3 libraries
+
+* AWS SDK and AWK CLI
+
+* S3A open source connector
+
+- Apache Ranger deny policies are not supported.
+- Operations on S3 with keys having CSE-KMS encryption are currently not
+  supported.
+- Cross-Region support is not supported.
+- Apache Ranger’s Security Zone feature is not supported. Access control
+  restrictions defined using the Security Zone feature are not applied on
+  your Amazon EMR clusters.
+- The Hadoop user does not generate any audit events as Hadoop always
+  accesses the EC2 Instance Profile.
+- It's recommended that you disable Amazon EMR Consistency View. S3 is
+  strongly consistent, so it's no longer needed. See [Amazon S3 strong
+  consistency](https://aws.amazon.com/s3/consistency/ "https://aws.amazon.com/s3/consistency/") for more information.
+- The EMRFS S3 plugin makes numerous STS calls. It's advised that you do
+  load testing on a development account and monitor STS call volume. It is
+  also recommended that you make an STS request to raise AssumeRole
+  service limits.
+- The Ranger Admin server doesn't support auto-complete.

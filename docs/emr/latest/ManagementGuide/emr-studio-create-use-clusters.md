@@ -214,11 +214,79 @@ create a cluster.
 
 1. Choose a starting point.
 
-| To...                                                                                                     | Do this...                                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create the cluster when you create a Workspace with the **Create a Workspace** dialog box.                | Expand the **Advanced configuration** section in the **Create a Workspace** dialog box, and select **Create an EMR cluster**.                              |
-| Create the cluster from the **EMR cluster** panel in the Workspace UI after you have created a Workspace. | Choose the **EMR clusters** tab in the left sidebar of an open Workspace, expand the **Advanced configuration** section, and choose **Create cluster**.    | 2. Enter a **Cluster name**. Naming the cluster helps you find it later in the EMR Studio Clusters list. 3. For **Amazon EMR release**, Choose an Amazon EMR release version for the cluster. 4. For **Instance**, select the type and number of Amazon EC2 instances for the cluster. For more information about selecting instance types, see [Configure Amazon EC2 instance types for use with Amazon EMR](emr-plan-ec2-instances.md "emr-plan-ec2-instances.md"). One instance will be used as the primary node. 5. Select a **Subnet** where EMR Studio can launch the new cluster. Each subnet option is preapproved by your Studio administrator, and your Workspace should be able to connect to a cluster in any listed subnet. 6. Choose an **S3 URI for log storage**. 7. Choose **Create EMR cluster** to provision the cluster. If you use the **Create a Workspace** dialog box, choose **Create a Workspace** to create the Workspace and provision the cluster. After EMR Studio provisions the new cluster, it attaches the cluster to the Workspace. ###### To create a cluster using a cluster template 1. Choose a starting point.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| To...                                                                                                     | Do this...                                                                                                                                                 |
-| ---                                                                                                       | ---                                                                                                                                                        |
-| Create the cluster when you create a Workspace with the **Create a Workspace** dialog box.                | Expand the **Advanced configuration** section in the **Create a Workspace** dialog box, and select **Use a cluster template**.                             |
-| Create the cluster from the **EMR cluster** panel in the Workspace UI.                                    | Choose the **EMR clusters** tab in the left sidebar of an open Workspace, expand the **Advanced configuration** section, then choose **Cluster template**. | 2. Select a cluster template from the dropdown list. Each available cluster template includes a brief description to help you make a selection. 3. The cluster template you choose may have additional parameters such as Amazon EMR release version or cluster name. You can choose or insert values, or use the default values that your administrator selected. 4. Select a **Subnet** where EMR Studio can launch the new cluster. Each subnet option is preapproved by your Studio administrator, and your Workspace should be able to connect to a cluster in any subnet. 5. Choose **Use cluster template** to provision the cluster and attach it to the Workspace. It will take a few minutes for EMR Studio to create the cluster. If you use the **Create a Workspace** dialog box, choose **Create a Workspace** to create the Workspace and provision the cluster. After EMR Studio provisions the new cluster, it attaches the cluster to your Workspace. ## Detach a compute from an EMR Studio Workspace To exchange the cluster attached to a Workspace, you can detach a cluster from the Workspace UI. ###### To detach a cluster from a Workspace 1. In the Workspace that you want to detach from a cluster, choose the **EMR clusters** icon from the left sidebar to open the **Cluster** panel. 2. Under **Select cluster**, choose **Detach** and wait for EMR Studio to detach the cluster. When the cluster is detached, you will see a success message. ###### To detach an EMR Serverless application from an EMR Studio Workspace To exchange the compute attached to a Workspace, you can detach the application from the Workspace UI. 1. In the Workspace that you want to detach from a cluster, choose the **Amazon EMR compute** icon from the left sidebar to open the **Compute** panel. 2. Under **Select compute**, choose **Detach** and wait for EMR Studio to detach the application. When the application is detached, you will see a success message. |
+| To...                                                                                                             | Do this...                                                                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create the cluster when you create a Workspace with the<br>\*_Create a Workspace_<br>• dialog box.                | Expand the **Advanced configuration\*<br>• section in the<br>**Create a Workspace\*<br>• dialog box, and select<br>**Create an EMR cluster**.                              |
+| Create the cluster from the \*_EMR cluster_<br>• panel in<br>the Workspace UI after you have created a Workspace. | Choose the **EMR clusters\*<br>• tab in the left sidebar of<br>an open Workspace, expand the **Advanced<br>configuration\*<br>• section, and choose **Create<br>cluster**. |
+
+2. Enter a **Cluster name**. Naming the cluster helps you find it
+   later in the EMR Studio Clusters list.
+3. For **Amazon EMR release**, Choose an Amazon EMR release version for the
+   cluster.
+4. For **Instance**, select the type and number of Amazon EC2 instances for
+   the cluster. For more information about selecting instance types, see [Configure Amazon EC2 instance types for use with Amazon EMR](emr-plan-ec2-instances.md "emr-plan-ec2-instances.md"). One
+   instance will be used as the primary node.
+5. Select a **Subnet** where EMR Studio can launch the new
+   cluster. Each subnet option is preapproved by your Studio administrator, and
+   your Workspace should be able to connect to a cluster in any listed
+   subnet.
+6. Choose an **S3 URI for log storage**.
+7. Choose **Create EMR cluster** to provision the cluster. If you
+   use the **Create a Workspace** dialog box, choose
+   **Create a Workspace** to create the Workspace and
+   provision the cluster. After EMR Studio provisions the new cluster, it attaches the
+   cluster to the Workspace.
+
+###### To create a cluster using a cluster template
+
+1. Choose a starting point.
+
+| To...                                                                                              | Do this...                                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create the cluster when you create a Workspace with the<br>\*_Create a Workspace_<br>• dialog box. | Expand the **Advanced configuration\*<br>• section in the<br>**Create a Workspace\*<br>• dialog box, and select<br>**Use a cluster template**.                                |
+| Create the cluster from the \*_EMR cluster_<br>• panel in<br>the Workspace UI.                     | Choose the **EMR clusters\*<br>• tab in the left sidebar of<br>an open Workspace, expand the **Advanced<br>configuration\*<br>• section, then choose **Cluster<br>template**. |
+
+2. Select a cluster template from the dropdown list. Each available cluster template
+   includes a brief description to help you make a selection.
+3. The cluster template you choose may have additional parameters such as Amazon EMR release
+   version or cluster name. You can choose or insert values, or use the default values that
+   your administrator selected.
+4. Select a **Subnet** where EMR Studio can launch the new
+   cluster. Each subnet option is preapproved by your Studio administrator, and
+   your Workspace should be able to connect to a cluster in any subnet.
+5. Choose **Use cluster template** to provision the cluster and attach
+   it to the Workspace. It will take a few minutes for EMR Studio to create
+   the cluster. If you use the **Create a Workspace** dialog box,
+   choose **Create a Workspace** to create the Workspace
+   and provision the cluster. After EMR Studio provisions the new cluster, it attaches
+   the cluster to your Workspace.
+
+## Detach a compute from an EMR Studio
+
+Workspace
+
+To exchange the cluster attached to a Workspace, you can detach a cluster from
+the Workspace UI.
+
+###### To detach a cluster from a Workspace
+
+1. In the Workspace that you want to detach from a cluster, choose the
+   **EMR clusters** icon from the left sidebar to open the
+   **Cluster** panel.
+2. Under **Select cluster**, choose **Detach** and
+   wait for EMR Studio to detach the cluster. When the cluster is detached, you will
+   see a success message.
+
+###### To detach an EMR Serverless application from an EMR Studio
+
+Workspace
+
+To exchange the compute attached to a Workspace, you can detach the application from
+the Workspace UI.
+
+1. In the Workspace that you want to detach from a cluster, choose the
+   **Amazon EMR compute** icon from the left sidebar to open the
+   **Compute** panel.
+2. Under **Select compute**, choose **Detach** and
+   wait for EMR Studio to detach the application. When the application is detached, you
+   will see a success message.

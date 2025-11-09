@@ -71,8 +71,53 @@ higher| Instance size | Number of volumes | Volume size (GiB) | Total size (GiB)
 | \*.12xlarge | 4 | 192 | 768 |
 | \*.16xlarge | 4 | 256 | 1024 |
 | \*.18xlarge | 4 | 288 | 1152 |
-| \*.24xlarge | 4 | 384 | 1536 | ## Default Amazon EBS root volume for instances With Amazon EMR releases 6.15 and higher, Amazon EMR automatically attaches an Amazon EBS General Purpose SSD (gp3) as the root device for its AMIs to enhance performance. With earlier releases, Amazon EMR attaches EBS General Purpose SSD (gp2) as the root device.
-| | 6.15 and higher | 6.14 and lower | | --- | --- | --- |
-| Default root volume type | <br>• gp3 | <br>• gp2 | | Default size | <br>• 15 GiB <br>• (configurable)
-| <br>• 6.10 and higher = 15 GiB <br>• 6.9 and lower = 10 GiB <br>• (configurable) | | Default IOPS | <br>• 3000 <br>• (configurable) | |
-| Default throughput | <br>• 125 MiB/s <br>• (configurable) | | For information on how to customize the Amazon EBS root device volume, see [Specifying additional EBS storage volumes](#emr-plan-storage-additional-ebs-volumes "#emr-plan-storage-additional-ebs-volumes"). ## Specifying additional EBS storage volumes When you configure instance types in Amazon EMR, you can specify additional EBS volumes to add capacity beyond the instance store (if present) and the default EBS volume. Amazon EBS provides the following volume types: General Purpose (SSD), Provisioned IOPS (SSD), Throughput Optimized (HDD), Cold (HDD), and Magnetic. They differ in performance characteristics and price, so you can tailor your storage to the analytic and business needs of your applications. For example, some applications might need to spill to disk while others can safely work in-memory or with Amazon S3. You can only attach Amazon EBS volumes to instances at cluster startup time and when you add an extra task node instance group. If an instance in an Amazon EMR cluster fails, then both the instance and attached Amazon EBS volumes are replaced with new volumes. Consequently, if you manually detach an Amazon EBS volume, Amazon EMR treats that as a failure and replaces both instance storage (if applicable) and the volume stores. Amazon EMR doesn’t allow you to modify your volume type from gp2 to gp3 for an existing EMR cluster. To use gp3 for your workloads, launch a new EMR cluster. In addition, we don't recommend that you update the throughput and IOPS on a cluster that is in use or that is being provisioned, because Amazon EMR uses the throughput and IOPS values you specify at cluster launch time for any new instance that it adds during cluster scale-up. For more information, see [Comparing Amazon EBS volume types gp2 and gp3](emr-plan-storage-compare-volume-types.md "emr-plan-storage-compare-volume-types.md") and [Selecting IOPS and throughput when migrating to gp3 Amazon EBS volume types](emr-plan-storage-gp3-migration-selection.md "emr-plan-storage-gp3-migration-selection.md"). ###### Important To use a gp3 volume with your EMR cluster, you must launch a new cluster.
+| \*.24xlarge | 4 | 384 | 1536 |
+
+## Default Amazon EBS root volume for
+
+instances
+
+With Amazon EMR releases 6.15 and higher, Amazon EMR automatically attaches an Amazon EBS General
+Purpose SSD (gp3) as the root device for its AMIs to enhance performance. With earlier
+releases, Amazon EMR attaches EBS General Purpose SSD (gp2) as the root device.
+
+|                          | 6.15 and higher                 | 6.14 and lower                                                             |
+| ------------------------ | ------------------------------- | -------------------------------------------------------------------------- |
+| Default root volume type | • gp3                           | • gp2                                                                      |
+| Default size             | • 15 GiB<br>• (configurable)    | • 6.10 and higher = 15 GiB<br>• 6.9 and lower = 10 GiB<br>• (configurable) |
+| Default IOPS             | • 3000<br>• (configurable)      |                                                                            |
+| Default throughput       | • 125 MiB/s<br>• (configurable) |                                                                            |
+
+For information on how to customize the Amazon EBS root device volume, see [Specifying additional EBS
+storage volumes](#emr-plan-storage-additional-ebs-volumes "#emr-plan-storage-additional-ebs-volumes").
+
+## Specifying additional EBS
+
+storage volumes
+
+When you configure instance types in Amazon EMR, you can specify additional EBS volumes to
+add capacity beyond the instance store (if present) and the default EBS volume. Amazon EBS
+provides the following volume types: General Purpose (SSD), Provisioned IOPS (SSD),
+Throughput Optimized (HDD), Cold (HDD), and Magnetic. They differ in performance
+characteristics and price, so you can tailor your storage to the analytic and business
+needs of your applications. For example, some applications might need to spill to disk
+while others can safely work in-memory or with Amazon S3.
+
+You can only attach Amazon EBS volumes to instances at cluster startup time and when you
+add an extra task node instance group. If an instance in an Amazon EMR cluster fails, then
+both the instance and attached Amazon EBS volumes are replaced with new volumes.
+Consequently, if you manually detach an Amazon EBS volume, Amazon EMR treats that as a failure and
+replaces both instance storage (if applicable) and the volume stores.
+
+Amazon EMR doesn’t allow you to modify your volume type from gp2 to gp3 for an existing
+EMR cluster. To use gp3 for your workloads, launch a new EMR cluster. In addition,
+we don't recommend that you update the throughput and IOPS on a cluster that is in use
+or that is being provisioned, because Amazon EMR uses the throughput and IOPS values you
+specify at cluster launch time for any new instance that it adds during cluster
+scale-up. For more information, see [Comparing Amazon EBS volume types gp2
+and gp3](emr-plan-storage-compare-volume-types.md "emr-plan-storage-compare-volume-types.md") and [Selecting IOPS and throughput
+when migrating to gp3 Amazon EBS volume types](emr-plan-storage-gp3-migration-selection.md "emr-plan-storage-gp3-migration-selection.md").
+
+###### Important
+
+To use a gp3 volume with your EMR cluster, you must launch a new cluster.

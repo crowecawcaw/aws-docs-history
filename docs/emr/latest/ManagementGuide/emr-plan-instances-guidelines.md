@@ -234,9 +234,101 @@ options and configurations that are usually appropriate for various
 application scenarios. Choose the link to view more information about
 each scenario type.
 
-| Application scenario                                                                                                         | Primary node purchasing option | Core nodes purchasing option    | Task nodes purchasing option |
-| ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Long-running clusters and data warehouses](#emr-dev-when-use-spot-data-warehouses "#emr-dev-when-use-spot-data-warehouses") | On-Demand                      | On-Demand or instance-fleet mix | Spot or instance-fleet mix   |
-| [Cost-driven workloads](#emr-dev-when-use-spot-cost-driven "#emr-dev-when-use-spot-cost-driven")                             | Spot                           | Spot                            | Spot                         |
-| [Data-critical workloads](#emr-dev-when-use-spot-data-critical "#emr-dev-when-use-spot-data-critical")                       | On-Demand                      | On-Demand                       | Spot or instance-fleet mix   |
-| [Application testing](#emr-dev-when-use-spot-application-testing "#emr-dev-when-use-spot-application-testing")               | Spot                           | Spot                            | Spot                         | There are several scenarios in which Spot Instances are useful for running an Amazon EMR cluster. #### Long-running clusters and data warehouses If you are running a persistent Amazon EMR cluster that has a predictable variation in computational capacity, such as a data warehouse, you can handle peak demand at lower cost with Spot Instances. You can launch your primary and core instance groups as On-Demand Instances to handle the normal capacity and launch the task instance group as Spot Instances to handle your peak load requirements. #### Cost-driven workloads If you are running transient clusters for which lower cost is more important than the time to completion, and losing partial work is acceptable, you can run the entire cluster (primary, core, and task instance groups) as Spot Instances to benefit from the largest cost savings. #### Data-critical workloads If you are running a cluster for which lower cost is more important than time to completion, but losing partial work is not acceptable, launch the primary and core instance groups as On-Demand Instances and supplement with one or more task instance groups of Spot Instances. Running the primary and core instance groups as On-Demand Instances ensures that your data is persisted in HDFS and that the cluster is protected from termination due to Spot market fluctuations, while providing cost savings that accrue from running the task instance groups as Spot Instances. #### Application testing When you are testing a new application in order to prepare it for launch in a production environment, you can run the entire cluster (primary, core, and task instance groups) as Spot Instances to reduce your testing costs. ## Calculating the required HDFS capacity of a cluster The amount of HDFS storage available to your cluster depends on the following factors: <br>• The number of Amazon EC2 instances used for core nodes. <br>• The capacity of the Amazon EC2 instance store for the instance type used. For more information on instance store volumes, see [Amazon Amazon EC2 instance store](../../../AWSEC2/latest/UserGuide/InstanceStorage.md "../../../AWSEC2/latest/UserGuide/InstanceStorage.md") in the _Amazon EC2 User Guide_. <br>• The number and size of Amazon EBS volumes attached to core nodes. <br>• A replication factor, which accounts for how each data block is stored in HDFS for RAID-like redundancy. By default, the replication factor is three for a cluster of 10 or more core nodes, two for a cluster of 4-9 core nodes, and one for a cluster of three or fewer nodes. To calculate the HDFS capacity of a cluster, for each core node, add the instance store volume capacity to the Amazon EBS storage capacity (if used). Multiply the result by the number of core nodes, and then divide the total by the replication factor based on the number of core nodes. For example, a cluster with 10 core nodes of type i2.xlarge, which have 800 GB of instance storage without any attached Amazon EBS volumes, has a total of approximately 2,666 GB available for HDFS (10 nodes x 800 GB ÷ 3 replication factor). If the calculated HDFS capacity value is smaller than your data, you can increase the amount of HDFS storage in the following ways: <br>• Creating a cluster with additional Amazon EBS volumes or adding instance groups with attached Amazon EBS volumes to an existing cluster <br>• Adding more core nodes <br>• Choosing an Amazon EC2 instance type with greater storage capacity <br>• Using data compression <br>• Changing the Hadoop configuration settings to reduce the replication factor Reducing the replication factor should be used with caution as it reduces the redundancy of HDFS data and the ability of the cluster to recover from lost or corrupted HDFS blocks. |
+| Application scenario                                                                                                            | Primary node purchasing option | Core nodes purchasing option    | Task nodes purchasing option |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------------------- | ---------------------------- |
+| [Long-running<br>clusters and data warehouses](#emr-dev-when-use-spot-data-warehouses "#emr-dev-when-use-spot-data-warehouses") | On-Demand                      | On-Demand or instance-fleet mix | Spot or instance-fleet mix   |
+| [Cost-driven<br>workloads](#emr-dev-when-use-spot-cost-driven "#emr-dev-when-use-spot-cost-driven")                             | Spot                           | Spot                            | Spot                         |
+| [Data-critical<br>workloads](#emr-dev-when-use-spot-data-critical "#emr-dev-when-use-spot-data-critical")                       | On-Demand                      | On-Demand                       | Spot or instance-fleet mix   |
+| [Application testing](#emr-dev-when-use-spot-application-testing "#emr-dev-when-use-spot-application-testing")                  | Spot                           | Spot                            | Spot                         |
+
+There are several scenarios in which Spot Instances are useful for
+running an Amazon EMR cluster.
+
+#### Long-running
+
+clusters and data warehouses
+
+If you are running a persistent Amazon EMR cluster that has a
+predictable variation in computational capacity, such as a data
+warehouse, you can handle peak demand at lower cost with Spot
+Instances. You can launch your primary and core instance groups as
+On-Demand Instances to handle the normal capacity and launch the
+task instance group as Spot Instances to handle your peak load
+requirements.
+
+#### Cost-driven
+
+workloads
+
+If you are running transient clusters for which lower cost is more
+important than the time to completion, and losing partial work is
+acceptable, you can run the entire cluster (primary, core, and task
+instance groups) as Spot Instances to benefit from the largest cost
+savings.
+
+#### Data-critical
+
+workloads
+
+If you are running a cluster for which lower cost is more
+important than time to completion, but losing partial work is not
+acceptable, launch the primary and core instance groups as On-Demand
+Instances and supplement with one or more task instance groups of
+Spot Instances. Running the primary and core instance groups as
+On-Demand Instances ensures that your data is persisted in HDFS and
+that the cluster is protected from termination due to Spot market
+fluctuations, while providing cost savings that accrue from running
+the task instance groups as Spot Instances.
+
+#### Application testing
+
+When you are testing a new application in order to prepare it for
+launch in a production environment, you can run the entire cluster
+(primary, core, and task instance groups) as Spot Instances to
+reduce your testing costs.
+
+## Calculating the required HDFS
+
+capacity of a cluster
+
+The amount of HDFS storage available to your cluster depends on the
+following factors:
+
+- The number of Amazon EC2 instances used for core nodes.
+- The capacity of the Amazon EC2 instance store for the instance type
+  used. For more information on instance store volumes, see [Amazon Amazon EC2 instance
+  store](../../../AWSEC2/latest/UserGuide/InstanceStorage.md "../../../AWSEC2/latest/UserGuide/InstanceStorage.md") in the
+  _Amazon EC2 User Guide_.
+- The number and size of Amazon EBS volumes attached to core
+  nodes.
+- A replication factor, which accounts for how each data block is
+  stored in HDFS for RAID-like redundancy. By default, the replication
+  factor is three for a cluster of 10 or more core nodes, two for a
+  cluster of 4-9 core nodes, and one for a cluster of three or fewer
+  nodes.
+
+To calculate the HDFS capacity of a cluster, for each core node, add the
+instance store volume capacity to the Amazon EBS storage capacity (if used).
+Multiply the result by the number of core nodes, and then divide the total
+by the replication factor based on the number of core nodes. For example, a
+cluster with 10 core nodes of type i2.xlarge, which have 800 GB of instance
+storage without any attached Amazon EBS volumes, has a total of approximately
+2,666 GB available for HDFS (10 nodes x 800 GB ÷ 3 replication
+factor).
+
+If the calculated HDFS capacity value is smaller than your data, you can
+increase the amount of HDFS storage in the following ways:
+
+- Creating a cluster with additional Amazon EBS volumes or adding
+  instance groups with attached Amazon EBS volumes to an existing
+  cluster
+- Adding more core nodes
+- Choosing an Amazon EC2 instance type with greater storage
+  capacity
+- Using data compression
+- Changing the Hadoop configuration settings to reduce the
+  replication factor
+
+Reducing the replication factor should be used with caution as it reduces
+the redundancy of HDFS data and the ability of the cluster to recover from
+lost or corrupted HDFS blocks.

@@ -66,6 +66,87 @@ For more information about these API operations, see
 [Amazon EMR WAL (EMRWAL) CLI reference](../ReleaseGuide/emrwalcli-ref.md "../ReleaseGuide/emrwalcli-ref.md"). Amazon EMR logs some Data API operations to CloudTrail that
 are HBase system operations that you never call directly. These operations aren't in the EMRWAL CLI reference.
 
-| Data event type (console)                | resources.type value     | Data APIs logged to CloudTrail                                                                                             |
-| ---------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Amazon EMR write-ahead log workspace** | `AWS::EMRWAL::Workspace` | <br>• GetCurrentWALTime <br>• ListTagsForResource <br>• ListWALs <br>• ListWorkspaces <br>• TrimWAL <br>• CompleteWALFlush | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ## AWS EMR management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. AWS EMR logs all AWS EMR control plane operations as management events. For a list of the AWS EMR control plane operations that AWS EMR logs to CloudTrail, see the [AWS EMR API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"). ## AWS EMR event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail log entry that demonstrates the **RunJobFlow** action. `{ "Records": [ { "eventVersion":"1.01", "userIdentity":{ "type":"IAMUser", "principalId":"EX_PRINCIPAL_ID", "arn":"arn:aws:iam::123456789012:user/temporary-user-xx-7M", "accountId":"123456789012", "userName":"temporary-user-xx-7M" }, "eventTime":"2018-03-31T17:59:21Z", "eventSource":"elasticmapreduce.amazonaws.com", "eventName":"RunJobFlow", "awsRegion":"us-west-2", "sourceIPAddress":"192.0.2.1", "userAgent":"aws-sdk-java/unknown-version Linux/xx Java_HotSpot(TM)_64-Bit_Server_VM/xx", "requestParameters":{ "tags":[ { "value":"prod", "key":"domain" }, { "value":"us-west-2", "key":"realm" }, { "value":"VERIFICATION", "key":"executionType" } ], "instances":{ "slaveInstanceType":"m5.xlarge", "ec2KeyName":"emr-integtest", "instanceCount":1, "masterInstanceType":"m5.xlarge", "keepJobFlowAliveWhenNoSteps":true, "terminationProtected":false }, "visibleToAllUsers":false, "name":"MyCluster", "ReleaseLabel":"emr-5.16.0" }, "responseElements":{ "jobFlowId":"j-2WDJCGEG4E6AJ" }, "requestID":"2f482daf-b8fe-11e3-89e7-75a3d0e071c5", "eventID":"b348a38d-f744-4097-8b2a-e68c9b424698" }, ...additional entries ] }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type (console)                | resources.type value     | Data APIs logged to CloudTrail                                                                                    |
+| ---------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **Amazon EMR write-ahead log workspace** | `AWS::EMRWAL::Workspace` | • GetCurrentWALTime<br>• ListTagsForResource<br>• ListWALs<br>• ListWorkspaces<br>• TrimWAL<br>• CompleteWALFlush |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+## AWS EMR management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+AWS EMR logs all AWS EMR control plane operations as management events. For a list
+of the AWS EMR control plane operations that AWS EMR logs to CloudTrail, see the
+[AWS EMR API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+## AWS EMR event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail log entry that demonstrates the **RunJobFlow** action.
+
+```
+
+{
+	"Records": [
+	{
+         "eventVersion":"1.01",
+         "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"EX_PRINCIPAL_ID",
+            "arn":"arn:aws:iam::123456789012:user/temporary-user-xx-7M",
+            "accountId":"123456789012",
+            "userName":"temporary-user-xx-7M"
+         },
+         "eventTime":"2018-03-31T17:59:21Z",
+         "eventSource":"elasticmapreduce.amazonaws.com",
+         "eventName":"RunJobFlow",
+         "awsRegion":"us-west-2",
+         "sourceIPAddress":"192.0.2.1",
+         "userAgent":"aws-sdk-java/unknown-version Linux/xx Java_HotSpot(TM)_64-Bit_Server_VM/xx",
+         "requestParameters":{
+            "tags":[
+               {
+                  "value":"prod",
+                  "key":"domain"
+               },
+               {
+                  "value":"us-west-2",
+                  "key":"realm"
+               },
+               {
+                  "value":"VERIFICATION",
+                  "key":"executionType"
+               }
+            ],
+            "instances":{
+               "slaveInstanceType":"m5.xlarge",
+               "ec2KeyName":"emr-integtest",
+               "instanceCount":1,
+               "masterInstanceType":"m5.xlarge",
+               "keepJobFlowAliveWhenNoSteps":true,
+               "terminationProtected":false
+            },
+            "visibleToAllUsers":false,
+            "name":"MyCluster",
+            "ReleaseLabel":"emr-5.16.0"
+         },
+         "responseElements":{
+            "jobFlowId":"j-2WDJCGEG4E6AJ"
+         },
+         "requestID":"2f482daf-b8fe-11e3-89e7-75a3d0e071c5",
+         "eventID":"b348a38d-f744-4097-8b2a-e68c9b424698"
+      },
+	...additional entries
+  ]
+}
+
+
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.

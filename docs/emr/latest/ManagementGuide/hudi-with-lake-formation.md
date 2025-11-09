@@ -14,14 +14,69 @@ information, see [Point in time Time-Travel queries on Hudi table](https://cwiki
 
 The following support matrix lists some core features of Apache Hudi with Lake Formation:
 
-|                                        | Copy on Write | Merge on Read |
-| -------------------------------------- | ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Snapshot queries - Spark SQL**       | ✓             | ✓             |
-| **Read-optimized queries - Spark SQL** | ✓             | ✓             |
-| **Incremental queries**                | ✓             | ✓             |
-| **Time travel queries**                | ✓             | ✓             |
-| **Metadata tables**                    | ✓             | ✓             |
-| **DML `INSERT` commands**              | ✓             | ✓             |
-| **DDL commands**                       |               |               |
-| **Spark datasource queries**           |               |               |
-| **Spark datasource writes**            |               |               | ## Querying Hudi tables This section shows how you can run the supported queries described above on a Lake Formation enabled cluster. The table should be a registered catalog table. 1. To start the Spark shell on EMR 7.10 or higher versions, use the following command: `spark-sql --jars /usr/lib/hudi/hudi-spark-bundle.jar \ --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog \ --conf spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension` To start the Spark shell on earlier EMR versions, use the below command instead: `spark-sql --jars /usr/lib/hudi/hudi-spark-bundle.jar \ --conf spark.serializer=org.apache.spark.serializer.KryoSerializer \ --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog \ --conf spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension,com.amazonaws.emr.recordserver.connector.spark.sql.RecordServerSQLExtension  \ --conf spark.sql.catalog.spark_catalog.lf.managed=true` 2. To query the latest snapshot of copy-on-write tables, use the following commands. `` SELECT * FROM `my_hudi_cow_table` `` ``spark.read.table("`my_hudi_cow_table`")`` 3. To query the latest compacted data of `MOR` tables, you can query the read-optimized table that is suffixed with `_ro`: ``SELECT * FROM `my_hudi_mor_table`_ro`` ``spark.read.table("`my_hudi_mor_table`_ro")`` ###### Note The performance of reads on Lake Formation clusters might be slower because of optimizations that are not supported. These features include file listing based on Hudi metadata, and data skipping. We recommend that you test your application performance to ensure that it meets your requirements. |
+|                                              | Copy on Write | Merge on Read |
+| -------------------------------------------- | ------------- | ------------- |
+| **Snapshot queries<br>• Spark<br>SQL**       | ✓             | ✓             |
+| **Read-optimized queries<br>• Spark<br>SQL** | ✓             | ✓             |
+| **Incremental queries**                      | ✓             | ✓             |
+| **Time travel queries**                      | ✓             | ✓             |
+| **Metadata tables**                          | ✓             | ✓             |
+| **DML `INSERT`<br>commands**                 | ✓             | ✓             |
+| **DDL commands**                             |               |               |
+| **Spark datasource queries**                 |               |               |
+| **Spark datasource writes**                  |               |               |
+
+## Querying Hudi tables
+
+This section shows how you can run the supported queries described above on a Lake Formation
+enabled cluster. The table should be a registered catalog table.
+
+1. To start the Spark shell on EMR 7.10 or higher versions, use the following command:
+
+```
+spark-sql
+--jars /usr/lib/hudi/hudi-spark-bundle.jar \
+--conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog \
+--conf spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension
+```
+
+To start the Spark shell on earlier EMR versions, use the below command instead:
+
+```
+spark-sql
+--jars /usr/lib/hudi/hudi-spark-bundle.jar \
+--conf spark.serializer=org.apache.spark.serializer.KryoSerializer \
+--conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog \
+--conf spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension,com.amazonaws.emr.recordserver.connector.spark.sql.RecordServerSQLExtension  \
+--conf spark.sql.catalog.spark_catalog.lf.managed=true
+```
+
+2. To query the latest snapshot of copy-on-write tables, use the following
+   commands.
+
+```
+SELECT * FROM `my_hudi_cow_table`
+```
+
+```
+spark.read.table("`my_hudi_cow_table`")
+```
+
+3. To query the latest compacted data of `MOR` tables, you can
+   query the read-optimized table that is suffixed with
+   `_ro`:
+
+```
+SELECT * FROM `my_hudi_mor_table`_ro
+```
+
+```
+spark.read.table("`my_hudi_mor_table`_ro")
+```
+
+###### Note
+
+The performance of reads on Lake Formation clusters might be slower because of
+optimizations that are not supported. These features include file listing based
+on Hudi metadata, and data skipping. We recommend that you test your application
+performance to ensure that it meets your requirements.

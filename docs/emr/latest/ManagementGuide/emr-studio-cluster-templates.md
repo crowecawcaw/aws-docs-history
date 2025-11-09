@@ -213,8 +213,8 @@ Outputs:
    3. Search for your EMR Studio IAM role in the **Roles** tab,
       select your role, and choose **Add access**.
 
-| If you use....                 | Grant access to...                                                                                                                                   |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IAM authentication             | Your native a users                                                                                                                                  |
-| IAM federation                 | Your IAM role for federation                                                                                                                         |
-| IAM Identity Center federation | Your [EMR Studio user role](emr-studio-user-permissions.md#emr-studio-create-user-role "emr-studio-user-permissions.md#emr-studio-create-user-role") |
+   | If you use....                 | Grant access to...                                                                                                                                      |
+   | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | IAM authentication             | Your native a users                                                                                                                                     |
+   | IAM federation                 | Your IAM role for federation                                                                                                                            |
+   | IAM Identity Center federation | Your [EMR Studio user<br>role](emr-studio-user-permissions.md#emr-studio-create-user-role "emr-studio-user-permissions.md#emr-studio-create-user-role") |

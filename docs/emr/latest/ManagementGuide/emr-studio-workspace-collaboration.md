@@ -90,8 +90,18 @@ An owner can only invite collaborators with the same identity type. For example,
 user can only add other a users, and an IAM Identity Center user can only add other IAM Identity Center
 users.
 
-| Authentication mode | Value to enter for **Collaborator name**                                                                                                                                                                                                                                                |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IAM authentication  | a username. This is the name that a user sees when logged in to the AWS Management Console.                                                                                                                                                                                             |
-| IAM federation      | The name of an IAM role and an optional session name. To add all of the federated users who assume the same IAM role, specify the name of an IAM role for federation. To add a single user as a collaborator, specify a role and session name. For example, `MyRoleName:MySessionName`. |
-| SSO                 | An IAM Identity Center user name like `user@example.com.`                                                                                                                                                                                                                               | 4. Choose **Add**. The collaborator can now see the Workspace on their EMR Studio **Workspaces** page, and launch the Workspace to use it in real time with you. ###### Note If you disable Workspace collaboration, the Workspace returns to its shared state and can be seen by all Studio users. In the shared state, only one Studio user can open and work in the Workspace at a time. |
+| Authentication mode | Value to enter for **Collaborator name**                                                                                                                                                                                                                                                            |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IAM authentication  | a username. This is the name that a user sees when logged in to the<br>AWS Management Console.                                                                                                                                                                                                      |
+| IAM federation      | The name of an IAM role and an optional session name.<br>To add all of the federated users who assume the same IAM role, specify the<br>name of an IAM role for federation.<br>To add a single user as a collaborator, specify a role and session name. For<br>example, `MyRoleName:MySessionName`. |
+| SSO                 | An IAM Identity Center user name like `user@example.com.`                                                                                                                                                                                                                                           |
+
+4. Choose **Add**. The collaborator can now see the Workspace
+   on their EMR Studio **Workspaces** page, and launch the
+   Workspace to use it in real time with you.
+
+###### Note
+
+If you disable Workspace collaboration, the Workspace returns to its
+shared state and can be seen by all Studio users. In the shared state, only one
+Studio user can open and work in the Workspace at a time.

@@ -55,12 +55,12 @@ scaling analytics workloads effortlessly. To learn more, see [Amazon EMR](https:
 
 This table lists updates to the Amazon EMR managed scaling capability.
 
-| Release date          | Capability                                                                                                                                                |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **January 5, 2024**   | Added support for EMR Studio in AWS GovCloud (US-East) and AWS GovCloud (US-West).                                                                        |
-| **November 26, 2023** | Added support for trusted identity propagation for EMR Studio with IAM Identity Center authentication.                                                    |
-| **October 26, 2023**  | Added ability to create an EMR Serverless application with interactive capability.                                                                        |
-| **February 28, 2023** | Added AWS KMS customer-managed key support for application log storage for EMR Serverless applications.                                                   |
-| **February 23, 2023** | Added one-click IAM role creation for EMR Serverless job submission. Added ECR lookup for when you select a custom image for EMR Serverless applications. |
-| **January 27, 2023**  | Headless execution notebooks can track the progress of each cell execution with `%execute_notebook` magic.                                                |
-| **January 23, 2023**  | Persistent application have been optimized for faster launch times.                                                                                       |
+| Release date          | Capability                                                                                                                                                      |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **January 5, 2024**   | Added support for EMR Studio in AWS GovCloud (US-East) and<br>AWS GovCloud (US-West).                                                                           |
+| **November 26, 2023** | Added support for trusted identity propagation for EMR Studio with IAM Identity Center authentication.                                                          |
+| **October 26, 2023**  | Added ability to create an EMR Serverless application with interactive<br>capability.                                                                           |
+| **February 28, 2023** | Added AWS KMS customer-managed key support for application log storage for<br>EMR Serverless applications.                                                      |
+| **February 23, 2023** | Added one-click IAM role creation for EMR Serverless job submission. Added<br>ECR lookup for when you select a custom image for EMR Serverless<br>applications. |
+| **January 27, 2023**  | Headless execution notebooks can track the progress of each cell execution with<br>`%execute_notebook` magic.                                                   |
+| **January 23, 2023**  | Persistent application have been optimized for faster launch times.                                                                                             |

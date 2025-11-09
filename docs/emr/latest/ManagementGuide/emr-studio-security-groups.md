@@ -62,9 +62,16 @@ each security group by ID when you create a Studio.
 
 EMR Studio uses port 18888 to communicate with an attached cluster.
 
-| Inbound rules | Type | Protocol | Port                                      | Destination                                                                           | Description                                                                                                         |
-| ------------- | ---- | -------- | ----------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ---- | -------- | ---- | ----------- | ----------- |
-| TCP           | TCP  | 18888    | Your EMR Studio Workspace security group. | Allow traffic from any resources in the Workspace security group for EMR Studio.      | **Workspace security group** This security group is associated with the Workspaces in an EMR Studio. Outbound rules | Type | Protocol | Port | Destination | Description |
-| ---           | ---  | ---      | ---                                       | ---                                                                                   |
-| TCP           | TCP  | 18888    | Your EMR Studio engine security group.    | Allow traffic to any resources in the Engine security group for EMR Studio.           |
-| HTTPS         | TCP  | 443      | 0.0.0.0/0                                 | Allow traffic to the internet to link publicly hosted Git repositories to Workspaces. |
+| Inbound rules | Type | Protocol | Port                                      | Destination                                                                         | Description |
+| ------------- | ---- | -------- | ----------------------------------------- | ----------------------------------------------------------------------------------- | ----------- |
+| TCP           | TCP  | 18888    | Your EMR Studio Workspace security group. | Allow traffic from any resources in the Workspace security group<br>for EMR Studio. |
+
+**Workspace security group**
+
+This security group is associated with the Workspaces in an
+EMR Studio.
+
+| Outbound rules | Type | Protocol | Port                                   | Destination                                                                              | Description |
+| -------------- | ---- | -------- | -------------------------------------- | ---------------------------------------------------------------------------------------- | ----------- |
+| TCP            | TCP  | 18888    | Your EMR Studio engine security group. | Allow traffic to any resources in the Engine security group for<br>EMR Studio.           |
+| HTTPS          | TCP  | 443      | 0.0.0.0/0                              | Allow traffic to the internet to link publicly hosted Git repositories to<br>Workspaces. |

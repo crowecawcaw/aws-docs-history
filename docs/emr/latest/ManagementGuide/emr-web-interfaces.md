@@ -33,7 +33,7 @@ want to connect to, and then note the **Public DNS name** listed
 for the instance.
 
 | Name of interface                                 | URI                                         |
-| ------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------------- | ------------------------------------------- |
 | Flink history server (EMR version 5.33 and later) | http://`master-public-dns-name`:8082/       |
 | Ganglia                                           | http://`master-public-dns-name`/ganglia/    |
 | Hadoop HDFS NameNode (EMR version pre-6.x)        | http://`master-public-dns-name`:50070/      |
@@ -52,4 +52,60 @@ for the instance.
 | Tez                                               | http://`master-public-dns-name`:8080/tez-ui |
 | YARN NodeManager                                  | http://`coretask-public-dns-name`:8042/     |
 | YARN ResourceManager                              | http://`master-public-dns-name`:8088/       |
-| Zeppelin                                          | http://`master-public-dns-name`:8890/       | Because there are several application-specific interfaces available on the primary node that are not available on the core and task nodes, the instructions in this document are specific to the Amazon EMR primary node. Accessing the web interfaces on the core and task nodes can be done in the same manner as you would access the web interfaces on the primary node. There are several ways you can access the web interfaces on the primary node. The easiest and quickest method is to use SSH to connect to the primary node and use the text-based browser, Lynx, to view the web sites in your SSH client. However, Lynx is a text-based browser with a limited user interface that cannot display graphics. The following example shows how to open the Hadoop ResourceManager interface using Lynx (Lynx URLs are also provided when you log into the primary node using SSH). `lynx http://ip-###-##-##-###.us-west-2.compute.internal:8088/` There are two remaining options for accessing web interfaces on the primary node that provide full browser functionality. Choose one of the following: <br>• Option 1 (recommended for more technical users): Use an SSH client to connect to the primary node, configure SSH tunneling with local port forwarding, and use an Internet browser to open web interfaces hosted on the primary node. This method allows you to configure web interface access without using a SOCKS proxy. <br>• Option 2 (recommended for new users): Use an SSH client to connect to the primary node, configure SSH tunneling with dynamic port forwarding, and configure your Internet browser to use an add-on such as FoxyProxy for Firefox or SwitchyOmega for Chrome to manage your SOCKS proxy settings. This method lets you automatically filter URLs based on text patterns and limit the proxy settings to domains that match the form of the primary node's DNS name. For more information about how to configure FoxyProxy for Firefox and Google Chrome, see [Option 2, part 2: Configure proxy settings to view websites hosted on the Amazon EMR cluster primary node](emr-connect-master-node-proxy.md "emr-connect-master-node-proxy.md"). ###### Note If you modify the port where an application runs via cluster configuration, the hyperlink to the port will not update in the Amazon EMR console. This is because the console doesn't have the functionality to read `server.port` configuration. With Amazon EMR version 5.25.0 or later, you can access Spark history server UI from the console without setting up a web proxy through an SSH connection. For more information, see [One-click access to persistent Spark history server](app-history-spark-UI.md "app-history-spark-UI.md"). ###### Topics <br>• [Option 1: Set up an SSH tunnel to the Amazon EMR primary node using local port forwarding](emr-ssh-tunnel-local.md "emr-ssh-tunnel-local.md") <br>• [Option 2, part 1: Set up an SSH tunnel to the primary node using dynamic port forwarding](emr-ssh-tunnel.md "emr-ssh-tunnel.md") <br>• [Option 2, part 2: Configure proxy settings to view websites hosted on the Amazon EMR cluster primary node](emr-connect-master-node-proxy.md "emr-connect-master-node-proxy.md") |
+| Zeppelin                                          | http://`master-public-dns-name`:8890/       |
+
+Because there are several application-specific interfaces available on the primary
+node that are not available on the core and task nodes, the instructions in this
+document are specific to the Amazon EMR primary node. Accessing the web interfaces on the
+core and task nodes can be done in the same manner as you would access the web
+interfaces on the primary node.
+
+There are several ways you can access the web interfaces on the primary node. The
+easiest and quickest method is to use SSH to connect to the primary node and use the
+text-based browser, Lynx, to view the web sites in your SSH client. However, Lynx is
+a text-based browser with a limited user interface that cannot display graphics. The
+following example shows how to open the Hadoop ResourceManager interface using Lynx
+(Lynx URLs are also provided when you log into the primary node using SSH).
+
+```
+lynx http://ip-###-##-##-###.us-west-2.compute.internal:8088/
+```
+
+There are two remaining options for accessing web interfaces on the primary node
+that provide full browser functionality. Choose one of the following:
+
+- Option 1 (recommended for more technical users): Use an SSH client to
+  connect to the primary node, configure SSH tunneling with local port
+  forwarding, and use an Internet browser to open web interfaces hosted on the
+  primary node. This method allows you to configure web interface access
+  without using a SOCKS proxy.
+- Option 2 (recommended for new users): Use an SSH client to connect to the
+  primary node, configure SSH tunneling with dynamic port forwarding, and
+  configure your Internet browser to use an add-on such as FoxyProxy for
+  Firefox or SwitchyOmega for Chrome to manage your SOCKS proxy settings. This
+  method lets you automatically filter URLs based on text patterns and limit
+  the proxy settings to domains that match the form of the primary node's DNS
+  name. For more information about how to configure FoxyProxy for Firefox and
+  Google Chrome, see [Option 2, part 2: Configure
+  proxy settings to view websites hosted on the Amazon EMR cluster primary node](emr-connect-master-node-proxy.md "emr-connect-master-node-proxy.md").
+
+###### Note
+
+If you modify the port where an application runs via cluster configuration,
+the hyperlink to the port will not update in the Amazon EMR console. This is because
+the console doesn't have the functionality to read `server.port`
+configuration.
+
+With Amazon EMR version 5.25.0 or later, you can access Spark history server UI
+from the console without setting up a web proxy through an SSH connection. For more
+information, see [One-click
+access to persistent Spark history server](app-history-spark-UI.md "app-history-spark-UI.md").
+
+###### Topics
+
+- [Option 1: Set up an SSH tunnel to the
+  Amazon EMR primary node using local port forwarding](emr-ssh-tunnel-local.md "emr-ssh-tunnel-local.md")
+- [Option 2, part 1: Set up an SSH tunnel to the
+  primary node using dynamic port forwarding](emr-ssh-tunnel.md "emr-ssh-tunnel.md")
+- [Option 2, part 2: Configure
+  proxy settings to view websites hosted on the Amazon EMR cluster primary node](emr-connect-master-node-proxy.md "emr-connect-master-node-proxy.md")

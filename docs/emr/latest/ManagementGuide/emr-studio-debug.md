@@ -75,7 +75,81 @@ the YARN ResourceManager or the Yarn Timeline Server. Add one of the following
 paths after `amazonaws.com`.
 
 | Web UI               | Path | Example modified URL                                                    |
-| -------------------- | ---- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ---- | ----------------------------------------------------------------------- |
 | YARN ResourceManager | /rm  | https://`j-examplebby5ij`.emrappui-prod.`eu-west-1`.amazonaws.com`/rm`  |
 | Yarn Timeline Server | /yts | https://`j-examplebby5ij`.emrappui-prod.`eu-west-1`.amazonaws.com`/yts` |
-| Spark History Server | /shs | https://`j-examplebby5ij`.emrappui-prod.`eu-west-1`.amazonaws.com`/shs` | Studio UI ###### Launch the persistent YARN Timeline Server, Spark History Server, or Tez UI from the EMR Studio UI 1. In your EMR Studio, select **Amazon EMR on EC2** on the left side of the page to open the **Amazon EMR on EC2** clusters list. 2. Filter the list of clusters by **name**, **state**, or **ID** by entering values in the search box. You can also search by creation **time range**. 3. Select a cluster and then choose **Launch application UIs** to select an application user interface. The Application UI opens in a new browser tab and might take some time to load. ## Debug EMR Studio running on EMR Serverless Similar to Amazon EMR running on Amazon EC2, you can use the Workspace user interface to analyze your EMR Serverless applications. From the Workspace UI, when you use Amazon EMR releases 6.14.0 and higher, you can launch the Spark web user interface (the Spark UI or Spark History Server) from a notebook in your Workspace. For your convenience, we also provide a link to the driver log for quick access the Spark driver logs. ## Debug Amazon EMR on EKS job runs with the Spark History Server When you submit a job run to an Amazon EMR on EKS cluster, you can access logs for that job run using the Spark History Server. The Spark History Server provides tools for monitoring Spark applications, such as a list of scheduler stages and tasks, a summary of RDD sizes and memory usage, and environmental information. You can launch the Spark History Server for Amazon EMR on EKS job runs in the following ways: <br>• When you submit a job run using EMR Studio with an Amazon EMR on EKS managed endpoint, you can launch the Spark History Server from a notebook file in your Workspace. <br>• When you submit a job run using the AWS CLI or AWS SDK for Amazon EMR on EKS, you can launch the Spark History Server from the EMR Studio UI. For information about how to use the Spark History Server, see [Monitoring and Instrumentation](https://spark.apache.org/docs/latest/monitoring.html "https://spark.apache.org/docs/latest/monitoring.html") in the Apache Spark documentation. For more information about job runs, see [Concepts and components](../EMR-on-EKS-DevelopmentGuide/emr-eks-concepts.md "../EMR-on-EKS-DevelopmentGuide/emr-eks-concepts.md") in the _Amazon EMR on EKS Development Guide_. ###### To launch the Spark History Server from a notebook file in your EMR Studio Workspace 1. Open a Workspace that is connected to an Amazon EMR on EKS cluster. 2. Select and open your notebook file in the Workspace. 3. Choose **Spark UI** at the top of the notebook file to open the persistent Spark History Server in a new tab. ###### To launch the Spark History Server from the EMR Studio UI ###### Note The **Jobs** list in the EMR Studio UI displays only job runs that you submit using the AWS CLI or AWS SDK for Amazon EMR on EKS. 1. In your EMR Studio, select **Amazon EMR on EKS** on the left side of the page. 2. Search for the Amazon EMR on EKS virtual cluster that you used to submit your job run. You can filter the list of clusters by **status** or **ID** by entering values in the search box. 3. Select the cluster to open its detail page. The detail page displays information about the cluster, such as ID, namespace, and status. The page also shows a list of all the job runs submitted to that cluster. 4. From the cluster detail page, select a job run to debug. 5. In the upper right of the **Jobs** list, choose **Launch Spark History Server** to open the application interface in a new browser tab. |
+| Spark History Server | /shs | https://`j-examplebby5ij`.emrappui-prod.`eu-west-1`.amazonaws.com`/shs` |
+
+Studio UI
+
+###### Launch the persistent YARN Timeline Server, Spark History Server, or Tez UI
+
+from the EMR Studio UI
+
+1. In your EMR Studio, select **Amazon EMR on EC2** on the left
+   side of the page to open the **Amazon EMR on EC2** clusters list.
+2. Filter the list of clusters by **name**,
+   **state**, or **ID**
+   by entering values in the search box. You can also search by creation **time range**.
+3. Select a cluster and then choose **Launch application
+   UIs** to select an application user interface. The Application UI opens
+   in a new browser tab and might take some time to load.
+
+## Debug EMR Studio running on
+
+EMR Serverless
+
+Similar to Amazon EMR running on Amazon EC2, you can use the Workspace user interface to analyze
+your EMR Serverless applications. From the Workspace UI, when you use Amazon EMR releases 6.14.0
+and higher, you can launch the Spark web user interface (the Spark UI or Spark History
+Server) from a notebook in your Workspace. For your convenience, we also provide a link to
+the driver log for quick access the Spark driver logs.
+
+## Debug Amazon EMR on EKS job runs with the Spark History
+
+Server
+
+When you submit a job run to an Amazon EMR on EKS cluster, you can access logs for that job run
+using the Spark History Server. The Spark History Server provides tools for monitoring Spark
+applications, such as a list of scheduler stages and tasks, a summary of RDD sizes and
+memory usage, and environmental information. You can launch the Spark History Server for
+Amazon EMR on EKS job runs in the following ways:
+
+- When you submit a job run using EMR Studio with an Amazon EMR on EKS managed endpoint,
+  you can launch the Spark History Server from a notebook file in your
+  Workspace.
+- When you submit a job run using the AWS CLI or AWS SDK for Amazon EMR on EKS, you can launch
+  the Spark History Server from the EMR Studio UI.
+
+For information about how to use the Spark History Server, see [Monitoring and
+Instrumentation](https://spark.apache.org/docs/latest/monitoring.html "https://spark.apache.org/docs/latest/monitoring.html") in the Apache Spark documentation. For more information about job
+runs, see [Concepts and
+components](../EMR-on-EKS-DevelopmentGuide/emr-eks-concepts.md "../EMR-on-EKS-DevelopmentGuide/emr-eks-concepts.md") in the _Amazon EMR on EKS Development Guide_.
+
+###### To launch the Spark History Server from a notebook file in your EMR Studio
+
+Workspace
+
+1. Open a Workspace that is connected to an Amazon EMR on EKS cluster.
+2. Select and open your notebook file in the Workspace.
+3. Choose **Spark UI** at the top of the notebook file to open the
+   persistent Spark History Server in a new tab.
+
+###### To launch the Spark History Server from the EMR Studio UI
+
+###### Note
+
+The **Jobs** list in the EMR Studio UI displays only job runs
+that you submit using the AWS CLI or AWS SDK for Amazon EMR on EKS.
+
+1. In your EMR Studio, select **Amazon EMR on EKS** on the left side of
+   the page.
+2. Search for the Amazon EMR on EKS virtual cluster that you used to submit your job run. You
+   can filter the list of clusters by **status** or **ID** by entering values in the search box.
+3. Select the cluster to open its detail page. The detail page displays information
+   about the cluster, such as ID, namespace, and status. The page also shows a list of all
+   the job runs submitted to that cluster.
+4. From the cluster detail page, select a job run to debug.
+5. In the upper right of the **Jobs** list, choose **Launch
+   Spark History Server** to open the application interface in a new browser
+   tab.
