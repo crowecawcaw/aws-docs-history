@@ -11,24 +11,29 @@ running on.
 
 Following are the existing metrics supported by the data retention bot.
 
-| Metric                | Description                                                                                                       |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Messages_Rx           | Messages received.                                                                                                |
-| Messages_Rx_Failed    | Failures to process received messages.                                                                            |
-| Messages_Saved        | Messages saved to the received messages file.                                                                     |
-| Messages_Saved_Failed | Failures to save messages to the received messages file.                                                          |
-| Files_Saved           | Files received.                                                                                                   |
-| Files_Saved_Bytes     | Number of bytes for files received.                                                                               |
-| Files_Saved_Failed    | Failures to save files.                                                                                           |
-| Logins                | Logins (normally this will be 1 for each interval).                                                               |
-| Login_Failures        | Failures to login (normally this will be 1 for each interval).                                                    |
-| S3_Post_Errors        | Errors posting message files and files to Amazon S3 bucket.                                                       |
-| Watchdog_Failures     | Watchdog failures.                                                                                                |
-| Watchdog_Warnings     | Watchdog warnings.                                                                                                | Metrics are generated to be consumed by CloudWatch. The namespace used for bots is `WickrIO`. Each metric has an array of dimensions. Following is the list of dimensions that are posted with the above metrics. |
-| Dimension             | Value                                                                                                             |
-| ---                   | ---                                                                                                               |
-| Id                    | The bot's username.                                                                                               |
-| Device                | Description of specific bot device or instance. Useful if you are running multiple bot devices or instances.      |
-| Product               | The product for the bot. Can be `WickrPro_` or `WickrEnterprise_` with `Alpha`, `Beta`, or `Production` appended. |
-| BotType               | The bot type. Labeled as **Compliance** for the compliance bots.                                                  |
-| Network               | The ID of the associated network.                                                                                 |
+| Metric                | Description                                                       |
+| --------------------- | ----------------------------------------------------------------- |
+| Messages_Rx           | Messages received.                                                |
+| Messages_Rx_Failed    | Failures to process received messages.                            |
+| Messages_Saved        | Messages saved to the received messages file.                     |
+| Messages_Saved_Failed | Failures to save messages to the received messages<br>file.       |
+| Files_Saved           | Files received.                                                   |
+| Files_Saved_Bytes     | Number of bytes for files received.                               |
+| Files_Saved_Failed    | Failures to save files.                                           |
+| Logins                | Logins (normally this will be 1 for each interval).               |
+| Login_Failures        | Failures to login (normally this will be 1 for each<br>interval). |
+| S3_Post_Errors        | Errors posting message files and files to Amazon S3<br>bucket.    |
+| Watchdog_Failures     | Watchdog failures.                                                |
+| Watchdog_Warnings     | Watchdog warnings.                                                |
+
+Metrics are generated to be consumed by CloudWatch. The namespace used for bots is
+`WickrIO`. Each metric has an array of dimensions. Following is
+the list of dimensions that are posted with the above metrics.
+
+| Dimension | Value                                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Id        | The bot's username.                                                                                                        |
+| Device    | Description of specific bot device or instance. Useful if<br>you are running multiple bot devices or instances.            |
+| Product   | The product for the bot. Can be `WickrPro_` or<br>`WickrEnterprise_` with `Alpha`,<br>`Beta`, or `Production`<br>appended. |
+| BotType   | The bot type. Labeled as **Compliance**<br>for the compliance bots.                                                        |
+| Network   | The ID of the associated network.                                                                                          |
