@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Bootstrapping an AWS CDK app with a workflow
 
@@ -66,11 +64,27 @@ different versions of the **AWS CDK bootstrap** action.
 
 You might be able to override the default. For more information, see [CdkCliVersion](cdk-boot-action-ref.md#cdk.boot.cdk.cli.version "cdk-boot-action-ref.md#cdk.boot.cdk.cli.version") in the ['AWS CDK bootstrap' action YAML](cdk-boot-action-ref.md "cdk-boot-action-ref.md").
 
-| 'AWS CDK bootstrap' action version | AWS CDK CLI version        |
-| ---------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.0.0 – 1.0.7                      | latest                     |
-| 1.0.8 or later                     | 2.99.1                     | ## Runtime image used by the 'AWS CDK bootstrap' action The following table shows the runtime environment images that CodeCatalyst uses to run different versions of the **AWS CDK bootstrap** action. The images include different sets of preinstalled tooling. For more information, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images"). ###### Note We recommend upgrading your **AWS CDK bootstrap** action to version 2.x to take advantage of the latest tooling available on the March 2024 image. To upgrade the action, set its `Identifier` property to `aws/cdk-bootstrap@v2` in your workflow definition file. For more information, see ['AWS CDK deploy' action YAML](cdk-dep-action-ref.md "cdk-dep-action-ref.md"). |
+| 'AWS CDK bootstrap' action version | AWS CDK CLI version |
+| ---------------------------------- | ------------------- |
+| 1.0.0 – 1.0.7                      | latest              |
+| 1.0.8 or later                     | 2.99.1              |
+
+## Runtime image used by the 'AWS CDK bootstrap'
+
+action
+
+The following table shows the runtime environment images that CodeCatalyst uses to run
+different versions of the **AWS CDK bootstrap** action. The images include
+different sets of preinstalled tooling. For more information, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").
+
+###### Note
+
+We recommend upgrading your **AWS CDK bootstrap** action to version 2.x to
+take advantage of the latest tooling available on the March 2024 image. To upgrade the
+action, set its `Identifier` property to `aws/cdk-bootstrap@v2`
+in your workflow definition file. For more information, see ['AWS CDK deploy' action YAML](cdk-dep-action-ref.md "cdk-dep-action-ref.md").
+
 | 'AWS CDK bootstrap' action version | Runtime environment images |
-| ---                                | ---                        |
+| ---------------------------------- | -------------------------- |
 | 1.x                                | November 2022 images       |
 | 2.x                                | March 2024 images          |

@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Configuring pip and installing Python packages
 
@@ -116,20 +114,30 @@ This section lists `pip` commands where the `pip` client makes one
 or more requests to the registry it's been configured with. These commands have been verified
 to function correctly when invoked against a CodeCatalyst package repository.
 
-| Command                                                                                                                                   | Description                                                  |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [install](https://pip.pypa.io/en/stable/reference/pip_install/ "https://pip.pypa.io/en/stable/reference/pip_install/")                    | Install packages.                                            |
-| [download](https://pip.pypa.io/en/stable/reference/pip_download/ "https://pip.pypa.io/en/stable/reference/pip_download/")                 | Download packages.                                           | CodeCatalyst does not implement `pip search`. If you have configured `pip` with a CodeCatalyst package repository, running `pip search` will search and show packages from [PyPI](https://pypi.org/ "https://pypi.org/"). ### Supported client-side commands These commands don't require any direct interaction with a repository, so CodeCatalyst does not need to do anything to support them. |
-| Command                                                                                                                                   | Description                                                  |
-| ---                                                                                                                                       | ---                                                          |
-| [uninstall](https://pip.pypa.io/en/stable/reference/pip_uninstall/ "https://pip.pypa.io/en/stable/reference/pip_uninstall/")              | Uninstall packages.                                          |
-| [freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/ "https://pip.pypa.io/en/stable/reference/pip_freeze/")                       | Output installed packages in requirements format.            |
-| [list](https://pip.pypa.io/en/stable/reference/pip_list/ "https://pip.pypa.io/en/stable/reference/pip_list/")                             | List installed packages.                                     |
-| [show](https://pip.pypa.io/en/stable/reference/pip_show/ "https://pip.pypa.io/en/stable/reference/pip_show/")                             | Show information about installed packages.                   |
-| [check](https://pip.pypa.io/en/stable/reference/pip_check/ "https://pip.pypa.io/en/stable/reference/pip_check/")                          | Verify that installed packages have compatible dependencies. |
-| [config](https://pip.pypa.io/en/stable/reference/pip_config/ "https://pip.pypa.io/en/stable/reference/pip_config/")                       | Manage local and global configuration.                       |
-| [wheel](https://pip.pypa.io/en/stable/reference/pip_wheel/ "https://pip.pypa.io/en/stable/reference/pip_wheel/")                          | Build wheels from your requirements.                         |
-| [hash](https://pip.pypa.io/en/stable/reference/pip_hash/ "https://pip.pypa.io/en/stable/reference/pip_hash/")                             | Compute hashes of package archives.                          |
-| [completion](https://pip.pypa.io/en/stable/user_guide/#command-completion "https://pip.pypa.io/en/stable/user_guide/#command-completion") | Helps with command completion.                               |
-| [debug](https://pip.pypa.io/en/stable/reference/pip_debug/ "https://pip.pypa.io/en/stable/reference/pip_debug/")                          | Show information useful for debugging.                       |
-| help                                                                                                                                      | Show help for commands.                                      |
+| Command                                                                                                                   | Description        |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [install](https://pip.pypa.io/en/stable/reference/pip_install/ "https://pip.pypa.io/en/stable/reference/pip_install/")    | Install packages.  |
+| [download](https://pip.pypa.io/en/stable/reference/pip_download/ "https://pip.pypa.io/en/stable/reference/pip_download/") | Download packages. |
+
+CodeCatalyst does not implement `pip search`. If you have configured `pip` with a
+CodeCatalyst package repository, running `pip search` will search and show packages from
+[PyPI](https://pypi.org/ "https://pypi.org/").
+
+### Supported client-side commands
+
+These commands don't require any direct interaction with a repository, so CodeCatalyst does not
+need to do anything to support them.
+
+| Command                                                                                                                                   | Description                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| [uninstall](https://pip.pypa.io/en/stable/reference/pip_uninstall/ "https://pip.pypa.io/en/stable/reference/pip_uninstall/")              | Uninstall packages.                                             |
+| [freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/ "https://pip.pypa.io/en/stable/reference/pip_freeze/")                       | Output installed packages in requirements format.               |
+| [list](https://pip.pypa.io/en/stable/reference/pip_list/ "https://pip.pypa.io/en/stable/reference/pip_list/")                             | List installed packages.                                        |
+| [show](https://pip.pypa.io/en/stable/reference/pip_show/ "https://pip.pypa.io/en/stable/reference/pip_show/")                             | Show information about installed packages.                      |
+| [check](https://pip.pypa.io/en/stable/reference/pip_check/ "https://pip.pypa.io/en/stable/reference/pip_check/")                          | Verify that installed packages have compatible<br>dependencies. |
+| [config](https://pip.pypa.io/en/stable/reference/pip_config/ "https://pip.pypa.io/en/stable/reference/pip_config/")                       | Manage local and global configuration.                          |
+| [wheel](https://pip.pypa.io/en/stable/reference/pip_wheel/ "https://pip.pypa.io/en/stable/reference/pip_wheel/")                          | Build wheels from your requirements.                            |
+| [hash](https://pip.pypa.io/en/stable/reference/pip_hash/ "https://pip.pypa.io/en/stable/reference/pip_hash/")                             | Compute hashes of package archives.                             |
+| [completion](https://pip.pypa.io/en/stable/user_guide/#command-completion "https://pip.pypa.io/en/stable/user_guide/#command-completion") | Helps with command completion.                                  |
+| [debug](https://pip.pypa.io/en/stable/reference/pip_debug/ "https://pip.pypa.io/en/stable/reference/pip_debug/")                          | Show information useful for debugging.                          |
+| help                                                                                                                                      | Show help for commands.                                         |

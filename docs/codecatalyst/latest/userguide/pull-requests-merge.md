@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Merging a pull request
 
@@ -111,13 +109,9 @@ website](https://git-scm.com/doc "https://git-scm.com/doc"). Once you have merge
 the pull request. For more information, see [Closing a pull request](pull-requests-close.md "pull-requests-close.md").
 
 Common Git commands for merging
-branches| Merges changes from the source branch in the local repo to the
-destination branch in the local repo. | `git checkout
- `destination-branch-name``
-`git merge
- `source-branch-name`` |
-| Merges the source branch into the destination branch, specifying a fast-forward merge. This merges the branches and moves the destination branch pointer to the tip of the source branch. | `git checkout `destination-branch-name`` `git merge --ff-only `source-branch-name`` |
-| Merges the source branch into the destination branch, specifying a squash merge. This combines all commits from the source branch into a single merge commit in the destination branch. | `git checkout `destination-branch-name`` `git merge --squash `source-branch-name`` |
-| Merges the source branch into the destination branch, specifying a three-way merge. This creates a merge commit and adds the individual commits from the source branch to the destination branch. | `git checkout `destination-branch-name`` `git merge --no-ff `source-branch-name`` |
-| Deletes the source branch in the local repo. This is useful to do as a clean-up for your local repo after merging to the destination branch and pushing the changes to the source repository. | `git branch -d `source-branch-name`` |
-| Deletes the source branch in the remote repository (the source repository in CodeCatalyst) using the local repo's specified nickname for the remote repository. (Note the use of the colon (`:`).) Alternatively, specify `--delete` as part of the command. | `git push `remote-name` :`source-branch-name`` `git push `remote-name`--delete`source-branch-name`` |
+branches| Merges changes from the source branch in the local repo to the<br>destination branch in the local repo. | `git checkout<br>`destination-branch-name``<br>`git merge<br>`source-branch-name`` |
+| Merges the source branch into the destination branch,<br>specifying a fast-forward merge. This merges the branches and<br>moves the destination branch pointer to the tip of the source<br>branch. | `git checkout<br>`destination-branch-name``<br>`git merge --ff-only<br>`source-branch-name`` |
+| Merges the source branch into the destination branch,<br>specifying a squash merge. This combines all commits from the<br>source branch into a single merge commit in the destination<br>branch. | `git checkout<br>`destination-branch-name``<br>`git merge --squash<br>`source-branch-name`` |
+| Merges the source branch into the destination branch,<br>specifying a three-way merge. This creates a merge commit and<br>adds the individual commits from the source branch to the<br>destination branch. | `git checkout<br>`destination-branch-name``<br>`git merge --no-ff<br>`source-branch-name`` |
+| Deletes the source branch in the local repo. This is useful to<br>do as a clean-up for your local repo after merging to the<br>destination branch and pushing the changes to the source<br>repository. | `git branch -d<br>`source-branch-name`` |
+| Deletes the source branch in the remote repository (the source<br>repository in CodeCatalyst) using the local repo's specified nickname<br>for the remote repository. (Note the use of the colon<br>(`:`).) Alternatively, specify<br>`--delete` as part of the command. | `git push `remote-name`<br>:`source-branch-name``<br>`git push `remote-name` --delete<br>`source-branch-name`` |

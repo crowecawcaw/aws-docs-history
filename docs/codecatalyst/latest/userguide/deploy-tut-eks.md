@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Tutorial: Deploy an application to Amazon EKS
 
@@ -487,18 +485,883 @@ In this section, you add application source files to your source repository
 
 The folder structure is as follows:
 
-````
+```
 |— codecatalyst-eks-source-repository
-|— Kubernetes
-|— deployment.yaml
-|— public-html
-|  |— index.html
-|— Dockerfile ``` ###### Topics <br>• [index.html](#deploy-tut-eks-source-files-index "#deploy-tut-eks-source-files-index") <br>• [Dockerfile](#deploy-tut-eks-source-files-dockerfile "#deploy-tut-eks-source-files-dockerfile") <br>• [deployment.yaml](#deploy-tut-eks-source-files-deployment-yml "#deploy-tut-eks-source-files-deployment-yml") ### index.html The `index.html` file displays a 'Hello, World!' message in the browser. ###### To add the index.html file 1. Go to your Dev Environment. 2. In `codecatalyst-eks-source-repository`, create a folder called `public-html`. 3. In `/public-html`, create a file called `index.html` with the following contents: ``` <html> <head> <title>Hello World</title> <style> body { background-color: black; text-align: center; color: white; font-family: Arial, Helvetica, sans-serif; } </style> </head> <body> <h1>Hello, World!</h1> </body> </html> ``` 4. At the terminal prompt, enter: ``` cd /projects/codecatalyst-eks-source-repository ``` 5. Add, commit, and push: ``` git add . git commit -m "add public-html/index.html" git push ``` The `index.html` is added to your repository in a `public-html` folder. ### Dockerfile The Dockerfile describes the base Docker image to use and the Docker commands to apply to it. For more information about the Dockerfile, see the [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/ "https://docs.docker.com/engine/reference/builder/"). The Dockerfile specified here indicates to use the Apache 2.4 base image (`httpd`). It also includes instructions for copying a source file called `index.html` to a folder on the Apache server that serves webpages. The `EXPOSE` instruction in the Dockerfile tells Docker that the container is listening on port 80. ###### To add the Dockerfile 1. In `codecatalyst-eks-source-repository`, create a file called `Dockerfile` with the following contents: ``` FROM httpd:2.4 COPY ./public-html/index.html /usr/local/apache2/htdocs/index.html EXPOSE 80 ``` Do not include a file extension. ###### Important The Dockerfile must reside in your repository’s root folder. The workflow’s `Docker build` command expects it to be there. 2. Add, commit, and push: ``` git add . git commit -m "add Dockerfile" git push ``` The Dockerfile is added to your repository. ### deployment.yaml In this section, you add a `deployment.yaml` file to your repository. The `deployment.yaml` file is a Kubernetes manifest that defines two Kubernetes resources types or *kinds* to run: a 'service' and a 'deployment'. <br>• The 'service' deploys a load balancer into Amazon EC2. The load balancer provides you with an Internet-facing public URL and standard port (port 80) that you can use to browse to the 'Hello, World!' application. <br>• The 'deployment' deploys three pods, and each pod will contain a Docker container with the 'Hello, World!' application. The three pods are deployed onto the nodes that were created when you created the cluster. The manifest in this tutorial is short; however, a manifest can include any number of Kubernetes resource types, such as pods, jobs, ingresses, and network policies. Further, you can use multiple manifest files if your deployment is complex. ###### To add a deployment.yaml file 1. In `codecatalyst-eks-source-repository`, create a folder called `Kubernetes`. 2. In `/Kubernetes`, create a file called `deployment.yaml` with the following contents: ``` apiVersion: v1 kind: Service metadata: name: my-service labels: app: my-app spec: type: LoadBalancer selector: app: my-app ports: <br>• protocol: TCP port: 80 targetPort: 80 --- apiVersion: apps/v1 kind: Deployment metadata: name: my-deployment labels: app: my-app spec: replicas: 3 selector: matchLabels: app: my-app template: metadata: labels: app: my-app spec: containers: <br>• name: codecatalyst-eks-container # The $REPOSITORY_URI and $IMAGE_TAG placeholders will be replaced by actual values supplied by the build action in your workflow image: $REPOSITORY_URI:$IMAGE_TAG ports: <br>• containerPort: 80 ``` 3. Add, commit, and push: ``` git add . git commit -m "add Kubernetes/deployment.yaml" git push ``` The `deployment.yaml` file is added to your repository in a folder called `Kubernetes`. You have now added all your source files. Take a moment to double-check your work and make sure you placed all the files in the correct folders. The folder structure is as follows: ``` |— codecatalyst-eks-source-repository
-|— Kubernetes |— deployment.yaml
-|— public-html
-|  |— index.html
-|— Dockerfile ``` ## Step 5: Create AWS roles In this section, you create AWS IAM roles that your CodeCatalyst workflow will need in order to function. These roles are: <br>• **Build role** – Grants the CodeCatalyst build action (in the workflow) permission to access your AWS account and write to Amazon ECR and Amazon EC2. <br>• **Deploy role** – Grants the CodeCatalyst **Deploy to Kubernetes cluster** action (in the workflow) permission to access your AWS account and Amazon EKS. For more information about IAM roles, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the *AWS Identity and Access Management User Guide*. ###### Note To save time, you can create a single role, called the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role, instead of the two roles listed previously. For more information, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has very broad permissions which may pose a security risk. We recommend that you only use this role in tutorials and scenarios where security is less of a concern. This tutorial assumes you are creating the two roles listed previously. To create the build and deploy roles, complete the following series of procedures. ###### 1. To create a trust policy for both roles 1. Go to your Dev Environment. 2. In the `Cloud9-`long-string`` directory, create a file called `codecatalyst-eks-trust-policy.json` with the following contents: ###### 2. To create the build policy for the build role <br>• In the `Cloud9-`long-string`` directory, create a file called `codecatalyst-eks-build-policy.json` with the following contents: JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ecr:*", "ec2:*" ], "Resource": "*" } ] }` ``` ###### Note The first time the role is used to run workflow actions, use the wildcard in the resource policy statement and then scope down the policy with the resource name after it is available. ``` "Resource": "*" ``` ###### 3. To create the deploy policy for the deploy role <br>• In the `Cloud9-`long-string`` directory, create a file called `codecatalyst-eks-deploy-policy.json` with the following contents: JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "eks:DescribeCluster", "eks:ListClusters" ], "Resource": "*" } ] }` ``` ###### Note The first time the role is used to run workflow actions, use the wildcard in the resource policy statement and then scope down the policy with the resource name after it is available. ``` "Resource": "*" ``` You have now added three policy documents to your Dev Environment. Your directory structure now looks like this: ``` |— Cloud9-`long-string`
-|— .c9 |— codecatalyst-eks-source-repository
-|— Kubernetes |— public-html
-|— Dockerfile codecatalyst-eks-build-policy.json codecatalyst-eks-deploy-policy.json codecatalyst-eks-trust-policy.json ``` ###### 4. To add the build policy to AWS 1. In the Dev Environment terminal, enter: ``` cd /projects ``` 2. Enter: ``` aws iam create-policy \ --policy-name codecatalyst-eks-build-policy \ --policy-document file://codecatalyst-eks-build-policy.json ``` 3. Press **Enter**. 4. In the command output, note the `"arn":` value, for example, `arn:aws:iam::111122223333:policy/codecatalyst-eks-build-policy`. You need this ARN later. ###### 5. To add the deploy policy to AWS 1. Enter: ``` aws iam create-policy \ --policy-name codecatalyst-eks-deploy-policy \ --policy-document file://codecatalyst-eks-deploy-policy.json ``` 2. Press **Enter**. 3. In the command output, note the deploy policy's `"arn":` value, for example, `arn:aws:iam::111122223333:policy/codecatalyst-eks-deploy-policy`. You need this ARN later. ###### 6. To create the build role 1. Enter: ``` aws iam create-role \ --role-name codecatalyst-eks-build-role \ --assume-role-policy-document file://codecatalyst-eks-trust-policy.json ``` 2. Press **Enter**. 3. Enter: ``` aws iam attach-role-policy \ --role-name codecatalyst-eks-build-role \ --policy-arn `arn:aws:iam::111122223333:policy/codecatalyst-eks-build-policy` ``` Where `arn:aws:iam::111122223333:policy/codecatalyst-eks-build-policy` is replaced with the ARN of the build policy you noted earlier. 4. Press **Enter**. 5. At the terminal prompt, enter: ``` aws iam get-role \ --role-name codecatalyst-eks-build-role ``` 6. Press **Enter**. 7. Note the role's `"Arn":` value, for example, `arn:aws:iam::111122223333:role/codecatalyst-eks-build-role`. You need this ARN later. ###### 7. To create the deploy role 1. Enter: ``` aws iam create-role \ --role-name codecatalyst-eks-deploy-role \ --assume-role-policy-document file://codecatalyst-eks-trust-policy.json ``` 2. Press **Enter**. 3. Enter: ``` aws iam attach-role-policy \ --role-name codecatalyst-eks-deploy-role \ --policy-arn `arn:aws:iam::111122223333:policy/codecatalyst-eks-deploy-policy` ``` Where `arn:aws:iam::111122223333:policy/codecatalyst-eks-deploy-policy` is replaced with the ARN of the deploy policy you noted earlier. 4. Press **Enter**. 5. Enter: ``` aws iam get-role \ --role-name codecatalyst-eks-deploy-role ``` 6. Press **Enter**. 7. Note the role's `"Arn":` value, for example, `arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role`. You need this ARN later. You have now created build and deploy roles and noted their ARNs. ## Step 6: Add AWS roles to CodeCatalyst In this step, you add the build role (`codecatalyst-eks-build-role`) and deploy role (`codecatalyst-eks-deploy-role`) to the AWS account that you connected to your space. This makes the roles available for use in your workflow. ###### To add build and deploy roles to your AWS account 1. In the CodeCatalyst console, navigate to your space. 2. At the top, choose **Settings**. 3. In the navigation pane, choose **AWS accounts**. A list of accounts appears. 4. In the **Amazon CodeCatalyst display name** column, copy the display name of the AWS account where you created your build and deploy roles. (It might be a number.) You'll need this value later, when creating your workflow. 5. Choose the display name. 6. Choose **Manage roles from AWS management console**. The **Add IAM role to Amazon CodeCatalyst space** page appears. You might need to sign in to access the page. 7. Select **Add an existing role you have created in IAM**. A drop-down list appears. The list displays the build and deploy roles, and any other IAM roles with a trust policy that includes the `codecatalyst-runner.amazonaws.com` and `codecatalyst.amazonaws.com` service principals. 8. From the drop-down list, add: <br>• `codecatalyst-eks-build-role` <br>• `codecatalyst-eks-deploy-role` ###### Note If you see `The security token included in the request is invalid`, it might be because you do not have the right permissions. To fix this issue, sign out of AWS as sign back in with the AWS account that you used when you created your CodeCatalyst space. 9. Return to the CodeCatalyst console and refresh the page. The build and deploy roles should now appear under **IAM roles**. These roles are now available for use in CodeCatalyst workflows. ## Step 7: Update the ConfigMap You must add the deploy role that you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles") to the Kubernetes `ConfigMap` file to give the **Deploy to Kubernetes cluster** action (in your workflow) the ability to access and interact with your cluster. You can use `eksctl` or `kubectl` to perform this task. ###### To configure the Kubernetes ConfigMap file using eksctl <br>• In the Dev Environment terminal, enter: ``` eksctl create iamidentitymapping --cluster `codecatalyst-eks-cluster` --arn `arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role` --group system:masters --username `codecatalyst-eks-deploy-role` --region `us-west-2` ``` Where: + `codecatalyst-eks-cluster` is replaced with the cluster name of the Amazon EKS cluster. + `arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role` is replaced with the ARN of the deploy role that you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). + `codecatalyst-eks-deploy-role` (next to `--username`) is replaced with the name of the deploy role that you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). ###### Note If you decided not to create a deploy role, replace `codecatalyst-eks-deploy-role` with the name of the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information about this role, see [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). + `us-west-2` is replaced with your Region. For details on this command, see [Manage IAM users and roles](https://eksctl.io/usage/iam-identity-mappings/ "https://eksctl.io/usage/iam-identity-mappings/"). A message similar to the following appears: ``` 2023-06-09 00:58:29 [ℹ]  checking arn arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role against entries in the auth ConfigMap 2023-06-09 00:58:29 [ℹ]  adding identity "arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role" to auth ConfigMap ``` ###### To configure the Kubernetes ConfigMap file using kubectl 1. In the Dev Environment terminal, enter: ``` kubectl edit configmap -n kube-system aws-auth ``` The ConfigMap file appears on the screen. 2. Add the text in red italics: ``` # Please edit the object below. Lines beginning with a '#' will be ignored, # and an empty file will abort the edit. If an error occurs while saving this file will be # reopened with the relevant failures. # apiVersion: v1 data: mapRoles: | <br>• groups: <br>• system:bootstrappers <br>• system:nodes rolearn: arn:aws:iam::111122223333:role/eksctl-codecatalyst-eks-cluster-n-NodeInstanceRole-16BC456ME6YR5 username: system:node:{{EC2PrivateDNSName}} <br>• groups: <br>• system:masters rolearn: arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role username: codecatalyst-eks-deploy-role mapUsers: | [] kind: ConfigMap metadata: creationTimestamp: "2023-06-08T19:04:39Z" managedFields: ... ``` Where: <br>• `arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role` is replaced with the ARN of the deploy role that you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). <br>• `codecatalyst-eks-deploy-role` (next to `username:`)is replaced with the name of the deploy role that you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). ###### Note If you decided not to create a deploy role, replace `codecatalyst-eks-deploy-role` with the name of the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information about this role, see [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). For details, see [Enabling IAM principal access to your cluster](../../../eks/latest/userguide/add-user-role.md "../../../eks/latest/userguide/add-user-role.md") in the **Amazon EKS User Guide**. You have now given the deploy role, and by extension the **Deploy to Amazon EKS** action, `system:masters` permissions to your Kubernetes cluster. ## Step 8: Create and run a workflow In this step, you create a workflow that takes your source files, builds them into a Docker image, and then deploys the image into tree pods in your Amazon EKS cluster. The workflow consists of the following building blocks that run sequentially: <br>• A trigger – This trigger starts the workflow run automatically when you push a change to your source repository. For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md"). <br>• A build action (`BuildBackend`) – On trigger, the action builds the Docker image using the Dockerfile and pushes the image to Amazon ECR. The build action also updates the `$REPOSITORY_URI` and `$IMAGE_TAG` variables in the `deployment.yaml` file with the correct values, and then creates an output artifact of this file and any others in the `Kubernetes` folder. In this tutorial, the only file in the `Kubernetes` folder is `deployment.yaml` but you could include more files. The artifact is used as the input for the deploy action, which is next. For more information about the build action, see [Building with workflows](build-workflow-actions.md "build-workflow-actions.md"). <br>• A deploy action (`DeployToEKS`) – On completion of the build action, the deploy action looks for the output artifact generated by the build action (`Manifests`), and finds the `deployment.yaml` file inside of it. The action then follows the instructions in the `deployment.yaml` file to run three pods—each containing a single 'Hello, World!' Docker container—inside your Amazon EKS cluster. ###### To create a workflow 1. Go to the CodeCatalyst console. 2. Navigate to your project (`codecatalyst-eks-project`). 3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**. 4. Choose **Create workflow**. 5. For **Source repository**, choose `codecatalyst-eks-source-repository`. 6. For **Branch**, choose `main`. 7. Choose **Create**. 8. Delete the YAML sample code. 9. Add the following YAML code to create a new workflow definition file: ###### Note For more information about the workflow definition file, see [Workflow YAML definition](workflow-reference.md "workflow-reference.md"). ###### Note In the YAML code that follows, you can omit the `Connections:` sections if you want. If you omit these sections, you must ensure that the role specified in the **Default IAM role** field in your environment includes the permissions and trust policies of both roles described in [Step 6: Add AWS roles to CodeCatalyst](#deploy-tut-eks-import-roles "#deploy-tut-eks-import-roles"). For more information about setting up an environment with a default IAM role, see [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md"). ``` Name: codecatalyst-eks-workflow SchemaVersion: 1.0 Triggers: <br>• Type: PUSH Branches: <br>• main Actions: BuildBackend: Identifier: aws/build@v1 Environment: Name: `codecatalyst-eks-environment` Connections: <br>• Name: `codecatalyst-account-connection` Role: `codecatalyst-eks-build-role` Inputs: Sources: <br>• WorkflowSource Variables: <br>• Name: REPOSITORY_URI Value: `111122223333.dkr.ecr.us-west-2.amazonaws.com/codecatalyst-eks-image-repo` <br>• Name: IMAGE_TAG Value: ${WorkflowSource.CommitId} Configuration: Steps: #pre_build: <br>• Run: echo Logging in to Amazon ECR... <br>• Run: aws --version <br>• Run: aws ecr get-login-password --region `us-west-2` | docker login --username AWS --password-stdin `111122223333.dkr.ecr.us-west-2.amazonaws.com` #build: <br>• Run: echo Build started on `date` <br>• Run: echo Building the Docker image... <br>• Run: docker build -t $REPOSITORY_URI:latest . <br>• Run: docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG #post_build: <br>• Run: echo Build completed on `date` <br>• Run: echo Pushing the Docker images... <br>• Run: docker push $REPOSITORY_URI:latest <br>• Run: docker push $REPOSITORY_URI:$IMAGE_TAG # Replace the variables in deployment.yaml <br>• Run: find Kubernetes/ -type f | xargs sed -i "s|\$REPOSITORY_URI|$REPOSITORY_URI|g" <br>• Run: find Kubernetes/ -type f | xargs sed -i "s|\$IMAGE_TAG|$IMAGE_TAG|g" <br>• Run: cat Kubernetes/* # The output artifact will be a zip file that contains Kubernetes manifest files. Outputs: Artifacts: <br>• Name: Manifests Files: <br>• "Kubernetes/*" DeployToEKS: DependsOn: <br>• BuildBackend Identifier: aws/kubernetes-deploy@v1 Environment: Name: `codecatalyst-eks-environment` Connections: <br>• Name: `codecatalyst-account-connection` Role: `codecatalyst-eks-deploy-role` Inputs: Artifacts: <br>• Manifests Configuration: Namespace: default Region: `us-west-2` Cluster: codecatalyst-eks-cluster Manifests: Kubernetes/ ``` In the preceding code, replace: <br>• Both instances of `codecatalyst-eks-environment` with the name of the environment you created in [Prerequisites](#deploy-tut-eks-prereqs "#deploy-tut-eks-prereqs"). <br>• Both instances of `codecatalyst-account-connection` with the display name of your account connection. The display name might be a number. For more information, see [Step 6: Add AWS roles to CodeCatalyst](#deploy-tut-eks-import-roles "#deploy-tut-eks-import-roles"). <br>• `codecatalyst-eks-build-role` with the name of the build role you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). <br>• `111122223333.dkr.ecr.us-west-2.amazonaws.com/codecatalyst-eks-image-repo` (in the `Value:` property) with the URI of the Amazon ECR repository you created in [Step 3: Create an Amazon ECR image repository](#deploy-tut-eks-ecr "#deploy-tut-eks-ecr"). <br>• `111122223333.dkr.ecr.us-west-2.amazonaws.com` (in the `Run: aws ecr` command) with the URI of the Amazon ECR repository without the image suffix (`/codecatalyst-eks-image-repo`). <br>• `codecatalyst-eks-deploy-role` with the name of the deploy role you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). <br>• Both instances of `us-west-2` with your AWS Region code. For a list of Region codes, see [Regional endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the *AWS General Reference*. ###### Note If you decided not to create build and deploy roles, replace `codecatalyst-eks-build-role` and `codecatalyst-eks-deploy-role` with the name of the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information about this role, see [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). 10. (Optional) Choose **Validate** to make sure that the YAML code is valid before committing. 11. Choose **Commit**. 12. In the **Commit workflow** dialog box, enter the following: 1. For **Commit message**, remove the text and enter: ``` `Add first workflow` ``` 2. For **Repository**, choose `codecatalyst-eks-source-repository`. 3. For **Branch name**, choose main. 4. Choose **Commit**.You have now created a workflow. A workflow run starts automatically because of the trigger defined at the top of the workflow. Specifically, when you committed (and pushed) the `workflow.yaml` file to your source repository, the trigger started the workflow run. ###### To view the workflow run progress 1. In the navigation pane of the CodeCatalyst console, choose **CI/CD**, and then choose **Workflows**. 2. Choose the workflow you just created, `codecatalyst-eks-workflow`. 3. Choose **BuildBackend** to see the build progress. 4. Choose **DeployToEKS** to see the deployment progress. For more information about viewing run details, see [Viewing workflow run status and details](workflows-view-run.md "workflows-view-run.md"). ###### To verify the deployment 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. On the left, near the bottom, choose **Load Balancers**. 3. Select the load balancer that was created as part of your Kubernetes deployment. If you're not sure which load balancer to choose, look for the following tags under the **Tags** tab: <br>• `kubernetes.io/service-name` <br>• `kubernetes.io/cluster/ekstutorialcluster` 4. With the correct load balancer selected, choose the **Description** tab. 5. Copy and paste the **DNS name** value into your browser's address bar. The 'Hello, World!' webpage appears in your browser, indicating that you successfully deployed your application. ## Step 9: Make a change to your source files In this section, you make a change to the `index.html` file in your source repository. This change causes the workflow to build a new Docker image, tag it with a commit ID, push it to Amazon ECR, and deploy it to Amazon ECS. ###### To change the index.html 1. Go to your Dev Environment. 2. At the terminal prompt, change to your source repository: ``` cd /projects/codecatalyst-eks-source-repository ``` 3. Pull the latest workflow changes: ``` git pull ``` 4. Open `codecatalyst-eks-source-repository/public-html/index.html`. 5. On line 14, change the `Hello, World!` text to `Tutorial complete!`. 6. Add, commit, and push: ``` git add . git commit -m "update index.html title" git push ``` A workflow run starts automatically. 7. (Optional) Enter: ``` git show HEAD ``` Note the commit ID for the `index.html` change. This commit ID will be tagged to the Docker image that will be deployed by the workflow run that you just started. 8. Watch the deployment progress: 1. In the CodeCatalyst console, in the navigation pane, choose **CI/CD**, and then choose **Workflows**. 2. Choose `codecatalyst-eks-workflow` to view the latest run. 3. Choose **BuildBackend**, and **DeployToEKS** to see the workflow run progress. 9. Verify that your application was updated, as follows: 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. On the left, near the bottom, choose **Load Balancers**. 3. Select the load balancer that was created as part of your Kubernetes deployment. 4. Copy and paste the **DNS name** value into your browser's address bar. The 'Tutorial Complete!' webpage appears in your browser, indicating that you successfully deployed a new revision of your application. 10. (Optional) In AWS, switch to the Amazon ECR console and verify that the new Docker image was tagged with the commit ID from step 7 of this procedure. ## Clean up You should clean up your environment so that you're not charged unnecessarily for the storage and compute resources used by this tutorial. ###### To clean up 1. Delete your cluster: 1. In the Dev Environment terminal, enter: ``` eksctl delete cluster --region=`us-west-2` --name=`codecatalyst-eks-cluster` ``` Where: <br>• `us-west-2` is replaced with your Region. <br>• `codecatalyst-eks-cluster` is replaced with the name of the cluster you created. After 5-10 minutes, the cluster and associated resources are deleted, including but not limited to AWS CloudFormation stacks, nodes groups (in Amazon EC2), and load balancers.###### Important If the `eksctl delete cluster` command doesn't work, you may need to refresh your AWS credentials or your `kubectl` credentials. If you're not sure which credentials to refresh, refresh the AWS credentials first. To refresh your AWS credentials, see [How do I fix "Unable to locate credentials" and "ExpiredToken" errors?](troubleshooting-workflows.md#troubleshooting-workflows-auth-errors-eks "troubleshooting-workflows.md#troubleshooting-workflows-auth-errors-eks"). To refresh your `kubectl` credentials, see [How do I fix "Unable to connect to the server" errors?](troubleshooting-workflows.md#troubleshooting-workflows-unable-connect-eks "troubleshooting-workflows.md#troubleshooting-workflows-unable-connect-eks"). 2. In the AWS console, clean up as follows: 1. In Amazon ECR, delete `codecatalyst-eks-image-repo`. 2. In IAM Identity Center, delete: 1. `codecatalyst-eks-user` 2. `codecatalyst-eks-permission-set` 3. In IAM, delete: <br>• `codecatalyst-eks-build-role` <br>• `codecatalyst-eks-deploy-role` <br>• `codecatalyst-eks-build-policy` <br>• `codecatalyst-eks-deploy-policy` 3. In the CodeCatalyst console, clean up as follows: 1. Delete `codecatalyst-eks-workflow`. 2. Delete `codecatalyst-eks-environment`. 3. Delete `codecatalyst-eks-source-repository`. 4. Delete your Dev Environment. 5. Delete `codecatalyst-eks-project`. In this tutorial, you learned how to deploy an application to an Amazon EKS service using a CodeCatalyst workflow and a **Deploy to Kubernetes cluster** action.
-````
+   |— Kubernetes
+      |— deployment.yaml
+   |— public-html
+   |  |— index.html
+   |— Dockerfile
+
+```
+
+###### Topics
+
+- [index.html](#deploy-tut-eks-source-files-index "#deploy-tut-eks-source-files-index")
+- [Dockerfile](#deploy-tut-eks-source-files-dockerfile "#deploy-tut-eks-source-files-dockerfile")
+- [deployment.yaml](#deploy-tut-eks-source-files-deployment-yml "#deploy-tut-eks-source-files-deployment-yml")
+
+### index.html
+
+The `index.html` file displays a 'Hello, World!' message in the
+browser.
+
+###### To add the index.html file
+
+1. Go to your Dev Environment.
+2. In `codecatalyst-eks-source-repository`, create a folder called
+   `public-html`.
+3. In `/public-html`, create a file called
+   `index.html` with the following contents:
+
+```
+<html>
+  <head>
+    <title>Hello World</title>
+    <style>
+      body {
+      background-color: black;
+      text-align: center;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
+```
+
+4. At the terminal prompt, enter:
+
+```
+cd /projects/codecatalyst-eks-source-repository
+```
+
+5. Add, commit, and push:
+
+```
+git add .
+git commit -m "add public-html/index.html"
+git push
+```
+
+The `index.html` is added to your repository in a
+`public-html` folder.
+
+### Dockerfile
+
+The Dockerfile describes the base Docker image to use and the Docker commands to apply
+to it. For more information about the Dockerfile, see the [Dockerfile
+Reference](https://docs.docker.com/engine/reference/builder/ "https://docs.docker.com/engine/reference/builder/").
+
+The Dockerfile specified here indicates to use the Apache 2.4 base image
+(`httpd`). It also includes instructions for copying a source file called
+`index.html` to a folder on the Apache server that serves webpages. The
+`EXPOSE` instruction in the Dockerfile tells Docker that the container is
+listening on port 80.
+
+###### To add the Dockerfile
+
+1. In `codecatalyst-eks-source-repository`, create a file called
+   `Dockerfile` with the following contents:
+
+```
+FROM httpd:2.4
+COPY ./public-html/index.html /usr/local/apache2/htdocs/index.html
+EXPOSE 80
+```
+
+Do not include a file extension.
+
+###### Important
+
+The Dockerfile must reside in your repository’s root folder. The workflow’s
+`Docker build` command expects it to be there. 2. Add, commit, and push:
+
+```
+git add .
+git commit -m "add Dockerfile"
+git push
+```
+
+The Dockerfile is added to your repository.
+
+### deployment.yaml
+
+In this section, you add a `deployment.yaml` file to your repository.
+The `deployment.yaml` file is a Kubernetes manifest that defines two Kubernetes
+resources types or _kinds_ to run: a 'service' and a
+'deployment'.
+
+- The 'service' deploys a load balancer into Amazon EC2. The load balancer provides you
+  with an Internet-facing public URL and standard port (port 80) that you can use to
+  browse to the 'Hello, World!' application.
+- The 'deployment' deploys three pods, and each pod will contain a Docker container
+  with the 'Hello, World!' application. The three pods are deployed onto the nodes that
+  were created when you created the cluster.
+
+The manifest in this tutorial is short; however, a manifest can include any number of
+Kubernetes resource types, such as pods, jobs, ingresses, and network policies. Further, you can
+use multiple manifest files if your deployment is complex.
+
+###### To add a deployment.yaml file
+
+1. In `codecatalyst-eks-source-repository`, create a folder called
+   `Kubernetes`.
+2. In `/Kubernetes`, create a file called
+   `deployment.yaml` with the following contents:
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  labels:
+    app: my-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  labels:
+    app: my-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: codecatalyst-eks-container
+        # The $REPOSITORY_URI and $IMAGE_TAG placeholders will be replaced by actual values supplied by the build action in your workflow
+        image: $REPOSITORY_URI:$IMAGE_TAG
+        ports:
+        - containerPort: 80
+```
+
+3. Add, commit, and push:
+
+```
+git add .
+git commit -m "add Kubernetes/deployment.yaml"
+git push
+```
+
+The `deployment.yaml` file is added to your repository in a
+folder called `Kubernetes`.
+
+You have now added all your source files.
+
+Take a moment to double-check your work and make sure you placed all the files in the
+correct folders. The folder structure is as follows:
+
+```
+|— codecatalyst-eks-source-repository
+   |— Kubernetes
+      |— deployment.yaml
+   |— public-html
+   |  |— index.html
+   |— Dockerfile
+
+```
+
+## Step 5: Create AWS roles
+
+In this section, you create AWS IAM roles that your CodeCatalyst workflow will need in order
+to function. These roles are:
+
+- **Build role** – Grants the CodeCatalyst build action
+  (in the workflow) permission to access your AWS account and write to Amazon ECR and
+  Amazon EC2.
+- **Deploy role** – Grants the CodeCatalyst **Deploy to Kubernetes cluster** action (in the workflow) permission to
+  access your AWS account and Amazon EKS.
+
+For more information about IAM roles, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the _AWS Identity and Access Management User
+Guide_.
+
+###### Note
+
+To save time, you can create a single role, called the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role, instead of
+ the two roles listed previously. For more information, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
+ and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
+ Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has very broad permissions which may pose a security
+risk. We recommend that you only use this role in tutorials and scenarios where security is
+less of a concern. This tutorial assumes you are creating the two roles listed
+previously.
+
+To create the build and deploy roles, complete the following series of procedures.
+
+###### 1. To create a trust policy for both roles
+
+1. Go to your Dev Environment.
+2. In the `Cloud9-`long-string``directory,
+create a file called`codecatalyst-eks-trust-policy.json` with the
+   following contents:
+
+###### 2. To create the build policy for the build role
+
+- In the `Cloud9-`long-string``directory,
+create a file called`codecatalyst-eks-build-policy.json` with the
+  following contents:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:*",
+ "ec2:*"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+###### Note
+
+The first time the role is used to run workflow actions, use the wildcard in the
+resource policy statement and then scope down the policy with the resource name after it
+is available.
+
+```
+"Resource": "*"
+```
+
+###### 3. To create the deploy policy for the deploy role
+
+- In the `Cloud9-`long-string``directory,
+create a file called`codecatalyst-eks-deploy-policy.json` with the
+  following contents:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "eks:DescribeCluster",
+ "eks:ListClusters"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+###### Note
+
+The first time the role is used to run workflow actions, use the wildcard in the
+resource policy statement and then scope down the policy with the resource name after it
+is available.
+
+```
+"Resource": "*"
+```
+
+You have now added three policy documents to your Dev Environment. Your directory structure
+now looks like this:
+
+```
+|— Cloud9-`long-string`
+   |— .c9
+   |— codecatalyst-eks-source-repository
+      |— Kubernetes
+      |— public-html
+      |— Dockerfile
+   codecatalyst-eks-build-policy.json
+   codecatalyst-eks-deploy-policy.json
+   codecatalyst-eks-trust-policy.json
+
+```
+
+###### 4. To add the build policy to AWS
+
+1. In the Dev Environment terminal, enter:
+
+```
+cd /projects
+```
+
+2. Enter:
+
+```
+aws iam create-policy \
+    --policy-name codecatalyst-eks-build-policy \
+    --policy-document file://codecatalyst-eks-build-policy.json
+```
+
+3. Press **Enter**.
+4. In the command output, note the `"arn":` value, for example,
+   `arn:aws:iam::111122223333:policy/codecatalyst-eks-build-policy`.
+   You need this ARN later.
+
+###### 5. To add the deploy policy to AWS
+
+1. Enter:
+
+```
+aws iam create-policy \
+    --policy-name codecatalyst-eks-deploy-policy \
+    --policy-document file://codecatalyst-eks-deploy-policy.json
+```
+
+2. Press **Enter**.
+3. In the command output, note the deploy policy's `"arn":` value, for
+   example,
+   `arn:aws:iam::111122223333:policy/codecatalyst-eks-deploy-policy`.
+   You need this ARN later.
+
+###### 6. To create the build role
+
+1. Enter:
+
+```
+aws iam create-role \
+      --role-name codecatalyst-eks-build-role \
+      --assume-role-policy-document file://codecatalyst-eks-trust-policy.json
+```
+
+2. Press **Enter**.
+3. Enter:
+
+```
+aws iam attach-role-policy \
+      --role-name codecatalyst-eks-build-role \
+      --policy-arn `arn:aws:iam::111122223333:policy/codecatalyst-eks-build-policy`
+```
+
+Where
+`arn:aws:iam::111122223333:policy/codecatalyst-eks-build-policy`
+is replaced with the ARN of the build policy you noted earlier. 4. Press **Enter**. 5. At the terminal prompt, enter:
+
+```
+aws iam get-role \
+      --role-name codecatalyst-eks-build-role
+```
+
+6. Press **Enter**.
+7. Note the role's `"Arn":` value, for example,
+   `arn:aws:iam::111122223333:role/codecatalyst-eks-build-role`.
+   You need this ARN later.
+
+###### 7. To create the deploy role
+
+1. Enter:
+
+```
+aws iam create-role \
+      --role-name codecatalyst-eks-deploy-role \
+      --assume-role-policy-document file://codecatalyst-eks-trust-policy.json
+```
+
+2. Press **Enter**.
+3. Enter:
+
+```
+aws iam attach-role-policy \
+      --role-name codecatalyst-eks-deploy-role \
+      --policy-arn `arn:aws:iam::111122223333:policy/codecatalyst-eks-deploy-policy`
+```
+
+Where
+`arn:aws:iam::111122223333:policy/codecatalyst-eks-deploy-policy`
+is replaced with the ARN of the deploy policy you noted earlier. 4. Press **Enter**. 5. Enter:
+
+```
+aws iam get-role \
+      --role-name codecatalyst-eks-deploy-role
+```
+
+6. Press **Enter**.
+7. Note the role's `"Arn":` value, for example,
+   `arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role`.
+   You need this ARN later.
+
+You have now created build and deploy roles and noted their ARNs.
+
+## Step 6: Add AWS roles to CodeCatalyst
+
+In this step, you add the build role (`codecatalyst-eks-build-role`) and
+deploy role (`codecatalyst-eks-deploy-role`) to the AWS account that you
+connected to your space. This makes the roles available for use in your workflow.
+
+###### To add build and deploy roles to your AWS account
+
+1. In the CodeCatalyst console, navigate to your space.
+2. At the top, choose **Settings**.
+3. In the navigation pane, choose **AWS accounts**. A list of accounts
+   appears.
+4. In the **Amazon CodeCatalyst display name** column, copy the display name of
+   the AWS account where you created your build and deploy roles. (It might be a number.)
+   You'll need this value later, when creating your workflow.
+5. Choose the display name.
+6. Choose **Manage roles from AWS management console**.
+
+The **Add IAM role to Amazon CodeCatalyst space** page appears. You
+might need to sign in to access the page. 7. Select **Add an existing role you have created in IAM**.
+
+A drop-down list appears. The list displays the build and deploy roles, and any other
+IAM roles with a trust policy that includes the
+`codecatalyst-runner.amazonaws.com` and
+`codecatalyst.amazonaws.com` service principals. 8. From the drop-down list, add:
+
+    * `codecatalyst-eks-build-role`
+    * `codecatalyst-eks-deploy-role`
+
+###### Note
+
+If you see `The security token included in the request is invalid`, it
+might be because you do not have the right permissions. To fix this issue, sign out of
+AWS as sign back in with the AWS account that you used when you created your CodeCatalyst
+space. 9. Return to the CodeCatalyst console and refresh the page.
+
+The build and deploy roles should now appear under **IAM
+roles**.
+
+These roles are now available for use in CodeCatalyst workflows.
+
+## Step 7: Update the ConfigMap
+
+You must add the deploy role that you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles") to the Kubernetes `ConfigMap` file to
+give the **Deploy to Kubernetes cluster** action (in your workflow) the ability to
+access and interact with your cluster. You can use `eksctl` or `kubectl`
+to perform this task.
+
+###### To configure the Kubernetes ConfigMap file using eksctl
+
+- In the Dev Environment terminal, enter:
+
+```
+eksctl create iamidentitymapping --cluster `codecatalyst-eks-cluster` --arn `arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role` --group system:masters --username `codecatalyst-eks-deploy-role` --region `us-west-2`
+```
+
+Where:
+
+    + `codecatalyst-eks-cluster` is replaced with the
+     cluster name of the Amazon EKS cluster.
+    + `arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role`
+     is replaced with the ARN of the deploy role that you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles").
+    + `codecatalyst-eks-deploy-role` (next to
+     `--username`) is replaced with the name of the deploy role that you
+     created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles").
+
+
+    ###### Note
+
+    If you decided not to create a deploy role, replace
+     `codecatalyst-eks-deploy-role` with the name of the
+     `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information about this role, see [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles").
+    + `us-west-2` is replaced with your Region.
+
+For details on this command, see [Manage IAM users and
+roles](https://eksctl.io/usage/iam-identity-mappings/ "https://eksctl.io/usage/iam-identity-mappings/").
+
+A message similar to the following appears:
+
+```
+2023-06-09 00:58:29 [ℹ]  checking arn arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role against entries in the auth ConfigMap
+2023-06-09 00:58:29 [ℹ]  adding identity "arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role" to auth ConfigMap
+```
+
+###### To configure the Kubernetes ConfigMap file using kubectl
+
+1. In the Dev Environment terminal, enter:
+
+```
+kubectl edit configmap -n kube-system aws-auth
+```
+
+The ConfigMap file appears on the screen. 2. Add the text in red italics:
+
+```
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::111122223333:role/eksctl-codecatalyst-eks-cluster-n-NodeInstanceRole-16BC456ME6YR5
+      username: system:node:{{EC2PrivateDNSName}}
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role
+      username: codecatalyst-eks-deploy-role
+  mapUsers: |
+    []
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-06-08T19:04:39Z"
+  managedFields:
+  ...
+```
+
+Where:
+
+    * `arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role`
+     is replaced with the ARN of the deploy role that you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles").
+    * `codecatalyst-eks-deploy-role` (next to
+     `username:`)is replaced with the name of the deploy role that you created
+     in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles").
+
+
+    ###### Note
+
+    If you decided not to create a deploy role, replace
+     `codecatalyst-eks-deploy-role` with the name of the
+     `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information about this role, see [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles").
+
+For details, see [Enabling IAM principal access to your
+cluster](../../../eks/latest/userguide/add-user-role.md "../../../eks/latest/userguide/add-user-role.md") in the **Amazon EKS User Guide**.
+
+You have now given the deploy role, and by extension the **Deploy to
+Amazon EKS** action, `system:masters` permissions to your Kubernetes
+cluster.
+
+## Step 8: Create and run a workflow
+
+In this step, you create a workflow that takes your source files, builds them into a
+Docker image, and then deploys the image into tree pods in your Amazon EKS cluster.
+
+The workflow consists of the following building blocks that run sequentially:
+
+- A trigger – This trigger starts the workflow run automatically when you push a
+  change to your source repository. For more information about triggers, see [Starting a workflow run automatically using
+  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+- A build action (`BuildBackend`) – On trigger, the action builds the
+  Docker image using the Dockerfile and pushes the image to Amazon ECR. The build action also
+  updates the `$REPOSITORY_URI` and `$IMAGE_TAG` variables in the
+  `deployment.yaml` file with the correct values, and then creates an output
+  artifact of this file and any others in the `Kubernetes` folder. In this
+  tutorial, the only file in the `Kubernetes` folder is
+  `deployment.yaml` but you could include more files. The artifact is
+  used as the input for the deploy action, which is next.
+
+For more information about the build action, see [Building with workflows](build-workflow-actions.md "build-workflow-actions.md").
+
+- A deploy action (`DeployToEKS`) – On completion of the build action,
+  the deploy action looks for the output artifact generated by the build action
+  (`Manifests`), and finds the `deployment.yaml` file inside
+  of it. The action then follows the instructions in the
+  `deployment.yaml` file to run three pods—each containing a single
+  'Hello, World!' Docker container—inside your Amazon EKS cluster.
+
+###### To create a workflow
+
+1. Go to the CodeCatalyst console.
+2. Navigate to your project (`codecatalyst-eks-project`).
+3. In the navigation pane, choose **CI/CD**, and then choose
+   **Workflows**.
+4. Choose **Create workflow**.
+5. For **Source repository**, choose
+   `codecatalyst-eks-source-repository`.
+6. For **Branch**, choose `main`.
+7. Choose **Create**.
+8. Delete the YAML sample code.
+9. Add the following YAML code to create a new workflow definition file:
+
+###### Note
+
+For more information about the workflow definition file, see [Workflow YAML definition](workflow-reference.md "workflow-reference.md").
+
+###### Note
+
+In the YAML code that follows, you can omit the `Connections:` sections
+if you want. If you omit these sections, you must ensure that the role specified in the
+**Default IAM role** field in your environment includes the
+permissions and trust policies of both roles described in [Step 6: Add AWS roles to CodeCatalyst](#deploy-tut-eks-import-roles "#deploy-tut-eks-import-roles").
+For more information about setting up an environment with a default IAM role, see
+[Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md").
+
+```
+Name: codecatalyst-eks-workflow
+SchemaVersion: 1.0
+
+Triggers:
+  - Type: PUSH
+    Branches:
+      - main
+Actions:
+  BuildBackend:
+    Identifier: aws/build@v1
+    Environment:
+      Name: `codecatalyst-eks-environment`
+      Connections:
+        - Name: `codecatalyst-account-connection`
+          Role: `codecatalyst-eks-build-role`
+    Inputs:
+      Sources:
+        - WorkflowSource
+      Variables:
+        - Name: REPOSITORY_URI
+          Value: `111122223333.dkr.ecr.us-west-2.amazonaws.com/codecatalyst-eks-image-repo`
+        - Name: IMAGE_TAG
+          Value: ${WorkflowSource.CommitId}
+    Configuration:
+      Steps:
+        #pre_build:
+        - Run: echo Logging in to Amazon ECR...
+        - Run: aws --version
+        - Run: aws ecr get-login-password --region `us-west-2` | docker login --username AWS --password-stdin `111122223333.dkr.ecr.us-west-2.amazonaws.com`
+        #build:
+        - Run: echo Build started on `date`
+        - Run: echo Building the Docker image...
+        - Run: docker build -t $REPOSITORY_URI:latest .
+        - Run: docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+        #post_build:
+        - Run: echo Build completed on `date`
+        - Run: echo Pushing the Docker images...
+        - Run: docker push $REPOSITORY_URI:latest
+        - Run: docker push $REPOSITORY_URI:$IMAGE_TAG
+        # Replace the variables in deployment.yaml
+        - Run: find Kubernetes/ -type f | xargs sed -i "s|\$REPOSITORY_URI|$REPOSITORY_URI|g"
+        - Run: find Kubernetes/ -type f | xargs sed -i "s|\$IMAGE_TAG|$IMAGE_TAG|g"
+        - Run: cat Kubernetes/*
+        # The output artifact will be a zip file that contains Kubernetes manifest files.
+    Outputs:
+      Artifacts:
+        - Name: Manifests
+          Files:
+            - "Kubernetes/*"
+  DeployToEKS:
+    DependsOn:
+      - BuildBackend
+    Identifier: aws/kubernetes-deploy@v1
+    Environment:
+      Name: `codecatalyst-eks-environment`
+      Connections:
+        - Name: `codecatalyst-account-connection`
+          Role: `codecatalyst-eks-deploy-role`
+    Inputs:
+      Artifacts:
+        - Manifests
+    Configuration:
+      Namespace: default
+      Region: `us-west-2`
+      Cluster: codecatalyst-eks-cluster
+      Manifests: Kubernetes/
+```
+
+In the preceding code, replace:
+
+    * Both instances of `codecatalyst-eks-environment` with
+     the name of the environment you created in [Prerequisites](#deploy-tut-eks-prereqs "#deploy-tut-eks-prereqs").
+    * Both instances of `codecatalyst-account-connection`
+     with the display name of your account connection. The display name might be a number.
+     For more information, see [Step 6: Add AWS roles to CodeCatalyst](#deploy-tut-eks-import-roles "#deploy-tut-eks-import-roles").
+    * `codecatalyst-eks-build-role` with the name of the
+     build role you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles").
+    * `111122223333.dkr.ecr.us-west-2.amazonaws.com/codecatalyst-eks-image-repo`
+     (in the `Value:` property) with the URI of the Amazon ECR repository you created
+     in [Step 3: Create an Amazon ECR image repository](#deploy-tut-eks-ecr "#deploy-tut-eks-ecr").
+    * `111122223333.dkr.ecr.us-west-2.amazonaws.com`
+     (in the `Run: aws ecr` command) with the URI of the Amazon ECR repository
+     without the image suffix (`/codecatalyst-eks-image-repo`).
+    * `codecatalyst-eks-deploy-role` with the name of the
+     deploy role you created in [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles").
+    * Both instances of `us-west-2` with your AWS Region
+     code. For a list of Region codes, see [Regional endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the
+     *AWS General Reference*.
+
+###### Note
+
+If you decided not to create build and deploy roles, replace
+`codecatalyst-eks-build-role` and
+`codecatalyst-eks-deploy-role` with the name of the
+`CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information about this role, see [Step 5: Create AWS roles](#deploy-tut-eks-roles "#deploy-tut-eks-roles"). 10. (Optional) Choose **Validate** to make sure that the YAML code is
+valid before committing. 11. Choose **Commit**. 12. In the **Commit workflow** dialog box, enter the following:
+
+    1. For **Commit message**, remove the text and enter:
+
+
+
+    ```
+    `Add first workflow`
+    ```
+    2. For **Repository**, choose
+     `codecatalyst-eks-source-repository`.
+    3. For **Branch name**, choose main.
+    4. Choose **Commit**.You have now created a workflow. A workflow run starts automatically because of the
+
+trigger defined at the top of the workflow. Specifically, when you committed (and pushed)
+the `workflow.yaml` file to your source repository, the trigger started
+the workflow run.
+
+###### To view the workflow run progress
+
+1. In the navigation pane of the CodeCatalyst console, choose **CI/CD**, and
+   then choose **Workflows**.
+2. Choose the workflow you just created,
+   `codecatalyst-eks-workflow`.
+3. Choose **BuildBackend** to see the build progress.
+4. Choose **DeployToEKS** to see the deployment progress.
+
+For more information about viewing run details, see [Viewing workflow run status and details](workflows-view-run.md "workflows-view-run.md").
+
+###### To verify the deployment
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. On the left, near the bottom, choose **Load Balancers**.
+3. Select the load balancer that was created as part of your Kubernetes deployment. If you're
+   not sure which load balancer to choose, look for the following tags under the
+   **Tags** tab:
+   - `kubernetes.io/service-name`
+   - `kubernetes.io/cluster/ekstutorialcluster`
+
+4. With the correct load balancer selected, choose the **Description**
+   tab.
+5. Copy and paste the **DNS name** value into your browser's address
+   bar.
+
+The 'Hello, World!' webpage appears in your browser, indicating that you successfully
+deployed your application.
+
+## Step 9: Make a change to your source files
+
+In this section, you make a change to the `index.html` file in your
+source repository. This change causes the workflow to build a new Docker image, tag it with a
+commit ID, push it to Amazon ECR, and deploy it to Amazon ECS.
+
+###### To change the index.html
+
+1. Go to your Dev Environment.
+2. At the terminal prompt, change to your source repository:
+
+```
+cd /projects/codecatalyst-eks-source-repository
+```
+
+3. Pull the latest workflow changes:
+
+```
+git pull
+```
+
+4. Open
+   `codecatalyst-eks-source-repository/public-html/index.html`.
+5. On line 14, change the `Hello, World!` text to `Tutorial
+complete!`.
+6. Add, commit, and push:
+
+```
+git add .
+git commit -m "update index.html title"
+git push
+```
+
+A workflow run starts automatically. 7. (Optional) Enter:
+
+```
+git show HEAD
+```
+
+Note the commit ID for the `index.html` change. This commit ID will
+be tagged to the Docker image that will be deployed by the workflow run that you just
+started. 8. Watch the deployment progress:
+
+    1. In the CodeCatalyst console, in the navigation pane, choose **CI/CD**,
+     and then choose **Workflows**.
+    2. Choose `codecatalyst-eks-workflow` to view the latest run.
+    3. Choose **BuildBackend**, and **DeployToEKS** to
+     see the workflow run progress.
+
+9. Verify that your application was updated, as follows:
+   1. Open the Amazon EC2 console at
+      [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+   2. On the left, near the bottom, choose **Load Balancers**.
+   3. Select the load balancer that was created as part of your Kubernetes deployment.
+   4. Copy and paste the **DNS name** value into your browser's address
+      bar.
+
+   The 'Tutorial Complete!' webpage appears in your browser, indicating that you
+   successfully deployed a new revision of your application.
+
+10. (Optional) In AWS, switch to the Amazon ECR console and verify that the new Docker image
+    was tagged with the commit ID from step 7 of this procedure.
+
+## Clean up
+
+You should clean up your environment so that you're not charged unnecessarily for the
+storage and compute resources used by this tutorial.
+
+###### To clean up
+
+1.  Delete your cluster:
+    1. In the Dev Environment terminal, enter:
+
+    ```
+    eksctl delete cluster --region=`us-west-2` --name=`codecatalyst-eks-cluster`
+    ```
+
+    Where:
+
+        * `us-west-2` is replaced with your Region.
+        * `codecatalyst-eks-cluster` is replaced with the
+         name of the cluster you created.
+
+    After 5-10 minutes, the cluster and associated resources are deleted, including
+    but not limited to AWS CloudFormation stacks, nodes groups (in Amazon EC2), and load balancers.###### Important
+
+If the `eksctl delete cluster` command doesn't work, you may need to
+refresh your AWS credentials or your `kubectl` credentials. If you're not
+sure which credentials to refresh, refresh the AWS credentials first. To refresh your
+AWS credentials, see [How do I fix "Unable to
+locate credentials" and "ExpiredToken" errors?](troubleshooting-workflows.md#troubleshooting-workflows-auth-errors-eks "troubleshooting-workflows.md#troubleshooting-workflows-auth-errors-eks"). To refresh your
+`kubectl` credentials, see [How do I fix "Unable to
+connect to the server" errors?](troubleshooting-workflows.md#troubleshooting-workflows-unable-connect-eks "troubleshooting-workflows.md#troubleshooting-workflows-unable-connect-eks"). 2. In the AWS console, clean up as follows:
+
+    1. In Amazon ECR, delete `codecatalyst-eks-image-repo`.
+    2. In IAM Identity Center, delete:
+
+
+
+
+    	1. `codecatalyst-eks-user`
+    	2. `codecatalyst-eks-permission-set`
+    3. In IAM, delete:
+
+
+
+
+    	* `codecatalyst-eks-build-role`
+    	* `codecatalyst-eks-deploy-role`
+    	* `codecatalyst-eks-build-policy`
+    	* `codecatalyst-eks-deploy-policy`
+
+3. In the CodeCatalyst console, clean up as follows:
+   1. Delete `codecatalyst-eks-workflow`.
+   2. Delete `codecatalyst-eks-environment`.
+   3. Delete `codecatalyst-eks-source-repository`.
+   4. Delete your Dev Environment.
+   5. Delete `codecatalyst-eks-project`.
+
+In this tutorial, you learned how to deploy an application to an Amazon EKS service using a
+CodeCatalyst workflow and a **Deploy to Kubernetes cluster** action.

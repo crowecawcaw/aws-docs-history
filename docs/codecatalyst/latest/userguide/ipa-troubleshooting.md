@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Troubleshooting
 
@@ -56,8 +54,7 @@ password:
 - Passwords must be between 8 and 64 characters in length with both
   uppercase and lowercase letters, numbers, and at least one non-alphanumeric
   character.
-- You can't reuse the last three passwords
-  .
+- You can't reuse the last three passwords .
 
 ### I can't enable MFA
 

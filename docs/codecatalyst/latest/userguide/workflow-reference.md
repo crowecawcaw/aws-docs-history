@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Workflow YAML definition
 
@@ -537,10 +535,103 @@ by a space:
 
 **Examples of cron expressions**
 
-| Minutes | Hours | Days of month | Month | Days of week | Year      | Meaning                                                                                                                                 |
-| ------- | ----- | ------------- | ----- | ------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | 0     | ?             | \*    | MON-FRI      | \*        | Runs a workflow at midnight (UTC+0) every Monday through Friday.                                                                        |
-| 0       | 2     | \*            | \*    | ?            | \*        | Runs a workflow at 2:00 am (UTC+0) every day.                                                                                           |
-| 15      | 22    | \*            | \*    | ?            | \*        | Runs a workflow at 10:15 pm (UTC+0) every day.                                                                                          |
-| 0/30    | 22-2  | ?             | \*    | SAT-SUN      | \*        | Runs a workflow every 30 minutes Saturday through Sunday between 10:00 pm on the starting day and 2:00 am on the following day (UTC+0). |
-| 45      | 13    | L             | \*    | ?            | 2023-2027 | Runs a workflow at 1:45 pm (UTC+0) on the last day of the month between the years 2023 and 2027 inclusive.                              | When specifying cron expressions in CodeCatalyst, make sure you follow these guidelines: <br>• Specify a single cron expression per `SCHEDULE` trigger. <br>• Enclose the cron expression in double-quotes (`"`) in the YAML editor. <br>• Specify the time in Coordinated Universal Time (UTC). Other time zones are not supported. <br>• Configure at least 30 minutes between runs. A faster cadence is not supported. <br>• Specify the `days-of-month` or `days-of-week` field, but not both. If you specify a value or an asterisk (`*`) in one of the fields, you must use a question mark (`?`) in the other. The asterisk means 'all' and the question mark means 'any'. For more examples of cron expressions and information about wildcards like `?`, `*`, and `L`, see the [Cron expressions reference](../../../eventbridge/latest/userguide/eb-cron-expressions.md "../../../eventbridge/latest/userguide/eb-cron-expressions.md") in the _Amazon EventBridge User Guide_. Cron expressions in EventBridge and CodeCatalyst work exactly the same way. For examples of schedule triggers, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md"). Corresponding UI: visual editor/workflow diagram/Triggers/**Schedule** ### Actions A sequence of one or more actions for this workflow. CodeCatalyst supports several action types, such as build and test actions, which offer different types of functionality. Each action type has: <br>• an `Identifier` property that indicates the action's unique, hard-coded ID. For example, `aws/build@v1` identifies the build action. <br>• a `Configuration` section that contains properties that are specific to the action. For more information about each action type, see [Action types](workflows-actions.md#workflows-actions-types "workflows-actions.md#workflows-actions-types"). The [Action types](workflows-actions.md#workflows-actions-types "workflows-actions.md#workflows-actions-types") topic has links into the documentation for each action. The following is the YAML reference for actions and action groups in the workflow definition file. ``Name: MyWorkflow SchemaVersion: 1.0 ... Actions: action-or-gate-name: Identifier: `identifier` Configuration: ... #Action groups action-group-name: Actions: ...`` #### action-or-gate-name (Actions/`action-or-gate-name`) (Required) Replace `action-name` with a name you want to give the action. Action names must be unique within the workflow, and must only include alphanumeric characters, hyphens, and underscores. For more information about syntax rules, see [YAML syntax guidelines](#workflow.syntax.conv "#workflow.syntax.conv"). For more information about naming practices for actions, including restrictions, see the action-or-gate-name. Corresponding UI: visual editor/`action-name`/Configuration tab/**Action name** or **Action display name** #### action-group-name (Actions/`action-group-name`) (Optional) An _action group_ contains one or more actions. Grouping actions into action groups helps you keep your workflow organized, and also allows you to configure dependencies between different groups. Replace `action-group-name` with a name you want to give the action group. Action group names must be unique within the workflow, and must only include alphanumeric characters, hyphens, and underscores. For more information about syntax rules, see [YAML syntax guidelines](#workflow.syntax.conv "#workflow.syntax.conv"). For more information about action groups, see [Grouping actions into action groups](workflows-group-actions.md "workflows-group-actions.md"). Corresponding UI: _none_ |
+| Minutes | Hours | Days of month | Month | Days of week | Year      | Meaning                                                                                                                                    |
+| ------- | ----- | ------------- | ----- | ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0       | 0     | ?             | \*    | MON-FRI      | \*        | Runs a workflow at midnight (UTC+0) every Monday through Friday.                                                                           |
+| 0       | 2     | \*            | \*    | ?            | \*        | Runs a workflow at 2:00 am (UTC+0) every day.                                                                                              |
+| 15      | 22    | \*            | \*    | ?            | \*        | Runs a workflow at 10:15 pm (UTC+0) every day.                                                                                             |
+| 0/30    | 22-2  | ?             | \*    | SAT-SUN      | \*        | Runs a workflow every 30 minutes Saturday through Sunday between 10:00 pm on the<br>starting day and 2:00 am on the following day (UTC+0). |
+| 45      | 13    | L             | \*    | ?            | 2023-2027 | Runs a workflow at 1:45 pm (UTC+0) on the last day of the month between the years<br>2023 and 2027 inclusive.                              |
+
+When specifying cron expressions in CodeCatalyst, make sure you follow these guidelines:
+
+- Specify a single cron expression per `SCHEDULE` trigger.
+- Enclose the cron expression in double-quotes (`"`) in the YAML editor.
+- Specify the time in Coordinated Universal Time (UTC). Other time zones are not
+  supported.
+- Configure at least 30 minutes between runs. A faster cadence is not supported.
+- Specify the `days-of-month` or
+  `days-of-week` field, but not both. If you specify a value or an
+  asterisk (`*`) in one of the fields, you must use a question mark
+  (`?`) in the other. The asterisk means 'all' and the question mark means
+  'any'.
+
+For more examples of cron expressions and information about wildcards like `?`,
+`*`, and `L`, see the [Cron expressions reference](../../../eventbridge/latest/userguide/eb-cron-expressions.md "../../../eventbridge/latest/userguide/eb-cron-expressions.md")
+in the _Amazon EventBridge User Guide_. Cron expressions in EventBridge and CodeCatalyst work
+exactly the same way.
+
+For examples of schedule triggers, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md").
+
+Corresponding UI: visual editor/workflow
+diagram/Triggers/**Schedule**
+
+### Actions
+
+A sequence of one or more actions for this workflow. CodeCatalyst supports several action types,
+such as build and test actions, which offer different types of functionality. Each action
+type has:
+
+- an `Identifier` property that indicates the action's unique, hard-coded
+  ID. For example, `aws/build@v1` identifies the build
+  action.
+- a `Configuration` section that contains properties that are specific to
+  the action.
+
+For more information about each action type, see [Action types](workflows-actions.md#workflows-actions-types "workflows-actions.md#workflows-actions-types"). The [Action types](workflows-actions.md#workflows-actions-types "workflows-actions.md#workflows-actions-types") topic has
+links into the documentation for each action.
+
+The following is the YAML reference for actions and action groups in the workflow
+definition file.
+
+```
+Name: MyWorkflow
+SchemaVersion: 1.0
+...
+Actions:
+  action-or-gate-name:
+    Identifier: `identifier`
+    Configuration:
+    ...
+  #Action groups
+  action-group-name:
+    Actions:
+      ...
+```
+
+#### action-or-gate-name
+
+(Actions/`action-or-gate-name`)
+
+(Required)
+
+Replace `action-name` with a name you want to give the
+action. Action names must be unique within the workflow, and must only include
+alphanumeric characters, hyphens, and underscores. For more information about syntax
+rules, see [YAML syntax guidelines](#workflow.syntax.conv "#workflow.syntax.conv").
+
+For more information about naming practices for actions, including restrictions, see
+the action-or-gate-name.
+
+Corresponding UI: visual editor/`action-name`/Configuration
+tab/**Action name** or **Action display
+name**
+
+#### action-group-name
+
+(Actions/`action-group-name`)
+
+(Optional)
+
+An _action group_ contains one or more actions. Grouping
+actions into action groups helps you keep your workflow organized, and also allows you
+to configure dependencies between different groups.
+
+Replace `action-group-name` with a name you want to give the
+action group. Action group names must be unique within the workflow, and must only
+include alphanumeric characters, hyphens, and underscores. For more information about
+syntax rules, see [YAML syntax guidelines](#workflow.syntax.conv "#workflow.syntax.conv").
+
+For more information about action groups, see [Grouping actions into action groups](workflows-group-actions.md "workflows-group-actions.md").
+
+Corresponding UI: _none_

@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Build, test, and deploy with workflows
 
@@ -52,16 +50,74 @@ Actions:
         - Run: docker build -t MyApp:latest .
 ```
 
-| Line                                               | Description                                                                                                                                                                                                                                                          |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Name: MyWorkflow`                                 | Specifies the name of the workflow. For more information about the `Name` property, see [Top-level properties](workflow-reference.md#workflow.top.level "workflow-reference.md#workflow.top.level").                                                                 |
-| `SchemaVersion: 1.0`                               | Specifies the workflow schema version. For more information about the `SchemaVersion` property, see [Top-level properties](workflow-reference.md#workflow.top.level "workflow-reference.md#workflow.top.level").                                                     |
-| `RunMode: QUEUED`                                  | Indicates how CodeCatalyst handles multiple runs. For more information about the run mode, see [Configuring the queuing behavior of runs](workflows-configure-runs.md "workflows-configure-runs.md").                                                                |
-| `Triggers:`                                        | Specifies the logic that will cause a workflow run to start. For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").                                                   |
-| `<br>• Type: PUSH Branches: <br>• main`            | Indicates that the workflow must start whenever you push code to the `main` branch of the default source repository. For more information about the workflow source, see [Connecting source repositories to workflows](workflows-sources.md "workflows-sources.md"). |
-| `Actions:`                                         | Defines the tasks to perform during a workflow run. In this example, the `Actions` section defines a single action called `Build`. For more information about actions, see [Configuring workflow actions](workflows-actions.md "workflows-actions.md").              |
-| `Build:`                                           | Defines the properties for the `Build` action. For more information about the build action, see [Building with workflows](build-workflow-actions.md "build-workflow-actions.md").                                                                                    |
-| `Identifier: aws/build@v1`                         | Specifies the unique, hard-coded identifier for the build action.                                                                                                                                                                                                    |
-| `Inputs: Sources: <br>• WorkflowSource`            | Indicates that the build action should look in the `WorkflowSource` source repository to find the files it needs to complete its processing. For more information, see [Connecting source repositories to workflows](workflows-sources.md "workflows-sources.md").   |
-| `Configuration:`                                   | Contains the configuration properties that are specific to the build action.                                                                                                                                                                                         |
-| `Steps: <br>• Run: docker build -t MyApp:latest .` | Tells the build action to build a Docker image called `MyApp` and tag it with `latest`.                                                                                                                                                                              | For a complete list of all the properties available in the workflow definition file, see the [Workflow YAML definition](workflow-reference.md "workflow-reference.md"). ## Using the CodeCatalyst console's visual and YAML editors To create and edit the workflow definition file, you can use your preferred editor, but we recommend using the CodeCatalyst console's visual editor or YAML editor. These editors offer helpful file validation to help ensure YAML property names, values, nesting, spacing, capitalization, and so on, are correct. The following image shows a workflow in the visual editor. The visual editor offers you a complete user interface through which to create and configure your workflow definition file. The visual editor includes a workflow diagram (1) showing the workflow's main components, and a configuration area (2). ![Workflow visual editor](images/flows/workflow-visual-editor.png) Alternatively, you can use the YAML editor, shown in the next image. Use the YAML editor to paste in large code blocks (from a tutorial, for example), or to add advanced properties that are not offered through the visual editor. ![Workflow YAML editor](images/flows/workflow-yaml-editor.png) You can toggle from the visual editor to the YAML editor to see the effect that your configurations have on the underlying YAML code. ## Discovering workflows You can view your workflow on the **Workflows** summary page, along with other workflows you've set up in the same project. The following image shows the **Workflows** summary page. It is populated with two workflows: **BuildToProd** and **UnitTests**. You can see that both have been run a few times. You can choose **Recent runs** to quickly see the run history, or choose the name of the workflow to see the workflow's YAML code and other detailed information. ![Workflow logs](images/flows/workflow-list.png) ## Viewing workflow run details You can view the details of a workflow run by choosing the run in the **Workflows** summary page. The following image shows the details of a workflow run called **Run-cc11d** that was started automatically on a commit to source. The workflow diagram indicates that an action has failed (1). You can navigate to the logs (2) to view the detailed log messages and troubleshoot issues. For more information about workflow runs, see [Running a workflow](workflows-working-runs.md "workflows-working-runs.md"). ![Workflow logs](images/flows/workflow-visual-logs.png) ## Next steps To learn more about workflows concepts, see [Workflows concepts](workflows-concepts.md "workflows-concepts.md"). To create your first workflow, see [Getting started with workflows](workflows-getting-started.md "workflows-getting-started.md"). |
+| Line                                                      | Description                                                                                                                                                                                                                                                                |
+| --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<br>Name: MyWorkflow<br>`                                | Specifies the name of the workflow. For more information about the<br>`Name` property, see [Top-level properties](workflow-reference.md#workflow.top.level "workflow-reference.md#workflow.top.level").                                                                    |
+| `<br>SchemaVersion: 1.0<br>`                              | Specifies the workflow schema version. For more information about the<br>`SchemaVersion` property, see [Top-level properties](workflow-reference.md#workflow.top.level "workflow-reference.md#workflow.top.level").                                                        |
+| `<br>RunMode: QUEUED<br>`                                 | Indicates how CodeCatalyst handles multiple runs. For more information about the run<br>mode, see [Configuring the queuing behavior of runs](workflows-configure-runs.md "workflows-configure-runs.md").                                                                   |
+| `<br>Triggers:<br>`                                       | Specifies the logic that will cause a workflow run to start. For more<br>information about triggers, see [Starting a workflow run automatically using<br>triggers](workflows-add-trigger.md "workflows-add-trigger.md").                                                   |
+| `<br>• Type: PUSH<br>Branches:<br>• main<br>`             | Indicates that the workflow must start whenever you push code to the<br>`main` branch of the default source repository. For more information<br>about the workflow source, see [Connecting source repositories to workflows](workflows-sources.md "workflows-sources.md"). |
+| `<br>Actions:<br>`                                        | Defines the tasks to perform during a workflow run. In this example, the<br>`Actions` section defines a single action called `Build`.<br>For more information about actions, see [Configuring workflow actions](workflows-actions.md "workflows-actions.md").              |
+| `<br>Build:<br>`                                          | Defines the properties for the `Build` action. For more information<br>about the build action, see [Building with workflows](build-workflow-actions.md "build-workflow-actions.md").                                                                                       |
+| `<br>Identifier: aws/build@v1<br>`                        | Specifies the unique, hard-coded identifier for the build action.                                                                                                                                                                                                          |
+| `<br>Inputs:<br>Sources:<br>• WorkflowSource<br>`         | Indicates that the build action should look in the `WorkflowSource`<br>source repository to find the files it needs to complete its processing. For more<br>information, see [Connecting source repositories to workflows](workflows-sources.md "workflows-sources.md").   |
+| `<br>Configuration:<br>`                                  | Contains the configuration properties that are specific to the build<br>action.                                                                                                                                                                                            |
+| `<br>Steps:<br>• Run: docker build -t MyApp:latest .<br>` | Tells the build action to build a Docker image called `MyApp` and tag<br>it with `latest`.                                                                                                                                                                                 |
+
+For a complete list of all the properties available in the workflow definition file, see
+the [Workflow YAML definition](workflow-reference.md "workflow-reference.md").
+
+## Using the CodeCatalyst console's visual and YAML editors
+
+To create and edit the workflow definition file, you can use your preferred editor, but we
+recommend using the CodeCatalyst console's visual editor or YAML editor. These editors offer helpful
+file validation to help ensure YAML property names, values, nesting, spacing, capitalization,
+and so on, are correct.
+
+The following image shows a workflow in the visual editor. The visual editor offers you a
+complete user interface through which to create and configure your workflow definition file.
+The visual editor includes a workflow diagram (1) showing the workflow's main components, and
+a configuration area (2).
+
+![Workflow visual editor](images/flows/workflow-visual-editor.png)
+
+Alternatively, you can use the YAML editor, shown in the next image. Use the YAML editor
+to paste in large code blocks (from a tutorial, for example), or to add advanced properties
+that are not offered through the visual editor.
+
+![Workflow YAML editor](images/flows/workflow-yaml-editor.png)
+
+You can toggle from the visual editor to the YAML editor to see the effect that your
+configurations have on the underlying YAML code.
+
+## Discovering workflows
+
+You can view your workflow on the **Workflows** summary page, along with
+other workflows you've set up in the same project.
+
+The following image shows the **Workflows** summary page. It is populated
+with two workflows: **BuildToProd** and **UnitTests**. You
+can see that both have been run a few times. You can choose **Recent runs**
+to quickly see the run history, or choose the name of the workflow to see the workflow's YAML
+code and other detailed information.
+
+![Workflow logs](images/flows/workflow-list.png)
+
+## Viewing workflow run details
+
+You can view the details of a workflow run by choosing the run in the
+**Workflows** summary page.
+
+The following image shows the details of a workflow run called
+**Run-cc11d** that was started automatically on a commit to source. The
+workflow diagram indicates that an action has failed (1). You can navigate to the logs (2) to
+view the detailed log messages and troubleshoot issues. For more information about workflow
+runs, see [Running a workflow](workflows-working-runs.md "workflows-working-runs.md").
+
+![Workflow logs](images/flows/workflow-visual-logs.png)
+
+## Next steps
+
+To learn more about workflows concepts, see [Workflows concepts](workflows-concepts.md "workflows-concepts.md").
+
+To create your first workflow, see [Getting started with workflows](workflows-getting-started.md "workflows-getting-started.md").

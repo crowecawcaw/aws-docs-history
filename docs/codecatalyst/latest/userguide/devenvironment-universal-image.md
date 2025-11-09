@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Specifying universal devfile images for a Dev Environment
 
@@ -14,34 +12,131 @@ with SNS](#devenvironment-universal-notifications "#devenvironment-universal-not
 Amazon CodeCatalyst actively supports the following devfile images:
 
 | Image version         | Image identifier                             |
-| --------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------- | --------------------------------------- |
+| --------------------- | -------------------------------------------- |
 | `Universal image 4.0` | `public.ecr.aws/aws-mde/universal-image:4.0` |
-| `Universal image 5.0` | `public.ecr.aws/aws-mde/universal-image:5.0` | ###### Note You can also use `public.ecr.aws/aws-mde/universal-image:latest` to get the latest image, which is currently `public.ecr.aws/aws-mde/universal-image:5.0`. CodeCatalyst has deprecated the following images. You can still use these images, but they won't be cached on the build host and will result in increased Dev Environment start-up times. |
-| Image version         | Image identifier                             | Deprecation date                                                                                                                                                                                                                                                                                                                                                 |
-| ---                   | ---                                          | ---                                                                                                                                                                                                                                                                                                                                                              |
-| `Universal image 1.0` | `public.ecr.aws/aws-mde/universal-image:1.0` | August 16, 2024                                                                                                                                                                                                                                                                                                                                                  |
-| `Universal image 2.0` | `public.ecr.aws/aws-mde/universal-image:2.0` | August 16, 2024                                                                                                                                                                                                                                                                                                                                                  |
-| `Universal image 3.0` | `public.ecr.aws/aws-mde/universal-image:3.0` | July 30, 2025                                                                                                                                                                                                                                                                                                                                                    | ###### Note If you're using AWS Cloud9, auto-complete will not work for PHP, Ruby and CSS after upgrading to `universal-image:3.0`. ###### Topics <br>• [Subscribing to universal image notifications with SNS](#devenvironment-universal-notifications "#devenvironment-universal-notifications") <br>• [Universal image 4.0 runtime versions](#devenvironment-universal-runtimes-4.0 "#devenvironment-universal-runtimes-4.0") <br>• [Universal image 5.0 runtime versions](#devenvironment-universal-runtimes-5.0 "#devenvironment-universal-runtimes-5.0") ## Subscribing to universal image notifications with SNS CodeCatalyst provides a universal image notification service. You can use it to subscribe to an Amazon Simple Notification Service (SNS) topic that notifies you when CodeCatalyst universal image updates have been released. For more information about SNS topics, see [What is Amazon Simple Notification Service?](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md"). Whenever new universal images are released, we send notifications to subscribers; this section describes how to subscribe to CodeCatalyst universal image updates. **Sample message** `{ "Type": "Notification", "MessageId": "123456789", "TopicArn": "arn:aws:sns:us-east-1:1234657890:universal-image-updates", "Subject": "New Universal Image Release", "Message": { "v1": { "Message": "A new version of the Universal Image has been released. You are now able to launch new DevEnvironments using this image.", "image ": { "release_type": "MAJOR VERSION", "image_name": "universal-image", "image_version": "2.0", "image_uri": "public.ecr.aws/amazonlinux/universal-image:2.0" } } }, "Timestamp": "2021-09-03T19:05:57.882Z", "UnsubscribeURL": "example url" }` ###### To subscribe to CodeCatalyst universal image updates using the Amazon SNS console 1. Open the Amazon SNS console to the [Dashboard](https://console.aws.amazon.com/sns/v2/home "https://console.aws.amazon.com/sns/v2/home"). 2. In the navigation bar, choose your AWS Region. 3. In the navigation pane, choose **Subscriptions**, and then choose **Create subscription**. 4. In **Topic ARN**, enter `arn:aws:sns:us-east-1:089793673375:universal-image-updates`. 5. In **Protocol**, choose **Email**. 6. In **Endpoint**, provide an email address. This email address will be used to receive notifications. 7. Choose **Create subscription**. 8. You will receive a confirmation email with the subject line "AWS Notification - Subscription Confirmation". Open the email and choose **Confirm subscription**. ###### To unsubscribe from CodeCatalyst universal image updates using the Amazon SNS console 1. Open the Amazon SNS console to the [Dashboard](https://console.aws.amazon.com/sns/v2/home "https://console.aws.amazon.com/sns/v2/home"). 2. In the navigation bar, choose your AWS Region. 3. In the navigation pane, choose **Subscriptions** and then select the subscription you want to unsubscribe from. 4. Choose **Actions**, and then choose **Delete subscriptions**. 5. Choose **Delete**. ## Universal image 4.0 runtime versions The following table lists the available runtimes for `universal-image:4.0`. `universal-image:4.0` runtime versions | Runtime name | Version | Specific major and latest minor version |
-| ---                   | ---                                          | ---                                                                                                                                                                                                                                                                                                                                                              |
-| aws cli               | 2.11                                         | `aws-cli: 2.x`                                                                                                                                                                                                                                                                                                                                                   |
-| docker compose        | 2.17                                         | `docker-compose: 2.x`                                                                                                                                                                                                                                                                                                                                            |
-| dotnet                | 8.0                                          | `dotnet: 8.x`                                                                                                                                                                                                                                                                                                                                                    |
-| golang                | 1.22                                         | `golang: 1.x`                                                                                                                                                                                                                                                                                                                                                    |
-| java                  | corretto21                                   | `java: corretto21.x`                                                                                                                                                                                                                                                                                                                                             |
-| nodejs                | 20.6                                         | `nodejs: 20.x`                                                                                                                                                                                                                                                                                                                                                   |
-| php                   | 8.2                                          | `php: 8.x`                                                                                                                                                                                                                                                                                                                                                       |
-| python                | 3.9                                          | `python: 3.x`                                                                                                                                                                                                                                                                                                                                                    |
-| 3.12                  |
-| ruby                  | 3.3                                          | `ruby: 3.x`                                                                                                                                                                                                                                                                                                                                                      |
-| terraform             | 1.5                                          | `terraform: 1.x`                                                                                                                                                                                                                                                                                                                                                 | ## Universal image 5.0 runtime versions The following table lists the available runtimes for `universal-image:5.0`. `universal-image:5.0` runtime versions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Runtime name | Version | Specific major and latest minor version |
-| ---                   | ---                                          | ---                                                                                                                                                                                                                                                                                                                                                              |
-| aws cli               | 2.25                                         | `aws-cli: 2.x`                                                                                                                                                                                                                                                                                                                                                   |
-| docker compose        | 2.34                                         | `docker-compose: 2.x`                                                                                                                                                                                                                                                                                                                                            |
-| dotnet                | 8.0                                          | `dotnet: 8.x`                                                                                                                                                                                                                                                                                                                                                    |
-| golang                | 1.24                                         | `golang: 1.x`                                                                                                                                                                                                                                                                                                                                                    |
-| java                  | corretto21                                   | `java: corretto21.x`                                                                                                                                                                                                                                                                                                                                             |
-| nodejs                | 22.0                                         | `nodejs: 22.x`                                                                                                                                                                                                                                                                                                                                                   |
-| php                   | 8.3.16                                       | `php: 8.x`                                                                                                                                                                                                                                                                                                                                                       |
-| python                | 3.12                                         | `python: 3.x`                                                                                                                                                                                                                                                                                                                                                    |
-| ruby                  | 3.4.2                                        | `ruby: 3.x`                                                                                                                                                                                                                                                                                                                                                      |
-| terraform             | 1.10.5                                       | `terraform: 1.x`                                                                                                                                                                                                                                                                                                                                                 |
+| `Universal image 5.0` | `public.ecr.aws/aws-mde/universal-image:5.0` |
+
+###### Note
+
+You can also use `public.ecr.aws/aws-mde/universal-image:latest` to get the
+latest image, which is currently
+`public.ecr.aws/aws-mde/universal-image:5.0`.
+
+CodeCatalyst has deprecated the following images. You can still use these images, but they won't be
+cached on the build host and will result in increased Dev Environment start-up
+times.
+
+| Image version         | Image identifier                             | Deprecation date |
+| --------------------- | -------------------------------------------- | ---------------- |
+| `Universal image 1.0` | `public.ecr.aws/aws-mde/universal-image:1.0` | August 16, 2024  |
+| `Universal image 2.0` | `public.ecr.aws/aws-mde/universal-image:2.0` | August 16, 2024  |
+| `Universal image 3.0` | `public.ecr.aws/aws-mde/universal-image:3.0` | July 30, 2025    |
+
+###### Note
+
+If you're using AWS Cloud9, auto-complete will not work for PHP, Ruby and CSS after upgrading to `universal-image:3.0`.
+
+###### Topics
+
+- [Subscribing to universal image notifications
+  with SNS](#devenvironment-universal-notifications "#devenvironment-universal-notifications")
+- [Universal image 4.0 runtime versions](#devenvironment-universal-runtimes-4.0 "#devenvironment-universal-runtimes-4.0")
+- [Universal image 5.0 runtime versions](#devenvironment-universal-runtimes-5.0 "#devenvironment-universal-runtimes-5.0")
+
+## Subscribing to universal image notifications
+
+with SNS
+
+CodeCatalyst provides a universal image notification service. You can use it to subscribe to
+an Amazon Simple Notification Service (SNS) topic that notifies you when CodeCatalyst universal image updates have been
+released. For more information about SNS topics, see [What is Amazon Simple Notification Service?](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md").
+
+Whenever new universal images are released, we send notifications to subscribers; this
+section describes how to subscribe to CodeCatalyst universal image updates.
+
+**Sample message**
+
+```
+{
+    "Type": "Notification",
+    "MessageId": "123456789",
+    "TopicArn": "arn:aws:sns:us-east-1:1234657890:universal-image-updates",
+    "Subject": "New Universal Image Release",
+    "Message": {
+        "v1": {
+            "Message": "A new version of the Universal Image has been released. You are now able to launch new DevEnvironments using this image.",
+            "image ": {
+                "release_type": "MAJOR VERSION",
+                "image_name": "universal-image",
+                "image_version": "2.0",
+                "image_uri": "public.ecr.aws/amazonlinux/universal-image:2.0"
+            }
+        }
+    },
+    "Timestamp": "2021-09-03T19:05:57.882Z",
+    "UnsubscribeURL": "example url"
+}
+```
+
+###### To subscribe to CodeCatalyst universal image updates using the Amazon SNS console
+
+1. Open the Amazon SNS console to the [Dashboard](https://console.aws.amazon.com/sns/v2/home "https://console.aws.amazon.com/sns/v2/home").
+2. In the navigation bar, choose your AWS Region.
+3. In the navigation pane, choose **Subscriptions**, and then choose
+   **Create subscription**.
+4. In **Topic ARN**, enter
+   `arn:aws:sns:us-east-1:089793673375:universal-image-updates`.
+5. In **Protocol**, choose **Email**.
+6. In **Endpoint**, provide an email address. This email address
+   will be used to receive notifications.
+7. Choose **Create subscription**.
+8. You will receive a confirmation email with the subject line "AWS Notification -
+   Subscription Confirmation". Open the email and choose **Confirm
+   subscription**.
+
+###### To unsubscribe from CodeCatalyst universal image updates using the Amazon SNS console
+
+1. Open the Amazon SNS console to the [Dashboard](https://console.aws.amazon.com/sns/v2/home "https://console.aws.amazon.com/sns/v2/home").
+2. In the navigation bar, choose your AWS Region.
+3. In the navigation pane, choose **Subscriptions** and then select
+   the subscription you want to unsubscribe from.
+4. Choose **Actions**, and then choose **Delete
+   subscriptions**.
+5. Choose **Delete**.
+
+## Universal image 4.0 runtime versions
+
+The following table lists the available runtimes for
+`universal-image:4.0`.
+
+| `universal-image:4.0` runtime versions | Runtime name | Version               | Specific major and latest minor version |
+| -------------------------------------- | ------------ | --------------------- | --------------------------------------- |
+| aws cli                                | 2.11         | `aws-cli: 2.x`        |
+| docker compose                         | 2.17         | `docker-compose: 2.x` |
+| dotnet                                 | 8.0          | `dotnet: 8.x`         |
+| golang                                 | 1.22         | `golang: 1.x`         |
+| java                                   | corretto21   | `java: corretto21.x`  |
+| nodejs                                 | 20.6         | `nodejs: 20.x`        |
+| php                                    | 8.2          | `php: 8.x`            |
+| python                                 | 3.9          | `python: 3.x`         |
+| 3.12                                   |
+| ruby                                   | 3.3          | `ruby: 3.x`           |
+| terraform                              | 1.5          | `terraform: 1.x`      |
+
+## Universal image 5.0 runtime versions
+
+The following table lists the available runtimes for
+`universal-image:5.0`.
+
+| `universal-image:5.0` runtime versions | Runtime name | Version               | Specific major and latest minor version |
+| -------------------------------------- | ------------ | --------------------- | --------------------------------------- |
+| aws cli                                | 2.25         | `aws-cli: 2.x`        |
+| docker compose                         | 2.34         | `docker-compose: 2.x` |
+| dotnet                                 | 8.0          | `dotnet: 8.x`         |
+| golang                                 | 1.24         | `golang: 1.x`         |
+| java                                   | corretto21   | `java: corretto21.x`  |
+| nodejs                                 | 22.0         | `nodejs: 22.x`        |
+| php                                    | 8.3.16       | `php: 8.x`            |
+| python                                 | 3.12         | `python: 3.x`         |
+| ruby                                   | 3.4.2        | `ruby: 3.x`           |
+| terraform                              | 1.10.5       | `terraform: 1.x`      |

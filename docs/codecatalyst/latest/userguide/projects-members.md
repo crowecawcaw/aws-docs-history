@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Granting users project permissions
 
@@ -75,7 +73,7 @@ In the **Status** column, the following are valid values:
   a user to a project](#projects-members-add "#projects-members-add")
 - [Canceling an invitation](#projects-members-cancel-invite "#projects-members-cancel-invite")
 - [Removing a user from your project](#projects-members-remove "#projects-members-remove")
-- [Accepting or declining an invitation for a project](#w24aac25c19c15c25 "#w24aac25c19c15c25")
+- [Accepting or declining an invitation for a project](#w5aac27c19c15c25 "#w5aac27c19c15c25")
 
 ## Inviting
 

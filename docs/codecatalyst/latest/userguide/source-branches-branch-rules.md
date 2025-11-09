@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Manage allowed actions for a branch with
 
@@ -65,10 +63,47 @@ users with the Project administrator role to delete that branch.
 The following table lists the actions and the default settings for roles allowed to
 perform these actions on a branch.
 
-Branch actions and roles| **Branch action** | Roles allowed to perform this action when no branch rules are
-applied |
-| --- | --- |
-| Merge to the branch (this includes merging a pull request to the branch) | Project administrator, Contributor |
-| Push to the branch | Project administrator, Contributor |
-| Delete the branch | Project administrator, Contributor |
-| Delete the branch (default branch) | Not allowed | You cannot delete branch rules, but you can update them to allow actions from all the roles that would be allowed to perform this action on a branch, which effectively removes the rule. ###### Note You must have the Project administrator role to configure branch rules for source repositories in CodeCatalyst projects. This does not apply to linked repositories. Linked repositories do not support the branch rules in CodeCatalyst. ###### To view and edit branch rules for a repository 1. Navigate to the project where your repository resides. 2. Choose the name of the repository from the list of source repositories for the project. Alternatively, in the navigation pane, choose **Code**, and then choose **Source repositories**. Choose the repository where you want to view branch rules. 3. On the overview page of the repository, choose **Branches**. 4. In the **Branch rules** column, view the status of rules for each branch of the repository. **Standard** indicates that the rules for branch action are the default ones for any branch created in a source repository and match the permissions granted to those roles in a project. **Custom** indicates that one or more branch actions have rules that restrict one or more actions allowed for that branch to a different set of roles. To view the specifics of the branch rules for a branch, choose the word **Standard** or **Custom** next to the branch you want to review. 5. To create or change a branch rule, choose **Manage settings**. On the settings page for the source repository, in **Branch rules**, choose **Edit**. 6. In **Branch**, choose the name of the branch for which you want to configure a rule from the drop-down list. For each of the allowed action types, choose the roles you want to allow to perform that action from the drop-down list, and then choose **Save**.
+| Branch actions and roles                                                    | **Branch action**                  | Roles allowed to perform this action when no branch rules are<br>applied |
+| --------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------ |
+| Merge to the branch (this includes merging a pull request to the<br>branch) | Project administrator, Contributor |
+| Push to the branch                                                          | Project administrator, Contributor |
+| Delete the branch                                                           | Project administrator, Contributor |
+| Delete the branch (default branch)                                          | Not allowed                        |
+
+You cannot delete branch rules, but you can update them to allow actions from all the
+roles that would be allowed to perform this action on a branch, which effectively
+removes the rule.
+
+###### Note
+
+You must have the Project administrator role to configure branch rules for source
+repositories in CodeCatalyst projects. This does not apply to linked repositories. Linked
+repositories do not support the branch rules in CodeCatalyst.
+
+###### To view and edit branch rules for a
+
+repository
+
+1. Navigate to the project where your repository resides.
+2. Choose the name of the repository from the list of source repositories for the
+   project. Alternatively, in the navigation pane, choose
+   **Code**, and then choose **Source
+   repositories**.
+
+Choose the repository where you want to view branch rules. 3. On the overview page of the repository, choose
+**Branches**. 4. In the **Branch rules** column, view the status of rules for
+each branch of the repository. **Standard** indicates that the
+rules for branch action are the default ones for any branch created in a source
+repository and match the permissions granted to those roles in a project.
+**Custom** indicates that one or more branch actions have
+rules that restrict one or more actions allowed for that branch to a different
+set of roles.
+
+To view the specifics of the branch rules for a branch, choose the word
+**Standard** or **Custom** next to the
+branch you want to review. 5. To create or change a branch rule, choose **Manage
+settings**. On the settings page for the source repository, in
+**Branch rules**, choose **Edit**. 6. In **Branch**, choose the name of the branch for which you
+want to configure a rule from the drop-down list. For each of the allowed action
+types, choose the roles you want to allow to perform that action from the
+drop-down list, and then choose **Save**.

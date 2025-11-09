@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Best practices for testing
 
@@ -94,12 +92,24 @@ For manually configured reports, `IncludePaths` must be a glob pattern that matc
 The following are examples of possible glob patterns.
 
 | Pattern          | Description                                                                                                                             |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `*.*`            | Matches all object names in the current directory that contain a dot                                                                    |
 | `*.xml`          | Matches all object names in the current directory ending with `.xml`                                                                    |
 | `*.{xml,txt}`    | Matches all object names in the current directory ending with `.xml` or `.txt`                                                          |
 | `**/*.xml`       | Matches object names across all directories ending with `.xml`                                                                          |
-| `testFolder`     | Matches an object called `testFolder`, treating it as a file                                                                            |
+| `testFolder`     | Matches an object called `testFolder`, treating it as a<br>file                                                                         |
 | `testFolder/*`   | Matches objects in one level of the subfolder from `testFolder`, such as `testFolder/file.xml`                                          |
 | `testFolder/*/*` | Matches objects in two levels of the subfolder from `testFolder`, such as `testFolder/reportsFolder/file.xml`                           |
-| `testFolder/**`  | Matches subfolder `testFolder` as well as files below `testFolder`, such as `testFolder/file.xml` and `testFolder/otherFolder/file.xml` | CodeCatalyst interprets the glob patterns as follows: <br>• The slash (`/`) character separates directories in file paths. <br>• The asterisk (`*`) character matches zero or more characters of a name component without crossing folder boundaries. <br>• A double asterisk (`**`) matches zero or more characters of a name component across all directories. ###### Note `ExcludePaths` takes precedence over `IncludePaths`. If both `IncludePaths` and `ExcludePaths` include the same folder, that folder is not scanned for reports. |
+| `testFolder/**`  | Matches subfolder `testFolder` as well as files below `testFolder`, such as `testFolder/file.xml` and `testFolder/otherFolder/file.xml` |
+
+CodeCatalyst interprets the glob patterns as follows:
+
+- The slash (`/`) character separates directories in file paths.
+- The asterisk (`*`) character matches zero or more characters of a name component without crossing folder boundaries.
+- A double asterisk (`**`) matches zero or more characters of a name component across all directories.
+
+###### Note
+
+`ExcludePaths` takes precedence over `IncludePaths`. If both
+`IncludePaths` and `ExcludePaths` include the same folder,
+that folder is not scanned for reports.

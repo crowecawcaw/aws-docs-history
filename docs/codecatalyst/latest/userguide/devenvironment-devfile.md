@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Configuring a devfile for a Dev Environment
 
@@ -58,11 +56,65 @@ Note that VPC-connected Dev Environments only support the following devfile imag
 CodeCatalyst supports the following devfile features on version 2.0.0. For more information about the devfile, see [Devfile schema - Version 2.0.0](https://devfile.io/docs/2.0.0/devfile-schema "https://devfile.io/docs/2.0.0/devfile-schema").
 
 | Feature        | Type                 |
-| -------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | -------------------- |
 | `exec`         | Command              |
 | `postStart`    | Event                |
 | `container`    | Component            |
 | `args`         | Component Properties |
 | `env`          | Component Properties |
 | `mountSources` | Component Properties |
-| `volumeMounts` | Component Properties | ## Example of a devfile for a Dev Environment The following is an example of a simple devfile. `schemaVersion: 2.0.0 metadata: name: al2 components: <br>• name: test container: image: public.ecr.aws/amazonlinux/amazonlinux:2 mountSources: true command: ['sleep', 'infinity'] <br>• name: dockerstore commands: <br>• id: setupscript exec: component: test commandLine: "chmod +x script.sh" workingDir: /projects/devfiles <br>• id: executescript exec: component: test commandLine: "/projects/devfiles/script.sh" <br>• id: yumupdate exec: component: test commandLine: "yum -y update --security" events: postStart: <br>• setupscript <br>• executescript <br>• yumupdate` Devfile startup, command, and event logs are captured and stored in `/aws/mde/logs`. To debug devfile behaviour, start up your Dev Environment using a working devfile and access the logs. ## Troubleshooting a repository devfile using recovery mode If there's a problem starting your devfile, it will enter recovery mode so that you can still connect to your environment and fix your devfile. While in recovery mode, running `/aws/mde/mde status` won’t contain the location of your devfile. `{ "status": "STABLE" }` You can check the error in the logs under `/aws/mde/logs`, fix the devfile, and try running `/aws/mde/mde start` again. |
+| `volumeMounts` | Component Properties |
+
+## Example of a devfile for a Dev Environment
+
+The following is an example of a simple devfile.
+
+```
+schemaVersion: 2.0.0
+metadata:
+  name: al2
+components:
+  - name: test
+    container:
+      image: public.ecr.aws/amazonlinux/amazonlinux:2
+      mountSources: true
+      command: ['sleep', 'infinity']
+  - name: dockerstore
+commands:
+  - id: setupscript
+    exec:
+      component: test
+      commandLine: "chmod +x script.sh"
+      workingDir: /projects/devfiles
+  - id: executescript
+    exec:
+      component: test
+      commandLine: "/projects/devfiles/script.sh"
+  - id: yumupdate
+    exec:
+      component: test
+      commandLine: "yum -y update --security"
+events:
+  postStart:
+    - setupscript
+    - executescript
+    - yumupdate
+
+```
+
+Devfile startup, command, and event logs are captured and stored in
+`/aws/mde/logs`. To debug devfile behaviour, start up your Dev Environment using a
+working devfile and access the logs.
+
+## Troubleshooting a repository devfile using recovery mode
+
+If there's a problem starting your devfile, it will enter recovery mode so that you can still connect to your environment and fix your
+devfile. While in recovery mode, running `/aws/mde/mde status` won’t contain the location of your devfile.
+
+```
+{
+            "status": "STABLE"
+        }
+```
+
+You can check the error in the logs under `/aws/mde/logs`, fix the devfile, and try running `/aws/mde/mde start` again.

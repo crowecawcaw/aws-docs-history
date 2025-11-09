@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Configure your AWS Builder ID to sign in with multi-factor authentication (MFA)
 
@@ -130,6 +128,54 @@ following table lists well-known third-party authenticator apps to choose
 from.
 
 | Operating system | Tested authenticator app                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Android          | [Authy](https://play.google.com/store/apps/details?id=com.authy.authy "https://play.google.com/store/apps/details?id=com.authy.authy"), [Duo Mobile](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile "https://play.google.com/store/apps/details?id=com.duosecurity.duomobile"), [LastPass Authenticator](https://play.google.com/store/apps/details?id=com.lastpass.authenticator "https://play.google.com/store/apps/details?id=com.lastpass.authenticator"), [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator "https://play.google.com/store/apps/details?id=com.azure.authenticator"), [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2 "https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2") |
-| iOS              | [Authy](https://apps.apple.com/us/app/authy/id494168017 "https://apps.apple.com/us/app/authy/id494168017"), [Duo Mobile](https://apps.apple.com/us/app/duo-mobile/id422663827 "https://apps.apple.com/us/app/duo-mobile/id422663827"), [LastPass Authenticator](https://apps.apple.com/us/app/lastpass-authenticator/id1079110004 "https://apps.apple.com/us/app/lastpass-authenticator/id1079110004"), [Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458 "https://apps.apple.com/us/app/microsoft-authenticator/id983156458"), [Google Authenticator](https://apps.apple.com/us/app/google-authenticator/id388497605 "https://apps.apple.com/us/app/google-authenticator/id388497605")                                                                                                                                     | ## Changing your MFA devices After you register an MFA device, you can change its name or delete it. We recommend always having at least one MFA device enabled for an extra layer of security. You can have up to five devices registered. To find out how to add more, see [How to register a device for use with multi-factor authentication](#id-how-to-register "#id-how-to-register"). ### Renaming an MFA device ###### To rename your MFA device 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/"). 2. At the top right, choose the arrow next to the icon with your first initial, and then choose **User profile**. The CodeCatalyst **Profile** page opens. 3. On the profile page, choose **Manage profile and security**. The **AWS Builder ID** profile page opens. 4. Choose **Multi-factor authentication** on the left side of the page. You'll see that **Rename** is grayed out when you arrive at the page. 5. Select the MFA device that you want to change. Choose **Rename**. Then a modal pops up. 6. In the prompt that opens, enter the new name in **MFA device name**, and then choose **Rename**. The renamed device appears under **Multi-factor authentication devices (MFA)**. ### Deleting an MFA device ###### To delete an MFA device 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/"). 2. At the top right, choose the arrow next to the icon with your first initial, and then choose **User profile**. The CodeCatalyst **Profile** page opens. 3. On the profile page, choose **Manage profile and security**. The **AWS Builder ID** profile page opens. 4. Choose **Multi-factor authentication** on the left side of the page. You'll see that **Delete** is grayed out when you arrive at the page. 5. Select the MFA device that you want to change. Choose **Delete**. A modal appears that says **Delete MFA device?**. Follow the instructions to delete your device. 6. Choose **Delete**. The deleted device no longer appears under **Multi-factor authentication devices (MFA)**. |
+| iOS              | [Authy](https://apps.apple.com/us/app/authy/id494168017 "https://apps.apple.com/us/app/authy/id494168017"), [Duo Mobile](https://apps.apple.com/us/app/duo-mobile/id422663827 "https://apps.apple.com/us/app/duo-mobile/id422663827"), [LastPass Authenticator](https://apps.apple.com/us/app/lastpass-authenticator/id1079110004 "https://apps.apple.com/us/app/lastpass-authenticator/id1079110004"), [Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458 "https://apps.apple.com/us/app/microsoft-authenticator/id983156458"), [Google Authenticator](https://apps.apple.com/us/app/google-authenticator/id388497605 "https://apps.apple.com/us/app/google-authenticator/id388497605")                                                                                                                                     |
+
+## Changing your MFA devices
+
+After you register an MFA device, you can change its name or delete it. We recommend
+always having at least one MFA device enabled for an extra layer of security. You can
+have up to five devices registered. To find out how to add more, see [How to register a device for use with multi-factor authentication](#id-how-to-register "#id-how-to-register").
+
+### Renaming an MFA device
+
+###### To rename your MFA device
+
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. At the top right, choose the arrow next to the icon with your first
+   initial, and then choose **User profile**. The CodeCatalyst
+   **Profile** page opens.
+3. On the profile page, choose **Manage profile and
+   security**. The **AWS Builder ID** profile page
+   opens.
+4. Choose **Multi-factor authentication** on the left side
+   of the page. You'll see that **Rename** is grayed out when
+   you arrive at the page.
+5. Select the MFA device that you want to change. Choose
+   **Rename**. Then a modal pops up.
+6. In the prompt that opens, enter the new name in **MFA device
+   name**, and then choose **Rename**. The
+   renamed device appears under **Multi-factor authentication devices
+   (MFA)**.
+
+### Deleting an MFA device
+
+###### To delete an MFA device
+
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. At the top right, choose the arrow next to the icon with your first
+   initial, and then choose **User profile**. The CodeCatalyst
+   **Profile** page opens.
+3. On the profile page, choose **Manage profile and
+   security**. The **AWS Builder ID** profile page
+   opens.
+4. Choose **Multi-factor authentication** on the left side
+   of the page. You'll see that **Delete** is grayed out when
+   you arrive at the page.
+5. Select the MFA device that you want to change. Choose
+   **Delete**. A modal appears that says **Delete
+   MFA device?**. Follow the instructions to delete your
+   device.
+6. Choose **Delete**. The deleted device no longer appears
+   under **Multi-factor authentication devices (MFA)**.

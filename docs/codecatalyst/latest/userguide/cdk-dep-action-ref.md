@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # 'AWS CDK deploy' action YAML
 
@@ -631,6 +629,91 @@ Configuration:
 ...then the action generates the following workflow output variables:
 
 | Key        | Value               |
-| ---------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | ------------------- |
 | bucketName | `bucket.bucketName` |
-| tableName  | `table.tableName`   | You can then reference the `bucketName` and `tableName` variables in subsequent actions. To learn how to reference workflow output variables in subsequent actions, see [Referencing a predefined variable](workflows-working-with-variables-reference-output-vars.md "workflows-working-with-variables-reference-output-vars.md"). If you do not specify any `CfnOutput` constructs in the `CfnOutputVariables` property, then the action exposes the first four (or fewer) CloudFormation output variables it finds as workflow output variables. For more information, see ['AWS CDK deploy' variables](cdk-dep-action-variables.md "cdk-dep-action-variables.md"). ###### Tip To obtain a list of all the CloudFormation output variables the action produces, run the workflow containing the **AWS CDK deploy** action once, and then look in the action's **Logs** tab. The logs contain a list of all the CloudFormation output variables associated with your AWS CDK app. Once you know what all the CloudFormation variables are, you can specify which ones you want to convert to workflow output variables using the `CfnOutputVariables` property. For more information about AWS CloudFormation output variables, see the documentation for the `CfnOutput` construct, available at [class CfnOutput (construct)](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md") in the _AWS Cloud Development Kit (AWS CDK) API Reference_. Corresponding UI: Configuration tab/**AWS CloudFormation output variables** ## CloudAssemblyRootPath (`CDKDeploy`/Configuration/**CloudAssemblyRootPath**) (Optional) If you have already synthesized your AWS CDK app's stack into a cloud assembly (using the `cdk synth` operation), specify the root path of the cloud assembly directory (`cdk.out`). The AWS CloudFormation template located in the specified cloud assembly directory will be deployed by the **AWS CDK deploy** action into your AWS account using the `cdk deploy --app` command. When the `--app` option is present, the `cdk synth` operation does not occur. If you do not specify a cloud assembly directory, then the **AWS CDK deploy** action will run the `cdk deploy` command without the `--app` option. Without the `--app` option, the `cdk deploy` operation will both synthesize (`cdk synth`) and deploy your AWS CDK app into your AWS account. **Why would I specify an existing, synthesized cloud assembly when the "AWS CDK deploy" action can do the synthesis at run time?** You might want to specify an existing, synthesized cloud assembly to: <br>• **Ensure that the exact same set of resources are deployed every time the "AWS CDK deploy" action runs** If you don't specify a cloud assembly, it's possible for the **AWS CDK deploy** action to synthesize and deploy different files depending on when it is run. For example, the **AWS CDK deploy** action might synthesize a cloud assembly with one set of dependencies during a testing stage, and another set of dependencies during a production stage (if those dependencies changed between stages). To guarantee exact parity between what is tested and what is deployed, we recommend synthesizing once and then using the **Path to cloud assembly directory** field (visual editor) or `CloudAssemblyRootPath` property (YAML editor) to specify the already-synthesized cloud assembly. <br>• **Use non-standard package managers and tooling with the AWS CDK app** During a `synth` operation, the **AWS CDK deploy** action tries to run your app using standard tools such as npm or pip. If the action can't successfully run your app using those tools, the synthesis will not occur and the action will fail. To work around this issue, you can specify the exact commands needed to run your app successfully in the AWS CDK app's `cdk.json` file, and then synthesize your app using a method that does not involve the **AWS CDK deploy** action. After the cloud assembly has been generated, you can specify it in the **Path to cloud assembly directory** field (visual editor) or `CloudAssemblyRootPath` property (YAML editor) of the **AWS CDK deploy** action. For information about configuring the `cdk.json` file to include commands for installing and running your AWS CDK app, see [Specifying the app command](../../../cdk/v2/guide/cli.md#cli-app-command "../../../cdk/v2/guide/cli.md#cli-app-command"). For information about the `cdk deploy` and `cdk synth` commands, as well as the `--app` option, see [Deploying stacks](../../../cdk/v2/guide/cli.md#cli-deploy "../../../cdk/v2/guide/cli.md#cli-deploy"), [Synthesizing stacks](../../../cdk/v2/guide/cli.md#cli-synth "../../../cdk/v2/guide/cli.md#cli-synth") and [Skipping synthesis](../../../cdk/v2/guide/cli.md#cli-deploy-nosynth "../../../cdk/v2/guide/cli.md#cli-deploy-nosynth") in the _AWS Cloud Development Kit (AWS CDK) Developer Guide_. For information about cloud assemblies, see [Cloud Assembly](../../../cdk/api/v2/docs/cloud-assembly-schema-readme.md "../../../cdk/api/v2/docs/cloud-assembly-schema-readme.md") in the _AWS Cloud Development Kit (AWS CDK) API Reference_. Corresponding UI: Configuration tab/**Path to cloud assembly directory** |
+| tableName  | `table.tableName`   |
+
+You can then reference the `bucketName` and `tableName` variables in
+subsequent actions. To learn how to reference workflow output variables in subsequent actions, see [Referencing a
+predefined variable](workflows-working-with-variables-reference-output-vars.md "workflows-working-with-variables-reference-output-vars.md").
+
+If you do not specify any `CfnOutput` constructs in the
+`CfnOutputVariables` property, then the action exposes the first four (or fewer) CloudFormation
+output variables it finds as workflow output variables. For more information, see ['AWS CDK deploy' variables](cdk-dep-action-variables.md "cdk-dep-action-variables.md").
+
+###### Tip
+
+To obtain a list of all the CloudFormation output variables the action produces, run the
+workflow containing the **AWS CDK deploy** action once, and then look in the
+action's **Logs** tab. The logs contain a list of all the CloudFormation output
+variables associated with your AWS CDK app. Once you know what all the CloudFormation variables are,
+you can specify which ones you want to convert to workflow output variables using the
+`CfnOutputVariables` property.
+
+For more information about AWS CloudFormation output variables, see the documentation for the
+`CfnOutput` construct, available at [class CfnOutput (construct)](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md") in the
+_AWS Cloud Development Kit (AWS CDK) API Reference_.
+
+Corresponding UI: Configuration tab/**AWS CloudFormation output variables**
+
+## CloudAssemblyRootPath
+
+(`CDKDeploy`/Configuration/**CloudAssemblyRootPath**)
+
+(Optional)
+
+If you have already synthesized your AWS CDK app's stack into a cloud assembly (using the
+`cdk synth` operation), specify the root path of the cloud assembly directory
+(`cdk.out`). The AWS CloudFormation template located in the specified cloud assembly
+directory will be deployed by the **AWS CDK deploy** action into your
+AWS account using the `cdk deploy --app` command. When the `--app`
+option is present, the `cdk synth` operation does not occur.
+
+If you do not specify a cloud assembly directory, then the **AWS CDK deploy**
+action will run the `cdk deploy` command without the `--app` option.
+Without the `--app` option, the `cdk deploy` operation will both
+synthesize (`cdk synth`) and deploy your AWS CDK app into your AWS account.
+
+**Why would I specify an existing, synthesized cloud assembly when the
+"AWS CDK deploy" action can do the synthesis at run time?**
+
+You might want to specify an existing, synthesized cloud assembly to:
+
+- **Ensure that the exact same set of resources are deployed every
+  time the "AWS CDK deploy" action runs**
+
+If you don't specify a cloud assembly, it's possible for the **AWS CDK
+deploy** action to synthesize and deploy different files depending on when it is
+run. For example, the **AWS CDK deploy** action might synthesize a cloud
+assembly with one set of dependencies during a testing stage, and another set of
+dependencies during a production stage (if those dependencies changed between stages). To
+guarantee exact parity between what is tested and what is deployed, we recommend
+synthesizing once and then using the **Path to cloud assembly directory**
+field (visual editor) or `CloudAssemblyRootPath` property (YAML editor) to specify the
+already-synthesized cloud assembly.
+
+- **Use non-standard package managers and tooling with the AWS CDK
+  app**
+
+During a `synth` operation, the **AWS CDK deploy** action
+tries to run your app using standard tools such as npm or pip. If the action can't
+successfully run your app using those tools, the synthesis will not occur and the action
+will fail. To work around this issue, you can specify the exact commands needed to run your
+app successfully in the AWS CDK app's `cdk.json` file, and then synthesize your app
+using a method that does not involve the **AWS CDK deploy** action. After the
+cloud assembly has been generated, you can specify it in the **Path to cloud assembly
+directory** field (visual editor) or `CloudAssemblyRootPath` property
+(YAML editor) of the **AWS CDK deploy** action.
+
+For information about configuring the `cdk.json` file to include commands for
+installing and running your AWS CDK app, see [Specifying the app command](../../../cdk/v2/guide/cli.md#cli-app-command "../../../cdk/v2/guide/cli.md#cli-app-command").
+
+For information about the `cdk deploy` and `cdk synth` commands, as
+well as the `--app` option, see [Deploying stacks](../../../cdk/v2/guide/cli.md#cli-deploy "../../../cdk/v2/guide/cli.md#cli-deploy"), [Synthesizing stacks](../../../cdk/v2/guide/cli.md#cli-synth "../../../cdk/v2/guide/cli.md#cli-synth") and [Skipping synthesis](../../../cdk/v2/guide/cli.md#cli-deploy-nosynth "../../../cdk/v2/guide/cli.md#cli-deploy-nosynth")
+in the _AWS Cloud Development Kit (AWS CDK) Developer Guide_.
+
+For information about cloud assemblies, see [Cloud Assembly](../../../cdk/api/v2/docs/cloud-assembly-schema-readme.md "../../../cdk/api/v2/docs/cloud-assembly-schema-readme.md") in the
+_AWS Cloud Development Kit (AWS CDK) API Reference_.
+
+Corresponding UI: Configuration tab/**Path to cloud assembly
+directory**

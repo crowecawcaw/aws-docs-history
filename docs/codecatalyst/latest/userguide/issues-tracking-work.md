@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Tracking work with issues
 
@@ -50,10 +48,12 @@ value of all issues will be converted automatically. The conversion mapping is
 shown in the following table.
 
 | T-shirt size | Fibonacci sequence |
-| ------------ | ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| ------------ | ------------------ |
 | XS           | 1                  |
 | XS           | 2                  |
 | S            | 3                  |
 | M            | 5                  |
 | L            | 8                  |
-| XL           | 13                 | To add or change an estimate for an issue, you can [edit the issue](issues-edit-issue.md "issues-edit-issue.md"). |
+| XL           | 13                 |
+
+To add or change an estimate for an issue, you can [edit the issue](issues-edit-issue.md "issues-edit-issue.md").

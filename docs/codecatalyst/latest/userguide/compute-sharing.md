@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Sharing compute across actions
 
@@ -75,10 +73,174 @@ actions in a workflow that use the same instance. Consider the following to dete
 appropriate for your scenario:
 
 |                                        | Compute sharing                                                   | Without compute sharing                                                |
-| -------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Compute type                           | Amazon EC2                                                        | Amazon EC2, AWS Lambda                                                 |
 | Instance provisioning                  | Actions run on same instance                                      | Actions run on separate instances                                      |
 | Operating system                       | Amazon Linux 2                                                    | Amazon Linux 2, Windows Server 2022 (build action only)                |
 | Referencing files                      | `$CATALYST_SOURCE_DIR_WorkflowSource`, `/sources/WorkflowSource/` | `$CATALYST_SOURCE_DIR_WorkflowSource`, `/sources/WorkflowSource/`      |
 | Workflow structure                     | Actions can only run sequentially                                 | Actions can run parallel                                               |
-| Accessing data across workflow actions | Access cached workflow source (`WorkflowSource`)                  | Access outputs of shared artifacts (requires additional configuration) | ## Turning on compute sharing Use the following instruction to turn on compute sharing for a workflow. Visual ###### To turn on compute sharing using the visual editor 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/"). 2. Choose your project. 3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**. 4. Choose the name of your workflow. 5. Choose **Edit**. 6. Choose **Visual**. 7. Choose **Workflow properties**. 8. From the **Compute type** dropdown menu, choose **EC2**. 9. (Optional) From the **Compute fleet - optional** dropdown menu, choose a fleet you want to use to run workflow actions. You can choose an on-demand fleet or create and choose a provisioned fleet. For more information, see [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md") and [Assigning a fleet or compute to an action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md") 10. Switch the toggle to turn on compute sharing and have actions in the workflow run on the same fleet. 11. (Optional) Choose the run mode for the workflow. For more information, see [Configuring the queuing behavior of runs](workflows-configure-runs.md "workflows-configure-runs.md"). 12. Choose **Commit**, enter a commit message, and choose **Commit** again. YAML ###### To turn on compute sharing using the YAML editor 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/"). 2. Choose your project. 3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**. 4. Choose the name of your workflow. 5. Choose **Edit**. 6. Choose **YAML**. 7. Turn on compute sharing setting the `SharedInstance` field to `TRUE` and `Type` to `EC2`. Set `Fleet` to a compute fleet you want to use to run workflow actions. You can choose an on-demand fleet or create and choose a provisioned fleet. For more information, see [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md") and [Assigning a fleet or compute to an action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md") In a workflow YAML, add code similar to the following: ``Name: MyWorkflow SchemaVersion: "1.0" Compute: # Define compute configuration. Type: EC2 Fleet: `MyFleet` # Optionally, choose an on-demand or provisioned fleet. SharedInstance: true # Turn on compute sharing. Default is False. Actions: BuildFirst: Identifier: aws/build@v1 Inputs: Sources: <br>• WorkflowSource Configuration: Steps: <br>• Run: ... ...`` 8. (Optional) Choose **Validate** to validate the workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message, and choose **Commit** again. ## Examples ###### Topics <br>• [Example: Amazon S3 Publish](#compute-share-s3 "#compute-share-s3") ### Example: Amazon S3 Publish The following workflow examples show how to perform the Amazon Amazon S3 Publish action in two ways: first using input artifacts and then using compute sharing. With compute sharing, the input artifacts aren't needed since you can access the cached `WorkflowSource`. Additionally, the output artifact in the Build action is no longer needed. The S3 Publish action is configured to use the explicit `DependsOn` property to maintain sequential actions; the Build action must run successfully in order for the S3 Publish action to run. <br>• Without compute sharing, you need to use input artifacts and share the outputs with subsequent actions: `Name: S3PublishUsingInputArtifact SchemaVersion: "1.0" Actions: Build: Identifier: aws/build@v1 Outputs: Artifacts: <br>• Name: ArtifactToPublish Files: [output.zip] Inputs: Sources: <br>• WorkflowSource Configuration: Steps: <br>• Run: ./build.sh # Build script that generates output.zip PublishToS3: Identifier: aws/s3-publish@v1 Inputs: Artifacts: <br>• ArtifactToPublish Environment: Connections: <br>• Role: codecatalyst-deployment-role Name: dev-deployment-role Name: dev-connection Configuration: SourcePath: output.zip DestinationBucketName: amzn-s3-demo-bucket` <br>• When using compute sharing by setting `SharedInstance` to `TRUE`, you can run multiple actions on the same instance and share artifacts by specifying a single workflow source. Input artifacts aren't required and can't be specified: `Name: S3PublishUsingComputeSharing SchemaVersion: "1.0" Compute: Type: EC2 Fleet: dev-fleet SharedInstance: TRUE Actions: Build: Identifier: aws/build@v1 Inputs: Sources: <br>• WorkflowSource Configuration: Steps: <br>• Run: ./build.sh # Build script that generates output.zip PublishToS3: Identifier: aws/s3-publish@v1 DependsOn: <br>• Build Environment: Connections: <br>• Role: codecatalyst-deployment-role Name: dev-deployment-role Name: dev-connection Configuration: SourcePath: output.zip DestinationBucketName: amzn-s3-demo-bucket` |
+| Accessing data across workflow actions | Access cached workflow source (`WorkflowSource`)                  | Access outputs of shared artifacts (requires additional configuration) |
+
+## Turning on compute sharing
+
+Use the following instruction to turn on compute sharing for a workflow.
+
+Visual
+
+###### To turn on compute sharing using the visual editor
+
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Choose your project.
+3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
+4. Choose the name of your workflow.
+5. Choose **Edit**.
+6. Choose **Visual**.
+7. Choose **Workflow properties**.
+8. From the **Compute type** dropdown menu, choose
+   **EC2**.
+9. (Optional) From the **Compute fleet - optional** dropdown
+   menu, choose a fleet you want to use to run workflow actions. You can choose an
+   on-demand fleet or create and choose a provisioned fleet. For more information, see
+   [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md") and
+   [Assigning a fleet or compute to an
+   action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md")
+10. Switch the toggle to turn on compute sharing and have actions in the
+    workflow run on the same fleet.
+11. (Optional) Choose the run mode for the workflow. For more information,
+    see [Configuring the queuing behavior of runs](workflows-configure-runs.md "workflows-configure-runs.md").
+12. Choose **Commit**, enter a commit message, and
+    choose **Commit** again.
+
+YAML
+
+###### To turn on compute sharing using the YAML editor
+
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Choose your project.
+3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
+4. Choose the name of your workflow.
+5. Choose **Edit**.
+6. Choose **YAML**.
+7. Turn on compute sharing setting the `SharedInstance` field
+   to `TRUE` and `Type` to `EC2`. Set
+   `Fleet` to a compute fleet you want to use to run workflow actions.
+   You can choose an on-demand fleet or create and choose a provisioned fleet.
+   For more information, see
+   [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md") and
+   [Assigning a fleet or compute to an
+   action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md")
+
+In a workflow YAML, add code similar to the following:
+
+```
+
+  Name: MyWorkflow
+  SchemaVersion: "1.0"
+  Compute: # Define compute configuration.
+    Type: EC2
+    Fleet: `MyFleet` # Optionally, choose an on-demand or provisioned fleet.
+    SharedInstance: true # Turn on compute sharing. Default is False.
+  Actions:
+    BuildFirst:
+      Identifier: aws/build@v1
+      Inputs:
+        Sources:
+          - WorkflowSource
+      Configuration:
+        Steps:
+          - Run: ...
+          ...
+
+```
+
+8. (Optional) Choose **Validate** to validate the
+   workflow's YAML code before committing.
+9. Choose **Commit**, enter a commit message, and
+   choose **Commit** again.
+
+## Examples
+
+###### Topics
+
+- [Example: Amazon S3 Publish](#compute-share-s3 "#compute-share-s3")
+
+### Example: Amazon S3 Publish
+
+The following workflow examples show how to perform the Amazon Amazon S3 Publish action in
+two ways: first using input artifacts and then using compute sharing. With compute sharing,
+the input artifacts aren't needed since you can access the cached
+`WorkflowSource`. Additionally, the output artifact in the Build action is no
+longer needed. The S3 Publish action is configured to use the explicit `DependsOn` property
+to maintain sequential actions; the Build action must run successfully in order for the S3
+Publish action to run.
+
+- Without compute sharing, you need to use input artifacts and share the outputs with subsequent actions:
+
+```
+
+Name: S3PublishUsingInputArtifact
+SchemaVersion: "1.0"
+Actions:
+  Build:
+    Identifier: aws/build@v1
+    Outputs:
+      Artifacts:
+        - Name: ArtifactToPublish
+          Files: [output.zip]
+    Inputs:
+      Sources:
+        - WorkflowSource
+    Configuration:
+      Steps:
+        - Run: ./build.sh # Build script that generates output.zip
+  PublishToS3:
+    Identifier: aws/s3-publish@v1
+    Inputs:
+      Artifacts:
+      - ArtifactToPublish
+    Environment:
+      Connections:
+        - Role: codecatalyst-deployment-role
+          Name: dev-deployment-role
+      Name: dev-connection
+    Configuration:
+      SourcePath: output.zip
+      DestinationBucketName: amzn-s3-demo-bucket
+
+```
+
+- When using compute sharing by setting `SharedInstance` to `TRUE`,
+  you can run multiple actions on the same instance and share artifacts by specifying a single
+  workflow source. Input artifacts aren't required and can't be specified:
+
+```
+
+Name: S3PublishUsingComputeSharing
+SchemaVersion: "1.0"
+Compute:
+  Type: EC2
+  Fleet: dev-fleet
+  SharedInstance: TRUE
+Actions:
+  Build:
+    Identifier: aws/build@v1
+    Inputs:
+      Sources:
+        - WorkflowSource
+    Configuration:
+      Steps:
+        - Run: ./build.sh # Build script that generates output.zip
+  PublishToS3:
+    Identifier: aws/s3-publish@v1
+    DependsOn:
+      - Build
+    Environment:
+      Connections:
+        - Role: codecatalyst-deployment-role
+          Name: dev-deployment-role
+      Name: dev-connection
+    Configuration:
+      SourcePath: output.zip
+      DestinationBucketName: amzn-s3-demo-bucket
+
+```

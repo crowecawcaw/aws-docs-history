@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Troubleshooting problems with workflows
 
@@ -393,9 +391,318 @@ authentication information.
       choose **Secrets**.
    4. Create two secrets with the following properties:
 
-| First secret                                                                                                                                                                                                                            | Second secret                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**: `npmUsername` **Value**: `npm-username`, where `npm-username` is the username used to authenticate to your private npm registry. (Optional) **Description**: `The username used to authenticate to the private npm registry.` | **Name**: `npmAuthToken` **Value**: `npm-auth-token`, where `npm-auth-token` is the access token used to authenticate to your private npm registry. For more information about npm access tokens, see [About access tokens](https://docs.npmjs.com/about-access-tokens "https://docs.npmjs.com/about-access-tokens") in the npm documentation. (Optional) **Description**: `The access token used to authenticate to the private npm registry.` | For more information about secrets, see [Masking data using secrets](workflows-secrets.md "workflows-secrets.md"). 2. Add the secrets as environment variables to your AWS CDK action. The action will replace the variables with real values when it runs. To add the secrets: 1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**. 2. Choose the name of your workflow. You can filter by the source repository or branch name where the workflow is defined, or filter by workflow name or status. 3. Choose **Edit**. 4. Choose **Visual**. 5. In the workflow diagram, choose your AWS CDK action. 6. Choose the **Inputs** tab. 7. Add two variables with the following properties:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| First variable                                                                                                                                                                                                                          | Second variable                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---                                                                                                                                                                                                                                     | ---                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Name**: `NPMUSER` **Value**: `${Secrets.npmUsername}`                                                                                                                                                                                 | **Name**: `NPMTOKEN` **Value**: `${Secrets.npmAuthToken}`                                                                                                                                                                                                                                                                                                                                                                                       | You now have two variables containing references to secrets.Your workflow definition file YAML code should look similar to the following: ###### Note The following code sample is from an **AWS CDK bootstrap** action; a **AWS CDK deploy** action will look similar. `Name: CDK_Bootstrap_Action SchemaVersion: 1.0 Actions: CDKBootstrapAction: Identifier: aws/cdk-bootstrap@v2 Inputs: Variables: <br>• Name: NPMUSER Value: ${Secrets.npmUsername} <br>• Name: NPMTOKEN Value: ${Secrets.npmAuthToken} Sources: <br>• WorkflowSource Environment: Name: Dev2 Connections: <br>• Name: account-connection Role: codecatalystAdmin Configuration: Parameters: Region: "us-east-2"` You are now ready to use the `NPMUSER` and `NPMTOKEN` variables in your `cdk.json` file. Go to the next procedure. ###### To update your cdk.json file 1. Change to the root directory of your AWS CDK project, and open the `cdk.json` file. 2. Find the `"app":` property, and change it to include the code shown in `red italics`: ###### Note The following sample code is from a TypeScript project. If you're using a JavaScript project, the code will look similar though not identical. ```{ "app":`"npm set registry=https://your-registry/folder/CDK-package/ --userconfig .npmrc && npm set //your-registry/folder/CDK-package/:always-auth=true --userconfig .npmrc && npm set //your-registry/folder/CDK-package/:\_authToken=\"${NPMUSER}\":\"${NPMTOKEN}\" && npm install && npx ts-node --prefer-ts-exts bin/hello-cdk.ts | js",`"watch": { "include": [ "**" ], "exclude": [ "README.md", "cdk*.json", "**/*.d.ts", "**/*.js", "tsconfig.json", "package*.json", ... ``` 3. In the code highlighted in`red italics`, replace: <br>• `your-registry/folder/CDK-package/`with the path to your AWS CDK project dependencies in your private registry. <br>•`hello-cdk.ts | .js`with the name of your entrypoint file. This may be a`.ts`(TypeScript) or`.js`(JavaScript) file depending on the language you're using. ###### Note The action will replace the`NPMUSER`and`NPMTOKEN`variables with the npm username and access token that you specified in **Secrets**. 4. Save your`cdk.json`file. 5. Re-run the action manually to see if the changes fix the error. For more information about running actions manually, see [Starting a workflow run manually](workflows-manually-start.md "workflows-manually-start.md"). ## Why do multiple workflows have the same name? Workflows are stored per branch per repository. Two different workflows can have the same name if they exist in different branches. In the Workflows page, you can differentiate workflows of the same name by looking at the branch name. For more information, see [Organizing your source code work with branches in Amazon CodeCatalyst](source-branches.md "source-branches.md"). ![Workflow branch](images/flows/workflow-branch.png) ## Can I store my workflow definition files in another folder? No, you must store all workflow definition files in the`.codecatalyst/workflows`folder, or in subfolders of that folder. If you are using a mono repo with multiple logical projects, place all your workflow definition files in the`.codecatalyst/workflows`folder or one of its subfolders, and then use the **Files changed** field (visual editor) or`FilesChanged`property (YAML editor) inside a trigger to trigger the workflow automatically at a specified project path. For more information, see [Adding triggers to workflows](workflows-add-trigger-add.md "workflows-add-trigger-add.md") and [Example: A trigger with a push, branches, and files](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-multi "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-multi"). ## How do I add actions in sequence to my workflow? By default, when you add an action to your workflow, it will have no dependencies and will run in parallel with other actions. If you want to arrange actions in sequence, you can set a dependency on another action by setting the`DependsOn`field. You can also configure an action to consume artifacts or variables which are outputs of other actions. For more information, see [Sequencing actions](workflows-depends-on.md "workflows-depends-on.md"). ## Why does my workflow successfully validate but fail at runtime? If you validated your workflow using the`Validate`button, but your workflow failed anyway, it might because a limitation in the validator. Any errors in reference to a CodeCatalyst resource like secrets, environments, or fleets in the workflow configuration will not register during a commit. If any references that aren't valid are used, the error will only be identified when a workflow is run. Similarly, if there are any errors in your action configuration like missing a required field or typos in action attributes, they will be identified only when the workflow is run. For more information, see [Creating a workflow](workflows-create-workflow.md "workflows-create-workflow.md"). ## Auto-discovery doesn't discover any reports for my action **Problem:** I configured auto-discovery for an action that runs tests, but no reports are discovered by CodeCatalyst. **Possible fixes:** This might be caused by a number of issues. Try one or more of the following solutions: <br>• Make sure that the tool used to run tests produces outputs in one of the formats that CodeCatalyst understands. For example, if you would like`pytest`to allow CodeCatalyst to discover test and code coverage reports, include the following arguments: ``` --junitxml=test_results.xml --cov-report xml:test_coverage.xml ``` For more information, see [Quality report types](test-workflow-actions.md#test-reporting "test-workflow-actions.md#test-reporting"). <br>• Make sure that the file extension for the outputs are consistent with the chosen format. For example, when configuring`pytest`to produce results in`JUnitXML`format, check that the file extension is`.xml`. For more information, see [Quality report types](test-workflow-actions.md#test-reporting "test-workflow-actions.md#test-reporting"). <br>• Make sure that `IncludePaths` is configured to include the entire file system (`**/\*`) unless you are excluding certain folders on purpose. Similarly, make sure that `ExcludePaths` don't exclude directories where you expect your reports to be located. <br>• If you manually configured a report to use a specific output file, it will be excluded from auto-discovery. For more information, see [Quality reports YAML example](test-config-action.md#test.success-criteria-example "test-config-action.md#test.success-criteria-example"). <br>• Auto-discovery may not find reports because the action failed before any outputs were generated. For example, the build may have failed before any unit tests have been run. ## My action fails on auto-discovered reports after I configure success criteria **Problem:** When I enable auto-discovery and configure success criteria, some of the reports don't meet the success criteria and the action fails as a result. **Possible fixes:** To resolve this, try one or more of the following solutions: <br>• Modify `IncludePaths` or `ExcludePaths` to exclude reports that you are not interested in. <br>• Update success criteria to allow all reports to pass. For example, if two reports were discovered with one having line coverage of 50% and another one of 70%, adjust the minimum line coverage to 50%. For more information, see [Success criteria](test-best-practices.md#test.best-success-criteria "test-best-practices.md#test.best-success-criteria") <br>• Turn the failing report into a manually configured report. This allows you to configure different success criteria for that specific report. For more information, see [Configuring success criteria for reports](test-config-action.md#test.success-criteria "test-config-action.md#test.success-criteria"). ## Auto-discovery generates reports that I don't want **Problem:** When I enable auto-discovery, it generates reports that I don't want. For example, CodeCatalyst generates code coverage reports for files included in my application’s dependencies stored in `node_modules`. **Possible fixes:** You can adjust the `ExcludePaths` configuration to exclude unwanted files. For example, to exclude `node_modules`, add `node_modules/**/*`. For more information, see [Include/exclude paths](test-best-practices.md#test.best-include-exclude "test-best-practices.md#test.best-include-exclude"). ## Auto-discovery generates many small reports for a single test framework **Problem:** When I use certain test and code coverage reporting frameworks, I noticed that auto-discovery generates a large number of reports. For example, when using the [Maven Surefire Plugin](https://maven.apache.org/surefire/maven-surefire-plugin/ "https://maven.apache.org/surefire/maven-surefire-plugin/"), auto-discovery produces a different report for each test class. **Possible fixes:** Your framework may be able to aggregate outputs into a single file. For example, if you are using Maven Surefire Plugin, you can use `npx junit-merge`to aggregate the files manually. The full expression may look like this: ``` mvn test; cd`test-package-path`/surefire-reports && npx junit-merge -d ./ && rm *Test.xml ```## Workflows listed under CI/CD don't match those in the source repository **Problem:** The workflows displayed on the **CI/CD**, **Workflows** page do not match those in the`~/.codecatalyst/workflows/` folder in your [source repository](source.md "source.md"). You may see the following mismatches: <br>• A workflow appears on the **Workflows** page, but a corresponding workflow definition file does not exist in your source repository. <br>• A workflow definition file exists in your source repository, but a corresponding workflow does not appear on the **Workflows** page. <br>• A workflow exists in both the source repository and **Workflows** page, but the two are different. This problem may occur if the **Workflows** page hasn't had time to refresh, or if a workflow quota was exceeded. **Possible fixes:** <br>• Wait. You usually have to wait two or three seconds after a commit to source before you see the change on the **Workflows** page. <br>• If you've exceeded a workflow quota, do one of the following: ###### Note To determine whether a workflow quota was exceeded, review [Quotas for workflows in CodeCatalyst](workflows-quotas.md "workflows-quotas.md"), and cross-check the documented quotas against the workflows in your source repository or on the **Workflows** page. There is no error message to indicate that a quota was exceeded, so you'll have to investigate on your own. + If you've exceeded the **Maximum number of workflows per space** quota, delete some workflows and then perform a test commit against the workflow definition file. An example of a test commit might be to add a space to the file. + If you've exceeded the **Maximum workflow definition file size** quota, change the workflow definition file to reduce its length. + If you've exceeded the **Maximum number of workflow files processed in a single source event** quota, perform several test commits. Modify fewer than the maximum number of workflows in each commit. ## I can't create or update workflows **Problem:** I want create or update a workflow, but I see an error when I try to commit the change. **Possible fixes:** Depending on your role in the project or space, you might not have permissions to push code to source repositories in the project. The YAML files for workflows are stored in repositories. For more information, see [Workflow definition files](workflows-concepts.md#workflows-concepts-workflows-def "workflows-concepts.md#workflows-concepts-workflows-def"). The **Space administrator** role, **Project administrator** role, and **Contributor** role all have permission to commit and push code to repositories in a project. If you have the **Contributor** role but cannot create or commit changes to workflow YAML in a specific branch, there might be a branch rule configured for that branch that prevents users with that role from pushing code to that particular branch. Try creating a workflow in a different branch, or commiting your changes to a different branch. For more information, see [Manage allowed actions for a branch with branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md"). |
+   | First secret                                                                                                                                                                                                                                                       | Second secret                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+   | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **Name**:<br>`npmUsername`<br>**Value**:<br>`npm-username`, where<br>`npm-username` is the<br>username used to authenticate to your private npm<br>registry.<br>(Optional) **Description**:<br>`The username used to authenticate to the<br>private npm registry.` | **Name**:<br>`npmAuthToken`<br>**Value**:<br>`npm-auth-token`, where<br>`npm-auth-token` is the<br>access token used to authenticate to your private<br>npm registry. For more information about npm access<br>tokens, see [About access tokens](https://docs.npmjs.com/about-access-tokens "https://docs.npmjs.com/about-access-tokens") in the npm<br>documentation.<br>(Optional) **Description**:<br>`The access token used to authenticate to the<br>private npm registry.` |
+
+   For more information about secrets, see [Masking data using secrets](workflows-secrets.md "workflows-secrets.md").
+
+2. Add the secrets as environment variables to your AWS CDK action. The action will
+   replace the variables with real values when it runs. To add the secrets:
+   1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
+   2. Choose the name of your workflow. You can filter by the source
+      repository or branch name where the workflow is defined, or filter
+      by workflow name or status.
+   3. Choose **Edit**.
+   4. Choose **Visual**.
+   5. In the workflow diagram, choose your AWS CDK action.
+   6. Choose the **Inputs** tab.
+   7. Add two variables with the following properties:
+
+   | First variable                                                   | Second variable                                                    |
+   | ---------------------------------------------------------------- | ------------------------------------------------------------------ |
+   | **Name**:<br>`NPMUSER`<br>**Value**:<br>`${Secrets.npmUsername}` | **Name**:<br>`NPMTOKEN`<br>**Value**:<br>`${Secrets.npmAuthToken}` |
+
+   You now have two variables containing references to secrets.Your workflow definition file YAML code should look similar to the
+   following:
+
+###### Note
+
+The following code sample is from an **AWS CDK bootstrap**
+action; a **AWS CDK deploy** action will look similar.
+
+```
+Name: CDK_Bootstrap_Action
+SchemaVersion: 1.0
+Actions:
+  CDKBootstrapAction:
+    Identifier: aws/cdk-bootstrap@v2
+    Inputs:
+      Variables:
+        - Name: NPMUSER
+          Value: ${Secrets.npmUsername}
+        - Name: NPMTOKEN
+          Value: ${Secrets.npmAuthToken}
+      Sources:
+        - WorkflowSource
+    Environment:
+      Name: Dev2
+      Connections:
+        - Name: account-connection
+          Role: codecatalystAdmin
+    Configuration:
+      Parameters:
+        Region: "us-east-2"
+```
+
+You are now ready to use the `NPMUSER` and `NPMTOKEN`
+variables in your `cdk.json` file. Go to the next
+procedure.
+
+###### To update your cdk.json file
+
+1. Change to the root directory of your AWS CDK project, and open the
+   `cdk.json` file.
+2. Find the `"app":` property, and change it to include the code shown
+   in `red italics`:
+
+###### Note
+
+The following sample code is from a TypeScript project. If you're using a
+JavaScript project, the code will look similar though not identical.
+
+```
+{
+  "app": `"npm set registry=https://your-registry/folder/CDK-package/ --userconfig .npmrc && npm set //your-registry/folder/CDK-package/:always-auth=true --userconfig .npmrc && npm set //your-registry/folder/CDK-package/:_authToken=\"${NPMUSER}\":\"${NPMTOKEN}\" && npm install && npx ts-node --prefer-ts-exts bin/hello-cdk.ts|js",`
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "**/*.d.ts",
+      "**/*.js",
+      "tsconfig.json",
+      "package*.json",
+...
+```
+
+3. In the code highlighted in `red italics`,
+   replace:
+   - `your-registry/folder/CDK-package/`
+     with the path to your AWS CDK project dependencies in your private
+     registry.
+   - `hello-cdk.ts|.js` with the name of your
+     entrypoint file. This may be a `.ts` (TypeScript) or
+     `.js` (JavaScript) file depending on the language you're
+     using.
+
+   ###### Note
+
+   The action will replace the `NPMUSER` and
+   `NPMTOKEN` variables with the npm
+   username and access token that you specified in
+   **Secrets**.
+
+4. Save your `cdk.json` file.
+5. Re-run the action manually to see if the changes fix the error. For more
+   information about running actions manually, see [Starting a workflow run manually](workflows-manually-start.md "workflows-manually-start.md").
+
+## Why do multiple workflows have the same
+
+name?
+
+Workflows are stored per branch per repository. Two different workflows can have the
+same name if they exist in different branches. In the Workflows page, you can
+differentiate workflows of the same name by looking at the branch name. For more
+information, see [Organizing your source code work with branches in
+Amazon CodeCatalyst](source-branches.md "source-branches.md").
+
+![Workflow branch](images/flows/workflow-branch.png)
+
+## Can I store my workflow definition
+
+files in another folder?
+
+No, you must store all workflow definition files in the
+`.codecatalyst/workflows` folder, or in subfolders of that folder. If
+you are using a mono repo with multiple logical projects, place all your workflow
+definition files in the `.codecatalyst/workflows` folder or one of its
+subfolders, and then use the **Files changed** field (visual editor) or
+`FilesChanged` property (YAML editor) inside a trigger to trigger the
+workflow automatically at a specified project path. For more information,
+see [Adding triggers to workflows](workflows-add-trigger-add.md "workflows-add-trigger-add.md") and [Example: A trigger with
+a push, branches, and files](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-multi "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-multi").
+
+## How do I add actions in sequence to
+
+my workflow?
+
+By default, when you add an action to your workflow, it will have no dependencies and
+will run in parallel with other actions.
+
+If you want to arrange actions in sequence, you can set a dependency on another action
+by setting the `DependsOn` field. You can also configure an action to consume
+artifacts or variables which are outputs of other actions. For more information, see
+[Sequencing actions](workflows-depends-on.md "workflows-depends-on.md").
+
+## Why does my workflow successfully
+
+validate but fail at runtime?
+
+If you validated your workflow using the `Validate` button, but your
+workflow failed anyway, it might because a limitation in the validator.
+
+Any errors in reference to a CodeCatalyst resource like secrets, environments, or fleets in
+the workflow configuration will not register during a commit. If any references that
+aren't valid are used, the error will only be identified when a workflow is run.
+Similarly, if there are any errors in your action configuration like missing a required
+field or typos in action attributes, they will be identified only when the workflow is
+run. For more information, see [Creating a workflow](workflows-create-workflow.md "workflows-create-workflow.md").
+
+## Auto-discovery doesn't discover
+
+any reports for my action
+
+**Problem:** I configured auto-discovery for an action
+that runs tests, but no reports are discovered by CodeCatalyst.
+
+**Possible fixes:** This might be caused by a number of
+issues. Try one or more of the following solutions:
+
+- Make sure that the tool used to run tests produces outputs in one of the
+  formats that CodeCatalyst understands. For example, if you would like
+  `pytest` to allow CodeCatalyst to discover test and code coverage
+  reports, include the following arguments:
+
+```
+--junitxml=test_results.xml --cov-report xml:test_coverage.xml
+```
+
+For more information, see [Quality report types](test-workflow-actions.md#test-reporting "test-workflow-actions.md#test-reporting").
+
+- Make sure that the file extension for the outputs are consistent with the
+  chosen format. For example, when configuring `pytest` to produce
+  results in `JUnitXML` format, check that the file extension is
+  `.xml`. For more information, see [Quality report types](test-workflow-actions.md#test-reporting "test-workflow-actions.md#test-reporting").
+- Make sure that `IncludePaths` is configured to include the entire
+  file system (`**/*`) unless you are excluding certain folders on
+  purpose. Similarly, make sure that `ExcludePaths` don't exclude
+  directories where you expect your reports to be located.
+- If you manually configured a report to use a specific output file, it will be
+  excluded from auto-discovery. For more information, see [Quality reports YAML example](test-config-action.md#test.success-criteria-example "test-config-action.md#test.success-criteria-example").
+- Auto-discovery may not find reports because the action failed before any
+  outputs were generated. For example, the build may have failed before any unit
+  tests have been run.
+
+## My action fails on
+
+auto-discovered reports after I configure success criteria
+
+**Problem:** When I enable auto-discovery and configure
+success criteria, some of the reports don't meet the success criteria and the action
+fails as a result.
+
+**Possible fixes:** To resolve this, try one or more of
+the following solutions:
+
+- Modify `IncludePaths` or `ExcludePaths` to exclude
+  reports that you are not interested in.
+- Update success criteria to allow all reports to pass. For example, if two
+  reports were discovered with one having line coverage of 50% and another one of
+  70%, adjust the minimum line coverage to 50%. For more information, see [Success criteria](test-best-practices.md#test.best-success-criteria "test-best-practices.md#test.best-success-criteria")
+- Turn the failing report into a manually configured report. This allows you to
+  configure different success criteria for that specific report. For more
+  information, see [Configuring success criteria for reports](test-config-action.md#test.success-criteria "test-config-action.md#test.success-criteria").
+
+## Auto-discovery generates
+
+reports that I don't want
+
+**Problem:** When I enable auto-discovery, it generates
+reports that I don't want. For example, CodeCatalyst generates code coverage reports for files
+included in my application’s dependencies stored in `node_modules`.
+
+**Possible fixes:** You can adjust the
+`ExcludePaths` configuration to exclude unwanted files. For example, to
+exclude `node_modules`, add `node_modules/**/*`. For more
+information, see [Include/exclude paths](test-best-practices.md#test.best-include-exclude "test-best-practices.md#test.best-include-exclude").
+
+## Auto-discovery generates many small
+
+reports for a single test framework
+
+**Problem:** When I use certain test and code coverage
+reporting frameworks, I noticed that auto-discovery generates a large number of reports.
+For example, when using the [Maven Surefire
+Plugin](https://maven.apache.org/surefire/maven-surefire-plugin/ "https://maven.apache.org/surefire/maven-surefire-plugin/"), auto-discovery produces a different report for each test class.
+
+**Possible fixes:** Your framework may be able to
+aggregate outputs into a single file. For example, if you are using Maven Surefire
+Plugin, you can use `npx junit-merge` to aggregate the files manually. The
+full expression may look like this:
+
+```
+mvn test; cd `test-package-path`/surefire-reports && npx junit-merge -d ./ && rm *Test.xml
+```
+
+## Workflows listed under CI/CD don't
+
+match those in the source repository
+
+**Problem:** The workflows displayed on the
+**CI/CD**, **Workflows** page do not match those
+in the `~/.codecatalyst/workflows/` folder in your [source repository](source.md "source.md"). You may see the following
+mismatches:
+
+- A workflow appears on the **Workflows** page, but a
+  corresponding workflow definition file does not exist in your source
+  repository.
+- A workflow definition file exists in your source repository, but a
+  corresponding workflow does not appear on the **Workflows**
+  page.
+- A workflow exists in both the source repository and
+  **Workflows** page, but the two are different.
+
+This problem may occur if the **Workflows** page hasn't had time to
+refresh, or if a workflow quota was exceeded.
+
+**Possible fixes:**
+
+- Wait. You usually have to wait two or three seconds after a commit to source
+  before you see the change on the **Workflows** page.
+- If you've exceeded a workflow quota, do one of the following:
+
+###### Note
+
+To determine whether a workflow quota was exceeded, review [Quotas for workflows in CodeCatalyst](workflows-quotas.md "workflows-quotas.md"), and
+cross-check the documented quotas against the workflows in your source
+repository or on the **Workflows** page. There is no
+error message to indicate that a quota was exceeded, so you'll have to
+investigate on your own.
+
+    + If you've exceeded the **Maximum number of
+     workflows per space** quota, delete some workflows and then
+     perform a test commit against the workflow definition file. An example
+     of a test commit might be to add a space to the file.
+    + If you've exceeded the **Maximum workflow
+     definition file size** quota, change the workflow
+     definition file to reduce its length.
+    + If you've exceeded the **Maximum number of
+     workflow files processed in a single source event** quota,
+     perform several test commits. Modify fewer than the maximum number of
+     workflows in each commit.
+
+## I can't create or update
+
+workflows
+
+**Problem:** I want create or update a workflow, but I
+see an error when I try to commit the change.
+
+**Possible fixes:** Depending on your role in the project
+or space, you might not have permissions to push code to source repositories in the
+project. The YAML files for workflows are stored in repositories. For more information,
+see [Workflow definition files](workflows-concepts.md#workflows-concepts-workflows-def "workflows-concepts.md#workflows-concepts-workflows-def"). The
+**Space administrator** role,
+**Project administrator** role, and
+**Contributor** role all have permission to commit and push
+code to repositories in a project.
+
+If you have the **Contributor** role but cannot create or
+commit changes to workflow YAML in a specific branch, there might be a branch rule
+configured for that branch that prevents users with that role from pushing code to that
+particular branch. Try creating a workflow in a different branch, or commiting your
+changes to a different branch. For more information, see [Manage allowed actions for a branch with
+branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").

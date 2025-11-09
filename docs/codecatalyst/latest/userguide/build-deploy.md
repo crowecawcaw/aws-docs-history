@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Tutorial: Upload artifacts to Amazon S3
 
@@ -351,11 +349,42 @@ After the workflow runs, go to the Amazon S3 service and look in your
 `codecatalyst-artifact-bucket` bucket. It should now
 include the following files and folders:
 
-````
+```
 .
 |— .aws/
 |— .git/
 |Goodbye.txt
 |Hello.txt
-|REAME.md ``` The `Goodbye.txt` and `Hello.txt` files were uploaded because they were part of the `codecatalystArtifact` artifact. The `.aws/`, `.git/`, and `README.md` files were uploaded because they were in your source repository. ## Clean up Clean up in CodeCatalyst and AWS to avoid being charged for these services. ###### To clean up in CodeCatalyst 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/"). 2. Delete the `codecatalyst-artifact-source-repository` source repository. 3. Delete the `codecatalyst-artifact-workflow` workflow. ###### To clean up in AWS 1. Clean up in Amazon S3, as follows: 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. Delete the files in the `codecatalyst-artifact-bucket` bucket. 3. Delete the `codecatalyst-artifact-bucket` bucket. 2. Clean up in IAM, as follows: 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. Delete the `codecatalyst-s3-build-policy`. 3. Delete the `codecatalyst-s3-build-role`.
-````
+|REAME.md
+```
+
+The `Goodbye.txt` and `Hello.txt` files were
+uploaded because they were part of the `codecatalystArtifact` artifact.
+The `.aws/`, `.git/`, and `README.md` files were
+uploaded because they were in your source repository.
+
+## Clean up
+
+Clean up in CodeCatalyst and AWS to avoid being charged for these services.
+
+###### To clean up in CodeCatalyst
+
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Delete the `codecatalyst-artifact-source-repository` source
+   repository.
+3. Delete the `codecatalyst-artifact-workflow` workflow.
+
+###### To clean up in AWS
+
+1. Clean up in Amazon S3, as follows:
+   1. Open the Amazon S3 console at
+      [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+   2. Delete the files in the `codecatalyst-artifact-bucket`
+      bucket.
+   3. Delete the `codecatalyst-artifact-bucket` bucket.
+
+2. Clean up in IAM, as follows:
+   1. Open the IAM console at
+      [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+   2. Delete the `codecatalyst-s3-build-policy`.
+   3. Delete the `codecatalyst-s3-build-role`.

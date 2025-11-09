@@ -1,6 +1,4 @@
-Amazon CodeCatalyst will no longer be open to new customers starting on November
-7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
-more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
 # Configuring compute and runtime images
 
@@ -93,18 +91,86 @@ In order to create, update, or delete a fleet, you must have the
 
 CodeCatalyst provides the following on-demand fleets:
 
-| Name                   | Operating system | Architecture | vCPUs            | Memory (GiB) | Disk space     | Supported compute types |
-| ---------------------- | ---------------- | ------------ | ---------------- | ------------ | -------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Linux.Arm64.Large`    | Amazon Linux 2   | Arm64        | 2                | 4            | 64 GB          | Amazon EC2              |
+| Name                   | Operating system | Architecture | vCPUs | Memory (GiB) | Disk space | Supported compute types |
+| ---------------------- | ---------------- | ------------ | ----- | ------------ | ---------- | ----------------------- |
+| `Linux.Arm64.Large`    | Amazon Linux 2   | Arm64        | 2     | 4            | 64 GB      | Amazon EC2              |
 | 10 GB                  | Lambda           |
-| `Linux.Arm64.XLarge`   | Amazon Linux 2   | Arm64        | 4                | 8            | 128 GB         | Amazon EC2              |
+| `Linux.Arm64.XLarge`   | Amazon Linux 2   | Arm64        | 4     | 8            | 128 GB     | Amazon EC2              |
 | 10 GB                  | Lambda           |
-| `Linux.Arm64.2XLarge`  | Amazon Linux 2   | Arm64        | 8                | 16           | 128 GB         | Amazon EC2              |
-| `Linux.x86-64.Large`   | Amazon Linux 2   | x86-64       | 2                | 4            | 64 GB          | Amazon EC2              |
+| `Linux.Arm64.2XLarge`  | Amazon Linux 2   | Arm64        | 8     | 16           | 128 GB     | Amazon EC2              |
+| `Linux.x86-64.Large`   | Amazon Linux 2   | x86-64       | 2     | 4            | 64 GB      | Amazon EC2              |
 | 10 GB                  | Lambda           |
-| `Linux.x86-64.XLarge`  | Amazon Linux 2   | x86-64       | 4                | 8            | 128 GB         | Amazon EC2              |
+| `Linux.x86-64.XLarge`  | Amazon Linux 2   | x86-64       | 4     | 8            | 128 GB     | Amazon EC2              |
 | 10 GB                  | Lambda           |
-| `Linux.x86-64.2XLarge` | Amazon Linux 2   | x86-64       | 8                | 16           | 128 GB         | Amazon EC2              | ###### Note The specifications for on-demand fleets will vary depending on your billing tier. For more information, see [Pricing](https://codecatalyst.aws/explore/pricing "https://codecatalyst.aws/explore/pricing"). If no fleet is selected, CodeCatalyst uses `Linux.x86-64.Large`. ## Provisioned fleet properties A provisioned fleet contains the following properties: **Operating system** The operating system. The following operating systems are available: <br>• Amazon Linux 2 <br>• Windows Server 2022 ###### Note Windows fleets are only supported in the build action. Other actions do not currently support Windows. **Architecture** The processor architecture. The following architectures are available: <br>• x86_64 <br>• Arm64 **Machine type** The machine type for each instance. The following machine types are available: |
-| vCPUs                  | Memory (GiB)     | Disk space   | Operating system |              | ---            | ---                     | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| 2                      | 4                | 64 GB        | Amazon Linux 2   |              | 4              | 8                       | 128 GB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Amazon Linux 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Windows Server 2022    |                  | 8            | 16               | 128 GB       | Amazon Linux 2 |                         | Windows Server 2022                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Capacity** The initial number of machines allocated to the fleet, which defines the number of actions that can run in parallel. **Scaling mode** Defines the behavior when the number of actions exceeds the fleet capacity. **Provision additional capacity on demand** Additional machines are set up on demand which automatically scale up in response to new actions running, and then scale down to the base capacity as actions finish. This can incur additional costs, since you pay by the minute for each machine running. **Wait until additional fleet capacity is available** Action runs are placed in a queue until a machine is available. This limits additional costs because no additional machines are allocated. |
+| `Linux.x86-64.2XLarge` | Amazon Linux 2   | x86-64       | 8     | 16           | 128 GB     | Amazon EC2              |
+
+###### Note
+
+The specifications for on-demand fleets will vary depending on your billing tier.
+For more information, see [Pricing](https://codecatalyst.aws/explore/pricing "https://codecatalyst.aws/explore/pricing").
+
+If no fleet is selected, CodeCatalyst uses `Linux.x86-64.Large`.
+
+## Provisioned fleet properties
+
+A provisioned fleet contains the following properties:
+
+**Operating system**
+
+The operating system. The following operating systems are
+available:
+
+- Amazon Linux 2
+- Windows Server 2022
+
+###### Note
+
+Windows fleets are only supported in the build action. Other
+actions do not currently support Windows.
+
+**Architecture**
+
+The processor architecture. The following architectures are
+available:
+
+- x86_64
+- Arm64
+
+**Machine type**
+
+The machine type for each instance. The following machine types are
+available:
+
+| vCPUs               | Memory (GiB) | Disk space | Operating system |
+| ------------------- | ------------ | ---------- | ---------------- |
+| 2                   | 4            | 64 GB      | Amazon Linux 2   |
+| 4                   | 8            | 128 GB     | Amazon Linux 2   |
+| Windows Server 2022 |
+| 8                   | 16           | 128 GB     | Amazon Linux 2   |
+| Windows Server 2022 |
+
+**Capacity**
+
+The initial number of machines allocated to the fleet, which defines the
+number of actions that can run in parallel.
+
+**Scaling mode**
+
+Defines the behavior when the number of actions exceeds the fleet
+capacity.
+
+**Provision additional capacity on
+demand**
+
+Additional machines are set up on demand which automatically
+scale up in response to new actions running, and then scale down
+to the base capacity as actions finish. This can incur
+additional costs, since you pay by the minute for each machine
+running.
+
+**Wait until additional fleet capacity is
+available**
+
+Action runs are placed in a queue until a machine is
+available. This limits additional costs because no additional
+machines are allocated.
