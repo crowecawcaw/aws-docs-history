@@ -47,6 +47,53 @@ pre-production environment that exactly mirrored production.
 
 Based on this event, you can create a question that asks:
 
-| How are you ensuring that you do not impact customers when using AWS CloudFormation to manage AWS resources? |
-| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                              | The guidance for this question would be the following: <br>• Apply the same level of scrutiny to infrastructure managed by CloudFormation as you do for software or configuration changes. <br>• Separate stateful resources into their own stack to reduce the scope of impact of changes. <br>• Use [drift detection](../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md") to detect when resources have been changed outside of CloudFormation. <br>• Use [change sets](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md") to validate the intent of your stack update matches the actions that CloudFormation will take when the change set is executed. <br>• Test CloudFormation stack updates in a pre-production environment that mirrors production. <br>• Apply [stack policies](../../../AWSCloudFormation/latest/UserGuide/protect-stack-resources.md "../../../AWSCloudFormation/latest/UserGuide/protect-stack-resources.md") to protect critical resources from being unintentionally updated or deleted. These are some additional questions to consider when preparing a response for this: <br>• How do you ensure that an operator cannot accidentally delete a stack or critical resources managed by CloudFormation? <br>• Are you using CloudFormation change sets to validate that the intent of a change matches the actions CloudFormation will apply? <br>• How are you ensuring that a CloudFormation stack update doesn't affect your largest fault container (usually a Region, zone, or cell)? <br>• How are you ensuring changes are not made to CloudFormation managed resources directly? <br>• How are you partitioning resources across CloudFormation stacks? Finally, provide one or more links to the post-incident analysis that drove the creation of this question to provide cautionary tales of how this has gone wrong before. This helps provide context for the guidance and makes it more concrete for your engineering teams using the ORR. ## Summary The previous guidance could have helped prevent this event. Using change sets would have provided insights that the managed policy was going to be updated. This would have allowed the engineer to quickly do a comparison of the _as-is_ and _to-be_ configuration and identify that those permissions were being removed. Additionally, running the update in a pre-production environment that mirrored production would have identified that the update resulted in errors before ever being applied to production. Finally, enforcing that all changes to resources provisioned by CloudFormation are made through CloudFormation would ensure that the permissions updates were included in the template. For [resources that support it](../../../AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.md"), running drift detection before the update will identify that out of band changes were made to a resource. |
+| How are you ensuring that you do not impact customers when using AWS CloudFormation to manage<br>AWS resources? |
+| --------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                 |
+
+The guidance for this question would be the following:
+
+- Apply the same level of scrutiny to infrastructure managed by CloudFormation as you do
+  for software or configuration changes.
+- Separate stateful resources into their own stack to reduce the scope of impact of
+  changes.
+- Use [drift
+  detection](../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md") to detect when resources have been changed outside of CloudFormation.
+- Use [change sets](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md") to validate the intent of your stack update matches the actions
+  that CloudFormation will take when the change set is executed.
+- Test CloudFormation stack updates in a pre-production environment that mirrors
+  production.
+- Apply [stack
+  policies](../../../AWSCloudFormation/latest/UserGuide/protect-stack-resources.md "../../../AWSCloudFormation/latest/UserGuide/protect-stack-resources.md") to protect critical resources from being unintentionally updated or
+  deleted.
+
+These are some additional questions to consider when preparing a response for this:
+
+- How do you ensure that an operator cannot accidentally delete a stack or critical
+  resources managed by CloudFormation?
+- Are you using CloudFormation change sets to validate that the intent of a change
+  matches the actions CloudFormation will apply?
+- How are you ensuring that a CloudFormation stack update doesn't affect your largest
+  fault container (usually a Region, zone, or cell)?
+- How are you ensuring changes are not made to CloudFormation managed resources
+  directly?
+- How are you partitioning resources across CloudFormation stacks?
+
+Finally, provide one or more links to the post-incident analysis that drove the creation
+of this question to provide cautionary tales of how this has gone wrong before. This helps
+provide context for the guidance and makes it more concrete for your engineering teams using
+the ORR.
+
+## Summary
+
+The previous guidance could have helped prevent this event. Using change sets would have
+provided insights that the managed policy was going to be updated. This would have allowed the
+engineer to quickly do a comparison of the _as-is_ and
+_to-be_ configuration and identify that those permissions
+were being removed. Additionally, running the update in a pre-production environment that
+mirrored production would have identified that the update resulted in errors before ever being
+applied to production. Finally, enforcing that all changes to resources provisioned by
+CloudFormation are made through CloudFormation would ensure that the permissions updates were
+included in the template. For [resources
+that support it](../../../AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.md"), running drift detection before the update will identify that out of
+band changes were made to a resource.
