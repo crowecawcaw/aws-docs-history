@@ -80,7 +80,7 @@ Select container instances by task group. For more information, see [Group relat
 The comparison operator. The following operators are supported.
 
 | Operator               | Description                |
-| ---------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------- | -------------------------- |
 | ==, equals             | String equality            |
 | !=, not_equals         | String inequality          |
 | >, greater_than        | Greater than               |
@@ -92,4 +92,121 @@ The comparison operator. The following operators are supported.
 | in                     | Value in argument list     |
 | !in, not_in            | Value not in argument list |
 | =~, matches            | Pattern match              |
-| !~, not_matches        | Pattern mismatch           | ###### Note A single expression can't contain parentheses. However, parentheses can be used to specify precedence in compound expressions. ###### Argument For many operators, the argument is a literal value. The `in` and `not_in` operators expect an argument list as the argument. You specify an argument list as follows: `[*argument1*, *argument2*, ..., *argumentN*]` The matches and not_matches operators expect an argument that conforms to the Java regular expression syntax. For more information, see [java.util.regex.Pattern](http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html "http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html"). ###### Compound expressions You can combine expressions using the following Boolean operators: <br>• &&, and <br>• |     | , or <br>• !, not You can specify precedence using parentheses: `(*expression1* or *expression2*) and *expression3*` ## Example expressions The following are example expressions. ###### Example: String Equality The following expression selects instances with the specified instance type. `attribute:ecs.instance-type == t2.small` ###### Example: Argument List The following expression selects instances in the us-east-1a or us-east-1b Availability Zone. `attribute:ecs.availability-zone in [us-east-1a, us-east-1b]` ###### Example: Compound Expression The following expression selects G2 instances that aren't in the us-east-1d Availability Zone. `attribute:ecs.instance-type =~ g2.* and attribute:ecs.availability-zone != us-east-1d` ###### Example: Task Affinity The following expression selects instances that are hosting tasks in the `service:production` group. `task:group == service:production` ###### Example: Task Anti-Affinity The following expression selects instances that aren't hosting tasks in the database group. `not(task:group == database)` ###### Example: Running task count The following expression selects instances that are only running one task. `runningTasksCount == 1` ###### Example: Amazon ECS container agent version The following expression selects instances that are running a container agent version below 1.14.5. `agentVersion < 1.14.5` ###### Example: Instance registration time The following expression selects instances that were registered before February 13, 2018. `registeredAt < 2018-02-13` ###### Example: Amazon EC2 instance ID The following expression selects instances with the following Amazon EC2 instance IDs. `ec2InstanceId in ['i-abcd1234', 'i-wxyx7890']` |
+| !~, not_matches        | Pattern mismatch           |
+
+###### Note
+
+A single expression can't contain parentheses. However, parentheses can be used to
+specify precedence in compound expressions.
+
+###### Argument
+
+For many operators, the argument is a literal value.
+
+The `in` and `not_in` operators expect an argument list as the
+argument. You specify an argument list as follows:
+
+```
+[*argument1*, *argument2*, ..., *argumentN*]
+```
+
+The matches and not_matches operators expect an argument that conforms to the Java
+regular expression syntax. For more information, see [java.util.regex.Pattern](http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html "http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html").
+
+###### Compound expressions
+
+You can combine expressions using the following Boolean operators:
+
+- &&, and
+- ||, or
+- !, not
+
+You can specify precedence using parentheses:
+
+```
+(*expression1* or *expression2*) and *expression3*
+```
+
+## Example expressions
+
+The following are example expressions.
+
+###### Example: String Equality
+
+The following expression selects instances with the specified instance
+type.
+
+```
+attribute:ecs.instance-type == t2.small
+```
+
+###### Example: Argument List
+
+The following expression selects instances in the us-east-1a or us-east-1b
+Availability Zone.
+
+```
+attribute:ecs.availability-zone in [us-east-1a, us-east-1b]
+```
+
+###### Example: Compound Expression
+
+The following expression selects G2 instances that aren't in the us-east-1d
+Availability Zone.
+
+```
+attribute:ecs.instance-type =~ g2.* and attribute:ecs.availability-zone != us-east-1d
+```
+
+###### Example: Task Affinity
+
+The following expression selects instances that are hosting tasks in the
+`service:production` group.
+
+```
+task:group == service:production
+```
+
+###### Example: Task Anti-Affinity
+
+The following expression selects instances that aren't hosting tasks in the
+database group.
+
+```
+not(task:group == database)
+```
+
+###### Example: Running task count
+
+The following expression selects instances that are only running one task.
+
+```
+runningTasksCount == 1
+```
+
+###### Example: Amazon ECS container agent version
+
+The following expression selects instances that are running a container agent
+version below 1.14.5.
+
+```
+agentVersion < 1.14.5
+```
+
+###### Example: Instance registration time
+
+The following expression selects instances that were registered before February
+13, 2018.
+
+```
+registeredAt < 2018-02-13
+```
+
+###### Example: Amazon EC2 instance ID
+
+The following expression selects instances with the following Amazon EC2 instance
+IDs.
+
+```
+ec2InstanceId in ['i-abcd1234', 'i-wxyx7890']
+```

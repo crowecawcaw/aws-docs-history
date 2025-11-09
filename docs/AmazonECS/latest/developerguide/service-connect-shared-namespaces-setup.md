@@ -58,8 +58,8 @@ AWS accounts.
 
 You must use the
 `AWSRAMPermissionCloudMapECSFullPermission` managed
-permission to share the namespace for Service Connect to work properly with the
-namespace. 6. In the **Principals** section, specify the AWS accounts
+permission to share the namespace for Service Connect to work properly
+with the namespace. 6. In the **Principals** section, specify the AWS accounts
 you want to share the namespace with. You can enter account IDs or
 organizational unit IDs. 7. Choose **Create resource share**.
 

@@ -538,10 +538,9 @@ the docker run command.
   latest version of the specified image and tag for the container
   to use. However, subsequent updates to a repository image aren't
   propagated to already running tasks.
-- Whenyou don't specify a tag or digest in the image path in the
-  task defintion, the Amazon ECS container agent pulls the latest
-  version of the specified image.
-- However, subsequent updates to a repository image aren't
+- When you don't specify a tag or digest in the image path in the
+  task definition, the Amazon ECS container agent uses the `latest` tag to pull the specified image.
+- Subsequent updates to a repository image aren't
   propagated to already running tasks.
 - Images in private registries are supported. For more
   information, see [Using non-AWS container images in Amazon ECS](private-auth.md "private-auth.md").

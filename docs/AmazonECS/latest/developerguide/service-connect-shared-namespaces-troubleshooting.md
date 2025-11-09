@@ -5,18 +5,16 @@ Amazon ECS Service Connect with shared AWS Cloud Map namespaces
 Use the following information to troubleshoot issues with shared AWS Cloud Map namespaces and
 Service Connect. For more information on locating error messages, see [Amazon ECS troubleshooting](troubleshooting.md "troubleshooting.md").
 
-Error messages related to permissions issues appear due to
-missing permissions, or if access to the namespace is revoked.
+Error messages related to permissions issues appear due to missing permissions, or if
+access to the namespace is revoked.
 
 ###### Important
 
-You must use the
-`AWSRAMPermissionCloudMapECSFullPermission` managed
+You must use the `AWSRAMPermissionCloudMapECSFullPermission` managed
 permission to share the namespace for Service Connect to work properly with the
 namespace.
 
-Error message appears in
-one of the following formats:
+Error message appears in one of the following formats:
 
 **`An error occurred (ClientException) when calling the <OperationName>
  operation: User: arn:aws:iam::<account-id>:user/<user-name> is not
@@ -80,14 +78,13 @@ To resolve this issue:
 The following scenarios can result in an error message in this format:
 
 **Service deletion fails and gets stuck in
-`DRAINING`
-state**
+`DRAINING` state**
 
 This issue occurs when Amazon ECS `DeleteService` operations fail
 due to the missing `servicediscovery:DeleteService` permission
 when access to the namespace is revoked. The service may appear to delete
-successfully initially but will get stuck in the `DRAINING` state. The error message appears as an Amazon ECS
-service event.
+successfully initially but will get stuck in the `DRAINING`
+state. The error message appears as an Amazon ECS service event.
 
 To resolve this issue, the namespace owner must share the namespace with
 the consumer account to allow service deletion to complete.
@@ -107,7 +104,8 @@ Ensure that the consumer account has the required permissions and that the
 shared namespace is accessible.
 
 **Tasks fail to stop cleanly or get stuck in
-`DEACTIVATING` or `DEPROVISIONING` state**
+`DEACTIVATING` or `DEPROVISIONING`
+state**
 
 This issue occurs when tasks fail to deregister from the AWS Cloud Map service
 during shutdown due to missing permissions. The error is surfaced as a
@@ -121,5 +119,6 @@ The following AWS Cloud Map actions are required to stop a task:
 - `servicediscovery:GetOperation`
 
 If access to the shared namespace is revoked, tasks may remain in a
-`DEACTIVATING` or `DEPROVISIONING` state until namespace access is restored. Request
-the namespace owner to restore access to the namespace.
+`DEACTIVATING` or `DEPROVISIONING` state until
+namespace access is restored. Request the namespace owner to restore access
+to the namespace.

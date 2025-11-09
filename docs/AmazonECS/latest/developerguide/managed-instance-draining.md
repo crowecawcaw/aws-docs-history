@@ -82,12 +82,106 @@ managed termination protection, see [Control the instances Amazon ECS terminates
 The following table summarizes the behavior for different combinations of managed termination and managed
 draining.
 
-| Managed termination
-| Managed draining
-| Outcome
-|
-| --- | --- | --- |
-| Enabled | Enabled | Amazon ECS protects Amazon EC2 instances that are running tasks from being terminated by scale-in events. Any instances undergoing termination, such as those that don't have termination protection set, have received Spot interruption, or are forced by instance refresh are gracefully drained. |
-| Disabled | Enabled | Amazon ECS doesn't protect Amazon EC2 instances running tasks from being scaled-in. However, any instances that are being terminated are gracefully drained. |
-| Enabled | Disabled | Amazon ECS protects Amazon EC2 instances that are running tasks from being terminated by scale-in events. However, instances can still get terminated by Spot interruption or forced instance refresh, or if they aren't running any tasks. Amazon ECS doesn't perform graceful draining for these instances, and launches replacement service tasks after they stop. |
-| Disabled | Disabled | Amazon EC2 instances can be scaled-in or terminated at any time, even if they are running Amazon ECS tasks. Amazon ECS will launch replacement service tasks after they stop. | ###### Managed instance draining and Spot Instance draining With Spot Instance draining, you can set an environment variable `ECS_ENABLE_SPOT_INSTANCE_DRAINING` on the Amazon ECS agent which enables Amazon ECS to place an instance in the draining status in response to the two-minute Spot interruption. Amazon ECS managed instance draining facilitates graceful shutdown of Amazon EC2 instances undergoing termination due to many reasons, not just Spot interruption. For instance, you can use Amazon EC2 Auto Scaling capacity rebalancing to proactively replace Spot Instance at elevated risk of interruption, and managed instance draining performs graceful shutdown of Spot Instance being replaced. When you use managed instance draining, you don't need to enable Spot instance draining separately, so `ECS_ENABLE_SPOT_INSTANCE_DRAINING` in Auto Scaling group user data is redundant. For more information about Spot Instance draining, see [Spot Instances](create-capacity.md#container-instance-spot "create-capacity.md#container-instance-spot"). ## How managed instance draining works with EventBridge Amazon ECS managed instance draining events are published to Amazon EventBridge, and Amazon ECS creates an EventBridge managed rule in your account’s default bus to support managed instance draining. You can filter these events to other AWS services like Lambda, Amazon SNS, and Amazon SQS to monitor and troubleshoot. <br>• Amazon EC2 Auto Scaling sends an event to EventBridge when a lifecycle hook is invoked. <br>• Spot interruption notices are published to EventBridge. <br>• Amazon ECS generates error messages that you can retrieve through the Amazon ECS console and APIs. <br>• EventBridge has retry mechanisms built in as mitigations for temporary failures. ## Amazon ECS Managed instance draining troubleshooting You might need to troubleshoot issues with managed instance draining. The following is an example of an issue and resolution you may come across while using it. ###### Instances don't terminate after exceeding maximum instance lifetime when using auto scaling. If your instances aren't terminating even after reaching and exceeding the maximum instance lifetime while using an auto scaling group, it may be because they're protected from scale-in. You can turn off managed termination and allow managed draining to handle instance recycling. ## Draining behavior for Amazon ECS Managed Instances Amazon ECS Managed Instances implement sophisticated draining and termination processes that ensure graceful workload transitions while optimizing costs and maintaining system health. The termination system provides three distinct decision paths for instance termination, each with different timing characteristics and customer impact profiles. ### Termination decision paths All termination paths converge on the same execution mechanism through the POST_DEREGISTER lifecycle hook that triggers Node Manager's ReleaseNode API for immediate Amazon EC2 instance termination. Customer-initiated termination Provides direct control over instance removal when you need to remove container instances from service immediately. You invoke the DeregisterContainerInstance API with the force flag set to true, indicating that immediate termination is required despite any running workloads. System-initiated idle termination Implements cost optimization through intelligent idle detection that identifies instances no longer serving workloads. The Elastic Workload Service (EWS) implements sophisticated idle detection algorithms that monitor instance utilization and initiate termination for instances that remain idle for configurable periods. Infrastructure refresh termination Implements proactive infrastructure management through Node Manager's natural decay policy, where instances are periodically refreshed to ensure they run on the latest platform versions and maintain security posture. Node Manager implements time-to-live (TTL) policies that initiate graceful termination for instances that have reached their maximum operational lifetime. ### Graceful draining and workload migration The graceful draining system implements sophisticated coordination with Amazon ECS service management to ensure that service-managed tasks are properly migrated away from instances scheduled for termination. ###### Service task draining coordination When an instance transitions to DRAINING state, the Amazon ECS scheduler automatically stops placing new tasks on the instance while implementing graceful shutdown procedures for existing service tasks. The service task draining includes coordination with service deployment strategies, health check requirements, and your draining preferences to ensure optimal migration timing and success rates. ###### Standalone task handling Standalone tasks require different handling because they do not benefit from automatic service management. The system evaluates standalone task characteristics including task duration estimates, completion probability analysis, and customer impact assessment. The graceful completion strategy allows standalone tasks to complete naturally during an extended grace period, while forced termination ensures infrastructure refresh occurs within acceptable timeframes when tasks have not completed naturally. ### Two-phase completion strategy The termination system implements a two-phase approach that balances workload continuity against infrastructure management requirements. ###### Phase 1: Graceful completion period During this phase, the system implements graceful draining strategies that prioritize workload continuity. Service tasks are gracefully drained through normal Amazon ECS scheduling processes, standalone tasks continue running and may complete naturally, and the system monitors for all tasks to reach stopped state through natural completion processes. ###### Phase 2: Hard deadline enforcement When graceful completion does not achieve termination objectives within acceptable timeframes, the system implements hard deadline enforcement. The hard deadline is typically set to draining initiation time plus seven days, providing substantial time for graceful completion while maintaining operational requirements. The enforcement includes automatic invocation of force deregistration procedures and immediate termination of all remaining tasks regardless of completion status. ### Cross-service coordination and state management The termination process requires sophisticated coordination between the Cluster Management Backend Service (CMBS) and Node Manager to ensure that container instance deregistration and Amazon EC2 resource cleanup occur in the proper sequence while maintaining consistency. ###### POST_DEREGISTER hook execution The POST_DEREGISTER lifecycle hook represents the convergence point where all three termination decision paths execute the same cleanup logic. When a container instance reaches DEREGISTERED state, the POST_DEREGISTER hook automatically triggers Node Manager's ReleaseNode API to begin Amazon EC2 resource cleanup operations. The hook implementation includes sophisticated error handling for various failure scenarios including network connectivity issues, Amazon EC2 service availability problems, and coordination failures between system components. ###### Amazon EC2 resource cleanup and deallocation The Amazon EC2 instance termination process implements comprehensive coordination with AWS services to ensure that underlying compute resources are properly deallocated. This includes network interface cleanup to prevent resource leaks, database record management with comprehensive audit trails, and appropriate error handling and recovery mechanisms for various failure scenarios.
+| Managed termination | Managed draining | Outcome                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Enabled             | Enabled          | Amazon ECS protects Amazon EC2 instances that are running tasks from being terminated by scale-in<br>events. Any instances undergoing termination, such as those that don't have termination<br>protection set, have received Spot interruption, or are forced by instance refresh are<br>gracefully drained.                                                                  |
+| Disabled            | Enabled          | Amazon ECS doesn't protect Amazon EC2 instances running tasks from being scaled-in. However, any<br>instances that are being terminated are gracefully drained.                                                                                                                                                                                                                |
+| Enabled             | Disabled         | Amazon ECS protects Amazon EC2 instances that are running tasks from being terminated by scale-in<br>events. However, instances can still get terminated by Spot interruption or forced instance<br>refresh, or if they aren't running any tasks. Amazon ECS doesn't perform graceful draining for<br>these instances, and launches replacement service tasks after they stop. |
+| Disabled            | Disabled         | Amazon EC2 instances can be scaled-in or terminated at any time, even if they are running<br>Amazon ECS tasks. Amazon ECS will launch replacement service tasks after they stop.                                                                                                                                                                                               |
+
+###### Managed instance draining and Spot Instance draining
+
+With Spot Instance draining, you can set an environment variable
+`ECS_ENABLE_SPOT_INSTANCE_DRAINING` on the Amazon ECS agent which enables Amazon ECS to place an
+instance in the draining status in response to the two-minute Spot interruption. Amazon ECS managed instance
+draining facilitates graceful shutdown of Amazon EC2 instances undergoing termination due to many reasons,
+not just Spot interruption. For instance, you can use Amazon EC2 Auto Scaling capacity rebalancing to proactively
+replace Spot Instance at elevated risk of interruption, and managed instance draining performs graceful shutdown
+of Spot Instance being replaced. When you use managed instance draining, you don't need to enable Spot instance
+draining separately, so `ECS_ENABLE_SPOT_INSTANCE_DRAINING` in Auto Scaling group user data is redundant.
+For more information about Spot Instance draining, see [Spot Instances](create-capacity.md#container-instance-spot "create-capacity.md#container-instance-spot").
+
+## How managed instance draining works with
+
+EventBridge
+
+Amazon ECS managed instance draining events are published to Amazon EventBridge, and Amazon ECS creates an EventBridge managed
+rule in your account’s default bus to support managed instance draining. You can filter these events to
+other AWS services like Lambda, Amazon SNS, and Amazon SQS to monitor and troubleshoot.
+
+- Amazon EC2 Auto Scaling sends an event to EventBridge when a lifecycle hook is invoked.
+- Spot interruption notices are published to EventBridge.
+- Amazon ECS generates error messages that you can retrieve through the Amazon ECS console and
+  APIs.
+- EventBridge has retry mechanisms built in as mitigations for temporary failures.
+
+## Amazon ECS Managed instance draining
+
+troubleshooting
+
+You might need to troubleshoot issues with managed instance draining. The following is an example of
+an issue and resolution you may come across while using it.
+
+###### Instances don't terminate after exceeding maximum instance lifetime when using auto
+
+scaling.
+
+If your instances aren't terminating even after reaching and exceeding the maximum instance
+lifetime while using an auto scaling group, it may be because they're protected from scale-in. You
+can turn off managed termination and allow managed draining to handle instance recycling.
+
+## Draining behavior for Amazon ECS Managed Instances
+
+Amazon ECS Managed Instances implement sophisticated draining and termination processes that ensure graceful workload transitions while optimizing costs and maintaining system health. The termination system provides three distinct decision paths for instance termination, each with different timing characteristics and customer impact profiles.
+
+### Termination decision paths
+
+All termination paths converge on the same execution mechanism through the POST_DEREGISTER lifecycle hook that triggers Node Manager's ReleaseNode API for immediate Amazon EC2 instance termination.
+
+Customer-initiated termination
+
+Provides direct control over instance removal when you need to remove container instances from service immediately. You invoke the DeregisterContainerInstance API with the force flag set to true, indicating that immediate termination is required despite any running workloads.
+
+System-initiated idle termination
+
+Implements cost optimization through intelligent idle detection that identifies instances no longer serving workloads. The Elastic Workload Service (EWS) implements sophisticated idle detection algorithms that monitor instance utilization and initiate termination for instances that remain idle for configurable periods.
+
+Infrastructure refresh termination
+
+Implements proactive infrastructure management through Node Manager's natural decay policy, where instances are periodically refreshed to ensure they run on the latest platform versions and maintain security posture. Node Manager implements time-to-live (TTL) policies that initiate graceful termination for instances that have reached their maximum operational lifetime.
+
+### Graceful draining and workload migration
+
+The graceful draining system implements sophisticated coordination with Amazon ECS service management to ensure that service-managed tasks are properly migrated away from instances scheduled for termination.
+
+###### Service task draining coordination
+
+When an instance transitions to DRAINING state, the Amazon ECS scheduler automatically stops placing new tasks on the instance while implementing graceful shutdown procedures for existing service tasks. The service task draining includes coordination with service deployment strategies, health check requirements, and your draining preferences to ensure optimal migration timing and success rates.
+
+###### Standalone task handling
+
+Standalone tasks require different handling because they do not benefit from automatic service management. The system evaluates standalone task characteristics including task duration estimates, completion probability analysis, and customer impact assessment. The graceful completion strategy allows standalone tasks to complete naturally during an extended grace period, while forced termination ensures infrastructure refresh occurs within acceptable timeframes when tasks have not completed naturally.
+
+### Two-phase completion strategy
+
+The termination system implements a two-phase approach that balances workload continuity against infrastructure management requirements.
+
+###### Phase 1: Graceful completion period
+
+During this phase, the system implements graceful draining strategies that prioritize workload continuity. Service tasks are gracefully drained through normal Amazon ECS scheduling processes, standalone tasks continue running and may complete naturally, and the system monitors for all tasks to reach stopped state through natural completion processes.
+
+###### Phase 2: Hard deadline enforcement
+
+When graceful completion does not achieve termination objectives within acceptable timeframes, the system implements hard deadline enforcement. The hard deadline is typically set to draining initiation time plus seven days, providing substantial time for graceful completion while maintaining operational requirements. The enforcement includes automatic invocation of force deregistration procedures and immediate termination of all remaining tasks regardless of completion status.
+
+### Cross-service coordination and state management
+
+The termination process requires sophisticated coordination between the Cluster Management Backend Service (CMBS) and Node Manager to ensure that container instance deregistration and Amazon EC2 resource cleanup occur in the proper sequence while maintaining consistency.
+
+###### POST_DEREGISTER hook execution
+
+The POST_DEREGISTER lifecycle hook represents the convergence point where all three termination decision paths execute the same cleanup logic. When a container instance reaches DEREGISTERED state, the POST_DEREGISTER hook automatically triggers Node Manager's ReleaseNode API to begin Amazon EC2 resource cleanup operations. The hook implementation includes sophisticated error handling for various failure scenarios including network connectivity issues, Amazon EC2 service availability problems, and coordination failures between system components.
+
+###### Amazon EC2 resource cleanup and deallocation
+
+The Amazon EC2 instance termination process implements comprehensive coordination with AWS services to ensure that underlying compute resources are properly deallocated. This includes network interface cleanup to prevent resource leaks, database record management with comprehensive audit trails, and appropriate error handling and recovery mechanisms for various failure scenarios.

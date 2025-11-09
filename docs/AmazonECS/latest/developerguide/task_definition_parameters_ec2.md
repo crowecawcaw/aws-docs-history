@@ -316,10 +316,9 @@ the docker run command.
   latest version of the specified image and tag for the container
   to use. However, subsequent updates to a repository image aren't
   propagated to already running tasks.
-- Whenyou don't specify a tag or digest in the image path in the
-  task definition, the Amazon ECS container agent pulls the latest
-  version of the specified image.
-- However, subsequent updates to a repository image aren't
+- When you don't specify a tag or digest in the image path in the
+  task definition, the Amazon ECS container agent uses the `latest` tag to pull the specified image.
+- Subsequent updates to a repository image aren't
   propagated to already running tasks.
 - Images in private registries are supported. For more
   information, see [Using non-AWS container images in Amazon ECS](private-auth.md "private-auth.md").
@@ -2236,5 +2235,1102 @@ Valid values: `"ALL" | "AUDIT_CONTROL" |
  "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" |
  "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" |
  "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN"
-| "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"` Required: No The Linux capabilities for the container to add to the default configuration provided by Docker. This parameter maps to `CapAdd` in the docker create-container command and the `--cap-add` option to docker run. `add` Type: String array Valid values: `"SYS_PTRACE"` Required: No The Linux capabilities for the container to add to the default configuration that's provided by Docker. This parameter maps to `CapAdd` in the docker create-container command and the `--cap-add` option to docker run. `drop` Type: String array Valid values: `"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"` Required: No The Linux capabilities for the container to remove from the default configuration that's provided by Docker. This parameter maps to `CapDrop` in the docker create-container command and the `--cap-drop` option to docker run. `devices` Any host devices to expose to the container. This parameter maps to `Devices` in the docker create-container command and the `--device` option to docker run. Type: Array of [Device](../APIReference/API_Device.md "../APIReference/API_Device.md") objects Required: No `hostPath` The path for the device on the host container instance. Type: String Required: Yes `containerPath` The path inside the container to expose the host device at. Type: String Required: No `permissions` The explicit permissions to provide to the container for the device. By default, the container has permissions for `read`, `write`, and `mknod` on the device. Type: Array of strings Valid Values: `read` | `write` | `mknod` `initProcessEnabled` Run an `init` process inside the container that forwards signals and reaps processes. This parameter maps to the `--init` option to docker run. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. `maxSwap` The total amount of swap memory (in MiB) a container can use. This parameter is translated to the `--memory-swap` option to docker run where the value is the sum of the container memory plus the `maxSwap` value. If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container uses the swap configuration for the container instance that it's running on. A `maxSwap` value must be set for the `swappiness` parameter to be used. `sharedMemorySize` The value for the size (in MiB) of the `/dev/shm` volume. This parameter maps to the `--shm-size` option to docker run. Type: Integer `swappiness` You can use this parameter to tune a container's memory swappiness behavior. A `swappiness` value of `0` prevents swapping from happening unless required. A `swappiness` value of `100` causes pages to be swapped frequently. Accepted values are whole numbers between `0` and `100`. If you don't specify a value, the default value of `60` is used. Moreover, if you don't specify a value for `maxSwap`, then this parameter is ignored. This parameter maps to the `--memory-swappiness` option to docker run. ###### Note If you're using tasks on Amazon Linux 2023 the `swappiness` parameter isn't supported. `tmpfs` The container path, mount options, and maximum size (in MiB) of the tmpfs mount. This parameter maps to the `--tmpfs` option to docker run. Type: Array of [Tmpfs](../APIReference/API_Tmpfs.md "../APIReference/API_Tmpfs.md") objects Required: No `containerPath` The absolute file path where the tmpfs volume is to be mounted. Type: String Required: Yes `mountOptions` The list of tmpfs volume mount options. Type: Array of strings Required: No Valid Values: `"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private"
-| "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"` `size` The maximum size (in MiB) of the tmpfs volume. Type: Integer Required: Yes #### Container dependency `dependsOn` Type: Array of [ContainerDependency](../APIReference/API_ContainerDependency.md "../APIReference/API_ContainerDependency.md") objects Required: No The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed. For an example, see [Container dependency](example_task_definitions.md#example_task_definition-containerdependency "example_task_definitions.md#example_task_definition-containerdependency"). ###### Note If a container doesn't meet a dependency constraint or times out before meeting the constraint, Amazon ECS doesn't progress dependent containers to their next state. The instances require at least version `1.26.0` of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). If you're using an Amazon ECS-optimized Amazon Linux AMI, your instance needs at least version `1.26.0-1` of the `ecs-init` package. If your container instances are launched from version `20190301` or later, they contain the required versions of the container agent and `ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md"). ``"dependsOn": [ { "containerName": "`string`", "condition": "`string`" } ]`` `containerName` Type: String Required: Yes The container name that must meet the specified condition. `condition` Type: String Required: Yes The dependency condition of the container. The following are the available conditions and their behavior: <br>• `START` – This condition emulates the behavior of links and volumes today. The condition validates that a dependent container is started before permitting other containers to start. <br>• `COMPLETE` – This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for non-essential containers that run a script and then exit. This condition can't be set on an essential container. <br>• `SUCCESS` – This condition is the same as `COMPLETE`, but it also requires that the container exits with a `zero` status. This condition can't be set on an essential container. <br>• `HEALTHY` – This condition validates that the dependent container passes its container health check before permitting other containers to start. This requires that the dependent container has health checks configured in the task definition. This condition is confirmed only at task startup. #### Container timeouts `startTimeout` Type: Integer Required: No Example values: `120` Time duration (in seconds) to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with `containerA` having a dependency on `containerB` reaching a `COMPLETE`, `SUCCESS`, or `HEALTHY` status. If a `startTimeout` value is specified for `containerB` and it doesn't reach the desired status within that time, then `containerA` doesn't start. ###### Note If a container doesn't meet a dependency constraint or times out before meeting the constraint, Amazon ECS doesn't progress dependent containers to their next state. The maximum value is 120 seconds. `stopTimeout` Type: Integer Required: No Example values: `120` Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own. If the `stopTimeout` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable `ECS_CONTAINER_STOP_TIMEOUT` is used. If neither the `stopTimeout` parameter or the `ECS_CONTAINER_STOP_TIMEOUT` agent configuration variable is set, the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Container instances require at least version 1.26.0 of the container agent to enable a container stop timeout value. However, we recommend using the latest container agent version. For information about how to check your agent version and update to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). If you're using an Amazon ECS-optimized Amazon Linux AMI, your instance needs at least version 1.26.0-1 of the `ecs-init` package. If your container instances are launched from version `20190301` or later, they contain the required versions of the container agent and `ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md"). #### System controls `systemControls` Type: [SystemControl](../APIReference/API_SystemControl.md "../APIReference/API_SystemControl.md") object Required: No A list of namespace kernel parameters to set in the container. This parameter maps to `Sysctls` in the docker create-container commandand the `--sysctl` option to docker run. For example, you can configure `net.ipv4.tcp_keepalive_time` setting to maintain longer lived connections. We don't recommend that you specify network-related `systemControls` parameters for multiple containers in a single task that also uses either the `awsvpc` or `host` network mode. Doing this has the following disadvantages: <br>• For tasks that use the `awsvpc` network mode, if you set `systemControls` for any container, it applies to all containers in the task. If you set different `systemControls` for multiple containers in a single task, the container that's started last determines which `systemControls` take effect. <br>• For tasks that use the `host` network mode, the network namespace `systemControls` aren't supported. If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](task_definition_parameters.md#task_definition_ipcmode "task_definition_parameters.md#task_definition_ipcmode"). <br>• For tasks that use the `host` IPC mode, IPC namespace `systemControls` aren't supported. <br>• For tasks that use the `task` IPC mode, IPC namespace `systemControls` values apply to all containers within a task. ###### Note This parameter is not supported for Windows containers. ``"systemControls": [ { "namespace":"`string`", "value":"`string`" } ]`` `namespace` Type: String Required: No The namespace kernel parameter to set a `value` for. Valid IPC namespace values: `"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"`, and `Sysctls` that start with `"fs.mqueue.*"` Valid network namespace values: `Sysctls` that start with `"net.*"` `value` Type: String Required: No The value for the namespace kernel parameter that's specified in `namespace`. #### Interactive `interactive` Type: Boolean Required: No When this parameter is `true`, you can deploy containerized applications that require `stdin` or a `tty` to be allocated. This parameter maps to `OpenStdin` in the docker create-container command and the `--interactive` option to docker run. The default is `false`. #### Pseudo terminal `pseudoTerminal` Type: Boolean Required: No When this parameter is `true`, a TTY is allocated. This parameter maps to `Tty` in the docker create-container command and the `--tty` option to docker run. The default is `false`. ## Elastic Inference accelerator name The Elastic Inference accelerator resource requirement for your task definition. ###### Note Amazon Elastic Inference (EI) is no longer available to customers. The following parameters are allowed in a task definition: `deviceName` Type: String Required: Yes The Elastic Inference accelerator device name. The `deviceName` must also be referenced in a container definition see [Elastic Inference accelerator](task_definition_parameters.md#ContainerDefinition-elastic-inference "task_definition_parameters.md#ContainerDefinition-elastic-inference"). `deviceType` Type: String Required: Yes The Elastic Inference accelerator to use. ## Task placement constraints When you register a task definition, you can provide task placement constraints that customize how Amazon ECS places tasks. You can use constraints to place tasks based on Availability Zone, instance type, or custom attributes. For more information, see [Define which container instances Amazon ECS uses for tasks](task-placement-constraints.md "task-placement-constraints.md"). The following parameters are allowed in a container definition: `expression` Type: String Required: No A cluster query language expression to apply to the constraint. For more information, see [Create expressions to define container instances for Amazon ECS tasks](cluster-query-language.md "cluster-query-language.md"). `type` Type: String Required: Yes The type of constraint. Use `memberOf` to restrict the selection to a group of valid candidates. ## Proxy configuration `proxyConfiguration` Type: [ProxyConfiguration](../APIReference/API_ProxyConfiguration.md "../APIReference/API_ProxyConfiguration.md") object Required: No The configuration details for the App Mesh proxy. For tasks that use EC2, the container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the `ecs-init` package to enable a proxy configuration. If your container instances are launched from the Amazon ECS-optimized AMI version `20190301` or later, then they contain the required versions of the container agent and `ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md"). ###### Note This parameter is not supported for Windows containers. ``"proxyConfiguration": { "type": "APPMESH", "containerName": "`string`", "properties": [ { "name": "`string`", "value": "`string`" } ] }`` `type` Type: String Value values: `APPMESH` Required: No The proxy type. The only supported value is `APPMESH`. `containerName` Type: String Required: Yes The name of the container that serves as the App Mesh proxy. `properties` Type: Array of [KeyValuePair](../APIReference/API_KeyValuePair.md "../APIReference/API_KeyValuePair.md") objects Required: No The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs. <br>• `IgnoredUID` – (Required) The user ID (UID) of the proxy container as defined by the `user` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If `IgnoredGID` is specified, this field can be empty. <br>• `IgnoredGID` – (Required) The group ID (GID) of the proxy container as defined by the `user` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If `IgnoredUID` is specified, this field can be empty. <br>• `AppPorts` – (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the `ProxyIngressPort` and `ProxyEgressPort`. <br>• `ProxyIngressPort` – (Required) Specifies the port that incoming traffic to the `AppPorts` is directed to. <br>• `ProxyEgressPort` – (Required) Specifies the port that outgoing traffic from the `AppPorts` is directed to. <br>• `EgressIgnoredPorts` – (Required) The outbound traffic going to these specified ports is ignored and not redirected to the `ProxyEgressPort`. It can be an empty list. <br>• `EgressIgnoredIPs` – (Required) The outbound traffic going to these specified IP addresses is ignored and not redirected to the `ProxyEgressPort`. It can be an empty list. `name` Type: String Required: No The name of the key-value pair. `value` Type: String Required: No The value of the key-value pair. ## Volumes When you register a task definition, you can optionally specify a list of volumes to be passed to the Docker daemon on a container instance, which then becomes available for access by other containers on the same container instance. The following are the types of data volumes that can be used: <br>• Amazon EBS volumes — Provides cost-effective, durable, high-performance block storage for data intensive containerized workloads. You can attach 1 Amazon EBS volume per Amazon ECS task when running a standalone task, or when creating or updating a service. Amazon EBS volumes are supported for Linux tasks. For more information, see [Use Amazon EBS volumes with Amazon ECS](ebs-volumes.md "ebs-volumes.md"). <br>• Amazon EFS volumes — Provides simple, scalable, and persistent file storage for use with your Amazon ECS tasks. With Amazon EFS, storage capacity is elastic. It grows and shrinks automatically as you add and remove files. Your applications can have the storage that they need and when they need it. Amazon EFS volumes are supported. For more information, see [Use Amazon EFS volumes with Amazon ECS](efs-volumes.md "efs-volumes.md"). <br>• FSx for Windows File Server volumes — Provides fully managed Microsoft Windows file servers. These file servers are backed by a Windows file system. When using FSx for Windows File Server together with Amazon ECS, you can provision your Windows tasks with persistent, distributed, shared, and static file storage. For more information, see [Use FSx for Windows File Server volumes with Amazon ECS](wfsx-volumes.md "wfsx-volumes.md"). Windows containers on Fargate do not support this option. <br>• Docker volumes – A Docker-managed volume that is created under `/var/lib/docker/volumes` on the host Amazon EC2 instance. Docker volume drivers (also referred to as plugins) are used to integrate the volumes with external storage systems, such as Amazon EBS. The built-in `local` volume driver or a third-party volume driver can be used. Docker volumes are supported only when running tasks on Amazon EC2 instances. Windows containers support only the use of the `local` driver. To use Docker volumes, specify a `dockerVolumeConfiguration` in your task definition. <br>• Bind mounts – A file or directory on the host machine that is mounted into a container. Bind mount host volumes are supported. To use bind mount host volumes, specify a `host` and optional `sourcePath` value in your task definition. For more information, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md"). The following parameters are allowed in a container definition. `name` Type: String Required: No The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens (`-`), and underscores (`_`) are allowed. This name is referenced in the `sourceVolume` parameter of the container definition `mountPoints` object. `host` Required: No The `host` parameter is used to tie the lifecycle of the bind mount to the host Amazon EC2 instance, rather than the task, and where it is stored. If the `host` parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data is not guaranteed to persist after the containers associated with it stop running. Windows containers can mount whole directories on the same drive as `$env:ProgramData`. ###### Note The `sourcePath` parameter is supported only when using tasks that are hosted on Amazon EC2 instances. `sourcePath` Type: String Required: No When the `host` parameter is used, specify a `sourcePath` to declare the path on the host Amazon EC2 instance that is presented to the container. If this parameter is empty, then the Docker daemon assigns a host path for you. If the `host` parameter contains a `sourcePath` file location, then the data volume persists at the specified location on the host Amazon EC2 instance until you delete it manually. If the `sourcePath` value does not exist on the host Amazon EC2 instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported. `configuredAtLaunch` Type: Boolean Required: No Specifies whether a volume is configurable at launch. When set to `true`, you can configure the volume when running a standalone task, or when creating or updating a service. When set to `true`, you won't be able to provide another volume configuration in the task definition. This parameter must be set to `true` to configure an Amazon EBS volume for attachment to a task. Setting `configuredAtLaunch` to `true` and deferring volume configuration to the launch phase allows you to create task definitions that aren't constrained to a volume type or to specific volume settings. Doing this makes your task definition reusable across different execution environments. For more information, see [Amazon EBS volumes](ebs-volumes.md "ebs-volumes.md"). `dockerVolumeConfiguration` Type: [DockerVolumeConfiguration](../APIReference/API_DockerVolumeConfiguration.md "../APIReference/API_DockerVolumeConfiguration.md") Object Required: No This parameter is specified when using Docker volumes. Docker volumes are supported only when running tasks on EC2 instances. Windows containers support only the use of the `local` driver. To use bind mounts, specify a `host` instead. `scope` Type: String Valid Values: `task` | `shared` Required: No The scope for the Docker volume, which determines its lifecycle. Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops. `autoprovision` Type: Boolean Default value: `false` Required: No If this value is `true`, the Docker volume is created if it doesn't already exist. This field is used only if the `scope` is `shared`. If the `scope` is `task`, then this parameter must be omitted. `driver` Type: String Required: No The Docker volume driver to use. The driver value must match the driver name provided by Docker because this name is used for task placement. If the driver was installed by using the Docker plugin CLI, use `docker plugin ls` to retrieve the driver name from your container instance. If the driver was installed by using another method, use Docker plugin discovery to retrieve the driver name. `driverOpts` Type: String Required: No A map of Docker driver-specific options to pass through. This parameter maps to `DriverOpts` in the Create a volume section of Docker. `labels` Type: String Required: No Custom metadata to add to your Docker volume. `efsVolumeConfiguration` Type: [EFSVolumeConfiguration](../APIReference/API_EFSVolumeConfiguration.md "../APIReference/API_EFSVolumeConfiguration.md") Object Required: No This parameter is specified when using Amazon EFS volumes. `fileSystemId` Type: String Required: Yes The Amazon EFS file system ID to use. `rootDirectory` Type: String Required: No The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying `/` has the same effect as omitting this parameter. ###### Important If an EFS access point is specified in the `authorizationConfig`, the root directory parameter must either be omitted or set to `/`, which will enforce the path set on the EFS access point. `transitEncryption` Type: String Valid values: `ENABLED` | `DISABLED` Required: No Specifies whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. If Amazon EFS IAM authorization is used, transit encryption must be enabled. If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Encrypting Data in Transit](../../../efs/latest/ug/encryption-in-transit.md "../../../efs/latest/ug/encryption-in-transit.md") in the _Amazon Elastic File System User Guide_. `transitEncryptionPort` Type: Integer Required: No The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If you don't specify a transit encryption port, the task will use the port selection strategy that the Amazon EFS mount helper uses. For more information, see [EFS Mount Helper](../../../efs/latest/ug/efs-mount-helper.md "../../../efs/latest/ug/efs-mount-helper.md") in the _Amazon Elastic File System User Guide_. `authorizationConfig` Type: [EFSAuthorizationConfig](../APIReference/API_EFSAuthorizationConfig.md "../APIReference/API_EFSAuthorizationConfig.md") Object Required: No The authorization configuration details for the Amazon EFS file system. `accessPointId` Type: String Required: No The access point ID to use. If an access point is specified, the root directory value in the `efsVolumeConfiguration` must either be omitted or set to `/`, which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration`. For more information, see [Working with Amazon EFS Access Points](../../../efs/latest/ug/efs-access-points.md "../../../efs/latest/ug/efs-access-points.md") in the _Amazon Elastic File System User Guide_. `iam` Type: String Valid values: `ENABLED` | `DISABLED` Required: No Specifies whether to use the Amazon ECS task IAM role that's defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration`. If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [IAM Roles for Tasks](task-iam-roles.md "task-iam-roles.md"). `FSxWindowsFileServerVolumeConfiguration` Type: [FSxWindowsFileServerVolumeConfiguration](../APIReference/API_FSxWindowsFileServerVolumeConfiguration.md "../APIReference/API_FSxWindowsFileServerVolumeConfiguration.md") Object Required: Yes This parameter is specified when you're using an [Amazon FSx for Windows File Server](../../../fsx/latest/WindowsGuide/what-is.md "../../../fsx/latest/WindowsGuide/what-is.md") file system for task storage. `fileSystemId` Type: String Required: Yes The FSx for Windows File Server file system ID to use. `rootDirectory` Type: String Required: Yes The directory within the FSx for Windows File Server file system to mount as the root directory inside the host. `authorizationConfig` `credentialsParameter` Type: String Required: Yes The authorization credential options. ###### options: <br>• Amazon Resource Name (ARN) of an [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") secret. <br>• ARN of an [AWS Systems Manager](../../../systems-manager/latest/userguide/integration-ps-secretsmanager.md "../../../systems-manager/latest/userguide/integration-ps-secretsmanager.md") parameter. `domain` Type: String Required: Yes A fully qualified domain name hosted by an [AWS Directory Service for Microsoft Active Directory](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") (AWS Managed Microsoft AD) directory or a self-hosted EC2 Active Directory. ## Tags When you register a task definition, you can optionally specify metadata tags that are applied to the task definition. Tags help you categorize and organize your task definition. Each tag consists of a key and an optional value. You define both of them. For more information, see [Tagging Amazon ECS resources](ecs-using-tags.md "ecs-using-tags.md"). ###### Important Don't add personally identifiable information or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including billing. Tags aren't intended to be used for private or sensitive data. The following parameters are allowed in a tag object. `key` Type: String Required: No One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values. `value` Type: String Required: No The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). ## Other task definition parameters The following task definition parameters can be used when registering task definitions in the Amazon ECS console by using the **Configure via JSON** option. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md"). ###### Topics <br>• [IPC mode](#task_definition_ipcmode_ec2 "#task_definition_ipcmode_ec2") <br>• [PID mode](#task_definition_pidmode_ec2 "#task_definition_pidmode_ec2") <br>• [Fault injection](#task_definition_faultInjection_ec2 "#task_definition_faultInjection_ec2") ### IPC mode `ipcMode` Type: String Required: No The IPC resource namespace to use for the containers in the task. The valid values are `host`, `task`, or `none`. If `host` is specified, then all the containers that are within the tasks that specified the `host` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If `task` is specified, all the containers that are within the specified task share the same IPC resources. If `none` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. If the `host` IPC mode is used, there's a heightened risk of undesired IPC namespace exposure. If you're setting namespaced kernel parameters that use `systemControls` for the containers in the task, the following applies to your IPC resource namespace. <br>• For tasks that use the `host` IPC mode, IPC namespace that's related `systemControls` aren't supported. <br>• For tasks that use the `task` IPC mode, `systemControls` that relate to the IPC namespace apply to all containers within a task. ### PID mode `pidMode` Type: String Valid Values: `host` | `task` Required: No The process namespace to use for the containers in the task. The valid values are `host` or `task`. For example, monitoring sidecars might need `pidMode` to access information about other containers running in the same task. If `host` is specified, all containers within the tasks that specified the `host` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If `task` is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace for each container. If the `host` PID mode is used, there's a heightened risk of undesired process namespace exposure. ###### Note This parameter is not supported for Windows containers. ### Fault injection `enableFaultInjection` Type: Boolean Valid Values: `true` | `false` Required: No If this parameter is set to `true`, in a task's payload, Amazon ECS accepts fault injection requests from the task’s containers. By default, this parameter is set to `false`.
+ | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" |
+ "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" |
+ "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" |
+ "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" |
+ "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" |
+ "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" |
+ "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" |
+ "WAKE_ALARM"`
+
+Required: No
+
+The Linux capabilities for the
+container to add to the default configuration
+provided by Docker. This parameter
+maps to `CapAdd` in the docker
+create-container command and the
+`--cap-add` option to docker
+run.
+
+`add`
+
+Type: String array
+
+Valid values: `"SYS_PTRACE"`
+
+Required: No
+
+The Linux capabilities for the
+container to add to the default configuration
+that's provided by Docker. This
+parameter maps to `CapAdd` in the
+docker create-container command and the
+`--cap-add` option to docker
+run.
+
+`drop`
+
+Type: String array
+
+Valid values: `"ALL" | "AUDIT_CONTROL" |
+ "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" |
+ "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" |
+ "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" |
+ "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" |
+ "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" |
+ "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" |
+ "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" |
+ "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" |
+ "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" |
+ "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" |
+ "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" |
+ "WAKE_ALARM"`
+
+Required: No
+
+The Linux capabilities for the
+container to remove from the default configuration
+that's provided by Docker. This
+parameter maps to `CapDrop` in the
+docker create-container command and the
+`--cap-drop` option to docker
+run.
+
+`devices`
+
+Any host devices to expose to the container. This
+parameter maps to `Devices` in the docker
+create-container command and the `--device`
+option to docker run.
+
+Type: Array of [Device](../APIReference/API_Device.md "../APIReference/API_Device.md") objects
+
+Required: No
+
+`hostPath`
+
+The path for the device on the host container
+instance.
+
+Type: String
+
+Required: Yes
+
+`containerPath`
+
+The path inside the container to expose the
+host device at.
+
+Type: String
+
+Required: No
+
+`permissions`
+
+The explicit permissions to provide to the
+container for the device. By default, the
+container has permissions for `read`,
+`write`, and `mknod` on the
+device.
+
+Type: Array of strings
+
+Valid Values: `read` |
+`write` | `mknod`
+
+`initProcessEnabled`
+
+Run an `init` process inside the container that
+forwards signals and reaps processes. This parameter maps to
+the `--init` option to docker run.
+
+This parameter requires version 1.25 of the Docker Remote API or greater on your container instance.
+
+`maxSwap`
+
+The total amount of swap memory (in MiB) a container can
+use. This parameter is translated to the
+`--memory-swap` option to docker run where
+the value is the sum of the container memory plus the
+`maxSwap` value.
+
+If a `maxSwap` value of `0` is
+specified, the container doesn't use swap. Accepted values
+are `0` or any positive integer. If the
+`maxSwap` parameter is omitted, the container
+uses the swap configuration for the container instance that
+it's running on. A `maxSwap` value must be set
+for the `swappiness` parameter to be used.
+
+`sharedMemorySize`
+
+The value for the size (in MiB) of the
+`/dev/shm` volume. This parameter maps to the
+`--shm-size` option to docker run.
+
+Type: Integer
+
+`swappiness`
+
+You can use this parameter to tune a container's memory
+swappiness behavior. A `swappiness` value of
+`0` prevents swapping from happening unless
+required. A `swappiness` value of
+`100` causes pages to be swapped frequently.
+Accepted values are whole numbers between `0` and
+`100`. If you don't specify a value, the
+default value of `60` is used. Moreover, if you
+don't specify a value for `maxSwap`, then this
+parameter is ignored. This parameter maps to the
+`--memory-swappiness` option to docker
+run.
+
+###### Note
+
+If you're using tasks on Amazon Linux 2023 the
+`swappiness` parameter isn't
+supported.
+
+`tmpfs`
+
+The container path, mount options, and maximum size (in
+MiB) of the tmpfs mount. This parameter maps
+to the `--tmpfs` option to docker run.
+
+Type: Array of [Tmpfs](../APIReference/API_Tmpfs.md "../APIReference/API_Tmpfs.md") objects
+
+Required: No
+
+`containerPath`
+
+The absolute file path where the
+tmpfs volume is to be
+mounted.
+
+Type: String
+
+Required: Yes
+
+`mountOptions`
+
+The list of tmpfs volume mount
+options.
+
+Type: Array of strings
+
+Required: No
+
+Valid Values: `"defaults" | "ro" | "rw" |
+ "suid" | "nosuid" | "dev" | "nodev" | "exec" |
+ "noexec" | "sync" | "async" | "dirsync" |
+ "remount" | "mand" | "nomand" | "atime" |
+ "noatime" | "diratime" | "nodiratime" | "bind" |
+ "rbind" | "unbindable" | "runbindable" | "private"
+ | "rprivate" | "shared" | "rshared" | "slave" |
+ "rslave" | "relatime" | "norelatime" |
+ "strictatime" | "nostrictatime" | "mode" | "uid" |
+ "gid" | "nr_inodes" | "nr_blocks" |
+ "mpol"`
+
+`size`
+
+The maximum size (in MiB) of the
+tmpfs volume.
+
+Type: Integer
+
+Required: Yes
+
+#### Container dependency
+
+`dependsOn`
+
+Type: Array of [ContainerDependency](../APIReference/API_ContainerDependency.md "../APIReference/API_ContainerDependency.md") objects
+
+Required: No
+
+The dependencies defined for container startup and shutdown. A
+container can contain multiple dependencies. When a dependency is
+defined for container startup, for container shutdown it is reversed.
+For an example, see [Container
+dependency](example_task_definitions.md#example_task_definition-containerdependency "example_task_definitions.md#example_task_definition-containerdependency").
+
+###### Note
+
+If a container doesn't meet a dependency constraint or times out
+before meeting the constraint, Amazon ECS doesn't progress dependent
+containers to their next state.
+
+The instances require at least version `1.26.0` of the container agent to
+enable container dependencies. However, we recommend using the latest
+container agent version. For information about checking your agent
+version and updating to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). If
+you're using an Amazon ECS-optimized Amazon Linux AMI, your instance needs at least version
+`1.26.0-1` of the `ecs-init` package. If your
+container instances are launched from version `20190301` or
+later, they contain the required versions of the container agent and
+`ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
+
+```
+"dependsOn": [
+    {
+        "containerName": "`string`",
+        "condition": "`string`"
+    }
+]
+```
+
+`containerName`
+
+Type: String
+
+Required: Yes
+
+The container name that must meet the specified
+condition.
+
+`condition`
+
+Type: String
+
+Required: Yes
+
+The dependency condition of the container. The following
+are the available conditions and their behavior:
+
+- `START` – This condition emulates
+  the behavior of links and volumes today. The
+  condition validates that a dependent container is
+  started before permitting other containers to
+  start.
+- `COMPLETE` – This condition
+  validates that a dependent container runs to
+  completion (exits) before permitting other
+  containers to start. This can be useful for
+  non-essential containers that run a script and then
+  exit. This condition can't be set on an essential
+  container.
+- `SUCCESS` – This condition is the
+  same as `COMPLETE`, but it also requires
+  that the container exits with a `zero`
+  status. This condition can't be set on an essential
+  container.
+- `HEALTHY` – This condition
+  validates that the dependent container passes its
+  container health check before permitting other
+  containers to start. This requires that the
+  dependent container has health checks configured in
+  the task definition. This condition is confirmed
+  only at task startup.
+
+#### Container timeouts
+
+`startTimeout`
+
+Type: Integer
+
+Required: No
+
+Example values: `120`
+
+Time duration (in seconds) to wait before giving up on resolving
+dependencies for a container.
+
+For example, you specify two containers in a task definition with
+`containerA` having a dependency on
+`containerB` reaching a `COMPLETE`,
+`SUCCESS`, or `HEALTHY` status. If a
+`startTimeout` value is specified for
+`containerB` and it doesn't reach the desired status
+within that time, then `containerA` doesn't start.
+
+###### Note
+
+If a container doesn't meet a dependency constraint or times out
+before meeting the constraint, Amazon ECS doesn't progress dependent
+containers to their next state.
+
+The maximum value is 120 seconds.
+
+`stopTimeout`
+
+Type: Integer
+
+Required: No
+
+Example values: `120`
+
+Time duration (in seconds) to wait before the container is forcefully
+killed if it doesn't exit normally on its own.
+
+If the
+`stopTimeout` parameter isn't specified, the value set
+for the Amazon ECS container agent configuration variable
+`ECS_CONTAINER_STOP_TIMEOUT` is used. If neither the
+`stopTimeout` parameter or the
+`ECS_CONTAINER_STOP_TIMEOUT` agent configuration variable
+is set, the default values of 30 seconds for Linux
+containers and 30 seconds on Windows containers are used.
+Container instances require at least version 1.26.0 of the container
+agent to enable a container stop timeout value. However, we recommend
+using the latest container agent version. For information about how to
+check your agent version and update to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). If
+you're using an Amazon ECS-optimized Amazon Linux AMI, your instance needs at least version
+1.26.0-1 of the `ecs-init` package. If your container
+instances are launched from version `20190301` or later, they
+contain the required versions of the container agent and
+`ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
+
+#### System controls
+
+`systemControls`
+
+Type: [SystemControl](../APIReference/API_SystemControl.md "../APIReference/API_SystemControl.md") object
+
+Required: No
+
+A list of namespace kernel parameters to set in the container. This
+parameter maps to `Sysctls` in the docker create-container
+commandand the `--sysctl` option to docker run. For example,
+you can configure `net.ipv4.tcp_keepalive_time` setting to
+maintain longer lived connections.
+
+We don't recommend that you specify network-related
+`systemControls` parameters for multiple containers in a
+single task that also uses either the `awsvpc` or
+`host` network mode. Doing this has the following
+disadvantages:
+
+- For tasks that use the `awsvpc` network mode, if you set `systemControls` for
+  any container, it applies to all containers in the task. If you
+  set different `systemControls` for multiple
+  containers in a single task, the container that's started last
+  determines which `systemControls` take effect.
+- For tasks that use the `host` network mode, the
+  network namespace `systemControls` aren't
+  supported.
+
+If you're setting an IPC resource namespace to use for the containers
+in the task, the following conditions apply to your system controls. For
+more information, see [IPC mode](task_definition_parameters.md#task_definition_ipcmode "task_definition_parameters.md#task_definition_ipcmode").
+
+- For tasks that use the `host` IPC mode, IPC
+  namespace `systemControls` aren't supported.
+- For tasks that use the `task` IPC mode, IPC
+  namespace `systemControls` values apply to all
+  containers within a task.
+
+###### Note
+
+This parameter is not supported for Windows containers.
+
+```
+"systemControls": [
+    {
+         "namespace":"`string`",
+         "value":"`string`"
+    }
+]
+```
+
+`namespace`
+
+Type: String
+
+Required: No
+
+The namespace kernel parameter to set a `value`
+for.
+
+Valid IPC namespace values: `"kernel.msgmax" |
+ "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" |
+ "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" |
+ "kernel.shm_rmid_forced"`, and
+`Sysctls` that start with
+`"fs.mqueue.*"`
+
+Valid network namespace values: `Sysctls` that
+start with `"net.*"`
+
+`value`
+
+Type: String
+
+Required: No
+
+The value for the namespace kernel parameter that's
+specified in `namespace`.
+
+#### Interactive
+
+`interactive`
+
+Type: Boolean
+
+Required: No
+
+When this parameter is `true`, you can deploy containerized
+applications that require `stdin` or a `tty` to be
+allocated. This parameter maps to `OpenStdin` in the docker
+create-container command and the `--interactive` option to
+docker run.
+
+The default is `false`.
+
+#### Pseudo terminal
+
+`pseudoTerminal`
+
+Type: Boolean
+
+Required: No
+
+When this parameter is `true`, a TTY is allocated. This
+parameter maps to `Tty` in the docker create-container
+command and the `--tty` option to docker run.
+
+The default is `false`.
+
+## Elastic Inference accelerator
+
+name
+
+The Elastic Inference accelerator resource requirement for your task definition.
+
+###### Note
+
+Amazon Elastic Inference (EI) is no longer available to customers.
+
+The following parameters are allowed in a task definition:
+
+`deviceName`
+
+Type: String
+
+Required: Yes
+
+The Elastic Inference accelerator device name. The `deviceName`
+must also be referenced in a container definition see [Elastic Inference
+accelerator](task_definition_parameters.md#ContainerDefinition-elastic-inference "task_definition_parameters.md#ContainerDefinition-elastic-inference").
+
+`deviceType`
+
+Type: String
+
+Required: Yes
+
+The Elastic Inference accelerator to use.
+
+## Task placement constraints
+
+When you register a task definition, you can provide task placement constraints that
+customize how Amazon ECS places tasks.
+
+You can use constraints to place tasks based on Availability Zone, instance type, or
+custom attributes. For more information, see [Define which container
+instances Amazon ECS uses for tasks](task-placement-constraints.md "task-placement-constraints.md").
+
+The following parameters are allowed in a container definition:
+
+`expression`
+
+Type: String
+
+Required: No
+
+A cluster query language expression to apply to the constraint. For more
+information, see [Create expressions to define container instances for Amazon ECS tasks](cluster-query-language.md "cluster-query-language.md").
+
+`type`
+
+Type: String
+
+Required: Yes
+
+The type of constraint. Use `memberOf` to restrict the
+selection to a group of valid candidates.
+
+## Proxy configuration
+
+`proxyConfiguration`
+
+Type: [ProxyConfiguration](../APIReference/API_ProxyConfiguration.md "../APIReference/API_ProxyConfiguration.md") object
+
+Required: No
+
+The configuration details for the App Mesh proxy.
+
+For tasks that use EC2, the container instances require at least version
+1.26.0 of the container agent and at least version 1.26.0-1 of the
+`ecs-init` package to enable a proxy configuration. If your
+container instances are launched from the Amazon ECS-optimized AMI version
+`20190301` or later, then they contain the required versions
+of the container agent and `ecs-init`. For more information, see
+[Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
+
+###### Note
+
+This parameter is not supported for Windows containers.
+
+```
+"proxyConfiguration": {
+    "type": "APPMESH",
+    "containerName": "`string`",
+    "properties": [
+        {
+           "name": "`string`",
+           "value": "`string`"
+        }
+    ]
+}
+```
+
+`type`
+
+Type: String
+
+Value values: `APPMESH`
+
+Required: No
+
+The proxy type. The only supported value is
+`APPMESH`.
+
+`containerName`
+
+Type: String
+
+Required: Yes
+
+The name of the container that serves as the App Mesh
+proxy.
+
+`properties`
+
+Type: Array of [KeyValuePair](../APIReference/API_KeyValuePair.md "../APIReference/API_KeyValuePair.md") objects
+
+Required: No
+
+The set of network configuration parameters to provide the
+Container Network Interface (CNI) plugin, specified as key-value
+pairs.
+
+- `IgnoredUID` – (Required) The user ID
+  (UID) of the proxy container as defined by the
+  `user` parameter in a container
+  definition. This is used to ensure the proxy ignores its
+  own traffic. If `IgnoredGID` is specified,
+  this field can be empty.
+- `IgnoredGID` – (Required) The group
+  ID (GID) of the proxy container as defined by the
+  `user` parameter in a container
+  definition. This is used to ensure the proxy ignores its
+  own traffic. If `IgnoredUID` is specified,
+  this field can be empty.
+- `AppPorts` – (Required) The list of
+  ports that the application uses. Network traffic to
+  these ports is forwarded to the
+  `ProxyIngressPort` and
+  `ProxyEgressPort`.
+- `ProxyIngressPort` – (Required)
+  Specifies the port that incoming traffic to the
+  `AppPorts` is directed to.
+- `ProxyEgressPort` – (Required)
+  Specifies the port that outgoing traffic from the
+  `AppPorts` is directed to.
+- `EgressIgnoredPorts` – (Required) The
+  outbound traffic going to these specified ports is
+  ignored and not redirected to the
+  `ProxyEgressPort`. It can be an empty
+  list.
+- `EgressIgnoredIPs` – (Required) The
+  outbound traffic going to these specified IP addresses
+  is ignored and not redirected to the
+  `ProxyEgressPort`. It can be an empty
+  list.
+
+`name`
+
+Type: String
+
+Required: No
+
+The name of the key-value pair.
+
+`value`
+
+Type: String
+
+Required: No
+
+The value of the key-value pair.
+
+## Volumes
+
+When you register a task definition, you can optionally specify a list of volumes to
+be passed to the Docker daemon on a container instance, which then
+becomes available for access by other containers on the same container instance.
+
+The following are the types of data volumes that can be used:
+
+- Amazon EBS volumes — Provides cost-effective, durable, high-performance block
+  storage for data intensive containerized workloads. You can attach 1 Amazon EBS
+  volume per Amazon ECS task when running a standalone task, or when creating or
+  updating a service. Amazon EBS volumes are supported for Linux tasks. For more
+  information, see [Use Amazon EBS volumes with Amazon ECS](ebs-volumes.md "ebs-volumes.md").
+- Amazon EFS volumes — Provides simple, scalable, and persistent file storage
+  for use with your Amazon ECS tasks. With Amazon EFS, storage capacity is elastic. It grows
+  and shrinks automatically as you add and remove files. Your applications can
+  have the storage that they need and when they need it. Amazon EFS volumes are
+  supported. For more information, see [Use Amazon EFS volumes with Amazon ECS](efs-volumes.md "efs-volumes.md").
+- FSx for Windows File Server volumes — Provides fully managed Microsoft Windows file
+  servers. These file servers are backed by a Windows file system. When using
+  FSx for Windows File Server together with Amazon ECS, you can provision your Windows tasks with
+  persistent, distributed, shared, and static file storage. For more information,
+  see [Use FSx for Windows File Server volumes with Amazon ECS](wfsx-volumes.md "wfsx-volumes.md").
+
+Windows containers on Fargate do not support this option.
+
+- Docker volumes – A Docker-managed volume that is created under
+  `/var/lib/docker/volumes` on the host Amazon EC2 instance. Docker
+  volume drivers (also referred to as plugins) are used to integrate the volumes
+  with external storage systems, such as Amazon EBS. The built-in `local`
+  volume driver or a third-party volume driver can be used. Docker volumes are
+  supported only when running tasks on Amazon EC2 instances. Windows containers support
+  only the use of the `local` driver. To use Docker volumes, specify a
+  `dockerVolumeConfiguration` in your task definition.
+- Bind mounts – A file or directory on the host machine that is mounted
+  into a container. Bind mount host volumes are supported. To use bind mount host
+  volumes, specify a `host` and optional `sourcePath` value
+  in your task definition.
+
+For more information, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md").
+
+The following parameters are allowed in a container definition.
+
+`name`
+
+Type: String
+
+Required: No
+
+The name of the volume. Up to 255 letters (uppercase and lowercase),
+numbers, hyphens (`-`), and underscores (`_`) are allowed. This name is referenced
+in the `sourceVolume` parameter of the container definition
+`mountPoints` object.
+
+`host`
+
+Required: No
+
+The `host` parameter is used to tie the lifecycle of the bind
+mount to the host Amazon EC2 instance, rather than the task, and where it
+is stored. If the `host` parameter is empty, then the Docker
+daemon assigns a host path for your data volume, but the data is not
+guaranteed to persist after the containers associated with it stop
+running.
+
+Windows containers can mount whole directories on the same drive as
+`$env:ProgramData`.
+
+###### Note
+
+The `sourcePath` parameter is supported only when using tasks that are hosted on Amazon EC2 instances.
+
+`sourcePath`
+
+Type: String
+
+Required: No
+
+When the `host` parameter is used, specify a
+`sourcePath` to declare the path on the host
+Amazon EC2 instance that is presented to the container. If
+this parameter is empty, then the Docker daemon assigns
+a host path for you. If the `host` parameter
+contains a `sourcePath` file location, then the
+data volume persists at the specified location on the host
+Amazon EC2 instance until you delete it manually. If the
+`sourcePath` value does not exist on the host
+Amazon EC2 instance, the Docker daemon creates it. If the
+location does exist, the contents of the source path folder
+are exported.
+
+`configuredAtLaunch`
+
+Type: Boolean
+
+Required: No
+
+Specifies whether a volume is configurable at launch. When set to
+`true`, you can configure the volume when running a
+standalone task, or when creating or updating a service. When set to
+`true`, you won't be able to provide another volume
+configuration in the task definition. This parameter must be set to
+`true` to configure an Amazon EBS volume for attachment to a task.
+Setting `configuredAtLaunch` to `true` and deferring
+volume configuration to the launch phase allows you to create task
+definitions that aren't constrained to a volume type or to specific volume
+settings. Doing this makes your task definition reusable across different
+execution environments. For more information, see [Amazon EBS
+volumes](ebs-volumes.md "ebs-volumes.md").
+
+`dockerVolumeConfiguration`
+
+Type: [DockerVolumeConfiguration](../APIReference/API_DockerVolumeConfiguration.md "../APIReference/API_DockerVolumeConfiguration.md") Object
+
+Required: No
+
+This parameter is specified when using Docker volumes. Docker volumes are
+supported only when running tasks on EC2 instances. Windows containers support only
+the use of the `local` driver. To use bind mounts, specify a
+`host` instead.
+
+`scope`
+
+Type: String
+
+Valid Values: `task` | `shared`
+
+Required: No
+
+The scope for the Docker volume, which determines its lifecycle. Docker volumes that are scoped to a `task` are
+automatically provisioned when the task starts and destroyed when the task stops. Docker volumes
+that are scoped as `shared` persist after the task stops.
+
+`autoprovision`
+
+Type: Boolean
+
+Default value: `false`
+
+Required: No
+
+If this value is `true`, the Docker volume is created if it
+doesn't already exist. This field is used only if the `scope` is
+`shared`. If the `scope` is `task`, then this parameter must be omitted.
+
+`driver`
+
+Type: String
+
+Required: No
+
+The Docker volume driver to use. The driver value must match the driver
+name provided by Docker because this name is used for task placement. If the driver
+was installed by using the Docker plugin CLI, use `docker plugin ls`
+to retrieve the driver name from your container instance. If the driver was
+installed by using another method, use Docker plugin discovery to retrieve the
+driver name.
+
+`driverOpts`
+
+Type: String
+
+Required: No
+
+A map of Docker driver-specific options to pass through. This parameter
+maps to `DriverOpts` in the Create a
+volume section of Docker.
+
+`labels`
+
+Type: String
+
+Required: No
+
+Custom metadata to add to your Docker volume.
+
+`efsVolumeConfiguration`
+
+Type: [EFSVolumeConfiguration](../APIReference/API_EFSVolumeConfiguration.md "../APIReference/API_EFSVolumeConfiguration.md") Object
+
+Required: No
+
+This parameter is specified when using Amazon EFS volumes.
+
+`fileSystemId`
+
+Type: String
+
+Required: Yes
+
+The Amazon EFS file system ID to use.
+
+`rootDirectory`
+
+Type: String
+
+Required: No
+
+The directory within the Amazon EFS file system to mount as
+the root directory inside the host. If this parameter is
+omitted, the root of the Amazon EFS volume will be used.
+Specifying `/` has the same effect as
+omitting this parameter.
+
+###### Important
+
+If an EFS access point is specified in the
+`authorizationConfig`, the root
+directory parameter must either be omitted or set to
+`/`, which will enforce the path set on
+the EFS access point.
+
+`transitEncryption`
+
+Type: String
+
+Valid values: `ENABLED` |
+`DISABLED`
+
+Required: No
+
+Specifies whether to enable encryption for Amazon EFS data in
+transit between the Amazon ECS host and the Amazon EFS server.
+If Amazon EFS IAM authorization is used, transit encryption must
+be enabled. If this parameter is omitted, the
+default value of `DISABLED` is used. For more
+information, see [Encrypting Data in Transit](../../../efs/latest/ug/encryption-in-transit.md "../../../efs/latest/ug/encryption-in-transit.md") in the
+_Amazon Elastic File System User Guide_.
+
+`transitEncryptionPort`
+
+Type: Integer
+
+Required: No
+
+The port to use when sending encrypted data between
+the Amazon ECS host and the Amazon EFS server. If you don't
+specify a transit encryption port, the task will use the port
+selection strategy that the Amazon EFS mount helper uses. For
+more information, see [EFS Mount
+Helper](../../../efs/latest/ug/efs-mount-helper.md "../../../efs/latest/ug/efs-mount-helper.md") in the
+_Amazon Elastic File System User Guide_.
+
+`authorizationConfig`
+
+Type: [EFSAuthorizationConfig](../APIReference/API_EFSAuthorizationConfig.md "../APIReference/API_EFSAuthorizationConfig.md") Object
+
+Required: No
+
+The authorization configuration details for the Amazon EFS
+file system.
+
+`accessPointId`
+
+Type: String
+
+Required: No
+
+The access point ID to use. If an access
+point is specified, the root directory value in
+the `efsVolumeConfiguration` must
+either be omitted or set to `/`, which
+will enforce the path set on the EFS access point.
+If an access point is used, transit encryption
+must be enabled in the
+`EFSVolumeConfiguration`. For more
+information, see [Working
+with Amazon EFS Access Points](../../../efs/latest/ug/efs-access-points.md "../../../efs/latest/ug/efs-access-points.md") in the
+_Amazon Elastic File System User Guide_.
+
+`iam`
+
+Type: String
+
+Valid values: `ENABLED` |
+`DISABLED`
+
+Required: No
+
+Specifies whether to use the Amazon ECS task IAM
+role that's defined in a task definition when mounting
+the Amazon EFS file system. If enabled, transit
+encryption must be enabled in the
+`EFSVolumeConfiguration`. If this
+parameter is omitted, the default value of
+`DISABLED` is used. For more
+information, see [IAM Roles for Tasks](task-iam-roles.md "task-iam-roles.md").
+
+`FSxWindowsFileServerVolumeConfiguration`
+
+Type: [FSxWindowsFileServerVolumeConfiguration](../APIReference/API_FSxWindowsFileServerVolumeConfiguration.md "../APIReference/API_FSxWindowsFileServerVolumeConfiguration.md") Object
+
+Required: Yes
+
+This parameter is specified when you're using an [Amazon FSx for Windows File Server](../../../fsx/latest/WindowsGuide/what-is.md "../../../fsx/latest/WindowsGuide/what-is.md") file system for task storage.
+
+`fileSystemId`
+
+Type: String
+
+Required: Yes
+
+The FSx for Windows File Server file system ID to use.
+
+`rootDirectory`
+
+Type: String
+
+Required: Yes
+
+The directory within the FSx for Windows File Server file system to mount as
+the root directory inside the host.
+
+`authorizationConfig`
+
+`credentialsParameter`
+
+Type: String
+
+Required: Yes
+
+The authorization credential options.
+
+###### options:
+
+- Amazon Resource Name (ARN) of an [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") secret.
+- ARN of an [AWS Systems Manager](../../../systems-manager/latest/userguide/integration-ps-secretsmanager.md "../../../systems-manager/latest/userguide/integration-ps-secretsmanager.md") parameter.
+
+`domain`
+
+Type: String
+
+Required: Yes
+
+A fully qualified domain name hosted by an [AWS Directory Service for Microsoft Active Directory](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md") (AWS Managed Microsoft AD)
+directory or a self-hosted EC2 Active
+Directory.
+
+## Tags
+
+When you register a task definition, you can optionally specify metadata tags that are
+applied to the task definition. Tags help you categorize and organize your task
+definition. Each tag consists of a key and an optional value. You define both of them.
+For more information, see [Tagging Amazon ECS resources](ecs-using-tags.md "ecs-using-tags.md").
+
+###### Important
+
+Don't add personally identifiable information or other confidential or sensitive
+information in tags. Tags are accessible to many AWS services, including billing.
+Tags aren't intended to be used for private or sensitive data.
+
+The following parameters are allowed in a tag object.
+
+`key`
+
+Type: String
+
+Required: No
+
+One part of a key-value pair that make up a tag. A key is a general label
+that acts like a category for more specific tag values.
+
+`value`
+
+Type: String
+
+Required: No
+
+The optional part of a key-value pair that make up a tag. A value acts as
+a descriptor within a tag category (key).
+
+## Other task definition
+
+parameters
+
+The following task definition parameters can be used when registering task definitions
+in the Amazon ECS console by using the **Configure via JSON** option. For
+more information, see [Creating an Amazon ECS task definition using the
+console](create-task-definition.md "create-task-definition.md").
+
+###### Topics
+
+- [IPC mode](#task_definition_ipcmode_ec2 "#task_definition_ipcmode_ec2")
+- [PID mode](#task_definition_pidmode_ec2 "#task_definition_pidmode_ec2")
+- [Fault injection](#task_definition_faultInjection_ec2 "#task_definition_faultInjection_ec2")
+
+### IPC mode
+
+`ipcMode`
+
+Type: String
+
+Required: No
+
+The IPC resource namespace to use for the containers in the task. The
+valid values are `host`, `task`, or
+`none`. If `host` is specified, then all the
+containers that are within the tasks that specified the
+`host` IPC mode on the same container instance share the
+same IPC resources with the host Amazon EC2 instance. If `task` is
+specified, all the containers that are within the specified task share
+the same IPC resources. If `none` is specified, then IPC
+resources within the containers of a task are private and not shared
+with other containers in a task or on the container instance. If no
+value is specified, then the IPC resource namespace sharing depends on
+the Docker daemon setting on the container instance.
+
+If the `host` IPC mode is used, there's a heightened risk
+of undesired IPC namespace exposure.
+
+If you're setting namespaced kernel parameters that use
+`systemControls` for the containers in the task, the
+following applies to your IPC resource namespace.
+
+- For tasks that use the `host` IPC mode, IPC
+  namespace that's related `systemControls` aren't
+  supported.
+- For tasks that use the `task` IPC mode,
+  `systemControls` that relate to the IPC namespace
+  apply to all containers within a task.
+
+### PID mode
+
+`pidMode`
+
+Type: String
+
+Valid Values: `host` | `task`
+
+Required: No
+
+The process namespace to use for the containers in the task. The valid
+values are `host` or `task`. For example,
+monitoring sidecars might need `pidMode` to access
+information about other containers running in the same task.
+
+If `host` is specified, all containers within the tasks
+that specified the `host` PID mode on the same container
+instance share the same process namespace with the host Amazon EC2
+instance.
+
+If `task` is specified, all containers within the specified
+task share the same process namespace.
+
+If no value is specified, the default is a private namespace for each
+container.
+
+If the `host` PID mode is used, there's a heightened risk
+of undesired process namespace exposure.
+
+###### Note
+
+This parameter is not supported for Windows containers.
+
+### Fault injection
+
+`enableFaultInjection`
+
+Type: Boolean
+
+Valid Values: `true` | `false`
+
+Required: No
+
+If this parameter is set to `true`, in a task's payload,
+Amazon ECS accepts fault injection requests from the task’s containers. By
+default, this parameter is set to `false`.

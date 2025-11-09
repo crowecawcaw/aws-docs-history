@@ -18,7 +18,20 @@ maximum values for the previous 24-hour period, with data points available in
 2. Select the cluster that you want to view metrics for.
 3. Determine the metrics to view.
 
-| To view metrics from | Steps                                                                                                                                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clusters             | On the cluster details page, choose the **Metrics** tab. There is also a link provided to the CloudWatch console to view your CloudWatch Container Insights metrics if you have those turned on. |
-| Services             | On the cluster details page, on the **Services** tab, select the service. The metrics are then available on the **Health and metrics** tab.                                                      | ## CloudWatch console For Fargate, Amazon ECS service metrics can also be viewed on the CloudWatch console. The console provides the most detailed view of Amazon ECS metrics, and you can tailor the views to suit your needs. You can view the service utilization and service RUNNING task count. For EC2 capacity providers, Amazon ECS cluster and service metrics can also be viewed on the CloudWatch console. The console provides the most detailed view of Amazon ECS metrics, and you can tailor the views to suit your needs. For information about how to view the metrics, see [View available metrics](../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md "../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md") the _Amazon CloudWatch User Guide_. |
+| To view metrics from | Steps                                                                                                                                                                                                             |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clusters             | On the cluster details page, choose the<br>\*_Metrics_<br>• tab. There is also a<br>link provided to the CloudWatch console to view your CloudWatch<br>Container Insights metrics if you have those turned<br>on. |
+| Services             | On the cluster details page, on the<br>**Services\*<br>• tab, select the<br>service. The metrics are then available on the<br>**Health and metrics\*\*<br>tab.                                                    |
+
+## CloudWatch console
+
+For Fargate, Amazon ECS service metrics can also be viewed on the
+CloudWatch console. The console provides the most detailed view of Amazon ECS metrics, and you
+can tailor the views to suit your needs. You can view the service utilization and
+service RUNNING task count.
+
+For EC2 capacity providers, Amazon ECS cluster and service metrics can also be viewed on
+the CloudWatch console. The console provides the most detailed view of Amazon ECS metrics, and
+you can tailor the views to suit your needs.
+
+For information about how to view the metrics, see [View available metrics](../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md "../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md") the _Amazon CloudWatch User Guide_.

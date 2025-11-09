@@ -30,7 +30,8 @@ Required: No
 
 The capacity provider strategy to use for the service.
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new
+service deployment.
 
 A capacity provider strategy consists of one or more capacity providers
 along with the `base` and `weight` to assign to them.
@@ -114,7 +115,8 @@ The `family` and `revision`
 to run in your service. If a `revision` isn't specified, the
 latest `ACTIVE` revision of the specified family is used.
 
-When you update a service, this parameter triggers a new service deployment.
+When you update a service, this parameter triggers a new service
+deployment.
 
 A task definition must be specified when using the rolling update
 (`ECS`) deployment controller.
@@ -241,7 +243,8 @@ Required: No
 The number of instantiations of the specified task definition to place and
 keep running in your service.
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new
+service deployment.
 
 This parameter is required if the `REPLICA` scheduling strategy
 is used. If the service uses the `DAEMON` scheduling strategy,
@@ -263,7 +266,8 @@ Required: No
 Optional deployment parameters that control how many tasks run during the
 deployment and the ordering of stopping and starting tasks.
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new
+service deployment.
 
 `maximumPercent`
 
@@ -318,15 +322,13 @@ instances are in the `DRAINING` state.
 You can't specify a custom `maximumPercent`
 value for a service that uses either the blue/green
 (`CODE_DEPLOY`) or `EXTERNAL`
-deployment types and has tasks that use the
-EC2.
+deployment types and has tasks that use the EC2.
 
 If the service uses either the blue/green
 (`CODE_DEPLOY`) or `EXTERNAL`
 deployment types, and the tasks in the service use the
-Fargate, the maximum percent value is
-not used. The value is still returned when describing your
-service.
+Fargate, the maximum percent value is not used. The value is
+still returned when describing your service.
 
 `minimumHealthyPercent`
 
@@ -406,28 +408,25 @@ nearest integer value.
 
 If a service is using either the blue/green
 (`CODE_DEPLOY`) or `EXTERNAL`
-deployment types and is running tasks that use the
-EC2, the **minimum
-healthy percent** value is set to the default
-value. The value is used to define the lower limit on the number
-of the tasks in the service that remain in the
-`RUNNING` state while the container instances are
-in the `DRAINING` state.
+deployment types and is running tasks that use the EC2, the
+**minimum healthy percent**
+value is set to the default value. The value is used to define
+the lower limit on the number of the tasks in the service that
+remain in the `RUNNING` state while the container
+instances are in the `DRAINING` state.
 
 ###### Note
 
 You can't specify a custom `maximumPercent`
 value for a service that uses either the blue/green
 (`CODE_DEPLOY`) or `EXTERNAL`
-deployment types and has tasks that use the
-EC2.
+deployment types and has tasks that use the EC2.
 
 If a service is using either the blue/green
 (`CODE_DEPLOY`) or `EXTERNAL`
-deployment types and is running tasks that use
-Fargate, the minimum healthy percent
-value is not used, although it is returned when describing your
-service.
+deployment types and is running tasks that use Fargate, the
+minimum healthy percent value is not used, although it is
+returned when describing your service.
 
 ## Deployment controller
 
@@ -441,7 +440,8 @@ The deployment controller to use for the service. If no deployment
 controller is specified, the `ECS` controller is used. For more
 information, see [Amazon ECS services](ecs_services.md "ecs_services.md").
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new service
+deployment.
 
 `type`
 
@@ -457,14 +457,7 @@ deployment controller types available:
 
 `ECS`
 
-The rolling update (`ECS`) deployment
-type involves replacing the current running version
-of the container with the latest version. The number
-of containers Amazon ECS adds or removes from the service
-during a rolling update is controlled by adjusting
-the minimum and maximum number of healthy tasks
-allowed during a service deployment, as specified in
-the [deploymentConfiguration](#deploymentConfiguration "#deploymentConfiguration").
+The Amazon ECS deployment controller supports multiple deployment strategies: rolling update, blue/green, linear, and canary. The rolling update deployment type involves replacing the current running version of the container with the latest version. Blue/green deployments create a new environment and shift traffic all at once. Linear deployments gradually shift traffic in equal percentage increments. Canary deployments shift a small percentage of traffic first, then shift the remaining traffic. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the [deploymentConfiguration](#deploymentConfiguration "#deploymentConfiguration").
 
 `CODE_DEPLOY`
 
@@ -492,10 +485,10 @@ Required: No
 An array of placement constraint objects to use for tasks in your service.
 You can specify a maximum of 10 constraints per task. This limit includes
 constraints in the task definition and those specified at run time. If you
-use Fargate, task placement constraints aren't
-supported.
+use Fargate, task placement constraints aren't supported.
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new service
+deployment.
 
 `type`
 
@@ -530,7 +523,8 @@ Required: No
 The placement strategy objects to use for tasks in your service. You can
 specify a maximum of four strategy rules per service.
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new service
+deployment.
 
 `type`
 
@@ -620,7 +614,8 @@ Specifies whether to use Amazon ECS managed tags for the tasks in the service.
 If no value is specified, the default value is `false`. For more
 information, see [Use tags for billing](ecs-using-tags.md#tag-resources-for-billing "ecs-using-tags.md#tag-resources-for-billing").
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new service
+deployment.
 
 `propagateTags`
 
@@ -650,13 +645,13 @@ Required: No
 The network configuration for the service. This parameter is required for
 task definitions that use the `awsvpc` network mode to receive
 their own Elastic Network Interface, and it isn't supported for other
-network modes. If using Fargate, the
-`awsvpc` network mode is required. For more information about
-networking for EC2, see [Amazon ECS task networking options for EC2](task-networking.md "task-networking.md"). For more information about networking
-for Fargate, see [Amazon ECS
+network modes. If using Fargate, the `awsvpc` network mode is
+required. For more information about networking for EC2, see [Amazon ECS task networking options for EC2](task-networking.md "task-networking.md"). For more
+information about networking for Fargate, see [Amazon ECS
 task networking options for Fargate](fargate-task-networking.md "fargate-task-networking.md").
 
-When you update a service, this parameter triggers a new service deployment.
+When you update a service, this parameter triggers a new service
+deployment.
 
 `awsvpcConfiguration`
 
@@ -711,7 +706,11 @@ Type: Integer
 
 Required: No
 
-The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then `healthCheckGracePeriodSeconds` is unused.
+The period of time, in seconds, that the Amazon ECS service scheduler
+ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task
+has first started. If you do not specify a health check grace period value,
+the default value of 0 is used. If you do not use any of the health checks,
+then `healthCheckGracePeriodSeconds` is unused.
 
 If your service's tasks take a while to start and respond, you can
 specify a health check grace period of up to 2,147,483,647 seconds (about 69
@@ -720,7 +719,8 @@ check status. This grace period can prevent the service scheduler from
 marking tasks as unhealthy and stopping them before they have time to come
 up.
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new service
+deployment.
 
 `loadBalancers`
 
@@ -732,7 +732,8 @@ A load balancer object representing the load balancers to use with your
 service. For services that use an Application Load Balancer or Network Load Balancer, there's a limit of five
 target groups that you can attach to a service.
 
-When you update a service, this parameter triggers a new service deployment.
+When you update a service, this parameter triggers a new service
+deployment.
 
 After you create a service, the load balancer configuration can't be changed from the AWS Management Console. You can use the AWS Copilot, AWS CloudFormation, AWS CLI or SDK to modify the load balancer configuration for the `ECS` rolling deployment controller only, not AWS CodeDeploy blue/green or external. When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers. We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration. For information about how to modify the configuration, see [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md") in the _Amazon Elastic Container Service API Reference_.
 
@@ -784,9 +785,8 @@ Required: No
 The port on the container to associate with the load balancer.
 This port must correspond to a `containerPort` in the
 task definition used by tasks in the service. For tasks that use
-EC2, the container instance must
-allow inbound traffic on the `hostPort` of the port
-mapping.
+EC2, the container instance must allow inbound traffic on the
+`hostPort` of the port mapping.
 
 `role`
 
@@ -829,7 +829,8 @@ The configuration for this service to discover and connect to services,
 and be discovered by, and connected from, other services within a
 namespace.
 
-When you update a service, this parameter triggers a new service deployment.
+When you update a service, this parameter triggers a new service
+deployment.
 
 For more information, see [Use Service Connect to connect Amazon ECS services with short
 names](service-connect.md "service-connect.md").
@@ -1017,6 +1018,22 @@ router container that uses the
 `fluent-bit` or `fluentd`
 container image.
 
+`accessLogConfiguration`
+
+Type: [ServiceConnectAccessLogConfiguration](../APIReference/API_LogConfiguration.md "../APIReference/API_LogConfiguration.md")
+Object
+
+Required: No
+
+The configuration for Service Connect access
+logging including log format and whether the logs
+should include query strings. Access logs capture
+detailed information about requests made to your
+service, including request patterns, response code,
+and timing data. To enable access logs, you must
+also specify a `logConfiguration` in the
+`serviceConnectConfiguration`.
+
 `serviceRegistries`
 
 Type: Array of objects
@@ -1027,7 +1044,8 @@ The details of the service discovery configuration for your service. For
 more information, see [Use service discovery to connect Amazon ECS services with
 DNS names](service-discovery.md "service-discovery.md").
 
-When you update a service, this parameter triggers a new service deployment.
+When you update a service, this parameter triggers a new service
+deployment.
 
 `registryArn`
 
@@ -1110,7 +1128,8 @@ Required: No
 Indicates whether the service uses Availability Zone rebalancing. The valid values
 are `ENABLED` and `DISABLED`.
 
-When you update a service, this parameter doesn't trigger a new service deployment.
+When you update a service, this parameter doesn't trigger a new service
+deployment.
 
 Default behavior:
 
@@ -1136,7 +1155,8 @@ managed by the service. Only volumes that are marked as
 `configuredAtLaunch` in the task definition can be configured
 by using this object.
 
-When you update a service, this parameter triggers a new service deployment.
+When you update a service, this parameter triggers a new service
+deployment.
 
 This object is required for attaching Amazon EBS volumes to tasks that are
 managed by a service. For more information, see [Use Amazon EBS volumes with Amazon ECS](ebs-volumes.md "ebs-volumes.md").
@@ -1176,11 +1196,16 @@ Valid values:
 Specifies whether to encrypt each created Amazon EBS
 volume. If you've turned on Amazon EBS encryption by
 default for a particular AWS Region for your
-AWS account but set this parameter to `false`, this parameter will be overridden, and
-the volumes will be encrypted with the KMS key specified for encryption by default. For more information
-about Amazon EBS encryption by default, see [Enable Amazon EBS encryption by default](../../../ebs/latest/userguide/encryption-by-default.md "../../../ebs/latest/userguide/encryption-by-default.md") in the
+AWS account but set this parameter to
+`false`, this parameter will be
+overridden, and the volumes will be encrypted with
+the KMS key specified for encryption by default.
+For more information about Amazon EBS encryption by
+default, see [Enable Amazon EBS encryption by default](../../../ebs/latest/userguide/encryption-by-default.md "../../../ebs/latest/userguide/encryption-by-default.md") in the
 _Amazon EBS User
-Guide_. For more information about encrypting Amazon EBS volumes attached to Amazon ECS tasks, see [Encrypt data stored in Amazon EBS volumes attached to
+Guide_. For more information about
+encrypting Amazon EBS volumes attached to Amazon ECS tasks,
+see [Encrypt data stored in Amazon EBS volumes attached to
 Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md").
 
 `kmsKeyId`
@@ -1190,10 +1215,14 @@ Type: String
 Required: No
 
 The identifier of the AWS Key Management Service (AWS KMS) key to use
-for Amazon EBS encryption. If `kmsKeyId` is specified, the encrypted
-state must be `true`.
+for Amazon EBS encryption. If `kmsKeyId` is
+specified, the encrypted state must be
+`true`.
 
-The key specified using this parameter overrides the Amazon EBS default or any cluster-level KMS key for Amazon ECS managed storage encryption that you may have specified. For more information, see [Encrypt data stored in Amazon EBS volumes attached to
+The key specified using this parameter overrides
+the Amazon EBS default or any cluster-level KMS key for
+Amazon ECS managed storage encryption that you may have
+specified. For more information, see [Encrypt data stored in Amazon EBS volumes attached to
 Amazon ECS tasks](ebs-kms-encryption.md "ebs-kms-encryption.md").
 
 You can specify the KMS key by using any of the
@@ -1293,8 +1322,8 @@ specified only if you specify a
 `snapshotId`. For more information
 about this volume initialization rate, including the
 range of supported rates for initialization, see
-[Initialize Amazon EBS volumes](../../../ebs/latest/userguide/initalize-volume.md "../../../ebs/latest/userguide/initalize-volume.md") in the _Amazon EBS User
-Guide_.
+[Initialize Amazon EBS volumes](../../../ebs/latest/userguide/initalize-volume.md "../../../ebs/latest/userguide/initalize-volume.md") in the
+_Amazon EBS User Guide_.
 
 `iops`
 

@@ -41,8 +41,8 @@ The following are prequisites to using Systems Manager with Amazon ECS.
 A common use case is to update container instance software with Run Command. You can
 follow the procedues in the AWS Systems Manager User Guide with the following parameters.
 
-| Parameter            | Value                     |
-| -------------------- | ------------------------- |
-| **Command document** | `AWS-RunShellScript`      |
-| **Command**          | `` `$` `yum update -y` `` |
-| **Target instances** | Your container instances  |
+| Parameter            | Value                           |
+| -------------------- | ------------------------------- |
+| **Command document** | `AWS-RunShellScript`            |
+| **Command**          | ``<br>`$` `yum update -y`<br>`` |
+| **Target instances** | Your container instances        |

@@ -14,7 +14,44 @@ For example, the tasks and pods token bucket size for a Fargate customer account
 launch up to 100 Amazon ECS tasks and Amazon EKS pods per customer account, with a sustained
 launch rate of 20 Amazon ECS tasks and Amazon EKS pods per second.
 
-| Actions                                                                                                                                    | Bucket maximum capacity (or Burst rate) | Bucket refill rate (or Sustained rate) |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Fargate Resource rate quota for On Demand Amazon ECS tasks and Amazon EKS pods[1](#fargate-throttling-note-1 "#fargate-throttling-note-1") | 100                                     | 20                                     |
-| Fargate Resource rate quota for Spot Amazon ECS tasks                                                                                      | 100                                     | 20                                     | 1Accounts launching only Amazon EKS pods have a burst rate of 20 with a sustained pod launch rate of 20 pod launches per second when using the platform versions called out in the [Amazon EKS platform versions](../../../eks/latest/userguide/platform-versions.md "../../../eks/latest/userguide/platform-versions.md"). ## Throttling the `RunTask` API in Fargate In addition, Fargate limits the request rate when launching tasks using the Amazon ECS `RunTask` API using a separate quota. Fargate limits Amazon ECS `RunTask` API requests for each AWS account on a per-Region basis. Each request that you make removes one token from the bucket. We do this to help the performance of the service, and to ensure fair usage for all Fargate customers. API calls are subject to the request quotas whether they originate from the Amazon Elastic Container Service console, a command line tool, or a third-party application. The rate quota for calls to the Amazon ECS `RunTask` API is 20 calls per second (burst and sustained). Each call to this API can, however, launch up to 10 tasks. This means you can launch 100 tasks in one second by making 10 calls to this API, requesting 10 tasks to be launched in each call. Similarly, you could also make 20 calls to this API, requesting 5 tasks to be launched in each call. For more information on API throttling for Amazon ECS `RunTask` API, see [API request throttling](../APIReference/request-throttling.md "../APIReference/request-throttling.md") in the Amazon ECS API Reference. In practice, task and pod launch rates are also dependent on other considerations such as container images to be downloaded and unpacked, health checks and other integrations enabled, such as registering tasks or pods into a load balancer. Customers see variations in task and pod launch rates compared with the quotas represented earlier based on the features that customers enable. ## Adjusting rate quotas in Fargate You can request an increase for Fargate rate throttling quotas for your AWS account. For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_. |
+| Actions                                                                                                                                       | Bucket maximum capacity (or Burst rate) | Bucket refill rate (or Sustained rate) |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------- |
+| Fargate Resource rate quota for On Demand Amazon ECS tasks and Amazon EKS<br>pods[1](#fargate-throttling-note-1 "#fargate-throttling-note-1") | 100                                     | 20                                     |
+| Fargate Resource rate quota for Spot Amazon ECS tasks                                                                                         | 100                                     | 20                                     |
+
+1Accounts launching only
+Amazon EKS pods have a burst rate of 20 with a sustained pod launch rate of 20 pod launches
+per second when using the platform versions called out in the [Amazon EKS
+platform versions](../../../eks/latest/userguide/platform-versions.md "../../../eks/latest/userguide/platform-versions.md").
+
+## Throttling the `RunTask`
+
+API in Fargate
+
+In addition, Fargate limits the request rate when launching tasks using the
+Amazon ECS `RunTask` API using a separate quota. Fargate limits Amazon ECS
+`RunTask` API requests for each AWS account on a per-Region basis.
+Each request that you make removes one token from the bucket. We do this to help the
+performance of the service, and to ensure fair usage for all Fargate customers.
+API calls are subject to the request quotas whether they originate from the
+Amazon Elastic Container Service console, a command line tool, or a third-party application. The rate quota
+for calls to the Amazon ECS `RunTask` API is 20 calls per second (burst and
+sustained). Each call to this API can, however, launch up to 10 tasks. This means
+you can launch 100 tasks in one second by making 10 calls to this API, requesting 10
+tasks to be launched in each call. Similarly, you could also make 20 calls to this
+API, requesting 5 tasks to be launched in each call. For more information on API
+throttling for Amazon ECS `RunTask` API, see [API request
+throttling](../APIReference/request-throttling.md "../APIReference/request-throttling.md") in the Amazon ECS API Reference.
+
+In practice, task and pod launch rates are also dependent on other considerations
+such as container images to be downloaded and unpacked, health checks and other
+integrations enabled, such as registering tasks or pods into a load balancer.
+Customers see variations in task and pod launch rates compared with the quotas
+represented earlier based on the features that customers enable.
+
+## Adjusting rate quotas in Fargate
+
+You can request an increase for Fargate rate throttling quotas for your AWS
+account. For more information, see [Requesting a quota
+increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User
+Guide_.

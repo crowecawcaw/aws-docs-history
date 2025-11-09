@@ -153,7 +153,56 @@ The default behavior of `AvailabilityZoneRebalancing` differs between create and
 - For create service requests, when when no value is specified for `AvailabilityZoneRebalancing`, Amazon ECS defaults the value to to `ENABLED`.
 - For update service requests, when no value is specified for `AvailabilityZoneRebalancing`, Amazon ECS defaults to the existing service’s `AvailabilityZoneRebalancing` value. If the service never had an `AvailabilityZoneRebalancing` value set, Amazon ECS treats this as `DISABLED`.
 
-| Service type | API                                                                                          | Console                                                                                                         | CLI                                                                                                                         |
-| ------------ | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Existing     | [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md") | [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md")                   | [update-service](../../../cli/latest/reference/ecs/update-service.md "../../../cli/latest/reference/ecs/update-service.md") |
-| New          | [CreateService](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md") | [Creating an Amazon ECS rolling update deployment](create-service-console-v2.md "create-service-console-v2.md") | [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") | The following example shows how to enable service rebalancing when creating a new service: `aws ecs create-service \ --cluster my-cluster \ --service-name my-service \ --task-definition my-task-definition:1 \ --desired-count 6 \ --availability-zone-rebalancing ENABLED` ## Troubleshooting service rebalancing If you encounter issues with service rebalancing, consider the following troubleshooting steps: Rebalancing doesn't start Verify that: <br>• Service rebalancing is enabled for your service <br>• Your service uses a supported configuration (see [Considerations for configuring Availability Zone rebalancing](#service-rebalancing-configurations "#service-rebalancing-configurations")) <br>• Your service has reached a steady state Task placement failures during rebalancing If you see `SERVICE_TASK_PLACEMENT_FAILURE` events: <br>• For EC2: Check if you have container instances available in the target Availability Zone <br>• For Fargate: Check if there are resource constraints or service quotas limiting task placement <br>• Review your task placement constraints to ensure they're not preventing proper task distribution Rebalancing stops unexpectedly If you see `SERVICE_REBALANCING_STOPPED` events: <br>• Check for task protection that might be blocking the operation <br>• Look for concurrent service deployments that could interrupt rebalancing <br>• Review service events for additional information about why rebalancing stopped ## Best practices for service rebalancing Follow these best practices to get the most out of service rebalancing: <br>• **Monitor rebalancing operations** - Set up CloudWatch alarms to monitor service events related to rebalancing to quickly identify any issues. <br>• **Consider performance impact** - Be aware that rebalancing operations may temporarily increase resource usage as new tasks are started before old ones are stopped. <br>• **Use task protection strategically** - If you have critical tasks that shouldn't be terminated during rebalancing, consider using task protection. <br>• **Plan for EC2 capacity** - For EC2, ensure you have sufficient container instances across all Availability Zones to support effective rebalancing. <br>• **Test rebalancing behavior** - Before relying on rebalancing in production, test how your services behave during rebalancing operations in a non-production environment. |
+| Service type | API                                                                                          | Console                                                                                                            | CLI                                                                                                                         |
+| ------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| Existing     | [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md") | [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md")                      | [update-service](../../../cli/latest/reference/ecs/update-service.md "../../../cli/latest/reference/ecs/update-service.md") |
+| New          | [CreateService](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md") | [Creating an Amazon ECS rolling update<br>deployment](create-service-console-v2.md "create-service-console-v2.md") | [create-service](../../../cli/latest/reference/ecs/create-service.md "../../../cli/latest/reference/ecs/create-service.md") |
+
+The following example shows how to enable service rebalancing when creating a new service:
+
+```
+aws ecs create-service \
+    --cluster my-cluster \
+    --service-name my-service \
+    --task-definition my-task-definition:1 \
+    --desired-count 6 \
+    --availability-zone-rebalancing ENABLED
+```
+
+## Troubleshooting service rebalancing
+
+If you encounter issues with service rebalancing, consider the following troubleshooting steps:
+
+Rebalancing doesn't start
+
+Verify that:
+
+- Service rebalancing is enabled for your service
+- Your service uses a supported configuration (see [Considerations for configuring Availability Zone rebalancing](#service-rebalancing-configurations "#service-rebalancing-configurations"))
+- Your service has reached a steady state
+
+Task placement failures during rebalancing
+
+If you see `SERVICE_TASK_PLACEMENT_FAILURE` events:
+
+- For EC2: Check if you have container instances available in the target Availability Zone
+- For Fargate: Check if there are resource constraints or service quotas limiting task placement
+- Review your task placement constraints to ensure they're not preventing proper task distribution
+
+Rebalancing stops unexpectedly
+
+If you see `SERVICE_REBALANCING_STOPPED` events:
+
+- Check for task protection that might be blocking the operation
+- Look for concurrent service deployments that could interrupt rebalancing
+- Review service events for additional information about why rebalancing stopped
+
+## Best practices for service rebalancing
+
+Follow these best practices to get the most out of service rebalancing:
+
+- **Monitor rebalancing operations** - Set up CloudWatch alarms to monitor service events related to rebalancing to quickly identify any issues.
+- **Consider performance impact** - Be aware that rebalancing operations may temporarily increase resource usage as new tasks are started before old ones are stopped.
+- **Use task protection strategically** - If you have critical tasks that shouldn't be terminated during rebalancing, consider using task protection.
+- **Plan for EC2 capacity** - For EC2, ensure you have sufficient container instances across all Availability Zones to support effective rebalancing.
+- **Test rebalancing behavior** - Before relying on rebalancing in production, test how your services behave during rebalancing operations in a non-production environment.

@@ -16,7 +16,14 @@ This approach maintains system compliance while respecting customer-defined main
 
 AWS manages a managed container instance lifecycle through automated background processes that monitor a node's creation timestamp and maintenance schedules. Upon instance launch, AWS sets a default 14-day draining schedule and evaluates any customer-configured event windows.
 
-Customers can schedule maintenance activities for their managed container instances by configuring event windows with appropriate tags. When an event window is tagged with a specific value, Amazon ECS maps these tags to the corresponding managed container instances of corresponding clusters and schedules instance maintenance during the defined time periods on a best effort basis.
+You can schedule maintenance activities for Amazon ECS Managed Instances by
+configuring event windows. You can associate one or more Amazon ECS Managed Instances with an event window by using either instance IDs or instance tags. When an event
+window is tagged with a specific value, Amazon ECS maps these tags to the corresponding
+Amazon ECS Managed Instances of the corresponding clusters and schedules instance maintenance
+during the defined time periods on a best effort basis.
+
+For more information about event windows see [Create custom event windows for
+scheduled events that affect your Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/event-windows.md "../../../AWSEC2/latest/UserGuide/event-windows.md") in the _Amazon EC2 User Guide_.
 
 If event windows exist, AWS adjusts the draining schedule to align with these windows, which may result in earlier draining than the default 14-day period to honor the specified event window. Event window modifications only affect newly launched managed container instances, ensuring predictable maintenance scheduling.
 

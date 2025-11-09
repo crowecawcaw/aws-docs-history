@@ -298,10 +298,43 @@ The task runs in the subnet that you defined for the cluster.
 
 Determine the resource from where you launch the service.
 
-| To start a service from | Steps                                                                                                                                                |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Clusters                | 1. On the **Clusters** page, select the cluster to create the service in. 2. From the **Tasks** tab, choose **Run new task**.                        |
-| Launch type             | 1. On the **Task** page, choose the task definition. 2. If there is more than one revision, select the revision. 3. Choose **Create**, **Run task**. | 3. (Optional) Choose how your scheduled task is distributed across your cluster infrastructure. Expand **Compute configuration**, and then do the following:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Distribution method     | Steps                                                                                                                                                |
-| ---                     | ---                                                                                                                                                  |
-| Launch type             | 1. In the **Compute options** section, select **Launch type**. 2. For **Launch type**, choose **EC2**.                                               | 4. For **Application type**, choose **Task**. 5. For **Task definition**, choose the `efs-tutorial` task definition that you created earlier. 6. For **Desired tasks**, enter `1`. 7. Choose **Create**. 8. On the **Cluster** page, choose **Infrastructure**. 9. Under **Container Instances**, choose the container instance to connect to. 10. On the **Container Instance** page, under **Networking**, record the **Public IP** for your instance. 11. Open a browser and enter the public IP address. You should see the following message: `It works! You are using an Amazon EFS file system for persistent container storage.` ###### Note If you do not see the message, make sure that the security group for your container instance allows inbound network traffic on port 80 and the security group for your file system allows inbound access from the container instance. |
+| To start a service from | Steps                                                                                                                                                                      |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clusters                | 1. On the **Clusters\*<br>• page, select<br>the cluster to create the service in.<br>2. From the **Tasks\*<br>• tab, choose<br>**Run new task**.                           |
+| Launch type             | 1. On the **Task\*<br>• page, choose the<br>task definition.<br>2. If there is more than one revision, select the<br>revision.<br>3. Choose **Create**, **Run<br>task\*\*. |
+
+3. (Optional) Choose how your scheduled task is distributed across your cluster
+   infrastructure. Expand **Compute configuration**, and then do
+   the following:
+
+| Distribution method | Steps                                                                                                              |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Launch type         | 1. In the **Compute options**<br>section, select **Launch<br>type**.<br>2. For **Launch type**, choose<br>**EC2**. |
+
+4. For **Application type**, choose
+   **Task**.
+5. For **Task definition**, choose the `efs-tutorial`
+   task definition that you created earlier.
+6. For **Desired tasks**, enter `1`.
+7. Choose **Create**.
+8. On the **Cluster** page, choose
+   **Infrastructure**.
+9. Under **Container Instances**, choose the container instance
+   to connect to.
+10. On the **Container Instance** page, under
+    **Networking**, record the **Public IP**
+    for your instance.
+11. Open a browser and enter the public IP address. You should see the following
+    message:
+
+```
+It works!
+You are using an Amazon EFS file system for persistent container storage.
+```
+
+###### Note
+
+If you do not see the message, make sure that the security group for your
+container instance allows inbound network traffic on port 80 and the
+security group for your file system allows inbound access from the container
+instance.

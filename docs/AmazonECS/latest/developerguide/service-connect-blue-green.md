@@ -1,6 +1,4 @@
-# Service Connect resources for Amazon ECS blue/green
-
-deployments
+# Service Connect resources for Amazon ECS blue/green, linear, and canary deployments
 
 When using Service Connect with blue/green deployments, you need to configure specific components to enable proper traffic routing between the blue and green service revisions. This section explains the required components and their configuration.
 

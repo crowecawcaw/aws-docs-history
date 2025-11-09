@@ -28,4 +28,53 @@ the `awslogs` log driver. For more information, see [Example Amazon ECS task def
 
 For Windows container on Fargate, perform one of the following options when any of your
 task definition parameters have special characters such as, `& \ < > ^
-|`: <br>• Add an escape (`\`) with double quotes around the entire parameter string Example `"awslogs-multiline-pattern": "\"^[|DEBUG|INFO|WARNING|ERROR\"",` <br>• Add an escape (`^`) character around each special character Example `"awslogs-multiline-pattern": "^^[^|DEBUG^|INFO^|WARNING^|ERROR",` ## EC2 If you're using EC2 for your tasks and want to turn on the `awslogs` log driver, your Amazon ECS container instances require at least version 1.9.0 of the container agent. For information about how to check your agent version and updating to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). ###### Note You must use either an Amazon ECS-optimized AMI or a custom AMI with at least version `1.9.0-1` of the `ecs-init` package. When using a custom AMI, you must specify that the `awslogs` logging driver is available on the Amazon EC2 instance when you start the agent by using the following environment variable in your **docker run** statement or environment variable file. ``ECS_AVAILABLE_LOGGING_DRIVERS=["json-file","`awslogs`"]`` Your Amazon ECS container instances also require `logs:CreateLogStream` and `logs:PutLogEvents` permission on the IAM role that you can launch your container instances with. If you created your Amazon ECS container instance role before `awslogs` log driver support was enabled in Amazon ECS, you might need to add this permission. The `ecsTaskExecutionRole` is used when it's assigned to the task and likely contains the correct permissions. For information about the task execution role, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md"). If your container instances use the managed IAM policy for container instances, your container instances likely have the correct permissions. For information about the managed IAM policy for container instances, see [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md").
+ |`:
+
+- Add an escape (`\`) with double quotes around the entire parameter
+  string
+
+Example
+
+```
+"awslogs-multiline-pattern": "\"^[|DEBUG|INFO|WARNING|ERROR\"",
+```
+
+- Add an escape (`^`) character around each special
+  character
+
+Example
+
+```
+"awslogs-multiline-pattern": "^^[^|DEBUG^|INFO^|WARNING^|ERROR",
+```
+
+## EC2
+
+If you're using EC2 for your tasks and want to turn on
+the `awslogs` log driver, your Amazon ECS container instances require at least
+version 1.9.0 of the container agent. For information about how to check your agent
+version and updating to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md").
+
+###### Note
+
+You must use either an Amazon ECS-optimized AMI or a custom AMI with at least
+version `1.9.0-1` of the `ecs-init` package. When using a
+custom AMI, you must specify that the `awslogs` logging driver is
+available on the Amazon EC2 instance when you start the agent by using the following
+environment variable in your **docker run** statement or environment
+variable file.
+
+```
+ECS_AVAILABLE_LOGGING_DRIVERS=["json-file","`awslogs`"]
+```
+
+Your Amazon ECS container instances also require `logs:CreateLogStream` and
+`logs:PutLogEvents` permission on the IAM role that you can launch your
+container instances with. If you created your Amazon ECS container instance role before
+`awslogs` log driver support was enabled in Amazon ECS, you might need to add
+this permission. The `ecsTaskExecutionRole` is used when it's assigned to the
+task and likely contains the correct permissions. For information about the task
+execution role, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md"). If your container instances use the
+managed IAM policy for container instances, your container instances likely have the
+correct permissions. For information about the managed IAM policy for container
+instances, see [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md").

@@ -4,44 +4,317 @@ Before you use IAM to manage access to Amazon ECS, learn what IAM features are
 available to use with Amazon ECS.
 
 | IAM feature                                                                                                                                              | Amazon ECS support |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes                |
 | [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | No                 |
 | [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | Yes                |
 | [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")              | Partial            |
 | [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes                |
 | [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                        | No                 |
-| [ABAC (tags in policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                     | Yes                |
-| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                 | Yes                |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                  | Yes                |
+| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                              | Yes                |
 | [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")             | Yes                |
-| [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                             | Yes                |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | Yes                | To get a high-level view of how Amazon ECS and other AWS services work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_. ## Identity-based policies for Amazon ECS **Supports identity-based policies:** Yes Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_. With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a JSON policy, see [IAM JSON policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the _IAM User Guide_. ### Identity-based policy examples for Amazon ECS To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). ## Resource-based policies within Amazon ECS **Supports resource-based policies:** No Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals can include accounts, users, roles, federated users, or AWS services. To enable cross-account access, you can specify an entire account or IAM entities in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the _IAM User Guide_. ## Policy actions for Amazon ECS **Supports policy actions:** Yes Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**. The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation. To see a list of Amazon ECS actions, see [Actions defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions") in the _Service Authorization Reference_. Policy actions in Amazon ECS use the following prefix before the action: `ecs` To specify multiple actions in a single statement, separate them with commas. ``"Action": [ "ecs:`action1`", "ecs:`action2`" ]`` You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action: `"Action": "ecs:Describe*"` To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). ## Policy resources for Amazon ECS **Supports policy resources:** Partial Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**. The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md"). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources. `"Resource": "*"` To see a list of Amazon ECS resource types and their ARNs, see [Resources defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with which actions you can specify the ARN of each resource, see [Actions defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions"). Some Amazon ECS API actions support multiple resources. For example, multiple clusters can be referenced when calling the `DescribeClusters` API action. To specify multiple resources in a single statement, separate the ARNs with commas. `"Resource": [ "*EXAMPLE-RESOURCE-1*", "*EXAMPLE-RESOURCE-2*"` For example, the Amazon ECS cluster resource has the following ARN: `arn:${Partition}:ecs:${Region}:${Account}:cluster/${clusterName}` To specify `my-cluster-1` and `my-cluster-2` cluster in your statement, use the following ARNs: `"Resource": [ "arn:aws:ecs:us-east-1:123456789012:cluster/my-cluster-1", "arn:aws:ecs:us-east-1:123456789012:cluster/my-cluster-2"` To specify all clusters that belong to a specific account, use the wildcard (\*): `"Resource": "arn:aws:ecs:us-east-1:123456789012:cluster/*"` For task definitions, you can specify the latest revision, or a specific revision. To specify all revisions of the task definition, use the wildcard (\*): `"Resource:arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:*"` To specify a specific task definition revision, use ${TaskDefinitionRevisionNumber}: ``` "Resource:arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber}" ```To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). ## Policy condition keys for Amazon ECS **Supports service-specific policy condition keys:** Yes Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**. The`Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md"), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_. Amazon ECS supports the following service-specific condition keys that you can use to provide fine-grained filtering for your IAM policies: |
-| Condition Key                                                                                                                                            | Description        | Evaluation Types                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                          | Yes                |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | Yes                |
 
-|
-| --- | --- | --- |
-| aws:RequestTag/${TagKey} | The context key is formatted `"aws:RequestTag/`tag-key`":"`tag-value`"` where `tag-key`and `tag-value` are a tag key and value pair. Checks that the tag key–value pair is present in an AWS request. For example, you could check to see that the request includes the tag key `"Dept"` and that it has the value `"Accounting"`. | String |
-| aws:ResourceTag/${TagKey} | The context key is formatted `"aws:ResourceTag/`tag-key`":"`tag-value`"` where `tag-key`and `tag-value` are a tag key and value pair. Checks that the tag attached to the identity resource (user or role) matches the specified key name and value. | String |
-| aws:TagKeys | This context key is formatted `"aws:TagKeys":"`tag-key`"` where `tag-key` is a list of tag keys without values (for example, `["Dept","Cost-Center"]`). Checks the tag keys that are present in an AWS request. | String |
-| ecs:ResourceTag/${TagKey} | The context key is formatted `"ecs:ResourceTag/`tag-key`":"`tag-value`"` where `tag-key`and `tag-value` are a tag key and value pair. Checks that the tag attached to the identity resource (user or role) matches the specified key name and value. | String |
-| ecs:account-setting | he context key is formatted `"ecs:account-setting":"`account-setting`"` where `account-setting` is the name of the account setting. | String |
-| ecs:auto-assign-public-ip | The context key is formatted `"ecs:auto-assign-public-ip":"`value`"` where `value-` is "`true`" or "`false`". | String |
-| ecs:capacity-provider | The context key is formatted `"ecs:capacity-provider":"`capacity-provider-arn`"` where `capacity-provider-arn` is the ARN for the capacity provider. | ARN, Null |
-| ecs:cluster | The context key is formatted `"ecs:cluster":"`cluster-arn`"` where `cluster-arn` is the ARN for the Amazon ECS cluster. | ARN, Null |
-| ecs:compute-compatability | The context key is formatted `"ecs:compute-compatability":"`compatability-type`"` where `compatability-type` is "`FARGATE`", "`EC2`" or "`EXTERNAL`". | String |
-| ecs:container-instances | The context key is formatted `"ecs:container-instances":"`container-instance-arns`"` where `container-instance-arns` is one or more container instance ARNs. | ARN, Null |
-| ecs:container-name | The context key is formatted `"ecs:container-name":"`container-name`"` where `container-instance-` is the name of an Amazon ECS container which is defined in the task definition. | String |
-| ecs:enable-execute-command | The context key is formatted `"ecs:enable-execute-command":"`value`"` where `value-` is "`true`" or "`false`". | String |
-| ecs:enable-service-connect | The context key is formatted `"ecs:enable-service-connect":"`value`"` where `value` is `"true"` or `"false"`. | String |
-| ecs:enable-ebs-volumes | The context key is formatted `"ecs:enable-ebs-volumes":"`value`"` where `value` is `"true"` or `"false"`. | String |
-| ecs:enable-managed-tags | The context key is formatted `"ecs:enable-managed-tags":"`value`"` where `value` is `"true"` or `"false"`. | String |
-| ecs:enable-vpc-lattice | The context key is formatted `"ecs:vpc-lattice":"`value`"` where `value` is `"true"` or `"false"`. | String |
-| ecs:fargate-ephemeral-storage-kms-key | The context key is formatted `"ecs:fargate-ephemeral-storage-kms-key":"`key`"` where `key` is the ID of the AWS KMS key. | String |
-| ecs:namespace | The context key is formatted `"ecs:namespace":"`namespace-arn`"` where `namespace-arn` is the ARN for the AWS Cloud Map namespace. | ARN, Null |
-| ecs:propagate-tags | The context key is formatted `"ecs:propagate-tags":"`value`"` where `value` is `"TASK_DEFINITION"`, `"SERVICE"`, or `"NONE"`. | String |
-| ecs:service | The context key is formatted `"ecs:service":"`service-arn`"` where `service-arn` is the ARN for the Amazon ECS service. | ARN, Null |
-| ecs:task-definition | The context key is formatted `"ecs:task-definition":"`task-definition-arn`"` where `task-definition-arn` is the ARN for the Amazon ECS task definition. | ARN, Null |
-| ecs:subnet | The context key is formatted `"ecs:subnet":"`subnets`"` where `subnets` are the subnets of a task or service that uses `awsvpc` mode. | String |
-| ecs:task | The context key is formatted `"ecs:task":"`task-arn`"` where `task-arn` is the ARN for the Amazon ECS service. | ARN, Null |
-| ecs:task-cpu | The context key is formatted `"ecs:task-cpu":"`task-cpu`"` where `task-cpu` is the task cpu, as an integer with 1024 = 1 vCPU. | Integer |
-| ecs:task-memory | The context key is formatted `"ecs:task-memory":"`task-memory`"` where `task-memory` is the task memory in MiB. | Integer | To see a list of Amazon ECS condition keys, see [Condition keys for Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-policy-keys "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-policy-keys") in the _Service Authorization Reference_. To learn with which actions and resources you can use a condition key, see [Actions defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions"). To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). ## Access control lists (ACLs) in Amazon ECS **Supports ACLs:** No Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are similar to resource-based policies, although they do not use the JSON policy document format. ## Attribute-based access control (ABAC) with Amazon ECS ###### Important Amazon ECS supports attributes-based access control for all Amazon ECS resources. To determine whether you can use attributes to scope an action, use the [Actions defined by Amazon ECS](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions") table in _Service Authorization Reference_. First verify that there is a resource in the **Resource** column. Then, use the **Condition keys** column to see the keys for the action/resource combination. **Supports ABAC (tags in policies):** Yes Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource. To control access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the `aws:ResourceTag/`key-name``, `aws:RequestTag/`key-name``, or `aws:TagKeys` condition keys. If a service supports all three condition keys for every resource type, then the value is **Yes** for the service. If a service supports all three condition keys for only some resource types, then the value is **Partial**. For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tagging Amazon ECS resources, see [Tagging Amazon ECS resources](ecs-using-tags.md "ecs-using-tags.md"). To view an example identity-based policy for limiting access to a resource based on the tags on that resource, see [Describing Amazon ECS services based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-cluster-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-cluster-tags"). ## Using Temporary credentials with Amazon ECS **Supports temporary credentials:** Yes Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you dynamically generate temporary credentials instead of using long-term access keys. For more information, see [Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_. ## Forward access sessions for Amazon ECS **Supports forward access sessions (FAS):** Yes Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md"). ## Service roles for Amazon ECS **Supports service roles:** Yes A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_. ###### Warning Changing the permissions for a service role might break Amazon ECS functionality. Edit service roles only when Amazon ECS provides guidance to do so. ## Service-linked roles for Amazon ECS **Supports service-linked roles:** Yes A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf. Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view, but not edit the permissions for service-linked roles. For details about creating or managing Amazon ECS service-linked roles, see [Using service-linked roles for Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
+To get a high-level view of how Amazon ECS and other AWS services work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
+
+## Identity-based
+
+policies for Amazon ECS
+
+**Supports identity-based policies:**
+
+Yes
+
+Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These
+policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
+policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
+_IAM User Guide_.
+
+With IAM identity-based policies, you can specify allowed or denied actions and
+resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a
+JSON policy, see [IAM JSON
+policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
+_IAM User Guide_.
+
+###
+
+Identity-based policy examples for Amazon ECS
+
+To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for
+Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## Resource-based
+
+policies within Amazon ECS
+
+**Supports resource-based policies:**
+
+No
+
+Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are
+IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service
+administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions
+a specified principal can perform on that resource and under what conditions. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals
+can include accounts, users, roles, federated users, or AWS services.
+
+To enable cross-account access, you can specify an entire account or IAM entities
+in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
+_IAM User Guide_.
+
+## Policy actions
+
+for Amazon ECS
+
+**Supports policy actions:**
+
+Yes
+
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
+**actions** on what **resources**, and under what **conditions**.
+
+The `Action` element of a JSON policy describes the
+actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
+
+To see a list of Amazon ECS actions, see [Actions defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions") in the _Service Authorization Reference_.
+
+Policy actions in Amazon ECS use the following prefix before the action:
+
+```
+ecs
+```
+
+To specify multiple actions in a single statement, separate them with commas.
+
+```
+"Action": [
+      "ecs:`action1`",
+      "ecs:`action2`"
+         ]
+```
+
+You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action:
+
+```
+"Action": "ecs:Describe*"
+```
+
+To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for
+Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## Policy
+
+resources for Amazon ECS
+
+**Supports policy resources:**
+
+Partial
+
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
+**actions** on what **resources**, and under what **conditions**.
+
+The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md"). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
+
+```
+"Resource": "*"
+```
+
+To see a list of Amazon ECS resource types and their ARNs, see [Resources defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with which actions you can specify the ARN of each resource, see [Actions defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions").
+
+Some Amazon ECS API actions support multiple resources. For example, multiple clusters can be referenced when calling the `DescribeClusters` API action. To specify multiple resources in a single statement, separate the ARNs with commas.
+
+```
+"Resource": [
+      "*EXAMPLE-RESOURCE-1*",
+      "*EXAMPLE-RESOURCE-2*"
+```
+
+For example, the Amazon ECS cluster resource has the following ARN:
+
+```
+arn:${Partition}:ecs:${Region}:${Account}:cluster/${clusterName}
+```
+
+To specify `my-cluster-1` and `my-cluster-2` cluster in your statement, use the following ARNs:
+
+```
+"Resource": [
+         "arn:aws:ecs:us-east-1:123456789012:cluster/my-cluster-1",
+         "arn:aws:ecs:us-east-1:123456789012:cluster/my-cluster-2"
+
+```
+
+To specify all clusters that belong to a specific account, use the wildcard (\*):
+
+```
+"Resource": "arn:aws:ecs:us-east-1:123456789012:cluster/*"
+```
+
+For task definitions, you can specify the latest revision, or a specific
+revision.
+
+To specify all revisions of the task definition, use the wildcard (\*):
+
+```
+"Resource:arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:*"
+```
+
+To specify a specific task definition revision, use
+${TaskDefinitionRevisionNumber}:
+
+```
+"Resource:arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber}"
+```
+
+To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for
+Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## Policy
+
+condition keys for Amazon ECS
+
+**Supports service-specific policy condition keys:**
+
+Yes
+
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
+**actions** on what **resources**, and under what **conditions**.
+
+The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition
+operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md"), such as equals or less than, to match the condition in the
+policy with values in the request. To see all AWS global
+condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.
+
+Amazon ECS supports the following service-specific condition keys that you can use to
+provide fine-grained filtering for your IAM policies:
+
+| Condition Key                         | Description                                                                                                                                                                                                                                                                                                                           | Evaluation Types |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| aws:RequestTag/${TagKey}              | The context key is formatted `"aws:RequestTag/`tag-key`":"`tag-value`"` where `tag-key`and `tag-value` are a tag key and value pair.<br>Checks that the tag key–value pair is present in an AWS request. For example, you could check to see that the request includes the tag key `"Dept"` and that it has the value `"Accounting"`. | String           |
+| aws:ResourceTag/${TagKey}             | The context key is formatted `"aws:ResourceTag/`tag-key`":"`tag-value`"` where `tag-key`and `tag-value` are a tag key and value pair.<br>Checks that the tag attached to the identity resource (user or role)<br>matches the specified key name and value.                                                                            | String           |
+| aws:TagKeys                           | This context key is formatted `"aws:TagKeys":"`tag-key`"` where `tag-key` is a list of tag keys without values (for example, `["Dept","Cost-Center"]`).<br>Checks the tag keys that are present in an AWS request.                                                                                                                    | String           |
+| ecs:ResourceTag/${TagKey}             | The context key is formatted `"ecs:ResourceTag/`tag-key`":"`tag-value`"` where `tag-key`and `tag-value` are a tag key and value pair.<br>Checks that the tag attached to the identity resource (user or role)<br>matches the specified key name and value.                                                                            | String           |
+| ecs:account-setting                   | he context key is formatted `"ecs:account-setting":"`account-setting`"` where `account-setting` is the name of the account setting.                                                                                                                                                                                                   | String           |
+| ecs:auto-assign-public-ip             | The context key is formatted `"ecs:auto-assign-public-ip":"`value`"` where `value-` is "`true`" or "`false`".                                                                                                                                                                                                                         | String           |
+| ecs:capacity-provider                 | The context key is formatted `"ecs:capacity-provider":"`capacity-provider-arn`"` where `capacity-provider-arn` is the ARN for the capacity provider.                                                                                                                                                                                  | ARN, Null        |
+| ecs:cluster                           | The context key is formatted `"ecs:cluster":"`cluster-arn`"` where `cluster-arn` is the ARN for the Amazon ECS cluster.                                                                                                                                                                                                               | ARN, Null        |
+| ecs:compute-compatability             | The context key is formatted `"ecs:compute-compatability":"`compatability-type`"` where `compatability-type` is "`FARGATE`", "`EC2`" or "`EXTERNAL`".                                                                                                                                                                                 | String           |
+| ecs:container-instances               | The context key is formatted `"ecs:container-instances":"`container-instance-arns`"` where `container-instance-arns` is one or more container instance ARNs.                                                                                                                                                                          | ARN, Null        |
+| ecs:container-name                    | The context key is formatted `"ecs:container-name":"`container-name`"` where `container-instance-` is the name of an Amazon ECS container which is defined in the task definition.                                                                                                                                                    | String           |
+| ecs:enable-execute-command            | The context key is formatted `"ecs:enable-execute-command":"`value`"` where `value-` is "`true`" or "`false`".                                                                                                                                                                                                                        | String           |
+| ecs:enable-service-connect            | The context key is formatted `"ecs:enable-service-connect":"`value`"` where `value` is `"true"` or `"false"`.                                                                                                                                                                                                                         | String           |
+| ecs:enable-ebs-volumes                | The context key is formatted `"ecs:enable-ebs-volumes":"`value`"` where `value` is `"true"` or `"false"`.                                                                                                                                                                                                                             | String           |
+| ecs:enable-managed-tags               | The context key is formatted `"ecs:enable-managed-tags":"`value`"` where `value` is `"true"` or `"false"`.                                                                                                                                                                                                                            | String           |
+| ecs:enable-vpc-lattice                | The context key is formatted `"ecs:vpc-lattice":"`value`"` where `value` is `"true"` or `"false"`.                                                                                                                                                                                                                                    | String           |
+| ecs:fargate-ephemeral-storage-kms-key | The context key is formatted `"ecs:fargate-ephemeral-storage-kms-key":"`key`"` where `key` is the ID of the AWS KMS key.                                                                                                                                                                                                              | String           |
+| ecs:namespace                         | The context key is formatted `"ecs:namespace":"`namespace-arn`"` where `namespace-arn` is the ARN for the AWS Cloud Map namespace.                                                                                                                                                                                                    | ARN, Null        |
+| ecs:propagate-tags                    | The context key is formatted `"ecs:propagate-tags":"`value`"` where `value` is `"TASK_DEFINITION"`, `"SERVICE"`, or `"NONE"`.                                                                                                                                                                                                         | String           |
+| ecs:service                           | The context key is formatted `"ecs:service":"`service-arn`"` where `service-arn` is the ARN for the Amazon ECS service.                                                                                                                                                                                                               | ARN, Null        |
+| ecs:task-definition                   | The context key is formatted `"ecs:task-definition":"`task-definition-arn`"` where `task-definition-arn` is the ARN for the Amazon ECS task definition.                                                                                                                                                                               | ARN, Null        |
+| ecs:subnet                            | The context key is formatted `"ecs:subnet":"`subnets`"` where `subnets` are the subnets of a task or service that uses `awsvpc` mode.                                                                                                                                                                                                 | String           |
+| ecs:task                              | The context key is formatted `"ecs:task":"`task-arn`"` where `task-arn` is the ARN for the Amazon ECS service.                                                                                                                                                                                                                        | ARN, Null        |
+| ecs:task-cpu                          | The context key is formatted `"ecs:task-cpu":"`task-cpu`"` where `task-cpu` is the task cpu, as an integer with 1024 = 1 vCPU.                                                                                                                                                                                                        | Integer          |
+| ecs:task-memory                       | The context key is formatted `"ecs:task-memory":"`task-memory`"` where `task-memory` is the task memory in MiB.                                                                                                                                                                                                                       | Integer          |
+
+To see a list of Amazon ECS condition keys, see [Condition keys for Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-policy-keys "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-policy-keys") in the _Service Authorization Reference_. To learn with which actions and resources you can use a condition key, see [Actions defined by Amazon Elastic Container Service](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions").
+
+To view examples of Amazon ECS identity-based policies, see [Identity-based policy examples for
+Amazon Elastic Container Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## Access control lists (ACLs) in
+
+Amazon ECS
+
+**Supports ACLs:**
+
+No
+
+Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
+similar to resource-based policies, although they do not use the JSON policy document format.
+
+## Attribute-based access control
+
+(ABAC) with Amazon ECS
+
+###### Important
+
+Amazon ECS supports attributes-based access control for all Amazon ECS resources. To determine whether you can use attributes to scope an action, use the [Actions defined by Amazon ECS](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md#amazonelasticcontainerservice-actions-as-permissions") table in _Service Authorization Reference_. First verify that there is a resource in the **Resource** column. Then, use the **Condition keys** column to see the keys for the action/resource combination.
+
+**Supports ABAC (tags in policies):**
+
+Yes
+
+Attribute-based access control (ABAC) is an authorization strategy that defines permissions
+based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
+
+To control access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the `aws:ResourceTag/`key-name``, 
+ `aws:RequestTag/`key-name``, or `aws:TagKeys` condition keys.
+
+If a service supports all three condition keys for every resource type, then the value is **Yes** for the service. If a service supports all three condition keys for only some resource types, then the value is **Partial**.
+
+For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
+[Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
+
+For more information about tagging Amazon ECS resources, see [Tagging Amazon ECS resources](ecs-using-tags.md "ecs-using-tags.md").
+
+To view an example identity-based policy for limiting access to a resource based on the tags on that resource, see [Describing
+Amazon ECS services based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-cluster-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-cluster-tags").
+
+## Using Temporary
+
+credentials with Amazon ECS
+
+**Supports temporary credentials:**
+
+Yes
+
+Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you
+dynamically generate temporary credentials instead of using long-term access keys. For
+more information, see [Temporary
+security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
+that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
+
+## Forward access
+
+sessions for Amazon ECS
+
+**Supports forward access sessions (FAS):**
+
+Yes
+
+Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
+when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
+
+## Service roles for
+
+Amazon ECS
+
+**Supports service roles:**
+
+Yes
+
+A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
+actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
+more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
+
+###### Warning
+
+Changing the permissions for a service role might break Amazon ECS functionality.
+Edit service roles only when Amazon ECS provides guidance to do so.
+
+## Service-linked
+
+roles for Amazon ECS
+
+**Supports service-linked roles:**
+
+Yes
+
+A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
+Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
+but not edit the permissions for service-linked roles.
+
+For details about creating or managing Amazon ECS service-linked roles, see [Using service-linked roles for
+Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").

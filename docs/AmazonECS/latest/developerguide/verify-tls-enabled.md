@@ -32,7 +32,46 @@ view the certificate attached to the task.
 
 Example:
 
-````
+```
 openssl s_client -connect 10.0.147.43:6379 < /dev/null 2> /dev/null \
-| openssl x509 -noout -text ``` Example response: ``` Certificate: Data: Version: 3 (0x2) Serial Number: <serial-number> Signature Algorithm: ecdsa-with-SHA256 Issuer: <issuer> Validity Not Before: Jan 23 21:38:12 2024 GMT Not After : Jan 30 22:38:12 2024 GMT Subject: <subject> Subject Public Key Info: Public Key Algorithm: id-ecPublicKey Public-Key: (256 bit) pub: <pub> ASN1 OID: prime256v1 NIST CURVE: P-256 X509v3 extensions: X509v3 Subject Alternative Name: DNS:redis.yelb-cftc X509v3 Basic Constraints: CA:FALSE X509v3 Authority Key Identifier: keyid:<key-id> X509v3 Subject Key Identifier: 1D:<id> X509v3 Key Usage: critical Digital Signature, Key Encipherment X509v3 Extended Key Usage: TLS Web Server Authentication, TLS Web Client Authentication Signature Algorithm: ecdsa-with-SHA256 <hash> ```
-````
+| openssl x509 -noout -text
+```
+
+Example response:
+
+```
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            <serial-number>
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: <issuer>
+        Validity
+            Not Before: Jan 23 21:38:12 2024 GMT
+            Not After : Jan 30 22:38:12 2024 GMT
+        Subject: <subject>
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    <pub>
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Subject Alternative Name:
+                DNS:redis.yelb-cftc
+            X509v3 Basic Constraints:
+                CA:FALSE
+            X509v3 Authority Key Identifier:
+                keyid:<key-id>
+
+            X509v3 Subject Key Identifier:
+                1D:<id>
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication, TLS Web Client Authentication
+    Signature Algorithm: ecdsa-with-SHA256
+        <hash>
+```

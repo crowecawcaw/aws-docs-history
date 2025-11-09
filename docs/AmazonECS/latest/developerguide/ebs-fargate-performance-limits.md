@@ -12,8 +12,14 @@ attached to the task. You may temporarily get higher EBS performance than the fo
 limits. However, we recommend that you plan your workload based on these limits.
 
 | CPU units requested (in vCPUs) | Baseline Amazon EBS IOPS(16 KiB I/O) | Baseline Amazon EBS Throughput (in MiBps, 128 KiB I/O) | Baseline bandwidth (in Mbps) |
-| ------------------------------ | ------------------------------------ | ------------------------------------------------------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ------------------------------------ | ------------------------------------------------------ | ---------------------------- |
 | 2                              | 3,000                                | 75                                                     | 360                          |
 | 4                              | 5,000                                | 120                                                    | 1,150                        |
 | 8                              | 10,000                               | 250                                                    | 2,300                        |
-| 16                             | 15,000                               | 500                                                    | 4,500                        | ###### Note When you configure an Amazon EBS volume for attachment to a Fargate task, the Amazon EBS performance limit for Fargate task is shared between the task's ephemeral storage and the attached volume. |
+| 16                             | 15,000                               | 500                                                    | 4,500                        |
+
+###### Note
+
+When you configure an Amazon EBS volume for attachment to a Fargate task, the Amazon EBS
+performance limit for Fargate task is shared between the task's ephemeral
+storage and the attached volume.

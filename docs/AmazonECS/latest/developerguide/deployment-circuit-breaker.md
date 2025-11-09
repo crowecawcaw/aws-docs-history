@@ -146,9 +146,16 @@ There are two stages for the deployment status check.
 
 The following table provides some examples.
 
-| Desired task count | Calculation             | Threshold                                              |
-| ------------------ | ----------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1                  | `3 <= 0.5 * 1 => 200`   | 3 (the calculated value is less than the minimum)      |
-| 25                 | `3 <= 0.5 * 25 => 200`  | 13 (the value is rounded up)                           |
-| 400                | `3 <= 0.5 * 400 => 200` | 200                                                    |
-| 800                | `3 <= 0.5 * 800 => 200` | 200 (the calculated value is greater than the maximum) | For example, when the threshold is 3, the circuit breaker starts with the failure count set at 0. When a task fails to reach the `RUNNING` state, the deployment circuit breaker increases the failure count by one. When the failure count equals 3, the deployment is marked as `FAILED`. For additional examples about how to use the rollback option, see [Announcing Amazon ECS deployment circuit breaker](https://aws.amazon.com/blogs/containers/announcing-amazon-ecs-deployment-circuit-breaker/ "https://aws.amazon.com/blogs/containers/announcing-amazon-ecs-deployment-circuit-breaker/"). |
+| Desired task count | Calculation                        | Threshold                                              |
+| ------------------ | ---------------------------------- | ------------------------------------------------------ |
+| 1                  | `<br>3 <= 0.5<br>• 1 => 200<br>`   | 3 (the calculated value is less than the minimum)      |
+| 25                 | `<br>3 <= 0.5<br>• 25 => 200<br>`  | 13 (the value is rounded up)                           |
+| 400                | `<br>3 <= 0.5<br>• 400 => 200<br>` | 200                                                    |
+| 800                | `<br>3 <= 0.5<br>• 800 => 200<br>` | 200 (the calculated value is greater than the maximum) |
+
+For example, when the threshold is 3, the circuit breaker starts with the failure
+count set at 0. When a task fails to reach the `RUNNING` state, the
+deployment circuit breaker increases the failure count by one. When the failure
+count equals 3, the deployment is marked as `FAILED`.
+
+For additional examples about how to use the rollback option, see [Announcing Amazon ECS deployment circuit breaker](https://aws.amazon.com/blogs/containers/announcing-amazon-ecs-deployment-circuit-breaker/ "https://aws.amazon.com/blogs/containers/announcing-amazon-ecs-deployment-circuit-breaker/").

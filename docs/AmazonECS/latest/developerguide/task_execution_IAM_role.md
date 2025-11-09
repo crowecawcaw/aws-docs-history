@@ -128,13 +128,269 @@ JSONJSON
 After you create the role, add additional permissions to the role for the following
 features.
 
-| Feature
-| Additional permissions
-|
-| --- | --- |
-| Pull container images from private registries outside of AWS (such as Docker Hub, Quay.io, or your own private registry) using Secrets Manager credentials | [Private registry authentication permissions](#task-execution-private-auth "#task-execution-private-auth") |
-| Pass sensitive data with Systems Manager or Secrets Manager | [Secrets Manager or Systems Manager permissions](#task-execution-secrets "#task-execution-secrets") |
-| Have Fargate tasks pull Amazon ECR images over interface endpoints | [Fargate tasks pulling Amazon ECR images over interface endpoints permissions](#task-execution-ecr-conditionkeys "#task-execution-ecr-conditionkeys") |
-| Host configuration files in an Amazon S3 bucket | [Amazon S3 file storage permissions](#s3-required "#s3-required") |
-| Configure Container Insights to view Amazon ECS lifecycle events | [Permissions required for enabling Amazon ECS lifecycle events in Container Insights](console-permissions.md#required-permissions-configure "console-permissions.md#required-permissions-configure") |
-| View Amazon ECS lifecycle events in Container Insights | [Permissions required to view Amazon ECS lifecycle events in Container Insights](console-permissions.md#required-permissions-view "console-permissions.md#required-permissions-view") | ## Private registry authentication permissions Private registry authentication allows your Amazon ECS tasks to pull container images from private registries outside of AWS (such as Docker Hub, Quay.io, or your own private registry) that require authentication credentials. This feature uses Secrets Manager to securely store your registry credentials, which are then referenced in your task definition using the `repositoryCredentials` parameter. For more information about configuring private registry authentication, see [Using non-AWS container images in Amazon ECS](private-auth.md "private-auth.md"). To provide access to the secrets that contain your private registry credentials, add the following permissions as an inline policy to the task execution role. For more information, see [Adding and Removing IAM Policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md"). <br>• `secretsmanager:GetSecretValue`—Required to retrieve the private registry credentials from Secrets Manager. <br>• `kms:Decrypt`—Required only if your secret uses a custom KMS key and not the default key. The Amazon Resource Name (ARN) for your custom key must be added as a resource. The following is an example inline policy that adds the permissions. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "kms:Decrypt", "secretsmanager:GetSecretValue" ], "Resource": [ "arn:aws:secretsmanager:us-east-1:`111122223333`:secret:secret_name", "arn:aws:kms:us-east-1:`111122223333`:key/key_id" ] } ] }` `` ## Secrets Manager or Systems Manager permissions The permission to allow the container agent to pull the necessary AWS Systems Manager or Secrets Manager resources. For more information, see [Pass sensitive data to an Amazon ECS container](specifying-sensitive-data.md "specifying-sensitive-data.md"). **Using Secrets Manager** To provide access to the Secrets Manager secrets that you create, manually add the following permission to the task execution role. For information about how to manage permissions, see [Adding and Removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_. <br>• `secretsmanager:GetSecretValue`– Required if you are referencing a Secrets Manager secret. Adds the permission to retrieve the secret from Secrets Manager. The following example policy adds the required permissions. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "secretsmanager:GetSecretValue" ], "Resource": [ "arn:aws:secretsmanager:`us-east-1`:`111122223333`:secret:`secret_name`" ] } ] }` `` **Using Systems Manager** ###### Important For tasks that use the EC2 launch type, you must use the ECS agent configuration variable `ECS_ENABLE_AWSLOGS_EXECUTIONROLE_OVERRIDE=true` to use this feature. You can add it to the `./etc/ecs/ecs.config` file during container instance creation or you can add it to an existing instance and then restart the ECS agent. For more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md"). To provide access to the Systems Manager Parameter Store parameters that you create, manually add the following permissions as a policy to the task execution role. For information about how to manage permissions, see [Adding and Removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_. <br>• `ssm:GetParameters` — Required if you are referencing a Systems Manager Parameter Store parameter in a task definition. Adds the permission to retrieve Systems Manager parameters. <br>• `secretsmanager:GetSecretValue` — Required if you are referencing a Secrets Manager secret either directly or if your Systems Manager Parameter Store parameter is referencing a Secrets Manager secret in a task definition. Adds the permission to retrieve the secret from Secrets Manager. <br>• `kms:Decrypt` — Required only if your secret uses a customer managed key and not the default key. The ARN for your custom key should be added as a resource. Adds the permission to decrypt the customer managed key . The following example policy adds the required permissions: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ssm:GetParameters", "secretsmanager:GetSecretValue", "kms:Decrypt" ], "Resource": [ "arn:aws:ssm:`us-east-1`:`111122223333`:parameter/`parameter_name`", "arn:aws:secretsmanager:`us-east-1`:`111122223333`:secret:`secret_name`", "arn:aws:kms:`us-east-1`:`111122223333`:key/`key_id`" ] } ] }` `` ## Fargate tasks pulling Amazon ECR images over interface endpoints permissions When launching tasks that use Fargate that pull images from Amazon ECR when Amazon ECR is configured to use an interface VPC endpoint, you can restrict the tasks access to a specific VPC or VPC endpoint. Do this by creating a task execution role for the tasks to use that use IAM condition keys. Use the following IAM global condition keys to restrict access to a specific VPC or VPC endpoint. For more information, see [AWS Global Condition Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md"). <br>• `aws:SourceVpc`—Restricts access to a specific VPC. You can restrict the VPC to the VPC that hosts the task and endpoint. <br>• `aws:SourceVpce`—Restricts access to a specific VPC endpoint. The following task execution role policy provides an example for adding condition keys: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ecr:GetAuthorizationToken", "logs:CreateLogStream", "logs:PutLogEvents" ], "Resource": "*" }, { "Effect": "Allow", "Action": [ "ecr:BatchCheckLayerAvailability", "ecr:GetDownloadUrlForLayer", "ecr:BatchGetImage" ], "Resource": "arn:aws:ecr:*:*:repository/*", "Condition": { "StringEquals": { "aws:sourceVpce": "vpce-0123456789abcdef0" } } } ] }` `` ## Amazon ECR permissions The following permissions are required when you need to pull container images from Amazon ECR private repositories. The task execution role should have these permissions to allow the Amazon ECS container and Fargate agents to pull container images on your behalf. For basic ECS implementations, these permissions should be added to the task execution role rather than the task IAM role. The Amazon ECS task execution role managed policy (`AmazonECSTaskExecutionRolePolicy`) includes the necessary permissions for pulling images from Amazon ECR. If you're using the managed policy, you don't need to add these permissions separately. If you're creating a custom policy, include the following permissions to allow pulling images from Amazon ECR: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer", "ecr:GetAuthorizationToken" ], "Resource": "*" } ] }` `` Note that these permissions are different from the permissions that might be required in the task IAM role if your application code needs to interact with Amazon ECR APIs directly. For information about task IAM role permissions for Amazon ECR, see [Amazon ECR permissions](task-iam-roles.md#ecr-required-iam-permissions "task-iam-roles.md#ecr-required-iam-permissions"). ## Amazon S3 file storage permissions When you specify a configuration file that's hosted in Amazon S3, the task execution role must include the `s3:GetObject` permission for the configuration file and the `s3:GetBucketLocation` permission on the Amazon S3 bucket that the file is in. For more information, see [Policy actions for Amazon S3](../../../AmazonS3/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "../../../AmazonS3/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions") in the _Amazon Simple Storage Service User Guide_. The following example policy adds the required permissions for retrieving a file from Amazon S3. Specify the name of your Amazon S3 bucket and configuration file name. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "`s3:GetObject`" ], "Resource": [ "arn:aws:s3:::`amzn-s3-demo-bucket`/`folder_name`/`config_file_name`" ] }, { "Effect": "Allow", "Action": [ "s3:GetBucketLocation" ], "Resource": [ "arn:aws:s3:::`amzn-s3-demo-bucket`" ] } ] }` ``
+| Feature                                                                                                                                                    | Additional permissions                                                                                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pull container images from private registries outside of AWS (such as Docker Hub, Quay.io, or your own private registry) using Secrets Manager credentials | [Private registry authentication<br>permissions](#task-execution-private-auth "#task-execution-private-auth")                                                                                        |
+| Pass sensitive data with Systems Manager or Secrets Manager                                                                                                | [Secrets Manager or Systems Manager permissions](#task-execution-secrets "#task-execution-secrets")                                                                                                  |
+| Have Fargate tasks pull Amazon ECR images over interface<br>endpoints                                                                                      | [Fargate tasks pulling<br>Amazon ECR images over interface endpoints permissions](#task-execution-ecr-conditionkeys "#task-execution-ecr-conditionkeys")                                             |
+| Host configuration files in an Amazon S3 bucket                                                                                                            | [Amazon S3 file storage permissions](#s3-required "#s3-required")                                                                                                                                    |
+| Configure<br>Container Insights to view Amazon ECS lifecycle events                                                                                        | [Permissions required for enabling Amazon ECS lifecycle events in Container Insights](console-permissions.md#required-permissions-configure "console-permissions.md#required-permissions-configure") |
+| View Amazon ECS<br>lifecycle events in Container Insights                                                                                                  | [Permissions required to view Amazon ECS<br>lifecycle events in Container Insights](console-permissions.md#required-permissions-view "console-permissions.md#required-permissions-view")             |
+
+## Private registry authentication
+
+permissions
+
+Private registry authentication allows your Amazon ECS tasks to pull container images from private registries outside of AWS (such as Docker Hub, Quay.io, or your own private registry) that require authentication credentials. This feature uses Secrets Manager to securely store your registry credentials, which are then referenced in your task definition using the `repositoryCredentials` parameter.
+
+For more information about configuring private registry authentication, see [Using non-AWS container images in Amazon ECS](private-auth.md "private-auth.md").
+
+To provide access to the secrets that contain your private registry credentials, add the following permissions as an inline policy to the task execution role. For more information, see [Adding and
+Removing IAM Policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
+
+- `secretsmanager:GetSecretValue`—Required to retrieve the private registry credentials from Secrets Manager.
+- `kms:Decrypt`—Required only if your secret uses a custom
+  KMS key and not the default key. The Amazon Resource Name (ARN) for your
+  custom key must be added as a resource.
+
+The following is an example inline policy that adds the permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:Decrypt",
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:us-east-1:`111122223333`:secret:secret_name",
+ "arn:aws:kms:us-east-1:`111122223333`:key/key_id"
+ ]
+ }
+ ]
+}`
+
+```
+
+## Secrets Manager or Systems Manager permissions
+
+The permission to allow the container agent to pull the necessary AWS Systems Manager or Secrets Manager
+resources. For more information, see [Pass sensitive data to an Amazon ECS
+container](specifying-sensitive-data.md "specifying-sensitive-data.md").
+
+**Using Secrets Manager**
+
+To provide access to the Secrets Manager secrets that you create, manually add the following
+permission to the task execution role. For information about how to manage
+permissions, see [Adding and
+Removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_.
+
+- `secretsmanager:GetSecretValue`– Required if you are referencing a
+  Secrets Manager secret. Adds the permission to retrieve the secret from
+  Secrets Manager.
+
+The following example policy adds the required
+permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:`us-east-1`:`111122223333`:secret:`secret_name`"
+ ]
+ }
+ ]
+}`
+
+```
+
+**Using Systems Manager**
+
+###### Important
+
+For tasks that use the EC2 launch type, you must use
+the ECS agent configuration variable
+`ECS_ENABLE_AWSLOGS_EXECUTIONROLE_OVERRIDE=true` to
+use this feature. You can add it to the
+`./etc/ecs/ecs.config` file during container instance
+creation or you can add it to an existing instance and then restart
+the ECS agent. For more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md").
+
+To provide access to the Systems Manager Parameter Store parameters that you create, manually add
+the following permissions as a policy to the task execution role. For
+information about how to manage permissions, see [Adding and
+Removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_.
+
+- `ssm:GetParameters` — Required if you are referencing a Systems Manager
+  Parameter Store parameter in a task definition. Adds the permission to
+  retrieve Systems Manager parameters.
+- `secretsmanager:GetSecretValue` — Required if you are referencing a
+  Secrets Manager secret either directly or if your Systems Manager Parameter Store parameter
+  is referencing a Secrets Manager secret in a task definition. Adds the permission
+  to retrieve the secret from Secrets Manager.
+- `kms:Decrypt` — Required only if your secret uses a customer managed key and
+  not the default key. The ARN for your custom key should be added as a
+  resource. Adds the permission to decrypt the customer managed key .
+
+The following example policy adds the required permissions:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ssm:GetParameters",
+ "secretsmanager:GetSecretValue",
+ "kms:Decrypt"
+ ],
+ "Resource": [
+ "arn:aws:ssm:`us-east-1`:`111122223333`:parameter/`parameter_name`",
+ "arn:aws:secretsmanager:`us-east-1`:`111122223333`:secret:`secret_name`",
+ "arn:aws:kms:`us-east-1`:`111122223333`:key/`key_id`"
+ ]
+ }
+ ]
+}`
+
+```
+
+## Fargate tasks pulling
+
+Amazon ECR images over interface endpoints permissions
+
+When launching tasks that use Fargate that pull images
+from Amazon ECR when Amazon ECR is configured to use an interface VPC endpoint, you can restrict
+the tasks access to a specific VPC or VPC endpoint. Do this by creating a task execution
+role for the tasks to use that use IAM condition keys.
+
+Use the following IAM global condition keys to restrict access to a specific VPC or
+VPC endpoint. For more information, see [AWS Global Condition
+Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md").
+
+- `aws:SourceVpc`—Restricts access to a specific VPC. You can
+  restrict the VPC to the VPC that hosts the task and endpoint.
+- `aws:SourceVpce`—Restricts access to a specific VPC
+  endpoint.
+
+The following task execution role policy provides an example for adding condition
+keys:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:GetAuthorizationToken",
+ "logs:CreateLogStream",
+ "logs:PutLogEvents"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:BatchCheckLayerAvailability",
+ "ecr:GetDownloadUrlForLayer",
+ "ecr:BatchGetImage"
+ ],
+ "Resource": "arn:aws:ecr:*:*:repository/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:sourceVpce": "vpce-0123456789abcdef0"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+## Amazon ECR permissions
+
+The following permissions are required when you need to pull container images from Amazon ECR private repositories. The task execution role should have these permissions to allow the Amazon ECS container and Fargate agents to pull container images on your behalf. For basic ECS implementations, these permissions should be added to the task execution role rather than the task IAM role.
+
+The Amazon ECS task execution role managed policy (`AmazonECSTaskExecutionRolePolicy`) includes the necessary permissions for pulling images from Amazon ECR. If you're using the managed policy, you don't need to add these permissions separately.
+
+If you're creating a custom policy, include the following permissions to allow pulling images from Amazon ECR:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:BatchGetImage",
+ "ecr:GetDownloadUrlForLayer",
+ "ecr:GetAuthorizationToken"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+Note that these permissions are different from the permissions that might be required in the task IAM role if your application code needs to interact with Amazon ECR APIs directly. For information about task IAM role permissions for Amazon ECR, see [Amazon ECR permissions](task-iam-roles.md#ecr-required-iam-permissions "task-iam-roles.md#ecr-required-iam-permissions").
+
+## Amazon S3 file storage permissions
+
+When you specify a configuration file that's hosted in Amazon S3, the task execution role
+must include the `s3:GetObject` permission for the configuration file and the
+`s3:GetBucketLocation` permission on the Amazon S3 bucket that the file is in.
+For more information, see [Policy actions for Amazon S3](../../../AmazonS3/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "../../../AmazonS3/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions") in the _Amazon Simple Storage Service User Guide_.
+
+The following example policy adds the required permissions for retrieving a file from
+Amazon S3. Specify the name of your Amazon S3 bucket and configuration file name.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "`s3:GetObject`"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`amzn-s3-demo-bucket`/`folder_name`/`config_file_name`"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetBucketLocation"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`amzn-s3-demo-bucket`"
+ ]
+ }
+ ]
+}`
+
+```

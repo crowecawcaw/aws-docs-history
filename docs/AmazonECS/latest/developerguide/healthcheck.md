@@ -78,17 +78,32 @@ The following rules are evaluated in order:
 
 Consider the following task health example with 2 essential containers.
 
-| Container 1 health | Container 2 health | Task health        |
-| ------------------ | ------------------ | ------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `UNHEALTHY`        | `UNKNOWN`          | `UNHEALTHY`        |
-| `UNHEALTHY`        | `HEALTHY`          | `UNHEALTHY`        |
-| `HEALTHY`          | `UNKNOWN`          | `UNKNOWN`          |
-| `HEALTHY`          | `HEALTHY`          | `HEALTHY`          | Consider the following task health example with 3 containers. |
-| Container 1 health | Container 2 health | Container 3 health | Task health                                                   |
-| ---                | ---                | ---                | ---                                                           |
-| `UNHEALTHY`        | `UNKNOWN`          | `UNKNOWN`          | `UNHEALTHY`                                                   |
-| `UNHEALTHY`        | `UNKNOWN`          | `HEALTHY`          | `UNHEALTHY`                                                   |
-| `UNHEALTHY`        | `HEALTHY`          | `HEALTHY`          | `UNHEALTHY`                                                   |
-| `HEALTHY`          | `UNKNOWN`          | `HEALTHY`          | `UNKNOWN`                                                     |
-| `HEALTHY`          | `UNKNOWN`          | `UNKNOWN`          | `UNKNOWN`                                                     |
-| `HEALTHY`          | `HEALTHY`          | `HEALTHY`          | `HEALTHY`                                                     | ## How health checks are affected by agent disconnects If the Amazon ECS container agent becomes disconnected from the Amazon ECS service, this won't cause a container to transition to an `UNHEALTHY` status. This is by design, to ensure that containers remain running during agent restarts or temporary unavailability. The health check status is the "last heard from" response from the Amazon ECS agent, so if the container was considered `HEALTHY` prior to the disconnect, that status will remain until the agent reconnects and another health check occurs. There are no assumptions made about the status of the container health checks. |
+| Container 1 health | Container 2 health | Task health |
+| ------------------ | ------------------ | ----------- |
+| `UNHEALTHY`        | `UNKNOWN`          | `UNHEALTHY` |
+| `UNHEALTHY`        | `HEALTHY`          | `UNHEALTHY` |
+| `HEALTHY`          | `UNKNOWN`          | `UNKNOWN`   |
+| `HEALTHY`          | `HEALTHY`          | `HEALTHY`   |
+
+Consider the following task health example with 3 containers.
+
+| Container 1 health | Container 2 health | Container 3 health | Task health |
+| ------------------ | ------------------ | ------------------ | ----------- |
+| `UNHEALTHY`        | `UNKNOWN`          | `UNKNOWN`          | `UNHEALTHY` |
+| `UNHEALTHY`        | `UNKNOWN`          | `HEALTHY`          | `UNHEALTHY` |
+| `UNHEALTHY`        | `HEALTHY`          | `HEALTHY`          | `UNHEALTHY` |
+| `HEALTHY`          | `UNKNOWN`          | `HEALTHY`          | `UNKNOWN`   |
+| `HEALTHY`          | `UNKNOWN`          | `UNKNOWN`          | `UNKNOWN`   |
+| `HEALTHY`          | `HEALTHY`          | `HEALTHY`          | `HEALTHY`   |
+
+## How health checks are affected by agent
+
+disconnects
+
+If the Amazon ECS container agent becomes disconnected from the Amazon ECS service, this won't
+cause a container to transition to an `UNHEALTHY` status. This is by design,
+to ensure that containers remain running during agent restarts or temporary
+unavailability. The health check status is the "last heard from" response from the Amazon ECS
+agent, so if the container was considered `HEALTHY` prior to the disconnect,
+that status will remain until the agent reconnects and another health check occurs.
+There are no assumptions made about the status of the container health checks.

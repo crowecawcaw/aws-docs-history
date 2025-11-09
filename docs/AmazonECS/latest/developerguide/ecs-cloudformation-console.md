@@ -564,16 +564,33 @@ For information about how to create a stack using the AWS CloudFormation console
 a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_ and use the following table to determine what
 options to specify.
 
-| Option                          | Value                                                                                                                                                                                                                               |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Prerequisite - Prepare template | Choose an existing template                                                                                                                                                                                                         |
-| Specify template                | Upload a template file                                                                                                                                                                                                              |
-| Choose file                     | ecs-tutorial-template.yaml                                                                                                                                                                                                          |
-| Stack name                      | ecs-tutorial-stack                                                                                                                                                                                                                  |
-| Parameters                      | Leave all parameter values as defaults.                                                                                                                                                                                             |
-| Capabilities                    | Choose **I acknowledge that this template may create IAM resources** to acknowledge AWS CloudFormation creating IAM resources.                                                                                                      | ## Step 3: Verify Use the following steps to verify the creation of Amazon ECS resources using the provided template. For information about how to view stack information and resources, see [Viewing stack information from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md") in the _AWS CloudFormation User Guide_ and use the following table to determine what to verify. |
-| Stack details field             | What to look for                                                                                                                                                                                                                    |
-| ---                             | ---                                                                                                                                                                                                                                 |
-| Stack info                      | A status of `CREATE_COMPLETE`.                                                                                                                                                                                                      |
-| Resources                       | A list of the created resources with links to service console. Choose links to `ECSCluster`, `ECSService`, `TaskDefinition` to view more details about the created service, cluster, and task definition in the Amazon ECS console. |
-| Outputs                         | **LoadBalancerURL**. Paste the URL into a web browser to view a webpage that displays a sample Amazon ECS application.                                                                                                              | ## Step 4: Clean up resources To clean up resources and avoid incurring further costs, follow the steps in [Delete a stack from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _AWS CloudFormation user guide_.                                                                                                                                                                                |
+| Option                             | Value                                                                                                                                     |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Prerequisite<br>• Prepare template | Choose an existing template                                                                                                               |
+| Specify template                   | Upload a template file                                                                                                                    |
+| Choose file                        | ecs-tutorial-template.yaml                                                                                                                |
+| Stack name                         | ecs-tutorial-stack                                                                                                                        |
+| Parameters                         | Leave all parameter values as defaults.                                                                                                   |
+| Capabilities                       | Choose \*_I acknowledge that this template may create<br>IAM resources_<br>• to acknowledge AWS CloudFormation creating<br>IAM resources. |
+
+## Step 3: Verify
+
+Use the following steps to verify the creation of Amazon ECS resources using the
+provided template.
+
+For information about how to view stack information and resources, see [Viewing stack information from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md") in the _AWS CloudFormation User Guide_ and use the following table to
+determine what to verify.
+
+| Stack details field | What to look for                                                                                                                                                                                                                                |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stack info          | A status of `CREATE_COMPLETE`.                                                                                                                                                                                                                  |
+| Resources           | A list of the created resources with links to service console.<br>Choose links to `ECSCluster`,<br>`ECSService`, `TaskDefinition` to view<br>more details about the created service, cluster, and task<br>definition in the Amazon ECS console. |
+| Outputs             | **LoadBalancerURL**. Paste the URL into a web<br>browser to view a webpage that displays a sample Amazon ECS<br>application.                                                                                                                    |
+
+## Step 4: Clean up
+
+resources
+
+To clean up resources and avoid incurring further costs, follow the steps in
+[Delete a stack from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the
+_AWS CloudFormation user guide_.

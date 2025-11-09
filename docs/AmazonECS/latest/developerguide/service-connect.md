@@ -157,6 +157,8 @@ interconnection method.
   overview](service-connect-concepts.md "service-connect-concepts.md")
 - [Amazon ECS Service Connect with shared
   AWS Cloud Map namespaces](service-connect-shared-namespaces.md "service-connect-shared-namespaces.md")
+- [Amazon ECS Service Connect access
+  logs](service-connect-envoy-access-logs.md "service-connect-envoy-access-logs.md")
 - [Encrypt Amazon ECS Service Connect traffic](service-connect-tls.md "service-connect-tls.md")
 - [Configuring Amazon ECS Service Connect with the
   AWS CLI](create-service-connect.md "create-service-connect.md")

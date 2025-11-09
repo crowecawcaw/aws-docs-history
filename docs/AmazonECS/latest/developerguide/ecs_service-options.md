@@ -218,6 +218,30 @@ When you create a service which uses the `ECS` deployment controller, you can ch
     	 need the ability to quickly roll back if issues are detected
     	- Load balancer requirement: When your
     	 service uses Application Load Balancer, Network Load Balancer, or Service Connect
+    + `LINEAR`: A *linear* deployment strategy (`LINEAR`) gradually shifts traffic from the current production environment to a new environment in equal percentage increments over a specified time period. With Amazon ECS linear deployments, you can control the pace of traffic shifting and validate new service revisions with increasing amounts of production traffic.
+
+
+    Amazon ECS linear deployments are best suited for the following scenarios:
+
+
+
+
+    	- Gradual validation: When you want to gradually validate your new service version with increasing traffic
+    	- Performance monitoring: When you need time to monitor metrics and performance during the deployment
+    	- Risk minimization: When you want to minimize risk by exposing the new version to production traffic incrementally
+    	- Load balancer requirement: When your service uses Application Load Balancer, Network Load Balancer, or Service Connect
+    + `CANARY`: A *canary* deployment strategy (`CANARY`) shifts a small percentage of traffic to the new service revision first, then shifts the remaining traffic all at once after a specified time period. This allows you to test the new version with a subset of users before full deployment.
+
+
+    Amazon ECS canary deployments are best suited for the following scenarios:
+
+
+
+
+    	- Feature testing: When you want to test new features with a small subset of users before full rollout
+    	- Production validation: When you need to validate performance and functionality with real production traffic
+    	- Blast radius control: When you want to minimize blast radius if issues are discovered in the new version
+    	- Load balancer requirement: When your service uses Application Load Balancer, Network Load Balancer, or Service Connect
 
 - External
 
@@ -230,3 +254,39 @@ set and reroutes production traffic from the original application task set to
 the replacement task set. The original task set is terminated after a successful
 deployment. Use this deployment controller to verify a new deployment of a service
 before sending production traffic to it.
+
+## Deployment terminology
+
+The following terms are used throughout the Amazon ECS deployment documentation:
+
+Blue-green deployment
+
+A deployment strategy that creates a new environment (green) alongside the existing environment (blue), then switches traffic from blue to green after validation.
+
+Canary deployment
+
+A deployment strategy that routes a small percentage of traffic to a new version while maintaining the majority on the stable version for validation.
+
+Linear deployment
+
+A deployment strategy that gradually shifts traffic from the old version to the new version in equal increments over time.
+
+Rolling deployment
+
+A deployment strategy that replaces instances of the old version with instances of the new version one at a time.
+
+Task set
+
+A collection of tasks that run the same task definition within a service during a deployment.
+
+Target group
+
+A logical grouping of targets that receive traffic from a load balancer during deployments.
+
+Deployment controller
+
+The method used to deploy new versions of your service, such as Amazon ECS, CodeDeploy, or external controllers.
+
+Rollback
+
+The process of reverting to a previous version of your application when issues are detected during deployment.

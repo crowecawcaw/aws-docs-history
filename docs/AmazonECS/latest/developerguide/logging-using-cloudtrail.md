@@ -70,6 +70,80 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Data event type (console) | resources.type value          | Data APIs logged to CloudTrail                                                                                                                                                                             |
-| ------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **AwsApiCall**            | `AWS::ECS::ContainerInstance` | <br>• `ecs:Poll` (for EC2 and Amazon ECS Managed Instances) <br>• `ecs:StartTelemetrySession` (for EC2 and Amazon ECS Managed Instances) <br>• `ecs:PutSystemLogEvents` (for Amazon ECS Managed Instances) | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ## Amazon ECS event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail event that demonstrates the `CreateService` action. ###### Note This example has been formatted for improved readability. In a CloudTrail log file, all entries and events are concatenated into a single line. In addition, this example has been limited to a single Amazon ECS entry. In a real CloudTrail log file, you see entries and events from multiple AWS services. `{ "eventVersion": "1.04", "userIdentity": { "type": "AssumedRole", "principalId": "AIDACKCEVSQ6C2EXAMPLE:account_name", "arn": "arn:aws:sts::123456789012:user/Mary_Major", "accountId": "123456789012", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "attributes": { "mfaAuthenticated": "false", "creationDate": "2018-06-20T18:32:25Z" }, "sessionIssuer": { "type": "Role", "principalId": "AIDACKCEVSQ6C2EXAMPLE", "arn": "arn:aws:iam::123456789012:role/Admin", "accountId": "123456789012", "userName": "Mary_Major" } } }, "eventTime": "2018-06-20T19:04:36Z", "eventSource": "ecs.amazonaws.com", "eventName": "CreateCluster", "awsRegion": "us-east-1", "sourceIPAddress": "203.0.113.12", "userAgent": "console.amazonaws.com", "requestParameters": { "clusterName": "default" }, "responseElements": { "cluster": { "clusterArn": "arn:aws:ecs:us-east-1:123456789012:cluster/default", "pendingTasksCount": 0, "registeredContainerInstancesCount": 0, "status": "ACTIVE", "runningTasksCount": 0, "statistics": [], "clusterName": "default", "activeServicesCount": 0 } }, "requestID": "cb8c167e-EXAMPLE", "eventID": "e3c6f4ce-EXAMPLE", "eventType": "AwsApiCall", "recipientAccountId": "123456789012" }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type (console) | resources.type value          | Data APIs logged to CloudTrail                                                                                                                                                                          |
+| ------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AwsApiCall**            | `AWS::ECS::ContainerInstance` | • `ecs:Poll` (for EC2 and Amazon ECS Managed Instances)<br>• `ecs:StartTelemetrySession` (for EC2 and<br>Amazon ECS Managed Instances)<br>• `ecs:PutSystemLogEvents` (for Amazon ECS Managed Instances) |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+## Amazon ECS event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail event that demonstrates the `CreateService`
+action.
+
+###### Note
+
+This example has been formatted for improved readability. In a CloudTrail log file,
+all entries and events are concatenated into a single line. In addition, this
+example has been limited to a single Amazon ECS entry. In a real CloudTrail log file, you see
+entries and events from multiple AWS services.
+
+```
+{
+    "eventVersion": "1.04",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE:account_name",
+        "arn": "arn:aws:sts::123456789012:user/Mary_Major",
+        "accountId": "123456789012",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2018-06-20T18:32:25Z"
+            },
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+                "arn": "arn:aws:iam::123456789012:role/Admin",
+                "accountId": "123456789012",
+                "userName": "Mary_Major"
+            }
+        }
+    },
+    "eventTime": "2018-06-20T19:04:36Z",
+    "eventSource": "ecs.amazonaws.com",
+    "eventName": "CreateCluster",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "203.0.113.12",
+    "userAgent": "console.amazonaws.com",
+    "requestParameters": {
+        "clusterName": "default"
+    },
+    "responseElements": {
+        "cluster": {
+            "clusterArn": "arn:aws:ecs:us-east-1:123456789012:cluster/default",
+            "pendingTasksCount": 0,
+            "registeredContainerInstancesCount": 0,
+            "status": "ACTIVE",
+            "runningTasksCount": 0,
+            "statistics": [],
+            "clusterName": "default",
+            "activeServicesCount": 0
+        }
+    },
+    "requestID": "cb8c167e-EXAMPLE",
+    "eventID": "e3c6f4ce-EXAMPLE",
+    "eventType": "AwsApiCall",
+    "recipientAccountId": "123456789012"
+}
+
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.

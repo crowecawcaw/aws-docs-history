@@ -302,12 +302,319 @@ JSONJSON
 After you create the role, add additional permissions to the role for the following
 features.
 
-| Feature
-| Additional permissions
-|
-| --- | --- |
-| Use ECS Exec | [ECS Exec permissions](#ecs-exec-required-iam-permissions "#ecs-exec-required-iam-permissions") |
-| Use an image from a private Amazon ECR repository | [Amazon ECR permissions](#ecr-required-iam-permissions "#ecr-required-iam-permissions") |
-| Use EC2 instances (Windows and Linux) | [Amazon EC2 instances additional configuration](#task-iam-role-considerations "#task-iam-role-considerations") |
-| Use external instances | [External instance additional configuration](#enable_task_iam_roles "#enable_task_iam_roles") |
-| Use Windows EC2 instances | [Amazon EC2 Windows instance additional configuration](#windows_task_IAM_roles "#windows_task_IAM_roles") | ## Amazon ECR permissions The following permissions are required when your application code needs to interact with Amazon ECR repositories directly. Note that for basic implementation where you only need to pull images from Amazon ECR, these permissions are not required at the task IAM role level. Instead, the Amazon ECS task execution role should have these permissions. For more information about the task execution role, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md"). If your application code running in the container needs to interact with Amazon ECR APIs directly, you should add the following permissions to a task IAM role and include the task IAM role in your task definition. For more information, see [Adding and Removing IAM Policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_. Use the following policy for your task IAM role to add the required Amazon ECR permissions for container applications that need to interact with Amazon ECR directly: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer", "ecr:GetAuthorizationToken" ], "Resource": "*" } ] }` `` ## ECS Exec permissions The [ECS Exec](ecs-exec.md "ecs-exec.md") feature requires a task IAM role to grant containers the permissions needed for communication between the managed SSM agent (`execute-command` agent) and the SSM service. You should add the following permissions to a task IAM role and include the task IAM role in your task definition. For more information, see [Adding and Removing IAM Policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_. Use the following policy for your task IAM role to add the required SSM permissions. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ssmmessages:CreateControlChannel", "ssmmessages:CreateDataChannel", "ssmmessages:OpenControlChannel", "ssmmessages:OpenDataChannel" ], "Resource": "*" } ] }` `` ## Amazon EC2 instances additional configuration We recommend that you limit the permissions in your container instance role to the minimal list of permissions used in the `AmazonEC2ContainerServiceforEC2Role` managed IAM policy. Your Amazon EC2 instances require at least version `1.11.0` of the container agent to use task role; however, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). If you use an Amazon ECS-optimized AMI, your instance needs at least `1.11.0-1` of the `ecs-init` package. If your instances are using the latest Amazon ECS-optimized AMI, then they contain the required versions of the container agent and `ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md"). If you are not using the Amazon ECS-optimized AMI for your container instances, add the `--net=host` option to your **docker run** command that starts the agent and the following agent configuration variables for your desired configuration (for more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md")): `ECS_ENABLE_TASK_IAM_ROLE=true` Uses IAM roles for tasks for containers with the `bridge` and `default` network modes. `ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST=true` Uses IAM roles for tasks for containers with the `host` network mode. This variable is only supported on agent versions 1.12.0 and later. For an example run command, see [Manually updating the Amazon ECS container agent (for non-Amazon ECS-Optimized AMIs)](manually_update_agent.md "manually_update_agent.md"). You will also need to set the following networking commands on your container instance so that the containers in your tasks can retrieve their AWS credentials: `` `sudo sysctl -w net.ipv4.conf.all.route_localnet=1` `sudo iptables -t nat -A PREROUTING -p tcp -d 169.254.170.2 --dport 80 -j DNAT --to-destination 127.0.0.1:51679` `sudo iptables -t nat -A OUTPUT -d 169.254.170.2 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 51679` `` You must save these **iptables** rules on your container instance for them to survive a reboot. You can use the **iptables-save** and **iptables-restore** commands to save your **iptables** rules and restore them at boot. For more information, consult your specific operating system documentation. To prevent containers run by tasks that use the `awsvpc` network mode from accessing the credential information supplied to the Amazon EC2 instance profile, while still allowing the permissions that are provided by the task role, set the `ECS_AWSVPC_BLOCK_IMDS` agent configuration variable to `true` in the agent configuration file and restart the agent. For more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md"). To prevent containers run by tasks that use the `bridge` network mode from accessing the credential information supplied to the Amazon EC2 instance profile, while still allowing the permissions that are provided by the task role, by running the following **iptables** command on your Amazon EC2 instances. This command doesn't affect containers in tasks that use the `host` or `awsvpc` network modes. For more information, see [Network mode](task_definition_parameters.md#network_mode "task_definition_parameters.md#network_mode"). <br>• `` `sudo yum install -y iptables-services; sudo iptables --insert DOCKER-USER 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP` `` You must save this **iptables** rule on your Amazon EC2 instance for it to survive a reboot. When using the Amazon ECS-optimized AMI, you can use the following command. For other operating systems, consult the documentation for that operating system. `` `sudo iptables-save | sudo tee /etc/sysconfig/iptables && sudo systemctl enable --now iptables` `` ## External instance additional configuration Your external instances require at least version `1.11.0` of the container agent to use task IAM roles; however, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). If you are using an Amazon ECS-optimized AMI, your instance needs at least `1.11.0-1` of the `ecs-init` package. If your instances are using the latest Amazon ECS-optimized AMI, then they contain the required versions of the container agent and `ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md"). If you are not using the Amazon ECS-optimized AMI for your container instances, add the `--net=host` option to your **docker run** command that starts the agent and the following agent configuration variables for your desired configuration (for more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md")): `ECS_ENABLE_TASK_IAM_ROLE=true` Uses IAM roles for tasks for containers with the `bridge` and `default` network modes. `ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST=true` Uses IAM roles for tasks for containers with the `host` network mode. This variable is only supported on agent versions 1.12.0 and later. For an example run command, see [Manually updating the Amazon ECS container agent (for non-Amazon ECS-Optimized AMIs)](manually_update_agent.md "manually_update_agent.md"). You will also need to set the following networking commands on your container instance so that the containers in your tasks can retrieve their AWS credentials: `` `sudo sysctl -w net.ipv4.conf.all.route_localnet=1` `sudo iptables -t nat -A PREROUTING -p tcp -d 169.254.170.2 --dport 80 -j DNAT --to-destination 127.0.0.1:51679` `sudo iptables -t nat -A OUTPUT -d 169.254.170.2 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 51679` `` You must save these **iptables** rules on your container instance for them to survive a reboot. You can use the **iptables-save** and **iptables-restore** commands to save your **iptables** rules and restore them at boot. For more information, consult your specific operating system documentation. ## Amazon EC2 Windows instance additional configuration ###### Important This applies only to Windows containers on EC2 that use task roles. The task role with Windows features requires additional configuration on EC2. <br>• When you launch your container instances, you must set the `-EnableTaskIAMRole` option in the container instances user data script. The `EnableTaskIAMRole` turns on the Task IAM roles feature for the tasks. For example: ``<powershell> Import-Module ECSTools Initialize-ECSAgent -Cluster '`windows`' -EnableTaskIAMRole </powershell>`` <br>• You must bootstrap your container with the networking commands that are provided in [Amazon ECS container bootstrap script](#windows_task_IAM_roles_bootstrap "#windows_task_IAM_roles_bootstrap"). <br>• You must create an IAM role and policy for your tasks. For more information, see [Creating the task IAM role](#create_task_iam_policy_and_role "#create_task_iam_policy_and_role"). <br>• The IAM roles for the task credential provider use port 80 on the container instance. Therefore, if you configure IAM roles for tasks on your container instance, your containers can't use port 80 for the host port in any port mappings. To expose your containers on port 80, we recommend configuring a service for them that uses load balancing. You can use port 80 on the load balancer. By doing so, traffic can be routed to another host port on your container instances. For more information, see [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md"). <br>• If your Windows instance is restarted, you must delete the proxy interface and initialize the Amazon ECS container agent again to bring the credential proxy back up. ### Amazon ECS container bootstrap script Before containers can access the credential proxy on the container instance to get credentials, the container must be bootstrapped with the required networking commands. The following code example script should be run on your containers when they start. ###### Note You do not need to run this script when you use `awsvpc` network mode on Windows. If you run Windows containers which include Powershell, then use the following script: `# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved. # # Licensed under the Apache License, Version 2.0 (the "License"). You may # not use this file except in compliance with the License. A copy of the # License is located at # #	http://aws.amazon.com/apache2.0/ # # or in the "license" file accompanying this file. This file is distributed # on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either # express or implied. See the License for the specific language governing # permissions and limitations under the License. $gateway = (Get-NetRoute | Where { $_.DestinationPrefix -eq '0.0.0.0/0' } | Sort-Object RouteMetric | Select NextHop).NextHop $ifIndex = (Get-NetAdapter -InterfaceDescription "Hyper-V Virtual Ethernet*" | Sort-Object | Select ifIndex).ifIndex New-NetRoute -DestinationPrefix 169.254.170.2/32 -InterfaceIndex $ifIndex -NextHop $gateway -PolicyStore ActiveStore # credentials API New-NetRoute -DestinationPrefix 169.254.169.254/32 -InterfaceIndex $ifIndex -NextHop $gateway -PolicyStore ActiveStore # metadata API` If you run Windows containers that only have the Command shell, then use the following script: `# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved. # # Licensed under the Apache License, Version 2.0 (the "License"). You may # not use this file except in compliance with the License. A copy of the # License is located at # #	http://aws.amazon.com/apache2.0/ # # or in the "license" file accompanying this file. This file is distributed # on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either # express or implied. See the License for the specific language governing # permissions and limitations under the License. for /f "tokens=1" %i  in ('netsh interface ipv4 show interfaces ^| findstr /x /r ".*vEthernet.*"') do set interface=%i for /f "tokens=3" %i  in ('netsh interface ipv4 show addresses %interface% ^| findstr /x /r ".*Default.Gateway.*"') do set gateway=%i netsh interface ipv4 add route prefix=169.254.170.2/32 interface="%interface%" nexthop="%gateway%" store=active # credentials API netsh interface ipv4 add route prefix=169.254.169.254/32 interface="%interface%" nexthop="%gateway%" store=active # metadata API`
+| Feature                                           | Additional permissions                                                                                            |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Use ECS Exec                                      | [ECS Exec permissions](#ecs-exec-required-iam-permissions "#ecs-exec-required-iam-permissions")                   |
+| Use an image from a private Amazon ECR repository | [Amazon ECR permissions](#ecr-required-iam-permissions "#ecr-required-iam-permissions")                           |
+| Use EC2 instances (Windows and Linux)             | [Amazon EC2 instances additional<br>configuration](#task-iam-role-considerations "#task-iam-role-considerations") |
+| Use external instances                            | [External instance additional<br>configuration](#enable_task_iam_roles "#enable_task_iam_roles")                  |
+| Use Windows EC2 instances                         | [Amazon EC2 Windows instance additional configuration](#windows_task_IAM_roles "#windows_task_IAM_roles")         |
+
+## Amazon ECR permissions
+
+The following permissions are required when your application code needs to interact with Amazon ECR repositories directly. Note that for basic implementation where you only need to pull images from Amazon ECR, these permissions are not required at the task IAM role level. Instead, the Amazon ECS task execution role should have these permissions. For more information about the task execution role, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md").
+
+If your application code running in the container needs to interact with Amazon ECR APIs directly, you should add the
+following permissions to a task IAM role and include the task IAM role in your task
+definition. For more information, see [Adding and
+Removing IAM Policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_.
+
+Use the following policy for your task IAM role to add the required Amazon ECR
+permissions for container applications that need to interact with Amazon ECR directly:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:BatchGetImage",
+ "ecr:GetDownloadUrlForLayer",
+ "ecr:GetAuthorizationToken"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## ECS Exec permissions
+
+The [ECS Exec](ecs-exec.md "ecs-exec.md") feature requires a task IAM role to grant containers the
+permissions needed for communication between the managed SSM agent
+(`execute-command` agent) and the SSM service. You should add the
+following permissions to a task IAM role and include the task IAM role in your task
+definition. For more information, see [Adding and
+Removing IAM Policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_.
+
+Use the following policy for your task IAM role to add the required SSM
+permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ssmmessages:CreateControlChannel",
+ "ssmmessages:CreateDataChannel",
+ "ssmmessages:OpenControlChannel",
+ "ssmmessages:OpenDataChannel"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Amazon EC2 instances additional
+
+configuration
+
+We recommend that you limit the permissions in your container instance role to the
+minimal list of permissions used in the `AmazonEC2ContainerServiceforEC2Role`
+managed IAM policy.
+
+Your Amazon EC2 instances require at least version `1.11.0` of the container
+agent to use task role; however, we recommend using the latest container agent version.
+For information about checking your agent version and updating to the latest version,
+see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). If you use an
+Amazon ECS-optimized AMI, your instance needs at least `1.11.0-1` of the
+`ecs-init` package. If your instances are using the latest
+Amazon ECS-optimized AMI, then they contain the required versions of the container agent and
+`ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
+
+If you are not using the Amazon ECS-optimized AMI for your container instances, add the
+`--net=host` option to your **docker run** command that
+starts the agent and the following agent configuration variables for your desired
+configuration (for more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md")):
+
+`ECS_ENABLE_TASK_IAM_ROLE=true`
+
+Uses IAM roles for tasks for containers with the `bridge` and
+`default` network modes.
+
+`ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST=true`
+
+Uses IAM roles for tasks for containers with the `host`
+network mode. This variable is only supported on agent versions 1.12.0 and
+later.
+
+For an example run command, see [Manually updating the Amazon ECS container agent (for
+non-Amazon ECS-Optimized AMIs)](manually_update_agent.md "manually_update_agent.md"). You will also need to set the following
+networking commands on your container instance so that the containers in your tasks can
+retrieve their AWS credentials:
+
+```
+`sudo sysctl -w net.ipv4.conf.all.route_localnet=1`
+`sudo iptables -t nat -A PREROUTING -p tcp -d 169.254.170.2 --dport 80 -j DNAT --to-destination 127.0.0.1:51679`
+`sudo iptables -t nat -A OUTPUT -d 169.254.170.2 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 51679`
+```
+
+You must save these **iptables** rules on your container instance for
+them to survive a reboot. You can use the **iptables-save** and
+**iptables-restore** commands to save your
+**iptables** rules and restore them at boot. For more information,
+consult your specific operating system documentation.
+
+To prevent containers run by tasks that use the `awsvpc` network mode from
+accessing the credential information supplied to the Amazon EC2 instance profile, while still
+allowing the permissions that are provided by the task role, set the
+`ECS_AWSVPC_BLOCK_IMDS` agent configuration variable to `true`
+in the agent configuration file and restart the agent. For more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md").
+
+To prevent containers run by tasks that use the `bridge` network mode from
+accessing the credential information supplied to the Amazon EC2 instance profile, while still
+allowing the permissions that are provided by the task role, by running the following
+**iptables** command on your Amazon EC2 instances. This command doesn't
+affect containers in tasks that use the `host` or `awsvpc` network
+modes. For more information, see [Network mode](task_definition_parameters.md#network_mode "task_definition_parameters.md#network_mode").
+
+- ```
+  `sudo yum install -y iptables-services; sudo iptables --insert DOCKER-USER 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP`
+  ```
+
+```
+
+You must save this **iptables** rule on your Amazon EC2 instance for
+ it to survive a reboot. When using the Amazon ECS-optimized AMI, you can use the
+ following command. For other operating systems, consult the documentation for
+ that operating system.
+
+
+
+```
+
+`sudo iptables-save | sudo tee /etc/sysconfig/iptables && sudo systemctl enable --now iptables`
+
+```
+
+## External instance additional
+ configuration
+
+
+Your external instances require at least version `1.11.0` of the container
+ agent to use task IAM roles; however, we recommend using the latest container agent
+ version. For information about checking your agent version and updating to the latest
+ version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md"). If you
+ are using an Amazon ECS-optimized AMI, your instance needs at least `1.11.0-1` of
+ the `ecs-init` package. If your instances are using the latest
+ Amazon ECS-optimized AMI, then they contain the required versions of the container agent and
+ `ecs-init`. For more information, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
+
+
+If you are not using the Amazon ECS-optimized AMI for your container instances, add the
+ `--net=host` option to your **docker run** command that
+ starts the agent and the following agent configuration variables for your desired
+ configuration (for more information, see [Amazon ECS container agent configuration](ecs-agent-config.md "ecs-agent-config.md")):
+
+
+
+
+`ECS_ENABLE_TASK_IAM_ROLE=true`
+
+Uses IAM roles for tasks for containers with the `bridge` and
+ `default` network modes.
+
+
+
+`ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST=true`
+
+Uses IAM roles for tasks for containers with the `host`
+ network mode. This variable is only supported on agent versions 1.12.0 and
+ later.
+
+
+
+
+For an example run command, see [Manually updating the Amazon ECS container agent (for
+ non-Amazon ECS-Optimized AMIs)](manually_update_agent.md "manually_update_agent.md"). You will also need to set the following
+ networking commands on your container instance so that the containers in your tasks can
+ retrieve their AWS credentials:
+
+
+
+```
+
+`sudo sysctl -w net.ipv4.conf.all.route_localnet=1`
+`sudo iptables -t nat -A PREROUTING -p tcp -d 169.254.170.2 --dport 80 -j DNAT --to-destination 127.0.0.1:51679`
+`sudo iptables -t nat -A OUTPUT -d 169.254.170.2 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 51679`
+
+```
+
+You must save these **iptables** rules on your container instance for
+ them to survive a reboot. You can use the **iptables-save** and
+ **iptables-restore** commands to save your
+ **iptables** rules and restore them at boot. For more information,
+ consult your specific operating system documentation.
+
+
+##  Amazon EC2 Windows instance additional configuration
+
+
+###### Important
+
+This applies only to Windows containers on EC2 that use task
+ roles.
+
+
+The task role with Windows features requires additional configuration on
+ EC2.
+
+
+
+* When you launch your container instances, you must set the
+ `-EnableTaskIAMRole` option in the container instances user data
+ script. The `EnableTaskIAMRole` turns on the Task IAM roles feature for
+ the tasks. For example:
+
+
+
+```
+
+<powershell>
+Import-Module ECSTools
+Initialize-ECSAgent -Cluster '`windows`' -EnableTaskIAMRole 
+</powershell>
+```
+* You must bootstrap your container with the networking commands that are provided
+ in [Amazon ECS container bootstrap script](#windows_task_IAM_roles_bootstrap "#windows_task_IAM_roles_bootstrap").
+* You must create an IAM role and policy for your tasks. For more information, see
+ [Creating the task IAM role](#create_task_iam_policy_and_role "#create_task_iam_policy_and_role").
+* The IAM roles for the task credential provider use port 80 on the container
+ instance. Therefore, if you configure IAM roles for tasks on your container
+ instance, your containers can't use port 80 for the host port in any port mappings.
+ To expose your containers on port 80, we recommend configuring a service for them
+ that uses load balancing. You can use port 80 on the load balancer. By doing so,
+ traffic can be routed to another host port on your container instances. For more
+ information, see [Use load balancing to distribute Amazon ECS service
+ traffic](service-load-balancing.md "service-load-balancing.md").
+* If your Windows instance is restarted, you must delete the proxy interface and
+ initialize the Amazon ECS container agent again to bring the credential proxy back
+ up.
+
+### Amazon ECS container bootstrap script
+
+Before containers can access the credential proxy on the container instance to get
+credentials, the container must be bootstrapped with the required networking commands.
+The following code example script should be run on your containers when they
+start.
+
+###### Note
+
+You do not need to run this script when you use `awsvpc` network mode
+on Windows.
+
+If you run Windows containers which include Powershell, then use the following
+script:
+
+```
+# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"). You may
+# not use this file except in compliance with the License. A copy of the
+# License is located at
+#
+#	http://aws.amazon.com/apache2.0/
+#
+# or in the "license" file accompanying this file. This file is distributed
+# on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+# express or implied. See the License for the specific language governing
+# permissions and limitations under the License.
+
+$gateway = (Get-NetRoute | Where { $_.DestinationPrefix -eq '0.0.0.0/0' } | Sort-Object RouteMetric | Select NextHop).NextHop
+$ifIndex = (Get-NetAdapter -InterfaceDescription "Hyper-V Virtual Ethernet*" | Sort-Object | Select ifIndex).ifIndex
+New-NetRoute -DestinationPrefix 169.254.170.2/32 -InterfaceIndex $ifIndex -NextHop $gateway -PolicyStore ActiveStore # credentials API
+New-NetRoute -DestinationPrefix 169.254.169.254/32 -InterfaceIndex $ifIndex -NextHop $gateway -PolicyStore ActiveStore # metadata API
+```
+
+If you run Windows containers that only have the Command shell, then use the following
+script:
+
+```
+# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"). You may
+# not use this file except in compliance with the License. A copy of the
+# License is located at
+#
+#	http://aws.amazon.com/apache2.0/
+#
+# or in the "license" file accompanying this file. This file is distributed
+# on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+# express or implied. See the License for the specific language governing
+# permissions and limitations under the License.
+
+for /f "tokens=1" %i  in ('netsh interface ipv4 show interfaces ^| findstr /x /r ".*vEthernet.*"') do set interface=%i
+for /f "tokens=3" %i  in ('netsh interface ipv4 show addresses %interface% ^| findstr /x /r ".*Default.Gateway.*"') do set gateway=%i
+netsh interface ipv4 add route prefix=169.254.170.2/32 interface="%interface%" nexthop="%gateway%" store=active # credentials API
+netsh interface ipv4 add route prefix=169.254.169.254/32 interface="%interface%" nexthop="%gateway%" store=active # metadata API
+```

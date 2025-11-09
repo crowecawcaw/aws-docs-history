@@ -12,8 +12,7 @@ sharing](../../../cloud-map/latest/dg/sharing-namespaces.md "../../../cloud-map/
 
 ###### Important
 
-You must use the
-`AWSRAMPermissionCloudMapECSFullPermission` managed
+You must use the `AWSRAMPermissionCloudMapECSFullPermission` managed
 permission to share the namespace for Service Connect to work properly with the
 namespace.
 
@@ -46,8 +45,8 @@ Service Connect:
 - If access to a shared namespace is revoked, Amazon ECS operations that require
   interaction with the namespace (such as `CreateService`,
   `UpdateService`, and `ListServicesByNamespace`) will
-  fail. For more information about troubleshooting permissions issues with shared namespaces,
-  see [Troubleshooting
+  fail. For more information about troubleshooting permissions issues with shared
+  namespaces, see [Troubleshooting
   Amazon ECS Service Connect with shared AWS Cloud Map namespaces](service-connect-shared-namespaces-troubleshooting.md "service-connect-shared-namespaces-troubleshooting.md").
 - For service discovery using DNS queries in a shared private DNS
   namespace:
@@ -78,3 +77,13 @@ Service Connect:
 - When enabling TLS for Service Connect and using a shared namespace, the AWS Private CA
   Certificate Authority (CA) is scoped to the namespace. When access to the shared
   namespace is revoked, access to the CA is stopped.
+- When working with a shared namespace, namespace owners and consumers don't
+  have access to cross-account Amazon CloudWatch metrics by default. Target metrics are
+  published only to accounts that own client services. An account that owns
+  client services doesn't have access to metrics received by an account owning
+  client-server services, and the other way around. To allow for cross-account
+  access to metrics, set up
+  CloudWatch cross-account observability. For more information about configuring
+  cross-account observability, see [CloudWatch cross-account observabilty](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md") in the
+  _Amazon CloudWatch User Guide_. For more information about the CloudWatch
+  metrics for Service Connect, see [Amazon ECS CloudWatch metrics](available-metrics.md "available-metrics.md") .

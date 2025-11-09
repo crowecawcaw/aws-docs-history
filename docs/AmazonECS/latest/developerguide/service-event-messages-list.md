@@ -507,3 +507,27 @@ To resolve this issue, add the necessary permissions to the IAM role. For more i
 The service is unable to maintain tasks due to a misconfigured or changed IAM trust relationship. The IAM role associated with your ECS service or tasks may have an incorrect trust policy.
 
 To resolve this issue, configure a trust policy for the role used in your task definition. For more information about creating trust policies for custom roles, see [Creating a role for a custom use case](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") in the _IAM User Guide_.
+
+## service (`service-name`) could not launch `number` tasks for deployment `deployment-id`.
+
+The service scheduler sends this event message when a deployment workflow successfully starts some tasks but fails to launch all requested tasks due to insufficient capacity errors. This typically occurs when Circuit Breaker is enabled and provides visibility into why deployments may fail or roll back.
+
+The message includes the specific failure reason, such as insufficient CPU, memory, or other resource constraints. This helps you understand what resources need to be addressed to resolve the deployment issue.
+
+For more information, see [service (service-name)
+was unable to place a task because no container instance met all of its
+requirements.](#service-event-messages-1 "#service-event-messages-1").
+
+## service (`service-name`) was unable to place tasks in your cluster because the tasks provisioning capacity limit was exceeded.
+
+The service scheduler sends this event message when your cluster has reached the limit of 500 tasks that can be in the `PROVISIONING` state simultaneously. This is a cluster-level limit, not a service-specific issue.
+
+This typically occurs when you start a service with a high number of desired tasks with limited pre-provisioned capacity, or when multiple services are started simultaneously causing high task churn.
+
+To resolve this issue:
+
+- Wait for existing tasks to complete provisioning and move to the `RUNNING` state.
+- Consider scaling your services more gradually to avoid hitting the provisioning limit.
+- Review your cluster's capacity provider configuration to ensure adequate resources are available.
+
+For more information about Amazon ECS service quotas, see [Amazon Elastic Container Service endpoints and quotas](../../../general/latest/gr/ecs-service.md "../../../general/latest/gr/ecs-service.md") in the _Amazon Web Services General Reference_.
