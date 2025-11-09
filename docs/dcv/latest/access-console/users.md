@@ -23,22 +23,40 @@ This graphic shows which details are displayed.
 
 ![User profile details showing name, user ID, role, last active time, and other metadata.](images/user-details.png)
 
-| Property         | Description                                                                    |
-| ---------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name             | The display name of the user.                                                  |
-| User ID          | The unique ID of the user.                                                     |
-| Role             | The role a user can have when using the Access Console - admin or user.        |
-| Last time active | The last time the user connected to the Access Console.                        |
-| Date created     | The date the user was created in the Access Console.                           |
-| Date modified    | The last date that the user was modified in the Access Console.                |
-| Imported         | Indicates whether or not the user was manually imported to the Access Console. | ### Session These are the active sessions that the user has created. Its parameters are listed below. ![Sessions interface showing no active sessions available for the user.](images/user-sessions.png)                               |
-| Property         | Description                                                                    |
-| ---              | ---                                                                            |
-| Name             | The display name of the user.                                                  |
-| Level of access  | Whether the user is set to Administrator or User.                              |
-| Status           | The current status of the user.                                                | ### Session template These are the session templates that are available for the user. Its parameters are listed below. ![Empty session templates table with columns for Name, Description, and OS.](images/user-session-templates.png) |
-| Property         | Description                                                                    |
-| ---              | ---                                                                            |
-| Name             | The name of the session template.                                              |
-| Description      | The description of the session template.                                       |
-| OS               | The operating system of the session template.                                  |
+| Property         | Description                                                                       |
+| ---------------- | --------------------------------------------------------------------------------- |
+| Name             | The display name of the user.                                                     |
+| User ID          | The unique ID of the user.                                                        |
+| Role             | The role a user can have when using the Access Console<br>• admin<br>or user.     |
+| Last time active | The last time the user connected to the Access Console.                           |
+| Date created     | The date the user was created in the Access Console.                              |
+| Date modified    | The last date that the user was modified in the Access<br>Console.                |
+| Imported         | Indicates whether or not the user was manually imported to the<br>Access Console. |
+
+### Session
+
+These are the active sessions that the user has created. Its parameters are
+listed below.
+
+![Sessions interface showing no active sessions available for the user.](images/user-sessions.png)
+
+| Property        | Description                                       |
+| --------------- | ------------------------------------------------- |
+| Name            | The display name of the user.                     |
+| Level of access | Whether the user is set to Administrator or User. |
+| Status          | The current status of the user.                   |
+
+### Session
+
+template
+
+These are the session templates that are available for the user. Its
+parameters are listed below.
+
+![Empty session templates table with columns for Name, Description, and OS.](images/user-session-templates.png)
+
+| Property    | Description                                   |
+| ----------- | --------------------------------------------- |
+| Name        | The name of the session template.             |
+| Description | The description of the session template.      |
+| OS          | The operating system of the session template. |
