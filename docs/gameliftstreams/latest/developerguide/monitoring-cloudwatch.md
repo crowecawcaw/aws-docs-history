@@ -32,28 +32,48 @@ metrics retention limitation.
 
 To pick up the fix for this issue, recreate your stream groups.
 
-| Metric                                  | Description                                                                                                                                                                                           | Dimension                                               | Unit       |
-| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------- |
-| **ActiveCapacity**                      | The number of compute resources that are provisioned and ready to stream. It includes resources that are currently streaming and resources that are idle and ready to respond to new stream requests. | (StreamGroupId, Location)                               | Count      |
-| **IdleCapacity**                        | The numerical portion of active capacity that is not currently streaming. It represents the availability of compute resources to respond to new stream requests.                                      | (StreamGroupId, Location)                               | Count      | ## Stream group performance and resource utilization These metrics are published every minute. |
-| Metric                                  | Description                                                                                                                                                                                           | Dimension                                               | Unit       |
-| ---                                     | ---                                                                                                                                                                                                   | ---                                                     | ---        |
-| **MemoryUtilization**                   | % of available memory used by the stream.                                                                                                                                                             | (StreamGroupId, Location), (ApplicationId, StreamClass) | Percentage |
-| **CPUUtilization**                      | % of available CPU used by the stream.                                                                                                                                                                | (StreamGroupId, Location), (ApplicationId, StreamClass) | Percentage |
-| **FrameCaptureRate**                    | Rate at which frames are captured from the application.                                                                                                                                               | (StreamGroupId, Location), (ApplicationId, StreamClass) | None       |
-| **AudioCaptureRate**                    | Rate at which audio samples are captured from the application.                                                                                                                                        | (StreamGroupId, Location), (ApplicationId, StreamClass) | None       |
-| RoundTripTime                           | Round trip time between client and server.                                                                                                                                                            | (StreamGroupId, Location), (ApplicationId, StreamClass) | ms         | ## Stream status These metrics are published at the end of a stream session.                   |
-| Metric                                  | Description                                                                                                                                                                                           | Dimension                                               | Unit       |
-| ---                                     | ---                                                                                                                                                                                                   | ---                                                     | ---        |
-| **TerminatedStreamSessions**            | Number of sessions ended in state `TERMINATED`                                                                                                                                                        | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count      |
-| **ErroredStreamSessions**               | Number of sessions ended in state `ERROR`                                                                                                                                                             | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count      | ## Customer engagement These metrics are published at the end of a stream session..            |
-| Metric                                  | Description                                                                                                                                                                                           | Dimension                                               | Unit       |
-| ---                                     | ---                                                                                                                                                                                                   | ---                                                     | ---        |
-| **Session Length**                      | Stream session duration                                                                                                                                                                               | (StreamGroupId, Location), (ApplicationId, StreamClass) | Seconds    | ## Data channels These metrics are published at the end of a stream session.                   |
-| Metric                                  | Description                                                                                                                                                                                           | Dimension                                               | Unit       |
-| ---                                     | ---                                                                                                                                                                                                   | ---                                                     | ---        |
-| **DataChannel-ApplicationConnected**    | Number of times your application connects to the data channel port. This number is at most 1 per stream session.                                                                                      | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count      |
-| **DataChannel-ApplicationMessage**      | Number of messages your application has sent to your client.                                                                                                                                          | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count      |
-| **DataChannel-ApplicationMessageBytes** | Total bytes of messages your application has sent to your client.                                                                                                                                     | (StreamGroupId, Location), (ApplicationId, StreamClass) | Bytes      |
-| **DataChannel-ClientMessage**           | Number of messages your client has sent to your application.                                                                                                                                          | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count      |
-| **DataChannel-ClientMessageBytes**      | Total bytes of messages your client has sent to your application.                                                                                                                                     | (StreamGroupId, Location), (ApplicationId, StreamClass) | Bytes      |
+| Metric             | Description                                                                                                                                                                                              | Dimension                 | Unit  |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----- |
+| **ActiveCapacity** | The number of compute resources that are provisioned and ready to stream. It includes resources that are<br>currently streaming and resources that are idle and ready to respond to new stream requests. | (StreamGroupId, Location) | Count |
+| **IdleCapacity**   | The numerical portion of active capacity that is not currently streaming. It represents the availability of<br>compute resources to respond to new stream requests.                                      | (StreamGroupId, Location) | Count |
+
+## Stream group performance and resource utilization
+
+These metrics are published every minute.
+
+| Metric                | Description                                                    | Dimension                                               | Unit       |
+| --------------------- | -------------------------------------------------------------- | ------------------------------------------------------- | ---------- |
+| **MemoryUtilization** | % of available memory used by the stream.                      | (StreamGroupId, Location), (ApplicationId, StreamClass) | Percentage |
+| **CPUUtilization**    | % of available CPU used by the stream.                         | (StreamGroupId, Location), (ApplicationId, StreamClass) | Percentage |
+| **FrameCaptureRate**  | Rate at which frames are captured from the application.        | (StreamGroupId, Location), (ApplicationId, StreamClass) | None       |
+| **AudioCaptureRate**  | Rate at which audio samples are captured from the application. | (StreamGroupId, Location), (ApplicationId, StreamClass) | None       |
+| RoundTripTime         | Round trip time between client and server.                     | (StreamGroupId, Location), (ApplicationId, StreamClass) | ms         |
+
+## Stream status
+
+These metrics are published at the end of a stream session.
+
+| Metric                       | Description                                    | Dimension                                               | Unit  |
+| ---------------------------- | ---------------------------------------------- | ------------------------------------------------------- | ----- |
+| **TerminatedStreamSessions** | Number of sessions ended in state `TERMINATED` | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count |
+| **ErroredStreamSessions**    | Number of sessions ended in state `ERROR`      | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count |
+
+## Customer engagement
+
+These metrics are published at the end of a stream session..
+
+| Metric             | Description             | Dimension                                               | Unit    |
+| ------------------ | ----------------------- | ------------------------------------------------------- | ------- |
+| **Session Length** | Stream session duration | (StreamGroupId, Location), (ApplicationId, StreamClass) | Seconds |
+
+## Data channels
+
+These metrics are published at the end of a stream session.
+
+| Metric                                  | Description                                                                                                         | Dimension                                               | Unit  |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----- |
+| **DataChannel-ApplicationConnected**    | Number of times your application connects to the data channel port. This number is at most 1 per stream<br>session. | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count |
+| **DataChannel-ApplicationMessage**      | Number of messages your application has sent to your client.                                                        | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count |
+| **DataChannel-ApplicationMessageBytes** | Total bytes of messages your application has sent to your client.                                                   | (StreamGroupId, Location), (ApplicationId, StreamClass) | Bytes |
+| **DataChannel-ClientMessage**           | Number of messages your client has sent to your application.                                                        | (StreamGroupId, Location), (ApplicationId, StreamClass) | Count |
+| **DataChannel-ClientMessageBytes**      | Total bytes of messages your client has sent to your application.                                                   | (StreamGroupId, Location), (ApplicationId, StreamClass) | Bytes |

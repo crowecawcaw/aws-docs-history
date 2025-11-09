@@ -1,6 +1,7 @@
 # Amazon GameLift Streams API rate limits
 
-These limits reflect the maximum rate of requests per second from your AWS account to the Amazon GameLift Streams service in an AWS Region.
+These limits reflect the maximum rate of requests per second from your AWS account to
+the Amazon GameLift Streams service in an AWS Region.
 
 | API operation                                                                                                                                | Requests per second |
 | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |

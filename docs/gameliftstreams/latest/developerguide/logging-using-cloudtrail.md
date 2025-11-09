@@ -51,7 +51,198 @@ The following table lists the Amazon GameLift Streams resource types for which y
 configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column
 shows the API calls logged to CloudTrail for the resource type.
 
-| Resource type (console)           | resources.type value                | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **GameLift Streams application**  | `AWS::GameLiftStreams::Application` | <br>• [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **GameLift Streams stream group** | `AWS::GameLiftStreams::StreamGroup` | <br>• [CreateStreamSessionConnection](../apireference/API_CreateStreamSessionConnection.md "../apireference/API_CreateStreamSessionConnection.md") <br>• [ExportStreamSessionFiles](../apireference/API_ExportStreamSessionFiles.md "../apireference/API_ExportStreamSessionFiles.md") <br>• [GetStreamSession](../apireference/API_GetStreamSession.md "../apireference/API_GetStreamSession.md") <br>• [ListStreamSessions](../apireference/API_ListStreamSessions.md "../apireference/API_ListStreamSessions.md") <br>• [ListStreamSessionsByAccount](../apireference/API_ListStreamSessionsByAccount.md "../apireference/API_ListStreamSessionsByAccount.md") <br>• [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md") <br>• [TerminateStreamSession](../apireference/API_TerminateStreamSession.md "../apireference/API_TerminateStreamSession.md") | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ## Amazon GameLift Streams management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. Amazon GameLift Streams logs the following Amazon GameLift Streams control plane operations to CloudTrail as _management events_. <br>• [AddStreamGroupLocations](../apireference/API_AddStreamGroupLocations.md "../apireference/API_AddStreamGroupLocations.md") <br>• [AssociateApplications](../apireference/API_AssociateApplications.md "../apireference/API_AssociateApplications.md") <br>• [CreateApplication](../apireference/API_CreateApplication.md "../apireference/API_CreateApplication.md") <br>• [CreateStreamGroup](../apireference/API_CreateStreamGroup.md "../apireference/API_CreateStreamGroup.md") <br>• [DeleteApplication](../apireference/API_DeleteApplication.md "../apireference/API_DeleteApplication.md") <br>• [DeleteStreamGroup](../apireference/API_DeleteStreamGroup.md "../apireference/API_DeleteStreamGroup.md") <br>• [DisassociateApplications](../apireference/API_DisassociateApplications.md "../apireference/API_DisassociateApplications.md") <br>• [GetApplication](../apireference/API_GetApplication.md "../apireference/API_GetApplication.md") <br>• [GetStreamGroup](../apireference/API_GetStreamGroup.md "../apireference/API_GetStreamGroup.md") <br>• [ListApplications](../apireference/API_ListApplications.md "../apireference/API_ListApplications.md") <br>• [ListStreamGroups](../apireference/API_ListStreamGroups.md "../apireference/API_ListStreamGroups.md") <br>• [ListTagsForResource](../apireference/API_ListTagsForResource.md "../apireference/API_ListTagsForResource.md") <br>• [RemoveStreamGroupLocations](../apireference/API_RemoveStreamGroupLocations.md "../apireference/API_RemoveStreamGroupLocations.md") <br>• [TagResource](../apireference/API_TagResource.md "../apireference/API_TagResource.md") <br>• [UntagResource](../apireference/API_UntagResource.md "../apireference/API_UntagResource.md") <br>• [UpdateApplication](../apireference/API_UpdateApplication.md "../apireference/API_UpdateApplication.md") <br>• [UpdateStreamGroup](../apireference/API_UpdateStreamGroup.md "../apireference/API_UpdateStreamGroup.md") ## Amazon GameLift Streams event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail management event that demonstrates the [CreateApplication](../apireference/API_CreateApplication.md "../apireference/API_CreateApplication.md") operation. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AROA123456789EXAMPLE:assume-temporary-gameliftstreams-access-role", "arn": "arn:aws:sts::111122223333:assumed-role/GameLiftStreamsTestRole/assume-temporary-gameliftstreams-access-role", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROA123456789EXAMPLE", "arn": "arn:aws:iam::111122223333:role/GameLiftStreamsTestRole", "accountId": "111122223333", "userName": "GameLiftStreamsTestRole" }, "webIdFederationData": {}, "attributes": { "creationDate": "2025-07-23T21:18:19Z", "mfaAuthenticated": "false" } } }, "eventTime": "2025-07-23T21:58:54Z", "eventSource": "gameliftstreams.amazonaws.com", "eventName": "CreateApplication", "awsRegion": "us-west-2", "sourceIPAddress": "203.0.113.0", "userAgent": "aws-sdk-javascript/2.0.0 Linux/4.14.291-218.527.amzn2.x86_64 OpenJDK_64-Bit_Server_VM/11.0.17+9-LTS Java/11.0.17 vendor/Amazon.com_Inc. exec-env/AWS_ECS_FARGATE io/sync http/Apache cfg/retry-mode/legacy", "requestParameters": { "ApplicationSourceUri": "s3://amzn-s3-demo-bucket/MyGame", "Description": "MyGame canary - Proton 8", "RuntimeEnvironment": { "Type": "PROTON", "Version": "20230704" }, "ClientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333", "ExecutablePath": "MyGame100.exe" }, "responseElements": { "Status": "INITIALIZED", "ApplicationSourceUri": "s3://amzn-s3-demo-bucket/MyGame", "Description": "MyGame canary - Proton 8", "RuntimeEnvironment": { "Type": "PROTON", "Version": "20230704" }, "LastUpdatedAt": 1753307934.293, "CreatedAt": 1753307934.293, "Id": "a-9ZY8X7Wv6", "Arn": "arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6", "ExecutablePath": "MyGame100.exe" }, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb", "readOnly": false, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` The following example shows a CloudTrail data event from a trail log that demonstrates the [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md") operation. `{ "Records": [ { "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AROA123456789EXAMPLE:assume-temporary-gameliftstreams-access-role", "arn": "arn:aws:sts::111122223333:assumed-role/GameLiftStreamsTestRole/assume-temporary-gameliftstreams-access-role", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROA123456789EXAMPLE", "arn": "arn:aws:iam::111122223333:role/GameLiftStreamsTestRole", "accountId": "111122223333", "userName": "GameLiftStreamsTestRole" }, "attributes": { "creationDate": "2025-07-23T21:18:19Z", "mfaAuthenticated": "false" } } }, "eventTime": "2025-07-23T23:43:46Z", "eventSource": "gameliftstreams.amazonaws.com", "eventName": "StartStreamSession", "awsRegion": "us-east-2", "sourceIPAddress": "203.0.113.0", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36", "requestParameters": { "Identifier": "sg-1AB2C3De4", "Description": "StreamGroup sg-1AB2C3De4 Application a-9ZY8X7Wv6 Console stream", "AdditionalLaunchArgs": [], "UserId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "Locations": [ "us-east-2" ], "SignalRequest": "***", "Protocol": "WebRTC", "ApplicationIdentifier": "a-9ZY8X7Wv6", "ClientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "ConnectionTimeoutSeconds": 100, "AdditionalEnvironmentVariables": {} }, "responseElements": { "Status": "ACTIVATING", "ApplicationArn": "arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6", "Description": "StreamGroup sg-1AB2C3De4 Application a-9ZY8X7Wv6 Console stream", "LastUpdatedAt": 1.753314225925E9, "CreatedAt": 1.753314225925E9, "AdditionalEnvironmentVariables": {}, "ConnectionTimeoutSeconds": 100, "AdditionalLaunchArgs": [], "StreamGroupId": "sg-1AB2C3De4", "UserId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "SessionLengthSeconds": 43200, "SignalRequest": "***", "Arn": "arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567", "Protocol": "WebRTC", "WebSdkProtocolUrl": "https://123456789012.cloudfront.net/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" }, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb", "readOnly": false, "resources": [ { "accountId": "111122223333", "type": "AWS::GameLiftStreams::StreamGroup", "ARN": "arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4" }, { "accountId": "111122223333", "type": "AWS::GameLiftStreams::Application", "ARN": "arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "111122223333", "eventCategory": "Data" } ] }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Resource type (console)           | resources.type value                | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GameLift Streams application**  | `AWS::GameLiftStreams::Application` | • [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **GameLift Streams stream group** | `AWS::GameLiftStreams::StreamGroup` | • [CreateStreamSessionConnection](../apireference/API_CreateStreamSessionConnection.md "../apireference/API_CreateStreamSessionConnection.md")<br>• [ExportStreamSessionFiles](../apireference/API_ExportStreamSessionFiles.md "../apireference/API_ExportStreamSessionFiles.md")<br>• [GetStreamSession](../apireference/API_GetStreamSession.md "../apireference/API_GetStreamSession.md")<br>• [ListStreamSessions](../apireference/API_ListStreamSessions.md "../apireference/API_ListStreamSessions.md")<br>• [ListStreamSessionsByAccount](../apireference/API_ListStreamSessionsByAccount.md "../apireference/API_ListStreamSessionsByAccount.md")<br>• [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md")<br>• [TerminateStreamSession](../apireference/API_TerminateStreamSession.md "../apireference/API_TerminateStreamSession.md") |
+
+You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and
+`resources.ARN` fields to log only those events that are important to you. For more information about these fields, see
+[AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_.
+
+## Amazon GameLift Streams management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+Amazon GameLift Streams logs the following Amazon GameLift Streams control plane operations to CloudTrail as _management events_.
+
+- [AddStreamGroupLocations](../apireference/API_AddStreamGroupLocations.md "../apireference/API_AddStreamGroupLocations.md")
+- [AssociateApplications](../apireference/API_AssociateApplications.md "../apireference/API_AssociateApplications.md")
+- [CreateApplication](../apireference/API_CreateApplication.md "../apireference/API_CreateApplication.md")
+- [CreateStreamGroup](../apireference/API_CreateStreamGroup.md "../apireference/API_CreateStreamGroup.md")
+- [DeleteApplication](../apireference/API_DeleteApplication.md "../apireference/API_DeleteApplication.md")
+- [DeleteStreamGroup](../apireference/API_DeleteStreamGroup.md "../apireference/API_DeleteStreamGroup.md")
+- [DisassociateApplications](../apireference/API_DisassociateApplications.md "../apireference/API_DisassociateApplications.md")
+- [GetApplication](../apireference/API_GetApplication.md "../apireference/API_GetApplication.md")
+- [GetStreamGroup](../apireference/API_GetStreamGroup.md "../apireference/API_GetStreamGroup.md")
+- [ListApplications](../apireference/API_ListApplications.md "../apireference/API_ListApplications.md")
+- [ListStreamGroups](../apireference/API_ListStreamGroups.md "../apireference/API_ListStreamGroups.md")
+- [ListTagsForResource](../apireference/API_ListTagsForResource.md "../apireference/API_ListTagsForResource.md")
+- [RemoveStreamGroupLocations](../apireference/API_RemoveStreamGroupLocations.md "../apireference/API_RemoveStreamGroupLocations.md")
+- [TagResource](../apireference/API_TagResource.md "../apireference/API_TagResource.md")
+- [UntagResource](../apireference/API_UntagResource.md "../apireference/API_UntagResource.md")
+- [UpdateApplication](../apireference/API_UpdateApplication.md "../apireference/API_UpdateApplication.md")
+- [UpdateStreamGroup](../apireference/API_UpdateStreamGroup.md "../apireference/API_UpdateStreamGroup.md")
+
+## Amazon GameLift Streams event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail management event that demonstrates the [CreateApplication](../apireference/API_CreateApplication.md "../apireference/API_CreateApplication.md") operation.
+
+```
+{
+      "eventVersion": "1.09",
+      "userIdentity": {
+         "type": "AssumedRole",
+         "principalId": "AROA123456789EXAMPLE:assume-temporary-gameliftstreams-access-role",
+         "arn": "arn:aws:sts::111122223333:assumed-role/GameLiftStreamsTestRole/assume-temporary-gameliftstreams-access-role",
+         "accountId": "111122223333",
+         "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+         "sessionContext": {
+               "sessionIssuer": {
+                  "type": "Role",
+                  "principalId": "AROA123456789EXAMPLE",
+                  "arn": "arn:aws:iam::111122223333:role/GameLiftStreamsTestRole",
+                  "accountId": "111122223333",
+                  "userName": "GameLiftStreamsTestRole"
+               },
+               "webIdFederationData": {},
+               "attributes": {
+                  "creationDate": "2025-07-23T21:18:19Z",
+                  "mfaAuthenticated": "false"
+               }
+         }
+      },
+      "eventTime": "2025-07-23T21:58:54Z",
+      "eventSource": "gameliftstreams.amazonaws.com",
+      "eventName": "CreateApplication",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "203.0.113.0",
+      "userAgent": "aws-sdk-javascript/2.0.0 Linux/4.14.291-218.527.amzn2.x86_64 OpenJDK_64-Bit_Server_VM/11.0.17+9-LTS Java/11.0.17 vendor/Amazon.com_Inc. exec-env/AWS_ECS_FARGATE io/sync http/Apache cfg/retry-mode/legacy",
+      "requestParameters": {
+         "ApplicationSourceUri": "s3://amzn-s3-demo-bucket/MyGame",
+         "Description": "MyGame canary - Proton 8",
+         "RuntimeEnvironment": {
+               "Type": "PROTON",
+               "Version": "20230704"
+         },
+         "ClientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+         "ExecutablePath": "MyGame100.exe"
+      },
+      "responseElements": {
+         "Status": "INITIALIZED",
+         "ApplicationSourceUri": "s3://amzn-s3-demo-bucket/MyGame",
+         "Description": "MyGame canary - Proton 8",
+         "RuntimeEnvironment": {
+               "Type": "PROTON",
+               "Version": "20230704"
+         },
+         "LastUpdatedAt": 1753307934.293,
+         "CreatedAt": 1753307934.293,
+         "Id": "a-9ZY8X7Wv6",
+         "Arn": "arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6",
+         "ExecutablePath": "MyGame100.exe"
+      },
+      "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+      "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management"
+}
+```
+
+The following example shows a CloudTrail data event from a trail log that demonstrates the
+[StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md") operation.
+
+```
+{
+    "Records": [
+        {
+            "eventVersion": "1.09",
+            "userIdentity": {
+                "type": "AssumedRole",
+                "principalId": "AROA123456789EXAMPLE:assume-temporary-gameliftstreams-access-role",
+                "arn": "arn:aws:sts::111122223333:assumed-role/GameLiftStreamsTestRole/assume-temporary-gameliftstreams-access-role",
+                "accountId": "111122223333",
+                "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+                "sessionContext": {
+                    "sessionIssuer": {
+                        "type": "Role",
+                        "principalId": "AROA123456789EXAMPLE",
+                        "arn": "arn:aws:iam::111122223333:role/GameLiftStreamsTestRole",
+                        "accountId": "111122223333",
+                        "userName": "GameLiftStreamsTestRole"
+                    },
+                    "attributes": {
+                        "creationDate": "2025-07-23T21:18:19Z",
+                        "mfaAuthenticated": "false"
+                    }
+                }
+            },
+            "eventTime": "2025-07-23T23:43:46Z",
+            "eventSource": "gameliftstreams.amazonaws.com",
+            "eventName": "StartStreamSession",
+            "awsRegion": "us-east-2",
+            "sourceIPAddress": "203.0.113.0",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+            "requestParameters": {
+                "Identifier": "sg-1AB2C3De4",
+                "Description": "StreamGroup sg-1AB2C3De4 Application a-9ZY8X7Wv6 Console stream",
+                "AdditionalLaunchArgs": [],
+                "UserId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+                "Locations": [
+                    "us-east-2"
+                ],
+                "SignalRequest": "***",
+                "Protocol": "WebRTC",
+                "ApplicationIdentifier": "a-9ZY8X7Wv6",
+                "ClientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+                "ConnectionTimeoutSeconds": 100,
+                "AdditionalEnvironmentVariables": {}
+            },
+            "responseElements": {
+                "Status": "ACTIVATING",
+                "ApplicationArn": "arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6",
+                "Description": "StreamGroup sg-1AB2C3De4 Application a-9ZY8X7Wv6 Console stream",
+                "LastUpdatedAt": 1.753314225925E9,
+                "CreatedAt": 1.753314225925E9,
+                "AdditionalEnvironmentVariables": {},
+                "ConnectionTimeoutSeconds": 100,
+                "AdditionalLaunchArgs": [],
+                "StreamGroupId": "sg-1AB2C3De4",
+                "UserId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+                "SessionLengthSeconds": 43200,
+                "SignalRequest": "***",
+                "Arn": "arn:aws:gameliftstreams:us-west-2:111122223333:streamsession/sg-1AB2C3De4/ABC123def4567",
+                "Protocol": "WebRTC",
+                "WebSdkProtocolUrl": "https://123456789012.cloudfront.net/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"
+            },
+            "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+            "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+            "readOnly": false,
+            "resources": [
+                {
+                    "accountId": "111122223333",
+                    "type": "AWS::GameLiftStreams::StreamGroup",
+                    "ARN": "arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4"
+                },
+                {
+                    "accountId": "111122223333",
+                    "type": "AWS::GameLiftStreams::Application",
+                    "ARN": "arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6"
+                }
+            ],
+            "eventType": "AwsApiCall",
+            "managementEvent": false,
+            "recipientAccountId": "111122223333",
+            "eventCategory": "Data"
+        }
+    ]
+}
+```
+
+For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the
+_AWS CloudTrail User Guide_.
