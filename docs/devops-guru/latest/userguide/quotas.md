@@ -5,14 +5,36 @@ AWS Region for each AWS account.
 
 ## Notifications
 
-|                                                                                     |                  |
-| ----------------------------------------------------------------------------------- | ---------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| Maximum number of Amazon Simple Notification Service topics you can specify at once | 2                | ## AWS CloudFormation stacks              |
-|                                                                                     |                  |
-| ---                                                                                 | ---              |
-| Maximum number of AWS CloudFormation stacks you can specify                         | 1000             | ## DevOps Guru resource monitoring limits |
-| Resource description                                                                | Limit            | Can be increased                          |
-| ---                                                                                 | ---              | ---                                       |
-| Default limit for monitoring Amazon Simple Queue Service (Amazon SQS) queues        | 100\*            | Yes\*\*                                   | \*For new DevOps Guru accounts created on or after June 29, 2023, and for existing accounts that were active as of the same date and have less than 100 Amazon SQS queues. \*\*To request a change in this limit, contact Support at [https://aws.amazon.com/contact-us](https://aws.amazon.com/contact-us "https://aws.amazon.com/contact-us"). You can request an Amazon SQS queue monitoring limit of 100, 500, 1,000, 5,000, or 10,000. ## DevOps Guru quotas for creating, deploying, and managing an API The following fixed quotas apply to creating, deploying, and managing an API in DevOps Guru, using the AWS CLI, the API Gateway console, or the API Gateway REST API and its SDKs. For a list of all DevOps Guru APIs, see [Amazon DevOps Guru Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md"). |
-| Default quota                                                                       | Can be increased |                                           | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | --- |
-| 20 requests every 1 second per account                                              | Yes              |
+|                                                                                     |     |
+| ----------------------------------------------------------------------------------- | --- |
+| Maximum number of Amazon Simple Notification Service topics you can specify at once | 2   |
+
+## AWS CloudFormation stacks
+
+|                                                             |      |
+| ----------------------------------------------------------- | ---- |
+| Maximum number of AWS CloudFormation stacks you can specify | 1000 |
+
+## DevOps Guru resource monitoring limits
+
+| Resource description                                                         | Limit | Can be increased |
+| ---------------------------------------------------------------------------- | ----- | ---------------- |
+| Default limit for monitoring Amazon Simple Queue Service (Amazon SQS) queues | 100\* | Yes\*\*          |
+
+\*For new DevOps Guru accounts created on or after June 29, 2023, and for existing accounts that were active as of the same date and have less than 100 Amazon SQS queues.
+
+\*\*To request a change in this limit, contact Support at [https://aws.amazon.com/contact-us](https://aws.amazon.com/contact-us "https://aws.amazon.com/contact-us"). You can request an Amazon SQS queue monitoring limit of 100, 500, 1,000, 5,000, or 10,000.
+
+## DevOps Guru quotas for creating,
+
+deploying, and managing an API
+
+The following fixed quotas apply to creating, deploying, and managing an API in DevOps Guru,
+using the AWS CLI, the API Gateway console, or the API Gateway REST API and its SDKs.
+
+For a list of all DevOps Guru APIs, see [Amazon DevOps Guru
+Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md").
+
+| Default quota                          | Can be increased |
+| -------------------------------------- | ---------------- |
+| 20 requests every 1 second per account | Yes              |

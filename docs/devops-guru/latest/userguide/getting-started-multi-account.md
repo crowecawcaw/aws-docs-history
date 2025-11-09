@@ -52,8 +52,8 @@ aws organizations register-delegated-administrator --account-id >ACCOUNT_ID< --s
 
 The following table describes the commands.
 
-| Command                            | Description                                                                                                               |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `create-service-linked-role`       | Gives DevOps Guru permission to gather information about your organization. Don't proceed if this step is not successful. |
-| `enable-aws-service-access`        | Onboards your organization to DevOps Guru.                                                                                |
-| `register-delegated-administrator` | Gives access to the member account to view insights.                                                                      |
+| Command                            | Description                                                                                                                     |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `create-service-linked-role`       | Gives DevOps Guru permission to gather information about your<br>organization. Don't proceed if this step is not<br>successful. |
+| `enable-aws-service-access`        | Onboards your organization to DevOps Guru.                                                                                      |
+| `register-delegated-administrator` | Gives access to the member account to view<br>insights.                                                                         |

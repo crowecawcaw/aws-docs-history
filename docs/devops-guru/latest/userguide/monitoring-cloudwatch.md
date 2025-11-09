@@ -29,18 +29,35 @@ insights.
 
 **Metrics**
 
-| Metric      | Description                                                                                                                                                                                                                                                                                                                                                |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `Insight`   | The number of insights created in an AWS account. Valid dimensions: `Type` Valid statistics: Sample count, Sum Units: Count                                                                                                                                                                                                                                | The following dimension is supported for the DevOps Guru `Insight` metric. **Dimensions**               |
-| Dimension   | Description                                                                                                                                                                                                                                                                                                                                                |
-| ---         | ---                                                                                                                                                                                                                                                                                                                                                        |
-| `Type`      | This is the type of the insight. Do not specify a dimension for the `Insights` metric if you want to track all insights. Valid values are: `proactive`, `reactive`.                                                                                                                                                                                        | ## DevOps Guru usage metrics You can use CloudWatch to track your Amazon DevOps Guru usage. **Metrics** |
-| Metric      | Description                                                                                                                                                                                                                                                                                                                                                |
-| ---         | ---                                                                                                                                                                                                                                                                                                                                                        |
-| `CallCount` | The number of calls made by one of the following DevOps Guru methods. <br>• `ListInsights` <br>• `ListAnomaliesForInsight` <br>• `ListRecommendations` <br>• `ListEvents` <br>• `SearchInsights` <br>• `DescribeInsight` <br>• `DescribeAnomaly` Valid dimensions: `Service`, `Class`, `Type`, `Resource` Valid statistics: Sample count, Sum Units: Count | The following dimensions are supported for the DevOps Guru usage metrics. **Dimensions**                |
-| Dimension   | Description                                                                                                                                                                                                                                                                                                                                                |
-| ---         | ---                                                                                                                                                                                                                                                                                                                                                        |
-| `Service`   | This is the name of the AWS service that contains the resource. For example, for DevOps Guru, this value is `DevOps-Guru`.                                                                                                                                                                                                                                 |
-| `Class`     | This is the class of the resource that is tracked. DevOps Guru uses this dimension with the value `None`.                                                                                                                                                                                                                                                  |
-| `Type`      | This is type of the resource that is tracked. DevOps Guru uses this dimension with the value `API`.                                                                                                                                                                                                                                                        |
-| `Resource`  | This is the name of the DevOps Guru operation. Valid values are: `ListInsights`, `ListAnomaliesForInsight`, `ListRecommendations`, `ListEvents`, `SearchInsights`, `DescribeInsight`, `DescribeAnomaly`.                                                                                                                                                   |
+| Metric    | Description                                                                                                                          |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `Insight` | The number of insights created in an AWS account.<br>Valid dimensions: `Type`<br>Valid statistics: Sample count, Sum<br>Units: Count |
+
+The following dimension is supported for the DevOps Guru `Insight` metric.
+
+**Dimensions**
+
+| Dimension | Description                                                                                                                                                            |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Type`    | This is the type of the insight. Do not specify a dimension for the `Insights` metric<br>if you want to track all insights. Valid values are: `proactive`, `reactive`. |
+
+## DevOps Guru usage metrics
+
+You can use CloudWatch to track your Amazon DevOps Guru usage.
+
+**Metrics**
+
+| Metric      | Description                                                                                                                                                                                                                                                                                                                                                     |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CallCount` | The number of calls made by one of the following DevOps Guru methods.<br>• `ListInsights`<br>• `ListAnomaliesForInsight`<br>• `ListRecommendations`<br>• `ListEvents`<br>• `SearchInsights`<br>• `DescribeInsight`<br>• `DescribeAnomaly`<br>Valid dimensions: `Service`, `Class`,<br>`Type`, `Resource`<br>Valid statistics: Sample count, Sum<br>Units: Count |
+
+The following dimensions are supported for the DevOps Guru usage metrics.
+
+**Dimensions**
+
+| Dimension  | Description                                                                                                                                                                                                          |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Service`  | This is the name of the AWS service that contains the resource. For example, for<br>DevOps Guru, this value is `DevOps-Guru`.                                                                                        |
+| `Class`    | This is the<br>class of the resource that is tracked. DevOps Guru uses this dimension with the value<br>`None`.                                                                                                      |
+| `Type`     | This is type<br>of the resource that is tracked. DevOps Guru uses this dimension with the value<br>`API`.                                                                                                            |
+| `Resource` | This is the<br>name of the DevOps Guru operation. Valid values are: `ListInsights`,<br>`ListAnomaliesForInsight`, `ListRecommendations`,<br>`ListEvents`, `SearchInsights`,<br>`DescribeInsight`, `DescribeAnomaly`. |
