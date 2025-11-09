@@ -25,9 +25,15 @@ The extension opens a user interface used to monitor and control the Webauthn Re
 
 The icon will be one of the following:
 
-| Icon            | Name        | Usage                                                                                                                           |
-| --------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Inactive icon   | Inactive    | Redirection is inactive. This occurs when you disable the extension.                                                            |
-| Active icon     | Ok (Active) | Redirection is active and connected to the underlying Amazon DCV software on the host.                                          |
-| Processing icon | Processing  | Redirection is executing an operation in progress or is attempting to connect to the underlying Amazon DCV sofware in the host. |
-| Error icon      | Error       | There is an error connecting to the underlying Amazon DCV software on the host.                                                 | <br>• **Status Message:** Located in the main body of user interface, the message will explain the current operational status. <br>• **Redirection Toggle:** Located at the bottom of the user interface, this switch enables or disables the feature. + Enabling redirection allows WebAuthn requests to be intercepted by the extension and forwarded to the client. + Disabling redirection allows WebAuthn requests to be processed locally by the browser. |
+| Icon            | Name        | Usage                                                                                                                              |
+| --------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Inactive icon   | Inactive    | Redirection is inactive. This occurs when you disable the extension.                                                               |
+| Active icon     | Ok (Active) | Redirection is active and connected to the underlying Amazon DCV software on the host.                                             |
+| Processing icon | Processing  | Redirection is executing an operation in progress or is attempting to connect to the<br>underlying Amazon DCV sofware in the host. |
+| Error icon      | Error       | There is an error connecting to the underlying Amazon DCV software on the host.                                                    |
+
+- **Status Message:** Located in the main body of user interface, the message will explain the current operational status.
+- **Redirection Toggle:** Located at the bottom of the user
+  interface, this switch enables or disables the feature.
+  - Enabling redirection allows WebAuthn requests to be intercepted by the extension and forwarded to the client.
+  - Disabling redirection allows WebAuthn requests to be processed locally by the browser.

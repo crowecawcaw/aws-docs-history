@@ -38,8 +38,15 @@ webcam icon appears on the toolbar only if the following is the case:
 - You have at least one webcam connected to your local computer.
 - No other users enabled a webcam for use in the session.
 
-| Toolbar icon     | Description                                                                                                                                                                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Webcam disabled  | Your webcam is disabled in the session. Other clients can enable a webcam for use in the session. Click the icon to enable your webcam in the session. If you didn't previously select the webcam to use, the default webcam is used. |
-| Webcam enabled   | Your webcam is enabled in the session, but it isn't in use. While your webcam is enabled, no other clients that are connected to the session can use a webcam. Click the icon to disable your webcam in the session.                  |
-| Webcam streaming | Your webcam is in use by a remote application in the Amazon DCV session. No other clients can enable a webcam while your webcam is in use. Click the icon to disable your webcam in the session.                                      | ## Troubleshooting ### Client application says that the webcam is in use Only one application can use the webcam at a time. If you're using the webcam in multiple applications, first close the applications where it's no longer needed. |
+| Toolbar icon     | Description                                                                                                                                                                                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Webcam disabled  | Your webcam is disabled in the session. Other clients can enable a webcam for<br>use in the session.<br>Click the icon to enable your webcam in the session. If you didn't previously<br>select the webcam to use, the default webcam is used. |
+| Webcam enabled   | Your webcam is enabled in the session, but it isn't in use. While your webcam is<br>enabled, no other clients that are connected to the session can use a webcam.<br>Click the icon to disable your webcam in the session.                     |
+| Webcam streaming | Your webcam is in use by a remote application in the Amazon DCV session. No other<br>clients can enable a webcam while your webcam is in use.<br>Click the icon to disable your webcam in the session.                                         |
+
+## Troubleshooting
+
+### Client application says that the webcam is in use
+
+Only one application can use the webcam at a time. If you're using the webcam in
+multiple applications, first close the applications where it's no longer needed.

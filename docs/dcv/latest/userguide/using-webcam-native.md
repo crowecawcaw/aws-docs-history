@@ -38,8 +38,40 @@ webcam icon appears on the toolbar only if the following is the case:
 - You have at least one webcam connected to your local computer.
 - No other users enabled a webcam for use in the session.
 
-| Toolbar icon    | Description                                                                                                                                                                                                                           |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Webcam disabled | Your webcam is disabled in the session. Other clients can enable a webcam for use in the session. Click the icon to enable your webcam in the session. If you didn't previously select the webcam to use, the default webcam is used. |
-| Webcam enabled  | Your webcam is enabled in the session, but it isn't in use. While your webcam is enabled, no other clients that are connected to the session can use a webcam. Click the icon to disable your webcam in the session.                  |
-| Webcam in use   | Your webcam is in use by a remote application in the Amazon DCV session. No other clients can enable a webcam while your webcam is in use. Click the icon to disable your webcam in the session.                                      | ## Troubleshooting ###### Topics <br>• [Webcam doesn't work on Windows 10](#win-10 "#win-10") <br>• [Client application says that the webcam is in use](#close-app "#close-app") ### Webcam doesn't work on Windows 10 Windows 10 provides built-in privacy settings that manage access to the device camera. If you're running Windows 10 on your client computer, these privacy settings might prevent use of the webcam. ###### Note If you're connecting to a Windows 2019 Amazon DCV server, you might need to perform these steps on the Amazon DCV server as well. To modify the privacy settings on your computer, do the following: 1. Choose the search icon on the toolbar. 2. Enter `Settings` and press **Enter**. 3. In the left-hand panel, choose **Camera**. 4. For **Allow apps to access your camera**, switch the toggle to the **On** position. 5. You might need to restart your computer for the changes to take effect. ### Client application says that the webcam is in use Only one application can use the webcam at a time. If you're using the webcam in multiple applications, first close the applications where it's no longer needed. |
+| Toolbar icon    | Description                                                                                                                                                                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Webcam disabled | Your webcam is disabled in the session. Other clients can enable a webcam for<br>use in the session.<br>Click the icon to enable your webcam in the session. If you didn't previously<br>select the webcam to use, the default webcam is used. |
+| Webcam enabled  | Your webcam is enabled in the session, but it isn't in use. While your webcam is<br>enabled, no other clients that are connected to the session can use a webcam.<br>Click the icon to disable your webcam in the session.                     |
+| Webcam in use   | Your webcam is in use by a remote application in the Amazon DCV session. No other<br>clients can enable a webcam while your webcam is in use.<br>Click the icon to disable your webcam in the session.                                         |
+
+## Troubleshooting
+
+###### Topics
+
+- [Webcam doesn't work on Windows 10](#win-10 "#win-10")
+- [Client application says that the webcam is in use](#close-app "#close-app")
+
+### Webcam doesn't work on Windows 10
+
+Windows 10 provides built-in privacy settings that manage access to the device camera.
+If you're running Windows 10 on your client computer, these privacy settings might prevent
+use of the webcam.
+
+###### Note
+
+If you're connecting to a Windows 2019 Amazon DCV server, you might need to perform these steps
+on the Amazon DCV server as well.
+
+To modify the privacy settings on your computer, do the following:
+
+1. Choose the search icon on the toolbar.
+2. Enter `Settings` and press **Enter**.
+3. In the left-hand panel, choose **Camera**.
+4. For **Allow apps to access your camera**, switch the toggle to the
+   **On** position.
+5. You might need to restart your computer for the changes to take effect.
+
+### Client application says that the webcam is in use
+
+Only one application can use the webcam at a time. If you're using the webcam in
+multiple applications, first close the applications where it's no longer needed.
