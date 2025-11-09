@@ -136,11 +136,7 @@ The storage capacity of your file system should align with the needs of your dat
 
 The following lists the example volume layout for databases.
 
-IBM Db2|
-**Volume name**
-| **Junction name**
-| **Linux mount points**
-|
+IBM Db2| **Volume name** | **Junction name** | **Linux mount points** |
 | <SID>-usrsap | /<SID>-usrsap | /usr/sap |
 | <SID>-sapmnt | /<SID>-sapmnt | /sapmnt |
 | <DBSID>-db2dbsid | /<DBSID>-db2dbsid | /db2/db2<db2sid> |
@@ -152,15 +148,17 @@ IBM Db2|
 | <DBSID>-logdir | /<DBSID>-logdir | /db2/<DBSID>/log_dir |
 | <DBSID>-logarch | /<DBSID>-logarch | /db2/<DBSID>/log_arch |
 | <DBSID>-db2dump | /<DBSID>-db2dump | /db2/<DBSID>/db2dump |
-| <DBSID>-backup | /<DBSID>-backup | /db2backup | SAP MaxDB| **Volume name**
-| **Junction name** | **Linux mount points** |
+| <DBSID>-backup | /<DBSID>-backup | /db2backup |
+
+SAP MaxDB| **Volume name** | **Junction name** | **Linux mount points** |
 | <DBSID>-sapmnt | <DBSID>-sapmnt | /sapmnt/ |
 | <DBSID>-usrsap | <DBSID>-usrsap | /usr/sap |
 | <DBSID>-sapdata | <DBSID>-sapdata | /sapdb/<DBSID>/sapdata |
 | <DBSID>-saplog | <DBSID>-saplog | /sapdb/<DBSID>/saplog |
 | <DBSID>-backup | <DBSID>-backup | /sapdb/<DBSID>/backup |
-| <DBSID>-sapdb | <DBSID>-sapdb | /sapdb | SAP ASE| **Volume name**
-| **Junction name** | **Linux mount points** |
+| <DBSID>-sapdb | <DBSID>-sapdb | /sapdb |
+
+SAP ASE| **Volume name** | **Junction name** | **Linux mount points** |
 | <SID>-sapmnt | <SID>-sapmnt | /sapmnt/ |
 | <SID>-usrsap | <SID>-usrsap | /usr/sap |
 | <SID>-sysbase | <SID>-sysbase | /sysbase |
@@ -168,8 +166,9 @@ IBM Db2|
 | <SID>-saplog_1 | <SID>-saplog_1 | /sysbase/<SID>/saplog_1 |
 | <SID>-sapdiag | <SID>-sapdiag | /sysbase/<SID>/sapdiag |
 | <SID>-saptmp | <SID>-saptmp | /sysbase/<SID>/saptmp |
-| <SID>-backup | <SID>-backup | /sysbasebackup | Oracle| **Volume name**
-| **Junction name** | **Linux mount points** |
+| <SID>-backup | <SID>-backup | /sysbasebackup |
+
+Oracle| **Volume name** | **Junction name** | **Linux mount points** |
 | <DBSID>-oracle | /<DBSID>-oracle | /oracle |
 | <DBSID>-oracle-<DBSID> | /<DBSID>-oracle-<DBSID> | /oracle/<DBSID> |
 | <DBSID>-oraarch | /<DBSID>-oraarch | /oracle/<DBSID>/oraarch |
@@ -182,15 +181,78 @@ IBM Db2|
 | <DBSID>-origlogA | /<DBSID>-origlogA | /oracle/<DBSID>/origlogA |
 | <DBSID>-origlogB | /<DBSID>-origlogB | /oracle/<DBSID>/origlogB |
 | <DBSID>-mirrlogB | /<DBSID>-mirrlogB | /oracle/<DBSID>/mirrlogB |
-| <DBSID>-mirrlogA | /<DBSID>-mirrlogA | /oracle/<DBSID>/mirrlogA | MSSQL| **Volume name**
-| **Directory** | **Description** | | <SID>-sapdata | <drive>:\<SAPSID>DATA0 <drive>:\<SAPSID>DATA1 <drive>:\<SAPSID>DATA<N> | Directory for SAP database data files |
+| <DBSID>-mirrlogA | /<DBSID>-mirrlogA | /oracle/<DBSID>/mirrlogA |
+
+MSSQL| **Volume name** | **Directory** | **Description** |
+| <SID>-sapdata | <drive>:\<SAPSID>DATA0<br><drive>:\<SAPSID>DATA1<br><drive>:\<SAPSID>DATA<N> | Directory for SAP database data files |
 | <SID>-saplog | <drive>:\<SAPSID>log<N> | Directory for SAP database transaction log |
 | <SID>-tempdb | <drive>:\Tempdb | Directory for temporary database data files |
 | <SID>-sqldbexe | <drive>:\Program Files\Microsoft SQL Server | Directory for SQL server program files, and `master`, `msdb`, and `model` data files |
-| <SID>-backup | <drive>:\Backup | SQL server data and log backup directory | ## File system setup To create a FSx for ONTAP file system, see [Step 1: Create an Amazon FSx for NetApp ONTAP file system](../../../fsx/latest/ONTAPGuide/getting-started-step1.md "../../../fsx/latest/ONTAPGuide/getting-started-step1.md"). For more information, see [Managing FSx for ONTAP file systems](../../../fsx/latest/ONTAPGuide/managing-file-systems.md "../../../fsx/latest/ONTAPGuide/managing-file-systems.md"). After creating a FSx for ONTAP file system, you must complete additional file system setup. ###### Topics <br>• [Set administrative password](#admin-password "#admin-password") <br>• [Sign in to the management endpoint via SSH](#ssh "#ssh") <br>• [Set TCP max transfer size](#tcp-transfer "#tcp-transfer") <br>• [Disable snapshots](#disable-snapshots "#disable-snapshots") <br>• [Configuration settings for dynamically allocating storage – MSSQL](#dynamic-storage "#dynamic-storage") ### Set administrative password If you did not create an administrative password during FSx for ONTAP file system creation, you must set an ONTAP administrative password for `fsxadmin` user. The administrative password enables you to access the file system via SSH, the ONTAP CLI, and REST API. To use tools like NetApp SnapCenter, you must have an administrative password. ### Sign in to the management endpoint via SSH Get the DNS name of the management endpoint from AWS console. Sign in to the management endpoint via SSH, using the `fsxadmin` user and administrative password. `ssh fsxadmin@management.<file-system-id>.fsx.<aws-region>.amazonaws.com Password:` ### Set TCP max transfer size We recommend a TCP max transfer size of 262,144 for your database systems. Elevate the privilege level to _advanced_ and use the following command on each SVM. `set advanced nfs modify -vserver <svm> -tcp-max-xfer-size 262144 set admin` ### Disable snapshots FSx for ONTAP automatically enables a snapshot policy for volumes that take hourly snapshots. The default policy offers limited value due to missing application awareness. We recommend disabling the automatic snapshots by setting the policy to none. `volume modify -vserver <vserver-name> -volume <volume-name> -snapshot-policy none` You can use SnapCenter, a backup management software offered by NetApp to automate backup and restore of your workloads. SnapCenter provides a plug-in for Oracle and MSSQL databases. ### Configuration settings for dynamically allocating storage – MSSQL This section only applies to MSSQL database. NetApp recommends that storage space be dynamically allocated to each volume or logical unit number as data is written, instead of allocating space upfront. The following table provides the configuration settings for dynamically allocating storage.
-| Setting | Configuration | | --- | --- |
-| Volume guarantee | None (set by default) | | LUN reservation | Enabled |
-| fractional_reserve | 0% (set by default) | | snap reserve | 0% |
-| Autodelete | volume/oldest_first | | Autosize | On |
-| try_first | Autogrow | | Volume tiering policy | Snapshot only |
-| Snapshot policy | None | | space allocation | Enabled |
+| <SID>-backup | <drive>:\Backup | SQL server data and log backup directory |
+
+## File system setup
+
+To create a FSx for ONTAP file system, see [Step 1: Create an Amazon FSx for NetApp ONTAP file system](../../../fsx/latest/ONTAPGuide/getting-started-step1.md "../../../fsx/latest/ONTAPGuide/getting-started-step1.md"). For more information, see [Managing FSx for ONTAP file systems](../../../fsx/latest/ONTAPGuide/managing-file-systems.md "../../../fsx/latest/ONTAPGuide/managing-file-systems.md").
+
+After creating a FSx for ONTAP file system, you must complete additional file system setup.
+
+###### Topics
+
+- [Set administrative password](#admin-password "#admin-password")
+- [Sign in to the management endpoint via SSH](#ssh "#ssh")
+- [Set TCP max transfer size](#tcp-transfer "#tcp-transfer")
+- [Disable snapshots](#disable-snapshots "#disable-snapshots")
+- [Configuration settings for dynamically allocating storage – MSSQL](#dynamic-storage "#dynamic-storage")
+
+### Set administrative password
+
+If you did not create an administrative password during FSx for ONTAP file system creation, you must set an ONTAP administrative password for `fsxadmin` user.
+
+The administrative password enables you to access the file system via SSH, the ONTAP CLI, and REST API. To use tools like NetApp SnapCenter, you must have an administrative password.
+
+### Sign in to the management endpoint via SSH
+
+Get the DNS name of the management endpoint from AWS console. Sign in to the management endpoint via SSH, using the `fsxadmin` user and administrative password.
+
+```
+ssh fsxadmin@management.<file-system-id>.fsx.<aws-region>.amazonaws.com Password:
+```
+
+### Set TCP max transfer size
+
+We recommend a TCP max transfer size of 262,144 for your database systems. Elevate the privilege level to _advanced_ and use the following command on each SVM.
+
+```
+set advanced
+nfs modify -vserver <svm> -tcp-max-xfer-size 262144
+set admin
+```
+
+### Disable snapshots
+
+FSx for ONTAP automatically enables a snapshot policy for volumes that take hourly snapshots. The default policy offers limited value due to missing application awareness. We recommend disabling the automatic snapshots by setting the policy to none.
+
+```
+volume modify -vserver <vserver-name> -volume <volume-name> -snapshot-policy none
+```
+
+You can use SnapCenter, a backup management software offered by NetApp to automate backup and restore of your workloads. SnapCenter provides a plug-in for Oracle and MSSQL databases.
+
+### Configuration settings for dynamically allocating storage – MSSQL
+
+This section only applies to MSSQL database.
+
+NetApp recommends that storage space be dynamically allocated to each volume or logical unit number as data is written, instead of allocating space upfront. The following table provides the configuration settings for dynamically allocating storage.
+
+| Setting               | Configuration         |
+| --------------------- | --------------------- |
+| Volume guarantee      | None (set by default) |
+| LUN reservation       | Enabled               |
+| fractional_reserve    | 0% (set by default)   |
+| snap reserve          | 0%                    |
+| Autodelete            | volume/oldest_first   |
+| Autosize              | On                    |
+| try_first             | Autogrow              |
+| Volume tiering policy | Snapshot only         |
+| Snapshot policy       | None                  |
+| space allocation      | Enabled               |

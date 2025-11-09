@@ -108,6 +108,59 @@ You can [list the value of the tags from S3 console](../../../AmazonS3/latest/us
 To disable default tagging, modify the AWS Backint agent configuration file.
 See [Additional Parameters](ase-backint-install.md#ase-backint-additional-parameters "ase-backint-install.md#ase-backint-additional-parameters") for more information.
 
+### Data perimeter
+
+Service Control Policies (SCPs) may be used to control on an organization level which external S3 buckets may be used. The Backint Agent needs to be installed in your EC2 instance. In order to download it, you may want to access the official AWS S3 bucket where the installer binary is located from your EC2 instance. If you are using SCPs in your organization to prevent unintended access to external S3 buckets, it may be necessary to add a policy that explicitly allows access to the official AWS S3 bucket.
+The following example shows a Service Control Policy that is maintained in AWS Organizations and attached to a member account. It prevents all access to external S3 buckets and only allows specified S3 buckets.
+
+```
+{
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EnforceResourcePerimeterAWSResources",
+      "Effect": "Deny",
+      "Action": "*",
+      "NotResource": [
+        "arn:aws:s3:::awssap-backint-agent-ase",
+        "arn:aws:s3:::awssap-backint-agent-ase/*"
+      ],
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:ResourceOrgID": "<organization id>",
+          "aws:PrincipalTag/dp:exclude:resource": "true"
+        }
+      }
+    }
+  ]
+}
+```
+
+This policy denies access to all external S3 buckets that are not explicitly listed. Replace the placeholder with your Organization ID. This ID is in the form "o-<id>" where <id> is a 10 digit number.
+
+To allow S3 requests to traverse through an S3 VPC endpoint, a corresponding policy is required. Here is an example:
+
+```
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowRequestsToAWSOwnedResources",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::awssap-backint-agent-ase",
+                "arn:aws:s3:::awssap-backint-agent-ase/*"
+            ]
+        }
+    ]
+}
+```
+
 ### AWS Command Line Interface (CLI)
 
 AWS Backint agent installation leverages the AWS CLI to validate S3 bucket properties. To install or update to the AWS CLI, see [Install or update to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").

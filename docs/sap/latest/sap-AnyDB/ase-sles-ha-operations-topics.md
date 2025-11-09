@@ -56,10 +56,231 @@ Full List of Resources:
 
 The following table provides a list of useful commands.
 
-| Command              | Description                                                                                                         |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `crm_mon`            | Display cluster status on the console with updates as they occur                                                    |
-| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                           |
-| `crm_mon -Arnf`      | -A Display node attributes -n Group resources by node -r Display inactive resources -f Display resource fail counts |
-| `crm help`           | View more options                                                                                                   |
-| `crm_mon --help-all` | View more options                                                                                                   | ### SUSE Hawk2 Hawk2 is a web-based graphical user interface for managing and monitoring pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Hawk2. `systemctl enable --now hawk systemctl status hawk` Use the following URL to check security groups for access on port 7630 from your administrative host. `https://your-server:7630/ e.g https://slxdbhost01:7630` For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html "https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html") in the SUSE Documentation. ## Performing planned maintenance The cluster connector is designed to integrate the cluster with SAP start framework (`sapstartsrv`), including the rolling kernel switch (RKS) awareness. Stopping and starting the SAP system using `sapcontrol` should not result in any cluster remediation activities as these actions are not interpreted as failures. Validate this scenario when testing your cluster. There are different options to perform planned maintenance on nodes, resources, and the cluster. ###### Topics <br>• [Maintenance mode](#maintenance-mode "#maintenance-mode") <br>• [Placing a node in standby mode](#node-standby "#node-standby") <br>• [Moving a resource (not recommended)](#moving-resource "#moving-resource") ### Maintenance mode Use maintenance mode if you want to make any changes to the configuration or take control of the resources and nodes in the cluster. In most cases, this is the safest option for administrative tasks. On <br>• Use one of the following commands to turn on maintenance mode. `crm maintenance on` `crm configure property maintenance-mode="true"` Off <br>• Use one of the following commands to turn off maintenance mode. `crm maintenance off` `crm configure property maintenance-mode="false"` ### Placing a node in standby mode To perform maintenance on the cluster without system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode. `crm node standby <slxdbhost01>` The cluster will cleanly relocate resources, and you can perform activities, including reboots on the node in standby mode. When maintenance activities are complete, you can re-introduce the node with the following command. `crm node online <slxdbhost01>` ### Moving a resource (not recommended) Moving individual resources is not recommended because of the migration or move constraints that are created to lock the resource in its new location. These can be cleared as described in the info messages, but this introduces an additional setup. ``slxdbhost01:~  crm resource move grp_ASD_ASEDB force INFO: Move constraint created for grp_ASD_ASEDB INFO: Use `crm resource clear grp_ASD_ASEDB` to remove this constraint`` Use the following command once the resources have relocated to their target location. `<slxdbhost01>:~  crm resource clear grp_ASD_ASEDB` ## Post-failure analysis and reset A review must be conducted after each failure to understand the source of failure as well the reaction of the cluster. In most scenarios, the cluster prevents an application outage. However, a manual action is often required to reset the cluster to a protective state for any subsequent failures. ###### Topics <br>• [Checking the logs](#checking-logs "#checking-logs") <br>• [Cleanup crm status](#cleanup-crm "#cleanup-crm") <br>• [Restart failed nodes or pacemaker](#restart-nodes "#restart-nodes") <br>• [Further analysis](#further-analysis "#further-analysis") ### Checking the logs Start your troubleshooting by checking the operating system log `/var/log/messages`. You can find additional information in the cluster and pacemaker logs. <br>• **Cluster logs** – updated in the `corosync.conf` file located at `/etc/corosync/corosync.conf`. <br>• **Pacemaker logs** – updated in the `pacemaker.log` file located at `/var/log/pacemaker`. <br>• **Resource agents** – `/var/log/messages` Application based failures can be investigated in the SAP work directory. ### Cleanup `crm status` If failed actions are reported using the `crm status` command, and if they have already been investigated, then you can clear the reports with the following command. `crm resource cleanup <resource> <hostname>` ### Restart failed nodes or `pacemaker` It is recommended that failed (or fenced) nodes are not automatically restarted. It gives operators a chance to investigate the failure, and ensure that the cluster doesn’t make assumptions about the state of resources. You need to restart the instance or the pacemaker service based on your approach. ### Further analysis The following commands consolidate information from both nodes, highlighting key events and differentiating between originating node to make the analysis clear. `crm history events crm history log` If further analysis from SUSE is required, an `hb_report` may be requested. For more information, see SUSE Documentation – [Usage of hb_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501 "https://www.suse.com/support/kb/doc/?id=000017501"). ###### Note `crm history events` and `hb_report` rely on passwordless ssh being set up between the nodes. ## Alerting and monitoring **Using the cluster alert agents** Within the cluster configuration, you can call an external program (an alert agent) to handle alerts. This is a _push_ notification. It passes information about the event via environment variables. The agents can then be configured to send emails, log to a file, update a monitoring system, etc. For example, the following script can be used to access Amazon SNS. ``` #!/bin/sh #alert_sns.sh #modified from /usr/share/pacemaker/alerts/alert_smtp.sh.sample ############################################################################## #SETUP <br>• Create an SNS Topic and subscribe email or chatbot <br>• Note down the ARN for the SNS topic <br>• Give the IAM Role attached to both Instances permission to publish to the SNS Topic <br>• Ensure the aws cli is installed <br>• Copy this file to /usr/share/pacemaker/alerts/alert_sns.sh or other location on BOTH nodes <br>• Ensure the permissions allow for hacluster and root to execute the script <br>• Run the following as root (modify file location if necessary and replace SNS ARN): #SLES: crm configure alert aws_sns_alert /usr/share/pacemaker/alerts/alert_sns.sh meta timeout=30s timestamp-format="%Y-%m-%d_%H:%M:%S" to { arn:aws:sns:region:account-id:myPacemakerAlerts  } #RHEL: pcs alert create id=aws_sns_alert path=/usr/share/pacemaker/alerts/alert_sns.sh meta timeout=30s timestamp-format="%Y-%m-%d_%H:%M:%S" pcs alert recipient add aws_sns_alert value=<arn:aws:sns:region:account-id:myPacemakerAlerts> #Additional information to send with the alerts. node_name=`uname -n` sns_body=`env | grep CRM*alert*` #Required for SNS TOKEN=$(/usr/bin/curl --noproxy '*' -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600") #Get metadata REGION=$(/usr/bin/curl --noproxy '\*' -w "\n" -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dynamic/instance-identity/document | grep region | awk -F\" '{print $4}') sns_subscription_arn=${CRM_alert_recipient} #Format depending on alert type case ${CRM_alert_kind} in node) sns_subject="${CRM_alert_timestamp} ${cluster_name}: Node '${CRM_alert_node}' is now '${CRM_alert_desc}'" ;; fencing) sns_subject="${CRM_alert_timestamp} ${cluster_name}: Fencing ${CRM_alert_desc}" ;; resource) if [ ${CRM_alert_interval} = "0" ]; then CRM_alert_interval="" else CRM_alert_interval=" (${CRM_alert_interval})" fi if [ ${CRM_alert_target_rc} = "0" ]; then CRM_alert_target_rc="" else CRM_alert_target_rc=" (target: ${CRM_alert_target_rc})" fi case ${CRM_alert_desc} in Cancelled) ;; *) sns_subject="${CRM_alert_timestamp}: Resource operation '${CRM_alert_task}${CRM_alert_interval}' for '${CRM_alert_rsc}' on '${CRM_alert_node}': ${CRM_alert_desc}${CRM_alert_target_rc}" ;; esac ;; attribute) sns_subject="${CRM_alert_timestamp}: The '${CRM_alert_attribute_name}' attribute of the '${CRM_alert_node}' node was updated in '${CRM_alert_attribute_value}'" ;; \*) sns_subject="${CRM_alert_timestamp}: Unhandled $CRM_alert_kind alert" ;; esac #Use this information to send the email. aws sns publish --topic-arn "${sns_subscription_arn}" --subject "${sns_subject}" --message "${sns_body}" --region ${REGION} ``` |
+| Command              | Description                                                                                                                  |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `crm_mon`            | Display cluster status on the console with updates as they occur                                                             |
+| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                                    |
+| `crm_mon -Arnf`      | -A Display node attributes<br>-n Group resources by node<br>-r Display inactive resources<br>-f Display resource fail counts |
+| `crm help`           | View more options                                                                                                            |
+| `crm_mon --help-all` | View more options                                                                                                            |
+
+### SUSE Hawk2
+
+Hawk2 is a web-based graphical user interface for managing and monitoring pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Hawk2.
+
+```
+systemctl enable --now hawk
+systemctl status hawk
+```
+
+Use the following URL to check security groups for access on port 7630 from your administrative host.
+
+```
+https://your-server:7630/
+
+e.g https://slxdbhost01:7630
+```
+
+For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html "https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html") in the SUSE Documentation.
+
+## Performing planned maintenance
+
+The cluster connector is designed to integrate the cluster with SAP start framework (`sapstartsrv`), including the rolling kernel switch (RKS) awareness. Stopping and starting the SAP system using `sapcontrol` should not result in any cluster remediation activities as these actions are not interpreted as failures. Validate this scenario when testing your cluster.
+
+There are different options to perform planned maintenance on nodes, resources, and the cluster.
+
+###### Topics
+
+- [Maintenance mode](#maintenance-mode "#maintenance-mode")
+- [Placing a node in standby mode](#node-standby "#node-standby")
+- [Moving a resource (not recommended)](#moving-resource "#moving-resource")
+
+### Maintenance mode
+
+Use maintenance mode if you want to make any changes to the configuration or take control of the resources and nodes in the cluster. In most cases, this is the safest option for administrative tasks.
+
+On
+
+- Use one of the following commands to turn on maintenance mode.
+
+```
+crm maintenance on
+```
+
+```
+crm configure property maintenance-mode="true"
+```
+
+Off
+
+- Use one of the following commands to turn off maintenance mode.
+
+```
+crm maintenance off
+```
+
+```
+crm configure property maintenance-mode="false"
+```
+
+### Placing a node in standby mode
+
+To perform maintenance on the cluster without system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
+
+```
+crm node standby <slxdbhost01>
+```
+
+The cluster will cleanly relocate resources, and you can perform activities, including reboots on the node in standby mode. When maintenance activities are complete, you can re-introduce the node with the following command.
+
+```
+crm node online <slxdbhost01>
+```
+
+### Moving a resource (not recommended)
+
+Moving individual resources is not recommended because of the migration or move constraints that are created to lock the resource in its new location. These can be cleared as described in the info messages, but this introduces an additional setup.
+
+```
+slxdbhost01:~  crm resource move grp_ASD_ASEDB force
+INFO: Move constraint created for grp_ASD_ASEDB
+INFO: Use `crm resource clear grp_ASD_ASEDB` to remove this constraint
+```
+
+Use the following command once the resources have relocated to their target location.
+
+```
+<slxdbhost01>:~  crm resource clear grp_ASD_ASEDB
+```
+
+## Post-failure analysis and reset
+
+A review must be conducted after each failure to understand the source of failure as well the reaction of the cluster. In most scenarios, the cluster prevents an application outage. However, a manual action is often required to reset the cluster to a protective state for any subsequent failures.
+
+###### Topics
+
+- [Checking the logs](#checking-logs "#checking-logs")
+- [Cleanup crm status](#cleanup-crm "#cleanup-crm")
+- [Restart failed nodes or pacemaker](#restart-nodes "#restart-nodes")
+- [Further analysis](#further-analysis "#further-analysis")
+
+### Checking the logs
+
+Start your troubleshooting by checking the operating system log `/var/log/messages`. You can find additional information in the cluster and pacemaker logs.
+
+- **Cluster logs** – updated in the `corosync.conf` file located at `/etc/corosync/corosync.conf`.
+- **Pacemaker logs** – updated in the `pacemaker.log` file located at `/var/log/pacemaker`.
+- **Resource agents** – `/var/log/messages`
+
+Application based failures can be investigated in the SAP work directory.
+
+### Cleanup `crm status`
+
+If failed actions are reported using the `crm status` command, and if they have already been investigated, then you can clear the reports with the following command.
+
+```
+crm resource cleanup <resource> <hostname>
+```
+
+### Restart failed nodes or `pacemaker`
+
+It is recommended that failed (or fenced) nodes are not automatically restarted. It gives operators a chance to investigate the failure, and ensure that the cluster doesn’t make assumptions about the state of resources.
+
+You need to restart the instance or the pacemaker service based on your approach.
+
+### Further analysis
+
+The following commands consolidate information from both nodes, highlighting key events and differentiating between originating node to make the analysis clear.
+
+```
+crm history events
+
+crm history log
+```
+
+If further analysis from SUSE is required, an `hb_report` may be requested. For more information, see SUSE Documentation – [Usage of hb_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501 "https://www.suse.com/support/kb/doc/?id=000017501").
+
+###### Note
+
+`crm history events` and `hb_report` rely on passwordless ssh being set up between the nodes.
+
+## Alerting and monitoring
+
+**Using the cluster alert agents**
+
+Within the cluster configuration, you can call an external program (an alert agent) to handle alerts. This is a _push_ notification. It passes information about the event via environment variables.
+
+The agents can then be configured to send emails, log to a file, update a monitoring system, etc. For example, the following script can be used to access Amazon SNS.
+
+```
+#!/bin/sh
+
+#alert_sns.sh
+#modified from /usr/share/pacemaker/alerts/alert_smtp.sh.sample
+
+##############################################################################
+#SETUP
+* Create an SNS Topic and subscribe email or chatbot
+* Note down the ARN for the SNS topic
+* Give the IAM Role attached to both Instances permission to publish to the SNS Topic
+* Ensure the aws cli is installed
+* Copy this file to /usr/share/pacemaker/alerts/alert_sns.sh or other location on BOTH nodes
+* Ensure the permissions allow for hacluster and root to execute the script
+* Run the following as root (modify file location if necessary and replace SNS ARN):
+
+#SLES:
+crm configure alert aws_sns_alert /usr/share/pacemaker/alerts/alert_sns.sh meta timeout=30s timestamp-format="%Y-%m-%d_%H:%M:%S" to { arn:aws:sns:region:account-id:myPacemakerAlerts  }
+#RHEL:
+pcs alert create id=aws_sns_alert path=/usr/share/pacemaker/alerts/alert_sns.sh meta timeout=30s timestamp-format="%Y-%m-%d_%H:%M:%S"
+pcs alert recipient add aws_sns_alert value=<arn:aws:sns:region:account-id:myPacemakerAlerts>
+
+#Additional information to send with the alerts.
+
+node_name=`uname -n`
+sns_body=`env | grep CRM_alert_`
+#Required for SNS
+TOKEN=$(/usr/bin/curl --noproxy '*' -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+
+#Get metadata
+REGION=$(/usr/bin/curl --noproxy '*' -w "\n" -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dynamic/instance-identity/document | grep region | awk -F\" '{print $4}')
+
+sns_subscription_arn=${CRM_alert_recipient}
+
+#Format depending on alert type
+case ${CRM_alert_kind} in
+   node)
+     sns_subject="${CRM_alert_timestamp} ${cluster_name}: Node '${CRM_alert_node}' is now '${CRM_alert_desc}'"
+   ;;
+   fencing)
+     sns_subject="${CRM_alert_timestamp} ${cluster_name}: Fencing ${CRM_alert_desc}"
+   ;;
+   resource)
+     if [ ${CRM_alert_interval} = "0" ]; then
+         CRM_alert_interval=""
+     else
+         CRM_alert_interval=" (${CRM_alert_interval})"
+     fi
+     if [ ${CRM_alert_target_rc} = "0" ]; then
+         CRM_alert_target_rc=""
+     else
+         CRM_alert_target_rc=" (target: ${CRM_alert_target_rc})"
+     fi
+     case ${CRM_alert_desc} in
+         Cancelled)
+           ;;
+         *)
+           sns_subject="${CRM_alert_timestamp}: Resource operation '${CRM_alert_task}${CRM_alert_interval}' for '${CRM_alert_rsc}' on '${CRM_alert_node}': ${CRM_alert_desc}${CRM_alert_target_rc}"
+           ;;
+     esac
+     ;;
+   attribute)
+     sns_subject="${CRM_alert_timestamp}: The '${CRM_alert_attribute_name}' attribute of the '${CRM_alert_node}' node was updated in '${CRM_alert_attribute_value}'"
+     ;;
+   *)
+     sns_subject="${CRM_alert_timestamp}: Unhandled $CRM_alert_kind alert"
+     ;;
+esac
+
+#Use this information to send the email.
+aws sns publish --topic-arn "${sns_subscription_arn}" --subject "${sns_subject}" --message "${sns_body}" --region ${REGION}
+```
