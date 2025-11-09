@@ -31,15 +31,15 @@ Amazon Managed Grafana is priced per active user in a workspace. For information
 
 Amazon Managed Grafana currently supports the following Regions:
 
-| Region Name              | Region         | Endpoint                                                            | Protocol    |
-| ------------------------ | -------------- | ------------------------------------------------------------------- | ----------- |
-| US East (Ohio)           | us-east-2      | grafana.us-east-2.amazonaws.com grafana.us-east-2.api.aws           | HTTPS HTTPS |
-| US East (N. Virginia)    | us-east-1      | grafana.us-east-1.amazonaws.com grafana.us-east-1.api.aws           | HTTPS HTTPS |
-| US West (Oregon)         | us-west-2      | grafana.us-west-2.amazonaws.com grafana.us-west-2.api.aws           | HTTPS HTTPS |
-| Asia Pacific (Seoul)     | ap-northeast-2 | grafana.ap-northeast-2.amazonaws.com grafana.ap-northeast-2.api.aws | HTTPS HTTPS |
-| Asia Pacific (Singapore) | ap-southeast-1 | grafana.ap-southeast-1.amazonaws.com grafana.ap-southeast-1.api.aws | HTTPS HTTPS |
-| Asia Pacific (Sydney)    | ap-southeast-2 | grafana.ap-southeast-2.amazonaws.com grafana.ap-southeast-2.api.aws | HTTPS HTTPS |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | grafana.ap-northeast-1.amazonaws.com grafana.ap-northeast-1.api.aws | HTTPS HTTPS |
-| Europe (Frankfurt)       | eu-central-1   | grafana.eu-central-1.amazonaws.com grafana.eu-central-1.api.aws     | HTTPS HTTPS |
-| Europe (Ireland)         | eu-west-1      | grafana.eu-west-1.amazonaws.com grafana.eu-west-1.api.aws           | HTTPS HTTPS |
-| Europe (London)          | eu-west-2      | grafana.eu-west-2.amazonaws.com grafana.eu-west-2.api.aws           | HTTPS HTTPS |
+| Region Name              | Region         | Endpoint                                                               | Protocol       |
+| ------------------------ | -------------- | ---------------------------------------------------------------------- | -------------- |
+| US East (Ohio)           | us-east-2      | grafana.us-east-2.amazonaws.com<br>grafana.us-east-2.api.aws           | HTTPS<br>HTTPS |
+| US East (N. Virginia)    | us-east-1      | grafana.us-east-1.amazonaws.com<br>grafana.us-east-1.api.aws           | HTTPS<br>HTTPS |
+| US West (Oregon)         | us-west-2      | grafana.us-west-2.amazonaws.com<br>grafana.us-west-2.api.aws           | HTTPS<br>HTTPS |
+| Asia Pacific (Seoul)     | ap-northeast-2 | grafana.ap-northeast-2.amazonaws.com<br>grafana.ap-northeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Singapore) | ap-southeast-1 | grafana.ap-southeast-1.amazonaws.com<br>grafana.ap-southeast-1.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney)    | ap-southeast-2 | grafana.ap-southeast-2.amazonaws.com<br>grafana.ap-southeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Tokyo)     | ap-northeast-1 | grafana.ap-northeast-1.amazonaws.com<br>grafana.ap-northeast-1.api.aws | HTTPS<br>HTTPS |
+| Europe (Frankfurt)       | eu-central-1   | grafana.eu-central-1.amazonaws.com<br>grafana.eu-central-1.api.aws     | HTTPS<br>HTTPS |
+| Europe (Ireland)         | eu-west-1      | grafana.eu-west-1.amazonaws.com<br>grafana.eu-west-1.api.aws           | HTTPS<br>HTTPS |
+| Europe (London)          | eu-west-2      | grafana.eu-west-2.amazonaws.com<br>grafana.eu-west-2.api.aws           | HTTPS<br>HTTPS |

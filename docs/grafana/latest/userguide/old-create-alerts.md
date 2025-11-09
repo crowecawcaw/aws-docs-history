@@ -153,13 +153,52 @@ that are causing alerts to fire.
 The following table contains conditions for controlling how the rule
 evaluation engine handles queries that return no data or only null values.
 
-| No Data Option          | Description                                        |
-| ----------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No Data                 | Set alert rule state to `NoData`.                  |
+| No Data Option  | Description                                        |
+| --------------- | -------------------------------------------------- |
+| No Data         | Set alert rule state to `NoData`.                  |
+| Alerting        | Set alert rule state to `Alerting`.                |
+| Keep Last State | Keep the current alert rule state, whatever it is. |
+| Ok              | Supported, but usually not useful.                 |
+
+### Execution errors or
+
+timeouts
+
+The following options tell Amazon Managed Grafana how to handle execution or timeout
+errors.
+
+| Error or timeout option | Description                                        |
+| ----------------------- | -------------------------------------------------- |
 | Alerting                | Set alert rule state to `Alerting`.                |
 | Keep Last State         | Keep the current alert rule state, whatever it is. |
-| Ok                      | Supported, but usually not useful.                 | ### Execution errors or timeouts The following options tell Amazon Managed Grafana how to handle execution or timeout errors.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Error or timeout option | Description                                        |
-| ---                     | ---                                                |
-| Alerting                | Set alert rule state to `Alerting`.                |
-| Keep Last State         | Keep the current alert rule state, whatever it is. | If you have an unreliable time series store from which queries sometimes time out or fail randomly, you can set this option to `Keep Last State` to basically ignore them. ## Notifications On **Alert** tab, you can also specify alert rule notifications and a detailed message about the alert rule. The message can contain anything: information about how you might solve the issue, link to runbook, and so on. The actual notifications are configured and shared between multiple alerts. For information on how to configure and set up notifications, see [Alert notifications](old-alert-notifications.md "old-alert-notifications.md"). <br>• **Send to** – Select an alert notification channel if you have one set up. <br>• **Message** – Enter a text message to be sent on the notification channel. Some alert notifiers support transforming the text to HTML or other rich formats. <br>• **Tags** – Specify a list of tags (key-value) to be included in the notification. It is supported by only some notifiers. ## Alert state history and annotations Alert state changes are recorded in the internal annotation table in the Amazon Managed Grafana database. The state changes are visualized as annotations in the graph panel of the alert rulel. You can also go into the `State history` submenu on the **Alert** tab to view and clear state history. |
+
+If you have an unreliable time series store from which queries sometimes time
+out or fail randomly, you can set this option to `Keep Last State` to
+basically ignore them.
+
+## Notifications
+
+On **Alert** tab, you can also specify alert rule notifications
+and a detailed message about the alert rule. The message can contain anything:
+information about how you might solve the issue, link to runbook, and so on.
+
+The actual notifications are configured and shared between multiple alerts. For
+information on how to configure and set up notifications, see [Alert notifications](old-alert-notifications.md "old-alert-notifications.md").
+
+- **Send to** – Select an alert
+  notification channel if you have one set up.
+- **Message** – Enter a text message to be
+  sent on the notification channel. Some alert notifiers support transforming
+  the text to HTML or other rich formats.
+- **Tags** – Specify a list of tags
+  (key-value) to be included in the notification. It is supported by only some
+  notifiers.
+
+## Alert state history and
+
+annotations
+
+Alert state changes are recorded in the internal annotation table in the
+Amazon Managed Grafana database. The state changes are visualized as annotations in the graph
+panel of the alert rulel. You can also go into the `State history`
+submenu on the **Alert** tab to view and clear state history.

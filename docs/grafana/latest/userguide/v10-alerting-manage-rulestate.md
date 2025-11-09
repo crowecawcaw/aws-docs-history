@@ -34,25 +34,67 @@ There are three components:
 
 An alert rule can be in any of the following states:
 
-| State                  | Description                                                                                               |
-| ---------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Normal**             | None of the time series returned by the evaluation engine is in a `pending` or `firing` state.            |
-| **Pending**            | At least one time series returned by the evaluation engine is `pending`.                                  |
-| **Firing**             | At least one time series returned by the evaluation engine is `firing`.                                   | ###### Note Alerts transition first to `pending` and then `firing`, thus it takes at least two evaluation cycles before an alert is fired. ## Alert instance state An alert instance can be in any of the following states:                                                                                                                                                                                                       |
-| State                  | Description                                                                                               |
-| ---                    | ---                                                                                                       |
-| **Normal**             | The state of an alert that is neither `pending` nor `firing`. Everything is working as expected.          |
-| **Pending**            | The state of an alert that has been active for less than the configured threshold duration.               |
-| **Alerting**           | The state of an alert that has been active for longer than the configured threshold duration.             |
-| **No data**            | No data has been received for the configured time window.                                                 |
-| **Alerting**           | An error occurred when attempting to evaluate an alerting rule.                                           | ## Keep last state An alert rule can be configured to keep the last state when a `NoData` or `Error` state is encountered. This will both prevent alerts from firing, and from resolving and re-firing. Just like normal evaluation, the alert rule will transition from `pending` to `firing` after the pending period has elapsed. ## Alert rule health An alert rule can have one of the following health statuses.            |
-| State                  | Description                                                                                               |
-| ---                    | ---                                                                                                       |
-| **Ok**                 | No errors when evaluating the alert rule.                                                                 |
-| **Error**              | An error occurred when evaluating the alert rule.                                                         |
-| **NoData**             | The absence of data in at least one time series returned during a rule evaluation.                        |
-| **{status}, KeepLast** | The rule would have received another status, but was configured to keep the last state of the alert rule. | ## Special alerts for NoData and Error When evaluation of an alert rule produces the state `NoData` or `Error`, Grafana alerting will generate alert instances that have the following additional labels.                                                                                                                                                                                                                         |
-| Label                  | Description                                                                                               |
-| ---                    | ---                                                                                                       |
-| **alertname**          | Either `DatasourceNoData` or `DatasourceError`, depending on the state.                                   |
-| **datasource_uid**     | The UID of the data source that caused the state.                                                         | ###### Note You will need to set the no data or error handling to `NoData` or `Error` in the alert rule, as described in the [Configure Grafana managed alert rules](v10-alerting-configure-grafanamanaged.md "v10-alerting-configure-grafanamanaged.md") topic, to generate the additional labels. You can handle these alerts the same way as regular alerts, including adding silences, routing to a contact point, and so on. |
+| State       | Description                                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| **Normal**  | None of the time series returned by the evaluation engine is<br>in a `pending` or `firing` state. |
+| **Pending** | At least one time series returned by the evaluation engine is<br>`pending`.                       |
+| **Firing**  | At least one time series returned by the evaluation engine is<br>`firing`.                        |
+
+###### Note
+
+Alerts transition first to `pending` and then
+`firing`, thus it takes at least two evaluation cycles before an
+alert is fired.
+
+## Alert instance state
+
+An alert instance can be in any of the following states:
+
+| State        | Description                                                                                         |
+| ------------ | --------------------------------------------------------------------------------------------------- |
+| **Normal**   | The state of an alert that is neither `pending`<br>nor `firing`. Everything is working as expected. |
+| **Pending**  | The state of an alert that has been active for less than the<br>configured threshold duration.      |
+| **Alerting** | The state of an alert that has been active for longer than<br>the configured threshold duration.    |
+| **No data**  | No data has been received for the configured time<br>window.                                        |
+| **Alerting** | An error occurred when attempting to evaluate an alerting<br>rule.                                  |
+
+## Keep last state
+
+An alert rule can be configured to keep the last state when a
+`NoData` or `Error` state is encountered. This will both
+prevent alerts from firing, and from resolving and re-firing. Just like normal
+evaluation, the alert rule will transition from `pending` to
+`firing` after the pending period has elapsed.
+
+## Alert rule health
+
+An alert rule can have one of the following health statuses.
+
+| State                  | Description                                                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Ok**                 | No errors when evaluating the alert rule.                                                                    |
+| **Error**              | An error occurred when evaluating the alert rule.                                                            |
+| **NoData**             | The absence of data in at least one time series returned<br>during a rule evaluation.                        |
+| **{status}, KeepLast** | The rule would have received another status, but was<br>configured to keep the last state of the alert rule. |
+
+## Special alerts for
+
+NoData and Error
+
+When evaluation of an alert rule produces the state `NoData` or
+`Error`, Grafana alerting will generate alert instances that have
+the following additional labels.
+
+| Label              | Description                                                                |
+| ------------------ | -------------------------------------------------------------------------- |
+| **alertname**      | Either `DatasourceNoData` or<br>`DatasourceError`, depending on the state. |
+| **datasource_uid** | The UID of the data source that caused the state.                          |
+
+###### Note
+
+You will need to set the no data or error handling to `NoData`
+or `Error` in the alert rule, as described in the [Configure Grafana managed alert rules](v10-alerting-configure-grafanamanaged.md "v10-alerting-configure-grafanamanaged.md") topic, to generate
+the additional labels.
+
+You can handle these alerts the same way as regular alerts, including adding
+silences, routing to a contact point, and so on.

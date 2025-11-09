@@ -26,8 +26,81 @@ external Alertmanager data source.
 The following table highlights the differences between mute timings and
 silences.
 
-| Mute timing                                             | Silence                                                                       |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Uses time interval definitions that can reoccur.        | Has a fixed start and end time.                                               |
-| Is created and then added to notification policies.     | Uses labels to match against an alert to determine whether to silence or not. |
-| Works with Grafana alerting and external Alertmanagers. | Works only with external Alertmanagers.                                       | ###### To create a mute timing 1. From your Grafana console, in the Grafana menu, choose the **Alerting** (bell) icon to open the **Alerting** page. 2. Choose **Notification policies**. 3. From the **Alertmanager** dropdown, select the Alertmanager you want to edit. 4. In the **Mute timings** section, choose the **Add mute timing** button. 5. Choose the time interval for which you want the mute timing to apply. 6. Choose **Submit** to create the mute timing. ###### To add a mute timing to a notification policy 1. Select the notification policy you would like to add the mute timing to, and choose the **Edit** button. 2. From the **Mute timings** dropdown, select the mute timings you would like to add to the policy. Choose the **Save policy** button. **Time intervals** A time interval is a definition for a range of time. If an alert is initiated during this interval it is suppressed. Ranges are supported using `:` (for example, `monday:thursday`). A mute timing can contain multiple time intervals. A time interval consists of multiple fields (details in the following list), all of which must match in order to suppress the alerts. For example, if you specify days of the week `monday:friday` and time range from 8:00-9:00, then alerts are suppressed from 8–9, Monday through Friday, but not, for example, 8–9 on Saturday. <br>• **Time range** – The time of day to suppress notifications. Consists of two sub-fields, **Start time** and **End time**. An example time is `14:30`. Time is in 24 hour notation, in UTC. <br>• **Days of the week** – The days of the week. Can be a single day, such as `monday`, a range, such as `monday:friday`, or a comma-separate list of days, such as `monday, tuesday, wednesday`. <br>• **Months** – The months to select. You can specify months with numeric designations, or with the full month name, for example `1` or `january` both specify January. You can specify a single month, a range of months, or a comma-separated list of months. <br>• **Days of the month** – The dates within a month. Values can range from `1`-`31`. Negative values specify days of the month in reverse order, so `-1` represents the last day of the month. Days of the month can be specified as a single day, a range of days, or a comma-separate list of days. <br>• **Years** – The year or years for the interval. For example, `2023:2025`. Each of these elements can be a list, and at least one item in the element must be satisfied to be a match. So if you set years to `2023:2025, 2027`, then it would be true during 2023, 2024, 2025, and 2027 (but not 2026). If a field is left blank, any moment of time will match the field. A moment of time must match all fields to match a complete time interval. If you want to specify an exact duration, specify all the options needed for that duration. For example, if you wanted to create a time interval for the first Monday of the month, for March, June, September, and December, between the hours of 12:00 and 24:00 UTC, your time interval specification could be: <br>• Time range: + Start time: `12:00` + End time: `24:00` <br>• Days of the week: `monday` <br>• Months: `3, 6, 9, 12` <br>• Days of the month: `1:7` |
+| Mute timing                                             | Silence                                                                          |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Uses time interval definitions that can reoccur.        | Has a fixed start and end time.                                                  |
+| Is created and then added to notification policies.     | Uses labels to match against an alert to determine whether to<br>silence or not. |
+| Works with Grafana alerting and external Alertmanagers. | Works only with external Alertmanagers.                                          |
+
+###### To create a mute timing
+
+1. From your Grafana console, in the Grafana menu, choose the
+   **Alerting** (bell) icon to open the
+   **Alerting** page.
+2. Choose **Notification policies**.
+3. From the **Alertmanager** dropdown, select the
+   Alertmanager you want to edit.
+4. In the **Mute timings** section, choose the **Add
+   mute timing** button.
+5. Choose the time interval for which you want the mute timing to
+   apply.
+6. Choose **Submit** to create the mute timing.
+
+###### To add a mute timing to a notification policy
+
+1. Select the notification policy you would like to add the mute timing to,
+   and choose the **Edit** button.
+2. From the **Mute timings** dropdown, select the mute
+   timings you would like to add to the policy.
+
+Choose the **Save policy** button.
+**Time intervals**
+
+A time interval is a definition for a range of time. If an alert is initiated
+during this interval it is suppressed. Ranges are supported using `:`
+(for example, `monday:thursday`). A mute timing can contain multiple time
+intervals. A time interval consists of multiple fields (details in the following
+list), all of which must match in order to suppress the alerts. For example, if you
+specify days of the week `monday:friday` and time range from 8:00-9:00,
+then alerts are suppressed from 8–9, Monday through Friday, but not, for
+example, 8–9 on Saturday.
+
+- **Time range** – The time of day to suppress
+  notifications. Consists of two sub-fields, **Start time**
+  and **End time**. An example time is `14:30`.
+  Time is in 24 hour notation, in UTC.
+- **Days of the week** – The days of the week. Can
+  be a single day, such as `monday`, a range, such as
+  `monday:friday`, or a comma-separate list of days, such as
+  `monday, tuesday, wednesday`.
+- **Months** – The months to select. You can specify
+  months with numeric designations, or with the full month name, for example
+  `1` or `january` both specify January. You can
+  specify a single month, a range of months, or a comma-separated list of
+  months.
+- **Days of the month** – The dates within a month.
+  Values can range from `1`-`31`. Negative values
+  specify days of the month in reverse order, so `-1` represents
+  the last day of the month. Days of the month can be specified as a single
+  day, a range of days, or a comma-separate list of days.
+- **Years** – The year or years for the interval.
+  For example, `2023:2025`.
+  Each of these elements can be a list, and at least one item in the element must be
+  satisfied to be a match. So if you set years to `2023:2025, 2027`, then
+  it would be true during 2023, 2024, 2025, and 2027 (but not 2026).
+
+If a field is left blank, any moment of time will match the field. A moment of
+time must match all fields to match a complete time interval.
+
+If you want to specify an exact duration, specify all the options needed for that
+duration. For example, if you wanted to create a time interval for the first Monday
+of the month, for March, June, September, and December, between the hours of 12:00
+and 24:00 UTC, your time interval specification could be:
+
+- Time range:
+  - Start time: `12:00`
+  - End time: `24:00`
+
+- Days of the week: `monday`
+- Months: `3, 6, 9, 12`
+- Days of the month: `1:7`

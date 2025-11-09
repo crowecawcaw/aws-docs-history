@@ -24,9 +24,11 @@ contact point types.
 The following table lists the contact point types supported by Grafana.
 
 | Name       | Type        |
-| ---------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | ----------- |
 | Amazon SNS | `sns`       |
 | OpsGenie   | `opsgenie`  |
 | Pager Duty | `pagerduty` |
 | Slack      | `slack`     |
-| VictorOps  | `victorops` | For more information about contact points, see [Working with contact points](v9-alerting-contact-points.md "v9-alerting-contact-points.md") and [Customize notifications](v9-alerting-notifications.md "v9-alerting-notifications.md"). |
+| VictorOps  | `victorops` |
+
+For more information about contact points, see [Working with contact points](v9-alerting-contact-points.md "v9-alerting-contact-points.md") and [Customize notifications](v9-alerting-notifications.md "v9-alerting-notifications.md").

@@ -70,6 +70,6 @@ collision.
 Grafana reserved labels can be used in the same way as manually configured
 labels. The current list of available reserved labels are:
 
-| Label          | Description                               |
-| -------------- | ----------------------------------------- |
-| grafana_folder | Title of the folder containing the alert. |
+| Label          | Description                                  |
+| -------------- | -------------------------------------------- |
+| grafana_folder | Title of the folder containing the<br>alert. |

@@ -188,17 +188,33 @@ For more information, see [Global variables](v10-dash-variable-add.md#v10-dash-v
 Panel time overrides have no effect when the dashboard’s time range is
 absolute.
 
-| Example              | Relative time field |
-| -------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Last 5 minutes       | `now-5m`            |
-| The day so far       | `now/d`             |
-| Last 5 days          | `now-5d/d`          |
-| This week so far     | `now/w`             |
-| Last 2 years         | `now-2y/y`          | <br>• **Time shift** – Overrides the time range for individual panels by shifting its start and end relative to the time picker. For example, you can shift the time range for the panel to be two hours earlier than the dashboard time picker. ###### Note Panel time overrides have no effect when the dashboard's time range is absolute. |
-| Example              | Time shift field    |
-| ---                  | ---                 |
-| Last entire week     | `1w/w`              |
-| Two entire weeks ago | `2w/w`              |
-| Last entire month    | `1M/M`              |
-| This entire year     | `1d/y`              |
-| Last entire year     | `1y/y`              | <br>• **Cache timeout** – _(Visible only if available in the data source)_ Overrides the default cache timeout if your time series store has a query cache. Specify this value as a numeric value in seconds.                                                                                                                                 |
+| Example          | Relative time field |
+| ---------------- | ------------------- |
+| Last 5 minutes   | `now-5m`            |
+| The day so far   | `now/d`             |
+| Last 5 days      | `now-5d/d`          |
+| This week so far | `now/w`             |
+| Last 2 years     | `now-2y/y`          |
+
+- **Time shift** – Overrides the time range for
+  individual panels by shifting its start and end relative to the time picker.
+  For example, you can shift the time range for the panel to be two hours
+  earlier than the dashboard time picker.
+
+###### Note
+
+Panel time overrides have no effect when the dashboard's time range is
+absolute.
+
+| Example              | Time shift field |
+| -------------------- | ---------------- |
+| Last entire week     | `1w/w`           |
+| Two entire weeks ago | `2w/w`           |
+| Last entire month    | `1M/M`           |
+| This entire year     | `1d/y`           |
+| Last entire year     | `1y/y`           |
+
+- **Cache timeout** – _(Visible only if
+  available in the data source)_ Overrides the default cache
+  timeout if your time series store has a query cache. Specify this value as a
+  numeric value in seconds.

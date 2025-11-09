@@ -9,26 +9,252 @@ through the use of query references.
 
 To access Graphite settings, pause on the **Configuration** (gear) icon, then choose **Data Sources**, and then choose the Graphite data source.
 
-| Name                                                        | Description                                                                                        |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Name`                                                      | The data source name. This is how you see the data source in panels and queries.                   |
-| `Default`                                                   | Default data source means that it will be pre-selected for new panels.                             |
-| `URL`                                                       | The HTTP protocol, IP, and port of your graphite-web or graphite-api install.                      |
-| `Access`                                                    | Server (default) = URL must be accessible from the Grafana backend/server.                         |
-| `Auth`                                                      |                                                                                                    |
-| `Basic Auth`                                                | Enable basic authentication to the data source.                                                    |
-| `User`                                                      | User name for basic authentication.                                                                |
-| `Password`                                                  | Password for basic authentication.                                                                 |
-| `Custom HTTP Headers`                                       | Choose **Add header** to add a custom HTTP header.                                                 |
-| `Header`                                                    | Enter the custom header name.                                                                      |
-| `Value`                                                     | Enter the custom header value.                                                                     |
-| `Graphite details`                                          |                                                                                                    |
-| `Version`                                                   | Select your version of Graphite.                                                                   |
-| `Type`                                                      | Select your type of Graphite.                                                                      | Access mode controls how requests to the data source will be handled. Server should be the preferred way if nothing else is stated. ### Server access mode (default) All requests are made from the browser to Amazon Managed Grafana, which forwards the requests to the data source, circumventing possible Cross-Origin Resource Sharing (CORS) requirements. If you select this access mode, the URL must be accessible from Amazon Managed Grafana. ### Browser access mode Amazon Managed Grafana does not support browser direct access for the Graphite data source. ## Graphite query editor Grafana includes a Graphite-specific query editor to help you build your queries. To see the raw text of the query that is sent to Graphite, choose the **Toggle text edit mode** (pencil) icon. ### Choosing metrics to query Choose **Select metric** to navigate the metric space. After you start, you can continue using the pointer or keyboard arrow keys. You can select a wildcard character and still continue. ### Functions To add a function, choose the plus icon next to **Function**. You can search for the function or select it from the menu. After a function is selected, it will be added and your focus will be in the text box of the first parameter. To edit or change a parameter, choose it and it will turn into a text box. - To delete a function, choose the function name followed by the x icon. Some functions, such as `aliasByNode`, support an optional second argument. To add an argument, pause on the first argument, and then choose the `+` symbol that appears. To remove the second optional parameter, choose it and keep it blank. The editor will remove it. ### Sort labels If you want consistent ordering, use `sortByName`. This can be annoying when you have the same labels on multiple graphs, and they are both sorted differently and using different colors. To fix this, use `sortByName()`. ### Nested queries You can reference queries by the row _letter_ that they’re on (similar to Microsoft Excel). If you add a second query to a graph, you can reference the first query by typing in #A. This provides a convenient way to build compounded queries. ### Avoiding many queries by using wildcard characters Occasionally, you might want to see multiple time series plotted on the same graph. For example, you might want to see how the CPU is being used on a machine. You might initially create the graph by adding a query for each time series, such as `cpu.percent.user.g`, `cpu.percent.system.g`, and so on. This results in _n_ queries made to the data source, which is inefficient. To be more efficient one can use wildcard characters in your search, returning all the time series in one query. For example, `cpu.percent.*.g`. ### Modifying the metric name in tables or charts Use `alias` functions to change metric names on Grafana tables or graphs; for example, `aliasByNode()` or `aliasSub()`. ## Point consolidation All Graphite metrics are consolidated so that Graphite doesn’t return more data points than there are pixels in the graph. By default, this consolidation is done using `avg` function. You can control how Graphite consolidates metrics by adding the Graphite consolidateBy function. ###### Note This means that legend summary values (max, min, total) cannot all be correct at the same time. They are calculated client-side by Grafana. And depending on your consolidation function, only one or two can be correct at the same time. ## Combining time series To combine time series, choose **Combine** in the **Functions** list. ## Data exploration and tags In Graphite, everything is a tag. When exploring data, previously selected tags are used to filter the remaining result set. To select data, you use the `seriesByTag` function, which takes tag expressions (`=`, `!=`, `=~`, `!=~`) to filter time series. The Grafana query builder does this for you automatically when you select a tag. ###### Note **Tip:** The regular expression search can be slow on high-cardinality tags, so try to use other tags to reduce the scope first. Starting off with a particular name or namespace helps reduce the results. ## Template variables Instead of hardcoding things such as server, application, and sensor name in your metric queries, you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. For more information about templating and template variables, see [Templates and variables](templates-and-variables.md "templates-and-variables.md"). To create a variable using tag values, use the Grafana functions `tags` and `tag_values`. |
-| Query                                                       | Description                                                                                        |
-| ---                                                         | ---                                                                                                |
-| `tags()`                                                    | Returns all tags.                                                                                  |
-| `tags(server=~backend\*)`                                   | Returns only tags that occur in series matching the filter expression.                             |
-| `tag_values(server)`                                        | Return tag values for the specified tag.                                                           |
-| `tag_values(server, server=~backend\*)`                     | Returns filtered tag values that occur for the specified tag in series matching those expressions. |
-| `tag_values(server, server=~backend\*, app=~${apps:regex})` | Multiple filter expressions and expressions can contain other variables.                           | For more details, see [Graphite docs on the autocomplete API for tags](https://graphite.readthedocs.io/en/latest/tags.html#auto-complete-support "https://graphite.readthedocs.io/en/latest/tags.html#auto-complete-support"). ### Query variable The query you specify in the query field should be a metric find type of query. For example, a query such as `prod.servers.*` will fill the variable with all possible values that exist in the wildcard position. You can also create nested variables that use other variables in their definition. For example `apps.$app.servers.*` uses the variable `$app` in its query definition. #### Using `__searchFilter` to filter query variable results Using `__searchFilter` in the query field will filter the query result based on what you enter in the dropdown select box. When you enter nothing, the default value for `__searchFilter` is `*` and ``when used as part of a regular expression. The following example shows how to use`**searchFilter`as part of the query field to enable searching for`server` while the user enters text in the dropdown select box. Query ``` apps.$app.servers.$**searchFilter `TagValues` tag_values(server, server=~${__searchFilter:regex}) ``` ### Variable usage You can use a variable in a metric node path or as a parameter to a function. There are two syntaxes: <br>• `$<varname>`Example: apps.frontend.$server.requests.count <br>•`${varname}` Example: apps.frontend.${server}.requests.count Why two ways? The first syntax is easier to read and write but does not allow you to use a variable in the middle of a word. Use the second syntax in expressions such as `my.server${serverNumber}.count`. ### Variable usage in tag queries Multi-value variables in tag queries use the advanced formatting syntax introduced in Grafana 5.0 for variables: `{var:regex}`. Non-tag queries will use the default glob formatting for multi-value variables. The following code example shows a tag expression with regex formatting and using the Equal Tilde operator, `=~`. `server=~${servers:regex}` For more information, see [Advanced variable format options](templates-and-variables.md#advanced-variable-format-options "templates-and-variables.md#advanced-variable-format-options"). ## Annotations Annotations enable you to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu / Annotations view. For more information, see [Annotations](dashboard-annotations.md "dashboard-annotations.md"). Graphite supports two ways to query annotations: <br>• A regular metric query. For this, you use the **Graphite query** text box. <br>• A Graphite events query. For this, you use the `Graphite event tags` text box, and specify a tag or wildcard character (keeping it empty should also work).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Name                  | Description                                                                         |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| `Name`                | The data source name. This is how you see the data source in<br>panels and queries. |
+| `Default`             | Default data source means that it will be pre-selected for<br>new panels.           |
+| `URL`                 | The HTTP protocol, IP, and port of your graphite-web or<br>graphite-api install.    |
+| `Access`              | Server (default) = URL must be accessible from the Grafana<br>backend/server.       |
+| `Auth`                |                                                                                     |
+| `Basic Auth`          | Enable basic authentication to the data source.                                     |
+| `User`                | User name for basic authentication.                                                 |
+| `Password`            | Password for basic authentication.                                                  |
+| `Custom HTTP Headers` | Choose \*_Add header_<br>• to add a<br>custom HTTP header.                          |
+| `Header`              | Enter the custom header name.                                                       |
+| `Value`               | Enter the custom header value.                                                      |
+| `Graphite details`    |                                                                                     |
+| `Version`             | Select your version of Graphite.                                                    |
+| `Type`                | Select your type of Graphite.                                                       |
+
+Access mode controls how requests to the data source will be handled. Server
+should be the preferred way if nothing else is stated.
+
+### Server access mode
+
+(default)
+
+All requests are made from the browser to Amazon Managed Grafana, which forwards the
+requests to the data source, circumventing possible Cross-Origin Resource
+Sharing (CORS) requirements. If you select this access mode, the URL must be
+accessible from Amazon Managed Grafana.
+
+### Browser access mode
+
+Amazon Managed Grafana does not support browser direct access for the Graphite data
+source.
+
+## Graphite query editor
+
+Grafana includes a Graphite-specific query editor to help you build your
+queries.
+
+To see the raw text of the query that is sent to Graphite, choose the
+**Toggle text edit mode** (pencil) icon.
+
+### Choosing metrics to
+
+query
+
+Choose **Select metric** to navigate the
+metric space. After you start, you can continue using the pointer or
+keyboard arrow keys. You can select a wildcard character and still continue.
+
+### Functions
+
+To add a function, choose the plus icon next to **Function**. You can search for the function or select it from
+the menu. After a function is selected, it will be added and your focus will
+be in the text box of the first parameter. To edit or change a parameter,
+choose it and it will turn into a text box. - To delete a function, choose
+the function name followed by the x icon.
+
+Some functions, such as `aliasByNode`, support an optional
+second argument. To add an argument, pause on the first argument, and then
+choose the `+` symbol that appears. To remove the second optional
+parameter, choose it and keep it blank. The editor will remove it.
+
+### Sort labels
+
+If you want consistent ordering, use `sortByName`. This can be
+annoying when you have the same labels on multiple graphs, and they are both
+sorted differently and using different colors. To fix this, use
+`sortByName()`.
+
+### Nested queries
+
+You can reference queries by the row _letter_ that
+they’re on (similar to Microsoft Excel). If you add a second query to a
+graph, you can reference the first query by typing in #A. This provides a
+convenient way to build compounded queries.
+
+### Avoiding many
+
+queries by using wildcard characters
+
+Occasionally, you might want to see multiple time series plotted on the
+same graph. For example, you might want to see how the CPU is being used on
+a machine. You might initially create the graph by adding a query for each
+time series, such as `cpu.percent.user.g`,
+`cpu.percent.system.g`, and so on. This results in
+_n_ queries made to the data source, which is
+inefficient.
+
+To be more efficient one can use wildcard characters in your search,
+returning all the time series in one query. For example,
+`cpu.percent.*.g`.
+
+### Modifying
+
+the metric name in tables or charts
+
+Use `alias` functions to change metric names on Grafana tables
+or graphs; for example, `aliasByNode()` or
+`aliasSub()`.
+
+## Point consolidation
+
+All Graphite metrics are consolidated so that Graphite doesn’t return more
+data points than there are pixels in the graph. By default, this consolidation
+is done using `avg` function. You can control how Graphite
+consolidates metrics by adding the Graphite consolidateBy function.
+
+###### Note
+
+This means that legend summary values (max, min, total) cannot all be
+correct at the same time. They are calculated client-side by Grafana. And
+depending on your consolidation function, only one or two can be correct at
+the same time.
+
+## Combining time series
+
+To combine time series, choose **Combine** in
+the **Functions** list.
+
+## Data exploration and tags
+
+In Graphite, everything is a tag.
+
+When exploring data, previously selected tags are used to filter the
+remaining result set. To select data, you use the `seriesByTag`
+function, which takes tag expressions (`=`, `!=`,
+`=~`, `!=~`) to filter time series.
+
+The Grafana query builder does this for you automatically when you select a
+tag.
+
+###### Note
+
+**Tip:** The regular expression search can be
+slow on high-cardinality tags, so try to use other tags to reduce the scope
+first. Starting off with a particular name or namespace helps reduce the
+results.
+
+## Template variables
+
+Instead of hardcoding things such as server, application, and sensor name in
+your metric queries, you can use variables in their place. Variables are shown
+as dropdown select boxes at the top of the dashboard. You can use these dropdown
+boxes to change the data being displayed in your dashboard.
+
+For more information about templating and template variables, see [Templates and variables](templates-and-variables.md "templates-and-variables.md").
+
+To create a variable using tag values, use the Grafana functions
+`tags` and `tag_values`.
+
+| Query                                                          | Description                                                                                           |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `tags()`                                                       | Returns all tags.                                                                                     |
+| `tags(server=~backend\*)`                                      | Returns only tags that occur in series matching the filter<br>expression.                             |
+| `tag_values(server)`                                           | Return tag values for the specified tag.                                                              |
+| `tag_values(server, server=~backend\*)`                        | Returns filtered tag values that occur for the specified tag<br>in series matching those expressions. |
+| `tag_values(server, server=~backend\*,<br>app=~${apps:regex})` | Multiple filter expressions and expressions can contain<br>other variables.                           |
+
+For more details, see [Graphite docs on the autocomplete API for tags](https://graphite.readthedocs.io/en/latest/tags.html#auto-complete-support "https://graphite.readthedocs.io/en/latest/tags.html#auto-complete-support").
+
+### Query variable
+
+The query you specify in the query field should be a metric find type of
+query. For example, a query such as `prod.servers.*` will fill
+the variable with all possible values that exist in the wildcard position.
+
+You can also create nested variables that use other variables in their
+definition. For example `apps.$app.servers.*` uses the variable
+`$app` in its query definition.
+
+#### Using `__searchFilter` to filter query variable
+
+results
+
+Using `__searchFilter` in the query field will filter the
+query result based on what you enter in the dropdown select box. When
+you enter nothing, the default value for `__searchFilter` is
+`*` and `` when used as part of a regular expression.
+
+The following example shows how to use `__searchFilter` as
+part of the query field to enable searching for `server`
+while the user enters text in the dropdown select box.
+
+Query
+
+```
+
+apps.$app.servers.$__searchFilter
+
+```
+
+TagValues
+
+```
+
+tag_values(server, server=~${__searchFilter:regex})
+
+```
+
+### Variable usage
+
+You can use a variable in a metric node path or as a parameter to a
+function.
+
+There are two syntaxes:
+
+- `$<varname>` Example:
+  apps.frontend.$server.requests.count
+- `${varname}` Example:
+  apps.frontend.${server}.requests.count
+
+Why two ways? The first syntax is easier to read and write but does not
+allow you to use a variable in the middle of a word. Use the second syntax
+in expressions such as `my.server${serverNumber}.count`.
+
+### Variable usage in tag
+
+queries
+
+Multi-value variables in tag queries use the advanced formatting syntax
+introduced in Grafana 5.0 for variables: `{var:regex}`. Non-tag
+queries will use the default glob formatting for multi-value variables.
+
+The following code example shows a tag expression with regex formatting
+and using the Equal Tilde operator, `=~`.
+
+```
+
+server=~${servers:regex}
+
+```
+
+For more information, see [Advanced variable format
+options](templates-and-variables.md#advanced-variable-format-options "templates-and-variables.md#advanced-variable-format-options").
+
+## Annotations
+
+Annotations enable you to overlay rich event information on top of graphs.
+You add annotation queries via the Dashboard menu / Annotations view. For more
+information, see [Annotations](dashboard-annotations.md "dashboard-annotations.md").
+
+Graphite supports two ways to query annotations:
+
+- A regular metric query. For this, you use the **Graphite
+  query** text box.
+- A Graphite events query. For this, you use the `Graphite event
+tags` text box, and specify a tag or wildcard character
+  (keeping it empty should also work).

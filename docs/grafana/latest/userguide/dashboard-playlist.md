@@ -170,11 +170,30 @@ You can control a playlist in **Normal** or
 **TV** mode after it has started by using the
 navigation bar at the top of your screen.
 
-| Button                         | Result                                                                                                                                                |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Next (double right arrow)      | Advances to the next dashboard.                                                                                                                       |
-| Back (left arrow)              | Returns to the previous dashboard.                                                                                                                    |
-| Stop (square)                  | Ends the playlist, and exits to the current dashboard.                                                                                                |
-| Cycle view mode (monitor icon) | Changes the display of the dashboards to different view modes.                                                                                        |
-| Time range                     | Displays data within a time range. It can be set to display the last 5 minutes up to 5 years ago, or a custom time range, using the dropdown arrow.   |
-| Refresh (circle arrow)         | Reloads the dashboard to display the current data. It can be set to reload automatically, from every 5 seconds to 1 day, by using the dropdown arrow. | To stop the playlist from your keyboard, press **Esc**. ## Sharing a playlist in a view mode You can share a playlist by copying the URL in the view mode that you want and pasting the URL to your destination. 1. From the **Dashboards** menu, choose **Playlists**. 2. Next to the playlist that you want to share, choose **Start playlist**, and then choose the view mode that you want. 3. To copy the URL to your clipboard, choose **Copy Link Address**. For example, the URL for a playlist on the Grafana Play site in Kiosk mode could be `https://play.grafana.org/d/000000010/annotations?orgId=1&kiosk` 4. Paste the URL to your destination. |
+| Button                         | Result                                                                                                                                                      |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Next (double right arrow)      | Advances to the next dashboard.                                                                                                                             |
+| Back (left arrow)              | Returns to the previous dashboard.                                                                                                                          |
+| Stop (square)                  | Ends the playlist, and exits to the current dashboard.                                                                                                      |
+| Cycle view mode (monitor icon) | Changes the display of the dashboards to different view modes.                                                                                              |
+| Time range                     | Displays data within a time range. It can be set to display the<br>last 5 minutes up to 5 years ago, or a custom time range, using the<br>dropdown arrow.   |
+| Refresh (circle arrow)         | Reloads the dashboard to display the current data. It can be set<br>to reload automatically, from every 5 seconds to 1 day, by using the<br>dropdown arrow. |
+
+To stop the playlist from your keyboard, press **Esc**.
+
+## Sharing a playlist in a view
+
+mode
+
+You can share a playlist by copying the URL in the view mode that you want and
+pasting the URL to your destination.
+
+1. From the **Dashboards** menu, choose **Playlists**.
+2. Next to the playlist that you want to share, choose **Start
+   playlist**, and then choose the view mode that you want.
+3. To copy the URL to your clipboard, choose **Copy Link
+   Address**.
+
+For example, the URL for a playlist on the Grafana Play site in Kiosk
+mode could be
+`https://play.grafana.org/d/000000010/annotations?orgId=1&kiosk` 4. Paste the URL to your destination.

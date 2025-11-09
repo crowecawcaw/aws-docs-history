@@ -227,13 +227,42 @@ noise and allowing for temporary data availability issues.
 If your alert rule evaluation returns no data, you can set the state on your alert
 rule to appear as follows:
 
-| No Data  | Description                                                                                                                                     |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No Data  | Creates a new alert `DatasourceNoData` with the name and UID of the alert rule, and UID of the datasource that returned no data as labels.      |
-| Alerting | Sets alert rule state to `Alerting`. The alert rule waits until the time set in the **For** field has finished before firing.                   |
-| Ok       | Sets alert rule state to `Normal`.                                                                                                              | If your evaluation returns an error, you can set the state on your alert rule to appear as follows:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Error    | Description                                                                                                                                     |
-| ---      | ---                                                                                                                                             |
-| Error    | Creates an alert instance `DatasourceError` with the name and UID of the alert rule, and UID of the datasource that returned no data as labels. |
-| Alerting | Sets alert rule state to `Alerting`. The alert rule waits until the time set in the **For** field has finished before firing.                   |
-| Ok       | Sets alert rule state to `Normal`.                                                                                                              | **Resolve stale alert instances** An alert instance is considered stale if its dimension or series has disappeared from the query results entirely for two evaluation intervals. Stale alert instances that are in the `Alerting`/`NoData`/`Error` states are automatically marked as `Resolved` and the `grafana_state_reason` annotation is added to the alert instance with the reason `MissingSeries`. **Create alerts from panels** Create alerts from any panel type. This means you can reuse the queries in the panel and create alerts based on them. 1. Navigate to a dashboard in the **Dashboards** section. 2. In the top right corner of the panel, choose the three dots (ellipses). 3. From the dropdown menu, select **More…** and then choose **New alert rule**. This will open the alert rule form, allowing you to configure and create your alert based on the current panel’s query. |
+| No Data  | Description                                                                                                                                      |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| No Data  | Creates a new alert `DatasourceNoData` with the name<br>and UID of the alert rule, and UID of the datasource that returned<br>no data as labels. |
+| Alerting | Sets alert rule state to `Alerting`. The alert rule<br>waits until the time set in the \*_For_<br>• field has<br>finished before firing.         |
+| Ok       | Sets alert rule state to `Normal`.                                                                                                               |
+
+If your evaluation returns an error, you can set the state on your alert rule to
+appear as follows:
+
+| Error    | Description                                                                                                                                           |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Error    | Creates an alert instance `DatasourceError` with the<br>name and UID of the alert rule, and UID of the datasource that<br>returned no data as labels. |
+| Alerting | Sets alert rule state to `Alerting`. The alert rule<br>waits until the time set in the \*_For_<br>• field has<br>finished before firing.              |
+| Ok       | Sets alert rule state to `Normal`.                                                                                                                    |
+
+**Resolve stale alert instances**
+
+An alert instance is considered stale if its dimension or series has disappeared
+from the query results entirely for two evaluation intervals.
+
+Stale alert instances that are in the
+`Alerting`/`NoData`/`Error` states are
+automatically marked as `Resolved` and the
+`grafana_state_reason` annotation is added to the alert instance with
+the reason `MissingSeries`.
+
+**Create alerts from panels**
+
+Create alerts from any panel type. This means you can reuse the queries in the
+panel and create alerts based on them.
+
+1. Navigate to a dashboard in the **Dashboards**
+   section.
+2. In the top right corner of the panel, choose the three dots
+   (ellipses).
+3. From the dropdown menu, select **More…** and
+   then choose **New alert rule**.
+   This will open the alert rule form, allowing you to configure and create your
+   alert based on the current panel’s query.

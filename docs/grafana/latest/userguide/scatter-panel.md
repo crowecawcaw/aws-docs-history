@@ -29,7 +29,7 @@ called `HEIGHT` with three columns of numerical values, `Age`,
 girls by age.
 
 | Age | Boy's Height | Girl's Height |
-| --- | ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --- | ------------ | ------------- |
 | 5   | 109.7        | 109.5         |
 | 6   | 115.6        | 115.4         |
 | 7   | 121.1        | 120.8         |
@@ -44,4 +44,46 @@ girls by age.
 | 16  | 167.3        | 157.6         |
 | 17  | 169          | 158           |
 | 18  | 170          | 158.3         |
-| 19  | 170.8        | 158.6         | ###### To create a scatter plot with the scatter panel 1. In your Grafana dashboard, choose **Add Panel**. For more details about adding panels, see [Adding a panel](add-a-panel-to-a-dashboard.md "add-a-panel-to-a-dashboard.md"). 2. For the Query, write a query that will return the data needed. In this case, you would use a query such as `SELECT * FROM HEIGHT`. 3. Select the **Scatter** visualization. This will create a scatter plot, using the first column as the X axis, and the other numeric columns as Y axes. **Configuration options** The scatter panel provides the following four custom configuration options. <br>• **X Axis** – You can choose which field to use as the X axis, as well as extents and title and display information for the axis. <br>• **Y Axis** – You can choose which fields to display on the Y axis, including display options for each field, and extents and title information for the axis. You can also choose to display a regression line for each field. See the following information for more details on regression line configuration. <br>• **Legend** – You can turn a legend for the panel on or off, as well as choose the size of the text in the legend. <br>• **Display** – You can set other options for the chart, including grid color and border style. **Regression line configuration** Each Y axis dataset can display a line, in addition to the individual dots. There are five options for the line type. <br>• **None** – Do not display a regression line. <br>• **Simple** – Display a regression line that connects the dataset points. <br>• **Linear** – Display a straight line, using the least-squares, best-fit method. <br>• **Exponential** – Display an exponential best-fit regression line. <br>• **Power** – Display a power best-fit regression line. |
+| 19  | 170.8        | 158.6         |
+
+###### To create a scatter plot with the scatter panel
+
+1. In your Grafana dashboard, choose **Add Panel**. For more
+   details about adding panels, see
+   [Adding a panel](add-a-panel-to-a-dashboard.md "add-a-panel-to-a-dashboard.md").
+2. For the Query, write a query that will return the data needed. In this case,
+   you would use a query such as `SELECT * FROM HEIGHT`.
+3. Select the **Scatter** visualization.
+   This will create a scatter plot, using the first column as the X axis, and the other
+   numeric columns as Y axes.
+
+**Configuration options**
+
+The scatter panel provides the following four custom configuration options.
+
+- **X Axis** – You can choose which field to use as the
+  X axis, as well as extents and title and display information for the
+  axis.
+- **Y Axis** – You can choose which fields to display on
+  the Y axis, including display options for each field, and extents and title
+  information for the axis. You can also choose to display a regression line for
+  each field. See the following information for more details on regression line
+  configuration.
+- **Legend** – You can turn a legend for the panel on or
+  off, as well as choose the size of the text in the legend.
+- **Display** – You can set other options for the chart,
+  including grid color and border style.
+  **Regression line configuration**
+
+Each Y axis dataset can display a line, in addition to the individual dots. There are
+five options for the line type.
+
+- **None** – Do not display a regression line.
+- **Simple** – Display a regression line that connects
+  the dataset points.
+- **Linear** – Display a straight line, using the
+  least-squares, best-fit method.
+- **Exponential** – Display an exponential best-fit
+  regression line.
+- **Power** – Display a power best-fit regression
+  line.

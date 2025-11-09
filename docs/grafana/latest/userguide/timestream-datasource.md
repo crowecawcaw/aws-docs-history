@@ -16,11 +16,23 @@ self-managed Grafana server.
 
 ## Timestream settings
 
-| Name                     | Description                                                                                            |
-| ------------------------ | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                     | The data source name. This is how you see the data source in panels and queries.                       |
-| Auth Provider            | Specify the provider to get credentials.                                                               |
-| Default Region           | Used in query editor to set region (can be changed on per query basis).                                |
-| Credentials profile name | Specify the name of the profile to use (if you use `~/.aws/credentials` file), keep blank for default. |
-| Assume Role Arn          | Specify the ARN of the role to assume.                                                                 |
-| Endpoint (optional)      | If you must specify an alternate service endpoint.                                                     | ### Authentication This section covers the different types of authentication that you can use for the Amazon Timestream data source. #### Example AWS credentials You can't use the credentials file method of authentication in Amazon Managed Grafana. |
+| Name                     | Description                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Name                     | The data source name. This is how you see the data source in<br>panels and queries.                          |
+| Auth Provider            | Specify the provider to get credentials.                                                                     |
+| Default Region           | Used in query editor to set region (can be changed on per<br>query basis).                                   |
+| Credentials profile name | Specify the name of the profile to use (if you use<br>`~/.aws/credentials` file), keep blank for<br>default. |
+| Assume Role Arn          | Specify the ARN of the role to assume.                                                                       |
+| Endpoint (optional)      | If you must specify an alternate service endpoint.                                                           |
+
+### Authentication
+
+This section covers the different types of authentication that you can
+use for the Amazon Timestream data source.
+
+#### Example AWS
+
+credentials
+
+You can't use the credentials file method of authentication in
+Amazon Managed Grafana.

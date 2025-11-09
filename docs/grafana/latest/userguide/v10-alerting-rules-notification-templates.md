@@ -48,8 +48,20 @@ Alert summary:
 You can use any of the following built-in template options to embed custom
 templates.
 
-| Name                    | Notes                                                         |
-| ----------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `default.title`         | Displays high-level status information.                       |
-| `default.message`       | Provides a formatted summary of firing and resolved alerts.   |
-| `teams.default.message` | Similar to `default.messsage`, formatted for Microsoft Teams. | **HTML in notification templates** HTML in alerting notification templates is escaped. We do not support rendering of HTML in the resulting notification. Some notifiers support alternative methods of changing the look and feel of the resulting notification. For example, Grafana installs the base template for alerting emails to `<grafana-install-dir>/public/emails/ng_alert_notification.html`. You can edit this file to change the appearance of all alerting emails. |
+| Name                    | Notes                                                            |
+| ----------------------- | ---------------------------------------------------------------- |
+| `default.title`         | Displays high-level status information.                          |
+| `default.message`       | Provides a formatted summary of firing and resolved<br>alerts.   |
+| `teams.default.message` | Similar to `default.messsage`, formatted<br>for Microsoft Teams. |
+
+**HTML in notification templates**
+
+HTML in alerting notification templates is escaped. We do not support
+rendering of HTML in the resulting notification.
+
+Some notifiers support alternative methods of changing the look and feel
+of the resulting notification. For example, Grafana installs the base
+template for alerting emails to
+`<grafana-install-dir>/public/emails/ng_alert_notification.html`.
+You can edit this file to change the appearance of all alerting
+emails.

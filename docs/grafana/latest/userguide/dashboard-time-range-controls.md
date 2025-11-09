@@ -46,9 +46,140 @@ feature to look at predicted data for the future.
 Here are some examples:
 
 | Example relative range | From       | To         |
-| ---------------------- | ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------- | ---------- | ---------- |
 | Last 5 minutes         | `now-5m`   | `now`      |
 | The day so far         | `now/d`    | `now`      |
 | This week              | `now/w`    | `now/w`    |
 | Week to date           | `now/w`    | `now`      |
-| Previous month         | `now-1M/M` | `now-1M/M` | ## Common time range controls The dashboard and panel time controls have a common user interface, with the following options. ### Current time range The current time range, also called the _time picker_, shows the time range currently displayed in the dashboard or panel that you are viewing. Pause on a field to see the exact timestamps in the range and their source, such as the local browser. To change the time range, choose on the current time range. You can change the current time using a _relative time range_, such as the last 15 minutes, or an _absolute time range_, such as `2020-05-14 00:00:00 to 2020-05-15 23:59:59`. ### Relative time range Select the relative time range from the **Relative time ranges** list. Here are some examples of relative time ranges: <br>• Last 30 minutes <br>• Last 12 hours <br>• Last 7 days <br>• Last 2 years <br>• Yesterday <br>• Day before yesterday <br>• This day last week <br>• Today so far <br>• This week so far <br>• This month so far ### Absolute time range Set an absolute time range one of two ways: <br>• Enter values in the **From** and **To** fields. You can enter exact time values or relative values, such as `now-24h`, and then choose **Apply time range**. <br>• Choose the **From** or **To** field. Amazon Managed Grafana displays a calendar. Choose the day or days that you want to use as the current time range and then choose **Apply time range**. Amazon Managed Grafana also displays recently used absolute ranges. ### Zoom out (Cmd+Z or Ctrl+Z) To view a larger time range in the dashboard or panel visualization, choose the **Time range zoom out** icon. ### Zoom in (for graph visualizations only) In the graph visuaization, drag to select the time range that you want to view. ### Refresh dashboard Choose the **Refresh dashboard** icon to run every query on the dashboard immediately and refresh the visualizations. Amazon Managed Grafana cancels any pending requests when a new refresh is started. By default, Amazon Managed Grafana does not automatically refresh the dashboard. Queries run on their own schedule according to the panel settings. However, if you want to regularly refresh the dashboard, choose the down arrow next to the **Refresh dashboard** icon, and then select a refresh interval. ## Dashboard time settings Time settings are saved on a per-dashboard basis. To access the dashboard time settings, choose the **Dashboard settings** (gear) icon at the top of the screen. The settings are in the **Time Options** section of the **General** tab. <br>• Timezone – The local time zone of the service or system that you are monitoring. This can be helpful when you monitor a system or service that operates across several time zones. + Default – The default selected time zone for the user profile, team, or organization. If no time zone is specified for the user profile, a team that the user is a member of, or the organization, Amazon Managed Grafana uses local browser time. + Browser Time The time zone that is configured for the browser that is being used. This is usually the time zone that is set on the computer. + Coordinated Universal Time – Standard ISO 8601 time zones, including UTC. For more information, see a [list of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"). <br>• Auto-refresh – Customizable options the relative time and auto-refresh settings. Entries are separated by commas and can be any valid time unit. <br>• Now delay now- – Time delay value that overrides the `now` value. Most commonly, this feature is used to avoid null values by accommodating known delays in data aggregation. <br>• Hide time picker – Option for not displaying the time picker. ## Panel time overrides and time shift In [Query options](panel-queries.md#query-options "panel-queries.md#query-options"), you can override the relative time range for individual panels, causing them to be different from what is selected in the dashboard time picker in the top navigation bar. You can show metrics from different time periods or days at the same time. ## Controlling the time range using a URL You can control the time range of a dashboard by providing the following query parameters in the dashboard URL: <br>• `from` – Defines the lower limit of the time range, specified in ms epoch or relative time. For more information, see [Relative time range](#relative-time-range "#relative-time-range"). <br>• `to` – Defines the upper limit of the time range, specified in ms epoch or relative time. For more information, see [Relative time range](#relative-time-range "#relative-time-range"). <br>• `time` and `time.window` – Define a time range from `time-time.window/2` to `time+time.window/2`. Both parameters should be specified in milliseconds. For example, `?time=1500000000000&time.window=10000` results in a 10-second time range from 1499999995000 to 1500000005000 |
+| Previous month         | `now-1M/M` | `now-1M/M` |
+
+## Common time range controls
+
+The dashboard and panel time controls have a common user interface, with the
+following options.
+
+### Current time range
+
+The current time range, also called the _time picker_,
+shows the time range currently displayed in the dashboard or panel that you are
+viewing.
+
+Pause on a field to see the exact timestamps in the range and their source,
+such as the local browser.
+
+To change the time range, choose on the current time range. You can change
+the current time using a _relative time range_, such as the
+last 15 minutes, or an _absolute time range_, such as
+`2020-05-14 00:00:00 to 2020-05-15 23:59:59`.
+
+### Relative time range
+
+Select the relative time range from the **Relative time
+ranges** list. Here are some examples of relative time ranges:
+
+- Last 30 minutes
+- Last 12 hours
+- Last 7 days
+- Last 2 years
+- Yesterday
+- Day before yesterday
+- This day last week
+- Today so far
+- This week so far
+- This month so far
+
+### Absolute time range
+
+Set an absolute time range one of two ways:
+
+- Enter values in the **From** and
+  **To** fields. You can enter exact time values or
+  relative values, such as `now-24h`, and then choose **Apply time range**.
+- Choose the **From** or **To**
+  field. Amazon Managed Grafana displays a calendar. Choose the day or days that you
+  want to use as the current time range and then choose **Apply
+  time range**.
+
+Amazon Managed Grafana also displays recently used absolute ranges.
+
+### Zoom out (Cmd+Z or Ctrl+Z)
+
+To view a larger time range in the dashboard or panel visualization, choose
+the **Time range zoom out** icon.
+
+### Zoom in (for
+
+graph visualizations only)
+
+In the graph visuaization, drag to select the time range that you want to
+view.
+
+### Refresh dashboard
+
+Choose the **Refresh dashboard** icon to run every query on
+the dashboard immediately and refresh the visualizations. Amazon Managed Grafana cancels any
+pending requests when a new refresh is started.
+
+By default, Amazon Managed Grafana does not automatically refresh the dashboard. Queries
+run on their own schedule according to the panel settings. However, if you want
+to regularly refresh the dashboard, choose the down arrow next to the
+**Refresh dashboard** icon, and then select a refresh
+interval.
+
+## Dashboard time settings
+
+Time settings are saved on a per-dashboard basis.
+
+To access the dashboard time settings, choose the **Dashboard
+settings** (gear) icon at the top of the screen. The settings are in
+the **Time Options** section of the **General**
+tab.
+
+- Timezone – The local time zone of the
+  service or system that you are monitoring. This can be helpful when you
+  monitor a system or service that operates across several time zones.
+  - Default – The default selected
+    time zone for the user profile, team, or organization. If no time
+    zone is specified for the user profile, a team that the user is a
+    member of, or the organization, Amazon Managed Grafana uses local browser time.
+  - Browser Time The time zone that is
+    configured for the browser that is being used. This is usually the
+    time zone that is set on the computer.
+  - Coordinated Universal Time –
+    Standard ISO 8601 time zones, including UTC. For more information,
+    see a [list of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones").
+
+- Auto-refresh – Customizable options the
+  relative time and auto-refresh settings. Entries are separated by commas and
+  can be any valid time unit.
+- Now delay now- – Time delay value that
+  overrides the `now` value. Most commonly, this feature is used to
+  avoid null values by accommodating known delays in data aggregation.
+- Hide time picker – Option for not
+  displaying the time picker.
+
+## Panel time overrides and time
+
+shift
+
+In [Query options](panel-queries.md#query-options "panel-queries.md#query-options"), you can
+override the relative time range for individual panels, causing them to be different
+from what is selected in the dashboard time picker in the top navigation bar. You
+can show metrics from different time periods or days at the same time.
+
+## Controlling the time range
+
+using a URL
+
+You can control the time range of a dashboard by providing the following query
+parameters in the dashboard URL:
+
+- `from` – Defines the lower limit of the time range,
+  specified in ms epoch or relative time. For more information, see [Relative time range](#relative-time-range "#relative-time-range").
+- `to` – Defines the upper limit of the time range, specified
+  in ms epoch or relative time. For more information, see [Relative time range](#relative-time-range "#relative-time-range").
+- `time` and `time.window` – Define a time range
+  from `time-time.window/2` to `time+time.window/2`.
+  Both parameters should be specified in milliseconds. For example,
+  `?time=1500000000000&time.window=10000` results in a
+  10-second time range from 1499999995000 to 1500000005000

@@ -106,9 +106,9 @@ children’s array.
 
 Required fields:
 
-| Field name | Type   | Description                                                                                                                |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
-| level      | number | The nesting level of the item. In other words how many items are between this item and the top item of the flame graph.    |
-| value      | number | The absolute or cumulative value of the item. This translates to the width of the item in the graph.                       |
-| label      | string | Label to be shown for the particular item.                                                                                 |
-| self       | number | Self value which is usually the cumulative value of the item minus the sum of cumulative values of its immediate children. |
+| Field name | Type   | Description                                                                                                                   |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| level      | number | The nesting level of the item. In other words how many items are<br>between this item and the top item of the flame graph.    |
+| value      | number | The absolute or cumulative value of the item. This translates to<br>the width of the item in the graph.                       |
+| label      | string | Label to be shown for the particular item.                                                                                    |
+| self       | number | Self value which is usually the cumulative value of the item<br>minus the sum of cumulative values of its immediate children. |

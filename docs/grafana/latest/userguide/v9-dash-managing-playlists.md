@@ -52,18 +52,119 @@ screen.
 The start playlist dialog box will open. 3. Select one of the five playlist modes available based on the information
 in the following table. 4. Click Start.
 
-| Mode                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normal mode                       | <br>• The side menu remains visible. <br>• The navigation bar, row, and panel controls appear at the top of the screen.                                                                                                                                                                                                                                                                                                                                            |
-| TV mode                           | <br>• The side menu and dashboard submenu (including variable dropdowns and dashboard links) are hidden or removed. <br>• The navigation bar, row, and panel controls appear at the top of the screen. <br>• Enabled automatically after one minute of user inactivity. <br>• Enable it manually using the `d v` sequence shortcut, or by appending the parameter `?inactive` to the dashboard URL. <br>• Disable it with any pointer movement or keyboard action. |
-| TV mode (with auto fit panels)    | <br>• The navigation bar, row, and panel controls appear at the top of the screen. <br>• Dashboard panels automatically adjust to optimize space on screen.                                                                                                                                                                                                                                                                                                        |
-| Kiosk mode                        | <br>• The side menu, navigation bar, ro and panel controls are completely hidden/removed from view. <br>• You can enable it manually using the d v sequence shortcut after the playlist has started. <br>• You can disable it manually with the same shortcut.                                                                                                                                                                                                     |
-| Kiosk mode (with auto fit panels) | <br>• The side menu, navigation bar, row, and panel controls are completely hidden/removed from view. <br>• Dashboard panels automatically adjust to optimize space on screen.                                                                                                                                                                                                                                                                                     | **Controlling a playlist** You can control a playlist in **Normal** or **TV** mode after it has started, using the navigation bar at the top of your screen. Press the `Esc` key in your keyboard to stop the playlist.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Button                            | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---                               | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Next (double-right arrow)         | Advances to the next dashboard.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Back (left arrow)                 | Returns to the previous dashboard.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Stop (square)                     | Ends the playlist, and exits to the current dashboard.                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Cycle view mode (monitor icon)    | Rotates the display of the dashboards in different view modes.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Time range                        | Displays data within a time range. It can be set to display the last 5 minutes up to 5 years ago, or a custom time range, using the down arrow.                                                                                                                                                                                                                                                                                                                    |
-| Refresh (circle arrow)            | Reloads the dashboard, to display the current data. It can be set to reload automatically every 5 seconds to 1 day, using the dropdown arrow.                                                                                                                                                                                                                                                                                                                      | ## Creating a playlist You can create a playlist to present dashboards in a sequence with a set order and time interval between dashboards. 1. Click **New playlist** on the playlist page. 2. Enter a descriptive name in the **Name** text box. 3. Enter a time interval in the **Interval** text box. ###### Note The dashboards you add are listed in a sequential order. 4. In **Dashboards**, add existing dashboards to the playlist using the **Add by title** and **Add by tag** dropdown options. 5. Optionally: <br>• Search for a dashboard by its name, a regular expression, or a tag. <br>• Filter your results by starred status or tags. <br>• Rearrange the order of the dashboard you have added using the up and down arrow icon. <br>• Remove a dashboard from the playlist by clicking the **X** icon beside dashboard. 6. Click **Save** to save your changes. ## Saving a playlist You can save a playlist and add it to your **Playlists** page, where you can start it. ###### Important Ensure all the dashboards that you want to appear in your playlist are added when creating or editing the playlist before saving it. 1. To access the playlist feature, hover your cursor over Grafana’s side menu. 2. Click **Playlists** to view the playlists available to you. 3. Click on the playlist of your choice. 4. Edit the playlist. 5. Check that the playlist has a **Name**, **Interval**, and at least one **Dashboard** added to it. 6. Click **Save** to save your changes. ## Editing or deleting a playlist You can edit a playlist by updating its name, interval time, and by adding, removing, and rearranging the order of dashboards. **Editing a playlist** 1. Click **Edit playlist** on the playlist page. 2. Update the name and time interval, then add or remove dashboards from the playlist using instructions in Create a playlist, above. 3. Click **Save** to save your changes. **Deleting a playlist** 1. Click **Playlists**. 2. Click **Remove** next to the playlist you want to delete. **Rearranging dashboard order** 1. Next to the dashboard you want to move, click the up or down arrow. 2. Click **Save** to save your changes. **Removing a dashboard** 1. Click **Remove** to remove a dashboard from the playlist. 2. Click **Save** to save your changes. ## Sharing a playlist in view mode You can share a playlist by copying the link address on the view mode you prefer, and pasting the URL to your destination. 1. From the **Dashboards** submenu, click **Playlists**. 2. Click **Start playlist** next to the playlist you want to share. 3. In the dropdown, right click the view mode you prefer. 4. Click **Copy Link Address** to copy the URL to your clipboard. 5. Paste the URL to your destination. |
+| Mode                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Normal mode                       | • The side menu remains visible.<br>• The navigation bar, row, and panel controls appear at the top<br>of the screen.                                                                                                                                                                                                                                                                                                                                                           |
+| TV mode                           | • The side menu and dashboard submenu (including<br>variable dropdowns and dashboard links) are hidden or<br>removed.<br>• The navigation bar, row, and panel controls appear at the top<br>of the screen.<br>• Enabled automatically after one minute of user<br>inactivity.<br>• Enable it manually using the `d v` sequence<br>shortcut, or by appending the parameter<br>`?inactive` to the dashboard URL.<br>• Disable it with any pointer movement or keyboard<br>action. |
+| TV mode (with auto fit panels)    | • The navigation bar, row, and panel controls appear at the top<br>of the screen.<br>• Dashboard panels automatically adjust to optimize<br>space on screen.                                                                                                                                                                                                                                                                                                                    |
+| Kiosk mode                        | • The side menu, navigation bar, ro and panel controls are<br>completely hidden/removed from view.<br>• You can enable it manually using the d v sequence<br>shortcut after the playlist has started.<br>• You can disable it manually with the same<br>shortcut.                                                                                                                                                                                                               |
+| Kiosk mode (with auto fit panels) | • The side menu, navigation bar, row, and panel controls are<br>completely hidden/removed from view.<br>• Dashboard panels automatically adjust to optimize<br>space on screen.                                                                                                                                                                                                                                                                                                 |
+
+**Controlling a playlist**
+
+You can control a playlist in **Normal** or **TV** mode after it has started, using the navigation bar at
+the top of your screen. Press the `Esc` key in your keyboard to stop the
+playlist.
+
+| Button                         | Action                                                                                                                                                |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Next (double-right arrow)      | Advances to the next dashboard.                                                                                                                       |
+| Back (left arrow)              | Returns to the previous dashboard.                                                                                                                    |
+| Stop (square)                  | Ends the playlist, and exits to the current<br>dashboard.                                                                                             |
+| Cycle view mode (monitor icon) | Rotates the display of the dashboards in different view<br>modes.                                                                                     |
+| Time range                     | Displays data within a time range. It can be set to display<br>the last 5 minutes up to 5 years ago, or a custom time range,<br>using the down arrow. |
+| Refresh (circle arrow)         | Reloads the dashboard, to display the current data. It can<br>be set to reload automatically every 5 seconds to 1 day, using<br>the dropdown arrow.   |
+
+## Creating a playlist
+
+You can create a playlist to present dashboards in a sequence with a set order and
+time interval between dashboards.
+
+1. Click **New playlist** on the playlist
+   page.
+2. Enter a descriptive name in the **Name** text
+   box.
+3. Enter a time interval in the **Interval**
+   text box.
+
+###### Note
+
+The dashboards you add are listed in a sequential order. 4. In **Dashboards**, add existing dashboards to
+the playlist using the **Add by title** and
+**Add by tag** dropdown options. 5. Optionally:
+
+    * Search for a dashboard by its name, a regular expression, or a
+     tag.
+    * Filter your results by starred status or tags.
+    * Rearrange the order of the dashboard you have added using the up
+     and down arrow icon.
+    * Remove a dashboard from the playlist by clicking the **X** icon beside dashboard.
+
+6. Click **Save** to save your changes.
+
+## Saving a playlist
+
+You can save a playlist and add it to your **Playlists** page, where you can start it.
+
+###### Important
+
+Ensure all the dashboards that you want to appear in your playlist are added
+when creating or editing the playlist before saving it.
+
+1. To access the playlist feature, hover your cursor over Grafana’s side
+   menu.
+2. Click **Playlists** to view the playlists
+   available to you.
+3. Click on the playlist of your choice.
+4. Edit the playlist.
+5. Check that the playlist has a **Name**,
+   **Interval**, and at least one **Dashboard** added to it.
+6. Click **Save** to save your changes.
+
+## Editing or deleting a
+
+playlist
+
+You can edit a playlist by updating its name, interval time, and by adding,
+removing, and rearranging the order of dashboards.
+
+**Editing a playlist**
+
+1. Click **Edit playlist** on the playlist
+   page.
+2. Update the name and time interval, then add or remove dashboards from the
+   playlist using instructions in Create a playlist, above.
+3. Click **Save** to save your changes.
+
+**Deleting a playlist**
+
+1. Click **Playlists**.
+2. Click **Remove** next to the playlist you
+   want to delete.
+
+**Rearranging dashboard order**
+
+1. Next to the dashboard you want to move, click the up or down arrow.
+2. Click **Save** to save your changes.
+
+**Removing a dashboard**
+
+1. Click **Remove** to remove a dashboard from
+   the playlist.
+2. Click **Save** to save your changes.
+
+## Sharing a playlist in view
+
+mode
+
+You can share a playlist by copying the link address on the view mode you prefer,
+and pasting the URL to your destination.
+
+1. From the **Dashboards** submenu, click
+   **Playlists**.
+2. Click **Start playlist** next to the playlist
+   you want to share.
+3. In the dropdown, right click the view mode you prefer.
+4. Click **Copy Link Address** to copy the URL
+   to your clipboard.
+5. Paste the URL to your destination.

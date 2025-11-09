@@ -27,11 +27,11 @@ self-managed Grafana server.
 
 ## AWS IoT SiteWise settings
 
-| Name                     | Description                                                                                            |
-| ------------------------ | ------------------------------------------------------------------------------------------------------ |
-| Name                     | The data source name. This is how you see the data source in panels and queries.                       |
-| Auth Provider            | Specify the provider to get credentials.                                                               |
-| Default Region           | Used in query editor to set the region (can be changed on per query basis).                            |
-| Credentials profile name | Specify the name of the profile to use (if you use `~/.aws/credentials` file); keep blank for default. |
-| Assume Role Arn          | Specify the ARN of the role to assume.                                                                 |
-| Endpoint (optional)      | If you must specify an alternate service endpoint.                                                     |
+| Name                     | Description                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Name                     | The data source name. This is how you see the data source in<br>panels and queries.                          |
+| Auth Provider            | Specify the provider to get credentials.                                                                     |
+| Default Region           | Used in query editor to set the region (can be changed on<br>per query basis).                               |
+| Credentials profile name | Specify the name of the profile to use (if you use<br>`~/.aws/credentials` file); keep blank for<br>default. |
+| Assume Role Arn          | Specify the ARN of the role to assume.                                                                       |
+| Endpoint (optional)      | If you must specify an alternate service endpoint.                                                           |

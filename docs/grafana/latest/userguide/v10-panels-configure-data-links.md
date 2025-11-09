@@ -115,7 +115,34 @@ is the name of the template variable that matches one in the current
 dashboard that you want to use.
 
 | Variable state           | Result in the created URL           |
-| ------------------------ | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ----------------------------------- |
 | selected one value       | `var-myvar=value1`                  |
 | selected multiple values | `var-myvar=value1&var-myvar=value2` |
-| selected `All`           | `var-myvar=All`                     | If you want to add all of the current dashboard’s variables to the URL, then use `${__all_variables}`. ## Adding a data link You can add data links to your panels. 1. Navigate to the panel to which you want to add the data link. 2. Hover over the panel to display the menu icon in the upper-right corner. 3. From the menu, choose **Edit** to open the panel editor. 4. In the **Panel edit** pane, scroll down to the **Data links** section and expand it. 5. Choose **Add link**. 6. In the dialog box that opens, enter a **Title**. This is a human-readable label for the link, which will be displayed in the UI. 7. Enter the **URL** or variable you want to link to. To add a data link variable, select the **URL** field and then enter `$` or press Ctrl+Space or Cmd+Space to see a list of available variables. 8. If you want the link to open in a new tab, then select **Open in a new tab**. 9. Choose **Save** to save changes and close the dialog box. 10. Save your changes to the dashboard. |
+| selected `All`           | `var-myvar=All`                     |
+
+If you want to add all of the current dashboard’s variables to the URL, then use
+`${__all_variables}`.
+
+## Adding a data link
+
+You can add data links to your panels.
+
+1. Navigate to the panel to which you want to add the data link.
+2. Hover over the panel to display the menu icon in the upper-right
+   corner.
+3. From the menu, choose **Edit** to open the panel
+   editor.
+4. In the **Panel edit** pane, scroll down to the
+   **Data links** section and expand it.
+5. Choose **Add link**.
+6. In the dialog box that opens, enter a **Title**.
+   This is a human-readable label for the link, which will be
+   displayed in the UI.
+7. Enter the **URL** or variable you want to link
+   to.
+
+To add a data link variable, select the **URL** field
+and then enter `$` or press Ctrl+Space or Cmd+Space to see a
+list of available variables. 8. If you want the link to open in a new tab, then select **Open
+in a new tab**. 9. Choose **Save** to save changes and close the
+dialog box. 10. Save your changes to the dashboard.

@@ -114,15 +114,39 @@ monitoring data.
 
 The following table lists the contact point types supported by Grafana.
 
-| Name            | Type                                                    |
-| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Amazon SNS      | `sns`                                                   |
-| OpsGenie        | `opsgenie`                                              |
-| Pager Duty      | `pagerduty`                                             |
-| Slack           | `slack`                                                 |
-| VictorOps       | `victorops`                                             | **Configuring PagerDuty for alerting** To set up PagerDuty, you must provide an integration key. Provide the following details.                                                                                                                                                                                                                                                |
-| Setting         | Description                                             |
-| ---             | ---                                                     |
-| Integration Key | Integration key for PagerDuty                           |
-| Severity        | Level for dynamic notifications. Default is `critical`. |
-| Custom Details  | Additional details about the event                      | The `CustomDetails` field is an object containing arbitrary key-value pairs. The user-defined details are merged with the ones used by default. The default values for `CustomDetails` are: ```{ "firing":      `{{ template "__text_alert_list" .Alerts.Firing }}`, "resolved":     `{{ template "__text_alert_list" .Alerts.Resolved }}`, "num_firing":   `{{ .Alerts.Firing | len }}`, "num_resolved": `{{ .Alerts.Resolved | len }}`, } ``` In case of duplicate keys, the user-defined details overwrite the default ones. |
+| Name       | Type        |
+| ---------- | ----------- |
+| Amazon SNS | `sns`       |
+| OpsGenie   | `opsgenie`  |
+| Pager Duty | `pagerduty` |
+| Slack      | `slack`     |
+| VictorOps  | `victorops` |
+
+**Configuring PagerDuty for alerting**
+
+To set up PagerDuty, you must provide an integration key. Provide the
+following details.
+
+| Setting         | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| Integration Key | Integration key for PagerDuty                              |
+| Severity        | Level for dynamic notifications. Default is<br>`critical`. |
+| Custom Details  | Additional details about the event                         |
+
+The `CustomDetails` field is an object containing arbitrary
+key-value pairs. The user-defined details are merged with the ones used by
+default.
+
+The default values for `CustomDetails` are:
+
+```
+{
+	"firing":       `{{ template "__text_alert_list" .Alerts.Firing }}`,
+	"resolved":     `{{ template "__text_alert_list" .Alerts.Resolved }}`,
+	"num_firing":   `{{ .Alerts.Firing | len }}`,
+	"num_resolved": `{{ .Alerts.Resolved | len }}`,
+}
+```
+
+In case of duplicate keys, the user-defined details overwrite the default
+ones.

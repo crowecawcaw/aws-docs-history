@@ -92,5 +92,54 @@ You can customize the query history in the Settings tab. Options are described
 in the table below.
 
 | Setting                       | Default value     |
-| ----------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Change the default active tab | Query history tab | ###### Note Query history settings are global, and applied to both panels in split mode. ## Prometheus-specific Features Explore features a custom querying experience for Prometheus. When a query is run, it actually runs two queries, a normal Prometheus query for the graph and an _Instant Query_ for the table. An Instant Query returns the last value for each time series which shows a good summary of the data shown in the graph. **Metrics explorer** On the left side of the query field, choose **Metrics** to open the Metric Explorer. This shows a hierarchical menu with metrics grouped by their prefix. For example, all Alertmanager metrics are grouped under the `alertmanager` prefix. This is a good starting point if you just want to explore which metrics are available. **Query field** The Query field supports autocomplete for metric names and functions, comparable to the standard Prometheus query editor. You can press the Enter key to create a new line and Shift+Enter to run a query. The autocomplete menu can be triggered by pressing Ctrl+Space. The Autocomplete menu contains a new History section with a list of recently run queries. Suggestions can appear under the query field - select on them to update your query with the suggested change. <br>• For counters (monotonically increasing metrics), a rate function will be suggested. <br>• For buckets, a histogram function will be suggested. <br>• For recording rules, possible to expand the rules. **Table filters** Select the filter button in the **label** column of a Table panel to add filters to the query expression. You can add filters for multiple queries as well - the filter is added for all the queries. |
+| ----------------------------- | ----------------- |
+| Change the default active tab | Query history tab |
+
+###### Note
+
+Query history settings are global,
+and applied to both panels in split mode.
+
+## Prometheus-specific
+
+Features
+
+Explore features a custom querying experience for Prometheus.
+When a query is run, it actually runs two queries, a normal Prometheus
+query for the graph and an _Instant Query_ for the table. An
+Instant Query returns the
+last value for each time series which shows a good summary of the data shown in the
+graph.
+
+**Metrics explorer**
+
+On the left side of the query field, choose **Metrics** to open the Metric Explorer. This shows a hierarchical
+menu with metrics grouped by their prefix. For example, all Alertmanager metrics
+are grouped under the `alertmanager` prefix. This
+is a good starting point if you just want to explore which metrics are
+available.
+
+**Query field**
+
+The Query field supports autocomplete for metric names and functions,
+comparable to the standard Prometheus query editor. You can press the Enter key to
+create a new line and Shift+Enter to run a query.
+
+The autocomplete menu can be triggered by pressing Ctrl+Space. The
+Autocomplete menu contains a new History section with a list of recently
+run queries.
+
+Suggestions can appear under the query field - select on them to update your
+query with the suggested change.
+
+- For counters (monotonically increasing metrics), a rate function
+  will be suggested.
+- For buckets, a histogram function will be suggested.
+- For recording rules, possible to expand the rules.
+
+**Table filters**
+
+Select the filter button in the **label** column of a
+Table panel to add
+filters to the query expression. You can add filters for multiple queries as
+well - the filter is added for all the queries.

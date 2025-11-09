@@ -50,7 +50,7 @@ variables to see how the visualizations change.
 
 To see variable settings, navigate to **Dashboard Settings >
 Variables**. Click a variable in the list to see its
-settings.
+settings. 
 
 Variables can be used in titles, descriptions, text panels, and queries. Queries with
 text that starts with `$` are templates. Not all panels will have template

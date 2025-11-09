@@ -143,16 +143,64 @@ type can be `metric` or `problem`.
   `Aggregation`, `Display Name`,
   `Host`, and `Description`.
 
-| Name                       | Value                                                                                    |
-| -------------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$name`                    | builtin:apps.other.keyUserActions.reportedErrorCount.os                                  |
-| `$aggregation`             | auto,value                                                                               |
-| `$displayName`             | Reported error count (by key user action, OS) [mobile, custom]                           | **Problems query type** <br>• `Problem Query Type`— Select a problem query type. Currently, only the feed problem query type is supported. For information about the feed problem query type, see [Merge transformation](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/metric-selector/#merge-transformation "https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/metric-selector/#merge-transformation") <br>• `Status Filter`— Filter the result problems by the status. <br>• `Impact Filter`— Filter the result problems by the impact level. <br>• `Severity Filter`— Filter the result problems by the severity level. <br>• `Expand Details`— Include related events to the response, if set.. #### Using template variables To add a new Dynatrace query variable, see [add a new template variable](variables-types.md#add-a-query-variable "variables-types.md#add-a-query-variable"). Use your Dynatrace data source as your data source for the following available queries: <br>• `Query type`— Select a query type. The query type associates some data with some key or descriptor. |
-| Query type                 | Description                                                                              |
-| ---                        | ---                                                                                      |
-| `Metric names`             | Returns a list of all metric names                                                       |
-| `Filter keys`              | Returns a list of all the possible dimensions (e.g. Hostname) that can be used to filter |
-| `Filter values for key`    | Returns a list of all filtered values by a key name or a key name template variable      |
-| `Problem status options`   | Returns a list of all problem statuses                                                   |
-| `Problem impact options`   | Returns a list of all problem impacted areas                                             |
-| `Problem severity options` | Returns a list of all problem severity types                                             | <br>• `Regex`— (Optional) Filter out any of the returned values from your query with a regular expression. ###### Note `Multi-value` and `Include All option` are currently not supported by the Dynatrace data source. After creating a variable, you can find it in the **Metric** drop-down menu. ##### Import a dashboard for Dynatrace To import a dashboard, see [Importing a dashboard](dashboard-export-and-import.md#importing-a-dashboard "dashboard-export-and-import.md#importing-a-dashboard"). Imported dashboards can be found in **Configuration** > **Data Sources** > select your Dynatrace data source > select the **Dashboards** tab to see available pre-made dashboards.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Name           | Value                                                             |
+| -------------- | ----------------------------------------------------------------- |
+| `$name`        | builtin:apps.other.keyUserActions.reportedErrorCount.os           |
+| `$aggregation` | auto,value                                                        |
+| `$displayName` | Reported error count (by key user action, OS) [mobile,<br>custom] |
+
+**Problems query type**
+
+- `Problem Query Type`— Select a problem query
+  type. Currently, only the feed problem query type is supported. For
+  information about the feed problem query type, see [Merge transformation](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/metric-selector/#merge-transformation "https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/metric-selector/#merge-transformation")
+- `Status Filter`— Filter the result problems by
+  the status.
+- `Impact Filter`— Filter the result problems by
+  the impact level.
+- `Severity Filter`— Filter the result problems by
+  the severity level.
+- `Expand Details`— Include related events to the
+  response, if set..
+
+#### Using template
+
+variables
+
+To add a new Dynatrace query variable, see [add a new template variable](variables-types.md#add-a-query-variable "variables-types.md#add-a-query-variable").
+Use your Dynatrace data source as your data source for the following
+available queries:
+
+- `Query type`— Select a query type. The query
+  type associates some data with some key or descriptor.
+
+| Query type                 | Description                                                                                    |
+| -------------------------- | ---------------------------------------------------------------------------------------------- |
+| `Metric names`             | Returns a list of all metric names                                                             |
+| `Filter keys`              | Returns a list of all the possible<br>dimensions (e.g. Hostname) that can be used to<br>filter |
+| `Filter values for key`    | Returns a list of all filtered values by a<br>key name or a key name template variable         |
+| `Problem status options`   | Returns a list of all problem<br>statuses                                                      |
+| `Problem impact options`   | Returns a list of all problem impacted<br>areas                                                |
+| `Problem severity options` | Returns a list of all problem severity<br>types                                                |
+
+- `Regex`— (Optional) Filter out any of the
+  returned values from your query with a regular
+  expression.
+
+###### Note
+
+`Multi-value` and `Include All option` are
+currently not supported by the Dynatrace data source.
+
+After creating a variable, you can find it in the
+**Metric** drop-down menu.
+
+##### Import a dashboard for
+
+Dynatrace
+
+To import a dashboard, see [Importing a dashboard](dashboard-export-and-import.md#importing-a-dashboard "dashboard-export-and-import.md#importing-a-dashboard"). Imported dashboards can
+be found in **Configuration** > **Data
+Sources** > select your Dynatrace data source > select
+the **Dashboards** tab to see available pre-made
+dashboards.

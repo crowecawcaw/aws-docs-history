@@ -48,12 +48,12 @@ editor.
 
 The following alias patterns apply.
 
-| Alias pattern          | Description                                                               | Example result   |
-| ---------------------- | ------------------------------------------------------------------------- | ---------------- |
-| `{{region}}`           | Returns the Region.                                                       | `us-east-1`      |
-| `{{period}}`           | Returns the period.                                                       | `3000`           |
-| `{{metric}}`           | Returns the metric.                                                       | `CPUUtilization` |
-| `{{label}}`            | Returns the label returned by the API operation (**Metric Search** only). | `i-01343`        |
-| `{{namespace}}`        | Returns the namespace (**Metric Search** only).                           | `AWS/EC2`        |
-| `{{stat}}`             | Returns the statistic (**Metric Search** only).                           | `Average`        |
-| `{{[dimension name]}}` | Returns the dimension name (**Metric Search** only).                      | `i-01343`        |
+| Alias pattern          | Description                                                                     | Example result   |
+| ---------------------- | ------------------------------------------------------------------------------- | ---------------- |
+| `{{region}}`           | Returns the Region.                                                             | `us-east-1`      |
+| `{{period}}`           | Returns the period.                                                             | `3000`           |
+| `{{metric}}`           | Returns the metric.                                                             | `CPUUtilization` |
+| `{{label}}`            | Returns the label returned by the API<br>operation (**Metric Search**<br>only). | `i-01343`        |
+| `{{namespace}}`        | Returns the namespace (\*_Metric<br>Search_<br>• only).                         | `AWS/EC2`        |
+| `{{stat}}`             | Returns the statistic (\*_Metric<br>Search_<br>• only).                         | `Average`        |
+| `{{[dimension name]}}` | Returns the dimension name<br>(\*_Metric Search_<br>• only).                    | `i-01343`        |

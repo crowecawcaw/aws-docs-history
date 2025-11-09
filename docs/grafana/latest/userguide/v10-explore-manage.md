@@ -96,5 +96,10 @@ You can customize the query history in the Settings tab. Options are described
 in the following table.
 
 | Setting                       | Default value     |
-| ----------------------------- | ----------------- | ---------------------------------------------------------------------------------------- |
-| Change the default active tab | Query history tab | ###### Note Query history settings are global, and applied to both panels in split mode. |
+| ----------------------------- | ----------------- |
+| Change the default active tab | Query history tab |
+
+###### Note
+
+Query history settings are global,
+and applied to both panels in split mode.

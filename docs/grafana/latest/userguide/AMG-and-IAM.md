@@ -11,15 +11,15 @@ IAM.](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/User
 
 The following table displays possible Amazon Managed Grafana actions and their required permissions:
 
-| Action                                                                                                                                                 | Required permission                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
-| Create an Amazon Managed Grafana workspace. A workspace is a logically isolated Grafana server used to create and visualize metrics, logs, and traces. | `grafana:CreateWorkspace`                 |
-| Delete an Amazon Managed Grafana workspace.                                                                                                            | `grafana:DeleteWorkspace`                 |
-| Retrieve detailed information about an Amazon Managed Grafana workspace.                                                                               | `grafana:DescribeWorkspace`               |
-| Retrieve the authentication configuration associated with a workspace.                                                                                 | `grafana:DescribeWorkspaceAuthentication` |
-| Retrieve a list of permissions associated with workspace users and groups.                                                                             | `grafana:ListPermissions`                 |
-| Retrieve a list of the Amazon Managed Grafana workspaces that exist in the account.                                                                    | `grafana:ListWorkspaces`                  |
-| Update the permissions associated with workspace users and groups.                                                                                     | `grafana:UpdatePermissions`               |
-| Update Amazon Managed Grafana workspaces.                                                                                                              | `grafana:UpdateWorkspace`                 |
-| Update the authentication configuration associated with a workspace.                                                                                   | `grafana:UpdateWorkspaceAuthentication`   |
-| Associate a Grafana enterprise license with a workspace.                                                                                               | `grafana:AssociateLicense`                |
+| Action                                                                                                                                                       | Required permission                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| Create an Amazon Managed Grafana workspace. A workspace is a logically isolated Grafana server<br>used<br>to create and visualize metrics, logs, and traces. | `grafana:CreateWorkspace`                 |
+| Delete an Amazon Managed Grafana workspace.                                                                                                                  | `grafana:DeleteWorkspace`                 |
+| Retrieve detailed information about an Amazon Managed Grafana workspace.                                                                                     | `grafana:DescribeWorkspace`               |
+| Retrieve the authentication configuration associated with a workspace.                                                                                       | `grafana:DescribeWorkspaceAuthentication` |
+| Retrieve a list of permissions associated with workspace users and groups.                                                                                   | `grafana:ListPermissions`                 |
+| Retrieve a list of the Amazon Managed Grafana workspaces that exist in the account.                                                                          | `grafana:ListWorkspaces`                  |
+| Update the permissions associated with workspace users and groups.                                                                                           | `grafana:UpdatePermissions`               |
+| Update Amazon Managed Grafana workspaces.                                                                                                                    | `grafana:UpdateWorkspace`                 |
+| Update the authentication configuration associated with a workspace.                                                                                         | `grafana:UpdateWorkspaceAuthentication`   |
+| Associate a Grafana enterprise license with a workspace.                                                                                                     | `grafana:AssociateLicense`                |

@@ -17,34 +17,62 @@ templates.
 
 The alert type contains the following data.
 
-| Name              | Kind       | Description                                                                                                                                    | Example                                                     |
-| ----------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Status            | string     | `firing` or `resolved`.                                                                                                                        | `{{ .Status }}`                                             |
-| Labels            | KeyValue   | A set of labels attached to the alert.                                                                                                         | `{{ .Labels }}`                                             |
-| Annotations       | KeyValue   | A set of annotations attached to the alert.                                                                                                    | `{{ .Annotations }}`                                        |
-| Values            | KeyValue   | The values of all expressions, including Classic Conditions                                                                                    | `{{ .Values }}`                                             |
-| StartsAt          | time.Time  | Time the alert started firing.                                                                                                                 | `{{ .StartsAt }}`                                           |
-| EndsAt            | time.Time  | Only set if the end time of an alert is known. Otherwise set to a configurable timeout period from the time since the last alert was received. | `{{ .EndsAt }}`                                             |
-| GeneratorURL      | string     | A back link to Grafana or external Alertmanager.                                                                                               | `{{ .GeneratorURL }}`                                       |
-| SilenceURL        | string     | A link to silence the alert (with labels for this alert pre-filled). Only for Grafana managed alerts.                                          | `{{ .SilenceURL}}`                                          |
-| DashboardURL      | string     | Link to grafana dashboard, if alert rule belongs to one. Only for Grafana managed alerts.                                                      | `{{ .DashboardURL }}`                                       |
-| PanelURL          | string     | Link to grafana dashboard panel, if alert rule belongs to one. Only for Grafana managed alerts.                                                | `{{ .PanelURL }}`                                           |
-| Fingerprint       | string     | Fingerprint that can be used to identify the alert.                                                                                            | `{{ .Fingerprint }}`                                        |
-| ValueString       | string     | A string that contains the labels and value of each reduced expression in the alert.                                                           | `{{ .ValueString }}`                                        | **ExtendedData** The ExtendedData object contains the following properties.                                                                                                                                                                               |
-| Name              | Kind       | Description                                                                                                                                    | Example                                                     |
-| ---               | ---        | ---                                                                                                                                            | ---                                                         |
-| Receiver          | `string`   | The name of the contact point sending the notification.                                                                                        | `{{ .Receiver }}`                                           |
-| Status            | `string`   | The status is `firing` if at least one alert is firing, otherwise `resolved`.                                                                  | `{{ .Status }}`                                             |
-| Alerts            | `[]Alert`  | List of all firing and resolved alerts in this notification.                                                                                   | `There are {{ len .Alerts }} alerts`                        |
-| Firing alerts     | `[]Alert`  | List of all firing alerts in this notification.                                                                                                | `There are {{ len .Alerts.Firing }} firing alerts`          |
-| Resolved alerts   | `[]Alert`  | List of all resolved alerts in this notification.                                                                                              | `There are {{ len .Alerts.Resolved }} resolved alerts`      |
-| GroupLabels       | `KeyValue` | The labels that group these alerts int his notification.                                                                                       | `{{ .GroupLabels }}`                                        |
-| CommonLabels      | `KeyValue` | The labels common to all alerts in this notification.                                                                                          | `{{ .CommonLabels }}`                                       |
-| CommonAnnotations | `KeyValue` | The annotations common to all alerts in this notification.                                                                                     | `{{ .CommonAnnotations }}`                                  |
-| ExternalURL       | `string`   | A link to the Grafana workspace or Alertmanager that sent this notification.                                                                   | `{{ .ExternalURL }}`                                        | **KeyValue type** The `KeyValue` type is a set of key/value string pairs that represent labels and annotations. In addition to direct access of the data stored as a `KeyValue`, there are also methods for sorting, removing, and transforming the data. |
-| Name              | Arguments  | Returns                                                                                                                                        | Notes                                                       | Example                                                                                                                                                                                                                                                   |
-| ---               | ---        | ---                                                                                                                                            | ---                                                         | ---                                                                                                                                                                                                                                                       |
-| SortedPairs       |            | Sorted list of key and value string pairs                                                                                                      |                                                             | `{{ .Annotations.SortedPairs }}`                                                                                                                                                                                                                          |
-| Remove            | []string   | KeyValue                                                                                                                                       | Returns a copy of the Key/Value map without the given keys. | `{{ .Annotations.Remove "summary" }}`                                                                                                                                                                                                                     |
-| Names             |            | []string                                                                                                                                       | List of names                                               | `{{ .Names }}`                                                                                                                                                                                                                                            |
-| Values            |            | []string                                                                                                                                       | List of values                                              | `{{ .Values }}`                                                                                                                                                                                                                                           | **Time** Time is from the Go [`time`](https://pkg.go.dev/time#Time "https://pkg.go.dev/time#Time") package. You can print a time in a number of different formats. For example, to print the time that an alert fired in the format `Monday, 1st January 2022 at 10:00AM`, you write the following template: `{{ .StartsAt.Format "Monday, 2 January 2006 at 3:04PM" }}` You can find a reference for Go’s time format [here](https://pkg.go.dev/time#pkg-constants "https://pkg.go.dev/time#pkg-constants"). |
+| Name         | Kind      | Description                                                                                                                                          | Example               |
+| ------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| Status       | string    | `firing` or `resolved`.                                                                                                                              | `{{ .Status }}`       |
+| Labels       | KeyValue  | A set of labels attached to the alert.                                                                                                               | `{{ .Labels }}`       |
+| Annotations  | KeyValue  | A set of annotations attached to the alert.                                                                                                          | `{{ .Annotations }}`  |
+| Values       | KeyValue  | The values of all expressions, including Classic<br>Conditions                                                                                       | `{{ .Values }}`       |
+| StartsAt     | time.Time | Time the alert started firing.                                                                                                                       | `{{ .StartsAt }}`     |
+| EndsAt       | time.Time | Only set if the end time of an alert is known. Otherwise<br>set to a configurable timeout period from the time since the<br>last alert was received. | `{{ .EndsAt }}`       |
+| GeneratorURL | string    | A back link to Grafana or external Alertmanager.                                                                                                     | `{{ .GeneratorURL }}` |
+| SilenceURL   | string    | A link to silence the alert (with labels for this alert<br>pre-filled). Only for Grafana managed alerts.                                             | `{{ .SilenceURL}}`    |
+| DashboardURL | string    | Link to grafana dashboard, if alert rule belongs to one.<br>Only for Grafana managed alerts.                                                         | `{{ .DashboardURL }}` |
+| PanelURL     | string    | Link to grafana dashboard panel, if alert rule belongs to<br>one. Only for Grafana managed alerts.                                                   | `{{ .PanelURL }}`     |
+| Fingerprint  | string    | Fingerprint that can be used to identify the alert.                                                                                                  | `{{ .Fingerprint }}`  |
+| ValueString  | string    | A string that contains the labels and value of each<br>reduced expression in the alert.                                                              | `{{ .ValueString }}`  |
+
+**ExtendedData**
+
+The ExtendedData object contains the following properties.
+
+| Name              | Kind       | Description                                                                      | Example                                                   |
+| ----------------- | ---------- | -------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Receiver          | `string`   | The name of the contact point sending the<br>notification.                       | `{{ .Receiver }}`                                         |
+| Status            | `string`   | The status is `firing` if at least one alert is<br>firing, otherwise `resolved`. | `{{ .Status }}`                                           |
+| Alerts            | `[]Alert`  | List of all firing and resolved alerts in this<br>notification.                  | `There are {{ len .Alerts }} alerts`                      |
+| Firing alerts     | `[]Alert`  | List of all firing alerts in this notification.                                  | `There are {{ len .Alerts.Firing }} firing<br>alerts`     |
+| Resolved alerts   | `[]Alert`  | List of all resolved alerts in this<br>notification.                             | `There are {{ len .Alerts.Resolved }} resolved<br>alerts` |
+| GroupLabels       | `KeyValue` | The labels that group these alerts int his<br>notification.                      | `{{ .GroupLabels }}`                                      |
+| CommonLabels      | `KeyValue` | The labels common to all alerts in this<br>notification.                         | `{{ .CommonLabels }}`                                     |
+| CommonAnnotations | `KeyValue` | The annotations common to all alerts in this<br>notification.                    | `{{ .CommonAnnotations }}`                                |
+| ExternalURL       | `string`   | A link to the Grafana workspace or Alertmanager that<br>sent this notification.  | `{{ .ExternalURL }}`                                      |
+
+**KeyValue type**
+
+The `KeyValue` type is a set of key/value string pairs that represent
+labels and annotations.
+
+In addition to direct access of the data stored as a
+`KeyValue`, there are also methods for sorting, removing, and
+transforming the data.
+
+| Name        | Arguments | Returns                                   | Notes                                                          | Example                               |
+| ----------- | --------- | ----------------------------------------- | -------------------------------------------------------------- | ------------------------------------- |
+| SortedPairs |           | Sorted list of key and value string pairs |                                                                | `{{ .Annotations.SortedPairs }}`      |
+| Remove      | []string  | KeyValue                                  | Returns a copy of the Key/Value map without the given<br>keys. | `{{ .Annotations.Remove "summary" }}` |
+| Names       |           | []string                                  | List of names                                                  | `{{ .Names }}`                        |
+| Values      |           | []string                                  | List of values                                                 | `{{ .Values }}`                       |
+
+**Time**
+
+Time is from the Go [`time`](https://pkg.go.dev/time#Time "https://pkg.go.dev/time#Time") package. You can print a time in a number
+of different formats. For example, to print the time that an alert
+fired in the format `Monday, 1st January 2022 at 10:00AM`,
+you write the following template:
+
+```
+{{ .StartsAt.Format "Monday, 2 January 2006 at 3:04PM" }}
+```
+
+You can find a reference for Go’s time format [here](https://pkg.go.dev/time#pkg-constants "https://pkg.go.dev/time#pkg-constants").

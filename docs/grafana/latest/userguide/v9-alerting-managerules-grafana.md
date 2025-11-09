@@ -246,13 +246,16 @@ when there are errors.
 
 The options for handling no data are listed in the following table.
 
-| No Data option          | Behavior                                                                                                                                |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| No Data                 | Create an alert `DatasourceNoData` with the name and UID of the alert rule, and UID of the data source that returned no data as labels. |
-| Alerting                | Set alert rule state to `Alerting`.                                                                                                     |
-| OK                      | Set alert rule state to `Normal`.                                                                                                       | The options for handling error cases are listed in the following table. |
-| Error or timeout option | Behavior                                                                                                                                |
-| ---                     | ---                                                                                                                                     |
-| Alerting                | Set alert rule state to `Alerting`                                                                                                      |
-| OK                      | Set alert rule state to `Normal`                                                                                                        |
-| Error                   | Create an alert `DatasourceError` with the name and UID of the alert rule, and UID of the data source that returned no data as labels.  |
+| No Data option | Behavior                                                                                                                                      |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| No Data        | Create an alert `DatasourceNoData` with the<br>name and UID of the alert rule, and UID of the data source<br>that returned no data as labels. |
+| Alerting       | Set alert rule state to `Alerting`.                                                                                                           |
+| OK             | Set alert rule state to `Normal`.                                                                                                             |
+
+The options for handling error cases are listed in the following table.
+
+| Error or timeout option | Behavior                                                                                                                                     |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Alerting                | Set alert rule state to `Alerting`                                                                                                           |
+| OK                      | Set alert rule state to `Normal`                                                                                                             |
+| Error                   | Create an alert `DatasourceError` with the name<br>and UID of the alert rule, and UID of the data source that<br>returned no data as labels. |

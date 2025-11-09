@@ -35,36 +35,250 @@ If you're not seeing the **Data Sources** link in your
 side menu, it means that your current user does not have the
 `Admin` role.
 
-| Name                                                                 | Description                                                                                                                                                           |
-| -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Name`                                                               | The data source name. This is how you see the data source in panels and queries.                                                                                      |
-| `Default`                                                            | Default data source means that it will be pre-selected for new panels.                                                                                                |
-| `Url`                                                                | The HTTP protocol, IP, and port of your OpenSearch server.                                                                                                            |
-| `Access`                                                             | Server (default) = URL must be accessible from the Grafana backend/server. Browser = URL must be accessible from the browser.                                         | Access mode controls how requests to the data source will be handled. Server should be the preferred way if nothing else is stated. ### Server access mode (default) All requests are made from the browser to Grafana backend or server, which forwards the requests to the data source, circumventing possible Cross-Origin Resource Sharing (CORS) requirements. If you select this access mode, the URL must be accessible from the Grafana backend or server. ### Browser (direct) access Amazon Managed Grafana does not support browser direct access for the OpenSearch data source. ### Index settings Here you can specify a default for the `time field` and specify the name of your OpenSearch index. You can use a time pattern for the index name or a wildcard character. ### OpenSearch/Elasticsearch version Specify your OpenSearch or legacy Elasticsearch version in the version dropdown menu. The version is important because there are differences in how queries are composed for each version. Currently, Grafana supports OpenSearch 1.0.x. Supported versions of Elasticsearch are `2.0+`, `5.0+`, `5.6+`, `6.0+`, and `7.0+`. The value `5.6+` means version 5.6 or higher, but lower than 6.0. The value `6.0+` means version 6.0 or higher, but lower than 7.0. Finally, `7.0+` means version 7.0 or higher, but lower than 8.0. ### Min time interval A lower limit for the auto group by time interval. Recommended to be set to write frequency; for example, `1m` if your data is written every minute. This option can also be overridden/configured in a dashboard panel under data source options. This value **must** be formatted as a number followed by a valid time identifier; for example, `1m` (1 minute) or `30s` (30 seconds). The following time identifiers are supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Identifier                                                           | Description                                                                                                                                                           |
-| ---                                                                  | ---                                                                                                                                                                   |
-| `y`                                                                  | Year                                                                                                                                                                  |
-| `M`                                                                  | Month                                                                                                                                                                 |
-| `w`                                                                  | Week                                                                                                                                                                  |
-| `d`                                                                  | Day                                                                                                                                                                   |
-| `h`                                                                  | Hour                                                                                                                                                                  |
-| `m`                                                                  | Minute                                                                                                                                                                |
-| `s`                                                                  | Second                                                                                                                                                                |
-| `ms`                                                                 | Millisecond                                                                                                                                                           | ### Logs Two parameters, `Message field name` and `Level field name`, can optionally be configured from the data source settings page that determine which fields will be used for log messages and log levels when visualizing logs in [Explore](explore.md "explore.md"). For example, if you use a default setup of Filebeat for shipping logs to OpenSearch, the following configuration should work. <br>• **Message field name:** message <br>• **Level field name:** fields.level ### Data links Data links create a link from a specified field that can be accessed in logs view in Explore. Each data link configuration consists of the following: <br>• **Field** – Name of the field used by the data link. <br>• **URL/query** – If the link is external, then enter the full link URL. If the link is internal link, then this input serves as query for the target data source. In both cases, you can interpolate the value from the field with `${__value.raw }` macro. <br>• **Internal link** – Select this if the link is internal or external. If the link is internal, a data source selector allows you to select the target data source. Only tracing data sources are supported. ## Using the OpenSearch data source ### Metric query editor The OpenSearch query editor allows you to select multiple metrics and group by multiple terms or filters. Use the plus and minus icons to the right to add/remove metrics or group by clauses. Some metrics and group by clauses have options. Choose the option text to expand the row to view and edit metric or group by options. ### Series naming and alias patterns You can control the name for time series via the `Alias` input field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Pattern                                                              | Description                                                                                                                                                           |
-| ---                                                                  | ---                                                                                                                                                                   |
-| `{{term fieldname}}`                                                 | Replaced with value of a term Group By.                                                                                                                               |
-| `{{metric}}`                                                         | Replaced with metric name (ex. Average, Min, Max).                                                                                                                    |
-| `{{field}}`                                                          | Replaced with the metric field name.                                                                                                                                  | ### Pipeline metrics Some metric aggregations are called pipeline aggregations; for example, _Moving Average_ and _Derivative_. OpenSearch pipeline metrics require another metric to be based on. Use the eye icon next to the metric to hide metrics from appearing in the graph. This is useful for metrics you only have in the query for use in a pipeline metric. ### Templating Instead of hardcoding things such as server, application, and sensor name in your metric queries you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. For more information about templating and template variables, see [Templates and variables](templates-and-variables.md "templates-and-variables.md"). #### Query variable The OpenSearch data source supports two types of queries you can use in the _Query_ field of _Query_ variables. The query is written using a custom JSON string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Query                                                                | Description                                                                                                                                                           |
-| ---                                                                  | ---                                                                                                                                                                   |
-| `{"find": "fields", "type": "keyword"}`                              | Returns a list of field names with the index type `keyword`.                                                                                                          |
-| `{"find": "terms", "field": "@hostname", "size": 1000}`              | Returns a list of values for a field using term aggregation. Query will use current dashboard time range as time range for query.                                     |
-| `{"find": "terms", "field": "@hostname", "query": '<lucene query>'}` | Returns a list of values for a field using term aggregation and a specified Lucene query filter. Query will use current dashboard time range as time range for query. | There is a default size limit of 500 on terms queries. To set a custom limit, set the size property in your query. You can use other variables inside the query. The following code example shows the query definition for a variable named `$host`. `{"find": "terms", "field": "@hostname", "query": "@source:$source"}` In the previous example, we use another variable named `$source` inside the query definition. Whenever you change, via the dropdown list, the current value of the `$source` variable, it initiates an update of the `$host` variable. After the update, the `$host` variable contains only hostnames filtered by in this case the `@source` document property. These queries by default return results in term order (which can then be sorted alphabetically or numerically as for any variable). To produce a list of terms sorted by doc count (a top-N values list), add an `orderBy` property of `doc_count`. This automatically selects a descending sort. Using `asc` with doc_count (a bottom-N list) can be done by setting `order: "asc"`, but it is discouraged because it increases the error on document counts. To keep terms in the doc count order, set the variable’s **Sort** dropdown list to **Disabled**. Alternatively, you might alternatively still want to use **Alphabetical** to re-sort them. `{"find": "terms", "field": "@hostname", "orderBy": "doc_count"}` #### Using variables in queries There are two syntaxes: <br>• `$<varname>` Example: @hostname:$hostname <br>• `[[varname]]` Example: @hostname:[[hostname]] Why two ways? The first syntax is easier to read and write, but it does not allow you to use a variable in the middle of a word. When the *Multi-value* or *Include all value* options are enabled, Grafana converts the labels from plaintext to a Lucene-compatible condition. In the previous example, we have a lucene query that filters documents based on the `@hostname` property using a variable named `$hostname`. It is also using a variable in the _Terms_ group by field input box. This allows you to use a variable to quickly change how the data is grouped. ### Annotations Annotations allow you to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu or Annotations view. Grafana can query any OpenSearch index for annotation events. For more information, see [Annotations](dashboard-annotations.md "dashboard-annotations.md"). |
-| Name                                                                 | Description                                                                                                                                                           |
-| ---                                                                  | ---                                                                                                                                                                   |
-| `Query`                                                              | You can keep the search query blank or specify a Lucene query.                                                                                                        |
-| `Time`                                                               | The name of the time field; must be date field.                                                                                                                       |
-| `Time End`                                                           | Optional name of the time end field must be date field. If set, annotations will be marked as a region between time and time-end.                                     |
-| `Text`                                                               | Event description field.                                                                                                                                              |
-| `Tags`                                                               | Optional field name to use for event tags (can be an array or a CSV string).                                                                                          | ### Querying logs Querying and displaying log data from OpenSearch is available in Explore. To display your logs, select the OpenSearch data source, and then optionally enter a Lucene query. For more information, see [Explore](explore.md "explore.md"). #### Log queries After the result is returned, the log panel shows a list of log rows and a bar chart where the x-axis shows the time and the y-axis shows the frequency or count. #### Filtering log messages Optionally, enter a Lucene query into the query field to filter the log messages. For example, using a default Filebeat setup, you should be able to use `fields.level:error` to show only error log messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Name      | Description                                                                                                                         |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Name`    | The data source name. This is how you see the data source in<br>panels and queries.                                                 |
+| `Default` | Default data source means that it will be pre-selected for<br>new panels.                                                           |
+| `Url`     | The HTTP protocol, IP, and port of your OpenSearch server.                                                                          |
+| `Access`  | Server (default) = URL must be accessible from the Grafana<br>backend/server. Browser = URL must be accessible from the<br>browser. |
+
+Access mode controls how requests to the data source will be handled. Server
+should be the preferred way if nothing else is stated.
+
+### Server access mode
+
+(default)
+
+All requests are made from the browser to Grafana backend or server,
+which forwards the requests to the data source, circumventing possible
+Cross-Origin Resource Sharing (CORS) requirements. If you select this access
+mode, the URL must be accessible from the Grafana backend or server.
+
+### Browser (direct)
+
+access
+
+Amazon Managed Grafana does not support browser direct access for the OpenSearch
+data source.
+
+### Index settings
+
+Here you can specify a default for the `time field` and
+specify the name of your OpenSearch index. You can use a time pattern for
+the index name or a wildcard character.
+
+### OpenSearch/Elasticsearch
+
+version
+
+Specify your OpenSearch or legacy Elasticsearch version in the version
+dropdown menu. The version is important because there are differences in how
+queries are composed for each version. Currently, Grafana supports
+OpenSearch 1.0.x. Supported versions of Elasticsearch are
+`2.0+`, `5.0+`, `5.6+`,
+`6.0+`, and `7.0+`. The value `5.6+`
+means version 5.6 or higher, but lower than 6.0. The value `6.0+`
+means version 6.0 or higher, but lower than 7.0. Finally, `7.0+`
+means version 7.0 or higher, but lower than 8.0.
+
+### Min time interval
+
+A lower limit for the auto group by time interval. Recommended to be set
+to write frequency; for example, `1m` if your data is written
+every minute. This option can also be overridden/configured in a dashboard
+panel under data source options. This value **must** be formatted as a number followed by a valid time
+identifier; for example, `1m` (1 minute) or `30s` (30
+seconds). The following time identifiers are supported.
+
+| Identifier | Description |
+| ---------- | ----------- |
+| `y`        | Year        |
+| `M`        | Month       |
+| `w`        | Week        |
+| `d`        | Day         |
+| `h`        | Hour        |
+| `m`        | Minute      |
+| `s`        | Second      |
+| `ms`       | Millisecond |
+
+### Logs
+
+Two parameters, `Message field name` and `Level field
+ name`, can optionally be configured from the data source settings
+page that determine which fields will be used for log messages and log
+levels when visualizing logs in [Explore](explore.md "explore.md").
+
+For example, if you use a default setup of Filebeat for shipping logs to
+OpenSearch, the following configuration should work.
+
+- **Message field name:** message
+- **Level field name:** fields.level
+
+### Data links
+
+Data links create a link from a specified field that can be accessed in
+logs view in Explore.
+
+Each data link configuration consists of the following:
+
+- **Field** – Name of the field
+  used by the data link.
+- **URL/query** – If the link is
+  external, then enter the full link URL. If the link is internal
+  link, then this input serves as query for the target data source. In
+  both cases, you can interpolate the value from the field with
+  `${__value.raw }` macro.
+- **Internal link** – Select this
+  if the link is internal or external. If the link is internal, a data
+  source selector allows you to select the target data source. Only
+  tracing data sources are supported.
+
+## Using the OpenSearch data
+
+source
+
+### Metric query editor
+
+The OpenSearch query editor allows you to select multiple metrics and
+group by multiple terms or filters. Use the plus and minus icons to the
+right to add/remove metrics or group by clauses. Some metrics and group by
+clauses have options. Choose the option text to expand the row to view and
+edit metric or group by options.
+
+### Series naming
+
+and alias patterns
+
+You can control the name for time series via the `Alias` input
+field.
+
+| Pattern              | Description                                           |
+| -------------------- | ----------------------------------------------------- |
+| `{{term fieldname}}` | Replaced with value of a term Group By.               |
+| `{{metric}}`         | Replaced with metric name (ex. Average, Min,<br>Max). |
+| `{{field}}`          | Replaced with the metric field name.                  |
+
+### Pipeline metrics
+
+Some metric aggregations are called pipeline aggregations; for example,
+_Moving Average_ and _Derivative_.
+OpenSearch pipeline metrics require another metric to be based on. Use the
+eye icon next to the metric to hide metrics from appearing in the graph.
+This is useful for metrics you only have in the query for use in a pipeline
+metric.
+
+### Templating
+
+Instead of hardcoding things such as server, application, and sensor name
+in your metric queries you can use variables in their place. Variables are
+shown as dropdown select boxes at the top of the dashboard. You can use
+these dropdown boxes to change the data being displayed in your dashboard.
+
+For more information about templating and template variables, see [Templates and variables](templates-and-variables.md "templates-and-variables.md").
+
+#### Query variable
+
+The OpenSearch data source supports two types of queries you can use
+in the _Query_ field of _Query_
+variables. The query is written using a custom JSON string.
+
+| Query                                                                      | Description                                                                                                                                                                    |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `{"find": "fields",<br>"type": "keyword"}`                                 | Returns a list of field names with the index type<br>`keyword`.                                                                                                                |
+| `{"find": "terms",<br>"field": "@hostname",<br>"size": 1000}`              | Returns a list of values for a field using term<br>aggregation. Query will use current dashboard time range<br>as time range for query.                                        |
+| `{"find": "terms",<br>"field": "@hostname",<br>"query": '<lucene query>'}` | Returns a list of values for a field using term<br>aggregation and a specified Lucene query filter. Query<br>will use current dashboard time range as time range for<br>query. |
+
+There is a default size limit of 500 on terms queries. To set a custom
+limit, set the size property in your query. You can use other variables
+inside the query. The following code example shows the query definition
+for a variable named `$host`.
+
+```
+
+{"find": "terms", "field": "@hostname", "query": "@source:$source"}
+
+```
+
+In the previous example, we use another variable named
+`$source` inside the query definition. Whenever you
+change, via the dropdown list, the current value of the
+`$source` variable, it initiates an update of the
+`$host` variable. After the update, the
+`$host` variable contains only hostnames filtered by in
+this case the `@source` document property.
+
+These queries by default return results in term order (which can then
+be sorted alphabetically or numerically as for any variable). To produce
+a list of terms sorted by doc count (a top-N values list), add an
+`orderBy` property of `doc_count`. This
+automatically selects a descending sort. Using `asc` with
+doc_count (a bottom-N list) can be done by setting `order:
+ "asc"`, but it is discouraged because it increases
+the error on document counts. To keep terms in the doc count order, set
+the variable’s **Sort** dropdown list to
+**Disabled**. Alternatively, you might
+alternatively still want to use **Alphabetical** to
+re-sort them.
+
+```
+
+{"find": "terms", "field": "@hostname", "orderBy": "doc_count"}
+
+```
+
+#### Using variables
+
+in queries
+
+There are two syntaxes:
+
+- `$<varname>` Example: @hostname:$hostname
+- `[[varname]]` Example: @hostname:[[hostname]]
+
+Why two ways? The first syntax is easier to read and write, but it
+does not allow you to use a variable in the middle of a word. When the
+_Multi-value_ or _Include all
+value_ options are enabled, Grafana converts the labels
+from plaintext to a Lucene-compatible condition.
+
+In the previous example, we have a lucene query that filters
+documents based on the `@hostname` property using a variable
+named `$hostname`. It is also using a variable in the
+_Terms_ group by field input box. This allows you
+to use a variable to quickly change how the data is grouped.
+
+### Annotations
+
+Annotations allow you to overlay rich event information on top of graphs.
+You add annotation queries via the Dashboard menu or Annotations view.
+Grafana can query any OpenSearch index for annotation events. For more
+information, see [Annotations](dashboard-annotations.md "dashboard-annotations.md").
+
+| Name       | Description                                                                                                                             |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `Query`    | You can keep the search query blank or specify a Lucene<br>query.                                                                       |
+| `Time`     | The name of the time field; must be date field.                                                                                         |
+| `Time End` | Optional name of the time end field must be date field.<br>If set, annotations will be marked as a region between time<br>and time-end. |
+| `Text`     | Event description field.                                                                                                                |
+| `Tags`     | Optional field name to use for event tags (can be an<br>array or a CSV string).                                                         |
+
+### Querying logs
+
+Querying and displaying log data from OpenSearch is available in
+Explore. To display your logs, select the OpenSearch data source, and then
+optionally enter a Lucene query. For more information, see [Explore](explore.md "explore.md").
+
+#### Log queries
+
+After the result is returned, the log panel shows a list of log rows
+and a bar chart where the x-axis shows the time and the y-axis shows the
+frequency or count.
+
+#### Filtering log
+
+messages
+
+Optionally, enter a Lucene query into the query field to filter the
+log messages. For example, using a default Filebeat setup, you should be
+able to use `fields.level:error` to show only error log
+messages.

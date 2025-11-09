@@ -455,18 +455,168 @@ when there are errors.
 
 The options for handling no data are listed in the following table.
 
-| No Data option          | Behavior                                                                                                                                                                                                                                                                           |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No Data                 | Create an alert `DatasourceNoData` with the name and UID of the alert rule, and UID of the data source that returned no data as labels.                                                                                                                                            |
-| Alerting                | Set alert rule state to `Alerting`.                                                                                                                                                                                                                                                |
-| OK                      | Set alert rule state to `Normal`.                                                                                                                                                                                                                                                  | The options for handling error cases are listed in the following table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Error or timeout option | Behavior                                                                                                                                                                                                                                                                           |
-| ---                     | ---                                                                                                                                                                                                                                                                                |
-| Alerting                | Set alert rule state to `Alerting`                                                                                                                                                                                                                                                 |
-| OK                      | Set alert rule state to `Normal`                                                                                                                                                                                                                                                   |
-| Error                   | Create an alert `DatasourceError` with the name and UID of the alert rule, and UID of the data source that returned no data as labels.                                                                                                                                             | ## Annotations and labels for alerting rules Annotations and labels are key-value pairs associated with alerts originating from the alerting rule, datasource response, and as a result of alerting rule evaluation. They can be used in alert notifications directly or in [templates](alert-message-templates.md "alert-message-templates.md") and [template functions](alert-message-templates.md#alert-template-functions "alert-message-templates.md#alert-template-functions") to create notification contact dynamically. **Annotations** Annotations are key-value pairs that provide additional information about an alert. You can use the following annotations: `description`, `summary`, `runbook_url`, `alertId`, `dashboardUid`, and `panelId`. These are displayed in rule and alert details in the UI and can be used in contact point message templates. **Labels** Labels are key-value pairs that contain information about an alert. The label set for an alert is generated and added to throughout the alerting evaluation and notification process. They are used in the following ways. <br>• The complete set of labels for an alert uniquely identifies that alert within Grafana Alerts. <br>• The Alertmanager uses labels to match alerts for [silences](alert-silences.md "alert-silences.md") and [alert groups](alert-groups.md "alert-groups.md") in [notification policies](alert-notifications.md "alert-notifications.md"). <br>• The alerting UI displays labels for every alert instance generated by the evaluation of that rule. <br>• Contact points can access labels to dynamically generate notifications that contain information specific to the alert that is resulting in a notification. <br>• Labels can be added to an [alerting rule](alert-rules.md "alert-rules.md"). These manually configured labels are able to use template functions and reference other labels. Labels added to an alerting rule here take precedence in the event of a collision between labels. The following template variables are available when expanding annotations and labels.                                                                                                                                                                                  |
-| Name                    | Description                                                                                                                                                                                                                                                                        |
-| ---                     | ---                                                                                                                                                                                                                                                                                |
-| `$labels`               | The labels from the query or condition. For example, `{{ $labels.instance }}` and `{{ $labels.job }}`. This is unavailable when the rule uses a classic condition.                                                                                                                 |
-| `$values`               | The values of all reduce and math expressions that were evaluated for this alert rule. For example, `{{ $values.A }}`, `{{ $values.A.Labels }}` and `{{ $values.A.Value }}` where `A` is the `refID` of the expression. This is unavailable when the rule uses a classic condition |
-| `$value`                | The value string of the alert instance. For example, `[ var='A' labels={instance=foo} value=10 ]`.                                                                                                                                                                                 | ## Managing alerting rules The **Alerting** page lists alerting rules. By default, rules are grouped by types of data sources. The **Grafana** section lists rules managed by Grafana, and the **Cortex/Loki** section lists rules for Prometheus compatible data sources. You can view alerting rules for Prometheus compatible data sources but you cannot edit them. ### View alerting rules Using Grafana alerts, you can view all of your alerts in one page. ###### To view alerting details 1. From your Grafana console, in the Grafana menu, choose the **Alerting** (bell) icon to open the **Alerting** page. By default, rules are displayed in groups by data source type. You can also view by the current state of each alert (these are described in more detail in the following text). 2. In **View as**, you can toggle between the group and state views by choosing the option you prefer. 3. Choose the arrow next to a row to view more details for that row. The details for a rule include the rule labels, annotations, data sources, and queries, as well as a list of alert instances resulting from the rule. **Group view** Group view shows Grafana alert rules grouped by folder and Loki or Prometheus alert rules grouped by `namespace` + `group`. This is the default rule list view, intended for managing rules. You can expand each group to view a list of rules in this group. Expand a rule further to view its details. You can also expand action buttons and alerts resulting from the rule to view their details. **State view** State view shows alert rules grouped by state. Use this view to get an overview of which rules are in what state. Each rule can be expanded to view its details. Action buttons and any alerts generated by this rule, and each alert can be further expanded to view its details. **Filter alerting rules** You can filter the alerting rules that appear on the **Alerting** page in several ways. <br>• You can filter to display the rules that query a specific data source by choosing **Select data sources**, then selecting a data source to filter to. <br>• You can filter by labels by choosing search criteria in **Search by label**. Some sample criteria include `environment=production`, `region=~US | EU`, `severity!=warning`. <br>• You can filter to display the rules in a specific state by choosing **Filter alerts by state**, and then selecting the state you want to view. ### Edit or delete alerting rules Grafana managed alerting rules can only be edited or deleted by users with Edit permissions for the folder storing the rules. Alerting rules for an external Cortex or Loki instance can be edited or deleted by users with Editor or Admin roles. ###### To edit or delete a rule 1. Expand a rule until you can see the rule controls for **View**, **Edit**, and **Delete**. 2. Choose **Edit** to open the create rule page. Make updates in the same way that you create a rule. For details, see the instructions in [Creating Grafana managed alert rules](#create-grafana-alert-rule "#create-grafana-alert-rule") or [Creating Cortex or Loki managed alert rules](#create-alert-rule "#create-alert-rule"). 3. Optionally, choose **Delete** to delete a rule. ## Cortex or Loki rule groups and namespaces You can organize your rules. Rules are created within rule groups, and rule groups are organized into namespaces. The rules within a rule group are run sequentially at a regular interval. The default interval is one minute. You can rename Cortex or Loki namespaces and rule groups, and edit rule group evaluation intervals. ###### To edit a rule group or namespace 1. From your Grafana console, in the Grafana menu, choose the **Alerting** (bell) icon to open the **Alerting** page. 2. Navigate to a rule within the rule group or namespace you want to edit. 3. Choose the **Edit** (pen) icon. 4. Make changes to the rule group or namespace. ###### Note For namespaces, you can only edit the name. For rule groups, you change the name, or the evaluation interval for rules in the group. For example, you can choose `1m`to have the rules be evaluated once per minute, or`30s` to evaluate once every 30 seconds. 5. Choose **Save changes**. |
+| No Data option | Behavior                                                                                                                                      |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| No Data        | Create an alert `DatasourceNoData` with the<br>name and UID of the alert rule, and UID of the data source<br>that returned no data as labels. |
+| Alerting       | Set alert rule state to `Alerting`.                                                                                                           |
+| OK             | Set alert rule state to `Normal`.                                                                                                             |
+
+The options for handling error cases are listed in the following table.
+
+| Error or timeout option | Behavior                                                                                                                                     |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Alerting                | Set alert rule state to `Alerting`                                                                                                           |
+| OK                      | Set alert rule state to `Normal`                                                                                                             |
+| Error                   | Create an alert `DatasourceError` with the name<br>and UID of the alert rule, and UID of the data source that<br>returned no data as labels. |
+
+## Annotations and labels for alerting
+
+rules
+
+Annotations and labels are key-value pairs associated with alerts originating from
+the alerting rule, datasource response, and as a result of alerting rule evaluation.
+They can be used in alert notifications directly or in [templates](alert-message-templates.md "alert-message-templates.md") and [template functions](alert-message-templates.md#alert-template-functions "alert-message-templates.md#alert-template-functions") to create
+notification contact dynamically.
+
+**Annotations**
+
+Annotations are key-value pairs that provide additional information about an
+alert. You can use the following annotations: `description`,
+`summary`, `runbook_url`, `alertId`,
+`dashboardUid`, and `panelId`. These are displayed in rule
+and alert details in the UI and can be used in contact point message
+templates.
+
+**Labels**
+
+Labels are key-value pairs that contain information about an alert. The label set
+for an alert is generated and added to throughout the alerting evaluation and
+notification process. They are used in the following ways.
+
+- The complete set of labels for an alert uniquely identifies that alert
+  within Grafana Alerts.
+- The Alertmanager uses labels to match alerts for [silences](alert-silences.md "alert-silences.md") and [alert groups](alert-groups.md "alert-groups.md") in [notification policies](alert-notifications.md "alert-notifications.md").
+- The alerting UI displays labels for every alert instance generated by the
+  evaluation of that rule.
+- Contact points can access labels to dynamically generate notifications
+  that contain information specific to the alert that is resulting in a
+  notification.
+- Labels can be added to an [alerting
+  rule](alert-rules.md "alert-rules.md"). These manually configured labels are able to use template
+  functions and reference other labels. Labels added to an alerting rule here
+  take precedence in the event of a collision between labels.
+
+The following template variables are available when expanding annotations and
+labels.
+
+| Name      | Description                                                                                                                                                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$labels` | The labels from the query or condition. For example, `{{<br>$labels.instance }}` and `{{ $labels.job<br>}}`. This is unavailable when the rule uses a classic<br>condition.                                                                                                                       |
+| `$values` | The values of all reduce and math expressions that were<br>evaluated for this alert rule. For example, `{{ $values.A<br>}}`, `{{ $values.A.Labels }}` and `{{<br>$values.A.Value }}` where `A` is the<br>`refID` of the expression. This is unavailable<br>when the rule uses a classic condition |
+| `$value`  | The value string of the alert instance. For example, `[<br>var='A' labels={instance=foo} value=10 ]`.                                                                                                                                                                                             |
+
+## Managing alerting rules
+
+The **Alerting** page lists alerting rules. By default, rules are
+grouped by types of data sources. The **Grafana** section lists
+rules managed by Grafana, and the **Cortex/Loki** section lists
+rules for Prometheus compatible data sources. You can view alerting rules for
+Prometheus compatible data sources but you cannot edit them.
+
+### View alerting rules
+
+Using Grafana alerts, you can view all of your alerts in one page.
+
+###### To view alerting details
+
+1. From your Grafana console, in the Grafana menu, choose the
+   **Alerting** (bell) icon to open the
+   **Alerting** page. By default, rules are displayed
+   in groups by data source type. You can also view by the current state of
+   each alert (these are described in more detail in the following
+   text).
+2. In **View as**, you can toggle between the group and
+   state views by choosing the option you prefer.
+3. Choose the arrow next to a row to view more details for that row. The
+   details for a rule include the rule labels, annotations, data sources,
+   and queries, as well as a list of alert instances resulting from the
+   rule.
+
+**Group view**
+
+Group view shows Grafana alert rules grouped by folder and Loki or Prometheus
+alert rules grouped by `namespace` + `group`. This is the
+default rule list view, intended for managing rules. You can expand each group
+to view a list of rules in this group. Expand a rule further to view its
+details. You can also expand action buttons and alerts resulting from the rule
+to view their details.
+
+**State view**
+
+State view shows alert rules grouped by state. Use this view to get an
+overview of which rules are in what state. Each rule can be expanded to view its
+details. Action buttons and any alerts generated by this rule, and each alert
+can be further expanded to view its details.
+
+**Filter alerting rules**
+
+You can filter the alerting rules that appear on the
+**Alerting** page in several ways.
+
+- You can filter to display the rules that query a specific data source
+  by choosing **Select data sources**, then selecting a
+  data source to filter to.
+- You can filter by labels by choosing search criteria in
+  **Search by label**. Some sample criteria include
+  `environment=production`, `region=~US|EU`,
+  `severity!=warning`.
+- You can filter to display the rules in a specific state by choosing
+  **Filter alerts by state**, and then selecting the
+  state you want to view.
+
+### Edit or delete alerting rules
+
+Grafana managed alerting rules can only be edited or deleted by users with
+Edit permissions for the folder storing the rules. Alerting rules for an
+external Cortex or Loki instance can be edited or deleted by users with Editor
+or Admin roles.
+
+###### To edit or delete a rule
+
+1. Expand a rule until you can see the rule controls for
+   **View**, **Edit**, and
+   **Delete**.
+2. Choose **Edit** to open the create rule page. Make
+   updates in the same way that you create a rule. For details, see the
+   instructions in [Creating Grafana managed alert
+   rules](#create-grafana-alert-rule "#create-grafana-alert-rule") or [Creating Cortex or Loki managed alert
+   rules](#create-alert-rule "#create-alert-rule").
+3. Optionally, choose **Delete** to delete a
+   rule.
+
+## Cortex or Loki rule groups and
+
+namespaces
+
+You can organize your rules. Rules are created within rule groups, and rule groups
+are organized into namespaces. The rules within a rule group are run sequentially at
+a regular interval. The default interval is one minute. You can rename Cortex or
+Loki namespaces and rule groups, and edit rule group evaluation intervals.
+
+###### To edit a rule group or namespace
+
+1. From your Grafana console, in the Grafana menu, choose the
+   **Alerting** (bell) icon to open the
+   **Alerting** page.
+2. Navigate to a rule within the rule group or namespace you want to
+   edit.
+3. Choose the **Edit** (pen) icon.
+4. Make changes to the rule group or namespace.
+
+###### Note
+
+For namespaces, you can only edit the name. For rule groups, you
+change the name, or the evaluation interval for rules in the group. For
+example, you can choose `1m` to have the rules be evaluated
+once per minute, or `30s` to evaluate once every 30
+seconds. 5. Choose **Save changes**.

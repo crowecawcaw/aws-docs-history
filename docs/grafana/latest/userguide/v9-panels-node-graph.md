@@ -108,24 +108,35 @@ the node graph to render.
 
 Required fields:
 
-| Field name    | Type          | Description                                                                                                                                                                                         |
-| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| id            | string        | Unique identifier of the edge.                                                                                                                                                                      |
-| source        | string        | Id of the source node.                                                                                                                                                                              |
-| target        | string        | Id of the target.                                                                                                                                                                                   | Optional fields:                               |
-| Field name    | Type          | Description                                                                                                                                                                                         |
-| ---           | ---           | ---                                                                                                                                                                                                 |
-| mainstat      | string/number | First stat shown in the overlay when hovering over the edge. It can be a string showing the value as is or it can be a number. If it is a number, any unit associated with that field is also shown |
-| secondarystat | string/number | Same as mainStat, but shown right under it.                                                                                                                                                         |
-| detail\_\_\*  | string/number | Any field prefixed with `detail__` will be shown in the header of context menu when clicked on the edge. Use `config.displayName` for a more human readable label.                                  | **Nodes data from structure** Required fields: |
-| Field name    | Type          | Description                                                                                                                                                                                         |
-| ---           | ---           | ---                                                                                                                                                                                                 |
-| id            | string        | Unique identifier of the node. This ID is referenced by edge in its source and target field.                                                                                                        | Optional fields:                               |
-| Field name    | Type          | Description                                                                                                                                                                                         |
-| ---           | ---           | ---                                                                                                                                                                                                 |
-| title         | string        | Name of the node visible in just under the node.                                                                                                                                                    |
-| subtitle      | string        | Additional, name, type or other identifier shown under the title.                                                                                                                                   |
-| mainstat      | string/number | First stat shown inside the node itself. It can either be a string showing the value as is or a number. If it is a number, any unit associated with that field is also shown.                       |
-| secondarystat | string/number | Same as mainStat, but shown under it inside the node.                                                                                                                                               |
-| arc\_\_\*     | number        | Any field prefixed with `arc__` will be used to create the color circle around the node. All values in these fields should add up to 1. You can specify color using `config.color.fixedColor`.      |
-| detail\_\_\*  | string/number | Any field prefixed with `detail__` will be shown in the header of context menu when clicked on the node. Use `config.displayName` for more human readable label.                                    |
+| Field name | Type   | Description                    |
+| ---------- | ------ | ------------------------------ |
+| id         | string | Unique identifier of the edge. |
+| source     | string | Id of the source node.         |
+| target     | string | Id of the target.              |
+
+Optional fields:
+
+| Field name    | Type          | Description                                                                                                                                                                                                  |
+| ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| mainstat      | string/number | First stat shown in the overlay when hovering over the edge.<br>It can be a string showing the value as is or it can be a<br>number. If it is a number, any unit associated with that<br>field is also shown |
+| secondarystat | string/number | Same as mainStat, but shown right under it.                                                                                                                                                                  |
+| detail\_\_\*  | string/number | Any field prefixed with `detail__` will be shown<br>in the header of context menu when clicked on the edge. Use<br>`config.displayName` for a more human readable<br>label.                                  |
+
+**Nodes data from structure**
+
+Required fields:
+
+| Field name | Type   | Description                                                                                     |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------- |
+| id         | string | Unique identifier of the node. This ID is referenced by<br>edge in its source and target field. |
+
+Optional fields:
+
+| Field name    | Type          | Description                                                                                                                                                                                             |
+| ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title         | string        | Name of the node visible in just under the node.                                                                                                                                                        |
+| subtitle      | string        | Additional, name, type or other identifier shown under the<br>title.                                                                                                                                    |
+| mainstat      | string/number | First stat shown inside the node itself. It can either be<br>a string showing the value as is or a number. If it is a<br>number, any unit associated with that field is also<br>shown.                  |
+| secondarystat | string/number | Same as mainStat, but shown under it inside the node.                                                                                                                                                   |
+| arc\_\_\*     | number        | Any field prefixed with `arc__` will be used to<br>create the color circle around the node. All values in these<br>fields should add up to 1. You can specify color using<br>`config.color.fixedColor`. |
+| detail\_\_\*  | string/number | Any field prefixed with `detail__` will be shown<br>in the header of context menu when clicked on the node. Use<br>`config.displayName` for more human readable<br>label.                               |

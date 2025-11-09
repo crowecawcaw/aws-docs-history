@@ -87,6 +87,278 @@ string columns become labels and the number column the corresponding value. For
 example `{"Loc": "MIA", "Host": "A"}` with a value of 1.
 
 | Loc | Host | Avg_CPU |
-| --- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --- | ---- | ------- |
 | MIA | A    | 1       |
-| NYC | B    | 2       | **Operations** You can use the following operations in expressions: math, reduce, and resample. **Math** Math is for free-form math formulas on time series or number data. Math operations take numbers and time series as input and changes them to different numbers and time series. Data from other queries or expressions are referenced with the RefID prefixed with a dollar sign, for example `$A`. If the variable has spaces in the name, then you can use a brace syntax like `${my variable}`. Numeric constants can be in decimal (`2.24`), octal (with a leading zero like `072`), or hex (with a leading 0x like `0x2A`). Exponentials and signs are also supported (for example, `-0.8e-2`). **Operators** The arithmetic (`+`, binary and unary `-`, `*`, `/`, `%`, exponent `**`), relational (`<`, `>`, `==`, `!=`, `>=`, `<=`), and logical (`&&`, ` |     | `, and unary `!`) operators are supported. How the operation behaves with data depends on if it is a number or time series data. With binary operations, such as `$A + $B` or `$A |     | $B`, the operator is applied in the following ways depending on the type of data: <br>• If both `$A`and`$B` are a number, then the operation is performed between the two numbers. <br>• If one variable is a number, and the other variable is a time series, then the operation between the value of each point in the time series and the number is performed. <br>• If both `$A`and`$B` are time series data, then the operation between each value in the two series is performed for each time stamp that exists in both `$A`and`$B`. The `Resample` operation can be used to line up time stamps. Summary: <br>• Number <Operation> number = number <br>• Number <Operation> series = series <br>• Series <Operation> series = series Because expressions work with multiple series or numbers represented by a single variable, binary operations also perform a union (join) between the two variables. This is done based on the identifying labels associated with each individual series or number. So if you have numbers with labels like `{host=web01}` in `$A`and another number in`$B` with the same labels then the operation is performed between those two items within each variable, and the result will share the same labels. The rules for the behavior of this union are as follows: <br>• An item with no labels will join to anything. <br>• If both `$A`and`$B` each contain only one item (one series, or one number), they will join. <br>• If labels are exact match they will join. <br>• If labels are a subset of the other, for example an item in `$A`is labeled`{host=A,dc=MIA}`and an item in`$B` is labeled `{host=A}` they will join. <br>• If within a variable such as `$A`there are different tag keys for each item, the join behavior is undefined. The relational and logical operators return 0 for false 1 for true. **Math Functions** While most functions exist in the own expression operations, the math operation does have some functions that similar to math operators or symbols. When functions can take either numbers or series, than the same type as the argument will be returned. When it is a series, the operation of performed for the value of each point in the series. *abs* abs returns the absolute value of its argument which can be a number or a series. For example`abs(-1)`or`abs($A)`. *is\_inf* is\_inf takes a number or a series and returns `1` for `Inf` values (negative or positive) and `0` for other values. For example `is_inf($A)`. ###### Note If you need to specifically check for negative infinity for example, you can do a comparison like `$A == infn()`. *is\_nan* is\_nan takes a number or a series and returns `1` for `NaN` values and `0` for other values. For example `is_nan($A)`. This function is required for this check because `NaN`is not equal to`NaN`. *is\_null* is\_null takes a number or a series and returns `1`for`null`values and`0`for other values. For example`is_null($A)`. *is\_number* is\_number takes a number or a series and returns `1` for all real number values and `0` for other values (which are `null`, `Inf+`, `Inf-`, and `NaN`). For example `is_number($A)`. *log* Log returns the natural logarithm of its argument which can be a number or a series. If the value is less than 0, `NaN`is returned. For example`log(-1)`or`log($A)`. *inf, infn, nan, and null* The inf, infn, nan, and null functions all return a single value of the name. They primarily exist for testing. Example: `null()`. *round* Round returns a rounded integer value. For example, `round(3.123)` or `round($A)`. *ceil* Ceil rounds the number up to the nearest integer value. For example, `ceil(3.123)`returns`4`. *floor* Floor rounds the number down to the nearest integer value. For example, `floor(3.123`) returns `3`. **Reduce** Reduce takes one or more time series returned from a query or an expression and turns each series into a single number. The labels of the time series are kept as labels on each outputted reduced number. *Fields:* <br>• **Function** – The reduction function to use <br>• **Input** – The variable (refID (such as `A`)) to resample <br>• **Mode** – Allows control behavior of reduction function when a series contains non-numerical values (null, NaN, +-Inf) **Reduction Functions** *Count* Count returns the number of points in each series. *Mean* Mean returns the total of all values in each series divided by the number of points in that series. In `strict`mode if any values in the series are null or nan, or if the series is empty, NaN is returned. *Min and Max* Min and Max return the smallest or largest value in the series respectively. In`strict`mode if any values in the series are null or nan, or if the series is empty, NaN is returned. *Sum* Sum returns the total of all values in the series. If series is of zero length, the sum will be 0. In`strict`mode if there are any NaN or Null values in the series, NaN is returned. *Last* Last returns the last number in the series. If the series has no values then returns NaN. **Reduction Modes** *Strict* In Strict mode the input series is processed as is. If any values in the series are non-numeric (null, NaN or +-Inf), NaN is returned. *Drop Non-Numeric* In this mode all non-numeric values (null, NaN or +-Inf) in the input series are filtered out before running the reduction function. *Replace Non-Numeric* In this mode all non-numeric values are replaced by a pre-defined value. **Resample** Resample changes the time stamps in each time series to have a consistent time interval. The main use case is so you can resample time series that do not share the same timestamps so math can be performed between them. This can be done by resample each of the two series, and then in a Math operation referencing the resampled variables. *Fields:* <br>• **Input** – The variable of time series data (refID (such as`A`)) to resample <br>• **Resample** to – The duration of time to resample to, for example `10s`. Units can be `s`for seconds,`m`for minutes,`h`for hours,`d`for days,`w`for weeks, and`y`for years. <br>• **Downsample** – The reduction function to use when there are more than one data point per window sample. See the reduction operation for behavior details. <br>• **Upsample** – The method to use to fill a window sample that has no data points. + **pad** fills with the last knowm value + **backfill** with next known value + **fillna** to fill empty sample windows with NaNs ## Write an expression If your data source supports them, then Grafana displays the **Expression** button and shows any existing expressions in the query editor list. ###### To write an expression 1. Open the panel. 2. Below the query, choose **Expression**. 3. In the **Operation** field, select the type of expression you want to write. 4. Write the expression. 5. Choose **Apply**. ## Special cases When any queried data source returns no series or numbers, the expression engine returns`NoData`. For example, if a request contains two data source queries that are merged by an expression, if `NoData`is returned by at least one of the data source queries, then the returned result for the entire query is`NoData`. For more information about how Grafana Alerting processes `NoData`results, see [Configure Grafana managed alert rules](v10-alerting-configure-grafanamanaged.md "v10-alerting-configure-grafanamanaged.md"). In the case of using an expression on multiple queries, the expression engine requires that all of the queries return an identical timestamp. For example, if using math to combine the result of multiple SQL queries which each use`SELECT NOW() AS "time"`, the expression will only work if all queries evaluate `NOW()`to an identical timestamp, which does not always happen. To resolve this, you can replace`NOW()`with an arbitrary time, such as`SELECT 1 AS "time"`, or any other valid UNIX timestamp. |
+| NYC | B    | 2       |
+
+**Operations**
+
+You can use the following operations in expressions: math, reduce, and
+resample.
+
+**Math**
+
+Math is for free-form math formulas on time series or number data. Math
+operations take numbers and time series as input and changes them to different
+numbers and time series.
+
+Data from other queries or expressions are referenced with the RefID prefixed
+with a dollar sign, for example `$A`. If the variable has spaces in
+the name, then you can use a brace syntax like `${my
+ variable}`.
+
+Numeric constants can be in decimal (`2.24`), octal (with a leading
+zero like `072`), or hex (with a leading 0x like `0x2A`).
+Exponentials and signs are also supported (for example,
+`-0.8e-2`).
+
+**Operators**
+
+The arithmetic (`+`, binary and unary `-`,
+`*`, `/`, `%`, exponent `**`),
+relational (`<`, `>`, `==`, `!=`,
+`>=`, `<=`), and logical (`&&`,
+`||`, and unary `!`) operators are supported.
+
+How the operation behaves with data depends on if it is a number or time
+series data.
+
+With binary operations, such as `$A + $B` or `$A || $B`,
+the operator is applied in the following ways depending on the type of
+data:
+
+- If both `$A` and `$B` are a number, then the
+  operation is performed between the two numbers.
+- If one variable is a number, and the other variable is a time series,
+  then the operation between the value of each point in the time series
+  and the number is performed.
+- If both `$A` and `$B` are time series data, then
+  the operation between each value in the two series is performed for each
+  time stamp that exists in both `$A` and `$B`. The
+  `Resample` operation can be used to line up time
+  stamps.
+
+Summary:
+
+- Number <Operation> number = number
+- Number <Operation> series = series
+- Series <Operation> series = series
+
+Because expressions work with multiple series or numbers represented by a
+single variable, binary operations also perform a union (join) between the two
+variables. This is done based on the identifying labels associated with each
+individual series or number.
+
+So if you have numbers with labels like `{host=web01}` in
+`$A` and another number in `$B` with the same labels
+then the operation is performed between those two items within each variable,
+and the result will share the same labels. The rules for the behavior of this
+union are as follows:
+
+- An item with no labels will join to anything.
+- If both `$A` and `$B` each contain only one item
+  (one series, or one number), they will join.
+- If labels are exact match they will join.
+- If labels are a subset of the other, for example an item in
+  `$A` is labeled `{host=A,dc=MIA}` and an item
+  in `$B` is labeled `{host=A}` they will
+  join.
+- If within a variable such as `$A` there are different tag
+  keys for each item, the join behavior is undefined.
+
+The relational and logical operators return 0 for false 1 for true.
+
+**Math Functions**
+
+While most functions exist in the own expression operations, the math
+operation does have some functions that similar to math operators or symbols.
+When functions can take either numbers or series, than the same type as the
+argument will be returned. When it is a series, the operation of performed for
+the value of each point in the series.
+
+_abs_
+
+abs returns the absolute value of its argument which can be a number or a
+series. For example `abs(-1)` or `abs($A)`.
+
+_is_inf_
+
+is_inf takes a number or a series and returns `1` for
+`Inf` values (negative or positive) and `0` for other
+values. For example `is_inf($A)`.
+
+###### Note
+
+If you need to specifically check for negative infinity for example, you
+can do a comparison like `$A == infn()`.
+
+_is_nan_
+
+is_nan takes a number or a series and returns `1` for
+`NaN` values and `0` for other values. For example
+`is_nan($A)`. This function is required for this check because
+`NaN` is not equal to `NaN`.
+
+_is_null_
+
+is_null takes a number or a series and returns `1` for
+`null` values and `0` for other values. For example
+`is_null($A)`.
+
+_is_number_
+
+is_number takes a number or a series and returns `1` for all real
+number values and `0` for other values (which are `null`,
+`Inf+`, `Inf-`, and `NaN`). For example
+`is_number($A)`.
+
+_log_
+
+Log returns the natural logarithm of its argument which can be a number or a
+series. If the value is less than 0, `NaN` is returned. For example
+`log(-1)` or `log($A)`.
+
+_inf, infn, nan, and null_
+
+The inf, infn, nan, and null functions all return a single value of the name.
+They primarily exist for testing. Example: `null()`.
+
+_round_
+
+Round returns a rounded integer value. For example, `round(3.123)`
+or `round($A)`.
+
+_ceil_
+
+Ceil rounds the number up to the nearest integer value. For example,
+`ceil(3.123)` returns `4`.
+
+_floor_
+
+Floor rounds the number down to the nearest integer value. For example,
+`floor(3.123`) returns `3`.
+
+**Reduce**
+
+Reduce takes one or more time series returned from a query or an expression
+and turns each series into a single number. The labels of the time series are
+kept as labels on each outputted reduced number.
+
+_Fields:_
+
+- **Function** – The reduction function to
+  use
+- **Input** – The variable (refID (such as
+  `A`)) to resample
+- **Mode** – Allows control behavior of
+  reduction function when a series contains non-numerical values (null,
+  NaN, +-Inf)
+
+**Reduction Functions**
+
+_Count_
+
+Count returns the number of points in each series.
+
+_Mean_
+
+Mean returns the total of all values in each series divided by the number of
+points in that series. In `strict` mode if any values in the series
+are null or nan, or if the series is empty, NaN is returned.
+
+_Min and Max_
+
+Min and Max return the smallest or largest value in the series respectively.
+In `strict` mode if any values in the series are null or nan, or if
+the series is empty, NaN is returned.
+
+_Sum_
+
+Sum returns the total of all values in the series. If series is of zero
+length, the sum will be 0. In `strict` mode if there are any NaN or
+Null values in the series, NaN is returned.
+
+_Last_
+
+Last returns the last number in the series. If the series has no values then
+returns NaN.
+
+**Reduction Modes**
+
+_Strict_
+
+In Strict mode the input series is processed as is. If any values in the
+series are non-numeric (null, NaN or +-Inf), NaN is returned.
+
+_Drop Non-Numeric_
+
+In this mode all non-numeric values (null, NaN or +-Inf) in the input series
+are filtered out before running the reduction function.
+
+_Replace Non-Numeric_
+
+In this mode all non-numeric values are replaced by a pre-defined
+value.
+
+**Resample**
+
+Resample changes the time stamps in each time series to have a consistent time
+interval. The main use case is so you can resample time series that do not share
+the same timestamps so math can be performed between them. This can be done by
+resample each of the two series, and then in a Math operation referencing the
+resampled variables.
+
+_Fields:_
+
+- **Input** – The variable of time
+  series data (refID (such as `A`)) to resample
+- **Resample** to – The duration of
+  time to resample to, for example `10s`. Units can be
+  `s` for seconds, `m` for minutes,
+  `h` for hours, `d` for days, `w`
+  for weeks, and `y` for years.
+- **Downsample** – The reduction
+  function to use when there are more than one data point per window
+  sample. See the reduction operation for behavior details.
+- **Upsample** – The method to use
+  to fill a window sample that has no data points.
+  - **pad** fills with the last knowm
+    value
+  - **backfill** with next known
+    value
+  - **fillna** to fill empty sample
+    windows with NaNs
+
+## Write an expression
+
+If your data source supports them, then Grafana displays the
+**Expression** button and shows any existing expressions in
+the query editor list.
+
+###### To write an expression
+
+1. Open the panel.
+2. Below the query, choose **Expression**.
+3. In the **Operation** field, select the type of
+   expression you want to write.
+4. Write the expression.
+5. Choose **Apply**.
+
+## Special cases
+
+When any queried data source returns no series or numbers, the expression
+engine returns `NoData`. For example, if a request contains two data
+source queries that are merged by an expression, if `NoData` is
+returned by at least one of the data source queries, then the returned result
+for the entire query is `NoData`. For more information about how
+Grafana Alerting processes `NoData` results, see
+[Configure Grafana managed alert rules](v10-alerting-configure-grafanamanaged.md "v10-alerting-configure-grafanamanaged.md").
+
+In the case of using an expression on multiple queries, the expression engine
+requires that all of the queries return an identical timestamp. For example, if
+using math to combine the result of multiple SQL queries which each use
+`SELECT NOW() AS "time"`, the expression will only work if all
+queries evaluate `NOW()` to an identical timestamp, which does not
+always happen. To resolve this, you can replace `NOW()` with an
+arbitrary time, such as `SELECT 1 AS "time"`, or any other valid UNIX
+timestamp.
