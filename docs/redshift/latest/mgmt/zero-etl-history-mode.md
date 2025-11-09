@@ -57,8 +57,35 @@ resulting in more total rows in the target with multiple record versions. Record
 deleted from the target table when deleted or modified in the source. You can manage
 target tables by deleting inactive records.
 
-| Column name          | Data type | Description                                                                                                 |
-| -------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_record_is_active   | Boolean   | Indicates if a record in the target is currently active in the source. True indicates the record is active. |
-| \_record_create_time | Timestamp | Starting time (UTC) when the source record is active.                                                       |
-| \_record_delete_time | Timestamp | Ending time (UTC) when the source record is updated or deleted.                                             | You can delete inactive records from a history mode table by filtering on records where the column `_record_is_active` is false. The following SQL DELETE command deletes inactive records from a table where the id column is less than or equal to 100. After you delete records, when automatic vacuum delete runs, storage for the deleted records is reclaimed. `DELETE FROM myschema.mytable where not _record_is_active AND id <= 100;` When history mode is turned `off`, Amazon Redshift makes a copy of your table in the target database with active records and without the added history columns. Amazon Redshift renames your table to ``table-name`_historical_`timestamp`` for your use. You can drop this copy of your table if you no longer need it. You can rename these tables using the ALTER TABLE command. For example: ```ALTER TABLE `[schema-name.]``table-name_historical_timestamp` RENAME TO `new_table_name`;``` For more information, see [ALTER TABLE](../dg/r_ALTER_TABLE.md "../dg/r_ALTER_TABLE.md") in the _Amazon Redshift Database Developer Guide_. You can also manage history mode using SQL commands CREATE DATABASE and ALTER DATABASE. For more information about how to set HISTORY_MODE, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the _Amazon Redshift Database Developer Guide_. |
+| Column name          | Data type | Description                                                                                                    |
+| -------------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
+| \_record_is_active   | Boolean   | Indicates if a record in the target is currently active in the<br>source. True indicates the record is active. |
+| \_record_create_time | Timestamp | Starting time (UTC) when the source record is active.                                                          |
+| \_record_delete_time | Timestamp | Ending time (UTC) when the source record is updated or<br>deleted.                                             |
+
+You can delete inactive records from a history mode table by filtering on records
+where the column `_record_is_active` is false. The following SQL DELETE command
+deletes inactive records from a table where the id column is less than or equal to 100.
+After you delete records, when automatic vacuum delete runs, storage for the deleted
+records is reclaimed.
+
+```
+DELETE FROM myschema.mytable where not _record_is_active AND id <= 100;
+```
+
+When history mode is turned `off`, Amazon Redshift makes a copy of your table in the
+target database with active records and without the added history columns. Amazon Redshift renames
+your table to
+``table-name`_historical_`timestamp``
+for your use. You can drop this copy of your table if you no longer need it. You can
+rename these tables using the ALTER TABLE command. For example:
+
+```
+ALTER TABLE `[schema-name.]``table-name_historical_timestamp` RENAME TO `new_table_name`;
+```
+
+For more information, see [ALTER TABLE](../dg/r_ALTER_TABLE.md "../dg/r_ALTER_TABLE.md") in the
+_Amazon Redshift Database Developer Guide_.
+You can also manage history mode using SQL commands CREATE DATABASE and ALTER DATABASE.
+For more information about how to set HISTORY_MODE, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md")
+in the _Amazon Redshift Database Developer Guide_.

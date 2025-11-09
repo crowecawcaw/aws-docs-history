@@ -144,6 +144,13 @@ secret in AWS Secrets Manager. To automatically supply Redshift credentials, use
 Redshift credentials secret, see [Create an
 AWS Secrets Manager database secret](../../../secretsmanager/latest/userguide/create_database_secret.md "../../../secretsmanager/latest/userguide/create_database_secret.md").
 
-| GroupID                      | ArtifactID              | Supported Revision(s) | Description                                                                                                                                                  |
-| ---------------------------- | ----------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| com.amazonaws.secretsmanager | aws-secretsmanager-jdbc | 1.0.12                | The AWS Secrets Manager SQL Connection Library for Java lets Java Developers to easily connect to SQL databases using secrets stored in AWS Secrets Manager. | ###### Note Acknowledgement: This documentation contains sample code and language developed by the [Apache Software Foundation](http://www.apache.org/ "http://www.apache.org/") licensed under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0 "https://www.apache.org/licenses/LICENSE-2.0"). |
+| GroupID                      | ArtifactID              | Supported Revision(s) | Description                                                                                                                                                        |
+| ---------------------------- | ----------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| com.amazonaws.secretsmanager | aws-secretsmanager-jdbc | 1.0.12                | The AWS Secrets Manager SQL Connection Library for Java lets<br>Java Developers to easily connect to SQL databases using secrets<br>stored in AWS Secrets Manager. |
+
+###### Note
+
+Acknowledgement: This documentation contains sample code and language developed
+by the [Apache Software Foundation](http://www.apache.org/ "http://www.apache.org/")
+licensed under the [Apache
+2.0 license](https://www.apache.org/licenses/LICENSE-2.0 "https://www.apache.org/licenses/LICENSE-2.0").

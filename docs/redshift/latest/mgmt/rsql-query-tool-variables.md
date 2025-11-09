@@ -170,7 +170,7 @@ select * from rsql_test.tbl_long where id = 500;
 
 Console output:
 
-````
+```
 Starting...
 Border style is 2. (Changes will take effect after RFORMAT is switched ON)
 Output format is wrapped. (Changes will take effect after RFORMAT is switched ON)
@@ -187,11 +187,129 @@ Great Title
 -----------+
 | id           | 500
 |
-| long_string | In general, the higher the number the more borders and lines the tables will have, but details depend on the particular format. | +-------------+---------------------------------------------------------------------------------------------------------------------- -----------+ Rformat is off. id  |                                                             long_string 500 | In general, the higher the number the more borders and lines the tables will have, but details depend on the particular format. (1 row) Rformat is on. Great Title +-[ RECORD 1 ]+---------------------------------------------------------------------------------------------------------------------- -----------+
+| long_string | In general, the higher the number the more borders and lines the tables will have, but details depend on the
+particular format. |
++-------------+----------------------------------------------------------------------------------------------------------------------
+-----------+
+
+Rformat is off.
+id  |                                                             long_string
+500 | In general, the higher the number the more borders and lines the tables will have, but details depend on the particular format.
+(1 row)
+
+Rformat is on.
+Great Title
++-[ RECORD 1 ]+----------------------------------------------------------------------------------------------------------------------
+-----------+
 | id           | 500
 |
-| long_string | In general, the higher the number the more borders and lines the tables will have, but details depend on the particular format. | +-------------+---------------------------------------------------------------------------------------------------------------------- -----------+ Press any key to continue . . . ``` ## ROW\_COUNT Gets the number of records affected by the previous query. It's typically used to check a result, like in the following code fragment: ``` SET result = ROW_COUNT; IF result = 0 ... ``` ## TITLEDASHES This control enables users to specify whether a line of dash characters is to be printed above the column data returned for SQL statements. Example: ``` \rset titledashes on select dept_no, emp_no, salary from rsql_test.EMPLOYEE where dept_no = 100; \rset titledashes off select dept_no, emp_no, salary from rsql_test.EMPLOYEE where dept_no = 100; ``` Console output: ``` dept_no      emp_no          salary ----------- ----------- -------------------- 100         1000346        1300.00 100         1000245        5000.00 100         1000262        2450.00 dept_no     emp_no         salary 100         1000346        1300.00 100         1000245        5000.00 100         1000262        2450.00 ``` ## WIDTH Sets the output format to wrapped and specifies the target width for each line in a report. Without a parameter, it returns the current settings for both the format and target width. rset\_width\_01.rsql content: ``` \echo Starting... \rset width \rset width 50 \rset width \quit \echo Finishing... ``` Console output: ``` Starting... Target width is 75. Target width is 50. Target width is 50. Press any key to continue . . . ``` Example with parameter: ``` \echo Starting... \rset rformat on \pset format wrapped select * from rsql_test.tbl_long where id = 500; \rset width 50 select * from rsql_test.tbl_long where id = 500; \quit \echo Finishing... ``` Console output: ``` Starting... Rformat is on. Output format is wrapped. id  |                                          long_string 500 | In general, the higher the number the more borders and lines the ta.
-|.bles will have, but details depend on the particular format. (1 row) Target width is 50. id  |                                          long_string 500 | In general, the higher the number the more.
-|. borders and lines the tables will have, b. |.ut details depend on the particular format.
-|.. (1 row) Press any key to continue . . . ```
-````
+| long_string | In general, the higher the number the more borders and lines the tables will have, but details depend on the
+particular format. |
++-------------+----------------------------------------------------------------------------------------------------------------------
+-----------+
+Press any key to continue . . .
+```
+
+## ROW_COUNT
+
+Gets the number of records affected by the previous query. It's typically used
+to check a result, like in the following code fragment:
+
+```
+SET result = ROW_COUNT;
+
+IF result = 0
+...
+```
+
+## TITLEDASHES
+
+This control enables users to specify whether a line of dash characters is to
+be printed above the column data returned for SQL statements.
+
+Example:
+
+```
+\rset titledashes on
+select dept_no, emp_no, salary from rsql_test.EMPLOYEE
+where dept_no = 100;
+\rset titledashes off
+select dept_no, emp_no, salary from rsql_test.EMPLOYEE
+where dept_no = 100;
+```
+
+Console output:
+
+```
+dept_no      emp_no          salary
+----------- ----------- --------------------
+100         1000346        1300.00
+100         1000245        5000.00
+100         1000262        2450.00
+
+dept_no     emp_no         salary
+100         1000346        1300.00
+100         1000245        5000.00
+100         1000262        2450.00
+```
+
+## WIDTH
+
+Sets the output format to wrapped and specifies the target width for each line
+in a report. Without a parameter, it returns the current settings for both the
+format and target width.
+
+rset_width_01.rsql content:
+
+```
+\echo Starting...
+\rset width
+\rset width 50
+\rset width
+\quit
+\echo Finishing...
+```
+
+Console output:
+
+```
+Starting...
+Target width is 75.
+Target width is 50.
+Target width is 50.
+Press any key to continue . . .
+```
+
+Example with parameter:
+
+```
+\echo Starting...
+\rset rformat on
+\pset format wrapped
+select * from rsql_test.tbl_long where id = 500;
+\rset width 50
+select * from rsql_test.tbl_long where id = 500;
+\quit
+\echo Finishing...
+```
+
+Console output:
+
+```
+Starting...
+Rformat is on.
+Output format is wrapped.
+id  |                                          long_string
+500 | In general, the higher the number the more borders and lines the ta.
+    |.bles will have, but details depend on the particular format.
+(1 row)
+
+Target width is 50.
+id  |                                          long_string
+500 | In general, the higher the number the more.
+    |. borders and lines the tables will have, b.
+    |.ut details depend on the particular format.
+    |..
+(1 row)
+Press any key to continue . . .
+```

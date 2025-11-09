@@ -59,6 +59,8 @@ and avoid potential disruptions to your workloads, see
 
 Cluster versions in this patch:
 
+- 1.0.148180 – Amazon Redshift now supports writing to Iceberg tables using CREATE TABLE , CREATE TABLE AS SELECT, INSERT INTO, SQL commands – Released on November 3, 2025
+- 1.0.148180 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on October 31, 2025
 - 1.0.142459 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on October 18, 2025
 
@@ -68,9 +70,6 @@ Cluster versions in this patch:
 - Updates the IANA Time Zone Database database version to 2025b.
 - Adds support for the TZDB_VERSION function. This
   function displays the current IANA Time Zone Database version in use.
-- Improves the performance of queries that retrieve data
-  from different tables and invoke Lambda User
-  Defined Functions in join conditions.
 - Amazon Redshift now enforces patch compatibility restrictions.
   Backups created on patch versions that are more than one patch version
   ahead of the current cluster are no longer permitted to perform
@@ -87,6 +86,7 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.148169 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on October 29, 2025
 - 1.0.138443 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on October 17, 2025
 - 1.0.129791 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
@@ -108,6 +108,8 @@ Cluster versions in this patch:
   constraints using the SHOW CONSTRAINTS command.
 - Added support for local materialized views created from
   data sharing materialized views.
+- Improves the performance of queries that retrieve data from different tables and invoke Lambda User Defined Functions in join conditions.
+- Add support for MVs on Datasharing MVs
 - The DROP DATABASE command now uses a background worker
   to remove leader node catalog directories after commit.
   Using a worker avoids rare bugs related to catalog

@@ -130,15 +130,82 @@ connection between the client and the server. To do this, you need to review the
 following table describes the encryption result for the various client and server
 setting combinations:
 
-| sslmode (client)      | require_SSL (server) | Result                                                                                                           |
-| --------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable`             | `false`              | The connection is not encrypted.                                                                                 |
-| `disable`             | `true`               | The connection can't be made because the server requires SSL and the client has SSL disabled for the connection. |
-| `allow`               | `true`               | The connection is encrypted.                                                                                     |
-| `allow`               | `false`              | The connection is not encrypted.                                                                                 |
-| `prefer` or `require` | `true`               | The connection is encrypted.                                                                                     |
-| `prefer` or `require` | `false`              | The connection is encrypted.                                                                                     |
-| `verify-ca`           | `true`               | The connection is encrypted and the server certificate is verified.                                              |
-| `verify-ca`           | `false`              | The connection is encrypted and the server certificate is verified.                                              |
-| `verify-full`         | `true`               | The connection is encrypted and the server certificate and hostname are verified.                                |
-| `verify-full`         | `false`              | The connection is encrypted and the server certificate and hostname are verified.                                | ### Connect using the server certificate with ODBC on Microsoft Windows If you want to connect to your cluster using SSL and the server certificate, first download the certificate to your client computer or Amazon EC2 instance. Then configure the ODBC DSN. 1. Download the Amazon Redshift certificate authority bundle to your client computer at the `lib` folder in your driver installation directory, and save the file as `root.crt`. For download information, see [SSL](#connect-using-ssl "#connect-using-ssl"). 2. Open **ODBC Data Source Administrator**, and add or edit the system DSN entry for your ODBC connection. For **SSL Mode**, select `verify-full` unless you use a DNS alias. If you use a DNS alias, select `verify-ca`. Then choose **Save**. For more information about configuring the ODBC DSN, see [Configuring a connection for ODBC driver version 2.x for Amazon Redshift](odbc20-install.md "odbc20-install.md"). ## SSL and server certificates in Java SSL provides one layer of security by encrypting data that moves between your client and cluster. Using a server certificate provides an extra layer of security by validating that the cluster is an Amazon Redshift cluster. It does so by checking the server certificate that is automatically installed on all clusters that you provision. For more information about using server certificates with JDBC, go to [Configuring the client](https://jdbc.postgresql.org/documentation/ssl/#configuring-the-client "https://jdbc.postgresql.org/documentation/ssl/#configuring-the-client") in the PostgreSQL documentation. ### Connect using trust CA certificates in Java ###### Important Amazon Redshift has changed the way that SSL certificates are managed. You might need to update your current trust root CA certificates to continue to connect to your clusters using SSL. For more information, see [SSL](#connect-using-ssl "#connect-using-ssl"). **To connect using trust CA certificates** You can use the `redshift-keytool.jar` file to import CA certificates in the Amazon Redshift Certificate Authority bundle into a Java TrustStore or your private TrustStore. 1. If you use the Java command line `-Djavax.net.ssl.trustStore` option, remove it from command line, if possible. 2. Download [redshift-keytool.jar](https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar "https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar"). 3. Do one of the following: <br>• To import the Amazon Redshift Certificate Authority bundle into a Java TrustStore, run the following command. `java -jar redshift-keytool.jar -s` <br>• To import the Amazon Redshift Certificate Authority bundle into your private TrustStore, run the following command: `` java -jar redshift-keytool.jar -k `<your_private_trust_store>` -p `<keystore_password>` `` |
+| sslmode (client)         | require_SSL (server) | Result                                                                                                                 |
+| ------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `disable`                | `false`              | The connection is not encrypted.                                                                                       |
+| `disable`                | `true`               | The connection can't be made because the<br>server requires SSL and the client has SSL disabled for the<br>connection. |
+| `allow`                  | `true`               | The connection is encrypted.                                                                                           |
+| `allow`                  | `false`              | The connection is not encrypted.                                                                                       |
+| `prefer` or<br>`require` | `true`               | The connection is encrypted.                                                                                           |
+| `prefer` or<br>`require` | `false`              | The connection is encrypted.                                                                                           |
+| `verify-ca`              | `true`               | The connection is encrypted and the server<br>certificate is verified.                                                 |
+| `verify-ca`              | `false`              | The connection is encrypted and the server<br>certificate is verified.                                                 |
+| `verify-full`            | `true`               | The connection is encrypted and the server<br>certificate and hostname are verified.                                   |
+| `verify-full`            | `false`              | The connection is encrypted and the server<br>certificate and hostname are verified.                                   |
+
+### Connect using the server
+
+certificate with ODBC on Microsoft Windows
+
+If you want to connect to your cluster using SSL and the server certificate,
+first download the certificate to your client computer or Amazon EC2 instance. Then
+configure the ODBC DSN.
+
+1. Download the Amazon Redshift certificate authority bundle to your client
+   computer at the `lib` folder in your driver installation
+   directory, and save the file as `root.crt`. For download
+   information, see [SSL](#connect-using-ssl "#connect-using-ssl").
+2. Open **ODBC Data Source Administrator**, and add or
+   edit the system DSN entry for your ODBC connection. For **SSL
+   Mode**, select `verify-full` unless you use a
+   DNS alias. If you use a DNS alias, select `verify-ca`. Then
+   choose **Save**.
+
+For more information about configuring the ODBC DSN, see [Configuring a connection for ODBC driver version 2.x for
+Amazon Redshift](odbc20-install.md "odbc20-install.md").
+
+## SSL and server certificates in
+
+Java
+
+SSL provides one layer of security by encrypting data that moves between your
+client and cluster. Using a server certificate provides an extra layer of security
+by validating that the cluster is an Amazon Redshift cluster. It does so by checking the
+server certificate that is automatically installed on all clusters that you
+provision. For more information about using server certificates with JDBC, go to
+[Configuring the client](https://jdbc.postgresql.org/documentation/ssl/#configuring-the-client "https://jdbc.postgresql.org/documentation/ssl/#configuring-the-client") in the PostgreSQL documentation.
+
+### Connect using trust CA
+
+certificates in Java
+
+###### Important
+
+Amazon Redshift has changed the way that SSL certificates are managed. You might need
+to update your current trust root CA certificates to continue to connect to
+your clusters using SSL. For more information, see [SSL](#connect-using-ssl "#connect-using-ssl").
+
+**To connect using trust CA certificates**
+
+You can use the `redshift-keytool.jar` file to import CA
+certificates in the Amazon Redshift Certificate Authority bundle into a Java TrustStore or
+your private TrustStore.
+
+1. If you use the Java command line
+   `-Djavax.net.ssl.trustStore` option, remove it from
+   command line, if possible.
+2. Download [redshift-keytool.jar](https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar "https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar").
+3. Do one of the following:
+   - To import the Amazon Redshift Certificate Authority bundle into a Java
+     TrustStore, run the following command.
+
+   ```
+   java -jar redshift-keytool.jar -s
+   ```
+
+   - To import the Amazon Redshift Certificate Authority bundle into your
+     private TrustStore, run the following command:
+
+   ```
+   java -jar redshift-keytool.jar -k `<your_private_trust_store>` -p `<keystore_password>`
+   ```

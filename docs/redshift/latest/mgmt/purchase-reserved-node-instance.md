@@ -89,8 +89,161 @@ duration of the reservation, regardless of whether you use the reserved node or 
 The payment option just determines the frequency of payments and the discount to be
 applied. For more information, see [Reserved node offerings](#reserverd-node-offering-concept "#reserverd-node-offering-concept").
 
-| Payment option      | Payment schedule                                                                       | Comparative savings                                            | Duration                    | Upfront charges | Recurring monthly charges |
-| ------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------- | --------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **No Upfront**      | Monthly installments for the duration of the reservation. No upfront payment.          | About a 20 percent discount over on-demand rates.              | One-year or three-year term | None            | Yes                       |
-| **Partial Upfront** | Partial upfront payment, and monthly installments for the duration of the reservation. | Up to 41 percent to 73 percent discount depending on duration. | One-year or three-year term | Yes             | Yes                       |
-| **All Upfront**     | Full upfront payment for the reservation. No monthly charges.                          | Up to 42 percent to 76 percent discount depending on duration. | One-year or three-year term | Yes             | None                      | Specific options and durations are subject to availability. ###### Note If you previously purchased **Heavy Utilization** offerings for Amazon Redshift, the comparable offering is the **Partial Upfront** offering. ## How reserved nodes work With reserved node offerings, you pay according to the payment terms as described in the preceding section. You pay this way whether you already have a running cluster or you launch a cluster after you have a reservation. When you purchase an offering, your reservation has a status of **payment-pending** until the reservation is processed. If the reservation fails to be processed, the status displays as **payment-failed** and you can try the process again. Once your reservation is successfully processed, its status changes to **active**. The applicable discounted rate in your reservation is not applied to your bill until the status changes to **active**. After the reservation duration elapses, the status changes to **retired** but you can continue to access information about the reservation for historical purposes. When a reservation is **retired**, your clusters continue to run but you might be billed at the on-demand rate unless you have another reservation that applies discounted pricing to the nodes. Reserved nodes are specific to the region in which you purchase the offering. If you purchase an offering by using the Amazon Redshift console, select the AWS region in which you want to purchase an offering, and then complete the reservation process. If you purchase an offering programmatically, the region is determined by the Amazon Redshift endpoint that you connect to. For more information about Amazon Redshift regions, go to [Regions and Endpoints](../../../general/latest/gr/rande.md#redshift_region "../../../general/latest/gr/rande.md#redshift_region") in the _Amazon Web Services General Reference_. To ensure that the discounted rate is applied to all of the nodes when you launch a cluster, make sure that the region, the node type, and the number of nodes that you select match one or more active reservations. Otherwise, you'll be charged at the on-demand rate for nodes that don’t match an active reservation. In a running cluster, if you exceed the number of nodes that you have reserved, you begin to accrue charges for those additional nodes at the on-demand rate. This accrual means that it is possible for you to be charged varying rates for nodes in the same cluster depending on how many nodes you’ve reserved. You can purchase another offering to cover those additional nodes, and then the discounted rate is applied to those nodes for the remainder of the duration once the reservation status becomes **active**. If you resize your cluster into a different node type and you haven’t reserved nodes of that type, you’ll be charged at the on-demand rate. You can purchase another offering with the new node type if you want to receive discounted rates for your resized cluster. However, you also continue to pay for the original reservation until its duration elapses. If you need to alter your reservations before the term expires, create a support case using the [AWS Console](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home"). ###### Note The console shows the count of used and unused reserved nodes. However, the console only shows the number of nodes as used that the current user account uses. If another user account under the same payer account uses nodes, the console shows those nodes as unused. **Example** <br>• A payer account reserves 20 nodes <br>• The current user account uses six nodes <br>• Another user account under the same payer account also uses six nodes In this example, the console only displays six used nodes, and fourteen unused nodes. ## Reserved nodes and consolidated billing The pricing benefits of Reserved Nodes are shared when the purchasing account is part of a set of accounts billed under one consolidated billing payer account. The hourly usage across all sub-accounts is aggregated in the payer account every month. This is typically useful for companies in which there are different functional teams or groups; then, the normal Reserved Nodes logic is applied to calculate the bill. For more information, see [Consolidated Billing](../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md "../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md") in the AWS Billing User Guide. ## Reserved node examples The scenarios in this section demonstrate how nodes accrue charges based on on-demand and discounted rates using the following reservation details: <br>• Region: US West (Oregon) <br>• Node Type: ra3.xlplus <br>• Payment Option: No Upfront <br>• Duration: one year <br>• Number of Reserved Nodes: 16 ### Example 1 You have one cluster in the US West (Oregon) region with 20 nodes. In this scenario, 16 of the nodes receive the discounted rate from the reservation, but the additional 4 nodes in the cluster are billed at the on-demand rate. ### Example 2 You have one cluster in the US West (Oregon) region with 12 nodes. In this scenario, all 12 nodes in the cluster receive the discounted rate from the reservation. However, you also pay for the remaining reserved nodes in the reservation even though you don't currently have a running cluster to which they apply. ### Example 3 You have one cluster in the US West (Oregon) region with 12 nodes. You run the cluster for several months with this configuration, and then you need to add nodes to the cluster. You resize the cluster, choosing the same node type and specifying a total of 16 nodes. In this scenario, you are billed the discounted rate for 16 nodes. Your charges remain the same for the full year duration because the number of nodes that you have in the cluster is equal to the number of nodes that you have reserved. ### Example 4 You have one cluster in the US West (Oregon) region with 16 nodes. You run the cluster for several months with this configuration, and then you need to add nodes. You resize the cluster, choosing the same node type and specifying a total of 20 nodes. In this scenario, you are billed the discounted rate for all the nodes prior to the resize. After the resize, you are billed the discounted rate for 16 of the nodes for the rest of the year, and you are billed at the on-demand rate for the additional 4 nodes that you added to the cluster. ### Example 5 You have two clusters in the US West (Oregon) region. One of the clusters has 6 nodes, and the other has 10 nodes. In this scenario, you are billed at the discounted rate for all of the nodes because the total number of nodes in both clusters is equal to the number of nodes that you have reserved. ### Example 6 You have two clusters in the US West (Oregon) region. One of the clusters has 4 nodes, and the other has 6 nodes. In this scenario, you are billed the discounted rate for the 10 nodes that you have in running clusters, and you also pay the discounted rate for the additional 6 nodes that you have reserved even though you don't currently have any running clusters to which they apply. |
+| Payment option      | Payment schedule                                                                          | Comparative savings                                               | Duration                    | Upfront charges | Recurring monthly charges |
+| ------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------- | --------------- | ------------------------- |
+| **No Upfront**      | Monthly installments for the duration of the reservation. No upfront<br>payment.          | About a 20 percent discount over on-demand rates.                 | One-year or three-year term | None            | Yes                       |
+| **Partial Upfront** | Partial upfront payment, and monthly installments for the duration of<br>the reservation. | Up to 41 percent to 73 percent discount depending on<br>duration. | One-year or three-year term | Yes             | Yes                       |
+| **All Upfront**     | Full upfront payment for the reservation. No monthly charges.                             | Up to 42 percent to 76 percent discount depending on<br>duration. | One-year or three-year term | Yes             | None                      |
+
+Specific options and durations are subject to availability.
+
+###### Note
+
+If you previously purchased **Heavy Utilization** offerings for
+Amazon Redshift, the comparable offering is the **Partial Upfront**
+offering.
+
+## How reserved nodes work
+
+With reserved node offerings, you pay according to the payment terms as described in
+the preceding section. You pay this way whether you already have a running cluster or
+you launch a cluster after you have a reservation.
+
+When you purchase an offering, your reservation has a status of
+**payment-pending** until the reservation is processed. If the
+reservation fails to be processed, the status displays as
+**payment-failed** and you can try the process again. Once your
+reservation is successfully processed, its status changes to
+**active**. The applicable discounted rate in your reservation is not
+applied to your bill until the status changes to **active**. After the
+reservation duration elapses, the status changes to **retired** but you
+can continue to access information about the reservation for historical purposes. When a
+reservation is **retired**, your clusters continue to run but you might
+be billed at the on-demand rate unless you have another reservation that applies
+discounted pricing to the nodes.
+
+Reserved nodes are specific to the region in which you purchase the offering. If you
+purchase an offering by using the Amazon Redshift console, select the AWS region in which you
+want to purchase an offering, and then complete the reservation process. If you purchase
+an offering programmatically, the region is determined by the Amazon Redshift endpoint that you
+connect to. For more information about Amazon Redshift regions, go to [Regions and Endpoints](../../../general/latest/gr/rande.md#redshift_region "../../../general/latest/gr/rande.md#redshift_region") in the
+_Amazon Web Services General Reference_.
+
+To ensure that the discounted rate is applied to all of the nodes when you launch a
+cluster, make sure that the region, the node type, and the number of nodes that you
+select match one or more active reservations. Otherwise, you'll be charged at the
+on-demand rate for nodes that don’t match an active reservation.
+
+In a running cluster, if you exceed the number of nodes that you have reserved, you
+begin to accrue charges for those additional nodes at the on-demand rate. This accrual
+means that it is possible for you to be charged varying rates for nodes in the same
+cluster depending on how many nodes you’ve reserved. You can purchase another offering
+to cover those additional nodes, and then the discounted rate is applied to those nodes
+for the remainder of the duration once the reservation status becomes
+**active**.
+
+If you resize your cluster into a different node type and you haven’t reserved nodes
+of that type, you’ll be charged at the on-demand rate. You can purchase another offering
+with the new node type if you want to receive discounted rates for your resized cluster.
+However, you also continue to pay for the original reservation until its duration
+elapses. If you need to alter your reservations before the term expires, create a
+support case using the [AWS
+Console](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
+
+###### Note
+
+The console shows the count of used and unused reserved nodes. However, the
+console only shows the number of nodes as used that the current user account uses.
+If another user account under the same payer account uses nodes, the console shows
+those nodes as unused.
+
+**Example**
+
+- A payer account reserves 20 nodes
+- The current user account uses six nodes
+- Another user account under the same payer account also uses six
+  nodes
+  In this example, the console only displays six used nodes, and fourteen unused
+  nodes.
+
+## Reserved nodes and consolidated
+
+billing
+
+The pricing benefits of Reserved Nodes are shared when the purchasing account is part
+of a set of accounts billed under one consolidated billing payer account. The hourly
+usage across all sub-accounts is aggregated in the payer account every month. This is
+typically useful for companies in which there are different functional teams or groups;
+then, the normal Reserved Nodes logic is applied to calculate the bill. For more
+information, see [Consolidated
+Billing](../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md "../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md") in the AWS Billing User Guide.
+
+## Reserved node examples
+
+The scenarios in this section demonstrate how nodes accrue charges based on on-demand
+and discounted rates using the following reservation details:
+
+- Region: US West (Oregon)
+- Node Type: ra3.xlplus
+- Payment Option: No Upfront
+- Duration: one year
+- Number of Reserved Nodes: 16
+
+### Example 1
+
+You have one cluster in the US West (Oregon) region with 20 nodes.
+
+In this scenario, 16 of the nodes receive the discounted rate from the
+reservation, but the additional 4 nodes in the cluster are billed at the on-demand
+rate.
+
+### Example 2
+
+You have one cluster in the US West (Oregon) region with 12 nodes.
+
+In this scenario, all 12 nodes in the cluster receive the discounted rate from the
+reservation. However, you also pay for the remaining reserved nodes in the
+reservation even though you don't currently have a running cluster to which
+they apply.
+
+### Example 3
+
+You have one cluster in the US West (Oregon) region with 12 nodes. You run the
+cluster for several months with this configuration, and then you need to add nodes
+to the cluster. You resize the cluster, choosing the same node type and specifying a
+total of 16 nodes.
+
+In this scenario, you are billed the discounted rate for 16 nodes. Your charges
+remain the same for the full year duration because the number of nodes that you have
+in the cluster is equal to the number of nodes that you have reserved.
+
+### Example 4
+
+You have one cluster in the US West (Oregon) region with 16 nodes. You run the
+cluster for several months with this configuration, and then you need to add nodes.
+You resize the cluster, choosing the same node type and specifying a total of 20
+nodes.
+
+In this scenario, you are billed the discounted rate for all the nodes prior to
+the resize. After the resize, you are billed the discounted rate for 16 of the nodes
+for the rest of the year, and you are billed at the on-demand rate for the
+additional 4 nodes that you added to the cluster.
+
+### Example 5
+
+You have two clusters in the US West (Oregon) region. One of the clusters has 6
+nodes, and the other has 10 nodes.
+
+In this scenario, you are billed at the discounted rate for all of the nodes
+because the total number of nodes in both clusters is equal to the number of nodes
+that you have reserved.
+
+### Example 6
+
+You have two clusters in the US West (Oregon) region. One of the clusters has 4
+nodes, and the other has 6 nodes.
+
+In this scenario, you are billed the discounted rate for the 10 nodes that you
+have in running clusters, and you also pay the discounted rate for the additional 6
+nodes that you have reserved even though you don't currently have any running
+clusters to which they apply.

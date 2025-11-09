@@ -188,17 +188,347 @@ The following table maps Java Database Connectivity (JDBC) data types to the dat
 types you specify in Data API calls.
 
 | JDBC data type                                         | Data API data type |
-| ------------------------------------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------ | ------------------ |
 | `INTEGER, SMALLINT, BIGINT`                            | `LONG`             |
 | `FLOAT, REAL, DOUBLE`                                  | `DOUBLE`           |
 | `DECIMAL`                                              | `STRING`           |
 | `BOOLEAN, BIT`                                         | `BOOLEAN`          |
-| `BLOB, BINARY, LONGVARBINARY`                          | `BLOB`             |
+| `BLOB, BINARY,<br>LONGVARBINARY`                       | `BLOB`             |
 | `VARBINARY`                                            | `STRING`           |
 | `CLOB`                                                 | `STRING`           |
-| Other types (including types related to date and time) | `STRING`           | String values are passed to the Amazon Redshift database and implicitly converted into a database data type. ###### Note Currently, the Data API doesn't support arrays of universal unique identifiers (UUIDs). ## Running SQL statements with parameters when calling the Amazon Redshift Data API You can control the SQL text submitted to the database engine by calling the Data API operation using parameters for parts of the SQL statement. Named parameters provide a flexible way to pass in parameters without hardcoding them in the SQL text. They help you reuse SQL text and avoid SQL injection problems. The following example shows the named parameters of a `parameters` field of an `execute-statement` AWS CLI command. `--parameters "[{\"name\": \"id\", \"value\": \"1\"},{\"name\": \"address\", \"value\": \"Seattle\"}]"` Consider the following when using named parameters: <br>• Named parameters can only be used to replace values in SQL statements. + You can replace the values in an INSERT statement, such as `INSERT INTO mytable VALUES(:val1)`. The named parameters can be in any order and parameters can be used more than one time in the SQL text. The parameters option shown in a previous example, the values `1` and `Seattle` are inserted into the table columns `id` and `address`. In the SQL text, you specify the named parameters as follows: `--sql "insert into mytable values (:id, :address)"` + You can replace the values in a conditions clause, such as `WHERE attr >= :val1`, `WHERE attr BETWEEN :val1 AND :val2`, and `HAVING COUNT(attr) > :val`. + You can't replace column names in an SQL statement, such as `SELECT column-name`, `ORDER BY column-name`, or `GROUP BY column-name`. For example, the following SELECT statement fails with invalid syntax. `--sql "SELECT :colname, FROM event" --parameters "[{\"name\": \"colname\", \"value\": \"eventname\"}]"` If you describe (`describe-statement` operation) the statement with the syntax error, the `QueryString` returned does not substitute the column name for the parameter (`"QueryString": "SELECT :colname, FROM event"`), and an error is reported (**`ERROR: syntax error at or near \"FROM\"\n Position: 12`**). + You can't replace column names in an aggregate function, such as `COUNT(column-name)`, `AVG(column-name)`, or `SUM(column-name)`. + You can't replace column names in a JOIN clause. <br>• When the SQL runs, data is implicitly cast to a data type. For more information about data type casting, see [Data types](../dg/c_Supported_data_types.md "../dg/c_Supported_data_types.md") in the _Amazon Redshift Database Developer Guide_. <br>• You can't set a value to NULL. The Data API interprets it as the literal string `NULL`. The following example replaces `id` with the literal string `null`. Not the SQL NULL value. `--parameters "[{\"name\": \"id\", \"value\": \"null\"}]"` <br>• You can't set a zero length value. The Data API SQL statement fails. The following example trys to set `id` with a zero length value and results in a failure of the SQL statement. `--parameters "[{\"name\": \"id\", \"value\": \"\"}]"` <br>• You can't set a table name in the SQL statement with a parameter. The Data API follows the rule of the JDBC `PreparedStatement`. <br>• The output of the `describe-statement` operation returns the query parameters of a SQL statement. <br>• Only the `execute-statement` operation supports SQL statements with parameters. ## Running SQL statements with an idempotency token when calling the Amazon Redshift Data API When you make a mutating API request, the request typically returns a result before the operation's asynchronous workflows have completed. Operations might also time out or encounter other server issues before they complete, even though the request has already returned a result. This could make it difficult to determine whether the request succeeded or not, and could lead to multiple retries to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the operation is completed multiple times. This means that you might update more resources than you intended. _Idempotency_ ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions. The Data API `ExecuteStatement` and `BatchExecuteStatement` operations have an optional `ClientToken` idempotent parameter. The `ClientToken` expires after 8 hours. ###### Important If you call `ExecuteStatement` and `BatchExecuteStatement` operations from an AWS SDK, it automatically generates a client token to use on retry. In this case, we don't recommend using the `client-token` parameter with `ExecuteStatement` and `BatchExecuteStatement` operations. View the CloudTrail log to see the `ClientToken`. For a CloudTrail log example, see [Amazon Redshift Data API examples](logging-with-cloudtrail.md#data-api-cloudtrail "logging-with-cloudtrail.md#data-api-cloudtrail"). The following `execute-statement` AWS CLI command illustrates the optional `client-token` parameter for idempotency. `aws redshift-data execute-statement --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn --cluster-identifier mycluster-test --sql "select * from stl_query limit 1" --database dev --client-token b855dced-259b-444c-bc7b-d3e8e33f94g1` The following table shows some common responses that you might get for idempotent API requests, and provides retry recommendations. |
-| Response                                               | Recommendation     | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---                                                    | ---                | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| 200 (OK)                                               | Do not retry       | The original request completed successfully. Any subsequent retries return successfully.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| 400-series response codes                              | Do not retry       | There is a problem with the request, from among the following: <br>• It includes a parameter or parameter combination that is not valid. <br>• It uses an action or resource for which you do not have permissions. <br>• It uses a resource that is in the process of changing states. If the request involves a resource that is in the process of changing states, retrying the request could possibly succeed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| 500-series response codes                              | Retry              | The error is caused by an AWS server-side issue and is generally transient. Repeat the request with an appropriate backoff strategy.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | For information about Amazon Redshift response codes, see [Common Errors](../APIReference/CommonErrors.md "../APIReference/CommonErrors.md") in the _Amazon Redshift API Reference_. ## Running SQL statements with session reuse when calling the Amazon Redshift Data API When you make an API request to run a SQL statement, the session where the SQL runs is usually terminated when the SQL is finished. To keep the session active for a specified number of seconds, the Data API `ExecuteStatement` and `BatchExecuteStatement` operations have an optional `SessionKeepAliveSeconds` parameter. A `SessionId` response field contains the identity of the session which can then be used in subsequent `ExecuteStatement` and `BatchExecuteStatement` operations. In subsequent calls you can specify another `SessionKeepAliveSeconds` to change the idle timeout time. If the `SessionKeepAliveSeconds` is not changed, the initial idle timeout setting remains. Consider the following when using session reuse: <br>• The maximum value of `SessionKeepAliveSeconds` is 24 hours. <br>• The session can last for at most 24 hours. After 24 hours the session is forcibly closed and in-progress queries are terminated. <br>• The maximum number of sessions per Amazon Redshift cluster or Redshift Serverless workgroup is 500. <br>• You can only run one query at a time in a session. You need to wait until the query is finished to run the next query in the same session. That is, you cannot run queries in parallel in a provided session. <br>• The Data API can't queue queries for a given session. To retrieve the `SessionId` that is used by calls to `ExecuteStatement` and `BatchExecuteStatement` operations, call `DescribeStatement` and `ListStatements` operations. The following example demonstrates using the `SessionKeepAliveSeconds` and `SessionId` parameters to keep a session alive and reused. First, call the `execute-statement` AWS CLI command with the optional `session-keep-alive-seconds` parameter set to `2`. `aws redshift-data execute-statement --session-keep-alive-seconds 2 --sql "select 1" --database dev --workgroup-name mywg` The response contains the session identifier. `{ "WorkgroupName": "mywg", "CreatedAt": 1703022996.436, "Database": "dev", "DbUser": "awsuser", "Id": "07c5ffea-76d6-4786-b62c-4fe3ef529680", "SessionId": "5a254dc6-4fc2-4203-87a8-551155432ee4" }` Then, call the `execute-statement` AWS CLI command with the `SessionId` returned from the first call. And optionally, specify the `session-keep-alive-seconds` parameter set to `10` to change the idle timeout value. `aws redshift-data execute-statement --sql "select 1" --session-id 5a254dc6-4fc2-4203-87a8-551155432ee4 --session-keep-alive-seconds 10` ## Fetching the results of SQL statements You use different Data API operations to fetch SQL results depending on the result format. When you call `ExecuteStatement` and `BatchExecuteStatement` operations, you can specify whether the results are formatted as JSON or CSV. If you don't specify, the default is JSON. To retrieve JSON results, use the `GetStatementResult` operation. To retrieve CSV results, use the `GetStatementResultV2` operation. Results returned in JSON format are records that include metadata about each column. Each record is in JSON format. For example, the response from `GetStatementResult` looks similar to this: ``{ "ColumnMetadata": [ { "isCaseSensitive": false, "isCurrency": false, "isSigned": true, "label": "?column?", "name": "?column?", "nullable": 1, "precision": 10, "scale": 0, "schemaName": "", "tableName": "", "typeName": "int4", "length": 0 } ], "NextToken": "`<token>`", "Records": [ [ { "longValue": 1 } ] ], "TotalNumRows": `<number>` }`` Results returned in CSV format are records that include metadata about each column. Results are returned in 1 MB chunks, where each chunk can store any number of rows in CSV format. Each request returns up to 15 MB of results. If results are greater than 15 MB, then a next page token is returned to continue retrieving the results. For example, the response from `GetStatementResultV2` looks similar to this: ``{ "ColumnMetadata": [ { "isCaseSensitive": false, "isCurrency": false, "isSigned": true, "label": "?column?", "name": "?column?", "nullable": 1, "precision": 10, "scale": 0, "schemaName": "", "tableName": "", "typeName": "int4", "length": 0 }, { "isCaseSensitive": false, "isCurrency": false, "isSigned": true, "label": "?column?", "name": "?column?", "nullable": 1, "precision": 10, "scale": 0, "schemaName": "", "tableName": "", "typeName": "int4", "length": 0 }, { "isCaseSensitive": false, "isCurrency": false, "isSigned": true, "label": "?column?", "name": "?column?", "nullable": 1, "precision": 10, "scale": 0, "schemaName": "", "tableName": "", "typeName": "int4", "length": 0 } ], "NextToken": "`<token>`", "Records": [ [ { "CSVRecords":"1,2,3\r\n4,5,6\r\n7,8,9\rn, .... 1MB" // First 1MB Chunk }, { "CSVRecords":"1025,1026,1027\r\n1028,1029,1030\r\n....2MB" // Second 1MB chunk } ... ] ], "ResultFormat" : "CSV", "TotalNumRows": `<number>` }`` |
+| Other types (including types related to date and time) | `STRING`           |
+
+String values are passed to the Amazon Redshift database and implicitly converted into a database
+data type.
+
+###### Note
+
+Currently, the Data API doesn't support arrays of universal unique
+identifiers (UUIDs).
+
+## Running SQL statements with
+
+parameters when calling the Amazon Redshift Data API
+
+You can control the SQL text submitted to the database engine by calling the Data API
+operation using parameters for parts of the SQL statement. Named parameters provide a
+flexible way to pass in parameters without hardcoding them in the SQL text. They help
+you reuse SQL text and avoid SQL injection problems.
+
+The following example shows the named parameters of a `parameters` field of
+an `execute-statement` AWS CLI command.
+
+```
+--parameters "[{\"name\": \"id\", \"value\": \"1\"},{\"name\": \"address\", \"value\": \"Seattle\"}]"
+```
+
+Consider the following when using named parameters:
+
+- Named parameters can only be used to replace values in SQL statements.
+  - You can replace the values in an INSERT statement, such as
+    `INSERT INTO mytable VALUES(:val1)`.
+
+  The named parameters can be in any order and parameters can be used
+  more than one time in the SQL text. The parameters option shown in a
+  previous example, the values `1` and `Seattle` are
+  inserted into the table columns `id` and
+  `address`. In the SQL text, you specify the named parameters
+  as follows:
+
+  ```
+  --sql "insert into mytable values (:id, :address)"
+  ```
+
+  - You can replace the values in a conditions clause, such as `WHERE
+attr >= :val1`, `WHERE attr BETWEEN :val1 AND
+:val2`, and `HAVING COUNT(attr) > :val`.
+  - You can't replace column names in an SQL statement, such as
+    `SELECT column-name`, `ORDER BY column-name`,
+    or `GROUP BY column-name`.
+
+  For example, the following SELECT statement fails with invalid
+  syntax.
+
+  ```
+  --sql "SELECT :colname, FROM event" --parameters "[{\"name\": \"colname\", \"value\": \"eventname\"}]"
+  ```
+
+  If you describe (`describe-statement` operation) the
+  statement with the syntax error, the `QueryString` returned
+  does not substitute the column name for the parameter
+  (`"QueryString": "SELECT :colname, FROM event"`), and an
+  error is reported (**`ERROR: syntax error at or near \"FROM\"\n
+ Position: 12`**).
+  - You can't replace column names in an aggregate function, such as
+    `COUNT(column-name)`, `AVG(column-name)`, or
+    `SUM(column-name)`.
+  - You can't replace column names in a JOIN clause.
+
+- When the SQL runs, data is implicitly cast to a data type. For more
+  information about data type casting, see [Data types](../dg/c_Supported_data_types.md "../dg/c_Supported_data_types.md") in
+  the _Amazon Redshift Database Developer Guide_.
+- You can't set a value to NULL. The Data API interprets it as the literal
+  string `NULL`. The following example replaces `id` with
+  the literal string `null`. Not the SQL NULL value.
+
+```
+--parameters "[{\"name\": \"id\", \"value\": \"null\"}]"
+```
+
+- You can't set a zero length value. The Data API SQL statement fails. The
+  following example trys to set `id` with a zero length value and
+  results in a failure of the SQL statement.
+
+```
+--parameters "[{\"name\": \"id\", \"value\": \"\"}]"
+```
+
+- You can't set a table name in the SQL statement with a parameter. The
+  Data API follows the rule of the JDBC `PreparedStatement`.
+- The output of the `describe-statement` operation returns the query
+  parameters of a SQL statement.
+- Only the `execute-statement` operation supports SQL statements with
+  parameters.
+
+## Running SQL statements
+
+with an idempotency token when calling the Amazon Redshift Data API
+
+When you make a mutating API request, the request typically returns a result before
+the operation's asynchronous workflows have completed. Operations might also time out or
+encounter other server issues before they complete, even though the request has already
+returned a result. This could make it difficult to determine whether the request
+succeeded or not, and could lead to multiple retries to ensure that the operation
+completes successfully. However, if the original request and the subsequent retries are
+successful, the operation is completed multiple times. This means that you might update
+more resources than you intended.
+
+_Idempotency_ ensures that an API request completes no more than
+one time. With an idempotent request, if the original request completes successfully,
+any subsequent retries complete successfully without performing any further actions. The
+Data API `ExecuteStatement` and `BatchExecuteStatement`
+operations have an optional `ClientToken` idempotent parameter. The
+`ClientToken` expires after 8 hours.
+
+###### Important
+
+If you call `ExecuteStatement` and `BatchExecuteStatement`
+operations from an AWS SDK, it automatically generates a client token to use on
+retry. In this case, we don't recommend using the `client-token`
+parameter with `ExecuteStatement` and `BatchExecuteStatement`
+operations. View the CloudTrail log to see the `ClientToken`. For a CloudTrail log
+example, see [Amazon Redshift Data API examples](logging-with-cloudtrail.md#data-api-cloudtrail "logging-with-cloudtrail.md#data-api-cloudtrail").
+
+The following `execute-statement` AWS CLI command illustrates the optional
+`client-token` parameter for idempotency.
+
+```
+
+aws redshift-data execute-statement
+    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn
+    --cluster-identifier mycluster-test
+    --sql "select * from stl_query limit 1"
+    --database dev
+    --client-token b855dced-259b-444c-bc7b-d3e8e33f94g1
+
+```
+
+The following table shows some common responses that you might get for idempotent API
+requests, and provides retry recommendations.
+
+| Response                  | Recommendation | Comments                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 200 (OK)                  | Do not retry   | The original request completed successfully. Any subsequent<br>retries return successfully.                                                                                                                                                                                                                                                                                                                                    |
+| 400-series response codes | Do not retry   | There is a problem with the request, from among the following:<br>• It includes a parameter or parameter combination that is<br>not valid.<br>• It uses an action or resource for which you do not have<br>permissions.<br>• It uses a resource that is in the process of changing<br>states.<br>If the request involves a resource that is in the process of<br>changing states, retrying the request could possibly succeed. |
+| 500-series response codes | Retry          | The error is caused by an AWS server-side issue and is generally<br>transient. Repeat the request with an appropriate backoff<br>strategy.                                                                                                                                                                                                                                                                                     |
+
+For information about Amazon Redshift response codes, see [Common Errors](../APIReference/CommonErrors.md "../APIReference/CommonErrors.md") in the
+_Amazon Redshift API Reference_.
+
+## Running SQL statements
+
+with session reuse when calling the Amazon Redshift Data API
+
+When you make an API request to run a SQL statement, the session where the SQL runs is
+usually terminated when the SQL is finished. To keep the session active for a specified
+number of seconds, the Data API `ExecuteStatement` and
+`BatchExecuteStatement` operations have an optional
+`SessionKeepAliveSeconds` parameter. A `SessionId` response
+field contains the identity of the session which can then be used in subsequent
+`ExecuteStatement` and `BatchExecuteStatement` operations. In
+subsequent calls you can specify another `SessionKeepAliveSeconds` to change
+the idle timeout time. If the `SessionKeepAliveSeconds` is not changed, the
+initial idle timeout setting remains. Consider the following when using session
+reuse:
+
+- The maximum value of `SessionKeepAliveSeconds` is 24 hours.
+- The session can last for at most 24 hours. After 24 hours the session is
+  forcibly closed and in-progress queries are terminated.
+- The maximum number of sessions per Amazon Redshift cluster or Redshift Serverless workgroup is
+
+500.
+
+- You can only run one query at a time in a session. You need to wait until the
+  query is finished to run the next query in the same session. That is, you cannot
+  run queries in parallel in a provided session.
+- The Data API can't queue queries for a given session.
+
+To retrieve the `SessionId` that is used by calls to
+`ExecuteStatement` and `BatchExecuteStatement` operations,
+call `DescribeStatement` and `ListStatements` operations.
+
+The following example demonstrates using the `SessionKeepAliveSeconds` and
+`SessionId` parameters to keep a session alive and reused. First, call
+the `execute-statement` AWS CLI command with the optional
+`session-keep-alive-seconds` parameter set to `2`.
+
+```
+
+aws redshift-data execute-statement
+    --session-keep-alive-seconds 2
+    --sql "select 1"
+    --database dev
+    --workgroup-name mywg
+
+```
+
+The response contains the session identifier.
+
+```
+{
+    "WorkgroupName": "mywg",
+    "CreatedAt": 1703022996.436,
+    "Database": "dev",
+    "DbUser": "awsuser",
+    "Id": "07c5ffea-76d6-4786-b62c-4fe3ef529680",
+    "SessionId": "5a254dc6-4fc2-4203-87a8-551155432ee4"
+}
+```
+
+Then, call the `execute-statement` AWS CLI command with the
+`SessionId` returned from the first call. And optionally, specify the
+`session-keep-alive-seconds` parameter set to `10` to change
+the idle timeout value.
+
+```
+
+aws redshift-data execute-statement
+    --sql "select 1"
+    --session-id 5a254dc6-4fc2-4203-87a8-551155432ee4
+    --session-keep-alive-seconds 10
+
+```
+
+## Fetching the results of
+
+SQL statements
+
+You use different Data API operations to fetch SQL results depending on the
+result format. When you call `ExecuteStatement` and
+`BatchExecuteStatement` operations, you can specify whether the results
+are formatted as JSON or CSV. If you don't specify, the default is JSON. To retrieve
+JSON results, use the `GetStatementResult` operation. To retrieve CSV
+results, use the `GetStatementResultV2` operation.
+
+Results returned in JSON format are records that include metadata about each column.
+Each record is in JSON format. For example, the response from
+`GetStatementResult` looks similar to this:
+
+```
+{
+   "ColumnMetadata": [
+      {
+         "isCaseSensitive": false,
+         "isCurrency": false,
+         "isSigned": true,
+         "label": "?column?",
+         "name": "?column?",
+         "nullable": 1,
+         "precision": 10,
+         "scale": 0,
+         "schemaName": "",
+         "tableName": "",
+         "typeName": "int4",
+         "length": 0
+      }
+   ],
+   "NextToken": "`<token>`",
+   "Records": [
+        [
+            {
+                "longValue": 1
+            }
+        ]
+    ],
+   "TotalNumRows": `<number>`
+}
+```
+
+Results returned in CSV format are records that include metadata about each column.
+Results are returned in 1 MB chunks, where each chunk can store any number of rows in
+CSV format. Each request returns up to 15 MB of results. If results are greater than 15
+MB, then a next page token is returned to continue retrieving the results. For example,
+the response from `GetStatementResultV2` looks similar to this:
+
+```
+{
+    "ColumnMetadata": [
+        {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "?column?",
+            "name": "?column?",
+            "nullable": 1,
+            "precision": 10,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int4",
+            "length": 0
+        },
+        {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "?column?",
+            "name": "?column?",
+            "nullable": 1,
+            "precision": 10,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int4",
+            "length": 0
+        },
+        {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "?column?",
+            "name": "?column?",
+            "nullable": 1,
+            "precision": 10,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int4",
+            "length": 0
+        }
+    ],
+    "NextToken": "`<token>`",
+    "Records": [
+        [
+            {
+                "CSVRecords":"1,2,3\r\n4,5,6\r\n7,8,9\rn, .... 1MB" // First 1MB Chunk
+            },
+            {
+                "CSVRecords":"1025,1026,1027\r\n1028,1029,1030\r\n....2MB" // Second 1MB chunk
+            }
+            ...
+        ]
+    ],
+    "ResultFormat" : "CSV",
+    "TotalNumRows": `<number>`
+}
+```

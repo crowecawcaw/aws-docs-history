@@ -213,13 +213,90 @@ fine-grained access control
 In Amazon Redshift, you can use condition keys to restrict access to resources based on the tags
 for those resources. The following are common Amazon Redshift condition keys.
 
-| Condition key              | Description                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aws:RequestTag`           | Requires users to include a tag key (name) and value whenever they create a resource. For more information, see [aws:RequestTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag") in the _IAM User Guide_.  |
-| `aws:ResourceTag`          | Restricts user access to resources based on specific tag keys and values. For more information, see [aws:ResourceTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") in the _IAM User Guide_.           |
-| `aws:TagKeys`              | Use this key to compare the tag keys in a request with the keys that you specify in the policy. For more information, see [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys") in the _IAM User Guide_. | For information on tags, see [Tag resources in Amazon Redshift](amazon-redshift-tagging.md "amazon-redshift-tagging.md"). For a list of the API actions that support the `redshift:RequestTag` and `redshift:ResourceTag` condition keys, see [Amazon Redshift, Amazon Redshift Serverless, Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions](#redshift-policy-resources.resource-permissions "#redshift-policy-resources.resource-permissions"). The following condition keys can be used with the Amazon Redshift GetClusterCredentials action.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Condition key              | Description                                                                                                                                                                                                                                                                                                                                             |
-| ---                        | ---                                                                                                                                                                                                                                                                                                                                                     |
-| `redshift:DurationSeconds` | Limits the number of seconds that can be specified for duration.                                                                                                                                                                                                                                                                                        |
-| `redshift:DbName`          | Restricts database names that can be specified.                                                                                                                                                                                                                                                                                                         |
-| `redshift:DbUser`          | Restricts database user names that can be specified.                                                                                                                                                                                                                                                                                                    | #### Example 1: Restricting access by using the aws:ResourceTag condition key Use the following IAM policy to let a user modify an Amazon Redshift cluster only for a specific AWS account in the `us-west-2` region with a tag named `environment` with a tag value of `test`. JSON `` `{ "Version":"2012-10-17", "Statement": { "Sid":"AllowModifyTestCluster", "Effect": "Allow", "Action": "redshift:ModifyCluster", "Resource": "arn:aws:redshift:us-west-2:123456789012:cluster:*", "Condition": { "StringEquals": { "aws:ResourceTag/environment": "test" } } } }` `` #### Example 2: Restricting access by using the aws:RequestTag condition key Use the following IAM policy to let a user create an Amazon Redshift cluster only if the command to create the cluster includes a tag named `usage` and a tag value of `production`. The condition with `aws:TagKeys` and the `ForAllValues` modifier specifies that only the keys `costcenter` and `usage` can be specified in the request. JSON `` `{ "Version":"2012-10-17", "Statement": { "Sid":"AllowCreateProductionCluster", "Effect": "Allow", "Action": [ "redshift:CreateCluster", "redshift:CreateTags" ], "Resource": "*", "Condition": { "StringEquals": { "aws:RequestTag/usage": "production" }, "ForAllValues:StringEquals": { "aws:TagKeys": [ "costcenter", "usage" ] } } } }` `` |
+| Condition key     | Description                                                                                                                                                                                                                                                                                                                                                |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws:RequestTag`  | Requires users to include a tag key (name) and value whenever they<br>create a resource. For more information, see [aws:RequestTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag") in the _IAM User Guide_.  |
+| `aws:ResourceTag` | Restricts user access to resources based on specific tag keys and<br>values. For more information, see [aws:ResourceTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") in the _IAM User Guide_.           |
+| `aws:TagKeys`     | Use this key to compare the tag keys in a request with the keys that<br>you specify in the policy. For more information, see [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys") in the _IAM User Guide_. |
+
+For information on tags, see [Tag resources in Amazon Redshift](amazon-redshift-tagging.md "amazon-redshift-tagging.md").
+
+For a list of the API actions that support the `redshift:RequestTag` and
+`redshift:ResourceTag` condition keys, see [Amazon Redshift, Amazon Redshift Serverless,
+Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions](#redshift-policy-resources.resource-permissions "#redshift-policy-resources.resource-permissions").
+
+The following condition keys can be used with the Amazon Redshift GetClusterCredentials
+action.
+
+| Condition key              | Description                                                      |
+| -------------------------- | ---------------------------------------------------------------- |
+| `redshift:DurationSeconds` | Limits the number of seconds that can be specified for duration. |
+| `redshift:DbName`          | Restricts database names that can be specified.                  |
+| `redshift:DbUser`          | Restricts database user names that can be specified.             |
+
+#### Example 1:
+
+Restricting access by using the aws:ResourceTag condition key
+
+Use the following IAM policy to let a user modify an Amazon Redshift cluster only for a
+specific AWS account in the `us-west-2` region with a tag named
+`environment` with a tag value of `test`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Sid":"AllowModifyTestCluster",
+ "Effect": "Allow",
+ "Action": "redshift:ModifyCluster",
+ "Resource": "arn:aws:redshift:us-west-2:123456789012:cluster:*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/environment": "test"
+ }
+ }
+ }
+}`
+
+```
+
+#### Example 2:
+
+Restricting access by using the aws:RequestTag condition key
+
+Use the following IAM policy to let a user create an Amazon Redshift cluster only if the
+command to create the cluster includes a tag named `usage` and a tag value of
+`production`. The condition with `aws:TagKeys` and the
+`ForAllValues` modifier specifies that only the keys
+`costcenter` and `usage` can be specified in the request.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Sid":"AllowCreateProductionCluster",
+ "Effect": "Allow",
+ "Action": [
+ "redshift:CreateCluster",
+ "redshift:CreateTags"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/usage": "production"
+ },
+ "ForAllValues:StringEquals": {
+ "aws:TagKeys": [
+ "costcenter",
+ "usage"
+ ]
+ }
+ }
+ }
+}`
+
+```

@@ -319,8 +319,453 @@ Users need programmatic access if they want to interact with AWS outside of the 
 
 To grant users programmatic access, choose one of the following options.
 
-| Which user needs programmatic access?                     | To                                                                                                              | By                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Workforce identity (Users managed in IAM Identity Center) | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs.                  | Following the instructions for the interface that you want to use. <br>• For the AWS CLI, see [Configuring the AWS CLI to use AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the _AWS Command Line Interface User Guide_. <br>• For AWS SDKs, tools, and AWS APIs, see [IAM Identity Center authentication](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md") in the _AWS SDKs and Tools Reference Guide_.                                                                                                                                                                                                                        |
-| IAM                                                       | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs.                  | Following the instructions in [Using temporary credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| IAM                                                       | (Not recommended)Use long-term credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs. | Following the instructions for the interface that you want to use. <br>• For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in the _AWS Command Line Interface User Guide_. <br>• For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the _AWS SDKs and Tools Reference Guide_. <br>• For AWS APIs, see [Managing access keys for IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_. | The following example creates a user with password disabled. `create user temp_creds_user password disable;` The following example disables the password for an existing user. `alter user temp_creds_user password disable;` 3. Create database user groups using [CREATE GROUP](../dg/r_CREATE_GROUP.md "../dg/r_CREATE_GROUP.md"). 4. Use the [GRANT](../dg/r_GRANT.md "../dg/r_GRANT.md") command to define access privileges for the groups. ## Step 5: Configure a JDBC or ODBC connection to use IAM credentials You can configure your SQL client with an Amazon Redshift JDBC or ODBC driver. This driver manages the process of creating database user credentials and establishing a connection between your SQL client and your Amazon Redshift database. If you use an identity provider for authentication, specify the name of a credential provider plugin. The Amazon Redshift JDBC and ODBC drivers include plugins for the following SAML-based identity providers: <br>• Active Directory Federation Services (AD FS) <br>• PingOne <br>• Okta <br>• Microsoft Azure AD For the steps to set up Microsoft Azure AD as an identity provider, see [Setting up JDBC or ODBC single sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md"). ###### To configure a JDBC connection to use IAM credentials 1. Download the latest Amazon Redshift JDBC driver from the [Configuring a connection for JDBC driver version 2.x for Amazon Redshift](jdbc20-install.md "jdbc20-install.md") page. 2. Create a JDBC URL with the IAM credentials options in one of the following formats. To use IAM authentication, add `iam:` to the Amazon Redshift JDBC URL following `jdbc:redshift:` as shown in the following example. `jdbc:redshift:iam://` Add `cluster-name`, `region`, and `account-id`. The JDBC driver uses your IAM account information and cluster name to retrieve the cluster ID and AWS Region. To do so, your user or role must have permission to call the `redshift:DescribeClusters` operation with the specified cluster. If your user or role doesn't have permission to call the `redshift:DescribeClusters` operation, include the cluster ID, AWS Region, and port as shown in the following example. The port number is optional. `jdbc:redshift:iam://examplecluster.abc123xyz789.us-west-2.redshift.amazonaws.com:5439/dev` 3. Add JDBC options to provide IAM credentials. You use different combinations of JDBC options to provide IAM credentials. For details, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials"). The following URL specifies AccessKeyID and SecretAccessKey for a user. `jdbc:redshift:iam://examplecluster:us-west-2/dev?AccessKeyID=AKIAIOSFODNN7EXAMPLE&SecretAccessKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` The following example specifies a named profile that contains the IAM credentials. `jdbc:redshift:iam://examplecluster:us-west-2/dev?Profile=user2` 4. Add JDBC options that the JDBC driver uses to call the `GetClusterCredentials` API operation. Don't include these options if you call the `GetClusterCredentials` API operation programmatically. The following example includes the JDBC `GetClusterCredentials` options. `jdbc:redshift:iam://examplecluster:us-west-2/dev?plugin_name=com.amazon.redshift.plugin.AzureCredentialsProvider&UID=user&PWD=password&idp_tenant=my_tenant&client_secret=my_secret&client_id=my_id` ###### To configure an ODBC connection to use IAM credentials In the following procedure, you can find steps only to configure IAM authentication. For steps to use standard authentication, using a database user name and password, see [Configuring a connection for ODBC driver version 2.x for Amazon Redshift](odbc20-install.md "odbc20-install.md"). 1. Install and configure the latest Amazon Redshift OBDC driver for your operating system. For more information, see [Configuring a connection for ODBC driver version 2.x for Amazon Redshift](odbc20-install.md "odbc20-install.md") page. ###### Important The Amazon Redshift ODBC driver must be version 1.3.6.1000 or later. 2. Follow the steps for your operating system to configure connection settings. 3. On Microsoft Windows operating systems, access the Amazon Redshift ODBC Driver DSN Setup window. 1. Under **Connection Settings**, enter the following information: <br>• **Data Source Name** <br>• **Server** (optional) <br>• **Port** (optional) <br>• **Database** If your user or role has permission to call the `redshift:DescribeClusters` operation, only **Data Source Name** and **Database** are required. Amazon Redshift uses **ClusterId** and **Region** to get the server and port by calling the `DescribeCluster` operation. If your user or role doesn't have permission to call the `redshift:DescribeClusters` operation, specify **Server** and **Port**. 2. Under **Authentication**, choose a value for **Auth Type**. For each authentication type, enter values as listed following: AWS Profile Enter the following information: <br>• **ClusterID** <br>• **Region** <br>• **Profile name** Enter the name of a profile in an AWS config file that contains values for the ODBC connection options. For more information, see [Using a configuration profile](options-for-providing-iam-credentials.md#using-configuration-profile "options-for-providing-iam-credentials.md#using-configuration-profile"). (Optional) Provide details for options that the ODBC driver uses to call the `GetClusterCredentials` API operation: <br>• **DbUser** <br>• **User AutoCreate** <br>• **DbGroups** For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials"). IAM Credentials Enter the following information: <br>• **ClusterID** <br>• **Region** <br>• **AccessKeyID** and **SecretAccessKey** The access key ID and secret access key for the IAM role or user configured for IAM database authentication. <br>• **SessionToken** **SessionToken** is required for an IAM role with temporary credentials. For more information, see [Temporary Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md"). Provide details for options that the ODBC driver uses to call the `GetClusterCredentials` API operation: <br>• **DbUser** (required) <br>• **User AutoCreate** (optional) <br>• **DbGroups** (optional) For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials"). Identity Provider: AD FS For Windows Integrated Authentication with AD FS, leave **User** and **Password** empty. Provide IdP details: <br>• **IdP Host** The name of the corporate identity provider host. This name should not include any slashes ( / ). <br>• **IdP Port** (optional) The port used by identity provider. The default is 443. <br>• **Preferred Role** An Amazon Resource Name (ARN) for the IAM role from the multi-valued `AttributeValue` elements for the `Role` attribute in the SAML assertion. To find the appropriate value for the preferred role, work with your IdP administrator. For more information, see [Step 2: Configure SAML assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions"). (Optional) Provide details for options that the ODBC driver uses to call the `GetClusterCredentials` API operation: <br>• **DbUser** <br>• **User AutoCreate** <br>• **DbGroups** For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials"). Identity Provider: PingFederate For **User** and **Password**, enter your IdP user name and password. Provide IdP details: <br>• **IdP Host** The name of the corporate identity provider host. This name should not include any slashes ( / ). <br>• **IdP Port** (optional) The port used by identity provider. The default is 443. <br>• **Preferred Role** An Amazon Resource Name (ARN) for the IAM role from the multi-valued `AttributeValue` elements for the `Role` attribute in the SAML assertion. To find the appropriate value for the preferred role, work with your IdP administrator. For more information, see [Step 2: Configure SAML assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions"). (Optional) Provide details for options that the ODBC driver uses to call the `GetClusterCredentials` API operation: <br>• **DbUser** <br>• **User AutoCreate** <br>• **DbGroups** For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials"). Identity Provider: Okta For **User** and **Password**, enter your IdP user name and password. Provide IdP details: <br>• **IdP Host** The name of the corporate identity provider host. This name should not include any slashes ( / ). <br>• **IdP Port** This value is not used by Okta. <br>• **Preferred Role** An Amazon Resource Name (ARN) for the IAM role from the `AttributeValue` elements for the `Role` attribute in the SAML assertion. To find the appropriate value for the preferred role, work with your IdP administrator. For more information, see [Step 2: Configure SAML assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions"). <br>• **Okta App ID** An ID for an Okta application. The value for App ID follows "amazon_aws" in the Okta application embed link. Work with your IdP administrator to get this value. (Optional) Provide details for options that the ODBC driver uses to call the `GetClusterCredentials` API operation: <br>• **DbUser** <br>• **User AutoCreate** <br>• **DbGroups** For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials"). Identity Provider: Azure AD For **User** and **Password**, enter your IdP user name and password. For **Cluster ID** and **Region**, enter the cluster ID and AWS Region of your Amazon Redshift cluster. For **Database**, enter the database that you created for your Amazon Redshift cluster. Provide IdP details: <br>• **IdP Tenant** The tenant used for Azure AD. <br>• **Azure Client Secret** The client secret of the Amazon Redshift enterprise app in Azure. <br>• **Azure Client ID** The client ID (application ID) of the Amazon Redshift enterprise app in Azure. (Optional) Provide details for options that the ODBC driver uses to call the `GetClusterCredentials` API operation: <br>• **DbUser** <br>• **User AutoCreate** <br>• **DbGroups** For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials"). |
+| Which user needs programmatic access?                        | To                                                                                                                 | By                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Workforce identity<br>(Users managed in IAM Identity Center) | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                  | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Configuring the AWS CLI to use AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the<br>_AWS Command Line Interface User Guide_.<br>• For AWS SDKs, tools, and AWS APIs, see [IAM Identity Center<br>authentication](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md") in the _AWS SDKs and Tools Reference Guide_.                                                                                                                                                                                                                          |
+| IAM                                                          | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                  | Following the instructions in [Using temporary<br>credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| IAM                                                          | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs. | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the _AWS Command Line Interface User Guide_.<br>• For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>_AWS SDKs and Tools Reference Guide_.<br>• For AWS APIs, see [Managing access keys for<br>IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_. |
+
+The following example creates a user with password disabled.
+
+```
+create user temp_creds_user password disable;
+```
+
+The following example disables the password for an existing user.
+
+```
+alter user temp_creds_user password disable;
+```
+
+3. Create database user groups using [CREATE GROUP](../dg/r_CREATE_GROUP.md "../dg/r_CREATE_GROUP.md").
+4. Use the [GRANT](../dg/r_GRANT.md "../dg/r_GRANT.md") command to
+   define access privileges for the groups.
+
+## Step
+
+5: Configure a JDBC or ODBC connection to use IAM credentials
+
+You can configure your SQL client with an Amazon Redshift JDBC or ODBC driver. This driver
+manages the process of creating database user credentials and establishing a
+connection between your SQL client and your Amazon Redshift database.
+
+If you use an identity provider for authentication, specify the name of a
+credential provider plugin. The Amazon Redshift JDBC and ODBC drivers include plugins for the
+following SAML-based identity providers:
+
+- Active Directory Federation Services (AD FS)
+- PingOne
+- Okta
+- Microsoft Azure AD
+
+For the steps to set up Microsoft Azure AD as an identity provider, see
+[Setting up JDBC or ODBC single
+sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
+
+###### To configure a JDBC connection to
+
+use IAM credentials
+
+1. Download the latest Amazon Redshift JDBC driver from the [Configuring a connection for JDBC driver version 2.x for
+   Amazon Redshift](jdbc20-install.md "jdbc20-install.md") page.
+2. Create a JDBC URL with the IAM credentials options in one of the following
+   formats. To use IAM authentication, add `iam:` to the Amazon Redshift JDBC
+   URL following `jdbc:redshift:` as shown in the following
+   example.
+
+```
+jdbc:redshift:iam://
+```
+
+Add `cluster-name`, `region`, and
+`account-id`. The JDBC driver uses your IAM account
+information and cluster name to retrieve the cluster ID and AWS Region. To
+do so, your user or role must have permission to call the
+`redshift:DescribeClusters` operation with the specified
+cluster. If your user or role doesn't have permission to call the
+`redshift:DescribeClusters` operation, include the cluster
+ID, AWS Region, and port as shown in the following example. The port
+number is optional.
+
+```
+jdbc:redshift:iam://examplecluster.abc123xyz789.us-west-2.redshift.amazonaws.com:5439/dev
+```
+
+3. Add JDBC options to provide IAM credentials. You use different
+   combinations of JDBC options to provide IAM credentials. For details, see
+   [JDBC
+   and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+
+The following URL specifies AccessKeyID and SecretAccessKey for a
+user.
+
+```
+jdbc:redshift:iam://examplecluster:us-west-2/dev?AccessKeyID=AKIAIOSFODNN7EXAMPLE&SecretAccessKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+```
+
+The following example specifies a named profile that contains the IAM
+credentials.
+
+```
+jdbc:redshift:iam://examplecluster:us-west-2/dev?Profile=user2
+```
+
+4. Add JDBC options that the JDBC driver uses to call the
+   `GetClusterCredentials` API operation. Don't include
+   these options if you call the `GetClusterCredentials` API
+   operation programmatically.
+
+The following example includes the JDBC `GetClusterCredentials`
+options.
+
+```
+jdbc:redshift:iam://examplecluster:us-west-2/dev?plugin_name=com.amazon.redshift.plugin.AzureCredentialsProvider&UID=user&PWD=password&idp_tenant=my_tenant&client_secret=my_secret&client_id=my_id
+```
+
+###### To configure an ODBC connection to
+
+use IAM credentials
+
+In the following procedure, you can find steps only to configure IAM
+authentication. For steps to use standard authentication, using a database user
+name and password, see [Configuring a connection for ODBC driver version 2.x for
+Amazon Redshift](odbc20-install.md "odbc20-install.md").
+
+1. Install and configure the latest Amazon Redshift OBDC driver for your operating
+   system. For more information, see [Configuring a connection for ODBC driver version 2.x for
+   Amazon Redshift](odbc20-install.md "odbc20-install.md") page.
+
+###### Important
+
+The Amazon Redshift ODBC driver must be version 1.3.6.1000 or later. 2. Follow the steps for your operating system to configure connection
+settings. 3. On Microsoft Windows operating systems, access the Amazon Redshift ODBC Driver DSN
+Setup window.
+
+    1. Under **Connection Settings**, enter the
+     following information:
+
+
+
+
+    	* **Data Source Name**
+    	* **Server** (optional)
+    	* **Port** (optional)
+    	* **Database**
+    If your user or role has permission to call the
+     `redshift:DescribeClusters` operation, only
+     **Data Source Name** and
+     **Database** are required. Amazon Redshift uses
+     **ClusterId** and **Region**
+     to get the server and port by calling the
+     `DescribeCluster` operation.
+
+
+    If your user or role doesn't have permission to call the
+     `redshift:DescribeClusters` operation, specify
+     **Server** and
+     **Port**.
+    2. Under **Authentication**, choose a value for
+     **Auth Type**.
+
+
+    For each authentication type, enter values as listed
+     following:
+
+
+
+
+    AWS Profile
+
+    Enter the following information:
+
+
+
+
+    	* **ClusterID**
+    	* **Region**
+    	* **Profile name**
+
+
+
+    	Enter the name of a profile in an AWS config
+    	 file that contains values for the ODBC connection
+    	 options. For more information, see [Using a configuration profile](options-for-providing-iam-credentials.md#using-configuration-profile "options-for-providing-iam-credentials.md#using-configuration-profile").
+    (Optional) Provide details for options that the ODBC
+     driver uses to call the
+     `GetClusterCredentials` API operation:
+
+
+
+
+    	* **DbUser**
+    	* **User AutoCreate**
+    	* **DbGroups**
+
+
+    	For more information, see [JDBC
+    	 and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+
+
+
+
+    IAM Credentials
+
+    Enter the following information:
+
+
+
+
+    	* **ClusterID**
+    	* **Region**
+    	* **AccessKeyID** and
+    	 **SecretAccessKey**
+
+
+
+    	The access key ID and secret access key for
+    	 the IAM role or user configured for IAM database
+    	 authentication.
+    	* **SessionToken**
+
+
+
+    	**SessionToken** is required
+    	 for an IAM role with temporary credentials. For
+    	 more information, see [Temporary Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md").
+    Provide details for options that the ODBC driver uses
+     to call the `GetClusterCredentials` API
+     operation:
+
+
+
+
+    	* **DbUser** (required)
+    	* **User AutoCreate**
+    	 (optional)
+    	* **DbGroups** (optional)
+
+
+    	For more information, see [JDBC
+    	 and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+
+
+
+
+    Identity Provider: AD FS
+
+    For Windows Integrated Authentication with AD FS,
+     leave **User** and
+     **Password** empty.
+
+
+    Provide IdP details:
+
+
+
+
+    	* **IdP Host**
+
+
+
+    	The name of the corporate identity provider
+    	 host. This name should not include any slashes ( /
+    	 ).
+    	* **IdP Port**
+    	 (optional)
+
+
+    	The port used by identity provider. The
+    	 default is 443.
+    	* **Preferred Role**
+
+
+
+    	An Amazon Resource Name (ARN) for the IAM role
+    	 from the multi-valued `AttributeValue`
+    	 elements for the `Role` attribute in
+    	 the SAML assertion. To find the appropriate value
+    	 for the preferred role, work with your IdP
+    	 administrator. For more information, see [Step 2: Configure SAML
+    	 assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
+    (Optional) Provide details for options that the ODBC
+     driver uses to call the
+     `GetClusterCredentials` API operation:
+
+
+
+
+    	* **DbUser**
+    	* **User AutoCreate**
+    	* **DbGroups**
+    For more information, see [JDBC
+     and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+
+
+
+
+
+
+    Identity Provider: PingFederate
+
+    For **User** and
+     **Password**, enter your IdP user
+     name and password.
+
+
+    Provide IdP details:
+
+
+
+
+    	* **IdP Host**
+
+
+
+    	The name of the corporate identity provider
+    	 host. This name should not include any slashes ( /
+    	 ).
+    	* **IdP Port**
+    	 (optional)
+
+
+    	The port used by identity provider. The
+    	 default is 443.
+    	* **Preferred Role**
+
+
+
+    	An Amazon Resource Name (ARN) for the IAM role
+    	 from the multi-valued `AttributeValue`
+    	 elements for the `Role` attribute in
+    	 the SAML assertion. To find the appropriate value
+    	 for the preferred role, work with your IdP
+    	 administrator. For more information, see [Step 2: Configure SAML
+    	 assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
+    (Optional) Provide details for options that the ODBC
+     driver uses to call the
+     `GetClusterCredentials` API operation:
+
+
+
+
+    	* **DbUser**
+    	* **User AutoCreate**
+    	* **DbGroups**
+    For more information, see [JDBC
+     and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+
+
+
+
+
+
+    Identity Provider: Okta
+
+    For **User** and
+     **Password**, enter your IdP user
+     name and password.
+
+
+    Provide IdP details:
+
+
+
+
+    	* **IdP Host**
+
+
+
+    	The name of the corporate identity provider
+    	 host. This name should not include any slashes ( /
+    	 ).
+    	* **IdP Port**
+
+
+
+    	This value is not used by Okta.
+    	* **Preferred Role**
+
+
+
+    	An Amazon Resource Name (ARN) for the IAM role
+    	 from the `AttributeValue` elements for
+    	 the `Role` attribute in the SAML
+    	 assertion. To find the appropriate value for the
+    	 preferred role, work with your IdP administrator.
+    	 For more information, see [Step 2: Configure SAML
+    	 assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
+    	* **Okta App ID**
+
+
+
+    	An ID for an Okta application. The value for
+    	 App ID follows "amazon\_aws" in the Okta
+    	 application embed link. Work with your IdP
+    	 administrator to get this value.
+    (Optional) Provide details for options that the ODBC
+     driver uses to call the
+     `GetClusterCredentials` API operation:
+
+
+
+
+    	* **DbUser**
+    	* **User AutoCreate**
+    	* **DbGroups**
+    For more information, see [JDBC
+     and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+
+
+
+
+
+
+    Identity Provider: Azure AD
+
+    For **User** and
+     **Password**, enter your IdP user
+     name and password.
+
+
+    For **Cluster ID** and **Region**, enter the cluster ID and AWS
+     Region of your Amazon Redshift cluster.
+
+
+    For **Database**, enter the database
+     that you created for your Amazon Redshift cluster.
+
+
+    Provide IdP details:
+
+
+
+
+    	* **IdP Tenant**
+
+
+
+    	The tenant used for Azure AD.
+    	* **Azure Client
+    	 Secret**
+
+
+    	The client secret of the Amazon Redshift enterprise app
+    	 in Azure.
+    	* **Azure Client ID**
+
+
+
+    	The client ID (application ID) of the Amazon Redshift
+    	 enterprise app in Azure.
+    (Optional) Provide details for options that the ODBC
+     driver uses to call the
+     `GetClusterCredentials` API operation:
+
+
+
+
+    	* **DbUser**
+    	* **User AutoCreate**
+    	* **DbGroups**
+    For more information, see [JDBC
+     and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").

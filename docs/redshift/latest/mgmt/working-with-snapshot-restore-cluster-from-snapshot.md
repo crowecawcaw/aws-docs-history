@@ -189,8 +189,18 @@ types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs
   restore it from your cluster snapshot, see the following table:
 
 | Destination type     | Snapshot encryption type          | Destination encryption type       |
-| -------------------- | --------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | --------------------------------- | --------------------------------- |
 | Provisioned cluster  | Encrypted with an AWS managed key | Encrypted with an AWS managed key |
 | Provisioned cluster  | Encrypted with an AWS owned key   | Encrypted with an AWS owned key   |
 | Serverless namespace | Encrypted with an AWS managed key | Encrypted with an AWS owned key   |
-| Serverless namespace | Encrypted with an AWS owned key   | Encrypted with an AWS owned key   | If AWS Secrets Manager managed your cluster's admin password at the time the snapshot was taken, you must continue using AWS Secrets Manager to manage the admin password. You can opt out of using a secret after restoring the cluster by updating the cluster's admin credentials in the cluster detail page. If you have reserved nodes, you can upgrade to RA3 reserved nodes. You can do this when you restore from a snapshot or perform an elastic resize. You can use the console to guide you through this process. For more information about upgrading to RA3 nodes, see [Upgrading to RA3 node types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs-upgrading-to-ra3"). |
+| Serverless namespace | Encrypted with an AWS owned key   | Encrypted with an AWS owned key   |
+
+If AWS Secrets Manager managed your cluster's admin password at the time the snapshot was taken,
+you must continue using AWS Secrets Manager to manage the admin password. You can opt out of using a
+secret after restoring the cluster by updating the cluster's admin credentials in the
+cluster detail page.
+
+If you have reserved nodes, you can upgrade to RA3 reserved nodes. You can do this when
+you restore from a snapshot or perform an elastic resize. You can use the console to guide
+you through this process. For more information about upgrading to RA3 nodes, see [Upgrading to RA3 node
+types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs-upgrading-to-ra3").

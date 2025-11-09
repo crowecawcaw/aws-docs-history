@@ -53,8 +53,106 @@ Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-aut
 To use IAM authentication, use one of the following connection string
 formats:
 
-| Connection string                                  | Description                                                                                                                                                                                               |
-| -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `jdbc:redshift:iam:// [host]:[port]/[db]`          | A regular connection string. The driver infers the ClusterID and Region from the host.                                                                                                                    |
-| `jdbc:redshift:iam:// [cluster-id]: [region]/[db]` | The driver retrieves host information, given the ClusterID and Region.                                                                                                                                    |
-| `jdbc:redshift:iam:// [host]/[db]`                 | The driver defaults to port 5439, and infers ClusterID and Region from the host. Depending on the port you selected when creating, modifying or migrating the cluster, allow access to the selected port. | ## Specifying profiles If you are using IAM authentication, you can specify any additional required or optional connection properties under a profile name. By doing this, you can avoid putting certain information directly in the connection string. You specify the profile name in your connection string using the Profile property. Profiles can be added to the AWS credentials file. The default location for this file is: `~/.aws/credentials` You can change the default value by setting the path in the following environment variable: `AWS_CREDENTIAL_PROFILES_FILE` For more information about profiles, see [Working with AWS Credentials](../../../sdk-for-java/v1/developer-guide/credentials.md "../../../sdk-for-java/v1/developer-guide/credentials.md") in the _AWS SDK for Java_. ## Using instance profile credentials If you are running an application on an Amazon EC2 instance that is associated with an IAM role, you can connect using the instance profile credentials. To do this, use one of the IAM connection string formats in the preceding table, and set the dbuser connection property to the Amazon Redshift username that you are connecting as. For more information about instance profiles, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the _IAM User Guide_. ## Using credential providers The driver also supports credential provider plugins from the following services: <br>• AWS IAM Identity Center <br>• Active Directory Federation Service (ADFS) <br>• JSON Web Tokens (JWT) Service <br>• Microsoft Azure Active Directory (AD) Service and Browser Microsoft Azure Active Directory (AD) Service <br>• Okta Service <br>• PingFederate Service <br>• Browser SAML for SAML services such as Okta, Ping, or ADFS If you use one of these services, the connection URL needs to specify the following properties: <br>• Plugin_Name – The fully-qualified class path for your credentials provider plugin class. <br>• IdP_Host: – The host for the service that you are using to authenticate into Amazon Redshift. <br>• IdP_Port – The port that the host for the authentication service listens at. Not required for Okta. <br>• User – The username for the idp_host server. <br>• Password – The password associated with the idp_host username. <br>• DbUser – The Amazon Redshift username you are connecting as. <br>• SSL_Insecure – Indicates whether the IDP server certificate should be verified. <br>• Client_ID – The client ID associated with the username in the Azure AD portal. Only used for Azure AD. <br>• Client_Secret – The client secret associated with the client ID in the Azure AD portal. Only used for Azure AD. <br>• IdP_Tenant – The Azure AD tenant ID for your Amazon Redshift application. Only used for Azure AD. <br>• App_ID – The Okta app ID for your Amazon Redshift application. Only used for Okta. <br>• App_Name – The optional Okta app name for your Amazon Redshift application. Only used for Okta. <br>• Partner_SPID – The optional partner SPID (service provider ID) value. Only used for PingFederate. <br>• Idc_Region – The AWS Region where the AWS IAM Identity Center instance is located. Only used for AWS IAM Identity Center. <br>• Issuer_Url – The AWS IAM Identity Center server's instance endpoint. Only used for AWS IAM Identity Center. If you are using a browser plugin for one of these services, the connection URL can also include: <br>• Login_URL –The URL for the resource on the identity provider's website when using the Security Assertion Markup Language (SAML) or Azure AD services through a browser plugin. This parameter is required if you are using a browser plugin. <br>• Listen_Port – The port that the driver uses to get the SAML response from the identity provider when using the SAML, Azure AD, or AWS IAM Identity Center services through a browser plugin. <br>• IdP_Response_Timeout – The amount of time, in seconds, that the driver waits for the SAML response from the identity provider when using the SAML, Azure AD, or AWS IAM Identity Center services through a browser plugin. For information on additional connection string properties, see [Options for JDBC driver version 2.x configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md"). |
+| Connection string                                     | Description                                                                                                                                                                                                        |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `jdbc:redshift:iam:// [host]:[port]/[db]`             | A regular connection string. The driver infers the ClusterID<br>and Region from the host.                                                                                                                          |
+| `jdbc:redshift:iam:// [cluster-id]:<br>[region]/[db]` | The driver retrieves host information, given the ClusterID and<br>Region.                                                                                                                                          |
+| `jdbc:redshift:iam:// [host]/[db]`                    | The driver defaults to port 5439, and infers ClusterID and<br>Region from the host. Depending on the port you selected when<br>creating, modifying or migrating the cluster, allow access to<br>the selected port. |
+
+## Specifying profiles
+
+If you are using IAM authentication, you can specify any additional required or
+optional connection properties under a profile name. By doing this, you can avoid
+putting certain information directly in the connection string. You specify the
+profile name in your connection string using the Profile property.
+
+Profiles can be added to the AWS credentials file. The default location for this
+file is: `~/.aws/credentials`
+
+You can change the default value by setting the path in the following environment
+variable: `AWS_CREDENTIAL_PROFILES_FILE`
+
+For more information about profiles, see [Working with AWS
+Credentials](../../../sdk-for-java/v1/developer-guide/credentials.md "../../../sdk-for-java/v1/developer-guide/credentials.md") in the _AWS SDK for Java_.
+
+## Using instance profile
+
+credentials
+
+If you are running an application on an Amazon EC2 instance that is associated with an
+IAM role, you can connect using the instance profile credentials.
+
+To do this, use one of the IAM connection string formats in the preceding table,
+and set the dbuser connection property to the Amazon Redshift username that you are connecting
+as.
+
+For more information about instance profiles, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
+_IAM User Guide_.
+
+## Using credential providers
+
+The driver also supports credential provider plugins from the following services:
+
+- AWS IAM Identity Center
+- Active Directory Federation Service (ADFS)
+- JSON Web Tokens (JWT) Service
+- Microsoft Azure Active Directory (AD) Service and Browser Microsoft Azure
+  Active Directory (AD) Service
+- Okta Service
+- PingFederate Service
+- Browser SAML for SAML services such as Okta, Ping, or ADFS
+
+If you use one of these services, the connection URL needs to specify the
+following properties:
+
+- Plugin_Name – The fully-qualified
+  class path for your credentials provider plugin class.
+- IdP_Host: – The host for the service
+  that you are using to authenticate into Amazon Redshift.
+- IdP_Port – The port that the host
+  for the authentication service listens at. Not required for Okta.
+- User – The username for the idp_host
+  server.
+- Password – The password associated
+  with the idp_host username.
+- DbUser – The Amazon Redshift username you are
+  connecting as.
+- SSL_Insecure – Indicates whether the
+  IDP server certificate should be verified.
+- Client_ID – The client ID associated
+  with the username in the Azure AD portal. Only used for Azure AD.
+- Client_Secret – The client secret
+  associated with the client ID in the Azure AD portal. Only used for Azure
+  AD.
+- IdP_Tenant – The Azure AD tenant ID
+  for your Amazon Redshift application. Only used for Azure AD.
+- App_ID – The Okta app ID for your
+  Amazon Redshift application. Only used for Okta.
+- App_Name – The optional Okta app
+  name for your Amazon Redshift application. Only used for Okta.
+- Partner_SPID – The optional partner
+  SPID (service provider ID) value. Only used for PingFederate.
+- Idc_Region – The AWS Region where
+  the AWS IAM Identity Center instance is located. Only used for AWS IAM Identity Center.
+- Issuer_Url – The AWS IAM Identity Center
+  server's instance endpoint. Only used for AWS IAM Identity Center.
+
+If you are using a browser plugin for one of these services, the connection URL
+can also include:
+
+- Login_URL –The URL for the resource
+  on the identity provider's website when using the Security Assertion Markup
+  Language (SAML) or Azure AD services through a browser plugin. This
+  parameter is required if you are using a browser plugin.
+
+- Listen_Port – The port that the
+  driver uses to get the SAML response from the identity provider when using
+  the SAML, Azure AD, or AWS IAM Identity Center services through a browser plugin.
+
+- IdP_Response_Timeout – The amount of
+  time, in seconds, that the driver waits for the SAML response from the
+  identity provider when using the SAML, Azure AD, or AWS IAM Identity Center services
+  through a browser plugin.
+
+For information on additional connection string properties, see [Options for JDBC driver version 2.x
+configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md").

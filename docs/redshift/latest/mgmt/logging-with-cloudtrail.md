@@ -381,7 +381,7 @@ Amazon Redshift uses the account IDs in the following table when calling other A
 services.
 
 | Region                           | Region         | Account ID   |
-| -------------------------------- | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------------------- | -------------- | ------------ |
 | US East (N. Virginia) Region     | us-east-1      | 368064434614 |
 | US East (Ohio) Region            | us-east-2      | 790247189693 |
 | US West (N. California) Region   | us-west-1      | 703715109447 |
@@ -415,4 +415,61 @@ services.
 | Mexico (Central) Region          | mx-central-1   | 058264411980 |
 | Middle East (Bahrain) Region     | me-south-1     | 051362938876 |
 | Middle East (UAE) Region         | me-central-1   | 595013617770 |
-| South America (São Paulo) Region | sa-east-1      | 392442076723 | The following example shows a CloudTrail log entry for the AWS KMS Decrypt operation that was called by Amazon Redshift. `{ "eventVersion": "1.05", "userIdentity": { "type": "AssumedRole", "principalId": "AROAI5QPCMKLTL4VHFCYY:i-0f53e22dbe5df8a89", "arn": "arn:aws:sts::**790247189693**:assumed-role/prod-23264-role-wp/i-0f53e22dbe5df8a89", "accountId": "790247189693", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "attributes": { "mfaAuthenticated": "false", "creationDate": "2017-03-03T16:24:54Z" }, "sessionIssuer": { "type": "Role", "principalId": "AROAI5QPCMKLTL4VHFCYY", "arn": "arn:aws:iam::790247189693:role/prod-23264-role-wp", "accountId": "790247189693", "userName": "prod-23264-role-wp" } } }, "eventTime": "2017-03-03T17:16:51Z", "eventSource": "kms.amazonaws.com", "eventName": "Decrypt", "awsRegion": "us-east-2", "sourceIPAddress": "52.14.143.61", "userAgent": "aws-internal/3", "requestParameters": { "encryptionContext": { "aws:redshift:createtime": "20170303T1710Z", "aws:redshift:arn": "arn:aws:redshift:us-east-2:123456789012:cluster:my-dw-instance-2" } }, "responseElements": null, "requestID": "30d2fe51-0035-11e7-ab67-17595a8411c8", "eventID": "619bad54-1764-4de4-a786-8898b0a7f40c", "readOnly": true, "resources": [ { "ARN": "arn:aws:kms:us-east-2:123456789012:key/f8f4f94f-e588-4254-b7e8-078b99270be7", "accountId": "123456789012", "type": "AWS::KMS::Key" } ], "eventType": "AwsApiCall", "recipientAccountId": "123456789012", "sharedEventID": "c1daefea-a5c2-4fab-b6f4-d8eaa1e522dc" }` |
+| South America (São Paulo) Region | sa-east-1      | 392442076723 |
+
+The following example shows a CloudTrail log entry for the AWS KMS Decrypt operation that was
+called by Amazon Redshift.
+
+```
+{
+
+    "eventVersion": "1.05",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAI5QPCMKLTL4VHFCYY:i-0f53e22dbe5df8a89",
+        "arn": "arn:aws:sts::**790247189693**:assumed-role/prod-23264-role-wp/i-0f53e22dbe5df8a89",
+        "accountId": "790247189693",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2017-03-03T16:24:54Z"
+            },
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAI5QPCMKLTL4VHFCYY",
+                "arn": "arn:aws:iam::790247189693:role/prod-23264-role-wp",
+                "accountId": "790247189693",
+                "userName": "prod-23264-role-wp"
+            }
+        }
+    },
+    "eventTime": "2017-03-03T17:16:51Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "Decrypt",
+    "awsRegion": "us-east-2",
+    "sourceIPAddress": "52.14.143.61",
+    "userAgent": "aws-internal/3",
+    "requestParameters": {
+        "encryptionContext": {
+            "aws:redshift:createtime": "20170303T1710Z",
+            "aws:redshift:arn": "arn:aws:redshift:us-east-2:123456789012:cluster:my-dw-instance-2"
+        }
+    },
+    "responseElements": null,
+    "requestID": "30d2fe51-0035-11e7-ab67-17595a8411c8",
+    "eventID": "619bad54-1764-4de4-a786-8898b0a7f40c",
+    "readOnly": true,
+    "resources": [
+        {
+            "ARN": "arn:aws:kms:us-east-2:123456789012:key/f8f4f94f-e588-4254-b7e8-078b99270be7",
+            "accountId": "123456789012",
+            "type": "AWS::KMS::Key"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "recipientAccountId": "123456789012",
+    "sharedEventID": "c1daefea-a5c2-4fab-b6f4-d8eaa1e522dc"
+
+}
+```

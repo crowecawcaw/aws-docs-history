@@ -73,19 +73,24 @@ With Enhanced VPC Routing (EVR)
 If you use enhanced VPC routing with Redshift Serverless, the minimum
 number of IP addresses required when creating a workgroup are as follows:
 
-| Redshift Processing Units (RPUs) | Free IP addresses required               | Minimum CIDR size          |
-| -------------------------------- | ---------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 4                                | 9                                        | /27                        |
-| 8                                | 9                                        | /27                        |
-| 16                               | 13                                       | /27                        |
-| 32                               | 13                                       | /27                        |
-| 64                               | 21                                       | /27                        |
-| 128                              | 37                                       | /26                        |
-| 256                              | 69                                       | /25                        |
-| 512                              | 133                                      | /24                        |
-| 1024                             | 261                                      | /23                        | With EVR, you also need free IP addresses when updating your workgroup to use more RPUs. The number of free IP addresses required when updating the subnets for a workgroup are as follows:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Redshift Processing Units (RPUs) | Free IP addresses required | Minimum CIDR size |
+| -------------------------------- | -------------------------- | ----------------- |
+| 4                                | 9                          | /27               |
+| 8                                | 9                          | /27               |
+| 16                               | 13                         | /27               |
+| 32                               | 13                         | /27               |
+| 64                               | 21                         | /27               |
+| 128                              | 37                         | /26               |
+| 256                              | 69                         | /25               |
+| 512                              | 133                        | /24               |
+| 1024                             | 261                        | /23               |
+
+With EVR, you also need free IP addresses when updating your workgroup to use more RPUs. The
+number of free IP addresses required when updating the subnets for a workgroup are
+as follows:
+
 | Redshift Processing Units (RPUs) | Updated Redshift Processing Units (RPUs) | Free IP addresses required |
-| ---                              | ---                                      | ---                        |
+| -------------------------------- | ---------------------------------------- | -------------------------- |
 | 4                                | 8                                        | 10                         |
 | 8                                | 16                                       | 10                         |
 | 16                               | 32                                       | 13                         |
@@ -93,4 +98,48 @@ number of IP addresses required when creating a workgroup are as follows:
 | 64                               | 128                                      | 28                         |
 | 128                              | 256                                      | 52                         |
 | 256                              | 512                                      | 100                        |
-| 512                              | 1024                                     | 197                        | ###### Note The maximum base RPU capacity of 1024 is only available in the following AWS Regions: <br>• US East (N. Virginia) <br>• US East (Ohio) <br>• US West (Oregon) <br>• Europe (Ireland) <br>• Europe (London) For more information on allocating IP addresses, see [IP addressing](../../../vpc/latest/userguide/how-it-works.md#vpc-ip-addressing "../../../vpc/latest/userguide/how-it-works.md#vpc-ip-addressing") in the _Amazon VPC User Guide_. _Storage space after migration_ – When migrating small Amazon Redshift provisioned clusters to Amazon Redshift Serverless, you might see an increase in storage-space allocation after migration. This is a result of optimized storage-space allocation, resulting in preallocated storage space. This space is used over a period of time as data grows in Amazon Redshift Serverless. _Datasharing between Amazon Redshift Serverless and Amazon Redshift provisioned clusters_ – When datasharing where Amazon Redshift Serverless is the producer and a provisioned cluster is the consumer, the provisioned cluster must have a cluster version later than 1.0.38214. If you use a cluster version earlier than this, an error occurs when you run a query. You can view the cluster version on the Amazon Redshift console on the **Maintenance** tab. You can also run `SELECT version();`. _Max query execution time_ – Elapsed execution time for a query, in seconds. Execution time doesn't include time spent waiting in a queue. If a query exceeds the set execution time, Amazon Redshift Serverless stops the query. Valid values are 0–86,399. _Migrating for tables with interleaved sort keys_ – When migrating Amazon Redshift provisioned clusters to Amazon Redshift Serverless, Redshift converts tables with interleaved sort keys and DISTSTYLE KEY to compound sort keys. The DISTSTYLE doesn't change. For more information on distribution styles, see [Working with data distribution styles](../dg/t_Distributing_data.md "../dg/t_Distributing_data.md") in the Amazon Redshift Developer Guide. For more information on sort keys, see [Working with sort keys](../dg/t_Sorting_data.md "../dg/t_Sorting_data.md"). _VPC sharing_ – You can create Amazon Redshift Serverless workgroups in a shared VPC. If you do so, we recommend that you don't delete the resource share as it can result in the workgroup becoming unavailable. |
+| 512                              | 1024                                     | 197                        |
+
+###### Note
+
+The maximum base RPU capacity of 1024 is only available in the following
+AWS Regions:
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (Oregon)
+- Europe (Ireland)
+- Europe (London)
+
+For more information on allocating IP
+addresses, see [IP
+addressing](../../../vpc/latest/userguide/how-it-works.md#vpc-ip-addressing "../../../vpc/latest/userguide/how-it-works.md#vpc-ip-addressing") in the _Amazon VPC User Guide_.
+
+_Storage space after migration_ – When migrating small
+Amazon Redshift provisioned clusters to Amazon Redshift Serverless, you might see an increase in
+storage-space allocation after migration. This is a result of optimized
+storage-space allocation, resulting in preallocated storage space. This space is
+used over a period of time as data grows in Amazon Redshift Serverless.
+
+_Datasharing between Amazon Redshift Serverless and Amazon Redshift provisioned clusters_ – When datasharing where Amazon Redshift Serverless is the producer and a
+provisioned cluster is the consumer, the provisioned cluster must have a cluster
+version later than 1.0.38214. If you use a cluster version earlier than this, an
+error occurs when you run a query. You can view the cluster version on the Amazon Redshift
+console on the **Maintenance** tab. You can also run `SELECT
+ version();`.
+
+_Max query execution time_ – Elapsed execution time for
+a query, in seconds. Execution time doesn't include time spent waiting in a queue.
+If a query exceeds the set execution time, Amazon Redshift Serverless stops the query. Valid
+values are 0–86,399.
+
+_Migrating for tables with interleaved sort keys_ –
+When migrating Amazon Redshift provisioned clusters to Amazon Redshift Serverless, Redshift
+converts tables with interleaved sort keys and DISTSTYLE KEY to compound sort keys.
+The DISTSTYLE doesn't change. For more information on distribution styles, see
+[Working with data distribution styles](../dg/t_Distributing_data.md "../dg/t_Distributing_data.md") in the Amazon Redshift Developer Guide.
+For more information on sort keys, see [Working with sort keys](../dg/t_Sorting_data.md "../dg/t_Sorting_data.md").
+
+_VPC sharing_ – You can create Amazon Redshift Serverless workgroups in a
+shared VPC. If you do so, we recommend that you don't delete the resource share as
+it can result in the workgroup becoming unavailable.
