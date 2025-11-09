@@ -1,4 +1,4 @@
-Starting November 7, 2025, you will not be able to create new repository associations in Amazon CodeGuru Reviewer. If you would like to use the service, create repository associations prior to November 7, 2025. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
 # Create a GitHub Enterprise Server repository
 
@@ -88,7 +88,7 @@ repository association (console)
         3. (Optional) Expand **Analysis configuration file - optional** to download a sample `aws-codeguru-reviewer.yml` file to use as a template. Modify the file and upload it to the root directory of your repository. For more information about the analysis configuration file, see [Suppress
          recommendations](recommendation-suppression.md "recommendation-suppression.md").
 
-    ![The Run a repository analysis section with settings and sample YAML file information.](images/run-repo-analysis-config-file.png)
+    ![The Run a repository analysis section with settings and sample YAML file information.](/images/codeguru/latest/reviewer-ug/images/run-repo-analysis-config-file.png)
 
 9.  (Optional) Expand **Tags** to add one or more tags to your repository association.
     For more information, see [Tagging a repository association in

@@ -1,8 +1,8 @@
-Starting November 7, 2025, you will not be able to create new repository associations in Amazon CodeGuru Reviewer. If you would like to use the service, create repository associations prior to November 7, 2025. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
 # Amazon CodeGuru Reviewer availability change
 
-Starting November 7, 2025, you will not be able to create new repository associations in Amazon CodeGuru Reviewer. After that point, you will only be able to use CodeGuru Reviewer with existing repository associations. If you would like to use the service, you can associate repositories prior to November 7, 2025.
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. You can only use CodeGuru Reviewer with existing repository associations.
 
 Code analysis capabilities are also available through other AWS services. This page explains the ways you can use other services to review your code for security and quality issues. These services offer distinct code analysis capabilities, so review the following descriptions to determine which service meets your needs.
 

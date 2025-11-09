@@ -1,4 +1,4 @@
-Starting November 7, 2025, you will not be able to create new repository associations in Amazon CodeGuru Reviewer. If you would like to use the service, create repository associations prior to November 7, 2025. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
 # Using
 
@@ -171,7 +171,74 @@ View details about updates to AWS managed policies for CodeGuru Reviewer since t
 began tracking these changes. For automatic alerts about changes to this page,
 subscribe to the RSS feed on the CodeGuru Reviewer [Amazon CodeGuru Reviewer User Guide document history](doc-history.md "doc-history.md").
 
-| Change                                                                                                                                                                                      | Description                                                                                                                                                                              | Date           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AmazonCodeGuruReviewerServiceRolePolicy](#managed-policy-for-codecommit-and-codestar-connections "#managed-policy-for-codecommit-and-codestar-connections") – Update to an existing policy | CodeGuru Reviewer added new permissions to allow access to the `CreateBucket`, `ListBucket`, `PutBucketPolicy`, and `PutLifecycleConfiguration` actions on an Amazon S3 bucket resource. | April 28, 2021 |
-| CodeGuru Reviewer started tracking changes                                                                                                                                                  | CodeGuru Reviewer started tracking changes for its AWS managed policies.                                                                                                                 | July 2, 2020   | ## Customer managed policy examples You can create your own custom IAM policies to allow permissions for CodeGuru Reviewer actions and resources. You can attach these custom policies to the roles or groups that require those permissions. You can also create your own custom IAM policies for integration between CodeGuru Reviewer and other AWS services. The following example IAM policies grant permissions for various CodeGuru Reviewer actions. Use them to limit CodeGuru Reviewer access for your users and roles. These policies control the ability to perform actions with the CodeGuru Reviewer console, API, AWS SDKs, or the AWS CLI. ###### Note All examples use the US East (Ohio) Region (us-east-2) and contain fictitious account IDs. **Examples** <br>• [Example 1: Allow a user to see all recommendations created in an associated repository](#identity-based-policies-example-1 "#identity-based-policies-example-1") <br>• [Example 2: Allow a user to view code reviews in an associated repository in a single Region](#identity-based-policies-example-2 "#identity-based-policies-example-2") <br>• [Example 3: Allow a user to perform CodeGuru Reviewer operations in a single Region](#identity-based-policies-example-3 "#identity-based-policies-example-3") <br>• [Example 4: Allow read-only access to CodeGuru Reviewer operations for a user connecting from a specified IP address range](#identity-based-policies-example-4 "#identity-based-policies-example-4") ### Example 1: Allow a user to see all recommendations created in an associated repository The following example policy grants permissions for the AWS user with account ID `123456789012` to see a list of all recommendations in their AWS account and Region in the repository association with ID `association-uuid`. ### Example 2: Allow a user to view code reviews in an associated repository in a single Region The following shows an example of a permissions policy that allows a user with account ID `123456789012` to get information about code reviews in Region `us-east-2` in an associated repository with ID `association-uuid`. ### Example 3: Allow a user to perform CodeGuru Reviewer operations in a single Region The following permissions policy uses a wildcard character (`"codeguru-reviewer:*"`) to allow users to perform all CodeGuru Reviewer actions in the us-east-2 Region and not from other AWS Regions. ### Example 4: Allow read-only access to CodeGuru Reviewer operations for a user connecting from a specified IP address range You can create a policy that only allows users CodeGuru Reviewer read-only access if their IP address is within a certain IP address range. The following example grants read-only CodeGuru Reviewer permissions to users whose IP addresses are within the specified IP address block of 203.0.113.0/24. |
+| Change                                                                                                                                                                                      | Description                                                                                                                                                                                          | Date           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| [AmazonCodeGuruReviewerServiceRolePolicy](#managed-policy-for-codecommit-and-codestar-connections "#managed-policy-for-codecommit-and-codestar-connections") – Update to an existing policy | CodeGuru Reviewer added new permissions to allow access to the<br>`CreateBucket`, `ListBucket`,<br>`PutBucketPolicy`, and<br>`PutLifecycleConfiguration` actions on an Amazon S3<br>bucket resource. | April 28, 2021 |
+| CodeGuru Reviewer started tracking changes                                                                                                                                                  | CodeGuru Reviewer started tracking changes for its AWS managed<br>policies.                                                                                                                          | July 2, 2020   |
+
+## Customer managed policy
+
+examples
+
+You can create your own custom IAM policies to allow permissions for CodeGuru Reviewer
+actions and resources. You can attach these custom policies to the roles or groups that require those permissions.
+You can also create your own custom
+IAM policies for integration between CodeGuru Reviewer and other AWS services.
+
+The following example IAM policies grant permissions for various CodeGuru Reviewer
+actions. Use them to limit CodeGuru Reviewer access for your users and roles. These
+policies control the ability to perform actions with the CodeGuru Reviewer console, API, AWS
+SDKs, or the AWS CLI.
+
+###### Note
+
+All examples use the US East (Ohio) Region (us-east-2) and contain fictitious
+account IDs.
+
+**Examples**
+
+- [Example 1: Allow a user to
+  see all recommendations created in an associated repository](#identity-based-policies-example-1 "#identity-based-policies-example-1")
+- [Example 2: Allow a user to
+  view code reviews in an associated repository in a single Region](#identity-based-policies-example-2 "#identity-based-policies-example-2")
+- [Example 3: Allow a user to
+  perform CodeGuru Reviewer operations in a single Region](#identity-based-policies-example-3 "#identity-based-policies-example-3")
+- [Example 4: Allow read-only
+  access to CodeGuru Reviewer operations for a user connecting from a specified IP
+  address range](#identity-based-policies-example-4 "#identity-based-policies-example-4")
+
+### Example 1: Allow a user to
+
+see all recommendations created in an associated repository
+
+The following example policy grants permissions for the AWS user with
+account ID `123456789012` to see a list of all
+recommendations in their AWS account and Region in the repository association
+with ID `association-uuid`.
+
+### Example 2: Allow a user to
+
+view code reviews in an associated repository in a single Region
+
+The following shows an example of a permissions policy that allows a user with
+account ID `123456789012` to get information about code
+reviews in Region `us-east-2` in an associated repository with ID
+`association-uuid`.
+
+### Example 3: Allow a user to
+
+perform CodeGuru Reviewer operations in a single Region
+
+The following permissions policy uses a wildcard character
+(`"codeguru-reviewer:*"`) to allow users to perform all CodeGuru Reviewer actions
+in the us-east-2 Region and not from other AWS Regions.
+
+### Example 4: Allow read-only
+
+access to CodeGuru Reviewer operations for a user connecting from a specified IP
+address range
+
+You can create a policy that only allows users CodeGuru Reviewer read-only access if
+their IP address is within a certain IP address range. The following example
+grants read-only CodeGuru Reviewer permissions to users whose IP addresses are within the
+specified IP address block of 203.0.113.0/24.

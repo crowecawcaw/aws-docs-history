@@ -1,4 +1,4 @@
-Starting November 7, 2025, you will not be able to create new repository associations in Amazon CodeGuru Reviewer. If you would like to use the service, create repository associations prior to November 7, 2025. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
 # Create code reviews with GitHub Actions
 
@@ -65,8 +65,87 @@ can enable your workflow, as supported by CodeGuru Reviewer.
 
 The following is a list of parameters.
 
-| Argument   | Required | Description                                                                                                                                                                     |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| s3_bucket  | Yes      | User-owned bucket which starts with the prefix `codeguru-reviewer-`. Must be in the same Region as your application.                                                            |
-| build_path | No       | Path to build artifact(s) directory. JAR files in this directory are uploaded for review. The build artifacts are required to get the complete set of security recommendations. |
-| kms_key_id | No       | The key ID uniquely identifies an AWS KMS key within an account and Region.                                                                                                     | 5. Run your workflow in GitHub to start the code analysis. When the build is complete, review your recommendations in the GitHub **Security** tab. ### Disassociate your CI/CD workflow If your CI workflow association fails, you can disassociate your repository by choosing **Disassociate repository**. If you want to associate your CI workflow later, you can associate your repository again by following set up steps. If you want to stop CodeGuru Reviewer recommendations for your CI workflow, remove the `codeguru` action script from your repository’s YML file. Then, choose **Disassociate repository** to remove the repository association. On your next job run, CodeGuru Reviewer associates the repository again unless you remove the `codeguru` action script from the YML file. ### GitHub Actions code review examples Run CodeGuru Reviewer Action on a GitHub hosted runner. `steps: <br>• name: Checkout repository uses: actions/checkout@v2 with: fetch-depth: 0   # Required <br>• name: Configure AWS Credentials uses: aws-actions/configure-aws-credentials@v1 if: ${{ always() }} # This ensures that your workflow runs successfully with: aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} aws-region: us-west-2 <br>• name: Amazon CodeGuru Reviewer Scanner uses: aws-actions/codeguru-reviewer@v1.1 if: ${{ always() }} with: build_path: target # build artifact(s) directory s3_bucket: codeguru-reviewer-my-bucket  # S3 Bucket with "codeguru-reviewer-*" prefix <br>• name: Upload review result if: ${{ github.event_name != 'push' }} uses: github/codeql-action/upload-sarif@v1 with: sarif_file: codeguru-results.sarif.json` Run a CodeGuru Reviewer Action on a self-hosted runner. `steps: <br>• name: Checkout repository uses: actions/checkout@v2 with: fetch-depth: 0 <br>• name: Configure AWS Credentials if: ${{ always() }} #  This ensures that your workflow runs successfully uses: aws-actions/configure-aws-credentials@v1 with: aws-region: us-west-2 role-to-assume: my-github-actions-role # Refer to Step 2 for more details <br>• name: Amazon CodeGuru Reviewer uses: aws-actions/codeguru-reviewer@v1.1 if: ${{ always() }} with: build_path: target # build artifact(s) directory s3_bucket: codeguru-reviewermy-bucket <br>• name: Upload review result if: ${{ github.event_name != 'push' }} uses: github/codeql-action/upload-sarif@v1 with: sarif_file: codeguru-results.sarif.json` |
+| Argument   | Required | Description                                                                                                                                                                           |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| s3_bucket  | Yes      | User-owned bucket which starts with the prefix `codeguru-reviewer-`.<br>Must be in the same Region as your application.                                                               |
+| build_path | No       | Path to build artifact(s) directory. JAR files in this directory are uploaded<br>for review. The build artifacts are required to get the complete set of security<br>recommendations. |
+| kms_key_id | No       | The key ID uniquely identifies an AWS KMS key within an account<br>and Region.                                                                                                        |
+
+5. Run your workflow in GitHub to start the code analysis. When the build is complete,
+   review your recommendations in the GitHub **Security** tab.
+
+### Disassociate your CI/CD workflow
+
+If your CI workflow association fails, you can disassociate your repository by choosing
+**Disassociate repository**. If you want to associate your CI workflow later, you can
+associate your repository again by following set up steps.
+
+If you want to stop CodeGuru Reviewer recommendations for your CI workflow, remove the
+`codeguru` action script from your repository’s YML file. Then, choose
+**Disassociate repository** to remove the repository association. On your
+next job run, CodeGuru Reviewer associates the repository again unless you remove the
+`codeguru` action script from the YML file.
+
+### GitHub Actions code review examples
+
+Run CodeGuru Reviewer Action on a GitHub hosted runner.
+
+```
+steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0   # Required
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      if: ${{ always() }} # This ensures that your workflow runs successfully
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
+
+    - name: Amazon CodeGuru Reviewer Scanner
+      uses: aws-actions/codeguru-reviewer@v1.1
+      if: ${{ always() }}
+      with:
+        build_path: target # build artifact(s) directory
+        s3_bucket: codeguru-reviewer-my-bucket  # S3 Bucket with "codeguru-reviewer-*" prefix
+
+    - name: Upload review result
+      if: ${{ github.event_name != 'push' }}
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: codeguru-results.sarif.json
+```
+
+Run a CodeGuru Reviewer Action on a self-hosted runner.
+
+```
+steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Configure AWS Credentials
+      if: ${{ always() }} #  This ensures that your workflow runs successfully
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-region: us-west-2
+        role-to-assume: my-github-actions-role
+
+    # Refer to Step 2 for more details
+    - name: Amazon CodeGuru Reviewer
+      uses: aws-actions/codeguru-reviewer@v1.1
+      if: ${{ always() }}
+      with:
+        build_path: target # build artifact(s) directory
+        s3_bucket: codeguru-reviewermy-bucket
+
+    - name: Upload review result
+      if: ${{ github.event_name != 'push' }}
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: codeguru-results.sarif.json
+```
