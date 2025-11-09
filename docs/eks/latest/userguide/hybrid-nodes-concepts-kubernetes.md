@@ -202,12 +202,44 @@ Here’s what happens to the packet structure during VXLAN encapsulation:
 
 Original Pod-to-Pod Packet:
 
-````
+```
 +-----------------+---------------+-------------+-----------------+
 | Ethernet Header | IP Header     | TCP/UDP     | Payload         |
 | Src: Pod A MAC  | Src: Pod A IP | Src Port    |                 |
-| Dst: Pod B MAC  | Dst: Pod B IP | Dst Port    |                 | +-----------------+---------------+-------------+-----------------+ ``` After VXLAN Encapsulation: ``` +-----------------+-------------+--------------+------------+---------------------------+
+| Dst: Pod B MAC  | Dst: Pod B IP | Dst Port    |                 |
++-----------------+---------------+-------------+-----------------+
+```
+
+After VXLAN Encapsulation:
+
+```
++-----------------+-------------+--------------+------------+---------------------------+
 | Outer Ethernet  | Outer IP    | Outer UDP    | VXLAN      | Original Pod-to-Pod       |
 | Src: Node A MAC | Src: Node A | Src: Random  | VNI: xx    | Packet (unchanged         |
-| Dst: Node B MAC | Dst: Node B | Dst: 4789    |            | from above)               | +-----------------+-------------+--------------+------------+---------------------------+ ``` The VXLAN Network Identifier (VNI) distinguishes between different overlay networks. ### Pod communication scenarios **Pods on the same hybrid node** When pods on the same hybrid node communicate, no encapsulation is typically needed. The CNI sets up local routes that direct traffic between pods through the node’s internal virtual interfaces: ``` Pod A -> veth0 -> node's bridge/routing table -> veth1 -> Pod B ``` The packet never leaves the node and doesn’t require encapsulation. **Pods on different hybrid nodes** Communication between pods on different hybrid nodes requires encapsulation: ``` Pod A -> CNI -> [VXLAN encapsulation] -> Node A network -> router or gateway -> Node B network -> [VXLAN decapsulation] -> CNI -> Pod B ``` This allows the pod traffic to traverse the physical network infrastructure without requiring the physical network to understand pod IP routing.
-````
+| Dst: Node B MAC | Dst: Node B | Dst: 4789    |            | from above)               |
++-----------------+-------------+--------------+------------+---------------------------+
+```
+
+The VXLAN Network Identifier (VNI) distinguishes between different overlay networks.
+
+### Pod communication scenarios
+
+**Pods on the same hybrid node**
+
+When pods on the same hybrid node communicate, no encapsulation is typically needed. The CNI sets up local routes that direct traffic between pods through the node’s internal virtual interfaces:
+
+```
+Pod A -> veth0 -> node's bridge/routing table -> veth1 -> Pod B
+```
+
+The packet never leaves the node and doesn’t require encapsulation.
+
+**Pods on different hybrid nodes**
+
+Communication between pods on different hybrid nodes requires encapsulation:
+
+```
+Pod A -> CNI -> [VXLAN encapsulation] -> Node A network -> router or gateway -> Node B network -> [VXLAN decapsulation] -> CNI -> Pod B
+```
+
+This allows the pod traffic to traverse the physical network infrastructure without requiring the physical network to understand pod IP routing.

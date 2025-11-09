@@ -55,7 +55,7 @@ Managed node groups enforces a maximum number on the value of `maxPods`. For ins
 
 Specify the parameters in one of the following options. To determine which option is right for you and what value to provide for it, see [WARM_PREFIX_TARGET, WARM_IP_TARGET, and MINIMUM_IP_TARGET](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md") on GitHub.
 
-You can replace the `example values` with a value greater than zero.
+You can replace the example values with a value greater than zero.
 
     * `WARM_PREFIX_TARGET`
 
@@ -156,7 +156,7 @@ If you also want to assign IP addresses to Pods from a different subnet than the
    kubectl edit configmap -n kube-system amazon-vpc-cni -o yaml
    ```
 
-   2. Replace the `example values` with a value greater than zero and add the entries that you require to the `data` section of the `ConfigMap`. If you set a value for either `warm-ip-target` or `minimum-ip-target`, the value overrides any value set for `warm-prefix-target`.
+   2. Replace the example values with a value greater than zero and add the entries that you require to the `data` section of the `ConfigMap`. If you set a value for either `warm-ip-target` or `minimum-ip-target`, the value overrides any value set for `warm-prefix-target`.
 
    ```
      warm-prefix-target: "1"

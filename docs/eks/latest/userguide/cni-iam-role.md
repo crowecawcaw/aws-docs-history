@@ -163,7 +163,7 @@ kubectl and the AWS CLI
     	  --policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
     	  --role-name AmazonEKSVPCCNIRole
     	```
-    5. Run the following command to annotate the `aws-node` service account with the ARN of the IAM role that you created previously. Replace the `example values` with your own values.
+    5. Run the following command to annotate the `aws-node` service account with the ARN of the IAM role that you created previously. Replace the example values with your own values.
 
 
 

@@ -53,7 +53,7 @@ kubectl create namespace my-namespace
     ```
 
 3.  Deploy a sample application with a label that matches the `my-role` value for `podSelector` that you specified in a previous step.
-    1. Copy the following contents to your device. Replace the `example values` with your own and then run the modified command. If you replace `my-role`, make sure that it’s the same as the value you specified for the selector in a previous step.
+    1. Copy the following contents to your device. Replace the example values with your own and then run the modified command. If you replace `my-role`, make sure that it’s the same as the value you specified for the selector in a previous step.
 
     ```
     cat >sample-application.yaml <<EOF

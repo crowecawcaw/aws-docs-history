@@ -35,8 +35,10 @@ aws eks update-cluster-config --name my-cluster --access-config authenticationMo
 To use _access entries_, the cluster must have a platform version that is the same or later than the version listed in the following table, or a Kubernetes version that is later than the versions listed in the table. If your Kubernetes version is not listed, all platform versions support access entries.
 
 | Kubernetes version | Platform version |
-| ------------------ | ---------------- | ------------------------------------------------------------------------------------------- |
+| ------------------ | ---------------- |
 | Not Listed         | All Supported    |
 | `1.30`             | `eks.2`          |
 | `1.29`             | `eks.1`          |
-| `1.28`             | `eks.6`          | For more information, see [platform-versions](platform-versions.md "platform-versions.md"). |
+| `1.28`             | `eks.6`          |
+
+For more information, see [platform-versions](platform-versions.md "platform-versions.md").

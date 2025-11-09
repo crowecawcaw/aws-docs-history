@@ -63,7 +63,7 @@ us-west-2a    us-west-2c    us-west-2b
 
 Note the Availability Zones returned for use in later steps. When you deploy nodes to a cluster, your VPC must have subnets with available IP addresses in one of the Availability Zones returned in the output. 3. Create a node group using `eksctl`. You need version `0.215.0` or later of the `eksctl` command line tool installed on your device or AWS CloudShell. To install or update `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
 
-    1. Copy the following contents to a file named `efa-cluster.yaml`. Replace the `example values` with your own. You can replace `p5.48xlarge` with a different instance, but if you do, make sure that the values for `availabilityZones` are Availability Zones that were returned for the instance type in step 1.
+    1. Copy the following contents to a file named `efa-cluster.yaml`. Replace the example values with your own. You can replace `p5.48xlarge` with a different instance, but if you do, make sure that the values for `availabilityZones` are Availability Zones that were returned for the instance type in step 1.
 
 
 

@@ -103,10 +103,17 @@ If you’re planning to enable EKS Auto Mode on an existing cluster, you may nee
 
 If you have any of the following add-ons installed, ensure they are at least at the specified minimum version:
 
-| Add-on name                          | Minimum required version                                                                                                                                    |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon VPC CNI plugin for Kubernetes | v1.19.0-eksbuild.1                                                                                                                                          |
-| Kube-proxy                           | <br>• v1.26.15-eksbuild.19 <br>• v1.27.16-eksbuild.14 <br>• v1.28.15-eksbuild.4 <br>• v1.29.10-eksbuild.3 <br>• v1.30.6-eksbuild.3 <br>• v1.31.2-eksbuild.3 |
-| Amazon EBS CSI driver                | v1.37.0-eksbuild.1                                                                                                                                          |
-| CSI snapshot controller              | v8.1.0-eksbuild.2                                                                                                                                           |
-| EKS Pod Identity Agent               | v1.3.4-eksbuild.1                                                                                                                                           | For more information, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md"). ## Next Steps <br>• To migrate Manage Node Group workloads, see [Migrate from EKS Managed Node Groups to EKS Auto Mode](auto-migrate-mng.md "auto-migrate-mng.md"). <br>• To migrate from Self-Managed Karpenter, see [Migrate from Karpenter to EKS Auto Mode using kubectl](auto-migrate-karpenter.md "auto-migrate-karpenter.md"). |
+| Add-on name                          | Minimum required version                                                                                                                           |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon VPC CNI plugin for Kubernetes | v1.19.0-eksbuild.1                                                                                                                                 |
+| Kube-proxy                           | • v1.26.15-eksbuild.19<br>• v1.27.16-eksbuild.14<br>• v1.28.15-eksbuild.4<br>• v1.29.10-eksbuild.3<br>• v1.30.6-eksbuild.3<br>• v1.31.2-eksbuild.3 |
+| Amazon EBS CSI driver                | v1.37.0-eksbuild.1                                                                                                                                 |
+| CSI snapshot controller              | v8.1.0-eksbuild.2                                                                                                                                  |
+| EKS Pod Identity Agent               | v1.3.4-eksbuild.1                                                                                                                                  |
+
+For more information, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md").
+
+## Next Steps
+
+- To migrate Manage Node Group workloads, see [Migrate from EKS Managed Node Groups to EKS Auto Mode](auto-migrate-mng.md "auto-migrate-mng.md").
+- To migrate from Self-Managed Karpenter, see [Migrate from Karpenter to EKS Auto Mode using kubectl](auto-migrate-karpenter.md "auto-migrate-karpenter.md").

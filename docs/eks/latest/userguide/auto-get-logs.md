@@ -23,7 +23,7 @@ Make sure you have the following:
 If you don’t already have an S3 bucket to store the logs, create one. Use the following AWS CLI command. The bucket defaults to the `private` access control list. Replace `bucket-name` with your chosen unique bucket name.
 
 ```
-aws s3api create-bucket --bucket `bucket-name`
+aws s3api create-bucket --bucket `<bucket-name>`
 
 ```
 
@@ -43,8 +43,8 @@ You must use the AWS API or a SDK to create the pre-signed S3 upload URL for EKS
 ```
 import boto3; print(boto3.client('s3').generate_presigned_url(
    ClientMethod='put_object',
-   Params={'Bucket': '<bucket-name>', 'Key': '<key>'},
-   ExpiresIn=1000
+   Params={'Bucket': '[.replaceable]`<bucket-name>`', 'Key': '[.replaceable]`<key>`'},
+   ExpiresIn=[.replaceable]`1000`
 ))
 ```
 
@@ -69,7 +69,7 @@ resource’s name, and providing a HTTP PUT URL destination.
 apiVersion: eks.amazonaws.com/v1alpha1
 kind: NodeDiagnostic
 metadata:
-    name: `node-name`
+    name: `<node-name>`
 spec:
     logCapture:
         destination: `http-put-destination`
@@ -91,7 +91,7 @@ You can check on the Status of the collection by describing the
 - If the status is Failure, confirm the upload URL is well-formed and not expired.
 
 ```
-kubectl describe nodediagnostics.eks.amazonaws.com/`node-name`
+kubectl describe nodediagnostics.eks.amazonaws.com/`<node-name>`
 
 ```
 
@@ -101,7 +101,7 @@ Wait approximately one minute before attempting to download the logs. Then, use 
 
 ```
 # Once NodeDiagnostic shows Success status, download the logs
-aws s3 cp s3://`bucket-name`/`key` ./node-logs.tar.gz
+aws s3 cp s3://`<bucket-name>`/`key` ./`<path-to-node-logs>`.tar.gz
 ```
 
 ## Step 5: Clean up NodeDiagnostic resource
@@ -112,6 +112,6 @@ aws s3 cp s3://`bucket-name`/`key` ./node-logs.tar.gz
 
 ```
 # Delete the NodeDiagnostic resource
-kubectl delete nodediagnostics.eks.amazonaws.com/`node-name`
+kubectl delete nodediagnostics.eks.amazonaws.com/`<node-name>`
 
 ```

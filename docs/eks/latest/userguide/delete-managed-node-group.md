@@ -24,13 +24,13 @@ You can delete a managed node group with:
 
 **Delete a managed node group with `eksctl`**
 
-Enter the following command. Replace every `example value` with your own values.
+Enter the following command. Replace every `<example value>` with your own values.
 
 ```
 eksctl delete nodegroup \
-  --cluster my-cluster \
-  --name my-mng \
-  --region region-code
+  --cluster <my-cluster> \
+  --name <my-mng> \
+  --region <region-code>
 ```
 
 For more options, see [Deleting and draining nodegroups](https://eksctl.io/usage/nodegroups/#deleting-and-draining-nodegroups "https://eksctl.io/usage/nodegroups/#deleting-and-draining-nodegroups") in the `eksctl` documentation.
@@ -49,15 +49,15 @@ For more options, see [Deleting and draining nodegroups](https://eksctl.io/usage
 
 **Delete a managed node group with AWS CLI**
 
-1. Enter the following command. Replace every `example value` with your own values.
+1. Enter the following command. Replace every `<example value>` with your own values.
 
 ```
 aws eks delete-nodegroup \
-  --cluster-name my-cluster \
-  --nodegroup-name my-mng \
-  --region region-code
+  --cluster-name <my-cluster> \
+  --nodegroup-name <my-mng> \
+  --region <region-code>
 ```
 
-2. Use the arrow keys on your keyboard to scroll through the response output. Press the `q` key when you’re finished.
+2. If `cli_pager=` is set in the CLI config, use the arrow keys on your keyboard to scroll through the response output. Press the `q` key when you’re finished.
 
 For more options, see the `delete-nodegroup` command in the _AWS CLI Command Reference_.

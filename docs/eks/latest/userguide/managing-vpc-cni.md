@@ -19,11 +19,26 @@ The following table lists the latest available version of the Amazon EKS add-on 
 ## Amazon VPC CNI versions
 
 | Kubernetes version | Amazon EKS type of VPC CNI version |
-| ------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | ---------------------------------- |
 | 1.34               | v1.20.4-eksbuild.1                 |
 | 1.33               | v1.20.4-eksbuild.1                 |
 | 1.32               | v1.20.4-eksbuild.1                 |
 | 1.31               | v1.20.4-eksbuild.1                 |
 | 1.30               | v1.20.4-eksbuild.1                 |
 | 1.29               | v1.20.4-eksbuild.1                 |
-| 1.28               | v1.20.4-eksbuild.1                 | ###### Important If you’re self-managing this add-on, the versions in the table might not be the same as the available self-managed versions. For more information about updating the self-managed type of this add-on, see [Update the Amazon VPC CNI (self-managed add-on)](vpc-add-on-self-managed-update.md "vpc-add-on-self-managed-update.md"). ###### Important To upgrade to VPC CNI v1.12.0 or later, you must upgrade to VPC CNI v1.7.0 first. We recommend that you update one minor version at a time. ## Considerations The following are considerations for using the feature. <br>• Versions are specified as `major-version.minor-version.patch-version-eksbuild.build-number`. <br>• Check version compatibility for each feature. Some features of each release of the Amazon VPC CNI plugin for Kubernetes require certain Kubernetes versions. When using different Amazon EKS features, if a specific version of the add-on is required, then it’s noted in the feature documentation. Unless you have a specific reason for running an earlier version, we recommend running the latest version. |
+| 1.28               | v1.20.4-eksbuild.1                 |
+
+###### Important
+
+If you’re self-managing this add-on, the versions in the table might not be the same as the available self-managed versions. For more information about updating the self-managed type of this add-on, see [Update the Amazon VPC CNI (self-managed add-on)](vpc-add-on-self-managed-update.md "vpc-add-on-self-managed-update.md").
+
+###### Important
+
+To upgrade to VPC CNI v1.12.0 or later, you must upgrade to VPC CNI v1.7.0 first. We recommend that you update one minor version at a time.
+
+## Considerations
+
+The following are considerations for using the feature.
+
+- Versions are specified as `major-version.minor-version.patch-version-eksbuild.build-number`.
+- Check version compatibility for each feature. Some features of each release of the Amazon VPC CNI plugin for Kubernetes require certain Kubernetes versions. When using different Amazon EKS features, if a specific version of the add-on is required, then it’s noted in the feature documentation. Unless you have a specific reason for running an earlier version, we recommend running the latest version.

@@ -241,9 +241,66 @@ securityContext:
 
 For EKS clusters with control plane logs enabled, you can gain insights into Karpenter’s actions and decision-making process by querying the logs. This can be particularly useful for troubleshooting EKS Auto Mode issues related to node provisioning, scaling, and termination. To view Karpenter-related events, use the following CloudWatch Logs Insights query:
 
-````
+```
 fields @timestamp, @message
 | filter @logStream like /kube-apiserver-audit/
-| filter @message like 'DisruptionBlocked' or @message like 'DisruptionLaunching' or @message like 'DisruptionTerminating' or @message like 'DisruptionWaitingReadiness' or @message like 'Unconsolidatable' or @message like 'FailedScheduling' or @message like 'NoCompatibleInstanceTypes' or @message like 'NodeRepairBlocked' or @message like 'Disrupted' or @message like 'Evicted' or @message like 'FailedDraining' or @message like 'TerminationGracePeriodExpiring' or @message like 'TerminationFailed' or @message like 'FailedConsistencyCheck' or @message like 'InsufficientCapacityError' or @message like 'UnregisteredTaintMissing' or @message like 'NodeClassNotReady' sort @timestamp desc ``` This query filters for specific [Karpenter-related events](https://github.com/kubernetes-sigs/karpenter/blob/main/pkg/events/reason.go "https://github.com/kubernetes-sigs/karpenter/blob/main/pkg/events/reason.go") in the kube-apiserver audit logs. The events include various disruption states, scheduling failures, capacity issues, and node-related problems. By analyzing these logs, you can gain a better understanding of: <br>• Why Karpenter is taking certain actions. <br>• Any issues preventing proper node provisioning, scaling, or termination. <br>• Potential capacity or compatibility problems with instance types. <br>• Node lifecycle events such as disruptions, evictions, or terminations. To use this query: 1. Navigate to the CloudWatch console 2. Select "Logs Insights" from the left navigation pane 3. Choose the log group for your EKS cluster’s control plane logs 4. Paste the query into the query editor 5. Adjust the time range as needed 6. Run the query The results will show you a timeline of Karpenter-related events, helping you troubleshoot issues, and understand the behavior of EKS Auto Mode in your cluster. To review Karpenter actions on a specific node, you can add the below line filter specifying the instance ID to the aforementioned query: ```
-|filter @message like /[.replaceable]`i-12345678910123456`/ ``` ###### Note To use this query, control plane logging must be enabled on your EKS cluster. If you haven’t done this yet, please refer to [Send control plane logs to CloudWatch Logs](control-plane-logs.md "control-plane-logs.md"). ## Troubleshoot included controllers in Auto Mode If you have a problem with a controller, you should research: <br>• If the resources associated with that controller are properly formatted and valid. <br>• If the AWS IAM and Kubernetes RBAC resources are properly configured for your cluster. For more information, see [Learn about identity and access in EKS Auto Mode](auto-learn-iam.md "auto-learn-iam.md"). ## Related resources Use these articles from AWS re:Post for advanced troubleshooting steps: <br>• [How to troubleshoot common scaling issues in EKS Auto-Mode?](https://repost.aws/articles/ARLpQOknr5Rb-w5iAT9sUBpQ "https://repost.aws/articles/ARLpQOknr5Rb-w5iAT9sUBpQ") <br>• [How do I troubleshoot custom nodepool and nodeclass provisioning issues in Amazon EKS Auto Mode?](https://repost.aws/articles/ARPcmFS1POTgqPCBdcZFp6BQ "https://repost.aws/articles/ARPcmFS1POTgqPCBdcZFp6BQ") <br>• [How do I troubleshoot EKS Auto Mode built-in node pools with Unknown Status?](https://repost.aws/en/articles/ARLhrdl45TRASGkvViwtBG0Q "https://repost.aws/en/articles/ARLhrdl45TRASGkvViwtBG0Q")
-````
+| filter @message like 'DisruptionBlocked'
+or @message like 'DisruptionLaunching'
+or @message like 'DisruptionTerminating'
+or @message like 'DisruptionWaitingReadiness'
+or @message like 'Unconsolidatable'
+or @message like 'FailedScheduling'
+or @message like 'NoCompatibleInstanceTypes'
+or @message like 'NodeRepairBlocked'
+or @message like 'Disrupted'
+or @message like 'Evicted'
+or @message like 'FailedDraining'
+or @message like 'TerminationGracePeriodExpiring'
+or @message like 'TerminationFailed'
+or @message like 'FailedConsistencyCheck'
+or @message like 'InsufficientCapacityError'
+or @message like 'UnregisteredTaintMissing'
+or @message like 'NodeClassNotReady'
+| sort @timestamp desc
+```
+
+This query filters for specific [Karpenter-related events](https://github.com/kubernetes-sigs/karpenter/blob/main/pkg/events/reason.go "https://github.com/kubernetes-sigs/karpenter/blob/main/pkg/events/reason.go") in the kube-apiserver audit logs. The events include various disruption states, scheduling failures, capacity issues, and node-related problems. By analyzing these logs, you can gain a better understanding of:
+
+- Why Karpenter is taking certain actions.
+- Any issues preventing proper node provisioning, scaling, or termination.
+- Potential capacity or compatibility problems with instance types.
+- Node lifecycle events such as disruptions, evictions, or terminations.
+
+To use this query:
+
+1. Navigate to the CloudWatch console
+2. Select "Logs Insights" from the left navigation pane
+3. Choose the log group for your EKS cluster’s control plane logs
+4. Paste the query into the query editor
+5. Adjust the time range as needed
+6. Run the query
+
+The results will show you a timeline of Karpenter-related events, helping you troubleshoot issues, and understand the behavior of EKS Auto Mode in your cluster. To review Karpenter actions on a specific node, you can add the below line filter specifying the instance ID to the aforementioned query:
+
+```
+|filter @message like /[.replaceable]`i-12345678910123456`/
+```
+
+###### Note
+
+To use this query, control plane logging must be enabled on your EKS cluster. If you haven’t done this yet, please refer to [Send control plane logs to CloudWatch Logs](control-plane-logs.md "control-plane-logs.md").
+
+## Troubleshoot included controllers in Auto Mode
+
+If you have a problem with a controller, you should research:
+
+- If the resources associated with that controller are properly formatted and valid.
+- If the AWS IAM and Kubernetes RBAC resources are properly configured for your cluster. For more information, see [Learn about identity and access in EKS Auto Mode](auto-learn-iam.md "auto-learn-iam.md").
+
+## Related resources
+
+Use these articles from AWS re:Post for advanced troubleshooting steps:
+
+- [How to troubleshoot common scaling issues in EKS Auto-Mode?](https://repost.aws/articles/ARLpQOknr5Rb-w5iAT9sUBpQ "https://repost.aws/articles/ARLpQOknr5Rb-w5iAT9sUBpQ")
+- [How do I troubleshoot custom nodepool and nodeclass provisioning issues in Amazon EKS Auto Mode?](https://repost.aws/articles/ARPcmFS1POTgqPCBdcZFp6BQ "https://repost.aws/articles/ARPcmFS1POTgqPCBdcZFp6BQ")
+- [How do I troubleshoot EKS Auto Mode built-in node pools with Unknown Status?](https://repost.aws/en/articles/ARLhrdl45TRASGkvViwtBG0Q "https://repost.aws/en/articles/ARLhrdl45TRASGkvViwtBG0Q")

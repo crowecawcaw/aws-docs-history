@@ -15,5 +15,19 @@ If you restrict access to the public endpoint of your cluster using CIDR blocks,
 To add self-managed nodes to your Amazon EKS cluster, see the topics that follow. If you launch self-managed nodes manually, add the following tag to each node while making sure that `<cluster-name>` matches your cluster. For more information, see [Adding and deleting tags on an individual resource](../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags "../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags"). If you follow the steps in the guides that follow, the required tag is automatically added to nodes for you.
 
 | Key                                    | Value   |
-| -------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kubernetes.io/cluster/<cluster-name>` | `owned` | ###### Important Tags in Amazon EC2 Instance Metadata Service (IMDS) are not compatible with EKS nodes. When Instance Metadata Tags are enabled, the use of forward slashes ('/') in tag values is prevented. This limitation can cause instance launch failures, particularly when using node management tools like Karpenter or Cluster Autoscaler, as these services rely on tags containing forward slashes for proper functionality. For more information about nodes from a general Kubernetes perspective, see [Nodes](https://kubernetes.io/docs/concepts/architecture/nodes/ "https://kubernetes.io/docs/concepts/architecture/nodes/") in the Kubernetes documentation. ###### Topics <br>• [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md") <br>• [Create self-managed Bottlerocket nodes](launch-node-bottlerocket.md "launch-node-bottlerocket.md") <br>• [Create self-managed Microsoft Windows nodes](launch-windows-workers.md "launch-windows-workers.md") <br>• [Create self-managed Ubuntu Linux nodes](launch-node-ubuntu.md "launch-node-ubuntu.md") <br>• [Update self-managed nodes for your cluster](update-workers.md "update-workers.md") |
+| -------------------------------------- | ------- |
+| `kubernetes.io/cluster/<cluster-name>` | `owned` |
+
+###### Important
+
+Tags in Amazon EC2 Instance Metadata Service (IMDS) are not compatible with EKS nodes. When Instance Metadata Tags are enabled, the use of forward slashes ('/') in tag values is prevented. This limitation can cause instance launch failures, particularly when using node management tools like Karpenter or Cluster Autoscaler, as these services rely on tags containing forward slashes for proper functionality.
+
+For more information about nodes from a general Kubernetes perspective, see [Nodes](https://kubernetes.io/docs/concepts/architecture/nodes/ "https://kubernetes.io/docs/concepts/architecture/nodes/") in the Kubernetes documentation.
+
+###### Topics
+
+- [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md")
+- [Create self-managed Bottlerocket nodes](launch-node-bottlerocket.md "launch-node-bottlerocket.md")
+- [Create self-managed Microsoft Windows nodes](launch-windows-workers.md "launch-windows-workers.md")
+- [Create self-managed Ubuntu Linux nodes](launch-node-ubuntu.md "launch-node-ubuntu.md")
+- [Update self-managed nodes for your cluster](update-workers.md "update-workers.md")

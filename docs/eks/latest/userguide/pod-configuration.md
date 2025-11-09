@@ -15,7 +15,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
   `config` file that contains your cluster configuration. To create a `kubectl`
   `config` file, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
 
-      1. Use the following command to create a deployment manifest that you can deploy a Pod to confirm configuration with. Replace the `example values` with your own values.
+      1. Use the following command to create a deployment manifest that you can deploy a Pod to confirm configuration with. Replace the example values with your own values.
 
 
 

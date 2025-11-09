@@ -101,14 +101,77 @@ image::images/image-file.png[Alt text description]
 
 Create tables to organize information:
 
-````
+```
 [%header,cols="2"]
 |===
 |Header 1
 |Header 2
+
 |Cell 1,1
 |Cell 1,2
+
 |Cell 2,1
 |Cell 2,2
-|=== ``` For more complex tables, see the [AsciiDoc table documentation](https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/ "https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/"). ## Callouts Use callouts to highlight important information and admonitions: ``` NOTE: This is a note callout for general information. TIP: This is a tip callout for helpful advice. IMPORTANT: This is an important callout for critical information. ``` Preview: ###### Note This is a note callout. ## Including other files Include content from other files: ``` include::filename.adoc[] ``` ## Attributes (similar to entities) Use predefined attributes to maintain consistency. In particular, you MUST use attributes for AWS and `arn:aws:` . ``` {aws} provides Amazon EKS as a managed Kubernetes service. ``` ``` [source,bash,subs="verbatim,attributes"] ---- aws iam attach-role-policy \ --role-name AmazonEKSAutoClusterRole \ --policy-arn {arn-aws}iam::aws:policy/AmazonEKSClusterPolicy ---- ``` For a list of attributes, look in the `../attributes.txt` file. ## Procedures Format step-by-step procedures: ``` To create an Amaozon EKS cluster. do the following steps. . Sign in to the {aws} Management Console. . Open the Amazon EKS console. . Choose *Create cluster*. ... ```
-````
+|===
+```
+
+For more complex tables, see the [AsciiDoc table documentation](https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/ "https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/").
+
+## Callouts
+
+Use callouts to highlight important information and admonitions:
+
+```
+NOTE: This is a note callout for general information.
+
+TIP: This is a tip callout for helpful advice.
+
+IMPORTANT: This is an important callout for critical information.
+```
+
+Preview:
+
+###### Note
+
+This is a note callout.
+
+## Including other files
+
+Include content from other files:
+
+```
+ include::filename.adoc[]
+```
+
+## Attributes (similar to entities)
+
+Use predefined attributes to maintain consistency. In particular, you MUST use attributes for AWS and `arn:aws:` .
+
+```
+{aws} provides Amazon EKS as a managed Kubernetes service.
+```
+
+```
+ [source,bash,subs="verbatim,attributes"]
+ ----
+ aws iam attach-role-policy \
+     --role-name AmazonEKSAutoClusterRole \
+     --policy-arn {arn-aws}iam::aws:policy/AmazonEKSClusterPolicy
+ ----
+```
+
+For a list of attributes, look in the `../attributes.txt` file.
+
+## Procedures
+
+Format step-by-step procedures:
+
+```
+To create an Amaozon EKS cluster. do the following steps.
+
+. Sign in to the {aws} Management Console.
+. Open the Amazon EKS console.
+. Choose *Create cluster*.
+
+...
+```

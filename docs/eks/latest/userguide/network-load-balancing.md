@@ -68,7 +68,7 @@ Before you can load balance network traffic using the AWS Load Balancer Controll
 service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags
 ```
 
-- You can assign [Elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") to the Network Load Balancer by adding the following annotation. Replace the `example values` with the `Allocation IDs` of your Elastic IP addresses. The number of `Allocation IDs` must match the number of subnets that are used for the load balancer. For more information, see the [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/service/annotations/#eip-allocations "https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/service/annotations/#eip-allocations") documentation.
+- You can assign [Elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") to the Network Load Balancer by adding the following annotation. Replace the example values with the `Allocation IDs` of your Elastic IP addresses. The number of `Allocation IDs` must match the number of subnets that are used for the load balancer. For more information, see the [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/service/annotations/#eip-allocations "https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/service/annotations/#eip-allocations") documentation.
 
 ```
 service.beta.kubernetes.io/aws-load-balancer-eip-allocations: eipalloc-xxxxxxxxxxxxxxxxx,eipalloc-yyyyyyyyyyyyyyyyy
@@ -153,7 +153,7 @@ Do not edit the annotations after creating your service. If you need to modify i
 
 - At least one public or private subnet in your cluster VPC.
 - Have the AWS Load Balancer Controller deployed on your cluster. For more information, see [Route internet traffic with AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md"). We recommend version `2.7.2` or later.
-  1.  If you’re deploying to Fargate, make sure you have an available private subnet in your VPC and create a Fargate profile. If you’re not deploying to Fargate, skip this step. You can create the profile by running the following command or in the [AWS Management Console](fargate-profile.md#create-fargate-profile "fargate-profile.md#create-fargate-profile") using the same values for `name` and `namespace` that are in the command. Replace the `example values` with your own.
+  1.  If you’re deploying to Fargate, make sure you have an available private subnet in your VPC and create a Fargate profile. If you’re not deploying to Fargate, skip this step. You can create the profile by running the following command or in the [AWS Management Console](fargate-profile.md#create-fargate-profile "fargate-profile.md#create-fargate-profile") using the same values for `name` and `namespace` that are in the command. Replace the example values with your own.
 
   ```
   eksctl create fargateprofile \

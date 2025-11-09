@@ -83,3 +83,11 @@ For more information, see [Create an IngressClass to configure an Application Lo
 - AWS does not support migrating load balancers from the self managed AWS load balancer controller to management by EKS Auto Mode.
 - The `networking.ingress.ipBlock` field in `TargetGroupBinding` spec is not supported.
 - If your worker nodes use custom security groups (not `eks-cluster-sg-` naming pattern), your cluster role needs additional IAM permissions. The default EKS-managed policy only allows EKS to modify security groups named `eks-cluster-sg-`. Without permission to modify your custom security groups, EKS cannot add the required ingress rules that allow ALB/NLB traffic to reach your pods.
+
+#### CoreDNS considerations
+
+EKS Auto Mode does not use the traditional CoreDNS deployment to provide DNS resolution within the cluster. Instead, Auto Mode nodes utilize CoreDNS running as a system service directly on each node. If transitioning a traditional cluster to Auto Mode, you can remove the CoreDNS deployment from your cluster once your workloads have been moved to the Auto Mode nodes.
+
+###### Important
+
+If you plan to maintain a cluster with both Auto Mode and non-Auto Mode nodes, you must retain the CoreDNS deployment. Non-Auto Mode nodes rely on the traditional CoreDNS pods for DNS resolution, as they cannot access the node-level DNS service that Auto Mode provides.

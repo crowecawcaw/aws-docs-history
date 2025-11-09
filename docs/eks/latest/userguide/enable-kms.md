@@ -84,7 +84,7 @@ AWS Management Console
 AWS CLI
 
     1. This procedure only applies to EKS clusters running Kubernetes version 1.27 or lower. For more information, see [Default envelope encryption for all Kubernetes API Data](envelope-encryption.md "envelope-encryption.md").
-    2. Associate the [secrets encryption](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/ "https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/") configuration with your cluster using the following AWS CLI command. Replace the `example values` with your own.
+    2. Associate the [secrets encryption](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/ "https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/") configuration with your cluster using the following AWS CLI command. Replace the example values with your own.
 
 
 

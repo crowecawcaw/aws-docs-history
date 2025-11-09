@@ -147,12 +147,53 @@ aws eks describe-addon-versions --kubernetes-version 1.33 --addon-name vpc-cni \
 
 An example output is as follows.
 
-````
+```
 ------------------------------------------
-|          DescribeAddonVersions         | +-----------------+----------------------+
-| Defaultversion  |       Version        | +-----------------+----------------------+
+|          DescribeAddonVersions         |
++-----------------+----------------------+
+| Defaultversion  |       Version        |
++-----------------+----------------------+
 |  False          |  v1.12.0-eksbuild.1  |
 |  True           |  v1.11.4-eksbuild.1  |
 |  False          |  v1.10.4-eksbuild.1  |
-|  False          |  v1.9.3-eksbuild.1   | +-----------------+----------------------+ ``` The version with `True` in the `Defaultversion` column is the version that the add-on is created with, by default. 5. Update your add-on. Copy the command that follows to your device. Make the following modifications to the command, as needed, and then run the modified command. For more information about this command, see [update-addon](../../../cli/latest/reference/eks/update-addon.md "../../../cli/latest/reference/eks/update-addon.md") in the Amazon EKS Command Line Reference. <br>• Replace `my-cluster` with the name of your cluster. <br>• Replace `vpc-cni` with the name of the add-on that you want to update that was returned in the output of a previous step. <br>• Replace `version-number` with the version returned in the output of the previous step that you want to update to. Some add-ons have recommended versions. For more information, see the documentation for the add-on that you’re updating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md").**\*** If the add-on uses a Kubernetes service account and IAM role, replace `111122223333` with your account ID and `role-name` with the name of an existing IAM role that you’ve created. For instructions on creating the role, see the documentation for the add-on that you’re creating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md"). Specifying a service account role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md"). If the add-on doesn’t use a Kubernetes service account and IAM role, delete the `serviceAccountRoleARN: arn:aws:iam::`111122223333`:role/`role-name`` line. <br>• The `--resolve-conflicts PRESERVE` option preserves existing values for the add-on. If you have set custom values for add-on settings, and you don’t use this option, Amazon EKS overwrites your values with its default values. If you use this option, then we recommend that you test any field and value changes on a non-production cluster before updating the add-on on your production cluster. If you change this value to `OVERWRITE`, all settings are changed to Amazon EKS default values. If you’ve set custom values for any settings, they might be overwritten with Amazon EKS default values. If you change this value to `NONE`, Amazon EKS doesn’t change the value of any settings, but the update might fail. If the update fails, you receive an error message to help you resolve the conflict. <br>• If you want to remove all custom configuration then perform the update using the `--configuration-values '{}'` option. This sets all custom configuration back to the default values. If you don’t want to change your custom configuration, don’t provide the `--configuration-values` flag. If you want to adjust a custom configuration then replace `{}` with the new parameters. ``` aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \ --service-account-role-arn arn:aws:iam::111122223333:role/role-name --configuration-values '{}' --resolve-conflicts PRESERVE ``` 6. Check the status of the update. Replace `my-cluster` with the name of your cluster and `vpc-cni` with the name of the add-on you’re updating. ``` aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni ``` An example output is as follows. ``` { "addon": { "addonName": "vpc-cni", "clusterName": "my-cluster", "status": "UPDATING", } } ``` The update is complete when the status is `ACTIVE`.
-````
+|  False          |  v1.9.3-eksbuild.1   |
++-----------------+----------------------+
+```
+
+The version with `True` in the `Defaultversion` column is the version that the add-on is created with, by default. 5. Update your add-on. Copy the command that follows to your device. Make the following modifications to the command, as needed, and then run the modified command. For more information about this command, see [update-addon](../../../cli/latest/reference/eks/update-addon.md "../../../cli/latest/reference/eks/update-addon.md") in the Amazon EKS Command Line Reference.
+
+    * Replace `my-cluster` with the name of your cluster.
+    * Replace `vpc-cni` with the name of the add-on that you want to update that was returned in the output of a previous step.
+    * Replace `version-number` with the version returned in the output of the previous step that you want to update to. Some add-ons have recommended versions. For more information, see the documentation for the add-on that you’re updating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md").**\*** If the add-on uses a Kubernetes service account and IAM role, replace `111122223333` with your account ID and `role-name` with the name of an existing IAM role that you’ve created. For instructions on creating the role, see the documentation for the add-on that you’re creating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md"). Specifying a service account role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
+
+
+    If the add-on doesn’t use a Kubernetes service account and IAM role, delete the `serviceAccountRoleARN: arn:aws:iam::`111122223333`:role/`role-name`` line.
+    * The `--resolve-conflicts PRESERVE` option preserves existing values for the add-on. If you have set custom values for add-on settings, and you don’t use this option, Amazon EKS overwrites your values with its default values. If you use this option, then we recommend that you test any field and value changes on a non-production cluster before updating the add-on on your production cluster. If you change this value to `OVERWRITE`, all settings are changed to Amazon EKS default values. If you’ve set custom values for any settings, they might be overwritten with Amazon EKS default values. If you change this value to `NONE`, Amazon EKS doesn’t change the value of any settings, but the update might fail. If the update fails, you receive an error message to help you resolve the conflict.
+    * If you want to remove all custom configuration then perform the update using the `--configuration-values '{}'` option. This sets all custom configuration back to the default values. If you don’t want to change your custom configuration, don’t provide the `--configuration-values` flag. If you want to adjust a custom configuration then replace `{}` with the new parameters.
+
+
+
+    ```
+    aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
+        --service-account-role-arn arn:aws:iam::111122223333:role/role-name --configuration-values '{}' --resolve-conflicts PRESERVE
+    ```
+
+6. Check the status of the update. Replace `my-cluster` with the name of your cluster and `vpc-cni` with the name of the add-on you’re updating.
+
+```
+aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni
+```
+
+An example output is as follows.
+
+```
+{
+    "addon": {
+        "addonName": "vpc-cni",
+        "clusterName": "my-cluster",
+        "status": "UPDATING",
+    }
+}
+```
+
+The update is complete when the status is `ACTIVE`.

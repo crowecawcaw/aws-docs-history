@@ -124,7 +124,7 @@ aws sts get-caller-identity
 - You must complete all steps in this procedure in the same shell. Several steps use variables set in previous steps. Steps that use variables won’t function properly if the variable values are set in a different shell. If you use the [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md") to complete the following procedure, remember that if you don’t interact with it using your keyboard or pointer for approximately 20–30 minutes, your shell session ends. Running processes do not count as interactions.
 - The instructions are written for the Bash shell, and may need adjusting in other shells.
 
-Replace all `example values` in the steps of this procedure with your own values.
+Replace all example values in the steps of this procedure with your own values.
 
 1. Run the following commands to set some variables used in later steps. Replace `region-code` with the AWS Region that you want to deploy your resources in. The value can be any AWS Region that is supported by Amazon EKS. For a list of AWS Regions, see [Amazon EKS endpoints and quotas](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") in the AWS General Reference guide. Replace `my-cluster` with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in. Replace `my-nodegroup` with a name for your node group. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters. Replace `111122223333` with your account ID.
 
@@ -420,7 +420,7 @@ kube-dns   ClusterIP   fd30:3087:b6c2::a   <none>        53/UDP,53/TCP   57m   k
 
 10. (Optional) [Deploy a sample application](sample-deployment.md "sample-deployment.md") or deploy the [AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md") and a sample application to load balance HTTP applications with [Route application and HTTP traffic with Application Load Balancers](alb-ingress.md "alb-ingress.md") or network traffic with [Route TCP and UDP traffic with Network Load Balancers](network-load-balancing.md "network-load-balancing.md") to `IPv6` Pods.
 11. After you’ve finished with the cluster and nodes that you created for this tutorial, you should clean up the resources that you created with the following commands. Make sure that you’re not using any of the resources outside of this tutorial before deleting them.
-    1.  If you’re completing this step in a different shell than you completed the previous steps in, set the values of all the variables used in previous steps, replacing the `example values` with the values you specified when you completed the previous steps. If you’re completing this step in the same shell that you completed the previous steps in, skip to the next step.
+    1.  If you’re completing this step in a different shell than you completed the previous steps in, set the values of all the variables used in previous steps, replacing the example values with the values you specified when you completed the previous steps. If you’re completing this step in the same shell that you completed the previous steps in, skip to the next step.
 
     ```
     export region_code=region-code

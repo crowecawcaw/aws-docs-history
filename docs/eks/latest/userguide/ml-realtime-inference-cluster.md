@@ -160,7 +160,7 @@ iam:
     permissionPolicyARNs:
     - arn:aws:iam::${AWS_ACCOUNT_ID}:policy/KarpenterControllerPolicy-${EKS_CLUSTER_NAME}
   # Creates the pod identity association and service account
-  # Uses the AWS LBC policy for permissions
+  # Uses the {aws} LBC policy for permissions
   - namespace: kube-system
     serviceAccountName: aws-load-balancer-controller
     createServiceAccount: true
@@ -534,7 +534,7 @@ kubectl logs gpu-nvidia-smi
 
 The expected output should look like this:
 
-````
+```
 Thu Jul 17 04:31:33 2025
 +---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 570.148.08                 Driver Version: 570.148.08         CUDA Version: 12.9 |
@@ -545,8 +545,680 @@ Thu Jul 17 04:31:33 2025
 |=========================================+======================+======================|
 |   0  NVIDIA A10G                    On  | 00000000:00:1E.0 Off |                    0 |
 |  0%   30C    P8               9W / 300W |      0MiB / 23028MiB |      0%      Default |
-|                                         |                      |                  N/A | +---------------------------------------------------------------------------------------+ +---------------------------------------------------------------------------------------+
-| Processes:                                                                            | |  GPU        GI     CI        PID   Type   Process name                  GPU Memory    |
-|                     ID        ID                                         Usage        | |=======================================================================================|
-|  No running processes found                                                           | +---------------------------------------------------------------------------------------+ ``` ## 6. (Optional) Prepare and Upload Model Artifacts for Deployment In this step, you’ll deploy a model service for real-time image classification, starting with uploading model weights to an Amazon S3 bucket. For demonstration, we are using the open-source [GPUNet-0](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/models/gpunet_0_pyt_ckpt "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/models/gpunet_0_pyt_ckpt") vision model part of NVIDIA’s [GPUNet](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/resources/gpunet_pyt "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/resources/gpunet_pyt"), which supports low-latency inference on images using NVIDIA GPUs and TensorRT. This model is pretrained on [ImageNet](https://www.image-net.org/ "https://www.image-net.org/"), allows us to classifies objects in photos or video streams on the fly, and is considered a small model with 11.9 million parameters. ### Set up your environment To download the GPUNet-0 model weights In this step, you need access to NVIDIA’s NGC catalog and [Docker](https://docs.docker.com/get-started/ "https://docs.docker.com/get-started/") installed on your local machine. Follow these steps to set up a free account and configure the NGC CLI: <br>• [Sign up for a free NGC account](https://ngc.nvidia.com/signup "https://ngc.nvidia.com/signup") and generate an API key from the NGC dashboard (User Icon > Setup > Generate API Key > Generate Personal Key > NGC Catalog). <br>• [Download and install the NGC CLI](https://org.ngc.nvidia.com/setup/installers/cli "https://org.ngc.nvidia.com/setup/installers/cli") (Linux/macOS/Windows) and configure the CLI using: `ngc config set`. Enter your API key when prompted; set org to `nvidia` and hit Enter to accept defaults for others. If successful, you should see something like: `Successfully saved NGC configuration to /Users/your-username/.ngc/config`. ### Verify service account permissions Before we start, check the Kubernetes service account permissions: ``` kubectl get serviceaccount s3-csi-driver-sa -n kube-system -o yaml ``` During cluster creation, we attached the S3CSIDriverPolicy to an IAM role and annotated the service account ("s3-csi-driver-sa"). The Mountpoint S3 CSI driver pods inherits the IAM role’s permissions when interacting with S3. The expected output should look like this: ``` apiVersion: v1 kind: ServiceAccount metadata: annotations: eks.amazonaws.com/role-arn: arn:aws:iam::143095308808:role/eksctl-eks-rt-inference-us-east-1-addon-aws-m-Role1-fpXXjRYdKN8r creationTimestamp: "2025-07-17T03:55:29Z" labels: app.kubernetes.io/component: csi-driver app.kubernetes.io/instance: aws-mountpoint-s3-csi-driver app.kubernetes.io/managed-by: EKS app.kubernetes.io/name: aws-mountpoint-s3-csi-driver name: s3-csi-driver-sa namespace: kube-system resourceVersion: "2278" uid: 50b36272-6716-4c68-bdc3-c4054df1177c ``` ### Add a toleration The S3 CSI Driver runs as a DaemonSet on all nodes. Pods use the CSI driver on those nodes to mount S3 volumes. To allow it to schedule on our GPU nodes which have taints, add a toleration to the DaemonSet: ``` kubectl patch daemonset s3-csi-node -n kube-system --type='json' -p='[{"op": "add", "path": "/spec/template/spec/tolerations/-", "value": {"key": "nvidia.com/gpu", "operator": "Exists", "effect": "NoSchedule"}}]' ``` The expected output should look like this: ``` daemonset.apps/s3-csi-node patched ``` ### Upload model weights to S3 In this step, you’ll create an Amazon S3 bucket, download the GPUNet-0 model weights from NVIDIA GPU Cloud (NGC), and upload them to the bucket. These weights will be accessed by our application at runtime for inference. Create your Amazon S3 bucket: ``` aws s3 mb s3://${S3_BUCKET_NAME} --region ${AWS_REGION} ``` Enable [S3 Versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") for the bucket, to prevent accidental deletions and overwrites from causing immediate and permanent data loss: ``` aws s3api put-bucket-versioning --bucket ${S3_BUCKET_NAME} --versioning-configuration Status=Enabled ``` Apply a lifecycle rule to the bucket to remove overwritten or deleted object versions 14 days after they become non-current, remove expired delete markers, and remove incomplete multi-part uploads after 7 days. To learn more, see [Examples of S3 Lifecycle configurations](../../../AmazonS3/latest/userguide/lifecycle-configuration-examples.md "../../../AmazonS3/latest/userguide/lifecycle-configuration-examples.md"). ``` aws s3api put-bucket-lifecycle-configuration --bucket $S3_BUCKET_NAME --lifecycle-configuration '{"Rules":[{"ID":"LifecycleRule","Status":"Enabled","Filter":{},"Expiration":{"ExpiredObjectDeleteMarker":true},"NoncurrentVersionExpiration":{"NoncurrentDays":14},"AbortIncompleteMultipartUpload":{"DaysAfterInitiation":7}}]}' ``` Download the GPUNet-0 model weights from NGC. For example, on macOS: ``` ngc registry model download-version nvidia/dle/gpunet_0_pyt_ckpt:21.12.0_amp --dest ~/downloads ``` ###### Note You may need to adjust this download command for your operating system. For this command to work on a Linux system, you likely need to create the directory as part of the command (e.g., `mkdir ~/downloads`). The expected output should look like this: ``` { "download_end": "2025-07-18 08:22:39", "download_start": "2025-07-18 08:22:33", "download_time": "6s", "files_downloaded": 1, "local_path": "/Users/your-username/downloads/gpunet_0_pyt_ckpt_v21.12.0_amp", "size_downloaded": "181.85 MB", "status": "Completed", "transfer_id": "gpunet_0_pyt_ckpt[version=21.12.0_amp]" } ``` Rename the checkpoint file to match the expected naming in our application code in later steps (no extraction is needed, as it’s a standard PyTorch \*.pth.tar checkpoint containing the model state dictionary): ``` mv ~/downloads/gpunet_0_pyt_ckpt_v21.12.0_amp/0.65ms.pth.tar gpunet-0.pth ``` Enable the [AWS Common Runtime](https://aws.amazon.com/blogs/storage/improving-amazon-s3-throughput-for-the-aws-cli-and-boto3-with-the-aws-common-runtime/ "https://aws.amazon.com/blogs/storage/improving-amazon-s3-throughput-for-the-aws-cli-and-boto3-with-the-aws-common-runtime/") in the AWS CLI to optimize S3 throughput: ``` aws configure set s3.preferred_transfer_client crt ``` Upload the model weights to your S3 bucket: ``` aws s3 cp gpunet-0.pth s3://${S3_BUCKET_NAME}/gpunet-0.pth ``` The expected output should look like this: ``` upload: ./gpunet-0.pth to s3://eks-rt-inference-models-us-east-1-1752722786/gpunet-0.pth ``` ### Create the Model Service In this step, you’ll set up a FastAPI web application for GPU-accelerated image classification using the GPUNet-0 vision model. The application downloads model weights from Amazon S3 at runtime, fetches the model architecture from NVIDIA’s repository for caching, and downloads ImageNet class labels via HTTP. The application includes image preprocessing transforms and exposes two endpoints: a root GET for status check and a POST `/predict` endpoint that accepts an image URL. We serve the model using FastAPI with PyTorch, loading weights from Amazon S3 at runtime in a containerized setup for quick prototyping and Kubernetes deployment. For other methods like optimized batching or high-throughput engines, see [Serving ML Models](../best-practices/aiml-performance.md#_serving_ml_models "../best-practices/aiml-performance.md#_serving_ml_models"). #### Create the application Create a directory for your application files such as `model-testing`, then change directories into it and add the following code to a new file named `app.py`: ``` import os import torch import json import requests from fastapi import FastAPI, HTTPException from PIL import Image from io import BytesIO, StringIO import torchvision.transforms as transforms from torch.nn.functional import softmax import warnings from contextlib import redirect_stdout, redirect_stderr import argparse import boto3 app = FastAPI() # Suppress specific warnings from the model code (quantization is optional and unused here) warnings.simplefilter("ignore", UserWarning) device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # Load model code from cache (if present) # Use backed cache directory torch.hub.set_dir('/cache/torch/hub') # Allowlist for secure deserialization (handles potential issues in older checkpoints) torch.serialization.add_safe_globals([argparse.Namespace]) # Load the model architecture only on container startup (changed to pretrained=False) # Precision (FP32 for full accuracy, could be 'fp16' for speed on Ampere+ GPUs) with redirect_stdout(StringIO()), redirect_stderr(StringIO()): gpunet = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_gpunet', pretrained=False, model_type='GPUNet-0', model_math='fp32') # Download weights from S3 if not present, then load them model_path = os.getenv('MODEL_PATH', '/cache/torch/hub/checkpoints/gpunet-0.pth') os.makedirs(os.path.dirname(model_path), exist_ok=True)  # Ensure checkpoints dir exists if not os.path.exists(model_path): s3 = boto3.client('s3') s3.download_file(os.getenv('S3_BUCKET_NAME'), 'gpunet-0.pth', model_path) checkpoint = torch.load(model_path, map_location=device, weights_only=True) gpunet.load_state_dict(checkpoint['state_dict']) # Move to GPU/CPU gpunet.to(device) gpunet.eval() # Preprocessing preprocess = transforms.Compose([ transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor(), transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), ]) # Load ImageNet labels labels_url = "https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json" response = requests.get(labels_url) json_data = json.loads(response.text) labels = [json_data[str(i)][1].replace('_', ' ') for i in range(1000)] # Required, FastAPI root @app.get("/") async def hello(): return {"status": "hello"} # Serve model requests @app.post("/predict") async def predict(image_url: str): try: response = requests.get(image_url) response.raise_for_status() img = Image.open(BytesIO(response.content)).convert("RGB") input_tensor = preprocess(img).unsqueeze(0).to(device) with torch.no_grad(): output = gpunet(input_tensor) probs = softmax(output, dim=1)[0] top5_idx = probs.topk(5).indices.cpu().numpy() top5_probs = probs.topk(5).values.cpu().numpy() results = [{ "label": labels[idx], "probability": float(prob) } for idx, prob in zip(top5_idx, top5_probs)] return {"predictions": results} except Exception as e: raise HTTPException(status_code=400, detail=str(e)) ``` #### Create the Dockerfile The following Dockerfile creates a container image for our application utilizing the GPUNet model from the [NVIDIA Deep Learning Examples for Tensor Cores](https://github.com/NVIDIA/DeepLearningExamples "https://github.com/NVIDIA/DeepLearningExamples") GitHub repository. We reduce container image size by using a runtime-only PyTorch base, installing only essential packages with cache cleanup, pre-caching model code, and avoiding "baking" weights in the container image to enable faster pulls and updates. To learn more, see [Reducing Container Image Sizes](../best-practices/aiml-performance.md#_reducing_container_image_sizes "../best-practices/aiml-performance.md#_reducing_container_image_sizes"). In the same directory as `app.py`, create the `Dockerfile`: ``` FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-runtime # Install required system packages required for git cloning RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/* # Install application dependencies RUN pip install --no-cache-dir fastapi uvicorn requests pillow boto3 timm==0.5.4 # Pre-cache the GPUNet code from Torch Hub (without weights) # Clone the repository containing the GPUNet code RUN mkdir -p /cache/torch/hub && \ cd /cache/torch/hub && \ git clone --branch torchhub --depth 1 https://github.com/NVIDIA/DeepLearningExamples NVIDIA_DeepLearningExamples_torchhub COPY app.py /app/app.py WORKDIR /app CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"] ``` #### Test the application From the same directory as your `app.py` and `Dockerfile`, build the container image for the inference application, targeting AMD64 architecture: ``` docker build --platform linux/amd64 -t gpunet-inference-app . ``` Set environment variables for your AWS credentials, and optionally an AWS session token. For example: ``` export AWS_REGION="us-east-1" export AWS_ACCESS_KEY_ID=ABCEXAMPLESCUJFEIELSMUHHAZ export AWS_SECRET_ACCESS_KEY=123EXAMPLEMZREoQXr8XkiicsOgWDQ5TpUsq0/Z ``` Run the container locally, injecting AWS credentials as environment variables for S3 access. For example: ``` docker run --platform linux/amd64 -p 8080:80 \ -e S3_BUCKET_NAME=${S3_BUCKET_NAME} \ -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \ -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \ -e AWS_DEFAULT_REGION=${AWS_REGION} \ gpunet-inference-app ``` The expected output should look like this: ``` INFO:     Started server process [1] INFO:     Waiting for application startup. INFO:     Application startup complete. INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit) ``` In a new terminal window, test the inference endpoint by sending a sample POST request with a public image URL as a query parameter: ``` curl -X POST "http://localhost:8080/predict?image_url=http://images.cocodataset.org/test-stuff2017/000000024309.jpg" ``` The expected output should be a JSON response with top-5 predictions, similar to this (actual labels and probabilities may vary slightly based on the image and model precision): ``` {"predictions":[{"label":"desk","probability":0.28885871171951294},{"label":"laptop","probability":0.24679335951805115},{"label":"notebook","probability":0.08539070934057236},{"label":"library","probability":0.030645888298749924},{"label":"monitor","probability":0.02989606373012066}]} ``` Quit the application using "Ctrl + C". ### Push the container to Amazon ECR In this step, we upload the container image for the GPUNet-0 model service to [Amazon Elastic Container Registry (ECR)](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md"), making it available for deployment on Amazon EKS. This process involves creating a new ECR repository to store the image, authenticating with ECR, then tagging and pushing the container image to our registry. First, navigate back to the directory where you set your environment variables at the beginning of this guide. For example: ``` cd .. ``` Create a repository in Amazon ECR: ``` aws ecr create-repository --repository-name gpunet-inference-app --region ${AWS_REGION} ``` Log into Amazon ECR: ``` aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com ``` The expected output should look like this: ``` Login Succeeded ``` Tag the image: ``` docker tag gpunet-inference-app:latest ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest ``` Push the image to your Amazon ECR repository: ``` docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest ``` This last step takes several minutes to complete. ## 7. (Optional) Expose the Model Service In this step, you’ll expose your real-time inference model service externally on Amazon EKS using the AWS Load Balancer Controller (LBC). This involves setting up the LBC, mounting model weights from Amazon S3 as a persistent volume using the Mountpoint S3 CSI Driver, deploying a GPU-accelerated application pod, creating a service and ingress to provision an Application Load Balancer (ALB), and testing the endpoint. First, verify the Pod Identity association for the AWS LBC, confirming that the service account is properly linked to the required IAM role: ``` eksctl get podidentityassociation --cluster ${EKS_CLUSTER_NAME} --namespace kube-system --service-account-name aws-load-balancer-controller ``` The expected output should look like this: ``` ASSOCIATION ARN                                                    NAMESPACE    SERVICE ACCOUNT NAME        IAM ROLE ARN    OWNER ARN arn:aws:eks:us-east-1:143095308808:podidentityassociation/eks-rt-inference-us-east-1/a-buavluu2wp1jropya    kube-system     aws-load-balancer-controller    arn:aws:iam::143095308808:role/AmazonEKSLoadBalancerControllerRole ``` ### Tag your cluster security group The AWS Load Balancer Controller only supports a single security group with the tag key `karpenter.sh/discovery: "${EKS_CLUSTER_NAME}"` for Karpenter’s security group selection. When creating a cluster with eksctl, the default cluster security group (which has the `"kubernetes.io/cluster/<cluster-name>: owned"` tag) is not automatically tagged with `karpenter.sh/discovery` tags. This tag is essential for Karpenter to discover and attach this security group to the nodes it provisions. Attaching this security group ensures compatibility with the AWS Load Balancer Controller (LBC), allowing it to automatically manage inbound traffic rules for services exposed via Ingress, such as the model service in these steps. Export the VPC ID for your cluster: ``` CLUSTER_VPC_ID="$(aws eks describe-cluster --name ${EKS_CLUSTER_NAME} --query cluster.resourcesVpcConfig.vpcId --output text)" ``` Export the default security group for your cluster: ``` CLUSTER_SG_ID="$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$CLUSTER_VPC_ID Name=tag-key,Values=kubernetes.io/cluster/${EKS_CLUSTER_NAME} --query 'SecurityGroups[].[GroupId]' --output text)" ``` Add the `karpenter.sh/discovery` tag to the default cluster security group. This will allow our CPU and GPU EC2NodeClass selectors to use it: ``` aws ec2 create-tags --resources ${CLUSTER_SG_ID} --tags Key=karpenter.sh/discovery,Value=${EKS_CLUSTER_NAME} ``` Verify the tag was added: ``` aws ec2 describe-security-groups --group-ids ${CLUSTER_SG_ID} --query "SecurityGroups[].Tags" ``` Among the results, you should see the following with the tag and your cluster name. For example: ``` { "Key": "karpenter.sh/discovery", "Value": "eks-rt-inference-us-east-1" } ``` ### Setup the AWS Load Balancer Controller (LBC) The AWS LBC is essential for managing ingress traffic to AI/ML workloads on Amazon EKS, ensuring access to inference endpoints or data processing pipelines. By integrating with AWS Application Load Balancers (ALB) and Network Load Balancers (NLB), the LBC dynamically routes traffic to containerized applications, such as those running large language models, computer vision models, or real-time inference services. Since we’ve already created the service account and the Pod Identity Association during cluster creation, we set the `serviceAccount.name` to match what’s defined in our cluster config (`aws-load-balancer-controller`). Add the AWS-owned **eks-charts** Helm chart repository: ``` helm repo add eks https://aws.github.io/eks-charts ``` Refresh your local Helm repositories with the most recent charts: ``` helm repo update eks ``` Deploy the AWS LBC using Helm, specifying the EKS cluster name and referencing the pre-created service account: ``` helm install aws-load-balancer-controller eks/aws-load-balancer-controller \ -n kube-system \ --set clusterName=${EKS_CLUSTER_NAME} \ --set serviceAccount.create=false \ --set serviceAccount.name=aws-load-balancer-controller ``` The expected output should look like this: ``` NAME: aws-load-balancer-controller LAST DEPLOYED: Wed Jul 9 15:03:31 2025 NAMESPACE: kube-system STATUS: deployed REVISION: 1 TEST SUITE: None NOTES: AWS Load Balancer controller installed! ``` ### Mount the model in a persistent volume In this step, you’ll mount model weights from your Amazon S3 bucket using a PersistentVolume (PV) backed by the Mountpoint for Amazon S3 CSI driver. This allows Kubernetes pods to access S3 objects as local files, eliminating resource-intensive downloads to ephemeral pod storage or init containers—ideal for large, multi-gigabyte model weights. The PV mounts the entire bucket root (no path specified in `volumeAttributes`), supports concurrent read-only access by multiple pods, and exposes files like the model weights (`/models/gpunet-0.pth`) inside the container for inference. This ensures the fallback "download" in our application (`app.py`) does not trigger because the file exists via the mount. By decoupling the model from the container image, this enables shared access and independent model version updates without image rebuilds. #### Create the PersistentVolume (PV) Create a PersistentVolume (PV) resource to mount the S3 bucket containing your model weights, enabling read-only access for multiple pods without downloading files at runtime: ``` cat <<EOF | envsubst | kubectl apply -f - apiVersion: v1 kind: PersistentVolume metadata: name: s3-model-pv spec: capacity: storage: 5Gi  # Ignored by the driver; can be any value accessModes: <br>• ReadOnlyMany  # Read only persistentVolumeReclaimPolicy: Retain storageClassName: ""  # Required for static provisioning claimRef: namespace: default  # Adjust if you prefer a different namespace name: s3-model-pvc mountOptions: <br>• allow-other  # Enables multi-user access (useful for non-root pods) <br>• region ${AWS_REGION} # Optional, include if your bucket is in a different region than the cluster csi: driver: s3.csi.aws.com volumeHandle: gpunet-model-volume  # Must be unique across all PVs volumeAttributes: bucketName: ${S3_BUCKET_NAME} EOF ``` #### Create the PersistentVolumeClaim (PVC) Create a PersistentVolumeClaim (PVC) to bind to the PV, requesting read-only access to the mounted S3 model data: ``` cat <<EOF | envsubst | kubectl apply -f - apiVersion: v1 kind: PersistentVolumeClaim metadata: name: s3-model-pvc spec: accessModes: <br>• ReadOnlyMany storageClassName: ""  # Required for static provisioning resources: requests: storage: 5Gi  # Ignored, match PV capacity volumeName: s3-model-pv  # Bind to the PV created above EOF ``` #### Deploy the application Deploy the inference application as a Kubernetes Deployment, mounting the S3-backed persistent volume for model access, applying GPU node selectors and tolerations, and setting environment variables for the model path. This Deployment sets the model path (env var of `"/models/gpunet-0.pth"`), so our application (in `app.py`) will use this path by default. With the Deployment’s volume mount at `/models` (read-only), the model download won’t trigger if the file is already present via the PVC. ``` cat <<EOF | envsubst | kubectl apply -f - apiVersion: apps/v1 kind: Deployment metadata: name: gpunet-inference-app spec: replicas: 1 selector: matchLabels: app: gpunet-inference-app template: metadata: labels: app: gpunet-inference-app spec: tolerations: <br>• key: "nvidia.com/gpu" operator: "Exists" effect: "NoSchedule" nodeSelector: role: gpu-worker containers: <br>• name: inference image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest ports: <br>• containerPort: 80 env: <br>• name: MODEL_PATH value: "/models/gpunet-0.pth" resources: limits: nvidia.com/gpu: 1 requests: nvidia.com/gpu: 1 volumeMounts: <br>• name: model-volume mountPath: /models readOnly: true volumes: <br>• name: model-volume persistentVolumeClaim: claimName: s3-model-pvc EOF ``` It will take a few minutes for Karpenter to provision a GPU node if one isn’t already available. Verify that the inference pod is in a "Running" state: ``` kubectl get pods -l app=gpunet-inference-app ``` The expected output should look like this: ``` NAME                               READY   STATUS    RESTARTS   AGE gpunet-inference-app-5d4b6c7f8-abcde        1/1     Running   0          2m ``` ### Expose the Service with Ingress and Load Balancer Create a ClusterIP Service to expose the inference deployment internally within the EKS cluster, targeting the application’s port: ``` cat <<EOF | envsubst | kubectl apply -f - apiVersion: v1 kind: Service metadata: name: gpunet-model-service spec: type: ClusterIP ports: <br>• port: 80 targetPort: 80 selector: app: gpunet-inference-app EOF ``` Create an Ingress resource to provision an internet-facing Application Load Balancer (ALB) via the AWS LBC, routing external traffic to the inference service: ``` cat <<EOF | envsubst | kubectl apply -f - apiVersion: networking.k8s.io/v1 kind: Ingress metadata: name: gpunet-model-ingress annotations: alb.ingress.kubernetes.io/scheme: internet-facing alb.ingress.kubernetes.io/target-type: ip spec: ingressClassName: alb rules: <br>• http: paths: <br>• path: / pathType: Prefix backend: service: name: gpunet-model-service port: number: 80 EOF ``` Give it a few minutes for the Application Load Balancer (ALB) to finish provisioning. Monitor the Ingress resource status to confirm the ALB has been provisioned: ``` kubectl get ingress gpunet-model-ingress ``` The expected output should look like this (with the ADDRESS field populated): ``` NAME                   CLASS   HOSTS   ADDRESS                                         PORTS   AGE gpunet-model-ingress   alb     *       k8s-default-gpunetmo-183de3f819-516310036.us-east-1.elb.amazonaws.com   80      6m58s ``` Extract and export the ALB hostname from the Ingress status for use in subsequent testing: ``` export ALB_HOSTNAME=$(kubectl get ingress gpunet-model-ingress -o jsonpath='{.status.loadBalancer.ingress[0].hostname}') ``` ### Test the Model Service Validate the exposed inference endpoint by sending a POST request with a sample image URL (e.g., from the COCO dataset), simulating real-time prediction: ``` curl -X POST "http://${ALB_HOSTNAME}/predict?image_url=http://images.cocodataset.org/test-stuff2017/000000024309.jpg" ``` The expected output should be a JSON response with top-5 predictions, similar to this (actual labels and probabilities may vary slightly based on the image and model precision): ``` {"predictions":[{"label":"desk","probability":0.2888975441455841},{"label":"laptop","probability":0.2464350312948227},{"label":"notebook","probability":0.08554483205080032},{"label":"library","probability":0.030612602829933167},{"label":"monitor","probability":0.029896672815084457}]} ``` You can optionally continue testing other images in a new POST request. For example: ``` http://images.cocodataset.org/test-stuff2017/000000024309.jpg http://images.cocodataset.org/test-stuff2017/000000028117.jpg http://images.cocodataset.org/test-stuff2017/000000006149.jpg http://images.cocodataset.org/test-stuff2017/000000004954.jpg ``` ## Conclusion In this guide, you set up an Amazon EKS cluster optimized for GPU-accelerated real-time inference workloads. You provisioned a cluster with [G5 EC2 instances](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/"), installed the [Mountpoint S3 CSI Driver](s3-csi.md "s3-csi.md"), [EKS Pod Identity Agent](pod-identities.md "pod-identities.md"), [EKS Node Monitoring Agent](node-health.md "node-health.md"), [Bottlerocket AMI](eks-optimized-ami-bottlerocket.md "eks-optimized-ami-bottlerocket.md"), [AWS Load Balancer Controller (LBC)](lbc-helm.md "lbc-helm.md"), and [Karpenter](https://karpenter.sh/ "https://karpenter.sh/") to manage CPU and GPU NodePools. You used the NVIDIA Device Plugin to enable GPU scheduling and configured S3 with a PersistentVolume and PersistentVolumeClaim for model access. You validated the setup by deploying a sample GPU pod, setting up model access for the NVIDIA [GPUNet-0](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/models/gpunet_0_pyt_ckpt "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/models/gpunet_0_pyt_ckpt") model on [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"), enabling pod initialization, and exposing the inference service via Application Load Balancer. To fully utilize your cluster, configure the [EKS Node Monitoring Agent](node-health.md "node-health.md") with auto-repair. Be sure to conduct benchmark tests, including GPU performance, latency, and throughput assessments to optimize response times. To learn more, see [Using Monitoring and Observability Tools for your AI/ML Workloads](../best-practices/aiml-observability.md#_using_monitoring_and_observability_tools_for_your_aiml_workloads "../best-practices/aiml-observability.md#_using_monitoring_and_observability_tools_for_your_aiml_workloads"). ## Clean up To avoid incurring future charges, you need to delete the associated CloudFormation stack manually to delete all resources created during this guide, including the VPC network. Delete the CloudFormation stack using the `--wait` flag with eksctl: ``` eksctl delete cluster --region ${AWS_REGION} --name ${EKS_CLUSTER_NAME} --wait ``` Upon completion, you should see the following response output: ``` 2025-07-29 13:03:55 [✔]  all cluster resources were deleted ``` Delete the Amazon S3 bucket created during this guide using the [Amazon S3 Console](https://console.aws.amazon.com/s3/home "https://console.aws.amazon.com/s3/home").
-````
+|                                         |                      |                  N/A |
++---------------------------------------------------------------------------------------+
+
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU        GI     CI        PID   Type   Process name                  GPU Memory    |
+|                     ID        ID                                         Usage        |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+```
+
+## 6. (Optional) Prepare and Upload Model Artifacts for Deployment
+
+In this step, you’ll deploy a model service for real-time image classification, starting with uploading model weights to an Amazon S3 bucket. For demonstration, we are using the open-source [GPUNet-0](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/models/gpunet_0_pyt_ckpt "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/models/gpunet_0_pyt_ckpt") vision model part of NVIDIA’s [GPUNet](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/resources/gpunet_pyt "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/resources/gpunet_pyt"), which supports low-latency inference on images using NVIDIA GPUs and TensorRT. This model is pretrained on [ImageNet](https://www.image-net.org/ "https://www.image-net.org/"), allows us to classifies objects in photos or video streams on the fly, and is considered a small model with 11.9 million parameters.
+
+### Set up your environment
+
+To download the GPUNet-0 model weights In this step, you need access to NVIDIA’s NGC catalog and [Docker](https://docs.docker.com/get-started/ "https://docs.docker.com/get-started/") installed on your local machine. Follow these steps to set up a free account and configure the NGC CLI:
+
+- [Sign up for a free NGC account](https://ngc.nvidia.com/signup "https://ngc.nvidia.com/signup") and generate an API key from the NGC dashboard (User Icon > Setup > Generate API Key > Generate Personal Key > NGC Catalog).
+- [Download and install the NGC CLI](https://org.ngc.nvidia.com/setup/installers/cli "https://org.ngc.nvidia.com/setup/installers/cli") (Linux/macOS/Windows) and configure the CLI using: `ngc config set`. Enter your API key when prompted; set org to `nvidia` and hit Enter to accept defaults for others. If successful, you should see something like: `Successfully saved NGC configuration to /Users/your-username/.ngc/config`.
+
+### Verify service account permissions
+
+Before we start, check the Kubernetes service account permissions:
+
+```
+kubectl get serviceaccount s3-csi-driver-sa -n kube-system -o yaml
+```
+
+During cluster creation, we attached the S3CSIDriverPolicy to an IAM role and annotated the service account ("s3-csi-driver-sa"). The Mountpoint S3 CSI driver pods inherits the IAM role’s permissions when interacting with S3. The expected output should look like this:
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::143095308808:role/eksctl-eks-rt-inference-us-east-1-addon-aws-m-Role1-fpXXjRYdKN8r
+  creationTimestamp: "2025-07-17T03:55:29Z"
+  labels:
+    app.kubernetes.io/component: csi-driver
+    app.kubernetes.io/instance: aws-mountpoint-s3-csi-driver
+    app.kubernetes.io/managed-by: EKS
+    app.kubernetes.io/name: aws-mountpoint-s3-csi-driver
+  name: s3-csi-driver-sa
+  namespace: kube-system
+  resourceVersion: "2278"
+  uid: 50b36272-6716-4c68-bdc3-c4054df1177c
+```
+
+### Add a toleration
+
+The S3 CSI Driver runs as a DaemonSet on all nodes. Pods use the CSI driver on those nodes to mount S3 volumes. To allow it to schedule on our GPU nodes which have taints, add a toleration to the DaemonSet:
+
+```
+kubectl patch daemonset s3-csi-node -n kube-system --type='json' -p='[{"op": "add", "path": "/spec/template/spec/tolerations/-", "value": {"key": "nvidia.com/gpu", "operator": "Exists", "effect": "NoSchedule"}}]'
+```
+
+The expected output should look like this:
+
+```
+daemonset.apps/s3-csi-node patched
+```
+
+### Upload model weights to S3
+
+In this step, you’ll create an Amazon S3 bucket, download the GPUNet-0 model weights from NVIDIA GPU Cloud (NGC), and upload them to the bucket. These weights will be accessed by our application at runtime for inference.
+
+Create your Amazon S3 bucket:
+
+```
+aws s3 mb s3://${S3_BUCKET_NAME} --region ${AWS_REGION}
+```
+
+Enable [S3 Versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") for the bucket, to prevent accidental deletions and overwrites from causing immediate and permanent data loss:
+
+```
+aws s3api put-bucket-versioning --bucket ${S3_BUCKET_NAME} --versioning-configuration Status=Enabled
+```
+
+Apply a lifecycle rule to the bucket to remove overwritten or deleted object versions 14 days after they become non-current, remove expired delete markers, and remove incomplete multi-part uploads after 7 days. To learn more, see [Examples of S3 Lifecycle configurations](../../../AmazonS3/latest/userguide/lifecycle-configuration-examples.md "../../../AmazonS3/latest/userguide/lifecycle-configuration-examples.md").
+
+```
+aws s3api put-bucket-lifecycle-configuration --bucket $S3_BUCKET_NAME --lifecycle-configuration '{"Rules":[{"ID":"LifecycleRule","Status":"Enabled","Filter":{},"Expiration":{"ExpiredObjectDeleteMarker":true},"NoncurrentVersionExpiration":{"NoncurrentDays":14},"AbortIncompleteMultipartUpload":{"DaysAfterInitiation":7}}]}'
+```
+
+Download the GPUNet-0 model weights from NGC. For example, on macOS:
+
+```
+ngc registry model download-version nvidia/dle/gpunet_0_pyt_ckpt:21.12.0_amp --dest ~/downloads
+```
+
+###### Note
+
+You may need to adjust this download command for your operating system. For this command to work on a Linux system, you likely need to create the directory as part of the command (e.g., `mkdir ~/downloads`).
+
+The expected output should look like this:
+
+```
+{
+  "download_end": "2025-07-18 08:22:39",
+  "download_start": "2025-07-18 08:22:33",
+  "download_time": "6s",
+  "files_downloaded": 1,
+  "local_path": "/Users/your-username/downloads/gpunet_0_pyt_ckpt_v21.12.0_amp",
+  "size_downloaded": "181.85 MB",
+  "status": "Completed",
+  "transfer_id": "gpunet_0_pyt_ckpt[version=21.12.0_amp]"
+}
+```
+
+Rename the checkpoint file to match the expected naming in our application code in later steps (no extraction is needed, as it’s a standard PyTorch \*.pth.tar checkpoint containing the model state dictionary):
+
+```
+mv ~/downloads/gpunet_0_pyt_ckpt_v21.12.0_amp/0.65ms.pth.tar gpunet-0.pth
+```
+
+Enable the [AWS Common Runtime](https://aws.amazon.com/blogs/storage/improving-amazon-s3-throughput-for-the-aws-cli-and-boto3-with-the-aws-common-runtime/ "https://aws.amazon.com/blogs/storage/improving-amazon-s3-throughput-for-the-aws-cli-and-boto3-with-the-aws-common-runtime/") in the AWS CLI to optimize S3 throughput:
+
+```
+aws configure set s3.preferred_transfer_client crt
+```
+
+Upload the model weights to your S3 bucket:
+
+```
+aws s3 cp gpunet-0.pth s3://${S3_BUCKET_NAME}/gpunet-0.pth
+```
+
+The expected output should look like this:
+
+```
+upload: ./gpunet-0.pth to s3://eks-rt-inference-models-us-east-1-1752722786/gpunet-0.pth
+```
+
+### Create the Model Service
+
+In this step, you’ll set up a FastAPI web application for GPU-accelerated image classification using the GPUNet-0 vision model. The application downloads model weights from Amazon S3 at runtime, fetches the model architecture from NVIDIA’s repository for caching, and downloads ImageNet class labels via HTTP. The application includes image preprocessing transforms and exposes two endpoints: a root GET for status check and a POST `/predict` endpoint that accepts an image URL.
+
+We serve the model using FastAPI with PyTorch, loading weights from Amazon S3 at runtime in a containerized setup for quick prototyping and Kubernetes deployment. For other methods like optimized batching or high-throughput engines, see [Serving ML Models](../best-practices/aiml-performance.md#_serving_ml_models "../best-practices/aiml-performance.md#_serving_ml_models").
+
+#### Create the application
+
+Create a directory for your application files such as `model-testing`, then change directories into it and add the following code to a new file named `app.py`:
+
+```
+import os
+import torch
+import json
+import requests
+from fastapi import FastAPI, HTTPException
+from PIL import Image
+from io import BytesIO, StringIO
+import torchvision.transforms as transforms
+from torch.nn.functional import softmax
+import warnings
+from contextlib import redirect_stdout, redirect_stderr
+import argparse
+import boto3
+app = FastAPI()
+
+# Suppress specific warnings from the model code (quantization is optional and unused here)
+warnings.simplefilter("ignore", UserWarning)
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Load model code from cache (if present)
+# Use backed cache directory
+torch.hub.set_dir('/cache/torch/hub')
+
+# Allowlist for secure deserialization (handles potential issues in older checkpoints)
+torch.serialization.add_safe_globals([argparse.Namespace])
+# Load the model architecture only on container startup (changed to pretrained=False)
+# Precision (FP32 for full accuracy, could be 'fp16' for speed on Ampere+ GPUs)
+with redirect_stdout(StringIO()), redirect_stderr(StringIO()):
+    gpunet = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_gpunet', pretrained=False, model_type='GPUNet-0', model_math='fp32')
+
+# Download weights from S3 if not present, then load them
+model_path = os.getenv('MODEL_PATH', '/cache/torch/hub/checkpoints/gpunet-0.pth')
+os.makedirs(os.path.dirname(model_path), exist_ok=True)  # Ensure checkpoints dir exists
+if not os.path.exists(model_path):
+    s3 = boto3.client('s3')
+    s3.download_file(os.getenv('S3_BUCKET_NAME'), 'gpunet-0.pth', model_path)
+checkpoint = torch.load(model_path, map_location=device, weights_only=True)
+gpunet.load_state_dict(checkpoint['state_dict'])
+# Move to GPU/CPU
+gpunet.to(device)
+gpunet.eval()
+
+# Preprocessing
+preprocess = transforms.Compose([
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
+
+# Load ImageNet labels
+labels_url = "https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json"
+response = requests.get(labels_url)
+json_data = json.loads(response.text)
+labels = [json_data[str(i)][1].replace('_', ' ') for i in range(1000)]
+
+# Required, FastAPI root
+@app.get("/")
+async def hello():
+    return {"status": "hello"}
+
+# Serve model requests
+@app.post("/predict")
+async def predict(image_url: str):
+    try:
+        response = requests.get(image_url)
+        response.raise_for_status()
+        img = Image.open(BytesIO(response.content)).convert("RGB")
+        input_tensor = preprocess(img).unsqueeze(0).to(device)
+
+        with torch.no_grad():
+            output = gpunet(input_tensor)
+
+        probs = softmax(output, dim=1)[0]
+        top5_idx = probs.topk(5).indices.cpu().numpy()
+        top5_probs = probs.topk(5).values.cpu().numpy()
+
+        results = [{ "label": labels[idx], "probability": float(prob) } for idx, prob in zip(top5_idx, top5_probs)]
+
+        return {"predictions": results}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+```
+
+#### Create the Dockerfile
+
+The following Dockerfile creates a container image for our application utilizing the GPUNet model from the [NVIDIA Deep Learning Examples for Tensor Cores](https://github.com/NVIDIA/DeepLearningExamples "https://github.com/NVIDIA/DeepLearningExamples") GitHub repository.
+
+We reduce container image size by using a runtime-only PyTorch base, installing only essential packages with cache cleanup, pre-caching model code, and avoiding "baking" weights in the container image to enable faster pulls and updates. To learn more, see [Reducing Container Image Sizes](../best-practices/aiml-performance.md#_reducing_container_image_sizes "../best-practices/aiml-performance.md#_reducing_container_image_sizes").
+
+In the same directory as `app.py`, create the `Dockerfile`:
+
+```
+FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-runtime
+
+# Install required system packages required for git cloning
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+# Install application dependencies
+RUN pip install --no-cache-dir fastapi uvicorn requests pillow boto3 timm==0.5.4
+
+# Pre-cache the GPUNet code from Torch Hub (without weights)
+# Clone the repository containing the GPUNet code
+RUN mkdir -p /cache/torch/hub && \
+    cd /cache/torch/hub && \
+    git clone --branch torchhub --depth 1 https://github.com/NVIDIA/DeepLearningExamples NVIDIA_DeepLearningExamples_torchhub
+
+COPY app.py /app/app.py
+
+WORKDIR /app
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
+```
+
+#### Test the application
+
+From the same directory as your `app.py` and `Dockerfile`, build the container image for the inference application, targeting AMD64 architecture:
+
+```
+docker build --platform linux/amd64 -t gpunet-inference-app .
+```
+
+Set environment variables for your AWS credentials, and optionally an AWS session token. For example:
+
+```
+export AWS_REGION="us-east-1"
+export AWS_ACCESS_KEY_ID=ABCEXAMPLESCUJFEIELSMUHHAZ
+export AWS_SECRET_ACCESS_KEY=123EXAMPLEMZREoQXr8XkiicsOgWDQ5TpUsq0/Z
+```
+
+Run the container locally, injecting AWS credentials as environment variables for S3 access. For example:
+
+```
+docker run --platform linux/amd64 -p 8080:80 \
+  -e S3_BUCKET_NAME=${S3_BUCKET_NAME} \
+  -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
+  -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
+  -e AWS_DEFAULT_REGION=${AWS_REGION} \
+  gpunet-inference-app
+```
+
+The expected output should look like this:
+
+```
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit)
+```
+
+In a new terminal window, test the inference endpoint by sending a sample POST request with a public image URL as a query parameter:
+
+```
+curl -X POST "http://localhost:8080/predict?image_url=http://images.cocodataset.org/test-stuff2017/000000024309.jpg"
+```
+
+The expected output should be a JSON response with top-5 predictions, similar to this (actual labels and probabilities may vary slightly based on the image and model precision):
+
+```
+{"predictions":[{"label":"desk","probability":0.28885871171951294},{"label":"laptop","probability":0.24679335951805115},{"label":"notebook","probability":0.08539070934057236},{"label":"library","probability":0.030645888298749924},{"label":"monitor","probability":0.02989606373012066}]}
+```
+
+Quit the application using "Ctrl + C".
+
+### Push the container to Amazon ECR
+
+In this step, we upload the container image for the GPUNet-0 model service to [Amazon Elastic Container Registry (ECR)](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md"), making it available for deployment on Amazon EKS. This process involves creating a new ECR repository to store the image, authenticating with ECR, then tagging and pushing the container image to our registry.
+
+First, navigate back to the directory where you set your environment variables at the beginning of this guide. For example:
+
+```
+cd ..
+```
+
+Create a repository in Amazon ECR:
+
+```
+aws ecr create-repository --repository-name gpunet-inference-app --region ${AWS_REGION}
+```
+
+Log into Amazon ECR:
+
+```
+aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+```
+
+The expected output should look like this:
+
+```
+Login Succeeded
+```
+
+Tag the image:
+
+```
+docker tag gpunet-inference-app:latest ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest
+```
+
+Push the image to your Amazon ECR repository:
+
+```
+docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest
+```
+
+This last step takes several minutes to complete.
+
+## 7. (Optional) Expose the Model Service
+
+In this step, you’ll expose your real-time inference model service externally on Amazon EKS using the AWS Load Balancer Controller (LBC). This involves setting up the LBC, mounting model weights from Amazon S3 as a persistent volume using the Mountpoint S3 CSI Driver, deploying a GPU-accelerated application pod, creating a service and ingress to provision an Application Load Balancer (ALB), and testing the endpoint.
+
+First, verify the Pod Identity association for the AWS LBC, confirming that the service account is properly linked to the required IAM role:
+
+```
+eksctl get podidentityassociation --cluster ${EKS_CLUSTER_NAME} --namespace kube-system --service-account-name aws-load-balancer-controller
+```
+
+The expected output should look like this:
+
+```
+ASSOCIATION ARN                                                    NAMESPACE    SERVICE ACCOUNT NAME        IAM ROLE ARN    OWNER ARN
+arn:aws:eks:us-east-1:143095308808:podidentityassociation/eks-rt-inference-us-east-1/a-buavluu2wp1jropya    kube-system     aws-load-balancer-controller    arn:aws:iam::143095308808:role/AmazonEKSLoadBalancerControllerRole
+```
+
+### Tag your cluster security group
+
+The AWS Load Balancer Controller only supports a single security group with the tag key `karpenter.sh/discovery: "${EKS_CLUSTER_NAME}"` for Karpenter’s security group selection. When creating a cluster with eksctl, the default cluster security group (which has the `"kubernetes.io/cluster/<cluster-name>: owned"` tag) is not automatically tagged with `karpenter.sh/discovery` tags. This tag is essential for Karpenter to discover and attach this security group to the nodes it provisions. Attaching this security group ensures compatibility with the AWS Load Balancer Controller (LBC), allowing it to automatically manage inbound traffic rules for services exposed via Ingress, such as the model service in these steps.
+
+Export the VPC ID for your cluster:
+
+```
+CLUSTER_VPC_ID="$(aws eks describe-cluster --name ${EKS_CLUSTER_NAME} --query cluster.resourcesVpcConfig.vpcId --output text)"
+```
+
+Export the default security group for your cluster:
+
+```
+CLUSTER_SG_ID="$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$CLUSTER_VPC_ID Name=tag-key,Values=kubernetes.io/cluster/${EKS_CLUSTER_NAME} --query 'SecurityGroups[].[GroupId]' --output text)"
+```
+
+Add the `karpenter.sh/discovery` tag to the default cluster security group. This will allow our CPU and GPU EC2NodeClass selectors to use it:
+
+```
+aws ec2 create-tags --resources ${CLUSTER_SG_ID} --tags Key=karpenter.sh/discovery,Value=${EKS_CLUSTER_NAME}
+```
+
+Verify the tag was added:
+
+```
+aws ec2 describe-security-groups --group-ids ${CLUSTER_SG_ID} --query "SecurityGroups[].Tags"
+```
+
+Among the results, you should see the following with the tag and your cluster name. For example:
+
+```
+{
+  "Key": "karpenter.sh/discovery",
+  "Value": "eks-rt-inference-us-east-1"
+}
+```
+
+### Setup the AWS Load Balancer Controller (LBC)
+
+The AWS LBC is essential for managing ingress traffic to AI/ML workloads on Amazon EKS, ensuring access to inference endpoints or data processing pipelines. By integrating with AWS Application Load Balancers (ALB) and Network Load Balancers (NLB), the LBC dynamically routes traffic to containerized applications, such as those running large language models, computer vision models, or real-time inference services. Since we’ve already created the service account and the Pod Identity Association during cluster creation, we set the `serviceAccount.name` to match what’s defined in our cluster config (`aws-load-balancer-controller`).
+
+Add the AWS-owned **eks-charts** Helm chart repository:
+
+```
+helm repo add eks https://aws.github.io/eks-charts
+```
+
+Refresh your local Helm repositories with the most recent charts:
+
+```
+helm repo update eks
+```
+
+Deploy the AWS LBC using Helm, specifying the EKS cluster name and referencing the pre-created service account:
+
+```
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+  -n kube-system \
+  --set clusterName=${EKS_CLUSTER_NAME} \
+  --set serviceAccount.create=false \
+  --set serviceAccount.name=aws-load-balancer-controller
+```
+
+The expected output should look like this:
+
+```
+NAME: aws-load-balancer-controller
+LAST DEPLOYED: Wed Jul 9 15:03:31 2025
+NAMESPACE: kube-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+AWS Load Balancer controller installed!
+```
+
+### Mount the model in a persistent volume
+
+In this step, you’ll mount model weights from your Amazon S3 bucket using a PersistentVolume (PV) backed by the Mountpoint for Amazon S3 CSI driver. This allows Kubernetes pods to access S3 objects as local files, eliminating resource-intensive downloads to ephemeral pod storage or init containers—ideal for large, multi-gigabyte model weights.
+
+The PV mounts the entire bucket root (no path specified in `volumeAttributes`), supports concurrent read-only access by multiple pods, and exposes files like the model weights (`/models/gpunet-0.pth`) inside the container for inference. This ensures the fallback "download" in our application (`app.py`) does not trigger because the file exists via the mount. By decoupling the model from the container image, this enables shared access and independent model version updates without image rebuilds.
+
+#### Create the PersistentVolume (PV)
+
+Create a PersistentVolume (PV) resource to mount the S3 bucket containing your model weights, enabling read-only access for multiple pods without downloading files at runtime:
+
+```
+cat <<EOF | envsubst | kubectl apply -f -
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: s3-model-pv
+spec:
+  capacity:
+    storage: 5Gi  # Ignored by the driver; can be any value
+  accessModes:
+    - ReadOnlyMany  # Read only
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""  # Required for static provisioning
+  claimRef:
+    namespace: default  # Adjust if you prefer a different namespace
+    name: s3-model-pvc
+  mountOptions:
+    - allow-other  # Enables multi-user access (useful for non-root pods)
+    - region ${AWS_REGION} # Optional, include if your bucket is in a different region than the cluster
+  csi:
+    driver: s3.csi.aws.com
+    volumeHandle: gpunet-model-volume  # Must be unique across all PVs
+    volumeAttributes:
+      bucketName: ${S3_BUCKET_NAME}
+EOF
+```
+
+#### Create the PersistentVolumeClaim (PVC)
+
+Create a PersistentVolumeClaim (PVC) to bind to the PV, requesting read-only access to the mounted S3 model data:
+
+```
+cat <<EOF | envsubst | kubectl apply -f -
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: s3-model-pvc
+spec:
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: ""  # Required for static provisioning
+  resources:
+    requests:
+      storage: 5Gi  # Ignored, match PV capacity
+  volumeName: s3-model-pv  # Bind to the PV created above
+EOF
+```
+
+#### Deploy the application
+
+Deploy the inference application as a Kubernetes Deployment, mounting the S3-backed persistent volume for model access, applying GPU node selectors and tolerations, and setting environment variables for the model path. This Deployment sets the model path (env var of `"/models/gpunet-0.pth"`), so our application (in `app.py`) will use this path by default. With the Deployment’s volume mount at `/models` (read-only), the model download won’t trigger if the file is already present via the PVC.
+
+```
+cat <<EOF | envsubst | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gpunet-inference-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gpunet-inference-app
+  template:
+    metadata:
+      labels:
+        app: gpunet-inference-app
+    spec:
+      tolerations:
+      - key: "nvidia.com/gpu"
+        operator: "Exists"
+        effect: "NoSchedule"
+      nodeSelector:
+        role: gpu-worker
+      containers:
+      - name: inference
+        image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: MODEL_PATH
+          value: "/models/gpunet-0.pth"
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+          requests:
+            nvidia.com/gpu: 1
+        volumeMounts:
+        - name: model-volume
+          mountPath: /models
+          readOnly: true
+      volumes:
+      - name: model-volume
+        persistentVolumeClaim:
+          claimName: s3-model-pvc
+EOF
+```
+
+It will take a few minutes for Karpenter to provision a GPU node if one isn’t already available. Verify that the inference pod is in a "Running" state:
+
+```
+kubectl get pods -l app=gpunet-inference-app
+```
+
+The expected output should look like this:
+
+```
+NAME                               READY   STATUS    RESTARTS   AGE
+gpunet-inference-app-5d4b6c7f8-abcde        1/1     Running   0          2m
+```
+
+### Expose the Service with Ingress and Load Balancer
+
+Create a ClusterIP Service to expose the inference deployment internally within the EKS cluster, targeting the application’s port:
+
+```
+cat <<EOF | envsubst | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: gpunet-model-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: gpunet-inference-app
+EOF
+```
+
+Create an Ingress resource to provision an internet-facing Application Load Balancer (ALB) via the AWS LBC, routing external traffic to the inference service:
+
+```
+cat <<EOF | envsubst | kubectl apply -f -
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gpunet-model-ingress
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gpunet-model-service
+            port:
+              number: 80
+EOF
+```
+
+Give it a few minutes for the Application Load Balancer (ALB) to finish provisioning. Monitor the Ingress resource status to confirm the ALB has been provisioned:
+
+```
+kubectl get ingress gpunet-model-ingress
+```
+
+The expected output should look like this (with the ADDRESS field populated):
+
+```
+NAME                   CLASS   HOSTS   ADDRESS                                         PORTS   AGE
+gpunet-model-ingress   alb     *       k8s-default-gpunetmo-183de3f819-516310036.us-east-1.elb.amazonaws.com   80      6m58s
+```
+
+Extract and export the ALB hostname from the Ingress status for use in subsequent testing:
+
+```
+export ALB_HOSTNAME=$(kubectl get ingress gpunet-model-ingress -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+```
+
+### Test the Model Service
+
+Validate the exposed inference endpoint by sending a POST request with a sample image URL (e.g., from the COCO dataset), simulating real-time prediction:
+
+```
+curl -X POST "http://${ALB_HOSTNAME}/predict?image_url=http://images.cocodataset.org/test-stuff2017/000000024309.jpg"
+```
+
+The expected output should be a JSON response with top-5 predictions, similar to this (actual labels and probabilities may vary slightly based on the image and model precision):
+
+```
+{"predictions":[{"label":"desk","probability":0.2888975441455841},{"label":"laptop","probability":0.2464350312948227},{"label":"notebook","probability":0.08554483205080032},{"label":"library","probability":0.030612602829933167},{"label":"monitor","probability":0.029896672815084457}]}
+```
+
+You can optionally continue testing other images in a new POST request. For example:
+
+```
+http://images.cocodataset.org/test-stuff2017/000000024309.jpg
+http://images.cocodataset.org/test-stuff2017/000000028117.jpg
+http://images.cocodataset.org/test-stuff2017/000000006149.jpg
+http://images.cocodataset.org/test-stuff2017/000000004954.jpg
+```
+
+## Conclusion
+
+In this guide, you set up an Amazon EKS cluster optimized for GPU-accelerated real-time inference workloads. You provisioned a cluster with [G5 EC2 instances](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/"), installed the [Mountpoint S3 CSI Driver](s3-csi.md "s3-csi.md"), [EKS Pod Identity Agent](pod-identities.md "pod-identities.md"), [EKS Node Monitoring Agent](node-health.md "node-health.md"), [Bottlerocket AMI](eks-optimized-ami-bottlerocket.md "eks-optimized-ami-bottlerocket.md"), [AWS Load Balancer Controller (LBC)](lbc-helm.md "lbc-helm.md"), and [Karpenter](https://karpenter.sh/ "https://karpenter.sh/") to manage CPU and GPU NodePools. You used the NVIDIA Device Plugin to enable GPU scheduling and configured S3 with a PersistentVolume and PersistentVolumeClaim for model access. You validated the setup by deploying a sample GPU pod, setting up model access for the NVIDIA [GPUNet-0](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/models/gpunet_0_pyt_ckpt "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/models/gpunet_0_pyt_ckpt") model on [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"), enabling pod initialization, and exposing the inference service via Application Load Balancer. To fully utilize your cluster, configure the [EKS Node Monitoring Agent](node-health.md "node-health.md") with auto-repair. Be sure to conduct benchmark tests, including GPU performance, latency, and throughput assessments to optimize response times. To learn more, see [Using Monitoring and Observability Tools for your AI/ML Workloads](../best-practices/aiml-observability.md#_using_monitoring_and_observability_tools_for_your_aiml_workloads "../best-practices/aiml-observability.md#_using_monitoring_and_observability_tools_for_your_aiml_workloads").
+
+## Clean up
+
+To avoid incurring future charges, you need to delete the associated CloudFormation stack manually to delete all resources created during this guide, including the VPC network.
+
+Delete the CloudFormation stack using the `--wait` flag with eksctl:
+
+```
+eksctl delete cluster --region ${AWS_REGION} --name ${EKS_CLUSTER_NAME} --wait
+```
+
+Upon completion, you should see the following response output:
+
+```
+2025-07-29 13:03:55 [✔]  all cluster resources were deleted
+```
+
+Delete the Amazon S3 bucket created during this guide using the [Amazon S3 Console](https://console.aws.amazon.com/s3/home "https://console.aws.amazon.com/s3/home").

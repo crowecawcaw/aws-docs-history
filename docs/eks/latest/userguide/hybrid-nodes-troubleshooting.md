@@ -383,22 +383,303 @@ If you are having issues running Calico on hybrid nodes, see [the troubleshootin
 
 The table below summarizes the Calico components and whether they run on the node or pod network by default. If you configured Calico to use NAT for outgoing pod traffic, your on-premises network must be configured to route traffic to your on-premises node CIDR and your VPC routing tables must be configured with a route for your on-premises node CIDR with your transit gateway (TGW) or virtual private gateway (VGW) as the target. If you are not configuring Calico to use NAT for outgoing pod traffic, your on-premises network must be configured to route traffic to your on-premises pod CIDR and your VPC routing tables must be configured with a route for your on-premises pod CIDR with your transit gateway (TGW) or virtual private gateway (VGW) as the target.
 
-| Component                             | Network                                                                                                |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Calico API server                     | Node                                                                                                   |
-| Calico Controllers for Kubernetes     | Pod                                                                                                    |
-| Calico node agent                     | Node                                                                                                   |
-| Calico `typha`                        | Node                                                                                                   |
-| Calico CSI node driver                | Pod                                                                                                    |
-| Calico operator                       | Node                                                                                                   | **Calico resources are scheduled or running on cordoned nodes** The Calico resources that don’t run as a DaemonSet have flexible tolerations by default that enable them to be scheduled on cordoned nodes that are not ready for scheduling or running pods. You can tighten the tolerations for the non-DaemonSet Calico resources by changing your operator installation to include the following. `installation: ... controlPlaneTolerations: <br>• effect: NoExecute key: node.kubernetes.io/unreachable operator: Exists tolerationSeconds: 300 <br>• effect: NoExecute key: node.kubernetes.io/not-ready operator: Exists tolerationSeconds: 300 calicoKubeControllersDeployment: spec: template: spec: tolerations: <br>• effect: NoExecute key: node.kubernetes.io/unreachable operator: Exists tolerationSeconds: 300 <br>• effect: NoExecute key: node.kubernetes.io/not-ready operator: Exists tolerationSeconds: 300 typhaDeployment: spec: template: spec: tolerations: <br>• effect: NoExecute key: node.kubernetes.io/unreachable operator: Exists tolerationSeconds: 300 <br>• effect: NoExecute key: node.kubernetes.io/not-ready operator: Exists tolerationSeconds: 300` ## Credentials troubleshooting For both AWS SSM hybrid activations and AWS IAM Roles Anywhere, you can validate that credentials for the Hybrid Nodes IAM role are correctly configured on your hybrid nodes by running the following command from your hybrid nodes. Confirm the node name and Hybrid Nodes IAM Role name are what you expect. `sudo aws sts get-caller-identity` `{ "UserId": "ABCDEFGHIJKLM12345678910:<node-name>", "Account": "<aws-account-id>", "Arn": "arn:aws:sts::<aws-account-id>:assumed-role/<hybrid-nodes-iam-role/<node-name>" }` **AWS Systems Manager (SSM) troubleshooting** If you are using AWS SSM hybrid activations for your hybrid nodes credentials, be aware of the following SSM directories and artifacts that are installed on your hybrid nodes by `nodeadm`. For more information on the SSM agent, see [Working with the SSM agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") in the _AWS Systems Manager User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Description                           | Location                                                                                               |
-| ---                                   | ---                                                                                                    |
-| SSM agent                             | Ubuntu - `/snap/amazon-ssm-agent/current/amazon-ssm-agent` RHEL & AL2023 - `/usr/bin/amazon-ssm-agent` |
-| SSM agent logs                        | `/var/log/amazon/ssm`                                                                                  |
-| AWS credentials                       | `/root/.aws/credentials`                                                                               |
-| SSM Setup CLI                         | `/opt/ssm/ssm-setup-cli`                                                                               | **Restarting the SSM agent** Some issues can be resolved by restarting the SSM agent. You can use the commands below to restart it. **AL2023 and other operating systems** `systemctl restart amazon-ssm-agent` **Ubuntu** `systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent` **Check connectivity to SSM endpoints** Confirm you can connect to the SSM endpoints from your hybrid nodes. For a list of the SSM endpoints, see [AWS Systems Manager endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). Replace `us-west-2` in the command below with the AWS Region for your AWS SSM hybrid activation. `ping ssm.us-west-2.amazonaws.com` **View connection status of registered SSM instances** You can check the connection status of the instances that are registered with SSM hybrid activations with the following AWS CLI command. Replace the machine ID with the machine ID of your instance. `` aws ssm get-connection-status --target `mi-012345678abcdefgh` `` **SSM Setup CLI checksum mismatch** When running `nodeadm install` if you see an issue with the `ssm-setup-cli` checksum mismatch you should confirm there are not older existing SSM installations on your host. If there are older SSM installations on your host, remove them and re-run `nodeadm install` to resolve the issue. `Failed to perform agent-installation/on-prem registration: error while verifying installed ssm-setup-cli checksum: checksum mismatch with latest ssm-setup-cli.` **SSM `InvalidActivation`** If you see an error registering your instance with AWS SSM, confirm the `region`, `activationCode`, and `activationId` in your `nodeConfig.yaml` are correct. The AWS Region for your EKS cluster must match the region of your SSM hybrid activation. If these values are misconfigured, you might see an error similar to the following. `ERROR Registration failed due to error registering the instance with AWS SSM. InvalidActivation` **SSM `ExpiredTokenException`: The security token included in the request is expired** If the SSM agent is not able to refresh credentials, you might see an `ExpiredTokenException`. In this scenario, if you are able to connect to the SSM endpoints from your hybrid nodes, you might need to restart the SSM agent to force a credential refresh. `"msg":"Command failed","error":"operation error SSM: DescribeInstanceInformation, https response error StatusCode: 400, RequestID: eee03a9e-f7cc-470a-9647-73d47e4cf0be, api error ExpiredTokenException: The security token included in the request is expired"` **SSM error in running register machine command** If you see an error registering the machine with SSM, you might need to re-run `nodeadm install` to make sure all of the SSM dependencies are properly installed. `"error":"running register machine command: , error: fork/exec /opt/aws/ssm-setup-cli: no such file or directory"` **SSM `ActivationExpired`** When running `nodeadm init`, if you see an error registering the instance with SSM due to an expired activation, you need to create a new SSM hybrid activation, update your `nodeConfig.yaml` with the `activationCode` and `activationId` of your new SSM hybrid activation, and re-run `nodeadm init`. `"msg":"Command failed","error":"SSM activation expired. Please use a valid activation"` `ERROR Registration failed due to error registering the instance with AWS SSM. ActivationExpired` **SSM failed to refresh cached credentials** If you see a failure to refresh cached credentials, the `/root/.aws/credentials` file might have been deleted on your host. First check your SSM hybrid activation and ensure it is active and your hybrid nodes are configured correctly to use the activation. Check the SSM agent logs at `/var/log/amazon/ssm` and re-run the `nodeadm init` command once you have resolved the issue on the SSM side. `"Command failed","error":"operation error SSM: DescribeInstanceInformation, get identity: get credentials: failed to refresh cached credentials"` **Clean up SSM** To remove the SSM agent from your host, you can run the following commands. `dnf remove -y amazon-ssm-agent sudo apt remove --purge amazon-ssm-agent snap remove amazon-ssm-agent rm -rf /var/lib/amazon/ssm/Vault/Store/RegistrationKey` **AWS IAM Roles Anywhere troubleshooting** If you are using AWS IAM Roles Anywhere for your hybrid nodes credentials, be aware of the following directories and artifacts that are installed on your hybrid nodes by `nodeadm`. For more information on the troubleshooting IAM Roles Anywhere, see [Troubleshooting AWS IAM Roles Anywhere identity and access](../../../rolesanywhere/latest/userguide/security_iam_troubleshoot.md "../../../rolesanywhere/latest/userguide/security_iam_troubleshoot.md") in the _AWS IAM Roles Anywhere User Guide_. |
-| Description                           | Location                                                                                               |
-| ---                                   | ---                                                                                                    |
-| IAM Roles Anywhere CLI                | `/usr/local/bin/aws_signing_helper`                                                                    |
-| Default certificate location and name | `/etc/iam/pki/server.pem`                                                                              |
-| Default key location and name         | `/etc/iam/pki/server.key`                                                                              | **IAM Roles Anywhere failed to refresh cached credentials** If you see a failure to refresh cached credentials, review the contents of `/etc/aws/hybrid/config` and confirm that IAM Roles Anywhere was configured correctly in your `nodeadm` configuration. Confirm that `/etc/iam/pki` exists. Each node must have a unique certificate and key. By default, when using IAM Roles Anywhere as the credential provider, `nodeadm` uses `/etc/iam/pki/server.pem` for the certificate location and name, and `/etc/iam/pki/server.key` for the private key. You might need to create the directories before placing the certificates and keys in the directories with `sudo mkdir -p /etc/iam/pki`. You can verify the content of your certificate with the command below. `openssl x509 -text -noout -in server.pem` `open /etc/iam/pki/server.pem: no such file or directory could not parse PEM data Command failed {"error": "... get identity: get credentials: failed to refresh cached credentials, process provider error: error in credential_process: exit status 1"}` **IAM Roles Anywhere not authorized to perform `sts:AssumeRole`** In the `kubelet` logs, if you see an access denied issue for the `sts:AssumeRole` operation when using IAM Roles Anywhere, check the trust policy of your Hybrid Nodes IAM role to confirm the IAM Roles Anywhere service principal is allowed to assume the Hybrid Nodes IAM Role. Additionally confirm that the trust anchor ARN is configured properly in your Hybrid Nodes IAM role trust policy and that your Hybrid Nodes IAM role is added to your IAM Roles Anywhere profile. `could not get token: AccessDenied: User: ... is not authorized to perform: sts:AssumeRole on resource: ...` **IAM Roles Anywhere not authorized to set `roleSessionName`** In the `kubelet` logs, if you see an access denied issue for setting the `roleSessionName`, confirm you have set `acceptRoleSessionName` to true for your IAM Roles Anywhere profile. `AccessDeniedException: Not authorized to set roleSessionName` ## Operating system troubleshooting ### RHEL **Entitlement or subscription manager registration failures** If you are running `nodeadm install` and encounter a failure to install the hybrid nodes dependencies due to entitlement registration issues, ensure you have properly set your Red Hat username and password on your host. `This system is not registered with an entitlement server` ### Ubuntu **GLIBC not found** If you are using Ubuntu for your operating system and IAM Roles Anywhere for your credential provider with hybrid nodes and see an issue with GLIBC not found, you can install that dependency manually to resolve the issue. `GLIBC_2.32 not found (required by /usr/local/bin/aws_signing_helper)` Run the following commands to install the dependency: `ldd --version sudo apt update && apt install libc6 sudo apt install glibc-source` ### Bottlerocket If you have the Bottlerocket admin container enabled, you can access it with SSH for advanced debugging and troubleshooting with elevated privileges. The following sections contain commands that need to be run on the context of the Bottlerocket host. Once you are on the admin container, you can run `sheltie` to get a full root shell in the Bottlerocket host. `sheltie` You can also run the commands in the following sections from the admin container shell by prefixing each command with `sudo chroot /.bottlerocket/rootfs`. `sudo chroot /.bottlerocket/rootfs <command>` **Using logdog for log collection** Bottlerocket provides the `logdog` utility to efficiently collect logs and system information for troubleshooting purposes. `logdog` The `logdog` utility gathers logs from various locations on a Bottlerocket host and combines them into a tarball. By default, the tarball will be created at `/var/log/support/bottlerocket-logs.tar.gz`, and is accessible from host containers at `/.bottlerocket/support/bottlerocket-logs.tar.gz`. **Accessing system logs with journalctl** You can check the status of the various system services such as `kubelet`, `containerd`, etc and view their logs with the following commands. The `-f` flag will follow the logs in real time. For checking `kubelet` service status and retrieving `kubelet` logs, you can run: `systemctl status kubelet journalctl -u kubelet -f` For checking `containerd` service status and retrieving the logs for the orchestrated `containerd` instance, you can run: `systemctl status containerd journalctl -u containerd -f` For checking `host-containerd` service status and retrieving the logs for the host `containerd` instance, you can run: `systemctl status host-containerd journalctl -u host-containerd -f` For retrieving the logs for the bootstrap containers and host containers, you can run: `journalctl _COMM=host-ctr -f`       |
+| Component                         | Network |
+| --------------------------------- | ------- |
+| Calico API server                 | Node    |
+| Calico Controllers for Kubernetes | Pod     |
+| Calico node agent                 | Node    |
+| Calico `typha`                    | Node    |
+| Calico CSI node driver            | Pod     |
+| Calico operator                   | Node    |
+
+**Calico resources are scheduled or running on cordoned nodes**
+
+The Calico resources that don’t run as a DaemonSet have flexible tolerations by default that enable them to be scheduled on cordoned nodes that are not ready for scheduling or running pods. You can tighten the tolerations for the non-DaemonSet Calico resources by changing your operator installation to include the following.
+
+```
+installation:
+  ...
+  controlPlaneTolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  calicoKubeControllersDeployment:
+    spec:
+      template:
+        spec:
+          tolerations:
+          - effect: NoExecute
+            key: node.kubernetes.io/unreachable
+            operator: Exists
+            tolerationSeconds: 300
+          - effect: NoExecute
+            key: node.kubernetes.io/not-ready
+            operator: Exists
+            tolerationSeconds: 300
+  typhaDeployment:
+    spec:
+      template:
+        spec:
+          tolerations:
+          - effect: NoExecute
+            key: node.kubernetes.io/unreachable
+            operator: Exists
+            tolerationSeconds: 300
+          - effect: NoExecute
+            key: node.kubernetes.io/not-ready
+            operator: Exists
+            tolerationSeconds: 300
+```
+
+## Credentials troubleshooting
+
+For both AWS SSM hybrid activations and AWS IAM Roles Anywhere, you can validate that credentials for the Hybrid Nodes IAM role are correctly configured on your hybrid nodes by running the following command from your hybrid nodes. Confirm the node name and Hybrid Nodes IAM Role name are what you expect.
+
+```
+sudo aws sts get-caller-identity
+```
+
+```
+{
+    "UserId": "ABCDEFGHIJKLM12345678910:<node-name>",
+    "Account": "<aws-account-id>",
+    "Arn": "arn:aws:sts::<aws-account-id>:assumed-role/<hybrid-nodes-iam-role/<node-name>"
+}
+```
+
+**AWS Systems Manager (SSM) troubleshooting**
+
+If you are using AWS SSM hybrid activations for your hybrid nodes credentials, be aware of the following SSM directories and artifacts that are installed on your hybrid nodes by `nodeadm`. For more information on the SSM agent, see [Working with the SSM agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") in the _AWS Systems Manager User Guide_.
+
+| Description     | Location                                                                                                        |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| SSM agent       | Ubuntu<br>• `/snap/amazon-ssm-agent/current/amazon-ssm-agent`<br>RHEL & AL2023<br>• `/usr/bin/amazon-ssm-agent` |
+| SSM agent logs  | `/var/log/amazon/ssm`                                                                                           |
+| AWS credentials | `/root/.aws/credentials`                                                                                        |
+| SSM Setup CLI   | `/opt/ssm/ssm-setup-cli`                                                                                        |
+
+**Restarting the SSM agent**
+
+Some issues can be resolved by restarting the SSM agent. You can use the commands below to restart it.
+
+**AL2023 and other operating systems**
+
+```
+systemctl restart amazon-ssm-agent
+```
+
+**Ubuntu**
+
+```
+systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
+```
+
+**Check connectivity to SSM endpoints**
+
+Confirm you can connect to the SSM endpoints from your hybrid nodes. For a list of the SSM endpoints, see [AWS Systems Manager endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). Replace `us-west-2` in the command below with the AWS Region for your AWS SSM hybrid activation.
+
+```
+ping ssm.us-west-2.amazonaws.com
+```
+
+**View connection status of registered SSM instances**
+
+You can check the connection status of the instances that are registered with SSM hybrid activations with the following AWS CLI command. Replace the machine ID with the machine ID of your instance.
+
+```
+aws ssm get-connection-status --target `mi-012345678abcdefgh`
+
+```
+
+**SSM Setup CLI checksum mismatch**
+
+When running `nodeadm install` if you see an issue with the `ssm-setup-cli` checksum mismatch you should confirm there are not older existing SSM installations on your host. If there are older SSM installations on your host, remove them and re-run `nodeadm install` to resolve the issue.
+
+```
+Failed to perform agent-installation/on-prem registration: error while verifying installed ssm-setup-cli checksum: checksum mismatch with latest ssm-setup-cli.
+```
+
+**SSM `InvalidActivation`**
+
+If you see an error registering your instance with AWS SSM, confirm the `region`, `activationCode`, and `activationId` in your `nodeConfig.yaml` are correct. The AWS Region for your EKS cluster must match the region of your SSM hybrid activation. If these values are misconfigured, you might see an error similar to the following.
+
+```
+ERROR Registration failed due to error registering the instance with AWS SSM. InvalidActivation
+```
+
+**SSM `ExpiredTokenException`: The security token included in the request is expired**
+
+If the SSM agent is not able to refresh credentials, you might see an `ExpiredTokenException`. In this scenario, if you are able to connect to the SSM endpoints from your hybrid nodes, you might need to restart the SSM agent to force a credential refresh.
+
+```
+"msg":"Command failed","error":"operation error SSM: DescribeInstanceInformation, https response error StatusCode: 400, RequestID: eee03a9e-f7cc-470a-9647-73d47e4cf0be, api error ExpiredTokenException: The security token included in the request is expired"
+```
+
+**SSM error in running register machine command**
+
+If you see an error registering the machine with SSM, you might need to re-run `nodeadm install` to make sure all of the SSM dependencies are properly installed.
+
+```
+"error":"running register machine command: , error: fork/exec /opt/aws/ssm-setup-cli: no such file or directory"
+```
+
+**SSM `ActivationExpired`**
+
+When running `nodeadm init`, if you see an error registering the instance with SSM due to an expired activation, you need to create a new SSM hybrid activation, update your `nodeConfig.yaml` with the `activationCode` and `activationId` of your new SSM hybrid activation, and re-run `nodeadm init`.
+
+```
+"msg":"Command failed","error":"SSM activation expired. Please use a valid activation"
+```
+
+```
+ERROR Registration failed due to error registering the instance with AWS SSM. ActivationExpired
+```
+
+**SSM failed to refresh cached credentials**
+
+If you see a failure to refresh cached credentials, the `/root/.aws/credentials` file might have been deleted on your host. First check your SSM hybrid activation and ensure it is active and your hybrid nodes are configured correctly to use the activation. Check the SSM agent logs at `/var/log/amazon/ssm` and re-run the `nodeadm init` command once you have resolved the issue on the SSM side.
+
+```
+"Command failed","error":"operation error SSM: DescribeInstanceInformation, get identity: get credentials: failed to refresh cached credentials"
+```
+
+**Clean up SSM**
+
+To remove the SSM agent from your host, you can run the following commands.
+
+```
+dnf remove -y amazon-ssm-agent
+sudo apt remove --purge amazon-ssm-agent
+snap remove amazon-ssm-agent
+rm -rf /var/lib/amazon/ssm/Vault/Store/RegistrationKey
+```
+
+**AWS IAM Roles Anywhere troubleshooting**
+
+If you are using AWS IAM Roles Anywhere for your hybrid nodes credentials, be aware of the following directories and artifacts that are installed on your hybrid nodes by `nodeadm`. For more information on the troubleshooting IAM Roles Anywhere, see [Troubleshooting AWS IAM Roles Anywhere identity and access](../../../rolesanywhere/latest/userguide/security_iam_troubleshoot.md "../../../rolesanywhere/latest/userguide/security_iam_troubleshoot.md") in the _AWS IAM Roles Anywhere User Guide_.
+
+| Description                           | Location                            |
+| ------------------------------------- | ----------------------------------- |
+| IAM Roles Anywhere CLI                | `/usr/local/bin/aws_signing_helper` |
+| Default certificate location and name | `/etc/iam/pki/server.pem`           |
+| Default key location and name         | `/etc/iam/pki/server.key`           |
+
+**IAM Roles Anywhere failed to refresh cached credentials**
+
+If you see a failure to refresh cached credentials, review the contents of `/etc/aws/hybrid/config` and confirm that IAM Roles Anywhere was configured correctly in your `nodeadm` configuration. Confirm that `/etc/iam/pki` exists. Each node must have a unique certificate and key. By default, when using IAM Roles Anywhere as the credential provider, `nodeadm` uses `/etc/iam/pki/server.pem` for the certificate location and name, and `/etc/iam/pki/server.key` for the private key. You might need to create the directories before placing the certificates and keys in the directories with `sudo mkdir -p /etc/iam/pki`. You can verify the content of your certificate with the command below.
+
+```
+openssl x509 -text -noout -in server.pem
+```
+
+```
+open /etc/iam/pki/server.pem: no such file or directory
+could not parse PEM data
+Command failed {"error": "... get identity: get credentials: failed to refresh cached credentials, process provider error: error in credential_process: exit status 1"}
+```
+
+**IAM Roles Anywhere not authorized to perform `sts:AssumeRole`**
+
+In the `kubelet` logs, if you see an access denied issue for the `sts:AssumeRole` operation when using IAM Roles Anywhere, check the trust policy of your Hybrid Nodes IAM role to confirm the IAM Roles Anywhere service principal is allowed to assume the Hybrid Nodes IAM Role. Additionally confirm that the trust anchor ARN is configured properly in your Hybrid Nodes IAM role trust policy and that your Hybrid Nodes IAM role is added to your IAM Roles Anywhere profile.
+
+```
+could not get token: AccessDenied: User: ... is not authorized to perform: sts:AssumeRole on resource: ...
+```
+
+**IAM Roles Anywhere not authorized to set `roleSessionName`**
+
+In the `kubelet` logs, if you see an access denied issue for setting the `roleSessionName`, confirm you have set `acceptRoleSessionName` to true for your IAM Roles Anywhere profile.
+
+```
+AccessDeniedException: Not authorized to set roleSessionName
+```
+
+## Operating system troubleshooting
+
+### RHEL
+
+**Entitlement or subscription manager registration failures**
+
+If you are running `nodeadm install` and encounter a failure to install the hybrid nodes dependencies due to entitlement registration issues, ensure you have properly set your Red Hat username and password on your host.
+
+```
+This system is not registered with an entitlement server
+```
+
+### Ubuntu
+
+**GLIBC not found**
+
+If you are using Ubuntu for your operating system and IAM Roles Anywhere for your credential provider with hybrid nodes and see an issue with GLIBC not found, you can install that dependency manually to resolve the issue.
+
+```
+GLIBC_2.32 not found (required by /usr/local/bin/aws_signing_helper)
+```
+
+Run the following commands to install the dependency:
+
+```
+ldd --version
+sudo apt update && apt install libc6
+sudo apt install glibc-source
+```
+
+### Bottlerocket
+
+If you have the Bottlerocket admin container enabled, you can access it with SSH for advanced debugging and troubleshooting with elevated privileges. The following sections contain commands that need to be run on the context of the Bottlerocket host. Once you are on the admin container, you can run `sheltie` to get a full root shell in the Bottlerocket host.
+
+```
+sheltie
+```
+
+You can also run the commands in the following sections from the admin container shell by prefixing each command with `sudo chroot /.bottlerocket/rootfs`.
+
+```
+sudo chroot /.bottlerocket/rootfs <command>
+```
+
+**Using logdog for log collection**
+
+Bottlerocket provides the `logdog` utility to efficiently collect logs and system information for troubleshooting purposes.
+
+```
+logdog
+```
+
+The `logdog` utility gathers logs from various locations on a Bottlerocket host and combines them into a tarball. By default, the tarball will be created at `/var/log/support/bottlerocket-logs.tar.gz`, and is accessible from host containers at `/.bottlerocket/support/bottlerocket-logs.tar.gz`.
+
+**Accessing system logs with journalctl**
+
+You can check the status of the various system services such as `kubelet`, `containerd`, etc and view their logs with the following commands. The `-f` flag will follow the logs in real time.
+
+For checking `kubelet` service status and retrieving `kubelet` logs, you can run:
+
+```
+systemctl status kubelet
+journalctl -u kubelet -f
+```
+
+For checking `containerd` service status and retrieving the logs for the orchestrated `containerd` instance, you can run:
+
+```
+systemctl status containerd
+journalctl -u containerd -f
+```
+
+For checking `host-containerd` service status and retrieving the logs for the host `containerd` instance, you can run:
+
+```
+systemctl status host-containerd
+journalctl -u host-containerd -f
+```
+
+For retrieving the logs for the bootstrap containers and host containers, you can run:
+
+```
+journalctl _COMM=host-ctr -f
+```

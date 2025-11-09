@@ -100,7 +100,7 @@ For more information, see [Restrict access to the instance profile assigned to t
 
 If you want to block Pod access to IMDS, then specify the necessary settings in the launch template.
 
-1. Copy the following contents to your device. Replace the `example values` and then run the modified command to create the `eks-nodegroup.yaml` file. Several settings that you specify when deploying without a launch template are moved into the launch template. If you don’t specify a `version`, the template’s default version is used.
+1. Copy the following contents to your device. Replace the example values and then run the modified command to create the `eks-nodegroup.yaml` file. Several settings that you specify when deploying without a launch template are moved into the launch template. If you don’t specify a `version`, the template’s default version is used.
 
 ```
 cat >eks-nodegroup.yaml <<EOF

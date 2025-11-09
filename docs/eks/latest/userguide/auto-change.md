@@ -12,6 +12,10 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## October 23, 2025
+
+**Feature:** Users with clusters in US regions can now request to use FIPS compatible AMIs by specifying `spec.advancedSecurity.fips` in their NodeClass definition.
+
 ## October 1, 2025
 
 **Feature:** EKS Auto Mode now supports deploying nodes to AWS Local Zones. For more information, see [Deploy EKS Auto Mode nodes onto Local Zones](auto-local-zone.md "auto-local-zone.md").

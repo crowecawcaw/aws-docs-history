@@ -74,6 +74,23 @@ Turn on EKS Pod Identities by completing the following procedures:
 To use EKS Pod Identity, the cluster must have a platform version that is the same or later than the version listed in the following table, or a Kubernetes version that is later than the versions listed in the table. To find the suggested version of the Amazon EKS Pod Identity Agent for a Kubernetes version, see [Verify Amazon EKS add-on version compatibility with a cluster](addon-compat.md "addon-compat.md").
 
 | Kubernetes version             | Platform version              |
-| ------------------------------ | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ----------------------------- |
 | Kubernetes versions not listed | All platform versions support |
-| `1.28`                         | `eks.4`                       | ### EKS Pod Identity restrictions EKS Pod Identities are available on the following: <br>• Amazon EKS cluster versions listed in the previous topic [EKS Pod Identity cluster versions](#pod-id-cluster-versions "#pod-id-cluster-versions"). <br>• Worker nodes in the cluster that are Linux Amazon EC2 instances. EKS Pod Identities aren’t available on the following: <br>• AWS Outposts. <br>• Amazon EKS Anywhere. <br>• Kubernetes clusters that you create and run on Amazon EC2. The EKS Pod Identity components are only available on Amazon EKS. You can’t use EKS Pod Identities with: <br>• Pods that run anywhere except Linux Amazon EC2 instances. Linux and Windows pods that run on AWS Fargate (Fargate) aren’t supported. Pods that run on Windows Amazon EC2 instances aren’t supported. |
+| `1.28`                         | `eks.4`                       |
+
+### EKS Pod Identity restrictions
+
+EKS Pod Identities are available on the following:
+
+- Amazon EKS cluster versions listed in the previous topic [EKS Pod Identity cluster versions](#pod-id-cluster-versions "#pod-id-cluster-versions").
+- Worker nodes in the cluster that are Linux Amazon EC2 instances.
+
+EKS Pod Identities aren’t available on the following:
+
+- AWS Outposts.
+- Amazon EKS Anywhere.
+- Kubernetes clusters that you create and run on Amazon EC2. The EKS Pod Identity components are only available on Amazon EKS.
+
+You can’t use EKS Pod Identities with:
+
+- Pods that run anywhere except Linux Amazon EC2 instances. Linux and Windows pods that run on AWS Fargate (Fargate) aren’t supported. Pods that run on Windows Amazon EC2 instances aren’t supported.

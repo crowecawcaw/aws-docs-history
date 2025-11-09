@@ -561,7 +561,7 @@ managedNodeGroups:
 SSH into node:
 
 ```
-# Get instance ID from EKS console or AWS CLI
+# Get instance ID from EKS console or {aws} CLI
 ssh -i /path/to/your-key.pem ec2-user@<node-internal-ip>
 ```
 

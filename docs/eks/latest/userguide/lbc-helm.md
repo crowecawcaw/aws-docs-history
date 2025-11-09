@@ -12,7 +12,7 @@ For more information, see [Automate cluster infrastructure with EKS Auto Mode](a
 
 This topic describes how to install the AWS Load Balancer Controller using Helm, a package manager for Kubernetes, and `eksctl`. The controller is installed with default options. For more information about the controller, including details on configuring it with annotations, see the [AWS Load Balancer Controller Documentation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/ "https://kubernetes-sigs.github.io/aws-load-balancer-controller/") on GitHub.
 
-In the following steps, replace the `example values` with your own values.
+In the following steps, replace the example values with your own values.
 
 ## Prerequisites
 

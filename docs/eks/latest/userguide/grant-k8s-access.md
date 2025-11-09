@@ -68,8 +68,12 @@ With this authentication mode, you can use the EKS API, AWS Command Line Interfa
 
 Each access entry has a _type_ and you can use the combination of an _access scope_ to limit the principal to a specific namespace and an _access policy_ to set preconfigured reusable permissions policies. Alternatively, you can use the STANDARD type and Kubernetes RBAC groups to assign custom permissions.
 
-| Authentication mode                            | Methods                                                                                                                                        |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| `ConfigMap` only (`CONFIG_MAP`)                | `aws-auth` `ConfigMap`                                                                                                                         |
-| EKS API and `ConfigMap` (`API_AND_CONFIG_MAP`) | access entries in the EKS API, AWS Command Line Interface, AWS SDKs, AWS CloudFormation, and AWS Management Console and `aws-auth` `ConfigMap` |
-| EKS API only (`API`)                           | access entries in the EKS API, AWS Command Line Interface, AWS SDKs, AWS CloudFormation, and AWS Management Console                            | ###### Note Amazon EKS Auto Mode requires Access entries. |
+| Authentication mode                            | Methods                                                                                                                                           |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ConfigMap` only (`CONFIG_MAP`)                | `aws-auth`<br>`ConfigMap`                                                                                                                         |
+| EKS API and `ConfigMap` (`API_AND_CONFIG_MAP`) | access entries in the EKS API, AWS Command Line Interface, AWS SDKs, AWS CloudFormation, and AWS Management Console and `aws-auth`<br>`ConfigMap` |
+| EKS API only (`API`)                           | access entries in the EKS API, AWS Command Line Interface, AWS SDKs, AWS CloudFormation, and AWS Management Console                               |
+
+###### Note
+
+Amazon EKS Auto Mode requires Access entries.

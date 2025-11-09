@@ -83,7 +83,7 @@ EKS Auto Mode supports the following well known labels.
 EKS Auto Mode uses different labels than Karpenter. Labels related to EC2 managed instances start with `eks.amazonaws.com`.
 
 | Label                                                      | Example      | Description                                                                                                                                                                                                                    |
-| ---------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | topology.kubernetes.io/zone                                | us-east-2a   | AWS region                                                                                                                                                                                                                     |
 | node.kubernetes.io/instance-type                           | g4dn.8xlarge | AWS instance type                                                                                                                                                                                                              |
 | kubernetes.io/arch                                         | amd64        | Architectures are defined by [GOARCH values](https://github.com/golang/go/blob/master/src/internal/syslist/syslist.go#L58 "https://github.com/golang/go/blob/master/src/internal/syslist/syslist.go#L58") on the instance      |
@@ -104,4 +104,70 @@ EKS Auto Mode uses different labels than Karpenter. Labels related to EC2 manage
 | eks.amazonaws.com/instance-gpu-manufacturer                | nvidia       | Name of the GPU manufacturer                                                                                                                                                                                                   |
 | eks.amazonaws.com/instance-gpu-count                       | 1            | Number of GPUs on the instance                                                                                                                                                                                                 |
 | eks.amazonaws.com/instance-gpu-memory                      | 16384        | Number of mebibytes of memory on the GPU                                                                                                                                                                                       |
-| eks.amazonaws.com/instance-local-nvme                      | 900          | Number of gibibytes of local nvme storage on the instance                                                                                                                                                                      | ###### Note EKS Auto Mode only supports certain instances, and has minimum size requirements. For more information, see [EKS Auto Mode supported instance reference](automode-learn-instances.md#auto-supported-instances "automode-learn-instances.md#auto-supported-instances"). ## EKS Auto Mode Not Supported Labels EKS Auto Mode does not support the following labels. <br>• EKS Auto Mode only supports Linux + `node.kubernetes.io/windows-build` + `kubernetes.io/os` ## Disable built-in node pools If you create custom node pools, you can disable the built-in node pools. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md "set-builtin-node-pools.md"). ## Cluster without built-in node pools You can create a cluster without the built-in node pools. This is helpful when your organization has created customized node pools. ###### Note When you create a cluster without built-in node pools, the `default` NodeClass is not automatically provisioned. You’ll need to create a custom NodeClass. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md"). **Overview:** 1. Create an EKS cluster with the both `nodePools` and `nodeRoleArn` values empty. <br>• Sample eksctl `autoModeConfig`: `autoModeConfig: enabled: true nodePools: [] # Do not set a nodeRoleARN` For more information, see [Create an EKS Auto Mode Cluster with the eksctl CLI](automode-get-started-eksctl.md "automode-get-started-eksctl.md") 2. Create a custom node class with a node role ARN <br>• For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md") 3. Create an access entry for the custom node class <br>• For more information, see [Create node class access entry](create-node-class.md#auto-node-access-entry "create-node-class.md#auto-node-access-entry") 4. Create a custom node pool, as described above. ## Disruption You can configure EKS Auto Mode to disrupt Nodes through your NodePool in multiple ways. You can use `spec.disruption.consolidationPolicy`, `spec.disruption.consolidateAfter`, or `spec.template.spec.expireAfter`. You can also rate limit EKS Auto Mode’s disruption through the NodePool’s `spec.disruption.budgets`. You can also control the time windows and number of simultaneous Nodes disrupted. For instructions on configuring this behavior, see [Disruption](https://karpenter.sh/docs/concepts/disruption/ "https://karpenter.sh/docs/concepts/disruption/") in the Karpenter Documentation. You can configure disruption for node pools to: <br>• Identify when instances are underutilized, and consolidate workloads. <br>• Create a node pool disruption budget to rate limit node terminations due to drift, emptiness, and consolidation. By default, EKS Auto Mode: <br>• Consolidates underutilized instances. <br>• Terminates instances after 336 hours. <br>• Sets a single disruption budget of 10% of nodes. <br>• Allows Nodes to be replaced due to drift when a new Auto Mode AMI is released, which occurs roughly once per week. ## Termination Grace Period When a `terminationGracePeriod` is not explicitly defined on an EKS Auto NodePool, the system automatically applies a default 24-hour termination grace period to the associated NodeClaim. While EKS Auto customers will not see a `terminationGracePeriod` defaulted in their custom NodePool configurations, they will observe this default value on the NodeClaim. The functionality remains consistent whether the grace period is explicitly set on the NodePool or defaulted on the NodeClaim, ensuring predictable node termination behavior across the cluster. |
+| eks.amazonaws.com/instance-local-nvme                      | 900          | Number of gibibytes of local nvme storage on the instance                                                                                                                                                                      |
+
+###### Note
+
+EKS Auto Mode only supports certain instances, and has minimum size requirements. For more information, see [EKS Auto Mode supported instance reference](automode-learn-instances.md#auto-supported-instances "automode-learn-instances.md#auto-supported-instances").
+
+## EKS Auto Mode Not Supported Labels
+
+EKS Auto Mode does not support the following labels.
+
+- EKS Auto Mode only supports Linux
+  - `node.kubernetes.io/windows-build`
+  - `kubernetes.io/os`
+
+## Disable built-in node pools
+
+If you create custom node pools, you can disable the built-in node pools. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md "set-builtin-node-pools.md").
+
+## Cluster without built-in node pools
+
+You can create a cluster without the built-in node pools. This is helpful when your organization has created customized node pools.
+
+###### Note
+
+When you create a cluster without built-in node pools, the `default` NodeClass is not automatically provisioned. You’ll need to create a custom NodeClass. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md").
+
+**Overview:**
+
+1. Create an EKS cluster with the both `nodePools` and `nodeRoleArn` values empty.
+   - Sample eksctl `autoModeConfig`:
+
+   ```
+   autoModeConfig:
+     enabled: true
+     nodePools: []
+     # Do not set a nodeRoleARN
+   ```
+
+   For more information, see [Create an EKS Auto Mode Cluster with the eksctl CLI](automode-get-started-eksctl.md "automode-get-started-eksctl.md")
+
+2. Create a custom node class with a node role ARN
+   - For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md")
+
+3. Create an access entry for the custom node class
+   - For more information, see [Create node class access entry](create-node-class.md#auto-node-access-entry "create-node-class.md#auto-node-access-entry")
+
+4. Create a custom node pool, as described above.
+
+## Disruption
+
+You can configure EKS Auto Mode to disrupt Nodes through your NodePool in multiple ways. You can use `spec.disruption.consolidationPolicy`, `spec.disruption.consolidateAfter`, or `spec.template.spec.expireAfter`. You can also rate limit EKS Auto Mode’s disruption through the NodePool’s `spec.disruption.budgets`. You can also control the time windows and number of simultaneous Nodes disrupted. For instructions on configuring this behavior, see [Disruption](https://karpenter.sh/docs/concepts/disruption/ "https://karpenter.sh/docs/concepts/disruption/") in the Karpenter Documentation.
+
+You can configure disruption for node pools to:
+
+- Identify when instances are underutilized, and consolidate workloads.
+- Create a node pool disruption budget to rate limit node terminations due to drift, emptiness, and consolidation.
+
+By default, EKS Auto Mode:
+
+- Consolidates underutilized instances.
+- Terminates instances after 336 hours.
+- Sets a single disruption budget of 10% of nodes.
+- Allows Nodes to be replaced due to drift when a new Auto Mode AMI is released, which occurs roughly once per week.
+
+## Termination Grace Period
+
+When a `terminationGracePeriod` is not explicitly defined on an EKS Auto NodePool, the system automatically applies a default 24-hour termination grace period to the associated NodeClaim. While EKS Auto customers will not see a `terminationGracePeriod` defaulted in their custom NodePool configurations, they will observe this default value on the NodeClaim. The functionality remains consistent whether the grace period is explicitly set on the NodePool or defaulted on the NodeClaim, ensuring predictable node termination behavior across the cluster.

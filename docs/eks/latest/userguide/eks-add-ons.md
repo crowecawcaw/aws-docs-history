@@ -101,7 +101,7 @@ AWS publishes multiple types of add-ons with different levels of support.
 The following table details the scope of support for each add-on type:
 
 | Category     | Feature                      | AWS add-ons | AWS Marketplace add-ons | Community add-ons |
-| ------------ | ---------------------------- | ----------- | ----------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------ | ---------------------------- | ----------- | ----------------------- | ----------------- |
 | Development  | Built by AWS                 | Yes         | No                      | Yes               |
 | Development  | Validated by AWS             | Yes         | No                      | Yes\*             |
 | Development  | Validated by AWS Partner     | No          | Yes                     | No                |
@@ -112,4 +112,8 @@ The following table details the scope of support for each add-on type:
 | Distribution | Published by AWS Partner     | No          | Yes                     | No                |
 | Support      | Basic Install Support by AWS | Yes         | Yes                     | Yes               |
 | Support      | Full AWS Support             | Yes         | No                      | No                |
-| Support      | Full AWS Partner Support     | No          | Yes                     | No                | `*`: Validation for community add-ons only includes Kubernetes version compatibility. For example, if you install a community add-on on a cluster, AWS checks if it is compatible with the Kubernetes version of your cluster. AWS Marketplace add-ons can download additional software dependencies from external sources outside of AWS. These external dependencies are not scanned or validated by AWS. Consider your security requirements when deploying AWS Marketplace add-ons that fetch external dependencies. |
+| Support      | Full AWS Partner Support     | No          | Yes                     | No                |
+
+`*`: Validation for community add-ons only includes Kubernetes version compatibility. For example, if you install a community add-on on a cluster, AWS checks if it is compatible with the Kubernetes version of your cluster.
+
+AWS Marketplace add-ons can download additional software dependencies from external sources outside of AWS. These external dependencies are not scanned or validated by AWS. Consider your security requirements when deploying AWS Marketplace add-ons that fetch external dependencies.

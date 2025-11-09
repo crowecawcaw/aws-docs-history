@@ -36,7 +36,7 @@ This procedure only works for clusters that were created with `eksctl`.
 1. (Optional) If the **AmazonEKS_CNI_Policy** managed IAM policy (if you have an `IPv4` cluster) or the `AmazonEKS_CNI_IPv6_Policy` (that you [created yourself](cni-iam-role.md#cni-iam-role-create-ipv6-policy "cni-iam-role.md#cni-iam-role-create-ipv6-policy") if you have an `IPv6` cluster) is attached to your [Amazon EKS node IAM role](create-node-role.md "create-node-role.md"), we recommend assigning it to an IAM role that you associate to the Kubernetes `aws-node` service account instead. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md").
 2. This procedure assumes that you have an existing cluster. If you don’t already have an Amazon EKS cluster and an Amazon Linux node group to add a Windows node group to, we recommend that you follow [Get started with Amazon EKS – eksctl](getting-started-eksctl.md "getting-started-eksctl.md"). This guide provides a complete walkthrough for how to create an Amazon EKS cluster with Amazon Linux nodes.
 
-Create your node group with the following command. Replace `region-code` with the AWS Region that your cluster is in. Replace `my-cluster` with your cluster name. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in. Replace `ng-windows` with a name for your node group. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters. You can replace `2019` with `2022` to use Windows Server 2022. Replace the rest of the `example values` with your own values.
+Create your node group with the following command. Replace `region-code` with the AWS Region that your cluster is in. Replace `my-cluster` with your cluster name. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in. Replace `ng-windows` with a name for your node group. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters. You can replace `2019` with `2022` to use Windows Server 2022. Replace the rest of the example values with your own values.
 
 ###### Important
 
@@ -198,7 +198,7 @@ kubectl describe configmap -n kube-system aws-auth
     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm-windows.yaml
     ```
 
-    2. In the `aws-auth-cm-windows.yaml` file, set the `rolearn` values to the applicable **NodeInstanceRole** values that you recorded in the previous procedures. You can do this with a text editor, or by replacing the `example values` and running the following command:
+    2. In the `aws-auth-cm-windows.yaml` file, set the `rolearn` values to the applicable **NodeInstanceRole** values that you recorded in the previous procedures. You can do this with a text editor, or by replacing the example values and running the following command:
 
     ```
     sed -i.bak -e 's|<ARN of linux instance role (not instance profile)>|my-node-linux-instance-role|' \

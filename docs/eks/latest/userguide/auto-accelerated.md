@@ -157,7 +157,7 @@ kubectl logs nvidia-smi
 
 Sample output:
 
-````
+```
 +---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 535.230.02             Driver Version: 535.230.02   CUDA Version: 12.2     |
 |-----------------------------------------+----------------------+----------------------+
@@ -167,8 +167,100 @@ Sample output:
 |=========================================+======================+======================|
 |   0  NVIDIA L40S                    On  | 00000000:30:00.0 Off |                    0 |
 | N/A   27C    P8              23W / 350W |      0MiB / 46068MiB |      0%      Default |
-|                                         |                      |                  N/A | +-----------------------------------------+----------------------+----------------------+ +---------------------------------------------------------------------------------------+
-| Processes:                                                                            | |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
-|        ID   ID                                                             Usage      | |=======================================================================================|
-|  No running processes found                                                           | +---------------------------------------------------------------------------------------+ ``` You can see that the container has detected it’s running on an instance with an `NVIDIA` GPU and that you’ve not had to install any device drivers, as this is managed by Amazon EKS Auto Mode. ## Step 3: Clean-up To remove all objects created, use `kubectl` to delete the sample deployment and NodePool so the node is terminated: ``` kubectl delete -f nodepool-gpu.yaml kubectl delete -f pod.yaml ``` ## Example NodePools Reference ### Create an NVIDIA NodePool The following NodePool defines: <br>• Only launch instances of `g6e` and `g6` family <br>• Consolidate nodes when empty for 1 hour + The 1 hour value for `consolodateAfter` supports spiky workloads and reduce node churn. You can tune `consolidateAfter` based on your workload requirements. **Example NodePool with GPU instance family and consolidation** ``` apiVersion: karpenter.sh/v1 kind: NodePool metadata: name: gpu spec: disruption: budgets: <br>• nodes: 10% consolidateAfter: 1h consolidationPolicy: WhenEmpty template: metadata: {} spec: nodeClassRef: group: eks.amazonaws.com kind: NodeClass name: default requirements: <br>• key: "karpenter.sh/capacity-type" operator: In values: ["on-demand"] <br>• key: "kubernetes.io/arch" operator: In values: ["amd64"] <br>• key: "eks.amazonaws.com/instance-family" operator: In values: <br>• g6e <br>• g6 terminationGracePeriod: 24h0m0s ``` Instead of to setting the `eks.amazonaws.com/instance-gpu-name` you might use `eks.amazonaws.com/instance-family` to specify the instance family. For other well-known labels which influence scheduling review, see [EKS Auto Mode Supported Labels](create-node-pool.md#auto-supported-labels "create-node-pool.md#auto-supported-labels"). If you have specific storage requirements you can tune the nodes ephemeral storage `iops`, `size` and `throughput` by creating your own [NodeClass](create-node-class.md "create-node-class.md") to reference in the NodePool. Learn more about the [configurable NodeClass options](create-node-class.md "create-node-class.md"). **Example storage configuration for NodeClass** ``` apiVersion: eks.amazonaws.com/v1 kind: NodeClass metadata: name: gpu spec: ephemeralStorage: iops: 3000 size: 80Gi throughput: 125 ``` ### Define an AWS Trainium and AWS Inferentia NodePool The following NodePool has an `eks.amazonaws.com/instance-category` set that says, only launch instances of Inferentia and Trainium family: ``` <br>• key: "eks.amazonaws.com/instance-category" operator: In values: <br>• inf <br>• trn ```
-````
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+```
+
+You can see that the container has detected it’s running on an instance with an `NVIDIA` GPU and that you’ve not had to install any device drivers, as this is managed by Amazon EKS Auto Mode.
+
+## Step 3: Clean-up
+
+To remove all objects created, use `kubectl` to delete the sample deployment and NodePool so the node is terminated:
+
+```
+kubectl delete -f nodepool-gpu.yaml
+kubectl delete -f pod.yaml
+```
+
+## Example NodePools Reference
+
+### Create an NVIDIA NodePool
+
+The following NodePool defines:
+
+- Only launch instances of `g6e` and `g6` family
+- Consolidate nodes when empty for 1 hour
+  - The 1 hour value for `consolodateAfter` supports spiky workloads and reduce node churn. You can tune `consolidateAfter` based on your workload requirements.
+
+**Example NodePool with GPU instance family and consolidation**
+
+```
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: gpu
+spec:
+  disruption:
+    budgets:
+    - nodes: 10%
+    consolidateAfter: 1h
+    consolidationPolicy: WhenEmpty
+  template:
+    metadata: {}
+    spec:
+      nodeClassRef:
+        group: eks.amazonaws.com
+        kind: NodeClass
+        name: default
+      requirements:
+        - key: "karpenter.sh/capacity-type"
+          operator: In
+          values: ["on-demand"]
+        - key: "kubernetes.io/arch"
+          operator: In
+          values: ["amd64"]
+        - key: "eks.amazonaws.com/instance-family"
+          operator: In
+          values:
+          - g6e
+          - g6
+      terminationGracePeriod: 24h0m0s
+```
+
+Instead of to setting the `eks.amazonaws.com/instance-gpu-name` you might use `eks.amazonaws.com/instance-family` to specify the instance family. For other well-known labels which influence scheduling review, see [EKS Auto Mode Supported Labels](create-node-pool.md#auto-supported-labels "create-node-pool.md#auto-supported-labels").
+
+If you have specific storage requirements you can tune the nodes ephemeral storage `iops`, `size` and `throughput` by creating your own [NodeClass](create-node-class.md "create-node-class.md") to reference in the NodePool. Learn more about the [configurable NodeClass options](create-node-class.md "create-node-class.md").
+
+**Example storage configuration for NodeClass**
+
+```
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: gpu
+spec:
+  ephemeralStorage:
+    iops: 3000
+    size: 80Gi
+    throughput: 125
+```
+
+### Define an AWS Trainium and AWS Inferentia NodePool
+
+The following NodePool has an `eks.amazonaws.com/instance-category` set that says, only launch instances of Inferentia and Trainium family:
+
+```
+        - key: "eks.amazonaws.com/instance-category"
+          operator: In
+          values:
+            - inf
+            - trn
+```

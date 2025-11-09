@@ -14,7 +14,6 @@ Before deploying Windows nodes, be aware of the following considerations.
 - You can use host networking on Windows nodes using `HostProcess` Pods. For more information, see [Create a Windows HostProcessPod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/ "https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/") in the Kubernetes documentation.
 - Amazon EKS clusters must contain one or more Linux or Fargate nodes to run core system Pods that only run on Linux, such as CoreDNS.
 - The `kubelet` and `kube-proxy` event logs are redirected to the `EKS Windows` Event Log and are set to a 200 MB limit.
-- You can’t use the same IAM role for both Linux and Windows nodes.
 - You can’t use [Assign security groups to individual pods](security-groups-for-pods.md "security-groups-for-pods.md") with Pods running on Windows nodes.
 - You can’t use [custom networking](cni-custom-network.md "cni-custom-network.md") with Windows nodes.
 - You can’t use `IPv6` with Windows nodes.

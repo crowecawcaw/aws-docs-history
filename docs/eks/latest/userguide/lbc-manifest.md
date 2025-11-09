@@ -12,7 +12,7 @@ For more information, see [Automate cluster infrastructure with EKS Auto Mode](a
 
 This topic describes how to install the controller by downloading and applying Kubernetes manifests. You can view the full [documentation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/ "https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/") for the controller on GitHub.
 
-In the following steps, replace the `example values` with your own values.
+In the following steps, replace the example values with your own values.
 
 ## Prerequisites
 

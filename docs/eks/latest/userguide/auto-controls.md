@@ -45,7 +45,7 @@ It’s important **not** to use the `ec2:Owner` context key. Amazon owns the EKS
 AWS accounts that vary by region host EKS Auto Mode public AMIs.
 
 |                |              |
-| -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------- | ------------ |
 | AWS Region     | Account      |
 | af-south-1     | 471112993317 |
 | ap-east-1      | 590183728416 |
@@ -78,4 +78,24 @@ AWS accounts that vary by region host EKS Auto Mode public AMIs.
 | us-east-1      | 992382739861 |
 | us-east-2      | 975050179949 |
 | us-west-1      | 975050035094 |
-| us-west-2      | 767397842682 | ## Associate Public IP address When `ec2:RunInstances` is called the `AssociatePublicIpAddress` field for an instance launch is determined automatically by the type of subnet that the instance is being launched into. An SCP may be used to enforce that this value is explicitly set to false, regardless of the type of subnet being launched into. In this case the NodeClass field `spec.advancedNetworking.associatePublicIPAddress` can also be set to false to satisfy the requirements of the SCP. `{ "Sid": "DenyPublicEC2IPAddesses", "Effect": "Deny", "Action": "ec2:RunInstances", "Resource": "arn:aws:ec2:*:*:network-interface/*", "Condition": { "BoolIfExists": { "ec2:AssociatePublicIpAddress": "true" } } }` |
+| us-west-2      | 767397842682 |
+
+## Associate Public IP address
+
+When `ec2:RunInstances` is called the `AssociatePublicIpAddress` field for an instance launch is determined automatically by the type of subnet that the instance is being launched into.
+An SCP may be used to enforce that this value is explicitly set to false, regardless of the type of subnet being launched into.
+In this case the NodeClass field `spec.advancedNetworking.associatePublicIPAddress` can also be set to false to satisfy the requirements of the SCP.
+
+```
+  {
+        "Sid": "DenyPublicEC2IPAddesses",
+        "Effect": "Deny",
+        "Action": "ec2:RunInstances",
+        "Resource": "arn:aws:ec2:*:*:network-interface/*",
+        "Condition": {
+            "BoolIfExists": {
+                "ec2:AssociatePublicIpAddress": "true"
+            }
+        }
+    }
+```

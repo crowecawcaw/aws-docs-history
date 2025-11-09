@@ -118,7 +118,7 @@ workqueue_work_duration_seconds_sum{name="replicaset"} 4.265655885000002
 The following table describes the scheduler and controller manager metrics that are made available for Prometheus style scraping. For more information about these metrics, see [Kubernetes Metrics Reference](https://kubernetes.io/docs/reference/instrumentation/metrics/ "https://kubernetes.io/docs/reference/instrumentation/metrics/") in the Kubernetes documentation.
 
 | Metric                                                | Control plane component | Description                                                                                                                                                               |
-| ----------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | scheduler_pending_pods                                | scheduler               | The number of Pods that are waiting to be scheduled onto a node for execution.                                                                                            |
 | scheduler_schedule_attempts_total                     | scheduler               | The number of attempts made to schedule Pods.                                                                                                                             |
 | scheduler_preemption_attempts_total                   | scheduler               | The number of attempts made by the scheduler to schedule higher priority Pods by evicting lower priority ones.                                                            |
@@ -130,4 +130,136 @@ The following table describes the scheduler and controller manager metrics that 
 | workqueue_depth                                       | controller manager      | The current depth of queue.                                                                                                                                               |
 | workqueue_adds_total                                  | controller manager      | The total number of adds handled by workqueue.                                                                                                                            |
 | workqueue_queue_duration_seconds                      | controller manager      | The time in seconds an item stays in workqueue before being requested.                                                                                                    |
-| workqueue_work_duration_seconds                       | controller manager      | The time in seconds processing an item from workqueue takes.                                                                                                              | ## Deploy a Prometheus scraper to consistently scrape metrics To deploy a Prometheus scraper to consistently scrape the metrics, use the following configuration: ``` --- apiVersion: v1 kind: ConfigMap metadata: name: prometheus-conf data: prometheus.yml: | - global: scrape_interval: 30s scrape_configs: # apiserver metrics <br>• job_name: apiserver-metrics kubernetes_sd_configs: <br>• role: endpoints scheme: https tls_config: ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt insecure_skip_verify: true bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token relabel_configs: <br>• source_labels: [ __meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name, ] action: keep regex: default;kubernetes;https # Scheduler metrics <br>• job_name: 'ksh-metrics' kubernetes_sd_configs: <br>• role: endpoints metrics_path: /apis/metrics.eks.amazonaws.com/v1/ksh/container/metrics scheme: https tls_config: ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt insecure_skip_verify: true bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token relabel_configs: <br>• source_labels: [ __meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name, ] action: keep regex: default;kubernetes;https # Controller Manager metrics <br>• job_name: 'kcm-metrics' kubernetes_sd_configs: <br>• role: endpoints metrics_path: /apis/metrics.eks.amazonaws.com/v1/kcm/container/metrics scheme: https tls_config: ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt insecure_skip_verify: true bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token relabel_configs: <br>• source_labels: [ __meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name, ] action: keep regex: default;kubernetes;https --- apiVersion: v1 kind: Pod metadata: name: prom-pod spec: containers: <br>• name: prom-container image: prom/prometheus ports: <br>• containerPort: 9090 volumeMounts: <br>• name: config-volume mountPath: /etc/prometheus/ volumes: <br>• name: config-volume configMap: name: prometheus-conf `The permission that follows is required for the Pod to access the new metrics endpoint.` { "effect": "allow", "apiGroups": [ "metrics.eks.amazonaws.com" ], "resources": [ "kcm/metrics", "ksh/metrics" ], "verbs": [ "get" ] }, `To patch the role being used, you can use the following command.` kubectl patch clusterrole <role-name> --type=json -p='[ { "op": "add", "path": "/rules/-", "value": { "verbs": ["get"], "apiGroups": ["metrics.eks.amazonaws.com"], "resources": ["kcm/metrics", "ksh/metrics"] } } ]' `Then you can view the Prometheus dashboard by proxying the port of the Prometheus scraper to your local port.` kubectl port-forward pods/prom-pod 9090:9090 ```For your Amazon EKS cluster, the core Kubernetes control plane metrics are also ingested into Amazon CloudWatch Metrics under the`AWS/EKS`namespace. To view them, open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks "https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks") and select **All metrics** from the left navigation pane. On the **Metrics** selection page, choose the`AWS/EKS` namespace and a metrics dimension for your cluster. |
+| workqueue_work_duration_seconds                       | controller manager      | The time in seconds processing an item from workqueue takes.                                                                                                              |
+
+## Deploy a Prometheus scraper to consistently scrape metrics
+
+To deploy a Prometheus scraper to consistently scrape the metrics, use the following configuration:
+
+```
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-conf
+data:
+  prometheus.yml: |-
+    global:
+      scrape_interval: 30s
+    scrape_configs:
+    # apiserver metrics
+    - job_name: apiserver-metrics
+      kubernetes_sd_configs:
+      - role: endpoints
+      scheme: https
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecure_skip_verify: true
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      relabel_configs:
+      - source_labels:
+          [
+            __meta_kubernetes_namespace,
+            __meta_kubernetes_service_name,
+            __meta_kubernetes_endpoint_port_name,
+          ]
+        action: keep
+        regex: default;kubernetes;https
+    # Scheduler metrics
+    - job_name: 'ksh-metrics'
+      kubernetes_sd_configs:
+      - role: endpoints
+      metrics_path: /apis/metrics.eks.amazonaws.com/v1/ksh/container/metrics
+      scheme: https
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecure_skip_verify: true
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      relabel_configs:
+      - source_labels:
+          [
+            __meta_kubernetes_namespace,
+            __meta_kubernetes_service_name,
+            __meta_kubernetes_endpoint_port_name,
+          ]
+        action: keep
+        regex: default;kubernetes;https
+    # Controller Manager metrics
+    - job_name: 'kcm-metrics'
+      kubernetes_sd_configs:
+      - role: endpoints
+      metrics_path: /apis/metrics.eks.amazonaws.com/v1/kcm/container/metrics
+      scheme: https
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecure_skip_verify: true
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      relabel_configs:
+      - source_labels:
+          [
+            __meta_kubernetes_namespace,
+            __meta_kubernetes_service_name,
+            __meta_kubernetes_endpoint_port_name,
+          ]
+        action: keep
+        regex: default;kubernetes;https
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prom-pod
+spec:
+  containers:
+  - name: prom-container
+    image: prom/prometheus
+    ports:
+    - containerPort: 9090
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/prometheus/
+  volumes:
+  - name: config-volume
+    configMap:
+      name: prometheus-conf
+```
+
+The permission that follows is required for the Pod to access the new metrics endpoint.
+
+```
+{
+  "effect": "allow",
+  "apiGroups": [
+    "metrics.eks.amazonaws.com"
+  ],
+  "resources": [
+    "kcm/metrics",
+    "ksh/metrics"
+  ],
+  "verbs": [
+    "get"
+  ] },
+```
+
+To patch the role being used, you can use the following command.
+
+```
+kubectl patch clusterrole <role-name> --type=json -p='[
+  {
+    "op": "add",
+    "path": "/rules/-",
+    "value": {
+      "verbs": ["get"],
+      "apiGroups": ["metrics.eks.amazonaws.com"],
+      "resources": ["kcm/metrics", "ksh/metrics"]
+    }
+  }
+]'
+```
+
+Then you can view the Prometheus dashboard by proxying the port of the Prometheus scraper to your local port.
+
+```
+kubectl port-forward pods/prom-pod 9090:9090
+```
+
+For your Amazon EKS cluster, the core Kubernetes control plane metrics are also ingested into Amazon CloudWatch Metrics under the `AWS/EKS` namespace. To view them, open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks "https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks") and select **All metrics** from the left navigation pane. On the **Metrics** selection page, choose the `AWS/EKS` namespace and a metrics dimension for your cluster.

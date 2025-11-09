@@ -192,6 +192,10 @@ spec:
         - .internal
         - .eks.amazonaws.com
 
+  advancedSecurity:
+    # Optional, US regions only: Specifying `fips: true` will cause nodes in the nodeclass to run FIPS compatible AMIs.
+    fips: false
+
   # Optional: Custom certificate bundles.
   certificateBundles:
     - name: "custom-cert"

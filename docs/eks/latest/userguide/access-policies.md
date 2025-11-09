@@ -41,9 +41,10 @@ aws eks list-access-policies --output table
 
 An example output is as follows.
 
-````
+```
 ---------------------------------------------------------------------------------------------------------
-|                                          ListAccessPolicies                                           | +-------------------------------------------------------------------------------------------------------+
+|                                          ListAccessPolicies                                           |
++-------------------------------------------------------------------------------------------------------+
 ||                                           accessPolicies                                            ||
 |+---------------------------------------------------------------------+-------------------------------+|
 ||                                 arn                                 |             name              ||
@@ -52,5 +53,80 @@ An example output is as follows.
 ||  {arn-aws}eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy |  AmazonEKSClusterAdminPolicy  ||
 ||  {arn-aws}eks::aws:cluster-access-policy/AmazonEKSEditPolicy         |  AmazonEKSEditPolicy          ||
 ||  {arn-aws}eks::aws:cluster-access-policy/AmazonEKSViewPolicy         |  AmazonEKSViewPolicy          ||
-|+---------------------------------------------------------------------+-------------------------------+| ``` To view the permissions included in each policy, see [Review access policy permissions](access-policy-permissions.md "access-policy-permissions.md"). 3. View your existing access entries. Replace `my-cluster` with the name of your cluster. ``` aws eks list-access-entries --cluster-name my-cluster ``` An example output is as follows. ``` { "accessEntries": [ "arn:aws:iam::111122223333:role/my-role", "arn:aws:iam::111122223333:user/my-user" ] } ``` 4. Associate an access policy to an access entry. The following example associates the `AmazonEKSViewPolicy` access policy to an access entry. Whenever the `my-role` IAM role attempts to access Kubernetes objects on the cluster, Amazon EKS will authorize the role to use the permissions in the policy to access Kubernetes objects in the `my-namespace1` and `my-namespace2` Kubernetes namespaces only. Replace `my-cluster` with the name of your cluster, `111122223333` with your AWS account ID, and `my-role` with the name of the IAM role that you want Amazon EKS to authorize access to Kubernetes cluster objects for. ``` aws eks associate-access-policy --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role \ --access-scope type=namespace,namespaces=my-namespace1,my-namespace2 --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy ``` If you want the IAM principal to have the permissions cluster-wide, replace `type=namespace,namespaces=`my-namespace1`,`my-namespace2`` with `type=cluster`. If you want to associate multiple access policies to the access entry, run the command multiple times, each with a unique access policy. Each associated access policy has its own scope. ###### Note If you later want to change the scope of an associated access policy, run the previous command again with the new scope. For example, if you wanted to remove `my-namespace2`, you’d run the command again using `type=namespace,namespaces=`my-namespace1`` only. If you wanted to change the scope from `namespace` to `cluster`, you’d run the command again using `type=cluster`, removing `type=namespace,namespaces=`my-namespace1`,`my-namespace2``. 5. Determine which access policies are associated to an access entry. ``` aws eks list-associated-access-policies --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role ``` An example output is as follows. ``` { "clusterName": "my-cluster", "principalArn": "arn:aws:iam::111122223333", "associatedAccessPolicies": [ { "policyArn": "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy", "accessScope": { "type": "cluster", "namespaces": [] }, "associatedAt": "2023-04-17T15:25:21.675000-04:00", "modifiedAt": "2023-04-17T15:25:21.675000-04:00" }, { "policyArn": "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy", "accessScope": { "type": "namespace", "namespaces": [ "my-namespace1", "my-namespace2" ] }, "associatedAt": "2023-04-17T15:02:06.511000-04:00", "modifiedAt": "2023-04-17T15:02:06.511000-04:00" } ] } ``` In the previous example, the IAM principal for this access entry has view permissions across all namespaces on the cluster, and administrator permissions to two Kubernetes namespaces. 6. Disassociate an access policy from an access entry. In this example, the `AmazonEKSAdminPolicy` policy is disassociated from an access entry. The IAM principal retains the permissions in the `AmazonEKSViewPolicy` access policy for objects in the `my-namespace1` and `my-namespace2` namespaces however, because that access policy is not disassociated from the access entry. ``` aws eks disassociate-access-policy --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role \ --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy ``` To list available access policies, see [Review access policy permissions](access-policy-permissions.md "access-policy-permissions.md").
-````
+|+---------------------------------------------------------------------+-------------------------------+|
+```
+
+To view the permissions included in each policy, see [Review access policy permissions](access-policy-permissions.md "access-policy-permissions.md"). 3. View your existing access entries. Replace `my-cluster` with the name of your cluster.
+
+```
+aws eks list-access-entries --cluster-name my-cluster
+```
+
+An example output is as follows.
+
+```
+{
+    "accessEntries": [
+        "arn:aws:iam::111122223333:role/my-role",
+        "arn:aws:iam::111122223333:user/my-user"
+    ]
+}
+```
+
+4. Associate an access policy to an access entry. The following example associates the `AmazonEKSViewPolicy` access policy to an access entry. Whenever the `my-role` IAM role attempts to access Kubernetes objects on the cluster, Amazon EKS will authorize the role to use the permissions in the policy to access Kubernetes objects in the `my-namespace1` and `my-namespace2` Kubernetes namespaces only. Replace `my-cluster` with the name of your cluster, `111122223333` with your AWS account ID, and `my-role` with the name of the IAM role that you want Amazon EKS to authorize access to Kubernetes cluster objects for.
+
+```
+aws eks associate-access-policy --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role \
+    --access-scope type=namespace,namespaces=my-namespace1,my-namespace2 --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy
+```
+
+If you want the IAM principal to have the permissions cluster-wide, replace `type=namespace,namespaces=`my-namespace1`,`my-namespace2``with`type=cluster`. If you want to associate multiple access policies to the access entry, run the command multiple times, each with a unique access policy. Each associated access policy has its own scope.
+
+###### Note
+
+If you later want to change the scope of an associated access policy, run the previous command again with the new scope. For example, if you wanted to remove `my-namespace2`, you’d run the command again using `type=namespace,namespaces=`my-namespace1`` only. If you wanted to change the scope from `namespace` to `cluster`, you’d run the command again using `type=cluster`, removing `type=namespace,namespaces=`my-namespace1`,`my-namespace2``. 5. Determine which access policies are associated to an access entry.
+
+```
+aws eks list-associated-access-policies --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role
+```
+
+An example output is as follows.
+
+```
+{
+    "clusterName": "my-cluster",
+    "principalArn": "arn:aws:iam::111122223333",
+    "associatedAccessPolicies": [
+        {
+            "policyArn": "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
+            "accessScope": {
+                "type": "cluster",
+                "namespaces": []
+            },
+            "associatedAt": "2023-04-17T15:25:21.675000-04:00",
+            "modifiedAt": "2023-04-17T15:25:21.675000-04:00"
+        },
+        {
+            "policyArn": "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy",
+            "accessScope": {
+                "type": "namespace",
+                "namespaces": [
+                    "my-namespace1",
+                    "my-namespace2"
+                ]
+            },
+            "associatedAt": "2023-04-17T15:02:06.511000-04:00",
+            "modifiedAt": "2023-04-17T15:02:06.511000-04:00"
+        }
+    ]
+}
+```
+
+In the previous example, the IAM principal for this access entry has view permissions across all namespaces on the cluster, and administrator permissions to two Kubernetes namespaces. 6. Disassociate an access policy from an access entry. In this example, the `AmazonEKSAdminPolicy` policy is disassociated from an access entry. The IAM principal retains the permissions in the `AmazonEKSViewPolicy` access policy for objects in the `my-namespace1` and `my-namespace2` namespaces however, because that access policy is not disassociated from the access entry.
+
+```
+aws eks disassociate-access-policy --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role \
+    --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy
+```
+
+To list available access policies, see [Review access policy permissions](access-policy-permissions.md "access-policy-permissions.md").

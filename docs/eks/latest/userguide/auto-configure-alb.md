@@ -206,33 +206,53 @@ EKS Auto Mode will automatically delete the associated load balancer in your AWS
 
 The table below is a quick reference for commonly used configuration options.
 
-| Field                                                  | Description                                            | Example value                                  |
-| ------------------------------------------------------ | ------------------------------------------------------ | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `scheme`                                               | Defines whether the ALB is internal or internet-facing | `internet-facing`                              |
-| `namespaceSelector`                                    | Restricts which namespaces can use this IngressClass   | `environment: prod`                            |
-| `group.name`                                           | Groups multiple Ingresses to share a single ALB        | `retail-apps`                                  |
-| `ipAddressType`                                        | Sets IP address type for the ALB                       | `dualstack`                                    |
-| `subnets.ids`                                          | List of subnet IDs for ALB deployment                  | `subnet-xxxx, subnet-yyyy`                     |
-| `subnets.tags`                                         | Tag filters to select subnets for ALB                  | `Environment: prod`                            |
-| `certificateARNs`                                      | ARNs of SSL certificates to use                        | `arn:aws:acm:region:account:certificate/id`    |
-| `tags`                                                 | Custom tags for AWS resources                          | `Environment: prod, Team: platform`            |
-| `loadBalancerAttributes`                               | Load balancer specific attributes                      | `idle_timeout.timeout_seconds: 60`             | ## Considerations <br>• You cannot use Annotations on an IngressClass to configure load balancers with EKS Auto Mode. <br>• You cannot set [ListenerAttribute](../../../elasticloadbalancing/latest/APIReference/API_ListenerAttribute.md "../../../elasticloadbalancing/latest/APIReference/API_ListenerAttribute.md") with EKS Auto Mode. <br>• You must update the Cluster IAM Role to enable tag propagation from Kubernetes to AWS Load Balancer resources. For more information, see [Custom AWS tags for EKS Auto resources](auto-learn-iam.md#tag-prop "auto-learn-iam.md#tag-prop"). <br>• For information about associating resources with either EKS Auto Mode or the self-managed AWS Load Balancer Controller, see [Migration reference](migrate-auto.md#migration-reference "migrate-auto.md#migration-reference"). <br>• For information about fixing issues with load balancers, see [Troubleshoot EKS Auto Mode](auto-troubleshoot.md "auto-troubleshoot.md"). <br>• For more considerations about using the load balancing capability of EKS Auto Mode, see [Load balancing](auto-networking.md#auto-lb-consider "auto-networking.md#auto-lb-consider"). The following tables provide a detailed comparison of changes in IngressClassParams, Ingress annotations, and TargetGroupBinding configurations for EKS Auto Mode. These tables highlight the key differences between the load balancing capability of EKS Auto Mode and the open source load balancer controller, including API version changes, deprecated features, and updated parameter names. ### IngressClassParams |
-| Previous                                               | New                                                    | Description                                    |
-| ---                                                    | ---                                                    | ---                                            |
-| `elbv2.k8s.aws/v1beta1`                                | `eks.amazonaws.com/v1`                                 | API version change                             |
-| `spec.certificateArn`                                  | `spec.certificateARNs`                                 | Support for multiple certificate ARNs          |
-| `spec.subnets.tags`                                    | `spec.subnets.matchTags`                               | Changed subnet matching schema                 |
-| `spec.listeners.listenerAttributes`                    | Not supported                                          | Not yet supported by EKS Auto Mode             | ### Ingress annotations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Previous                                               | New                                                    | Description                                    |
-| ---                                                    | ---                                                    | ---                                            |
-| `kubernetes.io/ingress.class`                          | Not supported                                          | Use `spec.ingressClassName` on Ingress objects |
-| `alb.ingress.kubernetes.io/group.name`                 | Not supported                                          | Specify groups in IngressClass only            |
-| `alb.ingress.kubernetes.io/waf-acl-id`                 | Not supported                                          | Use WAF v2 instead                             |
-| `alb.ingress.kubernetes.io/web-acl-id`                 | Not supported                                          | Use WAF v2 instead                             |
-| `alb.ingress.kubernetes.io/shield-advanced-protection` | Not supported                                          | Shield integration disabled                    |
-| `alb.ingress.kubernetes.io/auth-type: oidc`            | Not supported                                          | OIDC Auth Type is currently not supported      | ### TargetGroupBinding                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Previous                                               | New                                                    | Description                                    |
-| ---                                                    | ---                                                    | ---                                            |
-| `elbv2.k8s.aws/v1beta1`                                | `eks.amazonaws.com/v1`                                 | API version change                             |
-| `spec.targetType` optional                             | `spec.targetType` required                             | Explicit target type specification             |
-| `spec.networking.ingress.from`                         | Not supported                                          | No longer supports NLB without security groups |
+| Field                    | Description                                            | Example value                               |
+| ------------------------ | ------------------------------------------------------ | ------------------------------------------- |
+| `scheme`                 | Defines whether the ALB is internal or internet-facing | `internet-facing`                           |
+| `namespaceSelector`      | Restricts which namespaces can use this IngressClass   | `environment: prod`                         |
+| `group.name`             | Groups multiple Ingresses to share a single ALB        | `retail-apps`                               |
+| `ipAddressType`          | Sets IP address type for the ALB                       | `dualstack`                                 |
+| `subnets.ids`            | List of subnet IDs for ALB deployment                  | `subnet-xxxx, subnet-yyyy`                  |
+| `subnets.tags`           | Tag filters to select subnets for ALB                  | `Environment: prod`                         |
+| `certificateARNs`        | ARNs of SSL certificates to use                        | `arn:aws:acm:region:account:certificate/id` |
+| `tags`                   | Custom tags for AWS resources                          | `Environment: prod, Team: platform`         |
+| `loadBalancerAttributes` | Load balancer specific attributes                      | `idle_timeout.timeout_seconds: 60`          |
+
+## Considerations
+
+- You cannot use Annotations on an IngressClass to configure load balancers with EKS Auto Mode.
+- You cannot set [ListenerAttribute](../../../elasticloadbalancing/latest/APIReference/API_ListenerAttribute.md "../../../elasticloadbalancing/latest/APIReference/API_ListenerAttribute.md") with EKS Auto Mode.
+- You must update the Cluster IAM Role to enable tag propagation from Kubernetes to AWS Load Balancer resources. For more information, see [Custom AWS tags for EKS Auto resources](auto-learn-iam.md#tag-prop "auto-learn-iam.md#tag-prop").
+- For information about associating resources with either EKS Auto Mode or the self-managed AWS Load Balancer Controller, see [Migration reference](migrate-auto.md#migration-reference "migrate-auto.md#migration-reference").
+- For information about fixing issues with load balancers, see [Troubleshoot EKS Auto Mode](auto-troubleshoot.md "auto-troubleshoot.md").
+- For more considerations about using the load balancing capability of EKS Auto Mode, see [Load balancing](auto-networking.md#auto-lb-consider "auto-networking.md#auto-lb-consider").
+
+The following tables provide a detailed comparison of changes in IngressClassParams, Ingress annotations, and TargetGroupBinding configurations for EKS Auto Mode. These tables highlight the key differences between the load balancing capability of EKS Auto Mode and the open source load balancer controller, including API version changes, deprecated features, and updated parameter names.
+
+### IngressClassParams
+
+| Previous                            | New                      | Description                           |
+| ----------------------------------- | ------------------------ | ------------------------------------- |
+| `elbv2.k8s.aws/v1beta1`             | `eks.amazonaws.com/v1`   | API version change                    |
+| `spec.certificateArn`               | `spec.certificateARNs`   | Support for multiple certificate ARNs |
+| `spec.subnets.tags`                 | `spec.subnets.matchTags` | Changed subnet matching schema        |
+| `spec.listeners.listenerAttributes` | Not supported            | Not yet supported by EKS Auto Mode    |
+
+### Ingress annotations
+
+| Previous                                               | New           | Description                                    |
+| ------------------------------------------------------ | ------------- | ---------------------------------------------- |
+| `kubernetes.io/ingress.class`                          | Not supported | Use `spec.ingressClassName` on Ingress objects |
+| `alb.ingress.kubernetes.io/group.name`                 | Not supported | Specify groups in IngressClass only            |
+| `alb.ingress.kubernetes.io/waf-acl-id`                 | Not supported | Use WAF v2 instead                             |
+| `alb.ingress.kubernetes.io/web-acl-id`                 | Not supported | Use WAF v2 instead                             |
+| `alb.ingress.kubernetes.io/shield-advanced-protection` | Not supported | Shield integration disabled                    |
+| `alb.ingress.kubernetes.io/auth-type: oidc`            | Not supported | OIDC Auth Type is currently not supported      |
+
+### TargetGroupBinding
+
+| Previous                       | New                        | Description                                    |
+| ------------------------------ | -------------------------- | ---------------------------------------------- |
+| `elbv2.k8s.aws/v1beta1`        | `eks.amazonaws.com/v1`     | API version change                             |
+| `spec.targetType` optional     | `spec.targetType` required | Explicit target type specification             |
+| `spec.networking.ingress.from` | Not supported              | No longer supports NLB without security groups |
