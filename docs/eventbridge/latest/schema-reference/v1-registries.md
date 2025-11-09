@@ -12,30 +12,83 @@
 
 List the registries.
 
-| Query parameters     | Name                                                          | Type         | Required                                                                                                                                                                                    | Description                                          |
-| -------------------- | ------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ---------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `scope`              | String                                                        | False        | Can be set to `Local` or `AWS` to limit responses to your custom registries, or the ones provided by AWS.                                                                                   |
-| `limit`              | String                                                        | False        | The maximum number of results to return per page.                                                                                                                                           |
-| `nextToken`          | String                                                        | False        | The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts. |
-| `registryNamePrefix` | String                                                        | False        | Specifying this limits the results to only those registry names that start with the specified prefix.                                                                                       | Responses                                            | Status code            | Response model | Description                                                                                                                                                                                                                |
-| ---                  | ---                                                           | ---          |                                                                                                                                                                                             | `200`                                                | `ListRegistriesOutput` | 200 response   |
-| `400`                | `ErrorOutput`                                                 | 400 response |                                                                                                                                                                                             | `401`                                                | `ErrorOutput`          | 401 response   |
-| `403`                | `ErrorOutput`                                                 | 403 response |                                                                                                                                                                                             | `500`                                                | `ErrorOutput`          | 500 response   |
-| `503`                | `ErrorOutput`                                                 | 503 response | ### OPTIONS Responses                                                                                                                                                                       | Status code                                          | Response model         | Description    |
-| ---                  | ---                                                           | ---          |                                                                                                                                                                                             | `200`                                                | None                   | 200 response   | ## Schemas ### Response bodies `{ "NextToken": "string", "Registries": [ { "RegistryName": "string", "RegistryArn": "string", "tags": { } } ] }` `{ "Message": "string", "Code": "string" }` ## Properties ### ErrorOutput |
-| Property             | Type                                                          | Required     | Description                                                                                                                                                                                 |
-| ---                  | ---                                                           | ---          | ---                                                                                                                                                                                         |
-| `Code`               | string                                                        | True         | The error code.                                                                                                                                                                             |
-| `Message`            | string                                                        | True         | The message string of the error output.                                                                                                                                                     | ### ListRegistriesOutput List the registries.        |
-| Property             | Type                                                          | Required     | Description                                                                                                                                                                                 |
-| ---                  | ---                                                           | ---          | ---                                                                                                                                                                                         |
-| `NextToken`          | string                                                        | False        | The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts. |
-| `Registries`         | Array of type RegistrySummary                                 | False        | An array of registry summaries.                                                                                                                                                             | ### RegistrySummary                                  |
-| Property             | Type                                                          | Required     | Description                                                                                                                                                                                 |
-| ---                  | ---                                                           | ---          | ---                                                                                                                                                                                         |
-| `RegistryArn`        | string                                                        | False        | The ARN of the registry.                                                                                                                                                                    |
-| `RegistryName`       | string                                                        | False        | The name of the registry.                                                                                                                                                                   |
-| `tags`               | [Tags](#v1-registries-model-tags "#v1-registries-model-tags") | False        | Tags associated with the registry.                                                                                                                                                          | ### Tags Key-value pairs associated with a resource. |
-| Property             | Type                                                          | Required     | Description                                                                                                                                                                                 |
-| ---                  | ---                                                           | ---          | ---                                                                                                                                                                                         |
-| `*`                  | string                                                        | False        |                                                                                                                                                                                             |
+| Query parameters     | Name   | Type  | Required                                                                                                                                                                                          | Description |
+| -------------------- | ------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `scope`              | String | False | Can be set to `Local` or `AWS` to limit responses to your<br>custom registries, or the ones provided by AWS.                                                                                      |
+| `limit`              | String | False | The maximum number of results to return per page.                                                                                                                                                 |
+| `nextToken`          | String | False | The token that specifies the next page of results to return. To request the first<br>page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared<br>with other accounts. |
+| `registryNamePrefix` | String | False | Specifying this limits the results to only those registry names that start with<br>the specified prefix.                                                                                          |
+
+| Responses | Status code            | Response model | Description |
+| --------- | ---------------------- | -------------- | ----------- |
+| `200`     | `ListRegistriesOutput` | 200 response   |
+| `400`     | `ErrorOutput`          | 400 response   |
+| `401`     | `ErrorOutput`          | 401 response   |
+| `403`     | `ErrorOutput`          | 403 response   |
+| `500`     | `ErrorOutput`          | 500 response   |
+| `503`     | `ErrorOutput`          | 503 response   |
+
+### OPTIONS
+
+| Responses | Status code | Response model | Description |
+| --------- | ----------- | -------------- | ----------- |
+| `200`     | None        | 200 response   |
+
+## Schemas
+
+### Response bodies
+
+```
+{
+  "NextToken": "string",
+  "Registries": [
+    {
+      "RegistryName": "string",
+      "RegistryArn": "string",
+      "tags": {
+      }
+    }
+  ]
+}
+```
+
+```
+{
+  "Message": "string",
+  "Code": "string"
+}
+```
+
+## Properties
+
+### ErrorOutput
+
+| Property  | Type   | Required | Description                             |
+| --------- | ------ | -------- | --------------------------------------- |
+| `Code`    | string | True     | The error code.                         |
+| `Message` | string | True     | The message string of the error output. |
+
+### ListRegistriesOutput
+
+List the registries.
+
+| Property     | Type                          | Required | Description                                                                                                                                                                                       |
+| ------------ | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NextToken`  | string                        | False    | The token that specifies the next page of results to return. To request the first<br>page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared<br>with other accounts. |
+| `Registries` | Array of type RegistrySummary | False    | An array of registry summaries.                                                                                                                                                                   |
+
+### RegistrySummary
+
+| Property       | Type                                                          | Required | Description                        |
+| -------------- | ------------------------------------------------------------- | -------- | ---------------------------------- |
+| `RegistryArn`  | string                                                        | False    | The ARN of the registry.           |
+| `RegistryName` | string                                                        | False    | The name of the registry.          |
+| `tags`         | [Tags](#v1-registries-model-tags "#v1-registries-model-tags") | False    | Tags associated with the registry. |
+
+### Tags
+
+Key-value pairs associated with a resource.
+
+| Property | Type   | Required | Description |
+| -------- | ------ | -------- | ----------- |
+| `*`      | string | False    |             |

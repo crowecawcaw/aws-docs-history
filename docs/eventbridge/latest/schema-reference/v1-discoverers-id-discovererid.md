@@ -12,45 +12,140 @@
 
 Describes the discoverer.
 
-| Path parameters | Name                                                                                                                             | Type         | Required                                     | Description                                                         |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------------- | ------------------------------------------------------------------- | ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ---- | -------- | ----------- |
-| `discovererId`  | String                                                                                                                           | True         | The ID of the discoverer.                    | Responses                                                           | Status code        | Response model | Description                                                                                                                                                                                                                                                                                                                                            |
-| ---             | ---                                                                                                                              | ---          |                                              | `200`                                                               | `DiscovererOutput` | 200 response   |
-| `400`           | `ErrorOutput`                                                                                                                    | 400 response |                                              | `401`                                                               | `ErrorOutput`      | 401 response   |
-| `403`           | `ErrorOutput`                                                                                                                    | 403 response |                                              | `404`                                                               | `ErrorOutput`      | 404 response   |
-| `500`           | `ErrorOutput`                                                                                                                    | 500 response |                                              | `503`                                                               | `ErrorOutput`      | 503 response   | ### PUT **Operation ID:** `UpdateDiscoverer` Updates the discoverer Path parameters                                                                                                                                                                                                                                                                    | Name | Type | Required | Description |
-| ---             | ---                                                                                                                              | ---          | ---                                          |
-| `discovererId`  | String                                                                                                                           | True         | The ID of the discoverer.                    | Responses                                                           | Status code        | Response model | Description                                                                                                                                                                                                                                                                                                                                            |
-| ---             | ---                                                                                                                              | ---          |                                              | `200`                                                               | `DiscovererOutput` | 200 response   |
-| `400`           | `ErrorOutput`                                                                                                                    | 400 response |                                              | `401`                                                               | `ErrorOutput`      | 401 response   |
-| `403`           | `ErrorOutput`                                                                                                                    | 403 response |                                              | `404`                                                               | `ErrorOutput`      | 404 response   |
-| `500`           | `ErrorOutput`                                                                                                                    | 500 response |                                              | `503`                                                               | `ErrorOutput`      | 503 response   | ### DELETE **Operation ID:** `DeleteDiscoverer` Deletes a discoverer. Path parameters                                                                                                                                                                                                                                                                  | Name | Type | Required | Description |
-| ---             | ---                                                                                                                              | ---          | ---                                          |
-| `discovererId`  | String                                                                                                                           | True         | The ID of the discoverer.                    | Responses                                                           | Status code        | Response model | Description                                                                                                                                                                                                                                                                                                                                            |
-| ---             | ---                                                                                                                              | ---          |                                              | `204`                                                               | None               | 204 response   |
-| `400`           | `ErrorOutput`                                                                                                                    | 400 response |                                              | `401`                                                               | `ErrorOutput`      | 401 response   |
-| `403`           | `ErrorOutput`                                                                                                                    | 403 response |                                              | `404`                                                               | `ErrorOutput`      | 404 response   |
-| `500`           | `ErrorOutput`                                                                                                                    | 500 response |                                              | `503`                                                               | `ErrorOutput`      | 503 response   | ### OPTIONS Path parameters                                                                                                                                                                                                                                                                                                                            | Name | Type | Required | Description |
-| ---             | ---                                                                                                                              | ---          | ---                                          |
-| `discovererId`  | String                                                                                                                           | True         | The ID of the discoverer.                    | Responses                                                           | Status code        | Response model | Description                                                                                                                                                                                                                                                                                                                                            |
-| ---             | ---                                                                                                                              | ---          |                                              | `200`                                                               | None               | 200 response   | ## Schemas ### Request bodies `{ "CrossAccount": boolean, "Description": "string" }` ### Response bodies `{ "DiscovererArn": "string", "DiscovererId": "string", "CrossAccount": boolean, "Description": "string", "SourceArn": "string", "State": enum, "tags": { } }` `{ "Message": "string", "Code": "string" }` ## Properties ### DiscovererOutput |
-| Property        | Type                                                                                                                             | Required     | Description                                  |
-| ---             | ---                                                                                                                              | ---          | ---                                          |
-| `CrossAccount`  | boolean                                                                                                                          | False        | Whether cross-account events are discovered. |
-| `Description`   | string                                                                                                                           | False        | The description of the discoverer.           |
-| `DiscovererArn` | string                                                                                                                           | False        | The ARN of the discoverer.                   |
-| `DiscovererId`  | string                                                                                                                           | False        | The ID of the discoverer.                    |
-| `SourceArn`     | string                                                                                                                           | False        | The ARN of the event bus.                    |
-| `State`         | [DiscovererState](#v1-discoverers-id-discovererid-model-discovererstate "#v1-discoverers-id-discovererid-model-discovererstate") | False        | The state of the discoverer.                 |
-| `tags`          | [Tags](#v1-discoverers-id-discovererid-model-tags "#v1-discoverers-id-discovererid-model-tags")                                  | False        | Tags associated with the resource.           | ### DiscovererState <br>• `STARTED` <br>• `STOPPED` ### ErrorOutput |
-| Property        | Type                                                                                                                             | Required     | Description                                  |
-| ---             | ---                                                                                                                              | ---          | ---                                          |
-| `Code`          | string                                                                                                                           | True         | The error code.                              |
-| `Message`       | string                                                                                                                           | True         | The message string of the error output.      | ### Tags Key-value pairs associated with a resource.                |
-| Property        | Type                                                                                                                             | Required     | Description                                  |
-| ---             | ---                                                                                                                              | ---          | ---                                          |
-| `*`             | string                                                                                                                           | False        |                                              | ### UpdateDiscovererInput                                           |
-| Property        | Type                                                                                                                             | Required     | Description                                  |
-| ---             | ---                                                                                                                              | ---          | ---                                          |
-| `CrossAccount`  | boolean                                                                                                                          | False        |                                              |
-| `Description`   | stringMinLength: 0MaxLength: 256                                                                                                 | False        | The description of the discoverer to update. |
+| Path parameters | Name   | Type | Required                  | Description |
+| --------------- | ------ | ---- | ------------------------- | ----------- |
+| `discovererId`  | String | True | The ID of the discoverer. |
+
+| Responses | Status code        | Response model | Description |
+| --------- | ------------------ | -------------- | ----------- |
+| `200`     | `DiscovererOutput` | 200 response   |
+| `400`     | `ErrorOutput`      | 400 response   |
+| `401`     | `ErrorOutput`      | 401 response   |
+| `403`     | `ErrorOutput`      | 403 response   |
+| `404`     | `ErrorOutput`      | 404 response   |
+| `500`     | `ErrorOutput`      | 500 response   |
+| `503`     | `ErrorOutput`      | 503 response   |
+
+### PUT
+
+**Operation ID:** `UpdateDiscoverer`
+
+Updates the discoverer
+
+| Path parameters | Name   | Type | Required                  | Description |
+| --------------- | ------ | ---- | ------------------------- | ----------- |
+| `discovererId`  | String | True | The ID of the discoverer. |
+
+| Responses | Status code        | Response model | Description |
+| --------- | ------------------ | -------------- | ----------- |
+| `200`     | `DiscovererOutput` | 200 response   |
+| `400`     | `ErrorOutput`      | 400 response   |
+| `401`     | `ErrorOutput`      | 401 response   |
+| `403`     | `ErrorOutput`      | 403 response   |
+| `404`     | `ErrorOutput`      | 404 response   |
+| `500`     | `ErrorOutput`      | 500 response   |
+| `503`     | `ErrorOutput`      | 503 response   |
+
+### DELETE
+
+**Operation ID:** `DeleteDiscoverer`
+
+Deletes a discoverer.
+
+| Path parameters | Name   | Type | Required                  | Description |
+| --------------- | ------ | ---- | ------------------------- | ----------- |
+| `discovererId`  | String | True | The ID of the discoverer. |
+
+| Responses | Status code   | Response model | Description |
+| --------- | ------------- | -------------- | ----------- |
+| `204`     | None          | 204 response   |
+| `400`     | `ErrorOutput` | 400 response   |
+| `401`     | `ErrorOutput` | 401 response   |
+| `403`     | `ErrorOutput` | 403 response   |
+| `404`     | `ErrorOutput` | 404 response   |
+| `500`     | `ErrorOutput` | 500 response   |
+| `503`     | `ErrorOutput` | 503 response   |
+
+### OPTIONS
+
+| Path parameters | Name   | Type | Required                  | Description |
+| --------------- | ------ | ---- | ------------------------- | ----------- |
+| `discovererId`  | String | True | The ID of the discoverer. |
+
+| Responses | Status code | Response model | Description |
+| --------- | ----------- | -------------- | ----------- |
+| `200`     | None        | 200 response   |
+
+## Schemas
+
+### Request bodies
+
+```
+{
+  "CrossAccount": boolean,
+  "Description": "string"
+}
+```
+
+### Response bodies
+
+```
+{
+  "DiscovererArn": "string",
+  "DiscovererId": "string",
+  "CrossAccount": boolean,
+  "Description": "string",
+  "SourceArn": "string",
+  "State": enum,
+  "tags": {
+  }
+}
+```
+
+```
+{
+  "Message": "string",
+  "Code": "string"
+}
+```
+
+## Properties
+
+### DiscovererOutput
+
+| Property        | Type                                                                                                                             | Required | Description                                  |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------------- |
+| `CrossAccount`  | boolean                                                                                                                          | False    | Whether cross-account events are discovered. |
+| `Description`   | string                                                                                                                           | False    | The description of the discoverer.           |
+| `DiscovererArn` | string                                                                                                                           | False    | The ARN of the discoverer.                   |
+| `DiscovererId`  | string                                                                                                                           | False    | The ID of the discoverer.                    |
+| `SourceArn`     | string                                                                                                                           | False    | The ARN of the event bus.                    |
+| `State`         | [DiscovererState](#v1-discoverers-id-discovererid-model-discovererstate "#v1-discoverers-id-discovererid-model-discovererstate") | False    | The state of the discoverer.                 |
+| `tags`          | [Tags](#v1-discoverers-id-discovererid-model-tags "#v1-discoverers-id-discovererid-model-tags")                                  | False    | Tags associated with the resource.           |
+
+### DiscovererState
+
+- `STARTED`
+- `STOPPED`
+
+### ErrorOutput
+
+| Property  | Type   | Required | Description                             |
+| --------- | ------ | -------- | --------------------------------------- |
+| `Code`    | string | True     | The error code.                         |
+| `Message` | string | True     | The message string of the error output. |
+
+### Tags
+
+Key-value pairs associated with a resource.
+
+| Property | Type   | Required | Description |
+| -------- | ------ | -------- | ----------- |
+| `*`      | string | False    |             |
+
+### UpdateDiscovererInput
+
+| Property       | Type                             | Required | Description                                  |
+| -------------- | -------------------------------- | -------- | -------------------------------------------- |
+| `CrossAccount` | boolean                          | False    |                                              |
+| `Description`  | stringMinLength: 0MaxLength: 256 | False    | The description of the discoverer to update. |
