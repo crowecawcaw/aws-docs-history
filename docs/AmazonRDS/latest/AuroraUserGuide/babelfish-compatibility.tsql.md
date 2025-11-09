@@ -1,89 +1,62 @@
-# Using
+# T-SQL differences in
 
-Babelfish features with limited implementation
+Babelfish
 
-Each new version of Babelfish adds support for features that better align with
-T-SQL functionality and behavior. Still, there are some unsupported features and
-differences in the current implementation. In the following, you can find information
-about functional differences between Babelfish and T-SQL, with some workarounds
-or usage notes.
+Following, you can find a table of T-SQL functionality as supported in the current
+release of Babelfish with some notes about differences in the behavior from
+that of SQL Server.
 
-As of version 1.2.0 of Babelfish, the following features currently have limited
-implementations:
+For more information about support in various versions, see [Supported
+functionalities in Babelfish by version](babelfish-compatibility.md "babelfish-compatibility.md"). For
+information about features that currently aren't supported, see [Unsupported
+functionalities in Babelfish](babelfish-compatibility.tsql.md "babelfish-compatibility.tsql.md").
 
-- SQL Server catalogs (system views) – The
-  catalogs `sys.sysconfigures`, `sys.syscurconfigs`, and
-  `sys.configurations` support a single read-only configuration
-  only. The `sp_configure` isn't currently supported. For more
-  information about the other SQL Server views implemented by Babelfish,
-  see [Getting information from the Babelfish
-  system catalog](babelfish-query-database.md "babelfish-query-database.md").
-- GRANT permissions – GRANT…TO PUBLIC is
-  supported, but GRANT..TO PUBLIC WITH GRANT OPTION is not currently supported.
-- SQL Server _ownership chain_ and
-  permission mechanism limitation – In Babelfish, the
-  SQL Server ownership chain works for views but not for stored procedures. This
-  means that procedures must be granted explicit access to other objects owned by
-  the same owner as the calling procedures. In SQL Server, granting the caller
-  EXECUTE permissions on the procedure is sufficient to call other objects owned
-  by same owner. In Babelfish, caller must also be granted permissions on
-  the objects accessed by the procedure.
-- Resolution of unqualified (without schema name) object
-  references – When a SQL object (procedure, view, function or
-  trigger) references an object without qualifying it with a schema name, SQL
-  Server resolves the object's schema name by using the schema name of the
-  SQL object in which the reference occurs. Currently, Babelfish resolves
-  this differently, by using the default schema of the database user executing the
-  procedure.
-- Default schema changes, sessions, and
-  connections – If users change their default schema with
-  `ALTER USER...WITH DEFAULT SCHEMA`, the change takes effect
-  immediately in that session. However, for other currently connected sessions
-  belonging to the same user, the timing differs, as follows:
-  - For SQL Server: – The change takes effect across all other
-    connections for this user immediately.
-  - For Babelfish: – The change takes effect for this user
-    for new connections only.
+Babelfish is available with Aurora PostgreSQL-Compatible Edition. For more information about
+Babelfish releases, see the [_Release Notes for Aurora PostgreSQL_](../AuroraPostgreSQLReleaseNotes/Welcome.md "../AuroraPostgreSQLReleaseNotes/Welcome.md").
 
-- ROWVERSION and TIMESTAMP datatypes implementation and
-  escape hatch setting – The ROWVERSION and TIMESTAMP
-  datatypes are now supported in Babelfish. To use ROWVERSION or TIMESTAMP
-  in Babelfish, you must change the setting for the escape hatch
-  `babelfishpg_tsql.escape_hatch_rowversion` from its default
-  (strict) to `ignore`. The Babelfish implementation of the
-  ROWVERSION and TIMESTAMP datatypes is mostly semantically identical to SQL
-  Server, with the following exceptions:
-
-      + The built-in @@DBTS function behaves similarly to SQL Server, but with
-       small differences. Rather than returning the last-used value for
-       `SELECT @@DBTS`, Babelfish generates a new
-       timestamp, due to the underlying PostgreSQL database engine and its
-       multi-version concurrency control (MVCC) implementation.
-      + In SQL Server, every inserted or updated row gets a unique
-       ROWVERSION/TIMESTAMP value. In Babelfish, every inserted row
-       updated by the same statement is assigned the same ROWVERSION/TIMESTAMP
-       value.
-
-
-      For example, when an UPDATE statement or INSERT-SELECT statement
-       affects multiple rows, in SQL Server, the affected rows all have
-       different values in their ROWVERSION/TIMESTAMP column. In
-       Babelfish (PostgreSQL), the rows have the same value.
-      + In SQL Server, when you create a new table with SELECT-INTO, you can
-       cast an explicit value (such as NULL) to a to-be-created
-       ROWVERSION/TIMESTAMP column. When you do the same thing in
-       Babelfish, an actual ROWVERSION/TIMESTAMP value is assigned to
-       each row in the new table for you, by Babelfish.
-
-  These minor differences in ROWVERSION/TIMESTAMP datatypes shouldn't have
-  an adverse impact on applications running on Babelfish.
-
-- Schema creation, ownership, and permissions –
-  Permissions to create and access objects in a schema owned by a non-DBO user (using
-  `CREATE SCHEMA `schema name`AUTHORIZATION`user name``) differ for SQL Server and
-  Babelfish non-DBO users, as shown in the following table:
-
-| Database user (non-DBO) who owns the schema can do the following:      | SQL Server | Babelfish |
-| ---------------------------------------------------------------------- | ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create objects in the schema without additional grants by the DBO?     | No         | Yes       |
-| Access objects created by DBO in the schema without additional grants? | Yes        | No        | <br>• CREATE OR ALTER VIEW / ALTER VIEW syntax – The support for these syntax in Babelfish has the following limitations: + These statements cannot be used on views that have an INSTEAD-OF trigger attached. + These statements cannot be used on views that have another view based on this view. |
+| Functionality or syntax                                                       | Description of behavior or difference                                                                                                                                                                                                                                                                                                                                                                                  |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| \ (line continuation character)                                               | The line continuation character (a backslash prior to a newline)<br>for character and hexadecimal strings isn't currently<br>supported. For character strings, the backslash-newline is<br>interpreted as characters in the string. For hexadecimal strings,<br>backslash-newline results in a syntax error.                                                                                                           |
+| @@version                                                                     | The format of the value returned by `@@version`<br>is slightly different from the value returned by SQL Server.<br>Your code might not work correctly if it depends on the<br>formatting of `@@version`.                                                                                                                                                                                                               |
+| Aggregate functions                                                           | Aggregate functions are partially supported (AVG, COUNT,<br>COUNT_BIG, GROUPING, MAX, MIN, STRING_AGG, and SUM are<br>supported). For a list of unsupported aggregate functions, see<br>[Functions<br>that aren't supported](babelfish-compatibility.tsql.md#babelfish-compatibility.tsql.limitations-unsupported-list4 "babelfish-compatibility.tsql.md#babelfish-compatibility.tsql.limitations-unsupported-list4"). |
+| ALTER TABLE                                                                   | Supports adding or dropping a single column or constraint<br>only.                                                                                                                                                                                                                                                                                                                                                     |
+| ALTER TABLE..ALTER COLUMN                                                     | NULL and NOT NULL can't currently be specified. To<br>change the nullability of a column, use the postgreSQL statement<br>ALTER TABLE..{SET                                                                                                                                                                                                                                                                            | DROP} NOT NULL. |
+| AT TIME ZONE                                                                  | During the transition from Daylight Saving Time (DST) to<br>Standard Time, the overlapping period is displayed using the<br>Standard Time offset. To clarify, consider the following<br>example:<br>``<br>SELECT CONVERT(DATETIME2(0), '2022-10-30T02:00:00', 126) AT TIME ZONE 'Central European Standard Time';<br>GO;<br>`Result: 2022-10-30 02:00:00 +01:00`<br>``                                                 |
+| Blank column names with no column alias                                       | The `sqlcmd` and `psql` utilities<br>handle columns with blank names differently:<br>• SQL Server `sqlcmd` returns a blank column<br>name.<br>• PostgreSQL `psql` returns a generated<br>column name.                                                                                                                                                                                                                  |
+| CHECKSUM function                                                             | Babelfish and SQL Server use different hashing<br>algorithms for the CHECKSUM function. As a result, the hash<br>values generated by CHECKSUM function in Babelfish might<br>be different from those generated by CHECKSUM function in SQL<br>Server.                                                                                                                                                                  |
+| Column default                                                                | When creating a column default, the constraint name is<br>ignored. To drop a column default, use the following syntax:<br>`ALTER TABLE...ALTER COLUMN..DROP<br>DEFAULT...`                                                                                                                                                                                                                                             |
+| Constraint_name                                                               | In SQL Server, constraint names must be unique within the<br>schema to which the table belongs. However, in Babelfish, this<br>applies only to PRIMARY KEY and UNIQUE constraints. Other types<br>of constraints are not subject to this<br>restriction.                                                                                                                                                               |
+| Constraints                                                                   | PostgreSQL doesn't support turning on and turning off<br>individual constraints. The statement is ignored and a warning<br>is raised.                                                                                                                                                                                                                                                                                  |
+| Constraints with IGNORE_DUP_KEY                                               | Constraints are created without this<br>property.                                                                                                                                                                                                                                                                                                                                                                      |
+| CREATE, ALTER, DROP SERVER ROLE                                               | ALTER SERVER ROLE is supported only for `sysadmin`.<br>All other syntax is unsupported.<br>The T-SQL user in Babelfish has an experience that is<br>similar to SQL Server for the concepts of a login (server<br>principal), a database, and a database user (database<br>principal).                                                                                                                                  |
+| CREATE, ALTER LOGIN clauses are supported with limited<br>syntax              | The CREATE LOGIN... PASSWORD clause, ...DEFAULT_DATABASE<br>clause, and ...DEFAULT_LANGUAGE clause are supported. The ALTER<br>LOGIN... PASSWORD clause is supported, but ALTER LOGIN...<br>OLD_PASSWORD clause isn't supported. Only a login that is a<br>sysadmin member can modify a password.                                                                                                                      |
+| CREATE DATABASE case-sensitive collation                                      | Case-sensitive collations aren't supported with the<br>CREATE DATABASE statement.                                                                                                                                                                                                                                                                                                                                      |
+| CREATE DATABASE keywords and clauses                                          | Options except COLLATE and CONTAINMENT=NONE aren't<br>supported. The COLLATE clause is accepted and is always set to<br>the value of<br>`babelfishpg_tsql.server_collation_name`.                                                                                                                                                                                                                                      |
+| CREATE SCHEMA... supporting clauses                                           | You can use the CREATE SCHEMA command to create an empty<br>schema. Use additional commands to create schema<br>objects.                                                                                                                                                                                                                                                                                               |
+| Database ID values are different on Babelfish                                 | The master and tempdb databases won't be database IDs 1<br>and 2.                                                                                                                                                                                                                                                                                                                                                      |
+| FORMAT date type function is supported with the following<br>limitations      | Single character meridian isn't supported.<br>"yyy" format in SQL server returns 4 digits for year above<br>1000, but only 3 digits for others.<br>"g" and "R" formats aren't supported<br>"vi-VN" locale translation is slightly<br>different.                                                                                                                                                                        |
+| Identifiers exceeding 63 characters                                           | PostgreSQL supports a maximum of 63 characters for<br>identifiers. Babelfish converts identifiers longer than<br>63 characters to a name that includes a hash of the original<br>name. For example, a table created as<br>"AB(ABC1234567890123456789012345678901234567890123456789012345678901234567890"<br>might be converted to<br>"ABC123456789012345678901234567890123456789012345678901234567890".                |
+| IDENTITY columns support                                                      | `IDENTITY` columns are supported for data types<br>`tinyint`, `smallint`, `int`,<br>`bigint`. `numeric`, and<br>`decimal`. SQL Server supports precision to 38<br>places for data types `numeric` and<br>`decimal` in IDENTITY<br>columns.PostgreSQL supports precision to 19 places<br>for data types `numeric` and `decimal` in<br>IDENTITY columns.                                                                 |
+| Indexes with IGNORE_DUP_KEY                                                   | Syntax that creates an index that includes IGNORE_DUP_KEY<br>creates an index as if this property is omitted.                                                                                                                                                                                                                                                                                                          |
+| Indexes with more than 32 columns                                             | An index can't include more than 32 columns. Included index<br>columns count toward the maximum in PostgreSQL but not in SQL<br>Server.                                                                                                                                                                                                                                                                                |
+| Indexes (clustered)                                                           | Clustered indexes are created as if NONCLUSTERED was<br>specified.                                                                                                                                                                                                                                                                                                                                                     |
+| Index clauses                                                                 | The following clauses are ignored: FILLFACTOR,<br>ALLOW_PAGE_LOCKS, ALLOW_ROW_LOCKS, PAD_INDEX,<br>STATISTICS_NORECOMPUTE, OPTIMIZE_FOR_SEQUENTIAL_KEY,<br>SORT_IN_TEMPDB, DROP_EXISTING, ONLINE, COMPRESSION_DELAY,<br>MAXDOP, and DATA_COMPRESSION                                                                                                                                                                   |
+| JSON support                                                                  | Order of the name-value pairs isn't guaranteed. But the array<br>type remains unaffected.                                                                                                                                                                                                                                                                                                                              |
+| LOGIN objects                                                                 | All options for LOGIN objects are not supported except for<br>PASSWORD, DEFAULT_DATABASE, DEFAULT_LANGUAGE, ENABLE,<br>DISABLE.                                                                                                                                                                                                                                                                                        |
+| NEWSEQUENTIALID function                                                      | Implemented as NEWID; sequential behavior isn't<br>guaranteed. When calling `NEWSEQUENTIALID`,<br>PostgreSQL generates a new GUID value.                                                                                                                                                                                                                                                                               |
+| OUTPUT clause is supported with the following<br>limitations                  | OUTPUT and OUTPUT INTO aren't supported in the same<br>DML query. References to non-target table of UPDATE or DELETE<br>operations in an OUTPUT clause aren't supported. OUTPUT...<br>DELETED \*, INSERTED \<br>• aren't supported in the same<br>query.                                                                                                                                                               |
+| Procedure or function parameter limit                                         | Babelfish supports a maximum of 100 parameters for a<br>procedure or function.                                                                                                                                                                                                                                                                                                                                         |
+| ROWGUIDCOL                                                                    | This clause is currently ignored. Queries referencing<br>`$GUIDGOL` cause a syntax error.                                                                                                                                                                                                                                                                                                                              |
+| SEQUENCE object support                                                       | SEQUENCE objects are supported for the data types tinyint,<br>smallint, int, bigint, numeric, and decimal.<br>Aurora PostgreSQL supports precision to 19 places for data types<br>numeric and decimal in a SEQUENCE.                                                                                                                                                                                                   |
+| Server-level roles                                                            | The `sysadmin` server-level role is supported.<br>Other server-level roles (other than `sysadmin`)<br>aren't supported.                                                                                                                                                                                                                                                                                                |
+| Database-level roles other than<br>`db_owner`                                 | The `db_owner` database-level roles and<br>user-defined database-level roles are supported. Other<br>database-level roles (other than db_owner) aren't<br>supported.                                                                                                                                                                                                                                                   |
+| SQL keyword `SPARSE`                                                          | The keyword SPARSE is accepted and ignored.                                                                                                                                                                                                                                                                                                                                                                            |
+| SQL keyword clause `ON filegroup`                                             | This clause is currently ignored.                                                                                                                                                                                                                                                                                                                                                                                      |
+| SQL keywords `CLUSTERED` and<br>`NONCLUSTERED` for indexes and<br>constraints | Babelfish accepts and ignores the<br>`CLUSTERED` and `NONCLUSTERED`<br>keywords.                                                                                                                                                                                                                                                                                                                                       |
+| `sysdatabases.cmptlevel`                                                      | `sysdatabases.cmptlevel` is always set to<br>120.                                                                                                                                                                                                                                                                                                                                                                      |
+| tempdb isn't reinitialized at restart                                         | Permanent objects (like tables and procedures) created in<br>tempdb aren't removed when the database is<br>restarted.                                                                                                                                                                                                                                                                                                  |
+| TEXTIMAGE_ON filegroup                                                        | Babelfish ignores the `TEXTIMAGE_ON`<br>`filegroup`<br>clause.                                                                                                                                                                                                                                                                                                                                                         |
+| Time precision                                                                | Babelfish supports 6-digit precision for fractional<br>seconds. No adverse effects are anticipated with this<br>behavior.                                                                                                                                                                                                                                                                                              |
+| Transaction isolation levels                                                  | READUNCOMMITTED is treated the same as<br>READCOMMITTED.                                                                                                                                                                                                                                                                                                                                                               |
+| Virtual computed columns (non-persistent)                                     | Virtual computed columns are created as<br>persistent.                                                                                                                                                                                                                                                                                                                                                                 |
+| Without SCHEMABINDING clause                                                  | This clause isn't supported in functions, procedures,<br>triggers, or views. The object is created, but as if WITH<br>SCHEMABINDING was specified.                                                                                                                                                                                                                                                                     |

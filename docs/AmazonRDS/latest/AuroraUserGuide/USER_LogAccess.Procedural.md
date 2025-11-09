@@ -1,83 +1,49 @@
-# Publishing database logs to Amazon CloudWatch Logs
+# Downloading a database log file
 
-In an on-premises database, the database logs reside on the file system. Amazon RDS doesn't
-provide host access to the database logs on the file system of your DB cluster. For
-this reason, Amazon RDS lets you export database logs to [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md"). With CloudWatch Logs, you can perform real-time analysis of the
-log data. You can also store the data in highly durable storage and manage the data with the
-CloudWatch Logs Agent.
+You can use the AWS Management Console, AWS CLI, or API to download a database log file.
 
-###### Topics
-
-- [Overview of RDS integration with CloudWatch Logs](#rds-integration-cw-logs "#rds-integration-cw-logs")
-- [Deciding which logs to publish to CloudWatch Logs](#engine-specific-logs "#engine-specific-logs")
-- [Specifying the logs to publish to CloudWatch Logs](#integrating_cloudwatchlogs.configure "#integrating_cloudwatchlogs.configure")
-- [Searching and filtering your logs in CloudWatch Logs](#accessing-logs-in-cloudwatch "#accessing-logs-in-cloudwatch")
-
-## Overview of RDS integration with CloudWatch Logs
-
-In CloudWatch Logs, a _log stream_ is a sequence of log events that share the same source. Each separate source of logs in
-CloudWatch Logs makes up a separate log stream. A _log group_ is a group of log streams that share the same retention,
-monitoring, and access control settings.
-
-Amazon Aurora continuously streams your DB cluster log records to a log group. For example, you have a
-log group `/aws/rds/cluster/`cluster_name`/`log_type``
-for each type of log that you publish. This log group is in the same AWS Region as the database instance that generates the log.
-
-AWS retains log data published to CloudWatch Logs for an indefinite time period unless you specify a retention period. For more
-information, see [Change log data retention in
-CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention").
-
-## Deciding which logs to publish to CloudWatch Logs
-
-Each RDS database engine supports its own set of logs. To learn about the options for your database engine, review the following
-topics:
-
-- [Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
-- [Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs](AuroraPostgreSQL.md "AuroraPostgreSQL.md")
-
-## Specifying the logs to publish to CloudWatch Logs
-
-You specify which logs to publish in the console. Make sure that you have a service-linked role in AWS Identity and Access Management (IAM). For more information
-about service-linked roles, see [Using service-linked roles for
-Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
-
-###### To specify the logs to publish
+###### To download a database log file
 
 1. Open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Databases**.
-3. Do either of the following:
-   - Choose **Create database**.
-   - Choose a database from the list, and then choose **Modify**.
+3. Choose the name of the DB instance that has the log file that you want to view.
+4. Choose the **Logs & events** tab.
+5. Scroll down to the **Logs** section.
+6. In the **Logs** section, choose the button next to the log that you want to
+   download, and then choose **Download**.
+7. Open the context (right-click) menu for the link provided, and then choose **Save Link
+   As**. Enter the location where you want the log file to be saved, and then choose
+   **Save**.
 
-4. In **Logs exports**, choose which logs to publish.
+![viewing log file](images/log_download2.png)
+To download a database log file, use the AWS CLI command [`download-db-log-file-portion`](../../../cli/latest/reference/rds/download-db-log-file-portion.md "../../../cli/latest/reference/rds/download-db-log-file-portion.md"). By default, this command downloads only the
+latest portion of a log file. However, you can download an entire file by specifying the parameter
+`--starting-token 0`.
 
-The following example specifies the audit log, error logs, general log, instance log, IAM database authentication error log, and slow query log for an Aurora MySQL DB cluster.
+The following example shows how to download the entire contents of a log file called
+_log/ERROR.4_ and store it in a local file called
+_errorlog.txt_.
 
-## Searching and filtering your logs in CloudWatch Logs
+###### Example
 
-You can search for log entries that meet a specified criteria using the CloudWatch Logs console. You can access the logs either through the RDS console,
-which leads you to the CloudWatch Logs console, or from the CloudWatch Logs console directly.
+For Linux, macOS, or Unix:
 
-###### To search your RDS logs using the RDS console
+```
+aws rds download-db-log-file-portion \
+    --db-instance-identifier `myexampledb` \
+    --starting-token 0 --output text \
+    --log-file-name `log/ERROR.4` > `errorlog.txt`
+```
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. Choose a DB cluster or a DB instance.
-4. Choose **Configuration**.
-5. Under **Published logs**, choose the database log that you want to view.
+For Windows:
 
-###### To search your RDS logs using the CloudWatch Logs console
+```
+aws rds download-db-log-file-portion ^
+    --db-instance-identifier `myexampledb` ^
+    --starting-token 0 --output text ^
+    --log-file-name `log/ERROR.4` > `errorlog.txt`
+```
 
-1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Log groups**.
-3. In the filter box, enter `/aws/rds`.
-4. For **Log Groups**, choose the name of the log group
-   containing the log stream to search.
-5. For **Log Streams**, choose the name of the log stream
-   to search.
-6. Under **Log events**, enter the filter syntax to use.
-
-For more information, see [Searching and filtering log
-data](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md") in the _Amazon CloudWatch Logs User Guide_. For a blog tutorial explaining how to monitor RDS logs, see [Build proactive database monitoring for Amazon RDS with Amazon CloudWatch Logs, AWS Lambda, and Amazon SNS](https://aws.amazon.com/blogs/database/build-proactive-database-monitoring-for-amazon-rds-with-amazon-cloudwatch-logs-aws-lambda-and-amazon-sns/ "https://aws.amazon.com/blogs/database/build-proactive-database-monitoring-for-amazon-rds-with-amazon-cloudwatch-logs-aws-lambda-and-amazon-sns/").
+To download a database log file, use the Amazon RDS API [`DownloadDBLogFilePortion`](../APIReference/API_DownloadDBLogFilePortion.md "../APIReference/API_DownloadDBLogFilePortion.md")
+action.

@@ -1,46 +1,46 @@
-# Dead connection
+# Identify and resolve
 
-handling in PostgreSQL
+aggressive vacuum blockers in Aurora PostgreSQL
 
-Dead connections occur when a database session remains active on the server despite the
-client application having abandoned or terminated abnormally. This situation typically arises
-when client processes crash or terminate unexpectedly without properly closing their database
-connections or canceling ongoing requests.
+In PostgreSQL, vacuuming is vital for ensuring database health as it reclaims storage and
+prevents [transaction ID wraparound](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND "https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND") issues. However, there are times when vacuuming can be
+prevented from operating as desired, which can result in performance degradation, storage bloat,
+and even impact availability of your DB instance by transaction ID wraparound. Therefore, identifying
+and resolving these issues are essential for optimal database performance and availability. Read
+[Understanding autovacuum in Amazon RDS for PostgreSQL environments](https://aws.amazon.com/blogs/database/understanding-autovacuum-in-amazon-rds-for-postgresql-environments/ "https://aws.amazon.com/blogs/database/understanding-autovacuum-in-amazon-rds-for-postgresql-environments/") to learn more
+about autovacuum.
 
-PostgreSQL efficiently identifies and cleans up dead connections when server processes are
-idle or attempt to send data to clients. However, detection is challenging for sessions that are
-idle, waiting for client input, or actively running queries. To handle these scenarios,
-PostgreSQL provides `tcp_keepalives_*`, `tcp_user_timeout`, and
-`client_connection_check_interval` parameters.
+The `postgres_get_av_diag()` function helps identify issues that either prevent
+or delay the aggressive vacuum progress. Suggestions are provided, which may include commands to
+resolve the issue where it is identifiable or guidance for further diagnostics where the issue
+is not identifiable. Aggressive vacuum blockers are reported when the age exceeds RDS' [adaptive
+autovacuum](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptiveAutoVacuuming "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptiveAutoVacuuming") threshold of 500 million transaction IDs.
+
+**What is the age of the transaction ID?**
+
+The `age()` function for transaction IDs calculates the number of transactions
+that have occurred since the oldest unfrozen transaction ID for a database
+(`pg_database.datfrozenxid`) or table (`pg_class.relfrozenxid`). This
+value indicates database activity since the last aggressive vacuum operation and highlights the
+likely workload for upcoming VACUUM processes.
+
+**What is an aggressive vacuum?**
+
+An aggressive VACUUM operation conducts a comprehensive scan of all pages within a table,
+including those typically skipped during regular VACUUMs. This thorough scan aims to "freeze"
+transaction IDs approaching their maximum age, effectively preventing a situation known as
+[transaction ID wraparound](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND "https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND").
+
+For `postgres_get_av_diag()` to report blockers, the blocker must be at least 500
+million transactions old.
 
 ###### Topics
 
-- [Understanding TCP keepalive](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Understanding "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Understanding")
-- [Key TCP
-  keepalive parameters in Aurora PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Parameters "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Parameters")
-- [Use cases
-  for TCP keepalive settings](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.UseCases "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.UseCases")
-- [Best
-  practices](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.BestPractices "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.BestPractices")
-
-## Understanding TCP keepalive
-
-TCP Keepalive is a protocol-level mechanism that helps maintain and verify connection
-integrity. Each TCP connection maintains kernel-level settings that govern keepalive behavior.
-When the keepalive timer expires, the system does the following:
-
-- Sends a probe packet with no data and the ACK flag set.
-- Expects a response from the remote endpoint according to TCP/IP specifications.
-- Manages connection state based on the response or lack thereof.
-
-## Key TCP
-
-keepalive parameters in Aurora PostgreSQL
-
-| Parameter                          | Description                                                                                                                                                  | Default values |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tcp_keepalives_idle`              | Specifies number of seconds of inactivity before sending keepalive message.                                                                                  | 300            |
-| `tcp_keepalives_interval`          | Specifies number of seconds between retransmissions of unacknowledged keepalive messages.                                                                    | 30             |
-| `tcp_keepalives_count`             | Maximum lost keepalive messages before declaring connection dead                                                                                             | 2              |
-| `tcp_user_timeout`                 | Specifies how long (in Milliseconds) unacknowledged data can remain before forcibly closing the connection.                                                  | 0              |
-| `client_connection_check_interval` | Sets the interval (in Milliseconds) for checking client connection status during long-running queries. This ensures quicker detection of closed connections. | 0              | ## Use cases for TCP keepalive settings ### Keeping idle sessions alive To prevent idle connections from being terminated by firewalls or routers due to inactivity: <br>• Configure `tcp_keepalives_idle` to send keepalive packets at regular intervals. ### Detecting dead connections To detect dead connections promptly: <br>• Adjust `tcp_keepalives_idle`, `tcp_keepalives_interval`, and `tcp_keepalives_count`. For example, with Aurora PostgreSQL defaults, it takes about a minute (2 probes × 30 seconds) to detect a dead connection. Lowering these values can speed up detection. <br>• Use `tcp_user_timeout` to specify the maximum wait time for an acknowledgment. TCP keepalive settings help the kernel detect dead connections, but PostgreSQL may not act until the socket is used. If a session is running a long query, dead connections might only be detected after query completion. In PostgreSQL 14 and higher versions, `client_connection_check_interval` can expedite dead connection detection by periodically polling the socket during query execution. ## Best practices <br>• **Set reasonable keepalive intervals:** Tune `tcp_user_timeout`, `tcp_keepalives_idle`, `tcp_keepalives_count` and `tcp_keepalives_interval` to balance detection speed and resource use. <br>• **Optimize for your environment:** Align settings with network behavior, firewall policies, and session needs. <br>• **Leverage PostgreSQL features:** Use `client_connection_check_interval` in PostgreSQL 14 and higher versions for efficient connection checks. |
+- [Installing autovacuum monitoring and diagnostic tools in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Functions
+  of postgres_get_av_diag() in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Resolving identifiable vacuum blockers in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Resolving unidentifiable vacuum blockers in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Resolving vacuum performance issues in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Explanation
+  of the NOTICE messages in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")

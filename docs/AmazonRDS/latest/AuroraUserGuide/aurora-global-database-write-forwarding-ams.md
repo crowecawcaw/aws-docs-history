@@ -364,58 +364,248 @@ immediately followed by a `SELECT` statement still returns the value of `COUNT(*
 reflects the number of rows before the new row is inserted. Running the `SELECT` again a short time later returns
 the updated row count. The `SELECT` statements don't wait.
 
-````
+```
 mysql> set aurora_replica_read_consistency = 'eventual';
 mysql> select count(*) from t1;
 +----------+
-| count(*) | +----------+
-|        5 | +----------+ 1 row in set (0.00 sec) mysql> insert into t1 values (6); select count(*) from t1; +----------+
-| count(*) | +----------+
-|        5 | +----------+ 1 row in set (0.00 sec) mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        6 | +----------+ 1 row in set (0.00 sec) ``` With a read consistency setting of `session`, a `SELECT` statement immediately after an `INSERT` waits until the changes from the `INSERT` statement are visible. Subsequent `SELECT` statements don't wait. ``` mysql> set aurora_replica_read_consistency = 'session'; mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        6 | +----------+ 1 row in set (0.01 sec) mysql> insert into t1 values (6); select count(*) from t1; select count(*) from t1; Query OK, 1 row affected (0.08 sec) +----------+
-| count(*) | +----------+
-|        7 | +----------+ 1 row in set (0.37 sec) +----------+
-| count(*) | +----------+
-|        7 | +----------+ 1 row in set (0.00 sec) ``` With the read consistency setting still set to `session`, introducing a brief wait after performing an `INSERT` statement makes the updated row count available by the time the next `SELECT` statement runs. ``` mysql> insert into t1 values (6); select sleep(2); select count(*) from t1; Query OK, 1 row affected (0.07 sec) +----------+
-| sleep(2) | +----------+
-|        0 | +----------+ 1 row in set (2.01 sec) +----------+
-| count(*) | +----------+
-|        8 | +----------+ 1 row in set (0.00 sec) ``` With a read consistency setting of `global`, each `SELECT` statement waits to ensure that all data changes as of the start time of the statement are visible before performing the query. The amount of waiting for each `SELECT` statement varies, depending on the amount of replication lag between the primary and secondary clusters. ``` mysql> set aurora_replica_read_consistency = 'global'; mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        8 | +----------+ 1 row in set (0.75 sec) mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        8 | +----------+ 1 row in set (0.37 sec) mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        8 | +----------+ 1 row in set (0.66 sec) ``` ## Running multipart statements with write forwarding in Aurora MySQL A DML statement might consist of multiple parts, such as a `INSERT ... SELECT` statement or a `DELETE ... WHERE` statement. In this case, the entire statement is forwarded to the primary cluster and run there. ## Transactions with write forwarding in Aurora MySQL Whether the transaction is forwarded to the primary cluster depends on the access mode of the transaction. You can specify the access mode for the transaction by using the `SET TRANSACTION` statement or the `START TRANSACTION` statement. You can also specify the transaction access mode by changing the value of the [transaction\_read\_only](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only") session variable. You can change this session value only while you're connected to a DB cluster that has write forwarding enabled. If a long-running transaction doesn't issue any statement for a substantial period of time, it might exceed the idle timeout period. This period has a default of one minute. You can increase it up to one day. A transaction that exceeds the idle timeout is canceled by the primary cluster. The next subsequent statement you submit receives a timeout error. Then Aurora rolls back the transaction. This type of error can occur in other cases when write forwarding becomes unavailable. For example, Aurora cancels any transactions that use write forwarding if you restart the primary cluster or if you turn off the write forwarding configuration setting. ## Configuration parameters for write forwarding in Aurora MySQL The Aurora cluster parameter groups include settings for the write forwarding feature. Because these are cluster parameters, all DB instances in each cluster have the same values for these variables. Details about these parameters are summarized in the following table, with usage notes after the table.
-| Name | Scope | Type | Default value | Valid values |
-| --- | --- | --- | --- | --- |
-| `aurora_fwd_master_idle_timeout` (Aurora MySQL version 2) | Global  | unsigned integer | 60 | 1–86,400 |
-| `aurora_fwd_master_max_connections_pct` (Aurora MySQL version 2) | Global | unsigned long integer | 10 | 0–90 |
-| `aurora_fwd_writer_idle_timeout` (Aurora MySQL version 3) | Global | unsigned integer | 60 | 1–86,400 |
-| `aurora_fwd_writer_max_connections_pct` (Aurora MySQL version 3) | Global | unsigned long integer | 10 | 0–90 |
-| `aurora_replica_read_consistency` | Session for version 2 and version 3 lower than 3.04, Global for version 3.04 and higher | Enum | '' (null) | `EVENTUAL`, `SESSION`, `GLOBAL` | To control incoming write requests from secondary clusters, use these settings on the primary cluster: <br>• `aurora_fwd_master_idle_timeout`, `aurora_fwd_writer_idle_timeout`: The number of seconds the primary cluster waits for activity on a connection that's forwarded from a secondary cluster before closing it. If the session remains idle beyond this period, Aurora cancels the session. <br>• `aurora_fwd_master_max_connections_pct`, `aurora_fwd_writer_max_connections_pct`: The upper limit on database connections that can be used on a writer DB instance to handle queries forwarded from readers. It's expressed as a percentage of the `max_connections` setting for the writer DB instance in the primary cluster. For example, if `max_connections` is 800 and `aurora_fwd_master_max_connections_pct` or `aurora_fwd_writer_max_connections_pct` is 10, then the writer allows a maximum of 80 simultaneous forwarded sessions. These connections come from the same connection pool managed by the `max_connections` setting. This setting applies only on the primary cluster, when one or more secondary clusters have write forwarding enabled. If you decrease the value, existing connections aren't affected. Aurora takes the new value of the setting into account when attempting to create a new connection from a secondary cluster. The default value is 10, representing 10% of the `max_connections` value. If you enable query forwarding on any of the secondary clusters, this setting must have a nonzero value for write operations from secondary clusters to succeed. If the value is zero, the write operations receive the error code `ER_CON_COUNT_ERROR` with the message `Not enough connections on writer to handle your request`. The `aurora_replica_read_consistency` parameter enables write forwarding. You use it in each session. You can specify `EVENTUAL`, `SESSION`, or `GLOBAL` for read consistency level. To learn more about consistency levels, see [Isolation and consistency for write forwarding in Aurora MySQL](#aurora-global-database-write-forwarding-isolation-ams "#aurora-global-database-write-forwarding-isolation-ams"). The following rules apply to this parameter: <br>• The default value is '' (empty). <br>• Write forwarding is available in a session only if `aurora_replica_read_consistency` is set to `EVENTUAL` or `SESSION` or `GLOBAL`. This parameter is relevant only in reader instances of secondary clusters that have write forwarding enabled and that are in an Aurora global database. <br>• You can't set this variable (when empty) or unset (when already set) inside a multistatement transaction. However, you can change it from one valid value (`EVENTUAL`, `SESSION`, or `GLOBAL`) to another valid value (`EVENTUAL`, `SESSION`, or `GLOBAL`) during such a transaction. <br>• The variable can't be `SET` when write forwarding isn't enabled on the secondary cluster. ## Amazon CloudWatch metrics for write forwarding in Aurora MySQL The following Amazon CloudWatch metrics apply to the primary cluster when you use write forwarding on one or more secondary clusters. These metrics are all measured on the writer DB instance in the primary cluster.
-| CloudWatch metric | Unit | Description | | --- | --- | --- |
-| `AuroraDMLRejectedMasterFull` | Count | The number of forwarded queries that are rejected because the session is full on the writer DB instance. For Aurora MySQL version 2. | | `AuroraDMLRejectedWriterFull` | Count | The number of forwarded queries that are rejected because the session is full on the writer DB instance. For Aurora MySQL version 3. |
-| `ForwardingMasterDMLLatency` | Milliseconds | Average time to process each forwarded DML statement on the writer DB instance. It doesn't include the time for the secondary cluster to forward the write request, or the time to replicate changes back to the secondary cluster. For Aurora MySQL version 2. | | `ForwardingMasterDMLThroughput` | Count per second | Number of forwarded DML statements processed each second by this writer DB instance. For Aurora MySQL version 2. |
-| `ForwardingMasterOpenSessions` | Count | Number of forwarded sessions on the writer DB instance. For Aurora MySQL version 2. | | `ForwardingWriterDMLLatency` | Milliseconds | Average time to process each forwarded DML statement on the writer DB instance. It doesn't include the time for the secondary cluster to forward the write request, or the time to replicate changes back to the secondary cluster. For Aurora MySQL version 3. |
-| `ForwardingWriterDMLThroughput` | Count per second | Number of forwarded DML statements processed each second by this writer DB instance.For Aurora MySQL version 3. | | `ForwardingWriterOpenSessions` | Count | Number of forwarded sessions on the writer DB instance.For Aurora MySQL version 3. | The following CloudWatch metrics apply to each secondary cluster. These metrics are measured on each reader DB instance in a secondary cluster with write forwarding enabled.
-| CloudWatch metric | Unit | Description | | --- | --- | --- |
-| `ForwardingReplicaDMLLatency` | Milliseconds | Average response time of forwarded DMLs on the replica. | | `ForwardingReplicaDMLThroughput` | Count per second | Number of forwarded DML statements processed each second. |
-| `ForwardingReplicaOpenSessions` | Count | Number of sessions that are using write forwarding on a reader DB instance. | | `ForwardingReplicaReadWaitLatency` | Milliseconds | Average wait time that a `SELECT` statement on a reader DB instance waits to catch up to the primary cluster. The degree to which the reader DB instance waits before processing a query depends on the `aurora_replica_read_consistency` setting. |
-| `ForwardingReplicaReadWaitThroughput` | Count per second | Total number of `SELECT` statements processed each second in all sessions that are forwarding writes. | | `ForwardingReplicaSelectLatency` | Milliseconds | Forwarded `SELECT` latency, average over all forwarded `SELECT` statements within the monitoring period. |
-| `ForwardingReplicaSelectThroughput` | Count per second | Forwarded `SELECT` throughput per second average within the monitoring period. | ## Aurora MySQL status variables for write forwarding The following Aurora MySQL status variables apply to the primary cluster when you use write forwarding on one or more secondary clusters. These metrics are all measured on the writer DB instance in the primary cluster. | Aurora MySQL status variable | Unit | Description |
-| --- | --- | --- | | `Aurora_fwd_master_dml_stmt_count` | Count | Total number of DML statements forwarded to this writer DB instance.For Aurora MySQL version 2. |
-| `Aurora_fwd_master_dml_stmt_duration` | Microseconds | Total duration of DML statements forwarded to this writer DB instance. For Aurora MySQL version 2. | | `Aurora_fwd_master_open_sessions` | Count | Number of forwarded sessions on the writer DB instance. For Aurora MySQL version 2. |
-| `Aurora_fwd_master_select_stmt_count` | Count | Total number of `SELECT` statements forwarded to this writer DB instance. For Aurora MySQL version 2. | | `Aurora_fwd_master_select_stmt_duration` | Microseconds | Total duration of `SELECT` statements forwarded to this writer DB instance. For Aurora MySQL version 2. |
-| `Aurora_fwd_writer_dml_stmt_count` | Count | Total number of DML statements forwarded to this writer DB instance.For Aurora MySQL version 3. | | `Aurora_fwd_writer_dml_stmt_duration` | Microseconds | Total duration of DML statements forwarded to this writer DB instance. |
-| `Aurora_fwd_writer_open_sessions` | Count | Number of forwarded sessions on the writer DB instance.For Aurora MySQL version 3. | | `Aurora_fwd_writer_select_stmt_count` | Count | Total number of `SELECT` statements forwarded to this writer DB instance.For Aurora MySQL version 3. |
-| `Aurora_fwd_writer_select_stmt_duration` | Microseconds | Total duration of `SELECT` statements forwarded to this writer DB instance. For Aurora MySQL version 3. | The following Aurora MySQL status variables apply to each secondary cluster. These metrics are measured on each reader DB instance in a secondary cluster with write forwarding enabled. | Aurora MySQL status variable | Unit | Description |
-| --- | --- | --- | | `Aurora_fwd_replica_dml_stmt_count` | Count | Total number of DML statements forwarded from this reader DB instance. |
-| `Aurora_fwd_replica_dml_stmt_duration` | Microseconds | Total duration of all DML statements forwarded from this reader DB instance. | | `Aurora_fwd_replica_errors_session_limit` | Count | Number of sessions rejected by the primary cluster due to one of the following error conditions: <br>• **`writer full`** <br>• **`Too many forwarded statements in progress`**.
-| | `Aurora_fwd_replica_open_sessions` | Count | Number of sessions that are using write forwarding on a reader DB instance. | | `Aurora_fwd_replica_read_wait_count` | Count | Total number of read-after-write waits on this reader DB instance.  |
-| `Aurora_fwd_replica_read_wait_duration` | Microseconds | Total duration of waits due to the read consistency setting on this reader DB instance. | | `Aurora_fwd_replica_select_stmt_count` | Count | Total number of `SELECT` statements forwarded from this reader DB instance. |
-| `Aurora_fwd_replica_select_stmt_duration` | Microseconds | Total duration of `SELECT` statements forwarded from this reader DB instance.  |
-````
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+mysql> insert into t1 values (6); select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+```
+
+With a read consistency setting of `session`, a `SELECT` statement immediately after an
+`INSERT` waits until the changes from the `INSERT` statement are visible. Subsequent
+`SELECT` statements don't wait.
+
+```
+mysql> set aurora_replica_read_consistency = 'session';
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.01 sec)
+mysql> insert into t1 values (6); select count(*) from t1; select count(*) from t1;
+Query OK, 1 row affected (0.08 sec)
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.37 sec)
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.00 sec)
+
+```
+
+With the read consistency setting still set to `session`, introducing a brief wait after
+performing an `INSERT` statement makes the updated row count available by the time the next
+`SELECT` statement runs.
+
+```
+mysql> insert into t1 values (6); select sleep(2); select count(*) from t1;
+Query OK, 1 row affected (0.07 sec)
++----------+
+| sleep(2) |
++----------+
+|        0 |
++----------+
+1 row in set (2.01 sec)
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.00 sec)
+
+```
+
+With a read consistency setting of `global`, each `SELECT` statement waits to ensure
+that all data changes as of the start time of the statement are visible before performing the query. The
+amount of waiting for each `SELECT` statement varies, depending on the amount of replication lag
+between the primary and secondary clusters.
+
+```
+mysql> set aurora_replica_read_consistency = 'global';
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.75 sec)
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.37 sec)
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.66 sec)
+
+```
+
+## Running multipart statements with write forwarding in Aurora MySQL
+
+A DML statement might consist of multiple parts, such as a `INSERT ... SELECT`
+statement or a `DELETE ... WHERE` statement. In this case, the entire statement
+is forwarded to the primary cluster and run there.
+
+## Transactions with write forwarding in Aurora MySQL
+
+Whether the transaction is forwarded to the primary cluster depends on the access mode of the transaction. You can specify the access mode for the
+transaction by using the `SET TRANSACTION` statement or the `START TRANSACTION` statement. You can also specify the transaction
+access mode by changing the value of the [transaction_read_only](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only") session variable. You can change this session value only while you're connected to a DB cluster that has write
+forwarding enabled.
+
+If a long-running transaction doesn't issue any statement for a substantial period of time, it might
+exceed the idle timeout period. This period has a default of one minute. You can increase it up to one day. A
+transaction that exceeds the idle timeout is canceled by the primary cluster. The next subsequent statement
+you submit receives a timeout error. Then Aurora rolls back the transaction.
+
+This type of error can occur in other cases when write forwarding becomes unavailable. For example, Aurora
+cancels any transactions that use write forwarding if you restart the primary cluster or if you turn off the
+write forwarding configuration setting.
+
+## Configuration parameters for write forwarding in Aurora MySQL
+
+The Aurora cluster parameter groups include settings for the write forwarding feature. Because these
+are cluster parameters, all DB instances in each cluster have the same values for these variables. Details
+about these parameters are summarized in the following table, with usage notes after the table.
+
+| Name                                                             | Scope                                                                                      | Type                  | Default value | Valid values                    |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------- | ------------- | ------------------------------- |
+| `aurora_fwd_master_idle_timeout` (Aurora MySQL version 2)        | Global                                                                                     | unsigned integer      | 60            | 1–86,400                        |
+| `aurora_fwd_master_max_connections_pct` (Aurora MySQL version 2) | Global                                                                                     | unsigned long integer | 10            | 0–90                            |
+| `aurora_fwd_writer_idle_timeout` (Aurora MySQL version 3)        | Global                                                                                     | unsigned integer      | 60            | 1–86,400                        |
+| `aurora_fwd_writer_max_connections_pct` (Aurora MySQL version 3) | Global                                                                                     | unsigned long integer | 10            | 0–90                            |
+| `aurora_replica_read_consistency`                                | Session for version 2 and version 3 lower than 3.04, Global for version 3.04<br>and higher | Enum                  | '' (null)     | `EVENTUAL`, `SESSION`, `GLOBAL` |
+
+To control incoming write requests from secondary clusters, use these settings on the primary cluster:
+
+- `aurora_fwd_master_idle_timeout`, `aurora_fwd_writer_idle_timeout`: The number of seconds the primary cluster waits for activity
+  on a connection that's forwarded from a secondary cluster before closing it. If the session remains
+  idle beyond this period, Aurora cancels the session.
+- `aurora_fwd_master_max_connections_pct`, `aurora_fwd_writer_max_connections_pct`: The upper limit on database connections that can be
+  used on a writer DB instance to handle queries forwarded from readers. It's expressed as a percentage
+  of the `max_connections` setting for the writer DB instance in the primary cluster. For
+  example, if `max_connections` is 800 and `aurora_fwd_master_max_connections_pct` or
+  `aurora_fwd_writer_max_connections_pct` is
+  10, then the writer allows a maximum of 80 simultaneous forwarded sessions. These connections come from
+  the same connection pool managed by the `max_connections` setting.
+
+This setting applies only on the primary cluster, when one or more secondary clusters have write
+forwarding enabled. If you decrease the value, existing connections aren't affected. Aurora takes the
+new value of the setting into account when attempting to create a new connection from a secondary cluster.
+The default value is 10, representing 10% of the `max_connections` value. If you enable query
+forwarding on any of the secondary clusters, this setting must have a nonzero value for write operations
+from secondary clusters to succeed. If the value is zero, the write operations receive the error code
+`ER_CON_COUNT_ERROR` with the message `Not enough connections on writer to handle your
+ request`.
+
+The `aurora_replica_read_consistency` parameter enables write forwarding. You
+use it in each session. You can specify `EVENTUAL`, `SESSION`, or
+`GLOBAL` for read consistency level. To learn more about consistency levels,
+see [Isolation and consistency for write forwarding in Aurora MySQL](#aurora-global-database-write-forwarding-isolation-ams "#aurora-global-database-write-forwarding-isolation-ams"). The following
+rules apply to this parameter:
+
+- The default value is '' (empty).
+- Write forwarding is available in a session only if
+  `aurora_replica_read_consistency` is set to `EVENTUAL` or
+  `SESSION` or `GLOBAL`. This parameter is relevant only in reader
+  instances of secondary clusters that have write forwarding enabled and that are in an
+  Aurora global database.
+- You can't set this variable (when empty) or unset (when already set) inside a multistatement transaction.
+  However, you can change it from one valid value (`EVENTUAL`, `SESSION`, or `GLOBAL`) to
+  another valid value (`EVENTUAL`, `SESSION`, or `GLOBAL`) during such a transaction.
+- The variable can't be `SET` when write forwarding isn't
+  enabled on the secondary cluster.
+
+## Amazon CloudWatch metrics for write forwarding in Aurora MySQL
+
+The following Amazon CloudWatch metrics apply to the primary cluster when you use write forwarding on one or more secondary clusters. These metrics are all
+measured on the writer DB instance in the primary cluster.
+
+| CloudWatch metric               | Unit             | Description                                                                                                                                                                                                                                                              |
+| ------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `AuroraDMLRejectedMasterFull`   | Count            | The number of forwarded queries that are rejected because the session is full on the writer DB instance.<br>For Aurora MySQL version 2.                                                                                                                                  |
+| `AuroraDMLRejectedWriterFull`   | Count            | The number of forwarded queries that are rejected because the session is full on the writer DB instance.<br>For Aurora MySQL version 3.                                                                                                                                  |
+| `ForwardingMasterDMLLatency`    | Milliseconds     | Average time to process each forwarded DML statement on the writer DB instance.<br>It doesn't include the time for the secondary cluster to forward the write request, or the time to replicate changes back to the<br>secondary cluster.<br>For Aurora MySQL version 2. |
+| `ForwardingMasterDMLThroughput` | Count per second | Number of forwarded DML statements processed each second by this writer DB instance.<br>For Aurora MySQL version 2.                                                                                                                                                      |
+| `ForwardingMasterOpenSessions`  | Count            | Number of forwarded sessions on the writer DB instance.<br>For Aurora MySQL version 2.                                                                                                                                                                                   |
+| `ForwardingWriterDMLLatency`    | Milliseconds     | Average time to process each forwarded DML statement on the writer DB instance.<br>It doesn't include the time for the secondary cluster to forward the write request, or the time to replicate changes back to the<br>secondary cluster.<br>For Aurora MySQL version 3. |
+| `ForwardingWriterDMLThroughput` | Count per second | Number of forwarded DML statements processed each second by this writer DB instance.For Aurora MySQL version 3.                                                                                                                                                          |
+| `ForwardingWriterOpenSessions`  | Count            | Number of forwarded sessions on the writer DB instance.For Aurora MySQL version 3.                                                                                                                                                                                       |
+
+The following CloudWatch metrics apply to each secondary cluster. These metrics are measured on each reader DB instance in a secondary cluster with write
+forwarding enabled.
+
+| CloudWatch metric                     | Unit             | Description                                                                                                                                                                                                                                              |
+| ------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ForwardingReplicaDMLLatency`         | Milliseconds     | Average response time of forwarded DMLs on the replica.                                                                                                                                                                                                  |
+| `ForwardingReplicaDMLThroughput`      | Count per second | Number of forwarded DML statements processed each second.                                                                                                                                                                                                |
+| `ForwardingReplicaOpenSessions`       | Count            | Number of sessions that are using write forwarding on a reader DB instance.                                                                                                                                                                              |
+| `ForwardingReplicaReadWaitLatency`    | Milliseconds     | Average wait time that a `SELECT` statement on a reader DB instance waits to catch up to the primary cluster.<br>The degree to which the reader DB instance waits before processing a query depends on the `aurora_replica_read_consistency`<br>setting. |
+| `ForwardingReplicaReadWaitThroughput` | Count per second | Total number of `SELECT` statements processed each second in all sessions that are forwarding writes.                                                                                                                                                    |
+| `ForwardingReplicaSelectLatency`      | Milliseconds     | Forwarded `SELECT` latency, average over all forwarded `SELECT` statements within the monitoring period.                                                                                                                                                 |
+| `ForwardingReplicaSelectThroughput`   | Count per second | Forwarded `SELECT` throughput per second average within the monitoring period.                                                                                                                                                                           |
+
+## Aurora MySQL status variables for write forwarding
+
+The following Aurora MySQL status variables apply to the primary cluster when you use write forwarding on one or more secondary clusters. These
+metrics are all measured on the writer DB instance in the primary cluster.
+
+| Aurora MySQL status variable             | Unit         | Description                                                                                                |
+| ---------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------- |
+| `Aurora_fwd_master_dml_stmt_count`       | Count        | Total number of DML statements forwarded to this writer DB instance.For Aurora MySQL version 2.            |
+| `Aurora_fwd_master_dml_stmt_duration`    | Microseconds | Total duration of DML statements forwarded to this writer DB instance.<br>For Aurora MySQL version 2.      |
+| `Aurora_fwd_master_open_sessions`        | Count        | Number of forwarded sessions on the writer DB instance.<br>For Aurora MySQL version 2.                     |
+| `Aurora_fwd_master_select_stmt_count`    | Count        | Total number of `SELECT` statements forwarded to this writer DB instance.<br>For Aurora MySQL version 2.   |
+| `Aurora_fwd_master_select_stmt_duration` | Microseconds | Total duration of `SELECT` statements forwarded to this writer DB instance.<br>For Aurora MySQL version 2. |
+| `Aurora_fwd_writer_dml_stmt_count`       | Count        | Total number of DML statements forwarded to this writer DB instance.For Aurora MySQL version 3.            |
+| `Aurora_fwd_writer_dml_stmt_duration`    | Microseconds | Total duration of DML statements forwarded to this writer DB instance.                                     |
+| `Aurora_fwd_writer_open_sessions`        | Count        | Number of forwarded sessions on the writer DB instance.For Aurora MySQL version 3.                         |
+| `Aurora_fwd_writer_select_stmt_count`    | Count        | Total number of `SELECT` statements forwarded to this writer DB instance.For Aurora MySQL version 3.       |
+| `Aurora_fwd_writer_select_stmt_duration` | Microseconds | Total duration of `SELECT` statements forwarded to this writer DB instance.<br>For Aurora MySQL version 3. |
+
+The following Aurora MySQL status variables apply to each secondary cluster. These metrics are measured on each reader DB instance in a secondary
+cluster with write forwarding enabled.
+
+| Aurora MySQL status variable              | Unit         | Description                                                                                                                                                                   |
+| ----------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Aurora_fwd_replica_dml_stmt_count`       | Count        | Total number of DML statements forwarded from this reader DB instance.                                                                                                        |
+| `Aurora_fwd_replica_dml_stmt_duration`    | Microseconds | Total duration of all DML statements forwarded from this reader DB instance.                                                                                                  |
+| `Aurora_fwd_replica_errors_session_limit` | Count        | Number of sessions rejected by the primary cluster due to one of the following error conditions:<br>• **`writer full`**<br>• **`Too many forwarded statements in progress`**. |
+| `Aurora_fwd_replica_open_sessions`        | Count        | Number of sessions that are using write forwarding on a reader DB instance.                                                                                                   |
+| `Aurora_fwd_replica_read_wait_count`      | Count        | Total number of read-after-write waits on this reader DB instance.                                                                                                            |
+| `Aurora_fwd_replica_read_wait_duration`   | Microseconds | Total duration of waits due to the read consistency setting on this reader DB instance.                                                                                       |
+| `Aurora_fwd_replica_select_stmt_count`    | Count        | Total number of `SELECT` statements forwarded from this reader DB instance.                                                                                                   |
+| `Aurora_fwd_replica_select_stmt_duration` | Microseconds | Total duration of `SELECT` statements forwarded from this reader DB instance.                                                                                                 |

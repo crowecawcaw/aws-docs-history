@@ -2618,7 +2618,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
 
-````
+```
 /**
  * Before running this Java (v2) code example, set up your development
  * environment, including your credentials.
@@ -3151,6 +3151,3663 @@ public class AuroraScenario {
                 // auto_increment_increment.
                 paraName = para.parameterName();
                 if ((paraName.compareTo("auto_increment_offset") == 0)
-|| (paraName.compareTo("auto_increment_increment ") == 0)) { System.out.println("*** The parameter name is  " + paraName); System.out.println("*** The parameter value is  " + para.parameterValue()); System.out.println("*** The parameter data type is " + para.dataType()); System.out.println("*** The parameter description is " + para.description()); System.out.println("*** The parameter allowed values  is " + para.allowedValues()); } } } catch (RdsException e) { System.out.println(e.getLocalizedMessage()); System.exit(1); } } public static void describeDbClusterParameterGroups(RdsClient rdsClient, String dbClusterGroupName) { try { DescribeDbClusterParameterGroupsRequest groupsRequest = DescribeDbClusterParameterGroupsRequest.builder() .dbClusterParameterGroupName(dbClusterGroupName) .maxRecords(20) .build(); List<DBClusterParameterGroup> groups = rdsClient.describeDBClusterParameterGroups(groupsRequest) .dbClusterParameterGroups(); for (DBClusterParameterGroup group : groups) { System.out.println("The group name is " + group.dbClusterParameterGroupName()); System.out.println("The group ARN is " + group.dbClusterParameterGroupArn()); } } catch (RdsException e) { System.out.println(e.getLocalizedMessage()); System.exit(1); } } public static void createDBClusterParameterGroup(RdsClient rdsClient, String dbClusterGroupName, String dbParameterGroupFamily) { try { CreateDbClusterParameterGroupRequest groupRequest = CreateDbClusterParameterGroupRequest.builder() .dbClusterParameterGroupName(dbClusterGroupName) .dbParameterGroupFamily(dbParameterGroupFamily) .description("Created by using the AWS SDK for Java") .build(); CreateDbClusterParameterGroupResponse response = rdsClient.createDBClusterParameterGroup(groupRequest); System.out.println("The group name is " + response.dbClusterParameterGroup().dbClusterParameterGroupName()); } catch (RdsException e) { System.out.println(e.getLocalizedMessage()); System.exit(1); } } public static void describeDBEngines(RdsClient rdsClient) { try { DescribeDbEngineVersionsRequest engineVersionsRequest = DescribeDbEngineVersionsRequest.builder() .engine("aurora-mysql") .defaultOnly(true) .maxRecords(20) .build(); DescribeDbEngineVersionsResponse response = rdsClient.describeDBEngineVersions(engineVersionsRequest); List<DBEngineVersion> engines = response.dbEngineVersions(); // Get all DBEngineVersion objects. for (DBEngineVersion engineOb : engines) { System.out.println("The name of the DB parameter group family for the database engine is " + engineOb.dbParameterGroupFamily()); System.out.println("The name of the database engine " + engineOb.engine()); System.out.println("The version number of the database engine " + engineOb.engineVersion()); } } catch (RdsException e) { System.out.println(e.getLocalizedMessage()); System.exit(1); } } } ``` <br>• For API details, see the following topics in *AWS SDK for Java 2.x API Reference*. + [CreateDBCluster](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster.md") + [CreateDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterParameterGroup.md") + [CreateDBClusterSnapshot](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterSnapshot.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterSnapshot.md") + [CreateDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md") + [DeleteDBCluster](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBCluster.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBCluster.md") + [DeleteDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBClusterParameterGroup.md") + [DeleteDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance.md") + [DescribeDBClusterParameterGroups](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameterGroups.md") + [DescribeDBClusterParameters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameters.md") + [DescribeDBClusterSnapshots](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots.md") + [DescribeDBClusters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters.md") + [DescribeDBEngineVersions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions.md") + [DescribeDBInstances](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances.md") + [DescribeOrderableDBInstanceOptions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md") + [ModifyDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBClusterParameterGroup.md") Kotlin **SDK for Kotlin** ###### Note There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples"). ``` /** Before running this Kotlin code example, set up your development environment, including your credentials. For more information, see the following documentation topic: https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/setup.html This example requires an AWS Secrets Manager secret that contains the database credentials. If you do not create a secret, this example will not work. For more details, see: https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_RS.html This Kotlin example performs the following tasks: 1. Returns a list of the available DB engines. 2. Creates a custom DB parameter group. 3. Gets the parameter groups. 4. Gets the parameters in the group. 5. Modifies the auto_increment_increment parameter. 6. Displays the updated parameter value. 7. Gets a list of allowed engine versions. 8. Creates an Aurora DB cluster database. 9. Waits for DB instance to be ready. 10. Gets a list of instance classes available for the selected engine. 11. Creates a database instance in the cluster. 12. Waits for the database instance in the cluster to be ready. 13. Creates a snapshot. 14. Waits for DB snapshot to be ready. 15. Deletes the DB instance. 16. Deletes the DB cluster. 17. Deletes the DB cluster group. */ var slTime: Long = 20 suspend fun main(args: Array<String>) { val usage = """ Usage: <dbClusterGroupName> <dbParameterGroupFamily> <dbInstanceClusterIdentifier> <dbName> <dbSnapshotIdentifier> <secretName> Where: dbClusterGroupName - The database group name. dbParameterGroupFamily - The database parameter group name. dbInstanceClusterIdentifier - The database instance identifier. dbName -  The database name. dbSnapshotIdentifier - The snapshot identifier. secretName - The name of the AWS Secrets Manager secret that contains the database credentials. """ if (args.size != 7) { println(usage) exitProcess(1) } val dbClusterGroupName = args[0] val dbParameterGroupFamily = args[1] val dbInstanceClusterIdentifier = args[2] val dbInstanceIdentifier = args[3] val dbName = args[4] val dbSnapshotIdentifier = args[5] val secretName = args[6] val gson = Gson() val user = gson.fromJson(getSecretValues(secretName).toString(), User::class.java) val username = user.username val userPassword = user.password println("1. Return a list of the available DB engines") describeAuroraDBEngines() println("2. Create a custom parameter group") createDBClusterParameterGroup(dbClusterGroupName, dbParameterGroupFamily) println("3. Get the parameter group") describeDbClusterParameterGroups(dbClusterGroupName) println("4. Get the parameters in the group") describeDbClusterParameters(dbClusterGroupName, 0) println("5. Modify the auto_increment_offset parameter") modifyDBClusterParas(dbClusterGroupName) println("6. Display the updated parameter value") describeDbClusterParameters(dbClusterGroupName, -1) println("7. Get a list of allowed engine versions") getAllowedClusterEngines(dbParameterGroupFamily) println("8. Create an Aurora DB cluster database") val arnClusterVal = createDBCluster(dbClusterGroupName, dbName, dbInstanceClusterIdentifier, username, userPassword) println("The ARN of the cluster is $arnClusterVal") println("9. Wait for DB instance to be ready") waitForClusterInstanceReady(dbInstanceClusterIdentifier) println("10. Get a list of instance classes available for the selected engine") val instanceClass = getListInstanceClasses() println("11. Create a database instance in the cluster.") val clusterDBARN = createDBInstanceCluster(dbInstanceIdentifier, dbInstanceClusterIdentifier, instanceClass) println("The ARN of the database is $clusterDBARN") println("12. Wait for DB instance to be ready") waitDBAuroraInstanceReady(dbInstanceIdentifier) println("13. Create a snapshot") createDBClusterSnapshot(dbInstanceClusterIdentifier, dbSnapshotIdentifier) println("14. Wait for DB snapshot to be ready") waitSnapshotReady(dbSnapshotIdentifier, dbInstanceClusterIdentifier) println("15. Delete the DB instance") deleteDBInstance(dbInstanceIdentifier) println("16. Delete the DB cluster") deleteCluster(dbInstanceClusterIdentifier) println("17. Delete the DB cluster group") if (clusterDBARN != null) { deleteDBClusterGroup(dbClusterGroupName, clusterDBARN) } println("The Scenario has successfully completed.") } @Throws(InterruptedException::class) suspend fun deleteDBClusterGroup( dbClusterGroupName: String, clusterDBARN: String, ) { var isDataDel = false var didFind: Boolean var instanceARN: String RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> // Make sure that the database has been deleted. while (!isDataDel) { val response = rdsClient.describeDbInstances() val instanceList = response.dbInstances val listSize = instanceList?.size isDataDel = false didFind = false var index = 1 if (instanceList != null) { for (instance in instanceList) { instanceARN = instance.dbInstanceArn.toString() if (instanceARN.compareTo(clusterDBARN) == 0) { println("$clusterDBARN still exists") didFind = true } if (index == listSize && !didFind) { // Went through the entire list and did not find the database ARN. isDataDel = true } delay(slTime * 1000) index++ } } } val clusterParameterGroupRequest = DeleteDbClusterParameterGroupRequest { dbClusterParameterGroupName = dbClusterGroupName } rdsClient.deleteDbClusterParameterGroup(clusterParameterGroupRequest) println("$dbClusterGroupName was deleted.") } } suspend fun deleteCluster(dbInstanceClusterIdentifier: String) { val deleteDbClusterRequest = DeleteDbClusterRequest { dbClusterIdentifier = dbInstanceClusterIdentifier skipFinalSnapshot = true } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> rdsClient.deleteDbCluster(deleteDbClusterRequest) println("$dbInstanceClusterIdentifier was deleted!") } } suspend fun deleteDBInstance(dbInstanceIdentifierVal: String) { val deleteDbInstanceRequest = DeleteDbInstanceRequest { dbInstanceIdentifier = dbInstanceIdentifierVal deleteAutomatedBackups = true skipFinalSnapshot = true } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.deleteDbInstance(deleteDbInstanceRequest) print("The status of the database is ${response.dbInstance?.dbInstanceStatus}") } } suspend fun waitSnapshotReady( dbSnapshotIdentifier: String?, dbInstanceClusterIdentifier: String?, ) { var snapshotReady = false var snapshotReadyStr: String println("Waiting for the snapshot to become available.") val snapshotsRequest = DescribeDbClusterSnapshotsRequest { dbClusterSnapshotIdentifier = dbSnapshotIdentifier dbClusterIdentifier = dbInstanceClusterIdentifier } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> while (!snapshotReady) { val response = rdsClient.describeDbClusterSnapshots(snapshotsRequest) val snapshotList = response.dbClusterSnapshots if (snapshotList != null) { for (snapshot in snapshotList) { snapshotReadyStr = snapshot.status.toString() if (snapshotReadyStr.contains("available")) { snapshotReady = true } else { println(".") delay(slTime * 5000) } } } } } println("The Snapshot is available!") } suspend fun createDBClusterSnapshot( dbInstanceClusterIdentifier: String?, dbSnapshotIdentifier: String?, ) { val snapshotRequest = CreateDbClusterSnapshotRequest { dbClusterIdentifier = dbInstanceClusterIdentifier dbClusterSnapshotIdentifier = dbSnapshotIdentifier } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.createDbClusterSnapshot(snapshotRequest) println("The Snapshot ARN is ${response.dbClusterSnapshot?.dbClusterSnapshotArn}") } } suspend fun waitDBAuroraInstanceReady(dbInstanceIdentifierVal: String?) { var instanceReady = false var instanceReadyStr: String println("Waiting for instance to become available.") val instanceRequest = DescribeDbInstancesRequest { dbInstanceIdentifier = dbInstanceIdentifierVal } var endpoint = "" RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> while (!instanceReady) { val response = rdsClient.describeDbInstances(instanceRequest) response.dbInstances?.forEach { instance -> instanceReadyStr = instance.dbInstanceStatus.toString() if (instanceReadyStr.contains("available")) { endpoint = instance.endpoint?.address.toString() instanceReady = true } else { print(".") delay(sleepTime * 1000) } } } } println("Database instance is available! The connection endpoint is $endpoint") } suspend fun createDBInstanceCluster( dbInstanceIdentifierVal: String?, dbInstanceClusterIdentifierVal: String?, instanceClassVal: String?, ): String? { val instanceRequest = CreateDbInstanceRequest { dbInstanceIdentifier = dbInstanceIdentifierVal dbClusterIdentifier = dbInstanceClusterIdentifierVal engine = "aurora-mysql" dbInstanceClass = instanceClassVal } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.createDbInstance(instanceRequest) print("The status is ${response.dbInstance?.dbInstanceStatus}") return response.dbInstance?.dbInstanceArn } } suspend fun getListInstanceClasses(): String { val optionsRequest = DescribeOrderableDbInstanceOptionsRequest { engine = "aurora-mysql" maxRecords = 20 } var instanceClass = "" RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.describeOrderableDbInstanceOptions(optionsRequest) response.orderableDbInstanceOptions?.forEach { instanceOption -> instanceClass = instanceOption.dbInstanceClass.toString() println("The instance class is ${instanceOption.dbInstanceClass}") println("The engine version is ${instanceOption.engineVersion}") } } return instanceClass } // Waits until the database instance is available. suspend fun waitForClusterInstanceReady(dbClusterIdentifierVal: String?) { var instanceReady = false var instanceReadyStr: String println("Waiting for instance to become available.") val instanceRequest = DescribeDbClustersRequest { dbClusterIdentifier = dbClusterIdentifierVal } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> while (!instanceReady) { val response = rdsClient.describeDbClusters(instanceRequest) response.dbClusters?.forEach { cluster -> instanceReadyStr = cluster.status.toString() if (instanceReadyStr.contains("available")) { instanceReady = true } else { print(".") delay(sleepTime * 1000) } } } } println("Database cluster is available!") } suspend fun createDBCluster( dbParameterGroupFamilyVal: String?, dbName: String?, dbClusterIdentifierVal: String?, userName: String?, password: String?, ): String? { val clusterRequest = CreateDbClusterRequest { databaseName = dbName dbClusterIdentifier = dbClusterIdentifierVal dbClusterParameterGroupName = dbParameterGroupFamilyVal engine = "aurora-mysql" masterUsername = userName masterUserPassword = password } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.createDbCluster(clusterRequest) return response.dbCluster?.dbClusterArn } } // Get a list of allowed engine versions. suspend fun getAllowedClusterEngines(dbParameterGroupFamilyVal: String?) { val versionsRequest = DescribeDbEngineVersionsRequest { dbParameterGroupFamily = dbParameterGroupFamilyVal engine = "aurora-mysql" } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.describeDbEngineVersions(versionsRequest) response.dbEngineVersions?.forEach { dbEngine -> println("The engine version is ${dbEngine.engineVersion}") println("The engine description is ${dbEngine.dbEngineDescription}") } } } // Modify the auto_increment_offset parameter. suspend fun modifyDBClusterParas(dClusterGroupName: String?) { val parameter1 = Parameter { parameterName = "auto_increment_offset" applyMethod = ApplyMethod.fromValue("immediate") parameterValue = "5" } val paraList = ArrayList<Parameter>() paraList.add(parameter1) val groupRequest = ModifyDbClusterParameterGroupRequest { dbClusterParameterGroupName = dClusterGroupName parameters = paraList } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.modifyDbClusterParameterGroup(groupRequest) println("The parameter group ${response.dbClusterParameterGroupName} was successfully modified") } } suspend fun describeDbClusterParameters( dbCLusterGroupName: String?, flag: Int, ) { val dbParameterGroupsRequest: DescribeDbClusterParametersRequest dbParameterGroupsRequest = if (flag == 0) { DescribeDbClusterParametersRequest { dbClusterParameterGroupName = dbCLusterGroupName } } else { DescribeDbClusterParametersRequest { dbClusterParameterGroupName = dbCLusterGroupName source = "user" } } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.describeDbClusterParameters(dbParameterGroupsRequest) response.parameters?.forEach { para -> // Only print out information about either auto_increment_offset or auto_increment_increment. val paraName = para.parameterName if (paraName != null) { if (paraName.compareTo("auto_increment_offset") == 0 || paraName.compareTo("auto_increment_increment ") == 0) { println("*** The parameter name is  $paraName") println("*** The parameter value is  ${para.parameterValue}") println("*** The parameter data type is ${para.dataType}") println("*** The parameter description is ${para.description}") println("*** The parameter allowed values  is ${para.allowedValues}") } } } } } suspend fun describeDbClusterParameterGroups(dbClusterGroupName: String?) { val groupsRequest = DescribeDbClusterParameterGroupsRequest { dbClusterParameterGroupName = dbClusterGroupName maxRecords = 20 } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.describeDbClusterParameterGroups(groupsRequest) response.dbClusterParameterGroups?.forEach { group -> println("The group name is ${group.dbClusterParameterGroupName}") println("The group ARN is ${group.dbClusterParameterGroupArn}") } } } suspend fun createDBClusterParameterGroup( dbClusterGroupNameVal: String?, dbParameterGroupFamilyVal: String?, ) { val groupRequest = CreateDbClusterParameterGroupRequest { dbClusterParameterGroupName = dbClusterGroupNameVal dbParameterGroupFamily = dbParameterGroupFamilyVal description = "Created by using the AWS SDK for Kotlin" } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.createDbClusterParameterGroup(groupRequest) println("The group name is ${response.dbClusterParameterGroup?.dbClusterParameterGroupName}") } } suspend fun describeAuroraDBEngines() { val engineVersionsRequest = DescribeDbEngineVersionsRequest { engine = "aurora-mysql" defaultOnly = true maxRecords = 20 } RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient -> val response = rdsClient.describeDbEngineVersions(engineVersionsRequest) response.dbEngineVersions?.forEach { engineOb -> println("The name of the DB parameter group family for the database engine is ${engineOb.dbParameterGroupFamily}") println("The name of the database engine ${engineOb.engine}") println("The version number of the database engine ${engineOb.engineVersion}") } } } ``` <br>• For API details, see the following topics in *AWS SDK for Kotlin API reference*. + [CreateDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [CreateDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [CreateDBClusterSnapshot](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [CreateDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DeleteDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DeleteDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DeleteDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DescribeDBClusterParameterGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DescribeDBClusterParameters](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DescribeDBClusterSnapshots](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DescribeDBClusters](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DescribeDBEngineVersions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DescribeDBInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [DescribeOrderableDBInstanceOptions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") + [ModifyDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html") Python **SDK for Python (Boto3)** ###### Note There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples"). Run an interactive scenario at a command prompt. ``` class AuroraClusterScenario: """Runs a scenario that shows how to get started using Aurora DB clusters.""" def __init__(self, aurora_wrapper): """ :param aurora_wrapper: An object that wraps Aurora DB cluster actions. """ self.aurora_wrapper = aurora_wrapper def create_parameter_group(self, db_engine, parameter_group_name): """ Shows how to get available engine versions for a specified database engine and create a DB cluster parameter group that is compatible with a selected engine family. :param db_engine: The database engine to use as a basis. :param parameter_group_name: The name given to the newly created parameter group. :return: The newly created parameter group. """ print( f"Checking for an existing DB cluster parameter group named {parameter_group_name}." ) parameter_group = self.aurora_wrapper.get_parameter_group(parameter_group_name) if parameter_group is None: print(f"Getting available database engine versions for {db_engine}.") engine_versions = self.aurora_wrapper.get_engine_versions(db_engine) families = list({ver["DBParameterGroupFamily"] for ver in engine_versions}) family_index = q.choose("Which family do you want to use? ", families) print(f"Creating a DB cluster parameter group.") self.aurora_wrapper.create_parameter_group( parameter_group_name, families[family_index], "Example parameter group." ) parameter_group = self.aurora_wrapper.get_parameter_group( parameter_group_name ) print(f"Parameter group {parameter_group['DBClusterParameterGroupName']}:") pp(parameter_group) print("-" * 88) return parameter_group def set_user_parameters(self, parameter_group_name): """ Shows how to get the parameters contained in a custom parameter group and update some of the parameter values in the group. :param parameter_group_name: The name of the parameter group to query and modify. """ print("Let's set some parameter values in your parameter group.") auto_inc_parameters = self.aurora_wrapper.get_parameters( parameter_group_name, name_prefix="auto_increment" ) update_params = [] for auto_inc in auto_inc_parameters: if auto_inc["IsModifiable"] and auto_inc["DataType"] == "integer": print(f"The {auto_inc['ParameterName']} parameter is described as:") print(f"\t{auto_inc['Description']}") param_range = auto_inc["AllowedValues"].split("-") auto_inc["ParameterValue"] = str( q.ask( f"Enter a value between {param_range[0]} and {param_range[1]}: ", q.is_int, q.in_range(int(param_range[0]), int(param_range[1])), ) ) update_params.append(auto_inc) self.aurora_wrapper.update_parameters(parameter_group_name, update_params) print( "You can get a list of parameters you've set by specifying a source of 'user'." ) user_parameters = self.aurora_wrapper.get_parameters( parameter_group_name, source="user" ) pp(user_parameters) print("-" * 88) def create_cluster(self, cluster_name, db_engine, db_name, parameter_group): """ Shows how to create an Aurora DB cluster that contains a database of a specified type. The database is also configured to use a custom DB cluster parameter group. :param cluster_name: The name given to the newly created DB cluster. :param db_engine: The engine of the created database. :param db_name: The name given to the created database. :param parameter_group: The parameter group that is associated with the DB cluster. :return: The newly created DB cluster. """ print("Checking for an existing DB cluster.") cluster = self.aurora_wrapper.get_db_cluster(cluster_name) if cluster is None: admin_username = q.ask( "Enter an administrator user name for the database: ", q.non_empty ) admin_password = q.ask( "Enter a password for the administrator (at least 8 characters): ", q.non_empty, ) engine_versions = self.aurora_wrapper.get_engine_versions( db_engine, parameter_group["DBParameterGroupFamily"] ) engine_choices = [ ver["EngineVersionDescription"] for ver in engine_versions ] print("The available engines for your parameter group are:") engine_index = q.choose("Which engine do you want to use? ", engine_choices) print( f"Creating DB cluster {cluster_name} and database {db_name}.\n" f"The DB cluster is configured to use\n" f"your custom parameter group {parameter_group['DBClusterParameterGroupName']}\n" f"and selected engine {engine_choices[engine_index]}.\n" f"This typically takes several minutes." ) cluster = self.aurora_wrapper.create_db_cluster( cluster_name, parameter_group["DBClusterParameterGroupName"], db_name, db_engine, engine_versions[engine_index]["EngineVersion"], admin_username, admin_password, ) while cluster.get("Status") != "available": wait(30) cluster = self.aurora_wrapper.get_db_cluster(cluster_name) print("Cluster created and available.\n") print("Cluster data:") pp(cluster) print("-" * 88) return cluster def create_instance(self, cluster): """ Shows how to create a DB instance in an existing Aurora DB cluster. A new DB cluster contains no DB instances, so you must add one. The first DB instance that is added to a DB cluster defaults to a read-write DB instance. :param cluster: The DB cluster where the DB instance is added. :return: The newly created DB instance. """ print("Checking for an existing database instance.") cluster_name = cluster["DBClusterIdentifier"] db_inst = self.aurora_wrapper.get_db_instance(cluster_name) if db_inst is None: print("Let's create a database instance in your DB cluster.") print("First, choose a DB instance type:") inst_opts = self.aurora_wrapper.get_orderable_instances( cluster["Engine"], cluster["EngineVersion"] ) inst_choices = list( { opt["DBInstanceClass"] + ", storage type: " + opt["StorageType"] for opt in inst_opts } ) inst_index = q.choose( "Which DB instance class do you want to use? ", inst_choices ) print( f"Creating a database instance. This typically takes several minutes." ) db_inst = self.aurora_wrapper.create_instance_in_cluster( cluster_name, cluster_name, cluster["Engine"], inst_opts[inst_index]["DBInstanceClass"], ) while db_inst.get("DBInstanceStatus") != "available": wait(30) db_inst = self.aurora_wrapper.get_db_instance(cluster_name) print("Instance data:") pp(db_inst) print("-" * 88) return db_inst @staticmethod def display_connection(cluster): """ Displays connection information about an Aurora DB cluster and tips on how to connect to it. :param cluster: The DB cluster to display. """ print( "You can now connect to your database using your favorite MySql client.\n" "One way to connect is by using the 'mysql' shell on an Amazon EC2 instance\n" "that is running in the same VPC as your database cluster. Pass the endpoint,\n" "port, and administrator user name to 'mysql' and enter your password\n" "when prompted:\n" ) print( f"\n\tmysql -h {cluster['Endpoint']} -P {cluster['Port']} -u {cluster['MasterUsername']} -p\n" ) print( "For more information, see the User Guide for Aurora:\n" "\thttps://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.Aurora.html#CHAP_GettingStartedAurora.Aurora.Connect" ) print("-" * 88) def create_snapshot(self, cluster_name): """ Shows how to create a DB cluster snapshot and wait until it's available. :param cluster_name: The name of a DB cluster to snapshot. """ if q.ask( "Do you want to create a snapshot of your DB cluster (y/n)? ", q.is_yesno ): snapshot_id = f"{cluster_name}-{uuid.uuid4()}" print( f"Creating a snapshot named {snapshot_id}. This typically takes a few minutes." ) snapshot = self.aurora_wrapper.create_cluster_snapshot( snapshot_id, cluster_name ) while snapshot.get("Status") != "available": wait(30) snapshot = self.aurora_wrapper.get_cluster_snapshot(snapshot_id) pp(snapshot) print("-" * 88) def cleanup(self, db_inst, cluster, parameter_group): """ Shows how to clean up a DB instance, DB cluster, and DB cluster parameter group. Before the DB cluster parameter group can be deleted, all associated DB instances and DB clusters must first be deleted. :param db_inst: The DB instance to delete. :param cluster: The DB cluster to delete. :param parameter_group: The DB cluster parameter group to delete. """ cluster_name = cluster["DBClusterIdentifier"] parameter_group_name = parameter_group["DBClusterParameterGroupName"] if q.ask( "\nDo you want to delete the database instance, DB cluster, and parameter " "group (y/n)? ", q.is_yesno, ): print(f"Deleting database instance {db_inst['DBInstanceIdentifier']}.") self.aurora_wrapper.delete_db_instance(db_inst["DBInstanceIdentifier"]) print(f"Deleting database cluster {cluster_name}.") self.aurora_wrapper.delete_db_cluster(cluster_name) print( "Waiting for the DB instance and DB cluster to delete.\n" "This typically takes several minutes." ) while db_inst is not None or cluster is not None: wait(30) if db_inst is not None: db_inst = self.aurora_wrapper.get_db_instance( db_inst["DBInstanceIdentifier"] ) if cluster is not None: cluster = self.aurora_wrapper.get_db_cluster( cluster["DBClusterIdentifier"] ) print(f"Deleting parameter group {parameter_group_name}.") self.aurora_wrapper.delete_parameter_group(parameter_group_name) def run_scenario(self, db_engine, parameter_group_name, cluster_name, db_name): print("-" * 88) print( "Welcome to the Amazon Relational Database Service (Amazon RDS) get started\n" "with Aurora DB clusters demo." ) print("-" * 88) parameter_group = self.create_parameter_group(db_engine, parameter_group_name) self.set_user_parameters(parameter_group_name) cluster = self.create_cluster(cluster_name, db_engine, db_name, parameter_group) wait(5) db_inst = self.create_instance(cluster) self.display_connection(cluster) self.create_snapshot(cluster_name) self.cleanup(db_inst, cluster, parameter_group) print("\nThanks for watching!") print("-" * 88) if __name__ == "__main__": logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s") try: scenario = AuroraClusterScenario(AuroraWrapper.from_client()) scenario.run_scenario( "aurora-mysql", "doc-example-cluster-parameter-group", "doc-example-aurora", "docexampledb", ) except Exception: logging.exception("Something went wrong with the demo.") ``` Define functions that are called by the scenario to manage Aurora actions. ``` class AuroraWrapper: """Encapsulates Aurora DB cluster actions.""" def __init__(self, rds_client): """ :param rds_client: A Boto3 Amazon Relational Database Service (Amazon RDS) client. """ self.rds_client = rds_client @classmethod def from_client(cls): """ Instantiates this class from a Boto3 client. """ rds_client = boto3.client("rds") return cls(rds_client) def get_parameter_group(self, parameter_group_name): """ Gets a DB cluster parameter group. :param parameter_group_name: The name of the parameter group to retrieve. :return: The requested parameter group. """ try: response = self.rds_client.describe_db_cluster_parameter_groups( DBClusterParameterGroupName=parameter_group_name ) parameter_group = response["DBClusterParameterGroups"][0] except ClientError as err: if err.response["Error"]["Code"] == "DBParameterGroupNotFound": logger.info("Parameter group %s does not exist.", parameter_group_name) else: logger.error( "Couldn't get parameter group %s. Here's why: %s: %s", parameter_group_name, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return parameter_group def create_parameter_group( self, parameter_group_name, parameter_group_family, description ): """ Creates a DB cluster parameter group that is based on the specified parameter group family. :param parameter_group_name: The name of the newly created parameter group. :param parameter_group_family: The family that is used as the basis of the new parameter group. :param description: A description given to the parameter group. :return: Data about the newly created parameter group. """ try: response = self.rds_client.create_db_cluster_parameter_group( DBClusterParameterGroupName=parameter_group_name, DBParameterGroupFamily=parameter_group_family, Description=description, ) except ClientError as err: logger.error( "Couldn't create parameter group %s. Here's why: %s: %s", parameter_group_name, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return response def delete_parameter_group(self, parameter_group_name): """ Deletes a DB cluster parameter group. :param parameter_group_name: The name of the parameter group to delete. :return: Data about the parameter group. """ try: response = self.rds_client.delete_db_cluster_parameter_group( DBClusterParameterGroupName=parameter_group_name ) except ClientError as err: logger.error( "Couldn't delete parameter group %s. Here's why: %s: %s", parameter_group_name, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return response def get_parameters(self, parameter_group_name, name_prefix="", source=None): """ Gets the parameters that are contained in a DB cluster parameter group. :param parameter_group_name: The name of the parameter group to query. :param name_prefix: When specified, the retrieved list of parameters is filtered to contain only parameters that start with this prefix. :param source: When specified, only parameters from this source are retrieved. For example, a source of 'user' retrieves only parameters that were set by a user. :return: The list of requested parameters. """ try: kwargs = {"DBClusterParameterGroupName": parameter_group_name} if source is not None: kwargs["Source"] = source parameters = [] paginator = self.rds_client.get_paginator("describe_db_cluster_parameters") for page in paginator.paginate(**kwargs): parameters += [ p for p in page["Parameters"] if p["ParameterName"].startswith(name_prefix) ] except ClientError as err: logger.error( "Couldn't get parameters for %s. Here's why: %s: %s", parameter_group_name, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return parameters def update_parameters(self, parameter_group_name, update_parameters): """ Updates parameters in a custom DB cluster parameter group. :param parameter_group_name: The name of the parameter group to update. :param update_parameters: The parameters to update in the group. :return: Data about the modified parameter group. """ try: response = self.rds_client.modify_db_cluster_parameter_group( DBClusterParameterGroupName=parameter_group_name, Parameters=update_parameters, ) except ClientError as err: logger.error( "Couldn't update parameters in %s. Here's why: %s: %s", parameter_group_name, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return response def get_db_cluster(self, cluster_name): """ Gets data about an Aurora DB cluster. :param cluster_name: The name of the DB cluster to retrieve. :return: The retrieved DB cluster. """ try: response = self.rds_client.describe_db_clusters( DBClusterIdentifier=cluster_name ) cluster = response["DBClusters"][0] except ClientError as err: if err.response["Error"]["Code"] == "DBClusterNotFoundFault": logger.info("Cluster %s does not exist.", cluster_name) else: logger.error( "Couldn't verify the existence of DB cluster %s. Here's why: %s: %s", cluster_name, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return cluster def create_db_cluster( self, cluster_name, parameter_group_name, db_name, db_engine, db_engine_version, admin_name, admin_password, ): """ Creates a DB cluster that is configured to use the specified parameter group. The newly created DB cluster contains a database that uses the specified engine and engine version. :param cluster_name: The name of the DB cluster to create. :param parameter_group_name: The name of the parameter group to associate with the DB cluster. :param db_name: The name of the database to create. :param db_engine: The database engine of the database that is created, such as MySql. :param db_engine_version: The version of the database engine. :param admin_name: The user name of the database administrator. :param admin_password: The password of the database administrator. :return: The newly created DB cluster. """ try: response = self.rds_client.create_db_cluster( DatabaseName=db_name, DBClusterIdentifier=cluster_name, DBClusterParameterGroupName=parameter_group_name, Engine=db_engine, EngineVersion=db_engine_version, MasterUsername=admin_name, MasterUserPassword=admin_password, ) cluster = response["DBCluster"] except ClientError as err: logger.error( "Couldn't create database %s. Here's why: %s: %s", db_name, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return cluster def delete_db_cluster(self, cluster_name): """ Deletes a DB cluster. :param cluster_name: The name of the DB cluster to delete. """ try: self.rds_client.delete_db_cluster( DBClusterIdentifier=cluster_name, SkipFinalSnapshot=True ) logger.info("Deleted DB cluster %s.", cluster_name) except ClientError: logger.exception("Couldn't delete DB cluster %s.", cluster_name) raise def create_cluster_snapshot(self, snapshot_id, cluster_id): """ Creates a snapshot of a DB cluster. :param snapshot_id: The ID to give the created snapshot. :param cluster_id: The DB cluster to snapshot. :return: Data about the newly created snapshot. """ try: response = self.rds_client.create_db_cluster_snapshot( DBClusterSnapshotIdentifier=snapshot_id, DBClusterIdentifier=cluster_id ) snapshot = response["DBClusterSnapshot"] except ClientError as err: logger.error( "Couldn't create snapshot of %s. Here's why: %s: %s", cluster_id, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return snapshot def get_cluster_snapshot(self, snapshot_id): """ Gets a DB cluster snapshot. :param snapshot_id: The ID of the snapshot to retrieve. :return: The retrieved snapshot. """ try: response = self.rds_client.describe_db_cluster_snapshots( DBClusterSnapshotIdentifier=snapshot_id ) snapshot = response["DBClusterSnapshots"][0] except ClientError as err: logger.error( "Couldn't get DB cluster snapshot %s. Here's why: %s: %s", snapshot_id, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return snapshot def create_instance_in_cluster( self, instance_id, cluster_id, db_engine, instance_class ): """ Creates a database instance in an existing DB cluster. The first database that is created defaults to a read-write DB instance. :param instance_id: The ID to give the newly created DB instance. :param cluster_id: The ID of the DB cluster where the DB instance is created. :param db_engine: The database engine of a database to create in the DB instance. This must be compatible with the configured parameter group of the DB cluster. :param instance_class: The DB instance class for the newly created DB instance. :return: Data about the newly created DB instance. """ try: response = self.rds_client.create_db_instance( DBInstanceIdentifier=instance_id, DBClusterIdentifier=cluster_id, Engine=db_engine, DBInstanceClass=instance_class, ) db_inst = response["DBInstance"] except ClientError as err: logger.error( "Couldn't create DB instance %s. Here's why: %s: %s", instance_id, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return db_inst def get_engine_versions(self, engine, parameter_group_family=None): """ Gets database engine versions that are available for the specified engine and parameter group family. :param engine: The database engine to look up. :param parameter_group_family: When specified, restricts the returned list of engine versions to those that are compatible with this parameter group family. :return: The list of database engine versions. """ try: kwargs = {"Engine": engine} if parameter_group_family is not None: kwargs["DBParameterGroupFamily"] = parameter_group_family response = self.rds_client.describe_db_engine_versions(**kwargs) versions = response["DBEngineVersions"] except ClientError as err: logger.error( "Couldn't get engine versions for %s. Here's why: %s: %s", engine, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return versions def get_orderable_instances(self, db_engine, db_engine_version): """ Gets DB instance options that can be used to create DB instances that are compatible with a set of specifications. :param db_engine: The database engine that must be supported by the DB instance. :param db_engine_version: The engine version that must be supported by the DB instance. :return: The list of DB instance options that can be used to create a compatible DB instance. """ try: inst_opts = [] paginator = self.rds_client.get_paginator( "describe_orderable_db_instance_options" ) for page in paginator.paginate( Engine=db_engine, EngineVersion=db_engine_version ): inst_opts += page["OrderableDBInstanceOptions"] except ClientError as err: logger.error( "Couldn't get orderable DB instances. Here's why: %s: %s", err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return inst_opts def get_db_instance(self, instance_id): """ Gets data about a DB instance. :param instance_id: The ID of the DB instance to retrieve. :return: The retrieved DB instance. """ try: response = self.rds_client.describe_db_instances( DBInstanceIdentifier=instance_id ) db_inst = response["DBInstances"][0] except ClientError as err: if err.response["Error"]["Code"] == "DBInstanceNotFound": logger.info("Instance %s does not exist.", instance_id) else: logger.error( "Couldn't get DB instance %s. Here's why: %s: %s", instance_id, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return db_inst def delete_db_instance(self, instance_id): """ Deletes a DB instance. :param instance_id: The ID of the DB instance to delete. :return: Data about the deleted DB instance. """ try: response = self.rds_client.delete_db_instance( DBInstanceIdentifier=instance_id, SkipFinalSnapshot=True, DeleteAutomatedBackups=True, ) db_inst = response["DBInstance"] except ClientError as err: logger.error( "Couldn't delete DB instance %s. Here's why: %s: %s", instance_id, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return db_inst ``` <br>• For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*. + [CreateDBCluster](../../../goto/boto3/rds-2014-10-31/CreateDBCluster.md "../../../goto/boto3/rds-2014-10-31/CreateDBCluster.md") + [CreateDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/CreateDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/CreateDBClusterParameterGroup.md") + [CreateDBClusterSnapshot](../../../goto/boto3/rds-2014-10-31/CreateDBClusterSnapshot.md "../../../goto/boto3/rds-2014-10-31/CreateDBClusterSnapshot.md") + [CreateDBInstance](../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md "../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md") + [DeleteDBCluster](../../../goto/boto3/rds-2014-10-31/DeleteDBCluster.md "../../../goto/boto3/rds-2014-10-31/DeleteDBCluster.md") + [DeleteDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/DeleteDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/DeleteDBClusterParameterGroup.md") + [DeleteDBInstance](../../../goto/boto3/rds-2014-10-31/DeleteDBInstance.md "../../../goto/boto3/rds-2014-10-31/DeleteDBInstance.md") + [DescribeDBClusterParameterGroups](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups.md") + [DescribeDBClusterParameters](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameters.md") + [DescribeDBClusterSnapshots](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots.md") + [DescribeDBClusters](../../../goto/boto3/rds-2014-10-31/DescribeDBClusters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusters.md") + [DescribeDBEngineVersions](../../../goto/boto3/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/boto3/rds-2014-10-31/DescribeDBEngineVersions.md") + [DescribeDBInstances](../../../goto/boto3/rds-2014-10-31/DescribeDBInstances.md "../../../goto/boto3/rds-2014-10-31/DescribeDBInstances.md") + [DescribeOrderableDBInstanceOptions](../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md") + [ModifyDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/ModifyDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/ModifyDBClusterParameterGroup.md") Rust **SDK for Rust** ###### Note There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples"). A library containing the scenario-specific functions for the Aurora scenario. ``` use phf::{phf_set, Set}; use secrecy::SecretString; use std::{collections::HashMap, fmt::Display, time::Duration}; use aws_sdk_rds::{ error::ProvideErrorMetadata, operation::create_db_cluster_parameter_group::CreateDbClusterParameterGroupOutput, types::{DbCluster, DbClusterParameterGroup, DbClusterSnapshot, DbInstance, Parameter}, }; use sdk_examples_test_utils::waiter::Waiter; use tracing::{info, trace, warn}; const DB_ENGINE: &str = "aurora-mysql"; const DB_CLUSTER_PARAMETER_GROUP_NAME: &str = "RustSDKCodeExamplesDBParameterGroup"; const DB_CLUSTER_PARAMETER_GROUP_DESCRIPTION: &str = "Parameter Group created by Rust SDK Code Example"; const DB_CLUSTER_IDENTIFIER: &str = "RustSDKCodeExamplesDBCluster"; const DB_INSTANCE_IDENTIFIER: &str = "RustSDKCodeExamplesDBInstance"; static FILTER_PARAMETER_NAMES: Set<&'static str> = phf_set! { "auto_increment_offset", "auto_increment_increment", }; #[derive(Debug, PartialEq, Eq)] struct MetadataError { message: Option<String>, code: Option<String>, } impl MetadataError { fn from(err: &dyn ProvideErrorMetadata) -> Self { MetadataError { message: err.message().map(String::from), code: err.code().map(String::from), } } } impl Display for MetadataError { fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result { let display = match (&self.message, &self.code) { (None, None) => "Unknown".to_string(), (None, Some(code)) => format!("({code})"), (Some(message), None) => message.to_string(), (Some(message), Some(code)) => format!("{message} ({code})"), }; write!(f, "{display}") } } #[derive(Debug, PartialEq, Eq)] pub struct ScenarioError { message: String, context: Option<MetadataError>, } impl ScenarioError { pub fn with(message: impl Into<String>) -> Self { ScenarioError { message: message.into(), context: None, } } pub fn new(message: impl Into<String>, err: &dyn ProvideErrorMetadata) -> Self { ScenarioError { message: message.into(), context: Some(MetadataError::from(err)), } } } impl std::error::Error for ScenarioError {} impl Display for ScenarioError { fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result { match &self.context { Some(c) => write!(f, "{}: {}", self.message, c), None => write!(f, "{}", self.message), } } } // Parse the ParameterName, Description, and AllowedValues values and display them. #[derive(Debug)] pub struct AuroraScenarioParameter { name: String, allowed_values: String, current_value: String, } impl Display for AuroraScenarioParameter { fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result { write!( f, "{}: {} (allowed: {})", self.name, self.current_value, self.allowed_values ) } } impl From<aws_sdk_rds::types::Parameter> for AuroraScenarioParameter { fn from(value: aws_sdk_rds::types::Parameter) -> Self { AuroraScenarioParameter { name: value.parameter_name.unwrap_or_default(), allowed_values: value.allowed_values.unwrap_or_default(), current_value: value.parameter_value.unwrap_or_default(), } } } pub struct AuroraScenario { rds: crate::rds::Rds, engine_family: Option<String>, engine_version: Option<String>, instance_class: Option<String>, db_cluster_parameter_group: Option<DbClusterParameterGroup>, db_cluster_identifier: Option<String>, db_instance_identifier: Option<String>, username: Option<String>, password: Option<SecretString>, } impl AuroraScenario { pub fn new(client: crate::rds::Rds) -> Self { AuroraScenario { rds: client, engine_family: None, engine_version: None, instance_class: None, db_cluster_parameter_group: None, db_cluster_identifier: None, db_instance_identifier: None, username: None, password: None, } } // Get available engine families for Aurora MySql. rds.DescribeDbEngineVersions(Engine='aurora-mysql') and build a set of the 'DBParameterGroupFamily' field values. I get {aurora-mysql8.0, aurora-mysql5.7}. pub async fn get_engines(&self) -> Result<HashMap<String, Vec<String>>, ScenarioError> { let describe_db_engine_versions = self.rds.describe_db_engine_versions(DB_ENGINE).await; trace!(versions=?describe_db_engine_versions, "full list of versions"); if let Err(err) = describe_db_engine_versions { return Err(ScenarioError::new( "Failed to retrieve DB Engine Versions", &err, )); }; let version_count = describe_db_engine_versions .as_ref() .map(|o| o.db_engine_versions().len()) .unwrap_or_default(); info!(version_count, "got list of versions"); // Create a map of engine families to their available versions. let mut versions = HashMap::<String, Vec<String>>::new(); describe_db_engine_versions .unwrap() .db_engine_versions() .iter() .filter_map(
-|v| match (&v.db_parameter_group_family, &v.engine_version) { (Some(family), Some(version)) => Some((family.clone(), version.clone())), _ => None, }, ) .for_each(|(family, version)| versions.entry(family).or_default().push(version)); Ok(versions) } pub async fn get_instance_classes(&self) -> Result<Vec<String>, ScenarioError> { let describe_orderable_db_instance_options_items = self .rds .describe_orderable_db_instance_options( DB_ENGINE, self.engine_version .as_ref() .expect("engine version for db instance options") .as_str(), ) .await; describe_orderable_db_instance_options_items .map(|options| { options .iter() .filter(|o| o.storage_type() == Some("aurora")) .map(|o| o.db_instance_class().unwrap_or_default().to_string()) .collect::<Vec<String>>() }) .map_err(|err| ScenarioError::new("Could not get available instance classes", &err)) } // Select an engine family and create a custom DB cluster parameter group. rds.CreateDbClusterParameterGroup(DBParameterGroupFamily='aurora-mysql8.0') pub async fn set_engine(&mut self, engine: &str, version: &str) -> Result<(), ScenarioError> { self.engine_family = Some(engine.to_string()); self.engine_version = Some(version.to_string()); let create_db_cluster_parameter_group = self .rds .create_db_cluster_parameter_group( DB_CLUSTER_PARAMETER_GROUP_NAME, DB_CLUSTER_PARAMETER_GROUP_DESCRIPTION, engine, ) .await; match create_db_cluster_parameter_group { Ok(CreateDbClusterParameterGroupOutput { db_cluster_parameter_group: None, .. }) => { return Err(ScenarioError::with( "CreateDBClusterParameterGroup had empty response", )); } Err(error) => { if error.code() == Some("DBParameterGroupAlreadyExists") { info!("Cluster Parameter Group already exists, nothing to do"); } else { return Err(ScenarioError::new( "Could not create Cluster Parameter Group", &error, )); } } _ => { info!("Created Cluster Parameter Group"); } } Ok(()) } pub fn set_instance_class(&mut self, instance_class: Option<String>) { self.instance_class = instance_class; } pub fn set_login(&mut self, username: Option<String>, password: Option<SecretString>) { self.username = username; self.password = password; } pub async fn connection_string(&self) -> Result<String, ScenarioError> { let cluster = self.get_cluster().await?; let endpoint = cluster.endpoint().unwrap_or_default(); let port = cluster.port().unwrap_or_default(); let username = cluster.master_username().unwrap_or_default(); Ok(format!("mysql -h {endpoint} -P {port} -u {username} -p")) } pub async fn get_cluster(&self) -> Result<DbCluster, ScenarioError> { let describe_db_clusters_output = self .rds .describe_db_clusters( self.db_cluster_identifier .as_ref() .expect("cluster identifier") .as_str(), ) .await; if let Err(err) = describe_db_clusters_output { return Err(ScenarioError::new("Failed to get cluster", &err)); } let db_cluster = describe_db_clusters_output .unwrap() .db_clusters .and_then(|output| output.first().cloned()); db_cluster.ok_or_else(|| ScenarioError::with("Did not find the cluster")) } // Get the parameter group. rds.DescribeDbClusterParameterGroups // Get parameters in the group. This is a long list so you will have to paginate. Find the auto_increment_offset and auto_increment_increment parameters (by ParameterName). rds.DescribeDbClusterParameters // Parse the ParameterName, Description, and AllowedValues values and display them. pub async fn cluster_parameters(&self) -> Result<Vec<AuroraScenarioParameter>, ScenarioError> { let parameters_output = self .rds .describe_db_cluster_parameters(DB_CLUSTER_PARAMETER_GROUP_NAME) .await; if let Err(err) = parameters_output { return Err(ScenarioError::new( format!("Failed to retrieve parameters for {DB_CLUSTER_PARAMETER_GROUP_NAME}"), &err, )); } let parameters = parameters_output .unwrap() .into_iter() .flat_map(|p| p.parameters.unwrap_or_default().into_iter()) .filter(|p| FILTER_PARAMETER_NAMES.contains(p.parameter_name().unwrap_or_default())) .map(AuroraScenarioParameter::from) .collect::<Vec<_>>(); Ok(parameters) } // Modify both the auto_increment_offset and auto_increment_increment parameters in one call in the custom parameter group. Set their ParameterValue fields to a new allowable value. rds.ModifyDbClusterParameterGroup. pub async fn update_auto_increment( &self, offset: u8, increment: u8, ) -> Result<(), ScenarioError> { let modify_db_cluster_parameter_group = self .rds .modify_db_cluster_parameter_group( DB_CLUSTER_PARAMETER_GROUP_NAME, vec![ Parameter::builder() .parameter_name("auto_increment_offset") .parameter_value(format!("{offset}")) .apply_method(aws_sdk_rds::types::ApplyMethod::Immediate) .build(), Parameter::builder() .parameter_name("auto_increment_increment") .parameter_value(format!("{increment}")) .apply_method(aws_sdk_rds::types::ApplyMethod::Immediate) .build(), ], ) .await; if let Err(error) = modify_db_cluster_parameter_group { return Err(ScenarioError::new( "Failed to modify cluster parameter group", &error, )); } Ok(()) } // Get a list of allowed engine versions. rds.DescribeDbEngineVersions(Engine='aurora-mysql', DBParameterGroupFamily=<the family used to create your parameter group in step 2>) // Create an Aurora DB cluster database cluster that contains a MySql database and uses the parameter group you created. // Wait for DB cluster to be ready. Call rds.DescribeDBClusters and check for Status == 'available'. // Get a list of instance classes available for the selected engine and engine version. rds.DescribeOrderableDbInstanceOptions(Engine='mysql', EngineVersion=). // Create a database instance in the cluster. // Wait for DB instance to be ready. Call rds.DescribeDbInstances and check for DBInstanceStatus == 'available'. pub async fn start_cluster_and_instance(&mut self) -> Result<(), ScenarioError> { if self.password.is_none() { return Err(ScenarioError::with( "Must set Secret Password before starting a cluster", )); } let create_db_cluster = self .rds .create_db_cluster( DB_CLUSTER_IDENTIFIER, DB_CLUSTER_PARAMETER_GROUP_NAME, DB_ENGINE, self.engine_version.as_deref().expect("engine version"), self.username.as_deref().expect("username"), self.password .replace(SecretString::new("".to_string())) .expect("password"), ) .await; if let Err(err) = create_db_cluster { return Err(ScenarioError::new( "Failed to create DB Cluster with cluster group", &err, )); } self.db_cluster_identifier = create_db_cluster .unwrap() .db_cluster .and_then(|c| c.db_cluster_identifier); if self.db_cluster_identifier.is_none() { return Err(ScenarioError::with("Created DB Cluster missing Identifier")); } info!( "Started a db cluster: {}", self.db_cluster_identifier .as_deref() .unwrap_or("Missing ARN") ); let create_db_instance = self .rds .create_db_instance( self.db_cluster_identifier.as_deref().expect("cluster name"), DB_INSTANCE_IDENTIFIER, self.instance_class.as_deref().expect("instance class"), DB_ENGINE, ) .await; if let Err(err) = create_db_instance { return Err(ScenarioError::new( "Failed to create Instance in DB Cluster", &err, )); } self.db_instance_identifier = create_db_instance .unwrap() .db_instance .and_then(|i| i.db_instance_identifier); // Cluster creation can take up to 20 minutes to become available let cluster_max_wait = Duration::from_secs(20 * 60); let waiter = Waiter::builder().max(cluster_max_wait).build(); while waiter.sleep().await.is_ok() { let cluster = self .rds .describe_db_clusters( self.db_cluster_identifier .as_deref() .expect("cluster identifier"), ) .await; if let Err(err) = cluster { warn!(?err, "Failed to describe cluster while waiting for ready"); continue; } let instance = self .rds .describe_db_instance( self.db_instance_identifier .as_deref() .expect("instance identifier"), ) .await; if let Err(err) = instance { return Err(ScenarioError::new( "Failed to find instance for cluster", &err, )); } let instances_available = instance .unwrap() .db_instances() .iter() .all(|instance| instance.db_instance_status() == Some("Available")); let endpoints = self .rds .describe_db_cluster_endpoints( self.db_cluster_identifier .as_deref() .expect("cluster identifier"), ) .await; if let Err(err) = endpoints { return Err(ScenarioError::new( "Failed to find endpoint for cluster", &err, )); } let endpoints_available = endpoints .unwrap() .db_cluster_endpoints() .iter() .all(|endpoint| endpoint.status() == Some("available")); if instances_available && endpoints_available { return Ok(()); } } Err(ScenarioError::with("timed out waiting for cluster")) } // Create a snapshot of the DB cluster. rds.CreateDbClusterSnapshot. // Wait for the snapshot to create. rds.DescribeDbClusterSnapshots until Status == 'available'. pub async fn snapshot(&self, name: &str) -> Result<DbClusterSnapshot, ScenarioError> { let id = self.db_cluster_identifier.as_deref().unwrap_or_default(); let snapshot = self .rds .snapshot_cluster(id, format!("{id}_{name}").as_str()) .await; match snapshot { Ok(output) => match output.db_cluster_snapshot { Some(snapshot) => Ok(snapshot), None => Err(ScenarioError::with("Missing Snapshot")), }, Err(err) => Err(ScenarioError::new("Failed to create snapshot", &err)), } } pub async fn clean_up(self) -> Result<(), Vec<ScenarioError>> { let mut clean_up_errors: Vec<ScenarioError> = vec![]; // Delete the instance. rds.DeleteDbInstance. let delete_db_instance = self .rds .delete_db_instance( self.db_instance_identifier .as_deref() .expect("instance identifier"), ) .await; if let Err(err) = delete_db_instance { let identifier = self .db_instance_identifier .as_deref() .unwrap_or("Missing Instance Identifier"); let message = format!("failed to delete db instance {identifier}"); clean_up_errors.push(ScenarioError::new(message, &err)); } else { // Wait for the instance to delete let waiter = Waiter::default(); while waiter.sleep().await.is_ok() { let describe_db_instances = self.rds.describe_db_instances().await; if let Err(err) = describe_db_instances { clean_up_errors.push(ScenarioError::new( "Failed to check instance state during deletion", &err, )); break; } let db_instances = describe_db_instances .unwrap() .db_instances() .iter() .filter(|instance| instance.db_cluster_identifier == self.db_cluster_identifier) .cloned() .collect::<Vec<DbInstance>>(); if db_instances.is_empty() { trace!("Delete Instance waited and no instances were found"); break; } match db_instances.first().unwrap().db_instance_status() { Some("Deleting") => continue, Some(status) => { info!("Attempting to delete but instances is in {status}"); continue; } None => { warn!("No status for DB instance"); break; } } } } // Delete the DB cluster. rds.DeleteDbCluster. let delete_db_cluster = self .rds .delete_db_cluster( self.db_cluster_identifier .as_deref() .expect("cluster identifier"), ) .await; if let Err(err) = delete_db_cluster { let identifier = self .db_cluster_identifier .as_deref() .unwrap_or("Missing DB Cluster Identifier"); let message = format!("failed to delete db cluster {identifier}"); clean_up_errors.push(ScenarioError::new(message, &err)); } else { // Wait for the instance and cluster to fully delete. rds.DescribeDbInstances and rds.DescribeDbClusters until both are not found. let waiter = Waiter::default(); while waiter.sleep().await.is_ok() { let describe_db_clusters = self .rds .describe_db_clusters( self.db_cluster_identifier .as_deref() .expect("cluster identifier"), ) .await; if let Err(err) = describe_db_clusters { clean_up_errors.push(ScenarioError::new( "Failed to check cluster state during deletion", &err, )); break; } let describe_db_clusters = describe_db_clusters.unwrap(); let db_clusters = describe_db_clusters.db_clusters(); if db_clusters.is_empty() { trace!("Delete cluster waited and no clusters were found"); break; } match db_clusters.first().unwrap().status() { Some("Deleting") => continue, Some(status) => { info!("Attempting to delete but clusters is in {status}"); continue; } None => { warn!("No status for DB cluster"); break; } } } } // Delete the DB cluster parameter group. rds.DeleteDbClusterParameterGroup. let delete_db_cluster_parameter_group = self .rds .delete_db_cluster_parameter_group( self.db_cluster_parameter_group .map(|g| { g.db_cluster_parameter_group_name .unwrap_or_else(|| DB_CLUSTER_PARAMETER_GROUP_NAME.to_string()) }) .as_deref() .expect("cluster parameter group name"), ) .await; if let Err(error) = delete_db_cluster_parameter_group { clean_up_errors.push(ScenarioError::new( "Failed to delete the db cluster parameter group", &error, )) } if clean_up_errors.is_empty() { Ok(()) } else { Err(clean_up_errors) } } } #[cfg(test)] pub mod tests; ``` Tests for the library using automocks around the RDS Client wrapper. ``` use crate::rds::MockRdsImpl; use super::*; use std::io::{Error, ErrorKind}; use assert_matches::assert_matches; use aws_sdk_rds::{ error::SdkError, operation::{ create_db_cluster::{CreateDBClusterError, CreateDbClusterOutput}, create_db_cluster_parameter_group::CreateDBClusterParameterGroupError, create_db_cluster_snapshot::{CreateDBClusterSnapshotError, CreateDbClusterSnapshotOutput}, create_db_instance::{CreateDBInstanceError, CreateDbInstanceOutput}, delete_db_cluster::DeleteDbClusterOutput, delete_db_cluster_parameter_group::DeleteDbClusterParameterGroupOutput, delete_db_instance::DeleteDbInstanceOutput, describe_db_cluster_endpoints::DescribeDbClusterEndpointsOutput, describe_db_cluster_parameters::{ DescribeDBClusterParametersError, DescribeDbClusterParametersOutput, }, describe_db_clusters::{DescribeDBClustersError, DescribeDbClustersOutput}, describe_db_engine_versions::{ DescribeDBEngineVersionsError, DescribeDbEngineVersionsOutput, }, describe_db_instances::{DescribeDBInstancesError, DescribeDbInstancesOutput}, describe_orderable_db_instance_options::DescribeOrderableDBInstanceOptionsError, modify_db_cluster_parameter_group::{ ModifyDBClusterParameterGroupError, ModifyDbClusterParameterGroupOutput, }, }, types::{ error::DbParameterGroupAlreadyExistsFault, DbClusterEndpoint, DbEngineVersion, OrderableDbInstanceOption, }, }; use aws_smithy_runtime_api::http::{Response, StatusCode}; use aws_smithy_types::body::SdkBody; use mockall::predicate::eq; use secrecy::ExposeSecret; #[tokio::test] async fn test_scenario_set_engine() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster_parameter_group() .with( eq("RustSDKCodeExamplesDBParameterGroup"), eq("Parameter Group created by Rust SDK Code Example"), eq("aurora-mysql"), ) .return_once(|_, _, _| { Ok(CreateDbClusterParameterGroupOutput::builder() .db_cluster_parameter_group(DbClusterParameterGroup::builder().build()) .build()) }); let mut scenario = AuroraScenario::new(mock_rds); let set_engine = scenario.set_engine("aurora-mysql", "aurora-mysql8.0").await; assert_eq!(set_engine, Ok(())); assert_eq!(Some("aurora-mysql"), scenario.engine_family.as_deref()); assert_eq!(Some("aurora-mysql8.0"), scenario.engine_version.as_deref()); } #[tokio::test] async fn test_scenario_set_engine_not_create() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster_parameter_group() .with( eq("RustSDKCodeExamplesDBParameterGroup"), eq("Parameter Group created by Rust SDK Code Example"), eq("aurora-mysql"), ) .return_once(|_, _, _| Ok(CreateDbClusterParameterGroupOutput::builder().build())); let mut scenario = AuroraScenario::new(mock_rds); let set_engine = scenario.set_engine("aurora-mysql", "aurora-mysql8.0").await; assert!(set_engine.is_err()); } #[tokio::test] async fn test_scenario_set_engine_param_group_exists() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster_parameter_group() .withf(|_, _, _| true) .return_once(|_, _, _| { Err(SdkError::service_error( CreateDBClusterParameterGroupError::DbParameterGroupAlreadyExistsFault( DbParameterGroupAlreadyExistsFault::builder().build(), ), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let mut scenario = AuroraScenario::new(mock_rds); let set_engine = scenario.set_engine("aurora-mysql", "aurora-mysql8.0").await; assert!(set_engine.is_err()); } #[tokio::test] async fn test_scenario_get_engines() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_db_engine_versions() .with(eq("aurora-mysql")) .return_once(|_| { Ok(DescribeDbEngineVersionsOutput::builder() .db_engine_versions( DbEngineVersion::builder() .db_parameter_group_family("f1") .engine_version("f1a") .build(), ) .db_engine_versions( DbEngineVersion::builder() .db_parameter_group_family("f1") .engine_version("f1b") .build(), ) .db_engine_versions( DbEngineVersion::builder() .db_parameter_group_family("f2") .engine_version("f2a") .build(), ) .db_engine_versions(DbEngineVersion::builder().build()) .build()) }); let scenario = AuroraScenario::new(mock_rds); let versions_map = scenario.get_engines().await; assert_eq!( versions_map, Ok(HashMap::from([ ("f1".into(), vec!["f1a".into(), "f1b".into()]), ("f2".into(), vec!["f2a".into()]) ])) ); } #[tokio::test] async fn test_scenario_get_engines_failed() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_db_engine_versions() .with(eq("aurora-mysql")) .return_once(|_| { Err(SdkError::service_error( DescribeDBEngineVersionsError::unhandled(Box::new(Error::new( ErrorKind::Other, "describe_db_engine_versions error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let scenario = AuroraScenario::new(mock_rds); let versions_map = scenario.get_engines().await; assert_matches!( versions_map, Err(ScenarioError { message, context: _ }) if message == "Failed to retrieve DB Engine Versions" ); } #[tokio::test] async fn test_scenario_get_instance_classes() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster_parameter_group() .return_once(|_, _, _| { Ok(CreateDbClusterParameterGroupOutput::builder() .db_cluster_parameter_group(DbClusterParameterGroup::builder().build()) .build()) }); mock_rds .expect_describe_orderable_db_instance_options() .with(eq("aurora-mysql"), eq("aurora-mysql8.0")) .return_once(|_, _| { Ok(vec![ OrderableDbInstanceOption::builder() .db_instance_class("t1") .storage_type("aurora") .build(), OrderableDbInstanceOption::builder() .db_instance_class("t1") .storage_type("aurora-iopt1") .build(), OrderableDbInstanceOption::builder() .db_instance_class("t2") .storage_type("aurora") .build(), OrderableDbInstanceOption::builder() .db_instance_class("t3") .storage_type("aurora") .build(), ]) }); let mut scenario = AuroraScenario::new(mock_rds); scenario .set_engine("aurora-mysql", "aurora-mysql8.0") .await .expect("set engine"); let instance_classes = scenario.get_instance_classes().await; assert_eq!( instance_classes, Ok(vec!["t1".into(), "t2".into(), "t3".into()]) ); } #[tokio::test] async fn test_scenario_get_instance_classes_error() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_orderable_db_instance_options() .with(eq("aurora-mysql"), eq("aurora-mysql8.0")) .return_once(|_, _| { Err(SdkError::service_error( DescribeOrderableDBInstanceOptionsError::unhandled(Box::new(Error::new( ErrorKind::Other, "describe_orderable_db_instance_options_error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.engine_family = Some("aurora-mysql".into()); scenario.engine_version = Some("aurora-mysql8.0".into()); let instance_classes = scenario.get_instance_classes().await; assert_matches!( instance_classes, Err(ScenarioError {message, context: _}) if message == "Could not get available instance classes" ); } #[tokio::test] async fn test_scenario_get_cluster() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_db_clusters() .with(eq("RustSDKCodeExamplesDBCluster")) .return_once(|_| { Ok(DescribeDbClustersOutput::builder() .db_clusters(DbCluster::builder().build()) .build()) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into()); let cluster = scenario.get_cluster().await; assert!(cluster.is_ok()); } #[tokio::test] async fn test_scenario_get_cluster_missing_cluster() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster_parameter_group() .return_once(|_, _, _| { Ok(CreateDbClusterParameterGroupOutput::builder() .db_cluster_parameter_group(DbClusterParameterGroup::builder().build()) .build()) }); mock_rds .expect_describe_db_clusters() .with(eq("RustSDKCodeExamplesDBCluster")) .return_once(|_| Ok(DescribeDbClustersOutput::builder().build())); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into()); let cluster = scenario.get_cluster().await; assert_matches!(cluster, Err(ScenarioError { message, context: _ }) if message == "Did not find the cluster"); } #[tokio::test] async fn test_scenario_get_cluster_error() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster_parameter_group() .return_once(|_, _, _| { Ok(CreateDbClusterParameterGroupOutput::builder() .db_cluster_parameter_group(DbClusterParameterGroup::builder().build()) .build()) }); mock_rds .expect_describe_db_clusters() .with(eq("RustSDKCodeExamplesDBCluster")) .return_once(|_| { Err(SdkError::service_error( DescribeDBClustersError::unhandled(Box::new(Error::new( ErrorKind::Other, "describe_db_clusters_error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into()); let cluster = scenario.get_cluster().await; assert_matches!(cluster, Err(ScenarioError { message, context: _ }) if message == "Failed to get cluster"); } #[tokio::test] async fn test_scenario_connection_string() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_db_clusters() .with(eq("RustSDKCodeExamplesDBCluster")) .return_once(|_| { Ok(DescribeDbClustersOutput::builder() .db_clusters( DbCluster::builder() .endpoint("test_endpoint") .port(3306) .master_username("test_username") .build(), ) .build()) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into()); let connection_string = scenario.connection_string().await; assert_eq!( connection_string, Ok("mysql -h test_endpoint -P 3306 -u test_username -p".into()) ); } #[tokio::test] async fn test_scenario_cluster_parameters() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_db_cluster_parameters() .with(eq("RustSDKCodeExamplesDBParameterGroup")) .return_once(|_| { Ok(vec![DescribeDbClusterParametersOutput::builder() .parameters(Parameter::builder().parameter_name("a").build()) .parameters(Parameter::builder().parameter_name("b").build()) .parameters( Parameter::builder() .parameter_name("auto_increment_offset") .build(), ) .parameters(Parameter::builder().parameter_name("c").build()) .parameters( Parameter::builder() .parameter_name("auto_increment_increment") .build(), ) .parameters(Parameter::builder().parameter_name("d").build()) .build()]) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into()); let params = scenario.cluster_parameters().await.expect("cluster params"); let names: Vec<String> = params.into_iter().map(|p| p.name).collect(); assert_eq!( names, vec!["auto_increment_offset", "auto_increment_increment"] ); } #[tokio::test] async fn test_scenario_cluster_parameters_error() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_db_cluster_parameters() .with(eq("RustSDKCodeExamplesDBParameterGroup")) .return_once(|_| { Err(SdkError::service_error( DescribeDBClusterParametersError::unhandled(Box::new(Error::new( ErrorKind::Other, "describe_db_cluster_parameters_error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into()); let params = scenario.cluster_parameters().await; assert_matches!(params, Err(ScenarioError { message, context: _ }) if message == "Failed to retrieve parameters for RustSDKCodeExamplesDBParameterGroup"); } #[tokio::test] async fn test_scenario_update_auto_increment() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_modify_db_cluster_parameter_group() .withf(|name, params| { assert_eq!(name, "RustSDKCodeExamplesDBParameterGroup"); assert_eq!( params, &vec![ Parameter::builder() .parameter_name("auto_increment_offset") .parameter_value("10") .apply_method(aws_sdk_rds::types::ApplyMethod::Immediate) .build(), Parameter::builder() .parameter_name("auto_increment_increment") .parameter_value("20") .apply_method(aws_sdk_rds::types::ApplyMethod::Immediate) .build(), ] ); true }) .return_once(|_, _| Ok(ModifyDbClusterParameterGroupOutput::builder().build())); let scenario = AuroraScenario::new(mock_rds); scenario .update_auto_increment(10, 20) .await .expect("update auto increment"); } #[tokio::test] async fn test_scenario_update_auto_increment_error() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_modify_db_cluster_parameter_group() .return_once(|_, _| { Err(SdkError::service_error( ModifyDBClusterParameterGroupError::unhandled(Box::new(Error::new( ErrorKind::Other, "modify_db_cluster_parameter_group_error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let scenario = AuroraScenario::new(mock_rds); let update = scenario.update_auto_increment(10, 20).await; assert_matches!(update, Err(ScenarioError { message, context: _}) if message == "Failed to modify cluster parameter group"); } #[tokio::test] async fn test_start_cluster_and_instance() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster() .withf(|id, params, engine, version, username, password| { assert_eq!(id, "RustSDKCodeExamplesDBCluster"); assert_eq!(params, "RustSDKCodeExamplesDBParameterGroup"); assert_eq!(engine, "aurora-mysql"); assert_eq!(version, "aurora-mysql8.0"); assert_eq!(username, "test username"); assert_eq!(password.expose_secret(), "test password"); true }) .return_once(|id, _, _, _, _, _| { Ok(CreateDbClusterOutput::builder() .db_cluster(DbCluster::builder().db_cluster_identifier(id).build()) .build()) }); mock_rds .expect_create_db_instance() .withf(|cluster, name, class, engine| { assert_eq!(cluster, "RustSDKCodeExamplesDBCluster"); assert_eq!(name, "RustSDKCodeExamplesDBInstance"); assert_eq!(class, "m5.large"); assert_eq!(engine, "aurora-mysql"); true }) .return_once(|cluster, name, class, _| { Ok(CreateDbInstanceOutput::builder() .db_instance( DbInstance::builder() .db_cluster_identifier(cluster) .db_instance_identifier(name) .db_instance_class(class) .build(), ) .build()) }); mock_rds .expect_describe_db_clusters() .with(eq("RustSDKCodeExamplesDBCluster")) .return_once(|id| { Ok(DescribeDbClustersOutput::builder() .db_clusters(DbCluster::builder().db_cluster_identifier(id).build()) .build()) }); mock_rds .expect_describe_db_instance() .with(eq("RustSDKCodeExamplesDBInstance")) .return_once(|name| { Ok(DescribeDbInstancesOutput::builder() .db_instances( DbInstance::builder() .db_instance_identifier(name) .db_instance_status("Available") .build(), ) .build()) }); mock_rds .expect_describe_db_cluster_endpoints() .with(eq("RustSDKCodeExamplesDBCluster")) .return_once(|_| { Ok(DescribeDbClusterEndpointsOutput::builder() .db_cluster_endpoints(DbClusterEndpoint::builder().status("available").build()) .build()) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.engine_version = Some("aurora-mysql8.0".into()); scenario.instance_class = Some("m5.large".into()); scenario.username = Some("test username".into()); scenario.password = Some(SecretString::new("test password".into())); tokio::time::pause(); let assertions = tokio::spawn(async move { let create = scenario.start_cluster_and_instance().await; assert!(create.is_ok()); assert!(scenario .password .replace(SecretString::new("BAD SECRET".into())) .unwrap() .expose_secret() .is_empty()); assert_eq!( scenario.db_cluster_identifier, Some("RustSDKCodeExamplesDBCluster".into()) ); }); tokio::time::advance(Duration::from_secs(1)).await; tokio::time::resume(); let _ = assertions.await; } #[tokio::test] async fn test_start_cluster_and_instance_cluster_create_error() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster() .return_once(|_, _, _, _, _, _| { Err(SdkError::service_error( CreateDBClusterError::unhandled(Box::new(Error::new( ErrorKind::Other, "create db cluster error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.engine_version = Some("aurora-mysql8.0".into()); scenario.instance_class = Some("m5.large".into()); scenario.username = Some("test username".into()); scenario.password = Some(SecretString::new("test password".into())); let create = scenario.start_cluster_and_instance().await; assert_matches!(create, Err(ScenarioError { message, context: _}) if message == "Failed to create DB Cluster with cluster group") } #[tokio::test] async fn test_start_cluster_and_instance_cluster_create_missing_id() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster() .return_once(|_, _, _, _, _, _| { Ok(CreateDbClusterOutput::builder() .db_cluster(DbCluster::builder().build()) .build()) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.engine_version = Some("aurora-mysql8.0".into()); scenario.instance_class = Some("m5.large".into()); scenario.username = Some("test username".into()); scenario.password = Some(SecretString::new("test password".into())); let create = scenario.start_cluster_and_instance().await; assert_matches!(create, Err(ScenarioError { message, context:_ }) if message == "Created DB Cluster missing Identifier"); } #[tokio::test] async fn test_start_cluster_and_instance_instance_create_error() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster() .withf(|id, params, engine, version, username, password| { assert_eq!(id, "RustSDKCodeExamplesDBCluster"); assert_eq!(params, "RustSDKCodeExamplesDBParameterGroup"); assert_eq!(engine, "aurora-mysql"); assert_eq!(version, "aurora-mysql8.0"); assert_eq!(username, "test username"); assert_eq!(password.expose_secret(), "test password"); true }) .return_once(|id, _, _, _, _, _| { Ok(CreateDbClusterOutput::builder() .db_cluster(DbCluster::builder().db_cluster_identifier(id).build()) .build()) }); mock_rds .expect_create_db_instance() .return_once(|_, _, _, _| { Err(SdkError::service_error( CreateDBInstanceError::unhandled(Box::new(Error::new( ErrorKind::Other, "create db instance error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.engine_version = Some("aurora-mysql8.0".into()); scenario.instance_class = Some("m5.large".into()); scenario.username = Some("test username".into()); scenario.password = Some(SecretString::new("test password".into())); let create = scenario.start_cluster_and_instance().await; assert_matches!(create, Err(ScenarioError { message, context: _ }) if message == "Failed to create Instance in DB Cluster") } #[tokio::test] async fn test_start_cluster_and_instance_wait_hiccup() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_create_db_cluster() .withf(|id, params, engine, version, username, password| { assert_eq!(id, "RustSDKCodeExamplesDBCluster"); assert_eq!(params, "RustSDKCodeExamplesDBParameterGroup"); assert_eq!(engine, "aurora-mysql"); assert_eq!(version, "aurora-mysql8.0"); assert_eq!(username, "test username"); assert_eq!(password.expose_secret(), "test password"); true }) .return_once(|id, _, _, _, _, _| { Ok(CreateDbClusterOutput::builder() .db_cluster(DbCluster::builder().db_cluster_identifier(id).build()) .build()) }); mock_rds .expect_create_db_instance() .withf(|cluster, name, class, engine| { assert_eq!(cluster, "RustSDKCodeExamplesDBCluster"); assert_eq!(name, "RustSDKCodeExamplesDBInstance"); assert_eq!(class, "m5.large"); assert_eq!(engine, "aurora-mysql"); true }) .return_once(|cluster, name, class, _| { Ok(CreateDbInstanceOutput::builder() .db_instance( DbInstance::builder() .db_cluster_identifier(cluster) .db_instance_identifier(name) .db_instance_class(class) .build(), ) .build()) }); mock_rds .expect_describe_db_clusters() .with(eq("RustSDKCodeExamplesDBCluster")) .times(1) .returning(|_| { Err(SdkError::service_error( DescribeDBClustersError::unhandled(Box::new(Error::new( ErrorKind::Other, "describe cluster error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }) .with(eq("RustSDKCodeExamplesDBCluster")) .times(1) .returning(|id| { Ok(DescribeDbClustersOutput::builder() .db_clusters(DbCluster::builder().db_cluster_identifier(id).build()) .build()) }); mock_rds.expect_describe_db_instance().return_once(|name| { Ok(DescribeDbInstancesOutput::builder() .db_instances( DbInstance::builder() .db_instance_identifier(name) .db_instance_status("Available") .build(), ) .build()) }); mock_rds .expect_describe_db_cluster_endpoints() .return_once(|_| { Ok(DescribeDbClusterEndpointsOutput::builder() .db_cluster_endpoints(DbClusterEndpoint::builder().status("available").build()) .build()) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.engine_version = Some("aurora-mysql8.0".into()); scenario.instance_class = Some("m5.large".into()); scenario.username = Some("test username".into()); scenario.password = Some(SecretString::new("test password".into())); tokio::time::pause(); let assertions = tokio::spawn(async move { let create = scenario.start_cluster_and_instance().await; assert!(create.is_ok()); }); tokio::time::advance(Duration::from_secs(1)).await; tokio::time::advance(Duration::from_secs(1)).await; tokio::time::resume(); let _ = assertions.await; } #[tokio::test] async fn test_scenario_clean_up() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_delete_db_instance() .with(eq("MockInstance")) .return_once(|_| Ok(DeleteDbInstanceOutput::builder().build())); mock_rds .expect_describe_db_instances() .with() .times(1) .returning(|| { Ok(DescribeDbInstancesOutput::builder() .db_instances( DbInstance::builder() .db_cluster_identifier("MockCluster") .db_instance_status("Deleting") .build(), ) .build()) }) .with() .times(1) .returning(|| Ok(DescribeDbInstancesOutput::builder().build())); mock_rds .expect_delete_db_cluster() .with(eq("MockCluster")) .return_once(|_| Ok(DeleteDbClusterOutput::builder().build())); mock_rds .expect_describe_db_clusters() .with(eq("MockCluster")) .times(1) .returning(|id| { Ok(DescribeDbClustersOutput::builder() .db_clusters( DbCluster::builder() .db_cluster_identifier(id) .status("Deleting") .build(), ) .build()) }) .with(eq("MockCluster")) .times(1) .returning(|_| Ok(DescribeDbClustersOutput::builder().build())); mock_rds .expect_delete_db_cluster_parameter_group() .with(eq("MockParamGroup")) .return_once(|_| Ok(DeleteDbClusterParameterGroupOutput::builder().build())); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some(String::from("MockCluster")); scenario.db_instance_identifier = Some(String::from("MockInstance")); scenario.db_cluster_parameter_group = Some( DbClusterParameterGroup::builder() .db_cluster_parameter_group_name("MockParamGroup") .build(), ); tokio::time::pause(); let assertions = tokio::spawn(async move { let clean_up = scenario.clean_up().await; assert!(clean_up.is_ok()); }); tokio::time::advance(Duration::from_secs(1)).await; // Wait for first Describe Instances tokio::time::advance(Duration::from_secs(1)).await; // Wait for second Describe Instances tokio::time::advance(Duration::from_secs(1)).await; // Wait for first Describe Cluster tokio::time::advance(Duration::from_secs(1)).await; // Wait for second Describe Cluster tokio::time::resume(); let _ = assertions.await; } #[tokio::test] async fn test_scenario_clean_up_errors() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_delete_db_instance() .with(eq("MockInstance")) .return_once(|_| Ok(DeleteDbInstanceOutput::builder().build())); mock_rds .expect_describe_db_instances() .with() .times(1) .returning(|| { Ok(DescribeDbInstancesOutput::builder() .db_instances( DbInstance::builder() .db_cluster_identifier("MockCluster") .db_instance_status("Deleting") .build(), ) .build()) }) .with() .times(1) .returning(|| { Err(SdkError::service_error( DescribeDBInstancesError::unhandled(Box::new(Error::new( ErrorKind::Other, "describe db instances error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); mock_rds .expect_delete_db_cluster() .with(eq("MockCluster")) .return_once(|_| Ok(DeleteDbClusterOutput::builder().build())); mock_rds .expect_describe_db_clusters() .with(eq("MockCluster")) .times(1) .returning(|id| { Ok(DescribeDbClustersOutput::builder() .db_clusters( DbCluster::builder() .db_cluster_identifier(id) .status("Deleting") .build(), ) .build()) }) .with(eq("MockCluster")) .times(1) .returning(|_| { Err(SdkError::service_error( DescribeDBClustersError::unhandled(Box::new(Error::new( ErrorKind::Other, "describe db clusters error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); mock_rds .expect_delete_db_cluster_parameter_group() .with(eq("MockParamGroup")) .return_once(|_| Ok(DeleteDbClusterParameterGroupOutput::builder().build())); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some(String::from("MockCluster")); scenario.db_instance_identifier = Some(String::from("MockInstance")); scenario.db_cluster_parameter_group = Some( DbClusterParameterGroup::builder() .db_cluster_parameter_group_name("MockParamGroup") .build(), ); tokio::time::pause(); let assertions = tokio::spawn(async move { let clean_up = scenario.clean_up().await; assert!(clean_up.is_err()); let errs = clean_up.unwrap_err(); assert_eq!(errs.len(), 2); assert_matches!(errs.first(), Some(ScenarioError {message, context: _}) if message == "Failed to check instance state during deletion"); assert_matches!(errs.get(1), Some(ScenarioError {message, context: _}) if message == "Failed to check cluster state during deletion"); }); tokio::time::advance(Duration::from_secs(1)).await; // Wait for first Describe Instances tokio::time::advance(Duration::from_secs(1)).await; // Wait for second Describe Instances tokio::time::advance(Duration::from_secs(1)).await; // Wait for first Describe Cluster tokio::time::advance(Duration::from_secs(1)).await; // Wait for second Describe Cluster tokio::time::resume(); let _ = assertions.await; } #[tokio::test] async fn test_scenario_snapshot() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_snapshot_cluster() .with(eq("MockCluster"), eq("MockCluster_MockSnapshot")) .times(1) .return_once(|_, _| { Ok(CreateDbClusterSnapshotOutput::builder() .db_cluster_snapshot( DbClusterSnapshot::builder() .db_cluster_identifier("MockCluster") .db_cluster_snapshot_identifier("MockCluster_MockSnapshot") .build(), ) .build()) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("MockCluster".into()); let create_snapshot = scenario.snapshot("MockSnapshot").await; assert!(create_snapshot.is_ok()); } #[tokio::test] async fn test_scenario_snapshot_error() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_snapshot_cluster() .with(eq("MockCluster"), eq("MockCluster_MockSnapshot")) .times(1) .return_once(|_, _| { Err(SdkError::service_error( CreateDBClusterSnapshotError::unhandled(Box::new(Error::new( ErrorKind::Other, "create snapshot error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("MockCluster".into()); let create_snapshot = scenario.snapshot("MockSnapshot").await; assert_matches!(create_snapshot, Err(ScenarioError { message, context: _}) if message == "Failed to create snapshot"); } #[tokio::test] async fn test_scenario_snapshot_invalid() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_snapshot_cluster() .with(eq("MockCluster"), eq("MockCluster_MockSnapshot")) .times(1) .return_once(|_, _| Ok(CreateDbClusterSnapshotOutput::builder().build())); let mut scenario = AuroraScenario::new(mock_rds); scenario.db_cluster_identifier = Some("MockCluster".into()); let create_snapshot = scenario.snapshot("MockSnapshot").await; assert_matches!(create_snapshot, Err(ScenarioError { message, context: _}) if message == "Missing Snapshot"); } ``` A binary to run the scenario from front to end, using inquirer so that the user can make some decisions. ``` use std::fmt::Display; use anyhow::anyhow; use aurora_code_examples::{ aurora_scenario::{AuroraScenario, ScenarioError}, rds::Rds as RdsClient, }; use aws_sdk_rds::Client; use inquire::{validator::StringValidator, CustomUserError}; use secrecy::SecretString; use tracing::warn; #[derive(Default, Debug)] struct Warnings(Vec<String>); impl Warnings { fn new() -> Self { Warnings(Vec::with_capacity(5)) } fn push(&mut self, warning: &str, error: ScenarioError) { let formatted = format!("{warning}: {error}"); warn!("{formatted}"); self.0.push(formatted); } fn is_empty(&self) -> bool { self.0.is_empty() } } impl Display for Warnings { fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result { writeln!(f, "Warnings:")?; for warning in &self.0 { writeln!(f, "{: >4}- {warning}", "")?; } Ok(()) } } fn select( prompt: &str, choices: Vec<String>, error_message: &str, ) -> Result<String, anyhow::Error> { inquire::Select::new(prompt, choices) .prompt() .map_err(|error| anyhow!("{error_message}: {error}")) } // Prepare the Aurora Scenario. Prompt for several settings that are optional to the Scenario, but that the user should choose for the demo. // This includes the engine, engine version, and instance class. async fn prepare_scenario(rds: RdsClient) -> Result<AuroraScenario, anyhow::Error> { let mut scenario = AuroraScenario::new(rds); // Get available engine families for Aurora MySql. rds.DescribeDbEngineVersions(Engine='aurora-mysql') and build a set of the 'DBParameterGroupFamily' field values. I get {aurora-mysql8.0, aurora-mysql5.7}. let available_engines = scenario.get_engines().await; if let Err(error) = available_engines { return Err(anyhow!("Failed to get available engines: {}", error)); } let available_engines = available_engines.unwrap(); // Select an engine family and create a custom DB cluster parameter group. rds.CreateDbClusterParameterGroup(DBParameterGroupFamily='aurora-mysql8.0') let engine = select( "Select an Aurora engine family", available_engines.keys().cloned().collect::<Vec<String>>(), "Invalid engine selection", )?; let version = select( format!("Select an Aurora engine version for {engine}").as_str(), available_engines.get(&engine).cloned().unwrap_or_default(), "Invalid engine version selection", )?; let set_engine = scenario.set_engine(engine.as_str(), version.as_str()).await; if let Err(error) = set_engine { return Err(anyhow!("Could not set engine: {}", error)); } let instance_classes = scenario.get_instance_classes().await; match instance_classes { Ok(classes) => { let instance_class = select( format!("Select an Aurora instance class for {engine}").as_str(), classes, "Invalid instance class selection", )?; scenario.set_instance_class(Some(instance_class)) } Err(err) => return Err(anyhow!("Failed to get instance classes for engine: {err}")), } Ok(scenario) } // Prepare the cluster, creating a custom parameter group overriding some group parameters based on user input. async fn prepare_cluster(scenario: &mut AuroraScenario, warnings: &mut Warnings) -> Result<(), ()> { show_parameters(scenario, warnings).await; let offset = prompt_number_or_default(warnings, "auto_increment_offset", 5); let increment = prompt_number_or_default(warnings, "auto_increment_increment", 3); // Modify both the auto_increment_offset and auto_increment_increment parameters in one call in the custom parameter group. Set their ParameterValue fields to a new allowable value. rds.ModifyDbClusterParameterGroup. let update_auto_increment = scenario.update_auto_increment(offset, increment).await; if let Err(error) = update_auto_increment { warnings.push("Failed to update auto increment", error); return Err(()); } // Get and display the updated parameters. Specify Source of 'user' to get just the modified parameters. rds.DescribeDbClusterParameters(Source='user') show_parameters(scenario, warnings).await; let username = inquire::Text::new("Username for the database (default 'testuser')") .with_default("testuser") .with_initial_value("testuser") .prompt(); if let Err(error) = username { warnings.push( "Failed to get username, using default", ScenarioError::with(format!("Error from inquirer: {error}")), ); return Err(()); } let username = username.unwrap(); let password = inquire::Text::new("Password for the database (minimum 8 characters)") .with_validator(|i: &str| { if i.len() >= 8 { Ok(inquire::validator::Validation::Valid) } else { Ok(inquire::validator::Validation::Invalid( "Password must be at least 8 characters".into(), )) } }) .prompt(); let password: Option<SecretString> = match password { Ok(password) => Some(SecretString::from(password)), Err(error) => { warnings.push( "Failed to get password, using none (and not starting a DB)", ScenarioError::with(format!("Error from inquirer: {error}")), ); return Err(()); } }; scenario.set_login(Some(username), password); Ok(()) } // Start a single instance in the cluster, async fn run_instance(scenario: &mut AuroraScenario) -> Result<(), ScenarioError> { // Create an Aurora DB cluster database cluster that contains a MySql database and uses the parameter group you created. // Create a database instance in the cluster. // Wait for DB instance to be ready. Call rds.DescribeDbInstances and check for DBInstanceStatus == 'available'. scenario.start_cluster_and_instance().await?; let connection_string = scenario.connection_string().await?; println!("Database ready: {connection_string}",); let _ = inquire::Text::new("Use the database with the connection string. When you're finished, press enter key to continue.").prompt(); // Create a snapshot of the DB cluster. rds.CreateDbClusterSnapshot. // Wait for the snapshot to create. rds.DescribeDbClusterSnapshots until Status == 'available'. let snapshot_name = inquire::Text::new("Provide a name for the snapshot") .prompt() .unwrap_or(String::from("ScenarioRun")); let snapshot = scenario.snapshot(snapshot_name.as_str()).await?; println!( "Snapshot is available: {}", snapshot.db_cluster_snapshot_arn().unwrap_or("Missing ARN") ); Ok(()) } #[tokio::main] async fn main() -> Result<(), anyhow::Error> { tracing_subscriber::fmt::init(); let sdk_config = aws_config::from_env().load().await; let client = Client::new(&sdk_config); let rds = RdsClient::new(client); let mut scenario = prepare_scenario(rds).await?; // At this point, the scenario has things in AWS and needs to get cleaned up. let mut warnings = Warnings::new(); if prepare_cluster(&mut scenario, &mut warnings).await.is_ok() { println!("Configured database cluster, starting an instance."); if let Err(err) = run_instance(&mut scenario).await { warnings.push("Problem running instance", err); } } // Clean up the instance, cluster, and parameter group, waiting for the instance and cluster to delete before moving on. let clean_up = scenario.clean_up().await; if let Err(errors) = clean_up { for error in errors { warnings.push("Problem cleaning up scenario", error); } } if warnings.is_empty() { Ok(()) } else { println!("There were problems running the scenario:"); println!("{warnings}"); Err(anyhow!("There were problems running the scenario")) } } #[derive(Clone)] struct U8Validator {} impl StringValidator for U8Validator { fn validate(&self, input: &str) -> Result<inquire::validator::Validation, CustomUserError> { if input.parse::<u8>().is_err() { Ok(inquire::validator::Validation::Invalid( "Can't parse input as number".into(), )) } else { Ok(inquire::validator::Validation::Valid) } } } async fn show_parameters(scenario: &AuroraScenario, warnings: &mut Warnings) { let parameters = scenario.cluster_parameters().await; match parameters { Ok(parameters) => { println!("Current parameters"); for parameter in parameters { println!("\t{parameter}"); } } Err(error) => warnings.push("Could not find cluster parameters", error), } } fn prompt_number_or_default(warnings: &mut Warnings, name: &str, default: u8) -> u8 { let input = inquire::Text::new(format!("Updated {name}:").as_str()) .with_validator(U8Validator {}) .prompt(); match input { Ok(increment) => match increment.parse::<u8>() { Ok(increment) => increment, Err(error) => { warnings.push( format!("Invalid updated {name} (using {default} instead)").as_str(), ScenarioError::with(format!("{error}")), ); default } }, Err(error) => { warnings.push( format!("Invalid updated {name} (using {default} instead)").as_str(), ScenarioError::with(format!("{error}")), ); default } } } ``` A wrapper around the Amazon RDS service that allows automocking for tests. ``` use aws_sdk_rds::{ error::SdkError, operation::{ create_db_cluster::{CreateDBClusterError, CreateDbClusterOutput}, create_db_cluster_parameter_group::CreateDBClusterParameterGroupError, create_db_cluster_parameter_group::CreateDbClusterParameterGroupOutput, create_db_cluster_snapshot::{CreateDBClusterSnapshotError, CreateDbClusterSnapshotOutput}, create_db_instance::{CreateDBInstanceError, CreateDbInstanceOutput}, delete_db_cluster::{DeleteDBClusterError, DeleteDbClusterOutput}, delete_db_cluster_parameter_group::{ DeleteDBClusterParameterGroupError, DeleteDbClusterParameterGroupOutput, }, delete_db_instance::{DeleteDBInstanceError, DeleteDbInstanceOutput}, describe_db_cluster_endpoints::{ DescribeDBClusterEndpointsError, DescribeDbClusterEndpointsOutput, }, describe_db_cluster_parameters::{ DescribeDBClusterParametersError, DescribeDbClusterParametersOutput, }, describe_db_clusters::{DescribeDBClustersError, DescribeDbClustersOutput}, describe_db_engine_versions::{ DescribeDBEngineVersionsError, DescribeDbEngineVersionsOutput, }, describe_db_instances::{DescribeDBInstancesError, DescribeDbInstancesOutput}, describe_orderable_db_instance_options::DescribeOrderableDBInstanceOptionsError, modify_db_cluster_parameter_group::{ ModifyDBClusterParameterGroupError, ModifyDbClusterParameterGroupOutput, }, }, types::{OrderableDbInstanceOption, Parameter}, Client as RdsClient, }; use secrecy::{ExposeSecret, SecretString}; #[cfg(test)] use mockall::automock; #[cfg(test)] pub use MockRdsImpl as Rds; #[cfg(not(test))] pub use RdsImpl as Rds; pub struct RdsImpl { pub inner: RdsClient, } #[cfg_attr(test, automock)] impl RdsImpl { pub fn new(inner: RdsClient) -> Self { RdsImpl { inner } } pub async fn describe_db_engine_versions( &self, engine: &str, ) -> Result<DescribeDbEngineVersionsOutput, SdkError<DescribeDBEngineVersionsError>> { self.inner .describe_db_engine_versions() .engine(engine) .send() .await } pub async fn describe_orderable_db_instance_options( &self, engine: &str, engine_version: &str, ) -> Result<Vec<OrderableDbInstanceOption>, SdkError<DescribeOrderableDBInstanceOptionsError>> { self.inner .describe_orderable_db_instance_options() .engine(engine) .engine_version(engine_version) .into_paginator() .items() .send() .try_collect() .await } pub async fn create_db_cluster_parameter_group( &self, name: &str, description: &str, family: &str, ) -> Result<CreateDbClusterParameterGroupOutput, SdkError<CreateDBClusterParameterGroupError>> { self.inner .create_db_cluster_parameter_group() .db_cluster_parameter_group_name(name) .description(description) .db_parameter_group_family(family) .send() .await } pub async fn describe_db_clusters( &self, id: &str, ) -> Result<DescribeDbClustersOutput, SdkError<DescribeDBClustersError>> { self.inner .describe_db_clusters() .db_cluster_identifier(id) .send() .await } pub async fn describe_db_cluster_parameters( &self, name: &str, ) -> Result<Vec<DescribeDbClusterParametersOutput>, SdkError<DescribeDBClusterParametersError>> { self.inner .describe_db_cluster_parameters() .db_cluster_parameter_group_name(name) .into_paginator() .send() .try_collect() .await } pub async fn modify_db_cluster_parameter_group( &self, name: &str, parameters: Vec<Parameter>, ) -> Result<ModifyDbClusterParameterGroupOutput, SdkError<ModifyDBClusterParameterGroupError>> { self.inner .modify_db_cluster_parameter_group() .db_cluster_parameter_group_name(name) .set_parameters(Some(parameters)) .send() .await } pub async fn create_db_cluster( &self, name: &str, parameter_group: &str, engine: &str, version: &str, username: &str, password: SecretString, ) -> Result<CreateDbClusterOutput, SdkError<CreateDBClusterError>> { self.inner .create_db_cluster() .db_cluster_identifier(name) .db_cluster_parameter_group_name(parameter_group) .engine(engine) .engine_version(version) .master_username(username) .master_user_password(password.expose_secret()) .send() .await } pub async fn create_db_instance( &self, cluster_name: &str, instance_name: &str, instance_class: &str, engine: &str, ) -> Result<CreateDbInstanceOutput, SdkError<CreateDBInstanceError>> { self.inner .create_db_instance() .db_cluster_identifier(cluster_name) .db_instance_identifier(instance_name) .db_instance_class(instance_class) .engine(engine) .send() .await } pub async fn describe_db_instance( &self, instance_identifier: &str, ) -> Result<DescribeDbInstancesOutput, SdkError<DescribeDBInstancesError>> { self.inner .describe_db_instances() .db_instance_identifier(instance_identifier) .send() .await } pub async fn snapshot_cluster( &self, db_cluster_identifier: &str, snapshot_name: &str, ) -> Result<CreateDbClusterSnapshotOutput, SdkError<CreateDBClusterSnapshotError>> { self.inner .create_db_cluster_snapshot() .db_cluster_identifier(db_cluster_identifier) .db_cluster_snapshot_identifier(snapshot_name) .send() .await } pub async fn describe_db_instances( &self, ) -> Result<DescribeDbInstancesOutput, SdkError<DescribeDBInstancesError>> { self.inner.describe_db_instances().send().await } pub async fn describe_db_cluster_endpoints( &self, cluster_identifier: &str, ) -> Result<DescribeDbClusterEndpointsOutput, SdkError<DescribeDBClusterEndpointsError>> { self.inner .describe_db_cluster_endpoints() .db_cluster_identifier(cluster_identifier) .send() .await } pub async fn delete_db_instance( &self, instance_identifier: &str, ) -> Result<DeleteDbInstanceOutput, SdkError<DeleteDBInstanceError>> { self.inner .delete_db_instance() .db_instance_identifier(instance_identifier) .skip_final_snapshot(true) .send() .await } pub async fn delete_db_cluster( &self, cluster_identifier: &str, ) -> Result<DeleteDbClusterOutput, SdkError<DeleteDBClusterError>> { self.inner .delete_db_cluster() .db_cluster_identifier(cluster_identifier) .skip_final_snapshot(true) .send() .await } pub async fn delete_db_cluster_parameter_group( &self, name: &str, ) -> Result<DeleteDbClusterParameterGroupOutput, SdkError<DeleteDBClusterParameterGroupError>> { self.inner .delete_db_cluster_parameter_group() .db_cluster_parameter_group_name(name) .send() .await } } ``` The Cargo.toml with dependencies used in this scenario. ``` [package] name = "aurora-code-examples" authors = [ "David Souther <dpsouth@amazon.com>", ] edition = "2021" version = "0.1.0" # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html [dependencies] anyhow = "1.0.75" assert_matches = "1.5.0" aws-config = { version = "1.0.1", features = ["behavior-version-latest"] } aws-smithy-types = { version = "1.0.1" } aws-smithy-runtime-api = { version = "1.0.1" } aws-sdk-rds = { version = "1.3.0" } inquire = "0.6.2" mockall = "0.11.4" phf = { version = "0.11.2", features = ["std", "macros"] } sdk-examples-test-utils = { path = "../../test-utils" } secrecy = "0.8.0" tokio = { version = "1.20.1", features = ["full", "test-util"] } tracing = "0.1.37" tracing-subscriber = { version = "0.3.15", features = ["env-filter"] } ``` <br>• For API details, see the following topics in *AWS SDK for Rust API reference*. + [CreateDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster") + [CreateDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group") + [CreateDBClusterSnapshot](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_snapshot "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_snapshot") + [CreateDBInstance](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_instance "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_instance") + [DeleteDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster") + [DeleteDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster_parameter_group") + [DeleteDBInstance](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_instance "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_instance") + [DescribeDBClusterParameterGroups](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameter_groups "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameter_groups") + [DescribeDBClusterParameters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters") + [DescribeDBClusterSnapshots](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_snapshots "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_snapshots") + [DescribeDBClusters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters") + [DescribeDBEngineVersions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions") + [DescribeDBInstances](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_instances "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_instances") + [DescribeOrderableDBInstanceOptions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options") + [ModifyDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group") For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section"). This topic also includes information about getting started and details about previous SDK versions.
-````
+                        || (paraName.compareTo("auto_increment_increment ") == 0)) {
+                    System.out.println("*** The parameter name is  " + paraName);
+                    System.out.println("*** The parameter value is  " + para.parameterValue());
+                    System.out.println("*** The parameter data type is " + para.dataType());
+                    System.out.println("*** The parameter description is " + para.description());
+                    System.out.println("*** The parameter allowed values  is " + para.allowedValues());
+                }
+            }
+
+        } catch (RdsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void describeDbClusterParameterGroups(RdsClient rdsClient, String dbClusterGroupName) {
+        try {
+            DescribeDbClusterParameterGroupsRequest groupsRequest = DescribeDbClusterParameterGroupsRequest.builder()
+                    .dbClusterParameterGroupName(dbClusterGroupName)
+                    .maxRecords(20)
+                    .build();
+
+            List<DBClusterParameterGroup> groups = rdsClient.describeDBClusterParameterGroups(groupsRequest)
+                    .dbClusterParameterGroups();
+            for (DBClusterParameterGroup group : groups) {
+                System.out.println("The group name is " + group.dbClusterParameterGroupName());
+                System.out.println("The group ARN is " + group.dbClusterParameterGroupArn());
+            }
+
+        } catch (RdsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void createDBClusterParameterGroup(RdsClient rdsClient, String dbClusterGroupName,
+            String dbParameterGroupFamily) {
+        try {
+            CreateDbClusterParameterGroupRequest groupRequest = CreateDbClusterParameterGroupRequest.builder()
+                    .dbClusterParameterGroupName(dbClusterGroupName)
+                    .dbParameterGroupFamily(dbParameterGroupFamily)
+                    .description("Created by using the AWS SDK for Java")
+                    .build();
+
+            CreateDbClusterParameterGroupResponse response = rdsClient.createDBClusterParameterGroup(groupRequest);
+            System.out.println("The group name is " + response.dbClusterParameterGroup().dbClusterParameterGroupName());
+
+        } catch (RdsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void describeDBEngines(RdsClient rdsClient) {
+        try {
+            DescribeDbEngineVersionsRequest engineVersionsRequest = DescribeDbEngineVersionsRequest.builder()
+                    .engine("aurora-mysql")
+                    .defaultOnly(true)
+                    .maxRecords(20)
+                    .build();
+
+            DescribeDbEngineVersionsResponse response = rdsClient.describeDBEngineVersions(engineVersionsRequest);
+            List<DBEngineVersion> engines = response.dbEngineVersions();
+
+            // Get all DBEngineVersion objects.
+            for (DBEngineVersion engineOb : engines) {
+                System.out.println("The name of the DB parameter group family for the database engine is "
+                        + engineOb.dbParameterGroupFamily());
+                System.out.println("The name of the database engine " + engineOb.engine());
+                System.out.println("The version number of the database engine " + engineOb.engineVersion());
+            }
+
+        } catch (RdsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+}
+
+
+```
+
+- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+  - [CreateDBCluster](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster.md")
+  - [CreateDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterParameterGroup.md")
+  - [CreateDBClusterSnapshot](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterSnapshot.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterSnapshot.md")
+  - [CreateDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md")
+  - [DeleteDBCluster](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBCluster.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBCluster.md")
+  - [DeleteDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBClusterParameterGroup.md")
+  - [DeleteDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance.md")
+  - [DescribeDBClusterParameterGroups](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameterGroups.md")
+  - [DescribeDBClusterParameters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameters.md")
+  - [DescribeDBClusterSnapshots](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots.md")
+  - [DescribeDBClusters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters.md")
+  - [DescribeDBEngineVersions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions.md")
+  - [DescribeDBInstances](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances.md")
+  - [DescribeOrderableDBInstanceOptions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
+  - [ModifyDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBClusterParameterGroup.md")
+
+Kotlin
+
+**SDK for Kotlin**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples").
+
+```
+
+/**
+Before running this Kotlin code example, set up your development environment, including your credentials.
+
+For more information, see the following documentation topic:
+
+https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/setup.html
+
+This example requires an AWS Secrets Manager secret that contains the database credentials. If you do not create a
+secret, this example will not work. For more details, see:
+
+https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_RS.html
+
+This Kotlin example performs the following tasks:
+
+1. Returns a list of the available DB engines.
+2. Creates a custom DB parameter group.
+3. Gets the parameter groups.
+4. Gets the parameters in the group.
+5. Modifies the auto_increment_increment parameter.
+6. Displays the updated parameter value.
+7. Gets a list of allowed engine versions.
+8. Creates an Aurora DB cluster database.
+9. Waits for DB instance to be ready.
+10. Gets a list of instance classes available for the selected engine.
+11. Creates a database instance in the cluster.
+12. Waits for the database instance in the cluster to be ready.
+13. Creates a snapshot.
+14. Waits for DB snapshot to be ready.
+15. Deletes the DB instance.
+16. Deletes the DB cluster.
+17. Deletes the DB cluster group.
+ */
+
+var slTime: Long = 20
+
+suspend fun main(args: Array<String>) {
+    val usage = """
+        Usage:
+            <dbClusterGroupName> <dbParameterGroupFamily> <dbInstanceClusterIdentifier> <dbName> <dbSnapshotIdentifier> <secretName>
+        Where:
+            dbClusterGroupName - The database group name.
+            dbParameterGroupFamily - The database parameter group name.
+            dbInstanceClusterIdentifier - The database instance identifier.
+            dbName -  The database name.
+            dbSnapshotIdentifier - The snapshot identifier.
+            secretName - The name of the AWS Secrets Manager secret that contains the database credentials.
+    """
+
+    if (args.size != 7) {
+        println(usage)
+        exitProcess(1)
+    }
+
+    val dbClusterGroupName = args[0]
+    val dbParameterGroupFamily = args[1]
+    val dbInstanceClusterIdentifier = args[2]
+    val dbInstanceIdentifier = args[3]
+    val dbName = args[4]
+    val dbSnapshotIdentifier = args[5]
+    val secretName = args[6]
+
+    val gson = Gson()
+    val user = gson.fromJson(getSecretValues(secretName).toString(), User::class.java)
+    val username = user.username
+    val userPassword = user.password
+
+    println("1. Return a list of the available DB engines")
+    describeAuroraDBEngines()
+
+    println("2. Create a custom parameter group")
+    createDBClusterParameterGroup(dbClusterGroupName, dbParameterGroupFamily)
+
+    println("3. Get the parameter group")
+    describeDbClusterParameterGroups(dbClusterGroupName)
+
+    println("4. Get the parameters in the group")
+    describeDbClusterParameters(dbClusterGroupName, 0)
+
+    println("5. Modify the auto_increment_offset parameter")
+    modifyDBClusterParas(dbClusterGroupName)
+
+    println("6. Display the updated parameter value")
+    describeDbClusterParameters(dbClusterGroupName, -1)
+
+    println("7. Get a list of allowed engine versions")
+    getAllowedClusterEngines(dbParameterGroupFamily)
+
+    println("8. Create an Aurora DB cluster database")
+    val arnClusterVal = createDBCluster(dbClusterGroupName, dbName, dbInstanceClusterIdentifier, username, userPassword)
+    println("The ARN of the cluster is $arnClusterVal")
+
+    println("9. Wait for DB instance to be ready")
+    waitForClusterInstanceReady(dbInstanceClusterIdentifier)
+
+    println("10. Get a list of instance classes available for the selected engine")
+    val instanceClass = getListInstanceClasses()
+
+    println("11. Create a database instance in the cluster.")
+    val clusterDBARN = createDBInstanceCluster(dbInstanceIdentifier, dbInstanceClusterIdentifier, instanceClass)
+    println("The ARN of the database is $clusterDBARN")
+
+    println("12. Wait for DB instance to be ready")
+    waitDBAuroraInstanceReady(dbInstanceIdentifier)
+
+    println("13. Create a snapshot")
+    createDBClusterSnapshot(dbInstanceClusterIdentifier, dbSnapshotIdentifier)
+
+    println("14. Wait for DB snapshot to be ready")
+    waitSnapshotReady(dbSnapshotIdentifier, dbInstanceClusterIdentifier)
+
+    println("15. Delete the DB instance")
+    deleteDBInstance(dbInstanceIdentifier)
+
+    println("16. Delete the DB cluster")
+    deleteCluster(dbInstanceClusterIdentifier)
+
+    println("17. Delete the DB cluster group")
+    if (clusterDBARN != null) {
+        deleteDBClusterGroup(dbClusterGroupName, clusterDBARN)
+    }
+    println("The Scenario has successfully completed.")
+}
+
+@Throws(InterruptedException::class)
+suspend fun deleteDBClusterGroup(
+    dbClusterGroupName: String,
+    clusterDBARN: String,
+) {
+    var isDataDel = false
+    var didFind: Boolean
+    var instanceARN: String
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        // Make sure that the database has been deleted.
+        while (!isDataDel) {
+            val response = rdsClient.describeDbInstances()
+            val instanceList = response.dbInstances
+            val listSize = instanceList?.size
+            isDataDel = false
+            didFind = false
+            var index = 1
+            if (instanceList != null) {
+                for (instance in instanceList) {
+                    instanceARN = instance.dbInstanceArn.toString()
+                    if (instanceARN.compareTo(clusterDBARN) == 0) {
+                        println("$clusterDBARN still exists")
+                        didFind = true
+                    }
+                    if (index == listSize && !didFind) {
+                        // Went through the entire list and did not find the database ARN.
+                        isDataDel = true
+                    }
+                    delay(slTime * 1000)
+                    index++
+                }
+            }
+        }
+        val clusterParameterGroupRequest =
+            DeleteDbClusterParameterGroupRequest {
+                dbClusterParameterGroupName = dbClusterGroupName
+            }
+
+        rdsClient.deleteDbClusterParameterGroup(clusterParameterGroupRequest)
+        println("$dbClusterGroupName was deleted.")
+    }
+}
+
+suspend fun deleteCluster(dbInstanceClusterIdentifier: String) {
+    val deleteDbClusterRequest =
+        DeleteDbClusterRequest {
+            dbClusterIdentifier = dbInstanceClusterIdentifier
+            skipFinalSnapshot = true
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        rdsClient.deleteDbCluster(deleteDbClusterRequest)
+        println("$dbInstanceClusterIdentifier was deleted!")
+    }
+}
+
+suspend fun deleteDBInstance(dbInstanceIdentifierVal: String) {
+    val deleteDbInstanceRequest =
+        DeleteDbInstanceRequest {
+            dbInstanceIdentifier = dbInstanceIdentifierVal
+            deleteAutomatedBackups = true
+            skipFinalSnapshot = true
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.deleteDbInstance(deleteDbInstanceRequest)
+        print("The status of the database is ${response.dbInstance?.dbInstanceStatus}")
+    }
+}
+
+suspend fun waitSnapshotReady(
+    dbSnapshotIdentifier: String?,
+    dbInstanceClusterIdentifier: String?,
+) {
+    var snapshotReady = false
+    var snapshotReadyStr: String
+    println("Waiting for the snapshot to become available.")
+
+    val snapshotsRequest =
+        DescribeDbClusterSnapshotsRequest {
+            dbClusterSnapshotIdentifier = dbSnapshotIdentifier
+            dbClusterIdentifier = dbInstanceClusterIdentifier
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        while (!snapshotReady) {
+            val response = rdsClient.describeDbClusterSnapshots(snapshotsRequest)
+            val snapshotList = response.dbClusterSnapshots
+            if (snapshotList != null) {
+                for (snapshot in snapshotList) {
+                    snapshotReadyStr = snapshot.status.toString()
+                    if (snapshotReadyStr.contains("available")) {
+                        snapshotReady = true
+                    } else {
+                        println(".")
+                        delay(slTime * 5000)
+                    }
+                }
+            }
+        }
+    }
+    println("The Snapshot is available!")
+}
+
+suspend fun createDBClusterSnapshot(
+    dbInstanceClusterIdentifier: String?,
+    dbSnapshotIdentifier: String?,
+) {
+    val snapshotRequest =
+        CreateDbClusterSnapshotRequest {
+            dbClusterIdentifier = dbInstanceClusterIdentifier
+            dbClusterSnapshotIdentifier = dbSnapshotIdentifier
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.createDbClusterSnapshot(snapshotRequest)
+        println("The Snapshot ARN is ${response.dbClusterSnapshot?.dbClusterSnapshotArn}")
+    }
+}
+
+suspend fun waitDBAuroraInstanceReady(dbInstanceIdentifierVal: String?) {
+    var instanceReady = false
+    var instanceReadyStr: String
+    println("Waiting for instance to become available.")
+    val instanceRequest =
+        DescribeDbInstancesRequest {
+            dbInstanceIdentifier = dbInstanceIdentifierVal
+        }
+
+    var endpoint = ""
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        while (!instanceReady) {
+            val response = rdsClient.describeDbInstances(instanceRequest)
+            response.dbInstances?.forEach { instance ->
+                instanceReadyStr = instance.dbInstanceStatus.toString()
+                if (instanceReadyStr.contains("available")) {
+                    endpoint = instance.endpoint?.address.toString()
+                    instanceReady = true
+                } else {
+                    print(".")
+                    delay(sleepTime * 1000)
+                }
+            }
+        }
+    }
+    println("Database instance is available! The connection endpoint is $endpoint")
+}
+
+suspend fun createDBInstanceCluster(
+    dbInstanceIdentifierVal: String?,
+    dbInstanceClusterIdentifierVal: String?,
+    instanceClassVal: String?,
+): String? {
+    val instanceRequest =
+        CreateDbInstanceRequest {
+            dbInstanceIdentifier = dbInstanceIdentifierVal
+            dbClusterIdentifier = dbInstanceClusterIdentifierVal
+            engine = "aurora-mysql"
+            dbInstanceClass = instanceClassVal
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.createDbInstance(instanceRequest)
+        print("The status is ${response.dbInstance?.dbInstanceStatus}")
+        return response.dbInstance?.dbInstanceArn
+    }
+}
+
+suspend fun getListInstanceClasses(): String {
+    val optionsRequest =
+        DescribeOrderableDbInstanceOptionsRequest {
+            engine = "aurora-mysql"
+            maxRecords = 20
+        }
+    var instanceClass = ""
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.describeOrderableDbInstanceOptions(optionsRequest)
+        response.orderableDbInstanceOptions?.forEach { instanceOption ->
+            instanceClass = instanceOption.dbInstanceClass.toString()
+            println("The instance class is ${instanceOption.dbInstanceClass}")
+            println("The engine version is ${instanceOption.engineVersion}")
+        }
+    }
+    return instanceClass
+}
+
+// Waits until the database instance is available.
+suspend fun waitForClusterInstanceReady(dbClusterIdentifierVal: String?) {
+    var instanceReady = false
+    var instanceReadyStr: String
+    println("Waiting for instance to become available.")
+
+    val instanceRequest =
+        DescribeDbClustersRequest {
+            dbClusterIdentifier = dbClusterIdentifierVal
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        while (!instanceReady) {
+            val response = rdsClient.describeDbClusters(instanceRequest)
+            response.dbClusters?.forEach { cluster ->
+                instanceReadyStr = cluster.status.toString()
+                if (instanceReadyStr.contains("available")) {
+                    instanceReady = true
+                } else {
+                    print(".")
+                    delay(sleepTime * 1000)
+                }
+            }
+        }
+    }
+    println("Database cluster is available!")
+}
+
+suspend fun createDBCluster(
+    dbParameterGroupFamilyVal: String?,
+    dbName: String?,
+    dbClusterIdentifierVal: String?,
+    userName: String?,
+    password: String?,
+): String? {
+    val clusterRequest =
+        CreateDbClusterRequest {
+            databaseName = dbName
+            dbClusterIdentifier = dbClusterIdentifierVal
+            dbClusterParameterGroupName = dbParameterGroupFamilyVal
+            engine = "aurora-mysql"
+            masterUsername = userName
+            masterUserPassword = password
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.createDbCluster(clusterRequest)
+        return response.dbCluster?.dbClusterArn
+    }
+}
+
+// Get a list of allowed engine versions.
+suspend fun getAllowedClusterEngines(dbParameterGroupFamilyVal: String?) {
+    val versionsRequest =
+        DescribeDbEngineVersionsRequest {
+            dbParameterGroupFamily = dbParameterGroupFamilyVal
+            engine = "aurora-mysql"
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.describeDbEngineVersions(versionsRequest)
+        response.dbEngineVersions?.forEach { dbEngine ->
+            println("The engine version is ${dbEngine.engineVersion}")
+            println("The engine description is ${dbEngine.dbEngineDescription}")
+        }
+    }
+}
+
+// Modify the auto_increment_offset parameter.
+suspend fun modifyDBClusterParas(dClusterGroupName: String?) {
+    val parameter1 =
+        Parameter {
+            parameterName = "auto_increment_offset"
+            applyMethod = ApplyMethod.fromValue("immediate")
+            parameterValue = "5"
+        }
+
+    val paraList = ArrayList<Parameter>()
+    paraList.add(parameter1)
+    val groupRequest =
+        ModifyDbClusterParameterGroupRequest {
+            dbClusterParameterGroupName = dClusterGroupName
+            parameters = paraList
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.modifyDbClusterParameterGroup(groupRequest)
+        println("The parameter group ${response.dbClusterParameterGroupName} was successfully modified")
+    }
+}
+
+suspend fun describeDbClusterParameters(
+    dbCLusterGroupName: String?,
+    flag: Int,
+) {
+    val dbParameterGroupsRequest: DescribeDbClusterParametersRequest
+    dbParameterGroupsRequest =
+        if (flag == 0) {
+            DescribeDbClusterParametersRequest {
+                dbClusterParameterGroupName = dbCLusterGroupName
+            }
+        } else {
+            DescribeDbClusterParametersRequest {
+                dbClusterParameterGroupName = dbCLusterGroupName
+                source = "user"
+            }
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.describeDbClusterParameters(dbParameterGroupsRequest)
+        response.parameters?.forEach { para ->
+            // Only print out information about either auto_increment_offset or auto_increment_increment.
+            val paraName = para.parameterName
+            if (paraName != null) {
+                if (paraName.compareTo("auto_increment_offset") == 0 || paraName.compareTo("auto_increment_increment ") == 0) {
+                    println("*** The parameter name is  $paraName")
+                    println("*** The parameter value is  ${para.parameterValue}")
+                    println("*** The parameter data type is ${para.dataType}")
+                    println("*** The parameter description is ${para.description}")
+                    println("*** The parameter allowed values  is ${para.allowedValues}")
+                }
+            }
+        }
+    }
+}
+
+suspend fun describeDbClusterParameterGroups(dbClusterGroupName: String?) {
+    val groupsRequest =
+        DescribeDbClusterParameterGroupsRequest {
+            dbClusterParameterGroupName = dbClusterGroupName
+            maxRecords = 20
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.describeDbClusterParameterGroups(groupsRequest)
+        response.dbClusterParameterGroups?.forEach { group ->
+            println("The group name is ${group.dbClusterParameterGroupName}")
+            println("The group ARN is ${group.dbClusterParameterGroupArn}")
+        }
+    }
+}
+
+suspend fun createDBClusterParameterGroup(
+    dbClusterGroupNameVal: String?,
+    dbParameterGroupFamilyVal: String?,
+) {
+    val groupRequest =
+        CreateDbClusterParameterGroupRequest {
+            dbClusterParameterGroupName = dbClusterGroupNameVal
+            dbParameterGroupFamily = dbParameterGroupFamilyVal
+            description = "Created by using the AWS SDK for Kotlin"
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.createDbClusterParameterGroup(groupRequest)
+        println("The group name is ${response.dbClusterParameterGroup?.dbClusterParameterGroupName}")
+    }
+}
+
+suspend fun describeAuroraDBEngines() {
+    val engineVersionsRequest =
+        DescribeDbEngineVersionsRequest {
+            engine = "aurora-mysql"
+            defaultOnly = true
+            maxRecords = 20
+        }
+
+    RdsClient.fromEnvironment { region = "us-west-2" }.use { rdsClient ->
+        val response = rdsClient.describeDbEngineVersions(engineVersionsRequest)
+        response.dbEngineVersions?.forEach { engineOb ->
+            println("The name of the DB parameter group family for the database engine is ${engineOb.dbParameterGroupFamily}")
+            println("The name of the database engine ${engineOb.engine}")
+            println("The version number of the database engine ${engineOb.engineVersion}")
+        }
+    }
+}
+
+
+
+```
+
+- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+  - [CreateDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [CreateDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [CreateDBClusterSnapshot](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [CreateDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DeleteDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DeleteDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DeleteDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeDBClusterParameterGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeDBClusterParameters](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeDBClusterSnapshots](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeDBClusters](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeDBEngineVersions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeDBInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [DescribeOrderableDBInstanceOptions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+  - [ModifyDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
+
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples").
+
+Run an interactive scenario at a command prompt.
+
+```
+class AuroraClusterScenario:
+    """Runs a scenario that shows how to get started using Aurora DB clusters."""
+
+    def __init__(self, aurora_wrapper):
+        """
+        :param aurora_wrapper: An object that wraps Aurora DB cluster actions.
+        """
+        self.aurora_wrapper = aurora_wrapper
+
+    def create_parameter_group(self, db_engine, parameter_group_name):
+        """
+        Shows how to get available engine versions for a specified database engine and
+        create a DB cluster parameter group that is compatible with a selected engine family.
+
+        :param db_engine: The database engine to use as a basis.
+        :param parameter_group_name: The name given to the newly created parameter group.
+        :return: The newly created parameter group.
+        """
+        print(
+            f"Checking for an existing DB cluster parameter group named {parameter_group_name}."
+        )
+        parameter_group = self.aurora_wrapper.get_parameter_group(parameter_group_name)
+        if parameter_group is None:
+            print(f"Getting available database engine versions for {db_engine}.")
+            engine_versions = self.aurora_wrapper.get_engine_versions(db_engine)
+            families = list({ver["DBParameterGroupFamily"] for ver in engine_versions})
+            family_index = q.choose("Which family do you want to use? ", families)
+            print(f"Creating a DB cluster parameter group.")
+            self.aurora_wrapper.create_parameter_group(
+                parameter_group_name, families[family_index], "Example parameter group."
+            )
+            parameter_group = self.aurora_wrapper.get_parameter_group(
+                parameter_group_name
+            )
+        print(f"Parameter group {parameter_group['DBClusterParameterGroupName']}:")
+        pp(parameter_group)
+        print("-" * 88)
+        return parameter_group
+
+    def set_user_parameters(self, parameter_group_name):
+        """
+        Shows how to get the parameters contained in a custom parameter group and
+        update some of the parameter values in the group.
+
+        :param parameter_group_name: The name of the parameter group to query and modify.
+        """
+        print("Let's set some parameter values in your parameter group.")
+        auto_inc_parameters = self.aurora_wrapper.get_parameters(
+            parameter_group_name, name_prefix="auto_increment"
+        )
+        update_params = []
+        for auto_inc in auto_inc_parameters:
+            if auto_inc["IsModifiable"] and auto_inc["DataType"] == "integer":
+                print(f"The {auto_inc['ParameterName']} parameter is described as:")
+                print(f"\t{auto_inc['Description']}")
+                param_range = auto_inc["AllowedValues"].split("-")
+                auto_inc["ParameterValue"] = str(
+                    q.ask(
+                        f"Enter a value between {param_range[0]} and {param_range[1]}: ",
+                        q.is_int,
+                        q.in_range(int(param_range[0]), int(param_range[1])),
+                    )
+                )
+                update_params.append(auto_inc)
+        self.aurora_wrapper.update_parameters(parameter_group_name, update_params)
+        print(
+            "You can get a list of parameters you've set by specifying a source of 'user'."
+        )
+        user_parameters = self.aurora_wrapper.get_parameters(
+            parameter_group_name, source="user"
+        )
+        pp(user_parameters)
+        print("-" * 88)
+
+    def create_cluster(self, cluster_name, db_engine, db_name, parameter_group):
+        """
+        Shows how to create an Aurora DB cluster that contains a database of a specified
+        type. The database is also configured to use a custom DB cluster parameter group.
+
+        :param cluster_name: The name given to the newly created DB cluster.
+        :param db_engine: The engine of the created database.
+        :param db_name: The name given to the created database.
+        :param parameter_group: The parameter group that is associated with the DB cluster.
+        :return: The newly created DB cluster.
+        """
+        print("Checking for an existing DB cluster.")
+        cluster = self.aurora_wrapper.get_db_cluster(cluster_name)
+        if cluster is None:
+            admin_username = q.ask(
+                "Enter an administrator user name for the database: ", q.non_empty
+            )
+            admin_password = q.ask(
+                "Enter a password for the administrator (at least 8 characters): ",
+                q.non_empty,
+            )
+            engine_versions = self.aurora_wrapper.get_engine_versions(
+                db_engine, parameter_group["DBParameterGroupFamily"]
+            )
+            engine_choices = [
+                ver["EngineVersionDescription"] for ver in engine_versions
+            ]
+            print("The available engines for your parameter group are:")
+            engine_index = q.choose("Which engine do you want to use? ", engine_choices)
+            print(
+                f"Creating DB cluster {cluster_name} and database {db_name}.\n"
+                f"The DB cluster is configured to use\n"
+                f"your custom parameter group {parameter_group['DBClusterParameterGroupName']}\n"
+                f"and selected engine {engine_choices[engine_index]}.\n"
+                f"This typically takes several minutes."
+            )
+            cluster = self.aurora_wrapper.create_db_cluster(
+                cluster_name,
+                parameter_group["DBClusterParameterGroupName"],
+                db_name,
+                db_engine,
+                engine_versions[engine_index]["EngineVersion"],
+                admin_username,
+                admin_password,
+            )
+            while cluster.get("Status") != "available":
+                wait(30)
+                cluster = self.aurora_wrapper.get_db_cluster(cluster_name)
+            print("Cluster created and available.\n")
+        print("Cluster data:")
+        pp(cluster)
+        print("-" * 88)
+        return cluster
+
+    def create_instance(self, cluster):
+        """
+        Shows how to create a DB instance in an existing Aurora DB cluster. A new DB cluster
+        contains no DB instances, so you must add one. The first DB instance that is added
+        to a DB cluster defaults to a read-write DB instance.
+
+        :param cluster: The DB cluster where the DB instance is added.
+        :return: The newly created DB instance.
+        """
+        print("Checking for an existing database instance.")
+        cluster_name = cluster["DBClusterIdentifier"]
+        db_inst = self.aurora_wrapper.get_db_instance(cluster_name)
+        if db_inst is None:
+            print("Let's create a database instance in your DB cluster.")
+            print("First, choose a DB instance type:")
+            inst_opts = self.aurora_wrapper.get_orderable_instances(
+                cluster["Engine"], cluster["EngineVersion"]
+            )
+            inst_choices = list(
+                {
+                    opt["DBInstanceClass"] + ", storage type: " + opt["StorageType"]
+                    for opt in inst_opts
+                }
+            )
+            inst_index = q.choose(
+                "Which DB instance class do you want to use? ", inst_choices
+            )
+            print(
+                f"Creating a database instance. This typically takes several minutes."
+            )
+            db_inst = self.aurora_wrapper.create_instance_in_cluster(
+                cluster_name,
+                cluster_name,
+                cluster["Engine"],
+                inst_opts[inst_index]["DBInstanceClass"],
+            )
+            while db_inst.get("DBInstanceStatus") != "available":
+                wait(30)
+                db_inst = self.aurora_wrapper.get_db_instance(cluster_name)
+        print("Instance data:")
+        pp(db_inst)
+        print("-" * 88)
+        return db_inst
+
+    @staticmethod
+    def display_connection(cluster):
+        """
+        Displays connection information about an Aurora DB cluster and tips on how to
+        connect to it.
+
+        :param cluster: The DB cluster to display.
+        """
+        print(
+            "You can now connect to your database using your favorite MySql client.\n"
+            "One way to connect is by using the 'mysql' shell on an Amazon EC2 instance\n"
+            "that is running in the same VPC as your database cluster. Pass the endpoint,\n"
+            "port, and administrator user name to 'mysql' and enter your password\n"
+            "when prompted:\n"
+        )
+        print(
+            f"\n\tmysql -h {cluster['Endpoint']} -P {cluster['Port']} -u {cluster['MasterUsername']} -p\n"
+        )
+        print(
+            "For more information, see the User Guide for Aurora:\n"
+            "\thttps://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.Aurora.html#CHAP_GettingStartedAurora.Aurora.Connect"
+        )
+        print("-" * 88)
+
+    def create_snapshot(self, cluster_name):
+        """
+        Shows how to create a DB cluster snapshot and wait until it's available.
+
+        :param cluster_name: The name of a DB cluster to snapshot.
+        """
+        if q.ask(
+            "Do you want to create a snapshot of your DB cluster (y/n)? ", q.is_yesno
+        ):
+            snapshot_id = f"{cluster_name}-{uuid.uuid4()}"
+            print(
+                f"Creating a snapshot named {snapshot_id}. This typically takes a few minutes."
+            )
+            snapshot = self.aurora_wrapper.create_cluster_snapshot(
+                snapshot_id, cluster_name
+            )
+            while snapshot.get("Status") != "available":
+                wait(30)
+                snapshot = self.aurora_wrapper.get_cluster_snapshot(snapshot_id)
+            pp(snapshot)
+            print("-" * 88)
+
+    def cleanup(self, db_inst, cluster, parameter_group):
+        """
+        Shows how to clean up a DB instance, DB cluster, and DB cluster parameter group.
+        Before the DB cluster parameter group can be deleted, all associated DB instances and
+        DB clusters must first be deleted.
+
+        :param db_inst: The DB instance to delete.
+        :param cluster: The DB cluster to delete.
+        :param parameter_group: The DB cluster parameter group to delete.
+        """
+        cluster_name = cluster["DBClusterIdentifier"]
+        parameter_group_name = parameter_group["DBClusterParameterGroupName"]
+        if q.ask(
+            "\nDo you want to delete the database instance, DB cluster, and parameter "
+            "group (y/n)? ",
+            q.is_yesno,
+        ):
+            print(f"Deleting database instance {db_inst['DBInstanceIdentifier']}.")
+            self.aurora_wrapper.delete_db_instance(db_inst["DBInstanceIdentifier"])
+            print(f"Deleting database cluster {cluster_name}.")
+            self.aurora_wrapper.delete_db_cluster(cluster_name)
+            print(
+                "Waiting for the DB instance and DB cluster to delete.\n"
+                "This typically takes several minutes."
+            )
+            while db_inst is not None or cluster is not None:
+                wait(30)
+                if db_inst is not None:
+                    db_inst = self.aurora_wrapper.get_db_instance(
+                        db_inst["DBInstanceIdentifier"]
+                    )
+                if cluster is not None:
+                    cluster = self.aurora_wrapper.get_db_cluster(
+                        cluster["DBClusterIdentifier"]
+                    )
+            print(f"Deleting parameter group {parameter_group_name}.")
+            self.aurora_wrapper.delete_parameter_group(parameter_group_name)
+
+    def run_scenario(self, db_engine, parameter_group_name, cluster_name, db_name):
+        print("-" * 88)
+        print(
+            "Welcome to the Amazon Relational Database Service (Amazon RDS) get started\n"
+            "with Aurora DB clusters demo."
+        )
+        print("-" * 88)
+
+        parameter_group = self.create_parameter_group(db_engine, parameter_group_name)
+        self.set_user_parameters(parameter_group_name)
+        cluster = self.create_cluster(cluster_name, db_engine, db_name, parameter_group)
+        wait(5)
+        db_inst = self.create_instance(cluster)
+        self.display_connection(cluster)
+        self.create_snapshot(cluster_name)
+        self.cleanup(db_inst, cluster, parameter_group)
+
+        print("\nThanks for watching!")
+        print("-" * 88)
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    try:
+        scenario = AuroraClusterScenario(AuroraWrapper.from_client())
+        scenario.run_scenario(
+            "aurora-mysql",
+            "doc-example-cluster-parameter-group",
+            "doc-example-aurora",
+            "docexampledb",
+        )
+    except Exception:
+        logging.exception("Something went wrong with the demo.")
+
+
+```
+
+Define functions that are called by the scenario to manage Aurora actions.
+
+```
+class AuroraWrapper:
+    """Encapsulates Aurora DB cluster actions."""
+
+    def __init__(self, rds_client):
+        """
+        :param rds_client: A Boto3 Amazon Relational Database Service (Amazon RDS) client.
+        """
+        self.rds_client = rds_client
+
+    @classmethod
+    def from_client(cls):
+        """
+        Instantiates this class from a Boto3 client.
+        """
+        rds_client = boto3.client("rds")
+        return cls(rds_client)
+
+
+    def get_parameter_group(self, parameter_group_name):
+        """
+        Gets a DB cluster parameter group.
+
+        :param parameter_group_name: The name of the parameter group to retrieve.
+        :return: The requested parameter group.
+        """
+        try:
+            response = self.rds_client.describe_db_cluster_parameter_groups(
+                DBClusterParameterGroupName=parameter_group_name
+            )
+            parameter_group = response["DBClusterParameterGroups"][0]
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "DBParameterGroupNotFound":
+                logger.info("Parameter group %s does not exist.", parameter_group_name)
+            else:
+                logger.error(
+                    "Couldn't get parameter group %s. Here's why: %s: %s",
+                    parameter_group_name,
+                    err.response["Error"]["Code"],
+                    err.response["Error"]["Message"],
+                )
+                raise
+        else:
+            return parameter_group
+
+
+    def create_parameter_group(
+        self, parameter_group_name, parameter_group_family, description
+    ):
+        """
+        Creates a DB cluster parameter group that is based on the specified parameter group
+        family.
+
+        :param parameter_group_name: The name of the newly created parameter group.
+        :param parameter_group_family: The family that is used as the basis of the new
+                                       parameter group.
+        :param description: A description given to the parameter group.
+        :return: Data about the newly created parameter group.
+        """
+        try:
+            response = self.rds_client.create_db_cluster_parameter_group(
+                DBClusterParameterGroupName=parameter_group_name,
+                DBParameterGroupFamily=parameter_group_family,
+                Description=description,
+            )
+        except ClientError as err:
+            logger.error(
+                "Couldn't create parameter group %s. Here's why: %s: %s",
+                parameter_group_name,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return response
+
+
+    def delete_parameter_group(self, parameter_group_name):
+        """
+        Deletes a DB cluster parameter group.
+
+        :param parameter_group_name: The name of the parameter group to delete.
+        :return: Data about the parameter group.
+        """
+        try:
+            response = self.rds_client.delete_db_cluster_parameter_group(
+                DBClusterParameterGroupName=parameter_group_name
+            )
+        except ClientError as err:
+            logger.error(
+                "Couldn't delete parameter group %s. Here's why: %s: %s",
+                parameter_group_name,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return response
+
+
+    def get_parameters(self, parameter_group_name, name_prefix="", source=None):
+        """
+        Gets the parameters that are contained in a DB cluster parameter group.
+
+        :param parameter_group_name: The name of the parameter group to query.
+        :param name_prefix: When specified, the retrieved list of parameters is filtered
+                            to contain only parameters that start with this prefix.
+        :param source: When specified, only parameters from this source are retrieved.
+                       For example, a source of 'user' retrieves only parameters that
+                       were set by a user.
+        :return: The list of requested parameters.
+        """
+        try:
+            kwargs = {"DBClusterParameterGroupName": parameter_group_name}
+            if source is not None:
+                kwargs["Source"] = source
+            parameters = []
+            paginator = self.rds_client.get_paginator("describe_db_cluster_parameters")
+            for page in paginator.paginate(**kwargs):
+                parameters += [
+                    p
+                    for p in page["Parameters"]
+                    if p["ParameterName"].startswith(name_prefix)
+                ]
+        except ClientError as err:
+            logger.error(
+                "Couldn't get parameters for %s. Here's why: %s: %s",
+                parameter_group_name,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return parameters
+
+
+    def update_parameters(self, parameter_group_name, update_parameters):
+        """
+        Updates parameters in a custom DB cluster parameter group.
+
+        :param parameter_group_name: The name of the parameter group to update.
+        :param update_parameters: The parameters to update in the group.
+        :return: Data about the modified parameter group.
+        """
+        try:
+            response = self.rds_client.modify_db_cluster_parameter_group(
+                DBClusterParameterGroupName=parameter_group_name,
+                Parameters=update_parameters,
+            )
+        except ClientError as err:
+            logger.error(
+                "Couldn't update parameters in %s. Here's why: %s: %s",
+                parameter_group_name,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return response
+
+
+    def get_db_cluster(self, cluster_name):
+        """
+        Gets data about an Aurora DB cluster.
+
+        :param cluster_name: The name of the DB cluster to retrieve.
+        :return: The retrieved DB cluster.
+        """
+        try:
+            response = self.rds_client.describe_db_clusters(
+                DBClusterIdentifier=cluster_name
+            )
+            cluster = response["DBClusters"][0]
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "DBClusterNotFoundFault":
+                logger.info("Cluster %s does not exist.", cluster_name)
+            else:
+                logger.error(
+                    "Couldn't verify the existence of DB cluster %s. Here's why: %s: %s",
+                    cluster_name,
+                    err.response["Error"]["Code"],
+                    err.response["Error"]["Message"],
+                )
+                raise
+        else:
+            return cluster
+
+
+    def create_db_cluster(
+        self,
+        cluster_name,
+        parameter_group_name,
+        db_name,
+        db_engine,
+        db_engine_version,
+        admin_name,
+        admin_password,
+    ):
+        """
+        Creates a DB cluster that is configured to use the specified parameter group.
+        The newly created DB cluster contains a database that uses the specified engine and
+        engine version.
+
+        :param cluster_name: The name of the DB cluster to create.
+        :param parameter_group_name: The name of the parameter group to associate with
+                                     the DB cluster.
+        :param db_name: The name of the database to create.
+        :param db_engine: The database engine of the database that is created, such as MySql.
+        :param db_engine_version: The version of the database engine.
+        :param admin_name: The user name of the database administrator.
+        :param admin_password: The password of the database administrator.
+        :return: The newly created DB cluster.
+        """
+        try:
+            response = self.rds_client.create_db_cluster(
+                DatabaseName=db_name,
+                DBClusterIdentifier=cluster_name,
+                DBClusterParameterGroupName=parameter_group_name,
+                Engine=db_engine,
+                EngineVersion=db_engine_version,
+                MasterUsername=admin_name,
+                MasterUserPassword=admin_password,
+            )
+            cluster = response["DBCluster"]
+        except ClientError as err:
+            logger.error(
+                "Couldn't create database %s. Here's why: %s: %s",
+                db_name,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return cluster
+
+
+    def delete_db_cluster(self, cluster_name):
+        """
+        Deletes a DB cluster.
+
+        :param cluster_name: The name of the DB cluster to delete.
+        """
+        try:
+            self.rds_client.delete_db_cluster(
+                DBClusterIdentifier=cluster_name, SkipFinalSnapshot=True
+            )
+            logger.info("Deleted DB cluster %s.", cluster_name)
+        except ClientError:
+            logger.exception("Couldn't delete DB cluster %s.", cluster_name)
+            raise
+
+
+    def create_cluster_snapshot(self, snapshot_id, cluster_id):
+        """
+        Creates a snapshot of a DB cluster.
+
+        :param snapshot_id: The ID to give the created snapshot.
+        :param cluster_id: The DB cluster to snapshot.
+        :return: Data about the newly created snapshot.
+        """
+        try:
+            response = self.rds_client.create_db_cluster_snapshot(
+                DBClusterSnapshotIdentifier=snapshot_id, DBClusterIdentifier=cluster_id
+            )
+            snapshot = response["DBClusterSnapshot"]
+        except ClientError as err:
+            logger.error(
+                "Couldn't create snapshot of %s. Here's why: %s: %s",
+                cluster_id,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return snapshot
+
+
+    def get_cluster_snapshot(self, snapshot_id):
+        """
+        Gets a DB cluster snapshot.
+
+        :param snapshot_id: The ID of the snapshot to retrieve.
+        :return: The retrieved snapshot.
+        """
+        try:
+            response = self.rds_client.describe_db_cluster_snapshots(
+                DBClusterSnapshotIdentifier=snapshot_id
+            )
+            snapshot = response["DBClusterSnapshots"][0]
+        except ClientError as err:
+            logger.error(
+                "Couldn't get DB cluster snapshot %s. Here's why: %s: %s",
+                snapshot_id,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return snapshot
+
+
+    def create_instance_in_cluster(
+        self, instance_id, cluster_id, db_engine, instance_class
+    ):
+        """
+        Creates a database instance in an existing DB cluster. The first database that is
+        created defaults to a read-write DB instance.
+
+        :param instance_id: The ID to give the newly created DB instance.
+        :param cluster_id: The ID of the DB cluster where the DB instance is created.
+        :param db_engine: The database engine of a database to create in the DB instance.
+                          This must be compatible with the configured parameter group
+                          of the DB cluster.
+        :param instance_class: The DB instance class for the newly created DB instance.
+        :return: Data about the newly created DB instance.
+        """
+        try:
+            response = self.rds_client.create_db_instance(
+                DBInstanceIdentifier=instance_id,
+                DBClusterIdentifier=cluster_id,
+                Engine=db_engine,
+                DBInstanceClass=instance_class,
+            )
+            db_inst = response["DBInstance"]
+        except ClientError as err:
+            logger.error(
+                "Couldn't create DB instance %s. Here's why: %s: %s",
+                instance_id,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return db_inst
+
+
+    def get_engine_versions(self, engine, parameter_group_family=None):
+        """
+        Gets database engine versions that are available for the specified engine
+        and parameter group family.
+
+        :param engine: The database engine to look up.
+        :param parameter_group_family: When specified, restricts the returned list of
+                                       engine versions to those that are compatible with
+                                       this parameter group family.
+        :return: The list of database engine versions.
+        """
+        try:
+            kwargs = {"Engine": engine}
+            if parameter_group_family is not None:
+                kwargs["DBParameterGroupFamily"] = parameter_group_family
+            response = self.rds_client.describe_db_engine_versions(**kwargs)
+            versions = response["DBEngineVersions"]
+        except ClientError as err:
+            logger.error(
+                "Couldn't get engine versions for %s. Here's why: %s: %s",
+                engine,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return versions
+
+
+    def get_orderable_instances(self, db_engine, db_engine_version):
+        """
+        Gets DB instance options that can be used to create DB instances that are
+        compatible with a set of specifications.
+
+        :param db_engine: The database engine that must be supported by the DB instance.
+        :param db_engine_version: The engine version that must be supported by the DB instance.
+        :return: The list of DB instance options that can be used to create a compatible DB instance.
+        """
+        try:
+            inst_opts = []
+            paginator = self.rds_client.get_paginator(
+                "describe_orderable_db_instance_options"
+            )
+            for page in paginator.paginate(
+                Engine=db_engine, EngineVersion=db_engine_version
+            ):
+                inst_opts += page["OrderableDBInstanceOptions"]
+        except ClientError as err:
+            logger.error(
+                "Couldn't get orderable DB instances. Here's why: %s: %s",
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return inst_opts
+
+
+    def get_db_instance(self, instance_id):
+        """
+        Gets data about a DB instance.
+
+        :param instance_id: The ID of the DB instance to retrieve.
+        :return: The retrieved DB instance.
+        """
+        try:
+            response = self.rds_client.describe_db_instances(
+                DBInstanceIdentifier=instance_id
+            )
+            db_inst = response["DBInstances"][0]
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "DBInstanceNotFound":
+                logger.info("Instance %s does not exist.", instance_id)
+            else:
+                logger.error(
+                    "Couldn't get DB instance %s. Here's why: %s: %s",
+                    instance_id,
+                    err.response["Error"]["Code"],
+                    err.response["Error"]["Message"],
+                )
+                raise
+        else:
+            return db_inst
+
+
+    def delete_db_instance(self, instance_id):
+        """
+        Deletes a DB instance.
+
+        :param instance_id: The ID of the DB instance to delete.
+        :return: Data about the deleted DB instance.
+        """
+        try:
+            response = self.rds_client.delete_db_instance(
+                DBInstanceIdentifier=instance_id,
+                SkipFinalSnapshot=True,
+                DeleteAutomatedBackups=True,
+            )
+            db_inst = response["DBInstance"]
+        except ClientError as err:
+            logger.error(
+                "Couldn't delete DB instance %s. Here's why: %s: %s",
+                instance_id,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return db_inst
+
+
+
+
+
+```
+
+- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+  - [CreateDBCluster](../../../goto/boto3/rds-2014-10-31/CreateDBCluster.md "../../../goto/boto3/rds-2014-10-31/CreateDBCluster.md")
+  - [CreateDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/CreateDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/CreateDBClusterParameterGroup.md")
+  - [CreateDBClusterSnapshot](../../../goto/boto3/rds-2014-10-31/CreateDBClusterSnapshot.md "../../../goto/boto3/rds-2014-10-31/CreateDBClusterSnapshot.md")
+  - [CreateDBInstance](../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md "../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md")
+  - [DeleteDBCluster](../../../goto/boto3/rds-2014-10-31/DeleteDBCluster.md "../../../goto/boto3/rds-2014-10-31/DeleteDBCluster.md")
+  - [DeleteDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/DeleteDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/DeleteDBClusterParameterGroup.md")
+  - [DeleteDBInstance](../../../goto/boto3/rds-2014-10-31/DeleteDBInstance.md "../../../goto/boto3/rds-2014-10-31/DeleteDBInstance.md")
+  - [DescribeDBClusterParameterGroups](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups.md")
+  - [DescribeDBClusterParameters](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameters.md")
+  - [DescribeDBClusterSnapshots](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots.md")
+  - [DescribeDBClusters](../../../goto/boto3/rds-2014-10-31/DescribeDBClusters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusters.md")
+  - [DescribeDBEngineVersions](../../../goto/boto3/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/boto3/rds-2014-10-31/DescribeDBEngineVersions.md")
+  - [DescribeDBInstances](../../../goto/boto3/rds-2014-10-31/DescribeDBInstances.md "../../../goto/boto3/rds-2014-10-31/DescribeDBInstances.md")
+  - [DescribeOrderableDBInstanceOptions](../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
+  - [ModifyDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/ModifyDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/ModifyDBClusterParameterGroup.md")
+
+Rust
+
+**SDK for Rust**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples").
+
+A library containing the scenario-specific functions for the Aurora scenario.
+
+```
+
+use phf::{phf_set, Set};
+use secrecy::SecretString;
+use std::{collections::HashMap, fmt::Display, time::Duration};
+
+use aws_sdk_rds::{
+    error::ProvideErrorMetadata,
+    operation::create_db_cluster_parameter_group::CreateDbClusterParameterGroupOutput,
+    types::{DbCluster, DbClusterParameterGroup, DbClusterSnapshot, DbInstance, Parameter},
+};
+use sdk_examples_test_utils::waiter::Waiter;
+use tracing::{info, trace, warn};
+
+const DB_ENGINE: &str = "aurora-mysql";
+const DB_CLUSTER_PARAMETER_GROUP_NAME: &str = "RustSDKCodeExamplesDBParameterGroup";
+const DB_CLUSTER_PARAMETER_GROUP_DESCRIPTION: &str =
+    "Parameter Group created by Rust SDK Code Example";
+const DB_CLUSTER_IDENTIFIER: &str = "RustSDKCodeExamplesDBCluster";
+const DB_INSTANCE_IDENTIFIER: &str = "RustSDKCodeExamplesDBInstance";
+
+static FILTER_PARAMETER_NAMES: Set<&'static str> = phf_set! {
+    "auto_increment_offset",
+    "auto_increment_increment",
+};
+
+#[derive(Debug, PartialEq, Eq)]
+struct MetadataError {
+    message: Option<String>,
+    code: Option<String>,
+}
+
+impl MetadataError {
+    fn from(err: &dyn ProvideErrorMetadata) -> Self {
+        MetadataError {
+            message: err.message().map(String::from),
+            code: err.code().map(String::from),
+        }
+    }
+}
+
+impl Display for MetadataError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let display = match (&self.message, &self.code) {
+            (None, None) => "Unknown".to_string(),
+            (None, Some(code)) => format!("({code})"),
+            (Some(message), None) => message.to_string(),
+            (Some(message), Some(code)) => format!("{message} ({code})"),
+        };
+        write!(f, "{display}")
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ScenarioError {
+    message: String,
+    context: Option<MetadataError>,
+}
+
+impl ScenarioError {
+    pub fn with(message: impl Into<String>) -> Self {
+        ScenarioError {
+            message: message.into(),
+            context: None,
+        }
+    }
+
+    pub fn new(message: impl Into<String>, err: &dyn ProvideErrorMetadata) -> Self {
+        ScenarioError {
+            message: message.into(),
+            context: Some(MetadataError::from(err)),
+        }
+    }
+}
+
+impl std::error::Error for ScenarioError {}
+impl Display for ScenarioError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match &self.context {
+            Some(c) => write!(f, "{}: {}", self.message, c),
+            None => write!(f, "{}", self.message),
+        }
+    }
+}
+
+// Parse the ParameterName, Description, and AllowedValues values and display them.
+#[derive(Debug)]
+pub struct AuroraScenarioParameter {
+    name: String,
+    allowed_values: String,
+    current_value: String,
+}
+
+impl Display for AuroraScenarioParameter {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{}: {} (allowed: {})",
+            self.name, self.current_value, self.allowed_values
+        )
+    }
+}
+
+impl From<aws_sdk_rds::types::Parameter> for AuroraScenarioParameter {
+    fn from(value: aws_sdk_rds::types::Parameter) -> Self {
+        AuroraScenarioParameter {
+            name: value.parameter_name.unwrap_or_default(),
+            allowed_values: value.allowed_values.unwrap_or_default(),
+            current_value: value.parameter_value.unwrap_or_default(),
+        }
+    }
+}
+
+pub struct AuroraScenario {
+    rds: crate::rds::Rds,
+    engine_family: Option<String>,
+    engine_version: Option<String>,
+    instance_class: Option<String>,
+    db_cluster_parameter_group: Option<DbClusterParameterGroup>,
+    db_cluster_identifier: Option<String>,
+    db_instance_identifier: Option<String>,
+    username: Option<String>,
+    password: Option<SecretString>,
+}
+
+impl AuroraScenario {
+    pub fn new(client: crate::rds::Rds) -> Self {
+        AuroraScenario {
+            rds: client,
+            engine_family: None,
+            engine_version: None,
+            instance_class: None,
+            db_cluster_parameter_group: None,
+            db_cluster_identifier: None,
+            db_instance_identifier: None,
+            username: None,
+            password: None,
+        }
+    }
+
+    // Get available engine families for Aurora MySql. rds.DescribeDbEngineVersions(Engine='aurora-mysql') and build a set of the 'DBParameterGroupFamily' field values. I get {aurora-mysql8.0, aurora-mysql5.7}.
+    pub async fn get_engines(&self) -> Result<HashMap<String, Vec<String>>, ScenarioError> {
+        let describe_db_engine_versions = self.rds.describe_db_engine_versions(DB_ENGINE).await;
+        trace!(versions=?describe_db_engine_versions, "full list of versions");
+
+        if let Err(err) = describe_db_engine_versions {
+            return Err(ScenarioError::new(
+                "Failed to retrieve DB Engine Versions",
+                &err,
+            ));
+        };
+
+        let version_count = describe_db_engine_versions
+            .as_ref()
+            .map(|o| o.db_engine_versions().len())
+            .unwrap_or_default();
+        info!(version_count, "got list of versions");
+
+        // Create a map of engine families to their available versions.
+        let mut versions = HashMap::<String, Vec<String>>::new();
+        describe_db_engine_versions
+            .unwrap()
+            .db_engine_versions()
+            .iter()
+            .filter_map(
+                |v| match (&v.db_parameter_group_family, &v.engine_version) {
+                    (Some(family), Some(version)) => Some((family.clone(), version.clone())),
+                    _ => None,
+                },
+            )
+            .for_each(|(family, version)| versions.entry(family).or_default().push(version));
+
+        Ok(versions)
+    }
+
+    pub async fn get_instance_classes(&self) -> Result<Vec<String>, ScenarioError> {
+        let describe_orderable_db_instance_options_items = self
+            .rds
+            .describe_orderable_db_instance_options(
+                DB_ENGINE,
+                self.engine_version
+                    .as_ref()
+                    .expect("engine version for db instance options")
+                    .as_str(),
+            )
+            .await;
+
+        describe_orderable_db_instance_options_items
+            .map(|options| {
+                options
+                    .iter()
+                    .filter(|o| o.storage_type() == Some("aurora"))
+                    .map(|o| o.db_instance_class().unwrap_or_default().to_string())
+                    .collect::<Vec<String>>()
+            })
+            .map_err(|err| ScenarioError::new("Could not get available instance classes", &err))
+    }
+
+    // Select an engine family and create a custom DB cluster parameter group. rds.CreateDbClusterParameterGroup(DBParameterGroupFamily='aurora-mysql8.0')
+    pub async fn set_engine(&mut self, engine: &str, version: &str) -> Result<(), ScenarioError> {
+        self.engine_family = Some(engine.to_string());
+        self.engine_version = Some(version.to_string());
+        let create_db_cluster_parameter_group = self
+            .rds
+            .create_db_cluster_parameter_group(
+                DB_CLUSTER_PARAMETER_GROUP_NAME,
+                DB_CLUSTER_PARAMETER_GROUP_DESCRIPTION,
+                engine,
+            )
+            .await;
+
+        match create_db_cluster_parameter_group {
+            Ok(CreateDbClusterParameterGroupOutput {
+                db_cluster_parameter_group: None,
+                ..
+            }) => {
+                return Err(ScenarioError::with(
+                    "CreateDBClusterParameterGroup had empty response",
+                ));
+            }
+            Err(error) => {
+                if error.code() == Some("DBParameterGroupAlreadyExists") {
+                    info!("Cluster Parameter Group already exists, nothing to do");
+                } else {
+                    return Err(ScenarioError::new(
+                        "Could not create Cluster Parameter Group",
+                        &error,
+                    ));
+                }
+            }
+            _ => {
+                info!("Created Cluster Parameter Group");
+            }
+        }
+
+        Ok(())
+    }
+
+    pub fn set_instance_class(&mut self, instance_class: Option<String>) {
+        self.instance_class = instance_class;
+    }
+
+    pub fn set_login(&mut self, username: Option<String>, password: Option<SecretString>) {
+        self.username = username;
+        self.password = password;
+    }
+
+    pub async fn connection_string(&self) -> Result<String, ScenarioError> {
+        let cluster = self.get_cluster().await?;
+        let endpoint = cluster.endpoint().unwrap_or_default();
+        let port = cluster.port().unwrap_or_default();
+        let username = cluster.master_username().unwrap_or_default();
+        Ok(format!("mysql -h {endpoint} -P {port} -u {username} -p"))
+    }
+
+    pub async fn get_cluster(&self) -> Result<DbCluster, ScenarioError> {
+        let describe_db_clusters_output = self
+            .rds
+            .describe_db_clusters(
+                self.db_cluster_identifier
+                    .as_ref()
+                    .expect("cluster identifier")
+                    .as_str(),
+            )
+            .await;
+        if let Err(err) = describe_db_clusters_output {
+            return Err(ScenarioError::new("Failed to get cluster", &err));
+        }
+
+        let db_cluster = describe_db_clusters_output
+            .unwrap()
+            .db_clusters
+            .and_then(|output| output.first().cloned());
+
+        db_cluster.ok_or_else(|| ScenarioError::with("Did not find the cluster"))
+    }
+
+    // Get the parameter group. rds.DescribeDbClusterParameterGroups
+    // Get parameters in the group. This is a long list so you will have to paginate. Find the auto_increment_offset and auto_increment_increment parameters (by ParameterName). rds.DescribeDbClusterParameters
+    // Parse the ParameterName, Description, and AllowedValues values and display them.
+    pub async fn cluster_parameters(&self) -> Result<Vec<AuroraScenarioParameter>, ScenarioError> {
+        let parameters_output = self
+            .rds
+            .describe_db_cluster_parameters(DB_CLUSTER_PARAMETER_GROUP_NAME)
+            .await;
+
+        if let Err(err) = parameters_output {
+            return Err(ScenarioError::new(
+                format!("Failed to retrieve parameters for {DB_CLUSTER_PARAMETER_GROUP_NAME}"),
+                &err,
+            ));
+        }
+
+        let parameters = parameters_output
+            .unwrap()
+            .into_iter()
+            .flat_map(|p| p.parameters.unwrap_or_default().into_iter())
+            .filter(|p| FILTER_PARAMETER_NAMES.contains(p.parameter_name().unwrap_or_default()))
+            .map(AuroraScenarioParameter::from)
+            .collect::<Vec<_>>();
+
+        Ok(parameters)
+    }
+
+    // Modify both the auto_increment_offset and auto_increment_increment parameters in one call in the custom parameter group. Set their ParameterValue fields to a new allowable value. rds.ModifyDbClusterParameterGroup.
+    pub async fn update_auto_increment(
+        &self,
+        offset: u8,
+        increment: u8,
+    ) -> Result<(), ScenarioError> {
+        let modify_db_cluster_parameter_group = self
+            .rds
+            .modify_db_cluster_parameter_group(
+                DB_CLUSTER_PARAMETER_GROUP_NAME,
+                vec![
+                    Parameter::builder()
+                        .parameter_name("auto_increment_offset")
+                        .parameter_value(format!("{offset}"))
+                        .apply_method(aws_sdk_rds::types::ApplyMethod::Immediate)
+                        .build(),
+                    Parameter::builder()
+                        .parameter_name("auto_increment_increment")
+                        .parameter_value(format!("{increment}"))
+                        .apply_method(aws_sdk_rds::types::ApplyMethod::Immediate)
+                        .build(),
+                ],
+            )
+            .await;
+
+        if let Err(error) = modify_db_cluster_parameter_group {
+            return Err(ScenarioError::new(
+                "Failed to modify cluster parameter group",
+                &error,
+            ));
+        }
+
+        Ok(())
+    }
+
+    // Get a list of allowed engine versions. rds.DescribeDbEngineVersions(Engine='aurora-mysql', DBParameterGroupFamily=<the family used to create your parameter group in step 2>)
+    // Create an Aurora DB cluster database cluster that contains a MySql database and uses the parameter group you created.
+    // Wait for DB cluster to be ready. Call rds.DescribeDBClusters and check for Status == 'available'.
+    // Get a list of instance classes available for the selected engine and engine version. rds.DescribeOrderableDbInstanceOptions(Engine='mysql', EngineVersion=).
+
+    // Create a database instance in the cluster.
+    // Wait for DB instance to be ready. Call rds.DescribeDbInstances and check for DBInstanceStatus == 'available'.
+    pub async fn start_cluster_and_instance(&mut self) -> Result<(), ScenarioError> {
+        if self.password.is_none() {
+            return Err(ScenarioError::with(
+                "Must set Secret Password before starting a cluster",
+            ));
+        }
+        let create_db_cluster = self
+            .rds
+            .create_db_cluster(
+                DB_CLUSTER_IDENTIFIER,
+                DB_CLUSTER_PARAMETER_GROUP_NAME,
+                DB_ENGINE,
+                self.engine_version.as_deref().expect("engine version"),
+                self.username.as_deref().expect("username"),
+                self.password
+                    .replace(SecretString::new("".to_string()))
+                    .expect("password"),
+            )
+            .await;
+        if let Err(err) = create_db_cluster {
+            return Err(ScenarioError::new(
+                "Failed to create DB Cluster with cluster group",
+                &err,
+            ));
+        }
+
+        self.db_cluster_identifier = create_db_cluster
+            .unwrap()
+            .db_cluster
+            .and_then(|c| c.db_cluster_identifier);
+
+        if self.db_cluster_identifier.is_none() {
+            return Err(ScenarioError::with("Created DB Cluster missing Identifier"));
+        }
+
+        info!(
+            "Started a db cluster: {}",
+            self.db_cluster_identifier
+                .as_deref()
+                .unwrap_or("Missing ARN")
+        );
+
+        let create_db_instance = self
+            .rds
+            .create_db_instance(
+                self.db_cluster_identifier.as_deref().expect("cluster name"),
+                DB_INSTANCE_IDENTIFIER,
+                self.instance_class.as_deref().expect("instance class"),
+                DB_ENGINE,
+            )
+            .await;
+        if let Err(err) = create_db_instance {
+            return Err(ScenarioError::new(
+                "Failed to create Instance in DB Cluster",
+                &err,
+            ));
+        }
+
+        self.db_instance_identifier = create_db_instance
+            .unwrap()
+            .db_instance
+            .and_then(|i| i.db_instance_identifier);
+
+        // Cluster creation can take up to 20 minutes to become available
+        let cluster_max_wait = Duration::from_secs(20 * 60);
+        let waiter = Waiter::builder().max(cluster_max_wait).build();
+        while waiter.sleep().await.is_ok() {
+            let cluster = self
+                .rds
+                .describe_db_clusters(
+                    self.db_cluster_identifier
+                        .as_deref()
+                        .expect("cluster identifier"),
+                )
+                .await;
+
+            if let Err(err) = cluster {
+                warn!(?err, "Failed to describe cluster while waiting for ready");
+                continue;
+            }
+
+            let instance = self
+                .rds
+                .describe_db_instance(
+                    self.db_instance_identifier
+                        .as_deref()
+                        .expect("instance identifier"),
+                )
+                .await;
+            if let Err(err) = instance {
+                return Err(ScenarioError::new(
+                    "Failed to find instance for cluster",
+                    &err,
+                ));
+            }
+
+            let instances_available = instance
+                .unwrap()
+                .db_instances()
+                .iter()
+                .all(|instance| instance.db_instance_status() == Some("Available"));
+
+            let endpoints = self
+                .rds
+                .describe_db_cluster_endpoints(
+                    self.db_cluster_identifier
+                        .as_deref()
+                        .expect("cluster identifier"),
+                )
+                .await;
+
+            if let Err(err) = endpoints {
+                return Err(ScenarioError::new(
+                    "Failed to find endpoint for cluster",
+                    &err,
+                ));
+            }
+
+            let endpoints_available = endpoints
+                .unwrap()
+                .db_cluster_endpoints()
+                .iter()
+                .all(|endpoint| endpoint.status() == Some("available"));
+
+            if instances_available && endpoints_available {
+                return Ok(());
+            }
+        }
+
+        Err(ScenarioError::with("timed out waiting for cluster"))
+    }
+
+    // Create a snapshot of the DB cluster. rds.CreateDbClusterSnapshot.
+    // Wait for the snapshot to create. rds.DescribeDbClusterSnapshots until Status == 'available'.
+    pub async fn snapshot(&self, name: &str) -> Result<DbClusterSnapshot, ScenarioError> {
+        let id = self.db_cluster_identifier.as_deref().unwrap_or_default();
+        let snapshot = self
+            .rds
+            .snapshot_cluster(id, format!("{id}_{name}").as_str())
+            .await;
+        match snapshot {
+            Ok(output) => match output.db_cluster_snapshot {
+                Some(snapshot) => Ok(snapshot),
+                None => Err(ScenarioError::with("Missing Snapshot")),
+            },
+            Err(err) => Err(ScenarioError::new("Failed to create snapshot", &err)),
+        }
+    }
+
+    pub async fn clean_up(self) -> Result<(), Vec<ScenarioError>> {
+        let mut clean_up_errors: Vec<ScenarioError> = vec![];
+
+        // Delete the instance. rds.DeleteDbInstance.
+        let delete_db_instance = self
+            .rds
+            .delete_db_instance(
+                self.db_instance_identifier
+                    .as_deref()
+                    .expect("instance identifier"),
+            )
+            .await;
+        if let Err(err) = delete_db_instance {
+            let identifier = self
+                .db_instance_identifier
+                .as_deref()
+                .unwrap_or("Missing Instance Identifier");
+            let message = format!("failed to delete db instance {identifier}");
+            clean_up_errors.push(ScenarioError::new(message, &err));
+        } else {
+            // Wait for the instance to delete
+            let waiter = Waiter::default();
+            while waiter.sleep().await.is_ok() {
+                let describe_db_instances = self.rds.describe_db_instances().await;
+                if let Err(err) = describe_db_instances {
+                    clean_up_errors.push(ScenarioError::new(
+                        "Failed to check instance state during deletion",
+                        &err,
+                    ));
+                    break;
+                }
+                let db_instances = describe_db_instances
+                    .unwrap()
+                    .db_instances()
+                    .iter()
+                    .filter(|instance| instance.db_cluster_identifier == self.db_cluster_identifier)
+                    .cloned()
+                    .collect::<Vec<DbInstance>>();
+
+                if db_instances.is_empty() {
+                    trace!("Delete Instance waited and no instances were found");
+                    break;
+                }
+                match db_instances.first().unwrap().db_instance_status() {
+                    Some("Deleting") => continue,
+                    Some(status) => {
+                        info!("Attempting to delete but instances is in {status}");
+                        continue;
+                    }
+                    None => {
+                        warn!("No status for DB instance");
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Delete the DB cluster. rds.DeleteDbCluster.
+        let delete_db_cluster = self
+            .rds
+            .delete_db_cluster(
+                self.db_cluster_identifier
+                    .as_deref()
+                    .expect("cluster identifier"),
+            )
+            .await;
+
+        if let Err(err) = delete_db_cluster {
+            let identifier = self
+                .db_cluster_identifier
+                .as_deref()
+                .unwrap_or("Missing DB Cluster Identifier");
+            let message = format!("failed to delete db cluster {identifier}");
+            clean_up_errors.push(ScenarioError::new(message, &err));
+        } else {
+            // Wait for the instance and cluster to fully delete. rds.DescribeDbInstances and rds.DescribeDbClusters until both are not found.
+            let waiter = Waiter::default();
+            while waiter.sleep().await.is_ok() {
+                let describe_db_clusters = self
+                    .rds
+                    .describe_db_clusters(
+                        self.db_cluster_identifier
+                            .as_deref()
+                            .expect("cluster identifier"),
+                    )
+                    .await;
+                if let Err(err) = describe_db_clusters {
+                    clean_up_errors.push(ScenarioError::new(
+                        "Failed to check cluster state during deletion",
+                        &err,
+                    ));
+                    break;
+                }
+                let describe_db_clusters = describe_db_clusters.unwrap();
+                let db_clusters = describe_db_clusters.db_clusters();
+                if db_clusters.is_empty() {
+                    trace!("Delete cluster waited and no clusters were found");
+                    break;
+                }
+                match db_clusters.first().unwrap().status() {
+                    Some("Deleting") => continue,
+                    Some(status) => {
+                        info!("Attempting to delete but clusters is in {status}");
+                        continue;
+                    }
+                    None => {
+                        warn!("No status for DB cluster");
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Delete the DB cluster parameter group. rds.DeleteDbClusterParameterGroup.
+        let delete_db_cluster_parameter_group = self
+            .rds
+            .delete_db_cluster_parameter_group(
+                self.db_cluster_parameter_group
+                    .map(|g| {
+                        g.db_cluster_parameter_group_name
+                            .unwrap_or_else(|| DB_CLUSTER_PARAMETER_GROUP_NAME.to_string())
+                    })
+                    .as_deref()
+                    .expect("cluster parameter group name"),
+            )
+            .await;
+        if let Err(error) = delete_db_cluster_parameter_group {
+            clean_up_errors.push(ScenarioError::new(
+                "Failed to delete the db cluster parameter group",
+                &error,
+            ))
+        }
+
+        if clean_up_errors.is_empty() {
+            Ok(())
+        } else {
+            Err(clean_up_errors)
+        }
+    }
+}
+
+#[cfg(test)]
+pub mod tests;
+
+
+```
+
+Tests for the library using automocks around the RDS Client wrapper.
+
+```
+
+use crate::rds::MockRdsImpl;
+
+use super::*;
+
+use std::io::{Error, ErrorKind};
+
+use assert_matches::assert_matches;
+use aws_sdk_rds::{
+    error::SdkError,
+    operation::{
+        create_db_cluster::{CreateDBClusterError, CreateDbClusterOutput},
+        create_db_cluster_parameter_group::CreateDBClusterParameterGroupError,
+        create_db_cluster_snapshot::{CreateDBClusterSnapshotError, CreateDbClusterSnapshotOutput},
+        create_db_instance::{CreateDBInstanceError, CreateDbInstanceOutput},
+        delete_db_cluster::DeleteDbClusterOutput,
+        delete_db_cluster_parameter_group::DeleteDbClusterParameterGroupOutput,
+        delete_db_instance::DeleteDbInstanceOutput,
+        describe_db_cluster_endpoints::DescribeDbClusterEndpointsOutput,
+        describe_db_cluster_parameters::{
+            DescribeDBClusterParametersError, DescribeDbClusterParametersOutput,
+        },
+        describe_db_clusters::{DescribeDBClustersError, DescribeDbClustersOutput},
+        describe_db_engine_versions::{
+            DescribeDBEngineVersionsError, DescribeDbEngineVersionsOutput,
+        },
+        describe_db_instances::{DescribeDBInstancesError, DescribeDbInstancesOutput},
+        describe_orderable_db_instance_options::DescribeOrderableDBInstanceOptionsError,
+        modify_db_cluster_parameter_group::{
+            ModifyDBClusterParameterGroupError, ModifyDbClusterParameterGroupOutput,
+        },
+    },
+    types::{
+        error::DbParameterGroupAlreadyExistsFault, DbClusterEndpoint, DbEngineVersion,
+        OrderableDbInstanceOption,
+    },
+};
+use aws_smithy_runtime_api::http::{Response, StatusCode};
+use aws_smithy_types::body::SdkBody;
+use mockall::predicate::eq;
+use secrecy::ExposeSecret;
+
+#[tokio::test]
+async fn test_scenario_set_engine() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster_parameter_group()
+        .with(
+            eq("RustSDKCodeExamplesDBParameterGroup"),
+            eq("Parameter Group created by Rust SDK Code Example"),
+            eq("aurora-mysql"),
+        )
+        .return_once(|_, _, _| {
+            Ok(CreateDbClusterParameterGroupOutput::builder()
+                .db_cluster_parameter_group(DbClusterParameterGroup::builder().build())
+                .build())
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+
+    let set_engine = scenario.set_engine("aurora-mysql", "aurora-mysql8.0").await;
+
+    assert_eq!(set_engine, Ok(()));
+    assert_eq!(Some("aurora-mysql"), scenario.engine_family.as_deref());
+    assert_eq!(Some("aurora-mysql8.0"), scenario.engine_version.as_deref());
+}
+
+#[tokio::test]
+async fn test_scenario_set_engine_not_create() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster_parameter_group()
+        .with(
+            eq("RustSDKCodeExamplesDBParameterGroup"),
+            eq("Parameter Group created by Rust SDK Code Example"),
+            eq("aurora-mysql"),
+        )
+        .return_once(|_, _, _| Ok(CreateDbClusterParameterGroupOutput::builder().build()));
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+
+    let set_engine = scenario.set_engine("aurora-mysql", "aurora-mysql8.0").await;
+
+    assert!(set_engine.is_err());
+}
+
+#[tokio::test]
+async fn test_scenario_set_engine_param_group_exists() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster_parameter_group()
+        .withf(|_, _, _| true)
+        .return_once(|_, _, _| {
+            Err(SdkError::service_error(
+                CreateDBClusterParameterGroupError::DbParameterGroupAlreadyExistsFault(
+                    DbParameterGroupAlreadyExistsFault::builder().build(),
+                ),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+
+    let set_engine = scenario.set_engine("aurora-mysql", "aurora-mysql8.0").await;
+
+    assert!(set_engine.is_err());
+}
+
+#[tokio::test]
+async fn test_scenario_get_engines() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_db_engine_versions()
+        .with(eq("aurora-mysql"))
+        .return_once(|_| {
+            Ok(DescribeDbEngineVersionsOutput::builder()
+                .db_engine_versions(
+                    DbEngineVersion::builder()
+                        .db_parameter_group_family("f1")
+                        .engine_version("f1a")
+                        .build(),
+                )
+                .db_engine_versions(
+                    DbEngineVersion::builder()
+                        .db_parameter_group_family("f1")
+                        .engine_version("f1b")
+                        .build(),
+                )
+                .db_engine_versions(
+                    DbEngineVersion::builder()
+                        .db_parameter_group_family("f2")
+                        .engine_version("f2a")
+                        .build(),
+                )
+                .db_engine_versions(DbEngineVersion::builder().build())
+                .build())
+        });
+
+    let scenario = AuroraScenario::new(mock_rds);
+
+    let versions_map = scenario.get_engines().await;
+
+    assert_eq!(
+        versions_map,
+        Ok(HashMap::from([
+            ("f1".into(), vec!["f1a".into(), "f1b".into()]),
+            ("f2".into(), vec!["f2a".into()])
+        ]))
+    );
+}
+
+#[tokio::test]
+async fn test_scenario_get_engines_failed() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_db_engine_versions()
+        .with(eq("aurora-mysql"))
+        .return_once(|_| {
+            Err(SdkError::service_error(
+                DescribeDBEngineVersionsError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "describe_db_engine_versions error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let scenario = AuroraScenario::new(mock_rds);
+
+    let versions_map = scenario.get_engines().await;
+    assert_matches!(
+        versions_map,
+        Err(ScenarioError { message, context: _ }) if message == "Failed to retrieve DB Engine Versions"
+    );
+}
+
+#[tokio::test]
+async fn test_scenario_get_instance_classes() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster_parameter_group()
+        .return_once(|_, _, _| {
+            Ok(CreateDbClusterParameterGroupOutput::builder()
+                .db_cluster_parameter_group(DbClusterParameterGroup::builder().build())
+                .build())
+        });
+
+    mock_rds
+        .expect_describe_orderable_db_instance_options()
+        .with(eq("aurora-mysql"), eq("aurora-mysql8.0"))
+        .return_once(|_, _| {
+            Ok(vec![
+                OrderableDbInstanceOption::builder()
+                    .db_instance_class("t1")
+                    .storage_type("aurora")
+                    .build(),
+                OrderableDbInstanceOption::builder()
+                    .db_instance_class("t1")
+                    .storage_type("aurora-iopt1")
+                    .build(),
+                OrderableDbInstanceOption::builder()
+                    .db_instance_class("t2")
+                    .storage_type("aurora")
+                    .build(),
+                OrderableDbInstanceOption::builder()
+                    .db_instance_class("t3")
+                    .storage_type("aurora")
+                    .build(),
+            ])
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario
+        .set_engine("aurora-mysql", "aurora-mysql8.0")
+        .await
+        .expect("set engine");
+
+    let instance_classes = scenario.get_instance_classes().await;
+
+    assert_eq!(
+        instance_classes,
+        Ok(vec!["t1".into(), "t2".into(), "t3".into()])
+    );
+}
+
+#[tokio::test]
+async fn test_scenario_get_instance_classes_error() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_orderable_db_instance_options()
+        .with(eq("aurora-mysql"), eq("aurora-mysql8.0"))
+        .return_once(|_, _| {
+            Err(SdkError::service_error(
+                DescribeOrderableDBInstanceOptionsError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "describe_orderable_db_instance_options_error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.engine_family = Some("aurora-mysql".into());
+    scenario.engine_version = Some("aurora-mysql8.0".into());
+
+    let instance_classes = scenario.get_instance_classes().await;
+
+    assert_matches!(
+        instance_classes,
+        Err(ScenarioError {message, context: _}) if message == "Could not get available instance classes"
+    );
+}
+
+#[tokio::test]
+async fn test_scenario_get_cluster() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_db_clusters()
+        .with(eq("RustSDKCodeExamplesDBCluster"))
+        .return_once(|_| {
+            Ok(DescribeDbClustersOutput::builder()
+                .db_clusters(DbCluster::builder().build())
+                .build())
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into());
+    let cluster = scenario.get_cluster().await;
+
+    assert!(cluster.is_ok());
+}
+
+#[tokio::test]
+async fn test_scenario_get_cluster_missing_cluster() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster_parameter_group()
+        .return_once(|_, _, _| {
+            Ok(CreateDbClusterParameterGroupOutput::builder()
+                .db_cluster_parameter_group(DbClusterParameterGroup::builder().build())
+                .build())
+        });
+
+    mock_rds
+        .expect_describe_db_clusters()
+        .with(eq("RustSDKCodeExamplesDBCluster"))
+        .return_once(|_| Ok(DescribeDbClustersOutput::builder().build()));
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into());
+    let cluster = scenario.get_cluster().await;
+
+    assert_matches!(cluster, Err(ScenarioError { message, context: _ }) if message == "Did not find the cluster");
+}
+
+#[tokio::test]
+async fn test_scenario_get_cluster_error() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster_parameter_group()
+        .return_once(|_, _, _| {
+            Ok(CreateDbClusterParameterGroupOutput::builder()
+                .db_cluster_parameter_group(DbClusterParameterGroup::builder().build())
+                .build())
+        });
+
+    mock_rds
+        .expect_describe_db_clusters()
+        .with(eq("RustSDKCodeExamplesDBCluster"))
+        .return_once(|_| {
+            Err(SdkError::service_error(
+                DescribeDBClustersError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "describe_db_clusters_error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into());
+    let cluster = scenario.get_cluster().await;
+
+    assert_matches!(cluster, Err(ScenarioError { message, context: _ }) if message == "Failed to get cluster");
+}
+
+#[tokio::test]
+async fn test_scenario_connection_string() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_db_clusters()
+        .with(eq("RustSDKCodeExamplesDBCluster"))
+        .return_once(|_| {
+            Ok(DescribeDbClustersOutput::builder()
+                .db_clusters(
+                    DbCluster::builder()
+                        .endpoint("test_endpoint")
+                        .port(3306)
+                        .master_username("test_username")
+                        .build(),
+                )
+                .build())
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into());
+    let connection_string = scenario.connection_string().await;
+
+    assert_eq!(
+        connection_string,
+        Ok("mysql -h test_endpoint -P 3306 -u test_username -p".into())
+    );
+}
+
+#[tokio::test]
+async fn test_scenario_cluster_parameters() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_db_cluster_parameters()
+        .with(eq("RustSDKCodeExamplesDBParameterGroup"))
+        .return_once(|_| {
+            Ok(vec![DescribeDbClusterParametersOutput::builder()
+                .parameters(Parameter::builder().parameter_name("a").build())
+                .parameters(Parameter::builder().parameter_name("b").build())
+                .parameters(
+                    Parameter::builder()
+                        .parameter_name("auto_increment_offset")
+                        .build(),
+                )
+                .parameters(Parameter::builder().parameter_name("c").build())
+                .parameters(
+                    Parameter::builder()
+                        .parameter_name("auto_increment_increment")
+                        .build(),
+                )
+                .parameters(Parameter::builder().parameter_name("d").build())
+                .build()])
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into());
+
+    let params = scenario.cluster_parameters().await.expect("cluster params");
+    let names: Vec<String> = params.into_iter().map(|p| p.name).collect();
+    assert_eq!(
+        names,
+        vec!["auto_increment_offset", "auto_increment_increment"]
+    );
+}
+
+#[tokio::test]
+async fn test_scenario_cluster_parameters_error() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_db_cluster_parameters()
+        .with(eq("RustSDKCodeExamplesDBParameterGroup"))
+        .return_once(|_| {
+            Err(SdkError::service_error(
+                DescribeDBClusterParametersError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "describe_db_cluster_parameters_error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("RustSDKCodeExamplesDBCluster".into());
+    let params = scenario.cluster_parameters().await;
+    assert_matches!(params, Err(ScenarioError { message, context: _ }) if message == "Failed to retrieve parameters for RustSDKCodeExamplesDBParameterGroup");
+}
+
+#[tokio::test]
+async fn test_scenario_update_auto_increment() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_modify_db_cluster_parameter_group()
+        .withf(|name, params| {
+            assert_eq!(name, "RustSDKCodeExamplesDBParameterGroup");
+            assert_eq!(
+                params,
+                &vec![
+                    Parameter::builder()
+                        .parameter_name("auto_increment_offset")
+                        .parameter_value("10")
+                        .apply_method(aws_sdk_rds::types::ApplyMethod::Immediate)
+                        .build(),
+                    Parameter::builder()
+                        .parameter_name("auto_increment_increment")
+                        .parameter_value("20")
+                        .apply_method(aws_sdk_rds::types::ApplyMethod::Immediate)
+                        .build(),
+                ]
+            );
+            true
+        })
+        .return_once(|_, _| Ok(ModifyDbClusterParameterGroupOutput::builder().build()));
+
+    let scenario = AuroraScenario::new(mock_rds);
+
+    scenario
+        .update_auto_increment(10, 20)
+        .await
+        .expect("update auto increment");
+}
+
+#[tokio::test]
+async fn test_scenario_update_auto_increment_error() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_modify_db_cluster_parameter_group()
+        .return_once(|_, _| {
+            Err(SdkError::service_error(
+                ModifyDBClusterParameterGroupError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "modify_db_cluster_parameter_group_error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let scenario = AuroraScenario::new(mock_rds);
+
+    let update = scenario.update_auto_increment(10, 20).await;
+    assert_matches!(update, Err(ScenarioError { message, context: _}) if message == "Failed to modify cluster parameter group");
+}
+
+#[tokio::test]
+async fn test_start_cluster_and_instance() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster()
+        .withf(|id, params, engine, version, username, password| {
+            assert_eq!(id, "RustSDKCodeExamplesDBCluster");
+            assert_eq!(params, "RustSDKCodeExamplesDBParameterGroup");
+            assert_eq!(engine, "aurora-mysql");
+            assert_eq!(version, "aurora-mysql8.0");
+            assert_eq!(username, "test username");
+            assert_eq!(password.expose_secret(), "test password");
+            true
+        })
+        .return_once(|id, _, _, _, _, _| {
+            Ok(CreateDbClusterOutput::builder()
+                .db_cluster(DbCluster::builder().db_cluster_identifier(id).build())
+                .build())
+        });
+
+    mock_rds
+        .expect_create_db_instance()
+        .withf(|cluster, name, class, engine| {
+            assert_eq!(cluster, "RustSDKCodeExamplesDBCluster");
+            assert_eq!(name, "RustSDKCodeExamplesDBInstance");
+            assert_eq!(class, "m5.large");
+            assert_eq!(engine, "aurora-mysql");
+            true
+        })
+        .return_once(|cluster, name, class, _| {
+            Ok(CreateDbInstanceOutput::builder()
+                .db_instance(
+                    DbInstance::builder()
+                        .db_cluster_identifier(cluster)
+                        .db_instance_identifier(name)
+                        .db_instance_class(class)
+                        .build(),
+                )
+                .build())
+        });
+
+    mock_rds
+        .expect_describe_db_clusters()
+        .with(eq("RustSDKCodeExamplesDBCluster"))
+        .return_once(|id| {
+            Ok(DescribeDbClustersOutput::builder()
+                .db_clusters(DbCluster::builder().db_cluster_identifier(id).build())
+                .build())
+        });
+
+    mock_rds
+        .expect_describe_db_instance()
+        .with(eq("RustSDKCodeExamplesDBInstance"))
+        .return_once(|name| {
+            Ok(DescribeDbInstancesOutput::builder()
+                .db_instances(
+                    DbInstance::builder()
+                        .db_instance_identifier(name)
+                        .db_instance_status("Available")
+                        .build(),
+                )
+                .build())
+        });
+
+    mock_rds
+        .expect_describe_db_cluster_endpoints()
+        .with(eq("RustSDKCodeExamplesDBCluster"))
+        .return_once(|_| {
+            Ok(DescribeDbClusterEndpointsOutput::builder()
+                .db_cluster_endpoints(DbClusterEndpoint::builder().status("available").build())
+                .build())
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.engine_version = Some("aurora-mysql8.0".into());
+    scenario.instance_class = Some("m5.large".into());
+    scenario.username = Some("test username".into());
+    scenario.password = Some(SecretString::new("test password".into()));
+
+    tokio::time::pause();
+    let assertions = tokio::spawn(async move {
+        let create = scenario.start_cluster_and_instance().await;
+        assert!(create.is_ok());
+        assert!(scenario
+            .password
+            .replace(SecretString::new("BAD SECRET".into()))
+            .unwrap()
+            .expose_secret()
+            .is_empty());
+        assert_eq!(
+            scenario.db_cluster_identifier,
+            Some("RustSDKCodeExamplesDBCluster".into())
+        );
+    });
+    tokio::time::advance(Duration::from_secs(1)).await;
+    tokio::time::resume();
+    let _ = assertions.await;
+}
+
+#[tokio::test]
+async fn test_start_cluster_and_instance_cluster_create_error() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster()
+        .return_once(|_, _, _, _, _, _| {
+            Err(SdkError::service_error(
+                CreateDBClusterError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "create db cluster error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.engine_version = Some("aurora-mysql8.0".into());
+    scenario.instance_class = Some("m5.large".into());
+    scenario.username = Some("test username".into());
+    scenario.password = Some(SecretString::new("test password".into()));
+
+    let create = scenario.start_cluster_and_instance().await;
+    assert_matches!(create, Err(ScenarioError { message, context: _}) if message == "Failed to create DB Cluster with cluster group")
+}
+
+#[tokio::test]
+async fn test_start_cluster_and_instance_cluster_create_missing_id() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster()
+        .return_once(|_, _, _, _, _, _| {
+            Ok(CreateDbClusterOutput::builder()
+                .db_cluster(DbCluster::builder().build())
+                .build())
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.engine_version = Some("aurora-mysql8.0".into());
+    scenario.instance_class = Some("m5.large".into());
+    scenario.username = Some("test username".into());
+    scenario.password = Some(SecretString::new("test password".into()));
+
+    let create = scenario.start_cluster_and_instance().await;
+    assert_matches!(create, Err(ScenarioError { message, context:_ }) if message == "Created DB Cluster missing Identifier");
+}
+
+#[tokio::test]
+async fn test_start_cluster_and_instance_instance_create_error() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster()
+        .withf(|id, params, engine, version, username, password| {
+            assert_eq!(id, "RustSDKCodeExamplesDBCluster");
+            assert_eq!(params, "RustSDKCodeExamplesDBParameterGroup");
+            assert_eq!(engine, "aurora-mysql");
+            assert_eq!(version, "aurora-mysql8.0");
+            assert_eq!(username, "test username");
+            assert_eq!(password.expose_secret(), "test password");
+            true
+        })
+        .return_once(|id, _, _, _, _, _| {
+            Ok(CreateDbClusterOutput::builder()
+                .db_cluster(DbCluster::builder().db_cluster_identifier(id).build())
+                .build())
+        });
+
+    mock_rds
+        .expect_create_db_instance()
+        .return_once(|_, _, _, _| {
+            Err(SdkError::service_error(
+                CreateDBInstanceError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "create db instance error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.engine_version = Some("aurora-mysql8.0".into());
+    scenario.instance_class = Some("m5.large".into());
+    scenario.username = Some("test username".into());
+    scenario.password = Some(SecretString::new("test password".into()));
+
+    let create = scenario.start_cluster_and_instance().await;
+    assert_matches!(create, Err(ScenarioError { message, context: _ }) if message == "Failed to create Instance in DB Cluster")
+}
+
+#[tokio::test]
+async fn test_start_cluster_and_instance_wait_hiccup() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_create_db_cluster()
+        .withf(|id, params, engine, version, username, password| {
+            assert_eq!(id, "RustSDKCodeExamplesDBCluster");
+            assert_eq!(params, "RustSDKCodeExamplesDBParameterGroup");
+            assert_eq!(engine, "aurora-mysql");
+            assert_eq!(version, "aurora-mysql8.0");
+            assert_eq!(username, "test username");
+            assert_eq!(password.expose_secret(), "test password");
+            true
+        })
+        .return_once(|id, _, _, _, _, _| {
+            Ok(CreateDbClusterOutput::builder()
+                .db_cluster(DbCluster::builder().db_cluster_identifier(id).build())
+                .build())
+        });
+
+    mock_rds
+        .expect_create_db_instance()
+        .withf(|cluster, name, class, engine| {
+            assert_eq!(cluster, "RustSDKCodeExamplesDBCluster");
+            assert_eq!(name, "RustSDKCodeExamplesDBInstance");
+            assert_eq!(class, "m5.large");
+            assert_eq!(engine, "aurora-mysql");
+            true
+        })
+        .return_once(|cluster, name, class, _| {
+            Ok(CreateDbInstanceOutput::builder()
+                .db_instance(
+                    DbInstance::builder()
+                        .db_cluster_identifier(cluster)
+                        .db_instance_identifier(name)
+                        .db_instance_class(class)
+                        .build(),
+                )
+                .build())
+        });
+
+    mock_rds
+        .expect_describe_db_clusters()
+        .with(eq("RustSDKCodeExamplesDBCluster"))
+        .times(1)
+        .returning(|_| {
+            Err(SdkError::service_error(
+                DescribeDBClustersError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "describe cluster error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        })
+        .with(eq("RustSDKCodeExamplesDBCluster"))
+        .times(1)
+        .returning(|id| {
+            Ok(DescribeDbClustersOutput::builder()
+                .db_clusters(DbCluster::builder().db_cluster_identifier(id).build())
+                .build())
+        });
+
+    mock_rds.expect_describe_db_instance().return_once(|name| {
+        Ok(DescribeDbInstancesOutput::builder()
+            .db_instances(
+                DbInstance::builder()
+                    .db_instance_identifier(name)
+                    .db_instance_status("Available")
+                    .build(),
+            )
+            .build())
+    });
+
+    mock_rds
+        .expect_describe_db_cluster_endpoints()
+        .return_once(|_| {
+            Ok(DescribeDbClusterEndpointsOutput::builder()
+                .db_cluster_endpoints(DbClusterEndpoint::builder().status("available").build())
+                .build())
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.engine_version = Some("aurora-mysql8.0".into());
+    scenario.instance_class = Some("m5.large".into());
+    scenario.username = Some("test username".into());
+    scenario.password = Some(SecretString::new("test password".into()));
+
+    tokio::time::pause();
+    let assertions = tokio::spawn(async move {
+        let create = scenario.start_cluster_and_instance().await;
+        assert!(create.is_ok());
+    });
+
+    tokio::time::advance(Duration::from_secs(1)).await;
+    tokio::time::advance(Duration::from_secs(1)).await;
+    tokio::time::resume();
+    let _ = assertions.await;
+}
+
+#[tokio::test]
+async fn test_scenario_clean_up() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_delete_db_instance()
+        .with(eq("MockInstance"))
+        .return_once(|_| Ok(DeleteDbInstanceOutput::builder().build()));
+
+    mock_rds
+        .expect_describe_db_instances()
+        .with()
+        .times(1)
+        .returning(|| {
+            Ok(DescribeDbInstancesOutput::builder()
+                .db_instances(
+                    DbInstance::builder()
+                        .db_cluster_identifier("MockCluster")
+                        .db_instance_status("Deleting")
+                        .build(),
+                )
+                .build())
+        })
+        .with()
+        .times(1)
+        .returning(|| Ok(DescribeDbInstancesOutput::builder().build()));
+
+    mock_rds
+        .expect_delete_db_cluster()
+        .with(eq("MockCluster"))
+        .return_once(|_| Ok(DeleteDbClusterOutput::builder().build()));
+
+    mock_rds
+        .expect_describe_db_clusters()
+        .with(eq("MockCluster"))
+        .times(1)
+        .returning(|id| {
+            Ok(DescribeDbClustersOutput::builder()
+                .db_clusters(
+                    DbCluster::builder()
+                        .db_cluster_identifier(id)
+                        .status("Deleting")
+                        .build(),
+                )
+                .build())
+        })
+        .with(eq("MockCluster"))
+        .times(1)
+        .returning(|_| Ok(DescribeDbClustersOutput::builder().build()));
+
+    mock_rds
+        .expect_delete_db_cluster_parameter_group()
+        .with(eq("MockParamGroup"))
+        .return_once(|_| Ok(DeleteDbClusterParameterGroupOutput::builder().build()));
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some(String::from("MockCluster"));
+    scenario.db_instance_identifier = Some(String::from("MockInstance"));
+    scenario.db_cluster_parameter_group = Some(
+        DbClusterParameterGroup::builder()
+            .db_cluster_parameter_group_name("MockParamGroup")
+            .build(),
+    );
+
+    tokio::time::pause();
+    let assertions = tokio::spawn(async move {
+        let clean_up = scenario.clean_up().await;
+        assert!(clean_up.is_ok());
+    });
+
+    tokio::time::advance(Duration::from_secs(1)).await; // Wait for first Describe Instances
+    tokio::time::advance(Duration::from_secs(1)).await; // Wait for second Describe Instances
+    tokio::time::advance(Duration::from_secs(1)).await; // Wait for first Describe Cluster
+    tokio::time::advance(Duration::from_secs(1)).await; // Wait for second Describe Cluster
+    tokio::time::resume();
+    let _ = assertions.await;
+}
+
+#[tokio::test]
+async fn test_scenario_clean_up_errors() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_delete_db_instance()
+        .with(eq("MockInstance"))
+        .return_once(|_| Ok(DeleteDbInstanceOutput::builder().build()));
+
+    mock_rds
+        .expect_describe_db_instances()
+        .with()
+        .times(1)
+        .returning(|| {
+            Ok(DescribeDbInstancesOutput::builder()
+                .db_instances(
+                    DbInstance::builder()
+                        .db_cluster_identifier("MockCluster")
+                        .db_instance_status("Deleting")
+                        .build(),
+                )
+                .build())
+        })
+        .with()
+        .times(1)
+        .returning(|| {
+            Err(SdkError::service_error(
+                DescribeDBInstancesError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "describe db instances error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    mock_rds
+        .expect_delete_db_cluster()
+        .with(eq("MockCluster"))
+        .return_once(|_| Ok(DeleteDbClusterOutput::builder().build()));
+
+    mock_rds
+        .expect_describe_db_clusters()
+        .with(eq("MockCluster"))
+        .times(1)
+        .returning(|id| {
+            Ok(DescribeDbClustersOutput::builder()
+                .db_clusters(
+                    DbCluster::builder()
+                        .db_cluster_identifier(id)
+                        .status("Deleting")
+                        .build(),
+                )
+                .build())
+        })
+        .with(eq("MockCluster"))
+        .times(1)
+        .returning(|_| {
+            Err(SdkError::service_error(
+                DescribeDBClustersError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "describe db clusters error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    mock_rds
+        .expect_delete_db_cluster_parameter_group()
+        .with(eq("MockParamGroup"))
+        .return_once(|_| Ok(DeleteDbClusterParameterGroupOutput::builder().build()));
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some(String::from("MockCluster"));
+    scenario.db_instance_identifier = Some(String::from("MockInstance"));
+    scenario.db_cluster_parameter_group = Some(
+        DbClusterParameterGroup::builder()
+            .db_cluster_parameter_group_name("MockParamGroup")
+            .build(),
+    );
+
+    tokio::time::pause();
+    let assertions = tokio::spawn(async move {
+        let clean_up = scenario.clean_up().await;
+        assert!(clean_up.is_err());
+        let errs = clean_up.unwrap_err();
+        assert_eq!(errs.len(), 2);
+        assert_matches!(errs.first(), Some(ScenarioError {message, context: _}) if message == "Failed to check instance state during deletion");
+        assert_matches!(errs.get(1), Some(ScenarioError {message, context: _}) if message == "Failed to check cluster state during deletion");
+    });
+
+    tokio::time::advance(Duration::from_secs(1)).await; // Wait for first Describe Instances
+    tokio::time::advance(Duration::from_secs(1)).await; // Wait for second Describe Instances
+    tokio::time::advance(Duration::from_secs(1)).await; // Wait for first Describe Cluster
+    tokio::time::advance(Duration::from_secs(1)).await; // Wait for second Describe Cluster
+    tokio::time::resume();
+    let _ = assertions.await;
+}
+
+#[tokio::test]
+async fn test_scenario_snapshot() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_snapshot_cluster()
+        .with(eq("MockCluster"), eq("MockCluster_MockSnapshot"))
+        .times(1)
+        .return_once(|_, _| {
+            Ok(CreateDbClusterSnapshotOutput::builder()
+                .db_cluster_snapshot(
+                    DbClusterSnapshot::builder()
+                        .db_cluster_identifier("MockCluster")
+                        .db_cluster_snapshot_identifier("MockCluster_MockSnapshot")
+                        .build(),
+                )
+                .build())
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("MockCluster".into());
+    let create_snapshot = scenario.snapshot("MockSnapshot").await;
+    assert!(create_snapshot.is_ok());
+}
+
+#[tokio::test]
+async fn test_scenario_snapshot_error() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_snapshot_cluster()
+        .with(eq("MockCluster"), eq("MockCluster_MockSnapshot"))
+        .times(1)
+        .return_once(|_, _| {
+            Err(SdkError::service_error(
+                CreateDBClusterSnapshotError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "create snapshot error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("MockCluster".into());
+    let create_snapshot = scenario.snapshot("MockSnapshot").await;
+    assert_matches!(create_snapshot, Err(ScenarioError { message, context: _}) if message == "Failed to create snapshot");
+}
+
+#[tokio::test]
+async fn test_scenario_snapshot_invalid() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_snapshot_cluster()
+        .with(eq("MockCluster"), eq("MockCluster_MockSnapshot"))
+        .times(1)
+        .return_once(|_, _| Ok(CreateDbClusterSnapshotOutput::builder().build()));
+
+    let mut scenario = AuroraScenario::new(mock_rds);
+    scenario.db_cluster_identifier = Some("MockCluster".into());
+    let create_snapshot = scenario.snapshot("MockSnapshot").await;
+    assert_matches!(create_snapshot, Err(ScenarioError { message, context: _}) if message == "Missing Snapshot");
+}
+
+
+```
+
+A binary to run the scenario from front to end, using inquirer so that the user can make some decisions.
+
+```
+
+use std::fmt::Display;
+
+use anyhow::anyhow;
+use aurora_code_examples::{
+    aurora_scenario::{AuroraScenario, ScenarioError},
+    rds::Rds as RdsClient,
+};
+use aws_sdk_rds::Client;
+use inquire::{validator::StringValidator, CustomUserError};
+use secrecy::SecretString;
+use tracing::warn;
+
+#[derive(Default, Debug)]
+struct Warnings(Vec<String>);
+
+impl Warnings {
+    fn new() -> Self {
+        Warnings(Vec::with_capacity(5))
+    }
+
+    fn push(&mut self, warning: &str, error: ScenarioError) {
+        let formatted = format!("{warning}: {error}");
+        warn!("{formatted}");
+        self.0.push(formatted);
+    }
+
+    fn is_empty(&self) -> bool {
+        self.0.is_empty()
+    }
+}
+
+impl Display for Warnings {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        writeln!(f, "Warnings:")?;
+        for warning in &self.0 {
+            writeln!(f, "{: >4}- {warning}", "")?;
+        }
+        Ok(())
+    }
+}
+
+fn select(
+    prompt: &str,
+    choices: Vec<String>,
+    error_message: &str,
+) -> Result<String, anyhow::Error> {
+    inquire::Select::new(prompt, choices)
+        .prompt()
+        .map_err(|error| anyhow!("{error_message}: {error}"))
+}
+
+// Prepare the Aurora Scenario. Prompt for several settings that are optional to the Scenario, but that the user should choose for the demo.
+// This includes the engine, engine version, and instance class.
+async fn prepare_scenario(rds: RdsClient) -> Result<AuroraScenario, anyhow::Error> {
+    let mut scenario = AuroraScenario::new(rds);
+
+    // Get available engine families for Aurora MySql. rds.DescribeDbEngineVersions(Engine='aurora-mysql') and build a set of the 'DBParameterGroupFamily' field values. I get {aurora-mysql8.0, aurora-mysql5.7}.
+    let available_engines = scenario.get_engines().await;
+    if let Err(error) = available_engines {
+        return Err(anyhow!("Failed to get available engines: {}", error));
+    }
+    let available_engines = available_engines.unwrap();
+
+    // Select an engine family and create a custom DB cluster parameter group. rds.CreateDbClusterParameterGroup(DBParameterGroupFamily='aurora-mysql8.0')
+    let engine = select(
+        "Select an Aurora engine family",
+        available_engines.keys().cloned().collect::<Vec<String>>(),
+        "Invalid engine selection",
+    )?;
+
+    let version = select(
+        format!("Select an Aurora engine version for {engine}").as_str(),
+        available_engines.get(&engine).cloned().unwrap_or_default(),
+        "Invalid engine version selection",
+    )?;
+
+    let set_engine = scenario.set_engine(engine.as_str(), version.as_str()).await;
+    if let Err(error) = set_engine {
+        return Err(anyhow!("Could not set engine: {}", error));
+    }
+
+    let instance_classes = scenario.get_instance_classes().await;
+    match instance_classes {
+        Ok(classes) => {
+            let instance_class = select(
+                format!("Select an Aurora instance class for {engine}").as_str(),
+                classes,
+                "Invalid instance class selection",
+            )?;
+            scenario.set_instance_class(Some(instance_class))
+        }
+        Err(err) => return Err(anyhow!("Failed to get instance classes for engine: {err}")),
+    }
+
+    Ok(scenario)
+}
+
+// Prepare the cluster, creating a custom parameter group overriding some group parameters based on user input.
+async fn prepare_cluster(scenario: &mut AuroraScenario, warnings: &mut Warnings) -> Result<(), ()> {
+    show_parameters(scenario, warnings).await;
+
+    let offset = prompt_number_or_default(warnings, "auto_increment_offset", 5);
+    let increment = prompt_number_or_default(warnings, "auto_increment_increment", 3);
+
+    // Modify both the auto_increment_offset and auto_increment_increment parameters in one call in the custom parameter group. Set their ParameterValue fields to a new allowable value. rds.ModifyDbClusterParameterGroup.
+    let update_auto_increment = scenario.update_auto_increment(offset, increment).await;
+
+    if let Err(error) = update_auto_increment {
+        warnings.push("Failed to update auto increment", error);
+        return Err(());
+    }
+
+    // Get and display the updated parameters. Specify Source of 'user' to get just the modified parameters. rds.DescribeDbClusterParameters(Source='user')
+    show_parameters(scenario, warnings).await;
+
+    let username = inquire::Text::new("Username for the database (default 'testuser')")
+        .with_default("testuser")
+        .with_initial_value("testuser")
+        .prompt();
+
+    if let Err(error) = username {
+        warnings.push(
+            "Failed to get username, using default",
+            ScenarioError::with(format!("Error from inquirer: {error}")),
+        );
+        return Err(());
+    }
+    let username = username.unwrap();
+
+    let password = inquire::Text::new("Password for the database (minimum 8 characters)")
+        .with_validator(|i: &str| {
+            if i.len() >= 8 {
+                Ok(inquire::validator::Validation::Valid)
+            } else {
+                Ok(inquire::validator::Validation::Invalid(
+                    "Password must be at least 8 characters".into(),
+                ))
+            }
+        })
+        .prompt();
+
+    let password: Option<SecretString> = match password {
+        Ok(password) => Some(SecretString::from(password)),
+        Err(error) => {
+            warnings.push(
+                "Failed to get password, using none (and not starting a DB)",
+                ScenarioError::with(format!("Error from inquirer: {error}")),
+            );
+            return Err(());
+        }
+    };
+
+    scenario.set_login(Some(username), password);
+
+    Ok(())
+}
+
+// Start a single instance in the cluster,
+async fn run_instance(scenario: &mut AuroraScenario) -> Result<(), ScenarioError> {
+    // Create an Aurora DB cluster database cluster that contains a MySql database and uses the parameter group you created.
+    // Create a database instance in the cluster.
+    // Wait for DB instance to be ready. Call rds.DescribeDbInstances and check for DBInstanceStatus == 'available'.
+    scenario.start_cluster_and_instance().await?;
+
+    let connection_string = scenario.connection_string().await?;
+
+    println!("Database ready: {connection_string}",);
+
+    let _ = inquire::Text::new("Use the database with the connection string. When you're finished, press enter key to continue.").prompt();
+
+    // Create a snapshot of the DB cluster. rds.CreateDbClusterSnapshot.
+    // Wait for the snapshot to create. rds.DescribeDbClusterSnapshots until Status == 'available'.
+    let snapshot_name = inquire::Text::new("Provide a name for the snapshot")
+        .prompt()
+        .unwrap_or(String::from("ScenarioRun"));
+    let snapshot = scenario.snapshot(snapshot_name.as_str()).await?;
+    println!(
+        "Snapshot is available: {}",
+        snapshot.db_cluster_snapshot_arn().unwrap_or("Missing ARN")
+    );
+
+    Ok(())
+}
+
+#[tokio::main]
+async fn main() -> Result<(), anyhow::Error> {
+    tracing_subscriber::fmt::init();
+    let sdk_config = aws_config::from_env().load().await;
+    let client = Client::new(&sdk_config);
+    let rds = RdsClient::new(client);
+    let mut scenario = prepare_scenario(rds).await?;
+
+    // At this point, the scenario has things in AWS and needs to get cleaned up.
+    let mut warnings = Warnings::new();
+
+    if prepare_cluster(&mut scenario, &mut warnings).await.is_ok() {
+        println!("Configured database cluster, starting an instance.");
+        if let Err(err) = run_instance(&mut scenario).await {
+            warnings.push("Problem running instance", err);
+        }
+    }
+
+    // Clean up the instance, cluster, and parameter group, waiting for the instance and cluster to delete before moving on.
+    let clean_up = scenario.clean_up().await;
+    if let Err(errors) = clean_up {
+        for error in errors {
+            warnings.push("Problem cleaning up scenario", error);
+        }
+    }
+
+    if warnings.is_empty() {
+        Ok(())
+    } else {
+        println!("There were problems running the scenario:");
+        println!("{warnings}");
+        Err(anyhow!("There were problems running the scenario"))
+    }
+}
+
+#[derive(Clone)]
+struct U8Validator {}
+impl StringValidator for U8Validator {
+    fn validate(&self, input: &str) -> Result<inquire::validator::Validation, CustomUserError> {
+        if input.parse::<u8>().is_err() {
+            Ok(inquire::validator::Validation::Invalid(
+                "Can't parse input as number".into(),
+            ))
+        } else {
+            Ok(inquire::validator::Validation::Valid)
+        }
+    }
+}
+
+async fn show_parameters(scenario: &AuroraScenario, warnings: &mut Warnings) {
+    let parameters = scenario.cluster_parameters().await;
+
+    match parameters {
+        Ok(parameters) => {
+            println!("Current parameters");
+            for parameter in parameters {
+                println!("\t{parameter}");
+            }
+        }
+        Err(error) => warnings.push("Could not find cluster parameters", error),
+    }
+}
+
+fn prompt_number_or_default(warnings: &mut Warnings, name: &str, default: u8) -> u8 {
+    let input = inquire::Text::new(format!("Updated {name}:").as_str())
+        .with_validator(U8Validator {})
+        .prompt();
+
+    match input {
+        Ok(increment) => match increment.parse::<u8>() {
+            Ok(increment) => increment,
+            Err(error) => {
+                warnings.push(
+                    format!("Invalid updated {name} (using {default} instead)").as_str(),
+                    ScenarioError::with(format!("{error}")),
+                );
+                default
+            }
+        },
+        Err(error) => {
+            warnings.push(
+                format!("Invalid updated {name} (using {default} instead)").as_str(),
+                ScenarioError::with(format!("{error}")),
+            );
+            default
+        }
+    }
+}
+
+
+```
+
+A wrapper around the Amazon RDS service that allows automocking for tests.
+
+```
+
+use aws_sdk_rds::{
+    error::SdkError,
+    operation::{
+        create_db_cluster::{CreateDBClusterError, CreateDbClusterOutput},
+        create_db_cluster_parameter_group::CreateDBClusterParameterGroupError,
+        create_db_cluster_parameter_group::CreateDbClusterParameterGroupOutput,
+        create_db_cluster_snapshot::{CreateDBClusterSnapshotError, CreateDbClusterSnapshotOutput},
+        create_db_instance::{CreateDBInstanceError, CreateDbInstanceOutput},
+        delete_db_cluster::{DeleteDBClusterError, DeleteDbClusterOutput},
+        delete_db_cluster_parameter_group::{
+            DeleteDBClusterParameterGroupError, DeleteDbClusterParameterGroupOutput,
+        },
+        delete_db_instance::{DeleteDBInstanceError, DeleteDbInstanceOutput},
+        describe_db_cluster_endpoints::{
+            DescribeDBClusterEndpointsError, DescribeDbClusterEndpointsOutput,
+        },
+        describe_db_cluster_parameters::{
+            DescribeDBClusterParametersError, DescribeDbClusterParametersOutput,
+        },
+        describe_db_clusters::{DescribeDBClustersError, DescribeDbClustersOutput},
+        describe_db_engine_versions::{
+            DescribeDBEngineVersionsError, DescribeDbEngineVersionsOutput,
+        },
+        describe_db_instances::{DescribeDBInstancesError, DescribeDbInstancesOutput},
+        describe_orderable_db_instance_options::DescribeOrderableDBInstanceOptionsError,
+        modify_db_cluster_parameter_group::{
+            ModifyDBClusterParameterGroupError, ModifyDbClusterParameterGroupOutput,
+        },
+    },
+    types::{OrderableDbInstanceOption, Parameter},
+    Client as RdsClient,
+};
+use secrecy::{ExposeSecret, SecretString};
+
+#[cfg(test)]
+use mockall::automock;
+
+#[cfg(test)]
+pub use MockRdsImpl as Rds;
+#[cfg(not(test))]
+pub use RdsImpl as Rds;
+
+pub struct RdsImpl {
+    pub inner: RdsClient,
+}
+
+#[cfg_attr(test, automock)]
+impl RdsImpl {
+    pub fn new(inner: RdsClient) -> Self {
+        RdsImpl { inner }
+    }
+
+    pub async fn describe_db_engine_versions(
+        &self,
+        engine: &str,
+    ) -> Result<DescribeDbEngineVersionsOutput, SdkError<DescribeDBEngineVersionsError>> {
+        self.inner
+            .describe_db_engine_versions()
+            .engine(engine)
+            .send()
+            .await
+    }
+
+    pub async fn describe_orderable_db_instance_options(
+        &self,
+        engine: &str,
+        engine_version: &str,
+    ) -> Result<Vec<OrderableDbInstanceOption>, SdkError<DescribeOrderableDBInstanceOptionsError>>
+    {
+        self.inner
+            .describe_orderable_db_instance_options()
+            .engine(engine)
+            .engine_version(engine_version)
+            .into_paginator()
+            .items()
+            .send()
+            .try_collect()
+            .await
+    }
+
+    pub async fn create_db_cluster_parameter_group(
+        &self,
+        name: &str,
+        description: &str,
+        family: &str,
+    ) -> Result<CreateDbClusterParameterGroupOutput, SdkError<CreateDBClusterParameterGroupError>>
+    {
+        self.inner
+            .create_db_cluster_parameter_group()
+            .db_cluster_parameter_group_name(name)
+            .description(description)
+            .db_parameter_group_family(family)
+            .send()
+            .await
+    }
+
+    pub async fn describe_db_clusters(
+        &self,
+        id: &str,
+    ) -> Result<DescribeDbClustersOutput, SdkError<DescribeDBClustersError>> {
+        self.inner
+            .describe_db_clusters()
+            .db_cluster_identifier(id)
+            .send()
+            .await
+    }
+
+    pub async fn describe_db_cluster_parameters(
+        &self,
+        name: &str,
+    ) -> Result<Vec<DescribeDbClusterParametersOutput>, SdkError<DescribeDBClusterParametersError>>
+    {
+        self.inner
+            .describe_db_cluster_parameters()
+            .db_cluster_parameter_group_name(name)
+            .into_paginator()
+            .send()
+            .try_collect()
+            .await
+    }
+
+    pub async fn modify_db_cluster_parameter_group(
+        &self,
+        name: &str,
+        parameters: Vec<Parameter>,
+    ) -> Result<ModifyDbClusterParameterGroupOutput, SdkError<ModifyDBClusterParameterGroupError>>
+    {
+        self.inner
+            .modify_db_cluster_parameter_group()
+            .db_cluster_parameter_group_name(name)
+            .set_parameters(Some(parameters))
+            .send()
+            .await
+    }
+
+    pub async fn create_db_cluster(
+        &self,
+        name: &str,
+        parameter_group: &str,
+        engine: &str,
+        version: &str,
+        username: &str,
+        password: SecretString,
+    ) -> Result<CreateDbClusterOutput, SdkError<CreateDBClusterError>> {
+        self.inner
+            .create_db_cluster()
+            .db_cluster_identifier(name)
+            .db_cluster_parameter_group_name(parameter_group)
+            .engine(engine)
+            .engine_version(version)
+            .master_username(username)
+            .master_user_password(password.expose_secret())
+            .send()
+            .await
+    }
+
+    pub async fn create_db_instance(
+        &self,
+        cluster_name: &str,
+        instance_name: &str,
+        instance_class: &str,
+        engine: &str,
+    ) -> Result<CreateDbInstanceOutput, SdkError<CreateDBInstanceError>> {
+        self.inner
+            .create_db_instance()
+            .db_cluster_identifier(cluster_name)
+            .db_instance_identifier(instance_name)
+            .db_instance_class(instance_class)
+            .engine(engine)
+            .send()
+            .await
+    }
+
+    pub async fn describe_db_instance(
+        &self,
+        instance_identifier: &str,
+    ) -> Result<DescribeDbInstancesOutput, SdkError<DescribeDBInstancesError>> {
+        self.inner
+            .describe_db_instances()
+            .db_instance_identifier(instance_identifier)
+            .send()
+            .await
+    }
+
+    pub async fn snapshot_cluster(
+        &self,
+        db_cluster_identifier: &str,
+        snapshot_name: &str,
+    ) -> Result<CreateDbClusterSnapshotOutput, SdkError<CreateDBClusterSnapshotError>> {
+        self.inner
+            .create_db_cluster_snapshot()
+            .db_cluster_identifier(db_cluster_identifier)
+            .db_cluster_snapshot_identifier(snapshot_name)
+            .send()
+            .await
+    }
+
+    pub async fn describe_db_instances(
+        &self,
+    ) -> Result<DescribeDbInstancesOutput, SdkError<DescribeDBInstancesError>> {
+        self.inner.describe_db_instances().send().await
+    }
+
+    pub async fn describe_db_cluster_endpoints(
+        &self,
+        cluster_identifier: &str,
+    ) -> Result<DescribeDbClusterEndpointsOutput, SdkError<DescribeDBClusterEndpointsError>> {
+        self.inner
+            .describe_db_cluster_endpoints()
+            .db_cluster_identifier(cluster_identifier)
+            .send()
+            .await
+    }
+
+    pub async fn delete_db_instance(
+        &self,
+        instance_identifier: &str,
+    ) -> Result<DeleteDbInstanceOutput, SdkError<DeleteDBInstanceError>> {
+        self.inner
+            .delete_db_instance()
+            .db_instance_identifier(instance_identifier)
+            .skip_final_snapshot(true)
+            .send()
+            .await
+    }
+
+    pub async fn delete_db_cluster(
+        &self,
+        cluster_identifier: &str,
+    ) -> Result<DeleteDbClusterOutput, SdkError<DeleteDBClusterError>> {
+        self.inner
+            .delete_db_cluster()
+            .db_cluster_identifier(cluster_identifier)
+            .skip_final_snapshot(true)
+            .send()
+            .await
+    }
+
+    pub async fn delete_db_cluster_parameter_group(
+        &self,
+        name: &str,
+    ) -> Result<DeleteDbClusterParameterGroupOutput, SdkError<DeleteDBClusterParameterGroupError>>
+    {
+        self.inner
+            .delete_db_cluster_parameter_group()
+            .db_cluster_parameter_group_name(name)
+            .send()
+            .await
+    }
+}
+
+
+```
+
+The Cargo.toml with dependencies used in this scenario.
+
+```
+[package]
+name = "aurora-code-examples"
+authors = [
+  "David Souther <dpsouth@amazon.com>",
+]
+edition = "2021"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.75"
+assert_matches = "1.5.0"
+aws-config = { version = "1.0.1", features = ["behavior-version-latest"] }
+aws-smithy-types = { version = "1.0.1" }
+aws-smithy-runtime-api = { version = "1.0.1" }
+aws-sdk-rds = { version = "1.3.0" }
+inquire = "0.6.2"
+mockall = "0.11.4"
+phf = { version = "0.11.2", features = ["std", "macros"] }
+sdk-examples-test-utils = { path = "../../test-utils" }
+secrecy = "0.8.0"
+tokio = { version = "1.20.1", features = ["full", "test-util"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.15", features = ["env-filter"] }
+
+
+```
+
+- For API details, see the following topics in _AWS SDK for Rust API reference_.
+  - [CreateDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster")
+  - [CreateDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group")
+  - [CreateDBClusterSnapshot](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_snapshot "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_snapshot")
+  - [CreateDBInstance](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_instance "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_instance")
+  - [DeleteDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster")
+  - [DeleteDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster_parameter_group")
+  - [DeleteDBInstance](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_instance "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_instance")
+  - [DescribeDBClusterParameterGroups](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameter_groups "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameter_groups")
+  - [DescribeDBClusterParameters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters")
+  - [DescribeDBClusterSnapshots](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_snapshots "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_snapshots")
+  - [DescribeDBClusters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters")
+  - [DescribeDBEngineVersions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions")
+  - [DescribeDBInstances](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_instances "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_instances")
+  - [DescribeOrderableDBInstanceOptions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options")
+  - [ModifyDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group")
+
+For a complete list of AWS SDK developer guides and code examples, see
+[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
+This topic also includes information about getting started and details about previous SDK versions.

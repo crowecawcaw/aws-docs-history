@@ -454,26 +454,301 @@ instance running the MySQL database engine](../UserGuide/USER_ConnectToInstance.
 Aurora Serverless v2 supports all TLS/SSL modes available to the MySQL client (`mysql`) and PostgreSQL
 client (`psql`), including those listed in the following table.
 
-| Description of TLS/SSL mode
-| mysql
-| psql
-|
-| --- | --- | --- |
-| Connect without using TLS/SSL. | DISABLED | disable |
-| Try the connection using TLS/SSL first, but fall back to non-SSL if necessary. | PREFERRED | prefer (default) |
-| Enforce using TLS/SSL. | REQUIRED | require |
-| Enforce TLS/SSL and verify the certificate authority (CA). | VERIFY_CA | verify-ca |
-| Enforce TLS/SSL, verify the CA, and verify the CA hostname. | VERIFY_IDENTITY | verify-full | Aurora Serverless v2 uses wildcard certificates. If you specify the "verify CA" or the "verify CA and CA hostname" option when using TLS/SSL, first download the [Amazon root CA 1 trust store](https://www.amazontrust.com/repository/AmazonRootCA1.pem "https://www.amazontrust.com/repository/AmazonRootCA1.pem") from Amazon Trust Services. After doing so, you can identify this PEM-formatted file in your client command. To do so using the PostgreSQL client, do the following. For Linux, macOS, or Unix: ``psql 'host=`endpoint` user=`user` sslmode=require sslrootcert=amazon-root-CA-1.pem dbname=`db-name`'`` To learn more about working with the Aurora PostgreSQL database using the Postgres client, see [Connecting to a DB instance running the PostgreSQL database engine](../UserGuide/USER_ConnectToPostgreSQLInstance.md "../UserGuide/USER_ConnectToPostgreSQLInstance.md"). For more information about connecting to Aurora DB clusters in general, see [Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md"). ### Supported cipher suites for connections to Aurora Serverless v2 DB clusters By using configurable cipher suites, you can have more control over the security of your database connections. You can specify a list of cipher suites that you want to allow to secure client TLS/SSL connections to your database. With configurable cipher suites, you can control the connection encryption that your database server accepts. Doing this prevents the use of ciphers that aren't secure or that are no longer used. Aurora Serverless v2 DB clusters that are based on Aurora MySQL support the same cipher suites as Aurora MySQL provisioned DB clusters. For information about these cipher suites, see [Configuring cipher suites for connections to Aurora MySQL DB clusters](AuroraMySQL.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites "AuroraMySQL.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites"). Aurora Serverless v2 DB clusters that are based on Aurora PostgreSQL support the same cipher suites as Aurora PostgreSQL provisioned DB clusters. For information about these cipher suites, see [Configuring cipher suites for connections to Aurora PostgreSQL DB clusters](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites"). ## Viewing Aurora Serverless v2 writers and readers You can view the details of Aurora Serverless v2 DB instances in the same way that you do for provisioned DB instances. To do so, follow the general procedure from [Viewing an Amazon Aurora DB cluster](accessing-monitoring.md#Aurora.Viewing "accessing-monitoring.md#Aurora.Viewing"). A cluster might contain all Aurora Serverless v2 DB instances, all provisioned DB instances, or some of each. After you create one or more Aurora Serverless v2 DB instances, you can view which DB instances are type **Serverless** and which are type **Instance**. You can also view the minimum and maximum Aurora capacity units (ACUs) that the Aurora Serverless v2 DB instance can use. Each ACU is a combination of processing (CPU) and memory (RAM) capacity. This capacity range applies to each Aurora Serverless v2 DB instance in the cluster. For the procedure to check the capacity range of a cluster or any Aurora Serverless v2 DB instance in the cluster, see [Checking the capacity range for Aurora Serverless v2](#aurora-serverless-v2-checking-capacity "#aurora-serverless-v2-checking-capacity"). In the AWS Management Console, Aurora Serverless v2 DB instances are marked under the **Size** column in the **Databases** page. Provisioned DB instances show the name of a DB instance class such as r6g.xlarge. The Aurora Serverless DB instances show **Serverless** for the DB instance class, along with the DB instance's minimum and maximum capacity. For example, you might see **Serverless v2 (4–64 ACUs)** or **Serverless v2 (1–40 ACUs)**. You can find the same information on the **Configuration** tab for each Aurora Serverless v2 DB instance in the console. For example, you might see an **Instance type** section such as the following. Here, the **Instance type** value is **Serverless v2**, the **Minimum capacity** value is **2 ACUs (4 GiB)**, and the **Maximum capacity** value is **64 ACUs (128 GiB)**. ![Instance type section, part of DB instance configuration user interface](images/serverless_v2_screencaps/serverless_v2_capacity_settings_shown_for_serverless_instance.png) You can monitor the capacity of each Aurora Serverless v2 DB instance over time. That way, you can check the minimum, maximum, and average ACUs consumed by each DB instance. You can also check how close the DB instance came to its minimum or maximum capacity. To see such details in the AWS Management Console, examine the graphs of Amazon CloudWatch metrics on the **Monitoring** tab for the DB instance. For information about the metrics to watch and how to interpret them, see [Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring"). ## Logging for Aurora Serverless v2 To turn on database logging, you specify the logs to enable using configuration parameters in your custom parameter group. For Aurora MySQL, you can enable the following logs.
-| Aurora MySQL | Description | | --- | --- |
-| `general_log` | Creates the general log. Set to 1 to turn on. Default is off (0). | | `log_queries_not_using_indexes`
-| Logs any queries to the slow query log that don't use an index. Default is off (0). Set to 1 to turn on this log. | | `long_query_time` | Prevents fast-running queries from being logged in the slow query log. Can be set to a float between 0 and 31536000. Default is 0 (not active).
-| | `server_audit_events` | The list of events to capture in the logs. Supported values are `CONNECT`, `QUERY`, `QUERY_DCL`, `QUERY_DDL`, `QUERY_DML`, and `TABLE`. |
-| `server_audit_logging` | Set to 1 to turn on server audit logging. If you turn this on, you can specify the audit events to send to CloudWatch by listing them in the `server_audit_events` parameter. | | `slow_query_log`
-| Creates a slow query log. Set to 1 to turn on the slow query log. Default is off (0). | For more information, see [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md"). For Aurora PostgreSQL, you can enable the following logs on your Aurora Serverless v2 DB instances. | Aurora PostgreSQL | Description
-| | --- | --- |
-| `log_connections` | Logs each successful connection. | | `log_disconnections`
-| Logs end of a session including duration. | | `log_lock_waits` | Default is 0 (off). Set to 1 to log lock waits.
-| | `log_min_duration_statement` | The minimum duration (in milliseconds) for a statement to run before it's logged. |
-| `log_min_messages` | Sets the message levels that are logged. Supported values are `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal`, `panic`. To log performance data to the `postgres` log, set the value to `debug1`. | | `log_temp_files`
-| Logs the use of temporary files that are above the specified kilobytes (kB). | | `log_statement` | Controls the specific SQL statements that get logged. Supported values are `none`, `ddl`, `mod`, and `all`. Default is `none`.
-| ###### Topics <br>• [Logging with Amazon CloudWatch](#aurora-serverless-v2.how-it-works.logging "#aurora-serverless-v2.how-it-works.logging") <br>• [Viewing Aurora Serverless v2 logs in Amazon CloudWatch](#aurora-serverless-v2.logging.monitoring "#aurora-serverless-v2.logging.monitoring") <br>• [Monitoring capacity with Amazon CloudWatch](#aurora-serverless-v2.how-it-works.logging.monitoring "#aurora-serverless-v2.how-it-works.logging.monitoring") <br>• [Monitoring Aurora Serverless v2 pause and resume activity](#autopause-logging-instance-log "#autopause-logging-instance-log") ### Logging with Amazon CloudWatch After you use the procedure in [Logging for Aurora Serverless v2](#aurora-serverless-v2.logging "#aurora-serverless-v2.logging") to choose which database logs to turn on, you can choose which logs to upload ("publish") to Amazon CloudWatch. You can use Amazon CloudWatch to analyze log data, create alarms, and view metrics. By default, error logs for Aurora Serverless v2 are enabled and automatically uploaded to CloudWatch. You can also upload other logs from Aurora Serverless v2 DB instances to CloudWatch. Then you choose which of those logs to upload to CloudWatch, by using the **Log exports** settings in the AWS Management Console or the `--enable-cloudwatch-logs-exports` option in the AWS CLI. You can choose which of your Aurora Serverless v2 logs to upload to CloudWatch. For more information, see [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md"). As with any type of Aurora DB cluster, you can't modify the default DB cluster parameter group. Instead, create your own DB cluster parameter group based on a default parameter for your DB cluster and engine type. We recommend that you create your custom DB cluster parameter group before creating your Aurora Serverless v2 DB cluster, so that it's available to choose when you create a database on the console. ###### Note For Aurora Serverless v2, you can create both DB cluster and DB parameter groups. This contrasts with Aurora Serverless v1, where you can only create DB cluster parameter groups. ### Viewing Aurora Serverless v2 logs in Amazon CloudWatch After you use the procedure in [Logging with Amazon CloudWatch](#aurora-serverless-v2.how-it-works.logging "#aurora-serverless-v2.how-it-works.logging") to choose which database logs to turn on, you can view the contents of the logs. For more information on using CloudWatch with Aurora MySQL and Aurora PostgreSQL logs, see [Monitoring log events in Amazon CloudWatch](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor") and [Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). ###### To view logs for your Aurora Serverless v2 DB cluster 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. Choose your AWS Region. 3. Choose **Log groups**. 4. Choose your Aurora Serverless v2 DB cluster log from the list. The log naming pattern is as follows. `` /aws/rds/cluster/`cluster-name`/`log_type` `` ###### Note For Aurora MySQL–compatible Aurora Serverless v2 DB clusters, the error log includes buffer pool scaling events even when there are no errors. ### Monitoring capacity with Amazon CloudWatch With Aurora Serverless v2, you can use CloudWatch to to monitor the capacity and utilization of all the Aurora Serverless v2 DB instances in your cluster. You can view instance-level metrics to check the capacity of each Aurora Serverless v2 DB instance as it scales up and down. You can also compare the capacity-related metrics to other metrics to see how changes in workloads affect resource consumption. For example, you can compare `ServerlessDatabaseCapacity` to `DatabaseUsedMemory`, `DatabaseConnections`, and `DMLThroughput` to assess how your DB cluster is responding during operations. For details about the capacity-related metrics that apply to Aurora Serverless v2, see [Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring"). ###### To monitor your Aurora Serverless v2 DB cluster's capacity 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. Choose **Metrics**. All available metrics appear as cards in the console, grouped by service name. 3. Choose **RDS**. 4. (Optional) Use the **Search** box to find the metrics that are especially important for Aurora Serverless v2: `ServerlessDatabaseCapacity`, `ACUUtilization`, `CPUUtilization`, and `FreeableMemory`. We recommend that you set up a CloudWatch dashboard to monitor your Aurora Serverless v2 DB cluster capacity using the capacity-related metrics. To learn how, see [Building dashboards with CloudWatch](../../../autoscaling/application/userguide/monitoring-cloudwatch.md "../../../autoscaling/application/userguide/monitoring-cloudwatch.md"). To learn more about using Amazon CloudWatch with Amazon Aurora, see [Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md"). ### Monitoring Aurora Serverless v2 pause and resume activity Aurora writes a separate log file for Aurora Serverless v2 DB instances with auto-pause enabled. Aurora writes to the log for each 10-minute interval that the instance isn't paused. Aurora retains up to seven of these logs, rotated daily. The current log file is named `instance.log`, and older logs are named using the pattern `instance.`YYYY-MM-DD`.`N`.log`. This log is enabled by default for Aurora Serverless v2 DB instances with auto-pause enabled. You can view the contents of this log in the AWS Management Console or by using the AWS CLI or RDSP API. Currently, you can't upload this log to CloudWatch. The events listed in [DB instance events](USER_Events.md#USER_Events.Messages.instance "USER_Events.md#USER_Events.Messages.instance") provide a high-level overview of pause and resume activity, such as the following: <br>• When the instance begins to pause, and when it finishes pausing. <br>• When the instance begins to resume, and when it finishes resuming. <br>• Cases where the instance attempted to pause, but some condition prevented it from pausing. The `instance.log` provides more granular detail about the reasons why an Aurora Serverless v2 instance might or might not be able to pause. The log might indicate that an instance resumed for different reasons: <br>• **user activity**: A database connection request. This could be from an interactive client session, an RDS Data API call, or a request to download logs from the instance. <br>• **background activity**: A broad category that includes all the reasons why Aurora resumes an instance. For example, when a connection request to a reader instance causes the writer instance to resume, the log for the reader indicates user activity, while the log for the writer classifies that resume request as background activity. For the reasons why Aurora might resume an instance other than a user connection request, see [Resuming an auto-paused Aurora Serverless v2 instance](aurora-serverless-v2-auto-pause.md#auto-pause-waking "aurora-serverless-v2-auto-pause.md#auto-pause-waking"). When Aurora isn't aware of any conditions that would prevent the instance from pausing when the auto-pause interval expires, it periodically writes an informational message to the log. For clusters with only a single DB instance, the log contains this message: `` [INFO] No auto-pause blockers registered since `time` `` For clusters with multiple DB instances, the message is slightly different. That's because a writer might be unable to pause due to activity on any of the reader instances. If the activity on the reader finishes before the auto-pause interval expires on the writer, the writer is able to pause at the expected time. ``[INFO] No auto-pause blockers registered since `time`. Database might be required to maintain compute capacity for high availability.`` If a pause operation starts, but a new database connection request arrives before the instance finishes pausing, the log contains this message: `[INFO] Unable to pause database due to a new database activity` If Aurora becomes aware of any conditions that definitely prevent the instance from pausing, the log contains this message that lists all such conditions: `` [INFO] Auto-pause blockers registered since `time`: `list_of_conditions` `` That way, Aurora doesn't prevent you from turning on replication, zero-ETL integration, Aurora Global Database, and so on in combination with the auto-pause feature. The log informs you when the use of such features might prevent auto-pause from taking effect. The following are reasons why an Aurora Serverless v2 instance might exceed the auto-pause timeout interval, but be prevented from pausing: <br>• **database activity before auto-pause timeout**: The DB instance received a connection request before the timeout interval expired. <br>• **member of global database**: If the DB cluster is part of an Aurora global database, the Aurora Serverless v2 instances in the cluster don't pause. A cluster can change from a standalone cluster to a global database cluster. Thus, instances that formerly auto-paused might stop pausing, and report this reason in the log. Once a cluster becomes a member of a global database, it doesn't revert to a standalone cluster until you explicitly detach it. The primary cluster is still considered part of the global database even if you detach all of the secondary clusters. <br>• **replication capability configured**: The writer DB instance has engine-specific replication enabled, either binlog replication for MySQL or logical replication for PostgreSQL. This condition could also be caused by using another Aurora feature that requires turning on replication, such as zero-ETL integrations or Database Activity Streams (DAS). <br>• **continuous backup lag**: If the Aurora storage system hasn't finished applying the storage changes up to the current point in time, the writer instance doesn't pause until it catches up. This condition only affects the writer instance, and is expected to be relatively brief. <br>• **service or customer maintenance action**: If a maintenance operation starts, the DB instance won't pause again until that operation finishes. This condition includes a wide variety of operations that might be started by you or by Aurora, such as upgrades, cloning, changing configuration settings, upgrades, downloading log files, and so on. This event also happens when you request to delete an instance, and Aurora briefly resumes the instance as part of the deletion mechanism. <br>• **transient communication issue**: If Aurora can't determine whether the scaling configuration currently has a minimum capacity setting of zero ACUs, it doesn't pause the instance. This is expected to be a very rare occurrence.
+| Description of TLS/SSL mode                                                    | mysql           | psql             |
+| ------------------------------------------------------------------------------ | --------------- | ---------------- |
+| Connect without using TLS/SSL.                                                 | DISABLED        | disable          |
+| Try the connection using TLS/SSL first, but fall back to non-SSL if necessary. | PREFERRED       | prefer (default) |
+| Enforce using TLS/SSL.                                                         | REQUIRED        | require          |
+| Enforce TLS/SSL and verify the certificate authority (CA).                     | VERIFY_CA       | verify-ca        |
+| Enforce TLS/SSL, verify the CA, and verify the CA hostname.                    | VERIFY_IDENTITY | verify-full      |
+
+Aurora Serverless v2 uses wildcard certificates. If you specify the "verify CA" or the "verify CA and CA hostname"
+option when using TLS/SSL, first download the
+[Amazon root CA 1 trust store](https://www.amazontrust.com/repository/AmazonRootCA1.pem "https://www.amazontrust.com/repository/AmazonRootCA1.pem") from
+Amazon Trust Services. After doing so, you can identify this PEM-formatted file in your client command. To do
+so using the PostgreSQL client, do the following.
+
+For Linux, macOS, or Unix:
+
+```
+psql 'host=`endpoint` user=`user` sslmode=require sslrootcert=amazon-root-CA-1.pem dbname=`db-name`'
+```
+
+To learn more about working with the Aurora PostgreSQL database using the Postgres client, see
+[Connecting to
+a DB instance running the PostgreSQL database engine](../UserGuide/USER_ConnectToPostgreSQLInstance.md "../UserGuide/USER_ConnectToPostgreSQLInstance.md").
+
+For more information about connecting to Aurora DB clusters in general, see
+[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+
+### Supported cipher suites for connections to
+
+Aurora Serverless v2 DB clusters
+
+By using configurable cipher suites, you can have more control over the security of your
+database connections. You can specify a list of cipher suites that you want to allow to secure
+client TLS/SSL connections to your database. With configurable cipher suites, you can control
+the connection encryption that your database server accepts. Doing this prevents the use of
+ciphers that aren't secure or that are no longer used.
+
+Aurora Serverless v2 DB clusters that are based on Aurora MySQL support the same cipher suites
+as Aurora MySQL provisioned DB clusters. For information about these cipher suites, see [Configuring cipher suites for connections to Aurora MySQL DB clusters](AuroraMySQL.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites "AuroraMySQL.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites").
+
+Aurora Serverless v2 DB clusters that are based on Aurora PostgreSQL support the same cipher
+suites as Aurora PostgreSQL provisioned DB clusters. For information about these cipher suites,
+see [Configuring
+cipher suites for connections to Aurora PostgreSQL DB clusters](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites").
+
+## Viewing Aurora Serverless v2 writers and readers
+
+You can view the details of Aurora Serverless v2 DB instances in the same way that you do for provisioned DB
+instances. To do so, follow the general procedure from
+[Viewing an Amazon Aurora DB cluster](accessing-monitoring.md#Aurora.Viewing "accessing-monitoring.md#Aurora.Viewing"). A cluster might contain all Aurora Serverless v2
+DB instances, all provisioned DB instances, or some of each.
+
+After you create one or more Aurora Serverless v2 DB instances, you can view which DB instances are type
+**Serverless** and which are type **Instance**. You can also view the minimum
+and maximum Aurora capacity units (ACUs) that the Aurora Serverless v2 DB instance can use. Each ACU is a
+combination of processing (CPU) and memory (RAM) capacity. This capacity range applies to each
+Aurora Serverless v2 DB instance in the cluster. For the procedure to check the capacity range of a cluster or any
+Aurora Serverless v2 DB instance in the cluster, see
+[Checking the capacity range for Aurora Serverless v2](#aurora-serverless-v2-checking-capacity "#aurora-serverless-v2-checking-capacity").
+
+In the AWS Management Console, Aurora Serverless v2 DB instances are marked under the **Size** column in the
+**Databases** page. Provisioned DB instances show the name of a DB instance class such as
+r6g.xlarge. The Aurora Serverless DB instances show **Serverless** for the DB instance class,
+along with the DB instance's minimum and maximum capacity. For example, you might see **Serverless
+v2 (4–64 ACUs)** or **Serverless v2 (1–40 ACUs)**.
+
+You can find the same information on the **Configuration** tab for each Aurora Serverless v2 DB
+instance in the console. For example, you might see an **Instance type** section such as the
+following.
+
+Here, the **Instance type** value is **Serverless v2**, the **Minimum
+capacity** value is **2 ACUs (4 GiB)**, and the **Maximum capacity**
+value is **64 ACUs (128 GiB)**.
+
+![Instance type section, part of DB instance configuration user interface](images/serverless_v2_screencaps/serverless_v2_capacity_settings_shown_for_serverless_instance.png)
+
+You can monitor the capacity of each Aurora Serverless v2 DB instance over time. That way, you can check the
+minimum, maximum, and average ACUs consumed by each DB instance. You can also check how close the DB instance
+came to its minimum or maximum capacity. To see such details in the AWS Management Console, examine the graphs of Amazon CloudWatch
+metrics on the **Monitoring** tab for the DB instance. For information about the metrics to
+watch and how to interpret them, see
+[Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring").
+
+## Logging for Aurora Serverless v2
+
+To turn on database logging, you specify the logs to enable using configuration parameters in your custom
+parameter group.
+
+For Aurora MySQL, you can enable the following logs.
+
+| Aurora MySQL                    | Description                                                                                                                                                                      |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `general_log`                   | Creates the general log. Set to 1 to turn on. Default is off (0).                                                                                                                |
+| `log_queries_not_using_indexes` | Logs any queries to the slow query log that don't use an index. Default is off (0). Set to 1 to<br>turn on this log.                                                             |
+| `long_query_time`               | Prevents fast-running queries from being logged in the slow query log. Can be set to a float between 0<br>and 31536000. Default is 0 (not active).                               |
+| `server_audit_events`           | The list of events to capture in the logs. Supported values are `CONNECT`,<br>`QUERY`, `QUERY_DCL`, `QUERY_DDL`, `QUERY_DML`, and<br>`TABLE`.                                    |
+| `server_audit_logging`          | Set to 1 to turn on server audit logging. If you turn this on, you can specify the audit events to<br>send to CloudWatch by listing them in the `server_audit_events` parameter. |
+| `slow_query_log`                | Creates a slow query log. Set to 1 to turn on the slow query log. Default is off (0).                                                                                            |
+
+For more information, see [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md").
+
+For Aurora PostgreSQL, you can enable the following logs on your Aurora Serverless v2 DB instances.
+
+| Aurora PostgreSQL            | Description                                                                                                                                                                                                                                                       |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `log_connections`            | Logs each successful connection.                                                                                                                                                                                                                                  |
+| `log_disconnections`         | Logs end of a session including duration.                                                                                                                                                                                                                         |
+| `log_lock_waits`             | Default is 0 (off). Set to 1 to log lock waits.                                                                                                                                                                                                                   |
+| `log_min_duration_statement` | The minimum duration (in milliseconds) for a statement to run before it's logged.                                                                                                                                                                                 |
+| `log_min_messages`           | Sets the message levels that are logged. Supported values are `debug5`, `debug4`,<br>`debug3`, `debug2`, `debug1`, `info`, `notice`,<br>`warning`, `error`, `log`, `fatal`, `panic`. To<br>log performance data to the `postgres` log, set the value to `debug1`. |
+| `log_temp_files`             | Logs the use of temporary files that are above the specified kilobytes (kB).                                                                                                                                                                                      |
+| `log_statement`              | Controls the specific SQL statements that get logged. Supported values are `none`,<br>`ddl`, `mod`, and `all`. Default is `none`.                                                                                                                                 |
+
+###### Topics
+
+- [Logging with Amazon CloudWatch](#aurora-serverless-v2.how-it-works.logging "#aurora-serverless-v2.how-it-works.logging")
+- [Viewing Aurora Serverless v2 logs in Amazon CloudWatch](#aurora-serverless-v2.logging.monitoring "#aurora-serverless-v2.logging.monitoring")
+- [Monitoring capacity with Amazon CloudWatch](#aurora-serverless-v2.how-it-works.logging.monitoring "#aurora-serverless-v2.how-it-works.logging.monitoring")
+- [Monitoring Aurora Serverless v2 pause and resume activity](#autopause-logging-instance-log "#autopause-logging-instance-log")
+
+### Logging with Amazon CloudWatch
+
+After you use the procedure in
+[Logging for Aurora Serverless v2](#aurora-serverless-v2.logging "#aurora-serverless-v2.logging") to choose which
+database logs to turn on, you can choose which logs to upload ("publish") to Amazon CloudWatch.
+
+You can use Amazon CloudWatch to analyze log data, create alarms, and view metrics. By default, error logs for
+Aurora Serverless v2 are enabled and automatically uploaded to CloudWatch. You can also upload other logs from
+Aurora Serverless v2 DB instances to CloudWatch.
+
+Then you choose which of those logs to upload to CloudWatch, by using the **Log exports** settings
+in the AWS Management Console or the `--enable-cloudwatch-logs-exports` option in the AWS CLI.
+
+You can choose which of your Aurora Serverless v2 logs to upload to CloudWatch. For more information, see
+[Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md").
+
+As with any type of Aurora DB cluster, you can't modify the default DB cluster parameter group. Instead,
+create your own DB cluster parameter group based on a default parameter for your DB cluster and engine type.
+We recommend that you create your custom DB cluster parameter group before creating your Aurora Serverless v2 DB
+cluster, so that it's available to choose when you create a database on the console.
+
+###### Note
+
+For Aurora Serverless v2, you can create both DB cluster and DB parameter groups. This contrasts with
+Aurora Serverless v1, where you can only create DB cluster parameter groups.
+
+### Viewing Aurora Serverless v2 logs in Amazon CloudWatch
+
+After you use the procedure in
+[Logging with Amazon CloudWatch](#aurora-serverless-v2.how-it-works.logging "#aurora-serverless-v2.how-it-works.logging")
+to choose which database logs to turn on, you can view the contents of the logs.
+
+For more information on using CloudWatch with Aurora MySQL and Aurora PostgreSQL logs, see
+[Monitoring log events in Amazon CloudWatch](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor")
+and [Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+
+###### To view logs for your Aurora Serverless v2 DB cluster
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Choose your AWS Region.
+3. Choose **Log groups**.
+4. Choose your Aurora Serverless v2 DB cluster log from the list. The log naming pattern is as follows.
+
+```
+/aws/rds/cluster/`cluster-name`/`log_type`
+```
+
+###### Note
+
+For Aurora MySQL–compatible Aurora Serverless v2 DB clusters, the error log includes buffer pool scaling
+events even when there are no errors.
+
+### Monitoring capacity with Amazon CloudWatch
+
+With Aurora Serverless v2, you can use CloudWatch to to monitor the capacity and utilization of all the
+Aurora Serverless v2 DB instances in your cluster. You can view instance-level metrics to check the capacity of
+each Aurora Serverless v2 DB instance as it scales up and down. You can also compare the capacity-related
+metrics to other metrics to see how changes in workloads affect resource consumption. For example, you can
+compare `ServerlessDatabaseCapacity` to `DatabaseUsedMemory`,
+`DatabaseConnections`, and `DMLThroughput` to assess how your DB cluster is responding
+during operations. For details about the capacity-related metrics that apply to Aurora Serverless v2, see
+[Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring").
+
+###### To monitor your Aurora Serverless v2 DB cluster's capacity
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Choose **Metrics**. All available metrics appear as cards in the console, grouped by
+   service name.
+3. Choose **RDS**.
+4. (Optional) Use the **Search** box to find the metrics that are especially important for
+   Aurora Serverless v2: `ServerlessDatabaseCapacity`, `ACUUtilization`,
+   `CPUUtilization`, and `FreeableMemory`.
+
+We recommend that you set up a CloudWatch dashboard to monitor your Aurora Serverless v2 DB cluster capacity using the
+capacity-related metrics. To learn how, see
+[Building
+dashboards with CloudWatch](../../../autoscaling/application/userguide/monitoring-cloudwatch.md "../../../autoscaling/application/userguide/monitoring-cloudwatch.md").
+
+To learn more about using Amazon CloudWatch with Amazon Aurora, see
+[Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
+
+### Monitoring Aurora Serverless v2 pause and resume activity
+
+Aurora writes a separate log file for Aurora Serverless v2 DB instances with auto-pause enabled. Aurora writes to
+the log for each 10-minute interval that the instance isn't paused. Aurora retains up to seven of these
+logs, rotated daily. The current log file is named `instance.log`, and older logs are named using
+the pattern `instance.`YYYY-MM-DD`.`N`.log`.
+
+This log is enabled by default for Aurora Serverless v2 DB instances with auto-pause enabled. You can view the
+contents of this log in the AWS Management Console or by using the AWS CLI or RDSP API. Currently, you can't upload this
+log to CloudWatch.
+
+The events listed in
+[DB instance events](USER_Events.md#USER_Events.Messages.instance "USER_Events.md#USER_Events.Messages.instance") provide a
+high-level overview of pause and resume activity, such as the following:
+
+- When the instance begins to pause, and when it finishes pausing.
+- When the instance begins to resume, and when it finishes resuming.
+- Cases where the instance attempted to pause, but some condition prevented it from pausing.
+
+The `instance.log` provides more granular detail about the reasons why an Aurora Serverless v2
+instance might or might not be able to pause.
+
+The log might indicate that an instance resumed for different reasons:
+
+- **user activity**: A database connection request. This could be from an
+  interactive client session, an RDS Data API call, or a request to download logs from the instance.
+- **background activity**: A broad category that includes all the reasons why
+  Aurora resumes an instance. For example, when a connection request to a reader instance causes the writer
+  instance to resume, the log for the reader indicates user activity, while the log for the writer
+  classifies that resume request as background activity. For the reasons why Aurora might resume an instance
+  other than a user connection request, see
+  [Resuming an auto-paused Aurora Serverless v2 instance](aurora-serverless-v2-auto-pause.md#auto-pause-waking "aurora-serverless-v2-auto-pause.md#auto-pause-waking").
+
+When Aurora isn't aware of any conditions that would prevent the instance from pausing when the auto-pause
+interval expires, it periodically writes an informational message to the log. For clusters with only a single
+DB instance, the log contains this message:
+
+```
+[INFO] No auto-pause blockers registered since `time`
+```
+
+For clusters with multiple DB instances, the message is slightly different. That's because a writer might
+be unable to pause due to activity on any of the reader instances. If the activity on the reader finishes
+before the auto-pause interval expires on the writer, the writer is able to pause at the expected time.
+
+```
+[INFO] No auto-pause blockers registered since `time`.
+Database might be required to maintain compute capacity for high availability.
+
+```
+
+If a pause operation starts, but a new database connection request arrives before the instance finishes
+pausing, the log contains this message:
+
+```
+[INFO] Unable to pause database due to a new database activity
+```
+
+If Aurora becomes aware of any conditions that definitely prevent the instance from pausing, the log contains
+this message that lists all such conditions:
+
+```
+[INFO] Auto-pause blockers registered since `time`: `list_of_conditions`
+```
+
+That way, Aurora doesn't prevent you from turning on replication, zero-ETL integration, Aurora Global
+Database, and so on in combination with the auto-pause feature. The log informs you when the use of such
+features might prevent auto-pause from taking effect.
+
+The following are reasons why an Aurora Serverless v2 instance might exceed the auto-pause timeout interval, but
+be prevented from pausing:
+
+- **database activity before auto-pause timeout**: The DB instance received a
+  connection request before the timeout interval expired.
+- **member of global database**: If the DB cluster is part of an Aurora global
+  database, the Aurora Serverless v2 instances in the cluster don't pause. A cluster can change from a
+  standalone cluster to a global database cluster. Thus, instances that formerly auto-paused might stop
+  pausing, and report this reason in the log. Once a cluster becomes a member of a global database, it
+  doesn't revert to a standalone cluster until you explicitly detach it. The primary cluster is still
+  considered part of the global database even if you detach all of the secondary clusters.
+- **replication capability configured**: The writer DB instance has
+  engine-specific replication enabled, either binlog replication for MySQL or logical replication for
+  PostgreSQL. This condition could also be caused by using another Aurora feature that requires turning on
+  replication, such as zero-ETL integrations or Database Activity Streams (DAS).
+- **continuous backup lag**: If the Aurora storage system hasn't finished
+  applying the storage changes up to the current point in time, the writer instance doesn't pause until
+  it catches up. This condition only affects the writer instance, and is expected to be relatively brief.
+- **service or customer maintenance action**: If a maintenance operation
+  starts, the DB instance won't pause again until that operation finishes. This condition includes a
+  wide variety of operations that might be started by you or by Aurora, such as upgrades, cloning, changing
+  configuration settings, upgrades, downloading log files, and so on. This event also happens when you
+  request to delete an instance, and Aurora briefly resumes the instance as part of the deletion mechanism.
+- **transient communication issue**: If Aurora can't determine whether the
+  scaling configuration currently has a minimum capacity setting of zero ACUs, it doesn't pause the
+  instance. This is expected to be a very rare occurrence.

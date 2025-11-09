@@ -765,16 +765,96 @@ We make sure there are subnets that correspond to the AZs used by the original c
 This example confirms that there are subnets that map to the necessary AZs in the destination
 VPC.
 
-````
+```
 aws ec2 describe-subnets --query 'sort_by(*[] | [?VpcId == `vpc-9e99d9f99a999bd99`] |
 [].{SubnetId:SubnetId,VpcId:VpcId,AvailabilityZone:AvailabilityZone}, &AvailabilityZone)' --output table
 
 `---------------------------------------------------------------------------
-| DescribeSubnets | +------------------+----------------------------+-------------------------+
-| AvailabilityZone | SubnetId | VpcId | +------------------+----------------------------+-------------------------+
+| DescribeSubnets |
++------------------+----------------------------+-------------------------+
+| AvailabilityZone | SubnetId | VpcId |
++------------------+----------------------------+-------------------------+
 | us-east-1a | subnet-000ff0e00000c0aea | vpc-9e99d9f99a999bd99 |
 | us-east-1b | subnet-1111d111111ca11b1 | vpc-9e99d9f99a999bd99 |
 | us-east-1c | subnet-3333a33be3ef3e333 | vpc-9e99d9f99a999bd99 |
 | us-east-1d | subnet-4eeb444cd44b4d444 | vpc-9e99d9f99a999bd99 |
-| us-east-1f | subnet-66eea6666fb66d66c | vpc-9e99d9f99a999bd99 | +------------------+----------------------------+-------------------------+` ``` Before creating an Aurora DB cluster in the VPC, you must have a DB subnet group with subnets that map to the AZs used for Aurora storage. When you create a regular cluster, you can use any set of three AZs. When you clone an existing cluster, the subnet group must match at least two of the three AZs that it uses for Aurora storage. ``` `$` aws rds create-db-subnet-group \ --db-subnet-group-name subnet-group-in-other-vpc \ --subnet-ids '["subnet-3333a33be3ef3e333","subnet-4eeb444cd44b4d444","subnet-66eea6666fb66d66c"]' \ --db-subnet-group-description 'DB subnet group with 3 subnets: subnet-3333a33be3ef3e333,subnet-4eeb444cd44b4d444,subnet-66eea6666fb66d66c' `{ 'DBSubnetGroup': { 'DBSubnetGroupName': 'subnet-group-in-other-vpc', 'DBSubnetGroupDescription': 'DB subnet group with 3 subnets: subnet-3333a33be3ef3e333,subnet-4eeb444cd44b4d444,subnet-66eea6666fb66d66c', 'VpcId': 'vpc-9e99d9f99a999bd99', 'SubnetGroupStatus': 'Complete', 'Subnets': [ { 'SubnetIdentifier': 'subnet-4eeb444cd44b4d444', 'SubnetAvailabilityZone': { 'Name': 'us-east-1d' } }, { 'SubnetIdentifier': 'subnet-3333a33be3ef3e333', 'SubnetAvailabilityZone': { 'Name': 'us-east-1c' } }, { 'SubnetIdentifier': 'subnet-66eea6666fb66d66c', 'SubnetAvailabilityZone': { 'Name': 'us-east-1f' } } ] } }` ``` Now the subnets and DB subnet group are in place. The following example shows the `restore-db-cluster-to-point-in-time` that clones the cluster. The `--db-subnet-group-name` option associates the clone with the correct set of subnets that map to the correct set of AZs from the original cluster. ``` `$` aws rds restore-db-cluster-to-point-in-time \ --source-db-cluster-identifier original-cluster \ --db-cluster-identifier clone-in-other-vpc \ --restore-type copy-on-write --use-latest-restorable-time \ --db-subnet-group-name subnet-group-in-other-vpc `{ 'DBClusterIdentifier': 'clone-in-other-vpc', 'DBSubnetGroup': 'subnet-group-in-other-vpc', 'Engine': 'aurora-postgresql', 'EngineVersion': '15.4', 'Status': 'creating', 'Endpoint': 'clone-in-other-vpc.cluster-c0abcdef.us-east-1.rds.amazonaws.com' }` ``` The following example confirms that the Aurora storage in the clone uses the same set of AZs as in the original cluster. ``` `$` aws rds describe-db-clusters --db-cluster-identifier clone-in-other-vpc \ --query 'sort_by(*[].AvailabilityZones[].{Zone:@},&Zone)' --output text `us-east-1c us-east-1d us-east-1f` ``` At this point, you can create DB instances for the clone. Make sure that the VPC security group associated with each instance allows connections from the IP address ranges you use for the EC2 instances, application servers, and so on that are in the destination VPC.
-````
+| us-east-1f | subnet-66eea6666fb66d66c | vpc-9e99d9f99a999bd99 |
++------------------+----------------------------+-------------------------+`
+
+```
+
+Before creating an Aurora DB cluster in the VPC, you must have a DB subnet group with subnets
+that map to the AZs used for Aurora storage. When you create a regular cluster, you can use
+any set of three AZs. When you clone an existing cluster, the subnet group must match at least
+two of the three AZs that it uses for Aurora storage.
+
+```
+`$` aws rds create-db-subnet-group \
+  --db-subnet-group-name subnet-group-in-other-vpc \
+  --subnet-ids '["subnet-3333a33be3ef3e333","subnet-4eeb444cd44b4d444","subnet-66eea6666fb66d66c"]' \
+  --db-subnet-group-description 'DB subnet group with 3 subnets: subnet-3333a33be3ef3e333,subnet-4eeb444cd44b4d444,subnet-66eea6666fb66d66c'
+
+`{
+ 'DBSubnetGroup': {
+ 'DBSubnetGroupName': 'subnet-group-in-other-vpc',
+ 'DBSubnetGroupDescription': 'DB subnet group with 3 subnets: subnet-3333a33be3ef3e333,subnet-4eeb444cd44b4d444,subnet-66eea6666fb66d66c',
+ 'VpcId': 'vpc-9e99d9f99a999bd99',
+ 'SubnetGroupStatus': 'Complete',
+ 'Subnets': [
+ {
+ 'SubnetIdentifier': 'subnet-4eeb444cd44b4d444',
+ 'SubnetAvailabilityZone': { 'Name': 'us-east-1d' }
+ },
+ {
+ 'SubnetIdentifier': 'subnet-3333a33be3ef3e333',
+ 'SubnetAvailabilityZone': { 'Name': 'us-east-1c' }
+ },
+ {
+ 'SubnetIdentifier': 'subnet-66eea6666fb66d66c',
+ 'SubnetAvailabilityZone': { 'Name': 'us-east-1f' }
+ }
+ ]
+ }
+}`
+
+```
+
+Now the subnets and DB subnet group are in place. The following example shows the
+`restore-db-cluster-to-point-in-time` that clones the cluster. The
+`--db-subnet-group-name` option associates the clone with the correct set of
+subnets that map to the correct set of AZs from the original cluster.
+
+```
+`$` aws rds restore-db-cluster-to-point-in-time \
+  --source-db-cluster-identifier original-cluster \
+  --db-cluster-identifier clone-in-other-vpc \
+  --restore-type copy-on-write --use-latest-restorable-time \
+  --db-subnet-group-name subnet-group-in-other-vpc
+
+`{
+ 'DBClusterIdentifier': 'clone-in-other-vpc',
+ 'DBSubnetGroup': 'subnet-group-in-other-vpc',
+ 'Engine': 'aurora-postgresql',
+ 'EngineVersion': '15.4',
+ 'Status': 'creating',
+ 'Endpoint': 'clone-in-other-vpc.cluster-c0abcdef.us-east-1.rds.amazonaws.com'
+}`
+
+```
+
+The following example confirms that the Aurora storage in the clone uses the same set of AZs
+as in the original cluster.
+
+```
+`$` aws rds describe-db-clusters --db-cluster-identifier clone-in-other-vpc \
+  --query 'sort_by(*[].AvailabilityZones[].{Zone:@},&Zone)' --output text
+
+`us-east-1c
+us-east-1d
+us-east-1f`
+
+```
+
+At this point, you can create DB instances for the clone. Make sure that the VPC security
+group associated with each instance allows connections from the IP address ranges you use for
+the EC2 instances, application servers, and so on that are in the destination VPC.

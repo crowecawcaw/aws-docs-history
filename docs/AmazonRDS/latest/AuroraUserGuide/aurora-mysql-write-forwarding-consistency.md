@@ -61,29 +61,112 @@ Running an `INSERT` statement, immediately followed by a `SELECT` statement, ret
 `COUNT(*)` with the number of rows before the new row is inserted. Running the `SELECT` again
 a short time later returns the updated row count. The `SELECT` statements don't wait.
 
-````
+```
 mysql> select count(*) from t1;
 +----------+
-| count(*) | +----------+
-|        5 | +----------+ 1 row in set (0.00 sec) mysql> insert into t1 values (6); select count(*) from t1; +----------+
-| count(*) | +----------+
-|        5 | +----------+ 1 row in set (0.00 sec) mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        6 | +----------+ 1 row in set (0.00 sec) ``` ###### Example with `aurora_replica_read_consistency` set to `SESSION` A `SELECT` statement immediately after an `INSERT` waits until the changes from the `INSERT` statement are visible. Subsequent `SELECT` statements don't wait. ``` mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        6 | +----------+ 1 row in set (0.01 sec) mysql> insert into t1 values (6); select count(*) from t1; select count(*) from t1; Query OK, 1 row affected (0.08 sec) +----------+
-| count(*) | +----------+
-|        7 | +----------+ 1 row in set (0.37 sec) +----------+
-| count(*) | +----------+
-|        7 | +----------+ 1 row in set (0.00 sec) ``` With the read consistency setting still set to `SESSION`, introducing a brief wait after performing an `INSERT` statement makes the updated row count available by the time the next `SELECT` statement runs. ``` mysql> insert into t1 values (6); select sleep(2); select count(*) from t1; Query OK, 1 row affected (0.07 sec) +----------+
-| sleep(2) | +----------+
-|        0 | +----------+ 1 row in set (2.01 sec) +----------+
-| count(*) | +----------+
-|        8 | +----------+ 1 row in set (0.00 sec) ``` ###### Example with `aurora_replica_read_consistency` set to `GLOBAL` Each `SELECT` statement waits for all data changes, as of the start time of the statement, to be visible before performing the query. The wait time for each `SELECT` statement varies, depending on the amount of replication lag. ``` mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        8 | +----------+ 1 row in set (0.75 sec) mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        8 | +----------+ 1 row in set (0.37 sec) mysql> select count(*) from t1; +----------+
-| count(*) | +----------+
-|        8 | +----------+ 1 row in set (0.66 sec) ```
-````
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> insert into t1 values (6); select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+```
+
+###### Example with `aurora_replica_read_consistency` set to `SESSION`
+
+A `SELECT` statement immediately after an `INSERT` waits until the changes from the
+`INSERT` statement are visible. Subsequent `SELECT` statements don't wait.
+
+```
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> insert into t1 values (6); select count(*) from t1; select count(*) from t1;
+Query OK, 1 row affected (0.08 sec)
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.37 sec)
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.00 sec)
+```
+
+With the read consistency setting still set to `SESSION`, introducing a brief wait after performing an
+`INSERT` statement makes the updated row count available by the time the next `SELECT`
+statement runs.
+
+```
+mysql> insert into t1 values (6); select sleep(2); select count(*) from t1;
+Query OK, 1 row affected (0.07 sec)
++----------+
+| sleep(2) |
++----------+
+|        0 |
++----------+
+1 row in set (2.01 sec)
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.00 sec)
+
+```
+
+###### Example with `aurora_replica_read_consistency` set to `GLOBAL`
+
+Each `SELECT` statement waits for all data changes, as of the start time of the statement, to be visible
+before performing the query. The wait time for each `SELECT` statement varies, depending on the amount of
+replication lag.
+
+```
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.75 sec)
+
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.37 sec)
+
+mysql> select count(*) from t1;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.66 sec)
+```

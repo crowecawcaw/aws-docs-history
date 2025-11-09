@@ -1,45 +1,47 @@
-# Instance endpoints for Amazon Aurora
+# Reader endpoints for Amazon Aurora
 
-An _instance endpoint_ connects to a specific DB
-instance within an Aurora cluster. Each DB instance in a DB cluster has its own unique
-instance endpoint. So there is one instance endpoint for the current primary DB instance of
-the DB cluster, and there is one instance endpoint for each of the Aurora Replicas in the DB
-cluster.
+A _reader endpoint_ for an Aurora DB cluster provides
+connection-balancing support for read-only connections to the DB cluster. Use the reader
+endpoint for read operations, such as queries. By processing those statements on the
+read-only Aurora Replicas, this endpoint reduces the overhead on the primary instance. It
+also helps the cluster to scale the capacity to handle simultaneous `SELECT`
+queries, proportional to the number of Aurora Replicas in the cluster. Each Aurora DB cluster
+has one reader endpoint.
 
-The instance endpoint provides direct control over connections to the DB cluster, for
-scenarios where using the cluster endpoint or reader endpoint might not be appropriate. For
-example, your client application might require more fine-grained connection balancing based
-on workload type. In this case, you can configure multiple clients to connect to different
-Aurora Replicas in a DB cluster to distribute read workloads. For an example that uses
-instance endpoints to improve connection speed after a failover for Aurora PostgreSQL, see [Fast failover with
-Amazon Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.md "AuroraPostgreSQL.BestPractices.md"). For an example that uses instance
-endpoints to improve connection speed after a failover for Aurora MySQL, see [MariaDB
-Connector/J failover support - case Amazon Aurora](https://mariadb.org/mariadb-connectorj-failover-support-case-amazon-aurora/ "https://mariadb.org/mariadb-connectorj-failover-support-case-amazon-aurora/").
+If the cluster contains one or more Aurora Replicas, the reader endpoint balances each
+connection request among the Aurora Replicas. In that case, you can only perform read-only
+statements such as `SELECT` in that session. If the cluster only contains a
+primary instance and no Aurora Replicas, the reader endpoint connects to the primary
+instance. In that case, you can perform write operations through the endpoint.
 
-The following example illustrates an instance endpoint for a DB instance in an
-Aurora MySQL DB cluster.
+The following example illustrates a reader endpoint for an Aurora MySQL DB cluster.
 
 ```
-mydbinstance.c7tj4example.us-east-1.rds.amazonaws.com:3306
+mydbcluster.cluster-ro-c7tj4example.us-east-1.rds.amazonaws.com:3306
 ```
 
-Each DB instance in an Aurora cluster has its own built-in instance endpoint, whose name
-and other attributes are managed by Aurora. You can't create, delete, or modify this
-kind of endpoint. You might be familiar with instance endpoints if you use Amazon RDS. However,
-with Aurora you typically use the writer and reader endpoints more often than the instance
-endpoints.
+You use the reader endpoint for read-only connections for your Aurora cluster. This
+endpoint uses a connection-balancing mechanism to help your cluster handle a query-intensive
+workload. The reader endpoint is the endpoint that you supply to applications that do
+reporting or other read-only operations on the cluster.
 
-In day-to-day Aurora operations, the main way that you use instance endpoints is to
-diagnose capacity or performance issues that affect one specific instance in an Aurora
-cluster. While connected to a specific instance, you can examine its status variables,
-metrics, and so on. Doing this can help you determine what's happening for that
-instance that's different from what's happening for other instances in the
-cluster.
+The reader endpoint balances connections to available Aurora Replicas in an Aurora DB
+cluster. It doesn't balance individual queries. If you want to balance each query to
+distribute the read workload for a DB cluster, open a new connection to the reader endpoint
+for each query.
 
-In advanced use cases, you might configure some DB instances differently than others. In
-this case, use the instance endpoint to connect directly to an instance that is smaller,
-larger, or otherwise has different characteristics than the others. Also, set up failover
-priority so that this special DB instance is the last choice to take over as the primary
-instance. We recommend that you use custom endpoints instead of the instance endpoint in
-such cases. Doing so simplifies connection management and high availability as you add more
-DB instances to your cluster.
+Each Aurora cluster has a single built-in reader endpoint, whose name and other
+attributes are managed by Aurora. You can't create, delete, or modify this kind of
+endpoint.
+
+If your cluster contains only a primary target (instance or DB shard group) and no Aurora Replicas, the reader
+endpoint connects to the primary instance. In that case, you can perform write operations
+through this endpoint.
+
+###### Tip
+
+Through RDS Proxy, you can create additional read-only endpoints for an Aurora cluster.
+These endpoints perform the same kind of connection-balancing as the Aurora reader
+endpoint. Applications can reconnect more quickly to the proxy endpoints than the Aurora
+reader endpoint if reader instances become unavailable. The proxy endpoints can also take
+advantage of other proxy features such as multiplexing. For more information, see [Using reader endpoints with Aurora clusters](rds-proxy-endpoints.md#rds-proxy-endpoints-reader "rds-proxy-endpoints.md#rds-proxy-endpoints-reader").

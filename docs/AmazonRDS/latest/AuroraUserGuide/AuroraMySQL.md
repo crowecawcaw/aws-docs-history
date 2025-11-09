@@ -1,46 +1,30 @@
-# Migrating data to an Amazon Aurora MySQL DB cluster
+# Database engine updates for Amazon Aurora MySQL
 
-You have several options for migrating data from your existing database to an Amazon Aurora
-MySQL DB cluster. Your migration options also depend on the database that you are migrating
-from and the size of the data that you are migrating.
+Amazon Aurora releases updates regularly. Updates are applied to Aurora DB clusters during system
+maintenance windows. The timing when updates are applied depends on the region and
+maintenance window setting for the DB cluster, as well as the type of update.
 
-There are two different types of migration: physical and logical. Physical migration means that
-physical copies of database files are used to migrate the database. Logical migration means that
-the migration is accomplished by applying logical database changes, such as inserts, updates, and deletes.
+Amazon Aurora releases are made available to all AWS Regions over the course of multiple days.
+Some Regions might temporarily show an engine version that isn't available in a different Region yet.
 
-Physical migration has the following advantages:
+Updates are applied to all instances in a DB cluster at the same time. An update requires a database restart on
+all instances in a DB cluster, so you experience 20 to 30 seconds of downtime, after which you can resume using
+your DB cluster or clusters. You can view or change your maintenance window settings from the
+[AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 
-- Physical migration is faster than logical migration, especially for large databases.
-- Database performance does not suffer when a backup is taken for physical migration.
-- Physical migration can migrate everything in the source database, including complex database components.
-  Physical migration has the following limitations:
+For details about the Aurora MySQL versions that are supported by Amazon Aurora, see the [_Release Notes for Aurora MySQL_](../AuroraMySQLReleaseNotes/Welcome.md "../AuroraMySQLReleaseNotes/Welcome.md").
 
-- The `innodb_page_size` parameter must be set to its default value (`16KB`).
-- The `innodb_data_file_path` parameter must be configured with only one data file that
-  uses the default data file name `"ibdata1:12M:autoextend"`. Databases with two data files, or
-  with a data file with a different name, can't be migrated using this method.
+Following, you can learn how to choose the right Aurora MySQL version for your cluster, how to specify the
+version when you create or upgrade a cluster, and the procedures to upgrade a cluster from one version to
+another with minimal interruption.
 
-The following are examples of file names that are not allowed:
-`"innodb_data_file_path=ibdata1:50M; ibdata2:50M:autoextend"`
-and `"innodb_data_file_path=ibdata01:50M:autoextend"`.
+###### Topics
 
-- The `innodb_log_files_in_group` parameter must be set to its default value (`2`).
-  Logical migration has the following advantages:
-
-- You can migrate subsets of the database, such as specific tables or parts of a table.
-- The data can be migrated regardless of the physical storage structure.
-  Logical migration has the following limitations:
-
-- Logical migration is usually slower than physical migration.
-- Complex database components can slow down the logical migration process.
-  In some cases, complex database components can even block logical migration.
-  The following table describes your options and the type of migration for each option.
-
-| Migrating from                          | Migration type | Solution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| An RDS for MySQL DB instance            | Physical       | You can migrate from an RDS for MySQL DB instance by first creating an Aurora MySQL read replica of a MySQL DB instance. When the replica lag between the MySQL DB instance and the Aurora MySQL read replica is 0, you can direct your client applications to read from the Aurora read replica and then stop replication to make the Aurora MySQL read replica a standalone Aurora MySQL DB cluster for reading and writing. For details, see [Migrating data from an RDS for MySQL DB instance to an Amazon Aurora MySQL DB cluster by using an Aurora read replica](AuroraMySQL.Migrating.RDSMySQL.md "AuroraMySQL.Migrating.RDSMySQL.md").                                                                                                                                                                                                                                                                                                                                                                         |
-| An RDS for MySQL DB snapshot            | Physical       | You can migrate data directly from an RDS for MySQL DB snapshot to an Amazon Aurora MySQL DB cluster. For details, see [Migrating an RDS for MySQL snapshot to Aurora](AuroraMySQL.Migrating.RDSMySQL.md "AuroraMySQL.Migrating.RDSMySQL.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| A MySQL database external to Amazon RDS | Logical        | You can create a dump of your data using the `mysqldump` utility, and then import that data into an existing Amazon Aurora MySQL DB cluster. For details, see [Logical migration from MySQL to Amazon Aurora MySQL by using mysqldump](AuroraMySQL.Migrating.ExtMySQL.md "AuroraMySQL.Migrating.ExtMySQL.md"). To export metadata for database users during the migration from an external MySQL database, you can also use a MySQL Shell command instead of `mysqldump`. For more information, see [Instance Dump Utility, Schema Dump Utility, and Table Dump Utility](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html#mysql-shell-utilities-dump-about "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html#mysql-shell-utilities-dump-about"). NoteThe [mysqlpump](https://dev.mysql.com/doc/refman/8.0/en/mysqlpump.html "https://dev.mysql.com/doc/refman/8.0/en/mysqlpump.html") utility is deprecated as of MySQL 8.0.34. |
-| A MySQL database external to Amazon RDS | Physical       | You can copy the backup files from your database to an Amazon Simple Storage Service (Amazon S3) bucket, and then restore an Amazon Aurora MySQL DB cluster from those files. This option can be considerably faster than migrating data using `mysqldump`. For details, see [Physical migration from MySQL by using Percona XtraBackup and Amazon S3](AuroraMySQL.Migrating.ExtMySQL.md "AuroraMySQL.Migrating.ExtMySQL.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| A MySQL database external to Amazon RDS | Logical        | You can save data from your database as text files and copy those files to an Amazon S3 bucket. You can then load that data into an existing Aurora MySQL DB cluster using the `LOAD DATA FROM S3` MySQL command. For more information, see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| A database that isn't MySQL-compatible  | Logical        | You can use AWS Database Migration Service (AWS DMS) to migrate data from a database that isn't MySQL-compatible. For more information on AWS DMS, see [What is AWS database migration service?](../../../dms/latest/userguide/Welcome.md "../../../dms/latest/userguide/Welcome.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | ###### Note If you're migrating a MySQL database external to Amazon RDS, the migration options described in the table are supported only if your database supports the InnoDB or MyISAM tablespaces. If the MySQL database you're migrating to Aurora MySQL uses `memcached`, remove `memcached` before migrating it. You can't migrate to Aurora MySQL version 3.05 and higher from some older MySQL 8.0 versions, including 8.0.11, 8.0.13, and 8.0.15. We recommend that you upgrade to MySQL version 8.0.28 before migrating. |
+- [Checking Aurora MySQL version numbers](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
+- [Long-term support (LTS) and beta releases for Amazon Aurora MySQL](AuroraMySQL.Update.md "AuroraMySQL.Update.md")
+- [Preparing for Amazon Aurora MySQL-Compatible Edition version 2 end of
+  standard support](Aurora.MySQL57.md "Aurora.MySQL57.md")
+- [Preparing for Amazon Aurora MySQL-Compatible Edition version 1 end of life](Aurora.MySQL56.md "Aurora.MySQL56.md")
+- [Upgrading Amazon Aurora MySQL DB clusters](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
+- [Database engine updates and fixes for
+  Amazon Aurora MySQL](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")

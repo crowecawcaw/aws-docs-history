@@ -37,7 +37,7 @@ SQL query in this example shows a MySQL-specific way to check the uptime. You mi
 database application. For another technique that uses the AWS CLI and works for both Aurora engines, see
 [Checking uptime for Aurora clusters and instances](USER_Reboot.md "USER_Reboot.md").
 
-````
+```
 $ mysql -h instance-7448.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p
 ...
 mysql> select date_sub(now(), interval variable_value second) "Last Startup",
@@ -45,44 +45,672 @@ mysql> select date_sub(now(), interval variable_value second) "Last Startup",
     -> from performance_schema.global_status
     -> where variable_name='Uptime';
 +----------------------------+---------+
-| Last Startup               | Uptime  | +----------------------------+---------+
-| 2021-03-08 17:49:06.000000 | 174h 42m| +----------------------------+---------+ ``` ## Rebooting a single reader instance This example reboots one of the reader DB instances. Perhaps this instance was overloaded by a huge query or many concurrent connections. Or perhaps it fell behind the writer instance because of a network issue. After starting the reboot operation, the example uses a `wait` command to pause until the instance becomes available. By that point, the instance has an uptime of a few minutes. ``` $ aws rds reboot-db-instance --db-instance-identifier instance-6305 { "DBInstance": { "DBInstanceIdentifier": "instance-6305", "DBInstanceStatus": "rebooting", ... } } $ aws rds wait db-instance-available --db-instance-id instance-6305 $ mysql -h instance-6305.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p ... mysql> select date_sub(now(), interval variable_value second) "Last Startup", -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime" -> from performance_schema.global_status -> where variable_name='Uptime'; +----------------------------+---------+
-| Last Startup               | Uptime  | +----------------------------+---------+
-| 2021-03-16 00:35:02.000000 | 00h 03m | +----------------------------+---------+ ``` Rebooting the reader instance didn't affect the uptime of the writer instance. It still has an uptime of about one week. ``` $ mysql -h instance-7448.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p ... mysql> select date_sub(now(), interval variable_value second) "Last Startup", -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime" -> from performance_schema.global_status where variable_name='Uptime'; +----------------------------+----------+
-| Last Startup               | Uptime   | +----------------------------+----------+
-| 2021-03-08 17:49:06.000000 | 174h 49m | +----------------------------+----------+ ``` ## Rebooting the writer instance This example reboots the writer instance. This cluster is running Aurora MySQL version 2.09. Because the Aurora MySQL version is lower than 2.10, rebooting the writer instance also reboots any reader instances in the cluster. A `wait` command pauses until the reboot is finished. Now the uptime for that instance is reset to zero. It's possible that a reboot operation might take substantially different times for writer and reader DB instances. The writer and reader DB instances perform different kinds of cleanup operations depending on their roles. ``` $ aws rds reboot-db-instance --db-instance-identifier instance-1234 { "DBInstance": { "DBInstanceIdentifier": "instance-1234", "DBInstanceStatus": "rebooting", ... } } $ aws rds wait db-instance-available --db-instance-id instance-1234 $ mysql -h instance-1234.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p ... mysql> select date_sub(now(), interval variable_value second) "Last Startup", -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime" -> from performance_schema.global_status where variable_name='Uptime'; +----------------------------+---------+
-| Last Startup               | Uptime  | +----------------------------+---------+
-| 2021-03-16 00:40:27.000000 | 00h 00m | +----------------------------+---------+ ``` After the reboot for the writer DB instance, both of the reader DB instances also have their uptime reset. Rebooting the writer instance caused the reader instances to reboot also. This behavior applies to Aurora PostgreSQL clusters and to Aurora MySQL clusters before version 2.10. ``` $ mysql -h instance-7448.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p ... mysql> select date_sub(now(), interval variable_value second) "Last Startup", -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime" -> from performance_schema.global_status where variable_name='Uptime'; +----------------------------+---------+
-| Last Startup               | Uptime  | +----------------------------+---------+
-| 2021-03-16 00:40:35.000000 | 00h 00m | +----------------------------+---------+ $ mysql -h instance-6305.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p ... mysql> select date_sub(now(), interval variable_value second) "Last Startup", -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime" -> from performance_schema.global_status where variable_name='Uptime'; +----------------------------+---------+
-| Last Startup               | Uptime  | +----------------------------+---------+
-| 2021-03-16 00:40:33.000000 | 00h 01m | +----------------------------+---------+ ``` ## Rebooting the writer and readers independently These next examples show a cluster that runs Aurora MySQL version 2.10. In this Aurora MySQL version and higher, you can reboot the writer instance without causing reboots for all the reader instances. That way, your query-intensive applications don't experience any outage when you reboot the writer instance. You can reboot the reader instances later. You might do those reboots at a time of low query traffic. You might also reboot the reader instances one at a time. That way, at least one reader instance is always available for the query traffic of your application. The following example uses a cluster named `cluster-2393`, running Aurora MySQL version `5.7.mysql_aurora.2.10.0`. This cluster has a writer instance named `instance-9404` and three reader instances named `instance-6772`, `instance-2470`, and `instance-5138`. ``` $ aws rds describe-db-clusters --db-cluster-id cluster-2393 \ --query "*[].['Cluster:',DBClusterIdentifier,DBClusterMembers[*].['Instance:',DBInstanceIdentifier,IsClusterWriter]]" \ --output text Cluster:        cluster-2393 Instance:       instance-5138        False Instance:       instance-2470        False Instance:       instance-6772        False Instance:       instance-9404        True ``` Checking the `uptime` value of each database instance through the `mysql` command shows that each one has roughly the same uptime. For example, here is the uptime for `instance-5138`. ``` mysql> SHOW GLOBAL STATUS LIKE 'uptime'; +---------------+-------+
-| Variable_name | Value | +---------------+-------+
-| Uptime        | 3866  | +---------------+-------+ ``` By using CloudWatch, we can get the corresponding uptime information without actually logging into the instances. That way, an administrator can monitor the database but can't view or change any table data. In this case, we specify a time period spanning five minutes, and check the uptime value every minute. The increasing uptime values demonstrate that the instances weren't restarted during that period. ``` $ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \ --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \ --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-9404 \ --output text | sort -k 3 EngineUptime DATAPOINTS	4648.0	2021-03-17T23:42:00+00:00	Seconds DATAPOINTS	4708.0	2021-03-17T23:43:00+00:00	Seconds DATAPOINTS	4768.0	2021-03-17T23:44:00+00:00	Seconds DATAPOINTS	4828.0	2021-03-17T23:45:00+00:00	Seconds DATAPOINTS	4888.0	2021-03-17T23:46:00+00:00	Seconds $ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \ --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \ --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-6772 \ --output text | sort -k 3 EngineUptime DATAPOINTS	4315.0	2021-03-17T23:42:00+00:00	Seconds DATAPOINTS	4375.0	2021-03-17T23:43:00+00:00	Seconds DATAPOINTS	4435.0	2021-03-17T23:44:00+00:00	Seconds DATAPOINTS	4495.0	2021-03-17T23:45:00+00:00	Seconds DATAPOINTS	4555.0	2021-03-17T23:46:00+00:00	Seconds ``` Now we reboot one of the reader instances, `instance-5138`. We wait for the instance to become available again after the reboot. Now monitoring the uptime over a five-minute period shows that the uptime was reset to zero during that time. The most recent uptime value was measured five seconds after the reboot finished. ``` $ aws rds reboot-db-instance --db-instance-identifier instance-5138 { "DBInstanceIdentifier": "instance-5138", "DBInstanceStatus": "rebooting" } $ aws rds wait db-instance-available --db-instance-id instance-5138 $ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \ --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \ --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-5138 \ --output text | sort -k 3 EngineUptime DATAPOINTS	4500.0	2021-03-17T23:46:00+00:00	Seconds DATAPOINTS	4560.0	2021-03-17T23:47:00+00:00	Seconds DATAPOINTS	4620.0	2021-03-17T23:48:00+00:00	Seconds DATAPOINTS	4680.0	2021-03-17T23:49:00+00:00	Seconds **DATAPOINTS 5.0 2021-03-17T23:50:00+00:00 Seconds** ``` Next, we perform a reboot for the writer instance, `instance-9404`. We compare the uptime values for the writer instance and one of the reader instances. By doing so, we can see that rebooting the writer didn't cause a reboot for the readers. In versions before Aurora MySQL 2.10, the uptime values for all the readers would be reset at the same time as the writer. ``` $ aws rds reboot-db-instance --db-instance-identifier instance-9404 { "DBInstanceIdentifier": "instance-9404", "DBInstanceStatus": "rebooting" } $ aws rds wait db-instance-available --db-instance-id instance-9404 $ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \ --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \ --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-9404 \ --output text | sort -k 3 EngineUptime DATAPOINTS	371.0	2021-03-17T23:57:00+00:00	Seconds DATAPOINTS	431.0	2021-03-17T23:58:00+00:00	Seconds DATAPOINTS	491.0	2021-03-17T23:59:00+00:00	Seconds DATAPOINTS	551.0	2021-03-18T00:00:00+00:00	Seconds **DATAPOINTS 37.0 2021-03-18T00:01:00+00:00 Seconds** $ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \ --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \ --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-6772 \ --output text | sort -k 3 EngineUptime DATAPOINTS	5215.0	2021-03-17T23:57:00+00:00	Seconds DATAPOINTS	5275.0	2021-03-17T23:58:00+00:00	Seconds DATAPOINTS	5335.0	2021-03-17T23:59:00+00:00	Seconds DATAPOINTS	5395.0	2021-03-18T00:00:00+00:00	Seconds DATAPOINTS	5455.0	2021-03-18T00:01:00+00:00	Seconds ``` To make sure that all the reader instances have all the same changes to configuration parameters as the writer instance, reboot all the reader instances after the writer. This example reboots all the readers and then waits until all of them are available before proceeding. ``` $ aws rds reboot-db-instance --db-instance-identifier instance-6772 { "DBInstanceIdentifier": "instance-6772", "DBInstanceStatus": "rebooting" } $ aws rds reboot-db-instance --db-instance-identifier instance-2470 { "DBInstanceIdentifier": "instance-2470", "DBInstanceStatus": "rebooting" } $ aws rds reboot-db-instance --db-instance-identifier instance-5138 { "DBInstanceIdentifier": "instance-5138", "DBInstanceStatus": "rebooting" } $ aws rds wait db-instance-available --db-instance-id instance-6772 $ aws rds wait db-instance-available --db-instance-id instance-2470 $ aws rds wait db-instance-available --db-instance-id instance-5138 ``` Now we can see that the writer DB instance has the highest uptime. This instance's uptime value increased steadily throughout the monitoring period. The reader DB instances were all rebooted after the reader. We can see the point within the monitoring period when each reader was rebooted and its uptime was reset to zero. ``` $ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \ --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \ --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-9404 \ --output text | sort -k 3 EngineUptime DATAPOINTS	457.0	2021-03-18T00:08:00+00:00	Seconds DATAPOINTS	517.0	2021-03-18T00:09:00+00:00	Seconds DATAPOINTS	577.0	2021-03-18T00:10:00+00:00	Seconds DATAPOINTS	637.0	2021-03-18T00:11:00+00:00	Seconds **DATAPOINTS 697.0 2021-03-18T00:12:00+00:00 Seconds** $ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \ --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \ --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-2470 \ --output text | sort -k 3 EngineUptime DATAPOINTS	5819.0	2021-03-18T00:08:00+00:00	Seconds **DATAPOINTS 35.0 2021-03-18T00:09:00+00:00 Seconds** DATAPOINTS	95.0	2021-03-18T00:10:00+00:00	Seconds DATAPOINTS	155.0	2021-03-18T00:11:00+00:00	Seconds DATAPOINTS	215.0	2021-03-18T00:12:00+00:00	Seconds $ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \ --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \ --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-5138 \ --output text | sort -k 3 EngineUptime DATAPOINTS	1085.0	2021-03-18T00:08:00+00:00	Seconds DATAPOINTS	1145.0	2021-03-18T00:09:00+00:00	Seconds DATAPOINTS	1205.0	2021-03-18T00:10:00+00:00	Seconds **DATAPOINTS 49.0 2021-03-18T00:11:00+00:00 Seconds** DATAPOINTS	109.0	2021-03-18T00:12:00+00:00	Seconds ``` ## Applying a cluster parameter change to an Aurora MySQL version 2.10 cluster The following example demonstrates how to apply a parameter change to all DB instances in your Aurora MySQL 2.10 cluster. With this Aurora MySQL version, you reboot the writer instance and all the reader instances independently. The example uses the MySQL configuration parameter `lower_case_table_names` for illustration. When this parameter setting is different between the writer and reader DB instances, a query might not be able to access a table declared with an uppercase or mixed-case name. Or if two table names differ only in terms of uppercase and lowercase letters, a query might access the wrong table. This example shows how to determine the writer and reader instances in the cluster by examining the `IsClusterWriter` attribute of each instance. The cluster is named `cluster-2393`. The cluster has a writer instance named `instance-9404`. The reader instances in the cluster are named `instance-5138` and `instance-2470`. ``` $ aws rds describe-db-clusters --db-cluster-id cluster-2393 \ --query '*[].[DBClusterIdentifier,DBClusterMembers[*].[DBInstanceIdentifier,IsClusterWriter]]' \ --output text cluster-2393 instance-5138        False instance-2470        False instance-9404        True ``` To demonstrate the effects of changing the `lower_case_table_names` parameter, we set up two DB cluster parameter groups. The `lower-case-table-names-0` parameter group has this parameter set to 0. The `lower-case-table-names-1` parameter group has this parameter group set to 1. ``` $ aws rds create-db-cluster-parameter-group --description 'lower-case-table-names-0' \ --db-parameter-group-family aurora-mysql5.7 \ --db-cluster-parameter-group-name lower-case-table-names-0 { "DBClusterParameterGroup": { "DBClusterParameterGroupName": "lower-case-table-names-0", "DBParameterGroupFamily": "aurora-mysql5.7", "Description": "lower-case-table-names-0" } } $ aws rds create-db-cluster-parameter-group --description 'lower-case-table-names-1' \ --db-parameter-group-family aurora-mysql5.7 \ --db-cluster-parameter-group-name lower-case-table-names-1 { "DBClusterParameterGroup": { "DBClusterParameterGroupName": "lower-case-table-names-1", "DBParameterGroupFamily": "aurora-mysql5.7", "Description": "lower-case-table-names-1" } } $ aws rds modify-db-cluster-parameter-group \ --db-cluster-parameter-group-name lower-case-table-names-0 \ --parameters ParameterName=lower_case_table_names,ParameterValue=0,ApplyMethod=pending-reboot { "DBClusterParameterGroupName": "lower-case-table-names-0" } $ aws rds modify-db-cluster-parameter-group \ --db-cluster-parameter-group-name lower-case-table-names-1 \ --parameters ParameterName=lower_case_table_names,ParameterValue=1,ApplyMethod=pending-reboot { "DBClusterParameterGroupName": "lower-case-table-names-1" } ``` The default value of `lower_case_table_names` is 0. With this parameter setting, the table `foo` is distinct from the table `FOO`. This example verifies that the parameter is still at its default setting. Then the example creates three tables that differ only in uppercase and lowercase letters in their names. ``` mysql> create database lctn; Query OK, 1 row affected (0.07 sec) mysql> use lctn; Database changed mysql> select @@lower_case_table_names; +--------------------------+
-| @@lower_case_table_names | +--------------------------+ |                        0 | +--------------------------+ mysql> create table foo (s varchar(128)); mysql> insert into foo values ('Lowercase table name foo'); mysql> create table Foo (s varchar(128)); mysql> insert into Foo values ('Mixed-case table name Foo'); mysql> create table FOO (s varchar(128)); mysql> insert into FOO values ('Uppercase table name FOO'); mysql> select * from foo; +--------------------------+
-| s                        | +--------------------------+ | Lowercase table name foo | +--------------------------+ mysql> select * from Foo; +---------------------------+
-| s                         | +---------------------------+ | Mixed-case table name Foo | +---------------------------+ mysql> select * from FOO; +--------------------------+
-| s                        | +--------------------------+ | Uppercase table name FOO | +--------------------------+ ``` Next, we associate the DB parameter group with the cluster to set the `lower_case_table_names` parameter to 1. This change only takes effect after each DB instance is rebooted. ``` $ aws rds modify-db-cluster --db-cluster-identifier cluster-2393 \ --db-cluster-parameter-group-name lower-case-table-names-1 { "DBClusterIdentifier": "cluster-2393", "DBClusterParameterGroup": "lower-case-table-names-1", "Engine": "aurora-mysql", "EngineVersion": "5.7.mysql_aurora.2.10.0" } ``` The first reboot we do is for the writer DB instance. Then we wait for the instance to become available again. At that point, we connect to the writer endpoint and verify that the writer instance has the changed parameter value. The `SHOW TABLES` command confirms that the database contains the three different tables. However, queries that refer to tables named `foo`, `Foo`, or `FOO` all access the table whose name is all-lowercase, `foo`. ``` # Rebooting the writer instance $ aws rds reboot-db-instance --db-instance-identifier instance-9404 $ aws rds wait db-instance-available --db-instance-id instance-9404 ``` Now, queries using the cluster endpoint show the effects of the parameter change. Whether the table name in the query is uppercase, lowercase, or mixed case, the SQL statement accesses the table whose name is all lowercase. ``` mysql> select @@lower_case_table_names; +--------------------------+
-| @@lower_case_table_names | +--------------------------+ |                        1 | +--------------------------+ mysql> use lctn; mysql> show tables; +----------------+
-| Tables_in_lctn | +----------------+ | FOO            |
-| Foo            | | foo            | +----------------+ mysql> select * from foo; +--------------------------+
-| s                        | +--------------------------+ | Lowercase table name foo | +--------------------------+ mysql> select * from Foo; +--------------------------+
-| s                        | +--------------------------+ | Lowercase table name foo | +--------------------------+ mysql> select * from FOO; +--------------------------+
-| s                        | +--------------------------+ | Lowercase table name foo | +--------------------------+ ``` The next example shows the same queries as the previous one. In this case, the queries use the reader endpoint and run on one of the reader DB instances. Those instances haven't been rebooted yet. Thus, they still have the original setting for the `lower_case_table_names` parameter. That means that queries can access each of the `foo`, `Foo`, and `FOO` tables. ``` mysql> select @@lower_case_table_names; +--------------------------+
-| @@lower_case_table_names | +--------------------------+ |                        0 | +--------------------------+ mysql> use lctn; mysql> select * from foo; +--------------------------+
-| s                        | +--------------------------+ | Lowercase table name foo | +--------------------------+ mysql> select * from Foo; +---------------------------+
-| s                         | +---------------------------+ | Mixed-case table name Foo | +---------------------------+ mysql> select * from FOO; +--------------------------+
-| s                        | +--------------------------+ | Uppercase table name FOO | +--------------------------+ ``` Next, we reboot one of the reader instances and wait for it to become available again. ``` $ aws rds reboot-db-instance --db-instance-identifier instance-2470 { "DBInstanceIdentifier": "instance-2470", "DBInstanceStatus": "rebooting" } $ aws rds wait db-instance-available --db-instance-id instance-2470 ``` While connected to the instance endpoint for `instance-2470`, a query shows that the new parameter is in effect. ``` mysql> select @@lower_case_table_names; +--------------------------+
-| @@lower_case_table_names | +--------------------------+ |                        1 | +--------------------------+ ``` At this point, the two reader instances in the cluster are running with different `lower_case_table_names` settings. Thus, any connection to the reader endpoint of the cluster uses a value for this setting that's unpredictable. It's important to immediately reboot the other reader instance so that they both have consistent settings. ``` $ aws rds reboot-db-instance --db-instance-identifier instance-5138 { "DBInstanceIdentifier": "instance-5138", "DBInstanceStatus": "rebooting" } $ aws rds wait db-instance-available --db-instance-id instance-5138 ``` The following example confirms that all the reader instances have the same setting for the `lower_case_table_names` parameter. The commands check the `lower_case_table_names` setting value on each reader instance. Then the same command using the reader endpoint demonstrates that each connection to the reader endpoint uses one of the reader instances, but which one isn't predictable. ``` # Check lower_case_table_names setting on each reader instance. $ mysql -h instance-5138.a12345.us-east-1.rds.amazonaws.com \ -u `my-user` -p -e 'select @@aurora_server_id, @@lower_case_table_names' +--------------------------+--------------------------+
-| @@aurora_server_id       | @@lower_case_table_names | +--------------------------+--------------------------+
-| instance-5138            |                        1 | +--------------------------+--------------------------+ $ mysql -h instance-2470.a12345.us-east-1.rds.amazonaws.com \ -u `my-user` -p -e 'select @@aurora_server_id, @@lower_case_table_names' +--------------------------+--------------------------+
-| @@aurora_server_id       | @@lower_case_table_names | +--------------------------+--------------------------+
-| instance-2470            |                        1 | +--------------------------+--------------------------+ # Check lower_case_table_names setting on the reader endpoint of the cluster. $ mysql -h cluster-2393.cluster-ro-a12345.us-east-1.rds.amazonaws.com \ -u `my-user` -p -e 'select @@aurora_server_id, @@lower_case_table_names' +--------------------------+--------------------------+
-| @@aurora_server_id       | @@lower_case_table_names | +--------------------------+--------------------------+
-| instance-5138            |                        1 | +--------------------------+--------------------------+ # Run query on writer instance $ mysql -h cluster-2393.cluster-a12345.us-east-1.rds.amazonaws.com \ -u `my-user` -p -e 'select @@aurora_server_id, @@lower_case_table_names' +--------------------------+--------------------------+
-| @@aurora_server_id       | @@lower_case_table_names | +--------------------------+--------------------------+
-| instance-9404            |                        1 | +--------------------------+--------------------------+ ``` With the parameter change applied everywhere, we can see the effect of setting `lower_case_table_names=1`. Whether the table is referred to as `foo`, `Foo`, or `FOO` the query converts the name to `foo` and accesses the same table in each case. ``` mysql> use lctn; mysql> select * from foo; +--------------------------+
-| s                        | +--------------------------+ | Lowercase table name foo | +--------------------------+ mysql> select * from Foo; +--------------------------+
-| s                        | +--------------------------+ | Lowercase table name foo | +--------------------------+ mysql> select * from FOO; +--------------------------+
-| s                        | +--------------------------+ | Lowercase table name foo | +--------------------------+ ```
-````
+| Last Startup               | Uptime  |
++----------------------------+---------+
+| 2021-03-08 17:49:06.000000 | 174h 42m|
++----------------------------+---------+
+
+```
+
+## Rebooting a single reader instance
+
+This example reboots one of the reader DB instances. Perhaps this instance was overloaded by a huge query or
+many concurrent connections. Or perhaps it fell behind the writer instance because of a network issue. After
+starting the reboot operation, the example uses a `wait` command to pause until the instance
+becomes available. By that point, the instance has an uptime of a few minutes.
+
+```
+$ aws rds reboot-db-instance --db-instance-identifier instance-6305
+{
+    "DBInstance": {
+        "DBInstanceIdentifier": "instance-6305",
+        "DBInstanceStatus": "rebooting",
+...
+    }
+}
+$ aws rds wait db-instance-available --db-instance-id instance-6305
+$ mysql -h instance-6305.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p
+...
+mysql> select date_sub(now(), interval variable_value second) "Last Startup",
+    -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime"
+    -> from performance_schema.global_status
+    -> where variable_name='Uptime';
++----------------------------+---------+
+| Last Startup               | Uptime  |
++----------------------------+---------+
+| 2021-03-16 00:35:02.000000 | 00h 03m |
++----------------------------+---------+
+
+```
+
+Rebooting the reader instance didn't affect the uptime of the writer instance. It still has an uptime
+of about one week.
+
+```
+$ mysql -h instance-7448.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p
+...
+mysql> select date_sub(now(), interval variable_value second) "Last Startup",
+    -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime"
+    -> from performance_schema.global_status where variable_name='Uptime';
++----------------------------+----------+
+| Last Startup               | Uptime   |
++----------------------------+----------+
+| 2021-03-08 17:49:06.000000 | 174h 49m |
++----------------------------+----------+
+
+```
+
+## Rebooting the writer instance
+
+This example reboots the writer instance. This cluster is running Aurora MySQL version 2.09. Because the
+Aurora MySQL version is lower than 2.10, rebooting the writer instance also reboots any reader instances in
+the cluster.
+
+A `wait` command pauses until the reboot is finished. Now the uptime for that instance is reset
+to zero. It's possible that a reboot operation might take substantially different times for writer and
+reader DB instances. The writer and reader DB instances perform different kinds of cleanup operations
+depending on their roles.
+
+```
+$ aws rds reboot-db-instance --db-instance-identifier instance-1234
+{
+    "DBInstance": {
+        "DBInstanceIdentifier": "instance-1234",
+        "DBInstanceStatus": "rebooting",
+...
+    }
+}
+$ aws rds wait db-instance-available --db-instance-id instance-1234
+$ mysql -h instance-1234.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p
+...
+mysql> select date_sub(now(), interval variable_value second) "Last Startup",
+    -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime"
+    -> from performance_schema.global_status where variable_name='Uptime';
++----------------------------+---------+
+| Last Startup               | Uptime  |
++----------------------------+---------+
+| 2021-03-16 00:40:27.000000 | 00h 00m |
++----------------------------+---------+
+
+```
+
+After the reboot for the writer DB instance, both of the reader DB instances also have their uptime reset.
+Rebooting the writer instance caused the reader instances to reboot also. This behavior applies to
+Aurora PostgreSQL clusters and to Aurora MySQL clusters before version 2.10.
+
+```
+$ mysql -h instance-7448.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p
+...
+mysql> select date_sub(now(), interval variable_value second) "Last Startup",
+    -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime"
+    -> from performance_schema.global_status where variable_name='Uptime';
++----------------------------+---------+
+| Last Startup               | Uptime  |
++----------------------------+---------+
+| 2021-03-16 00:40:35.000000 | 00h 00m |
++----------------------------+---------+
+
+$ mysql -h instance-6305.a12345.us-east-1.rds.amazonaws.com -P 3306 -u `my-user` -p
+...
+mysql> select date_sub(now(), interval variable_value second) "Last Startup",
+    -> time_format(sec_to_time(variable_value),'%Hh %im') as "Uptime"
+    -> from performance_schema.global_status where variable_name='Uptime';
++----------------------------+---------+
+| Last Startup               | Uptime  |
++----------------------------+---------+
+| 2021-03-16 00:40:33.000000 | 00h 01m |
++----------------------------+---------+
+
+```
+
+## Rebooting the writer and readers independently
+
+These next examples show a cluster that runs Aurora MySQL version 2.10. In this Aurora MySQL version and higher,
+you can reboot the writer instance without causing reboots for all the reader instances. That way, your
+query-intensive applications don't experience any outage when you reboot the writer instance. You can
+reboot the reader instances later. You might do those reboots at a time of low query traffic. You might also
+reboot the reader instances one at a time. That way, at least one reader instance is always available for
+the query traffic of your application.
+
+The following example uses a cluster named `cluster-2393`, running Aurora MySQL version
+`5.7.mysql_aurora.2.10.0`. This cluster has a writer instance named `instance-9404`
+and three reader instances named `instance-6772`, `instance-2470`, and
+`instance-5138`.
+
+```
+$ aws rds describe-db-clusters --db-cluster-id cluster-2393 \
+  --query "*[].['Cluster:',DBClusterIdentifier,DBClusterMembers[*].['Instance:',DBInstanceIdentifier,IsClusterWriter]]" \
+  --output text
+Cluster:        cluster-2393
+Instance:       instance-5138        False
+Instance:       instance-2470        False
+Instance:       instance-6772        False
+Instance:       instance-9404        True
+
+```
+
+Checking the `uptime` value of each database instance through the `mysql` command
+shows that each one has roughly the same uptime. For example, here is the uptime for
+`instance-5138`.
+
+```
+mysql> SHOW GLOBAL STATUS LIKE 'uptime';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| Uptime        | 3866  |
++---------------+-------+
+
+```
+
+By using CloudWatch, we can get the corresponding uptime information without actually logging into the instances.
+That way, an administrator can monitor the database but can't view or change any table data. In this
+case, we specify a time period spanning five minutes, and check the uptime value every minute. The
+increasing uptime values demonstrate that the instances weren't restarted during that period.
+
+```
+$ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \
+  --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \
+  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-9404 \
+  --output text | sort -k 3
+EngineUptime
+DATAPOINTS	4648.0	2021-03-17T23:42:00+00:00	Seconds
+DATAPOINTS	4708.0	2021-03-17T23:43:00+00:00	Seconds
+DATAPOINTS	4768.0	2021-03-17T23:44:00+00:00	Seconds
+DATAPOINTS	4828.0	2021-03-17T23:45:00+00:00	Seconds
+DATAPOINTS	4888.0	2021-03-17T23:46:00+00:00	Seconds
+
+$ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \
+  --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \
+  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-6772 \
+  --output text | sort -k 3
+EngineUptime
+DATAPOINTS	4315.0	2021-03-17T23:42:00+00:00	Seconds
+DATAPOINTS	4375.0	2021-03-17T23:43:00+00:00	Seconds
+DATAPOINTS	4435.0	2021-03-17T23:44:00+00:00	Seconds
+DATAPOINTS	4495.0	2021-03-17T23:45:00+00:00	Seconds
+DATAPOINTS	4555.0	2021-03-17T23:46:00+00:00	Seconds
+
+```
+
+Now we reboot one of the reader instances, `instance-5138`. We wait for the instance to become
+available again after the reboot. Now monitoring the uptime over a five-minute period shows that the uptime
+was reset to zero during that time. The most recent uptime value was measured five seconds after the reboot
+finished.
+
+```
+$ aws rds reboot-db-instance --db-instance-identifier instance-5138
+{
+  "DBInstanceIdentifier": "instance-5138",
+  "DBInstanceStatus": "rebooting"
+}
+$ aws rds wait db-instance-available --db-instance-id instance-5138
+
+$ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \
+  --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \
+  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-5138 \
+  --output text | sort -k 3
+EngineUptime
+DATAPOINTS	4500.0	2021-03-17T23:46:00+00:00	Seconds
+DATAPOINTS	4560.0	2021-03-17T23:47:00+00:00	Seconds
+DATAPOINTS	4620.0	2021-03-17T23:48:00+00:00	Seconds
+DATAPOINTS	4680.0	2021-03-17T23:49:00+00:00	Seconds
+**DATAPOINTS 5.0 2021-03-17T23:50:00+00:00 Seconds**
+
+```
+
+Next, we perform a reboot for the writer instance, `instance-9404`. We compare the uptime values
+for the writer instance and one of the reader instances. By doing so, we can see that rebooting the writer
+didn't cause a reboot for the readers. In versions before Aurora MySQL 2.10, the uptime values for all
+the readers would be reset at the same time as the writer.
+
+```
+$ aws rds reboot-db-instance --db-instance-identifier instance-9404
+{
+  "DBInstanceIdentifier": "instance-9404",
+  "DBInstanceStatus": "rebooting"
+}
+$ aws rds wait db-instance-available --db-instance-id instance-9404
+
+$ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \
+  --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \
+  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-9404 \
+  --output text | sort -k 3
+EngineUptime
+DATAPOINTS	371.0	2021-03-17T23:57:00+00:00	Seconds
+DATAPOINTS	431.0	2021-03-17T23:58:00+00:00	Seconds
+DATAPOINTS	491.0	2021-03-17T23:59:00+00:00	Seconds
+DATAPOINTS	551.0	2021-03-18T00:00:00+00:00	Seconds
+**DATAPOINTS 37.0 2021-03-18T00:01:00+00:00 Seconds**
+
+$ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \
+  --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \
+  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-6772 \
+  --output text | sort -k 3
+EngineUptime
+DATAPOINTS	5215.0	2021-03-17T23:57:00+00:00	Seconds
+DATAPOINTS	5275.0	2021-03-17T23:58:00+00:00	Seconds
+DATAPOINTS	5335.0	2021-03-17T23:59:00+00:00	Seconds
+DATAPOINTS	5395.0	2021-03-18T00:00:00+00:00	Seconds
+DATAPOINTS	5455.0	2021-03-18T00:01:00+00:00	Seconds
+
+```
+
+To make sure that all the reader instances have all the same changes to configuration parameters as the
+writer instance, reboot all the reader instances after the writer. This example reboots all the readers and
+then waits until all of them are available before proceeding.
+
+```
+$ aws rds reboot-db-instance --db-instance-identifier instance-6772
+{
+  "DBInstanceIdentifier": "instance-6772",
+  "DBInstanceStatus": "rebooting"
+}
+
+$ aws rds reboot-db-instance --db-instance-identifier instance-2470
+{
+  "DBInstanceIdentifier": "instance-2470",
+  "DBInstanceStatus": "rebooting"
+}
+
+$ aws rds reboot-db-instance --db-instance-identifier instance-5138
+{
+  "DBInstanceIdentifier": "instance-5138",
+  "DBInstanceStatus": "rebooting"
+}
+
+$ aws rds wait db-instance-available --db-instance-id instance-6772
+$ aws rds wait db-instance-available --db-instance-id instance-2470
+$ aws rds wait db-instance-available --db-instance-id instance-5138
+
+```
+
+Now we can see that the writer DB instance has the highest uptime. This instance's uptime value
+increased steadily throughout the monitoring period. The reader DB instances were all rebooted after the
+reader. We can see the point within the monitoring period when each reader was rebooted and its uptime was
+reset to zero.
+
+```
+$ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \
+  --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \
+  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-9404 \
+  --output text | sort -k 3
+EngineUptime
+DATAPOINTS	457.0	2021-03-18T00:08:00+00:00	Seconds
+DATAPOINTS	517.0	2021-03-18T00:09:00+00:00	Seconds
+DATAPOINTS	577.0	2021-03-18T00:10:00+00:00	Seconds
+DATAPOINTS	637.0	2021-03-18T00:11:00+00:00	Seconds
+**DATAPOINTS 697.0 2021-03-18T00:12:00+00:00 Seconds**
+
+$ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \
+  --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \
+  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-2470 \
+  --output text | sort -k 3
+EngineUptime
+DATAPOINTS	5819.0	2021-03-18T00:08:00+00:00	Seconds
+**DATAPOINTS 35.0 2021-03-18T00:09:00+00:00 Seconds**
+DATAPOINTS	95.0	2021-03-18T00:10:00+00:00	Seconds
+DATAPOINTS	155.0	2021-03-18T00:11:00+00:00	Seconds
+DATAPOINTS	215.0	2021-03-18T00:12:00+00:00	Seconds
+
+$ aws cloudwatch get-metric-statistics --metric-name "EngineUptime" \
+  --start-time "$(date -d '5 minutes ago')" --end-time "$(date -d 'now')" --period 60 \
+  --namespace "AWS/RDS" --statistics Minimum --dimensions Name=DBInstanceIdentifier,Value=instance-5138 \
+  --output text | sort -k 3
+EngineUptime
+DATAPOINTS	1085.0	2021-03-18T00:08:00+00:00	Seconds
+DATAPOINTS	1145.0	2021-03-18T00:09:00+00:00	Seconds
+DATAPOINTS	1205.0	2021-03-18T00:10:00+00:00	Seconds
+**DATAPOINTS 49.0 2021-03-18T00:11:00+00:00 Seconds**
+DATAPOINTS	109.0	2021-03-18T00:12:00+00:00	Seconds
+
+```
+
+## Applying a cluster parameter change to an Aurora MySQL version 2.10 cluster
+
+The following example demonstrates how to apply a parameter change to all DB instances in your Aurora MySQL
+2.10 cluster. With this Aurora MySQL version, you reboot the writer instance and all the reader instances
+independently.
+
+The example uses the MySQL configuration parameter `lower_case_table_names` for illustration.
+When this parameter setting is different between the writer and reader DB instances, a query might not be
+able to access a table declared with an uppercase or mixed-case name. Or if two table names differ only in
+terms of uppercase and lowercase letters, a query might access the wrong table.
+
+This example shows how to determine the writer and reader instances in the cluster by examining the
+`IsClusterWriter` attribute of each instance. The cluster is named `cluster-2393`. The
+cluster has a writer instance named `instance-9404`. The reader instances in the cluster are
+named `instance-5138` and `instance-2470`.
+
+```
+$ aws rds describe-db-clusters --db-cluster-id cluster-2393 \
+  --query '*[].[DBClusterIdentifier,DBClusterMembers[*].[DBInstanceIdentifier,IsClusterWriter]]' \
+  --output text
+cluster-2393
+instance-5138        False
+instance-2470        False
+instance-9404        True
+
+```
+
+To demonstrate the effects of changing the `lower_case_table_names` parameter, we set up two DB
+cluster parameter groups. The `lower-case-table-names-0` parameter group has this parameter set
+to 0. The `lower-case-table-names-1` parameter group has this parameter group set to 1.
+
+```
+$ aws rds create-db-cluster-parameter-group --description 'lower-case-table-names-0' \
+  --db-parameter-group-family aurora-mysql5.7 \
+  --db-cluster-parameter-group-name lower-case-table-names-0
+{
+    "DBClusterParameterGroup": {
+        "DBClusterParameterGroupName": "lower-case-table-names-0",
+        "DBParameterGroupFamily": "aurora-mysql5.7",
+        "Description": "lower-case-table-names-0"
+    }
+}
+
+$ aws rds create-db-cluster-parameter-group --description 'lower-case-table-names-1' \
+  --db-parameter-group-family aurora-mysql5.7 \
+  --db-cluster-parameter-group-name lower-case-table-names-1
+{
+    "DBClusterParameterGroup": {
+        "DBClusterParameterGroupName": "lower-case-table-names-1",
+        "DBParameterGroupFamily": "aurora-mysql5.7",
+        "Description": "lower-case-table-names-1"
+    }
+}
+
+$ aws rds modify-db-cluster-parameter-group \
+  --db-cluster-parameter-group-name lower-case-table-names-0 \
+  --parameters ParameterName=lower_case_table_names,ParameterValue=0,ApplyMethod=pending-reboot
+{
+    "DBClusterParameterGroupName": "lower-case-table-names-0"
+}
+
+$ aws rds modify-db-cluster-parameter-group \
+  --db-cluster-parameter-group-name lower-case-table-names-1 \
+    --parameters ParameterName=lower_case_table_names,ParameterValue=1,ApplyMethod=pending-reboot
+{
+    "DBClusterParameterGroupName": "lower-case-table-names-1"
+}
+
+```
+
+The default value of `lower_case_table_names` is 0. With this parameter setting, the table
+`foo` is distinct from the table `FOO`. This example verifies that the parameter is
+still at its default setting. Then the example creates three tables that differ only in uppercase and
+lowercase letters in their names.
+
+```
+mysql> create database lctn;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> use lctn;
+Database changed
+mysql> select @@lower_case_table_names;
++--------------------------+
+| @@lower_case_table_names |
++--------------------------+
+|                        0 |
++--------------------------+
+
+mysql> create table foo (s varchar(128));
+mysql> insert into foo values ('Lowercase table name foo');
+
+mysql> create table Foo (s varchar(128));
+mysql> insert into Foo values ('Mixed-case table name Foo');
+
+mysql> create table FOO (s varchar(128));
+mysql> insert into FOO values ('Uppercase table name FOO');
+
+mysql> select * from foo;
++--------------------------+
+| s                        |
++--------------------------+
+| Lowercase table name foo |
++--------------------------+
+
+mysql> select * from Foo;
++---------------------------+
+| s                         |
++---------------------------+
+| Mixed-case table name Foo |
++---------------------------+
+
+mysql> select * from FOO;
++--------------------------+
+| s                        |
++--------------------------+
+| Uppercase table name FOO |
++--------------------------+
+
+```
+
+Next, we associate the DB parameter group with the cluster to set the `lower_case_table_names`
+parameter to 1. This change only takes effect after each DB instance is rebooted.
+
+```
+$ aws rds modify-db-cluster --db-cluster-identifier cluster-2393 \
+  --db-cluster-parameter-group-name lower-case-table-names-1
+{
+  "DBClusterIdentifier": "cluster-2393",
+  "DBClusterParameterGroup": "lower-case-table-names-1",
+  "Engine": "aurora-mysql",
+  "EngineVersion": "5.7.mysql_aurora.2.10.0"
+}
+
+```
+
+The first reboot we do is for the writer DB instance. Then we wait for the instance to become available
+again. At that point, we connect to the writer endpoint and verify that the writer instance has the changed
+parameter value. The `SHOW TABLES` command confirms that the database contains the three
+different tables. However, queries that refer to tables named `foo`, `Foo`, or
+`FOO` all access the table whose name is all-lowercase, `foo`.
+
+```
+# Rebooting the writer instance
+$ aws rds reboot-db-instance --db-instance-identifier instance-9404
+$ aws rds wait db-instance-available --db-instance-id instance-9404
+
+```
+
+Now, queries using the cluster endpoint show the effects of the parameter change. Whether the table name in
+the query is uppercase, lowercase, or mixed case, the SQL statement accesses the table whose name is all
+lowercase.
+
+```
+mysql> select @@lower_case_table_names;
++--------------------------+
+| @@lower_case_table_names |
++--------------------------+
+|                        1 |
++--------------------------+
+
+mysql> use lctn;
+mysql> show tables;
++----------------+
+| Tables_in_lctn |
++----------------+
+| FOO            |
+| Foo            |
+| foo            |
++----------------+
+
+mysql> select * from foo;
++--------------------------+
+| s                        |
++--------------------------+
+| Lowercase table name foo |
++--------------------------+
+
+mysql> select * from Foo;
++--------------------------+
+| s                        |
++--------------------------+
+| Lowercase table name foo |
++--------------------------+
+
+mysql> select * from FOO;
++--------------------------+
+| s                        |
++--------------------------+
+| Lowercase table name foo |
++--------------------------+
+
+```
+
+The next example shows the same queries as the previous one. In this case, the queries use the reader
+endpoint and run on one of the reader DB instances. Those instances haven't been rebooted yet. Thus,
+they still have the original setting for the `lower_case_table_names` parameter. That means that
+queries can access each of the `foo`, `Foo`, and `FOO` tables.
+
+```
+mysql> select @@lower_case_table_names;
++--------------------------+
+| @@lower_case_table_names |
++--------------------------+
+|                        0 |
++--------------------------+
+
+mysql> use lctn;
+
+mysql> select * from foo;
++--------------------------+
+| s                        |
++--------------------------+
+| Lowercase table name foo |
++--------------------------+
+
+mysql> select * from Foo;
++---------------------------+
+| s                         |
++---------------------------+
+| Mixed-case table name Foo |
++---------------------------+
+
+mysql> select * from FOO;
++--------------------------+
+| s                        |
++--------------------------+
+| Uppercase table name FOO |
++--------------------------+
+
+```
+
+Next, we reboot one of the reader instances and wait for it to become available again.
+
+```
+$ aws rds reboot-db-instance --db-instance-identifier instance-2470
+{
+  "DBInstanceIdentifier": "instance-2470",
+  "DBInstanceStatus": "rebooting"
+}
+$ aws rds wait db-instance-available --db-instance-id instance-2470
+
+```
+
+While connected to the instance endpoint for `instance-2470`, a query shows that the new
+parameter is in effect.
+
+```
+mysql> select @@lower_case_table_names;
++--------------------------+
+| @@lower_case_table_names |
++--------------------------+
+|                        1 |
++--------------------------+
+
+```
+
+At this point, the two reader instances in the cluster are running with different
+`lower_case_table_names` settings. Thus, any connection to the reader endpoint of the cluster
+uses a value for this setting that's unpredictable. It's important to immediately reboot the other
+reader instance so that they both have consistent settings.
+
+```
+$ aws rds reboot-db-instance --db-instance-identifier instance-5138
+{
+  "DBInstanceIdentifier": "instance-5138",
+  "DBInstanceStatus": "rebooting"
+}
+$ aws rds wait db-instance-available --db-instance-id instance-5138
+
+```
+
+The following example confirms that all the reader instances have the same setting for the
+`lower_case_table_names` parameter. The commands check the `lower_case_table_names`
+setting value on each reader instance. Then the same command using the reader endpoint demonstrates that
+each connection to the reader endpoint uses one of the reader instances, but which one isn't
+predictable.
+
+```
+# Check lower_case_table_names setting on each reader instance.
+
+$ mysql -h instance-5138.a12345.us-east-1.rds.amazonaws.com \
+  -u `my-user` -p -e 'select @@aurora_server_id, @@lower_case_table_names'
++--------------------------+--------------------------+
+| @@aurora_server_id       | @@lower_case_table_names |
++--------------------------+--------------------------+
+| instance-5138            |                        1 |
++--------------------------+--------------------------+
+
+$ mysql -h instance-2470.a12345.us-east-1.rds.amazonaws.com \
+  -u `my-user` -p -e 'select @@aurora_server_id, @@lower_case_table_names'
++--------------------------+--------------------------+
+| @@aurora_server_id       | @@lower_case_table_names |
++--------------------------+--------------------------+
+| instance-2470            |                        1 |
++--------------------------+--------------------------+
+
+# Check lower_case_table_names setting on the reader endpoint of the cluster.
+
+$ mysql -h cluster-2393.cluster-ro-a12345.us-east-1.rds.amazonaws.com \
+  -u `my-user` -p -e 'select @@aurora_server_id, @@lower_case_table_names'
++--------------------------+--------------------------+
+| @@aurora_server_id       | @@lower_case_table_names |
++--------------------------+--------------------------+
+| instance-5138            |                        1 |
++--------------------------+--------------------------+
+
+# Run query on writer instance
+
+$ mysql -h cluster-2393.cluster-a12345.us-east-1.rds.amazonaws.com \
+  -u `my-user` -p -e 'select @@aurora_server_id, @@lower_case_table_names'
++--------------------------+--------------------------+
+| @@aurora_server_id       | @@lower_case_table_names |
++--------------------------+--------------------------+
+| instance-9404            |                        1 |
++--------------------------+--------------------------+
+
+```
+
+With the parameter change applied everywhere, we can see the effect of setting
+`lower_case_table_names=1`. Whether the table is referred to as `foo`,
+`Foo`, or `FOO` the query converts the name to `foo` and accesses the same
+table in each case.
+
+```
+mysql> use lctn;
+
+mysql> select * from foo;
++--------------------------+
+| s                        |
++--------------------------+
+| Lowercase table name foo |
++--------------------------+
+
+mysql> select * from Foo;
++--------------------------+
+| s                        |
++--------------------------+
+| Lowercase table name foo |
++--------------------------+
+
+mysql> select * from FOO;
++--------------------------+
+| s                        |
++--------------------------+
+| Lowercase table name foo |
++--------------------------+
+
+```

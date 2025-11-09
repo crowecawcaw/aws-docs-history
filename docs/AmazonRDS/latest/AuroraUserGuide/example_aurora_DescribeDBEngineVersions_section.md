@@ -322,7 +322,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples").
 
-````
+```
     // Get available engine families for Aurora MySql. rds.DescribeDbEngineVersions(Engine='aurora-mysql') and build a set of the 'DBParameterGroupFamily' field values. I get {aurora-mysql8.0, aurora-mysql5.7}.
     pub async fn get_engines(&self) -> Result<HashMap<String, Vec<String>>, ScenarioError> {
         let describe_db_engine_versions = self.rds.describe_db_engine_versions(DB_ENGINE).await;
@@ -348,5 +348,104 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .db_engine_versions()
             .iter()
             .filter_map(
-|v| match (&v.db_parameter_group_family, &v.engine_version) { (Some(family), Some(version)) => Some((family.clone(), version.clone())), _ => None, }, ) .for_each(|(family, version)| versions.entry(family).or_default().push(version)); Ok(versions) } pub async fn describe_db_engine_versions( &self, engine: &str, ) -> Result<DescribeDbEngineVersionsOutput, SdkError<DescribeDBEngineVersionsError>> { self.inner .describe_db_engine_versions() .engine(engine) .send() .await } #[tokio::test] async fn test_scenario_get_engines() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_db_engine_versions() .with(eq("aurora-mysql")) .return_once(|_| { Ok(DescribeDbEngineVersionsOutput::builder() .db_engine_versions( DbEngineVersion::builder() .db_parameter_group_family("f1") .engine_version("f1a") .build(), ) .db_engine_versions( DbEngineVersion::builder() .db_parameter_group_family("f1") .engine_version("f1b") .build(), ) .db_engine_versions( DbEngineVersion::builder() .db_parameter_group_family("f2") .engine_version("f2a") .build(), ) .db_engine_versions(DbEngineVersion::builder().build()) .build()) }); let scenario = AuroraScenario::new(mock_rds); let versions_map = scenario.get_engines().await; assert_eq!( versions_map, Ok(HashMap::from([ ("f1".into(), vec!["f1a".into(), "f1b".into()]), ("f2".into(), vec!["f2a".into()]) ])) ); } #[tokio::test] async fn test_scenario_get_engines_failed() { let mut mock_rds = MockRdsImpl::default(); mock_rds .expect_describe_db_engine_versions() .with(eq("aurora-mysql")) .return_once(|_| { Err(SdkError::service_error( DescribeDBEngineVersionsError::unhandled(Box::new(Error::new( ErrorKind::Other, "describe_db_engine_versions error", ))), Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()), )) }); let scenario = AuroraScenario::new(mock_rds); let versions_map = scenario.get_engines().await; assert_matches!( versions_map, Err(ScenarioError { message, context: _ }) if message == "Failed to retrieve DB Engine Versions" ); } ``` <br>• For API details, see [DescribeDBEngineVersions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions") in *AWS SDK for Rust API reference*. For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section"). This topic also includes information about getting started and details about previous SDK versions.
-````
+                |v| match (&v.db_parameter_group_family, &v.engine_version) {
+                    (Some(family), Some(version)) => Some((family.clone(), version.clone())),
+                    _ => None,
+                },
+            )
+            .for_each(|(family, version)| versions.entry(family).or_default().push(version));
+
+        Ok(versions)
+    }
+
+    pub async fn describe_db_engine_versions(
+        &self,
+        engine: &str,
+    ) -> Result<DescribeDbEngineVersionsOutput, SdkError<DescribeDBEngineVersionsError>> {
+        self.inner
+            .describe_db_engine_versions()
+            .engine(engine)
+            .send()
+            .await
+    }
+
+#[tokio::test]
+async fn test_scenario_get_engines() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_db_engine_versions()
+        .with(eq("aurora-mysql"))
+        .return_once(|_| {
+            Ok(DescribeDbEngineVersionsOutput::builder()
+                .db_engine_versions(
+                    DbEngineVersion::builder()
+                        .db_parameter_group_family("f1")
+                        .engine_version("f1a")
+                        .build(),
+                )
+                .db_engine_versions(
+                    DbEngineVersion::builder()
+                        .db_parameter_group_family("f1")
+                        .engine_version("f1b")
+                        .build(),
+                )
+                .db_engine_versions(
+                    DbEngineVersion::builder()
+                        .db_parameter_group_family("f2")
+                        .engine_version("f2a")
+                        .build(),
+                )
+                .db_engine_versions(DbEngineVersion::builder().build())
+                .build())
+        });
+
+    let scenario = AuroraScenario::new(mock_rds);
+
+    let versions_map = scenario.get_engines().await;
+
+    assert_eq!(
+        versions_map,
+        Ok(HashMap::from([
+            ("f1".into(), vec!["f1a".into(), "f1b".into()]),
+            ("f2".into(), vec!["f2a".into()])
+        ]))
+    );
+}
+
+#[tokio::test]
+async fn test_scenario_get_engines_failed() {
+    let mut mock_rds = MockRdsImpl::default();
+
+    mock_rds
+        .expect_describe_db_engine_versions()
+        .with(eq("aurora-mysql"))
+        .return_once(|_| {
+            Err(SdkError::service_error(
+                DescribeDBEngineVersionsError::unhandled(Box::new(Error::new(
+                    ErrorKind::Other,
+                    "describe_db_engine_versions error",
+                ))),
+                Response::new(StatusCode::try_from(400).unwrap(), SdkBody::empty()),
+            ))
+        });
+
+    let scenario = AuroraScenario::new(mock_rds);
+
+    let versions_map = scenario.get_engines().await;
+    assert_matches!(
+        versions_map,
+        Err(ScenarioError { message, context: _ }) if message == "Failed to retrieve DB Engine Versions"
+    );
+}
+
+
+```
+
+- For API details, see
+  [DescribeDBEngineVersions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions")
+  in _AWS SDK for Rust API reference_.
+
+For a complete list of AWS SDK developer guides and code examples, see
+[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
+This topic also includes information about getting started and details about previous SDK versions.

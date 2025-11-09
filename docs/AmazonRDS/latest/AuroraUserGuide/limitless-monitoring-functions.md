@@ -8,7 +8,7 @@ The functions listed in this table are located in the `rds_aurora` schema. When 
 include the fully qualified object name: `rds_aurora`.`object_name`.
 
 | Aurora PostgreSQL Limitless Database function                                                                            | Corresponding Aurora PostgreSQL function                                 |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ------------------------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------ | ------ | --------- | ------ | --------- | ----- | ---------- | ----- | ---------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------- | ------ | --- | ------ | --- | ----- | --- | ----- | --- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | --- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------- | ---------------------------- | ----------------------------- | ---------- | --------------------- | ----- | ------- | ---------------------------- | ----------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------- | -------- | ------- | ---------- | ---------- | ---------------------------------------------------------------------------------------------------------------------- | ------ | --- | --- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | --- | --- | ----- | ------- | ------- | ------- | ------- | -------- | ---------- | ----- | ------- | ------- | ------- | ------- | -------- | ---------- | ----- | ------- | ------- | ------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------- | -------- | ----- | --------- | --------------------------------------------------------------------------------------------------------------------- | ------ | --- | --------- | ------ | ------------ | ------------------------ | ------ | --- | --------- | ------ | ------------ | ------------------------ | ----- | --- | --------- | ------ | ------------ | ------------------------ | ----- | --- | --------- | ------ | ------------ | ------------------------ | ----- | --- | --------- | ------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | --------- | ---------- | ----- | --------- | ----------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------ | ---------- | --- | --------- | --------- | ---- | ---------- | ----- | ------ | ---------- | --- | --------- | --------- | ---- | ---------- | ----- | ------ | ---------- | --- | --------- | --------- | ---- | ---------- | ------ | ------ | ---------- | --- | --------- | --------- | ---- | ---------- | ----- | ------ | ---------- | --- | --------- | -------- | ---- | ----------- |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | [limitless_backend_dsid](#limitless_backend_dsid "#limitless_backend_dsid")                                              | pg_backend_pid                                                           |
 | [limitless_cancel_session](#limitless_cancel_session "#limitless_cancel_session")                                        | pg_cancel_backend                                                        |
 | [limitless_stat_clear_snapshot](#limitless_stat_clear_snapshot "#limitless_stat_clear_snapshot")                         | pg_stat_clear_snapshot                                                   |
@@ -20,4 +20,328 @@ include the fully qualified object name: `rds_aurora`.`object_name`.
 | [limitless_stat_statements_reset](#limitless_stat_statements_reset "#limitless_stat_statements_reset")                   | pg_stat_statements_reset                                                 |
 | [limitless_stat_system_waits](#limitless_stat_system_waits "#limitless_stat_system_waits")                               | aurora_stat_system_waits                                                 |
 | [limitless_terminate_session](#limitless_terminate_session "#limitless_terminate_session")                               | pg_terminate_backend                                                     |
-| [limitless_wait_report](#limitless_wait_report "#limitless_wait_report")                                                 | aurora_wait_report                                                       | The following examples provide details about the Aurora PostgreSQL Limitless Database functions. For more information on PostgreSQL functions, see [Functions and operators](https://www.postgresql.org/docs/15/functions.html "https://www.postgresql.org/docs/15/functions.html") in the PostgreSQL documentation. **limitless_backend_dsid** The `limitless_backend_dsid` function returns the distributed session ID for the current session. A distributed session runs on a router in a DB shard group and involves backend processes on one or more shards in the DB shard group. The following example shows how to use the `limitless_backend_dsid` function. `SELECT rds_aurora.limitless_backend_dsid(); limitless_backend_dsid ------------------------ 8CACD7B04D0FC2A5 (1 row)` **limitless_cancel_session** The `limitless_cancel_session` function works similarly to `pg_cancel_backend`, but it tries to cancel all backend processes related to the provided distributed session ID by sending a `SIGINT` (interruption signal). The input parameter is the following: <br>• `distributed_session_id` (text) – The ID of the distributed session to be canceled. The output parameters are the following: <br>• `subcluster_id` (text) – The ID of the subcluster to which this process belongs. <br>• `pid` (text) – The backend process ID. <br>• `success` (boolean) – Whether the cancellation was successful. The following example shows how to use the `limitless_cancel_session` function. ``` SELECT \* FROM rds_aurora.limitless_cancel_session('940CD5C81E3C796B'); subcluster_id | pid | success ---------------+-------+--------- 1 | 26920 | t (1 row) ``**limitless\_stat\_clear\_snapshot** The `limitless_stat_clear_snapshot` function discards the current statistics snapshot or cached information on all nodes. The following example shows how to use the `limitless_stat_clear_snapshot` function.`` SELECT rds_aurora.limitless_stat_clear_snapshot(); ``**limitless\_stat\_database\_size** The `limitless_stat_database_size` function returns the sizes of a database in the DB shard group. The input parameter is the following: <br>• `dbname` (name) – The database for which to get the sizes. The output parameters are the following: <br>• `subcluster_id` (text) – The ID of the subcluster to which this process belongs. <br>• `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`. <br>• `db_size` – The size of the database in this subcluster in bytes. The following example shows how to use the `limitless_stat_database_size` function.`` SELECT \* FROM rds_aurora.limitless_stat_database_size('postgres_limitless'); subcluster_id | subcluster_type | db_size ---------------+-----------------+---------- 1 | router | 8895919 2 | router | 8904111 3 | shard | 21929391 4 | shard | 21913007 5 | shard | 21831087 (5 rows) ``**limitless\_stat\_get\_snapshot\_timestamp** The `limitless_stat_get_snapshot_timestamp` function returns the timestamp of the current statistics snapshot, or `NULL` if no statistics snapshot has been taken. A snapshot is taken the first time cumulative statistics are accessed in a transaction if `stats_fetch_consistency` is set to `snapshot`. Returns a consolidated view of snapshot timestamps from all nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is from. The following example shows how to use the `limitless_stat_get_snapshot_timestamp` function.`` SELECT \* FROM rds_aurora.limitless_stat_get_snapshot_timestamp(); subcluster_id | subcluster_type | snapshot_timestamp ---------------+-----------------+-------------------- 1 | router | 2   | router | 3   | shard | 4   | shard | 5   | shard | (5 rows) ``**limitless\_stat\_prepared\_xacts** The `limitless_stat_prepared_xacts` function returns information about transactions on all nodes that are currently prepared for two-phase commit. For more information, see [pg\_prepared\_xacts](https://www.postgresql.org/docs/current/view-pg-prepared-xacts.html "https://www.postgresql.org/docs/current/view-pg-prepared-xacts.html") in the PostgreSQL documentation. The following example shows how to use the `limitless_stat_prepared_xacts` function.`` postgres_limitless=> SELECT \* FROM rds_aurora.limitless_stat_prepared_xacts; subcluster_id | subcluster_type | transaction_id | gid | prepared | owner_id | database_id ---------------+-----------------+----------------+------------------------------+-------------------------------+------------+-------------------- 8 | shard | 5815978 | 7_4599899_postgres_limitless | 2024-09-03 15:51:17.659603+00 | auroraperf | postgres_limitless 12 | shard | 4599138 | 7_4599899_postgres_limitless | 2024-09-03 15:51:17.659637+00 | auroraperf | postgres_limitless (2 rows) ``**limitless\_stat\_relation\_sizes** The `limitless_stat_relation_sizes` function returns the different sizes of a table in the DB shard group. The input parameters are the following: <br>• `relnspname` (name) – The name of the schema containing the table. <br>• `relname` (name) – The name of the table. The output parameters are the following: <br>• `subcluster_id` (text) – The ID of the subcluster to which this process belongs. <br>• `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`. <br>• `main_size` – The size in bytes of the main data fork in this node. <br>• `fsm_size` – The size in bytes of the free space map for the table in this node. <br>• `vm_size` – The size in bytes of the visibility map for the table in this node. <br>• `init_size` – The size in bytes of the initialization of the table in this node. <br>• `toast_size` – The size in bytes of the toast table associated with the table in this fork. <br>• `index_size` – The size in bytes of all of the indexes for the table in this node. <br>• `total_size` – The size in bytes of all of the segments of the table in this node. The following example shows how to use the `limitless_stat_relation_sizes` function (some columns are omitted).`` SELECT \* FROM rds_aurora.limitless_stat_relation_sizes('public','customers'); subcluster_id | subcluster_type | main_size | fsm_size | vm_size | toast_size | table_size | total_size ---------------+-----------------+-----------+----------+---------+------------+------------+------------ 1 | router | 0   | 0   | 0   | 0   | 0   | 0 2 | router | 0   | 0   | 0   | 0   | 0   | 0 3 | shard | 4169728 | 4177920 | 1392640 | 1392640 | 11132928 | 11132928 4 | shard | 4169728 | 4177920 | 1392640 | 1392640 | 11132928 | 11132928 5 | shard | 3981312 | 4227072 | 1409024 | 1409024 | 11026432 | 11026432 (5 rows) ``**limitless\_stat\_reset** The `limitless_stat_reset` function resets all statistics counters for the current database to zero (0). If `track_functions` is enabled, the `stats_reset` column in `limitless_stat_database` shows the last time statistics were reset for the database. By default, `limitless_stat_reset` can be run only by a superuser. Other users can be granted permission by using the `EXECUTE` privilege. The following example shows how to use the `limitless_stat_reset` function.`` SELECT tup_inserted, tup_deleted FROM pg_stat_database WHERE datname = 'postgres_limitless'; tup_inserted | tup_deleted --------------+------------- 896 | 0 (1 row) SELECT **rds_aurora.limitless_stat_reset()**; limitless_stat_reset --------------------- (1 row) SELECT tup_inserted, tup_deleted FROM pg_stat_database WHERE datname = 'postgres_limitless'; tup_inserted | tup_deleted -------------+------------- 0 | 0 (1 row) ``**limitless\_stat\_statements\_reset** The `limitless_stat_statements_reset` function discards statistics gathered so far by `limitless_stat_statements` corresponding to the specified `username`, `dbname`, `distributed_query_id`, and `queryid` parameters. If any of the parameters aren't specified, the default value `""` or `0` (invalid) is used for each of them, and the statistics that match with other parameters are reset. If no parameter is specified, or all the specified parameters are `""` or `0` (invalid), the function discards all statistics. If all statistics in the `limitless_stat_statements` view are discarded, the function also resets the statistics in the `limitless_stat_statements_info` view. The input parameters are the following: <br>• `username` (name) – The user that queried the statement. <br>• `dbname` (name) – The database where the query was run. <br>• `distributed_query_id` (bigint) – The query ID of the parent query from the coordinator node. This column is `NULL` if it's the parent query. The coordinator node pushes down the distributed query ID to the participant nodes. So for the participant nodes, the values for distributed query ID and query ID are different. <br>• `queryid` (bigint) – The query ID of the statement. The following example shows how to use the `limitless_stat_statements_reset` function to reset all of the statistics gathered by `limitless_stat_statements`.`` SELECT rds_aurora.limitless_stat_statements_reset(); ``**limitless\_stat\_system\_waits** The `limitless_stat_system_waits` function returns a consolidated view of the wait event data from `aurora_stat_system_waits`, which reports system wide wait activity in an instance, from all nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is from. The following example shows how to use the `limitless_stat_system_waits` function.`` postgres_limitless=> SELECT \* FROM rds_aurora.limitless_stat_system_waits() lssw, pg_catalog.aurora_stat_wait_event() aswe WHERE lssw.event_id=aswe.event_id and aswe.event_name='LimitlessTaskScheduler'; subcluster_id | subcluster_type | type_id | event_id | waits | wait_time | event_name ---------------+-----------------+---------+-----------+--------+--------------+------------------------ 1 | router | 12  | 201326607 | 677068 | 616942216307 | LimitlessTaskScheduler 2 | router | 12  | 201326607 | 678586 | 616939897111 | LimitlessTaskScheduler 3 | shard | 12  | 201326607 | 756640 | 616965545172 | LimitlessTaskScheduler 4 | shard | 12  | 201326607 | 755184 | 616958057620 | LimitlessTaskScheduler 5 | shard | 12  | 201326607 | 757522 | 616963183539 | LimitlessTaskScheduler (5 rows) ``**limitless\_terminate\_session** The `limitless_terminate_session` function works similarly to `pg_terminate_backend`, but it tries to end all backend processes related to the provided distributed session ID by sending a `SIGTERM` (end signal). The input parameter is the following: <br>• `distributed_session_id` (text) – The ID of the distributed session to be ended. The output parameters are the following: <br>• `subcluster_id` (text) – The ID of the subcluster to which this process belongs. <br>• `pid` (text) – The backend process ID. <br>• `success` (boolean) – Whether the process was successfully ended. The following example shows how to use the `limitless_terminate_session` function.`` SELECT \* FROM rds_aurora.limitless_terminate_session('940CD5C81E3C796B'); subcluster_id | pid | success ---------------+-------+--------- 1 | 26920 | t (1 row) ``**limitless\_wait\_report** The `limitless_wait_report` function returns the wait event activity over a period of time from all nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is from. The output parameters are the following: <br>• `subcluster_id` (text) – The ID of the subcluster to which this process belongs. <br>• `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`. The rest of the columns are the same as in `aurora_wait_report`. The following example shows how to use the `limitless_wait_report` function.`` postgres_limitless=> select \* from rds_aurora.limitless_wait_report(); subcluster_id | subcluster_type | type_name | event_name | waits | wait_time | ms_per_wait | waits_per_xact | ms_per_xact ---------------+-----------------+-----------+------------+-------+-----------+-------------+--------------- +------------- 1 | router | Client | ClientRead | 57  | 741550.14 | 13009.652 | 0.19 | 2505.237 5 | shard | Client | ClientRead | 54  | 738897.68 | 13683.290 | 0.18 | 2496.276 4 | shard | Client | ClientRead | 54  | 738859.53 | 13682.584 | 0.18 | 2496.147 2 | router | Client | ClientRead | 53  | 719223.64 | 13570.257 | 0.18 | 2429.810 3 | shard | Client | ClientRead | 54  | 461720.40 | 8550.378 | 0.18 | 1559.86 ``` |
+| [limitless_wait_report](#limitless_wait_report "#limitless_wait_report")                                                 | aurora_wait_report                                                       |
+
+The following examples provide details about the Aurora PostgreSQL Limitless Database functions. For more information on PostgreSQL functions, see
+[Functions and operators](https://www.postgresql.org/docs/15/functions.html "https://www.postgresql.org/docs/15/functions.html") in the PostgreSQL
+documentation.
+
+**limitless_backend_dsid**
+
+The `limitless_backend_dsid` function returns the distributed session ID for the current session. A
+distributed session runs on a router in a DB shard group and involves backend processes on one or more shards in
+the DB shard group.
+
+The following example shows how to use the `limitless_backend_dsid` function.
+
+```
+SELECT rds_aurora.limitless_backend_dsid();
+
+limitless_backend_dsid
+------------------------
+8CACD7B04D0FC2A5
+(1 row)
+```
+
+**limitless_cancel_session**
+
+The `limitless_cancel_session` function works similarly to `pg_cancel_backend`, but it
+tries to cancel all backend processes related to the provided distributed session ID by sending a
+`SIGINT` (interruption signal).
+
+The input parameter is the following:
+
+- `distributed_session_id` (text) – The ID of the distributed session to be
+  canceled.
+
+The output parameters are the following:
+
+- `subcluster_id` (text) – The ID of the subcluster to which this process
+  belongs.
+- `pid` (text) – The backend process ID.
+- `success` (boolean) – Whether the cancellation was successful.
+
+The following example shows how to use the `limitless_cancel_session` function.
+
+```
+SELECT * FROM rds_aurora.limitless_cancel_session('940CD5C81E3C796B');
+
+ subcluster_id |  pid  | success
+---------------+-------+---------
+             1 | 26920 | t
+(1 row)
+```
+
+**limitless_stat_clear_snapshot**
+
+The `limitless_stat_clear_snapshot` function discards the current statistics snapshot or cached
+information on all nodes.
+
+The following example shows how to use the `limitless_stat_clear_snapshot` function.
+
+```
+SELECT rds_aurora.limitless_stat_clear_snapshot();
+```
+
+**limitless_stat_database_size**
+
+The `limitless_stat_database_size` function returns the sizes of a database in the DB shard
+group.
+
+The input parameter is the following:
+
+- `dbname` (name) – The database for which to get the sizes.
+
+The output parameters are the following:
+
+- `subcluster_id` (text) – The ID of the subcluster to which this process
+  belongs.
+- `subcluster_type` (text) – The type of subcluster to which this process belongs:
+  `router` or `shard`.
+- `db_size` – The size of the database in this subcluster in bytes.
+
+The following example shows how to use the `limitless_stat_database_size` function.
+
+```
+SELECT * FROM rds_aurora.limitless_stat_database_size('postgres_limitless');
+
+ subcluster_id | subcluster_type | db_size
+---------------+-----------------+----------
+             1 | router          |  8895919
+             2 | router          |  8904111
+             3 | shard           | 21929391
+             4 | shard           | 21913007
+             5 | shard           | 21831087
+(5 rows)
+```
+
+**limitless_stat_get_snapshot_timestamp**
+
+The `limitless_stat_get_snapshot_timestamp` function returns the timestamp of the current
+statistics snapshot, or `NULL` if no statistics snapshot has been taken. A snapshot is taken the
+first time cumulative statistics are accessed in a transaction if `stats_fetch_consistency` is set to
+`snapshot`. Returns a consolidated view of snapshot timestamps from all nodes. The
+`subcluster_id` and `subcluster_type` columns show which node the data is from.
+
+The following example shows how to use the `limitless_stat_get_snapshot_timestamp` function.
+
+```
+SELECT * FROM rds_aurora.limitless_stat_get_snapshot_timestamp();
+
+ subcluster_id | subcluster_type | snapshot_timestamp
+---------------+-----------------+--------------------
+             1 | router          |
+             2 | router          |
+             3 | shard           |
+             4 | shard           |
+             5 | shard           |
+(5 rows)
+```
+
+**limitless_stat_prepared_xacts**
+
+The `limitless_stat_prepared_xacts` function returns information about transactions on all nodes that are currently
+prepared for two-phase commit. For more information, see [pg_prepared_xacts](https://www.postgresql.org/docs/current/view-pg-prepared-xacts.html "https://www.postgresql.org/docs/current/view-pg-prepared-xacts.html") in the PostgreSQL
+documentation.
+
+The following example shows how to use the `limitless_stat_prepared_xacts` function.
+
+```
+postgres_limitless=> SELECT * FROM rds_aurora.limitless_stat_prepared_xacts;
+
+ subcluster_id | subcluster_type | transaction_id |             gid              |           prepared            |  owner_id  |    database_id
+---------------+-----------------+----------------+------------------------------+-------------------------------+------------+--------------------
+ 8             | shard           |        5815978 | 7_4599899_postgres_limitless | 2024-09-03 15:51:17.659603+00 | auroraperf | postgres_limitless
+ 12            | shard           |        4599138 | 7_4599899_postgres_limitless | 2024-09-03 15:51:17.659637+00 | auroraperf | postgres_limitless
+(2 rows)
+```
+
+**limitless_stat_relation_sizes**
+
+The `limitless_stat_relation_sizes` function returns the different sizes of a table in the DB shard
+group.
+
+The input parameters are the following:
+
+- `relnspname` (name) – The name of the schema containing the table.
+- `relname` (name) – The name of the table.
+
+The output parameters are the following:
+
+- `subcluster_id` (text) – The ID of the subcluster to which this process
+  belongs.
+- `subcluster_type` (text) – The type of subcluster to which this process belongs:
+  `router` or `shard`.
+- `main_size` – The size in bytes of the main data fork in this node.
+- `fsm_size` – The size in bytes of the free space map for the table in this
+  node.
+- `vm_size` – The size in bytes of the visibility map for the table in this
+  node.
+- `init_size` – The size in bytes of the initialization of the table in this
+  node.
+- `toast_size` – The size in bytes of the toast table associated with the table in
+  this fork.
+- `index_size` – The size in bytes of all of the indexes for the table in this
+  node.
+- `total_size` – The size in bytes of all of the segments of the table in this
+  node.
+
+The following example shows how to use the `limitless_stat_relation_sizes` function (some columns
+are omitted).
+
+```
+SELECT * FROM rds_aurora.limitless_stat_relation_sizes('public','customers');
+
+ subcluster_id | subcluster_type | main_size | fsm_size | vm_size | toast_size | table_size | total_size
+---------------+-----------------+-----------+----------+---------+------------+------------+------------
+             1 | router          |         0 |        0 |       0 |          0 |          0 |          0
+             2 | router          |         0 |        0 |       0 |          0 |          0 |          0
+             3 | shard           |   4169728 |  4177920 | 1392640 |    1392640 |   11132928 |   11132928
+             4 | shard           |   4169728 |  4177920 | 1392640 |    1392640 |   11132928 |   11132928
+             5 | shard           |   3981312 |  4227072 | 1409024 |    1409024 |   11026432 |   11026432
+(5 rows)
+```
+
+**limitless_stat_reset**
+
+The `limitless_stat_reset` function resets all statistics counters for the current database to zero
+(0). If `track_functions` is enabled, the `stats_reset` column in
+`limitless_stat_database` shows the last time statistics were reset for the database. By default,
+`limitless_stat_reset` can be run only by a superuser. Other users can be granted permission by
+using the `EXECUTE` privilege.
+
+The following example shows how to use the `limitless_stat_reset` function.
+
+```
+SELECT tup_inserted, tup_deleted FROM pg_stat_database
+WHERE datname = 'postgres_limitless';
+
+ tup_inserted | tup_deleted
+--------------+-------------
+          896 |           0
+(1 row)
+
+SELECT **rds\_aurora.limitless\_stat\_reset()**;
+
+limitless_stat_reset
+---------------------
+(1 row)
+
+SELECT tup_inserted, tup_deleted FROM pg_stat_database
+WHERE datname = 'postgres_limitless';
+
+tup_inserted | tup_deleted
+-------------+-------------
+           0 |           0
+(1 row)
+```
+
+**limitless_stat_statements_reset**
+
+The `limitless_stat_statements_reset` function discards statistics gathered so far by
+`limitless_stat_statements` corresponding to the specified `username`,
+`dbname`, `distributed_query_id`, and `queryid` parameters. If any of the
+parameters aren't specified, the default value `""` or `0` (invalid) is used for each of
+them, and the statistics that match with other parameters are reset. If no parameter is specified, or all the
+specified parameters are `""` or `0` (invalid), the function discards all statistics. If
+all statistics in the `limitless_stat_statements` view are discarded, the function also resets the
+statistics in the `limitless_stat_statements_info` view.
+
+The input parameters are the following:
+
+- `username` (name) – The user that queried the statement.
+- `dbname` (name) – The database where the query was run.
+- `distributed_query_id` (bigint) – The query ID of the parent query from the
+  coordinator node. This column is `NULL` if it's the parent query. The coordinator node pushes
+  down the distributed query ID to the participant nodes. So for the participant nodes, the values for
+  distributed query ID and query ID are different.
+- `queryid` (bigint) – The query ID of the statement.
+
+The following example shows how to use the `limitless_stat_statements_reset` function to reset all
+of the statistics gathered by `limitless_stat_statements`.
+
+```
+SELECT rds_aurora.limitless_stat_statements_reset();
+```
+
+**limitless_stat_system_waits**
+
+The `limitless_stat_system_waits` function returns a consolidated view of the wait event data from
+`aurora_stat_system_waits`, which reports system wide wait activity in an instance, from all
+nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is
+from.
+
+The following example shows how to use the `limitless_stat_system_waits` function.
+
+```
+postgres_limitless=> SELECT *
+FROM rds_aurora.limitless_stat_system_waits() lssw, pg_catalog.aurora_stat_wait_event() aswe
+WHERE lssw.event_id=aswe.event_id and aswe.event_name='LimitlessTaskScheduler';
+
+ subcluster_id | subcluster_type | type_id | event_id  | waits  |  wait_time   |        event_name
+---------------+-----------------+---------+-----------+--------+--------------+------------------------
+             1 | router          |      12 | 201326607 | 677068 | 616942216307 | LimitlessTaskScheduler
+             2 | router          |      12 | 201326607 | 678586 | 616939897111 | LimitlessTaskScheduler
+             3 | shard           |      12 | 201326607 | 756640 | 616965545172 | LimitlessTaskScheduler
+             4 | shard           |      12 | 201326607 | 755184 | 616958057620 | LimitlessTaskScheduler
+             5 | shard           |      12 | 201326607 | 757522 | 616963183539 | LimitlessTaskScheduler
+(5 rows)
+```
+
+**limitless_terminate_session**
+
+The `limitless_terminate_session` function works similarly to `pg_terminate_backend`,
+but it tries to end all backend processes related to the provided distributed session ID by sending a
+`SIGTERM` (end signal).
+
+The input parameter is the following:
+
+- `distributed_session_id` (text) – The ID of the distributed session to be
+  ended.
+
+The output parameters are the following:
+
+- `subcluster_id` (text) – The ID of the subcluster to which this process
+  belongs.
+- `pid` (text) – The backend process ID.
+- `success` (boolean) – Whether the process was successfully ended.
+
+The following example shows how to use the `limitless_terminate_session` function.
+
+```
+SELECT * FROM rds_aurora.limitless_terminate_session('940CD5C81E3C796B');
+
+ subcluster_id |  pid  | success
+---------------+-------+---------
+             1 | 26920 | t
+(1 row)
+```
+
+**limitless_wait_report**
+
+The `limitless_wait_report` function returns the wait event activity over a period of time from all
+nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is
+from.
+
+The output parameters are the following:
+
+- `subcluster_id` (text) – The ID of the subcluster to which this process
+  belongs.
+- `subcluster_type` (text) – The type of subcluster to which this process belongs:
+  `router` or `shard`.
+
+The rest of the columns are the same as in `aurora_wait_report`.
+
+The following example shows how to use the `limitless_wait_report` function.
+
+```
+postgres_limitless=> select * from rds_aurora.limitless_wait_report();
+
+ subcluster_id | subcluster_type | type_name | event_name | waits | wait_time | ms_per_wait | waits_per_xact | ms_per_xact
+---------------+-----------------+-----------+------------+-------+-----------+-------------+--------------- +-------------
+             1 | router          | Client    | ClientRead |    57 | 741550.14 |   13009.652 |           0.19 |    2505.237
+             5 | shard           | Client    | ClientRead |    54 | 738897.68 |   13683.290 |           0.18 |    2496.276
+             4 | shard           | Client    | ClientRead |    54 | 738859.53 |   13682.584 |           0.18 |    2496.147
+             2 | router          | Client    | ClientRead |    53 | 719223.64 |   13570.257 |           0.18 |    2429.810
+             3 | shard           | Client    | ClientRead |    54 | 461720.40 |    8550.378 |           0.18 |    1559.86
+```

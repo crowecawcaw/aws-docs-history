@@ -121,7 +121,7 @@ SELECT @@optimizer_switch\G;
 The following table shows the default `optimizer_switch` values for Aurora MySQL versions 2 and 3.
 
 | Setting                               | Aurora MySQL version 2 | Aurora MySQL version 3 |
-| ------------------------------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------- | ---------------------- | ---------------------- |
 | `batched_key_access`                  | off                    | off                    |
 | `block_nested_loop`                   | on                     | on                     |
 | `condition_fanout_filter`             | on                     | on                     |
@@ -148,4 +148,7 @@ The following table shows the default `optimizer_switch` values for Aurora MySQL
 | `subquery_materialization_cost_based` | on                     | on                     |
 | `subquery_to_derived`                 | –                      | off                    |
 | `use_index_extensions`                | on                     | on                     |
-| `use_invisible_indexes`               | –                      | off                    | For more information, see [Switchable optimizations (MySQL 5.7)](https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html "https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html") and [Switchable optimizations (MySQL 8.0)](https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html "https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html") in the MySQL documentation. |
+| `use_invisible_indexes`               | –                      | off                    |
+
+For more information, see [Switchable
+optimizations (MySQL 5.7)](https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html "https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html") and [Switchable optimizations (MySQL 8.0)](https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html "https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html") in the MySQL documentation.

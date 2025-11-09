@@ -216,5 +216,14 @@ The following tag is automatically added to the DB instance. You can view it on 
 instance detail page.
 
 | Tag                                | Value                        |
-| ---------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| application-autoscaling:resourceId | cluster:mynewcluster-cluster | For more information on Amazon RDS resource tags, see [Tagging Amazon Aurora and Amazon RDS resources](USER_Tagging.md "USER_Tagging.md"). ## Aurora Auto Scaling and Performance Insights You can use Performance Insights to monitor replicas that have been added by Aurora Auto Scaling, the same as with any Aurora reader DB instance. For more information on using Performance Insights to monitor Aurora DB clusters, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). |
+| ---------------------------------- | ---------------------------- |
+| application-autoscaling:resourceId | cluster:mynewcluster-cluster |
+
+For more information on Amazon RDS resource tags, see [Tagging Amazon Aurora and Amazon RDS resources](USER_Tagging.md "USER_Tagging.md").
+
+## Aurora Auto Scaling and Performance Insights
+
+You can use Performance Insights to monitor replicas that have been added by Aurora Auto Scaling, the same as with any Aurora reader DB
+instance.
+
+For more information on using Performance Insights to monitor Aurora DB clusters, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").

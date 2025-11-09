@@ -108,13 +108,14 @@ psql host=`bfish_db.cluster-123456789012`.`aws-region`.rds.amazonaws.com
 
 The query returns output similar to the following:
 
-````
+```
 
 -[ RECORD 1 ]-----------+-----------------------------------------------------------------------------------------------
 aurora_version          | 15.5.0
 postgresql_version      | PostgreSQL 15.5 on x86_64-pc-linux-gnu, compiled by x86_64-pc-linux-gnu-gcc (GCC) 9.5.0, 64-bit
 babelfish_compatibility | Babelfish for Aurora Postgres with SQL Server Compatibility - 12.0.2000.8                     +
-| Dec 7 2023 09:43:06                                                                          +
-| Copyright (c) Amazon Web Services                                                             +
-| PostgreSQL 15.5 on x86_64-pc-linux-gnu (Babelfish 3.4.0) babelfish_version       | 3.4.0 ```
-````
+                        | Dec 7 2023 09:43:06                                                                          +
+                        | Copyright (c) Amazon Web Services                                                             +
+                        | PostgreSQL 15.5 on x86_64-pc-linux-gnu (Babelfish 3.4.0)
+babelfish_version       | 3.4.0
+```

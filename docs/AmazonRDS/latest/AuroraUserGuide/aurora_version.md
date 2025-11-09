@@ -52,7 +52,7 @@ This example shows how to use the function with various options to get more deta
 about the Aurora PostgreSQL version. This example has an Aurora version number
 that's distinct from the PostgreSQL version number.
 
-````
+```
 
 `=>` `SHOW SERVER_VERSION;`
  `server_version
@@ -79,10 +79,45 @@ that's distinct from the PostgreSQL version number.
 (1 row)`
 
 `=>` `SELECT 'Aurora: '
-|| aurora_version()
-|| ' Compatible with PostgreSQL: '
-|| current_setting('server_version') AS "Instance Version";` `Instance Version ------------------------------------------------ Aurora: 4.2.2 Compatible with PostgreSQL: 12.7 (1 row)` ``` This next example uses the function with the same options in the previous example. This example doesn't have an Aurora version number that's distinct from the PostgreSQL version number. ``` `=>` `SHOW SERVER_VERSION;` `server_version ---------------- 13.3` `=>` `SELECT * FROM aurora_version();` `aurora_version ---------------- 13.3.0` `=>` `SELECT current_setting('server_version') AS "PostgreSQL Compatiblility";` `PostgreSQL Compatiblility --------------------------- 13.3` `=>` `SELECT version() AS "PostgreSQL Compatiblility Full String";` `PostgreSQL Compatiblility Full String ------------------------------------------------------------------------------------------------- PostgreSQL 13.3 on x86_64-pc-linux-gnu, compiled by x86_64-pc-linux-gnu-gcc (GCC) 7.4.0, 64-bit` `=>` `SELECT 'Aurora: '
-|| aurora_version()
-|| ' Compatible with PostgreSQL: '
-|| current_setting('server_version') AS "Instance Version";` `Instance Version ------------------------------------------------------- Aurora: 13.3.0 Compatible with PostgreSQL: 13.3` ```
-````
+ || aurora_version()
+ || ' Compatible with PostgreSQL: '
+ || current_setting('server_version') AS "Instance Version";`
+`Instance Version
+------------------------------------------------
+ Aurora: 4.2.2 Compatible with PostgreSQL: 12.7
+(1 row)`
+
+
+```
+
+This next example uses the function with the same options in the previous example.
+This example doesn't have an Aurora version number that's distinct from the
+PostgreSQL version number.
+
+```
+`=>` `SHOW SERVER_VERSION;`
+`server_version
+----------------
+ 13.3`
+
+`=>` `SELECT * FROM aurora_version();`
+`aurora_version
+----------------
+ 13.3.0`
+`=>` `SELECT current_setting('server_version') AS "PostgreSQL Compatiblility";`
+`PostgreSQL Compatiblility
+---------------------------
+ 13.3`
+
+`=>` `SELECT version() AS "PostgreSQL Compatiblility Full String";`
+`PostgreSQL Compatiblility Full String
+-------------------------------------------------------------------------------------------------
+ PostgreSQL 13.3 on x86_64-pc-linux-gnu, compiled by x86_64-pc-linux-gnu-gcc (GCC) 7.4.0, 64-bit`
+`=>` `SELECT 'Aurora: '
+ || aurora_version()
+ || ' Compatible with PostgreSQL: '
+ || current_setting('server_version') AS "Instance Version";`
+`Instance Version
+-------------------------------------------------------
+ Aurora: 13.3.0 Compatible with PostgreSQL: 13.3`
+```

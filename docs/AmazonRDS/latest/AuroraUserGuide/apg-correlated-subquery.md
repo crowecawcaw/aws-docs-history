@@ -172,8 +172,108 @@ behavior
 The following table lists the parameters that control the behavior of the subquery
 cache.
 
-| Parameter                             | Description                                                                         | Default | Allowed      |
-| ------------------------------------- | ----------------------------------------------------------------------------------- | ------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| apg_enable_subquery_cache             | Enables the use of cache for correlated scalar subqueries.                          | OFF     | ON, OFF      |
-| apg_subquery_cache_check_interval     | Sets the frequency, in number of cache misses, to evaluate subquery cache hit rate. | 500     | 0–2147483647 |
-| apg_subquery_cache_hit_rate_threshold | Sets the threshold for subquery cache hit rate.                                     | 0.3     | 0.0–1.0      | ###### Note <br>• Larger values of `apg_subquery_cache_check_interval` may improve the accuracy of the CHR-based cache benefit estimation, but will increase the cache overhead, since CHR won’t get evaluated until the cache table has `apg_subquery_cache_check_interval` rows. <br>• Larger values of `apg_subquery_cache_hit_rate_threshold` bias towards abandoning subquery cache and returning back to the original, uncached subquery re-execution. You can modify the cluster or instance parameter group to set the parameters. To learn more, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). Alternatively, you can configure the setting for just the current session by the following command: `SET apg_enable_subquery_cache TO ON;` ### Turning on subquery cache in Aurora PostgreSQL When subquery cache is enabled, Aurora PostgreSQL applies cache to save subquery results. The query plan will then have a Memoize node under SubPlan. For example, the following command sequence shows the estimated query execution plan of a simple correlated subquery without subquery cache. `` postgres=> SET apg_enable_subquery_cache TO OFF; SET postgres=> EXPLAIN (COSTS FALSE) SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT it.b FROM it WHERE it.a = ot.a); `QUERY PLAN ------------------------------------ Seq Scan on ot Filter: (b < (SubPlan 1)) SubPlan 1 -> Seq Scan on it Filter: (a = ot.a)` `` After turning on `apg_enable_subquery_cache`, the query plan will contain a Memoize node under the SubPlan node, indicating that the subquery is planning to use cache. `` postgres=> SET apg_enable_subquery_cache TO ON; SET postgres=> EXPLAIN (COSTS FALSE) SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT it.b FROM it WHERE it.a = ot.a); `QUERY PLAN ------------------------------------ Seq Scan on ot Filter: (b < (SubPlan 1)) SubPlan 1 -> Memoize Cache Key: ot.a Cache Mode: binary -> Seq Scan on it Filter: (a = ot.a)` `` The actual query execution plan contains more details of the subquery cache, including cache hits and cache misses. The following output shows the actual query execution plan of the above example query after inserting some values to the tables. `` postgres=> EXPLAIN (COSTS FALSE, TIMING FALSE, ANALYZE TRUE) SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT it.b FROM it WHERE it.a = ot.a); `QUERY PLAN ----------------------------------------------------------------------------- Seq Scan on ot (actual rows=2 loops=1) Filter: (b < (SubPlan 1)) Rows Removed by Filter: 8 SubPlan 1 -> Memoize (actual rows=0 loops=10) Cache Key: ot.a Cache Mode: binary Hits: 4 Misses: 6 Evictions: 0 Overflows: 0 Memory Usage: 1kB -> Seq Scan on it (actual rows=0 loops=6) Filter: (a = ot.a) Rows Removed by Filter: 4` `` The total cache hit number is 4, and the total cache miss number is 6. If the total number of hits and misses is less than the number of loops in the Memoize node, it means that the CHR evaluation did not pass and the cache was cleaned up and abandoned at some point. The subquery execution then returned back to the original uncached re-execution. ### Limitations Subquery cache does not support certain patterns of correlated subqueries. Those types of queries will be run without cache, even if subquery cache is turned on: <br>• IN/EXISTS/ANY/ALL correlated subqueries <br>• Correlated subqueries containing nondeterministic functions. <br>• Correlated subqueries that reference outer table columns with datatypes that don't support hashing or equality operations. |
+| Parameter                             | Description                                                                            | Default | Allowed      |
+| ------------------------------------- | -------------------------------------------------------------------------------------- | ------- | ------------ |
+| apg_enable_subquery_cache             | Enables the use of cache for correlated scalar<br>subqueries.                          | OFF     | ON, OFF      |
+| apg_subquery_cache_check_interval     | Sets the frequency, in number of cache misses, to evaluate<br>subquery cache hit rate. | 500     | 0–2147483647 |
+| apg_subquery_cache_hit_rate_threshold | Sets the threshold for subquery cache hit rate.                                        | 0.3     | 0.0–1.0      |
+
+###### Note
+
+- Larger values of `apg_subquery_cache_check_interval` may
+  improve the accuracy of the CHR-based cache benefit estimation, but will
+  increase the cache overhead, since CHR won’t get evaluated until the cache
+  table has `apg_subquery_cache_check_interval` rows.
+- Larger values of `apg_subquery_cache_hit_rate_threshold` bias
+  towards abandoning subquery cache and returning back to the original,
+  uncached subquery re-execution.
+
+You can modify the cluster or instance parameter group to set the parameters. To learn
+more, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+
+Alternatively, you can configure the setting for just the current session by the
+following command:
+
+```
+SET apg_enable_subquery_cache TO ON;
+```
+
+### Turning on subquery cache in
+
+Aurora PostgreSQL
+
+When subquery cache is enabled, Aurora PostgreSQL applies cache to save subquery results.
+The query plan will then have a Memoize node under SubPlan.
+
+For example, the following command sequence shows the estimated query execution plan
+of a simple correlated subquery without subquery cache.
+
+```
+postgres=> SET apg_enable_subquery_cache TO OFF;
+SET
+postgres=> EXPLAIN (COSTS FALSE) SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT it.b FROM it WHERE it.a = ot.a);
+`QUERY PLAN
+------------------------------------
+ Seq Scan on ot
+ Filter: (b < (SubPlan 1))
+ SubPlan 1
+ -> Seq Scan on it
+ Filter: (a = ot.a)`
+```
+
+After turning on `apg_enable_subquery_cache`, the query plan will contain a
+Memoize node under the SubPlan node, indicating that the subquery is planning to use
+cache.
+
+```
+postgres=> SET apg_enable_subquery_cache TO ON;
+SET
+postgres=> EXPLAIN (COSTS FALSE) SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT it.b FROM it WHERE it.a = ot.a);
+`QUERY PLAN
+------------------------------------
+ Seq Scan on ot
+ Filter: (b < (SubPlan 1))
+ SubPlan 1
+ -> Memoize
+ Cache Key: ot.a
+ Cache Mode: binary
+ -> Seq Scan on it
+ Filter: (a = ot.a)`
+```
+
+The actual query execution plan contains more details of the subquery cache,
+including cache hits and cache misses. The following output shows the actual query
+execution plan of the above example query after inserting some values to the tables.
+
+```
+postgres=> EXPLAIN (COSTS FALSE, TIMING FALSE, ANALYZE TRUE) SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT it.b FROM it WHERE it.a = ot.a);
+ `QUERY PLAN
+-----------------------------------------------------------------------------
+ Seq Scan on ot (actual rows=2 loops=1)
+ Filter: (b < (SubPlan 1))
+ Rows Removed by Filter: 8
+ SubPlan 1
+ -> Memoize (actual rows=0 loops=10)
+ Cache Key: ot.a
+ Cache Mode: binary
+ Hits: 4 Misses: 6 Evictions: 0 Overflows: 0 Memory Usage: 1kB
+ -> Seq Scan on it (actual rows=0 loops=6)
+ Filter: (a = ot.a)
+ Rows Removed by Filter: 4`
+```
+
+The total cache hit number is 4, and the total cache miss number is 6. If the total
+number of hits and misses is less than the number of loops in the Memoize node, it means
+that the CHR evaluation did not pass and the cache was cleaned up and abandoned at some
+point. The subquery execution then returned back to the original uncached
+re-execution.
+
+### Limitations
+
+Subquery cache does not support certain patterns of correlated subqueries. Those types
+of queries will be run without cache, even if subquery cache is turned on:
+
+- IN/EXISTS/ANY/ALL correlated subqueries
+- Correlated subqueries containing nondeterministic functions.
+- Correlated subqueries that reference outer table columns with datatypes that
+  don't support hashing or equality operations.

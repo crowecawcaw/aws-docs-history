@@ -1,97 +1,63 @@
-# Performing a
+# Determining if
 
-manual vacuum freeze
+the tables in your database need vacuuming
 
-You might want to perform a manual vacuum on a table that has a vacuum process already
-running. This is useful if you have identified a table with an age approaching 2 billion
-transactions (or above any threshold you are monitoring).
-
-The following steps are guidelines, with several variations to the process. For example,
-during testing, suppose that you find that the [`maintenance_work_mem`](https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM") parameter value is set too small and that you
-need to take immediate action on a table. However, perhaps you don't want to bounce the
-instance at the moment. Using the queries in previous sections, you determine which table is
-the problem and notice a long running autovacuum session. You know that you need to change the
-`maintenance_work_mem` parameter setting, but you also need to take immediate
-action and vacuum the table in question. The following procedure shows what to do in this
-situation.
-
-###### To manually perform a vacuum freeze
-
-1. Open two sessions to the database containing the table you want to vacuum. For the
-   second session, use "screen" or another utility that maintains the session if your
-   connection is dropped.
-2. In session one, get the process ID (PID) of the autovacuum session running on the
-   table.
-
-Run the following query to get the PID of the autovacuum session.
+You can use the following query to show the number of unfrozen transactions in a database.
+The `datfrozenxid` column of a database's `pg_database` row is a lower
+bound on the normal transaction IDs appearing in that database. This column is the minimum of
+the per-table `relfrozenxid` values within the database.
 
 ```
-SELECT datname, usename, pid, current_timestamp - xact_start
-AS xact_runtime, query
-FROM pg_stat_activity WHERE upper(query) LIKE '%VACUUM%' ORDER BY
-xact_start;
+SELECT datname, age(datfrozenxid) FROM pg_database ORDER BY age(datfrozenxid) desc limit 20;
 ```
 
-3. In session two, calculate the amount of memory that you need for this operation. In
-   this example, we determine that we can afford to use up to 2 GB of memory for this
-   operation, so we set [`maintenance_work_mem`](https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM") for the current session to 2 GB.
+For example, the results of running the preceding query might be the following.
 
 ```
-`SET maintenance_work_mem='2 GB';`
-`SET`
+datname    | age
+mydb       | 1771757888
+template0  | 1721757888
+template1  | 1721757888
+rdsadmin   | 1694008527
+postgres   | 1693881061
+(5 rows)
 ```
 
-4. In session two, issue a `vacuum freeze verbose` command for the table. The
-   verbose setting is useful because, although there is no progress report for this in
-   PostgreSQL currently, you can see activity.
+When the age of a database reaches 2 billion transaction IDs, transaction ID (XID)
+wraparound occurs and the database becomes read-only. You can use this query to produce a
+metric and run a few times a day. By default, autovacuum is set to keep the age of
+transactions to no more than 200,000,000 ([`autovacuum_freeze_max_age`](https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-FREEZE-MAX-AGE "https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-FREEZE-MAX-AGE")).
 
-```
-`\timing on`
-`Timing is on.`
-`vacuum freeze verbose pgbench_branches;`
-```
+A sample monitoring strategy might look like this:
 
-```
-INFO:  vacuuming "public.pgbench_branches"
-INFO:  index "pgbench_branches_pkey" now contains 50 row versions in 2 pages
-DETAIL:  0 index row versions were removed.
-0 index pages have been deleted, 0 are currently reusable.
-CPU 0.00s/0.00u sec elapsed 0.00 sec.
-INFO:  index "pgbench_branches_test_index" now contains 50 row versions in 2 pages
-DETAIL:  0 index row versions were removed.
-0 index pages have been deleted, 0 are currently reusable.
-CPU 0.00s/0.00u sec elapsed 0.00 sec.
-INFO:  "pgbench_branches": found 0 removable, 50 nonremovable row versions
-     in 43 out of 43 pages
-DETAIL:  0 dead row versions cannot be removed yet.
-There were 9347 unused item pointers.
-0 pages are entirely empty.
-CPU 0.00s/0.00u sec elapsed 0.00 sec.
-VACUUM
-Time: 2.765 ms
+- Set the `autovacuum_freeze_max_age` value to 200 million
+  transactions.
+- If a table reaches 500 million unfrozen transactions, that triggers a low-severity
+  alarm. This isn't an unreasonable value, but it can indicate that autovacuum
+  isn't keeping up.
+- If a table ages to 1 billion, this should be treated as an alarm to take action on. In
+  general, you want to keep ages closer to `autovacuum_freeze_max_age` for
+  performance reasons. We recommend that you investigate using the recommendations that
+  follow.
+- If a table reaches 1.5 billion unvacuumed transactions, that triggers a high-severity
+  alarm. Depending on how quickly your database uses transaction IDs, this alarm can
+  indicate that the system is running out of time to run autovacuum. In this case, we
+  recommend that you resolve this immediately.
+  If a table is constantly breaching these thresholds, modify your autovacuum parameters
+  further. By default, using VACUUM manually (which has cost-based delays disabled) is more
+  aggressive than using the default autovacuum, but it is also more intrusive to the system as a
+  whole.
 
-```
+We recommend the following:
 
-5. In session one, if autovacuum was blocking the vacuum session,
-   `pg_stat_activity` shows that waiting is `T` for your vacuum
-   session. In this case, end the autovacuum process as follows.
+- Be aware and turn on a monitoring mechanism so that you are aware of the age of your
+  oldest transactions.
 
-```
-SELECT pg_terminate_backend('the_pid');
-```
+For information on creating a process that warns you about transaction ID wraparound,
+see the AWS Database Blog post [Implement an early warning system for transaction ID wraparound in Amazon RDS for
+PostgreSQL](https://aws.amazon.com/blogs/database/implement-an-early-warning-system-for-transaction-id-wraparound-in-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/implement-an-early-warning-system-for-transaction-id-wraparound-in-amazon-rds-for-postgresql/").
 
-###### Note
-
-Some lower versions of Amazon Aurora can't terminate an autovacuum process using the
-preceding command and fail with the following error: `ERROR: 42501: must be a
- superuser to terminate superuser process LOCATION: pg_terminate_backend,
- signalfuncs.c:227`. To find the PostgreSQL versions
-that have been patched, search for the following bullet in [Amazon Aurora PostgreSQL updates](../../../'.md "../../../'.md"):
-
-```
-Allow rds_superuser to terminate backends which are not explicitly associated with a role
-```
-
-At this point, your session begins. Autovacuum restarts immediately because this table
-is probably the highest on its list of work. 6. Initiate your `vacuum freeze verbose` command in session two, and then end
-the autovacuum process in session one.
+- For busier tables, perform a manual vacuum freeze regularly during a maintenance
+  window, in addition to relying on autovacuum. For information on performing a manual
+  vacuum freeze, see [Performing a
+  manual vacuum freeze](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md").

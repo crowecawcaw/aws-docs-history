@@ -422,15 +422,134 @@ limit reached, and resource constraints on the DB instance.
 
 You can track the number of failed connections either from Performance Insights or by using the following command.
 
-````
+```
 mysql> show global status like 'aborted_connects';
 +------------------+-------+
-| Variable_name    | Value | +------------------+-------+
-| Aborted_connects | 7     | +------------------+-------+ 1 row in set (0.00 sec) ``` If the number of `Aborted_connects` increases over time, then the application could be having intermittent connectivity issues. You can use [Aurora Advanced Auditing](AuroraMySQL.md "AuroraMySQL.md") to log the connects and disconnects from the client connections. You can do this by setting the following parameters in the DB cluster parameter group: <br>• `server_audit_logging` = `1` <br>• `server_audit_events` = `CONNECT` The following is an extract from the audit logs for a failed login. ``` 1728498527380921,auora-mysql-node1,user_1,172.31.49.222,147189,0,FAILED_CONNECT,,,1045 1728498527380940,auora-mysql-node1,user_1,172.31.49.222,147189,0,DISCONNECT,,,0 ``` Where: <br>• `1728498527380921` – The epoch timestamp of when the failed login occurred <br>• `aurora-mysql-node1` – The instance identifier of the node of the Aurora MySQL cluster on which the connection failed <br>• `user_1` – The name of the database user for which the login failed <br>• `172.31.49.222` – The private IP address of the client from which the connection was established <br>• `147189` – The connection ID of the failed login <br>• `FAILED_CONNECT` – Indicates that the connection failed. <br>• `1045` – The return code. A nonzero value indicates an error. In this case, `1045` corresponds to access denied. For more information, see [Server error codes](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html "https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html") and [Client error codes](https://dev.mysql.com/doc/mysql-errors/5.7/en/client-error-reference.html "https://dev.mysql.com/doc/mysql-errors/5.7/en/client-error-reference.html") in the MySQL documentation. You can also examine the Aurora MySQL error logs for any related error messages, for example: ``` 2024-10-09T19:26:59.310443Z 220 [Note] [MY-010926] [Server] Access denied for user 'user_1'@'172.31.49.222' (using password: YES) (sql_authentication.cc:1502) ``` ### Example 2: Troubleshooting abnormal client disconnects You can track the number of abnormal client disconnects either from Performance Insights or by using the following command. ``` mysql> show global status like 'aborted_clients'; +-----------------+-------+
-| Variable_name   | Value | +-----------------+-------+
-| Aborted_clients | 9     | +-----------------+-------+ 1 row in set (0.01 sec) ``` If the number of `Aborted_clients` increases over time, then the application isn't closing the connections to the database correctly. If connections aren't closed properly, it can lead to resource leaks and potential performance issues. Leaving connections open unnecessarily can consume system resources, such as memory and file descriptors, which can eventually cause the application or server to become unresponsive or restart. You can use the following query to identify accounts that aren't closing connections properly. It retrieves the user account name, the host from which the user is connecting, the number of connections not closed, and the percentage of connections not closed. ``` SELECT ess.user, ess.host, (a.total_connections - a.current_connections) - ess.count_star AS not_closed, (((a.total_connections - a.current_connections) - ess.count_star) * 100) / (a.total_connections - a.current_connections) AS pct_not_closed FROM performance_schema.events_statements_summary_by_account_by_event_name AS ess JOIN performance_schema.accounts AS a ON (ess.user = a.user AND ess.host = a.host) WHERE ess.event_name = 'statement/com/quit' AND (a.total_connections - a.current_connections) > ess.count_star; +----------+---------------+------------+----------------+
-| user     | host          | not_closed | pct_not_closed | +----------+---------------+------------+----------------+
+| Variable_name    | Value |
++------------------+-------+
+| Aborted_connects | 7     |
++------------------+-------+
+1 row in set (0.00 sec)
+```
+
+If the number of `Aborted_connects` increases over time, then the application could be having intermittent connectivity
+issues.
+
+You can use [Aurora Advanced Auditing](AuroraMySQL.md "AuroraMySQL.md") to log the connects and disconnects from the client
+connections. You can do this by setting the following parameters in the DB cluster parameter group:
+
+- `server_audit_logging` = `1`
+- `server_audit_events` = `CONNECT`
+
+The following is an extract from the audit logs for a failed login.
+
+```
+1728498527380921,auora-mysql-node1,user_1,172.31.49.222,147189,0,FAILED_CONNECT,,,1045
+1728498527380940,auora-mysql-node1,user_1,172.31.49.222,147189,0,DISCONNECT,,,0
+```
+
+Where:
+
+- `1728498527380921` – The epoch timestamp of when the failed login occurred
+- `aurora-mysql-node1` – The instance identifier of the node of the Aurora MySQL cluster on which the connection
+  failed
+- `user_1` – The name of the database user for which the login failed
+- `172.31.49.222` – The private IP address of the client from which the connection was established
+- `147189` – The connection ID of the failed login
+- `FAILED_CONNECT` – Indicates that the connection failed.
+- `1045` – The return code. A nonzero value indicates an error. In this case, `1045` corresponds to access
+  denied.
+
+For more information, see [Server error codes](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html "https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html")
+and [Client error codes](https://dev.mysql.com/doc/mysql-errors/5.7/en/client-error-reference.html "https://dev.mysql.com/doc/mysql-errors/5.7/en/client-error-reference.html") in the MySQL
+documentation.
+
+You can also examine the Aurora MySQL error logs for any related error messages, for example:
+
+```
+2024-10-09T19:26:59.310443Z 220 [Note] [MY-010926] [Server] Access denied for user 'user_1'@'172.31.49.222' (using password: YES) (sql_authentication.cc:1502)
+```
+
+### Example 2: Troubleshooting abnormal client disconnects
+
+You can track the number of abnormal client disconnects either from Performance Insights or by using the following command.
+
+```
+mysql> show global status like 'aborted_clients';
++-----------------+-------+
+| Variable_name   | Value |
++-----------------+-------+
+| Aborted_clients | 9     |
++-----------------+-------+
+1 row in set (0.01 sec)
+```
+
+If the number of `Aborted_clients` increases over time, then the application isn't closing the connections to the database
+correctly. If connections aren't closed properly, it can lead to resource leaks and potential performance issues. Leaving connections open
+unnecessarily can consume system resources, such as memory and file descriptors, which can eventually cause the application or server to become
+unresponsive or restart.
+
+You can use the following query to identify accounts that aren't closing connections properly. It retrieves the user account name, the host
+from which the user is connecting, the number of connections not closed, and the percentage of connections not closed.
+
+```
+SELECT
+    ess.user,
+    ess.host,
+    (a.total_connections - a.current_connections) - ess.count_star AS not_closed,
+    (((a.total_connections - a.current_connections) - ess.count_star) * 100) / (a.total_connections - a.current_connections) AS pct_not_closed
+FROM
+    performance_schema.events_statements_summary_by_account_by_event_name AS ess
+    JOIN performance_schema.accounts AS a ON (ess.user = a.user AND ess.host = a.host)
+WHERE
+    ess.event_name = 'statement/com/quit'
+    AND (a.total_connections - a.current_connections) > ess.count_star;
+
++----------+---------------+------------+----------------+
+| user     | host          | not_closed | pct_not_closed |
++----------+---------------+------------+----------------+
 | user1    | 172.31.49.222 |          1 |        33.3333 |
 | user1    | 172.31.93.250 |       1024 |        12.1021 |
-| user2    | 172.31.93.250 |         10 |        12.8551 | +----------+---------------+------------+----------------+ 3 rows in set (0.00 sec) ``` After you identify the user accounts and hosts from which the connections aren't closed, you can proceed to check the code that isn't closing the connections gracefully. For example, with the MySQL connector in Python, use the `close()` method of the connection object to close connections. Here's an example function that establishes a connection to a database, performs a query, and closes the connection: ``` import mysql.connector def execute_query(query): # Establish a connection to the database connection = mysql.connector.connect( host="your_host", user="your_username", password="your_password", database="your_database" ) try: # Create a cursor object cursor = connection.cursor() # Execute the query cursor.execute(query) # Fetch and process the results results = cursor.fetchall() for row in results: print(row) finally: # Close the cursor and connection cursor.close() connection.close() ``` In this example, the `connection.close()` method is called in the `finally` block to make sure that the connection is closed, whether or not an exception occurs.
-````
+| user2    | 172.31.93.250 |         10 |        12.8551 |
++----------+---------------+------------+----------------+
+3 rows in set (0.00 sec)
+```
+
+After you identify the user accounts and hosts from which the connections aren't closed, you can proceed to check the code that isn't closing
+the connections gracefully.
+
+For example, with the MySQL connector in Python, use the `close()` method of the connection object to close connections. Here's an
+example function that establishes a connection to a database, performs a query, and closes the connection:
+
+```
+import mysql.connector
+
+def execute_query(query):
+    # Establish a connection to the database
+    connection = mysql.connector.connect(
+        host="your_host",
+        user="your_username",
+        password="your_password",
+        database="your_database"
+    )
+
+    try:
+        # Create a cursor object
+        cursor = connection.cursor()
+
+        # Execute the query
+        cursor.execute(query)
+
+        # Fetch and process the results
+        results = cursor.fetchall()
+        for row in results:
+            print(row)
+
+    finally:
+        # Close the cursor and connection
+        cursor.close()
+        connection.close()
+```
+
+In this example, the `connection.close()` method is called in the `finally` block to make sure that the connection is
+closed, whether or not an exception occurs.

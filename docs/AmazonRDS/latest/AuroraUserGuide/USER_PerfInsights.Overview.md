@@ -1,17 +1,16 @@
-# Pricing and data retention for Performance Insights
+# Maximum CPU
 
-By default, Performance Insights includes 7 days of performance data history and 1 million API requests per month. You
-can also purchase longer retention periods. For complete pricing information, see [Performance Insights Pricing](https://aws.amazon.com/rds/performance-insights/pricing/ "https://aws.amazon.com/rds/performance-insights/pricing/").
+In the dashboard, the **Database load** chart collects, aggregates, and displays session information.
+To see whether active sessions are exceeding the maximum CPU, look at their relationship to the **Max
+vCPU** line. Performance Insights determines the **Max vCPU** value by the number of vCPU (virtual CPU)
+cores for your DB instance. For Aurora Serverless v2, **Max vCPU**
+represents the estimated number of vCPUs.
 
-In the RDS console, you can choose any of the following retention periods for your Performance Insights data:
-
-- **Default (7 days)**
-- **`n` months**, where **`n`** is a number
-  from 1–24
-
-![Choose a retention period for your Performance Insights data.](images/pi-retention-periods.png)
-To learn how to set a retention period using the AWS CLI, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
-
-###### Note
-
-Stopping a DB cluster with Performance Insights enabled doesn't affect data retention. While a DB cluster is stopped, Performance Insights won't collect any data.
+One process can run on a vCPU at a time. If the number of processes exceeds the number of
+vCPUs, the processes start queuing. When queuing increases, database performance decreases.
+If the DB load is often above the **Max vCPU** line, and the primary wait
+state is CPU, the CPU is overloaded. In this case, you might want to throttle connections to
+the instance, tune any SQL queries with a high CPU load, or consider a larger instance
+class. High and consistent instances of any wait state indicate that there might be
+bottlenecks or resource contention issues to resolve. This can be true even if the DB load
+doesn't cross the **Max vCPU** line.

@@ -124,22 +124,71 @@ Reserve the following minimum numbers of free IP addresses in your subnets for y
 proxy, based on DB instance class sizes.
 
 | DB instance class       | Minimum free IP addresses |
-| ----------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | ------------------------- |
 | db.\*.xlarge or smaller | 10                        |
 | db.\*.2xlarge           | 15                        |
 | db.\*.4xlarge           | 25                        |
 | db.\*.8xlarge           | 45                        |
 | db.\*.12xlarge          | 60                        |
 | db.\*.16xlarge          | 75                        |
-| db.\*.24xlarge          | 110                       | For Aurora Serverless v2, reserve the following minimum numbers of free IP addresses in your subnets for your proxy, based on maximum ACU capacity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `Maximum ACU Capacity`  | Minimum free IP addresses |
-| ---                     | ---                       |
-| 16 or smaller           | 10                        |
-| 32                      | 15                        |
-| 64                      | 25                        |
-| 96                      | 30                        |
-| 128                     | 40                        |
-| 160                     | 50                        |
-| 192                     | 55                        |
-| 224                     | 65                        |
-| 256                     | 75                        | ###### Note RDS Proxy doesn't consume more than 215 IP addresses for each proxy in a VPC. RDS Proxy requires a minimum of 10 IP addresses for your Aurora database. These recommended numbers of IP addresses are estimates for a proxy with only the default endpoint. For each additional custom endpoint, we recommend reserving three more IP addresses. For each Aurora reader instance, we recommend that you reserve additional IP addresses as specified in the table based on that reader’s maximum ACUs for Aurora Serverless v2 target or DB instance size for a provisioned target. To estimate the required IP addresses for a proxy that's associated with an Aurora DB cluster with: <br>• 1 provisioned writer instance of size `db.r5.8xlarge` and 1 provisioned reader instance of size `db.r5.2xlarge`. <br>• The proxy attached to this cluster has a default endpoint and a custom endpoint with the read-only role. In this case, the proxy needs approximately 63 free IP addresses (45 for the writer instance, 15 for reader instance, and 3 for the additional custom endpoint). To estimate the required IP addresses for a proxy that's associated with an Aurora DB cluster that has: <br>• 1 Aurora Serverless v2 writer instance with maximum capacity of 256 ACUs and 1 Serverless v2 reader instance with maximum capacity of 192 ACUs. <br>• The proxy that's attached to this cluster has the default endpoint and 1 custom endpoint with the read-only role. In this case, the proxy needs approximately 133 free IP addresses (75 for the writer instance, 55 for reader instance, and 3 for the additional custom endpoint). To estimate the required IP addresses for a proxy that's associated with an Aurora cluster that has: <br>• 1 provisioned writer instance with DB instance size of db.r5.4xlarge and 1 Serverless v2 reader instance with maximum capacity of 64 ACUs. <br>• The proxy that's attached to this cluster has the default endpoint and 1 custom endpoint with the read-only role. In this case, the proxy needs approximately 53 free IP addresses (25 for the writer instance, 25 for reader instance, and 3 for the additional custom endpoint). To estimate the required IP addresses for a proxy that's associated with an Aurora DB cluster that has: <br>• 1 provisioned writer instance of size db.r5.24xlarge and 3 provisioned reader instance of size db.r5.8xlarge. <br>• The proxy that's attached to this DB cluster has the default endpoint and 1 custom endpoint with the read-only role. In this case, the proxy needs 215 free IP addresses. While calculations suggest 248 IPs (110 + (3\*45) + 3), RDS Proxy doesn't consume more than 215 IP addresses for each proxy in a VPC. |
+| db.\*.24xlarge          | 110                       |
+
+For Aurora Serverless v2, reserve the following minimum numbers of
+free IP addresses in your subnets for your proxy, based on maximum ACU capacity.
+
+| `Maximum ACU Capacity` | Minimum free IP addresses |
+| ---------------------- | ------------------------- |
+| 16 or smaller          | 10                        |
+| 32                     | 15                        |
+| 64                     | 25                        |
+| 96                     | 30                        |
+| 128                    | 40                        |
+| 160                    | 50                        |
+| 192                    | 55                        |
+| 224                    | 65                        |
+| 256                    | 75                        |
+
+###### Note
+
+RDS Proxy doesn't consume more than 215 IP addresses for each proxy in a
+VPC.
+
+RDS Proxy requires a minimum of 10 IP addresses for your Aurora database. These recommended numbers of IP addresses are estimates for a
+proxy with only the default endpoint. For each additional custom endpoint, we recommend
+reserving three more IP addresses. For each Aurora
+reader instance, we recommend that you reserve additional IP addresses as specified in the table based on that
+reader’s maximum ACUs for Aurora Serverless v2 target
+or DB instance size for a provisioned target.
+
+To estimate the required IP addresses for a proxy that's associated with
+an Aurora DB cluster with:
+
+- 1 provisioned writer instance of size `db.r5.8xlarge`
+  and 1 provisioned reader instance of size `db.r5.2xlarge`.
+- The proxy attached to this cluster has a default endpoint and a custom endpoint with the read-only role.
+
+In this case, the proxy needs approximately 63 free IP addresses (45 for the writer instance, 15
+for reader instance, and 3 for the additional custom endpoint).
+
+To estimate the required IP addresses for a proxy that's associated with an Aurora DB cluster that has:
+
+- 1 Aurora Serverless v2 writer instance
+  with maximum capacity of 256 ACUs and 1 Serverless v2 reader instance with maximum capacity of 192 ACUs.
+- The proxy that's attached to this cluster has the default endpoint and 1 custom endpoint with the read-only role.
+
+In this case, the proxy needs approximately
+133 free IP addresses (75 for the writer instance, 55 for reader instance, and 3 for the additional custom endpoint).
+
+To estimate the required IP addresses for a proxy that's associated with an Aurora cluster that has:
+
+- 1 provisioned writer instance with DB instance size of db.r5.4xlarge and 1 Serverless v2 reader instance with maximum capacity of 64 ACUs.
+- The proxy that's attached to this cluster has the default endpoint and 1 custom endpoint with the read-only role.
+  In this case, the proxy needs approximately 53 free IP addresses (25 for the writer instance, 25 for reader instance, and 3 for the additional custom endpoint).
+
+To estimate the required IP addresses for a proxy that's associated with an Aurora DB cluster that has:
+
+- 1 provisioned writer instance of size db.r5.24xlarge and 3
+  provisioned reader instance of size db.r5.8xlarge.
+- The proxy that's attached to this DB cluster has the default endpoint and 1 custom endpoint with the read-only role.
+
+In this case, the proxy needs 215 free IP addresses. While calculations suggest 248 IPs (110 + (3\*45) + 3), RDS Proxy doesn't consume more than 215 IP addresses for each proxy in a VPC.

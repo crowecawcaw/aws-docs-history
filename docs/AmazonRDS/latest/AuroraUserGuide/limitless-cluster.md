@@ -34,7 +34,7 @@ If you set the compute redundancy to a nonzero value, the total number of shards
 The nodes in compute standbys are scaled up and down to the same capacity as the writer. You don't set the capacity range separately for the standbys.
 
 | Total nodes | Routers | Shards | Default minimum capacity (ACUs) | Maximum capacity range (ACUs) |
-| ----------- | ------- | ------ | ------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ------- | ------ | ------------------------------- | ----------------------------- |
 | 4           | 2       | 2      | 16                              | 16–400                        |
 | 5           | 2       | 3      | 20                              | 401–500                       |
 | 6           | 2       | 4      | 24                              | 501–600                       |
@@ -55,4 +55,16 @@ The nodes in compute standbys are scaled up and down to the same capacity as the
 | 21          | 7       | 14     | 84                              | 2001–2100                     |
 | 22          | 8       | 14     | 88                              | 2101–2200                     |
 | 23          | 8       | 15     | 92                              | 2201–2300                     |
-| 24          | 8       | 16     | 96                              | 2301–6144                     | Maximum capacity–based dynamic configuration for the DB shard group is available only during creation. The number of routers and shards remains the same when the maximum capacity is modified. For more information, see [Changing the capacity of a DB shard group](limitless-capacity.md "limitless-capacity.md"). You can use SQL commands to add shards and routers to a DB shard group. For more information, see the following: <br>• [Splitting a shard in a DB shard group](limitless-shard-split.md "limitless-shard-split.md") <br>• [Adding a router to a DB shard group](limitless-add-router.md "limitless-add-router.md") ###### Note You can't delete shards or routers. |
+| 24          | 8       | 16     | 96                              | 2301–6144                     |
+
+Maximum capacity–based dynamic configuration for the DB shard group is available only during creation. The number of routers and shards
+remains the same when the maximum capacity is modified. For more information, see [Changing the capacity of a DB shard group](limitless-capacity.md "limitless-capacity.md").
+
+You can use SQL commands to add shards and routers to a DB shard group. For more information, see the following:
+
+- [Splitting a shard in a DB shard group](limitless-shard-split.md "limitless-shard-split.md")
+- [Adding a router to a DB shard group](limitless-add-router.md "limitless-add-router.md")
+
+###### Note
+
+You can't delete shards or routers.

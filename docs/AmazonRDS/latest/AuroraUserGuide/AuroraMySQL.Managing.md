@@ -1,192 +1,187 @@
-# Altering tables in Amazon Aurora using Fast DDL
+# Testing Amazon Aurora MySQL using fault injection queries
 
-Amazon Aurora includes optimizations to run an `ALTER TABLE` operation in place,
-nearly instantaneously. The operation completes without requiring the table to be copied
-and without having a material impact on other DML statements. Because the operation
-doesn't consume temporary storage for a table copy, it makes DDL statements practical
-even for large tables on small instance classes.
+You can test the fault tolerance of your Aurora MySQL DB cluster by using fault injection queries. Fault injection queries are
+issued as SQL commands to an Amazon Aurora instance. They let you schedule a simulated occurrence of one of the following events:
 
-Aurora MySQL version 3 is compatible with the MySQL 8.0 feature called instant DDL. Aurora MySQL version 2 uses a different
-implementation called Fast DDL.
+- A crash of a writer or reader DB instance
+- A failure of an Aurora Replica
+- A disk failure
+- Disk congestion
+  When a fault injection query specifies a crash, it forces a crash of the Aurora MySQL DB instance. The other fault injection queries
+  result in simulations of failure events, but don't cause the event to occur. When you submit a fault injection query, you also
+  specify an amount of time for the failure event simulation to occur for.
 
-###### Topics
+You can submit a fault injection query to one of your Aurora Replica instances by
+connecting to the endpoint for the Aurora Replica. For more information, see
+[Amazon Aurora endpoint connections](Aurora.Overview.md "Aurora.Overview.md").
 
-- [Instant DDL (Aurora MySQL version 3)](#AuroraMySQL.mysql80-instant-ddl "#AuroraMySQL.mysql80-instant-ddl")
-- [Fast DDL (Aurora MySQL version 2)](#AuroraMySQL.Managing.FastDDL-v2 "#AuroraMySQL.Managing.FastDDL-v2")
+Running fault injection queries requires all of the master user privileges. For more information, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
 
-## Instant DDL (Aurora MySQL version 3)
+## Testing an instance crash
 
-The optimization performed by Aurora MySQL version 3 to improve the efficiency of
-some DDL operations is called instant DDL.
+You can force a crash of an Amazon Aurora instance using the `ALTER SYSTEM
+ CRASH` fault injection query.
 
-Aurora MySQL version 3 is compatible with the instant DDL from community MySQL 8.0. You perform an
-instant DDL operation by using the clause `ALGORITHM=INSTANT` with the `ALTER TABLE` statement.
-For syntax and usage details about instant DDL, see
-[ALTER TABLE](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html "https://dev.mysql.com/doc/refman/8.0/en/alter-table.html")
-and [Online DDL Operations](https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html")
-in the MySQL documentation.
+For this fault injection query, a failover will not occur. If you want to test a
+failover, then you can choose the **Failover** instance action for
+your DB cluster in the RDS console, or use the
+[failover-db-cluster](../../../cli/latest/reference/rds/failover-db-cluster.md "../../../cli/latest/reference/rds/failover-db-cluster.md")
+AWS CLI command or the [FailoverDBCluster](../APIReference/API_FailoverDBCluster.md "../APIReference/API_FailoverDBCluster.md")
+RDS API operation.
 
-The following examples demonstrate the instant DDL feature. The `ALTER TABLE` statements
-add columns and change default column values. The examples include both regular and
-virtual columns, and both regular and partitioned tables. At each step, you can see the results by issuing
-`SHOW CREATE TABLE` and `DESCRIBE` statements.
-
-```
-mysql> CREATE TABLE t1 (a INT, b INT, KEY(b)) PARTITION BY KEY(b) PARTITIONS 6;
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> ALTER TABLE t1 RENAME TO t2, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> ALTER TABLE t2 ALTER COLUMN b SET DEFAULT 100, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> ALTER TABLE t2 ALTER COLUMN b DROP DEFAULT, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> ALTER TABLE t2 ADD COLUMN c ENUM('a', 'b', 'c'), ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> ALTER TABLE t2 MODIFY COLUMN c ENUM('a', 'b', 'c', 'd', 'e'), ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> ALTER TABLE t2 ADD COLUMN (d INT GENERATED ALWAYS AS (a + 1) VIRTUAL), ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.02 sec)
-
-mysql> ALTER TABLE t2 ALTER COLUMN a SET DEFAULT 20,
-    ->   ALTER COLUMN b SET DEFAULT 200, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> CREATE TABLE t3 (a INT, b INT) PARTITION BY LIST(a)(
-    ->   PARTITION mypart1 VALUES IN (1,3,5),
-    ->   PARTITION MyPart2 VALUES IN (2,4,6)
-    -> );
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> ALTER TABLE t3 ALTER COLUMN a SET DEFAULT 20, ALTER COLUMN b SET DEFAULT 200, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> CREATE TABLE t4 (a INT, b INT) PARTITION BY RANGE(a)
-    ->   (PARTITION p0 VALUES LESS THAN(100), PARTITION p1 VALUES LESS THAN(1000),
-    ->   PARTITION p2 VALUES LESS THAN MAXVALUE);
-Query OK, 0 rows affected (0.05 sec)
-
-mysql> ALTER TABLE t4 ALTER COLUMN a SET DEFAULT 20,
-    ->   ALTER COLUMN b SET DEFAULT 200, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
-
-/* Sub-partitioning example */
-mysql> CREATE TABLE ts (id INT, purchased DATE, a INT, b INT)
-    ->   PARTITION BY RANGE( YEAR(purchased) )
-    ->     SUBPARTITION BY HASH( TO_DAYS(purchased) )
-    ->     SUBPARTITIONS 2 (
-    ->       PARTITION p0 VALUES LESS THAN (1990),
-    ->       PARTITION p1 VALUES LESS THAN (2000),
-    ->       PARTITION p2 VALUES LESS THAN MAXVALUE
-    ->    );
-Query OK, 0 rows affected (0.10 sec)
-
-mysql> ALTER TABLE ts ALTER COLUMN a SET DEFAULT 20,
-    ->   ALTER COLUMN b SET DEFAULT 200, ALGORITHM = INSTANT;
-Query OK, 0 rows affected (0.01 sec)
+### Syntax
 
 ```
-
-## Fast DDL (Aurora MySQL version 2)
-
-Fast DDL in Aurora MySQL is an optimization designed to improve the performance of
-certain schema changes, such as adding or dropping columns, by reducing downtime and
-resource usage. It allows these operations to be completed more efficiently compared to
-traditional DDL methods.
-
-###### Important
-
-Currently, you must enable Aurora lab mode to use Fast DDL. For information about
-enabling lab mode, see [Amazon Aurora MySQL lab mode](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md").
-
-The Fast DDL optimization was initially introduced in lab mode on Aurora MySQL
-version 2 to enhance the efficiency of certain DDL operations. In Aurora MySQL version
-3, lab mode has been discontinued, and Fast DDL has been replaced by the MySQL 8.0
-Instant DDL feature.
-
-In MySQL, many data definition language (DDL) operations have a significant
-performance impact.
-
-For example, suppose that you use an `ALTER TABLE` operation to add a column to a table.
-Depending on the algorithm specified for the operation, this operation can involve the
-following:
-
-- Creating a full copy of the table
-- Creating a temporary table to process concurrent data manipulation language
-  (DML) operations
-- Rebuilding all indexes for the table
-- Applying table locks while applying concurrent DML changes
-- Slowing concurrent DML throughput
-
-This performance impact can be particularly challenging in environments with large
-tables or high transaction volumes. Fast DDL helps mitigate these challenges by
-optimizing schema changes, which enables quicker and less resource-intensive
-operations.
-
-### Fast DDL limitations
-
-Currently, Fast DDL has the following limitations:
-
-- Fast DDL only supports adding nullable columns, without default values, to
-  the end of an existing table.
-- Fast DDL doesn't work for partitioned tables.
-- Fast DDL doesn't work for InnoDB tables that use the REDUNDANT row
-  format.
-- Fast DDL doesn't work for tables with full-text search indexes.
-- If the maximum possible record size for the DDL operation is too large, Fast DDL is not used. A record size is too
-  large if it is greater than half the page size. The maximum size of a record is computed by adding the maximum sizes
-  of all columns. For variable sized columns, according to InnoDB standards, extern bytes are not included for
-  computation.
-
-### Fast DDL syntax
-
-```
-ALTER TABLE `tbl_name` ADD COLUMN `col_name` `column_definition`
+ALTER SYSTEM CRASH [ INSTANCE | DISPATCHER | NODE ];
 ```
 
-This statement takes the following options:
+### Options
 
-- `tbl_name` — The name of
-  the table to be modified.
-- `col_name` — The name of
-  the column to be added.
-- `col_definition` — The
-  definition of the column to be added.
+This fault injection query takes one of the following crash types:
+
+- `INSTANCE` — A crash of
+  the MySQL-compatible database for the Amazon Aurora instance is
+  simulated.
+- `DISPATCHER` — A crash
+  of the dispatcher on the writer instance for the Aurora DB cluster is
+  simulated. The _dispatcher_ writes updates to the
+  cluster volume for an Amazon Aurora DB cluster.
+- `NODE` — A crash of both
+  the MySQL-compatible database and the dispatcher for the Amazon Aurora
+  instance is simulated. For this fault injection simulation, the cache is
+  also deleted.
+
+The default crash type is `INSTANCE`.
+
+## Testing an Aurora replica failure
+
+You can simulate the failure of an Aurora Replica using the `ALTER SYSTEM
+ SIMULATE READ REPLICA FAILURE` fault injection query.
+
+An Aurora Replica failure blocks all requests from the writer instance to an Aurora Replica or all Aurora
+Replicas in the DB cluster for a specified time interval. When the time interval
+completes, the affected Aurora Replicas will be automatically synced up with the writer
+instance.
+
+### Syntax
+
+```
+ALTER SYSTEM SIMULATE `percentage_of_failure` PERCENT READ REPLICA FAILURE
+    [ TO ALL | TO "replica name" ]
+    FOR INTERVAL `quantity` { YEAR | QUARTER | MONTH | WEEK | DAY | HOUR | MINUTE | SECOND };
+```
+
+### Options
+
+This fault injection query takes the following parameters:
+
+- `percentage_of_failure` — The percentage of
+  requests to block during the failure event. This value can be a double
+  between 0 and 100. If you specify 0, then no requests are blocked. If
+  you specify 100, then all requests are blocked.
+- Failure type — The type of failure
+  to simulate. Specify `TO ALL` to simulate failures for all
+  Aurora Replicas in the DB cluster. Specify `TO` and the name
+  of the Aurora Replica to simulate a failure of a single Aurora Replica.
+  The default failure type is `TO ALL`.
+- `quantity` — The amount
+  of time for which to simulate the Aurora Replica failure. The interval is
+  an amount followed by a time unit. The simulation will occur for that
+  amount of the specified unit. For example, `20 MINUTE` will
+  result in the simulation running for 20 minutes.
 
 ###### Note
 
-You must specify a nullable column definition without a default value. Otherwise, Fast DDL isn't used.
+Take care when specifying the time interval for your Aurora Replica
+failure event. If you specify too long of a time interval, and your
+writer instance writes a large amount of data during the failure
+event, then your Aurora DB cluster might assume that your Aurora
+Replica has crashed and replace it.
 
-### Fast DDL examples
+## Testing a
 
-The following examples demonstrate the speedup from Fast DDL operations. The first SQL example runs `ALTER TABLE`
-statements on a large table without using Fast DDL. This operation takes substantial time. A CLI example shows how to enable
-Fast DDL for the cluster. Then another SQL example runs the same `ALTER TABLE` statements on an identical table.
-With Fast DDL enabled, the operation is very fast.
+disk failure
 
-This example uses the `ORDERS` table from the TPC-H benchmark, containing 150 million rows. This cluster
-intentionally uses a relatively small instance class, to demonstrate how long `ALTER TABLE` statements can take
-when you can't use Fast DDL. The example creates a clone of the original table containing identical data. Checking the
-`aurora_lab_mode` setting confirms that the cluster can't use Fast DDL, because lab mode isn't
-enabled. Then `ALTER TABLE ADD COLUMN` statements take substantial time to add new columns at the end of the
-table.
+You can simulate a disk failure for an Aurora DB cluster using the
+`ALTER SYSTEM SIMULATE DISK FAILURE` fault injection query.
 
-````
-`mysql>` create table orders_regular_ddl like orders;
-`Query OK, 0 rows affected (0.06 sec)`
+During a disk failure simulation, the Aurora DB cluster randomly marks disk
+segments as faulting. Requests to those segments will be blocked for the duration of
+the simulation.
 
-`mysql>` insert into orders_regular_ddl select * from orders;
-`Query OK, 150000000 rows affected (1 hour 1 min 25.46 sec)`
+### Syntax
 
-`mysql>` select @@aurora_lab_mode;
-`+-------------------+
-| @@aurora_lab_mode | +-------------------+
-| 0 | +-------------------+` `mysql>` ALTER TABLE orders_regular_ddl ADD COLUMN o_refunded boolean; `Query OK, 0 rows affected **(40 min 31.41 sec)**` `mysql>` ALTER TABLE orders_regular_ddl ADD COLUMN o_coverletter varchar(512); `Query OK, 0 rows affected **(40 min 44.45 sec)**` ``` This example does the same preparation of a large table as the previous example. However, you can't simply enable lab mode within an interactive SQL session. That setting must be enabled in a custom parameter group. Doing so requires switching out of the `mysql` session and running some AWS CLI commands or using the AWS Management Console. ``` `mysql>` create table orders_fast_ddl like orders; `Query OK, 0 rows affected (0.02 sec)` `mysql>` insert into orders_fast_ddl select * from orders; `Query OK, 150000000 rows affected (58 min 3.25 sec)` `mysql>` set aurora_lab_mode=1; `ERROR 1238 (HY000): Variable 'aurora_lab_mode' is a read only variable` ``` Enabling lab mode for the cluster requires some work with a parameter group. This AWS CLI example uses a cluster parameter group, to ensure that all DB instances in the cluster use the same value for the lab mode setting. ``` `$` aws rds create-db-cluster-parameter-group \ --db-parameter-group-family aurora5.7 \ --db-cluster-parameter-group-name lab-mode-enabled-57 --description 'TBD' `$` aws rds describe-db-cluster-parameters \ --db-cluster-parameter-group-name lab-mode-enabled-57 \ --query '*[*].[ParameterName,ParameterValue]' \ --output text | grep aurora_lab_mode `aurora_lab_mode 0` `$` aws rds modify-db-cluster-parameter-group \ --db-cluster-parameter-group-name lab-mode-enabled-57 \ --parameters ParameterName=aurora_lab_mode,ParameterValue=1,ApplyMethod=pending-reboot `{ "DBClusterParameterGroupName": "lab-mode-enabled-57" }` # Assign the custom parameter group to the cluster that's going to use Fast DDL. `$` aws rds modify-db-cluster --db-cluster-identifier tpch100g \ --db-cluster-parameter-group-name lab-mode-enabled-57 `{ "DBClusterIdentifier": "tpch100g", "DBClusterParameterGroup": "lab-mode-enabled-57", "Engine": "aurora-mysql", "EngineVersion": "5.7.mysql_aurora.2.10.2", "Status": "available" }` # Reboot the primary instance for the cluster tpch100g: `$` aws rds reboot-db-instance --db-instance-identifier instance-2020-12-22-5208 `{ "DBInstanceIdentifier": "instance-2020-12-22-5208", "DBInstanceStatus": "rebooting" }` `$` aws rds describe-db-clusters --db-cluster-identifier tpch100g \ --query '*[].[DBClusterParameterGroup]' --output text `lab-mode-enabled-57` `$` aws rds describe-db-cluster-parameters \ --db-cluster-parameter-group-name lab-mode-enabled-57 \ --query '*[*].{ParameterName:ParameterName,ParameterValue:ParameterValue}' \ --output text | grep aurora_lab_mode `aurora_lab_mode 1` ``` The following example shows the remaining steps after the parameter group change takes effect. It tests the `aurora_lab_mode` setting to make sure that the cluster can use Fast DDL. Then it runs `ALTER TABLE` statements to add columns to the end of another large table. This time, the statements finish very quickly. ``` `mysql>` select @@aurora_lab_mode; `+-------------------+
-| @@aurora_lab_mode | +-------------------+
-| 1 | +-------------------+` `mysql>` ALTER TABLE orders_fast_ddl ADD COLUMN o_refunded boolean; `Query OK, 0 rows affected **(1.51 sec)**` `mysql>` ALTER TABLE orders_fast_ddl ADD COLUMN o_coverletter varchar(512); `Query OK, 0 rows affected **(0.40 sec)**` ```
-````
+```
+ALTER SYSTEM SIMULATE `percentage_of_failure` PERCENT DISK FAILURE
+    [ IN DISK `index` | NODE `index` ]
+    FOR INTERVAL `quantity` { YEAR | QUARTER | MONTH | WEEK | DAY | HOUR | MINUTE | SECOND };
+```
+
+### Options
+
+This fault injection query takes the following parameters:
+
+- `percentage_of_failure`
+  — The percentage of the disk to mark as faulting during the
+  failure event. This value can be a double between 0 and 100. If you
+  specify 0, then none of the disk is marked as faulting. If you specify
+  100, then the entire disk is marked as faulting.
+- `DISK index` — A
+  specific logical block of data to simulate the failure event for. If you
+  exceed the range of available logical blocks of data, you will receive
+  an error that tells you the maximum index value that you can specify.
+  For more information, see [Displaying volume status for an Aurora MySQL DB cluster](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+- `NODE index` — A
+  specific storage node to simulate the failure event for. If you exceed
+  the range of available storage nodes, you will receive an error that
+  tells you the maximum index value that you can specify. For more
+  information, see [Displaying volume status for an Aurora MySQL DB cluster](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+- `quantity` — The
+  amount of time for which to simulate the disk failure. The interval is
+  an amount followed by a time unit. The simulation will occur for that
+  amount of the specified unit. For example, `20 MINUTE` will
+  result in the simulation running for 20 minutes.
+
+## Testing
+
+disk congestion
+
+You can simulate a disk failure for an Aurora DB cluster using the
+`ALTER SYSTEM SIMULATE DISK CONGESTION` fault injection query.
+
+During a disk congestion simulation, the Aurora DB cluster randomly marks disk
+segments as congested. Requests to those segments will be delayed between the
+specified minimum and maximum delay time for the duration of the simulation.
+
+### Syntax
+
+```
+ALTER SYSTEM SIMULATE `percentage_of_failure` PERCENT DISK CONGESTION
+    BETWEEN `minimum` AND `maximum` MILLISECONDS
+    [ IN DISK `index` | NODE `index` ]
+    FOR INTERVAL `quantity` { YEAR | QUARTER | MONTH | WEEK | DAY | HOUR | MINUTE | SECOND };
+```
+
+### Options
+
+This fault injection query takes the following parameters:
+
+- `percentage_of_failure` — The percentage of
+  the disk to mark as congested during the failure event. This value can
+  be a double between 0 and 100. If you specify 0, then none of the disk
+  is marked as congested. If you specify 100, then the entire disk is
+  marked as congested.
+- `DISK index` Or `NODE index` — A specific disk or node to simulate
+  the failure event for. If you exceed the range of indexes for the disk
+  or node, you will receive an error that tells you the maximum index
+  value that you can specify.
+- `minimum` And `maximum` — The minimum and maximum amount
+  of congestion delay, in milliseconds. Disk segments marked as congested
+  will be delayed for a random amount of time within the range of the
+  minimum and maximum amount of milliseconds for the duration of the
+  simulation.
+- `quantity` — The amount
+  of time for which to simulate the disk congestion. The interval is an
+  amount followed by a time unit. The simulation will occur for that
+  amount of the specified time unit. For example, `20 MINUTE`
+  will result in the simulation running for 20 minutes.

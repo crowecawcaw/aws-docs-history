@@ -1,36 +1,51 @@
-# Amazon Aurora DB clusters
+# Integrating Aurora with other AWS services
 
-An Amazon Aurora _DB cluster_ consists of one or more DB instances and a
-cluster volume that manages the data for those DB instances. An Aurora _cluster
-volume_ is a virtual database storage volume that spans multiple Availability
-Zones, with each Availability Zone having a copy of the DB cluster data. Two types of DB
-instances make up an Aurora DB cluster:
+Integrate Amazon Aurora with other AWS services so that you can extend your Aurora DB cluster
+to use additional capabilities in the AWS Cloud.
 
-- **Primary (writer) DB instance** – Supports read
-  and write operations, and performs all of the data modifications to the cluster volume.
-  Each Aurora DB cluster has one primary DB instance.
-- **Aurora Replica (reader DB instance)** – Connects
-  to the same storage volume as the primary DB instance but supports only read operations.
-  Each Aurora DB cluster can have up to 15 Aurora Replicas in addition to the
-  primary DB instance. Maintain high availability by locating Aurora Replicas in separate
-  Availability Zones. Aurora automatically fails over to an Aurora Replica in case the primary
-  DB instance becomes unavailable. You can specify the failover priority for Aurora Replicas.
-  Aurora Replicas can also offload read workloads from the primary DB instance.
-  The following diagram illustrates the relationship between the cluster volume, the writer
-  DB instance, and reader DB instances in an Aurora DB cluster.
+###### Topics
 
-![Amazon Aurora DB cluster architecture diagram showing storage layer, database instances, and client connections.](images/aurora_architecture.png)
+- [Integrating AWS services with
+  Amazon Aurora MySQL](#Aurora.Integrating.AuroraMySQL "#Aurora.Integrating.AuroraMySQL")
+- [Integrating AWS services with
+  Amazon Aurora PostgreSQL](#Aurora.Integrating.AuroraPostgreSQL "#Aurora.Integrating.AuroraPostgreSQL")
 
-###### Note
+## Integrating AWS services with
 
-The preceding information applies to all Aurora DB clusters—provisioned, parallel
-query, Aurora Global Database, Aurora Serverless, Aurora MySQL-Compatible, and Aurora PostgreSQL-Compatible.
+Amazon Aurora MySQL
 
-The Aurora DB cluster illustrates the separation of compute capacity and storage. For example,
-an Aurora configuration with only a single DB instance is still a cluster, because the
-underlying storage volume involves multiple storage nodes distributed across multiple
-Availability Zones (AZs).
+Amazon Aurora MySQL integrates with other AWS services so that you can extend your
+Aurora MySQL DB cluster to use additional capabilities in the AWS Cloud. Your Aurora MySQL
+DB cluster can use AWS services to do the following:
 
-Input/output (I/O) operations in Aurora DB clusters are counted the same way, regardless of
-whether they're on a writer or reader DB instance. For more information, see [Storage configurations for Amazon Aurora DB
-clusters](Aurora.Overview.md#aurora-storage-type "Aurora.Overview.md#aurora-storage-type").
+- Synchronously or asynchronously invoke an AWS Lambda function using the native functions
+  `lambda_sync` or `lambda_async`. Or, asynchronously invoke an AWS Lambda
+  function using the `mysql.lambda_async` procedure.
+- Load data from text or XML files stored in an Amazon S3 bucket into your DB cluster
+  using the `LOAD DATA FROM S3` or `LOAD XML FROM S3`
+  command.
+- Save data to text files stored in an Amazon S3 bucket from your DB cluster using the
+  `SELECT INTO OUTFILE S3` command.
+- Automatically add or remove Aurora Replicas with Application Auto Scaling. For more information,
+  see [Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.md "Aurora.Integrating.md").
+
+For more information about integrating Aurora MySQL with other AWS services, see
+[Integrating Amazon Aurora MySQL with other AWS
+services](AuroraMySQL.md "AuroraMySQL.md").
+
+## Integrating AWS services with
+
+Amazon Aurora PostgreSQL
+
+Amazon Aurora PostgreSQL integrates with other AWS services so that you can extend your
+Aurora PostgreSQL DB cluster to use additional capabilities in the AWS Cloud. Your
+Aurora PostgreSQL DB cluster can use AWS services to do the following:
+
+- Quickly collect, view, and assess performance on your relational database
+  workloads with Performance Insights.
+- Automatically add or remove Aurora Replicas with Aurora Auto Scaling. For more information,
+  see [Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.md "Aurora.Integrating.md").
+
+For more information about integrating Aurora PostgreSQL with other AWS services, see
+[Integrating Amazon Aurora PostgreSQL with other
+AWS services](AuroraPostgreSQL.md "AuroraPostgreSQL.md").

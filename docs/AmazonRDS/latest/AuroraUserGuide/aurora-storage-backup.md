@@ -122,7 +122,7 @@ days, where the incremental record size is the amount of storage needed to store
 change records coming from your database’s writes and updates.
 
 | Day   | Incremental record size (GB) |
-| ----- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----- | ---------------------------- |
 | 1     | 10                           |
 | 2     | 15                           |
 | 3     | 25                           |
@@ -130,4 +130,118 @@ change records coming from your database’s writes and updates.
 | 5     | 10                           |
 | 6     | 25                           |
 | 7     | 30                           |
-| Total | 135                          | This data means that the calculated automated backup usage for your backup is the following: `100 GB (volume size before retention period) + 135 GB (size of incremental records) = 235 GB total backup usage` The billed usage then subtracts the free tier of usage. Assume that the latest size of your volume is 200 GB: `235 GB total backup usage - 200 GB (latest volume size) = 35 GB billed backup usage` ## FAQs **When am I billed for snapshots?** You're billed for manual snapshots that are outside (older than) the retention period of the automated backup. **What's a manual snapshot?** A manual snapshot is a snapshot to which one of the following conditions applies: <br>• Manually requested by you <br>• Taken by an automated backup service such as AWS Backup <br>• Copied from an automated system snapshot to preserve it outside the retention period **What happens to my manual snapshots if I delete my DB cluster?** Manual snapshots don't expire until you delete them. When you delete your DB cluster, the manual snapshots that you previously took continue to exist. If these snapshots previously weren't being billed because they were within the automated backup retention period, now they're not covered anymore and all start to be billed at their full size for their usage. **How can I reduce my backup storage costs?** There are a few ways to reduce backup usage related costs: <br>• Delete manual snapshots that lie outside your automated backup’s retention period. This includes the snapshots you’ve taken, as well as the snapshots that your AWS Backup plan might have taken. Make sure to check your AWS Backup plan to make sure it isn't keeping snapshots outside the retention period that you don't expect. <br>• Evaluate your writes and updates to your database to see if you can reduce the number of changes you're making. Because our automated backup stores all incremental changes within the retention period, reducing the number of updates that you're making also reduces your automated backup charges. <br>• Evaluate whether reducing your automated backup’s retention period would make sense. Reducing the retention period means that the backup stores fewer days of incremental data, which could reduce the overall backup cost. However, reducing this retention period could also cause some snapshots to start being billed because they're now outside the retention period. Make sure to check all the extra snapshot costs that you might incur before deciding whether this is the right course of action for you. **How is backup storage billed?** Backup storage is billed by the GB-month. This means that the backup storage usage is charged as the weighted average of the usage over the given month. Here are a few examples for a 30-day month: <br>• Billed backup usage is 100 GB for all 30 days of the month. Your charge is the following: `(100 GB * 30) / 30 = 100 GB-month` <br>• Billed backup usage is 100 GB for the first 15 days of the month, then 0 GB for the last 15. Your charge is the following: `(100 GB * 15 + 0 GB * 15) / 30 = 50 GB-month` <br>• Billed backup usage is 50 GB for the first 10 days of the month, 100 GB for the next 10 days, then 150 GB for the final 10. Your charge is the following: `(50 GB * 10 + 100 GB * 10 + 150 GB * 10) / 30 = 100 GB-month` **How does the backtrack setting for my DB cluster affect backup storage usage?** The backtrack setting for an Aurora DB cluster doesn't affect the volume of backup data for that cluster. Amazon bills the storage for backtracking data separately. For pricing information about Aurora backtracking, see the [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing") page. **How do storage costs apply to shared snapshots?** If you share a snapshot with another user, you're still the owner of that snapshot. The storage costs apply to the snapshot owner. If you delete a shared snapshot that you own, nobody can access it. To keep access to a shared snapshot owned by someone else, you can copy that snapshot. Doing so makes you the owner of the new snapshot. Any storage costs for the copied snapshot apply to your account. For more information on sharing snapshots, see [Sharing a DB cluster snapshot](aurora-share-snapshot.md "aurora-share-snapshot.md"). For more information on copying snapshots, see [DB cluster snapshot copying](aurora-copy-snapshot.md "aurora-copy-snapshot.md"). |
+| Total | 135                          |
+
+This data means that the calculated automated backup usage for your backup is the
+following:
+
+```
+100 GB (volume size before retention period) + 135 GB (size of incremental records) = 235 GB total backup usage
+```
+
+The billed usage then subtracts the free tier of usage. Assume that the latest size of
+your volume is 200 GB:
+
+```
+235 GB total backup usage - 200 GB (latest volume size) = 35 GB billed backup usage
+```
+
+## FAQs
+
+**When am I billed for snapshots?**
+
+You're billed for manual snapshots that are outside (older than) the retention
+period of the automated backup.
+
+**What's a manual snapshot?**
+
+A manual snapshot is a snapshot to which one of the following conditions
+applies:
+
+- Manually requested by you
+- Taken by an automated backup service such as AWS Backup
+- Copied from an automated system snapshot to preserve it outside the
+  retention period
+
+**What happens to my manual snapshots if I delete my DB cluster?**
+
+Manual snapshots don't expire until you delete them.
+
+When you delete your DB cluster, the manual snapshots that you previously took
+continue to exist. If these snapshots previously weren't being billed because
+they were within the automated backup retention period, now they're not covered
+anymore and all start to be billed at their full size for their usage.
+
+**How can I reduce my backup storage costs?**
+
+There are a few ways to reduce backup usage related costs:
+
+- Delete manual snapshots that lie outside your automated backup’s
+  retention period. This includes the snapshots you’ve taken, as well as
+  the snapshots that your AWS Backup plan might have taken. Make sure to
+  check your AWS Backup plan to make sure it isn't keeping snapshots
+  outside the retention period that you don't expect.
+- Evaluate your writes and updates to your database to see if you can
+  reduce the number of changes you're making. Because our automated backup
+  stores all incremental changes within the retention period, reducing the
+  number of updates that you're making also reduces your automated backup
+  charges.
+- Evaluate whether reducing your automated backup’s retention period
+  would make sense. Reducing the retention period means that the backup
+  stores fewer days of incremental data, which could reduce the overall
+  backup cost. However, reducing this retention period could also cause
+  some snapshots to start being billed because they're now outside the
+  retention period. Make sure to check all the extra snapshot costs that
+  you might incur before deciding whether this is the right course of
+  action for you.
+
+**How is backup storage billed?**
+
+Backup storage is billed by the GB-month.
+
+This means that the backup storage usage is charged as the weighted average of
+the usage over the given month. Here are a few examples for a 30-day
+month:
+
+- Billed backup usage is 100 GB for all 30 days of the month. Your
+  charge is the following:
+
+```
+(100 GB * 30) / 30 = 100 GB-month
+```
+
+- Billed backup usage is 100 GB for the first 15 days of the month, then
+  0 GB for the last 15. Your charge is the following:
+
+```
+(100 GB * 15 + 0 GB * 15) / 30 = 50 GB-month
+```
+
+- Billed backup usage is 50 GB for the first 10 days of the month, 100
+  GB for the next 10 days, then 150 GB for the final 10. Your charge is
+  the following:
+
+```
+(50 GB * 10 + 100 GB * 10 + 150 GB * 10) / 30 = 100 GB-month
+```
+
+**How does the backtrack setting for my DB cluster affect backup storage
+usage?**
+
+The backtrack setting for an Aurora DB cluster doesn't affect the volume
+of backup data for that cluster. Amazon bills the storage for backtracking data
+separately. For pricing information about Aurora backtracking, see the [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing")
+page.
+
+**How do storage costs apply to shared snapshots?**
+
+If you share a snapshot with another user, you're still the owner of that
+snapshot. The storage costs apply to the snapshot owner. If you delete a shared
+snapshot that you own, nobody can access it.
+
+To keep access to a shared snapshot owned by someone else, you can copy that
+snapshot. Doing so makes you the owner of the new snapshot. Any storage costs
+for the copied snapshot apply to your account.
+
+For more information on sharing snapshots, see [Sharing a DB cluster snapshot](aurora-share-snapshot.md "aurora-share-snapshot.md"). For
+more information on copying snapshots, see [DB cluster snapshot copying](aurora-copy-snapshot.md "aurora-copy-snapshot.md").

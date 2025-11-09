@@ -154,12 +154,9 @@ that the status has changed to `SWITCHOVER_IN_PROGRESS`.
 - Make sure the
   DB cluster in the green environment is healthy and replicating.
 - Make sure that your network and client configurations don’t increase the DNS cache
-  Time-To-Live (TTL) beyond five seconds, which is the default for Aurora DNS zones.
-
-Otherwise, applications will continue to send write traffic to the blue environment after
-
-switchover.
-
+  Time-To-Live (TTL) beyond five seconds, which is the default for Aurora DNS zones. 
+  Otherwise, applications will continue to send write traffic to the blue environment after 
+  switchover.
 - For Aurora PostgreSQL blue/green deployments, do the following:
   - Review the logical replication limitations and take any required actions prior to
     switchover. For more information, see [Logical replication-specific

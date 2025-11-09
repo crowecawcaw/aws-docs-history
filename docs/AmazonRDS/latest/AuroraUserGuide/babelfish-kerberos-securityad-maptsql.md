@@ -42,7 +42,19 @@ The following table shows a sample mapping from AD security groups to T-SQL
 logins:
 
 | AD Security Groups | TSQL Logins           | Equivalent PG role for given TSQL Login | Weight |
-| ------------------ | --------------------- | --------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------------- | ------- | -------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------- | ------------------------------- | -------------- | ----------- | ---------------- | ---------------------------- | --------------- | --------- | -------------- | -------------------------- | -------------- |
+| ------------------ | --------------------- | --------------------------------------- | ------ |
 | accounts-group     | [corp\accounts-group] | accounts-group@CORP.EXAMPLE.COM         | 7      |
 | sales-group        | [corp\sales-group]    | sales-group@CORP.EXAMPLE.COM            | 10     |
-| dev-group          | [corp\dev-group]      | dev-group@CORP.EXAMPLE.COM              | 7      | ``` postgres=> select admap.ad_sid, admap.ad_grp, lgn.orig_loginname, lgn.rolname, admap.weight from pgadmap_read_mapping() as admap, sys.babelfish_authid_login_ext as lgn where admap.pg_role = lgn.rolname; ad_sid | ad_grp | orig_loginname | rolname | weight --------------+----------------+---------------------+---------------------------------+-------- S-1-5-67-890 | accounts-group | corp\accounts-group | accounts-group@CORP.EXAMPLE.COM | 7 S-1-2-34-560 | sales-group | corp\sales-group | sales-group@CORP.EXAMPLE.COM | 10 S-1-8-43-612 | dev-group | corp\dev-group | dev-group@CORP.EXAMPLE.COM | 7 (7 rows) ``` |
+| dev-group          | [corp\dev-group]      | dev-group@CORP.EXAMPLE.COM              | 7      |
+
+```
+
+postgres=> select admap.ad_sid, admap.ad_grp, lgn.orig_loginname, lgn.rolname, admap.weight from pgadmap_read_mapping() as admap, sys.babelfish_authid_login_ext as lgn where admap.pg_role = lgn.rolname;
+    ad_sid    |     ad_grp     |    orig_loginname   |             rolname             | weight
+--------------+----------------+---------------------+---------------------------------+--------
+ S-1-5-67-890 | accounts-group | corp\accounts-group  | accounts-group@CORP.EXAMPLE.COM |     7
+ S-1-2-34-560 | sales-group    | corp\sales-group     | sales-group@CORP.EXAMPLE.COM    |     10
+ S-1-8-43-612 | dev-group      | corp\dev-group       | dev-group@CORP.EXAMPLE.COM      |     7
+ (7 rows)
+
+```

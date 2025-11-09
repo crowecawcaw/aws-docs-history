@@ -23,17 +23,69 @@ You can view a subset of categorized Aurora metrics in the default Last Hour vie
 following table lists the categories and associated metrics displayed in the Amazon RDS console for an Aurora
 instance.
 
-| Category                   | Metrics                                                                                                                                                                                                                                                                     |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SQL**                    | `ActiveTransactions` `BlockedTransactions` `BufferCacheHitRatio` `CommitLatency` `CommitThroughput` `DatabaseConnections` `DDLLatency` `DDLThroughput` `Deadlocks` `DMLLatency` `DMLThroughput` `LoginFailures` `ResultSetCacheHitRatio` `SelectLatency` `SelectThroughput` |
-| **System**                 | `AuroraReplicaLag` `AuroraReplicaLagMaximum` `AuroraReplicaLagMinimum` `CPUCreditBalance` `CPUCreditUsage` `CPUUtilization` `FreeableMemory` `FreeLocalStorage` (This doesn't apply to Aurora Serverless v2.) `NetworkReceiveThroughput`                                    |
-| **Deployment**             | `AuroraReplicaLag` `BufferCacheHitRatio` `ResultSetCacheHitRatio` `SelectThroughput`                                                                                                                                                                                        | ## Aurora metrics available in specific cases In addition, some Aurora metrics are either shown only for specific instance classes, or only for DB instances, or with different names and different units of measurement: <br>• The `CPUCreditBalance` and `CPUCreditUsage` metrics are displayed only for Aurora MySQL `db.t2` instance classes and for Aurora PostgreSQL `db.t3` instance classes. <br>• The following metrics that are displayed with different names, as listed:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Metric                     | Display name                                                                                                                                                                                                                                                                |
-| ---                        | ---                                                                                                                                                                                                                                                                         |
-| `AuroraReplicaLagMaximum`  | Replica lag maximum                                                                                                                                                                                                                                                         |
-| `AuroraReplicaLagMinimum`  | Replica lag minimum                                                                                                                                                                                                                                                         |
-| `DDLThroughput`            | DDL                                                                                                                                                                                                                                                                         |
-| `NetworkReceiveThroughput` | Network throughput                                                                                                                                                                                                                                                          |
-| `VolumeBytesUsed`          | [Billed] Volume bytes used                                                                                                                                                                                                                                                  |
-| `VolumeReadIOPs`           | [Billed] Volume read IOPS                                                                                                                                                                                                                                                   |
-| `VolumeWriteIOPs`          | [Billed] Volume write IOPS                                                                                                                                                                                                                                                  | <br>• The following metrics apply to an entire Aurora DB cluster, but are displayed only when viewing DB instances for an Aurora DB cluster in the Amazon RDS console: + `VolumeBytesUsed` + `VolumeReadIOPs` + `VolumeWriteIOPs` <br>• The following metrics are displayed in megabytes, instead of bytes, in the Amazon RDS console: + `FreeableMemory` + `FreeLocalStorage` + `NetworkReceiveThroughput` + `NetworkTransmitThroughput` <br>• The following metrics apply to an Aurora PostgreSQL DB cluster with Aurora Optimized Reads: + `AuroraOptimizedReadsCacheHitRatio` + `FreeEphemeralStorage` + `ReadIOPSEphemeralStorage` + `ReadLatencyEphemeralStorage` + `ReadThroughputEphemeralStorage` + `WriteIOPSEphemeralStorage` + `WriteLatencyEphemeralStorage` + `WriteThroughputEphemeralStorage` ## Aurora metrics that aren't available in the console The following Aurora metrics aren't available in the Amazon RDS console: <br>• `AuroraBinlogReplicaLag` <br>• `DeleteLatency` <br>• `DeleteThroughput` <br>• `EngineUptime` <br>• `InsertLatency` <br>• `InsertThroughput` <br>• `NetworkThroughput` <br>• `Queries` <br>• `UpdateLatency` <br>• `UpdateThroughput` |
+| Category       | Metrics                                                                                                                                                                                                                                                                                                               |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SQL**        | `ActiveTransactions`<br>`BlockedTransactions`<br>`BufferCacheHitRatio`<br>`CommitLatency`<br>`CommitThroughput`<br>`DatabaseConnections`<br>`DDLLatency`<br>`DDLThroughput`<br>`Deadlocks`<br>`DMLLatency`<br>`DMLThroughput`<br>`LoginFailures`<br>`ResultSetCacheHitRatio`<br>`SelectLatency`<br>`SelectThroughput` |
+| **System**     | `AuroraReplicaLag`<br>`AuroraReplicaLagMaximum`<br>`AuroraReplicaLagMinimum`<br>`CPUCreditBalance`<br>`CPUCreditUsage`<br>`CPUUtilization`<br>`FreeableMemory`<br>`FreeLocalStorage` (This doesn't apply to Aurora Serverless v2.)<br>`NetworkReceiveThroughput`                                                      |
+| **Deployment** | `AuroraReplicaLag`<br>`BufferCacheHitRatio`<br>`ResultSetCacheHitRatio`<br>`SelectThroughput`                                                                                                                                                                                                                         |
+
+## Aurora metrics available in
+
+specific cases
+
+In addition, some Aurora metrics are either shown only for specific instance classes, or only for DB
+instances, or with different names and different units of measurement:
+
+- The `CPUCreditBalance` and `CPUCreditUsage` metrics are displayed only for
+  Aurora MySQL `db.t2` instance classes and for Aurora PostgreSQL `db.t3` instance
+  classes.
+- The following metrics that are displayed with different names, as listed:
+
+| Metric                     | Display name               |
+| -------------------------- | -------------------------- |
+| `AuroraReplicaLagMaximum`  | Replica lag maximum        |
+| `AuroraReplicaLagMinimum`  | Replica lag minimum        |
+| `DDLThroughput`            | DDL                        |
+| `NetworkReceiveThroughput` | Network throughput         |
+| `VolumeBytesUsed`          | [Billed] Volume bytes used |
+| `VolumeReadIOPs`           | [Billed] Volume read IOPS  |
+| `VolumeWriteIOPs`          | [Billed] Volume write IOPS |
+
+- The following metrics apply to an entire Aurora DB cluster, but are displayed only when viewing DB
+  instances for an Aurora DB cluster in the Amazon RDS console:
+  - `VolumeBytesUsed`
+  - `VolumeReadIOPs`
+  - `VolumeWriteIOPs`
+
+- The following metrics are displayed in megabytes, instead of bytes, in the Amazon RDS console:
+  - `FreeableMemory`
+  - `FreeLocalStorage`
+  - `NetworkReceiveThroughput`
+  - `NetworkTransmitThroughput`
+
+- The following metrics apply to an Aurora PostgreSQL DB cluster with Aurora Optimized Reads:
+  - `AuroraOptimizedReadsCacheHitRatio`
+  - `FreeEphemeralStorage`
+  - `ReadIOPSEphemeralStorage`
+  - `ReadLatencyEphemeralStorage`
+  - `ReadThroughputEphemeralStorage`
+  - `WriteIOPSEphemeralStorage`
+  - `WriteLatencyEphemeralStorage`
+  - `WriteThroughputEphemeralStorage`
+
+## Aurora metrics that aren't available in
+
+the console
+
+The following Aurora metrics aren't available in the Amazon RDS console:
+
+- `AuroraBinlogReplicaLag`
+- `DeleteLatency`
+- `DeleteThroughput`
+- `EngineUptime`
+- `InsertLatency`
+- `InsertThroughput`
+- `NetworkThroughput`
+- `Queries`
+- `UpdateLatency`
+- `UpdateThroughput`

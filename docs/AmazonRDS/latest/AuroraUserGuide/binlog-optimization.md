@@ -103,7 +103,7 @@ how often the data is read from the binlog I/O cache.
 The following SQL query computes the percentage of binlog read requests that take advantage of the cached
 information. In this case, the closer the ratio is to 100, the better it is.
 
-````
+```
 mysql> SELECT
   (SELECT VARIABLE_VALUE FROM INFORMATION_SCHEMA.GLOBAL_STATUS
     WHERE VARIABLE_NAME='aurora_binlog_io_cache_reads')
@@ -112,6 +112,68 @@ mysql> SELECT
   * 100
   as binlog_io_cache_hit_ratio;
 +---------------------------+
-| binlog_io_cache_hit_ratio | +---------------------------+
-|         99.99847949080622 | +---------------------------+ ``` The binlog I/O cache feature also includes new metrics related to the binlog dump threads. *Dump threads* are the threads that are created when new binlog replicas are connected to the binlog source instance. The dump thread metrics are printed to the database log every 60 seconds with the prefix `[Dump thread metrics]`. The metrics include information for each binlog replica such as `Secondary_id`, `Secondary_uuid`, binlog file name, and the position that each replica is reading. The metrics also include `Bytes_behind_primary` representing the distance in bytes between replication source and replica. This metric measures the lag of the replica I/O thread. That figure is different from the lag of the replica SQL applier thread, which is represented by the `seconds_behind_master` metric on the binlog replica. You can determine whether binlog replicas are catching up to the source or falling behind by checking whether the distance decreases or increases. ## In-memory relay log In Aurora MySQL version 3.10 and higher, Aurora introduces an optimization known as in-memory relay log to improve replication throughput. This optimization enhances relay log I/O performance by caching all intermediate relay log content in memory. As a result, it reduces commit latency by minimizing storage I/O operations since the relay log content remains readily accessible in memory. By default, the in-memory relay log feature is automatically enabled for Aurora-managed replication scenarios (including blue-green deployments, Aurora-Aurora replication, and cross-region replicas) when the replica meets any of these configurations: <br>• Single-threaded replication mode (replica\_parallel\_workers = 0) <br>• Multi-threaded replication with GTID mode enabled: + Auto-position enabled + GTID mode set to ON on the replica <br>• File-based replication with replica\_preserve\_commit\_order = ON The in-memory relay log feature is supported on instance classes larger than t3.large, but is not available on Aurora Serverless instances. The relay log circular buffer has a fixed size of 128 MB. To monitor the memory consumption of this feature, you can run the following query: ``` SELECT event_name, current_alloc FROM sys.memory_global_by_current_bytes WHERE event_name = 'memory/sql/relaylog_io_cache'; ``` The in-memory relay log feature is controlled by the aurora\_in\_memory\_relaylog parameter, which can be set at either the DB cluster or instance level. You can enable or disable this feature dynamically without restarting your instance: 1. Stop the ongoing replication 2. Set aurora\_in\_memory\_relaylog to ON (to enable) or OFF (to disable) in parameter group 3. Restart replication Example: ``` CALL mysql.rds_stop_replication; set aurora_in_memory_relaylog to ON to enable or OFF to disable in cluster parameter group CALL mysql.rds_start_replication; ``` Even when aurora\_in\_memory\_relaylog is set to ON, the in-memory relay log feature might still be disabled under certain conditions. To verify the feature's current status, you can use the following command: ``` SHOW GLOBAL STATUS LIKE 'Aurora_in_memory_relaylog_status'; ``` If the feature is unexpectedly disabled, you can identify the reason by running: ``` SHOW GLOBAL STATUS LIKE 'Aurora_in_memory_relaylog_disabled_reason'; ``` This command returns a message explaining why the feature is currently disabled.
-````
+| binlog_io_cache_hit_ratio |
++---------------------------+
+|         99.99847949080622 |
++---------------------------+
+
+```
+
+The binlog I/O cache feature also includes new metrics related to the binlog dump threads. _Dump threads_ are the threads that are created when new binlog replicas are connected to the binlog
+source instance.
+
+The dump thread metrics are printed to the database log every 60 seconds with the prefix `[Dump thread
+ metrics]`. The metrics include information for each binlog replica such as `Secondary_id`,
+`Secondary_uuid`, binlog file name, and the position that each replica is reading. The metrics also
+include `Bytes_behind_primary` representing the distance in bytes between replication source and replica.
+This metric measures the lag of the replica I/O thread. That figure is different from the lag of the replica SQL applier
+thread, which is represented by the `seconds_behind_master` metric on the binlog replica. You can determine
+whether binlog replicas are catching up to the source or falling behind by checking whether the distance decreases or
+increases.
+
+## In-memory relay log
+
+In Aurora MySQL version 3.10 and higher, Aurora introduces an optimization known as in-memory relay log to improve replication throughput. This optimization enhances relay log I/O performance by caching all intermediate relay log content in memory. As a result, it reduces commit latency by minimizing storage I/O operations since the relay log content remains readily accessible in memory.
+
+By default, the in-memory relay log feature is automatically enabled for Aurora-managed replication scenarios (including blue-green deployments, Aurora-Aurora replication, and cross-region replicas) when the replica meets any of these configurations:
+
+- Single-threaded replication mode (replica_parallel_workers = 0)
+- Multi-threaded replication with GTID mode enabled:
+  - Auto-position enabled
+  - GTID mode set to ON on the replica
+
+- File-based replication with replica_preserve_commit_order = ON
+
+The in-memory relay log feature is supported on instance classes larger than t3.large, but is not available on Aurora Serverless instances. The relay log circular buffer has a fixed size of 128 MB. To monitor the memory consumption of this feature, you can run the following query:
+
+```
+SELECT event_name, current_alloc FROM sys.memory_global_by_current_bytes WHERE event_name = 'memory/sql/relaylog_io_cache';
+```
+
+The in-memory relay log feature is controlled by the aurora_in_memory_relaylog parameter, which can be set at either the DB cluster or instance level. You can enable or disable this feature dynamically without restarting your instance:
+
+1. Stop the ongoing replication
+2. Set aurora_in_memory_relaylog to ON (to enable) or OFF (to disable) in parameter group
+3. Restart replication
+
+Example:
+
+```
+CALL mysql.rds_stop_replication;
+set aurora_in_memory_relaylog to ON to enable or OFF to disable in cluster parameter group
+CALL mysql.rds_start_replication;
+```
+
+Even when aurora_in_memory_relaylog is set to ON, the in-memory relay log feature might still be disabled under certain conditions. To verify the feature's current status, you can use the following command:
+
+```
+SHOW GLOBAL STATUS LIKE 'Aurora_in_memory_relaylog_status';
+```
+
+If the feature is unexpectedly disabled, you can identify the reason by running:
+
+```
+SHOW GLOBAL STATUS LIKE 'Aurora_in_memory_relaylog_disabled_reason';
+```
+
+This command returns a message explaining why the feature is currently disabled.

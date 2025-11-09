@@ -1,78 +1,160 @@
-# Requirements and limitations for Aurora Serverless v2
+# Using Aurora Serverless v2
 
-When you create a cluster where you intend to use Aurora Serverless v2 DB instances, pay attention to the following requirements and limitations.
+Aurora Serverless v2 is an on-demand, autoscaling configuration for Amazon Aurora. Aurora Serverless v2 helps to
+automate the processes of monitoring the workload and adjusting the capacity for your databases. Capacity is
+adjusted automatically based on application demand. You're charged only for the resources that your DB
+clusters consume. Thus, Aurora Serverless v2 can help you to stay within budget and avoid paying for computer
+resources that you don't use.
+
+This type of automation is especially valuable for multitenant databases, distributed databases, development and
+test systems, and other environments with highly variable and unpredictable workloads.
 
 ###### Topics
 
-- [Region and version availability](#aurora-serverless-v2-Availability "#aurora-serverless-v2-Availability")
-- [Clusters that use Aurora Serverless v2 must have a capacity range specified](#aurora-serverless-v2.requirements.capacity-range "#aurora-serverless-v2.requirements.capacity-range")
-- [Some provisioned features aren't supported in Aurora Serverless v2](#aurora-serverless-v2.limitations "#aurora-serverless-v2.limitations")
-- [Some Aurora Serverless v2 aspects are different from Aurora Serverless v1](#aurora-serverless-v2.requirements.v1-v2-differences "#aurora-serverless-v2.requirements.v1-v2-differences")
+- [Aurora Serverless v2 use cases](#aurora-serverless-v2.use-cases "#aurora-serverless-v2.use-cases")
+- [Advantages of Aurora Serverless v2](#aurora-serverless-v2.advantages "#aurora-serverless-v2.advantages")
+- [How Aurora Serverless v2 works](aurora-serverless-v2.md "aurora-serverless-v2.md")
+- [Requirements and limitations for Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md")
+- [Creating a DB cluster that uses Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md")
+- [Managing Aurora Serverless v2 DB clusters](aurora-serverless-v2-administration.md "aurora-serverless-v2-administration.md")
+- [Performance and scaling for Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md")
+- [Scaling to Zero ACUs with automatic pause and resume for Aurora Serverless v2](aurora-serverless-v2-auto-pause.md "aurora-serverless-v2-auto-pause.md")
+- [Migrating to Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md")
 
-## Region and version availability
+## Aurora Serverless v2 use cases
 
-Feature availability and support varies across specific versions of each Aurora database engine, and across AWS Regions.
-For more information on version and Region availability with Aurora and Aurora Serverless v2, see
-[Supported
-Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+Aurora Serverless v2 supports many types of database workloads. These range from development and testing environments, to websites and
+applications that have unpredictable workloads, to the most demanding, business-critical applications that require high scale and
+availability.
 
-The following example shows the AWS CLI commands to confirm the exact DB engine values you can use with Aurora Serverless v2 for a
-specific AWS Region. The `--db-instance-class` parameter for Aurora Serverless v2 is always
-`db.serverless`. The `--engine` parameter can be `aurora-mysql` or
-`aurora-postgresql`. Substitute the appropriate `--region` and `--engine` values to confirm
-the `--engine-version` values that you can use. If the command doesn't produce any output, Aurora Serverless v2
-isn't available for that combination of AWS Region and DB engine.
+Aurora Serverless v2 is especially useful for the following use cases:
 
-```
-aws rds describe-orderable-db-instance-options --engine aurora-mysql --db-instance-class db.serverless \
-  --region `my_region` --query 'OrderableDBInstanceOptions[].[EngineVersion]' --output text
+- **Variable workloads** – You're running workloads that have sudden
+  and unpredictable increases in activity. An example is a traffic site that sees a surge of activity when it
+  starts raining. Another is an e-commerce site with increased traffic when you offer sales or special
+  promotions. With Aurora Serverless v2, your database automatically scales capacity to meet the needs of the
+  application's peak load and scales back down when the surge of activity is over. With
+  Aurora Serverless v2, you no longer need to provision for peak or average capacity. You can specify an upper
+  capacity limit to handle the worst-case situation, and that capacity isn't used unless it's
+  needed.
 
-aws rds describe-orderable-db-instance-options --engine aurora-postgresql --db-instance-class db.serverless \
-  --region `my_region` --query 'OrderableDBInstanceOptions[].[EngineVersion]' --output text
-```
+The granularity of scaling in Aurora Serverless v2 helps you to match capacity closely to your database's
+needs. For a provisioned cluster, scaling up requires adding a whole new DB instance. For an
+Aurora Serverless v1 cluster, scaling up requires doubling the number of Aurora capacity units (ACUs) for the
+cluster, such as from 16 to 32 or 32 to 64. In contrast, Aurora Serverless v2 can add half an ACU when only a
+little more capacity is needed. It can add 0.5, 1, 1.5, 2, or additional half-ACUs based on the additional
+capacity needed to handle an increase in workload. And it can remove 0.5, 1, 1.5, 2, or additional half-ACUs
+when the workload decreases and that capacity is no longer needed.
 
-## Clusters that use Aurora Serverless v2 must have a capacity range specified
+- **Multi-tenant applications** – With Aurora Serverless v2, you don't
+  have to individually manage database capacity for each application in your fleet. Aurora Serverless v2 manages
+  individual database capacity for you.
 
-An Aurora cluster must have a `ServerlessV2ScalingConfiguration` attribute before you can add any DB instances that use
-the `db.serverless` DB instance class. This attribute specifies the capacity range. Aurora Serverless v2 capacity
-ranges from a minimum of 0 Aurora capacity units (ACU) to a maximum of 256 ACUs, in increments of 0.5 ACU.
-The allowed minimum value depends on the Aurora version. Each ACU provides the
-equivalent of approximately 2 gibibytes (GiB) of RAM and associated CPU and networking. For details about how Aurora Serverless v2
-uses the capacity range settings, see [How Aurora Serverless v2 works](aurora-serverless-v2.md "aurora-serverless-v2.md").
+You can create a cluster for each tenant. That way, you can use features such as cloning, snapshot restore,
+and Aurora global databases to enhance high availability and disaster recovery as appropriate for each
+tenant.
 
-For the allowed capacity ranges for various DB engine versions and platform versions, see [Aurora Serverless v2 capacity](aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity"). The available scaling range for a given cluster is influenced by both engine version and hardware (platform version).
+Each tenant might have specific busy and idle periods depending on the time of day, time of year,
+promotional events, and so on. Each cluster can have a wide capacity range. That way, clusters with low
+activity incur minimal DB instance charges. Any cluster can quickly scale up to handle periods of high
+activity.
 
-You can specify the minimum and maximum ACU values in the AWS Management Console when you create a cluster and associated
-Aurora Serverless v2 DB instance. You can also specify the `--serverless-v2-scaling-configuration`
-option in the AWS CLI. Or you can specify the `ServerlessV2ScalingConfiguration` parameter with the
-Amazon RDS API. You can specify this attribute when you create a cluster or modify an existing cluster. For the
-procedures to set the capacity range, see
-[Setting the Aurora Serverless v2 capacity range for a cluster](aurora-serverless-v2-administration.md#aurora-serverless-v2-setting-acus "aurora-serverless-v2-administration.md#aurora-serverless-v2-setting-acus"). For a
-detailed discussion of how to pick minimum and maximum capacity values and how those settings affect some
-database parameters, see
-[Choosing the Aurora Serverless v2 capacity range for an Aurora cluster](aurora-serverless-v2.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster "aurora-serverless-v2.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster").
+- **New applications** – You're deploying a new application and
+  you're unsure about the DB instance size you need. By using Aurora Serverless v2, you can set up a
+  cluster with one or many DB instances and have the database autoscale to the capacity requirements of your
+  application.
+- **Mixed-use applications** – Suppose that you have an online transaction
+  processing (OLTP) application, but you periodically experience spikes in query traffic. By specifying
+  promotion tiers for the Aurora Serverless v2 DB instances in a cluster, you can configure your cluster so that
+  the reader DB instances can scale independently of the writer DB instance to handle the additional load.
+  When the usage spike subsides, the reader DB instances scale back down to match the capacity of the writer
+  DB instance.
+- **Capacity planning** – Suppose that you usually adjust your database
+  capacity, or verify the optimal database capacity for your workload, by modifying the DB instance classes of
+  all the DB instances in a cluster. With Aurora Serverless v2, you can avoid this administrative overhead. You
+  can determine the appropriate minimum and maximum capacity by running the workload and checking how much the
+  DB instances actually scale.
 
-## Some provisioned features aren't supported in Aurora Serverless v2
+You can modify existing DB instances from provisioned to Aurora Serverless v2 or from Aurora Serverless v2 to
+provisioned. You don't need to create a new cluster or a new DB instance in such cases.
 
-The following features from Aurora provisioned DB instances currently aren't available for Amazon Aurora Serverless v2:
+With an Aurora global database, you might not need as much capacity for the secondary clusters as in the
+primary cluster. You can use Aurora Serverless v2 DB instances in the secondary clusters. That way, the
+cluster capacity can scale up if a secondary region is promoted and takes over your application's
+workload.
 
-- Database activity streams (DAS).
-- Cluster cache management for Aurora PostgreSQL. The `apg_ccm_enabled` configuration parameter doesn't apply to
-  Aurora Serverless v2 DB instances.
+- **Development and testing** – In addition to running your most demanding applications,
+  you can also use Aurora Serverless v2 for development and testing environments. With Aurora Serverless v2, you can create DB
+  instances with a low minimum capacity instead of using burstable db.t\* DB instance classes. You can set the maximum capacity
+  high enough that those DB instances can still run substantial workloads without running low on memory. When the database
+  isn't in use, all of the DB instances scale down to avoid unnecessary charges.
 
-Some Aurora features work with Aurora Serverless v2, but might cause issues if your capacity range is lower than needed for the memory requirements for those features
-with your specific workload. In that case, your database might not perform as well as usual, or might encounter out-of-memory errors. For recommendations about setting
-the appropriate capacity range, see
-[Choosing the Aurora Serverless v2 capacity range for an Aurora cluster](aurora-serverless-v2.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster "aurora-serverless-v2.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster").
-For troubleshooting information if your database encounters out-of-memory errors due to a misconfigured capacity range, see
-[Avoiding out-of-memory errors](aurora-serverless-v2.md#aurora-serverless-v2.setting-capacity.incompatible_parameters "aurora-serverless-v2.md#aurora-serverless-v2.setting-capacity.incompatible_parameters").
+###### Tip
 
-Aurora Auto Scaling isn't supported. This type of scaling adds new readers to handle additional read-intensive workload, based on CPU usage. However, scaling based on
-CPU usage isn't meaningful for Aurora Serverless v2. As an alternative, you can create Aurora Serverless v2 reader DB instances in advance and leave them scaled down to low
-capacity. That's a faster and less disruptive way to scale a cluster's read capacity than adding new DB instances dynamically.
+To make it convenient to use Aurora Serverless v2 in development and test environments, the AWS Management Console provides the
+**Easy create** shortcut when you create a new cluster. If you choose the
+**Dev/Test** option, Aurora creates a cluster with an Aurora Serverless v2 DB instance and a capacity
+range that's typical for a development and test system.
 
-## Some Aurora Serverless v2 aspects are different from Aurora Serverless v1
+### Using Aurora Serverless v2 for existing provisioned workloads
 
-If you are an Aurora Serverless v1 user and this is your first time using Aurora Serverless v2, consult the
-[differences between Aurora Serverless v2 and Aurora Serverless v1 requirements](aurora-serverless-v2.md#Serverless.v1-v2-requirements "aurora-serverless-v2.md#Serverless.v1-v2-requirements") to understand how requirements
-are different between Aurora Serverless v1 and Aurora Serverless v2.
+Suppose that you already have an Aurora application running on a provisioned cluster. You can check how the
+application would work with Aurora Serverless v2 by adding one or more Aurora Serverless v2 DB instances to the
+existing cluster as reader DB instances. You can check how often the reader DB instances scale up and down.
+You can use the Aurora failover mechanism to promote an Aurora Serverless v2 DB instance to be the writer and
+check how it handles the read/write workload. That way, you can switch over with minimal downtime and without
+changing the endpoint that your client applications use. For details on the procedure to convert existing
+clusters to Aurora Serverless v2, see
+[Migrating to Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+
+## Advantages of Aurora Serverless v2
+
+Aurora Serverless v2 is intended for variable or "spiky" workloads. With such unpredictable workloads,
+you might have difficulty planning when to change your database capacity. You might also have trouble making
+capacity changes quickly enough using the familiar mechanisms such as adding DB instances or changing DB
+instance classes. Aurora Serverless v2 provides the following advantages to help with such use cases:
+
+- **Simpler capacity management than provisioned** – Aurora Serverless v2
+  reduces the effort for planning DB instance sizes and resizing DB instances as the workload changes. It also
+  reduces the effort for maintaining consistent capacity for all the DB instances in a cluster.
+- **Faster and easier scaling during periods of high activity** –
+  Aurora Serverless v2 scales compute and memory capacity as needed, with no disruption to client transactions
+  or your overall workload. The ability to use reader DB instances with Aurora Serverless v2 helps you to take
+  advantage of horizontal scaling in addition to vertical scaling. The ability to use Aurora global databases
+  means that you can spread your Aurora Serverless v2 read workload across multiple AWS Regions. This
+  capability is more convenient than the scaling mechanisms for provisioned clusters. It's also faster
+  and more granular than the scaling capabilities in Aurora Serverless v1.
+- **Cost-effective during periods of low activity** – Aurora Serverless v2
+  helps you to avoid overprovisioning your DB instances. Aurora Serverless v2 adds resources in granular
+  increments when DB instances scale up. You pay only for the database resources that you consume.
+  Aurora Serverless v2 resource usage is measured on a per-second basis. That way, when a DB instance scales
+  down, the reduced resource usage is registered right away.
+- **Greater feature parity with provisioned** – You can use many Aurora
+  features with Aurora Serverless v2 that aren't available for Aurora Serverless v1. For example, with
+  Aurora Serverless v2 you can use reader DB instances, global databases, AWS Identity and Access Management (IAM) database
+  authentication, and Performance Insights. You can also use many more configuration parameters than with
+  Aurora Serverless v1.
+
+In particular, with Aurora Serverless v2 you can take advantage of the following features from provisioned
+clusters:
+
+    + **Reader DB instances** – Aurora Serverless v2 can take advantage of reader DB instances
+     to scale horizontally. When a cluster contains one or more reader DB instances, the cluster can fail over
+     immediately in case of problems with the writer DB instance. This is a capability that isn't available with
+     Aurora Serverless v1.
+    + **Multi-AZ clusters** – You can distribute the Aurora Serverless v2 DB instances
+     of a cluster across multiple Availability Zones (AZs). Setting up a Multi-AZ cluster helps to ensure business
+     continuity even in the rare case of issues that affect an entire AZ. This is a capability that isn't available
+     with Aurora Serverless v1.
+    + **Global databases** – You can use Aurora Serverless v2 in combination with Aurora global
+     databases to create additional read-only copies of your cluster in other AWS Regions for disaster recovery
+     purposes.
+    + **RDS Proxy** – You can use Amazon RDS Proxy to allow your applications to pool and
+     share database connections to improve their ability to scale.
+
+- **Faster, more granular, less disruptive scaling than Aurora Serverless v1**
+  – Aurora Serverless v2 can scale up and down faster. Scaling can change capacity by as little as 0.5
+  ACUs, instead of doubling or halving the number of ACUs. Scaling typically happens with no pause in
+  processing at all. Scaling doesn't involve an event that you have to be aware of, as with
+  Aurora Serverless v1. Scaling can happen while SQL statements are running and transactions are open, without
+  the need to wait for a quiet point.

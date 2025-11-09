@@ -56,10 +56,26 @@ aws rds modify-db-cluster-parameter-group ^
 
 parameter
 
-| Query/Parameter                              | Result                                                                               | Effective time                                 |
-| -------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SELECT @@VERSION                             | Returns user defined SQL Server version (babelfishpg_tsql.version value = Default)   | Immediately                                    |
-| SELECT SERVERPROPERTY('ProductVersion')      | Returns user defined SQL Server version                                              | Immediately                                    |
-| SELECT SERVERPROPERTY('ProductMajorVersion') | Returns Major Version of the user defined SQL Server version                         | Immediately                                    |
-| VERSION tokens in PRELOGIN Response Message  | Server returns PRELOGIN messages with user defined SQL Server version                | Takes effect when a user creates a new session |
-| SQLServerVersion in LoginAck when using JDBC | DatabaseMetaData.getDatabaseProductVersion() returns user defined SQL Server version | Takes effect when a user creates a new session | ## Interface with babelfishpg_tsql.version parameter You can set the output of the @@VERSION using the parameters babelfishpg_tsql.version and babelfishpg_tds.product_version. The following examples show how these two parameters interface. <br>• When babelfishpg_tsql.version parameter is "default" and babelfishpg_tds.product_version is 15.0.2000.8. + Output of @@version – 15.0.2000.8. <br>• When babelfishpg_tsql.version parameter is set to 13.0.2000.8 and babelfishpg_tds.product_version parameter is 15.0.2000.8. + Output of @@version – 13.0.2000.8. |
+| Query/Parameter                              | Result                                                                                  | Effective time                                 |
+| -------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| SELECT @@VERSION                             | Returns user defined SQL Server version<br>(babelfishpg_tsql.version value = Default)   | Immediately                                    |
+| SELECT SERVERPROPERTY('ProductVersion')      | Returns user defined SQL Server version                                                 | Immediately                                    |
+| SELECT SERVERPROPERTY('ProductMajorVersion') | Returns Major Version of the user defined SQL Server version                            | Immediately                                    |
+| VERSION tokens in PRELOGIN Response Message  | Server returns PRELOGIN messages with user defined SQL Server<br>version                | Takes effect when a user creates a new session |
+| SQLServerVersion in LoginAck when using JDBC | DatabaseMetaData.getDatabaseProductVersion() returns user<br>defined SQL Server version | Takes effect when a user creates a new session |
+
+## Interface with babelfishpg_tsql.version
+
+parameter
+
+You can set the output of the @@VERSION using the parameters
+babelfishpg_tsql.version and babelfishpg_tds.product_version. The following examples
+show how these two parameters interface.
+
+- When babelfishpg_tsql.version parameter is "default" and
+  babelfishpg_tds.product_version is 15.0.2000.8.
+  - Output of @@version – 15.0.2000.8.
+
+- When babelfishpg_tsql.version parameter is set to 13.0.2000.8 and
+  babelfishpg_tds.product_version parameter is 15.0.2000.8.
+  - Output of @@version – 13.0.2000.8.

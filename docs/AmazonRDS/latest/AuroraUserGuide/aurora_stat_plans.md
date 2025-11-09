@@ -49,17 +49,19 @@ In the example below, the two plans that are for the query identifier
 -5471422286312252535 are captured and the statements statistics are tracked by the
 planid.
 
-````
+```
 `db1=# select calls, total_exec_time, planid, plan_captured_time, explain_plan
 db1-# from aurora_stat_plans(true)
 db1-# where queryid = '-5471422286312252535'`
 `calls | total_exec_time | planid | plan_captured_time | explain_plan
 ---------+--------------------+-------------+-------------------------------+------------------------------------------------------------------
  1532632 | 3209846.097107853 | 1602979607 | 2023-10-31 03:27:16.925497+00 | Update on pgbench_branches +
-| | | | -> Bitmap Heap Scan on pgbench_branches +
-| | | | Recheck Cond: (bid = 76) +
-| | | | -> Bitmap Index Scan on pgbench_branches_pkey +
-| | | | Index Cond: (bid = 76) 61365 | 124078.18012200127 | -2054628807 | 2023-10-31 03:20:09.85429+00 | Update on pgbench_branches +
-| | | | -> Index Scan using pgbench_branches_pkey on pgbench_branches+
-| | | | Index Cond: (bid = 17)` ```
-````
+ | | | | -> Bitmap Heap Scan on pgbench_branches +
+ | | | | Recheck Cond: (bid = 76) +
+ | | | | -> Bitmap Index Scan on pgbench_branches_pkey +
+ | | | | Index Cond: (bid = 76)
+ 61365 | 124078.18012200127 | -2054628807 | 2023-10-31 03:20:09.85429+00 | Update on pgbench_branches +
+ | | | | -> Index Scan using pgbench_branches_pkey on pgbench_branches+
+ | | | | Index Cond: (bid = 17)`
+
+```

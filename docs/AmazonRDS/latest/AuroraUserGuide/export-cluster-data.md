@@ -1,129 +1,65 @@
-# Setting up access to an Amazon S3 bucket
+# Exporting DB cluster data to Amazon S3
 
-You identify the Amazon S3 bucket, then you give the DB cluster export task permission to access it.
+You can export data from a live Amazon Aurora DB cluster to an Amazon S3 bucket. The export process runs in the background and doesn't
+affect the performance of your active DB cluster.
+
+By default, all data in the DB cluster is exported. However, you can choose to export specific sets of
+databases, schemas, or tables.
+
+Amazon Aurora clones the DB cluster, extracts data from the clone, and stores the data in an Amazon S3 bucket. The data is stored in an
+Apache Parquet format that is compressed and consistent. Individual Parquet files are usually 1–10 MB in size.
+
+The faster performance that you can get with exporting snapshot data for Aurora MySQL version 2 and version 3 doesn't apply to
+exporting DB cluster data. For more information, see [Exporting DB cluster snapshot data to Amazon S3](aurora-export-snapshot.md "aurora-export-snapshot.md").
+
+You're charged for exporting the entire DB cluster, whether you export all or partial data. For more information, see the [Amazon Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/").
+
+After the data is exported, you can analyze the exported data directly through tools like Amazon Athena or Amazon Redshift Spectrum. For more
+information on using Athena to read Parquet data, see [Parquet SerDe](../../../athena/latest/ug/parquet-serde.md "../../../athena/latest/ug/parquet-serde.md") in the
+_Amazon Athena User Guide_. For more information on using Redshift Spectrum to read Parquet data, see [COPY from columnar data formats](../../../redshift/latest/dg/copy-usage_notes-copy-from-columnar.md "../../../redshift/latest/dg/copy-usage_notes-copy-from-columnar.md") in the
+_Amazon Redshift Database Developer Guide_.
+
+Feature availability and support varies across specific versions of each database engine and across AWS Regions. For more
+information on version and Region availability of exporting DB cluster data to S3, see [Supported
+Regions and Aurora DB engines for exporting cluster data to
+Amazon S3](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+
+You use the following process to export DB cluster data to an Amazon S3 bucket. For more details, see the following
+sections.
+
+###### Overview of exporting DB cluster data
+
+1. Identify the DB cluster whose data you want to export.
+2. Set up access to the Amazon S3 bucket.
+
+A _bucket_ is a container for Amazon S3 objects or files. To provide the information to
+access a bucket, take the following steps:
+
+    1. Identify the S3 bucket where the DB cluster data is to be exported. The S3 bucket must be in the same AWS
+     Region as the DB cluster. For more information, see [Identifying the Amazon S3 bucket for export](export-cluster-data.md#export-cluster-data.SetupBucket "export-cluster-data.md#export-cluster-data.SetupBucket").
+    2. Create an AWS Identity and Access Management (IAM) role that grants the DB cluster export task access to the S3 bucket. For more
+     information, see [Providing access to an Amazon S3 bucket using an IAM role](export-cluster-data.md#export-cluster-data.SetupIAMRole "export-cluster-data.md#export-cluster-data.SetupIAMRole").
+
+3. Create a symmetric encryption AWS KMS key for the server-side encryption. The KMS key is used by the cluster
+   export task to set up AWS KMS server-side encryption when writing the export data to S3.
+
+The KMS key policy must include both the `kms:CreateGrant` and `kms:DescribeKey` permissions.
+For more information on using KMS keys in Amazon Aurora, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+
+If you have a deny statement in your KMS key policy, make sure to explicitly exclude the AWS service principal
+`export.rds.amazonaws.com`.
+
+You can use a KMS key within your AWS account, or you can use a cross-account KMS key. For more information, see
+[Using a cross-account AWS KMS key](aurora-export-snapshot.md#aurora-export-snapshot.CMK "aurora-export-snapshot.md#aurora-export-snapshot.CMK"). 4. Export the DB cluster to Amazon S3 using the console or the `start-export-task` CLI command. For more
+information, see [Creating DB cluster export tasks](export-cluster-data.md "export-cluster-data.md"). 5. To access your exported data in the Amazon S3 bucket, see [Uploading, downloading, and managing objects](../../../AmazonS3/latest/user-guide/upload-download-objects.md "../../../AmazonS3/latest/user-guide/upload-download-objects.md")
+in the _Amazon Simple Storage Service User Guide_.
+Learn to set up, export, monitor, cancel, and troubleshoot DB cluster export tasks in the following sections.
 
 ###### Topics
 
-- [Identifying the Amazon S3 bucket for export](#export-cluster-data.SetupBucket "#export-cluster-data.SetupBucket")
-- [Providing access to an Amazon S3 bucket using an IAM role](#export-cluster-data.SetupIAMRole "#export-cluster-data.SetupIAMRole")
-- [Using a cross-account Amazon S3 bucket](#export-cluster-data.Setup.XAcctBucket "#export-cluster-data.Setup.XAcctBucket")
-
-## Identifying the Amazon S3 bucket for export
-
-Identify the Amazon S3 bucket to export the DB cluster data to. Use an existing S3 bucket or create a new S3 bucket.
-
-###### Note
-
-The S3 bucket must be in the same AWS Region as the DB cluster.
-
-For more information about working with Amazon S3 buckets, see the following in the
-_Amazon Simple Storage Service User Guide_:
-
-- [How do I view the
-  properties for an S3 bucket?](../../../AmazonS3/latest/user-guide/view-bucket-properties.md "../../../AmazonS3/latest/user-guide/view-bucket-properties.md")
-- [How do I enable
-  default encryption for an Amazon S3 bucket?](../../../AmazonS3/latest/user-guide/default-bucket-encryption.md "../../../AmazonS3/latest/user-guide/default-bucket-encryption.md")
-- [How do I create an S3
-  bucket?](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md")
-
-## Providing access to an Amazon S3 bucket using an IAM role
-
-Before you export DB cluster data to Amazon S3, give the export tasks write-access permission to the Amazon S3 bucket.
-
-To grant this permission, create an IAM policy that provides access to the bucket, then create an IAM role and attach
-the policy to the role. Later, you can assign the IAM role to your DB cluster export task.
-
-###### Important
-
-If you plan to use the AWS Management Console to export your DB cluster, you can choose to create the IAM policy and the role
-automatically when you export the DB cluster. For instructions, see [Creating DB cluster export tasks](export-cluster-data.md "export-cluster-data.md").
-
-###### To give tasks access to Amazon S3
-
-1. Create an IAM policy. This policy provides the bucket and object permissions that allow your DB cluster export
-   task to access Amazon S3.
-
-In the policy, include the following required actions to allow the transfer of files from Amazon Aurora to an S3
-bucket:
-
-    * `s3:PutObject*`
-    * `s3:GetObject*`
-    * `s3:ListBucket`
-    * `s3:DeleteObject*`
-    * `s3:GetBucketLocation`
-
-In the policy, include the following resources to identify the S3 bucket and objects in the bucket. The following
-list of resources shows the Amazon Resource Name (ARN) format for accessing Amazon S3.
-
-    * `arn:aws:s3:::`amzn-s3-demo-bucket``
-    * `arn:aws:s3:::`amzn-s3-demo-bucket`/*`
-
-For more information about creating an IAM policy for Amazon Aurora, see [Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"). See also [Tutorial: Create and attach your
-first customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the _IAM User Guide_.
-
-The following AWS CLI command creates an IAM policy named `ExportPolicy` with these options. It grants
-access to a bucket named `amzn-s3-demo-bucket`.
-
-###### Note
-
-After you create the policy, note the ARN of the policy. You need the ARN for a subsequent step when you
-attach the policy to an IAM role.
-
-```
-aws iam create-policy  --policy-name ExportPolicy --policy-document '{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "ExportPolicy",
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject*",
-                "s3:ListBucket",
-                "s3:GetObject*",
-                "s3:DeleteObject*",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::`amzn-s3-demo-bucket`",
-                "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
-            ]
-        }
-    ]
-}'
-```
-
-2. Create an IAM role, so that Aurora can assume this IAM role on your behalf to access your Amazon S3 buckets. For
-   more information, see [Creating
-   a role to delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
-
-The following example shows using the AWS CLI command to create a role named `rds-s3-export-role`.
-
-```
-aws iam create-role  --role-name rds-s3-export-role  --assume-role-policy-document '{
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-            "Service": "export.rds.amazonaws.com"
-          },
-         "Action": "sts:AssumeRole"
-       }
-     ]
-   }'
-```
-
-3. Attach the IAM policy that you created to the IAM role that you created.
-
-The following AWS CLI command attaches the policy created earlier to the role named `rds-s3-export-role`.
-Replace `your-policy-arn` with the policy ARN that you noted in an earlier
-step.
-
-```
-aws iam attach-role-policy  --policy-arn `your-policy-arn`  --role-name rds-s3-export-role
-```
-
-## Using a cross-account Amazon S3 bucket
-
-You can use S3 buckets across AWS accounts. For more information, see [Using a cross-account Amazon S3 bucket](aurora-export-snapshot.md#aurora-export-snapshot.Setup.XAcctBucket "aurora-export-snapshot.md#aurora-export-snapshot.Setup.XAcctBucket").
+- [Considerations for DB cluster exports](export-cluster-data.md "export-cluster-data.md")
+- [Setting up access to an Amazon S3 bucket](export-cluster-data.md "export-cluster-data.md")
+- [Creating DB cluster export tasks](export-cluster-data.md "export-cluster-data.md")
+- [Monitoring DB cluster export tasks](export-cluster-data.md "export-cluster-data.md")
+- [Canceling a DB cluster export task](export-cluster-data.md "export-cluster-data.md")
+- [Troubleshooting DB cluster exports](export-cluster-data.md "export-cluster-data.md")

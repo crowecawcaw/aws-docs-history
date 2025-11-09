@@ -49,20 +49,121 @@ ORDER BY revenue DESC,
 By default, the query might have a plan like the following. If you don't see hash
 join used in the query plan, make sure that optimization is turned on first.
 
-````
+```
 +----+-------------+----------+------------+------+---------------+------+---------+------+----------+----------+----------------------------------------------------+
-| id | select_type | table    | partitions | type | possible_keys | key  | key_len | ref  | rows     | filtered | Extra                                              | +----+-------------+----------+------------+------+---------------+------+---------+------+----------+----------+----------------------------------------------------+
+| id | select_type | table    | partitions | type | possible_keys | key  | key_len | ref  | rows     | filtered | Extra                                              |
++----+-------------+----------+------------+------+---------------+------+---------+------+----------+----------+----------------------------------------------------+
 |  1 | SIMPLE      | customer | NULL       | ALL  | NULL          | NULL | NULL    | NULL |  1480234 |    10.00 | Using where; Using temporary; Using filesort       |
 |  1 | SIMPLE      | orders   | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 14875240 |     3.33 | Using where; Using join buffer (Block Nested Loop) |
-|  1 | SIMPLE      | lineitem | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 59270573 |     3.33 | Using where; Using join buffer (Block Nested Loop) | +----+-------------+----------+------------+------+---------------+------+---------+------+----------+----------+----------------------------------------------------+ ``` For Aurora MySQL version 3, you turn on hash join at the session level by issuing the following statement. ``` SET optimizer_switch='block_nested_loop=on'; ``` For Aurora MySQL version 2.09 and higher, you set the `aurora_disable_hash_join` DB parameter or DB cluster parameter to `0` (off). Turning off `aurora_disable_hash_join` sets the value of `optimizer_switch` to `hash_join=on`. After you turn on hash join, try running the `EXPLAIN` statement again. For information about how to use hash joins effectively, see [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin"). With hash join turned on but parallel query turned off, the query might have a plan like the following, which uses hash join but not parallel query. ``` +----+-------------+----------+...+-----------+-----------------------------------------------------------------+
-| id | select_type | table    |...| rows      | Extra                                                           | +----+-------------+----------+...+-----------+-----------------------------------------------------------------+ |  1 | SIMPLE      | customer |...|   5798330 | Using where; Using index; Using temporary; Using filesort       |
-|  1 | SIMPLE      | orders   |...| 154545408 | Using where; Using join buffer (Hash Join Outer table orders)   | |  1 | SIMPLE      | lineitem |...| 606119300 | Using where; Using join buffer (Hash Join Outer table lineitem) | +----+-------------+----------+...+-----------+-----------------------------------------------------------------+ ``` After parallel query is turned on, two steps in this query plan can use the parallel query optimization, as shown under the `Extra` column in the `EXPLAIN` output. The I/O-intensive and CPU-intensive processing for those steps is pushed down to the storage layer. ``` +----+...+--------------------------------------------------------------------------------------------------------------------------------+
-| id |...| Extra                                                                                                                          | +----+...+--------------------------------------------------------------------------------------------------------------------------------+ |  1 |...| Using where; Using index; Using temporary; Using filesort                                                                      | |  1 |...| Using where; Using join buffer (Hash Join Outer table orders); **Using parallel query (4 columns, 1 filters, 1 exprs; 0 extra)**   | |  1 |...| Using where; Using join buffer (Hash Join Outer table lineitem); **Using parallel query (4 columns, 1 filters, 1 exprs; 0 extra)** | +----+...+--------------------------------------------------------------------------------------------------------------------------------+ ``` For information about how to interpret `EXPLAIN` output for a parallel query and the parts of SQL statements that parallel query can apply to, see [SQL constructs for parallel query in Aurora MySQL](aurora-mysql-parallel-query-sql.md "aurora-mysql-parallel-query-sql.md"). The following example output shows the results of running the preceding query on a db.r4.2xlarge instance with a cold buffer pool. The query runs substantially faster when using parallel query. ###### Note Because timings depend on many environmental factors, your results might be different. Always conduct your own performance tests to confirm the findings with your own environment, workload, and so on. ``` -- Without parallel query +------------+-------------+-------------+----------------+
-| l_orderkey | revenue     | o_orderdate | o_shippriority | +------------+-------------+-------------+----------------+ |   92511430 | 514726.4896 | 1995-03-06  |              0 | . . |   28840519 | 454748.2485 | 1995-03-08  |              0 | +------------+-------------+-------------+----------------+ 10 rows in set (**24 min 49.99 sec**) ``` ``` -- With parallel query +------------+-------------+-------------+----------------+
-| l_orderkey | revenue     | o_orderdate | o_shippriority | +------------+-------------+-------------+----------------+ |   92511430 | 514726.4896 | 1995-03-06  |              0 | . . |   28840519 | 454748.2485 | 1995-03-08  |              0 | +------------+-------------+-------------+----------------+ 10 rows in set (**1 min 49.91 sec**) ``` Many of the sample queries throughout this section use the tables from this TPC-H dataset, particularly the `PART` table, which has 20 million rows and the following definition. ``` +---------------+---------------+------+-----+---------+-------+
-| Field         | Type          | Null | Key | Default | Extra | +---------------+---------------+------+-----+---------+-------+ | p_partkey     | int(11)       | NO   | PRI | NULL    |       |
-| p_name        | varchar(55)   | NO   |     | NULL    |       | | p_mfgr        | char(25)      | NO   |     | NULL    |       |
-| p_brand       | char(10)      | NO   |     | NULL    |       | | p_type        | varchar(25)   | NO   |     | NULL    |       |
-| p_size        | int(11)       | NO   |     | NULL    |       | | p_container   | char(10)      | NO   |     | NULL    |       |
-| p_retailprice | decimal(15,2) | NO   |     | NULL    |       | | p_comment     | varchar(23)   | NO   |     | NULL    |       | +---------------+---------------+------+-----+---------+-------+ ``` Experiment with your workload to get a sense of whether individual SQL statements can take advantage of parallel query. Then use the following monitoring techniques to help verify how often parallel query is used in real workloads over time. For real workloads, extra factors such as concurrency limits apply.
-````
+|  1 | SIMPLE      | lineitem | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 59270573 |     3.33 | Using where; Using join buffer (Block Nested Loop) |
++----+-------------+----------+------------+------+---------------+------+---------+------+----------+----------+----------------------------------------------------+
+
+```
+
+For Aurora MySQL version 3, you turn on hash join at the session level by issuing the following statement.
+
+```
+SET optimizer_switch='block_nested_loop=on';
+```
+
+For Aurora MySQL version 2.09 and higher, you set the `aurora_disable_hash_join` DB parameter or DB cluster parameter
+to `0` (off). Turning off `aurora_disable_hash_join` sets the value of `optimizer_switch` to
+`hash_join=on`.
+
+After you turn on hash join, try running the `EXPLAIN` statement again. For information about how to use hash joins
+effectively, see [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin").
+
+With hash join turned on but parallel query turned off, the query might have a plan
+like the following, which uses hash join but not parallel query.
+
+```
++----+-------------+----------+...+-----------+-----------------------------------------------------------------+
+| id | select_type | table    |...| rows      | Extra                                                           |
++----+-------------+----------+...+-----------+-----------------------------------------------------------------+
+|  1 | SIMPLE      | customer |...|   5798330 | Using where; Using index; Using temporary; Using filesort       |
+|  1 | SIMPLE      | orders   |...| 154545408 | Using where; Using join buffer (Hash Join Outer table orders)   |
+|  1 | SIMPLE      | lineitem |...| 606119300 | Using where; Using join buffer (Hash Join Outer table lineitem) |
++----+-------------+----------+...+-----------+-----------------------------------------------------------------+
+
+```
+
+After parallel query is turned on, two steps in this query plan can use the parallel
+query optimization, as shown under the `Extra` column in the `EXPLAIN`
+output. The I/O-intensive and CPU-intensive processing for those steps is pushed down to the
+storage layer.
+
+```
++----+...+--------------------------------------------------------------------------------------------------------------------------------+
+| id |...| Extra                                                                                                                          |
++----+...+--------------------------------------------------------------------------------------------------------------------------------+
+|  1 |...| Using where; Using index; Using temporary; Using filesort                                                                      |
+|  1 |...| Using where; Using join buffer (Hash Join Outer table orders); **Using parallel query (4 columns, 1 filters, 1 exprs; 0 extra)**   |
+|  1 |...| Using where; Using join buffer (Hash Join Outer table lineitem); **Using parallel query (4 columns, 1 filters, 1 exprs; 0 extra)** |
++----+...+--------------------------------------------------------------------------------------------------------------------------------+
+
+```
+
+For information about how to interpret `EXPLAIN` output for a parallel query and the parts of
+SQL statements that parallel query can apply to, see
+[SQL constructs for parallel query in Aurora MySQL](aurora-mysql-parallel-query-sql.md "aurora-mysql-parallel-query-sql.md").
+
+The following example output shows the results of running the preceding query on a db.r4.2xlarge
+instance with a cold buffer pool. The query runs substantially faster when using parallel query.
+
+###### Note
+
+Because timings depend on many environmental factors,
+your results might be different. Always conduct your own performance tests
+to confirm the findings with your own environment, workload, and so on.
+
+```
+-- Without parallel query
++------------+-------------+-------------+----------------+
+| l_orderkey | revenue     | o_orderdate | o_shippriority |
++------------+-------------+-------------+----------------+
+|   92511430 | 514726.4896 | 1995-03-06  |              0 |
+.
+.
+|   28840519 | 454748.2485 | 1995-03-08  |              0 |
++------------+-------------+-------------+----------------+
+10 rows in set (**24 min 49.99 sec**)
+
+```
+
+```
+-- With parallel query
++------------+-------------+-------------+----------------+
+| l_orderkey | revenue     | o_orderdate | o_shippriority |
++------------+-------------+-------------+----------------+
+|   92511430 | 514726.4896 | 1995-03-06  |              0 |
+.
+.
+|   28840519 | 454748.2485 | 1995-03-08  |              0 |
++------------+-------------+-------------+----------------+
+10 rows in set (**1 min 49.91 sec**)
+
+```
+
+Many of the sample queries throughout this section use the tables from this TPC-H dataset, particularly
+the `PART` table, which has 20 million rows and the following definition.
+
+```
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| p_partkey     | int(11)       | NO   | PRI | NULL    |       |
+| p_name        | varchar(55)   | NO   |     | NULL    |       |
+| p_mfgr        | char(25)      | NO   |     | NULL    |       |
+| p_brand       | char(10)      | NO   |     | NULL    |       |
+| p_type        | varchar(25)   | NO   |     | NULL    |       |
+| p_size        | int(11)       | NO   |     | NULL    |       |
+| p_container   | char(10)      | NO   |     | NULL    |       |
+| p_retailprice | decimal(15,2) | NO   |     | NULL    |       |
+| p_comment     | varchar(23)   | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+
+```
+
+Experiment with your workload to get a sense of whether individual SQL statements can take advantage of
+parallel query. Then use the following monitoring techniques to help verify how often parallel query is
+used in real workloads over time. For real workloads, extra factors such as concurrency limits apply.

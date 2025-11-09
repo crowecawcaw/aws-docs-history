@@ -1,219 +1,242 @@
-# Aurora MySQL thread states
+# Aurora MySQL wait events
 
-The following are some common thread states for Aurora MySQL.
+The following are some common wait events for Aurora MySQL.
 
-**checking permissions**
+###### Note
 
-The thread is checking whether the server has the required privileges to run the statement.
+For information on tuning Aurora MySQL performance using wait events, see [Tuning Aurora MySQL with wait events](AuroraMySQL.Managing.Tuning.md "AuroraMySQL.Managing.Tuning.md").
 
-**checking query cache for query**
+For information about the naming conventions used in MySQL wait events, see [Performance
+Schema instrument naming conventions](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-instrument-naming.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-instrument-naming.html") in the MySQL documentation.
 
-The server is checking whether the current query is present in the query cache.
+**cpu**
 
-**cleaned up**
+The number of active connections that are ready to run is consistently higher than the number of
+vCPUs. For more information, see [cpu](ams-waits.md "ams-waits.md").
 
-This is the final state of a connection whose work is complete but which hasn't been closed by the
-client. The best solution is to explicitly close the connection in code. Or you can set a lower value
-for `wait_timeout` in your parameter group.
+**io/aurora_redo_log_flush**
 
-**closing tables**
+A session is persisting data to Aurora storage. Typically, this wait event is for a write I/O
+operation in Aurora MySQL. For more information, see [io/aurora_redo_log_flush](ams-waits.md "ams-waits.md").
 
-The thread is flushing the changed table data to disk and closing the used tables. If this isn't a
-fast operation, verify the network bandwidth consumption metrics against the instance class network
-bandwidth. Also, check that the parameter values for `table_open_cache` and
-`table_definition_cache` parameter allow for enough tables to be simultaneously open
-so that the engine doesn't need to open and close tables frequently. These parameters influence the
-memory consumption on the instance.
+**io/aurora_respond_to_client**
 
-**converting HEAP to MyISAM**
+Query processing has completed and results are being returned to the application client for the following
+Aurora MySQL versions: 2.10.2 and higher 2.10 versions, 2.09.3 and higher 2.09 versions, and 2.07.7 and higher 2.07
+versions. Compare the network bandwidth of the DB instance class with the size of the result set being returned.
+Also, check client-side response times. If the client is unresponsive and can't process the TCP packets, packet
+drops and TCP retransmissions can occur. This situation negatively affects network bandwidth. In versions lower than
+2.10.2, 2.09.3, and 2.07.7, the wait event erroneously includes idle time. To learn how to tune your database when
+this wait is prominent, see [io/aurora_respond_to_client](ams-waits.md "ams-waits.md").
 
-The query is converting a temporary table from in-memory to on-disk. This conversion is necessary
-because the temporary tables created by MySQL in the intermediate steps of query processing grew too
-big for memory. Check the values of `tmp_table_size` and `max_heap_table_size`.
-In later versions, this thread state name is `converting HEAP to ondisk`.
+**io/file/csv/data**
 
-**converting HEAP to ondisk**
+Threads are writing to tables in comma-separated value (CSV) format. Check your CSV table usage. A
+typical cause of this event is setting `log_output` on a table.
 
-The thread is converting an internal temporary table from an in-memory table to an on-disk
-table.
+**io/file/sql/binlog**
 
-**copy to tmp table**
+A thread is waiting on a binary log (binlog) file that is being written to disk.
 
-The thread is processing an `ALTER TABLE` statement. This state occurs after the table
-with the new structure has been created but before rows are copied into it. For a thread in this
-state, you can use the Performance Schema to obtain information about the progress of the copy
-operation.
+**io/redo_log_flush**
 
-**creating sort index**
+A session is persisting data to Aurora storage. Typically, this wait event is for a write I/O operation in
+Aurora MySQL. For more information, see [io/redo_log_flush](ams-waits.md "ams-waits.md").
 
-Aurora MySQL is performing a sort because it can't use an existing index to satisfy the `ORDER
- BY` or `GROUP BY` clause of a query. For more information, see [creating sort index](ams-states.md "ams-states.md").
+**io/socket/sql/client_connection**
 
-**creating table**
+The `mysqld` program is busy creating threads to handle incoming new client connections.
+For more information, see [io/socket/sql/client_connection](ams-waits.md "ams-waits.md").
 
-The thread is creating a permanent or temporary table.
+**io/table/sql/handler**
 
-**delayed commit ok done**
+The engine is waiting for access to a table. This event occurs regardless of whether the data is
+cached in the buffer pool or accessed on disk. For more information, see [io/table/sql/handler](ams-waits.md "ams-waits.md").
 
-An asynchronous commit in Aurora MySQL has received an acknowledgement and is complete.
+**lock/table/sql/handler**
 
-**delayed commit ok initiated**
+This wait event is a table lock wait event handler. For more information about atom and molecule events in the Performance Schema, see
+[Performance Schema atom and molecule events](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-atom-molecule-events.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-atom-molecule-events.html") in the MySQL documentation.
 
-The Aurora MySQL thread has started the async commit process but is waiting for acknowledgement. This
-is usually the genuine commit time of a transaction.
+**synch/cond/innodb/row_lock_wait**
 
-**delayed send ok done**
+Multiple data manipulation language (DML) statements are accessing the same database rows at the same time. For
+more information, see [synch/cond/innodb/row_lock_wait](ams-waits.md "ams-waits.md").
 
-An Aurora MySQL worker thread that is tied to a connection can be freed while a response is sent to
-the client. The thread can begin other work. The state `delayed send ok` means that the
-asynchronous acknowledgement to the client completed.
+**synch/cond/innodb/row_lock_wait_cond**
 
-**delayed send ok initiated**
+Multiple DML statements are accessing the same database rows at the same time. For more information, see [synch/cond/innodb/row_lock_wait_cond](ams-waits.md "ams-waits.md").
 
-An Aurora MySQL worker thread has sent a response asynchronously to a client and is now free to do
-work for other connections. The transaction has started an async commit process that hasn't yet been
-acknowledged.
+**synch/cond/sql/MDL_context::COND_wait_status**
 
-**executing**
+Threads are waiting on a table metadata lock. The engine uses this type of lock to manage
+concurrent access to a database schema and to ensure data consistency. For more information, see
+[Optimizing locking operations](https://dev.mysql.com/doc/refman/8.0/en/locking-issues.html "https://dev.mysql.com/doc/refman/8.0/en/locking-issues.html") in
+the MySQL documentation. To learn how to tune your database when this event is prominent, see [synch/cond/sql/MDL_context::COND_wait_status](ams-waits.md "ams-waits.md").
 
-The thread has begun running a statement.
+**synch/cond/sql/MYSQL_BIN_LOG::COND_done**
 
-**freeing items**
+You have turned on binary logging. There might be a high commit throughput, large number
+transactions committing, or replicas reading binlogs. Consider using multirow statements or bundling
+statements into one transaction. In Aurora, use global databases instead of binary log replication,
+or use the `aurora_binlog_*\**` parameters.
 
-The thread has run a command. Some freeing of items done during this state involves the query
-cache. This state is usually followed by cleaning up.
+**synch/mutex/innodb/aurora_lock_thread_slot_futex**
 
-**init**
+Multiple DML statements are accessing the same database rows at the same time. For more information, see [synch/mutex/innodb/aurora_lock_thread_slot_futex](ams-waits.md "ams-waits.md").
 
-This state occurs before the initialization of `ALTER TABLE`, `DELETE`,
-`INSERT`, `SELECT`, or `UPDATE` statements. Actions in this
-state include flushing the binary log or InnoDB log, and some cleanup of the query cache.
+**synch/mutex/innodb/buf_pool_mutex**
 
-**Source has sent all binlog to replica; waiting for more updates**
+The buffer pool isn't large enough to hold the working data set. Or the workload accesses pages
+from a specific table, which leads to contention in the buffer pool. For more information, see [synch/mutex/innodb/buf_pool_mutex](ams-waits.md "ams-waits.md").
 
-The primary node has finished its part of the replication. The thread is waiting for more queries
-to run so that it can write to the binary log (binlog).
+**synch/mutex/innodb/fil_system_mutex**
 
-**opening tables**
+The process is waiting for access to the tablespace memory cache. For more information, see [synch/mutex/innodb/fil_system_mutex](ams-waits.md "ams-waits.md").
 
-The thread is trying to open a table. This operation is fast unless an `ALTER TABLE` or
-a `LOCK TABLE` statement needs to finish, or it exceeds the value of
-`table_open_cache`.
+**synch/mutex/innodb/trx_sys_mutex**
 
-**optimizing**
+Operations are checking, updating, deleting, or adding transaction IDs in InnoDB in a consistent or
+controlled manner. These operations require a `trx_sys` mutex call, which is tracked by
+Performance Schema instrumentation. Operations include management of the transaction system when the
+database starts or shuts down, rollbacks, undo cleanups, row read access, and buffer pool loads. High
+database load with a large number of transactions results in the frequent appearance of this wait
+event. For more information, see [synch/mutex/innodb/trx_sys_mutex](ams-waits.md "ams-waits.md").
 
-The server is performing initial optimizations for a query.
+**synch/mutex/mysys/KEY_CACHE::cache_lock**
 
-**preparing**
+The `keycache->cache_lock` mutex controls access to the key cache for MyISAM tables. While Aurora MySQL
+doesn't allow usage of MyISAM tables to store persistent data, they are used to store internal temporary tables.
+Consider checking the `created_tmp_tables` or `created_tmp_disk_tables` status counters,
+because in certain situations, temporary tables are written to disk when they no longer fit in memory.
 
-This state occurs during query optimization.
+**synch/mutex/sql/FILE_AS_TABLE::LOCK_offsets**
 
-**query end**
+The engine acquires this mutex when opening or creating a table metadata file. When this wait event
+occurs with excessive frequency, the number of tables being created or opened has spiked.
 
-This state occurs after processing a query but before the freeing items state.
+**synch/mutex/sql/FILE_AS_TABLE::LOCK_shim_lists**
 
-**removing duplicates**
+The engine acquires this mutex while performing operations such as `reset_size`,
+`detach_contents`, or `add_contents` on the internal structure that keeps
+track of opened tables. The mutex synchronizes access to the list contents. When this wait event
+occurs with high frequency, it indicates a sudden change in the set of tables that were previously
+accessed. The engine needs to access new tables or let go of the context related to previously
+accessed tables.
 
-Aurora MySQL couldn't optimize a `DISTINCT` operation in the early stage of a query.
-Aurora MySQL must remove all duplicated rows before sending the result to the client.
+**synch/mutex/sql/LOCK_open**
 
-**searching rows for update**
+The number of tables that your sessions are opening exceeds the size of the table definition cache or the table
+open cache. Increase the size of these caches. For more information, see [How MySQL opens and closes tables](https://dev.mysql.com/doc/refman/8.0/en/table-cache.html "https://dev.mysql.com/doc/refman/8.0/en/table-cache.html").
 
-The thread is finding all matching rows before updating them. This stage is necessary if the
-`UPDATE` is changing the index that the engine uses to find the rows.
+**synch/mutex/sql/LOCK_table_cache**
 
-**sending binlog event to slave**
+The number of tables that your sessions are opening exceeds the size of the table definition cache or the table
+open cache. Increase the size of these caches. For more information, see [How MySQL opens and closes tables](https://dev.mysql.com/doc/refman/8.0/en/table-cache.html "https://dev.mysql.com/doc/refman/8.0/en/table-cache.html").
 
-The thread read an event from the binary log and is sending it to the replica.
+**synch/mutex/sql/LOG**
 
-**sending cached result to client**
+In this wait event, there are threads waiting on a log lock. For example, a thread might wait for a lock to write to the slow query log file.
 
-The server is taking the result of a query from the query cache and sending it to the
-client.
+**synch/mutex/sql/MYSQL_BIN_LOG::LOCK_commit**
 
-**sending data**
+In this wait event, there is a thread that is waiting to acquire a lock
+with the intention of committing to the binary log. Binary logging
+contention can occur on databases with a very high change rate. Depending on
+your version of MySQL, there are certain locks being used to protect the
+consistency and durability of the binary log. In RDS for MySQL, binary logs are
+used for replication and the automated backup process. In Aurora MySQL, binary
+logs are not needed for native replication or backups. They are disabled by
+default but can be enabled and used for external replication or change data
+capture. For more information, see [The binary
+log](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html "https://dev.mysql.com/doc/refman/8.0/en/binary-log.html") in the MySQL documentation.
 
-The thread is reading and processing rows for a `SELECT` statement but hasn't yet
-started sending data to the client. The process is identifying which pages contain the results
-necessary to satisfy the query. For more information, see [sending data](ams-states.md "ams-states.md").
+**sync/mutex/sql/MYSQL_BIN_LOG::LOCK_dump_thread_metrics_collection**
 
-**sending to client**
+If binary logging is turned on, the engine acquires this mutex when it prints active dump threads
+metrics to the engine error log and to the internal operations map.
 
-The server is writing a packet to the client. In earlier MySQL versions, this wait event was
-labeled `writing to net`.
+**sync/mutex/sql/MYSQL_BIN_LOG::LOCK_inactive_binlogs_map**
 
-**starting**
+If binary logging is turned on, the engine acquires this mutex when it adds to, deletes from, or
+searches through the list of binlog files behind the latest one.
 
-This is the first stage at the beginning of statement execution.
+**sync/mutex/sql/MYSQL_BIN_LOG::LOCK_io_cache**
 
-**statistics**
+If binary logging is turned on, the engine acquires this mutex during Aurora binlog IO cache
+operations: allocate, resize, free, write, read, purge, and access cache info. If this event occurs
+frequently, the engine is accessing the cache where binlog events are stored. To reduce wait times,
+reduce commits. Try grouping multiple statements into a single transaction.
 
-The server is calculating statistics to develop a query execution plan. If a thread is in this
-state for a long time, the server is probably disk-bound while performing other work.
+**synch/mutex/sql/MYSQL_BIN_LOG::LOCK_log**
 
-**storing result in query cache**
+You have turned on binary logging. There might be high commit throughput, many transactions
+committing, or replicas reading binlogs. Consider using multirow statements or bundling statements
+into one transaction. In Aurora, use global databases instead of binary log replication or use the
+`aurora_binlog_*` parameters.
 
-The server is storing the result of a query in the query cache.
+**synch/mutex/sql/SERVER_THREAD::LOCK_sync**
 
-**system lock**
+The mutex `SERVER_THREAD::LOCK_sync` is acquired during the scheduling, processing, or
+launching of threads for file writes. The excessive occurrence of this wait event indicates increased
+write activity in the database.
 
-The thread has called `mysql_lock_tables`, but the thread state hasn't been updated
-since the call. This general state occurs for many reasons.
+**synch/mutex/sql/TABLESPACES:lock**
 
-**update**
+The engine acquires the `TABLESPACES:lock` mutex during the following tablespace
+operations: create, delete, truncate, and extend. The excessive occurrence of this wait event
+indicates a high frequency of tablespace operations. An example is loading a large amount of data
+into the database.
 
-The thread is preparing to start updating the table.
+**synch/rwlock/innodb/dict**
 
-**updating**
+In this wait event, there are threads waiting on an rwlock held on the InnoDB data dictionary.
 
-The thread is searching for rows and is updating them.
+**synch/rwlock/innodb/dict_operation_lock**
 
-**user lock**
+In this wait event, there are threads holding locks on InnoDB data dictionary operations.
 
-The thread issued a `GET_LOCK` call. The thread either requested an advisory lock and is
-waiting for it, or is planning to request it.
+**synch/rwlock/innodb/dict sys RW lock**
 
-**waiting for more updates**
+A high number of concurrent data control language statements (DCLs) in data definition language
+code (DDLs) are triggered at the same time. Reduce the application's dependency on DDLs during
+regular application activity.
 
-The primary node has finished its part of the replication. The thread is waiting for more queries
-to run so that it can write to the binary log (binlog).
+**synch/rwlock/innodb/index_tree_rw_lock**
 
-**waiting for schema metadata lock**
+A large number of similar data manipulation language (DML) statements are accessing the same
+database object at the same time. Try using multirow statements. Also, spread the workload over
+different database objects. For example, implement partitioning.
 
-This is a wait for a metadata lock.
+**synch/sxlock/innodb/dict_operation_lock**
 
-**waiting for stored function metadata lock**
+A high number of concurrent data control language statements (DCLs) in data definition language
+code (DDLs) are triggered at the same time. Reduce the application's dependency on DDLs during
+regular application activity.
 
-This is a wait for a metadata lock.
+**synch/sxlock/innodb/dict_sys_lock**
 
-**waiting for stored procedure metadata lock**
+A high number of concurrent data control language statements (DCLs) in data definition language
+code (DDLs) are triggered at the same time. Reduce the application's dependency on DDLs during
+regular application activity.
 
-This is a wait for a metadata lock.
+**synch/sxlock/innodb/hash_table_locks**
 
-**waiting for table flush**
+The session couldn't find pages in the buffer pool. The engine either needs to read a file or
+modify the least-recently used (LRU) list for the buffer pool. Consider increasing the buffer cache
+size and improving access paths for the relevant queries.
 
-The thread is executing `FLUSH TABLES` and is waiting for all threads to close their
-tables. Or the thread received notification that the underlying structure for a table changed, so it
-must reopen the table to get the new structure. To reopen the table, the thread must wait until all
-other threads have closed the table. This notification takes place if another thread has used one of
-the following statements on the table: `FLUSH TABLES`, `ALTER TABLE`,
-`RENAME TABLE`, `REPAIR TABLE`, `ANALYZE TABLE`, or
-`OPTIMIZE TABLE`.
+**synch/sxlock/innodb/index_tree_rw_lock**
 
-**waiting for table level lock**
+Many similar data manipulation language (DML) statements are accessing the same database object at
+the same time. Try using multirow statements. Also, spread the workload over different database
+objects. For example, implement partitioning.
 
-One session is holding a lock on a table while another session tries to acquire the same lock on
-the same table.
+**synch/mutex/innodb/temp_pool_manager_mutex**
 
-**waiting for table metadata lock**
+This wait event occurs when a session is waiting to acquire a mutex for managing the pool of session temporary tablespaces.
 
-Aurora MySQL uses metadata locking to manage concurrent access to database objects and to ensure data
-consistency. In this wait event, one session is holding a metadata lock on a table while another
-session tries to acquire the same lock on the same table. When the Performance Schema is enabled,
-this thread state is reported as the wait event
-`synch/cond/sql/MDL_context::COND_wait_status`.
-
-**writing to net**
-
-The server is writing a packet to the network. In later MySQL versions, this wait event is labeled
-`Sending to client`.
+For more information on troubleshooting synch wait events, see
+[Why
+is my MySQL DB instance showing a high number of active sessions waiting on SYNCH wait events in
+Performance Insights?](https://aws.amazon.com/premiumsupport/knowledge-center/aurora-mysql-synch-wait-events/ "https://aws.amazon.com/premiumsupport/knowledge-center/aurora-mysql-synch-wait-events/").

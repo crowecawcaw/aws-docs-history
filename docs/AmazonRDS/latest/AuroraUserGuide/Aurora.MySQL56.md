@@ -87,10 +87,25 @@ Be sure to perform these instructions in every AWS Region and for each AWS accou
    To find clusters affected by this end-of-life process using the AWS CLI, call the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command.
    You can use the sample script following.
 
-````
+```
 aws rds describe-db-clusters --include-share --query 'DBClusters[?Engine==`aurora`].{EV:EngineVersion, DBCI:DBClusterIdentifier, EM:EngineMode}' --output table --`region us-east-1`
        `+------------------------------------------+
-| DescribeDBClusters | +---------------+--------------+-----------+
-| DBCI | EM | EV | +---------------+--------------+-----------+
-| my-database-1| serverless | 5.6.10a | +---------------+--------------+-----------+` ``` To find Aurora MySQL DB clusters running Aurora MySQL version 1, use the RDS [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md") API operation with the following required parameters: <br>• `DescribeDBClusters` + Filters.Filter.N <br>• Name <br>• engine <br>• Values.Value.N <br>• ['aurora']
-````
+ | DescribeDBClusters |
+ +---------------+--------------+-----------+
+ | DBCI | EM | EV |
+ +---------------+--------------+-----------+
+ | my-database-1| serverless | 5.6.10a |
+ +---------------+--------------+-----------+`
+
+```
+
+To find Aurora MySQL DB clusters running Aurora MySQL version 1, use the RDS [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md") API operation
+with the following required parameters:
+
+- `DescribeDBClusters`
+  - Filters.Filter.N
+    - Name
+      - engine
+
+    - Values.Value.N
+      - ['aurora']

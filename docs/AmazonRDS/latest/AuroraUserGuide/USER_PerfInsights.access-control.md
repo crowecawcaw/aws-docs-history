@@ -1,12 +1,12 @@
-# Attaching the
+# Attaching
 
-AmazonRDSPerformanceInsightsReadOnly policy to an IAM principal
+the AmazonRDSPerformanceInsightsFullAccess policy to an IAM principal
 
-`AmazonRDSPerformanceInsightsReadOnly` is an AWS managed
-policy that grants access to all read-only operations of the Amazon RDS Performance Insights API.
+`AmazonRDSPerformanceInsightsFullAccess` is an AWS managed
+policy that grants access to all operations of the Amazon RDS Performance Insights API.
 
-If you attach `AmazonRDSPerformanceInsightsReadOnly` to a permission set or role,
-you must also attach the following CloudWatch
+If you attach `AmazonRDSPerformanceInsightsFullAccess` to a permission set
+or role, you must also attach the following CloudWatch
 permissions:
 
 - `GetMetricStatistics`
@@ -19,4 +19,4 @@ For more information about CloudWatch permissions, see
 [Amazon CloudWatch
 permissions reference](../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md "../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md").
 
-For more information about `AmazonRDSPerformanceInsightsReadOnly`, see [AWS managed policy: AmazonRDSPerformanceInsightsReadOnly](rds-security-iam-awsmanpol.md#rds-security-iam-awsmanpol-AmazonRDSPerformanceInsightsReadOnly "rds-security-iam-awsmanpol.md#rds-security-iam-awsmanpol-AmazonRDSPerformanceInsightsReadOnly").
+For more information about `AmazonRDSPerformanceInsightsFullAccess`, see [AWS managed policy: AmazonRDSPerformanceInsightsFullAccess](rds-security-iam-awsmanpol.md#rds-security-iam-awsmanpol-AmazonRDSPerformanceInsightsFullAccess "rds-security-iam-awsmanpol.md#rds-security-iam-awsmanpol-AmazonRDSPerformanceInsightsFullAccess").

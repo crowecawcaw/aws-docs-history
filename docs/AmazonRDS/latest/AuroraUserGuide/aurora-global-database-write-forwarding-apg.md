@@ -265,22 +265,217 @@ The Aurora cluster parameter groups include settings for the write forwarding fe
 are cluster parameters, all DB instances in each cluster have the same values for these variables. Details
 about these parameters are summarized in the following table, with usage notes after the table.
 
-| Name
-| Scope
-| Type
-| Default value
-| Valid values
-|
-| --- | --- | --- | --- | --- |
-| `apg_write_forward.connect_timeout` | Session | seconds | 30 | 0–2147483647 |
-| `apg_write_forward.consistency_mode` | Session | enum | Session | `SESSION`, `EVENTUAL`, `GLOBAL`, `OFF` |
-| `apg_write_forward.idle_in_transaction_session_timeout` | Session | milliseconds | 86400000 | 0–2147483647 |
-| `apg_write_forward.idle_session_timeout` | Session | milliseconds | 300000 | 0–2147483647 |
-| `apg_write_forward.max_forwarding_connections_percent` | Global | int | 25 | 1–100 | The `apg_write_forward.max_forwarding_connections_percent` parameter is the upper limit on database connection slots that can be used to handle queries forwarded from readers. It is expressed as a percentage of the `max_connections` setting for the writer DB instance in the primary cluster. For example, if `max_connections` is `800` and `apg_write_forward.max_forwarding_connections_percent` is `10`, then the writer allows a maximum of 80 simultaneous forwarded sessions. These connections come from the same connection pool managed by the `max_connections` setting. This setting applies only on the primary cluster when at least one secondary clusters has write forwarding enabled. Use the following settings on the secondary cluster: <br>• `apg_write_forward.consistency_mode` – A session-level parameter that controls the degree of read consistency on the secondary cluster. Valid values are `SESSION`, `EVENTUAL`, `GLOBAL`, or `OFF`. By default, the value is set to `SESSION`. Setting the value to `OFF` disables write forwarding in the session. To learn more about consistency levels, see [Isolation and consistency for write forwarding in Aurora PostgreSQL](#aurora-global-database-write-forwarding-isolation-apg "#aurora-global-database-write-forwarding-isolation-apg"). This parameter is relevant only in reader instances of secondary clusters that have write forwarding enabled and that are in an Aurora global database. <br>• `apg_write_forward.connect_timeout` – The maximum number of seconds the secondary cluster waits when establishing a connection to the primary cluster before giving up. A value of `0` means to wait indefinitely. <br>• `apg_write_forward.idle_in_transaction_session_timeout` – The number of milliseconds the primary cluster waits for activity on a connection that's forwarded from a secondary cluster that has an open transaction before closing it. If the session remains idle in transaction beyond this period, Aurora terminates the session. A value of `0` disables the timeout. <br>• `apg_write_forward.idle_session_timeout` – The number of milliseconds the primary cluster waits for activity on a connection that's forwarded from a secondary cluster before closing it. If the session remains idle beyond this period, Aurora terminates the session. A value of `0` disables the timeout. ## Amazon CloudWatch metrics for write forwarding in Aurora PostgreSQL The following Amazon CloudWatch metrics apply to the primary cluster when you use write forwarding on one or more secondary clusters. These metrics are all measured on the writer DB instance in the primary cluster.
-| CloudWatch Metric | Units and description | | --- | --- |
-| `AuroraForwardingWriterDMLThroughput` | Count (per second). Number of forwarded DML statements processed each second by this writer DB instance. | | `AuroraForwardingWriterOpenSessions` | Count. Number of open sessions on this writer DB instance processing forwarded queries. |
-| `AuroraForwardingWriterTotalSessions` | Count. Total number of forwarded sessions on this writer DB instance. | The following CloudWatch metrics apply to each secondary cluster. These metrics are measured on each reader DB instance in a secondary cluster with write forwarding enabled. | CloudWatch Metric | Unit and description |
-| --- | --- | | `AuroraForwardingReplicaCommitThroughput` | Count (per second). Number of commits in sessions forwarded by this replica each second. |
-| `AuroraForwardingReplicaDMLLatency` | Milliseconds. Average response time in milliseconds of forwarded DMLs on replica. | | `AuroraForwardingReplicaDMLThroughput` | Count (per second). Number of forwarded DML statements processed on this replica each second. |
-| `AuroraForwardingReplicaErrorSessionsLimit` | Count. Number of sessions rejected by the primary cluster because the limit for max connections or max write forward connections was reached. | | `AuroraForwardingReplicaOpenSessions` | Count. The number of sessions that are using write forwarding on a replica instance. |
-| `AuroraForwardingReplicaReadWaitLatency` | Milliseconds. Average wait time in milliseconds that the replica waits to be consistent with the LSN of the primary cluster. The degree to which the reader DB instance waits depends on the `apg_write_forward.consistency_mode` setting. For information about this setting, see [Configuration parameters for write forwarding in Aurora PostgreSQL](#aurora-global-database-write-forwarding-params-apg "#aurora-global-database-write-forwarding-params-apg"). | ## Wait events for write forwarding in Aurora PostgreSQL Amazon Aurora generates the following wait events when you use write forwarding with Aurora PostgreSQL. ###### Topics <br>• [IPC:AuroraWriteForwardConnect](#apg-waits.ipcaurorawriteforwardconnect "#apg-waits.ipcaurorawriteforwardconnect") <br>• [IPC:AuroraWriteForwardConsistencyPoint](#apg-waits.ipcaurorawriteforwardconsistencypoint "#apg-waits.ipcaurorawriteforwardconsistencypoint") <br>• [IPC:AuroraWriteForwardExecute](#apg-waits.ipc:aurorawriteforwardexecute "#apg-waits.ipc:aurorawriteforwardexecute") <br>• [IPC:AuroraWriteForwardGetGlobalConsistencyPoint](#apg-waits.ipc:aurorawriteforwardgetglobalconsistencypoint "#apg-waits.ipc:aurorawriteforwardgetglobalconsistencypoint") <br>• [IPC:AuroraWriteForwardXactAbort](#apg-waits.ipc:aurorawriteforwardxactabort "#apg-waits.ipc:aurorawriteforwardxactabort") <br>• [IPC:AuroraWriteForwardXactCommit](#apg-waits.ipc:aurorawriteforwardxactcommit "#apg-waits.ipc:aurorawriteforwardxactcommit") <br>• [IPC:AuroraWriteForwardXactStart](#apg-waits.ipc:aurorawriteforwardxactstart "#apg-waits.ipc:aurorawriteforwardxactstart") ### IPC:AuroraWriteForwardConnect The `IPC:AuroraWriteForwardConnect` event occurs when a backend process on the secondary DB cluster is waiting for a connection to the writer node of the primary DB cluster to be opened. **Likely causes of increased waits** This event increases as the number of connection attempts from a secondary Region's reader node to the writer node of the primary DB cluster increases. **Actions** Reduce the number of simultaneous connections from a secondary node to the primary Region's writer node. ### IPC:AuroraWriteForwardConsistencyPoint The `IPC:AuroraWriteForwardConsistencyPoint` event describes how long a query from a node on the secondary DB cluster will wait for the results of forwarded write operations to be replicated to the current Region. This event is only generated if the session-level parameter `apg_write_forward.consistency_mode` is set to one of the following: <br>• `SESSION` – queries on a secondary node wait for the results of all changes made in that session. <br>• `GLOBAL` – queries on a secondary node wait for the results of changes made by that session, plus all committed changes from both the primary Region and other secondary Regions in the global cluster. For more information about the `apg_write_forward.consistency_mode` parameter settings, see [Configuration parameters for write forwarding in Aurora PostgreSQL](#aurora-global-database-write-forwarding-params-apg "#aurora-global-database-write-forwarding-params-apg"). **Likely causes of increased waits** Common causes for longer wait times include the following: <br>• Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring"). <br>• Increased load on the primary Region's writer node or on the secondary node. **Actions** Change your consistency mode, depending on your application's requirements. ### IPC:AuroraWriteForwardExecute The `IPC:AuroraWriteForwardExecute` event occurs when a backend process on the secondary DB cluster is waiting for a forwarded query to complete and obtain results from the writer node of the primary DB cluster. **Likely causes of increased waits** Common causes for increased waits include the following: <br>• Fetching a large number of rows from the primary Region's writer node. <br>• Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node. <br>• Increased load on the secondary node can delay transmission of the query request from the secondary node to the primary Region's writer node. <br>• Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node. **Actions** We recommend different actions depending on the causes of your wait event. <br>• Optimize queries to retrieve only necessary data. <br>• Optimize data manipulation language (DML) operations to only modify necessary data. <br>• If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth. ### IPC:AuroraWriteForwardGetGlobalConsistencyPoint The `IPC:AuroraWriteForwardGetGlobalConsistencyPoint` event occurs when a backend process on the secondary DB cluster that's using the GLOBAL consistency mode is waiting to obtain the global consistency point from the writer node before executing a query. **Likely causes of increased waits** Common causes for increased waits include the following: <br>• Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node. <br>• Increased load on the secondary node can delay transmission of the query request from the secondary node to the primary Region's writer node. <br>• Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node. **Actions** We recommend different actions depending on the causes of your wait event. <br>• Change your consistency mode, depending on your application's requirements. <br>• If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth. ### IPC:AuroraWriteForwardXactAbort The `IPC:AuroraWriteForwardXactAbort` event occurs when a backend process on the secondary DB cluster is waiting for the result of a remote cleanup query. Cleanup queries are issued to return the process to the appropriate state after a write-forwarded transaction is aborted. Amazon Aurora performs them either because an error was found or because an user issued an explicit `ABORT` command or cancelled a running query. **Likely causes of increased waits** Common causes for increased waits include the following: <br>• Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node. <br>• Increased load on the secondary node can delay transmission of the cleanup query request from the secondary node to the primary Region's writer node. <br>• Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node. **Actions** We recommend different actions depending on the causes of your wait event. <br>• Investigate the cause of the aborted transaction. <br>• If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth. ### IPC:AuroraWriteForwardXactCommit The `IPC:AuroraWriteForwardXactCommit` event occurs when a backend process on the secondary DB cluster is waiting for the result of a forwarded commit transaction command. **Likely causes of increased waits** Common causes for increased waits include the following: <br>• Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node. <br>• Increased load on the secondary node can delay transmission of the query request from the secondary node to the primary Region's writer node. <br>• Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node. **Actions** If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth. ### IPC:AuroraWriteForwardXactStart The `IPC:AuroraWriteForwardXactStart` event occurs when a backend process on the secondary DB cluster is waiting for the result of a forwarded start transaction command. **Likely causes of increased waits** Common causes for increased waits include the following: <br>• Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node. <br>• Increased load on the secondary node can delay transmission of the query request from the secondary node to the primary Region's writer node. <br>• Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node. **Actions** If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth.
+| Name                                                    | Scope   | Type         | Default value | Valid values                           |
+| ------------------------------------------------------- | ------- | ------------ | ------------- | -------------------------------------- |
+| `apg_write_forward.connect_timeout`                     | Session | seconds      | 30            | 0–2147483647                           |
+| `apg_write_forward.consistency_mode`                    | Session | enum         | Session       | `SESSION`, `EVENTUAL`, `GLOBAL`, `OFF` |
+| `apg_write_forward.idle_in_transaction_session_timeout` | Session | milliseconds | 86400000      | 0–2147483647                           |
+| `apg_write_forward.idle_session_timeout`                | Session | milliseconds | 300000        | 0–2147483647                           |
+| `apg_write_forward.max_forwarding_connections_percent`  | Global  | int          | 25            | 1–100                                  |
+
+The `apg_write_forward.max_forwarding_connections_percent` parameter is the upper limit on database connection slots that can be used to handle queries forwarded from readers.
+It is expressed as a percentage of the `max_connections` setting for the writer DB instance in the primary cluster. For example, if `max_connections` is `800`
+and `apg_write_forward.max_forwarding_connections_percent` is `10`, then the writer allows a maximum of 80 simultaneous forwarded sessions. These connections come from the
+same connection pool managed by the `max_connections` setting. This setting applies only on the primary cluster when at least one secondary clusters has write forwarding enabled.
+
+Use the following settings on the secondary cluster:
+
+- `apg_write_forward.consistency_mode` – A session-level parameter
+  that controls the degree of read consistency on the secondary cluster. Valid values are
+  `SESSION`, `EVENTUAL`, `GLOBAL`, or `OFF`.
+  By default, the value is set to `SESSION`. Setting the value to
+  `OFF` disables write forwarding in the session. To learn more about
+  consistency levels, see [Isolation and consistency for write forwarding in Aurora PostgreSQL](#aurora-global-database-write-forwarding-isolation-apg "#aurora-global-database-write-forwarding-isolation-apg"). This
+  parameter is relevant only in reader instances of secondary clusters that have write
+  forwarding enabled and that are in an Aurora global database.
+- `apg_write_forward.connect_timeout` – The maximum number of seconds the
+  secondary cluster waits when establishing a connection to the primary cluster before
+  giving up. A value of `0` means to wait indefinitely.
+- `apg_write_forward.idle_in_transaction_session_timeout` – The number of milliseconds the primary cluster waits for activity on a connection
+  that's forwarded from a secondary cluster that has an open transaction before closing it. If the session remains idle in transaction beyond this period, Aurora terminates the session.
+  A value of `0` disables the timeout.
+- `apg_write_forward.idle_session_timeout` – The number of milliseconds the primary cluster waits for activity on a connection that's forwarded from a
+  secondary cluster before closing it. If the session remains idle beyond this period, Aurora terminates the session. A value of `0` disables the timeout.
+
+## Amazon CloudWatch metrics for write forwarding in Aurora PostgreSQL
+
+The following Amazon CloudWatch metrics apply to the primary cluster when you use write forwarding
+on one or more secondary clusters. These metrics are all measured on the writer DB instance
+in the primary cluster.
+
+| CloudWatch Metric                     | Units and description                                                                                       |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `AuroraForwardingWriterDMLThroughput` | Count (per second). Number of forwarded DML statements processed each second by<br>this writer DB instance. |
+| `AuroraForwardingWriterOpenSessions`  | Count. Number of open sessions on this writer DB instance processing forwarded<br>queries.                  |
+| `AuroraForwardingWriterTotalSessions` | Count. Total number of forwarded sessions on this writer DB instance.                                       |
+
+The following CloudWatch metrics apply to each secondary cluster. These metrics are measured on each reader DB
+instance in a secondary cluster with write forwarding enabled.
+
+| CloudWatch Metric                           | Unit and description                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AuroraForwardingReplicaCommitThroughput`   | Count (per second). Number of commits in sessions forwarded by this replica each<br>second.                                                                                                                                                                                                                                                                                                                                                                               |
+| `AuroraForwardingReplicaDMLLatency`         | Milliseconds. Average response time in milliseconds of forwarded DMLs on replica.                                                                                                                                                                                                                                                                                                                                                                                         |
+| `AuroraForwardingReplicaDMLThroughput`      | Count (per second). Number of forwarded DML statements processed on this replica each second.                                                                                                                                                                                                                                                                                                                                                                             |
+| `AuroraForwardingReplicaErrorSessionsLimit` | Count. Number of sessions rejected by the primary cluster because the limit for max connections or max write forward connections was reached.                                                                                                                                                                                                                                                                                                                             |
+| `AuroraForwardingReplicaOpenSessions`       | Count. The number of sessions that are using write forwarding on a replica instance.                                                                                                                                                                                                                                                                                                                                                                                      |
+| `AuroraForwardingReplicaReadWaitLatency`    | Milliseconds. Average wait time in milliseconds that the replica waits to be consistent with the LSN of the primary cluster. The<br>degree to which the reader DB instance waits depends on the `apg_write_forward.consistency_mode` setting. For information about this setting, see<br>[Configuration parameters for write forwarding in Aurora PostgreSQL](#aurora-global-database-write-forwarding-params-apg "#aurora-global-database-write-forwarding-params-apg"). |
+
+## Wait events for write forwarding in Aurora PostgreSQL
+
+Amazon Aurora generates the following wait events when you use write forwarding
+with Aurora PostgreSQL.
+
+###### Topics
+
+- [IPC:AuroraWriteForwardConnect](#apg-waits.ipcaurorawriteforwardconnect "#apg-waits.ipcaurorawriteforwardconnect")
+- [IPC:AuroraWriteForwardConsistencyPoint](#apg-waits.ipcaurorawriteforwardconsistencypoint "#apg-waits.ipcaurorawriteforwardconsistencypoint")
+- [IPC:AuroraWriteForwardExecute](#apg-waits.ipc:aurorawriteforwardexecute "#apg-waits.ipc:aurorawriteforwardexecute")
+- [IPC:AuroraWriteForwardGetGlobalConsistencyPoint](#apg-waits.ipc:aurorawriteforwardgetglobalconsistencypoint "#apg-waits.ipc:aurorawriteforwardgetglobalconsistencypoint")
+- [IPC:AuroraWriteForwardXactAbort](#apg-waits.ipc:aurorawriteforwardxactabort "#apg-waits.ipc:aurorawriteforwardxactabort")
+- [IPC:AuroraWriteForwardXactCommit](#apg-waits.ipc:aurorawriteforwardxactcommit "#apg-waits.ipc:aurorawriteforwardxactcommit")
+- [IPC:AuroraWriteForwardXactStart](#apg-waits.ipc:aurorawriteforwardxactstart "#apg-waits.ipc:aurorawriteforwardxactstart")
+
+### IPC:AuroraWriteForwardConnect
+
+The `IPC:AuroraWriteForwardConnect` event occurs when a backend process on
+the secondary DB cluster is waiting for a connection to the writer node of the primary DB
+cluster to be opened.
+
+**Likely causes of increased waits**
+
+This event increases as the number of connection attempts from a secondary Region's reader node to the writer node of the primary DB cluster increases.
+
+**Actions**
+
+Reduce the number of simultaneous connections from a secondary node to the primary Region's writer node.
+
+### IPC:AuroraWriteForwardConsistencyPoint
+
+The `IPC:AuroraWriteForwardConsistencyPoint` event describes how long a query
+from a node on the secondary DB cluster will wait for the results of forwarded write
+operations to be replicated to the current Region. This event is only generated if the
+session-level parameter `apg_write_forward.consistency_mode` is set to one of
+the following:
+
+- `SESSION` – queries on a secondary node wait for the results of all changes made in that session.
+- `GLOBAL` – queries on a secondary node wait for the results of changes made by that session, plus all committed changes from both the primary Region and other secondary Regions in the global cluster.
+
+For more information about the `apg_write_forward.consistency_mode` parameter settings, see [Configuration parameters for write forwarding in Aurora PostgreSQL](#aurora-global-database-write-forwarding-params-apg "#aurora-global-database-write-forwarding-params-apg").
+
+**Likely causes of increased waits**
+
+Common causes for longer wait times include the following:
+
+- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL
+  replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring").
+- Increased load on the primary Region's writer node or on the secondary node.
+
+**Actions**
+
+Change your consistency mode, depending on your application's requirements.
+
+### IPC:AuroraWriteForwardExecute
+
+The `IPC:AuroraWriteForwardExecute` event occurs when a backend process on
+the secondary DB cluster is waiting for a forwarded query to complete and obtain results
+from the writer node of the primary DB cluster.
+
+**Likely causes of increased waits**
+
+Common causes for increased waits include the following:
+
+- Fetching a large number of rows from the primary Region's writer node.
+- Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node.
+- Increased load on the secondary node can delay transmission of the query request from the secondary node to the primary Region's writer node.
+- Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node.
+
+**Actions**
+
+We recommend different actions depending on the causes of your wait event.
+
+- Optimize queries to retrieve only necessary data.
+- Optimize data manipulation language (DML) operations to only modify necessary data.
+- If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth.
+
+### IPC:AuroraWriteForwardGetGlobalConsistencyPoint
+
+The `IPC:AuroraWriteForwardGetGlobalConsistencyPoint` event occurs when a
+backend process on the secondary DB cluster that's using the GLOBAL consistency mode is
+waiting to obtain the global consistency point from the writer node before executing a
+query.
+
+**Likely causes of increased waits**
+
+Common causes for increased waits include the following:
+
+- Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node.
+- Increased load on the secondary node can delay transmission of the query request from the secondary node to the primary Region's writer node.
+- Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node.
+
+**Actions**
+
+We recommend different actions depending on the causes of your wait event.
+
+- Change your consistency mode, depending on your application's requirements.
+- If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth.
+
+### IPC:AuroraWriteForwardXactAbort
+
+The `IPC:AuroraWriteForwardXactAbort` event occurs when a backend process on
+the secondary DB cluster is waiting for the result of a remote cleanup query. Cleanup
+queries are issued to return the process to the appropriate state after a write-forwarded
+transaction is aborted. Amazon Aurora performs them either because an error was found or
+because an user issued an explicit `ABORT` command or cancelled a running
+query.
+
+**Likely causes of increased waits**
+
+Common causes for increased waits include the following:
+
+- Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node.
+- Increased load on the secondary node can delay transmission of the cleanup query request from the secondary node to the primary Region's writer node.
+- Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node.
+
+**Actions**
+
+We recommend different actions depending on the causes of your wait event.
+
+- Investigate the cause of the aborted transaction.
+- If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth.
+
+### IPC:AuroraWriteForwardXactCommit
+
+The `IPC:AuroraWriteForwardXactCommit` event occurs when a backend process on
+the secondary DB cluster is waiting for the result of a forwarded commit transaction
+command.
+
+**Likely causes of increased waits**
+
+Common causes for increased waits include the following:
+
+- Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node.
+- Increased load on the secondary node can delay transmission of the query request from the secondary node to the primary Region's writer node.
+- Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node.
+
+**Actions**
+
+If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth.
+
+### IPC:AuroraWriteForwardXactStart
+
+The `IPC:AuroraWriteForwardXactStart` event occurs when a backend process on
+the secondary DB cluster is waiting for the result of a forwarded start transaction
+command.
+
+**Likely causes of increased waits**
+
+Common causes for increased waits include the following:
+
+- Increased network latency between the secondary node and primary Region's writer node increases the time it takes the secondary node to receive data from the writer node.
+- Increased load on the secondary node can delay transmission of the query request from the secondary node to the primary Region's writer node.
+- Increased load on the primary Region's writer node can delay transmission of data from the writer node to the secondary node.
+
+**Actions**
+
+If the secondary node or primary Region's writer node is constrained by CPU or network bandwidth, consider changing it to an instance type with more CPU capacity or more network bandwidth.

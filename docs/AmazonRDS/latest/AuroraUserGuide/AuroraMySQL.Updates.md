@@ -1,61 +1,96 @@
-# Using zero-downtime patching
+# Checking Aurora MySQL version numbers
 
-Performing upgrades for Aurora MySQL DB clusters involves the possibility of an outage when the database is shut down and while
-it's being upgraded. By default, if you start the upgrade while the database is busy, you lose all the connections and
-transactions that the DB cluster is processing. If you wait until the database is idle to perform the upgrade, you might have to
-wait a long time.
+Although Aurora MySQL-Compatible Edition is compatible with the MySQL database engines, Aurora MySQL includes features and bug
+fixes that are specific to particular Aurora MySQL versions. Application developers can check the Aurora MySQL
+version in their applications by using SQL. Database administrators can check and specify Aurora MySQL versions
+when creating or upgrading Aurora MySQL DB clusters and DB instances.
 
-The zero-downtime patching (ZDP) feature attempts, on a best-effort basis, to preserve client connections through an Aurora MySQL
-upgrade. If ZDP completes successfully, application sessions are preserved and the database engine restarts while the upgrade is in
-progress. The database engine restart can cause a drop in throughput lasting for a few seconds to approximately one minute.
+###### Topics
 
-ZDP doesn't apply to the following:
+- [Checking or specifying Aurora MySQL engine versions through AWS](#AuroraMySQL.Updates.EngineVersions "#AuroraMySQL.Updates.EngineVersions")
+- [Checking Aurora MySQL versions using SQL](#AuroraMySQL.Updates.DBVersions "#AuroraMySQL.Updates.DBVersions")
 
-- Operating system (OS) patches and upgrades
-- Major version upgrades
-  ZDP is available for all supported Aurora MySQL versions and DB instance classes.
+## Checking or specifying Aurora MySQL engine versions through AWS
 
-ZDP isn't supported for Aurora Serverless v1 or Aurora global databases.
+When you perform administrative tasks using the AWS Management Console, AWS CLI, or RDS API, you specify the Aurora MySQL
+version in a descriptive alphanumeric format.
+
+Starting with Aurora MySQL version 2, Aurora engine versions have the following syntax.
+
+```
+`mysql-major-version`.mysql_aurora.`aurora-mysql-version`
+```
+
+The `mysql-major-version-` portion is `5.7` or `8.0`. This value
+represents the version of the client protocol and general level of MySQL feature support for the corresponding Aurora MySQL
+version.
+
+The `aurora-mysql-version` is a dotted value with three parts: the Aurora MySQL major
+version, the Aurora MySQL minor version, and the patch level. The major version is `2` or `3`. Those values
+represent Aurora MySQL compatible with MySQL 5.7 or 8.0, respectively. The minor version represents the feature release within the
+2.x or 3.x series. The patch level begins at `0` for each minor version, and represents the set of subsequent bug
+fixes that apply to the minor version. Occasionally, a new feature is incorporated into a minor version but not made visible
+immediately. In these cases, the feature undergoes fine-tuning and is made public in a later patch level.
+
+All 2.x Aurora MySQL engine versions are wire-compatible with Community MySQL 5.7.12 or higher. All 3.x Aurora MySQL engine versions are wire-compatible
+with MySQL 8.0.23 or higher. You can refer to release notes of the specific 3.x version to find the corresponding MySQL compatible version.
+
+For example, the engine versions for Aurora MySQL 3.04.0 and 2.11.2 are the following.
+
+```
+8.0.mysql_aurora.3.04.0
+5.7.mysql_aurora.2.11.2
+```
 
 ###### Note
 
-We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For more
-details on the T instance classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium").
+There isn't a one-to-one correspondence between community MySQL versions and the Aurora MySQL 2.x versions. For Aurora MySQL
+version 3, there is a more direct mapping. To check which bug fixes and new features are in a particular Aurora MySQL release,
+see [Database
+engine updates for Amazon Aurora MySQL version 3](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md") and [Database engine updates for
+Amazon Aurora MySQL version 2](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md") in the _Release Notes for Aurora MySQL_. For a chronological list of new features
+and releases, see [Document history](WhatsNew.md "WhatsNew.md"). To check the minimum version required for a
+security-related fix, see [Security vulnerabilities fixed in
+Aurora MySQL](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md")in the _Release Notes for Aurora MySQL_.
 
-You can see metrics of important attributes during ZDP in the MySQL error log. You can also see information about when Aurora MySQL
-uses ZDP or chooses not to use ZDP on the **Events** page in the AWS Management Console.
+You specify the Aurora MySQL engine version in some AWS CLI commands and RDS API operations. For example, you specify the
+`--engine-version` option when you run the AWS CLI commands [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") and [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md"). You specify
+the `EngineVersion` parameter when you run the RDS API operations [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") and [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md").
 
-In Aurora MySQL, Aurora can perform a zero-downtime patch whether or not binary log replication is enabled. If binary log replication is enabled,
-Aurora MySQL automatically drops the connection to the binlog target during a ZDP operation. Aurora MySQL automatically reconnects to the binlog target and
-resumes replication after the restart finishes.
+In Aurora MySQL version 2 and higher, the engine version in the AWS Management Console also includes the Aurora version. Upgrading the cluster
+changes the displayed value. This change helps you to specify and check the precise Aurora MySQL versions, without the need to
+connect to the cluster or run any SQL commands.
 
-ZDP also works in combination with the reboot enhancements in Aurora MySQL. Patching the writer DB instance automatically patches readers at the same
-time. After performing the patch, Aurora restores the connections on both the writer and reader DB instances.
+###### Tip
 
-ZDP might not complete successfully under the following conditions:
+For Aurora clusters managed through AWS CloudFormation, this change in the `EngineVersion` setting can trigger actions by AWS CloudFormation.
+For information about how AWS CloudFormation treats changes to the `EngineVersion` setting, see [the AWS CloudFormation documentation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.md").
 
-- Long-running queries or transactions are in progress. If Aurora can perform ZDP in this case, any open transactions are canceled but their
-  connections are retained.
-- Temporary tables, user locks, or table locks are in use, for example while data definition language (DDL) statements run. Aurora drops these
-  connections.
-- Pending parameter changes exist.
-  If no suitable time window for performing ZDP becomes available because of one or more of these conditions, patching reverts to the standard behavior.
+## Checking Aurora MySQL versions using SQL
 
-Although connections remain intact following a successful ZDP operation, some variables and features are reinitialized. The following kinds of information
-aren't preserved through a restart caused by zero-downtime patching:
+The Aurora version numbers that you can retrieve in your application using SQL queries use the format
+``<major version>`.`<minor
+ version>`.`<patch version>``. You can get this version
+number for any DB instance in your Aurora MySQL cluster by querying the `AURORA_VERSION` system
+variable. To get this version number, use one of the following queries.
 
-- Global variables. Aurora restores session variables, but it doesn't restore global variables after the restart.
-- Status variables. In particular, the uptime value reported by the engine status is reset after a restart that uses the ZDR or
-  ZDP mechanisms.
-- `LAST_INSERT_ID`.
-- In-memory `auto_increment` state for tables. The in-memory auto-increment state is reinitialized. For more
-  information about auto-increment values, see
-  [MySQL Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization "https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization").
-- Diagnostic information from `INFORMATION_SCHEMA` and `PERFORMANCE_SCHEMA` tables. This diagnostic
-  information also appears in the output of commands such as `SHOW PROFILE` and `SHOW PROFILES`.
-  The following activities related to zero-downtime restart are reported on the **Events** page:
+```
+select aurora_version();
+select @@aurora_version;
 
-- Attempting to upgrade the database with zero downtime.
-- Attempting to upgrade the database with zero downtime finished. The event reports how long the process took. The event also
-  reports how many connections were preserved during the restart and how many connections were dropped. You can consult the
-  database error log to see more details about what happened during the restart.
+```
+
+Those queries produce output similar to the following.
+
+```
+`mysql>` select aurora_version(), @@aurora_version;
+`+------------------+------------------+
+| aurora_version() | @@aurora_version |
++------------------+------------------+
+| 3.05.2 | 3.05.2 |
++------------------+------------------+`
+
+```
+
+The version numbers that the console, CLI, and RDS API return by using the techniques described in [Checking or specifying Aurora MySQL engine versions through AWS](#AuroraMySQL.Updates.EngineVersions "#AuroraMySQL.Updates.EngineVersions") are typically more
+descriptive.

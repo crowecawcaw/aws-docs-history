@@ -1,118 +1,157 @@
-# DB instance class types
+# Supported DB engines for DB instance classes
 
-Amazon Aurora
-supports DB instance classes for the following use cases:
+The following tables show the supported DB instance classes for the Amazon Aurora DB engines.
 
-- [Aurora Serverless v2](#Concepts.DBInstanceClass.Types.serverless-v2 "#Concepts.DBInstanceClass.Types.serverless-v2")
-- [Memory-optimized](#Concepts.DBInstanceClass.Types.memory "#Concepts.DBInstanceClass.Types.memory")
-- [Burstable-performance](#Concepts.DBInstanceClass.Types.burstable "#Concepts.DBInstanceClass.Types.burstable")
-- [Optimized Reads](#Concepts.DBInstanceClass.Types.optimized-reads "#Concepts.DBInstanceClass.Types.optimized-reads")
-  For more information about Amazon EC2 instance types, see [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the Amazon EC2
-  documentation.
+**db.serverless – Aurora Serverless v2 instance class with automatic capacity scaling**
 
-## Aurora Serverless v2 instance class type
+| Instance class | Aurora MySQL                                                                                                                                                              | Aurora PostgreSQL                                                                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| db.serverless  | See [Supported<br>Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md"). | See [Supported<br>Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md"). |
 
-The following Aurora Serverless v2 type is available:
+**db.x2g – memory-optimized instance classes powered by AWS Graviton2 processors**
 
-- db.serverless – A special DB instance class type
-  used by Aurora Serverless v2. Aurora adjusts the compute, memory, and network resources
-  dynamically as the workload changes. For usage details, see [Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+| Instance class  | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                            |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| db.x2g.16xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.x2g.12xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.x2g.8xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.x2g.4xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.x2g.2xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.x2g.xlarge   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.x2g.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
 
-## Memory-optimized instance class types
+**db.r6gd – Optimized Reads instance classes powered by AWS Graviton2 processors**
 
-The memory-optimized X family supports the following instance classes:
+| Instance class   | Aurora MySQL | Aurora PostgreSQL                                                  |
+| ---------------- | ------------ | ------------------------------------------------------------------ |
+| db.r6gd.16xlarge | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
+| db.r6gd.12xlarge | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
+| db.r6gd.8xlarge  | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
+| db.r6gd.4xlarge  | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
+| db.r6gd.2xlarge  | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
+| db.r6gd.xlarge   | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
 
-- db.x2g – Instance classes optimized for
-  memory-intensive applications and powered by AWS Graviton2 processors. These
-  instance classes offer low cost per GiB of memory.
+**db.r6id – Optimized Reads instance classes**
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-processors. To do so, complete the same steps as with any other DB instance
-modification.
+| Instance class   | Aurora MySQL | Aurora PostgreSQL                                                  |
+| ---------------- | ------------ | ------------------------------------------------------------------ |
+| db.r6id.32xlarge | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
+| db.r6id.24xlarge | No           | 17.4 and higher, 16.1 and higher, 15.4 and higher, 14.9 and higher |
 
-The memory-optimized R family supports the following instance class types:
+**db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**
 
-- db.r8g – Instance classes powered by AWS Graviton4 processors. These instance classes are ideal for
-  running memory-intensive workloads. These instances
-  offer larger instance sizes with up to 3x more vCPUs and memory than the seventh-generation AWS Graviton3-based db.r7g instances.
+| Instance class  | Aurora MySQL      | Aurora PostgreSQL                                                                     |
+| --------------- | ----------------- | ------------------------------------------------------------------------------------- |
+| db.r8g.48xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r8g.24xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r8g.16xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r8g.12xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r8g.8xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r8g.4xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r8g.2xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r8g.xlarge   | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r8g.large    | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton4 processors. To do so, complete the same steps as with any
-other DB instance modification.
+**db.r7g – memory-optimized instance classes powered by AWS Graviton3 processors**
 
-- db.r7g – Instance classes powered by AWS Graviton3 processors. These instance
-  classes are ideal for running memory-intensive workloads.
+| Instance class  | Aurora MySQL                         | Aurora PostgreSQL                                                                    |
+| --------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
+| db.r7g.16xlarge | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
+| db.r7g.12xlarge | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
+| db.r7g.8xlarge  | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
+| db.r7g.4xlarge  | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
+| db.r7g.2xlarge  | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
+| db.r7g.xlarge   | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
+| db.r7g.large    | 2.12.0 and higher, 3.03.1 and higher | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.7 and higher, 13.10 and higher |
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton3 processors. To do so, complete the same
-steps as with any other DB instance modification.
+**db.r7i – memory-optimized instance classes**
 
-- db.r7i – Instance classes powered by 4th Generation Intel Xeon Scalable processors. These instance
-  classes are SAP-Certified and are ideal for running memory-intensive workloads. You can modify a DB instance to use one of the DB instance classes powered by 4th Generation Intel Xeon Scalable
-  processors. To do so, complete the same steps as with any other DB instance modification.
-- db.r6g – Instance classes powered by AWS Graviton2 processors. These instance
-  classes are ideal for running memory-intensive workloads.
+| Instance class  | Aurora MySQL      | Aurora PostgreSQL                                                                     |
+| --------------- | ----------------- | ------------------------------------------------------------------------------------- |
+| db.r7i.48xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r7i.24xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r7i.16xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r7i.12xlarge | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r7i.8xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r7i.4xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r7i.2xlarge  | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r7i.xlarge   | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
+| db.r7i.large    | 3.08.0 and higher | 17.4 and higher, 16.3 and higher, 15.7 and higher, 14.12 and higher, 13.15 and higher |
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-processors. To do so, complete the same steps as with any other DB instance
-modification.
+**db.r6g – memory-optimized instance classes powered by AWS Graviton2 processors**
 
-- db.r6i – Instance classes powered by 3rd Generation Intel Xeon Scalable processors. These instance
-  classes are SAP-Certified and are an ideal fit for memory-intensive workloads.
-- db.r5 – Instance classes optimized for
-  memory-intensive applications. These instance classes offer improved networking
-  and Amazon Elastic Block Store (Amazon EBS) performance. They are
-  powered by the AWS Nitro System, a combination of dedicated hardware and
-  lightweight hypervisor.
-- db.r4 – These instance classes are supported only for Aurora MySQL 2.x and Aurora PostgreSQL 11 and 12
-  versions. For all Aurora DB clusters that use db.r4 DB instance classes, we recommend that you upgrade to a higher generation instance class as soon as
-  possible.
+| Instance class  | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                            |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| db.r6g.16xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.r6g.12xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.r6g.8xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.r6g.4xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.r6g.2xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.r6g.xlarge   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
+| db.r6g.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.8 and higher, 11.9, 11.12 and higher |
 
-The db.r4 instance classes aren't available for the Aurora I/O-Optimized cluster storage configuration.
+**db.r6i – memory-optimized instance classes**
 
-## Burstable-performance instance
+| Instance class  | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| db.r6i.32xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+| db.r6i.24xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+| db.r6i.16xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+| db.r6i.12xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+| db.r6i.8xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+| db.r6i.4xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+| db.r6i.2xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+| db.r6i.xlarge   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
+| db.r6i.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.5 and higher, 12.9 and higher |
 
-class types
+**db.r5 – memory-optimized instance classes**
 
-The following burstable-performance DB instance class types are available:
+| Instance class | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                                                |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| db.r5.24xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r5.16xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r5.12xlarge | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r5.8xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r5.4xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r5.2xlarge  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r5.xlarge   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r5.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | [All<br>currently available versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
 
-- db.t4g – General-purpose instance classes
-  powered by Arm-based AWS Graviton2 processors. These instance classes deliver
-  better price performance than previous burstable-performance DB instance classes for a
-  broad set of burstable general-purpose workloads. Amazon RDS db.t4g instances are
-  configured for Unlimited mode. This means that they can burst beyond the baseline
-  over a 24-hour window for an additional charge.
+**db.r4 – memory-optimized instance classes**
 
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-processors. To do so, complete the same steps as with any other DB instance
-modification.
+| Instance class | Aurora MySQL                                    | Aurora PostgreSQL                                                                                                                                |
+| -------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| db.r4.16xlarge | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r4.8xlarge  | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r4.4xlarge  | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r4.2xlarge  | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r4.xlarge   | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
+| db.r4.large    | All 2.x versions; not supported in 3.x versions | [All<br>supported 11 and 12 versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") |
 
-- db.t3 – Instance classes that provide a
-  baseline performance level, with the ability to burst to full CPU usage. The db.t3
-  instances are configured for Unlimited mode. These instance classes provide more
-  computing capacity than the previous db.t2 instance classes. They are powered by the
-  AWS Nitro System, a combination of dedicated hardware and lightweight hypervisor.
-  We recommend using these instance classes only for
-  development and test servers, or other non-production servers.
-- db.t2 – Instance classes that provide a
-  baseline performance level, with the ability to burst to full CPU usage. The db.t2
-  instances are configured for Unlimited mode. We recommend using these instance classes
-  only for development and test servers, or other non-production servers.
+**db.t4g – burstable-performance instance classes powered by AWS Graviton2 processors**
 
-The db.t2 instance classes aren't available for the Aurora I/O-Optimized cluster storage configuration.
+| Instance class | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| db.t4g.2xlarge | No                                                                                                                           | No                                                                                                                     |
+| db.t4g.xlarge  | No                                                                                                                           | No                                                                                                                     |
+| db.t4g.large   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.7 and higher, 11.12 and higher |
+| db.t4g.medium  | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.7 and higher, 11.12 and higher |
+| db.t4g.small   | No                                                                                                                           | No                                                                                                                     |
 
-###### Note
+**db.t3 – burstable-performance instance classes**
 
-We recommend using the T DB instance classes only for development, test,
-or other nonproduction servers. For more detailed recommendations for the T instance
-classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium").
+| Instance class | Aurora MySQL                                                                                                                 | Aurora PostgreSQL                                                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| db.t3.2xlarge  | No                                                                                                                           | No                                                                                                                     |
+| db.t3.xlarge   | No                                                                                                                           | No                                                                                                                     |
+| db.t3.large    | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.7 and higher, 11.12 and higher |
+| db.t3.medium   | [All<br>currently available versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md "../AuroraMySQLReleaseNotes/AuroraMySQL.md") | 17.4 and higher, 16.1 and higher, 15.2 and higher, 14.3 and higher, 13.3 and higher, 12.7 and higher, 11.12 and higher |
+| db.t3.small    | All 2.x versions; not supported in 3.x versions                                                                              | No                                                                                                                     |
+| db.t3.micro    | No                                                                                                                           | No                                                                                                                     |
 
-For DB instance class hardware specifications, see [Hardware specifications for DB instance
-classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+**db.t2 – burstable-performance instance classes**
 
-## Optimized Reads instance class types
-
-The following Optimized Reads instance class types are available:
-
-- db.r6gd – Instance classes powered by AWS Graviton2 processors. These instance
-  classes are ideal for running memory-intensive workloads and offer local NVMe-based SSD block-level storage for applications that need high-speed, low latency local storage.
-- db.r6id – Instance classes powered by 3rd Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified and
-  are an ideal fit for memory-intensive workloads. They offer a maximum memory of 1 TiB and up to 7.6 TB of direct-attached NVMe-based SSD storage.
+| Instance class | Aurora MySQL                                    | Aurora PostgreSQL |
+| -------------- | ----------------------------------------------- | ----------------- |
+| db.t2.medium   | All 2.x versions; not supported in 3.x versions | No                |
+| db.t2.small    | All 2.x versions; not supported in 3.x versions | No                |

@@ -1,15 +1,92 @@
-# Troubleshooting for Aurora MySQL in-place upgrade
+# Finding the reasons for Aurora MySQL major version upgrade failures
 
-Use the following tips to help troubleshoot problems with Aurora MySQL in-place upgrades. These tips don't apply to Aurora Serverless DB
-clusters.
+In the [tutorial](AuroraMySQL.Upgrading.md "AuroraMySQL.Upgrading.md"), the upgrade from Aurora MySQL version 2 to version 3 succeeded. But if the
+upgrade had failed, you would want to know why.
 
-| Reason for in-place upgrade being canceled or slow                     | Effect                          | Solution to allow in-place upgrade to complete within maintenance window                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------------------------------------------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Associated Aurora cross-Region replica isn't patched yet               | Aurora cancels the upgrade.     | Upgrade the Aurora cross-Region replica and try again.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Cluster has XA transactions in the prepared state                      | Aurora cancels the upgrade.     | Commit or roll back all prepared XA transactions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Cluster is processing any data definition language (DDL) statements    | Aurora cancels the upgrade.     | Consider waiting and performing the upgrade after all DDL statements are finished.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Cluster has uncommitted changes for many rows                          | Upgrade might take a long time. | The upgrade process rolls back the uncommitted changes. The indicator for this condition is the value of `TRX_ROWS_MODIFIED` in the `INFORMATION_SCHEMA.INNODB_TRX` table. Consider performing the upgrade only after all large transactions are committed or rolled back.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Cluster has high number of undo records                                | Upgrade might take a long time. | Even if the uncommitted transactions don't affect a large number of rows, they might involve a large volume of data. For example, you might be inserting large BLOBs. Aurora doesn't automatically detect or generate an event for this kind of transaction activity. The indicator for this condition is the history list length (HLL). The upgrade process rolls back the uncommitted changes. You can check the HLL in the output from the `SHOW ENGINE INNODB STATUS` SQL command, or directly by using the following SQL query: `SELECT count FROM information_schema.innodb_metrics WHERE name = 'trx_rseg_history_len';` You can also monitor the `RollbackSegmentHistoryListLength` metric in Amazon CloudWatch. Consider performing the upgrade only after the HLL is smaller. |
-| Cluster is in the process of committing a large binary log transaction | Upgrade might take a long time. | The upgrade process waits until the binary log changes are applied. More transactions or DDL statements could start during this period, further slowing down the upgrade process. Schedule the upgrade process when the cluster isn't busy with generating binary log replication changes. Aurora doesn't automatically detect or generate an event for this condition.                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Schema inconsistencies resulting from file removal or corruption       | Aurora cancels the upgrade.     | Change the default storage engine for temporary tables from MyISAM to InnoDB. Perform the following steps: 1. Modify the `default_tmp_storage_engine` DB parameter to `InnoDB`. 2. Reboot the DB cluster. 3. After rebooting, confirm that the `default_tmp_storage_engine` DB parameter is set to `InnoDB`. Use the following command: `show global variables like 'default_tmp_storage_engine';` 4. Make sure not to create any temporary tables that use the MyISAM storage engine. We recommend that you pause any database workload and not create any new database connections, because you're upgrading soon. 5. Try the in-place upgrade again.                                                                                                                                 |
-| Master user was deleted                                                | Aurora cancels the upgrade.     | ImportantDon't delete the master user. However, if for some reason you should happen to delete the master user, restore it using the following SQL commands: ``CREATE USER '`master_username`'@'%' IDENTIFIED BY '`master_user_password`' REQUIRE NONE PASSWORD EXPIRE DEFAULT ACCOUNT UNLOCK; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, LOAD FROM S3, SELECT INTO S3, INVOKE LAMBDA, INVOKE SAGEMAKER, INVOKE COMPREHEND ON *.* TO '`master_username`'@'%' WITH GRANT OPTION;``                                                         | For more details on troubleshooting issues that cause upgrade prechecks to fail, see the following blogs: <br>• [Amazon Aurora MySQL version 2 (with MySQL 5.7 compatibility) to version 3 (with MySQL 8.0 compatibility) upgrade checklist, Part 1](https://aws.amazon.com/blogs/database/amazon-aurora-mysql-version-2-with-mysql-5-7-compatibility-to-version-3-with-mysql-8-0-compatibility-upgrade-checklist-part-1/ "https://aws.amazon.com/blogs/database/amazon-aurora-mysql-version-2-with-mysql-5-7-compatibility-to-version-3-with-mysql-8-0-compatibility-upgrade-checklist-part-1/") <br>• [Amazon Aurora MySQL version 2 (with MySQL 5.7 compatibility) to version 3 (with MySQL 8.0 compatibility) upgrade checklist, Part 2](https://aws.amazon.com/blogs/database/amazon-aurora-mysql-version-2-with-mysql-5-7-compatibility-to-version-3-with-mysql-8-0-compatibility-upgrade-checklist-part-2/ "https://aws.amazon.com/blogs/database/amazon-aurora-mysql-version-2-with-mysql-5-7-compatibility-to-version-3-with-mysql-8-0-compatibility-upgrade-checklist-part-2/") You can use the following steps to perform your own checks for some of the conditions in the preceding table. That way, you can schedule the upgrade at a time when you know the database is in a state where the upgrade can complete successfully and quickly. <br>• You can check for open XA transactions by executing the `XA RECOVER` statement. You can then commit or roll back the XA transactions before starting the upgrade. <br>• You can check for DDL statements by executing a `SHOW PROCESSLIST` statement and looking for `CREATE`, `DROP`, `ALTER`, `RENAME`, and `TRUNCATE` statements in the output. Allow all DDL statements to finish before starting the upgrade. <br>• You can check the total number of uncommitted rows by querying the `INFORMATION_SCHEMA.INNODB_TRX` table. The table contains one row for each transaction. The `TRX_ROWS_MODIFIED` column contains the number of rows modified or inserted by the transaction. <br>• You can check the length of the InnoDB history list by executing the `SHOW ENGINE INNODB STATUS SQL` statement and looking for the `History list length` in the output. You can also check the value directly by running the following query: `SELECT count FROM information_schema.innodb_metrics WHERE name = 'trx_rseg_history_len';` The length of the history list corresponds to the amount of undo information stored by the database to implement multi-version concurrency control (MVCC). |
+You can start by using the `describe-events` AWS CLI command to look at the DB cluster events. This example shows the events for
+`mydbcluster` for the last 10 hours.
+
+```
+aws rds describe-events \
+    --source-type db-cluster \
+    --source-identifier mydbcluster \
+    --duration 600
+```
+
+In this case, we had an upgrade precheck failure.
+
+```
+{
+    "Events": [
+        {
+            "SourceIdentifier": "mydbcluster",
+            "SourceType": "db-cluster",
+            "Message": "Database cluster engine version upgrade started.",
+            "EventCategories": [
+                "maintenance"
+            ],
+            "Date": "2024-04-11T13:23:22.846000+00:00",
+            "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster"
+        },
+        {
+            "SourceIdentifier": "mydbcluster",
+            "SourceType": "db-cluster",
+            "Message": "Database cluster is in a state that cannot be upgraded: Upgrade prechecks failed. For more details, see the
+             upgrade-prechecks.log file. For more information on troubleshooting the cause of the upgrade failure, see
+             https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Upgrading.Troubleshooting.html",
+            "EventCategories": [
+                "maintenance"
+            ],
+            "Date": "2024-04-11T13:23:24.373000+00:00",
+            "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster"
+        }
+    ]
+}
+
+```
+
+To diagnose the exact cause of the problem, examine the database logs for the writer DB instance. When an upgrade to Aurora MySQL version 3 fails, the
+writer instance contains a log file with the name `upgrade-prechecks.log`. This example shows how to detect the presence of that log and then
+download it to a local file for examination.
+
+```
+aws rds describe-db-log-files --db-instance-identifier mydbcluster-instance \
+    --query '*[].[LogFileName]' --output text
+
+error/mysql-error-running.log
+error/mysql-error-running.log.2024-04-11.20
+error/mysql-error-running.log.2024-04-11.21
+error/mysql-error.log
+external/mysql-external.log
+upgrade-prechecks.log
+
+aws rds download-db-log-file-portion --db-instance-identifier mydbcluster-instance \
+    --log-file-name upgrade-prechecks.log \
+    --starting-token 0 \
+    --output text >upgrade_prechecks.log
+```
+
+The `upgrade-prechecks.log` file is in JSON format. We download it using the `--output text` option to avoid encoding JSON
+output within another JSON wrapper. For Aurora MySQL version 3 upgrades, this log always includes certain informational and warning messages. It only
+includes error messages if the upgrade fails. If the upgrade succeeds, the log file isn't produced at all.
+
+To summarize all of the errors and display the associated object and description fields, you can run the command `grep -A 2 '"level":
+ "Error"'` on the contents of the `upgrade-prechecks.log` file. Doing so displays each error line and the two lines after it. These
+contain the name of the corresponding database object and guidance about how to correct the problem.
+
+```
+`$` cat upgrade-prechecks.log | grep -A 2 '"level": "Error"'
+
+"level": "Error",
+"dbObject": "problematic_upgrade.dangling_fulltext_index",
+"description": "Table `problematic_upgrade.dangling_fulltext_index` contains dangling FULLTEXT index. Kindly recreate the table before upgrade."
+```
+
+In this example, you can run the following SQL command on the offending table to try to fix the issue, or you can re-create the table without the
+dangling index.
+
+```
+OPTIMIZE TABLE problematic_upgrade.dangling_fulltext_index;
+```
+
+Then retry the upgrade.

@@ -35,7 +35,80 @@ The following table summarizes what happens when a major engine version reaches 
 Aurora
 end of standard support.
 
-| RDS Extended Support status\* | Behavior                                                                                                                                                                          |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enabled                       | Amazon RDS charges you for RDS Extended Support.                                                                                                                                  |
-| Disabled                      | Amazon RDS upgrades your Aurora DB cluster or global cluster to a supported engine version. This upgrade takes place on or shortly after the Aurora end of standard support date. | \* In the RDS console, the RDS Extended Support status appears as Yes or No. In the AWS CLI or RDS API, the RDS Extended Support status appears as `open-source-rds-extended-support` or `open-source-rds-extended-support-disabled`. ## Considerations for RDS Extended Support Before creating an Aurora DB cluster or a global cluster, consider the following items: <br>• _After_ the Aurora end of standard support date has passed, you can prevent the creation of a new Aurora DB cluster or a new global cluster and avoid RDS Extended Support charges. To do this, use the AWS CLI or the RDS API. In the AWS CLI, specify `open-source-rds-extended-support-disabled` for the `--engine-lifecycle-support` option. In the RDS API, specify `open-source-rds-extended-support-disabled` for the `LifeCycleSupport` parameter. If you specify `open-source-rds-extended-support-disabled` and the Aurora end of standard support date has passed, creating an Aurora DB cluster or a global cluster will always fail. <br>• RDS Extended Support is set at the cluster level. Members of a cluster will always have the same setting for RDS Extended Support in the RDS console, `--engine-lifecycle-support` in the AWS CLI, and `EngineLifecycleSupport` in the RDS API. For more information, see [Amazon Aurora versions](Aurora.md "Aurora.md"). ## Create an Aurora DB cluster or a global cluster with RDS Extended Support You can create an Aurora DB cluster or a global cluster with an RDS Extended Support version using the AWS Management Console, the AWS CLI, or the RDS API. When you create an Aurora DB cluster or a global cluster, in the **Engine options** section, select **Enable RDS Extended Support**. This setting isn't selected by default. The following image shows the **Enable RDS Extended Support** setting: ![The Enable RDS Extended Support setting in the Engine options section.](images/extended-support-enable.png) When you run the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") or [create-global-cluster](../../../cli/latest/reference/rds/create-global-cluster.md "../../../cli/latest/reference/rds/create-global-cluster.md") AWS CLI command, select RDS Extended Support by specifying `open-source-rds-extended-support` for the `--engine-lifecycle-support` option. By default, this option is set to `open-source-rds-extended-support`. To prevent the creation of a new Aurora DB cluster or a global cluster after the Aurora end of standard support date, specify `open-source-rds-extended-support-disabled` for the `--engine-lifecycle-support` option. By doing so, you will avoid any associated RDS Extended Support charges. When you use the [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") or [CreateGlobalCluster](../APIReference/API_CreateGlobalCluster.md "../APIReference/API_CreateGlobalCluster.md") Amazon RDS API operation, select RDS Extended Support by setting the `EngineLifecycleSupport` parameter to `open-source-rds-extended-support`. By default, this parameter is set to `open-source-rds-extended-support`. To prevent the creation of a new Aurora DB cluster or a global cluster after the Aurora end of standard support date, specify `open-source-rds-extended-support-disabled` for the `EngineLifecycleSupport` parameter. By doing so, you will avoid any associated RDS Extended Support charges. For more information, see the following topics: <br>• To create an Aurora DB cluster, follow the instructions for your DB engine in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md"). <br>• To create a global cluster, follow the instructions for your DB engine in [Creating an Amazon Aurora global database](aurora-global-database-creating.md "aurora-global-database-creating.md"). |
+| RDS Extended Support status\* | Behavior                                                                                                                                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Enabled                       | Amazon RDS charges you for RDS Extended Support.                                                                                                                                           |
+| Disabled                      | Amazon RDS upgrades your Aurora DB cluster or global<br>cluster to a supported engine version. This upgrade<br>takes place on or shortly after the Aurora end of<br>standard support date. |
+
+\* In the RDS console, the RDS Extended Support status appears as Yes or No. In the AWS CLI or
+RDS API, the RDS Extended Support status appears as `open-source-rds-extended-support`
+or `open-source-rds-extended-support-disabled`.
+
+## Considerations
+
+for RDS Extended Support
+
+Before creating an Aurora DB cluster or a global cluster, consider the following
+items:
+
+- _After_ the Aurora end of standard
+  support date has passed, you can prevent the creation of a new Aurora DB cluster or a new global cluster and avoid
+  RDS Extended Support charges. To do this, use the AWS CLI or the RDS API. In the AWS CLI,
+  specify `open-source-rds-extended-support-disabled` for the
+  `--engine-lifecycle-support` option. In the RDS API, specify
+  `open-source-rds-extended-support-disabled` for the
+  `LifeCycleSupport` parameter. If you specify
+  `open-source-rds-extended-support-disabled` and the Aurora
+  end of standard support date has passed, creating an Aurora DB cluster or a
+  global cluster will always fail.
+- RDS Extended Support is set at the cluster level. Members of a cluster will always have
+  the same setting for RDS Extended Support in the RDS console,
+  `--engine-lifecycle-support` in the AWS CLI, and
+  `EngineLifecycleSupport` in the RDS API.
+
+For more information, see [Amazon Aurora versions](Aurora.md "Aurora.md").
+
+## Create an Aurora DB cluster or a global cluster with
+
+RDS Extended Support
+
+You can create an Aurora DB cluster or a global cluster with an RDS Extended Support version
+using the AWS Management Console, the AWS CLI, or the RDS API.
+
+When you create an Aurora DB cluster or a global
+cluster, in the **Engine options** section, select
+**Enable RDS Extended Support**. This setting isn't selected by
+default.
+
+The following image shows the **Enable RDS Extended Support**
+setting:
+
+![The Enable RDS Extended Support setting in the Engine options section.](images/extended-support-enable.png)
+When you run the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") or [create-global-cluster](../../../cli/latest/reference/rds/create-global-cluster.md "../../../cli/latest/reference/rds/create-global-cluster.md") AWS CLI command,
+select RDS Extended Support by specifying `open-source-rds-extended-support`
+for the `--engine-lifecycle-support` option. By default, this option
+is set to `open-source-rds-extended-support`.
+
+To prevent the creation of a new Aurora DB cluster or a global
+cluster after the Aurora end of standard support date, specify
+`open-source-rds-extended-support-disabled` for the
+`--engine-lifecycle-support` option. By doing so, you will avoid
+any associated RDS Extended Support charges.
+
+When you use the [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") or [CreateGlobalCluster](../APIReference/API_CreateGlobalCluster.md "../APIReference/API_CreateGlobalCluster.md")
+Amazon RDS API
+operation, select RDS Extended Support by setting the `EngineLifecycleSupport`
+parameter to `open-source-rds-extended-support`. By default, this
+parameter is set to `open-source-rds-extended-support`.
+
+To prevent the creation of a new Aurora DB cluster or a global
+cluster after the Aurora end of standard support date, specify
+`open-source-rds-extended-support-disabled` for the
+`EngineLifecycleSupport` parameter. By doing so, you will avoid
+any associated RDS Extended Support charges.
+
+For more information, see the following topics:
+
+- To create an Aurora DB cluster, follow the instructions for your DB engine in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+- To create a global cluster, follow the instructions for your DB engine in
+  [Creating an Amazon Aurora global database](aurora-global-database-creating.md "aurora-global-database-creating.md").

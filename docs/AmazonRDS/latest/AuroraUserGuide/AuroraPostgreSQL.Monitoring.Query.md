@@ -71,37 +71,81 @@ The configuration for `aurora_stat_plans.with_*` parameters takes effect only fo
 
 The `aurora_compute_plan_id` is a configuration parameter that controls whether a plan identifier is assigned during query execution.
 
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| off     | 0(off)                                                          | Set to `off` to prevent a plan identifier from being assigned.                                                                                                                                                                                                    |
-| 1(on)   | Set to `on` to assign a plan identifier.                        | ### aurora_stat_plans.minutes_until_recapture The number of minutes to pass before a plan is recaptured. Default is 0 which will disable recapturing a plan. When the `aurora_stat_plans.calls_until_recapture` threshold is passed, the plan will be recaptured. |
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ---     | ---                                                             | ---                                                                                                                                                                                                                                                               |
-| 0       | 0-1073741823                                                    | Set the number of minutes to pass before a plan is recaptured.                                                                                                                                                                                                    | ### aurora_stat_plans.calls_until_recapture The number of calls to a plan before it is recaptured. Default is 0 which will disable recapturing a plan after a number of calls. When the `aurora_stat_plans.minutes_until_recapture` threshold is passed, the plan will be recaptured. |
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ---     | ---                                                             | ---                                                                                                                                                                                                                                                               |
-| 0       | 0-1073741823                                                    | Set the number of calls before a plan is recaptured.                                                                                                                                                                                                              | ### aurora_stat_plans.with_costs Captures an EXPLAIN plan with estimated costs. The allowed values are `on` and `off`. The default is `on`.                                                                                                                                           |
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ---     | ---                                                             | ---                                                                                                                                                                                                                                                               |
-| on      | 0(off)                                                          | Doesn't show estimated cost and rows for each plan node.                                                                                                                                                                                                          |
-| 1(on)   | Shows estimated cost and rows for each plan node.               | ### aurora_stat_plans.with_analyze Controls the EXPLAIN plan with ANALYZE. This mode is only used the first time a plan is captured. The allowed values are `on` and `off`. The default is `off`.                                                                 |
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ---     | ---                                                             | ---                                                                                                                                                                                                                                                               |
-| off     | 0(off)                                                          | Doesn't include actual run time statistics for the plan.                                                                                                                                                                                                          |
-| 1(on)   | Includes actual run time statistics for the plan.               | ### aurora_stat_plans.with_timing Plan timing will be captured in the explain when ANALYZE is used. The default is `on`.                                                                                                                                          |
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ---     | ---                                                             | ---                                                                                                                                                                                                                                                               |
-| on      | 0(off)                                                          | Doesn't include actual start up time and time spent in each plan node.                                                                                                                                                                                            |
-| 1(on)   | Includes actual start up time and time spent in each plan node. | ### aurora_stat_plans.with_buffers Plan buffer usage statistics will be captured in the explain when ANALYZE is used. The default is `off`.                                                                                                                       |
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ---     | ---                                                             | ---                                                                                                                                                                                                                                                               |
-| off     | 0(off)                                                          | Doesn't include information on buffer usage.                                                                                                                                                                                                                      |
-| 1(on)   | Includes information on buffer usage.                           | ### aurora_stat_plans.with_wal Plan wal usage statistics will be captured in the explain when ANALYZE is used. The default is `off`.                                                                                                                              |
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ---     | ---                                                             | ---                                                                                                                                                                                                                                                               |
-| off     | 0(off)                                                          | Doesn't include information on WAL record generation.                                                                                                                                                                                                             |
-| 1(on)   | Includes information on WAL record generation.                  | ### aurora_stat_plans.with_triggers Plan trigger execution statistics will be captured in the explain when `ANALYZE` is used. The default is `off`.                                                                                                               |
-| Default | Allowed values                                                  | Description                                                                                                                                                                                                                                                       |
-| ---     | ---                                                             | ---                                                                                                                                                                                                                                                               |
-| off     | 0(off)                                                          | Doesn't include triggers execution statistics.                                                                                                                                                                                                                    |
-| 1(on)   | Includes triggers execution statistics.                         |
+| Default | Allowed values                           | Description                                                    |
+| ------- | ---------------------------------------- | -------------------------------------------------------------- |
+| off     | 0(off)                                   | Set to `off` to prevent a plan identifier from being assigned. |
+| 1(on)   | Set to `on` to assign a plan identifier. |
+
+### aurora_stat_plans.minutes_until_recapture
+
+The number of minutes to pass before a plan is recaptured. Default is 0 which will disable recapturing
+a plan. When the `aurora_stat_plans.calls_until_recapture`
+threshold is passed, the plan will be recaptured.
+
+| Default | Allowed values | Description                                                    |
+| ------- | -------------- | -------------------------------------------------------------- |
+| 0       | 0-1073741823   | Set the number of minutes to pass before a plan is recaptured. |
+
+### aurora_stat_plans.calls_until_recapture
+
+The number of calls to a plan before it is recaptured. Default is 0 which will disable recapturing
+a plan after a number of calls. When the `aurora_stat_plans.minutes_until_recapture`
+threshold is passed, the plan will be recaptured.
+
+| Default | Allowed values | Description                                          |
+| ------- | -------------- | ---------------------------------------------------- |
+| 0       | 0-1073741823   | Set the number of calls before a plan is recaptured. |
+
+### aurora_stat_plans.with_costs
+
+Captures an EXPLAIN plan with estimated costs. The allowed values are `on` and `off`. The default is `on`.
+
+| Default | Allowed values                                    | Description                                              |
+| ------- | ------------------------------------------------- | -------------------------------------------------------- |
+| on      | 0(off)                                            | Doesn't show estimated cost and rows for each plan node. |
+| 1(on)   | Shows estimated cost and rows for each plan node. |
+
+### aurora_stat_plans.with_analyze
+
+Controls the EXPLAIN plan with ANALYZE. This mode is only used the first time a plan is captured. The allowed values are `on` and `off`. The default is `off`.
+
+| Default | Allowed values                                    | Description                                              |
+| ------- | ------------------------------------------------- | -------------------------------------------------------- |
+| off     | 0(off)                                            | Doesn't include actual run time statistics for the plan. |
+| 1(on)   | Includes actual run time statistics for the plan. |
+
+### aurora_stat_plans.with_timing
+
+Plan timing will be captured in the explain when ANALYZE is used. The default is `on`.
+
+| Default | Allowed values                                                  | Description                                                            |
+| ------- | --------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| on      | 0(off)                                                          | Doesn't include actual start up time and time spent in each plan node. |
+| 1(on)   | Includes actual start up time and time spent in each plan node. |
+
+### aurora_stat_plans.with_buffers
+
+Plan buffer usage statistics will be captured in the explain when ANALYZE is used. The default is `off`.
+
+| Default | Allowed values                        | Description                                  |
+| ------- | ------------------------------------- | -------------------------------------------- |
+| off     | 0(off)                                | Doesn't include information on buffer usage. |
+| 1(on)   | Includes information on buffer usage. |
+
+### aurora_stat_plans.with_wal
+
+Plan wal usage statistics will be captured in the explain when ANALYZE is used. The default is `off`.
+
+| Default | Allowed values                                 | Description                                           |
+| ------- | ---------------------------------------------- | ----------------------------------------------------- |
+| off     | 0(off)                                         | Doesn't include information on WAL record generation. |
+| 1(on)   | Includes information on WAL record generation. |
+
+### aurora_stat_plans.with_triggers
+
+Plan trigger execution statistics will be captured in the explain when `ANALYZE` is used. The default is `off`.
+
+| Default | Allowed values                          | Description                                    |
+| ------- | --------------------------------------- | ---------------------------------------------- |
+| off     | 0(off)                                  | Doesn't include triggers execution statistics. |
+| 1(on)   | Includes triggers execution statistics. |

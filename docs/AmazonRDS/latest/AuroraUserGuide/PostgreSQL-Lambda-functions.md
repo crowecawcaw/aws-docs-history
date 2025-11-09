@@ -203,8 +203,8 @@ Availability Zones](Concepts.md "Concepts.md").
 
 In this table, you can find parameters associated with the `aws_lambda` function.
 
-| Parameter                       | Description                                                                                                                                                                                                              |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `aws_lambda.connect_timeout_ms` | This is a dynamic parameter and it sets the maximum wait time while connecting to AWS Lambda. The default values is `1000`. Allowed values for this parameter are 1 - 900000.                                            |
-| `aws_lambda.request_timeout_ms` | This is a dynamic parameter and it sets the maximum wait time while waiting for response from AWS Lambda. The default values is `3000`. Allowed values for this parameter are 1 - 900000.                                |
-| `aws_lambda.endpoint_override`  | Specifies the endpoint that can be used to connect to AWS Lambda. An empty string selects the default AWS Lambda endpoint for the region. You must restart the database for this static parameter change to take effect. |
+| Parameter                       | Description                                                                                                                                                                                                                 |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws_lambda.connect_timeout_ms` | This is a dynamic parameter and it sets the maximum wait time while connecting to AWS Lambda.<br>The default values is `1000`. Allowed values for this parameter are 1<br>• 900000.                                         |
+| `aws_lambda.request_timeout_ms` | This is a dynamic parameter and it sets the maximum wait time while waiting for response from AWS Lambda.<br>The default values is `3000`. Allowed values for this parameter are 1<br>• 900000.                             |
+| `aws_lambda.endpoint_override`  | Specifies the endpoint that can be used to connect to AWS Lambda. An empty string selects the default AWS Lambda endpoint for the region.<br>You must restart the database for this static parameter change to take effect. |
