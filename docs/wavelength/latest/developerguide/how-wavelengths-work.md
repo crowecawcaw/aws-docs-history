@@ -103,7 +103,39 @@ Consider a scenario with the following configuration:
 
 You need the following entries in the Wavelength subnet route table.
 
-| Destination | Target               | Notes                                                                                      |
-| ----------- | -------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `VPC CIDR`  | Local                | This route allows for intra-VPC connectivity, including subnets in the Availability Zones. |
-| 0.0.0.0/0   | `carrier-gateway-id` | The Carrier IP address provides internet connectivity through the carrier gateway.         | #### Carrier gateway access to the public internet The carrier gateway provides access to the internet from your Wavelength subnets. For information about protocol considerations, see [Networking considerations](wavelength-quotas.md#networking-considerations "wavelength-quotas.md#networking-considerations"). Traffic initiated from the EC2 instance for the internet uses the 0.0.0.0/0 route to route traffic to the carrier gateway. The carrier gateway maps the EC2 instance IP address to the Carrier IP address, and then sends the traffic to the telecommunication carrier. ## DNS EC2 instances use EC2 DNS to resolve domain names to IP addresses. Route 53 supports DNS features, such as domain registration, and DNS routing. Both public and private hosted Wavelength Zones are supported for routing traffic to specific domains. Route 53 resolvers are hosted in the Region. You can also use your own DNS services to resolve domain names. ## Maximum transmission unit Generally, the maximum transmission unit (MTU) is as follows: <br>• 9001 bytes between EC2 instances in the same Wavelength Zone. <br>• 1500 bytes between carrier gateway and a Wavelength Zone. <br>• 1500 bytes between an EC2 instance in a Wavelength Zone and an EC2 instance in the Region when the traffic uses a public IP address. <br>• 1300 bytes between an EC2 instance in a Wavelength Zone and an EC2 instance in the Region when the traffic uses a private IP address. |
+| Destination | Target               | Notes                                                                                         |
+| ----------- | -------------------- | --------------------------------------------------------------------------------------------- |
+| `VPC CIDR`  | Local                | This route allows for intra-VPC connectivity, including subnets<br>in the Availability Zones. |
+| 0.0.0.0/0   | `carrier-gateway-id` | The Carrier IP address provides internet connectivity through the<br>carrier gateway.         |
+
+#### Carrier gateway access to the public
+
+internet
+
+The carrier gateway provides access to the internet from your Wavelength subnets.
+For information about protocol considerations, see [Networking considerations](wavelength-quotas.md#networking-considerations "wavelength-quotas.md#networking-considerations").
+
+Traffic initiated from the EC2 instance for the internet uses the 0.0.0.0/0
+route to route traffic to the carrier gateway. The carrier gateway maps the EC2
+instance IP address to the Carrier IP address, and then sends the traffic to the
+telecommunication carrier.
+
+## DNS
+
+EC2 instances use EC2 DNS to resolve domain names to IP addresses. Route 53 supports DNS
+features, such as domain registration, and DNS routing. Both public and private hosted
+Wavelength Zones are supported for routing traffic to specific domains. Route 53 resolvers are
+hosted in the Region.
+
+You can also use your own DNS services to resolve domain names.
+
+## Maximum transmission unit
+
+Generally, the maximum transmission unit (MTU) is as follows:
+
+- 9001 bytes between EC2 instances in the same Wavelength Zone.
+- 1500 bytes between carrier gateway and a Wavelength Zone.
+- 1500 bytes between an EC2 instance in a Wavelength Zone and an EC2
+  instance in the Region when the traffic uses a public IP address.
+- 1300 bytes between an EC2 instance in a Wavelength Zone and an EC2
+  instance in the Region when the traffic uses a private IP address.

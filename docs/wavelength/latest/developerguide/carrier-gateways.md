@@ -242,6 +242,75 @@ all non-VPC traffic to the carrier network. To do this, create and attach a carr
 to your VPC, and then add the following routes:
 
 | Destination | Target    |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ----------- | --------- |
 | 0.0.0.0/0   | `cagw-id` |
-| ::/0        | `cagw-id` | ### View the carrier gateway details You can view information about your carrier gateway, including the state and the tags. ###### To view the carrier gateway details 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. In the navigation pane, choose **Carrier Gateways**. 3. Select the carrier gateway and choose **Actions**, **View details**. ###### To view the carrier gateway details using the AWS CLI Use the [describe-carrier-gateways](../../../cli/latest/reference/ec2/describe-carrier-gateways.md "../../../cli/latest/reference/ec2/describe-carrier-gateways.md") command. ### Manage carrier gateway tags Tags help you to identify your carrier gateways. You can add or remove tags. ###### To manage the carrier gateway tags 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. In the navigation pane, choose **Carrier Gateways**. 3. Select the carrier gateway and choose **Actions**, **Manage tags**. 4. To add a tag, choose **Add tag**, and then do the following: <br>• For **Key**, enter the key name. <br>• For **Value**, enter the key value. 5. To remove a tag, choose **Remove** to the right of the tag’s Key and Value. 6. Choose **Save**. ###### To manage the carrier gateway tags using the AWS CLI <br>• To add tags, use the [create-tags](../../../cli/latest/reference/ec2/create-tags.md "../../../cli/latest/reference/ec2/create-tags.md") command. <br>• To delete tags, use the [delete-tags](../../../cli/latest/reference/ec2/delete-tags.md "../../../cli/latest/reference/ec2/delete-tags.md") command. ### Delete a carrier gateway If you no longer need a carrier gateway, you can delete it. ###### Important If you do not delete the route that has the carrier gateway as the **Target**, the route is a blackhole route. ###### To delete a carrier gateway 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. In the navigation pane, choose **Carrier Gateways**. 3. Select the carrier gateway and choose **Actions**, **Delete carrier gateway**. 4. In the **Delete carrier gateway** dialog box, enter **Delete**, and then choose **Delete**. ###### To delete a carrier gateway using the AWS CLI Use the [delete-carrier-gateway](../../../cli/latest/reference/ec2/delete-carrier-gateway.md "../../../cli/latest/reference/ec2/delete-carrier-gateway.md") command. ## Manage Zones Before you specify a Wavelength Zone for a resource or service, you must opt in to the AWS Zone. |
+| ::/0        | `cagw-id` |
+
+### View the carrier gateway details
+
+You can view information about your carrier gateway, including the state and the
+tags.
+
+###### To view the carrier gateway details
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Carrier Gateways**.
+3. Select the carrier gateway and choose **Actions**, **View
+   details**.
+
+###### To view the carrier gateway details using the AWS CLI
+
+Use the [describe-carrier-gateways](../../../cli/latest/reference/ec2/describe-carrier-gateways.md "../../../cli/latest/reference/ec2/describe-carrier-gateways.md") command.
+
+### Manage carrier gateway tags
+
+Tags help you to identify your carrier gateways. You can add or remove tags.
+
+###### To manage the carrier gateway tags
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Carrier Gateways**.
+3. Select the carrier gateway and choose **Actions**, **Manage
+   tags**.
+4. To add a tag, choose **Add tag**, and then do the following:
+   - For **Key**, enter the key name.
+   - For **Value**, enter the key value.
+
+5. To remove a tag, choose **Remove** to the right of the tag’s Key
+   and Value.
+6. Choose **Save**.
+
+###### To manage the carrier gateway tags using the AWS CLI
+
+- To add tags, use the [create-tags](../../../cli/latest/reference/ec2/create-tags.md "../../../cli/latest/reference/ec2/create-tags.md") command.
+- To delete tags, use the [delete-tags](../../../cli/latest/reference/ec2/delete-tags.md "../../../cli/latest/reference/ec2/delete-tags.md") command.
+
+### Delete a carrier gateway
+
+If you no longer need a carrier gateway, you can delete it.
+
+###### Important
+
+If you do not delete the route that has the carrier gateway as the
+**Target**, the route is a blackhole route.
+
+###### To delete a carrier gateway
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Carrier Gateways**.
+3. Select the carrier gateway and choose **Actions**, **Delete
+   carrier gateway**.
+4. In the **Delete carrier gateway** dialog box, enter
+   **Delete**, and then choose **Delete**.
+
+###### To delete a carrier gateway using the AWS CLI
+
+Use the [delete-carrier-gateway](../../../cli/latest/reference/ec2/delete-carrier-gateway.md "../../../cli/latest/reference/ec2/delete-carrier-gateway.md") command.
+
+## Manage Zones
+
+Before you specify a Wavelength Zone for a resource or service, you must opt in to the AWS
+Zone.
