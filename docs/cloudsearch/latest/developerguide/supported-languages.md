@@ -1,16 +1,16 @@
 # Supported Languages in Amazon CloudSearch
 
-|                                 |                 |                                |
-| ------------------------------- | --------------- | ------------------------------ |
-| Arabic (ar)                     | Armenian (hy)   | Basque (eu)                    |
-| Bulgarian (bg)                  | Catalan (ca)    | Chinese - Simplified (zh-Hans) |
-| Chinese - Traditional (zh-Hant) | Czech (cs)      | Danish (da)                    |
-| Dutch (nl)                      | English (en)    | Finnish (fi)                   |
-| French (fr)                     | Galician (gl)   | German (de)                    |
-| Greek (el)                      | Hindi (hi)      | Hebrew (he)                    |
-| Hungarian (hu)                  | Indonesian (id) | Irish (ga)                     |
-| Italian (it)                    | Japanese (ja)   | Korean (ko)                    |
-| Latvian (lv)                    | Multiple (mul)  | Norwegian (no)                 |
-| Persian (fa)                    | Portuguese (pt) | Romanian (ro)                  |
-| Russian (ru)                    | Spanish (es)    | Swedish (sv)                   |
-| Thai (th)                       | Turkish (tr)    |
+|                                    |                 |                                   |
+| ---------------------------------- | --------------- | --------------------------------- |
+| Arabic (ar)                        | Armenian (hy)   | Basque (eu)                       |
+| Bulgarian (bg)                     | Catalan (ca)    | Chinese<br>• Simplified (zh-Hans) |
+| Chinese<br>• Traditional (zh-Hant) | Czech (cs)      | Danish (da)                       |
+| Dutch (nl)                         | English (en)    | Finnish (fi)                      |
+| French (fr)                        | Galician (gl)   | German (de)                       |
+| Greek (el)                         | Hindi (hi)      | Hebrew (he)                       |
+| Hungarian (hu)                     | Indonesian (id) | Irish (ga)                        |
+| Italian (it)                       | Japanese (ja)   | Korean (ko)                       |
+| Latvian (lv)                       | Multiple (mul)  | Norwegian (no)                    |
+| Persian (fa)                       | Portuguese (pt) | Romanian (ro)                     |
+| Russian (ru)                       | Spanish (es)    | Swedish (sv)                      |
+| Thai (th)                          | Turkish (tr)    |

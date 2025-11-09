@@ -231,12 +231,12 @@ This table summarizes the changes and additions to the Amazon CloudSearch limits
 
 | Change                                                   | Summary                                                                                                                                               |
 | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Reserved names                                           | _score_ is the only reserved name.                                                                                                                    |
+| Reserved names                                           | \*score<br>• is the only reserved name.                                                                                                               |
 | No limit on return data                                  | Data returned from a text field is no longer truncated at 2 KB. However, keep in mind that the maximum document size is 1 MB.                         |
 | No limit on stemming, stopword, or synonym dictionaries. | Stemming, stopword, and synonym dictionaries are configured in an analysis scheme and there is no limit on the size of an analysis scheme definition. |
 | Maximum number of field values                           | An array type field can contain up to 1000 values.                                                                                                    |
 | Field size                                               | The maximum size of `literal` fields is 4096 Unicode code points.                                                                                     |
-| Int field range                                          | An `int` field can contain values in the range -9,223,372,036,854,775,808 - 9,223,372,036,854,775,807 (inclusive).                                    |
+| Int field range                                          | An `int` field can contain values in the range -9,223,372,036,854,775,808<br>• 9,223,372,036,854,775,807 (inclusive).                                 |
 | Maximum number of highlights                             | The maximum number of occurrences of the search term(s) that can be highlighted is 5.                                                                 |
 | Maximum number of suggesters                             | The maximum number of suggesters you can configure for a domain is 10.                                                                                |
-| Maximum number of hits you can retrieve at once          | The maximum number of hits you can retrieve at once is 10,000. The `size` parameter can contain values in the range 0 - 10000.                        |
+| Maximum number of hits you can retrieve at once          | The maximum number of hits you can retrieve at once is 10,000. The `size` parameter can contain values in the range 0<br>• 10000.                     |

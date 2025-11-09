@@ -25,13 +25,86 @@ metrics in all regions supported by Amazon CloudSearch.
 
 The `AWS/CloudSearch` namespace includes the following metrics.
 
-| Metric                | Description                                                                                                                                                                                                                |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SuccessfulRequests`  | The number of search requests successfully processed by a search instance. Units: Count Valid statistics: Maximum, Sum                                                                                                     |
-| `SearchableDocuments` | The number of searchable documents in the domain's search index. Units: Count Valid statistics: Maximum                                                                                                                    |
-| `IndexUtilization`    | The percentage of the search instance's index capacity that has been used. The Maximum value indicates the percentage of the domain's index capacity that has been used. Units: Percent Valid statistics: Average, Maximum |
-| `Partitions`          | The number of partitions the index is distributed across. Units: Count Valid statistics: Minimum, Maximum                                                                                                                  | ## Dimensions for Amazon CloudSearch Metrics Amazon CloudSearch sends the ClientId and DomainName dimensions to CloudWatch.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Dimension             | Description                                                                                                                                                                                                                |
-| ---                   | ---                                                                                                                                                                                                                        |
-| `ClientId`            | The AWS account ID.                                                                                                                                                                                                        |
-| `DomainName`          | The name of the search domain.                                                                                                                                                                                             | ## Generating SDK for Java Metrics for Amazon CloudSearch The AWS SDK for Java can generate performance metrics for your Amazon CloudSearch client and send them to CloudWatch for visualization. For the Java VM arguments that enable this feature, see [Enabling Metrics for the AWS SDK for Java](../../../sdk-for-java/latest/developer-guide/generating-sdk-metrics.md "../../../sdk-for-java/latest/developer-guide/generating-sdk-metrics.md") in the _AWS SDK for Java Developer Guide_. You can use the following code to test metrics generation. The code creates a new CloudWatch client and performs 2,500 searches. Because the SDK only sends metrics once per minute, long-running clients work best. The code uses the [default credential provider chain](../../../sdk-for-java/latest/developer-guide/credentials.md#credentials-default "../../../sdk-for-java/latest/developer-guide/credentials.md#credentials-default"). ``import com.amazonaws.client.builder.AwsClientBuilder; import com.amazonaws.services.cloudsearchdomain.AmazonCloudSearchDomain; import com.amazonaws.services.cloudsearchdomain.AmazonCloudSearchDomainClientBuilder; import com.amazonaws.services.cloudsearchdomain.model.SearchRequest; public class Metrics { public static void main(String[] args) { String search_endpoint = "https://search-`domain`-`id`.`us-west-1`.cloudsearch.amazonaws.com"; String region = "`us-west-1`"; AwsClientBuilder.EndpointConfiguration endpointConfig = new AwsClientBuilder .EndpointConfiguration(search_endpoint, region); AmazonCloudSearchDomainClientBuilder builder = AmazonCloudSearchDomainClientBuilder .standard() .withEndpointConfiguration(endpointConfig); AmazonCloudSearchDomain client = builder.build(); String query; SearchRequest request = new SearchRequest(); com.amazonaws.services.cloudsearchdomain.model.SearchResult test = client.search(request); for (int i = 0; i < 2500; i++) { query = "test"; request.setQuery(query); test = client.search(request); System.out.println(test.toString()); } } }`` To verify that the SDK is sending metrics to CloudWatch, check the **Metrics** page of the CloudWatch console and look for **AWSSDK/Java** under the **Custom Namespaces** section. The metrics might take several minutes to display. ## Viewing CloudWatch Metrics for an Amazon CloudSearch Domain The Amazon CloudSearch console graphs the metrics reported to CloudWatch. You can also access the metrics through the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"), AWS CLI, and AWS SDKs. For more information, see [Viewing, Graphing, and Publishing Metrics](../../../AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.md "../../../AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.md") in the _Amazon CloudWatch Developer Guide_. ###### To view metrics for a search domain using the Amazon CloudSearch console 1. Open the Amazon CloudSearch console at [https://console.aws.amazon.com/cloudsearch](https://console.aws.amazon.com/cloudsearch "https://console.aws.amazon.com/cloudsearch"). 2. Choose **Domains** from the left navigation pane. 3. Click the name of the domain, and then go to the **Monitoring** tab. |
+| Metric                | Description                                                                                                                                                                                                                         |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SuccessfulRequests`  | The number of search requests successfully processed by a search instance.<br>Units: Count<br>Valid statistics: Maximum, Sum                                                                                                        |
+| `SearchableDocuments` | The number of searchable documents in the domain's search index.<br>Units: Count<br>Valid statistics: Maximum                                                                                                                       |
+| `IndexUtilization`    | The percentage of the search instance's index capacity that has been used.<br>The Maximum value indicates the percentage of the domain's index capacity that has been used.<br>Units: Percent<br>Valid statistics: Average, Maximum |
+| `Partitions`          | The number of partitions the index is distributed across.<br>Units: Count<br>Valid statistics: Minimum, Maximum                                                                                                                     |
+
+## Dimensions for Amazon CloudSearch Metrics
+
+Amazon CloudSearch sends the ClientId and DomainName dimensions to CloudWatch.
+
+| Dimension    | Description                    |
+| ------------ | ------------------------------ |
+| `ClientId`   | The AWS account ID.            |
+| `DomainName` | The name of the search domain. |
+
+## Generating SDK for Java Metrics for Amazon CloudSearch
+
+The AWS SDK for Java can generate performance metrics for your Amazon CloudSearch client and send them
+to CloudWatch for visualization. For the Java VM arguments that enable this feature, see
+[Enabling Metrics for the
+AWS SDK for Java](../../../sdk-for-java/latest/developer-guide/generating-sdk-metrics.md "../../../sdk-for-java/latest/developer-guide/generating-sdk-metrics.md") in the _AWS SDK for Java Developer Guide_.
+
+You can use the following code to test metrics generation. The code creates a new
+CloudWatch client and performs 2,500 searches. Because the SDK only sends metrics once per
+minute, long-running clients work best. The code uses the [default credential
+provider chain](../../../sdk-for-java/latest/developer-guide/credentials.md#credentials-default "../../../sdk-for-java/latest/developer-guide/credentials.md#credentials-default").
+
+```
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.cloudsearchdomain.AmazonCloudSearchDomain;
+import com.amazonaws.services.cloudsearchdomain.AmazonCloudSearchDomainClientBuilder;
+import com.amazonaws.services.cloudsearchdomain.model.SearchRequest;
+
+public class Metrics {
+
+  public static void main(String[] args) {
+
+    String search_endpoint = "https://search-`domain`-`id`.`us-west-1`.cloudsearch.amazonaws.com";
+    String region = "`us-west-1`";
+
+    AwsClientBuilder.EndpointConfiguration endpointConfig = new AwsClientBuilder
+        .EndpointConfiguration(search_endpoint, region);
+
+    AmazonCloudSearchDomainClientBuilder builder = AmazonCloudSearchDomainClientBuilder
+        .standard()
+        .withEndpointConfiguration(endpointConfig);
+
+    AmazonCloudSearchDomain client = builder.build();
+
+    String query;
+    SearchRequest request = new SearchRequest();
+    com.amazonaws.services.cloudsearchdomain.model.SearchResult test = client.search(request);
+
+    for (int i = 0; i < 2500; i++) {
+      query = "test";
+      request.setQuery(query);
+      test = client.search(request);
+      System.out.println(test.toString());
+    }
+  }
+}
+```
+
+To verify that the SDK is sending metrics to CloudWatch, check the
+**Metrics** page of the CloudWatch console and look for
+**AWSSDK/Java** under the **Custom
+Namespaces** section. The metrics might take several minutes to
+display.
+
+## Viewing CloudWatch Metrics for an Amazon CloudSearch Domain
+
+The Amazon CloudSearch console graphs the metrics reported to CloudWatch. You can also access the
+metrics through the [CloudWatch
+console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"), AWS CLI, and AWS SDKs. For more information, see [Viewing, Graphing, and Publishing
+Metrics](../../../AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.md "../../../AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.md") in the _Amazon CloudWatch Developer Guide_.
+
+###### To view metrics for a search domain using the Amazon CloudSearch console
+
+1. Open the Amazon CloudSearch console at [https://console.aws.amazon.com/cloudsearch](https://console.aws.amazon.com/cloudsearch "https://console.aws.amazon.com/cloudsearch").
+2. Choose **Domains** from the left navigation pane.
+3. Click the name of the domain, and then go to the
+   **Monitoring** tab.

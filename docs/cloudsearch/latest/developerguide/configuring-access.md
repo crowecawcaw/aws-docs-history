@@ -252,7 +252,180 @@ domain in `us-east-1` owned by the 111122223333 account.
 You have two options to configure cross-account access for a CloudSearch
 domain:
 
-| Option                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Configure an IAM role for cross-account access.                                                                 | Increased security, but requires complex request signing. For more information, see [Cross-Account API Access Using IAM Roles](../../../IAM/latest/UserGuide/cross-acct-access.md "../../../IAM/latest/UserGuide/cross-acct-access.md") in the IAM documentation.                                                                                                                                                                                                                               |
-| Attach a resource-based policy to the CloudSearch domain and attach a user-based managed policy to an IAM role. | Easier to implement. For more information, see [Creating a Role to Delegate Permissions to an IAM User](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") and [Walkthrough: Delegating Access Across AWS Accounts For Accounts You Own Using IAM Roles](../../../IAM/latest/UserGuide/walkthru_cross-account-with-roles.md "../../../IAM/latest/UserGuide/walkthru_cross-account-with-roles.md") in the IAM documentation. | This topic provides an example of the second option, adding a resource-based policy to the CloudSearch domain. Assume that account #1 is owned by account id `111111111111` and account #2 is owned by account id `999999999999`. Account #1 wants to grant access to account #2 to use the search service for the `movies` domain, which requires two steps: 1. Account #1 attaches a resource-based policy to the domain using the Amazon CloudSearch console that grants access to account #2. 2. Account #2 attaches a user-based managed policy to an IAM role owned by that account using the IAM console. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": ["cloudsearch:search"], "Resource": "arn:aws:cloudsearch:us-east-1:111111111111:domain/movies" } ] }` `` ###### Important To configure resource-based policies for Amazon CloudSearch, you must have permission to use the `cloudsearch:UpdateServiceAccessPolicies` action. ### Granting Access to an Amazon CloudSearch Domain from Selected IP Addresses Resource-based access policies set through the Amazon CloudSearch configuration service support anonymous access, which enables you to submit unsigned requests to a search domain's services. To allow anonymous access from selected IP addresses, use a wildcard for the `Principal` value and specify the allowed IP addresses as a `Condition` element in the policy. ###### Important Allowing anonymous access from selected IP addresses is inherently less secure than requiring user credentials to access your search domains. We recommend against allowing anonymous access even if it is permitted only from select IP addresses. If you currently allow anonymous access, you should upgrade your applications to submit signed requests and control access by configuring user-based or resource-based policies. If you are creating a resource-based policy that grants access to requests coming from an Amazon EC2 instance, you need to specify the instance's public IP address. IP addresses are specified in the standard Classless Inter-Domain Routing (CIDR) format. For example 10.24.34.0/24 specifies the range 10.24.34.0 - 10.24.34.255, while 10.24.34.0/32 specifies the single IP address 10.24.34.0. For more information about CIDR notation, see [RFC 4632](http://www.rfc-editor.org/rfc/rfc4632.txt "http://www.rfc-editor.org/rfc/rfc4632.txt"). For example, the following policy grants access to the search action for the `movies` domain owned by AWS account 111122223333 from the IP address 192.0.2.0/32. ### Granting Public Access to an Amazon CloudSearch Domain's Search Service If you need to allow public access to your domain's search endpoint, you can configure a resource-based policy with no conditions. This enables unsigned requests to be sent from any IP address. ###### Important Allowing public access to a search domain means you have no control over the volume of requests submitted to the domain. Malicious users could flood the domain with requests, impacting legitimate users as well as your operating costs. For example, the following policy grants public access to the search action for the `movies` domain owned by AWS account 111122223333. ## Configuring Access for Amazon CloudSearch Using the AWS Management Console ###### To configure user-based policies 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. Configure Amazon CloudSearch permissions by attaching a policy to a user, group, or role. For more information, see [Managing Policies (AWS Management Console)](../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console "../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console"). For more information about user-based policies for Amazon CloudSearch see [Writing Access Policies for Amazon CloudSearch](#cloudsearch-access-policies "#cloudsearch-access-policies"). ###### To configure resource-based policies 1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console.aws.amazon.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home "https://console.aws.amazon.com/cloudsearch/home"). 2. Choose the name of the domain you want to configure. 3. On the **Domain configuration** tab, choose **Edit** next to **Access policy**. 4. When you're done making changes to the domain access policy, choose **Submit**. Your domain remains in a `Processing` state while Amazon CloudSearch updates the access policy. ## Configuring Access for Amazon CloudSearch with the AWS CLI You can configure both user-based policies and resource-based policies for Amazon CloudSearch with the AWS CLI. For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md"). ###### To configure user-based policies <br>• Configure Amazon CloudSearch permissions by attaching a policy to a user, group, or role with the `aws put-user-policy`, `aws put-group-policy`, or `aws put-role-policy` command. For more information, see [Managing Policies (AWS Management Console)](../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console "../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console"). For more information about user-based policies for Amazon CloudSearch see [Writing Access Policies for Amazon CloudSearch](#cloudsearch-access-policies "#cloudsearch-access-policies"). ###### To configure resource-based policies <br>• Run the `aws cloudsearch update-service-access-policies` command and specify an access policy with the `--access-policies` option. The access policy must be enclosed in quotes and all quotes within the access policy must be escaped with a backslash. For more information about resource-based policies for Amazon CloudSearch see [Writing Access Policies for Amazon CloudSearch](#cloudsearch-access-policies "#cloudsearch-access-policies"). The following example configures the `movies` domain to accept search requests from the IP address `192.0.2.0`. `**aws cloudsearch update-service-access-policies --domain-name movies --access-policies "{\"Version\":\"2012-10-17\", \"Statement\":[{ \"Sid\":\"search\_only\", \"Effect\":\"Allow\", \"Principal\": \"\*\", \"Action\":\"cloudsearch:search\", \"Condition\":{\"IpAddress\":{\"aws:SourceIp\":\"192.0.2.0/32\"}}} ]}"** { "AccessPolicies": { "Status": { "PendingDeletion": false, "State": "Processing", "CreationDate": "2014-04-30T22:07:30Z", "UpdateVersion": 9, "UpdateDate": "2014-04-30T22:07:30Z" }, "Options": "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":\"\", \"Effect\":\"Allow\",\"Principal\":\"*\", \"Action\":\"cloudsearch:search\", \"Condition\":{\"IpAddress\":{\"aws:SourceIp\": \"192.0.2.0/32\"}}}]}" } }` Updating resource-based access policies takes some time to complete. You can check the state of the policy with the `aws cloudsearch describe-service-access-policies` command. Once the policy has been applied, the state of the policy changes to `Active`. You can retrieve your domain's policies using the `aws cloudsearch describe-service-access-policies` command. ## Configuring Access to a Domain's Endpoints Using the AWS SDKs The AWS SDKs (except the Android and iOS SDKs) support all of the Amazon CloudSearch actions defined in the Amazon CloudSearch Configuration API, including `UpdateServiceAccessPolicies`. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code "http://aws.amazon.com/code"). |
+| Option                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Configure an IAM role for cross-account access.                                                                    | Increased security, but requires complex request signing. For<br>more information, see [Cross-Account API<br>Access Using IAM Roles](../../../IAM/latest/UserGuide/cross-acct-access.md "../../../IAM/latest/UserGuide/cross-acct-access.md") in the IAM documentation.                                                                                                                                                                                                                                  |
+| Attach a resource-based policy to the CloudSearch domain and<br>attach a user-based managed policy to an IAM role. | Easier to implement. For more information, see [Creating a<br>Role to Delegate Permissions to an IAM User](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") and [Walkthrough: Delegating Access Across AWS Accounts For Accounts<br>You Own Using IAM Roles](../../../IAM/latest/UserGuide/walkthru_cross-account-with-roles.md "../../../IAM/latest/UserGuide/walkthru_cross-account-with-roles.md") in the IAM<br>documentation. |
+
+This topic provides an example of the second option, adding a resource-based
+policy to the CloudSearch domain. Assume that account #1 is owned by account id
+`111111111111` and account #2 is owned by account id
+`999999999999`. Account #1 wants to grant access to account #2 to use
+the search service for the `movies` domain, which requires two
+steps:
+
+1. Account #1 attaches a resource-based policy to the domain using the Amazon CloudSearch
+   console that grants access to account #2.
+2. Account #2 attaches a user-based managed policy to an IAM role owned by
+   that account using the IAM console.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": ["cloudsearch:search"],
+ "Resource": "arn:aws:cloudsearch:us-east-1:111111111111:domain/movies"
+ }
+ ]
+}`
+
+```
+
+###### Important
+
+To configure resource-based policies for Amazon CloudSearch, you must have
+permission to use the `cloudsearch:UpdateServiceAccessPolicies`
+action.
+
+### Granting Access to an Amazon CloudSearch Domain from Selected IP Addresses
+
+Resource-based access policies set through the Amazon CloudSearch configuration service support
+anonymous access, which enables you to submit unsigned requests to a search domain's
+services. To allow anonymous access from selected IP addresses, use a wildcard for
+the `Principal` value and specify the allowed IP addresses as a
+`Condition` element in the policy.
+
+###### Important
+
+Allowing anonymous access from selected IP addresses is inherently less secure
+than requiring user credentials to access your search domains. We recommend
+against allowing anonymous access even if it is permitted only from select IP
+addresses. If you currently allow anonymous access, you should upgrade your
+applications to submit signed requests and control access by configuring
+user-based or resource-based policies.
+
+If you are creating a resource-based policy that grants access to requests coming
+from an Amazon EC2 instance, you need to specify the instance's public IP address.
+
+IP addresses are specified in the standard Classless Inter-Domain Routing (CIDR)
+format. For example 10.24.34.0/24 specifies the range 10.24.34.0 - 10.24.34.255,
+while 10.24.34.0/32 specifies the single IP address 10.24.34.0. For more information
+about CIDR notation, see [RFC
+4632](http://www.rfc-editor.org/rfc/rfc4632.txt "http://www.rfc-editor.org/rfc/rfc4632.txt").
+
+For example, the following policy grants access to the search action for the
+`movies` domain owned by AWS account 111122223333 from the
+IP address 192.0.2.0/32.
+
+### Granting Public Access to an Amazon CloudSearch Domain's Search Service
+
+If you need to allow public access to your domain's search endpoint, you can
+configure a resource-based policy with no conditions. This enables unsigned requests
+to be sent from any IP address.
+
+###### Important
+
+Allowing public access to a search domain means you have no control over the
+volume of requests submitted to the domain. Malicious users could flood the
+domain with requests, impacting legitimate users as well as your operating
+costs.
+
+For example, the following policy grants public access to the search action for
+the `movies` domain owned by AWS account 111122223333.
+
+## Configuring Access for Amazon CloudSearch Using the AWS Management Console
+
+###### To configure user-based policies
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. Configure Amazon CloudSearch permissions by attaching a policy to a user, group, or role.
+   For more information, see [Managing
+   Policies (AWS Management Console)](../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console "../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console"). For more information about
+   user-based policies for Amazon CloudSearch see [Writing Access Policies for
+   Amazon CloudSearch](#cloudsearch-access-policies "#cloudsearch-access-policies").
+
+###### To configure resource-based policies
+
+1. Sign in to the AWS Management Console and open the Amazon CloudSearch console at [https://console.aws.amazon.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home "https://console.aws.amazon.com/cloudsearch/home").
+2. Choose the name of the domain you want to configure.
+3. On the **Domain configuration** tab, choose
+   **Edit** next to **Access policy**.
+4. When you're done making changes to the domain access policy, choose
+   **Submit**.
+
+Your domain remains in a `Processing` state while Amazon CloudSearch updates the access
+policy.
+
+## Configuring Access for Amazon CloudSearch with the AWS CLI
+
+You can configure both user-based policies and resource-based policies for Amazon CloudSearch with
+the AWS CLI.
+For information about installing and setting up the AWS CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
+
+###### To configure user-based policies
+
+- Configure Amazon CloudSearch permissions by attaching a policy to a user, group, or role
+  with the `aws put-user-policy`, `aws put-group-policy`, or
+  `aws put-role-policy` command. For more information, see [Managing
+  Policies (AWS Management Console)](../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console "../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console"). For more information about
+  user-based policies for Amazon CloudSearch see [Writing Access Policies for
+  Amazon CloudSearch](#cloudsearch-access-policies "#cloudsearch-access-policies").
+
+###### To configure resource-based policies
+
+- Run the `aws cloudsearch update-service-access-policies` command
+  and specify an access policy with the `--access-policies` option. The
+  access policy must be enclosed in quotes and all quotes within the access policy
+  must be escaped with a backslash. For more information about resource-based
+  policies for Amazon CloudSearch see [Writing Access Policies for
+  Amazon CloudSearch](#cloudsearch-access-policies "#cloudsearch-access-policies").
+
+The following example configures the `movies` domain to accept
+search requests from the IP address `192.0.2.0`.
+
+```
+**aws cloudsearch update-service-access-policies --domain-name movies
+--access-policies "{\"Version\":\"2012-10-17\", \"Statement\":[{
+ \"Sid\":\"search\_only\",
+ \"Effect\":\"Allow\",
+ \"Principal\": \"\*\",
+ \"Action\":\"cloudsearch:search\",
+ \"Condition\":{\"IpAddress\":{\"aws:SourceIp\":\"192.0.2.0/32\"}}}
+]}"**
+{
+  "AccessPolicies": {
+    "Status": {
+      "PendingDeletion": false,
+      "State": "Processing",
+      "CreationDate": "2014-04-30T22:07:30Z",
+      "UpdateVersion": 9,
+      "UpdateDate": "2014-04-30T22:07:30Z"
+    },
+    "Options":
+      "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":\"\",
+        \"Effect\":\"Allow\",\"Principal\":\"*\",
+        \"Action\":\"cloudsearch:search\",
+        \"Condition\":{\"IpAddress\":{\"aws:SourceIp\":
+        \"192.0.2.0/32\"}}}]}"
+    }
+}
+```
+
+Updating resource-based access policies takes some time to complete. You can check the
+state of the policy with the `aws cloudsearch
+ describe-service-access-policies` command. Once the policy has been applied,
+the state of the policy changes to `Active`.
+
+You can retrieve your domain's policies using the `aws cloudsearch
+ describe-service-access-policies` command.
+
+## Configuring Access to a Domain's Endpoints Using the AWS SDKs
+
+The AWS SDKs (except the Android and iOS SDKs) support all of the Amazon CloudSearch actions defined
+in the Amazon CloudSearch Configuration API, including `UpdateServiceAccessPolicies`. For more information
+about installing and using the AWS SDKs, see [AWS
+Software Development Kits](http://aws.amazon.com/code "http://aws.amazon.com/code").

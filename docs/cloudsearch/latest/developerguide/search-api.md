@@ -754,4 +754,441 @@ Prohibits the specified term. To match, documents must not contain the term.
 
 Example: star -wars
 
-| (or) Syntax: `|TERM` Makes the specified term optional. Example: star |wars "..." (phrase) Syntax: `"PHRASE"` Performs a search for the entire phrase. Can be combined with the `~` operator to perform a sloppy phrase search. Example: "star wars" (...) (precedence) Syntax: `(...)` Controls the order in which the query constraints are evaluated. The contents of the inner-most parentheses are evaluated first. Example: `+(war|trek)+star` \* (prefix) Syntax: `CHARS*` Matches documents that contain terms that have the specified prefix. Example: `sta*` ### Search Response When a request completes successfully, the response body contains the search results. By default, search results are returned in JSON. If the `format` parameter is set to `xml`, search results are returned in XML. Unless you explicitly specify the `return` parameter, the document ID and all returnable fields are included for each matching document (hit). The response also shows the total number of hits found (`found`) and the index of the first document listed (`start`). By default, the response contains the first 10 hits. You specify the `size` parameter in your request to control how many hits are included in each response. To page through the hits, you can use the `start` or `cursor` parameter. For more information, see [Paginate the results](paginating-results.md "paginating-results.md"). The following example shows a typical JSON response. `{ "status": { "rid": "rtKz7rkoeAojlvk=", "time-ms": 10 }, "hits": { "found": 3, "start": 0, "hit": [ { "id": "tt1142977", "fields": { "rating": "6.9", "genres": [ "Animation", "Comedy", "Family", "Horror", "Sci-Fi" ], "plot": "Young Victor conducts a science experiment to bring his beloved dog Sparky back to life, only to face unintended, sometimes monstrous, consequences.", "release_date": "2012-09-20T00:00:00Z", "title": "Frankenweenie", "rank": "1462", "running_time_secs": "5220", "directors": [ "Tim Burton" ], "image_url": "http://ia.media-imdb.com/images/M/MV5BMjIx ODY3MjEwNV5BMl5BanBnXkFtZTcwOTMzNjc4Nw@@._ V1_SX400_.jpg", "year": "2012", "actors": [ "Winona Ryder", "Catherine O'Hara", "Martin Short" ] } }, . . . ] } }` The following example shows the equivalent XML response. `<results> <status rid="itzL7rkoeQojlvk=" time-ms="34"/> <hits found="3" start="0"> <hit id="tt1142977"> <field name="rating">6.9</field> <field name="genres">Animation</field> <field name="genres">Comedy</field> <field name="genres">Family</field> <field name="genres">Horror</field> <field name="genres">Sci-Fi</field> <field name="plot">Young Victor conducts a science experiment to bring his beloved dog Sparky back to life, only to face unintended, sometimes monstrous, consequences. </field> <field name="release_date">2012-09-20T00:00:00Z</field> <field name="title">Frankenweenie</field> <field name="rank">1462</field> <field name="running_time_secs">5220</field> <field name="directors">Tim Burton</field> <field name="image_url">http://ia.media-imdb.com/images/M/MV5BMjI xODY3MjEwNV5BMl5BanBnXkFtZTcwOTMzNjc4Nw@@. _V1_SX400_.jpg </field> <field name="year">2012</field> <field name="actors">Winona Ryder</field> <field name="actors">Catherine O'Hara</field> <field name="actors">Martin Short</field> </hit> . . . </hits> </results>` Setting the response format only affects responses to successful requests. The format of an error response depends on the origin of the error. Errors returned by the search service are always returned in JSON. 5xx errors due to server timeouts and other request routing problems are returned in XML. When a request returns an error code, the body of the response contains information about the error that occurred. If an error occurs while the request body is parsed and validated, the error code is set to 400 and the response body includes a list of the errors and where they occurred. #### Search Response Headers Content-Type A standard MIME type describing the format of the object data. For more information, see [W3C RFC 2616 Section 14](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 "http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17"). Valid values: application/json or application/xml Default: application/json Content-Length The length in bytes of the body in the response. #### Search Response Properties (JSON) status Contains the resource id (rid) and the time it took to process the request (time-ms). rid The encrypted Resource ID. time-ms How long it took to process the search request in milliseconds. hits Contains the number of matching documents (`found`), the index of the first document included in the response (`start`), and an array (`hit`) that lists the document IDs and data for each hit. found The total number of hits that match the search request after Amazon CloudSearch finished processing the request. start The index of the first hit returned in this response. hit An array that lists the document IDs and data for each hit. id The unique identifier for a document. fields A list of returned fields. facets Contains facet information and facet counts. FACETFIELD A field for which facets were calculated. buckets An array of the calculated facet values and counts. value The facet value being counted. count The number of hits that contain the facet value in `FACETFIELD`. #### Search Response Elements (XML) results Contains the search results. Any errors that occurred while processing the request are returned as messages in the info element. status Contains the resource id (`rid`) and the time it took to process the request (`time-ms`). hits Contains hit statistics and a collection of hit elements. The found attribute is the total number of hits that match the search request after Amazon CloudSearch finished processing the results. The contained hit elements are ordered according to their relevance scores or the `sort` option specified in the search request. hit A document that matched the search request. The id attribute is the document's unique id. Contains a `d` (data) element for each returned field. field A field returned from a hit. Hit elements contain a `d` (data) element for each returned field. facets Contains a facet element for each facet requested in the search request. facet Contains a bucket element for each value of a field for which a facet count was calculated. The `facet.FIELD` size option can be used to specify how many constraints to return. By default, facet counts are returned for the top 10 constraints. The `facet.FIELD` buckets option can be used to explicitly specify which values to count. bucket A facet field value and the number of occurrences (count) of that value within the search hits. ## Submitting Suggest Requests in Amazon CloudSearch You submit suggest requests via HTTP GET to your domain's search endpoint at `2013-01-01/suggest`. For information about controlling access to the suggest service, see [configure access policies](configuring-access.md "configuring-access.md"). You must specify the API version in all suggest requests and that version must match the API version specified when the domain was created. For example, the following request gets suggestions from the `search-movies-rr2f34ofg56xneuemujamut52i.us-east-1.cloudsearch.amazonaws.com` domain for the query string `oce` using the suggester called `title`. `http://search-imdb-hd6ebyouhw2lczkueyuqksnuzu.us-west-2.cloudsearch.amazonaws.com/2013-01-01/suggest -d"q=oce&suggester=suggest_title"` You can use any method you want to send GET requests to your domain's search endpoint—you can enter the request URL directly in a Web browser, use cURL to submit the request, or generate an HTTP call using your favorite HTTP library. You can also use the Search Tester in the Amazon CloudSearch console to get suggestions. For more information, see [Searching with the Search Tester](getting-started-search.md#searching-console "getting-started-search.md#searching-console"). ###### Important A domain's document and search endpoints remain the same for the life of the domain. You should cache the endpoints rather than retrieving them before every upload or search request. Querying the Amazon CloudSearch configuration service by calling `aws cloudsearch describe-domains` or `DescribeDomains` before every request is likely to result in your requests being throttled. By default, Amazon CloudSearch returns the response in JSON. You can get the results formatted in XML by specifying the `format` parameter, `format=xml`. Setting the response format only affects responses to successful requests. The format of an error response depends on the origin of the error. Errors returned by the search service are always returned in JSON. 5xx errors due to server timeouts and other request routing problems are returned in XML. ## Suggest ### Suggestion Requests #### Suggest Syntax in Amazon CloudSearch `GET /2013-01-01/suggest` #### Suggest Request Headers in Amazon CloudSearch HOST The search request endpoint for the domain you're querying. You can use [DescribeDomains](API_DescribeDomains.md "API_DescribeDomains.md") to retrieve your domain's search request endpoint. Required: Yes #### Suggest Request Parameters in Amazon CloudSearch q The string to get suggestions for. Type: String Required: Yes suggester The name of the suggester to use to find suggested matches. Type: String Required: Yes size The maximum number of suggestions to return. Type: Positive integer Default: 10 Required: No format Specifies the content type of the response. Type: String Valid Values: json|xml Default: json Required: No ### Suggest Response When a request completes successfully, the response body contains the suggestions. By default, suggestions are returned in JSON. Set the `format` parameter to `xml` to get the results in XML. Setting the response format only affects responses to successful requests. The format of an error response depends on the origin of the error. Errors returned by the search service are always returned in JSON. 5xx errors due to server timeouts and other request routing problems are returned in XML. When a request returns an error code, the body of the response contains information about the error that occurred. If an error occurs while the request body is parsed and validated, the error code is set to 400 and the response body includes a list of the errors and where they occurred. The following example shows a JSON response to a request for suggestions: `{ "status": { "rid": "qOSM5s0oCwr8pVk=", "time-ms": 2 }, "suggest": { "query": "oce", "found": 3, "suggestions": [ { "suggestion": "Ocean's Eleven", "score": 0, "id": "tt0054135" }, { "suggestion": "Ocean's Thirteen", "score": 0, "id": "tt0496806" }, { "suggestion": "Ocean's Twelve", "score": 0, "id": "tt0349903" } ] } }` The following example shows the equivalent XML response: `<results> <status rid="/pSz580oDQr8pVk=" time-ms="2"/> <suggest query="oce" found="3"> <suggestions> <item suggestion="Ocean's Eleven" score="0" id="tt0054135"/> <item suggestion="Ocean's Thirteen" score="0" id="tt0496806"/> <item suggestion="Ocean's Twelve" score="0" id="tt0349903"/> </suggestions> </suggest> </results>` ## Search Service Errors A search or suggestion request can return three types of status codes: <br>• 5xx status codes indicate that there was an internal server error. You should catch and retry all 5xx error codes as they typically represent transient error conditions. For more information, see [Handling Errors](error-handling.md "error-handling.md"). <br>• 4xx status codes indicate that the request was malformed. Correct the error(s) before resubmitting your request. <br>• 2xx status codes indicate that the request was processed successfully. The format of an error response depends on the origin of the error. Errors returned by the search service are always returned in JSON. 5xx errors due to server timeouts and other request routing problems are returned in XML. Errors returned by the search service contain the following information: error Contains an error message returned by the search service. The `code` and `msg` properties are included for each error. code The error code. msg A description of the error that was returned by the search service.
+| (or)
+
+Syntax: `|TERM`
+
+Makes the specified term optional.
+
+Example: star |wars
+
+"..." (phrase)
+
+Syntax: `"PHRASE"`
+
+Performs a search for the entire phrase. Can be combined with the `~` operator to perform a sloppy phrase search.
+
+Example: "star wars"
+
+(...) (precedence)
+
+Syntax: `(...)`
+
+Controls the order in which the query constraints are evaluated. The contents of the inner-most parentheses are evaluated first.
+
+Example: `+(war|trek)+star`
+
+\* (prefix)
+
+Syntax: `CHARS*`
+
+Matches documents that contain terms that have the specified prefix.
+
+Example: `sta*`
+
+### Search Response
+
+When a request completes successfully, the response body contains the search results.
+By default, search results are returned in JSON. If the `format` parameter is
+set to `xml`, search results are returned in XML.
+
+Unless you explicitly specify
+the `return` parameter, the document ID and all returnable fields are included for each matching document (hit). The response also shows the total number of hits found (`found`) and the index of the first document listed (`start`). By default, the response contains the first 10 hits. You specify the `size` parameter
+in your request to control how many hits are included in each response. To page through the hits, you can use the `start` or `cursor` parameter. For more information, see [Paginate the results](paginating-results.md "paginating-results.md").
+
+The following example shows a typical JSON response.
+
+```
+{
+    "status": {
+        "rid": "rtKz7rkoeAojlvk=",
+        "time-ms": 10
+    },
+    "hits": {
+        "found": 3,
+        "start": 0,
+        "hit": [
+            {
+                "id": "tt1142977",
+                "fields": {
+                    "rating": "6.9",
+                    "genres": [
+                        "Animation",
+                        "Comedy",
+                        "Family",
+                        "Horror",
+                        "Sci-Fi"
+                    ],
+                    "plot": "Young Victor conducts a science experiment to
+                             bring his beloved dog Sparky back to life, only
+                              to face unintended, sometimes monstrous,
+                              consequences.",
+                    "release_date": "2012-09-20T00:00:00Z",
+                    "title": "Frankenweenie",
+                    "rank": "1462",
+                    "running_time_secs": "5220",
+                    "directors": [
+                        "Tim Burton"
+                    ],
+                    "image_url": "http://ia.media-imdb.com/images/M/MV5BMjIx
+                                  ODY3MjEwNV5BMl5BanBnXkFtZTcwOTMzNjc4Nw@@._
+                                  V1_SX400_.jpg",
+                    "year": "2012",
+                    "actors": [
+                        "Winona Ryder",
+                        "Catherine O'Hara",
+                        "Martin Short"
+                    ]
+                }
+            },
+			.
+			.
+			.
+        ]
+    }
+}
+```
+
+The following example shows the equivalent XML response.
+
+```
+<results>
+    <status rid="itzL7rkoeQojlvk=" time-ms="34"/>
+    <hits found="3" start="0">
+        <hit id="tt1142977">
+            <field name="rating">6.9</field>
+            <field name="genres">Animation</field>
+            <field name="genres">Comedy</field>
+            <field name="genres">Family</field>
+            <field name="genres">Horror</field>
+            <field name="genres">Sci-Fi</field>
+            <field name="plot">Young Victor conducts a science experiment to
+                               bring his beloved dog Sparky back to life, only
+                               to face unintended, sometimes monstrous,
+                               consequences.
+            </field>
+            <field name="release_date">2012-09-20T00:00:00Z</field>
+            <field name="title">Frankenweenie</field>
+            <field name="rank">1462</field>
+            <field name="running_time_secs">5220</field>
+            <field name="directors">Tim Burton</field>
+            <field name="image_url">http://ia.media-imdb.com/images/M/MV5BMjI
+                                    xODY3MjEwNV5BMl5BanBnXkFtZTcwOTMzNjc4Nw@@.
+                                    _V1_SX400_.jpg
+            </field>
+            <field name="year">2012</field>
+            <field name="actors">Winona Ryder</field>
+            <field name="actors">Catherine O'Hara</field>
+            <field name="actors">Martin Short</field>
+        </hit>
+        .
+        .
+        .
+    </hits>
+</results>
+```
+
+Setting the response format only affects responses to successful requests. The format
+of an error response depends on the origin of the error. Errors returned by the search
+service are always returned in JSON. 5xx errors due to server timeouts and other request
+routing problems are returned in XML. When a request returns an error code, the body of
+the response contains information about the error that occurred. If an error occurs
+while the request body is parsed and validated, the error code is set to 400 and the
+response body includes a list of the errors and where they occurred.
+
+#### Search Response Headers
+
+Content-Type
+
+A standard MIME type describing the format of the object data. For
+more information, see [W3C RFC 2616 Section 14](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 "http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17").
+
+Valid values: application/json or application/xml
+
+Default: application/json
+
+Content-Length
+
+The length in bytes of the body in the response.
+
+#### Search Response Properties
+
+(JSON)
+
+status
+
+Contains the resource id (rid) and the time it took to process the
+request (time-ms).
+
+rid
+
+The encrypted Resource ID.
+
+time-ms
+
+How long it took to process the search request in milliseconds.
+
+hits
+
+Contains the number of matching documents (`found`), the index of the
+first document included in the response (`start`), and an array (`hit`) that
+lists the document IDs and data for each hit.
+
+found
+
+The total number of hits that match the search request after Amazon CloudSearch
+finished processing the request.
+
+start
+
+The index of the first hit returned in this response.
+
+hit
+
+An array that lists the document IDs and data for each hit.
+
+id
+
+The unique identifier for a document.
+
+fields
+
+A list of returned fields.
+
+facets
+
+Contains facet information and facet counts.
+
+FACETFIELD
+
+A field for which facets were calculated.
+
+buckets
+
+An array of the calculated facet values and counts.
+
+value
+
+The facet value being counted.
+
+count
+
+The number of hits that contain the facet value in
+`FACETFIELD`.
+
+#### Search Response Elements (XML)
+
+results
+
+Contains the search results. Any errors that occurred while processing
+the request are returned as messages in the info element.
+
+status
+
+Contains the resource id (`rid`) and the time it took to process the
+request (`time-ms`).
+
+hits
+
+Contains hit statistics and a collection of hit elements. The found
+attribute is the total number of hits that match the search request
+after Amazon CloudSearch finished processing the results. The contained hit elements
+are ordered according to their relevance scores or the `sort`
+option specified in the search request.
+
+hit
+
+A document that matched the search request. The id attribute is the
+document's unique id. Contains a `d` (data) element for each
+returned field.
+
+field
+
+A field returned from a hit. Hit elements contain a `d`
+(data) element for each returned field.
+
+facets
+
+Contains a facet element for each facet requested in the search
+request.
+
+facet
+
+Contains a bucket element for each value of a field for which a facet
+count was calculated. The `facet.FIELD` size option can be
+used to specify how many constraints to return. By default, facet counts
+are returned for the top 10 constraints. The `facet.FIELD`
+buckets option can be used to explicitly specify which values to count.
+
+bucket
+
+A facet field value and the number of occurrences (count) of that
+value within the search hits.
+
+## Submitting Suggest Requests in Amazon CloudSearch
+
+You submit suggest requests via HTTP GET to your domain's search endpoint at `2013-01-01/suggest`. For information about controlling access to the suggest service, see [configure access policies](configuring-access.md "configuring-access.md").
+
+You must specify the API version in all suggest requests and that version must match the API version specified when the domain was created.
+
+For example, the following request gets suggestions from the `search-movies-rr2f34ofg56xneuemujamut52i.us-east-1.cloudsearch.amazonaws.com` domain for the query string `oce` using the suggester called `title`.
+
+```
+http://search-imdb-hd6ebyouhw2lczkueyuqksnuzu.us-west-2.cloudsearch.amazonaws.com/2013-01-01/suggest -d"q=oce&suggester=suggest_title"
+```
+
+You can use any method you want to send GET requests to your domain's search endpoint—you can enter the request URL directly in a Web browser, use cURL to submit the request, or generate an HTTP call using your favorite HTTP library. You can also use the Search Tester in the Amazon CloudSearch console to get suggestions. For more information, see [Searching with the Search Tester](getting-started-search.md#searching-console "getting-started-search.md#searching-console").
+
+###### Important
+
+A domain's document and search endpoints remain the same for the life of the domain. You should cache the endpoints rather than retrieving them before every upload or search request. Querying the Amazon CloudSearch configuration service by calling `aws cloudsearch describe-domains` or `DescribeDomains` before every request is likely to result in your requests being throttled.
+
+By default, Amazon CloudSearch returns the response in JSON. You can get the results formatted in XML by specifying the `format` parameter, `format=xml`. Setting the response format only affects responses to successful requests. The format of an error response depends on the origin of the error. Errors returned by the search service are always returned in JSON. 5xx errors due to server timeouts and other request routing problems are returned in XML.
+
+## Suggest
+
+### Suggestion Requests
+
+#### Suggest Syntax in Amazon CloudSearch
+
+```
+GET /2013-01-01/suggest
+```
+
+#### Suggest Request Headers in Amazon CloudSearch
+
+HOST
+
+The search request endpoint for the domain you're querying. You can
+use [DescribeDomains](API_DescribeDomains.md "API_DescribeDomains.md") to retrieve your domain's
+search request endpoint.
+
+Required: Yes
+
+#### Suggest Request Parameters in Amazon CloudSearch
+
+q
+
+The string to get suggestions for.
+
+Type: String
+
+Required: Yes
+
+suggester
+
+The name of the suggester to use to find suggested matches.
+
+Type: String
+
+Required: Yes
+
+size
+
+The maximum number of suggestions to return.
+
+Type: Positive integer
+
+Default: 10
+
+Required: No
+
+format
+
+Specifies the content type of the response.
+
+Type: String
+
+Valid Values: json|xml
+
+Default: json
+
+Required: No
+
+### Suggest Response
+
+When a request completes successfully, the response body contains the suggestions. By default, suggestions are returned in JSON. Set the `format` parameter to `xml` to get the results in XML.
+
+Setting the response format only affects responses to successful requests. The format
+of an error response depends on the origin of the error. Errors returned by the search
+service are always returned in JSON. 5xx errors due to server timeouts and other request
+routing problems are returned in XML. When a request returns an error code, the body of
+the response contains information about the error that occurred. If an error occurs
+while the request body is parsed and validated, the error code is set to 400 and the
+response body includes a list of the errors and where they occurred.
+
+The following example shows a JSON response to a request for suggestions:
+
+```
+{
+   "status": {
+      "rid": "qOSM5s0oCwr8pVk=",
+      "time-ms": 2
+   },
+   "suggest": {
+      "query": "oce",
+      "found": 3,
+      "suggestions": [
+         {
+          "suggestion": "Ocean's Eleven",
+           "score": 0,
+           "id": "tt0054135"
+         },
+         {
+          "suggestion": "Ocean's Thirteen",
+          "score": 0,
+          "id": "tt0496806"
+         },
+         {
+          "suggestion": "Ocean's Twelve",
+          "score": 0,
+          "id": "tt0349903"
+         }
+      ]
+   }
+}
+```
+
+The following example shows the equivalent XML response:
+
+```
+<results>
+   <status rid="/pSz580oDQr8pVk=" time-ms="2"/>
+   <suggest query="oce" found="3">
+      <suggestions>
+         <item suggestion="Ocean's Eleven" score="0" id="tt0054135"/>
+         <item suggestion="Ocean's Thirteen" score="0" id="tt0496806"/>
+         <item suggestion="Ocean's Twelve" score="0" id="tt0349903"/>
+      </suggestions>
+   </suggest>
+</results>
+```
+
+## Search Service Errors
+
+A search or suggestion request can return three types of status codes:
+
+- 5xx status codes indicate that there was an internal server error. You should catch and retry
+  all 5xx error codes as they typically represent
+  transient error conditions. For more information, see [Handling Errors](error-handling.md "error-handling.md").
+- 4xx status codes indicate that the request was malformed. Correct the error(s) before resubmitting your request.
+- 2xx status codes indicate that the request was processed successfully.
+
+The format of an error response depends on the origin of the error. Errors returned by the search service are always returned in JSON. 5xx errors due to server timeouts and other request routing problems are returned in XML.
+
+Errors returned by the search service contain the following information:
+
+error
+
+Contains an error message returned by the search service. The
+`code` and `msg` properties are included for each
+error.
+
+code
+
+The error code.
+
+msg
+
+A description of the error that was returned by the search
+service.
