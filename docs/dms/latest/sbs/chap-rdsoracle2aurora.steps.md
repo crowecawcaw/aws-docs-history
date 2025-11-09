@@ -1,35 +1,25 @@
-# Step 10: Verify That Your Data Migration Completed Successfully
+# Step 7: Create an AWS DMS Replication Instance
 
-When the migration task completes, you can compare your task results with the expected results.
+After we validate the schema structure between source and target databases, as described preceding, we proceed to the core part of this walkthrough, which is the data migration. The following illustration shows a high-level view of the migration process.
 
-1. On the navigation pane, choose **Tasks**.
-2. Choose your migration task (`migratehrschema`).
-3. Choose the **Table statistics** tab, shown following.
+![Migration process](images/datarep-conceptual2.png)
+A DMS replication instance performs the actual data migration between source and target. The replication instance also caches the transaction logs during the migration. How much CPU and memory capacity a replication instance has influences the overall time required for the migration.
 
-![Table statistics tab](images/sbs-rdsor2aurora26.png) 4. Connect to the Amazon Aurora MySQL instance by using SQL Workbench/J, and then check if the database tables were successfully migrated from Oracle to Aurora MySQL by running the SQL script shown following.
+To create an AWS DMS replication instance, do the following:
 
-```
-SELECT TABLE_NAME,TABLE_ROWS
-    FROM INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = 'HR' and TABLE_TYPE='BASE TABLE' order by 1;
-```
+1. Sign in to the AWS Management Console, select [AWS Database Migration Service](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2") (AWS DMS) and choose **Create replication instance**. If you are signed in as an AWS Identity and Access Management (IAM) user, you must have the appropriate permissions to access AWS DMS. For more information about the permissions required, see [IAM Permissions](../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions "../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions").
+2. On the **Create replication instance** page, specify your replication instance information as shown following.
 
-![Table statistics tab](images/sbs-rdsor2aurora27.png) 5. Run the following query to check the relationship in tables; this query checks the departments with employees greater than 10.
+| For This Parameter                         | Do This                                                                                                 |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| **Name**                                   | Enter `DMSdemo-repserver`.                                                                              |
+| **Descriptive Amazon Resource Name (ARN)** | Skip this optional field.                                                                               |
+| **Description**                            | Enter a brief description, such as `DMS demo replication server`.                                       |
+| **Instance class**                         | Choose **dms.t3.medium**. This instance class is large enough to migrate a small set of tables.         |
+| **Engine version**                         | Choose **3.4.5**. This is the latest AWS DMS version, which includes all new features and enhancements. |
+| **Allocated storage (GiB)**                | Choose **50**. This storage space is enough for your migration project.                                 |
+| **VPC**                                    | Choose `DMSDemoVPC`, which is the VPC that was created by the AWS CloudFormation stack.                 |
+| **Multi-AZ**                               | Choose `Dev or test workload (Single-AZ)`.                                                              |
+| **Publicly accessible**                    | Leave this item selected.                                                                               |
 
-```
-SELECT B.DEPARTMENT_NAME,COUNT(*)
-  FROM HR.EMPLOYEES A,HR.DEPARTMENTS B
-  WHERE A.DEPARTMENT_ID=B.DEPARTMENT_ID
-  GROUP BY B.DEPARTMENT_NAME HAVING COUNT(*) > 10
-  ORDER BY 1;
-```
-
-The output from this query should be similar to the following.
-
-```
-department_name	count(*)
-Sales                34
-Shipping             45
-```
-
-Now you have successfully completed a database migration from an Amazon RDS for Oracle database instance to Amazon Aurora MySQL.
+3. For the **Advanced**, **Maintenance**, and **Tags** sections, leave the default settings as they are, and choose **Create**.

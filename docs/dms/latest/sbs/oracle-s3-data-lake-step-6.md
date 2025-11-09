@@ -178,7 +178,7 @@ Increasing this parameter induces additional load on the source database, replic
 3. On the **Create database migration task** page, enter the following information.
 
 | Parameter                                                                                                   | Action                                                                                    |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | **Task identifier**                                                                                         | Enter `Oracle-to-S3-data-lake`.                                                           |
 | **Replication instance**                                                                                    | Choose **oracle-s3-migration-replication-instance**. You configured this value in Step 1. |
 | **Source database endpoint**                                                                                | Choose **datalake-source-db**. You configured this value in Step 3.                       |
@@ -192,4 +192,8 @@ Increasing this parameter induces additional load on the source database, replic
 | **Maximum LOB size (KB)**                                                                                   | Enter `32`.                                                                               |
 | **Advanced task settings**, **Full load tuning settings**, **Maximum number of tables to load in parallel** | Enter `49`.                                                                               |
 | **Enable validation**                                                                                       | Turn off because Amazon S3 doesn’t support validation.                                    |
-| **Enable CloudWatch logs**                                                                                  | Turn on.                                                                                  | 4. Keep the default values for other parameters, and choose **Create task**. AWS DMS runs the task immediately. The **Database migration tasks** section displays the status of the migration task. |
+| **Enable CloudWatch logs**                                                                                  | Turn on.                                                                                  |
+
+4. Keep the default values for other parameters, and choose **Create task**.
+
+AWS DMS runs the task immediately. The **Database migration tasks** section displays the status of the migration task.

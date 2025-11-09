@@ -16,16 +16,18 @@ After you completed the network configurations, you can create a source endpoint
 2. Choose **Endpoints**, then choose **Create endpoint**.
 3. On the **Create endpoint** page, enter the following information.
 
-| Parameter                                           | Action                                                                                                                                                       |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ |
-| **Endpoint type**                                   | Choose **Source endpoint**, turn on **Select RDS DB instance**, and choose an RDS for Oracle instance that you created for this walkthrough.                 |
-| **Endpoint identifier**                             | Enter `datalake-source-db`.                                                                                                                                  |
-| **Source engine**                                   | Choose **Oracle**.                                                                                                                                           |
-| **Access to endpoint database**                     | Choose **Provide access information manually**. Alternatively, you can choose to provide a secret from AWS Secrets Manager that includes connection details. |
-| **Server name**                                     | Enter the database server name on Amazon RDS.                                                                                                                |
-| **Port**                                            | Enter `1521`.                                                                                                                                                |
-| **Secure Socket Layer (SSL) mode**                  | Choose **none**.                                                                                                                                             |
-| **User name**                                       | Enter the name of the user that you created for your RDS for Oracle database.                                                                                |
-| **Password**                                        | Enter the password that you created for your Oracle DB user.                                                                                                 |
-| **SID/Service name**                                | Enter `SH`.                                                                                                                                                  |
-| **Endpoint settings - Extra connection attributes** | Enter `useLogminerReader=N;useBfile=Y;`.                                                                                                                     | 4. Choose **Create endpoint**. |
+| Parameter                                              | Action                                                                                                                                                       |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Endpoint type**                                      | Choose **Source endpoint**, turn on **Select RDS DB instance**, and choose an RDS for Oracle instance that you created for this walkthrough.                 |
+| **Endpoint identifier**                                | Enter `datalake-source-db`.                                                                                                                                  |
+| **Source engine**                                      | Choose **Oracle**.                                                                                                                                           |
+| **Access to endpoint database**                        | Choose **Provide access information manually**. Alternatively, you can choose to provide a secret from AWS Secrets Manager that includes connection details. |
+| **Server name**                                        | Enter the database server name on Amazon RDS.                                                                                                                |
+| **Port**                                               | Enter `1521`.                                                                                                                                                |
+| **Secure Socket Layer (SSL) mode**                     | Choose **none**.                                                                                                                                             |
+| **User name**                                          | Enter the name of the user that you created for your RDS for Oracle database.                                                                                |
+| **Password**                                           | Enter the password that you created for your Oracle DB user.                                                                                                 |
+| **SID/Service name**                                   | Enter `SH`.                                                                                                                                                  |
+| **Endpoint settings<br>• Extra connection attributes** | Enter `useLogminerReader=N;useBfile=Y;`.                                                                                                                     |
+
+4. Choose **Create endpoint**.

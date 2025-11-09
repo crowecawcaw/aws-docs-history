@@ -90,21 +90,26 @@ For more information about this option, see [Step 6: Create an AWS DMS Task](ora
 3. On the **Create endpoint** page, enter the following information.
 
 | Parameter                   | Action                                                               |
-| --------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | -------------------------------------------------------------------- |
 | **Endpoint type**           | Choose **Target endpoint**, and turn off **Select RDS DB instance**. |
 | **Endpoint identifier**     | Enter `oracle-datalake-target`.                                      |
-| **Target engine**           | Choose **Amazon S3** .                                               |
+| **Target engine**           | Choose \*_Amazon S3_<br>• .                                          |
 | **Service access role ARN** | Enter the IAM role that can access your Amazon S3 data lake.         |
 | **Bucket name**             | Enter `s3-data-lake`.                                                |
-| **Bucket folder**           | Enter `Oracledb`.                                                    | 4. Expand the **Endpoint settings** section, choose **Wizard**, and then choose **Add new setting** to add the following information. |
-| Parameter                   | Action                                                               |
-| ---                         | ---                                                                  |
-| CdcMinFileSize              | 64000                                                                |
-| CdcMaxBatchInterval         | 3600                                                                 |
-| CdcPath                     | Oracledb                                                             |
-| DataFormat                  | parquet                                                              |
-| DatePartitionDelimiter      | DASH                                                                 |
-| DatePartitionEnabled        | TRUE                                                                 |
-| DatePartitionSequence       | YYYYMMDD                                                             |
-| ParquetVersion              | PARQUET_2_0                                                          |
-| TimestampColumnName         | sourcetscolumn                                                       | 5. Choose **Create endpoint**.                                                                                                        |
+| **Bucket folder**           | Enter `Oracledb`.                                                    |
+
+4. Expand the **Endpoint settings** section, choose **Wizard**, and then choose **Add new setting** to add the following information.
+
+| Parameter              | Action         |
+| ---------------------- | -------------- |
+| CdcMinFileSize         | 64000          |
+| CdcMaxBatchInterval    | 3600           |
+| CdcPath                | Oracledb       |
+| DataFormat             | parquet        |
+| DatePartitionDelimiter | DASH           |
+| DatePartitionEnabled   | TRUE           |
+| DatePartitionSequence  | YYYYMMDD       |
+| ParquetVersion         | PARQUET_2_0    |
+| TimestampColumnName    | sourcetscolumn |
+
+5. Choose **Create endpoint**.

@@ -76,7 +76,7 @@ Access to Amazon Redshift requires credentials that AWS can use to authenticate 
 Amazon Redshift supports all BigQuery data types. The following table shows the data type mappings that AWS SCT uses by default. Users can set up migration rules in AWS SCT to change the data type of columns. For more information, see [Creating migration rules](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md#CHAP_Converting.MigrationRules "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md#CHAP_Converting.MigrationRules").
 
 | BigQuery data type | Amazon Redshift data type                                                           |
-| ------------------ | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | ----------------------------------------------------------------------------------- |
 | BOOLEAN            | BOOLEAN                                                                             |
 | BYTES(L)           | BINARY VARYING(L)                                                                   |
 | BYTES              | BINARY VARYING(1024000)                                                             |
@@ -96,4 +96,10 @@ Amazon Redshift supports all BigQuery data types. The following table shows the 
 | STRING             | CHARACTER VARYING(65535)                                                            |
 | STRUCT             | SUPER                                                                               |
 | TIME               | TIME WITHOUT TIME ZONE                                                              |
-| TIMESTAMP          | TIMESTAMP WITHOUT TIME ZONE                                                         | ### Limitations You can use AWS SCT to automatically convert a majority of your BigQuery code and storage objects. These objects include datasets, tables, views, stored procedures, functions, data types, and so on. However, AWS SCT has some limitations when using BigQuery as a source. For example, AWS SCT can’t convert subqueries in analytic functions, as well as geography, statistical aggregate, or some of the string functions. You can find the full list of limitations in the AWS SCT user guide. For more information, see [Limitations on using BigQuery as a source](../../../SchemaConversionTool/latest/userguide/CHAP_Source.md#CHAP_Source.BigQuery.Limitations "../../../SchemaConversionTool/latest/userguide/CHAP_Source.md#CHAP_Source.BigQuery.Limitations"). |
+| TIMESTAMP          | TIMESTAMP WITHOUT TIME ZONE                                                         |
+
+### Limitations
+
+You can use AWS SCT to automatically convert a majority of your BigQuery code and storage objects. These objects include datasets, tables, views, stored procedures, functions, data types, and so on. However, AWS SCT has some limitations when using BigQuery as a source.
+
+For example, AWS SCT can’t convert subqueries in analytic functions, as well as geography, statistical aggregate, or some of the string functions. You can find the full list of limitations in the AWS SCT user guide. For more information, see [Limitations on using BigQuery as a source](../../../SchemaConversionTool/latest/userguide/CHAP_Source.md#CHAP_Source.BigQuery.Limitations "../../../SchemaConversionTool/latest/userguide/CHAP_Source.md#CHAP_Source.BigQuery.Limitations").

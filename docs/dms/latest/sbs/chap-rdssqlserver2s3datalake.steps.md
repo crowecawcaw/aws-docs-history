@@ -16,7 +16,7 @@ To create an AWS DMS replication instance, do the following:
 4. On the **Create replication instance** page, specify your replication instance information.
 
 | For This Parameter          | Do This                                                                                                                                                                                   |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Name**                    | Enter `datalake-migration-ri`. If you are using multiple replication servers or sharing a user, choose a name that helps you quickly differentiate between the different servers.         |
 | **Description**             | Enter `Migrate SQL Server to Amazon S3 data lake`.                                                                                                                                        |
 | **Instance class**          | Choose `dms.c5.xlarge`. Each size and type of instance class has increasing CPU, memory, and I/O capacity.                                                                                |
@@ -24,4 +24,6 @@ To create an AWS DMS replication instance, do the following:
 | **Allocated storage (GiB)** | Choose `50`.                                                                                                                                                                              |
 | **VPC**                     | Choose the virtual private cloud (VPC) in which your replication instance will launch. If possible, select the same VPC in which either your source or target database resides (or both). |
 | **Multi AZ**                | If you choose **Yes**, AWS DMS creates a second replication server in a different Availability Zone for failover if there is a problem with the primary replication server.               |
-| **Publicly accessible**     | If either your source or target database resides outside of the VPC in which your replication server resides, you must make your replication server policy publicly accessible.           | 5. Choose **Create**. |
+| **Publicly accessible**     | If either your source or target database resides outside of the VPC in which your replication server resides, you must make your replication server policy publicly accessible.           |
+
+5. Choose **Create**.

@@ -19,10 +19,12 @@ For information about best practices for using AWS DMS, see [Database Migration 
 3. On the **Create replication instance** page, enter the following information.
 
 | Parameter               | Action                                                                                                                                                                                         |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Name**                | Enter `oracle-s3-migration-replication-instance`. If you use multiple replication servers or sharing a user, choose a name that helps you quickly differentiate between the different servers. |
 | **Description**         | Enter `Replication instance that suports Oracle to S3 data lake migration`. You can change the description to fit your use case.                                                               |
 | **Instance class**      | Choose `dms.c5.12xlarge`.                                                                                                                                                                      |
 | **VPC**                 | Choose the virtual private cloud (VPC) where AWS DMS launches your replication instance. If possible, select the same VPC in which either your source or target database resides (or both).    |
 | **Multi AZ**            | Choose **Yes**.                                                                                                                                                                                |
-| **Publicly accessible** | Turn off this option.                                                                                                                                                                          | 4. Choose **Create**. |
+| **Publicly accessible** | Turn off this option.                                                                                                                                                                          |
+
+4. Choose **Create**.
