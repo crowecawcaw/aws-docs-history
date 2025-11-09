@@ -30,6 +30,15 @@ improvement.
 
 The following question focuses on these considerations for operational excellence.
 
-| OPS 11:  How do you evolve operations?                                                                                                   |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dedicate time and resources for nearly continuous incremental improvement to evolve the effectiveness and efficiency of your operations. | Successful evolution of operations is founded in: frequent small improvements; providing safe environments and time to experiment, develop, and test improvements; and environments in which learning from failures is encouraged. Operations support for sandbox, development, test, and production environments, with increasing level of operational controls, facilitates development and increases the predictability of successful results from changes deployed into production. |
+| OPS 11:  How do you evolve operations?                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dedicate time and resources for nearly continuous incremental improvement to evolve<br>the effectiveness and efficiency of your operations. |
+
+Successful evolution of operations is founded in: frequent small
+improvements; providing safe environments and time to
+experiment, develop, and test improvements; and environments in
+which learning from failures is encouraged. Operations support for
+sandbox, development, test, and production environments, with
+increasing level of operational controls, facilitates
+development and increases the predictability of successful results
+from changes deployed into production.

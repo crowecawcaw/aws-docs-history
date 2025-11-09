@@ -173,4 +173,12 @@ plan:** Medium-High
 **Related videos:**
 
 - [Podcast
-  | Jeff Bezos | On how to make decisions](https://www.youtube.com/watch?v=VFwCGECvq4I "https://www.youtube.com/watch?v=VFwCGECvq4I") **Related examples:** <br>• [Make informed decisions using data (The DevOps Sagas)](../devops-guidance/oa.bcl.md "../devops-guidance/oa.bcl.md") <br>• [Using development value stream mapping to identify constraints to DevOps outcomes](../../../prescriptive-guidance/latest/strategy-devops-value-stream-mapping/introduction.md "../../../prescriptive-guidance/latest/strategy-devops-value-stream-mapping/introduction.md")
+  | Jeff Bezos | On how to make decisions](https://www.youtube.com/watch?v=VFwCGECvq4I "https://www.youtube.com/watch?v=VFwCGECvq4I")
+
+**Related examples:**
+
+- [Make
+  informed decisions using data (The DevOps Sagas)](../devops-guidance/oa.bcl.md "../devops-guidance/oa.bcl.md")
+- [Using
+  development value stream mapping to identify constraints to
+  DevOps outcomes](../../../prescriptive-guidance/latest/strategy-devops-value-stream-mapping/introduction.md "../../../prescriptive-guidance/latest/strategy-devops-value-stream-mapping/introduction.md")

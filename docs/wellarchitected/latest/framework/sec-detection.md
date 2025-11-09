@@ -28,6 +28,16 @@ also available, for example, you can use Amazon Simple Storage Service (Amazon S
 The following question focuses on these considerations for
 security.
 
-| SEC 4:  How do you detect and investigate security events?                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Capture and analyze events from logs and metrics to gain visibility. Take action on security events and potential threats to help secure your workload. | Log management is important to a Well-Architected workload for reasons ranging from security or forensics to regulatory or legal requirements. It is critical that you analyze logs and respond to them so that you can identify potential security incidents. AWS provides functionality that makes log management easier to implement by giving you the ability to define a data-retention lifecycle or define where data will be preserved, archived, or eventually deleted. This makes predictable and reliable data handling simpler and more cost effective. |
+| SEC 4:  How do you detect and investigate security events?                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Capture and analyze events from logs and metrics to gain visibility. Take<br>action on security events and potential threats to help secure your<br>workload. |
+
+Log management is important to a Well-Architected workload for
+reasons ranging from security or forensics to regulatory or legal
+requirements. It is critical that you analyze logs and respond
+to them so that you can identify potential security incidents.
+AWS provides functionality that makes log management easier to
+implement by giving you the ability to define a data-retention
+lifecycle or define where data will be preserved, archived, or
+eventually deleted. This makes predictable and reliable data
+handling simpler and more cost effective.

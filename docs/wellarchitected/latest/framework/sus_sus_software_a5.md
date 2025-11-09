@@ -55,7 +55,7 @@ Understand the devices and equipment used in your architecture, their expected l
 
 - [What
   is AWS Device Farm?](../../../devicefarm/latest/developerguide/welcome.md "../../../devicefarm/latest/developerguide/welcome.md")
-- [AppStream 2.0 Documentation](../../../appstream2.md "../../../appstream2.md")
+- [WorkSpaces Applications Documentation](../../../appstream2.md "../../../appstream2.md")
 - [NICE
   DCV](../../../dcv.md "../../../dcv.md")
 - [OTA tutorial for updating firmware on devices running FreeRTOS](../../../freertos/latest/userguide/dev-guide-ota-workflow.md "../../../freertos/latest/userguide/dev-guide-ota-workflow.md")

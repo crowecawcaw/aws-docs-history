@@ -34,12 +34,22 @@ In AWS, the following practices facilitate protection of data:
 The following questions focus on these considerations for
 security.
 
-| SEC 7:  How do you classify your data?                                                                                                                               |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Classification provides a way to categorize data, based on criticality and sensitivity in order to help you determine appropriate protection and retention controls. |
-| SEC 8:  How do you protect your data at rest?                                                                                                                        |
-| ---                                                                                                                                                                  |
-| Protect your data at rest by implementing multiple controls, to reduce the risk of unauthorized access or mishandling.                                               |
-| SEC 9:  How do you protect your data in transit?                                                                                                                     |
-| ---                                                                                                                                                                  |
-| Protect your data in transit by implementing multiple controls to reduce the risk of unauthorized access or loss.                                                    | AWS provides multiple means for encrypting data at rest and in transit. We build features into our services that make it easier to encrypt your data. For example, we have implemented server-side encryption (SSE) for Amazon S3 to make it easier for you to store your data in an encrypted form. You can also arrange for the entire HTTPS encryption and decryption process (generally known as SSL termination) to be handled by Elastic Load Balancing (ELB). |
+| SEC 7:  How do you classify your data?                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Classification provides a way to categorize data, based on criticality and<br>sensitivity in order to help you determine appropriate protection and retention<br>controls. |
+
+| SEC 8:  How do you protect your data at rest?                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------- |
+| Protect your data at rest by implementing multiple controls, to reduce the<br>risk of unauthorized access or mishandling. |
+
+| SEC 9:  How do you protect your data in transit?                                                                     |
+| -------------------------------------------------------------------------------------------------------------------- |
+| Protect your data in transit by implementing multiple controls to reduce the<br>risk of unauthorized access or loss. |
+
+AWS provides multiple means for encrypting data at rest and in
+transit. We build features into our services that make it easier
+to encrypt your data. For example, we have implemented server-side
+encryption (SSE) for Amazon S3 to make it easier for you to store
+your data in an encrypted form. You can also arrange for the
+entire HTTPS encryption and decryption process (generally known
+as SSL termination) to be handled by Elastic Load Balancing (ELB).

@@ -25,6 +25,18 @@ releases.
 The following question focuses on these considerations for cost optimization. (For a list
 of cost optimization questions and best practices, see the [Appendix](a-cost-optimization.md "a-cost-optimization.md").).
 
-| COST 1:  How do you implement cloud financial management?                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Implementing Cloud Financial Management helps organizations realize business value and financial success as they optimize their cost and usage and scale on AWS. | When building a cost optimization function, use members and supplement the team with experts in CFM and cost optimization. Existing team members will understand how the organization currently functions and how to rapidly implement improvements. Also consider including people with supplementary or specialist skill sets, such as analytics and project management. When implementing cost awareness in your organization, improve or build on existing programs and processes. It is much faster to add to what exists than to build new processes and programs. This will result in achieving outcomes much faster. |
+| COST 1:  How do you implement cloud financial management?                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implementing Cloud Financial Management helps organizations realize<br>business value and financial success as they optimize their cost and usage and<br>scale on AWS. |
+
+When building a cost optimization function, use members and
+supplement the team with experts in CFM and cost optimization. Existing team
+members will understand how the organization currently functions
+and how to rapidly implement improvements. Also consider
+including people with supplementary or specialist skill sets, such
+as analytics and project management.
+
+When implementing cost awareness in your organization, improve or
+build on existing programs and processes. It is much faster to
+add to what exists than to build new processes and programs. This
+will result in achieving outcomes much faster.

@@ -24,6 +24,10 @@ response:
 The following question focuses on these considerations for
 security.
 
-| SEC 10:  How do you anticipate, respond to, and recover from incidents?                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Preparation is critical to timely and effective investigation, response to, and recovery from security incidents to help minimize disruption to your organization. | Verify that you have a way to quickly grant access for your security team, and automate the isolation of instances as well as the capturing of data and state for forensics. |
+| SEC 10:  How do you anticipate, respond to, and recover from<br>incidents?                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Preparation is critical to timely and effective investigation, response to,<br>and recovery from security incidents to help minimize disruption to your<br>organization. |
+
+Verify that you have a way to quickly grant access for your
+security team, and automate the isolation of instances as well
+as the capturing of data and state for forensics.

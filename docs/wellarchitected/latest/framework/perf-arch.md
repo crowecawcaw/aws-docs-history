@@ -15,6 +15,6 @@ single-digit millisecond latency at any scale.
 The following question focuses on these considerations for performance efficiency. (For a
 list of performance efficiency questions and best practices, see the [Appendix](a-performance-efficiency.md "a-performance-efficiency.md").).
 
-| PERF 1:  How do you select appropriate cloud resources and architecture patterns for your workload?                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Often, multiple approaches are required for more effective performance across a workload. Well-Architected systems use multiple solutions and features to improve performance. |
+| PERF 1:  How do you select appropriate cloud resources and architecture patterns for your workload?                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Often, multiple approaches are required for more effective performance across a<br>workload. Well-Architected systems use multiple solutions and features to improve<br>performance. |

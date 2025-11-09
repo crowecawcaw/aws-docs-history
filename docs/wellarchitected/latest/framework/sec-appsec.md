@@ -46,6 +46,6 @@ aspects of your application security program.
 
 The following question focuses on these considerations for application security.
 
-| SEC 11:  How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?                                                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Training people, testing using automation, understanding dependencies, and validating the security properties of tools and applications help to reduce the likelihood of security issues in production workloads. |
+| SEC 11:  How do you incorporate and validate the security properties of<br>applications throughout the design, development, and deployment lifecycle?                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Training people, testing using automation, understanding dependencies, and validating the<br>security properties of tools and applications help to reduce the likelihood of security issues<br>in production workloads. |

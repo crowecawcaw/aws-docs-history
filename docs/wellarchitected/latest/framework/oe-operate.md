@@ -53,11 +53,18 @@ The following questions focus on these considerations for
 operational excellence.
 
 | OPS 8:  How do you utilize workload observability in your organization?                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Ensure optimal workload health by leveraging observability. Utilize relevant metrics, logs, and traces to gain a comprehensive view of your workload's performance and address issues efficiently. |
-| OPS 9:  How do you understand the health of your operations?                                                                                                                                       |
-| ---                                                                                                                                                                                                |
-| Define, capture, and analyze operations metrics to gain visibility to operations events so that you can take appropriate action.                                                                   |
-| OPS 10:  How do you manage workload and operations events?                                                                                                                                         |
-| ---                                                                                                                                                                                                |
-| Prepare and validate procedures for responding to events to minimize their disruption to your workload.                                                                                            | All of the metrics you collect should be aligned to a business need and the outcomes they support. Develop scripted responses to well-understood events and automate their performance in response to recognizing the event. |
+
+| OPS 9:  How do you understand the health of your operations?                                                                        |
+| ----------------------------------------------------------------------------------------------------------------------------------- |
+| Define, capture, and analyze operations metrics to gain visibility to<br>operations events so that you can take appropriate action. |
+
+| OPS 10:  How do you manage workload and operations events?                                                 |
+| ---------------------------------------------------------------------------------------------------------- |
+| Prepare and validate procedures for responding to events to minimize their<br>disruption to your workload. |
+
+All of the metrics you collect should be aligned to a business
+need and the outcomes they support. Develop scripted responses to
+well-understood events and automate their performance in response
+to recognizing the event.

@@ -56,15 +56,33 @@ increasing levels of operations control.
 The following questions focus on these considerations for
 operational excellence.
 
-| OPS 4:  How do you implement observability in your workload?                                                                                                                                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Implement observability in your workload so that you can understand its state and make data-driven decisions based on business requirements.                                                                                                                                                                          |
-| OPS 5:  How do you reduce defects, ease remediation, and improve flow into production?                                                                                                                                                                                                                                |
-| ---                                                                                                                                                                                                                                                                                                                   |
-| Adopt approaches that improve flow of changes into production that achieve refactoring fast feedback on quality, and bug fixing. These accelerate beneficial changes entering production, limit issues deployed, and achieve rapid identification and remediation of issues introduced through deployment activities. |
-| OPS 6:  How do you mitigate deployment risks?                                                                                                                                                                                                                                                                         |
-| ---                                                                                                                                                                                                                                                                                                                   |
-| Adopt approaches that provide fast feedback on quality and achieve rapid recovery from changes that do not have desired outcomes. Using these practices mitigates the impact of issues introduced through the deployment of changes.                                                                                  |
-| OPS 7:  How do you know that you are ready to support a workload?                                                                                                                                                                                                                                                     |
-| ---                                                                                                                                                                                                                                                                                                                   |
-| Evaluate the operational readiness of your workload, processes and procedures, and personnel to understand the operational risks related to your workload.                                                                                                                                                            | Invest in implementing operations activities as code to maximize the productivity of operations personnel, minimize error rates, and achieve automated responses. Use “pre-mortems” to anticipate failure and create procedures where appropriate. Apply metadata using Resource Tags and AWS Resource Groups following a consistent tagging strategy to achieve identification of your resources. Tag your resources for organization, cost accounting, access controls, and targeting the running of automated operations activities. Adopt deployment practices that take advantage of the elasticity of the cloud to facilitate development activities, and pre-deployment of systems for faster implementations. When you make changes to the checklists you use to evaluate your workloads, plan what you will do with live systems that no longer comply. |
+| OPS 4:  How do you implement observability in your workload?                                                                                 |
+| -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implement observability in your workload so that you can understand its state and make data-driven decisions based on business requirements. |
+
+| OPS 5:  How do you reduce defects, ease remediation, and improve flow into<br>production?                                                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Adopt approaches that improve flow of changes into production that achieve refactoring fast feedback on quality, and bug fixing. These accelerate beneficial<br>changes entering production, limit issues deployed, and achieve rapid<br>identification and remediation of issues introduced through deployment activities. |
+
+| OPS 6:  How do you mitigate deployment risks?                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Adopt approaches that provide fast feedback on quality and achieve rapid<br>recovery from changes that do not have desired outcomes. Using these practices<br>mitigates the impact of issues introduced through the deployment of changes. |
+
+| OPS 7:  How do you know that you are ready to support a workload?                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Evaluate the operational readiness of your workload, processes and<br>procedures, and personnel to understand the operational risks related to your<br>workload. |
+
+Invest in implementing operations activities as code to maximize
+the productivity of operations personnel, minimize error rates,
+and achieve automated responses. Use “pre-mortems” to anticipate
+failure and create procedures where appropriate. Apply metadata
+using Resource Tags and AWS Resource Groups following a consistent
+tagging strategy to achieve identification of your resources. Tag
+your resources for organization, cost accounting, access
+controls, and targeting the running of automated operations
+activities. Adopt deployment practices that take advantage of the
+elasticity of the cloud to facilitate development activities,
+and pre-deployment of systems for faster implementations. When you
+make changes to the checklists you use to evaluate your
+workloads, plan what you will do with live systems that no longer
+comply.

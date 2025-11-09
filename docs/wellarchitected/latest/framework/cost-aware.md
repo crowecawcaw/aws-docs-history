@@ -27,12 +27,33 @@ using AWS Identity and Access Management (IAM), and Service Quotas.
 The following questions focus on these considerations for cost
 optimization.
 
-| COST 2:  How do you govern usage?                                                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Establish policies and mechanisms to validate that appropriate costs are incurred while objectives are achieved. By employing a checks-and-balances approach, you can innovate without overspending. |
-| COST 3:  How do you monitor usage and cost?                                                                                                                                                          |
-| ---                                                                                                                                                                                                  |
-| Establish policies and procedures to monitor and appropriately allocate your costs. This permits you to measure and improve the cost efficiency of this workload.                                    |
-| COST 4:  How do you decommission resources?                                                                                                                                                          |
-| ---                                                                                                                                                                                                  |
-| Implement change control and resource management from project inception to end-of-life. This facilitates shutting down unused resources to reduce waste.                                             | You can use cost allocation tags to categorize and track your AWS usage and costs. When you apply tags to your AWS resources (such as EC2 instances or S3 buckets), AWS generates a cost and usage report with your usage and your tags. You can apply tags that represent organization categories (such as cost centers, workload names, or owners) to organize your costs across multiple services. Verify that you use the right level of detail and granularity in cost and usage reporting and monitoring. For high level insights and trends, use daily granularity with AWS Cost Explorer. For deeper analysis and inspection use hourly granularity in AWS Cost Explorer, or Amazon Athena and Amazon Quick Suite with the Cost and Usage Report (CUR) at an hourly granularity. Combining tagged resources with entity lifecycle tracking (employees, projects) makes it possible to identify orphaned resources or projects that are no longer generating value to the organization and should be decommissioned. You can set up billing alerts to notify you of predicted overspending. |
+| COST 2:  How do you govern usage?                                                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Establish policies and mechanisms to validate that appropriate costs are<br>incurred while objectives are achieved. By employing a checks-and-balances<br>approach, you can innovate without overspending. |
+
+| COST 3:  How do you monitor usage and cost?                                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Establish policies and procedures to monitor and appropriately allocate your<br>costs. This permits you to measure and improve the cost efficiency of this<br>workload. |
+
+| COST 4:  How do you decommission resources?                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implement change control and resource management from project inception to<br>end-of-life. This facilitates shutting down unused resources to reduce<br>waste. |
+
+You can use cost allocation tags to categorize and track your AWS
+usage and costs. When you apply tags to your AWS resources (such
+as EC2 instances or S3 buckets), AWS generates a cost and usage
+report with your usage and your tags. You can apply tags that
+represent organization categories (such as cost centers, workload
+names, or owners) to organize your costs across multiple services.
+
+Verify that you use the right level of detail and granularity in cost
+and usage reporting and monitoring. For high level insights and
+trends, use daily granularity with AWS Cost Explorer. For deeper
+analysis and inspection use hourly granularity in AWS Cost Explorer, or Amazon Athena and Amazon Quick Suite with the Cost and
+Usage Report (CUR) at an hourly granularity.
+
+Combining tagged resources with entity lifecycle tracking
+(employees, projects) makes it possible to identify orphaned
+resources or projects that are no longer generating value to the
+organization and should be decommissioned. You can set up billing
+alerts to notify you of predicted overspending.

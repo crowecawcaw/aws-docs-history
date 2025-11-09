@@ -62,7 +62,6 @@ Consider these key principles to build this culture:
 - **Continual optimization:** Adopt a culture to continually optimize the performance efficiency of your cloud workload.
   The following question focuses on these considerations for performance efficiency.
 
-| PERF 5:  What process do you use to support more performance efficiency for your workload?
-|
-| --- |
-| When architecting workloads, there are principles and practices that you can adopt to help you better run efficient high-performing cloud workloads. To adopt a culture that fosters performance efficiency of cloud workloads, consider these key principles and practices. |
+| PERF 5:  What process do you use to support more performance efficiency for your workload?                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| When architecting workloads, there are principles and practices that<br>you can adopt to help you better run efficient high-performing cloud<br>workloads. To adopt a culture that fosters performance efficiency of<br>cloud workloads, consider these key principles and practices. |
