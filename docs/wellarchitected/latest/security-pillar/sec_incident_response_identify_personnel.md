@@ -76,6 +76,81 @@ incident managers, incident responders, and communications lead. 
 
 Example table format:
 
-````
-| Role | Name | Contact Information | Responsibilities | 1 | ——– | ——- | ——- | ——- | 2 | Incident Manager | Jane Doe| jane.doe@example.com | Overall authority during response | 3 | Incident Responder | John Smith | john.smith@example.com | Investigation and remediation | 4 | Communications Lead | Emily Johnson | emily.johnson@example.com | Internal and external communications | 5 | Communications Lead | Michael Brown | michael.brown@example.com | Insights on critical workloads | ``` Consider using the [AWS Systems Manager Incident Manager](../../../incident-manager/latest/userguide/what-is-incident-manager.md "../../../incident-manager/latest/userguide/what-is-incident-manager.md") feature to capture key contacts, define a response plan, automate on-call schedules, and create escalation plans. Automate and rotate all staff through an on-call schedule, so that responsibility for the workload is shared across its owners. This promotes good practices, such as emitting relevant metrics and logs as well as defining alarm thresholds that matter for the workload. **Identify external partners:** Enterprises use tools built by independent software vendors (ISVs), partners, and subcontractors to build differentiating solutions for their customers. Engage key personnel from these parties who can help respond to and recover from an incident. We recommend you sign up for the appropriate level of Support in order to get prompt access to AWS subject matter experts through a support case. Consider similar arrangements with all critical solutions providers for the workloads. Some security events require publicly listed businesses to notify relevant public agencies and regulators of the event and impacts. Maintain and update contact information for the relevant departments and responsible individuals. ## Implementation steps 1. Set up an incident management solution. 1. Consider deploying Incident Manager in your Security Tooling account. 2. Define contacts in your incident management solution. 1. Define at least two types of contact channels for each contact (such as SMS, phone, or email), to ensure reachability during an incident. 3. Define a response plan. 1. Identify the most appropriate contacts to engage during an incident. Define escalation plans aligned to the roles of personnel to be engaged, rather than individual contacts. Consider including contacts that may be responsible for informing external entities, even if they are not directly engaged to resolve the incident. ## Resources **Related best practices:** <br>• [OPS02-BP03 Operations activities have identified owners responsible for their performance](../framework/ops_ops_model_def_activity_owners.md "../framework/ops_ops_model_def_activity_owners.md") **Related documents:** <br>• [AWS Security Incident Response Guide](../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md "../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md") **Related examples:** <br>• [AWS customer playbook framework](https://github.com/aws-samples/aws-customer-playbook-framework "https://github.com/aws-samples/aws-customer-playbook-framework") <br>• [Prepare for and respond to security incidents in your AWS environment](https://youtu.be/8uiO0Z5meCs "https://youtu.be/8uiO0Z5meCs") **Related tools:** <br>• [AWS Systems Manager Incident Manager](../../../incident-manager/latest/userguide/what-is-incident-manager.md "../../../incident-manager/latest/userguide/what-is-incident-manager.md") **Related videos:** <br>• [Amazon's approach to security during development](../../../www.youtube.com/watch.md "../../../www.youtube.com/watch.md")
-````
+```
+  | Role | Name | Contact Information | Responsibilities |
+1 | ——– | ——- | ——- | ——- |
+2 | Incident Manager | Jane Doe| jane.doe@example.com | Overall authority during response |
+3 | Incident Responder | John Smith | john.smith@example.com | Investigation and remediation |
+4 | Communications Lead | Emily Johnson | emily.johnson@example.com | Internal and external communications |
+5 | Communications Lead | Michael Brown | michael.brown@example.com | Insights on critical workloads |
+```
+
+Consider using
+the [AWS Systems Manager Incident Manager](../../../incident-manager/latest/userguide/what-is-incident-manager.md "../../../incident-manager/latest/userguide/what-is-incident-manager.md") feature to capture key
+contacts, define a response plan, automate on-call schedules, and
+create escalation plans. Automate and rotate all staff through an
+on-call schedule, so that responsibility for the workload is
+shared across its owners. This promotes good practices, such as
+emitting relevant metrics and logs as well as defining alarm
+thresholds that matter for the workload.
+
+**Identify external
+partners:** Enterprises use tools built by independent
+software vendors (ISVs), partners, and subcontractors to build
+differentiating solutions for their customers. Engage key
+personnel from these parties who can help respond to and recover
+from an incident. We recommend you sign up for the appropriate
+level of Support in order to get prompt access to AWS subject
+matter experts through a support case. Consider similar
+arrangements with all critical solutions providers for the
+workloads. Some security events require publicly listed businesses
+to notify relevant public agencies and regulators of the event and
+impacts. Maintain and update contact information for the relevant
+departments and responsible individuals.
+
+## Implementation steps
+
+1. Set up an incident management solution.
+   1. Consider deploying Incident Manager in your Security
+      Tooling account.
+
+2. Define contacts in your incident management solution.
+   1. Define at least two types of contact channels for each
+      contact (such as SMS, phone, or email), to ensure
+      reachability during an incident.
+
+3. Define a response plan.
+   1. Identify the most appropriate contacts to engage during an
+      incident. Define escalation plans aligned to the roles of
+      personnel to be engaged, rather than individual contacts.
+      Consider including contacts that may be responsible for
+      informing external entities, even if they are not directly
+      engaged to resolve the incident.
+
+## Resources
+
+**Related best practices:**
+
+- [OPS02-BP03
+  Operations activities have identified owners responsible for
+  their performance](../framework/ops_ops_model_def_activity_owners.md "../framework/ops_ops_model_def_activity_owners.md")
+
+**Related documents:**
+
+- [AWS Security Incident Response Guide](../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md "../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md")
+
+**Related examples:**
+
+- [AWS customer playbook framework](https://github.com/aws-samples/aws-customer-playbook-framework "https://github.com/aws-samples/aws-customer-playbook-framework")
+- [Prepare for
+  and respond to security incidents in your AWS
+  environment](https://youtu.be/8uiO0Z5meCs "https://youtu.be/8uiO0Z5meCs")
+
+**Related tools:**
+
+- [AWS Systems Manager Incident Manager](../../../incident-manager/latest/userguide/what-is-incident-manager.md "../../../incident-manager/latest/userguide/what-is-incident-manager.md")
+
+**Related videos:**
+
+- [Amazon's
+  approach to security during development](../../../www.youtube.com/watch.md "../../../www.youtube.com/watch.md")
