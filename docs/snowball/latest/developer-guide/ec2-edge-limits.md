@@ -16,7 +16,7 @@ follows:
 A Snowball Edge compute-optimized device can run up to 20 AMIs and 10 volumes per instance.
 
 | Instance type    | vCPU cores | Memory (GiB) | Supported device option |
-| ---------------- | ---------- | ------------ | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ---------- | ------------ | ----------------------- |
 | `sbe1.small`     | 1          | 1            | storage optimized       |
 | `sbe1.medium`    | 1          | 2            | storage optimized       |
 | `sbe1.large`     | 2          | 4            | storage optimized       |
@@ -33,4 +33,35 @@ A Snowball Edge compute-optimized device can run up to 20 AMIs and 10 volumes pe
 | `sbe-c.8xlarge`  | 32         | 128          | compute optimized       |
 | `sbe-c.12xlarge` | 48         | 192          | compute optimized       |
 | `sbe-c.16xlarge` | 64         | 256          | compute optimized       |
-| `sbe-c.24xlarge` | 96         | 384          | compute optimized       | ## Shared compute resource limitations on Snowball Edge All services on a Snowball Edge device use some of the finite resources on the device. A Snowball Edge device with its available compute resources maximized can't launch new compute resources. For example, if you try to start the NFS interface while also running a `sbe1.4xlarge` compute instance on a storage optimized device, the NFS interface service doesn't start. The following outlines the available resources on the different device options as well as resource requirements for each service. <br>• If no compute services are `ACTIVE`: + On a storage optimized option, you have 24 vCPUs and 32 GiB of memory for your compute instances. + On a compute optimized option, you have 104 vCPUs and 208 GiB of memory for your compute instances. <br>• While AWS IoT Greengrass and AWS Lambda powered by AWS IoT Greengrass are `ACTIVE`: + On a storage optimized option, these services use 4 vCPU cores and 8 GiB of memory. + On a compute optimized option, these services use 1 vCPU core and 1 GiB of memory. + While the NFS interface is `ACTIVE`, it uses 8 vCPU cores and 16 GiB of memory on a Snowball Edge device. + While Amazon S3 compatible storage on Snowball Edge is ACTIVE on a Snowball Edge Compute Optimized with AMD EPYC Gen2 and NVME, for a single node with the minimum configuration of 3 TB of Amazon S3 compatible storage on Snowball Edge, it uses 8 vCPU cores and 16 GB of memory. For a single node with more than 3 TB of Amazon S3 compatible storage on Snowball Edge, it uses 20 vCPU cores and 40 GB of memory. For a cluster, it uses 20 vCPU cores and 40 GB of memory. You can determine whether a service is `ACTIVE` on a Snowball Edge by using the command `snowballEdge describe-service` on the Snowball Edge client. For more information, see [Vieiwing status of services running on Snowball Edge](using-client-commands.md#client-service-status "using-client-commands.md#client-service-status"). |
+| `sbe-c.24xlarge` | 96         | 384          | compute optimized       |
+
+## Shared compute resource
+
+limitations on Snowball Edge
+
+All services on a Snowball Edge device use some of the finite resources on the
+device. A Snowball Edge device with its available compute resources maximized
+can't launch new compute resources. For example, if you try to start the NFS
+interface while also running a `sbe1.4xlarge` compute instance on a
+storage optimized device, the NFS interface service doesn't start. The following
+outlines the available resources on the different device options as well as resource
+requirements for each service.
+
+- If no compute services are `ACTIVE`:
+  - On a storage optimized option, you have 24 vCPUs and 32 GiB of
+    memory for your compute instances.
+  - On a compute optimized option, you have 104 vCPUs and 208 GiB of
+    memory for your compute instances.
+
+- While AWS IoT Greengrass and AWS Lambda powered by AWS IoT Greengrass are `ACTIVE`:
+  - On a storage optimized option, these services use 4 vCPU cores and
+    8 GiB of memory.
+  - On a compute optimized option, these services use 1 vCPU core and
+    1 GiB of memory.
+  - While the NFS interface is `ACTIVE`, it uses 8 vCPU
+    cores and 16 GiB of memory on a Snowball Edge device.
+  - While Amazon S3 compatible storage on Snowball Edge is ACTIVE on a Snowball Edge Compute Optimized with AMD EPYC Gen2 and NVME, for a single node with the minimum configuration of 3 TB of Amazon S3 compatible storage on Snowball Edge, it uses 8 vCPU cores and 16 GB of memory. For a single node with more than 3 TB of Amazon S3 compatible storage on Snowball Edge, it uses 20 vCPU cores and 40 GB of memory. For a cluster, it uses 20 vCPU cores and 40 GB of memory.
+
+You can determine whether a service is `ACTIVE` on a Snowball Edge by
+using the command `snowballEdge describe-service` on the Snowball Edge
+client. For more information, see [Vieiwing status of services running on Snowball Edge](using-client-commands.md#client-service-status "using-client-commands.md#client-service-status").

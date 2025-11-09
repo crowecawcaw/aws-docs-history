@@ -247,7 +247,261 @@ supported:
 Following is the local IAM support version 2012-10-17 of the IAM policy and a
 subset of the policy grammar.
 
-| Policy type                                 | Supported grammar                                                                                                                      |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity-based policies (user/role policy)  | "`Effect`", "`Action`" and "`Resource`" NoteLocal IAM doesn't support "`Condition`", "`NotAction`", "`NotResource`" and "`Principal`". |
-| Resource-based policies (role trust policy) | "`Effect`", "`Action`" and "`Principal`" NoteFor Principal, only AWS account ID or principal ID is allowed.                            | ## IAM policy examples on Snowball Edge ###### Note AWS Identity and Access Management (IAM) users need `"snowballdevice:*"` permissions to use the [AWS OpsHub for Snow Family application](aws-opshub.md "aws-opshub.md") to manage Snowball Edge. The following are examples of policies that grant permissions to a Snowball Edge device. ### Allowing the GetUser call for a sample user on a Snowball Edge through the IAM API Use the following policy to allow the GetUser call for a sample user through the IAM API. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": "iam:GetUser", "Resource": "arn:aws:iam::`111122223333`:user/`example-user`" } ] }` `` ### Allowing full access to the Amazon S3 API on a Snowball Edge Use the following policy to allow full access to the Amazon S3 API. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": "s3:*", "Resource": "*" } ] }` `` ### Allowing read and write access to an Amazon S3 bucket on a Snowball Edge Use the following policy to allow read and write access to a specific bucket. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ListObjectsInBucket", "Effect": "Allow", "Action": "s3:ListBucket", "Resource": "arn:aws:s3:::bucket-name" }, { "Sid": "AllObjectActions", "Effect": "Allow", "Action": "s3:*Object", "Resource": "arn:aws:s3:::bucket-name/*" } ] }` `` ### Allowing list, get, and put access to an Amazon S3 bucket on a Snowball Edge Use the following policy to allow List, Get, and Put Access to a specific S3 bucket. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "s3:PutObject", "s3:GetObject", "s3:List*" ], "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*" } ] }` `` ### Allowing full access to the Amazon EC2 API on a Snowball Edge Use the following policy to allow full access to Amazon EC2. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "ec2:*", "Resource": "*" } ] }` `` ### Allowing access to start and stop Amazon EC2-compatible instances on a Snowball Edge Use the following policy to allow access to start and stop Amazon EC2 instances. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ec2:StartInstances", "ec2:StopInstances" ], "Resource": "*" } ] }` `` ### Denying calls to DescribeLaunchTemplates but allowing all calls to DescribeImages on a Snowball Edge Use the following policy to deny calls to `DescribeLaunchTemplates` but allow all calls to `DescribeImages`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Deny", "Action": [ "ec2:DescribeLaunchTemplates" ], "Resource": "*" }, { "Effect": "Allow", "Action": [ "ec2:DescribeImages" ], "Resource": "*" } ] }` `` ### Policy for API calls on a Snowball Edge Lists all the managed policies that are available on your Snow device, including your own customer-defined managed policies. More details in [list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md"). ``aws iam list-policies --endpoint http://`ip-address`:6078 --region snow --profile snowballEdge { "Policies": [ { "PolicyName": "Administrator", "Description": "Root user admin policy for Account 123456789012", "CreateDate": "2020-03-04T17:44:59.412Z", "AttachmentCount": 1, "IsAttachable": true, "PolicyId": "`policy-id`", "DefaultVersionId": "v1", "Path": "/", "Arn": "arn:aws:iam::123456789012:policy/Administrator", "UpdateDate": "2020-03-04T19:10:45.620Z" } ] }`` ## TrustPolicy example on a Snowball Edge A trust policy returns a set of temporary security credentials that you can use to access AWS resources that you might normally not have access to. These temporary credentials consist of an access key ID, a secret access key, and a security token. Typically, you use `AssumeRole` in your account for cross-account access. The following is an example of a trust policy. For more information about trust policy, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "arn:aws:iam::`111122223333`:root" ] }, "Action": [ "sts:AssumeRole" ] } ] }` `` |
+| Policy type                                 | Supported grammar                                                                                                                               |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Identity-based policies (user/role policy)  | "`Effect`", "`Action`" and<br>"`Resource`" NoteLocal IAM doesn't support "`Condition`",<br>"`NotAction`", "`NotResource`" and<br>"`Principal`". |
+| Resource-based policies (role trust policy) | "`Effect`", "`Action`" and<br>"`Principal`" NoteFor Principal, only AWS account ID or<br>principal ID is allowed.                               |
+
+## IAM policy examples on Snowball Edge
+
+###### Note
+
+AWS Identity and Access Management (IAM) users need `"snowballdevice:*"` permissions to use
+the [AWS OpsHub for Snow Family application](aws-opshub.md "aws-opshub.md") to
+manage Snowball Edge.
+
+The following are examples of policies that grant permissions to a Snowball Edge
+device.
+
+### Allowing the GetUser call for a
+
+sample user on a Snowball Edge through the IAM API
+
+Use the following policy to allow the GetUser call for a sample user through the
+IAM API.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": "iam:GetUser",
+ "Resource": "arn:aws:iam::`111122223333`:user/`example-user`"
+ }
+ ]
+}`
+
+```
+
+### Allowing full access to the
+
+Amazon S3 API on a Snowball Edge
+
+Use the following policy to allow full access to the Amazon S3 API.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": "s3:*",
+ "Resource": "*"
+
+ }
+ ]
+}`
+
+```
+
+### Allowing read and write
+
+access to an Amazon S3 bucket on a Snowball Edge
+
+Use the following policy to allow read and write access to a specific
+bucket.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListObjectsInBucket",
+ "Effect": "Allow",
+ "Action": "s3:ListBucket",
+ "Resource": "arn:aws:s3:::bucket-name"
+ },
+ {
+ "Sid": "AllObjectActions",
+ "Effect": "Allow",
+ "Action": "s3:*Object",
+ "Resource": "arn:aws:s3:::bucket-name/*"
+ }
+ ]
+}`
+
+```
+
+### Allowing list, get, and put
+
+access to an Amazon S3 bucket on a Snowball Edge
+
+Use the following policy to allow List, Get, and Put Access to a specific S3
+bucket.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject",
+ "s3:GetObject",
+ "s3:List*"
+ ],
+ "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*"
+ }
+ ]
+}`
+
+```
+
+### Allowing full access to the Amazon EC2
+
+API on a Snowball Edge
+
+Use the following policy to allow full access to Amazon EC2.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "ec2:*",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+### Allowing access to
+
+start and stop Amazon EC2-compatible instances on a Snowball Edge
+
+Use the following policy to allow access to start and stop Amazon EC2
+instances.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:StartInstances",
+ "ec2:StopInstances"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+### Denying calls to
+
+DescribeLaunchTemplates but allowing all calls to DescribeImages on a Snowball Edge
+
+Use the following policy to deny calls to `DescribeLaunchTemplates`
+but allow all calls to `DescribeImages`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Action": [
+ "ec2:DescribeLaunchTemplates"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:DescribeImages"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+### Policy for API calls on a Snowball Edge
+
+Lists all the managed policies that are available on your Snow device, including
+your own customer-defined managed policies. More details in [list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md").
+
+```
+aws iam list-policies --endpoint http://`ip-address`:6078 --region snow --profile snowballEdge
+{
+    "Policies": [
+        {
+            "PolicyName": "Administrator",
+            "Description": "Root user admin policy for Account 123456789012",
+            "CreateDate": "2020-03-04T17:44:59.412Z",
+            "AttachmentCount": 1,
+            "IsAttachable": true,
+            "PolicyId": "`policy-id`",
+            "DefaultVersionId": "v1",
+            "Path": "/",
+            "Arn": "arn:aws:iam::123456789012:policy/Administrator",
+            "UpdateDate": "2020-03-04T19:10:45.620Z"
+        }
+    ]
+}
+```
+
+## TrustPolicy example on a Snowball Edge
+
+A trust policy returns a set of temporary security credentials that you can use to
+access AWS resources that you might normally not have access to. These
+temporary credentials consist of an access key ID, a secret access key, and a security
+token. Typically, you use `AssumeRole` in your account for cross-account
+access.
+
+The following is an example of a trust policy. For more information about trust
+policy, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": [
+ "arn:aws:iam::`111122223333`:root"
+ ]
+ },
+ "Action": [
+ "sts:AssumeRole"
+ ]
+ }
+ ]
+}`
+
+```

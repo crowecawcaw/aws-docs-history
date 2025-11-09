@@ -36,7 +36,12 @@ devices| Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) 
 | 10.5 | 8.5 |
 | 12 | 6.5 |
 | 13 | 5.5 |
-| 16.5 | 1.5 | Snowball Edge storage optimized 210 TB Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge storage optimized 210 TB devices| Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
+| 16.5 | 1.5 |
+
+Snowball Edge storage optimized 210 TB
+
+Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge
+storage optimized 210 TB devices| Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
 | --- | --- |
 | 20 | 206 |
 | 40 | 182 |
@@ -47,4 +52,43 @@ devices| Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) 
 | 140 | 62 |
 | 160 | 38 |
 | 180 | 14 |
-| 190 | 2 | Amazon S3 compatible storage on Snowball Edge specifications: <br>• The maximum number of Snowball Edge buckets is 100 per device or per cluster. <br>• The S3 on Snowball Edge bucket owner account owns all objects in the bucket. <br>• Only the S3 on Snowball Edge bucket owner account can perform operations on the bucket. <br>• Object size limitations are consistent with those in Amazon S3. <br>• All objects stored on S3 on Snowball Edge have SNOW as the storage class. <br>• By default, all objects stored in the SNOW storage class are stored using server-side encryption with Amazon S3 managed encryption keys (SSE-S3). You can also explicitly choose to store objects by using server-side encryption with customer-provided encryption keys (SSE-C). <br>• If there is not enough space to store an object on your Snowball Edge, the API returns an insufficient capacity exception (ICE). ###### Topics <br>• [Order Amazon S3 compatible storage on Snowball Edge](s3-edge-snow-order-device.md "s3-edge-snow-order-device.md") <br>• [Setting up and starting Amazon S3 compatible storage on Snowball Edge](s3-edge-snow-setting-up.md "s3-edge-snow-setting-up.md") <br>• [Working with S3 buckets with Amazon S3 compatible storage on Snowball Edge](working-s3-snow-buckets.md "working-s3-snow-buckets.md") <br>• [Determining whether you can access an Amazon S3 compatible storage on Snowball Edge bucket on a Snowball Edge](working-s3-snow-buckets-determine-bucket-access-s3-snow.md "working-s3-snow-buckets-determine-bucket-access-s3-snow.md") <br>• [Retrieving a list of buckets or regional buckets in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-list-buckets-s3-snow.md "working-s3-snow-buckets-list-buckets-s3-snow.md") <br>• [Getting a bucket with Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-get-bucket-s3-snow.md "working-s3-snow-buckets-get-bucket-s3-snow.md") <br>• [Creating an S3 bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-creating-s3-snow-bucket.md "working-s3-snow-buckets-creating-s3-snow-bucket.md") <br>• [Deleting a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-delete-bucket-s3-snow.md "working-s3-snow-buckets-delete-bucket-s3-snow.md") <br>• [Creating and managing an object lifecycle configuration using the AWS CLI](working-s3-snow-buckets-lifecycle-s3-snow.md "working-s3-snow-buckets-lifecycle-s3-snow.md") <br>• [Copying an object to an Amazon S3 compatible storage on Snowball Edge bucket on a Snowball Edge](objects-copy-s3-snow.md "objects-copy-s3-snow.md") <br>• [Listing objects in a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](objects-list-s3-snow.md "objects-list-s3-snow.md") <br>• [Getting an object from a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](objects-get-s3-snow.md "objects-get-s3-snow.md") <br>• [Deleting objects in buckets in Amazon S3 compatible storage on Snowball Edge](objects-delete-s3-snow.md "objects-delete-s3-snow.md") <br>• [Supported REST API actions for Amazon S3 compatible storage on Snowball Edge](s3-snow-api.md "s3-snow-api.md") <br>• [Using Amazon S3 compatible storage on Snowball Edge with a cluster of Snow devices](ClusterOverview.md "ClusterOverview.md") <br>• [Configuring Amazon S3 compatible storage on Snowball Edge event notifications](s3-snow-event-notifications.md "s3-snow-event-notifications.md") <br>• [Configuring local SMTP notifications on Snowball Edge](s3-snow-smtp-notifications.md "s3-snow-smtp-notifications.md")
+| 190 | 2 |
+
+Amazon S3 compatible storage on Snowball Edge specifications:
+
+- The maximum number of Snowball Edge buckets is 100 per device or per cluster.
+- The S3 on Snowball Edge bucket owner account owns all objects in the bucket.
+- Only the S3 on Snowball Edge bucket owner account can perform operations on the
+  bucket.
+- Object size limitations are consistent with those in Amazon S3.
+- All objects stored on S3 on Snowball Edge have SNOW as the storage class.
+- By default, all objects stored in the SNOW storage class are stored using
+  server-side encryption with Amazon S3 managed encryption keys (SSE-S3). You can also
+  explicitly choose to store objects by using server-side encryption with
+  customer-provided encryption keys (SSE-C).
+- If there is not enough space to store an object on your Snowball Edge, the API returns an
+  insufficient capacity exception (ICE).
+
+###### Topics
+
+- [Order Amazon S3 compatible storage on Snowball Edge](s3-edge-snow-order-device.md "s3-edge-snow-order-device.md")
+- [Setting up and starting Amazon S3 compatible storage on Snowball Edge](s3-edge-snow-setting-up.md "s3-edge-snow-setting-up.md")
+- [Working with S3 buckets with Amazon S3 compatible storage on Snowball Edge](working-s3-snow-buckets.md "working-s3-snow-buckets.md")
+- [Determining whether you can access an Amazon S3 compatible storage on Snowball Edge
+  bucket on a Snowball Edge](working-s3-snow-buckets-determine-bucket-access-s3-snow.md "working-s3-snow-buckets-determine-bucket-access-s3-snow.md")
+- [Retrieving a list of buckets or regional buckets in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-list-buckets-s3-snow.md "working-s3-snow-buckets-list-buckets-s3-snow.md")
+- [Getting a bucket with Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-get-bucket-s3-snow.md "working-s3-snow-buckets-get-bucket-s3-snow.md")
+- [Creating an S3 bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-creating-s3-snow-bucket.md "working-s3-snow-buckets-creating-s3-snow-bucket.md")
+- [Deleting a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-delete-bucket-s3-snow.md "working-s3-snow-buckets-delete-bucket-s3-snow.md")
+- [Creating and managing an object lifecycle
+  configuration using the AWS CLI](working-s3-snow-buckets-lifecycle-s3-snow.md "working-s3-snow-buckets-lifecycle-s3-snow.md")
+- [Copying an object to an Amazon S3 compatible storage on Snowball Edge bucket on a Snowball Edge](objects-copy-s3-snow.md "objects-copy-s3-snow.md")
+- [Listing objects in a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](objects-list-s3-snow.md "objects-list-s3-snow.md")
+- [Getting an object from a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](objects-get-s3-snow.md "objects-get-s3-snow.md")
+- [Deleting objects in buckets in Amazon S3 compatible storage on Snowball Edge](objects-delete-s3-snow.md "objects-delete-s3-snow.md")
+- [Supported REST API actions for Amazon S3 compatible storage on Snowball Edge](s3-snow-api.md "s3-snow-api.md")
+- [Using Amazon S3 compatible storage on Snowball Edge with a cluster of Snow devices](ClusterOverview.md "ClusterOverview.md")
+- [Configuring Amazon S3 compatible storage on Snowball Edge event
+  notifications](s3-snow-event-notifications.md "s3-snow-event-notifications.md")
+- [Configuring local SMTP
+  notifications on Snowball Edge](s3-snow-smtp-notifications.md "s3-snow-smtp-notifications.md")

@@ -110,11 +110,235 @@ Before you begin the process to add an AMI from AWS Marketplace to your Snowball
 
 AMIs from AWS Marketplace include **aws-marketplace** in the **Source** column. 5. In the **AMI ID** column, choose the AMI ID of the AMI. 6. In the **Image summary** of the AMI, ensure the **Product codes** are supported by your Region. For more information, see the table below.
 
-| Supported AWS Marketplace AMI product codes | AMI operating system      | Product code                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Supported AWS Marketplace AMI product codes | AMI operating system      | Product code |
+| ------------------------------------------- | ------------------------- | ------------ |
 | Ubuntu Server 14.04 LTS                     | b3dl4415quatdndl4qa6kcu45 |
 | CentOS 7 (x86_64)                           | aw0evgkw8e5c1q413zgy5pjce |
 | Ubuntu 16.04 LTS                            | csv6h7oyg29b7epjzg7qdr7no |
 | Amazon Linux 2                              | avyfzznywektkgl5qv5f57ska |
 | Ubuntu 20.04 LTS                            | a8jyynf4hjutohctm41o2z18m |
-| Ubuntu 22.04 LTS                            | 47xbqns9xujfkkjt189a13aqe | 7. Then, also ensure the **Platform details** contains one of entries from the list below. <br>• Amazon Linux, Ubuntu, or Debian <br>• Red Hat Linux bring-your-own-license <br>• Amazon RDS for Oracle bring-your-own-license <br>• Windows bring-your-own-license ### Determining the version of the Amazon Linux 2 AMI for Snowball Edge Use the following procedure to determine the version of the Amazon Linux 2 AMI for Snowball Edge on the Snowball Edge. Install the latest version of the AWS CLI before continuing. For more information, see [Install or update to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the AWS Command Line Interface User Guide. <br>• Use the `describe-images` AWS CLI command to see the description of the AMI. The version is contained in the description. Provide the public key certificate from the previous step. For more information, see [describe-images](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html") in the AWS CLI Command Reference. ``aws ec2 describe-images --endpoint http://`snow-device-ip`:8008 --region snow`` ###### Example of output of the `describe-images` command `{ "Images": [ { "CreationDate": "2024-02-12T23:24:45.705Z", "ImageId": "s.ami-02ba84cb87224e16e", "Public": false, "ProductCodes": [ { "ProductCodeId": "avyfzznywektkgl5qv5f57ska", "ProductCodeType": "marketplace" } ], "State": "AVAILABLE", "BlockDeviceMappings": [ { "DeviceName": "/dev/xvda", "Ebs": { "DeleteOnTermination": true, "Iops": 0, "SnapshotId": "s.snap-0efb49f2f726fde63", "VolumeSize": 8, "VolumeType": "sbp1" } } ], "Description": "Snow Family Amazon Linux 2 AMI 2.0.20240131.0 x86_64 HVM gp2", "EnaSupport": false, "Name": "amzn2-ami-snow-family-hvm-2.0.20240131.0-x86_64-gp2-b7e7f8d2-1b9e-4774-a374-120e0cd85d5a", "RootDeviceName": "/dev/xvda" } ] }` In this example, the version of the Amazon Linux 2 AMI for Snowball Edge is `**2.0.20240131.0**`. It is found in the value of the `Description` name. ### Configure the AMI for the Snowball Edge device 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. Launch a new instance of a supported AMI in AWS Marketplace. ###### Note When you launch your instance, make sure that the storage size you assign to the instance is appropriate for your use case. In the Amazon EC2 console, you do this in the **Add storage** step. 3. Install and configure the applications that you want to run on the Snowball Edge, and make sure that they work as expected. ###### Important <br>• Only single volume AMIs are supported. <br>• The EBS volume in your AMI should be 10 TB or less. We recommend that you provision the EBS volume size needed for the data in the AMI. This will help decrease the time it takes to export your AMI and load it into your device. You can resize or add more volumes to your instance after your device is deployed. <br>• The EBS snapshot in your AMI must not be encrypted. 4. Make a copy of the PEM or PPK file that you used for the SSH key pair when you created this instance. Save this file to the server that you plan to use to communicate with the Snowball Edge device. Make a note of the path to this file because you will need it when you use SSH to connect to the EC2-compatible instance on your device. ###### Important If you don't follow this procedure, you can't connect to your instances with SSH when you receive your Snowball Edge device. 5. Save the instance as an AMI. For more information, see [Amazon EC2 User Guide for Linux Instances](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md") in the _Amazon EC2 User Guide._ 6. Repeat steps 1–4 for each of the instances that you want to connect to using SSH. Be sure to make copies of each of the SSH key pairs, and keep track of the AMIs that they're associated with. 7. Now, when you order your device, these AMIs are available to add to your device. ## Adding an AMI to a Snowball Edge after receiving the device When the device arrives on your site, you can add new AMIs to it. For instructions, see [Importing a virtual machine image to a Snowball Edge device](ec2-ami-import-cli.md "ec2-ami-import-cli.md"). Keep in mind that although all VMs are supported, only supported AMIs have been tested for full functionality. ###### Note When you use VM Import/Export to add AMIs to your device or import a VM after your device is deployed, you can add VMs that use any operating system. However, only supported operating systems have been tested and validated on Snowball Edge. You are responsible for adhering to the terms and conditions of any operating system or software that is in the virtual image that you import onto your device. ###### Important For AWS services to function properly on a Snowball Edge, you must allow the ports for the services. For details, see [Port requirements for AWS services on a Snowball Edge](port-requirements.md "port-requirements.md"). ## Adding a Microsoft Windows AMI to a Snowball Edge For virtual machines (VMs) that use a supported Windows operating system, you can add the AMI by importing your Windows VM image into AWS using VM Import/Export, or by importing it into your device directly after it is deployed to your site. ###### Bring Your Own License (BYOL) Snowball Edge supports importing Microsoft Windows AMIs onto your device with your own license. Bring Your Own License (BYOL) is the process of bringing an AMI that you own with its on-premises license to AWS. AWS provides both shared and dedicated deployment options for the BYOL option. You can add your Windows VM image to your device by importing it into AWS using VM Import/Export or by importing it into your device directly after it is deployed to your site. You can't add Windows AMIs that originated in AWS. Therefore, you must create and import your own Windows VM image and bring your own license if you want to use the AMI on your Snowball Edge device. For more information about Windows licensing and BYOL, see [Amazon Web Services and Microsoft: Frequently Asked Questions](https://aws.amazon.com/windows/faq/ "https://aws.amazon.com/windows/faq/"). ### Creating a Windows VM image to import into a Snowball Edge To create a Windows VM image, you need a virtualization environment, such as VirtualBox, which is supported for the Windows and macOS operating systems. When you create a VM for Snow devices, we recommend that you allocate at least two cores with at least 4 GB of RAM. When the VM is up and running, you must install your operating system (Windows Server 2012, 2016, or 2019). To install the required drivers for the Snowball Edge device, follow the instructions in this section. For a Windows AMI to run on a Snow device, you must add the VirtIO, FLR, NetVCM, Vioinput, Viorng, Vioscsi, Vioserial, and VioStor drivers. You can [download a Microsoft Software Installer (virtio-win-guest-tools-installer)](https://github.com/virtio-win/virtio-win-pkg-scripts "https://github.com/virtio-win/virtio-win-pkg-scripts") for installing these drivers on Windows images from the virtio-win-pkg-scripts repository on GitHub. ###### Note If you plan to import your VM image directly to your deployed Snow device, the VM image file must be in the RAW format. ###### To create a Windows image 1. On your Microsoft Windows computer, choose **Start** and enter `devmgmt.msc` to open **Device Manager**. 2. In the main menu, choose **Actions**, and then choose **Add legacy hardware**. ###### Note For Windows 11, first select any device in the panel below before the **Add legacy hardware** option will appear in the **Actions** menu. 3. In the wizard, choose **Next**. 4. Choose **Install the hardware that I manually select from a list (advanced)**, and choose **Next**. 5. Choose **Show All Devices** and choose **Next**. 6. Choose **Have Disk**, open the **Copy manufacturer’s files from** list, and browse to the ISO file. 7. In the ISO file, browse to the `Driver\W2K8R2\amd64` directory, and then find the `.INF` file. 8. Choose the **.INF** file, choose **Open**, and then choose **OK**. 9. When you see the driver name, choose **Next**, and then choose **Next** two more times. Then choose **Finish**. This installs a device using the new driver. The actual hardware doesn't exist, so you will see a yellow exclamation mark that indicates an issue on the device. You must fix this issue. ###### To fix the hardware issue 1. Open the context (right-click) menu for the device that has the exclamation mark. 2. Choose **Uninstall**, clear **Delete the driver software for this device**, and choose **OK**. The driver is installed, and you are ready to launch the AMI on your device. ## Importing a VM Image to a Snowball Edge After you prepare your VM image, you can use one of the options to import the image to your device. <br>• **In the cloud using VM Import/Export** — When you import your VM image into AWS and register it as an AMI, you can add it to your device when you place an order from the AWS Snow Family Management Console. For more information, see [Importing a VM as an Image Using VM Import/Export](../../../vm-import/latest/userguide/vmimport-image-import.md "../../../vm-import/latest/userguide/vmimport-image-import.md") in the _VM Import/Export User Guide_. <br>• **Locally on your device that is deployed at your site** — You can import your VM image directly into your device using AWS OpsHub or the AWS Command Line Interface (AWS CLI). For information about using AWS OpsHub, see [Using Amazon EC2-compatible compute instances locally](manage-ec2.md "manage-ec2.md"). For information about using the AWS CLI, see [Importing a virtual machine image to a Snowball Edge device](ec2-ami-import-cli.md "ec2-ami-import-cli.md"). ## Exporting the latest Amazon Linux 2 AMI for a Snowball Edge To update your Amazon Linux 2 AMIs to the latest version, first export the latest Amazon Linux 2 VM image from AWS Marketplace, then import that VM image into the Snow device. 1. Use the `ssm get-parameters` AWS CLI command to find the latest image ID of the Amazon Linux 2 AMI in the AWS Marketplace. `` aws ssm get-parameters --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 --query 'Parameters[0].[Value]' --region `your-region` `` The command returns the latest image ID of the AMI. For example, `ami-0ccb473bada910e74`. 2. Export the latest Amazon Linux 2 image. See [Exporting a VM directly from an Amazon Machine Image (AMI)](../../../vm-import/latest/userguide/vmexport_image.md "../../../vm-import/latest/userguide/vmexport_image.md") in the Amazon EC2 User Guide. Use the latest image ID of the Amazon Linux 2 AMI as the value of the `image-id` parameter of the `ec2 export-image` command. 3. Import the VM image into the Snow device using the AWS CLI or AWS OpsHub. <br>• For information about using AWS CLI, see [Importing a virtual machine image to a Snowball Edge device](ec2-ami-import-cli.md "ec2-ami-import-cli.md"). <br>• For information about using AWS OpsHub, see [Importing an image as an Amazon EC2-compatible AMI with AWS OpsHub](ec2-ami-import.md "ec2-ami-import.md"). |
+| Ubuntu 22.04 LTS                            | 47xbqns9xujfkkjt189a13aqe |
+
+7. Then, also ensure the **Platform details** contains one of entries from the list below.
+   - Amazon Linux, Ubuntu, or Debian
+   - Red Hat Linux bring-your-own-license
+   - Amazon RDS for Oracle bring-your-own-license
+   - Windows bring-your-own-license
+
+### Determining the version of the Amazon Linux 2 AMI for Snowball Edge
+
+Use the following procedure to determine the version of the Amazon Linux 2 AMI for Snowball Edge on the Snowball Edge. Install the latest version of the AWS CLI before continuing. For more information, see [Install or update to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the AWS Command Line Interface User Guide.
+
+- Use the `describe-images` AWS CLI command to see the description of the AMI. The version is contained in the description. Provide the public key certificate from the previous step. For more information, see [describe-images](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html") in the AWS CLI Command Reference.
+
+```
+
+aws ec2 describe-images --endpoint http://`snow-device-ip`:8008 --region snow
+
+```
+
+###### Example of output of the `describe-images` command
+
+```
+
+{
+    "Images": [
+        {
+            "CreationDate": "2024-02-12T23:24:45.705Z",
+            "ImageId": "s.ami-02ba84cb87224e16e",
+            "Public": false,
+            "ProductCodes": [
+                {
+                    "ProductCodeId": "avyfzznywektkgl5qv5f57ska",
+                    "ProductCodeType": "marketplace"
+                }
+            ],
+            "State": "AVAILABLE",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/xvda",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "Iops": 0,
+                        "SnapshotId": "s.snap-0efb49f2f726fde63",
+                        "VolumeSize": 8,
+                        "VolumeType": "sbp1"
+                    }
+                }
+            ],
+            "Description": "Snow Family Amazon Linux 2 AMI 2.0.20240131.0 x86_64 HVM gp2",
+            "EnaSupport": false,
+            "Name": "amzn2-ami-snow-family-hvm-2.0.20240131.0-x86_64-gp2-b7e7f8d2-1b9e-4774-a374-120e0cd85d5a",
+            "RootDeviceName": "/dev/xvda"
+        }
+    ]
+}
+
+```
+
+In this example, the version of the Amazon Linux 2 AMI for Snowball Edge is `**2.0.20240131.0**`. It is found in the value of the `Description` name.
+
+### Configure the AMI for the Snowball Edge device
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Launch a new instance of a supported AMI in AWS Marketplace.
+
+###### Note
+
+When you launch your instance, make sure that the storage size you assign
+to the instance is appropriate for your use case. In the Amazon EC2 console, you
+do this in the **Add storage** step. 3. Install and configure the applications that you want to run on the Snowball Edge, and make
+sure that they work as expected.
+
+###### Important
+
+    * Only single volume AMIs are supported.
+    * The EBS volume in your AMI should be 10 TB or less. We recommend
+     that you provision the EBS volume size needed for the data in the
+     AMI. This will help decrease the time it takes to export your AMI
+     and load it into your device. You can resize or add more volumes to
+     your instance after your device is deployed.
+    * The EBS snapshot in your AMI must not be encrypted.
+
+4. Make a copy of the PEM or PPK file that you used for the SSH key pair when you
+   created this instance. Save this file to the server that you plan to use to
+   communicate with the Snowball Edge device. Make a note of the path to this
+   file because you will need it when you use SSH to connect to the EC2-compatible instance on
+   your device.
+
+###### Important
+
+If you don't follow this procedure, you can't connect to your instances
+with SSH when you receive your Snowball Edge device. 5. Save the instance as an AMI. For more information, see [Amazon EC2 User
+Guide for Linux Instances](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md") in the
+_Amazon EC2 User Guide._ 6. Repeat steps 1–4 for each of the instances that you want to connect to using SSH. Be
+sure to make copies of each of the SSH key pairs, and keep track of the AMIs
+that they're associated with. 7. Now, when you order your device, these AMIs are available to add to your device.
+
+## Adding an AMI to a Snowball Edge after receiving the device
+
+When the device arrives on your site, you can add new AMIs to it. For instructions,
+see [Importing a virtual machine image to a Snowball Edge device](ec2-ami-import-cli.md "ec2-ami-import-cli.md"). Keep in
+mind that although all VMs are supported, only supported AMIs have been tested for full
+functionality.
+
+###### Note
+
+When you use VM Import/Export to add AMIs to your device or import a VM after your device is
+deployed, you can add VMs that use any operating system. However, only supported
+operating systems have been tested and validated on Snowball Edge. You are
+responsible for adhering to the terms and conditions of any operating system or
+software that is in the virtual image that you import onto your device.
+
+###### Important
+
+For AWS services to function properly on a Snowball Edge, you must allow the
+ports for the services. For details, see [Port requirements for AWS services on a Snowball Edge](port-requirements.md "port-requirements.md").
+
+## Adding a Microsoft Windows AMI to a Snowball Edge
+
+For virtual machines (VMs) that use a supported Windows operating system, you can add
+the AMI by importing your Windows VM image into AWS using VM Import/Export, or by importing it
+into your device directly after it is deployed to your site.
+
+###### Bring Your Own License (BYOL)
+
+Snowball Edge supports importing Microsoft Windows AMIs onto your device with
+your own license. Bring Your Own License (BYOL) is the process of bringing an AMI
+that you own with its on-premises license to AWS. AWS provides both shared and
+dedicated deployment options for the BYOL option.
+
+You can add your Windows VM image to your device by importing it into AWS using VM
+Import/Export or by importing it into your device directly after it is deployed to your
+site. You can't add Windows AMIs that originated in AWS. Therefore, you must create and
+import your own Windows VM image and bring your own license if you want to use the AMI
+on your Snowball Edge device. For more information about Windows licensing and BYOL, see
+[Amazon Web Services and Microsoft:
+Frequently Asked Questions](https://aws.amazon.com/windows/faq/ "https://aws.amazon.com/windows/faq/").
+
+### Creating a Windows VM image to import into a Snowball Edge
+
+To create a Windows VM image, you need a virtualization environment, such as
+VirtualBox, which is supported for the Windows and macOS operating systems. When you
+create a VM for Snow devices, we recommend that you allocate at least two cores with
+at least 4 GB of RAM. When the VM is up and running, you must install your operating
+system (Windows Server 2012, 2016, or 2019). To install the required drivers for the
+Snowball Edge device, follow the instructions in this section.
+
+For a Windows AMI to run on a Snow device, you must add the VirtIO, FLR, NetVCM, Vioinput, Viorng,
+Vioscsi, Vioserial, and VioStor drivers. You can [download a Microsoft Software Installer (virtio-win-guest-tools-installer)](https://github.com/virtio-win/virtio-win-pkg-scripts "https://github.com/virtio-win/virtio-win-pkg-scripts") for installing these drivers on Windows images from the
+virtio-win-pkg-scripts repository on GitHub.
+
+###### Note
+
+If you plan to import your VM image directly to your deployed Snow device, the
+VM image file must be in the RAW format.
+
+###### To create a Windows image
+
+1. On your Microsoft Windows computer, choose **Start** and enter
+   `devmgmt.msc` to open **Device
+   Manager**.
+2. In the main menu, choose **Actions**, and then choose **Add legacy
+   hardware**.
+
+###### Note
+
+For Windows 11, first select any device in the panel below before the **Add legacy hardware** option will appear in the **Actions** menu. 3. In the wizard, choose **Next**. 4. Choose **Install the hardware that I manually select from a list
+(advanced)**, and choose **Next**. 5. Choose **Show All Devices** and choose **Next**. 6. Choose **Have Disk**, open the **Copy manufacturer’s files
+from** list, and browse to the ISO file. 7. In the ISO file, browse to the `Driver\W2K8R2\amd64` directory, and then
+find the `.INF` file. 8. Choose the **.INF** file, choose
+**Open**, and then choose
+**OK**. 9. When you see the driver name, choose **Next**, and then choose
+**Next** two more times. Then choose
+**Finish**.
+
+This installs a device using the new driver. The actual hardware doesn't
+exist, so you will see a yellow exclamation mark that indicates an issue on
+the device. You must fix this issue.
+
+###### To fix the hardware issue
+
+1. Open the context (right-click) menu for the device that has the exclamation mark.
+2. Choose **Uninstall**, clear **Delete the driver software for this
+   device**, and choose **OK**.
+
+The driver is installed, and you are ready to launch the AMI on your
+device.
+
+## Importing a VM Image to a Snowball Edge
+
+After you prepare your VM image, you can use one of the options to import the image to
+your device.
+
+- **In the cloud using VM Import/Export** —
+  When you import your VM image into AWS and register it as an AMI, you can add it
+  to your device when you place an order from the AWS Snow Family Management Console. For more
+  information, see [Importing a VM
+  as an Image Using VM Import/Export](../../../vm-import/latest/userguide/vmimport-image-import.md "../../../vm-import/latest/userguide/vmimport-image-import.md") in the _VM Import/Export User Guide_.
+- **Locally on your device that is deployed at your
+  site** — You can import your VM image directly into your
+  device using AWS OpsHub or the AWS Command Line Interface (AWS CLI).
+
+For information about using AWS OpsHub, see [Using Amazon EC2-compatible compute
+instances locally](manage-ec2.md "manage-ec2.md").
+
+For information about using the AWS CLI, see [Importing a virtual machine image to a Snowball Edge device](ec2-ami-import-cli.md "ec2-ami-import-cli.md").
+
+## Exporting the latest Amazon Linux 2 AMI for a Snowball Edge
+
+To update your Amazon Linux 2 AMIs to the latest version, first export the latest Amazon Linux 2 VM image from AWS Marketplace, then import that VM image into the Snow device.
+
+1. Use the `ssm get-parameters` AWS CLI command to find the latest image ID of the Amazon Linux 2 AMI in the AWS Marketplace.
+
+```
+
+  aws ssm get-parameters --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 --query 'Parameters[0].[Value]' --region `your-region`
+
+```
+
+The command returns the latest image ID of the AMI. For example, `ami-0ccb473bada910e74`. 2. Export the latest Amazon Linux 2 image. See [Exporting a VM directly from an Amazon Machine Image (AMI)](../../../vm-import/latest/userguide/vmexport_image.md "../../../vm-import/latest/userguide/vmexport_image.md") in the Amazon EC2 User Guide. Use the latest image ID of the Amazon Linux 2 AMI as the value of the `image-id` parameter of the `ec2 export-image` command. 3. Import the VM image into the Snow device using the AWS CLI or AWS OpsHub.
+
+    * For information about using AWS CLI, see [Importing a virtual machine image to a Snowball Edge device](ec2-ami-import-cli.md "ec2-ami-import-cli.md").
+    * For information about using AWS OpsHub, see [Importing an image as an Amazon EC2-compatible AMI with AWS OpsHub](ec2-ami-import.md "ec2-ami-import.md").

@@ -26,7 +26,9 @@ Use the `describe-device` command to find the device type, then look up the retu
 
 ```
 
-| `DeviceType` and Snowball Edge device configurations | `DeviceType` value                                          | Device configuration                                                                                                                                                |
-| ---------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DeviceType` and Snowball Edge device configurations | `DeviceType` value                                          | Device configuration |
+| ---------------------------------------------------- | ----------------------------------------------------------- | -------------------- |
 | `V3_5C`                                              | Snowball Edge compute-optimized with AMD EPYC Gen2 and NVME |
-| `V3_5S`                                              | Snowball Edge storage-optimized 210 TB                      | For more information about Snowball Edge device configurations, see [AWS Snowball Edge device hardware information](device-differences.md "device-differences.md"). |
+| `V3_5S`                                              | Snowball Edge storage-optimized 210 TB                      |
+
+For more information about Snowball Edge device configurations, see [AWS Snowball Edge device hardware information](device-differences.md "device-differences.md").
