@@ -13,12 +13,26 @@ Prerequisites
 3. Review [GuardDuty and Security Incident Response](../../../securityincidentresponse/latest/userguide/guardduty-integration.md "../../../securityincidentresponse/latest/userguide/guardduty-integration.md")
 4. Review [GuardDuty
    best practices guide](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md")
-   Security Hub CSPM will ingest findings from 3rd party endpoint detection and response
-   (EDR) vendors (CrowdStrike, FortinetCNAPP (Lacework) and Trend Micro. If these findings are
-   ingested into Security Hub CSPM, they will be auto-triaged by Security Incident Response for
-   proactive case creation as well. To setup 3rd party EDR with Security Hub CSPM, follow our
-   [Detection and Analysis service documentation](detect-and-analyze.md "detect-and-analyze.md") steps.
+   Security Hub CSPM will ingest findings from 3rd party endpoint detection and
+   response (EDR) vendors (CrowdStrike, FortinetCNAPP (Lacework) and Trend Micro, among
+   others. If these findings are ingested into Security Hub CSPM, they will be auto-triaged
+   by Security Incident Response for proactive case creation as well. To setup 3rd party
+   EDR with Security Hub CSPM, follow our [Detection and Analysis service documentation](docs.aws.amazon.com/security-ir/latest/userguide/detect-and-analyze.md "docs.aws.amazon.com/security-ir/latest/userguide/detect-and-analyze.md")
+
+To setup 3rd party EDR with Security Hub CSPM:
+
+1. Navigate to the [Security Hub CSPM Integrations](docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.md "docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.md") page to validate the 3rd party integration
+   exists
+2. From the console, navigate to the Security Hub CSMP service page.
+3. Choose **Integrations** (using Wiz.IO as an
+   example):
+
+![](images/Security_Hub_CSPM.png) 4. Search for the vendor you would like to integrate
+
+![](images/Integrations.png)
 
 ###### Note
 
-The specific steps may vary depending on the AWS service and the actions you're trying to perform.
+You’ll be asked for account or
+subscription information, then you’re complete and Security Incident Response is
+ingesting 3rd party findings. Pricing for the ingestion of 3rd party findings can be found on the Integrations page of Security Hub CSPM.
