@@ -28,7 +28,15 @@ email.
 Example phone numbers:
 
 | Country        | Local phone number | E.164 formatted number |
-| -------------- | ------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------------ | ---------------------- |
 | United States  | 206-555-0100       | +12065550100           |
 | United Kingdom | 020-1234-1234      | +442012341234          |
-| Lithuania      | 8+601+12345        | +37060112345           | To find a country calling code, go to [countrycode.org](https://countrycode.org/ "https://countrycode.org/"). The Lambda function provided by AWS IoT Events checks if you use E.164 formatted phone numbers. However, it doesn't verify the phone numbers. If you ensure that you entered accurate phone numbers but didn't receive SMS notifications, you might contact the phone carriers. The carriers may block the messages. |
+| Lithuania      | 8+601+12345        | +37060112345           |
+
+To find a country calling code, go to [countrycode.org](https://countrycode.org/ "https://countrycode.org/").
+
+The Lambda function provided by AWS IoT Events checks if you use E.164 formatted
+phone numbers. However, it doesn't verify the phone numbers. If you ensure
+that you entered accurate phone numbers but didn't receive SMS
+notifications, you might contact the phone carriers. The carriers may block
+the messages.

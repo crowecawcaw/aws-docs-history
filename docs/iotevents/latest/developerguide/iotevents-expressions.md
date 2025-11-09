@@ -456,17 +456,32 @@ the evaluated result of your reference must be `String`, `Decimal`, or `Boolean`
 AWS IoT Events expressions support integer, decimal, string, and Boolean data types. The
 following table provides a list of incompatible pairs of types.
 
-| Incompatible pairs of types                    |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Integer, string                                |
-| Integer, Boolean                               |
-| Decimal, string                                |
-| Decimal, Boolean                               |
-| String, Boolean                                | ### Substitution templates for AWS IoT Events expressions `'${`expression`}'` The `${}` identifies the string as an interpolated string. The `expression` can be any AWS IoT Events expression. This includes operators, functions, and references. For example, you used the [SetVariableAction](../apireference/API_SetVariableAction.md "../apireference/API_SetVariableAction.md") action to define a variable. The `variableName` is `SensorID`, and the `value` is `10`. You can create the following substitution templates. |
-| Substitution template                          | Result string                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---                                            | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `'${'Sensor ' + $variable.SensorID}'`          | `"Sensor 10"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `'Sensor ' + '${$variable.SensorID + 1}'`      | `"Sensor 11"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `'Sensor 10: ${$variable.SensorID == 10}'`     | `"Sensor 10: true"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `'{\"sensor\":\"${$variable.SensorID + 1}\"}'` | `"{\"sensor"\:\"11\"}"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `'{\"sensor\":${$variable.SensorID + 1}}'`     | `"{\"sensor\":11}"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Incompatible pairs of types |
+| --------------------------- |
+| Integer, string             |
+| Integer, Boolean            |
+| Decimal, string             |
+| Decimal, Boolean            |
+| String, Boolean             |
+
+### Substitution templates for
+
+AWS IoT Events expressions
+
+`'${`expression`}'`
+
+The `${}` identifies the string as an interpolated string. The
+`expression` can be any AWS IoT Events expression. This includes operators,
+functions, and references.
+
+For example, you used the [SetVariableAction](../apireference/API_SetVariableAction.md "../apireference/API_SetVariableAction.md") action to define a variable. The
+`variableName` is `SensorID`, and the `value` is
+`10`. You can create the following substitution templates.
+
+| Substitution template                                  | Result string           |
+| ------------------------------------------------------ | ----------------------- |
+| `<br>'${'Sensor ' + $variable.SensorID}'<br>`          | `"Sensor 10"`           |
+| `<br>'Sensor ' + '${$variable.SensorID + 1}'<br>`      | `"Sensor 11"`           |
+| `<br>'Sensor 10: ${$variable.SensorID == 10}'<br>`     | `"Sensor 10: true"`     |
+| `<br>'{\"sensor\":\"${$variable.SensorID + 1}\"}'<br>` | `"{\"sensor"\:\"11\"}"` |
+| `<br>'{\"sensor\":${$variable.SensorID + 1}}'<br>`     | `"{\"sensor\":11}"`     |
