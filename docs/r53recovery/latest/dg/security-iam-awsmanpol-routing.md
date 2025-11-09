@@ -53,6 +53,28 @@ but can't update them.
 
 To view the permissions for this policy, see [AmazonRoute53RecoveryClusterReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonRoute53RecoveryClusterReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonRoute53RecoveryClusterReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
 
+## AWS managed policy: AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy
+
+You can attach `AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy` to your IAM entities.
+This policy grants permissions for ARC Region switch plan execution and evaluation. Attach
+it to IAM roles used for Region switch plan execution.
+
+**Permissions details**
+
+This policy includes the following permissions:
+
+- `arc-region-switch:GetPlan` – Allows principals to retrieve configuration details for a Region switch plan.
+- `arc-region-switch:GetPlanExecution` – Allows principals to retrieve information about a specific Region switch plan execution.
+- `arc-region-switch:ListPlanExecutions` – Allows principals to list all executions of Region switch plans.
+- `iam:SimulatePrincipalPolicy` – Allows principals to simulate and evaluate what actions an IAM role can perform. This permission is scoped to IAM roles only and is used during plan evaluation to verify that necessary permissions are in place before executing a Region switch plan.
+- `cloudwatch:DescribeAlarms` – Allows principals to retrieve information about Amazon CloudWatch alarms.
+- `cloudwatch:DescribeAlarmHistory` – Allows principals to retrieve historical state changes for Amazon CloudWatch alarms.
+- `cloudwatch:GetMetricStatistics` – Allows principals to retrieve statistical data for Amazon CloudWatch metrics.
+
+To view more details about the policy, including the latest version of the JSON policy
+document, see [AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy](../../../aws-managed-policy/latest/reference/AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy.md") in the _AWS Managed Policy Reference
+Guide_.
+
 ## Updates for AWS managed
 
 policies for routing control
