@@ -42,36 +42,43 @@ The following examples show the possible passthrough behaviors.
 Example 1: One mapping template is defined in the integration request for the
 `application/json` content type.
 
-| Content-type                                    | Passthrough option  | Behavior                                                                    |
-| ----------------------------------------------- | ------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| None API Gateway defaults to `application/json` | `WHEN_NO_MATCH`     | The request payload is transformed using the template.                      |
-| None API Gateway defaults to `application/json` | `WHEN_NO_TEMPLATES` | The request payload is transformed using the template.                      |
-| None API Gateway defaults to `application/json` | `NEVER`             | The request payload is transformed using the template.                      |
-| `application/json`                              | `WHEN_NO_MATCH`     | The request payload is transformed using the template.                      |
-| `application/json`                              | `WHEN_NO_TEMPLATES` | The request payload is transformed using the template.                      |
-| `application/json`                              | `NEVER`             | The request payload is transformed using the template.                      |
-| `application/xml`                               | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend as-is.    |
-| `application/xml`                               | `WHEN_NO_TEMPLATES` | The request is rejected with an HTTP `415 Unsupported Media Type` response. |
-| `application/xml`                               | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media Type` response. | Example 2: One mapping template is defined in the integration request for the `application/xml` content type. |
-| Content-type                                    | Passthrough option  | Behavior                                                                    |
-| ---                                             | ---                 | ---                                                                         |
-| None API Gateway defaults to `application/json` | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend as-is.    |
-| None API Gateway defaults to `application/json` | `WHEN_NO_TEMPLATES` | The request is rejected with an HTTP `415 Unsupported Media Type` response. |
-| None API Gateway defaults to `application/json` | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media Type` response. |
-| `application/json`                              | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend as-is.    |
-| `application/json`                              | `WHEN_NO_TEMPLATES` | The request is rejected with an HTTP `415 Unsupported Media Type` response. |
-| `application/json`                              | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media Type` response. |
-| `application/xml`                               | `WHEN_NO_MATCH`     | The request payload is transformed using the template.                      |
-| `application/xml`                               | `WHEN_NO_TEMPLATES` | The request payload is transformed using the template.                      |
-| `application/xml`                               | `NEVER`             | The request payload is transformed using the template.                      | Example 3: No mapping templates are defined in the integration request.                                       |
-| Content-type                                    | Passthrough option  | Behavior                                                                    |
-| ---                                             | ---                 | ---                                                                         |
-| None API Gateway defaults to `application/json` | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend as-is.    |
-| None API Gateway defaults to `application/json` | `WHEN_NO_TEMPLATES` | The request payload is not transformed and is sent to the backend as-is.    |
-| None API Gateway defaults to `application/json` | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media Type` response. |
-| `application/json`                              | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend as-is.    |
-| `application/json`                              | `WHEN_NO_TEMPLATES` | The request payload is not transformed and is sent to the backend as-is.    |
-| `application/json`                              | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media Type` response. |
-| `application/xml`                               | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend as-is.    |
-| `application/xml`                               | `WHEN_NO_TEMPLATES` | The request payload is not transformed and is sent to the backend as-is.    |
-| `application/xml`                               | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media Type` response. |
+| Content-type                                       | Passthrough option  | Behavior                                                                       |
+| -------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------ |
+| None<br>API Gateway defaults to `application/json` | `WHEN_NO_MATCH`     | The request payload is transformed using the template.                         |
+| None<br>API Gateway defaults to `application/json` | `WHEN_NO_TEMPLATES` | The request payload is transformed using the template.                         |
+| None<br>API Gateway defaults to `application/json` | `NEVER`             | The request payload is transformed using the template.                         |
+| `application/json`                                 | `WHEN_NO_MATCH`     | The request payload is transformed using the template.                         |
+| `application/json`                                 | `WHEN_NO_TEMPLATES` | The request payload is transformed using the template.                         |
+| `application/json`                                 | `NEVER`             | The request payload is transformed using the template.                         |
+| `application/xml`                                  | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| `application/xml`                                  | `WHEN_NO_TEMPLATES` | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |
+| `application/xml`                                  | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |
+
+Example 2: One mapping template is defined in the integration request for the
+`application/xml` content type.
+
+| Content-type                                       | Passthrough option  | Behavior                                                                       |
+| -------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------ |
+| None<br>API Gateway defaults to `application/json` | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| None<br>API Gateway defaults to `application/json` | `WHEN_NO_TEMPLATES` | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |
+| None<br>API Gateway defaults to `application/json` | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |
+| `application/json`                                 | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| `application/json`                                 | `WHEN_NO_TEMPLATES` | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |
+| `application/json`                                 | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |
+| `application/xml`                                  | `WHEN_NO_MATCH`     | The request payload is transformed using the template.                         |
+| `application/xml`                                  | `WHEN_NO_TEMPLATES` | The request payload is transformed using the template.                         |
+| `application/xml`                                  | `NEVER`             | The request payload is transformed using the template.                         |
+
+Example 3: No mapping templates are defined in the integration request.
+
+| Content-type                                       | Passthrough option  | Behavior                                                                       |
+| -------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------ |
+| None<br>API Gateway defaults to `application/json` | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| None<br>API Gateway defaults to `application/json` | `WHEN_NO_TEMPLATES` | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| None<br>API Gateway defaults to `application/json` | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |
+| `application/json`                                 | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| `application/json`                                 | `WHEN_NO_TEMPLATES` | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| `application/json`                                 | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |
+| `application/xml`                                  | `WHEN_NO_MATCH`     | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| `application/xml`                                  | `WHEN_NO_TEMPLATES` | The request payload is not transformed and is sent to the backend<br>as-is.    |
+| `application/xml`                                  | `NEVER`             | The request is rejected with an HTTP `415 Unsupported Media<br>Type` response. |

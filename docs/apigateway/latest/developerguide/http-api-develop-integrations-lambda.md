@@ -228,7 +228,19 @@ following assumptions if your Lambda function returns valid JSON and doesn't ret
 
 The following examples show the output of a Lambda function and API Gateway's interpretation.
 
-| Lambda function output                | API Gateway interpretation                                                                                                                              |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `"Hello from Lambda!"`                | `{ "isBase64Encoded": false, "statusCode": 200, "body": "Hello from Lambda!", "headers": { "content-type": "application/json" } }`                      |
-| `{ "message": "Hello from Lambda!" }` | `{ "isBase64Encoded": false, "statusCode": 200, "body": "{ \"message\": \"Hello from Lambda!\" }", "headers": { "content-type": "application/json" } }` | To customize the response, your Lambda function should return a response with the following format. ``` { "cookies" : ["`cookie1`", "`cookie2`"], "isBase64Encoded": true | false, "statusCode": `httpStatusCode`, "headers": { "`headername`": "`headervalue`", ... }, "body": "`Hello from Lambda!`" } ``` |
+| Lambda function output                        | API Gateway interpretation                                                                                                                                                           |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `<br>"Hello from Lambda!"<br>`                | `<br>{<br>"isBase64Encoded": false,<br>"statusCode": 200,<br>"body": "Hello from Lambda!",<br>"headers": {<br>"content-type": "application/json"<br>}<br>}<br>`                      |
+| `<br>{ "message": "Hello from Lambda!" }<br>` | `<br>{<br>"isBase64Encoded": false,<br>"statusCode": 200,<br>"body": "{ \"message\": \"Hello from Lambda!\" }",<br>"headers": {<br>"content-type": "application/json"<br>}<br>}<br>` |
+
+To customize the response, your Lambda function should return a response with the following format.
+
+```
+{
+    "cookies" : ["`cookie1`", "`cookie2`"],
+    "isBase64Encoded": true|false,
+    "statusCode": `httpStatusCode`,
+    "headers": { "`headername`": "`headervalue`", ... },
+    "body": "`Hello from Lambda!`"
+}
+```

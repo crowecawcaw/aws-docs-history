@@ -34,12 +34,73 @@ mappings:
 4. `orders/v2/items` mapped to API 4.
 5. `orders/v2/items/categories` mapped to API 5.
 
-| Request                                                | Selected API | Explanation                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `https://api.example.com/orders`                       | `API 2`      | The request exactly matches this API mapping.                                                                                                                                                                                                                                                            |
-| `https://api.example.com/orders/v1/items`              | `API 3`      | The request exactly matches this API mapping.                                                                                                                                                                                                                                                            |
-| `https://api.example.com/orders/v2/items`              | `API 4`      | The request exactly matches this API mapping.                                                                                                                                                                                                                                                            |
-| `https://api.example.com/orders/v1/items/123`          | `API 3`      | API Gateway chooses the mapping that has the longest matching path. The `123` at the end of the request doesn't affect the selection.                                                                                                                                                                    |
-| `https://api.example.com/orders/v2/items/categories/5` | `API 5`      | API Gateway chooses the mapping that has the longest matching path.                                                                                                                                                                                                                                      |
-| `https://api.example.com/customers`                    | `API 1`      | API Gateway uses the empty mapping as a catch-all.                                                                                                                                                                                                                                                       |
-| `https://api.example.com/ordersandmore`                | `API 2`      | API Gateway chooses the mapping that has the longest matching prefix. For a custom domain name configured with single-level mappings, such as only `https://api.example.com/orders` and `https://api.example.com/`, API Gateway would choose `API 1`, as there is no matching path with `ordersandmore`. | ## Restrictions <br>• In an API mapping, the custom domain name and mapped APIs must be in the same AWS account. <br>• API mappings must contain only letters, numbers, and the following characters: `$-_.+!*'()/`. <br>• The maximum length for the path in an API mapping is 300 characters. <br>• You can have 200 API mappings with multiple levels for each domain name. This limit doesn't include API mapping with single levels, such as `/prod`. <br>• You can only map HTTP APIs to a regional custom domain name with the TLS 1.2 security policy. <br>• You can't map WebSocket APIs to the same custom domain name as an HTTP API or REST API. <br>• If you create an API mappings with multiple levels, API Gateway converts all header names to lowercase. ## Create an API mapping To create an API mapping, you must first create a custom domain name, API, and stage. For information about creating a custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md"). For example AWS Serverless Application Model templates that create all resources, see [Sessions With SAM](https://github.com/aws-samples/sessions-with-aws-sam/tree/master/custom-domains "https://github.com/aws-samples/sessions-with-aws-sam/tree/master/custom-domains") on GitHub. AWS Management Console ###### To create an API mapping 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway"). 2. Choose **Custom domain names**. 3. Select a custom domain name that you've already created. 4. Choose **API mappings**. 5. Choose **Configure API mappings**. 6. Choose **Add new mapping**. 7. Enter an **API**, a **Stage**, and optionally a **Path**. 8. Choose **Save**. AWS CLI The following [create-api-mapping](../../../cli/latest/reference/apigatewayv2/create-api.md "../../../cli/latest/reference/apigatewayv2/create-api.md") command creates an API mapping. In this example, API Gateway sends requests to `api.example.com/v1/orders` to the specified API and stage. `aws apigatewayv2 create-api-mapping \ --domain-name api.example.com \ --api-mapping-key v1/orders \ --api-id a1b2c3d4 \ --stage test` AWS CloudFormation The following AWS CloudFormation example creates an API mapping. `MyApiMapping: Type: 'AWS::ApiGatewayV2::ApiMapping' Properties: DomainName: api.example.com ApiMappingKey: 'orders/v2/items' ApiId: !Ref MyApi Stage: !Ref MyStage` |
+| Request                                                | Selected API | Explanation                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `https://api.example.com/orders`                       | `API 2`      | The request exactly matches this API mapping.                                                                                                                                                                                                                                                                        |
+| `https://api.example.com/orders/v1/items`              | `API 3`      | The request exactly matches this API mapping.                                                                                                                                                                                                                                                                        |
+| `https://api.example.com/orders/v2/items`              | `API 4`      | The request exactly matches this API mapping.                                                                                                                                                                                                                                                                        |
+| `https://api.example.com/orders/v1/items/123`          | `API 3`      | API Gateway chooses the mapping that has the longest matching path. The `123` at the end of<br>the request doesn't affect the selection.                                                                                                                                                                             |
+| `https://api.example.com/orders/v2/items/categories/5` | `API 5`      | API Gateway chooses the mapping that has the longest matching path.                                                                                                                                                                                                                                                  |
+| `https://api.example.com/customers`                    | `API 1`      | API Gateway uses the empty mapping as a catch-all.                                                                                                                                                                                                                                                                   |
+| `https://api.example.com/ordersandmore`                | `API 2`      | API Gateway chooses the mapping that has the longest matching prefix.<br>For a custom domain name configured with<br>single-level mappings, such as only `https://api.example.com/orders` and<br>`https://api.example.com/`, API Gateway would choose `API 1`, as there is no matching path with<br>`ordersandmore`. |
+
+## Restrictions
+
+- In an API mapping, the custom domain name and mapped APIs must be in the same AWS account.
+- API mappings must contain only letters, numbers, and the following characters:
+  `$-_.+!*'()/`.
+- The maximum length for the path in an API mapping is 300 characters.
+- You can have 200 API mappings with multiple levels for each domain name. This limit doesn't include API mapping with single levels, such as `/prod`.
+- You can only map HTTP APIs to a regional custom domain name with the TLS 1.2 security policy.
+- You can't map WebSocket APIs to the same custom domain name as an HTTP API or REST API.
+- If you create an API mappings with multiple levels, API Gateway converts all header names to lowercase.
+
+## Create an API mapping
+
+To create an API mapping, you must first create a custom domain name, API, and stage. For information about
+creating a custom domain name, see [Set up a Regional custom
+domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+
+For example AWS Serverless Application Model templates that create all resources, see
+[Sessions With
+SAM](https://github.com/aws-samples/sessions-with-aws-sam/tree/master/custom-domains "https://github.com/aws-samples/sessions-with-aws-sam/tree/master/custom-domains") on GitHub.
+
+AWS Management Console
+
+###### To create an API mapping
+
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
+2. Choose **Custom domain names**.
+3. Select a custom domain name that you've already created.
+4. Choose **API mappings**.
+5. Choose **Configure API mappings**.
+6. Choose **Add new mapping**.
+7. Enter an **API**, a **Stage**, and optionally a **Path**.
+8. Choose **Save**.
+
+AWS CLI
+The following [create-api-mapping](../../../cli/latest/reference/apigatewayv2/create-api.md "../../../cli/latest/reference/apigatewayv2/create-api.md") command
+creates an API mapping. In this example, API Gateway sends requests to `api.example.com/v1/orders` to
+the specified API and stage.
+
+```
+aws apigatewayv2 create-api-mapping \
+    --domain-name api.example.com \
+    --api-mapping-key v1/orders \
+    --api-id a1b2c3d4 \
+    --stage test
+```
+
+AWS CloudFormation
+The following AWS CloudFormation example creates an API mapping.
+
+```
+MyApiMapping:
+  Type: 'AWS::ApiGatewayV2::ApiMapping'
+  Properties:
+    DomainName: api.example.com
+    ApiMappingKey: 'orders/v2/items'
+    ApiId: !Ref MyApi
+    Stage: !Ref MyStage
+
+```

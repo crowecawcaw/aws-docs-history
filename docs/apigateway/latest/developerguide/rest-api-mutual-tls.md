@@ -83,9 +83,189 @@ API Gateway validates a number of certificate properties. You can use Lambda aut
 perform additional checks when a client invokes an API, including checking whether a
 certificate has been revoked. API Gateway validates the following properties:
 
-| Validation                   | Description                                                                                                               |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| X.509 syntax                 | The certificate must meet X.509 syntax requirements.                                                                      |
-| Integrity                    | The certificate's content must not have been altered from that signed by the certificate authority from the truststore.   |
-| Validity                     | The certificate's validity period must be current.                                                                        |
-| Name chaining / key chaining | The names and subjects of certificates must form an unbroken chain. Certificates can have a maximum chain length of four. | ### Upload the truststore to an Amazon S3 bucket in a single file The following is an example of what a .pem file might look like. ###### Example certificates.pem `-----BEGIN CERTIFICATE----- <Certificate contents> -----END CERTIFICATE----- -----BEGIN CERTIFICATE----- <Certificate contents> -----END CERTIFICATE----- -----BEGIN CERTIFICATE----- <Certificate contents> -----END CERTIFICATE----- ...` The following [cp](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/reference/s3/cp.md") AWS CLI command uploads `certificates.pem` to your Amazon S3 bucket: `` aws s3 cp `certificates.pem` s3://`bucket-name` `` ## Configuring mutual TLS for a custom domain name To configure mutual TLS for a REST API, you must use a Regional custom domain name for your API, with a `TLS_1_2` security policy. For more information about choosing a security policy, see [Choose a security policy for your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md"). ###### Note Mutual TLS isn't supported for private APIs. After you've uploaded your truststore to Amazon S3, you can configure your custom domain name to use mutual TLS. The following [create-domain-name](../../../cli/latest/reference/apigateway/create-domain-name.md "../../../cli/latest/reference/apigateway/create-domain-name.md") creates a custom domain name with mutual TLS: `` aws apigateway create-domain-name --region `us-east-2` \ --domain-name `api.example.com` \ --regional-certificate-arn `arn:aws:acm:us-east-2:123456789012:certificate/123456789012-1234-1234-1234-12345678` \ --endpoint-configuration types=REGIONAL \ --security-policy TLS_1_2 \ --mutual-tls-authentication truststoreUri=s3://`bucket-name`/`key-name` `` After you create the domain name, you must configure DNS records and basepath mappings for API operations. To learn more, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md"). ## Invoke an API by using a custom domain name that requires mutual TLS To invoke an API with mutual TLS enabled, clients must present a trusted certificate in the API request. When a client attempts to invoke your API, API Gateway looks for the client certificate's issuer in your truststore. For API Gateway to proceed with the request, the certificate's issuer and the complete chain of trust up to the root CA certificate must be in your truststore. The following example `curl` command sends a request to `api.example.com,` that includes `my-cert.pem` in the request. `my-key.key` is the private key for the certificate. `` curl -v --key `./my-key.key` --cert `./my-cert.pem` `api.example.com` `` Your API is invoked only if your truststore trusts the certificate. The following conditions will cause API Gateway to fail the TLS handshake and deny the request with a `403` status code. If your certificate: <br>• isn't trusted <br>• is expired <br>• doesn't use a supported algorithm ###### Note API Gateway doesn't verify if a certificate has been revoked. ## Updating your truststore To update the certificates in your truststore, upload a new certificate bundle to Amazon S3. Then, you can update your custom domain name to use the updated certificate. Use [Amazon S3 versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") to maintain multiple versions of your truststore. When you update your custom domain name to use a new truststore version, API Gateway returns warnings if certificates are invalid. API Gateway produces certificate warnings only when you update your domain name. API Gateway doesn’t notify you if a previously uploaded certificate expires. The following [update-domain-name](../../../cli/latest/reference/apigateway/update-domain-name.md "../../../cli/latest/reference/apigateway/update-domain-name.md") command updates a custom domain name to use a new truststore version: ``aws apigateway update-domain-name \ --domain-name `api.example.com` \ --patch-operations op='replace',path='/mutualTlsAuthentication/truststoreVersion',value='`abcdef123`'`` ## Disable mutual TLS The following [update-domain-name](../../../cli/latest/reference/apigateway/update-domain-name.md "../../../cli/latest/reference/apigateway/update-domain-name.md") disables mutual TLS: `aws apigateway update-domain-name \ --domain-name api.example.com \ --patch-operations op='replace',path='/mutualTlsAuthentication/truststoreUri',value=''` ## Troubleshoot mutual TLS for your REST API The following provides troubleshooting advice for errors and issues that you might encounter when turning on mutual TLS. ### Troubleshooting certificate warnings When creating a custom domain name with mutual TLS, API Gateway returns warnings if certificates in the truststore are not valid. This can also occur when updating a custom domain name to use a new truststore. The warnings indicate the issue with the certificate and the subject of the certificate that produced the warning. Mutual TLS is still enabled for your API, but some clients might not be able to access your API. You'll need to decode the certificates in your truststore in order to identify which certificate produced the warning. You can use tools such as `openssl` to decode the certificates and identify their subjects. The following command displays the contents of a certificate, including its subject: ``openssl x509 -in `certificate.crt` -text -noout`` Update or remove the certificates that produced warnings, and then upload a new truststore to Amazon S3. After uploading the new truststore, update your custom domain name to use the new truststore. ### Troubleshooting domain name conflicts The error `"The certificate subject <certSubject> conflicts with an existing certificate from a different issuer."` means multiple Certificate Authorities have issued a certificate for this domain. For each subject in the certificate, there can only be one issuer in API Gateway for mutual TLS domains. You will need to get all of your certificates for that subject through a single issuer. If the problem is with a certificate you don't have control of but you can prove ownership of the domain name, [contact Support](https://console.aws.amazon.com/support/cases#/create "https://console.aws.amazon.com/support/cases#/create") to open a ticket. ### Troubleshooting domain name status messages `PENDING_CERTIFICATE_REIMPORT`: This means you reimported a certificate to ACM and it failed validation because the new certificate has a SAN (subject alternative name) that is not covered by the `ownershipVerificationCertificate` or the subject or SANs in the certificate don't cover the domain name. Something might be configured incorrectly or an invalid certificate was imported. You need to reimport a valid certificate into ACM. For more information about validation see [Validating domain ownership](../../../acm/latest/userguide/domain-ownership-validation.md "../../../acm/latest/userguide/domain-ownership-validation.md"). `PENDING_OWNERSHIP_VERIFICATION`: This means your previously verified certificate has expired and ACM was unable to auto-renew it. You will need to renew the certificate or request a new certificate. More information about certificate renewal can be found at [ACM's troubleshooting managed certificate renewal](../../../acm/latest/userguide/troubleshooting-renewal.md "../../../acm/latest/userguide/troubleshooting-renewal.md") guide. ### Troubleshoot incorrect returned certificate When migrating a dedicated certificate from a fully qualified domain name (FQDN) to a wildcard customer domain name, API Gateway might return the certificate for the FQDN instead of the wildcard domain name. The following command displays which certificate is being returned by API Gateway: `openssl s_client -connect hostname:port` If the resulting certificate is for the FQDN, [contact Support](https://console.aws.amazon.com/support/cases#/create "https://console.aws.amazon.com/support/cases#/create") to open a ticket. |
+| Validation                   | Description                                                                                                                  |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| X.509 syntax                 | The certificate must meet X.509 syntax requirements.                                                                         |
+| Integrity                    | The certificate's content must not have been altered from that signed by the certificate authority from the truststore.      |
+| Validity                     | The certificate's validity period must be current.                                                                           |
+| Name chaining / key chaining | The names and subjects of certificates must form an unbroken<br>chain. Certificates can have a maximum chain length of four. |
+
+### Upload the truststore to an Amazon S3 bucket in a single file
+
+The following is an example of what a .pem file might look like.
+
+###### Example certificates.pem
+
+```
+-----BEGIN CERTIFICATE-----
+<Certificate contents>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<Certificate contents>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<Certificate contents>
+-----END CERTIFICATE-----
+...
+```
+
+The following [cp](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/reference/s3/cp.md") AWS CLI command uploads
+`certificates.pem` to your Amazon S3 bucket:
+
+```
+aws s3 cp `certificates.pem` s3://`bucket-name`
+```
+
+## Configuring mutual TLS for a custom domain
+
+name
+
+To configure mutual TLS for a REST API, you must use a Regional custom domain
+name for your API, with a `TLS_1_2` security policy. For more information about choosing a security policy,
+see [Choose a security policy for
+your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
+
+###### Note
+
+Mutual TLS isn't supported for private APIs.
+
+After you've uploaded your truststore to Amazon S3, you can configure your custom domain name to use mutual TLS.
+The following [create-domain-name](../../../cli/latest/reference/apigateway/create-domain-name.md "../../../cli/latest/reference/apigateway/create-domain-name.md") creates a
+custom domain name with mutual TLS:
+
+```
+aws apigateway create-domain-name --region `us-east-2` \
+    --domain-name `api.example.com` \
+    --regional-certificate-arn `arn:aws:acm:us-east-2:123456789012:certificate/123456789012-1234-1234-1234-12345678` \
+    --endpoint-configuration types=REGIONAL \
+    --security-policy TLS_1_2 \
+    --mutual-tls-authentication truststoreUri=s3://`bucket-name`/`key-name`
+```
+
+After you create the domain name, you must configure DNS records and basepath mappings for
+API operations. To learn more, see [Set up a Regional custom
+domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+
+## Invoke an API by using a custom domain
+
+name that requires mutual TLS
+
+To invoke an API with mutual TLS enabled, clients must present a trusted certificate in the API request. When
+a client attempts to invoke your API, API Gateway looks for the client certificate's issuer in your truststore. For
+API Gateway to proceed with the request, the certificate's issuer and the complete chain of trust up to the root CA
+certificate must be in your truststore.
+
+The following example `curl` command sends a request to
+`api.example.com,` that includes `my-cert.pem` in the request. `my-key.key` is
+the private key for the certificate.
+
+```
+curl -v --key `./my-key.key` --cert `./my-cert.pem` `api.example.com`
+```
+
+Your API is invoked only if your truststore trusts the certificate.
+The following conditions will cause API Gateway to fail the TLS handshake and deny the request with a
+`403` status code. If your certificate:
+
+- isn't trusted
+- is expired
+- doesn't use a supported algorithm
+
+###### Note
+
+API Gateway doesn't verify if a certificate has been revoked.
+
+## Updating your truststore
+
+To update the certificates in your truststore, upload a new certificate bundle to Amazon S3. Then, you can update
+your custom domain name to use the updated certificate.
+
+Use [Amazon S3
+versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") to maintain multiple versions of your truststore. When you update
+your custom domain name to use a new truststore version, API Gateway returns warnings if
+certificates are invalid.
+
+API Gateway produces certificate warnings only when you update your domain name. API Gateway
+doesn’t notify you if a previously uploaded certificate expires.
+
+The following [update-domain-name](../../../cli/latest/reference/apigateway/update-domain-name.md "../../../cli/latest/reference/apigateway/update-domain-name.md") command
+updates a custom domain name to use a new truststore version:
+
+```
+aws apigateway update-domain-name \
+    --domain-name `api.example.com` \
+    --patch-operations op='replace',path='/mutualTlsAuthentication/truststoreVersion',value='`abcdef123`'
+```
+
+## Disable mutual TLS
+
+The following [update-domain-name](../../../cli/latest/reference/apigateway/update-domain-name.md "../../../cli/latest/reference/apigateway/update-domain-name.md") disables
+mutual TLS:
+
+```
+aws apigateway update-domain-name \
+    --domain-name api.example.com \
+    --patch-operations op='replace',path='/mutualTlsAuthentication/truststoreUri',value=''
+```
+
+## Troubleshoot mutual TLS for your REST API
+
+The following provides troubleshooting advice for errors and issues that you might encounter when turning on mutual TLS.
+
+### Troubleshooting certificate warnings
+
+When creating a custom domain name with mutual TLS, API Gateway returns warnings if certificates in the truststore are not valid. This can also occur when updating a custom domain name to use a new truststore.
+The warnings indicate the issue with the certificate and the subject of the certificate that produced
+the warning. Mutual TLS is still enabled for your API, but some clients might not be able to access your
+API.
+
+You'll need to decode the certificates in your truststore in order to identify which certificate produced the warning. You can use tools such as `openssl` to
+decode the certificates and identify their subjects.
+
+The following command displays the contents of a certificate, including its subject:
+
+```
+openssl x509 -in `certificate.crt` -text -noout
+```
+
+Update or remove the certificates that produced warnings, and then upload a new
+truststore to Amazon S3. After uploading the new truststore, update your custom domain
+name to use the new truststore.
+
+### Troubleshooting domain name conflicts
+
+The error `"The certificate subject <certSubject> conflicts with an existing
+ certificate from a different issuer."` means multiple Certificate Authorities have
+issued a certificate for this domain. For each subject in the certificate, there can only be
+one issuer in API Gateway for mutual TLS domains. You will need to get all of your certificates for
+that subject through a single issuer. If the problem is with a certificate you don't have
+control of but you can prove ownership of the domain name, [contact Support](https://console.aws.amazon.com/support/cases#/create "https://console.aws.amazon.com/support/cases#/create") to open a
+ticket.
+
+### Troubleshooting domain name status messages
+
+`PENDING_CERTIFICATE_REIMPORT`: This means you reimported a certificate to ACM and it failed
+validation because the new certificate has a SAN (subject alternative name) that is not covered by the
+`ownershipVerificationCertificate` or the subject or SANs in the certificate don't cover the domain
+name. Something might be configured incorrectly or an invalid certificate was imported. You need to reimport a
+valid certificate into ACM. For more information about validation see [Validating domain ownership](../../../acm/latest/userguide/domain-ownership-validation.md "../../../acm/latest/userguide/domain-ownership-validation.md").
+
+`PENDING_OWNERSHIP_VERIFICATION`: This means your previously verified certificate has expired and
+ACM was unable to auto-renew it. You will need to renew the certificate or request a new certificate. More
+information about certificate renewal can be found at [ACM's troubleshooting managed certificate
+renewal](../../../acm/latest/userguide/troubleshooting-renewal.md "../../../acm/latest/userguide/troubleshooting-renewal.md") guide.
+
+### Troubleshoot incorrect returned certificate
+
+When migrating a dedicated certificate from a fully qualified domain name (FQDN) to a wildcard customer
+domain name, API Gateway might return the certificate for the FQDN instead of the
+wildcard domain name.
+
+The following command displays which certificate is being returned by API Gateway:
+
+```
+openssl s_client -connect hostname:port
+```
+
+If the resulting certificate is for the FQDN, [contact Support](https://console.aws.amazon.com/support/cases#/create "https://console.aws.amazon.com/support/cases#/create") to open
+a ticket.

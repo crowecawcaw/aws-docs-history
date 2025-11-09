@@ -23,11 +23,44 @@ backend integration.
 
 You can specify the following parameters in a CORS configuration. To add these parameters using the API Gateway HTTP API console, choose **Add** after you enter your value.
 
-| CORS headers                     | CORS configuration property | Example values                                                                                                                                                                            |
-| -------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Access-Control-Allow-Origin      | allowOrigins                | <br>• `https://www.example.com` <br>• `*` (allow all origins) <br>• `https://*` (allow any origin that begins with https://) <br>• `http://*` (allow any origin that begins with http://) |
-| Access-Control-Allow-Credentials | allowCredentials            | true                                                                                                                                                                                      |
-| Access-Control-Expose-Headers    | exposeHeaders               | date, x-api-id, \*                                                                                                                                                                        |
-| Access-Control-Max-Age           | maxAge                      | 300                                                                                                                                                                                       |
-| Access-Control-Allow-Methods     | allowMethods                | GET, POST, DELETE, \*                                                                                                                                                                     |
-| Access-Control-Allow-Headers     | allowHeaders                | authorization, \*                                                                                                                                                                         | To return CORS headers, your request must contain an `origin` header. For the `OPTIONS` method, your request must contain an `origin` header and an `Access-Control-Request-Method` header. Your CORS configuration might look similar to the following: ![CORS configuration for HTTP APIs](images/http-cors-console.png) ## Configuring CORS for an HTTP API with a `$default` route and an authorizer You can enable CORS and configure authorization for any route of an HTTP API. When you enable CORS and authorization for the [`$default` route](http-api-develop-routes.md#http-api-develop-routes.default "http-api-develop-routes.md#http-api-develop-routes.default"), there are some special considerations. The `$default` route catches requests for all methods and routes that you haven't explicitly defined, including `OPTIONS` requests. To support unauthorized `OPTIONS` requests, add an `OPTIONS /{proxy+}` route to your API that doesn't require authorization and attach an integration to the route. The `OPTIONS /{proxy+}` route has higher priority than the `$default` route. As a result, it enables clients to submit `OPTIONS` requests to your API without authorization. For more information about routing priorities, see [Routing API requests](http-api-develop-routes.md#http-api-develop-routes.evaluation "http-api-develop-routes.md#http-api-develop-routes.evaluation"). ## Configure CORS for an HTTP API by using the AWS CLI The following [update-api](../../../cli/latest/reference/apigatewayv2/update-api.md "../../../cli/latest/reference/apigatewayv2/update-api.md") command enables CORS requests from `https://www.example.com`: ``aws apigatewayv2 update-api --api-id `api-id` --cors-configuration AllowOrigins="https://www.example.com"`` For more information, see [CORS](../../../apigatewayv2/latest/api-reference/apis-apiid.md#apis-apiid-model-cors "../../../apigatewayv2/latest/api-reference/apis-apiid.md#apis-apiid-model-cors") in the Amazon API Gateway Version 2 API Reference. |
+| CORS headers                     | CORS configuration property | Example values                                                                                                                                                                     |
+| -------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Access-Control-Allow-Origin      | allowOrigins                | • `https://www.example.com`<br>• `*` (allow all origins)<br>• `https://*` (allow any origin that begins with https://)<br>• `http://*` (allow any origin that begins with http://) |
+| Access-Control-Allow-Credentials | allowCredentials            | true                                                                                                                                                                               |
+| Access-Control-Expose-Headers    | exposeHeaders               | date, x-api-id, \*                                                                                                                                                                 |
+| Access-Control-Max-Age           | maxAge                      | 300                                                                                                                                                                                |
+| Access-Control-Allow-Methods     | allowMethods                | GET, POST, DELETE, \*                                                                                                                                                              |
+| Access-Control-Allow-Headers     | allowHeaders                | authorization, \*                                                                                                                                                                  |
+
+To return CORS headers, your request must contain an `origin` header. For the `OPTIONS`
+method, your request must contain an `origin` header and an `Access-Control-Request-Method`
+header.
+
+Your CORS configuration might look similar to the following:
+
+![CORS configuration for HTTP APIs](images/http-cors-console.png)
+
+## Configuring CORS for an HTTP API with a `$default` route and an authorizer
+
+You can enable CORS and configure authorization for any route of an HTTP API.
+When you enable CORS and authorization for the [`$default` route](http-api-develop-routes.md#http-api-develop-routes.default "http-api-develop-routes.md#http-api-develop-routes.default"), there are some special considerations. The
+`$default` route catches requests for all methods and routes that you
+haven't explicitly defined, including `OPTIONS` requests. To support
+unauthorized `OPTIONS` requests, add an `OPTIONS /{proxy+}` route
+to your API that doesn't require authorization and attach an integration to the route. The `OPTIONS /{proxy+}` route
+has higher priority than the `$default` route. As a result, it enables
+clients to submit `OPTIONS` requests to your API without authorization. For
+more information about routing priorities, see [Routing API requests](http-api-develop-routes.md#http-api-develop-routes.evaluation "http-api-develop-routes.md#http-api-develop-routes.evaluation").
+
+## Configure CORS for an HTTP API by using the
+
+AWS CLI
+
+The following [update-api](../../../cli/latest/reference/apigatewayv2/update-api.md "../../../cli/latest/reference/apigatewayv2/update-api.md") command enables CORS requests from
+`https://www.example.com`:
+
+```
+aws apigatewayv2 update-api --api-id `api-id` --cors-configuration AllowOrigins="https://www.example.com"
+```
+
+For more information, see [CORS](../../../apigatewayv2/latest/api-reference/apis-apiid.md#apis-apiid-model-cors "../../../apigatewayv2/latest/api-reference/apis-apiid.md#apis-apiid-model-cors") in the Amazon API Gateway Version 2 API Reference.

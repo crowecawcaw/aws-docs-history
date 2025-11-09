@@ -221,7 +221,264 @@ GET /pets/dog
 ```
 
 | Request                                                                  | Selected route       | Explanation                                                     |
-| ------------------------------------------------------------------------ | -------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------------------ | -------------------- | --------------------------------------------------------------- |
 | `GET https://`api-id`.execute-api.`region`.amazonaws.com/prod/pets/dog`  | `GET /pets/dog`      | The request fully matches this resource.                        |
 | `GET https://`api-id`.execute-api.`region`.amazonaws.com/prod/pets/cats` | `GET /pets/{proxy+}` | The `/pets/{proxy+}` greedy path variable catches this request. |
-| `GET https://`api-id`.execute-api.`region`.amazonaws.com/prod/animals`   | `GET /{proxy+}`      | The `/{proxy+}` greedy path variable catches this request.      | A proxy resource cannot have any child resource. Any API resource after `{proxy+}` is redundant and ambiguous. The following proxy resources are not allowed within an API. `/{proxy+}/child /parent/{proxy+}/{child} /parent/{child}/{proxy+}/{grandchild+}` ## Set up an HTTP method An API method request is encapsulated by the API Gateway [Method](../api/API_Method.md "../api/API_Method.md") resource. To set up the method request, you must first instantiate the `Method` resource, setting at least an HTTP method and an authorization type on the method. Closely associated with the proxy resource, API Gateway supports an HTTP method of `ANY`. This `ANY` method represents any HTTP method that is to be supplied at run time. It allows you to use a single API method setup for all of the supported HTTP methods of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, and `PUT`. You can set up the `ANY` method on a non-proxy resource as well. Combining the `ANY` method with a proxy resource, you get a single API method setup for all of the supported HTTP methods against any resources of an API. Furthermore, the backend can evolve without breaking the existing API setup. Before setting up an API method, consider who can call the method. Set the authorization type according to your plan. For open access, set it to `NONE`. To use IAM permissions, set the authorization type to `AWS_IAM`. To use a Lambda authorizer function, set this property to `CUSTOM`. To use an Amazon Cognito user pool, set the authorization type to `COGNITO_USER_POOLS`. The following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command creates a method request for the `ANY` verb using IAM permissions to control its access. `aws apigateway put-method --rest-api-id vaz7da96z6 \ --resource-id 6sxz2j \ --http-method ANY \ --authorization-type AWS_IAM` To create an API method request with a different authorization type, see [Set up method request authorization](#setup-method-request-authorization "#setup-method-request-authorization"). ## Set up method request parameters Method request parameters are a way for a client to provide input data or execution context necessary to complete the method request. A method parameter can be a path parameter, a header, or a query string parameter. As part of method request setup, you must declare required request parameters to make them available for the client. For non-proxy integration, you can translate these request parameters to a form that is compatible with the backend requirement. For example, for the `GET /pets/{petId}` method request, the `{petId}` path variable is a required request parameter. You can declare this path parameter when calling the `put-method` command of the AWS CLI. The following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command creates a method with a required path parameter: `aws apigateway put-method --rest-api-id vaz7da96z6 \ --resource-id rjkmth \ --http-method GET \ --authorization-type "NONE" \ --request-parameters method.request.path.petId=true` If a parameter is not required, you can set it to `false` in `request-parameters`. For example, if the `GET /pets` method uses an optional query string parameter of `type`, and an optional header parameter of `age`, you can declare them using the following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command: `aws apigateway put-method --rest-api-id vaz7da96z6 \ --resource-id 6sxz2j \ --http-method GET \ --authorization-type "NONE" \ --request-parameters method.request.querystring.type=false,method.request.header.age=false` Instead of this abbreviated form, you can use a JSON string to set the `request-parameters` value: `'{"method.request.querystring.type":false,"method.request.header.age":false}'` With this setup, the client can query pets by type: `GET /pets?type=dog` And the client can query dogs who are puppies as follows: `GET /pets?type=dog age:puppy` For information on how to map method request parameters to integration request parameters, see [Integrations for REST APIs in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md"). ## Set up a method request model For an API method that can take input data in a payload, you can use a model. A model is expressed in a [JSON schema draft 4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04 "https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04") and describes the data structure of the request body. With a model, a client can determine how to construct a method request payload as input. More importantly, API Gateway uses the model to [validate a request](api-gateway-method-request-validation.md "api-gateway-method-request-validation.md"), [generate an SDK](how-to-generate-sdk.md "how-to-generate-sdk.md"), and initialize a mapping template for setting up the integration in the API Gateway console. For information about how to create a [model](../api/API_Model.md "../api/API_Model.md"), see [Understanding data models](models-mappings-models.md "models-mappings-models.md"). Depending on the content types, a method payload can have different formats. A model is indexed against the media type of the applied payload. API Gateway uses the `Content-Type` request header to determine the content type. To set up method request models, add key-value pairs of the `"`media-type`":"`model-name`"` format to the `requestModels` map when calling the AWS CLI `put-method` command. To use the same model regardless of the content type, specify `$default` as the key. For example, to set a model on the JSON payload of the `POST /pets` method request of the PetStore example API, you can use the following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command: `aws apigateway put-method \ --rest-api-id vaz7da96z6 \ --resource-id 6sxz2j \ --http-method POST \ --authorization-type "NONE" \ --request-models '{"application/json":"petModel"}'` Here, `petModel` is the `name` property value of a [`Model`](../api/API_Model.md "../api/API_Model.md") resource describing a pet. The actual schema definition is expressed as a JSON string value of the [`schema`](../api/API_Model.md#schema "../api/API_Model.md#schema") property of the `Model` resource. In a Java, or other strongly typed SDK, of the API, the input data is cast as the `petModel` class derived from the schema definition. With the request model, the input data in the generated SDK is cast into the `Empty` class, which is derived from the default `Empty` model. In this case, the client cannot instantiate the correct data class to provide the required input. ## Set up method request authorization To control who can call the API method, you can configure the [authorization type](../api/API_Method.md#authorizationType "../api/API_Method.md#authorizationType") on the method. You can use this type to enact one of the supported authorizers, including IAM roles and policies (`AWS_IAM`), an Amazon Cognito user pool (`COGNITO_USER_POOLS`), or a Lambda authorizer (`CUSTOM`). To use IAM permissions to authorize access to the API method, set the `authorization-type` input property to `AWS_IAM`. When you set this option, API Gateway verifies the caller's signature on the request based on the caller's credentials. If the verified user has permission to call the method, it accepts the request. Otherwise, it rejects the request and the caller receives an unauthorized error response. The call to the method doesn't succeed unless the caller has permission to invoke the API method. The following IAM policy grants permission to the caller to call any API methods created within the same AWS account: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "execute-api:Invoke" ], "Resource": "arn:aws:execute-api:*:*:*" } ] }` `` For more information, see [Control access to a REST API with IAM permissions](permissions.md "permissions.md"). Currently, you can only grant this policy to the users, groups, and roles within the API owner's AWS account. Users from a different AWS account can call the API methods only if allowed to assume a role within the API owner's AWS account with the necessary permissions to call the `execute-api:Invoke` action. For information on cross-account permissions, see [Using IAM Roles](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/UserGuide/id_roles_use.md"). You can use AWS CLI, an AWS SDK, or a REST API client, such as [Postman](https://www.postman.com/ "https://www.postman.com/"), which implements [Signature Version 4 (SigV4) signing](../../../IAM/latest/UserGuide/create-signed-request.md "../../../IAM/latest/UserGuide/create-signed-request.md"). To use a Lambda authorizer to authorize access to the API method, set the `authorization-type` input property to `CUSTOM` and set the [`authorizer-id`](../api/API_Method.md#authorizerId "../api/API_Method.md#authorizerId") input property to the [`id`](../api/API_Authorizer.md#id "../api/API_Authorizer.md#id") property value of a Lambda authorizer that already exists. The referenced Lambda authorizer can be of the `TOKEN` or `REQUEST` type. For information about creating a Lambda authorizer, see [Use API Gateway Lambda authorizers](apigateway-use-lambda-authorizer.md "apigateway-use-lambda-authorizer.md"). To use an Amazon Cognito user pool to authorize access to the API method, set the `authorization-type` input property to `COGNITO_USER_POOLS` and set the [`authorizer-id`](../api/API_Method.md#authorizerId "../api/API_Method.md#authorizerId") input property to the [`id`](../api/API_Authorizer.md#id "../api/API_Authorizer.md#id") property value of the `COGNITO_USER_POOLS` authorizer that was already created. For information about creating an Amazon Cognito user pool authorizer, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md"). ## Set up method request validation You can enable request validation when setting up an API method request. You need to first create a [request validator](../api/API_RequestValidator.md "../api/API_RequestValidator.md"). The following [create-request-validator](../../../cli/latest/reference/apigateway/create-request-validator.md "../../../cli/latest/reference/apigateway/create-request-validator.md") command creates a body-only request validator. `aws apigateway create-request-validator \ --rest-api-id 7zw9uyk9kl \ --name bodyOnlyValidator \ --validate-request-body  \ --no-validate-request-parameters` The output will look like the following: `{ "validateRequestParameters": false, "validateRequestBody": true, "id": "jgpyy6", "name": "bodyOnlyValidator" }` You can use this request validator, to use request validation as part of the method request setup. The following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command creates a method request that requires the incoming request body to match the `PetModel` and has two request parameter that aren't required: `aws apigateway put-method \ --rest-api-id 7zw9uyk9kl \ --resource-id xdsvhp \ --http-method PUT \ --authorization-type "NONE" \ --request-parameters '{"method.request.querystring.type": false, "method.request.querystring.page":false}' \ --request-models '{"application/json":"petModel"}' \ --request-validator-id jgpyy6` To include a request parameter in the request validation, you must set `validateRequestParameters` to `true` for the request validator, and set the specific request parameter to `true` in the `put-method` command. |
+| `GET https://`api-id`.execute-api.`region`.amazonaws.com/prod/animals`   | `GET /{proxy+}`      | The `/{proxy+}` greedy path variable catches this request.      |
+
+A proxy resource cannot have any child resource. Any API resource after
+`{proxy+}` is redundant and ambiguous. The following proxy
+resources are not allowed within an API.
+
+```
+/{proxy+}/child
+/parent/{proxy+}/{child}
+/parent/{child}/{proxy+}/{grandchild+}
+```
+
+## Set up an HTTP method
+
+An API method request is encapsulated by the API Gateway [Method](../api/API_Method.md "../api/API_Method.md") resource. To set up the
+method request, you must first instantiate the `Method` resource, setting
+at least an HTTP method and an authorization type on the method.
+
+Closely associated with the proxy resource, API Gateway supports an HTTP method of
+`ANY`. This `ANY` method represents any HTTP method that
+is to be supplied at run time. It allows you to use a single API method setup for
+all of the supported HTTP methods of `DELETE`, `GET`,
+`HEAD`, `OPTIONS`, `PATCH`, `POST`,
+and `PUT`.
+
+You can set up the `ANY` method on a non-proxy resource as well.
+Combining the `ANY` method with a proxy resource, you get a single API
+method setup for all of the supported HTTP methods against any resources of an API.
+Furthermore, the backend can evolve without breaking the existing API setup.
+
+Before setting up an API method, consider who can call the method. Set the
+authorization type according to your plan. For open access, set it to
+`NONE`. To use IAM permissions, set the authorization type to
+`AWS_IAM`. To use a Lambda authorizer function, set this
+property to `CUSTOM`. To use an Amazon Cognito user pool, set the
+authorization type to `COGNITO_USER_POOLS`.
+
+The following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command creates a
+method request for the `ANY` verb using IAM permissions to control its access.
+
+```
+aws apigateway put-method --rest-api-id vaz7da96z6 \
+    --resource-id 6sxz2j \
+    --http-method ANY \
+    --authorization-type AWS_IAM
+```
+
+To create an API method request with a different authorization type, see [Set up method request
+authorization](#setup-method-request-authorization "#setup-method-request-authorization").
+
+## Set up method request
+
+parameters
+
+Method request parameters are a way for a client to provide input data or
+execution context necessary to complete the method request. A method parameter can
+be a path parameter, a header, or a query string parameter. As part of method
+request setup, you must declare required request parameters to make them available
+for the client. For non-proxy integration, you can translate these request
+parameters to a form that is compatible with the backend requirement.
+
+For example, for the `GET /pets/{petId}` method request, the `{petId}` path variable
+is a required request parameter. You can declare this path parameter when calling the `put-method`
+command of the AWS CLI. The following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md")
+command creates a method with a required path parameter:
+
+```
+aws apigateway put-method --rest-api-id vaz7da96z6 \
+    --resource-id rjkmth \
+    --http-method GET \
+    --authorization-type "NONE" \
+    --request-parameters method.request.path.petId=true
+```
+
+If a parameter is not required, you can set it to `false` in `request-parameters`. For
+example, if the `GET /pets` method uses an optional query string parameter of `type`, and
+an optional header parameter of `age`, you can declare them using the following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command:
+
+```
+aws apigateway put-method --rest-api-id vaz7da96z6 \
+    --resource-id 6sxz2j \
+    --http-method GET \
+    --authorization-type "NONE" \
+    --request-parameters method.request.querystring.type=false,method.request.header.age=false
+```
+
+Instead of this abbreviated form, you can use a JSON string to set the
+`request-parameters` value:
+
+```
+'{"method.request.querystring.type":false,"method.request.header.age":false}'
+```
+
+With this setup, the client can query pets by type:
+
+```
+GET /pets?type=dog
+```
+
+And the client can query dogs who are puppies as follows:
+
+```
+GET /pets?type=dog
+age:puppy
+```
+
+For information on how to map method request parameters to integration request
+parameters, see [Integrations for REST APIs
+in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md").
+
+## Set up a method request model
+
+For an API method that can take input data in a payload, you can use a model. A
+model is expressed in a [JSON schema draft
+4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04 "https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04") and describes the data structure of the request body. With a model, a
+client can determine how to construct a method request payload as input. More
+importantly, API Gateway uses the model to [validate a request](api-gateway-method-request-validation.md "api-gateway-method-request-validation.md"), [generate an SDK](how-to-generate-sdk.md "how-to-generate-sdk.md"), and initialize a mapping
+template for setting up the integration in the API Gateway console. For information about
+how to create a [model](../api/API_Model.md "../api/API_Model.md"), see [Understanding data models](models-mappings-models.md "models-mappings-models.md").
+
+Depending on the content types, a method payload can have different formats. A model is indexed against the
+media type of the applied payload. API Gateway uses the `Content-Type` request header to determine the
+content type. To set up method request models, add key-value pairs of the
+`"`media-type`":"`model-name`"`
+format to the `requestModels` map when calling the AWS CLI `put-method` command.
+
+To use the same model regardless of the content type, specify `$default` as the key.
+
+For example, to set a model on the JSON payload of the `POST /pets` method request of the
+PetStore example API, you can use the following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command:
+
+```
+aws apigateway put-method \
+    --rest-api-id vaz7da96z6 \
+    --resource-id 6sxz2j \
+    --http-method POST \
+    --authorization-type "NONE" \
+    --request-models '{"application/json":"petModel"}'
+```
+
+Here, `petModel` is the `name` property value of a [`Model`](../api/API_Model.md "../api/API_Model.md") resource
+describing a pet. The actual schema definition is expressed as a JSON string value
+of the [`schema`](../api/API_Model.md#schema "../api/API_Model.md#schema")
+property of the `Model` resource.
+
+In a Java, or other strongly typed SDK, of the API, the input data is cast as the
+`petModel` class derived from the schema definition. With the request
+model, the input data in the generated SDK is cast into the `Empty`
+class, which is derived from the default `Empty` model. In this case, the
+client cannot instantiate the correct data class to provide the required input.
+
+## Set up method request
+
+authorization
+
+To control who can call the API method, you can configure the [authorization type](../api/API_Method.md#authorizationType "../api/API_Method.md#authorizationType")
+on the method. You can use this type to enact one of the supported authorizers,
+including IAM roles and policies (`AWS_IAM`), an Amazon Cognito user pool
+(`COGNITO_USER_POOLS`), or a Lambda authorizer
+(`CUSTOM`).
+
+To use IAM permissions to authorize access to the API method, set the
+`authorization-type` input property to `AWS_IAM`. When you set this option,
+API Gateway verifies the caller's signature on the request based on the caller's credentials. If the verified user has
+permission to call the method, it accepts the request. Otherwise, it rejects the request and the caller receives
+an unauthorized error response. The call to the method doesn't succeed unless the caller has permission to
+invoke the API method. The following IAM policy grants
+permission to the caller to call any API methods created within the same AWS account:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "execute-api:Invoke"
+ ],
+ "Resource": "arn:aws:execute-api:*:*:*"
+ }
+ ]
+}`
+
+```
+
+For more information, see [Control access to a REST API with IAM permissions](permissions.md "permissions.md").
+
+Currently, you can only grant this policy to the users, groups, and roles within the API owner's
+AWS account. Users from a different AWS account can call the API methods only if allowed to assume a role
+within the API owner's AWS account with the necessary permissions to call the `execute-api:Invoke`
+action. For information on cross-account permissions, see [Using IAM Roles](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/UserGuide/id_roles_use.md").
+
+You can use AWS CLI, an AWS SDK, or a REST API client, such as [Postman](https://www.postman.com/ "https://www.postman.com/"), which implements
+[Signature Version 4
+(SigV4) signing](../../../IAM/latest/UserGuide/create-signed-request.md "../../../IAM/latest/UserGuide/create-signed-request.md").
+
+To use a Lambda authorizer to authorize access to the API method, set the
+`authorization-type` input property to `CUSTOM` and set
+the [`authorizer-id`](../api/API_Method.md#authorizerId "../api/API_Method.md#authorizerId") input property to the [`id`](../api/API_Authorizer.md#id "../api/API_Authorizer.md#id") property
+value of a Lambda authorizer that already exists. The referenced Lambda authorizer can
+be of the `TOKEN` or `REQUEST` type. For information about
+creating a Lambda authorizer, see [Use API Gateway Lambda authorizers](apigateway-use-lambda-authorizer.md "apigateway-use-lambda-authorizer.md").
+
+To use an Amazon Cognito user pool to authorize access to the API method, set the
+`authorization-type` input property to
+`COGNITO_USER_POOLS` and set the [`authorizer-id`](../api/API_Method.md#authorizerId "../api/API_Method.md#authorizerId") input property to the [`id`](../api/API_Authorizer.md#id "../api/API_Authorizer.md#id") property
+value of the `COGNITO_USER_POOLS` authorizer that was already created.
+For information about creating an Amazon Cognito user pool authorizer, see [Control access to REST APIs using
+Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md").
+
+## Set up method request
+
+validation
+
+You can enable request validation when setting up an API method request. You need to first create a [request validator](../api/API_RequestValidator.md "../api/API_RequestValidator.md"). The following [create-request-validator](../../../cli/latest/reference/apigateway/create-request-validator.md "../../../cli/latest/reference/apigateway/create-request-validator.md") command creates a
+body-only request validator.
+
+```
+aws apigateway create-request-validator \
+    --rest-api-id 7zw9uyk9kl \
+    --name bodyOnlyValidator \
+    --validate-request-body  \
+    --no-validate-request-parameters
+
+```
+
+The output will look like the following:
+
+```
+{
+    "validateRequestParameters": false,
+    "validateRequestBody": true,
+    "id": "jgpyy6",
+    "name": "bodyOnlyValidator"
+}
+```
+
+You can use this request validator, to use request validation as part of the method request setup. The
+following [put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") command creates a method
+request that requires the incoming request body to match the `PetModel` and has two request parameter
+that aren't required:
+
+```
+aws apigateway put-method \
+    --rest-api-id 7zw9uyk9kl \
+    --resource-id xdsvhp \
+    --http-method PUT \
+    --authorization-type "NONE" \
+    --request-parameters '{"method.request.querystring.type": false, "method.request.querystring.page":false}' \
+    --request-models '{"application/json":"petModel"}' \
+    --request-validator-id jgpyy6
+```
+
+To include a request parameter in the request validation, you must set
+`validateRequestParameters` to `true` for the request validator, and set the specific
+request parameter to `true` in the `put-method` command.

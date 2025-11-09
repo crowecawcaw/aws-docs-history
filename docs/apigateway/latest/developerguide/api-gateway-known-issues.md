@@ -176,32 +176,60 @@ REST APIs
     `<string>` to
     `X-Amzn-Remapped-`<string>`` and the value is overwritten.
 
-| Header name          | Request (`http`/`http_proxy`/`lambda`)  | Response (`http`/`http_proxy`/`lambda`) |
-| -------------------- | --------------------------------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Age`                | Passthrough                             | Passthrough                             |
-| `Accept`             | Passthrough                             | Dropped/Passthrough/Passthrough         |
-| `Accept-Charset`     | Passthrough                             | Passthrough                             |
-| `Accept-Encoding`    | Passthrough                             | Passthrough                             |
-| `Authorization`      | Passthrough \*                          | Remapped                                |
-| `Connection`         | Passthrough/Passthrough/Dropped         | Remapped                                |
-| `Content-Encoding`   | Passthrough/Dropped/Passthrough         | Passthrough                             |
-| `Content-Length`     | Passthrough (generated based on body)   | Passthrough                             |
-| `Content-MD5`        | Dropped                                 | Remapped                                |
-| `Content-Type`       | Passthrough                             | Passthrough                             |
-| `Date`               | Passthrough                             | Remapped Overwritten                    |
-| `Expect`             | Dropped                                 | Dropped                                 |
-| `Host`               | Overwritten to the integration endpoint | Dropped                                 |
-| `Max-Forwards`       | Dropped                                 | Remapped                                |
-| `Pragma`             | Passthrough                             | Passthrough                             |
-| `Proxy-Authenticate` | Dropped                                 | Dropped                                 |
-| `Range`              | Passthrough                             | Passthrough                             |
-| `Referer`            | Passthrough                             | Passthrough                             |
-| `Server`             | Dropped                                 | Remapped Overwritten                    |
-| `TE`                 | Dropped                                 | Dropped                                 |
-| `Transfer-Encoding`  | Dropped/Dropped/Exception               | Dropped                                 |
-| `Trailer`            | Dropped                                 | Dropped                                 |
-| `Upgrade`            | Dropped                                 | Dropped                                 |
-| `User-Agent`         | Passthrough                             | Remapped                                |
-| `Via`                | Dropped/Dropped/Passthrough             | Passthrough/Dropped/Dropped             |
-| `Warn`               | Passthrough                             | Passthrough                             |
-| `WWW-Authenticate`   | Dropped                                 | Remapped                                | \* The `Authorization` header is dropped if it contains a [Signature Version 4](../../../IAM/latest/UserGuide/reference_aws-signing.md "../../../IAM/latest/UserGuide/reference_aws-signing.md") signature or if `AWS_IAM` authorization is used. <br>• The Android SDK of an API generated by API Gateway uses the `java.net.HttpURLConnection` class. This class will throw an unhandled exception, on devices running Android 4.4 and earlier, for a 401 response resulted from remapping of the `WWW-Authenticate` header to `X-Amzn-Remapped-WWW-Authenticate`. <br>• Unlike API Gateway-generated Java, Android and iOS SDKs of an API, the JavaScript SDK of an API generated by API Gateway does not support retries for 500-level errors. <br>• The test invocation of a method uses the default content type of `application/json` and ignores specifications of any other content types. <br>• When sending requests to an API by passing the `X-HTTP-Method-Override` header, API Gateway overrides the method. So in order to pass the header to the backend, the header needs to be added to the integration request. <br>• When a request contains multiple media types in its `Accept` header, API Gateway only honors the first `Accept` media type. In the situation where you cannot control the order of the `Accept` media types and the media type of your binary content is not the first in the list, you can add the first `Accept` media type in the `binaryMediaTypes` list of your API, API Gateway will return your content as binary. For example, to send a JPEG file using an `<img>` element in a browser, the browser might send `Accept:image/webp,image/*,*/*;q=0.8` in a request. By adding `image/webp` to the `binaryMediaTypes` list, the endpoint will receive the JPEG file as binary. <br>• Customizing the default gateway response for `413 REQUEST_TOO_LARGE` isn't currently supported. <br>• API Gateway includes a `Content-Type` header for all integration responses. By default, the content type is `application/json`. |
+  | Header name          | Request<br>(`http`/`http_proxy`/`lambda`) | Response<br>(`http`/`http_proxy`/`lambda`) |
+  | -------------------- | ----------------------------------------- | ------------------------------------------ |
+  | `Age`                | Passthrough                               | Passthrough                                |
+  | `Accept`             | Passthrough                               | Dropped/Passthrough/Passthrough            |
+  | `Accept-Charset`     | Passthrough                               | Passthrough                                |
+  | `Accept-Encoding`    | Passthrough                               | Passthrough                                |
+  | `Authorization`      | Passthrough \*                            | Remapped                                   |
+  | `Connection`         | Passthrough/Passthrough/Dropped           | Remapped                                   |
+  | `Content-Encoding`   | Passthrough/Dropped/Passthrough           | Passthrough                                |
+  | `Content-Length`     | Passthrough (generated based on body)     | Passthrough                                |
+  | `Content-MD5`        | Dropped                                   | Remapped                                   |
+  | `Content-Type`       | Passthrough                               | Passthrough                                |
+  | `Date`               | Passthrough                               | Remapped Overwritten                       |
+  | `Expect`             | Dropped                                   | Dropped                                    |
+  | `Host`               | Overwritten to the integration endpoint   | Dropped                                    |
+  | `Max-Forwards`       | Dropped                                   | Remapped                                   |
+  | `Pragma`             | Passthrough                               | Passthrough                                |
+  | `Proxy-Authenticate` | Dropped                                   | Dropped                                    |
+  | `Range`              | Passthrough                               | Passthrough                                |
+  | `Referer`            | Passthrough                               | Passthrough                                |
+  | `Server`             | Dropped                                   | Remapped Overwritten                       |
+  | `TE`                 | Dropped                                   | Dropped                                    |
+  | `Transfer-Encoding`  | Dropped/Dropped/Exception                 | Dropped                                    |
+  | `Trailer`            | Dropped                                   | Dropped                                    |
+  | `Upgrade`            | Dropped                                   | Dropped                                    |
+  | `User-Agent`         | Passthrough                               | Remapped                                   |
+  | `Via`                | Dropped/Dropped/Passthrough               | Passthrough/Dropped/Dropped                |
+  | `Warn`               | Passthrough                               | Passthrough                                |
+  | `WWW-Authenticate`   | Dropped                                   | Remapped                                   |
+
+  \* The `Authorization` header is dropped if it contains a [Signature Version 4](../../../IAM/latest/UserGuide/reference_aws-signing.md "../../../IAM/latest/UserGuide/reference_aws-signing.md") signature or if `AWS_IAM` authorization is used.
+
+- The Android SDK of an API generated by API Gateway uses the `java.net.HttpURLConnection` class. This class
+  will throw an unhandled exception, on devices running Android 4.4 and
+  earlier, for a 401 response resulted from remapping of the `WWW-Authenticate` header to `X-Amzn-Remapped-WWW-Authenticate`.
+- Unlike API Gateway-generated Java, Android and iOS SDKs of an API, the
+  JavaScript SDK of an API generated by API Gateway does not support retries for
+  500-level errors.
+- The test invocation of a method uses the default content type of
+  `application/json` and ignores specifications of any other
+  content types.
+- When sending requests to an API by passing the
+  `X-HTTP-Method-Override` header, API Gateway overrides the method.
+  So in order to pass the header to the backend, the header needs to be added
+  to the integration request.
+- When a request contains multiple media types in its `Accept` header, API Gateway only honors the first
+  `Accept` media type. In the situation
+  where you cannot control the order of the `Accept` media types and the media type of your binary content is
+  not the first in the list, you can add the first `Accept` media type in the `binaryMediaTypes` list of your API, API Gateway will return your
+  content as binary. For example, to send a JPEG file using an `<img>` element in a browser, the browser
+  might send `Accept:image/webp,image/*,*/*;q=0.8` in a request. By adding
+  `image/webp` to the `binaryMediaTypes` list, the endpoint will
+  receive the JPEG file as binary.
+- Customizing the default gateway response for
+  `413 REQUEST_TOO_LARGE` isn't currently supported.
+- API Gateway includes a `Content-Type` header for all integration responses. By default, the content
+  type is `application/json`.

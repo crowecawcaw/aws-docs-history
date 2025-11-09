@@ -6,6 +6,25 @@ an HTTP API. If you specify a tag name without the `x-amazon-apigateway-tag-valu
 To learn more about tagging, see [Tagging your API Gateway resources](apigateway-tagging.md "apigateway-tagging.md").
 
 | Property name                   | Type     | Description              |
-| ------------------------------- | -------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------- | -------- | ------------------------ |
 | `name`                          | `String` | Specifies the tag key.   |
-| `x-amazon-apigateway-tag-value` | `String` | Specifies the tag value. | ## `x-amazon-apigateway-tag-value` example The following example specifies two tags for an HTTP API: <br>• "Owner": "Admin" <br>• "Prod": "" `"tags": [ { "name": "Owner", "x-amazon-apigateway-tag-value": "Admin" }, { "name": "Prod" } ]` |
+| `x-amazon-apigateway-tag-value` | `String` | Specifies the tag value. |
+
+## `x-amazon-apigateway-tag-value` example
+
+The following example specifies two tags for an HTTP API:
+
+- "Owner": "Admin"
+- "Prod": ""
+
+```
+"tags": [
+    {
+      "name": "Owner",
+      "x-amazon-apigateway-tag-value": "Admin"
+    },
+    {
+      "name": "Prod"
+    }
+]
+```

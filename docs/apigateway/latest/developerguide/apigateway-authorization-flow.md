@@ -190,19 +190,26 @@ evaluation outcome tables
 Table A lists the resulting behavior when access to an API Gateway API is controlled by an IAM policy or a Lambda
 authorizer and an API Gateway resource policy, both of which are in the same AWS account.
 
-| **IAM policy (or Lambda authorizer)**                    | **API Gateway resource policy** | **Resulting behavior** |
-| -------------------------------------------------------- | ------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Allow                                                    | Allow                           | Allow                  |
-| Allow                                                    | Neither Allow nor Deny          | Allow                  |
-| Allow                                                    | Deny                            | Explicit Deny          |
-| Neither Allow nor Deny                                   | Allow                           | Allow                  |
-| Neither Allow nor Deny                                   | Neither Allow nor Deny          | Implicit Deny          |
-| Neither Allow nor Deny                                   | Deny                            | Explicit Deny          |
-| Deny                                                     | Allow                           | Explicit Deny          |
-| Deny                                                     | Neither Allow nor Deny          | Explicit Deny          |
-| Deny                                                     | Deny                            | Explicit Deny          | Table B lists the resulting behavior when access to an API Gateway API is controlled by an IAM policy or a Amazon Cognito user pools authorizer and an API Gateway resource policy, which are in different AWS accounts. If either is silent (neither allow nor deny), cross-account access is denied. This is because cross-account access requires that both the resource policy and the IAM policy or Amazon Cognito user pools authorizer explicitly grant access. |
+| **IAM policy (or Lambda authorizer)** | **API Gateway resource policy** | **Resulting behavior** |
+| ------------------------------------- | ------------------------------- | ---------------------- |
+| Allow                                 | Allow                           | Allow                  |
+| Allow                                 | Neither Allow nor Deny          | Allow                  |
+| Allow                                 | Deny                            | Explicit Deny          |
+| Neither Allow nor Deny                | Allow                           | Allow                  |
+| Neither Allow nor Deny                | Neither Allow nor Deny          | Implicit Deny          |
+| Neither Allow nor Deny                | Deny                            | Explicit Deny          |
+| Deny                                  | Allow                           | Explicit Deny          |
+| Deny                                  | Neither Allow nor Deny          | Explicit Deny          |
+| Deny                                  | Deny                            | Explicit Deny          |
+
+Table B lists the resulting behavior when access to an API Gateway API is controlled by an IAM policy or a Amazon Cognito
+user pools authorizer and an API Gateway resource policy, which are in different AWS accounts. If either is silent
+(neither allow nor deny), cross-account access is denied. This is because cross-account access requires that both
+the resource policy and the IAM policy or Amazon Cognito user pools authorizer explicitly grant
+access.
+
 | **IAM policy (or Amazon Cognito user pools authorizer)** | **API Gateway resource policy** | **Resulting behavior** |
-| ---                                                      | ---                             | ---                    |
+| -------------------------------------------------------- | ------------------------------- | ---------------------- |
 | Allow                                                    | Allow                           | Allow                  |
 | Allow                                                    | Neither Allow nor Deny          | Implicit Deny          |
 | Allow                                                    | Deny                            | Explicit Deny          |

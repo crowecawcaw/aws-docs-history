@@ -12,12 +12,15 @@ policy accepts TLS 1.2 and TLS 1.3 traffic and rejects TLS 1.0 traffic.
 
 The following table describes the supported TLS protocols for HTTP APIs.
 
-| **TLS protocols**             | **TLS_1_2 security policy** |
-| ----------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| TLSv1.3                       | Yes                         |
-| TLSv1.2                       | Yes                         | The following table describes the TLS ciphers that are available for the TLS 1_2 security policy for HTTP APIs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **TLS protocols** | **TLS_1_2 security policy** |
+| ----------------- | --------------------------- |
+| TLSv1.3           | Yes                         |
+| TLSv1.2           | Yes                         |
+
+The following table describes the TLS ciphers that are available for the TLS 1_2 security policy for HTTP APIs.
+
 | **TLS ciphers**               | **TLS_1_2 security policy** |
-| ---                           | ---                         |
+| ----------------------------- | --------------------------- |
 | TLS-AES-128-GCM-SHA256        | Yes                         |
 | TLS-AES-256-GCM-SHA384        | Yes                         |
 | TLS-CHACHA20-POLY1305-SHA256  | Yes                         |
@@ -32,4 +35,18 @@ The following table describes the supported TLS protocols for HTTP APIs.
 | AES128-GCM-SHA256             | Yes                         |
 | AES128-SHA256                 | Yes                         |
 | AES256-GCM-SHA384             | Yes                         |
-| AES256-SHA256                 | Yes                         | ## OpenSSL and RFC cipher names OpenSSL and IETF RFC 5246 use different names for the same ciphers. For a list of the cipher names, see [OpenSSL and RFC cipher names](apigateway-custom-domain-tls-version.md#apigateway-secure-connections-openssl-rfc-cipher-names "apigateway-custom-domain-tls-version.md#apigateway-secure-connections-openssl-rfc-cipher-names"). ## Information about REST APIs and WebSocket APIs For more information about REST APIs and WebSocket APIs, see [Choose a security policy for your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md") and [Security policy for WebSocket APIs in API Gateway](websocket-api-ciphers.md "websocket-api-ciphers.md"). |
+| AES256-SHA256                 | Yes                         |
+
+## OpenSSL and
+
+RFC cipher names
+
+OpenSSL and IETF RFC 5246 use different names for the same ciphers. For a list of the cipher names, see
+[OpenSSL and
+RFC cipher names](apigateway-custom-domain-tls-version.md#apigateway-secure-connections-openssl-rfc-cipher-names "apigateway-custom-domain-tls-version.md#apigateway-secure-connections-openssl-rfc-cipher-names").
+
+## Information about REST APIs and WebSocket APIs
+
+For more information about REST APIs and WebSocket APIs, see [Choose a security policy for
+your REST API custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md") and
+[Security policy for WebSocket APIs in API Gateway](websocket-api-ciphers.md "websocket-api-ciphers.md").

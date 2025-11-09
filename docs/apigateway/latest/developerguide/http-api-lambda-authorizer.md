@@ -426,8 +426,93 @@ The following table describes the supported identity sources for a Lambda
 authorizer.
 
 | **Type**           | **Example**                    | **Notes**                                                                                                   |
-| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | Header value       | $request.header.`name`         | Header names are case-insensitive.                                                                          |
 | Query string value | $request.querystring.`name`    | Query string names are case-sensitive.                                                                      |
 | Context variable   | $context.`variableName`        | The value of a supported [context variable](http-api-logging-variables.md "http-api-logging-variables.md"). |
-| Stage variable     | $stageVariables.`variableName` | The value of a [stage variable](http-api-stages.md "http-api-stages.md").                                   | You can also directly return `{"errorMessage" : "Unauthorized"}` from your Lambda function to return a `401` error to your clients. If you directly return a `401` error from your Lambda function to your clients, don't specify any identity sources when you create your Lambda authorizer. ## Caching authorizer responses You can enable caching for a Lambda authorizer by specifying an [authorizerResultTtlInSeconds](../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers.md#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds "../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers.md#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds"). When caching is enabled for an authorizer, API Gateway uses the authorizer's identity sources as the cache key. If a client specifies the same parameters in identity sources within the configured TTL, API Gateway uses the cached authorizer result, rather than invoking your Lambda function. To enable caching, your authorizer must have at least one identity source. If you enable simple responses for an authorizer, the authorizer's response fully allows or denies all API requests that match the cached identity source values. For more granular permissions, disable simple responses and return an IAM policy. Depending on your authorizer, your IAM policy might need to control access to multiple. By default, API Gateway uses the cached authorizer response for all routes of an API that use the authorizer. To cache responses per route, add `$context.routeKey` to your authorizer's identity sources. ## Create a Lambda authorizer When you create a Lambda authorizer, you specify the Lambda function for API Gateway to use. You must grant API Gateway permission to invoke the Lambda function by using either the function's resource policy or an IAM role. The following [create-authorizer](../../../cli/latest/reference/apigatewayv2/create-authorizer.md "../../../cli/latest/reference/apigatewayv2/create-authorizer.md") command creates a Lambda authorizer: ``aws apigatewayv2 create-authorizer \ --api-id `abcdef123` \ --authorizer-type REQUEST \ --identity-source '`$request.header.Authorization`' \ --name lambda-authorizer \ --authorizer-uri 'arn:aws:apigateway:`us-west-2`:lambda:path/2015-03-31/functions/`arn:aws:lambda:us-west-2:123456789012:function:my-function`/invocations' \ --authorizer-payload-format-version '`2.0`' \ --enable-simple-responses`` The following [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") command updates the Lambda function's resource policy to grant API Gateway permission to invoke the function. If API Gateway doesn't have permission to invoke your function, clients receive a `500 Internal Server Error`. ``aws lambda add-permission \ --function-name `my-authorizer-function` \ --statement-id apigateway-invoke-permissions-abc123 \ --action lambda:InvokeFunction \ --principal apigateway.amazonaws.com \ --source-arn "arn:aws:execute-api:us-west-2:123456789012:`api-id/`authorizers/`authorizer-id`"`` After you've created an authorizer and granted API Gateway permission to invoke it, update your route to use the authorizer. The following [update-route](../../../cli/latest/reference/apigatewayv2/update-route.md "../../../cli/latest/reference/apigatewayv2/update-route.md") command adds the Lambda authorizer to the route. If your Lambda authorizer uses policy caching, make sure you update the policy to control access for the additional route. `` aws apigatewayv2 update-route \ --api-id `abcdef123` \ --route-id `abc123` \ --authorization-type CUSTOM \ --authorizer-id `def123` `` ## Troubleshooting Lambda authorizers If API Gateway can't invoke your Lambda authorizer, or your Lambda authorizer returns a response in an invalid format, clients receive a `500 Internal Server Error`. To troubleshoot errors, [enable access logging](http-api-logging.md "http-api-logging.md") for your API stage. Include the `$context.authorizer.error` logging variable in your log format. If the logs indicate that API Gateway doesn't have permission to invoke your function, update your function's resource policy or provide an IAM role to grant API Gateway permission to invoke your authorizer. If the logs indicate that your Lambda function returns an invalid response, verify that your Lambda function returns a response in the [required format](#http-api-lambda-authorizer.payload-format-response "#http-api-lambda-authorizer.payload-format-response"). |
+| Stage variable     | $stageVariables.`variableName` | The value of a [stage<br>variable](http-api-stages.md "http-api-stages.md").                                |
+
+You can also directly return `{"errorMessage" : "Unauthorized"}` from your Lambda
+function to return a `401` error to your clients. If you directly return a `401` error from
+your Lambda function to your clients, don't specify any identity sources when you create your Lambda authorizer.
+
+## Caching authorizer
+
+responses
+
+You can enable caching for a Lambda authorizer by specifying an [authorizerResultTtlInSeconds](../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers.md#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds "../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers.md#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds"). When caching is enabled for an authorizer,
+API Gateway uses the authorizer's identity sources as the cache key. If a client specifies the
+same parameters in identity sources within the configured TTL, API Gateway uses the cached
+authorizer result, rather than invoking your Lambda function.
+
+To enable caching, your authorizer must have at least one identity source.
+
+If you enable simple responses for an authorizer, the authorizer's response fully allows or denies all API
+requests that match the cached identity source values. For more granular permissions, disable simple responses and
+return an IAM policy. Depending on your authorizer, your IAM policy might need to control access to multiple.
+
+By default, API Gateway uses the cached authorizer response for all routes of an API that
+use the authorizer. To cache responses per route, add `$context.routeKey` to
+your authorizer's identity sources.
+
+## Create a Lambda
+
+authorizer
+
+When you create a Lambda authorizer, you specify the Lambda function for API Gateway to use. You must grant API Gateway
+permission to invoke the Lambda function by using either the function's resource policy or an IAM role. The
+following [create-authorizer](../../../cli/latest/reference/apigatewayv2/create-authorizer.md "../../../cli/latest/reference/apigatewayv2/create-authorizer.md") command creates a Lambda
+authorizer:
+
+```
+aws apigatewayv2 create-authorizer \
+    --api-id `abcdef123` \
+    --authorizer-type REQUEST \
+    --identity-source '`$request.header.Authorization`' \
+    --name lambda-authorizer \
+    --authorizer-uri 'arn:aws:apigateway:`us-west-2`:lambda:path/2015-03-31/functions/`arn:aws:lambda:us-west-2:123456789012:function:my-function`/invocations' \
+    --authorizer-payload-format-version '`2.0`' \
+    --enable-simple-responses
+```
+
+The following [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") command updates the
+Lambda function's resource policy to grant API Gateway permission to invoke the function. If API Gateway doesn't have
+permission to invoke your function, clients receive a `500 Internal Server Error`.
+
+```
+aws lambda add-permission \
+    --function-name `my-authorizer-function` \
+    --statement-id apigateway-invoke-permissions-abc123 \
+    --action lambda:InvokeFunction \
+    --principal apigateway.amazonaws.com \
+    --source-arn "arn:aws:execute-api:us-west-2:123456789012:`api-id/`authorizers/`authorizer-id`"
+```
+
+After you've created an authorizer and granted API Gateway permission to invoke it, update your route to use the
+authorizer. The following [update-route](../../../cli/latest/reference/apigatewayv2/update-route.md "../../../cli/latest/reference/apigatewayv2/update-route.md") command
+adds the Lambda authorizer to the route. If your Lambda authorizer uses policy caching, make sure you update the
+policy to control access for the additional route.
+
+```
+aws apigatewayv2 update-route \
+    --api-id `abcdef123` \
+    --route-id `abc123` \
+    --authorization-type CUSTOM \
+    --authorizer-id `def123`
+```
+
+## Troubleshooting Lambda authorizers
+
+If API Gateway can't invoke your Lambda authorizer, or your Lambda authorizer returns a
+response in an invalid format, clients receive a `500 Internal Server
+ Error`.
+
+To troubleshoot errors, [enable access logging](http-api-logging.md "http-api-logging.md")
+for your API stage. Include the `$context.authorizer.error` logging variable
+in your log format.
+
+If the logs indicate that API Gateway doesn't have permission to invoke your function,
+update your function's resource policy or provide an IAM role to grant API Gateway
+permission to invoke your authorizer.
+
+If the logs indicate that your Lambda function returns an invalid response, verify that your Lambda function returns a response in the [required format](#http-api-lambda-authorizer.payload-format-response "#http-api-lambda-authorizer.payload-format-response").

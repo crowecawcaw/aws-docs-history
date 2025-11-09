@@ -61,27 +61,108 @@ You can only use wildcards in the header glob value, and the wildcard must be `*
 `suffix-match*`, or `*contains*`. The following table shows examples for how to use
 wildcards for matching for header conditions.
 
-| Header conditions
-| Requests that match the routing rule
-| Requests that don't match the routing rule
-|
-| --- | --- | --- |
-| `x-version: a*` | <br>• `x-version: account` <br>• `x-version: alpha` | <br>• `x-version: backup` <br>• `x-version: beta` <br>• `x-version: users` |
-| `x-version: *a` | <br>• `x-version: alpha` <br>• `x-version: beta` | <br>• `x-version: account` <br>• `x-version: backup` <br>• `x-version: users` |
-| `x-version: *a*` | <br>• `x-version: account` <br>• `x-version: alpha` <br>• `x-version: backup` <br>• `x-version: beta` | <br>• `x-version: users` |
-| `x-version: *a*` and `x-version: *b*` | <br>• `x-version: backup` <br>• `x-version: beta` | <br>• `x-version: account` <br>• `x-version: alpha` <br>• `x-version: users` |
-| `x-version: b*` and `x-version: *a` | <br>• `x-version: beta` | <br>• `x-version: account` <br>• `x-version: alpha` <br>• `x-version: backup` <br>• `x-version: users` |
-| `x-version: *` | <br>• `x-version: account` <br>• `x-version: alpha` <br>• `x-version: backup` <br>• `x-version: beta` <br>• `x-version: users` | None | If you create conditions for multiple header values, such as `Accept:application/json,text/xml`, we recommend that you use `*contains*` for your header conditions and avoid creating conditions using the comma (`,`) character. Because API Gateway matches header conditions literally, semantic matches might be routed differently. The following table shows the difference in routing rules outcomes.
-| Header conditions | Requests that match the routing rule | Requests that don't match the routing rule |
-| --- | --- | --- |
-| `Accept: *json` | <br>• `Accept:application/json Accept:text/xml` | <br>• `Accept:application/json,text/xml` |
-| `Accept: *json*` | <br>• `Accept:application/json Accept:text/xml` <br>• `Accept:application/json,text/xml` | None | ### Match base path conditions When you create a base path condition, if the incoming request contains the path you specified, the rule is matched. The matching is case sensitive, so the path `New/Users` will not match with `new/users`. You can create a base path condition for only one base path. For a list of restricted base path conditions, [Restrictions](#rest-api-routing-rules-restrictions "#rest-api-routing-rules-restrictions"). #### Strip the base path with base path conditions When you create a base path condition, you can choose to strip the base path. When you strip the base path, API Gateway removes the incoming matched base path when it invokes the target API. This is the same behavior as when you use an API mapping. When you don't strip the base path, API Gateway forwards the entire base path to the target API. We recommend that you only strip the base path when you are recreating an API mapping. The following table shows examples for how API Gateway evaluates the strip base path condition.
-| Condition | Strip base path | Incoming request | Result
-|
-| --- | --- | --- | --- |
-| If base path contains `PetStoreShopper/dogs` | True | `GET https://example.com/PetStoreShopper/dogs` | API Gateway calls the `GET` method of the `/` resource. |
-| If base path contains `PetStoreShopper/dogs`. | False | `GET https://example.com/PetStoreShopper/dogs` | API Gateway calls the `GET` method of the `PetStoreShopper/dogs` resource. |
-| If base path contains `PetStoreShopper` | True | `GET https://example.com/PetStoreShopper/dogs` | API Gateway calls the `GET` method of the `dogs` resource. |
-| If base path contains `PetStoreShopper` | False | `GET https://example.com/PetStoreShopper/dogs` | API Gateway calls the `GET` method of the `PetStoreShopper/dogs` resource. |
-| If base path contains `PetStoreShopper` | True | `GET https://example.com/PetStoreShopper?birds=available` | API Gateway calls the `GET` method of the `/` resource with the query string parameter `birds=available`. |
-| If base path contains `PetStoreShopper` | False | `GET https://example.com/PetStoreShopper?birds=available` | API Gateway calls the `GET` method of the `/PetStoreShopper` resource with the query string parameter `birds=available`. | ## Restrictions <br>• The target API and the custom domain name must be in the same AWS account. <br>• Each rule can have one target API. <br>• You can only create a routing rule for a private custom domain name to a private API, and for a public custom domain name to a public API. You can't mix public and private resources. <br>• If your custom domain name has API mappings to both REST and HTTP APIs, routing rules isn't supported. <br>• The maximum priority number is 1,000,000. <br>• Header restrictions: + Each `anyOf` condition can only contain one header value. + The only allowed characters for header names and header glob values are specified by [RFC 7230](https://datatracker.ietf.org/doc/html/rfc7230 "https://datatracker.ietf.org/doc/html/rfc7230"), which are `a-z`, `A-Z`, `0-9`, and the following special characters: `*?-!#$%&'.^_`|~`. + You can use a wildcard in the header glob value, but the wildcard must be `_prefix-match`, `suffix-match_`, or `_contains_`. You can't use `_`in the middle of a header glob value. + Wildcard header names aren't supported. + The header name must be less than 40 characters. + The header glob value must be less than 128 characters. + The header glob value for an infix match must be less than 40 characters. + The following headers aren't supported as conditions: <br>•`access-control-_`<br>•`apigw-_`<br>•`Authorization`<br>•`Connection`<br>•`Content-Encoding`<br>•`Content-Length`<br>•`Content-Location`<br>•`Forwarded`<br>•`Keep-Alive`<br>•`Origin`<br>•`Proxy-Authenticate`<br>•`Proxy-Authorization`<br>•`TE`<br>•`Trailers`<br>•`Transfer-Encoding`<br>•`Upgrade`<br>•`x-amz-_`<br>•`x-amzn-_`<br>•`x-apigw-api-id`<br>•`X-Forwarded-For`<br>•`X-Forwarded-Host`<br>•`X-Forwarded-Proto`<br>•`x-restAPI`<br>•`Via`<br>• Base path restrictions: + The base path length must be less than 128 characters. + The base path must contain only letters, numbers, and the following characters:`$-\_.+!_'()/`. These characters aren't supported for regular expressions (regex). + The base path can't start or end with backslash (`\`) character.
+| Header conditions                     | Requests that match the routing rule                                                                                   | Requests that don't match the routing rule                                                      |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `x-version: a*`                       | • `x-version: account`<br>• `x-version: alpha`                                                                         | • `x-version: backup`<br>• `x-version: beta`<br>• `x-version: users`                            |
+| `x-version: *a`                       | • `x-version: alpha`<br>• `x-version: beta`                                                                            | • `x-version: account`<br>• `x-version: backup`<br>• `x-version: users`                         |
+| `x-version: *a*`                      | • `x-version: account`<br>• `x-version: alpha`<br>• `x-version: backup`<br>• `x-version: beta`                         | • `x-version: users`                                                                            |
+| `x-version: *a*` and `x-version: *b*` | • `x-version: backup`<br>• `x-version: beta`                                                                           | • `x-version: account`<br>• `x-version: alpha`<br>• `x-version: users`                          |
+| `x-version: b*` and `x-version: *a`   | • `x-version: beta`                                                                                                    | • `x-version: account`<br>• `x-version: alpha`<br>• `x-version: backup`<br>• `x-version: users` |
+| `x-version: *`                        | • `x-version: account`<br>• `x-version: alpha`<br>• `x-version: backup`<br>• `x-version: beta`<br>• `x-version: users` | None                                                                                            |
+
+If you create conditions for multiple header values, such as
+`Accept:application/json,text/xml`, we recommend that you use `*contains*` for your
+header conditions and avoid creating conditions using the comma (`,`) character.
+
+Because API Gateway matches header conditions literally, semantic matches might be routed differently. The
+following table shows the difference in routing rules outcomes.
+
+| Header conditions | Requests that match the routing rule                                                   | Requests that don't match the routing rule |
+| ----------------- | -------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `Accept: *json`   | • `Accept:application/json<br>Accept:text/xml`                                         | • `Accept:application/json,text/xml`       |
+| `Accept: *json*`  | • `Accept:application/json<br>Accept:text/xml`<br>• `Accept:application/json,text/xml` | None                                       |
+
+### Match base path conditions
+
+When you create a base path condition, if the incoming request contains the path you specified, the rule
+is matched. The matching is case sensitive, so the path `New/Users` will not match with
+`new/users`.
+
+You can create a base path condition for only one base path.
+
+For a list of restricted base path conditions, [Restrictions](#rest-api-routing-rules-restrictions "#rest-api-routing-rules-restrictions").
+
+#### Strip the base path with base path conditions
+
+When you create a base path condition, you can choose to strip the base path. When you strip the base
+path, API Gateway removes the incoming matched base path when it invokes the target API. This is the same behavior
+as when you use an API mapping. When you don't strip the base path, API Gateway forwards the entire base path
+to the target API. We recommend that you only strip the base path when you are recreating an API
+mapping.
+
+The following table shows examples for how API Gateway evaluates the strip base path condition.
+
+| Condition                                     | Strip base path | Incoming request                                          | Result                                                                                                                         |
+| --------------------------------------------- | --------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| If base path contains `PetStoreShopper/dogs`  | True            | `GET https://example.com/PetStoreShopper/dogs`            | API Gateway calls the `GET` method of the `/` resource.                                                                        |
+| If base path contains `PetStoreShopper/dogs`. | False           | `GET https://example.com/PetStoreShopper/dogs`            | API Gateway calls the `GET` method of the<br>`PetStoreShopper/dogs` resource.                                                  |
+| If base path contains `PetStoreShopper`       | True            | `GET https://example.com/PetStoreShopper/dogs`            | API Gateway calls the `GET` method of the<br>`dogs` resource.                                                                  |
+| If base path contains `PetStoreShopper`       | False           | `GET https://example.com/PetStoreShopper/dogs`            | API Gateway calls the `GET` method of the<br>`PetStoreShopper/dogs` resource.                                                  |
+| If base path contains `PetStoreShopper`       | True            | `GET https://example.com/PetStoreShopper?birds=available` | API Gateway calls the `GET` method of the<br>`/` resource with the query string parameter<br>`birds=available`.                |
+| If base path contains `PetStoreShopper`       | False           | `GET https://example.com/PetStoreShopper?birds=available` | API Gateway calls the `GET` method of the<br>`/PetStoreShopper` resource with the query string parameter<br>`birds=available`. |
+
+## Restrictions
+
+- The target API and the custom domain name must be in the same AWS account.
+- Each rule can have one target API.
+- You can only create a routing rule for a private custom domain name to a private API, and for a public
+  custom domain name to a public API. You can't mix public and private resources.
+- If your custom domain name has API mappings to both REST and HTTP APIs, routing rules isn't
+  supported.
+- The maximum priority number is 1,000,000.
+- Header restrictions:
+  - Each `anyOf` condition can only contain one header value.
+  - The only allowed characters for header names and header glob values are specified by [RFC 7230](https://datatracker.ietf.org/doc/html/rfc7230 "https://datatracker.ietf.org/doc/html/rfc7230"), which are `a-z`,
+    `A-Z`, `0-9`, and the following special characters:
+    `*?-!#$%&'.^_`|~`.
+  - You can use a wildcard in the header glob value, but the wildcard must be `*prefix-match`,
+    `suffix-match*`, or `*contains*`. You can't use
+    `*` in the middle of a header glob
+    value.
+  - Wildcard header names aren't supported.
+  - The header name must be less than 40 characters.
+  - The header glob value must be less than 128 characters.
+  - The header glob value for an infix match must be less than 40 characters.
+  - The following headers aren't supported as conditions:
+    - `access-control-*`
+    - `apigw-*`
+    - `Authorization`
+    - `Connection`
+    - `Content-Encoding`
+    - `Content-Length`
+    - `Content-Location`
+    - `Forwarded`
+    - `Keep-Alive`
+    - `Origin`
+    - `Proxy-Authenticate`
+    - `Proxy-Authorization`
+    - `TE`
+    - `Trailers`
+    - `Transfer-Encoding`
+    - `Upgrade`
+    - `x-amz-*`
+    - `x-amzn-*`
+    - `x-apigw-api-id`
+    - `X-Forwarded-For`
+    - `X-Forwarded-Host`
+    - `X-Forwarded-Proto`
+    - `x-restAPI`
+    - `Via`
+
+- Base path restrictions:
+  - The base path length must be less than 128 characters.
+  - The base path must contain only letters, numbers, and the following characters:
+    `$-_.+!*'()/`.
+
+  These characters aren't supported for regular expressions (regex).
+  - The base path can't start or end with backslash (`\`) character.
