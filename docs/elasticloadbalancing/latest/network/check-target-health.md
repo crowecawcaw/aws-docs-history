@@ -44,9 +44,52 @@ aws elbv2 describe-target-health \
 
 The following is example output.
 
-````
+```
 ----------------------------------------------
-|            DescribeTargetHealth            | +--------------+---------+-------------------+
+|            DescribeTargetHealth            |
++--------------+---------+-------------------+
 |  172.31.0.57 |  unused |  Target.NotInUse  |
-|  172.31.0.50 |  unused |  Target.NotInUse  | +--------------+---------+-------------------+ ``` ## Target states and reason codes The following list shows the possible reason codes for each target state. **Target state is healthy** A reason code is not provided. **Target state is initial** <br>• `Elb.RegistrationInProgress` - The target is in the process of being registered with the load balancer. <br>• `Elb.InitialHealthChecking` - The load balancer is still sending the target the minimum number of health checks required to determine its health status. **Target state is unhealthy** <br>• `Target.FailedHealthChecks` - The load balancer received an error while establishing a connection to the target or the target response was malformed. **Target state is unused** <br>• `Target.NotRegistered` - The target is not registered with the target group. <br>• `Target.NotInUse` - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer. <br>• `Target.InvalidState` - The target is in the stopped or terminated state. <br>• `Target.IpUnusable` - The target IP address is reserved for use by a load balancer. **Target state is draining** <br>• `Target.DeregistrationInProgress` - The target is in the process of being deregistered and the deregistration delay period has not expired. **Target state is unavailable** <br>• `Elb.InternalError` - Target health is unavailable due to an internal error.
-````
+|  172.31.0.50 |  unused |  Target.NotInUse  |
++--------------+---------+-------------------+
+```
+
+## Target states and reason codes
+
+The following list shows the possible reason codes for each target state.
+
+**Target state is healthy**
+
+A reason code is not provided.
+
+**Target state is initial**
+
+- `Elb.RegistrationInProgress` - The target is in the process of being registered
+  with the load balancer.
+- `Elb.InitialHealthChecking` - The load balancer is still sending the target the
+  minimum number of health checks required to determine its health status.
+
+**Target state is unhealthy**
+
+- `Target.FailedHealthChecks` - The load balancer received an error while
+  establishing a connection to the target or the target response was malformed.
+
+**Target state is unused**
+
+- `Target.NotRegistered` - The target is not registered with the target
+  group.
+- `Target.NotInUse` - The target group is not used by any load balancer or
+  the target is in an Availability Zone that is not enabled for its load balancer.
+- `Target.InvalidState` - The target is in the stopped or terminated
+  state.
+- `Target.IpUnusable` - The target IP address is reserved for use by a load
+  balancer.
+
+**Target state is draining**
+
+- `Target.DeregistrationInProgress` - The target is in the process of being
+  deregistered and the deregistration delay period has not expired.
+
+**Target state is unavailable**
+
+- `Elb.InternalError` - Target health is unavailable due to an internal
+  error.
