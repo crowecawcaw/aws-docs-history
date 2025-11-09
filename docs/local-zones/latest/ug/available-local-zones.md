@@ -10,7 +10,7 @@ For more information on Local Zone terms, see [Concepts](concepts-local-zones.md
 The following Local Zones are available:
 
 | Local Zone Name           | Local Zone Code         | Local Zone ID    | Network Border Group   | Parent Region Code | Parent Zone ID |
-| ------------------------- | ----------------------- | ---------------- | ---------------------- | ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ----------------------- | ---------------- | ---------------------- | ------------------ | -------------- |
 | Argentina (Buenos Aires)  | `us-east-1-bue-1a`      | `use1-bue1-az1`  | `us-east-1-bue-1`      | `us-east-1`        | `use1-az2`     |
 | Australia (Perth)         | `ap-southeast-2-per-1a` | `apse2-per1-az1` | `ap-southeast-2-per-1` | `ap-southeast-2`   | `apse2-az1`    |
 | Chile (Santiago)          | `us-east-1-scl-1a`      | `use1-scl1-az1`  | `us-east-1-scl-1`      | `us-east-1`        | `use1-az1`     |
@@ -52,4 +52,58 @@ The following Local Zones are available:
 | US West (Phoenix) 2       | `us-west-2-phx-2a`      | `usw2-phx2-az1`  | `us-west-2-phx-2`      | `us-west-2`        | `usw2-az2`     |
 | US West (Phoenix)\*       | `us-west-2-phx-1a`      | `usw2-phx1-az1`  | `us-west-2-phx-1`      | `us-west-2`        | `usw2-az2`     |
 | US West (Portland)        | `us-west-2-pdx-1a`      | `usw2-pdx1-az1`  | `us-west-2-pdx-1`      | `us-west-2`        | `usw2-az3`     |
-| US West (Seattle)         | `us-west-2-sea-1a`      | `usw2-sea1-az1`  | `us-west-2-sea-1`      | `us-west-2`        | `usw2-az1`     | ###### Note \* Contact Support to request access. For the complete list of supported and announced Local Zones, see [AWS Local Zones Locations](https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/ "https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/"). ## Find your Local Zones using the AWS CLI Use the [describe-availability-zones](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-availability-zones.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-availability-zones.html") command to get a details of the Local Zones available in a specific Region, for your account. The following example shows how to run the `describe-availability-zones` command: ``aws ec2 describe-availability-zones \ --region `us-west-2` \ --filters Name=zone-type,Values=local-zone \ --all-availability-zones`` The following example shows an output of the `describe-availability-zones` command: `{ "State": "available", "OptInStatus": "opted-in", "Messages": [], "RegionName": "us-west-2", "ZoneName": "us-west-2-lax-1a", "ZoneId": "usw2-lax1-az1", "GroupName": "us-west-2-lax-1", "NetworkBorderGroup": "us-west-2-lax-1", "ZoneType": "local-zone", "ParentZoneName": "us-west-2a", "ParentZoneId": "usw2-az2" }, { "State": "available", "OptInStatus": "opted-in", "Messages": [], "RegionName": "us-west-2", "ZoneName": "us-west-2-lax-1b", "ZoneId": "usw2-lax1-az2", "GroupName": "us-west-2-lax-1", "NetworkBorderGroup": "us-west-2-lax-1", "ZoneType": "local-zone", "ParentZoneName": "us-west-2d", "ParentZoneId": "usw2-az4" }` |
+| US West (Seattle)         | `us-west-2-sea-1a`      | `usw2-sea1-az1`  | `us-west-2-sea-1`      | `us-west-2`        | `usw2-az1`     |
+
+###### Note
+
+\* Contact Support to request access.
+
+For the complete list of supported and announced Local Zones, see [AWS Local Zones
+Locations](https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/ "https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/").
+
+## Find your Local Zones using the AWS CLI
+
+Use the [describe-availability-zones](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-availability-zones.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-availability-zones.html") command to get a details of the Local Zones available in a
+specific Region, for your account.
+
+The following example shows how to run the `describe-availability-zones`
+command:
+
+```
+aws ec2 describe-availability-zones \
+  --region `us-west-2` \
+  --filters Name=zone-type,Values=local-zone \
+  --all-availability-zones
+```
+
+The following example shows an output of the `describe-availability-zones`
+command:
+
+```
+{
+            "State": "available",
+            "OptInStatus": "opted-in",
+            "Messages": [],
+            "RegionName": "us-west-2",
+            "ZoneName": "us-west-2-lax-1a",
+            "ZoneId": "usw2-lax1-az1",
+            "GroupName": "us-west-2-lax-1",
+            "NetworkBorderGroup": "us-west-2-lax-1",
+            "ZoneType": "local-zone",
+            "ParentZoneName": "us-west-2a",
+            "ParentZoneId": "usw2-az2"
+        },
+        {
+            "State": "available",
+            "OptInStatus": "opted-in",
+            "Messages": [],
+            "RegionName": "us-west-2",
+            "ZoneName": "us-west-2-lax-1b",
+            "ZoneId": "usw2-lax1-az2",
+            "GroupName": "us-west-2-lax-1",
+            "NetworkBorderGroup": "us-west-2-lax-1",
+            "ZoneType": "local-zone",
+            "ParentZoneName": "us-west-2d",
+            "ParentZoneId": "usw2-az4"
+        }
+```
