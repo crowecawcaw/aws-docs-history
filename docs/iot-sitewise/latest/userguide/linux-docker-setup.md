@@ -619,8 +619,24 @@ After deployment, access the services using the following URLs and credentials:
 
 You can access each service from your host or the gateway machine.
 
-| Service access details | Service                                                                | URL                                          | Credentials                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------- | ---------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Node-RED               | [http://127.0.0.1:1880](http://127.0.0.1:1880 "http://127.0.0.1:1880") | No credentials required                      |
-| InfluxDB               | [http://127.0.0.1:8086](http://127.0.0.1:8086 "http://127.0.0.1:8086") | Username: admin Password: $INFLUXDB_PASSWORD |
-| Grafana                | [http://127.0.0.1:3000](http://127.0.0.1:3000 "http://127.0.0.1:3000") | Username: admin Password: $GRAFANA_PASSWORD  | ## Verify the deployment To ensure your deployment is successful, perform the following checks: 1. For Node-RED, verify the presence of two preloaded flows: <br>• Data publish flow <br>• Data retention flow 2. For AWS IoT SiteWise, in the AWS IoT SiteWise console, confirm the presence of a data stream with the alias `/Renton/WindFarm/Turbine/WindSpeed`. 3. For InfluxDB, use the Data Explorer to verify data storage in the `TurbineData` measurement within the `WindFarmData` bucket. 4. For Grafana, view the dashboard to confirm the display of time series data generated from Node-RED. |
+| Service access details | Service                                                                | URL                                             | Credentials |
+| ---------------------- | ---------------------------------------------------------------------- | ----------------------------------------------- | ----------- |
+| Node-RED               | [http://127.0.0.1:1880](http://127.0.0.1:1880 "http://127.0.0.1:1880") | No credentials required                         |
+| InfluxDB               | [http://127.0.0.1:8086](http://127.0.0.1:8086 "http://127.0.0.1:8086") | Username: admin<br>Password: $INFLUXDB_PASSWORD |
+| Grafana                | [http://127.0.0.1:3000](http://127.0.0.1:3000 "http://127.0.0.1:3000") | Username: admin<br>Password: $GRAFANA_PASSWORD  |
+
+## Verify the deployment
+
+To ensure your deployment is successful, perform the following checks:
+
+1. For Node-RED, verify the presence of two preloaded flows:
+   - Data publish flow
+   - Data retention flow
+
+2. For AWS IoT SiteWise, in the AWS IoT SiteWise console, confirm the presence of a data stream with the
+   alias `/Renton/WindFarm/Turbine/WindSpeed`.
+3. For InfluxDB, use the Data Explorer to verify data storage in the
+   `TurbineData` measurement within the `WindFarmData`
+   bucket.
+4. For Grafana, view the dashboard to confirm the display of time series data
+   generated from Node-RED.

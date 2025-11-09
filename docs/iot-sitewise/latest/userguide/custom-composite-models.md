@@ -37,21 +37,172 @@ a power supply, and a battery. Each of those constituent parts has its own prope
 you want to include in the model. You might define an asset model called `robot_model`
 that has properties such as the following.
 
-|                                                                                                                                                                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <br>• `robot_model` + `servo_status` _(integer)_ + `servo_position` _(double)_ + `powersupply_status` _(integer)_ + `powersupply_temperature` _(double)_ + `battery_status` _(integer)_ + `battery_charge` _(double)_                                                                       | However, in some cases, there might be many subassemblies, or the subassemblies themselves might have many properties. In these cases, there might be so many properties that they become cumbersome to reference and maintain in a single flat list at the model root, like in the preceding example. To deal with such situations, you can use an inline custom composite model to group properties. An inline custom composite model is a custom composite model that defines its own properties. For example, you could model your robot like the following.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|                                                                                                                                                                                                                                                                                             |
-| ---                                                                                                                                                                                                                                                                                         |
-| <br>• `robot_model` + `servo` <br>• `status` _(integer)_ <br>• `position` _(double)_ + `powersupply` <br>• `status` _(integer)_ <br>• `temperature` _(double)_ + `battery` <br>• `status` _(integer)_ <br>• `charge` _(double)_                                                             | In the preceding example, `servo`, `powersupply`, and `battery` are the names of inline custom composite models defined within the `robot_model` asset model. Each of these composite models then defines properties of its own. ###### Note In this case, each custom composite model defines its own properties, so that all the properties are part of the asset model itself (`robot_model` in this case). These properties aren't shared with any other asset models or component models. For example, if you created some other asset model that also had an inline custom composite model called `servo`, then making a change to the `servo` within `robot_model` wouldn't affect the other asset model's `servo` definition. If you want to implement such sharing (for example, to have only one definition for a servo, which all your asset models can share), you would create a component model for it instead, and then create **component-model-based** composite models that reference it. See the following section for details. For information about how to create inline custom composite models, see [Create custom composite models (components)](create-custom-composite-models.md "create-custom-composite-models.md"). ## Component-model-based custom composite models You can create a component model in AWS IoT SiteWise to define a standard, reusable sub-assembly. Once you have created a component model, you can add references to it in your other asset models and component models. You do this by adding a **component-model-based custom composite model** to any model where you want to reference the component. You can add references to your component from many models, or multiple times within the same model. In this way, you can avoid duplicating the same definitions across models. It also simplifies maintaining your models, because any changes you make to a component model will be reflected across all asset models that use it. For example, suppose that your industrial installation has many types of equipment that all use the same kind of servo motor. Some of them have many servo motors in a single piece of equipment. You create an asset model for each equipment type, but you don't want to duplicate the definition of `servo` every time. You want to model it just once and use it in your various asset models. If you later make a change to the definition of `servo`, it will be updated across all your models and assets. To model the robot from the previous example in this way, you could define servo motors, power supplies, and batteries as component models, like this.                                                                                                                                                                                                                                                                                                      |
-|                                                                                                                                                                                                                                                                                             |
-| ---                                                                                                                                                                                                                                                                                         |
-| <br>• `servo_component_model` + `status` _(integer)_ + `position` _(double)_                                                                                                                                                                                                                |
-|                                                                                                                                                                                                                                                                                             |
-| ---                                                                                                                                                                                                                                                                                         |
-| <br>• `powersupply_component_model` + `status` _(integer)_ + `temperature` _(double)_                                                                                                                                                                                                       |
-|                                                                                                                                                                                                                                                                                             |
-| ---                                                                                                                                                                                                                                                                                         |
-| <br>• `battery__component_model` + `status` _(integer)_ + `charge` _(double)_                                                                                                                                                                                                               | You could then define asset models, such as `robot_model`, that reference these components. Multiple asset models can reference the same component model. You can also reference the same component model multiple times in one asset model, such as if your robot has multiple servomotors in it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                                                                                                                                                                                                                                                                                             |
-| ---                                                                                                                                                                                                                                                                                         |
-| <br>• `robot_model` + `servo1` (_reference:_ `servo_component_model`) + `servo2` (_reference:_ `servo_component_model`) + `servo3` (_reference:_ `servo_component_model`) + `powersupply` (_reference:_ `powersupply_component_model`) + `battery` (_reference:_ `battery_component_model`) | For information about how to create component models, see [Create component models](create-component-models.md "create-component-models.md"). For information about how to reference your component models in other models, see [Create custom composite models (components)](create-custom-composite-models.md "create-custom-composite-models.md"). ## Use paths to reference custom composite model properties When you create a property on an asset model, component model, or custom composite model, you can reference it from other properties that use its value, such as [transforms](transforms.md "transforms.md") and [metrics](metrics.md "metrics.md"). AWS IoT SiteWise provides different ways for you to reference your property. The simplest way is often to use its property ID. However, if the property you want to reference is on a custom composite model, you may find it more useful to reference it by _path_ instead. A path is an ordered sequence of _path segments_ that specifies a property in terms of its position among the nested composite models within an asset model and composite model. ### Obtain property paths You can get a property's path from the `path` field of its [AssetModelProperty](../APIReference/API_AssetModelProperty.md "../APIReference/API_AssetModelProperty.md"). For example, suppose you have an asset model `robot_model` that contains a custom composite model `servo`, which has a property `position`. If you call [DescribeAssetModelCompositeModel](../APIReference/API_DescribeAssetModelCompositeModel.md "../APIReference/API_DescribeAssetModelCompositeModel.md") on `servo`, then the `position` property would list a `path` field that looks like this: ``"path": [ { "id": "`asset model ID`", "name": "robot_model" }, { "id": "`composite model ID`", "name": "servo" }, { "id": "`property ID`", "name": "position" } ]`` ### Using property paths You can use a property path when you define a property that references other properties, such as a transform or metric. A property uses a _variable_ to reference another property. For more information about working with variables, see [Use variables in formula expressions](expression-variables.md "expression-variables.md"). When you define a variable to reference a property, you can use either the property's ID or its path. To define a variable that uses the path of the referenced property, specify the `propertyPath` field of its value. For example, to define an asset model that has a metric that references a property by using a path, you could pass a payload like this to [CreateAssetModel](../APIReference/API_CreateAssetModel.md "../APIReference/API_CreateAssetModel.md"): ``{ `...` "assetModelProperties": [ { `...` "type": { "metric": { `...` "variables": [ { "name": "`variable name`", "value": { "propertyPath": [ `path segments` ] } } ], `...` } }, `...` }, `...` ], `...` }`` |
+|                                                                                                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • `robot_model`<br>+ `servo_status` _(integer)_<br>+ `servo_position` _(double)_<br>+ `powersupply_status` _(integer)_<br>+ `powersupply_temperature` _(double)_<br>+ `battery_status` _(integer)_<br>+ `battery_charge` _(double)_ |
+
+However, in some cases, there might be many subassemblies, or the subassemblies themselves might have many
+properties. In these cases, there might be so many properties that they become cumbersome to reference and
+maintain in a single flat list at the model root, like in the preceding example.
+
+To deal with such situations, you can use an inline custom composite model to group properties. An inline
+custom composite model is a custom composite model that defines its own properties. For example, you could model
+your robot like the following.
+
+|                                                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| • `robot_model`<br>+ `servo`<br>• `status` _(integer)_<br>• `position` _(double)_<br>+ `powersupply`<br>• `status` _(integer)_<br>• `temperature` _(double)_<br>+ `battery`<br>• `status` _(integer)_<br>• `charge` _(double)_ |
+
+In the preceding example, `servo`, `powersupply`, and `battery` are the names of
+inline custom composite models defined within the `robot_model` asset model. Each of these composite models then defines
+properties of its own.
+
+###### Note
+
+In this case, each custom composite model defines its own properties, so that all the properties are
+part of the asset model itself (`robot_model` in this case). These properties aren't shared with
+any other asset models or component models. For example, if you created some other asset model that also
+had an inline custom composite model called `servo`, then making a change to the `servo`
+within `robot_model` wouldn't affect the other asset model's `servo` definition.
+
+If you want to implement such sharing (for example, to have only one definition for a servo, which all your
+asset models can share), you would create a component model for it instead, and then create
+**component-model-based** composite models that reference it. See the
+following section for details.
+
+For information about how to create inline custom composite models, see [Create custom composite models (components)](create-custom-composite-models.md "create-custom-composite-models.md").
+
+## Component-model-based custom composite models
+
+You can create a component model in AWS IoT SiteWise to define a standard, reusable sub-assembly. Once you have created
+a component model, you can add references to it in your other asset models and component models. You do this
+by adding a **component-model-based custom composite model** to any model where you
+want to reference the component. You can add references to your component from many models, or multiple
+times within the same model.
+
+In this way, you can avoid duplicating the same definitions across models. It also simplifies maintaining
+your models, because any changes you make to a component model will be reflected across all asset models that
+use it.
+
+For example, suppose that your industrial installation has many types of equipment that all use the same
+kind of servo motor. Some of them have many servo motors in a single piece of equipment. You create an asset
+model for each equipment type, but you don't want to duplicate the definition of `servo` every time.
+You want to model it just once and use it in your various asset models. If you later make a change to the
+definition of `servo`, it will be updated across all your models and assets.
+
+To model the robot from the previous example in this way, you could define servo motors, power supplies, and
+batteries as component models, like this.
+
+|                                                                                |
+| ------------------------------------------------------------------------------ |
+| • `servo_component_model`<br>+ `status` _(integer)_<br>+ `position` _(double)_ |
+
+|                                                                                         |
+| --------------------------------------------------------------------------------------- |
+| • `powersupply_component_model`<br>+ `status` _(integer)_<br>+ `temperature` _(double)_ |
+
+|                                                                                 |
+| ------------------------------------------------------------------------------- |
+| • `battery__component_model`<br>+ `status` _(integer)_<br>+ `charge` _(double)_ |
+
+You could then define asset models, such as `robot_model`, that reference these components. Multiple
+asset models can reference the same component model. You can also reference the same component model multiple times
+in one asset model, such as if your robot has multiple servomotors in it.
+
+|                                                                                                                                                                                                                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • `robot_model`<br>+ `servo1` (*reference:<br>• `servo_component_model`)<br>+ `servo2` (*reference:<br>• `servo_component_model`)<br>+ `servo3` (*reference:<br>• `servo_component_model`)<br>+ `powersupply` (*reference:<br>• `powersupply_component_model`)<br>+ `battery` (\*reference:<br>• `battery_component_model`) |
+
+For information about how to create component models, see [Create component models](create-component-models.md "create-component-models.md").
+
+For information about how to reference your component models in other models, see [Create custom composite models (components)](create-custom-composite-models.md "create-custom-composite-models.md").
+
+## Use paths to reference custom composite model
+
+properties
+
+When you create a property on an asset model, component model, or custom composite model, you can
+reference it from other properties that use its value, such as [transforms](transforms.md "transforms.md")
+and [metrics](metrics.md "metrics.md").
+
+AWS IoT SiteWise provides different ways for you to reference your property. The simplest way is often to use
+its property ID. However, if the property you want to reference is on a custom composite model,
+you may find it more useful to reference it by _path_ instead.
+
+A path is an ordered sequence of _path segments_ that specifies a property in terms of
+its position among the nested composite models within an asset model and composite model.
+
+### Obtain property paths
+
+You can get a property's path from the `path` field of its
+[AssetModelProperty](../APIReference/API_AssetModelProperty.md "../APIReference/API_AssetModelProperty.md").
+
+For example, suppose you have an asset model `robot_model` that contains a custom composite
+model `servo`, which has a property `position`. If you call [DescribeAssetModelCompositeModel](../APIReference/API_DescribeAssetModelCompositeModel.md "../APIReference/API_DescribeAssetModelCompositeModel.md") on
+`servo`, then the `position` property would list a `path` field that looks
+like this:
+
+```
+"path": [
+    {
+       "id": "`asset model ID`",
+       "name": "robot_model"
+    },
+    {
+       "id": "`composite model ID`",
+       "name": "servo"
+    },
+    {
+       "id": "`property ID`",
+       "name": "position"
+    }
+]
+```
+
+### Using property paths
+
+You can use a property path when you define a property that references other
+properties, such as a transform or metric.
+
+A property uses a _variable_ to reference another property.
+For more information about working with variables, see [Use variables in formula expressions](expression-variables.md "expression-variables.md").
+
+When you define a variable to reference a property, you can use either the property's
+ID or its path.
+
+To define a variable that uses the path of the referenced property, specify the
+`propertyPath` field of its value.
+
+For example, to define an asset model that has a metric that references a property
+by using a path, you could pass a payload like this to
+[CreateAssetModel](../APIReference/API_CreateAssetModel.md "../APIReference/API_CreateAssetModel.md"):
+
+```
+{
+    `...`
+    "assetModelProperties": [
+        {
+            `...`
+            "type": {
+                "metric": {
+                    `...`
+                    "variables": [
+                        {
+                            "name": "`variable name`",
+                            "value": {
+                                "propertyPath": [
+                                    `path segments`
+                                ]
+                            }
+                        }
+                    ],
+                    `...`
+                }
+            },
+            `...`
+        },
+        `...`
+    ],
+    `...`
+}
+```

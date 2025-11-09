@@ -102,10 +102,51 @@ JOIN asset_property p ON a.asset_id = p.asset_id
 The following implicit joins are allowed (O is allowed, X is prohibited):
 
 |                          | asset | asset_property | latest_value_time_series | raw_time_series | precomputed_aggregates | subquery |
-| ------------------------ | ----- | -------------- | ------------------------ | --------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ----- | -------------- | ------------------------ | --------------- | ---------------------- | -------- |
 | asset                    | X     | O              | O                        | O               | O                      | X        |
 | asset_property           | O     | X              | O                        | O               | O                      | X        |
 | latest_value_time_series | O     | O              | X                        | X               | X                      | X        |
 | raw_time_series          | O     | O              | X                        | X               | X                      | X        |
 | precomputed_aggregates   | O     | O              | X                        | X               | X                      | X        |
-| subquery                 | X     | X              | X                        | X               | X                      | X        | Use implicit `JOIN`s where possible. If you must use the `JOIN` keyword, apply filters on the individual `JOIN`ed tables to minimize data scanned. For example, instead of this query: `SELECT level1.asset_id, level2.asset_id, level3.asset_id FROM asset AS level1 JOIN asset AS level2 ON level2.parent_asset_id = level1.asset_id JOIN asset AS level3 ON level3.parent_asset_id = level2.asset_id WHERE level1.asset_name LIKE 'level1%' AND level2.asset_name LIKE 'level2%' AND level3.asset_name LIKE 'level3%'` Use this more efficient query: `SELECT level1.asset_id, level2.asset_id, level3.asset_id FROM asset AS level1 JOIN (SELECT asset_id, parent_asset_id FROM asset WHERE asset_name LIKE 'level2%') AS level2 ON level2.parent_asset_id = level1.asset_id JOIN (SELECT asset_id, parent_asset_id FROM asset WHERE asset_name LIKE 'level3%') AS level3 ON level3.parent_asset_id = level2.asset_id WHERE level1.asset_name LIKE 'level1%'` By pushing metadata filters into subqueries, you ensure that individual tables in the `JOIN`s are filtered during the scanning process. You can also use the `LIMIT` keyword in subqueries for the same effect. ## Large queries For queries that produce more rows than the default, set the page size of the [ExecuteQuery](../APIReference/API_ExecuteQuery.md "../APIReference/API_ExecuteQuery.md") API to the maximum value of 20000. This improves overall query performance. Use the `LIMIT` clause to reduce the amount of data scanned for some queries. Note that aggregate functions and certain table-wide clauses (`GROUP BY`, `ORDER BY`, `JOIN`) require a full scan to complete before applying the `LIMIT` clause. ###### Note AWS IoT SiteWise may scan a minimum amount of data even with the `LIMIT` clause applied, especially for raw data queries that scan over multiple properties. |
+| subquery                 | X     | X              | X                        | X               | X                      | X        |
+
+Use implicit `JOIN`s where possible. If you must use the `JOIN` keyword, apply filters on the individual `JOIN`ed tables to minimize data scanned. For example, instead of this query:
+
+```
+SELECT level1.asset_id, level2.asset_id, level3.asset_id
+FROM asset AS level1
+JOIN asset AS level2 ON level2.parent_asset_id = level1.asset_id
+JOIN asset AS level3 ON level3.parent_asset_id = level2.asset_id
+WHERE level1.asset_name LIKE 'level1%'
+AND level2.asset_name LIKE 'level2%'
+AND level3.asset_name LIKE 'level3%'
+```
+
+Use this more efficient query:
+
+```
+SELECT level1.asset_id, level2.asset_id, level3.asset_id
+FROM asset AS level1
+JOIN (SELECT asset_id, parent_asset_id FROM asset WHERE asset_name LIKE 'level2%') AS level2 ON level2.parent_asset_id = level1.asset_id
+JOIN (SELECT asset_id, parent_asset_id FROM asset WHERE asset_name LIKE 'level3%') AS level3 ON level3.parent_asset_id = level2.asset_id
+WHERE level1.asset_name LIKE 'level1%'
+```
+
+By pushing metadata filters into subqueries, you ensure that individual tables in the `JOIN`s are
+filtered during the scanning process. You can also use the `LIMIT` keyword in subqueries for the same effect.
+
+## Large queries
+
+For queries that produce more rows than the default,
+set the page size of the
+[ExecuteQuery](../APIReference/API_ExecuteQuery.md "../APIReference/API_ExecuteQuery.md") API
+to the maximum value of 20000. This improves overall query performance.
+
+Use the `LIMIT` clause to reduce the amount of data scanned for some queries.
+Note that aggregate functions and certain table-wide clauses (`GROUP BY`, `ORDER BY`,
+`JOIN`) require a full scan to complete before applying the `LIMIT` clause.
+
+###### Note
+
+AWS IoT SiteWise may scan a minimum amount of data even with the `LIMIT` clause applied,
+especially for raw data queries that scan over multiple properties.

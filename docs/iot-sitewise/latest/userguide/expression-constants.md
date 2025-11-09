@@ -10,10 +10,10 @@ constants are case insensitive.
 If you define a variable with the same name as a constant, the variable overrides
 the constant.
 
-| Constant | Description                                                                                                                                                                                 |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pi`     | The number pi (`π`): `3.141592653589793`                                                                                                                                                    |
-| `e`      | The number e: `2.718281828459045`                                                                                                                                                           |
-| `true`   | Equivalent to the number 1. In AWS IoT SiteWise, Booleans convert to their number equivalents.                                                                                              |
-| `false`  | Equivalent to the number 0. In AWS IoT SiteWise, Booleans convert to their number equivalents.                                                                                              |
-| `none`   | Equivalent to no value. You can use this constant to output nothing as the result of a [conditional expression](expression-conditional-functions.md "expression-conditional-functions.md"). |
+| Constant | Description                                                                                                                                                                                       |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pi`     | The number pi (`π`): `3.141592653589793`                                                                                                                                                          |
+| `e`      | The number e: `2.718281828459045`                                                                                                                                                                 |
+| `true`   | Equivalent to the number 1. In AWS IoT SiteWise, Booleans convert to their number<br>equivalents.                                                                                                 |
+| `false`  | Equivalent to the number 0. In AWS IoT SiteWise, Booleans convert to their number<br>equivalents.                                                                                                 |
+| `none`   | Equivalent to no value. You can use this constant to output nothing as the<br>result of a [conditional<br>expression](expression-conditional-functions.md "expression-conditional-functions.md"). |
