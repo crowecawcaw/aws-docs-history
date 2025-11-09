@@ -24,7 +24,16 @@ This version of Aurora PostgreSQL Limitless Database is compatible with PostgreS
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL Limitless Database 16.9.101, November 6, 2025](#16.9.101 "#16.9.101")
 - [Aurora PostgreSQL Limitless Database 16.9.100, September 5, 2025](#16.9.100 "#16.9.100")
+
+### Aurora PostgreSQL Limitless Database 16.9.101, November 6, 2025
+
+**Bug fixes**
+
+- Fixed an issue where tables weren't deleted on shards when `CREATE`, `ALTER`, and `DROP` statements were repeatedly executed using prepared statements through JDBC or ODBC drivers (for example, when using `preferQueryMode=extendedCacheEverything` in JDBC), or when `CREATE`, `ALTER`, and `DROP` statements were executed as part of `PROCEDURE` or `FUNCTION`.
+- Fixed incorrect results when querying tables using `UNIQUE INDEX` scans while the table had broken Heap-Only Tuple (HOT) chains from `UPDATE` statements.
+- Fixed an issue where healthy nodes were unnecessarily replaced, causing system unavailability.
 
 ### Aurora PostgreSQL Limitless Database 16.9.100, September 5, 2025
 
