@@ -1,7 +1,67 @@
 # Module 2: Clean Up Resources
 
-|                      |                                                                                                                                                                                                                              |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Time to complete** | < 2 minutes                                                                                                                                                                                                                  |
-| **Required**         | AWS Account with administrator-level access NoteAccounts created within the past 24 hours might not yet have access to the services required for this tutorial. Recommended browser: The latest version of Chrome or Firefox |
-| **Last updated**     | March 17, 2023                                                                                                                                                                                                               | ## Overview If you followed the steps of this guide to experiment with Lightsail, and not to deploy a production-ready service, it is important to delete all cloud-based resources that you created. This will help you to avoid incurring charges on your AWS account. In this module, you will clean up the resources that you deployed in previous modules ## What you will accomplish In this module, you will: <br>• Clean up all resources used by an Amazon Lightsail deployment ## Implementation In this module, you will clean up the resources that you deployed in previous modules Amazon Lightsail makes it easy to delete your infrastructure with just one command. 1. Delete the instance Open your terminal and type the following command: `aws lightsail delete-instance --instance-name LightsailLampExample` 2. Delete the key pair To delete your SSH key pair, use this command: `aws lightsail delete-key-pair --key-pair-name LightsailGuide` 3. Verify deletion To verify all resources have been deleted, enter the following command: `aws lightsail get-instances` The command should output the following: `{    "instances": []}` ## Conclusion Congratulations! You have finished the  **Deploy a LAMP Web Application on Amazon Lightsail** tutorial. |
+|                      |                                                                                                                                                                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Time to complete** | < 2 minutes                                                                                                                                                                                                                           |
+| **Required**         | AWS Account with administrator-level access<br>NoteAccounts created within the past 24 hours might not yet have access to the<br>services required for this tutorial.<br>Recommended browser: The latest version of Chrome or Firefox |
+| **Last updated**     | March 17, 2023                                                                                                                                                                                                                        |
+
+## Overview
+
+If you followed the steps of this guide to experiment with
+Lightsail, and not to deploy a production-ready service, it is
+important to delete all cloud-based resources that you created.
+This will help you to avoid incurring charges on your AWS account.
+
+In this module, you will clean up the resources that you deployed
+in previous modules
+
+## What you will accomplish
+
+In this module, you will:
+
+- Clean up all resources used by an Amazon Lightsail deployment
+
+## Implementation
+
+In this module, you will clean up the resources that you deployed in previous modules
+
+Amazon Lightsail makes it easy to delete your infrastructure with just one command.
+
+1. Delete the instance
+
+Open your terminal and type the following command:
+
+```
+aws lightsail delete-instance --instance-name LightsailLampExample
+
+```
+
+2. Delete the key pair
+
+To delete your SSH key pair, use this command:
+
+```
+aws lightsail delete-key-pair --key-pair-name LightsailGuide
+
+```
+
+3. Verify deletion
+
+To verify all resources have been deleted, enter the following command:
+
+```
+aws lightsail get-instances
+```
+
+The command should output the following:
+
+```
+{    "instances": []}
+
+```
+
+## Conclusion
+
+Congratulations! You have finished the  **Deploy a LAMP Web Application
+on Amazon Lightsail** tutorial.
