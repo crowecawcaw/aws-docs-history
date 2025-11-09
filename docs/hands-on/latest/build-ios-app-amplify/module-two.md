@@ -1,9 +1,197 @@
 # Module 2: Initialize Amplify
 
-|                         |                                                                                  |
-| ----------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Time to complete**    | 10 minutes                                                                       |
-| **Services used**       | [AWS Amplify](https://aws.amazon.com/amplify/ "https://aws.amazon.com/amplify/") | ## Overview Now that you have created an iOS application, you will want to continue development and add new features. To start to use AWS Amplify in your application, you must install the Amplify command line, initialize the Amplify project directory, configure your project to use the Amplify libraries, and initialize Amplify libraries at runtime. ## What you will accomplish In this tutorial, you will: <br>• Initialize a new Amplify project <br>• Add Amplify libraries in your project <br>• Initialize Amplify libraries at runtime ## Key concepts **Amplify CLI** – Using the Amplify CLI you can create, manage, and remove AWS services directly from your terminal. **Amplify libraries** – Using Amplify libraries you can interact with AWS services from a web or mobile application. ## Implementation 1. Install the CLI To install AWS Amplify CLI, open Terminal, and enter the following command: ``` curl -sL https://aws-amplify.github.io/amplify-cli/install | bash && $SHELL `2. Configure the CLI Configure it to connect to your AWS account by running the following command:` amplify configure `Follow the steps as instructed. You can find a more detailed guide [here](https://docs.amplify.aws/lib/project-setup/prereq/q/platform/ios/#configure-the-amplify-cli "https://docs.amplify.aws/lib/project-setup/prereq/q/platform/ios/#configure-the-amplify-cli") . To create the basic structure of our backend, we first need to initialize the Amplify project directory and create our Cloud backend. 1. Initialize the backend Open the **Terminal** , navigate to the **root directory** of your project and run the following command:` amplify init `2. Enter a name You will be asked to enter a name for the project. Keep the **default name** , and then **validate** that the information is correct. The following code is an example.` ? Enter a name for the project (iOSGettingStarted): accept the default, press enter The following configuration will be applied: Project information |
-| Name: iOSGettingStarted | Environment: dev                                                                 | Default editor: Visual Studio Code                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                      |                                                                                  |
+| -------------------- | -------------------------------------------------------------------------------- |
+| **Time to complete** | 10 minutes                                                                       |
+| **Services used**    | [AWS Amplify](https://aws.amazon.com/amplify/ "https://aws.amazon.com/amplify/") |
 
-| App type: ios ? Initialize the project with the above configuration? Yes, press enter Using default provider awscloudformation, press enter ? Select the authentication method you want to use: AWS profile, press enter ? Please choose the profile you want to use: default, press enter `3. Follow the prompts Proceed with the remaining steps:` Initialize the project with the above configuration? (Y/n) Y Select the authentication method you want to use: (Use arrow keys) AWS profile Please choose the profile you want to use default `4. Verify initialization This will provision the resources in the backend and might take a few minutes. Once it's done, you will see the following information:` Deployment state saved successfully. ✅ Initialized provider successfully. ✅ Initialized your environment successfully. ✅ Your project has been successfully initialized and connected `1. Add dependencies Switch back to **Xcode**. Select **File** and choose **Add Package Dependencies...** ![The File menu in an iOS development environment with the 'Add Package Dependencies...' option highlighted, part of the Amplify getting started tutorial for building iOS apps.](images/nahx-dependencies-ecad-file-menu.png) 2. Search for the Amplify library Enter the **Amplify Libraries for Swift GitHub repo URL** ([https://github.com/aws-amplify/amplify-swift](https://github.com/aws-amplify/amplify-swift "https://github.com/aws-amplify/amplify-swift") ) into the search bar, and press **Enter**. Make sure that  **Up to Next Major Version**  is selected from the **Dependency Rule**  dropdown, and select **Add Package**. ![The AWS Amplify Library for Swift documentation and setup within a 'Getting Started' tutorial for building an iOS app, showing amplify-swift package details and introductory information.](images/swift-amplifylong-library-documentation.png) 3. Select the library Once the libraries are fetched, you will be asked to select which ones you wish to add to your target. In the drop down, next to **Amplify**, choose **GettingStarted**. Select **None**  in for the rest of the Package Products in the Add to Target section, and choose **Add Package**. ![The 'Choose Package Products for amplify-swift' dialog in Xcode, showing a list of AWS Amplify and CoreML plugin packages to add to an iOS project as part of the AWS Amplify tutorial for building iOS apps.](images/choose-package-products-swift-dialog-xcode.png) <br>• Modify the file Open the ****GettingStartedApp.swift**** **file** and replace its content with the following information:` import Amplify import SwiftUI @main struct GettingStartedApp: App { init() { do { try Amplify.configure() print("Initialized Amplify") } catch { print("Could not initialize Amplify: \(error)") } } var body: some Scene { WindowGroup { NotesView() } } } ``` <br>• Build the project To verify everything works as expected, build the project. Select the **Product** menu and then select **Build** , or press **Cmd + B** . There should be no error. ## Conclusion You have initialized the Amplify project and are now ready to start adding features! In the next module, we will add an entire user authentication flow with just a few lines of code.
+## Overview
+
+Now that you have created an iOS application, you will want to
+continue development and add new features.
+
+To start to use AWS Amplify in your application, you must install
+the Amplify command line, initialize the Amplify project
+directory, configure your project to use the Amplify libraries,
+and initialize Amplify libraries at runtime.
+
+## What you will accomplish
+
+In this tutorial, you will:
+
+- Initialize a new Amplify project
+- Add Amplify libraries in your project
+- Initialize Amplify libraries at runtime
+
+## Key concepts
+
+**Amplify CLI** – Using the Amplify
+CLI you can create, manage, and remove AWS services directly from
+your terminal.
+
+**Amplify libraries** – Using
+Amplify libraries you can interact with AWS services from a web or
+mobile application.
+
+## Implementation
+
+1. Install the CLI
+
+To install AWS Amplify CLI, open Terminal, and enter the following
+command:
+
+```
+curl -sL https://aws-amplify.github.io/amplify-cli/install | bash
+    && $SHELL
+```
+
+2. Configure the CLI
+
+Configure it to connect to your AWS account by running the following
+command:
+
+```
+amplify configure
+```
+
+Follow the steps as instructed. You can find a more detailed guide
+[here](https://docs.amplify.aws/lib/project-setup/prereq/q/platform/ios/#configure-the-amplify-cli "https://docs.amplify.aws/lib/project-setup/prereq/q/platform/ios/#configure-the-amplify-cli")
+.
+To create the basic structure of our backend, we first need to
+initialize the Amplify project directory and create our Cloud
+backend.
+
+1. Initialize the backend
+
+Open the **Terminal** , navigate to
+the **root directory** of your
+project and run the following command:
+
+```
+amplify init
+```
+
+2. Enter a name
+
+You will be asked to enter a name for the project. Keep the
+**default name** , and then
+**validate** that the information is
+correct. The following code is an example.
+
+```
+? Enter a name for the project (iOSGettingStarted): accept the default, press enter
+The following configuration will be applied:
+Project information
+| Name: iOSGettingStarted
+| Environment: dev
+| Default editor: Visual Studio Code
+| App type: ios
+? Initialize the project with the above configuration? Yes, press enter
+Using default provider  awscloudformation, press enter
+? Select the authentication method you want to use: AWS profile, press enter
+? Please choose the profile you want to use: default, press enter
+```
+
+3. Follow the prompts
+
+Proceed with the remaining steps:
+
+```
+Initialize the project with the above configuration? (Y/n)      Y
+Select the authentication method you want to use: (Use arrow keys) AWS profile
+Please choose the profile you want to use      default
+
+```
+
+4. Verify initialization
+
+This will provision the resources in the backend and might take a
+few minutes. Once it's done, you will see the following information:
+
+```
+Deployment state saved successfully.
+✅ Initialized provider successfully.
+✅ Initialized your environment successfully.
+✅ Your project has been successfully initialized and connected
+
+```
+
+1. Add dependencies
+
+Switch back to **Xcode**. Select
+**File** and choose
+**Add Package Dependencies...**
+
+![The File menu in an iOS development environment with the 'Add Package Dependencies...' option highlighted, part of the Amplify getting started tutorial for building iOS apps.](images/nahx-dependencies-ecad-file-menu.png) 2. Search for the Amplify library
+
+Enter the **Amplify Libraries for Swift
+GitHub repo URL**
+([https://github.com/aws-amplify/amplify-swift](https://github.com/aws-amplify/amplify-swift "https://github.com/aws-amplify/amplify-swift")
+) into the search bar, and press
+**Enter**.
+
+Make sure that  **Up to Next Major
+Version**  is selected from the 
+**Dependency Rule**  dropdown, and
+select **Add Package**.
+
+![The AWS Amplify Library for Swift documentation and setup within a 'Getting Started' tutorial for building an iOS app, showing amplify-swift package details and introductory information.](images/swift-amplifylong-library-documentation.png) 3. Select the library
+
+Once the libraries are fetched, you will be asked to select which
+ones you wish to add to your target.
+
+In the drop down, next to
+**Amplify**, choose
+**GettingStarted**.
+
+Select **None**  in for the rest of
+the Package Products in the Add to Target section, and choose
+**Add Package**.
+
+![The 'Choose Package Products for amplify-swift' dialog in Xcode, showing a list of AWS Amplify and CoreML plugin packages to add to an iOS project as part of the AWS Amplify tutorial for building iOS apps.](images/choose-package-products-swift-dialog-xcode.png)
+
+- Modify the file
+
+Open
+the \***\*GettingStartedApp.swift\*\***
+**file** and
+replace its content with the following information:
+
+```
+import Amplify
+import SwiftUI
+
+@main
+struct GettingStartedApp: App {
+    init() {
+        do {
+            try Amplify.configure()
+            print("Initialized Amplify")
+        } catch {
+            print("Could not initialize Amplify: \(error)")
+        }
+    }
+
+    var body: some Scene {
+        WindowGroup {
+            NotesView()
+        }
+    }
+}
+```
+
+- Build the project
+
+To verify everything works as expected, build the project.
+
+Select the **Product** menu and then
+select **Build** , or press
+**Cmd + B** .
+
+There should be no error.
+
+## Conclusion
+
+You have initialized the Amplify project and are now ready to start
+adding features! In the next module, we will add an entire user
+authentication flow with just a few lines of code.
