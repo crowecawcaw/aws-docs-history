@@ -34,7 +34,7 @@ The containers support Graviton CPU instance types supported under SageMaker.
 The containers are available in the following regions:
 
 | Region                   | Code           |
-| ------------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | -------------- |
 | US East (Ohio)           | us-east-2      |
 | US East (N. Virginia)    | us-east-1      |
 | US West (Oregon)         | us-west-2      |
@@ -66,4 +66,15 @@ The containers are available in the following regions:
 | Middle East (UAE)        | me-central-1   |
 | SA (Sau Paulo)           | sa-east-1      |
 | China (Beijing)          | cn-north-1     |
-| China (Ningxia)          | cn-northwest-1 | ## Build and Test <br>• Built on: c6g.2xlarge <br>• Tested on: c8g.4xlarge, t4g.2xlarge, r8g.2xlarge, m7g.4xlarge, g5g.4xlarge ## Known Issues <br>• None For latest updates, please refer to the [aws/deep-learning-containers GitHub repo](https://github.com/aws/deep-learning-containers/tags "https://github.com/aws/deep-learning-containers/tags"). |
+| China (Ningxia)          | cn-northwest-1 |
+
+## Build and Test
+
+- Built on: c6g.2xlarge
+- Tested on: c8g.4xlarge, t4g.2xlarge, r8g.2xlarge, m7g.4xlarge, g5g.4xlarge
+
+## Known Issues
+
+- None
+
+For latest updates, please refer to the [aws/deep-learning-containers GitHub repo](https://github.com/aws/deep-learning-containers/tags "https://github.com/aws/deep-learning-containers/tags").

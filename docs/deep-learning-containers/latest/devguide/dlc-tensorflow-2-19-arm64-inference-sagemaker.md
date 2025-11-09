@@ -29,7 +29,7 @@ The container supports Graviton CPU instance types.
 The containers are available in the following regions:
 
 | Region                    | Code           |
-| ------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- |
 | US East (Ohio)            | us-east-2      |
 | US East (N. Virginia)     | us-east-1      |
 | US West (N. California)   | us-west-1      |
@@ -62,4 +62,9 @@ The containers are available in the following regions:
 | Mexico (Central)          | mx-central-1   |
 | Middle East (Bahrain)     | me-south-1     |
 | Middle East (UAE)         | me-central-1   |
-| South America (Sau Paulo) | sa-east-1      | ## Build and Test <br>• Built on: c6g.2xlarge <br>• DLC Images tested on: c8g.4xlarge, t4g.2xlarge, r8g.2xlarge, m7g.4xlarge |
+| South America (Sau Paulo) | sa-east-1      |
+
+## Build and Test
+
+- Built on: c6g.2xlarge
+- DLC Images tested on: c8g.4xlarge, t4g.2xlarge, r8g.2xlarge, m7g.4xlarge

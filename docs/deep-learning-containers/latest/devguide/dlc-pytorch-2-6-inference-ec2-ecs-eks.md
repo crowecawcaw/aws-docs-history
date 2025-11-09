@@ -39,7 +39,7 @@ The containers support GPU instance types and contain the following software com
 The containers are available in the following regions:
 
 | Region                   | Code           |
-| ------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | -------------- |
 | US East (Ohio)           | us-east-2      |
 | US East (N. Virginia)    | us-east-1      |
 | US West (Oregon)         | us-west-2      |
@@ -71,4 +71,10 @@ The containers are available in the following regions:
 | Middle East (UAE)        | me-central-1   |
 | SA (Sau Paulo)           | sa-east-1      |
 | China (Beijing)          | cn-north-1     |
-| China (Ningxia)          | cn-northwest-1 | ## Build and Test <br>• Built on: c5.18xlarge <br>• Tested on: c5.18xlarge, g3.16xlarge, m5.16xlarge, t3.2xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, g4dn.xlarge, g5.24xlarge <br>• Tested with [MNIST](http://yann.lecun.com/exdb/mnist/ "http://yann.lecun.com/exdb/mnist/") and Resnet50/ImageNet datasets on EC2, ECS AMI (Amazon Linux AMI 2.0.20250201), and EKS AMI (amazon-eks-gpu-node-1.32.1-20250212) |
+| China (Ningxia)          | cn-northwest-1 |
+
+## Build and Test
+
+- Built on: c5.18xlarge
+- Tested on: c5.18xlarge, g3.16xlarge, m5.16xlarge, t3.2xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, g4dn.xlarge, g5.24xlarge
+- Tested with [MNIST](http://yann.lecun.com/exdb/mnist/ "http://yann.lecun.com/exdb/mnist/") and Resnet50/ImageNet datasets on EC2, ECS AMI (Amazon Linux AMI 2.0.20250201), and EKS AMI (amazon-eks-gpu-node-1.32.1-20250212)

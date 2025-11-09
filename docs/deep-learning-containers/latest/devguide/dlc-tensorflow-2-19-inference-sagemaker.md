@@ -38,7 +38,7 @@ The containers support GPU instance types and contain the following software com
 The containers are available in the following regions:
 
 | Region                    | Code           |
-| ------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- |
 | US East (Ohio)            | us-east-2      |
 | US East (N. Virginia)     | us-east-1      |
 | US West (N. California)   | us-west-1      |
@@ -71,4 +71,9 @@ The containers are available in the following regions:
 | Mexico (Central)          | mx-central-1   |
 | Middle East (Bahrain)     | me-south-1     |
 | Middle East (UAE)         | me-central-1   |
-| South America (Sau Paulo) | sa-east-1      | ## Build and Test <br>• Built on: c5.18xlarge <br>• Tested on: t3.2xlarge, m5.16xlarge, c5.18xlarge, g5.24xlarge, g5.12xlarge, p4d.24xlarge, p5.48xlarge, g4dn.4xlarge, g4dn.8xlarge, ml.p4de.24xlarge, p4de.24xlarge |
+| South America (Sau Paulo) | sa-east-1      |
+
+## Build and Test
+
+- Built on: c5.18xlarge
+- Tested on: t3.2xlarge, m5.16xlarge, c5.18xlarge, g5.24xlarge, g5.12xlarge, p4d.24xlarge, p5.48xlarge, g4dn.4xlarge, g4dn.8xlarge, ml.p4de.24xlarge, p4de.24xlarge

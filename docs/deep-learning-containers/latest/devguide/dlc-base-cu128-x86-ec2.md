@@ -46,7 +46,7 @@ The containers support the Graviton GPU instance type G5g and contain the follow
 The containers are available in the following regions:
 
 | Region                   | Code           |
-| ------------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | -------------- |
 | US East (N. Virginia)    | us-east-1      |
 | US East (Ohio)           | us-east-2      |
 | US West (N. California)  | us-west-1      |
@@ -80,4 +80,14 @@ The containers are available in the following regions:
 | AF South (Cape Town)     | af-south-1     |
 | Mexico (Central)         | mx-central-1   |
 | China (Beijing)          | cn-north-1     |
-| China (Ningxia)          | cn-northwest-1 | ## Build and Test <br>• Built on: c5.18xlarge <br>• Tested on: p4d.24xlarge, p4de.24xlarge, p5.48xlarge <br>• Tested with: [openclip](https://github.com/mlfoundations/open_clip "https://github.com/mlfoundations/open_clip"), [nccl-tests](https://github.com/NVIDIA/nccl-tests "https://github.com/NVIDIA/nccl-tests") ## Known Issues <br>• No known issues so far |
+| China (Ningxia)          | cn-northwest-1 |
+
+## Build and Test
+
+- Built on: c5.18xlarge
+- Tested on: p4d.24xlarge, p4de.24xlarge, p5.48xlarge
+- Tested with: [openclip](https://github.com/mlfoundations/open_clip "https://github.com/mlfoundations/open_clip"), [nccl-tests](https://github.com/NVIDIA/nccl-tests "https://github.com/NVIDIA/nccl-tests")
+
+## Known Issues
+
+- No known issues so far

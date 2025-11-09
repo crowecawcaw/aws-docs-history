@@ -54,7 +54,7 @@ The containers support GPU instance types and contain the following software com
 The containers are available in the following regions:
 
 | Region                   | Code           |
-| ------------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | -------------- |
 | US East (Ohio)           | us-east-2      |
 | US East (N. Virginia)    | us-east-1      |
 | US West (Oregon)         | us-west-2      |
@@ -86,4 +86,14 @@ The containers are available in the following regions:
 | Middle East (UAE)        | me-central-1   |
 | SA (Sau Paulo)           | sa-east-1      |
 | China (Beijing)          | cn-north-1     |
-| China (Ningxia)          | cn-northwest-1 | ## Build and Test <br>• Built on: c5.18xlarge <br>• Tested on: g3.16xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, p4de.24xlarge, g4dn.xlarge, p5.48xlarge, g5.24xlarge <br>• Tested with Resnet50, BERT along with ImageNet datasets on EC2, ECS AMI (Amazon Linux AMI 2.0.20250201), and EKS AMI (amazon-eks-gpu-node-1.32.1-20250212) ## Known Issues <br>• Customers using [TransformerEngine](https://github.com/NVIDIA/TransformerEngine "https://github.com/NVIDIA/TransformerEngine") may run into [W init.cpp:767] Warning: nvfuser is no longer supported in torch script, use \_jit_set_nvfuser_enabled is deprecated and a no-op (function operator()) due to [NVFuser deprecation](https://github.com/pytorch/pytorch/commit/e6b5e0ecc609c15bfee5b383fe5c55fbdfda68ff "https://github.com/pytorch/pytorch/commit/e6b5e0ecc609c15bfee5b383fe5c55fbdfda68ff") since PyTorch 2.2. For more information, please check this [issue](https://github.com/NVIDIA/TransformerEngine/issues/666 "https://github.com/NVIDIA/TransformerEngine/issues/666"). |
+| China (Ningxia)          | cn-northwest-1 |
+
+## Build and Test
+
+- Built on: c5.18xlarge
+- Tested on: g3.16xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, p4de.24xlarge, g4dn.xlarge, p5.48xlarge, g5.24xlarge
+- Tested with Resnet50, BERT along with ImageNet datasets on EC2, ECS AMI (Amazon Linux AMI 2.0.20250201), and EKS AMI (amazon-eks-gpu-node-1.32.1-20250212)
+
+## Known Issues
+
+- Customers using [TransformerEngine](https://github.com/NVIDIA/TransformerEngine "https://github.com/NVIDIA/TransformerEngine") may run into [W init.cpp:767] Warning: nvfuser is no longer supported in torch script, use \_jit_set_nvfuser_enabled is deprecated and a no-op (function operator()) due to [NVFuser deprecation](https://github.com/pytorch/pytorch/commit/e6b5e0ecc609c15bfee5b383fe5c55fbdfda68ff "https://github.com/pytorch/pytorch/commit/e6b5e0ecc609c15bfee5b383fe5c55fbdfda68ff") since PyTorch 2.2. For more information, please check this [issue](https://github.com/NVIDIA/TransformerEngine/issues/666 "https://github.com/NVIDIA/TransformerEngine/issues/666").

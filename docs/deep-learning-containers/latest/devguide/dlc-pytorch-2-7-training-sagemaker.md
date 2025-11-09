@@ -58,7 +58,7 @@ The containers support GPU instance types and contain the following software com
 The containers are available in the following regions:
 
 | Region                   | Code           |
-| ------------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------ | -------------- |
 | US East (Ohio)           | us-east-2      |
 | US East (N. Virginia)    | us-east-1      |
 | US West (Oregon)         | us-west-2      |
@@ -92,4 +92,10 @@ The containers are available in the following regions:
 | Middle East (UAE)        | me-central-1   |
 | SA (Sau Paulo)           | sa-east-1      |
 | China (Beijing)          | cn-north-1     |
-| China (Ningxia)          | cn-northwest-1 | ## Build and Test <br>• Built on: c5.18xlarge <br>• Tested on: p4d.24xlarge, p4de.24xlarge, p5.48xlarge, g4dn.4xlarge, g5.12xlarge <br>• Tested with MNIST on SageMaker. |
+| China (Ningxia)          | cn-northwest-1 |
+
+## Build and Test
+
+- Built on: c5.18xlarge
+- Tested on: p4d.24xlarge, p4de.24xlarge, p5.48xlarge, g4dn.4xlarge, g5.12xlarge
+- Tested with MNIST on SageMaker.

@@ -46,7 +46,7 @@ The containers supports GPU instance types and contain the forderedlistlowing so
 The containers are available in the forderedlistlowing regions:
 
 | Region                    | Code           |
-| ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- |
 | US East (Ohio)            | us-east-2      |
 | US East (N. Virginia)     | us-east-1      |
 | US West (N. California)   | us-west-1      |
@@ -79,4 +79,13 @@ The containers are available in the forderedlistlowing regions:
 | Mexico (Central)          | mx-central-1   |
 | Middle East (Bahrain)     | me-south-1     |
 | Middle East (UAE)         | me-central-1   |
-| South America (Sau Paulo) | sa-east-1      | ## Build and Test <br>• Built on: c5.18xlarge <br>• DLC images tested on: t3.2xlarge, m5.16xlarge, c5.18xlarge, g4dn.4xlarge, g4dn.8xlarge, g5.24xlarge, g5.12xlarge, p4d.24xlarge, p4de.24xlarge, p5.48xlarge, ml.p4de.24xlarge, ml.p5.48xlarge ## Known Issues 1. [Tensorflow IO](https://pypi.org/project/tensorflow-io/ "https://pypi.org/project/tensorflow-io/") package throws exception while working with s3 filesystem ([Issue link](https://github.com/tensorflow/io/issues/2039 "https://github.com/tensorflow/io/issues/2039")). Consequently, this DLC will not support features dependent on Tensorflow IO's s3 capabilities until the fix is provided by upstream. Few such non-supported features are s3 plugin, s3 checkpointing, s3 record fetching, and Parameter Server training on Sagemaker. |
+| South America (Sau Paulo) | sa-east-1      |
+
+## Build and Test
+
+- Built on: c5.18xlarge
+- DLC images tested on: t3.2xlarge, m5.16xlarge, c5.18xlarge, g4dn.4xlarge, g4dn.8xlarge, g5.24xlarge, g5.12xlarge, p4d.24xlarge, p4de.24xlarge, p5.48xlarge, ml.p4de.24xlarge, ml.p5.48xlarge
+
+## Known Issues
+
+1. [Tensorflow IO](https://pypi.org/project/tensorflow-io/ "https://pypi.org/project/tensorflow-io/") package throws exception while working with s3 filesystem ([Issue link](https://github.com/tensorflow/io/issues/2039 "https://github.com/tensorflow/io/issues/2039")). Consequently, this DLC will not support features dependent on Tensorflow IO's s3 capabilities until the fix is provided by upstream. Few such non-supported features are s3 plugin, s3 checkpointing, s3 record fetching, and Parameter Server training on Sagemaker.

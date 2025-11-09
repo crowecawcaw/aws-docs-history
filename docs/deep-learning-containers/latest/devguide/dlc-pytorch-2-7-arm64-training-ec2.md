@@ -46,7 +46,7 @@ The containers support the Graviton GPU instance type G5g and contain the follow
 The containers are available in the following regions:
 
 | Region                   | Code           |
-| ------------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | -------------- |
 | US East (Ohio)           | us-east-2      |
 | US East (N. Virginia)    | us-east-1      |
 | US West (Oregon)         | us-west-2      |
@@ -80,4 +80,20 @@ The containers are available in the following regions:
 | Middle East (UAE)        | me-central-1   |
 | SA (Sau Paulo)           | sa-east-1      |
 | China (Beijing)          | cn-north-1     |
-| China (Ningxia)          | cn-northwest-1 | ## Build and Test <br>• Built on: c6g.12xlarge <br>• Tested on: c8g.4xlarge, t4g.2xlarge, r8g.2xlarge, m7g.4xlarge, g5g.16xlarge ## Known Issues <br>• There is no official [Triton](https://github.com/triton-lang/triton "https://github.com/triton-lang/triton") distribution for ARM64/aarch64 yet, so some torch.compile workloads will fail with: `torch._dynamo.exc.BackendCompilerFailed: backend='inductor' raised: RuntimeError: Cannot find a working triton installation. More information on installing Triton can be found at https://github.com/openai/triton` <br>• See [GitHub issue](https://github.com/pytorch/pytorch/issues/153960 "https://github.com/pytorch/pytorch/issues/153960"): Passing device_id to torch.distributed.init_process_group() results in NCCL randomly hanging during communications. |
+| China (Ningxia)          | cn-northwest-1 |
+
+## Build and Test
+
+- Built on: c6g.12xlarge
+- Tested on: c8g.4xlarge, t4g.2xlarge, r8g.2xlarge, m7g.4xlarge, g5g.16xlarge
+
+## Known Issues
+
+- There is no official [Triton](https://github.com/triton-lang/triton "https://github.com/triton-lang/triton") distribution for ARM64/aarch64 yet, so some torch.compile workloads will fail with:
+
+```
+torch._dynamo.exc.BackendCompilerFailed: backend='inductor' raised:
+RuntimeError: Cannot find a working triton installation. More information on installing Triton can be found at https://github.com/openai/triton
+```
+
+- See [GitHub issue](https://github.com/pytorch/pytorch/issues/153960 "https://github.com/pytorch/pytorch/issues/153960"): Passing device_id to torch.distributed.init_process_group() results in NCCL randomly hanging during communications.
