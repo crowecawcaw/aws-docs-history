@@ -55,19 +55,35 @@ licenses that you bring to AWS.
 You can specify the following values for the `--usage-operation`
 parameter:
 
-| Platform details                                                            | Usage operation \* |
-| --------------------------------------------------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows Server License Included without SQL Server                          | RunInstances:0002  |
-| Windows Server License Included with SQL Server (any edition) BYOL          | RunInstances:0002  |
-| Windows Server License Included with SQL Server Standard License Included   | RunInstances:0006  |
-| Windows Server License Included with SQL Server Enterprise License Included | RunInstances:0102  |
-| Windows Server License Included with SQL Server Web License Included        | RunInstances:0202  |
-| Windows Server BYOL without SQL Server                                      | RunInstances:0800  |
-| Windows Server BYOL with SQL (any edition) BYOL                             | RunInstances:0800  |
-| Linux/UNIX without SQL Server                                               | RunInstances       |
-| Linux/UNIX with SQL Server (any edition) BYOL                               | RunInstances       |
-| Linux/UNIX with SQL Server Enterprise License Included                      | RunInstances:0100  |
-| Linux/UNIX with SQL Server Standard License Included                        | RunInstances:0004  |
-| Linux/UNIX with SQL Server Web License Included                             | RunInstances:0200  |
-| Red Hat Enterprise Linux                                                    | RunInstances:0010  |
-| SUSE Linux                                                                  | RunInstances:000g  | \* If you are running Spot Instances, the `lineup/Operation` on your AWS Cost and Usage Report might be different from the **Usage operation** value that is listed here. For example, to specify the usage operation for Windows with SQL Server Standard, run the following command: `` aws ec2 import-image \ --usage-operation `RunInstances:0006` \ --disk-containers Format=`OVA`,Url=S3://`bucket_name`/`sql_std_image.ova` `` For more information about billing codes, see [AMI billing information fields](../../../AWSEC2/latest/UserGuide/billing-info-fields.md "../../../AWSEC2/latest/UserGuide/billing-info-fields.md"). |
+| Platform details                                                               | Usage operation \* |
+| ------------------------------------------------------------------------------ | ------------------ |
+| Windows Server License Included without SQL Server                             | RunInstances:0002  |
+| Windows Server License Included with SQL Server (any<br>edition) BYOL          | RunInstances:0002  |
+| Windows Server License Included with SQL Server Standard<br>License Included   | RunInstances:0006  |
+| Windows Server License Included with SQL Server Enterprise<br>License Included | RunInstances:0102  |
+| Windows Server License Included with SQL Server Web License<br>Included        | RunInstances:0202  |
+| Windows Server BYOL without SQL Server                                         | RunInstances:0800  |
+| Windows Server BYOL with SQL (any edition)<br>BYOL                             | RunInstances:0800  |
+| Linux/UNIX without SQL Server                                                  | RunInstances       |
+| Linux/UNIX with SQL Server (any edition)<br>BYOL                               | RunInstances       |
+| Linux/UNIX with SQL Server Enterprise License<br>Included                      | RunInstances:0100  |
+| Linux/UNIX with SQL Server Standard License<br>Included                        | RunInstances:0004  |
+| Linux/UNIX with SQL Server Web License<br>Included                             | RunInstances:0200  |
+| Red Hat Enterprise Linux                                                       | RunInstances:0010  |
+| SUSE Linux                                                                     | RunInstances:000g  |
+
+\* If you are running Spot Instances, the `lineup/Operation` on your
+AWS Cost and Usage Report might be different from the **Usage
+operation** value that is listed here.
+
+For example, to specify the usage operation for Windows with SQL Server Standard,
+run the following command:
+
+```
+aws ec2 import-image \
+    --usage-operation `RunInstances:0006` \
+    --disk-containers Format=`OVA`,Url=S3://`bucket_name`/`sql_std_image.ova`
+```
+
+For more information about billing codes, see [AMI billing information
+fields](../../../AWSEC2/latest/UserGuide/billing-info-fields.md "../../../AWSEC2/latest/UserGuide/billing-info-fields.md").
