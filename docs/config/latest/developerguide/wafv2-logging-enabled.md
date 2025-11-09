@@ -14,7 +14,7 @@ This rule does not check logging done with Security Lake for AWS WAFV2 web ACLs.
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), AWS Secret - West, Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

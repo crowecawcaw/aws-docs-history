@@ -6,7 +6,7 @@ Checks if provisioned DynamoDB throughput is approaching the maximum limit for y
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

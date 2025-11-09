@@ -10,7 +10,7 @@ The rule is NON_COMPLIANT if your Amazon S3 bucket is not encrypted by default.
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Europe (Spain) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

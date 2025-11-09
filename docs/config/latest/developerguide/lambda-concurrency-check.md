@@ -8,7 +8,7 @@ Checks if the Lambda function is configured with a function-level concurrent exe
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Ningxia) Region
 
 **Parameters:**
 

@@ -30,7 +30,33 @@ To understand the behavior of retention period, let's take a look at the timelin
 The following table explains which `ConfigurationItems` are displayed on the
 AWS Config timeline based on selected retention period.
 
-| Retention Period | Configuration Items displayed on timeline                | Explanation                                                                                                                                                                                                                                                                                 |
-| ---------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 30 days          | December 12, 2017                                        | The current state of the resource started from December 12, 2017 when the `ConfigurationItem` was recorded and is valid until today (May 24, 2018). When recording is turned on, the current state always exists.                                                                           |
-| 365 days         | December 12, 2017; November 12, 2017, and March 10, 2017 | The retention period shows the current state December 12, 2017 and previous `ConfigurationItems` November 12, 2017 and March 10, 2017. The `ConfigurationItem` for March 10, 2017 is displayed on the timeline because that configuration state represented the current state 365 days ago. | After you specify a retention period, AWS Config APIs no longer return `ConfigurationItems` that represent a state older than the specified retention period. ###### Note <br>• AWS Config cannot record your `ConfigurationItems` if recording is switched off. <br>• AWS Config cannot record your `ConfigurationItems` if your IAM role has insufficient permissions. For more information, see [Permissions for the IAM Role Assigned to AWS Config](iamrole-permissions.md "iamrole-permissions.md"). ## Setting Data Retention Period in AWS Management Console In the AWS Management Console, if you do not select a data retention period, the default period is 7 years or 2557 days. To set a custom data retention period for configuration items select the checkbox. You can select 1 year, 3 years, 5 years, or a custom period. For a custom period, enter the number of days between 30 and 2557 days. The following image displays where you can set the data retention period in **Data Governance**. You can access **Data Governance** on the **Edit Settings** page from the AWS Config console by choosing **Settings** in the left navigation bar, and then choosing **Edit**. ![The image is a screenshot of the AWS Config console Edit settings page. It includes information related to data governance: the data retention period and the IAM role for AWS Config.](images/retention-period-console.png) |
+| Retention Period | Configuration Items displayed on timeline                   | Explanation                                                                                                                                                                                                                                                                                                |
+| ---------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 30 days          | December 12, 2017                                           | The current state of the resource started from December 12, 2017<br>when the `ConfigurationItem` was recorded and is valid until<br>today (May 24, 2018). When recording is turned on, the current state<br>always exists.                                                                                 |
+| 365 days         | December 12, 2017; November 12, 2017, and March 10,<br>2017 | The retention period shows the current state December 12, 2017 and<br>previous `ConfigurationItems` November 12, 2017 and March 10,<br>2017.<br>The `ConfigurationItem` for March 10, 2017 is displayed on<br>the timeline because that configuration state represented the current<br>state 365 days ago. |
+
+After you specify a retention period, AWS Config APIs no longer return
+`ConfigurationItems` that represent a state older than the specified
+retention period.
+
+###### Note
+
+- AWS Config cannot record your `ConfigurationItems` if recording is
+  switched off.
+- AWS Config cannot record your `ConfigurationItems` if your IAM role has insufficient permissions. For more information, see [Permissions for the IAM Role Assigned to AWS Config](iamrole-permissions.md "iamrole-permissions.md").
+
+## Setting Data
+
+Retention Period in AWS Management Console
+
+In the AWS Management Console, if you do not select a data retention period, the default period is
+7 years or 2557 days.
+
+To set a custom data retention period for configuration items select the checkbox. You
+can select 1 year, 3 years, 5 years, or a custom period. For a custom period, enter the
+number of days between 30 and 2557 days.
+
+The following image displays where you can set the data retention period in **Data Governance**.
+You can access **Data Governance** on the **Edit Settings** page from the AWS Config console by choosing **Settings** in the left navigation bar, and then choosing **Edit**.
+
+![The image is a screenshot of the AWS Config console Edit settings page. It includes information related to data governance: the data retention period and the IAM role for AWS Config.](images/retention-period-console.png)

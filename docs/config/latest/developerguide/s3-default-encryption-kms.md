@@ -8,7 +8,7 @@ Checks if the S3 buckets are encrypted with AWS Key Management Service (AWS KMS)
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

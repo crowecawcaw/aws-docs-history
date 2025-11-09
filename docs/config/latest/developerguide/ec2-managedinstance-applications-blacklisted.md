@@ -8,7 +8,7 @@ Checks if none of the specified applications are installed on the instance. Opti
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
 
 **Parameters:**
 

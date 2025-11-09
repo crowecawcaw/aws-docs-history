@@ -8,7 +8,7 @@ Checks if AWS Secrets Manager secrets have been rotated in the past specified nu
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

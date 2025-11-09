@@ -177,7 +177,7 @@ appropriate value.
 
 For AWS Config Managed Rules, copy the identifier by following the link from the
 rule you select from the [List of AWS Config Managed
-Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md") (for example, the source identifier for the **access-keys-rotated** rule is **ACCESS_KEYS_ROTATED**).
+Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md") (for example, the source identifier for the **access-keys-rotated** rule is **ACCESS_KEYS_ROTATED**). 
 
 **AWS Config Custom Rules**
 

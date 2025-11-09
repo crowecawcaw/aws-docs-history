@@ -8,7 +8,7 @@ Checks if Amazon Elastic File System (Amazon EFS) file systems are added in the 
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

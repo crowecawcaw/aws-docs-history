@@ -8,7 +8,7 @@ Checks whether your Classic Load Balancer SSL listeners are using a custom polic
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Jakarta), AWS Secret - West, Asia Pacific (Osaka), Asia Pacific (Melbourne), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

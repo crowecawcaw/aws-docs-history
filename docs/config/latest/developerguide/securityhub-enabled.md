@@ -6,7 +6,7 @@ Checks if AWS Security Hub is enabled for an AWS Account. The rule is NON_COMPLI
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

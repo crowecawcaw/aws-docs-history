@@ -8,7 +8,7 @@ Checks if Amazon OpenSearch Service (previously called Elasticsearch) domains ha
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

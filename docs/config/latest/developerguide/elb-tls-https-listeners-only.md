@@ -11,7 +11,7 @@ Checks if your Classic Load Balancer is configured with SSL or HTTPS listeners. 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Middle East (UAE), AWS Secret - West, Asia Pacific (Osaka) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

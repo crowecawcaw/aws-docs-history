@@ -14,7 +14,7 @@ The rule will only check for entities in the Principal property and does not tak
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Hyderabad), Europe (Spain) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

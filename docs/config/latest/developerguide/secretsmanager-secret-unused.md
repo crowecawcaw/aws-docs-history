@@ -13,7 +13,7 @@ Deleting unused secrets helps revoke secret access from users who no longer need
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

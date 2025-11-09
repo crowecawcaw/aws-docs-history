@@ -35,8 +35,14 @@ the _AWS Lambda Developer Guide_.
 The following table displays the format differences in the fields for the [ConfigurationItem](../APIReference/API_ConfigurationItem.md "../APIReference/API_ConfigurationItem.md") data type and for AWS Config Custom Rules.
 
 | ConfigurationItem          | AWS Config Custom Rule      |
-| -------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | --------------------------- |
 | `version`                  | `configurationItemVersion`  |
 | `accountId`                | `awsAccountId`              |
 | `arn`                      | `ARN`                       |
-| `configurationItemMD5Hash` | `configurationStateMd5Hash` | ###### Topics <br>• [Creating Custom Policy Rules](evaluate-config_develop-rules_cfn-guard.md "evaluate-config_develop-rules_cfn-guard.md") <br>• [Creating Custom Lambda Rules](evaluate-config_develop-rules_lambda-functions.md "evaluate-config_develop-rules_lambda-functions.md") <br>• [Managing Deleted Resources for Custom Lambda Rules](evaluate-config_develop-rules-delete.md "evaluate-config_develop-rules-delete.md") |
+| `configurationItemMD5Hash` | `configurationStateMd5Hash` |
+
+###### Topics
+
+- [Creating Custom Policy Rules](evaluate-config_develop-rules_cfn-guard.md "evaluate-config_develop-rules_cfn-guard.md")
+- [Creating Custom Lambda Rules](evaluate-config_develop-rules_lambda-functions.md "evaluate-config_develop-rules_lambda-functions.md")
+- [Managing Deleted Resources for Custom Lambda Rules](evaluate-config_develop-rules-delete.md "evaluate-config_develop-rules-delete.md")

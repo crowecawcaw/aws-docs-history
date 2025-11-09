@@ -8,7 +8,7 @@ Checks if all methods in Amazon API Gateway stages have cache enabled and cache 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
 
 **Parameters:**
 

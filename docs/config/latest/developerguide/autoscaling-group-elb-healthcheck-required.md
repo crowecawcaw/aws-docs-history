@@ -8,7 +8,7 @@ Checks if your Amazon EC2 Auto Scaling groups that are associated with an Elasti
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Middle East (UAE), AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

@@ -8,7 +8,7 @@ Checks if there are public routes in the route table to an Internet gateway (IGW
 
 **Trigger type:** Configuration changes and Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

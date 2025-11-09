@@ -8,7 +8,7 @@ Checks if AWS Database Migration Service (AWS DMS) replication instances are pub
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

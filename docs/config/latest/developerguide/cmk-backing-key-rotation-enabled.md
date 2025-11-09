@@ -12,7 +12,7 @@ Automatic key rotation is not supported for asymmetric KMS keys, HMAC KMS keys, 
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Middle East (UAE) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

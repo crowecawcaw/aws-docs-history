@@ -8,7 +8,7 @@ Checks if the compliance status of the AWS Systems Manager patch compliance is C
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Osaka), Europe (Milan), Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Osaka), Europe (Milan), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

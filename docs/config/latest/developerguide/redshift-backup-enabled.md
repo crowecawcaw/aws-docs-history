@@ -10,7 +10,7 @@ less than `MinRetentionPeriod` or the value is 0.
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), AWS Secret - West, Asia Pacific (Malaysia), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West, Mexico (Central) Region
 
 **Parameters:**
 

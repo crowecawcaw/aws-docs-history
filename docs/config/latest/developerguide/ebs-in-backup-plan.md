@@ -8,7 +8,7 @@ Check if Amazon Elastic Block Store (Amazon EBS) volumes are added in backup pla
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Melbourne), Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

@@ -407,18 +407,292 @@ support resource-level permissions. If an AWS Config rule action does not suppor
 resource-level permissions, you can grant users permissions to use the action,
 but you have to specify a \* for the resource element of your policy statement.
 
-| API Action                         | Resources                                                                                                                             |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| DeleteConfigRule                   | Config Rule arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                            |
-| DeleteEvaluationResults            | Config Rule arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                            |
-| DescribeComplianceByConfigRule     | Config Rule arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                            |
-| DescribeConfigRuleEvaluationStatus | Config Rule arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                            |
-| GetComplianceDetailsByConfigRule   | Config Rule arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                            |
-| PutConfigRule                      | Config Rule arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                            |
-| StartConfigRulesEvaluation         | Config Rule arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                            |
-| PutRemediationConfigurations       | Remediation Configuration arn:aws:config:`region:accountId`:remediation-configuration/`config rule name/remediation configuration id` |
-| DescribeRemediationConfigurations  | Remediation Configuration arn:aws:config:`region:accountId`:remediation-configuration/`config rule name/remediation configuration id` |
-| DeleteRemediationConfiguration     | Remediation Configuration arn:aws:config:`region:accountId`:remediation-configuration/`config rule name/remediation configuration id` |
-| PutRemediationExceptions           | Remediation Configuration arn:aws:config:`region:accountId`:remediation-configuration/`config rule name/remediation configuration id` |
-| DescribeRemediationExceptions      | Remediation Configuration arn:aws:config:`region:accountId`:remediation-configuration/`config rule name/remediation configuration id` |
-| DeleteRemediationExceptions        | Remediation Configuration arn:aws:config:`region:accountId`:remediation-configuration/`config rule name/remediation configuration id` | For example, you want to allow read access and deny write access to specific rules to specific users. In the first policy, you allow the AWS Config rule read actions such as `DescribeConfigRuleEvaluationStatus` on the specified rules. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": [ "config:StartConfigRulesEvaluation", "config:DescribeComplianceByConfigRule", "config:DescribeConfigRuleEvaluationStatus", "config:GetComplianceDetailsByConfigRule" ], "Resource": [ "arn:aws:config:`us-east-1`:`123456789012`:config-rule/config-rule-`ID`", "arn:aws:config:`us-east-1`:`123456789012`:config-rule/config-rule-`ID`" ] } ] }` `` In the second policy, you deny the AWS Config rule write actions on the specific rule. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Deny", "Action": [ "config:PutConfigRule", "config:DeleteConfigRule", "config:DeleteEvaluationResults" ], "Resource": "arn:aws:config:`us-east-1`:`123456789012`:config-rule/config-rule-`ID`" } ] }` `` With resource-level permissions, you can allow read access and deny write access to perform specific actions on AWS Config rule API actions. ## Supported Resource-Level Permissions for Multi-Account Multi-Region Data Aggregation You can use resource-level permissions to control a user's ability to perform specific actions on multi-account multi-region data aggregation. The following AWS Config `Aggregator` APIs support resource level permissions: <br>• [BatchGetAggregateResourceConfig](../APIReference/API_BatchGetAggregateResourceConfig.md "../APIReference/API_BatchGetAggregateResourceConfig.md") <br>• [DeleteConfigurationAggregator](../APIReference/API_DeleteConfigurationAggregator.md "../APIReference/API_DeleteConfigurationAggregator.md") <br>• [DescribeAggregateComplianceByConfigRules](../APIReference/API_DescribeAggregateComplianceByConfigRules.md "../APIReference/API_DescribeAggregateComplianceByConfigRules.md") <br>• [DescribeAggregateComplianceByConformancePacks](../APIReference/API_DescribeAggregateComplianceByConformancePacks.md "../APIReference/API_DescribeAggregateComplianceByConformancePacks.md") <br>• [DescribeConfigurationAggregatorSourcesStatus](../APIReference/API_DescribeConfigurationAggregatorSourcesStatus.md "../APIReference/API_DescribeConfigurationAggregatorSourcesStatus.md") <br>• [GetAggregateComplianceDetailsByConfigRule](../APIReference/API_GetAggregateComplianceDetailsByConfigRule.md "../APIReference/API_GetAggregateComplianceDetailsByConfigRule.md") <br>• [GetAggregateConfigRuleComplianceSummary](../APIReference/API_GetAggregateConfigRuleComplianceSummary.md "../APIReference/API_GetAggregateConfigRuleComplianceSummary.md") <br>• [GetAggregateConformancePackComplianceSummary](../APIReference/API_GetAggregateConformancePackComplianceSummary.md "../APIReference/API_GetAggregateConformancePackComplianceSummary.md") <br>• [GetAggregateDiscoveredResourceCounts](../APIReference/API_GetAggregateDiscoveredResourceCounts.md "../APIReference/API_GetAggregateDiscoveredResourceCounts.md") <br>• [GetAggregateResourceConfig](../APIReference/API_GetAggregateResourceConfig.md "../APIReference/API_GetAggregateResourceConfig.md") <br>• [ListAggregateDiscoveredResources](../APIReference/API_ListAggregateDiscoveredResources.md "../APIReference/API_ListAggregateDiscoveredResources.md") <br>• [PutConfigurationAggregator](../APIReference/API_PutConfigurationAggregator.md "../APIReference/API_PutConfigurationAggregator.md") <br>• [SelectAggregateResourceConfig](../APIReference/API_SelectAggregateResourceConfig.md "../APIReference/API_SelectAggregateResourceConfig.md") For example, you can restrict access to resource data from specific users by creating two aggregators `AccessibleAggregator` and `InAccessibleAggregator` and attaching an IAM policy that allows access to `AccessibleAggregator` but denies access to `InAccessibleAggregator`. **IAM Policy for AccessibleAggregator** In this policy, you allow access to the supported aggregator actions for the AWS Config Amazon Resource Name (ARN) that you specify. In this example, the AWS Config ARN is `arn:aws:config:ap-northeast-1:`AccountID`:config-aggregator/config-aggregator-mocpsqhs`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ConfigAllow", "Effect": "Allow", "Action": [ "config:BatchGetAggregateResourceConfig", "config:DeleteConfigurationAggregator", "config:DescribeAggregateComplianceByConfigRules", "config:DescribeAggregateComplianceByConformancePacks", "config:DescribeConfigurationAggregatorSourcesStatus", "config:GetAggregateComplianceDetailsByConfigRule", "config:GetAggregateConfigRuleComplianceSummary", "config:GetAggregateConformancePackComplianceSummary", "config:GetAggregateDiscoveredResourceCounts", "config:GetAggregateResourceConfig", "config:ListAggregateDiscoveredResources", "config:PutConfigurationAggregator", "config:SelectAggregateResourceConfig" ], "Resource": "arn:aws:config:ap-northeast-1:`111122223333`:config-aggregator/config-aggregator-mocpsqhs" } ] }` `` **IAM Policy for InAccessibleAggregator** In this policy, you deny access to the supported aggregator actions for the AWS Config ARN that you specify. In this example, the AWS Config ARN is `arn:aws:config:ap-northeast-1:`AccountID`:config-aggregator/config-aggregator-pokxzldx`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ConfigDeny", "Effect": "Deny", "Action": [ "config:BatchGetAggregateResourceConfig", "config:DeleteConfigurationAggregator", "config:DescribeAggregateComplianceByConfigRules", "config:DescribeAggregateComplianceByConformancePacks", "config:DescribeConfigurationAggregatorSourcesStatus", "config:GetAggregateComplianceDetailsByConfigRule", "config:GetAggregateConfigRuleComplianceSummary", "config:GetAggregateConformancePackComplianceSummary", "config:GetAggregateDiscoveredResourceCounts", "config:GetAggregateResourceConfig", "config:ListAggregateDiscoveredResources", "config:PutConfigurationAggregator", "config:SelectAggregateResourceConfig" ], "Resource": "arn:aws:config:ap-northeast-1:`111122223333`:config-aggregator/config-aggregator-pokxzldx" } ] }` `` If a user of the developer group tries to perform any of these actions on the AWS Config ARN that you specified, that user will get an access denied exception. **Checking User Access Permissions** To show the aggregators that you have created, run the following AWS CLI command: `aws configservice describe-configuration-aggregators` When command has successfully completed, you will be able to see the details for all the aggregators associated with your account. In this example, those are `AccessibleAggregator` and `InAccessibleAggregator`: `{ "ConfigurationAggregators": [ { "ConfigurationAggregatorArn": "arn:aws:config:ap-northeast-1:AccountID:config-aggregator/config-aggregator-mocpsqhs", "CreationTime": 1517942461.442, "ConfigurationAggregatorName": "AccessibleAggregator", "AccountAggregationSources": [ { "AllAwsRegions": true, "AccountIds": [ "AccountID1", "AccountID2", "AccountID3" ] } ], "LastUpdatedTime": 1517942461.455 }, { "ConfigurationAggregatorArn": "arn:aws:config:ap-northeast-1:AccountID:config-aggregator/config-aggregator-pokxzldx", "CreationTime": 1517942461.442, "ConfigurationAggregatorName": "InAccessibleAggregator", "AccountAggregationSources": [ { "AllAwsRegions": true, "AccountIds": [ "AccountID1", "AccountID2", "AccountID3" ] } ], "LastUpdatedTime": 1517942461.455 } ] }` ###### Note For `account-aggregation-sources` enter a comma-separated list of AWS account IDs for which you want to aggregate data. Wrap the account IDs in square brackets, and be sure to escape quotation marks (for example, `"[{\"AccountIds\": [\"`AccountID1`\",\"`AccountID2`\",\"`AccountID3`\"],\"AllAwsRegions\": true}]"`). Attach the following IAM policy to deny access to `InAccessibleAggregator`, or the aggregator to which you want to deny access. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ConfigDeny", "Effect": "Deny", "Action": [ "config:BatchGetAggregateResourceConfig", "config:DeleteConfigurationAggregator", "config:DescribeAggregateComplianceByConfigRules", "config:DescribeAggregateComplianceByConformancePacks", "config:DescribeConfigurationAggregatorSourcesStatus", "config:GetAggregateComplianceDetailsByConfigRule", "config:GetAggregateConfigRuleComplianceSummary", "config:GetAggregateConformancePackComplianceSummary", "config:GetAggregateDiscoveredResourceCounts", "config:GetAggregateResourceConfig", "config:ListAggregateDiscoveredResources", "config:PutConfigurationAggregator", "config:SelectAggregateResourceConfig" ], "Resource": "arn:aws:config:ap-northeast-1:`111122223333`:config-aggregator/config-aggregator-pokxzldx" } ] }` `` Next, you can confirm that the IAM policy works for restricting access to rules for a specific aggregator: `` aws configservice get-aggregate-compliance-details-by-config-rule --configuration-aggregator-name InAccessibleAggregator --config-rule-name `rule name` --account-id `AccountID` --aws-region `AwsRegion` `` The command should return an access denied exception: ``An error occurred (AccessDeniedException) when calling the GetAggregateComplianceDetailsByConfigRule operation: User: arn:aws:iam::`AccountID`:`user/` is not authorized to perform: config:GetAggregateComplianceDetailsByConfigRule on resource: arn:aws:config:`AwsRegion`-1:`AccountID`:config-aggregator/config-aggregator-pokxzldx`` |
+| API Action                         | Resources                                                                                                                                      |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| DeleteConfigRule                   | Config Rule<br>arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                                  |
+| DeleteEvaluationResults            | Config Rule<br>arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                                  |
+| DescribeComplianceByConfigRule     | Config Rule<br>arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                                  |
+| DescribeConfigRuleEvaluationStatus | Config Rule<br>arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                                  |
+| GetComplianceDetailsByConfigRule   | Config Rule<br>arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                                  |
+| PutConfigRule                      | Config Rule<br>arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                                  |
+| StartConfigRulesEvaluation         | Config Rule<br>arn:aws:config:`region:accountID`:config-rule/config-rule-`ID`                                                                  |
+| PutRemediationConfigurations       | Remediation Configuration<br>arn:aws:config:`region:accountId`:remediation-configuration/`config<br>rule name/remediation configuration<br>id` |
+| DescribeRemediationConfigurations  | Remediation Configuration<br>arn:aws:config:`region:accountId`:remediation-configuration/`config<br>rule name/remediation configuration<br>id` |
+| DeleteRemediationConfiguration     | Remediation Configuration<br>arn:aws:config:`region:accountId`:remediation-configuration/`config<br>rule name/remediation configuration<br>id` |
+| PutRemediationExceptions           | Remediation Configuration<br>arn:aws:config:`region:accountId`:remediation-configuration/`config<br>rule name/remediation configuration<br>id` |
+| DescribeRemediationExceptions      | Remediation Configuration<br>arn:aws:config:`region:accountId`:remediation-configuration/`config<br>rule name/remediation configuration<br>id` |
+| DeleteRemediationExceptions        | Remediation Configuration<br>arn:aws:config:`region:accountId`:remediation-configuration/`config<br>rule name/remediation configuration<br>id` |
+
+For example, you want to allow read access and deny write access to specific rules
+to specific users.
+
+In the first policy, you allow the AWS Config rule read actions such as
+`DescribeConfigRuleEvaluationStatus` on the specified rules.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": [
+ "config:StartConfigRulesEvaluation",
+ "config:DescribeComplianceByConfigRule",
+ "config:DescribeConfigRuleEvaluationStatus",
+ "config:GetComplianceDetailsByConfigRule"
+ ],
+ "Resource": [
+ "arn:aws:config:`us-east-1`:`123456789012`:config-rule/config-rule-`ID`",
+ "arn:aws:config:`us-east-1`:`123456789012`:config-rule/config-rule-`ID`"
+ ]
+ }
+ ]
+}`
+
+```
+
+In the second policy, you deny the AWS Config rule write actions on the specific
+rule.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Deny",
+ "Action": [
+ "config:PutConfigRule",
+ "config:DeleteConfigRule",
+ "config:DeleteEvaluationResults"
+ ],
+ "Resource": "arn:aws:config:`us-east-1`:`123456789012`:config-rule/config-rule-`ID`"
+ }
+ ]
+}`
+
+```
+
+With resource-level permissions, you can allow read access and deny write access
+to perform specific actions on AWS Config rule API actions.
+
+## Supported Resource-Level Permissions for
+
+Multi-Account Multi-Region Data Aggregation
+
+You can use resource-level permissions to control a user's ability to perform
+specific actions on multi-account multi-region data aggregation. The following AWS Config
+`Aggregator` APIs support resource level permissions:
+
+- [BatchGetAggregateResourceConfig](../APIReference/API_BatchGetAggregateResourceConfig.md "../APIReference/API_BatchGetAggregateResourceConfig.md")
+- [DeleteConfigurationAggregator](../APIReference/API_DeleteConfigurationAggregator.md "../APIReference/API_DeleteConfigurationAggregator.md")
+- [DescribeAggregateComplianceByConfigRules](../APIReference/API_DescribeAggregateComplianceByConfigRules.md "../APIReference/API_DescribeAggregateComplianceByConfigRules.md")
+- [DescribeAggregateComplianceByConformancePacks](../APIReference/API_DescribeAggregateComplianceByConformancePacks.md "../APIReference/API_DescribeAggregateComplianceByConformancePacks.md")
+- [DescribeConfigurationAggregatorSourcesStatus](../APIReference/API_DescribeConfigurationAggregatorSourcesStatus.md "../APIReference/API_DescribeConfigurationAggregatorSourcesStatus.md")
+- [GetAggregateComplianceDetailsByConfigRule](../APIReference/API_GetAggregateComplianceDetailsByConfigRule.md "../APIReference/API_GetAggregateComplianceDetailsByConfigRule.md")
+- [GetAggregateConfigRuleComplianceSummary](../APIReference/API_GetAggregateConfigRuleComplianceSummary.md "../APIReference/API_GetAggregateConfigRuleComplianceSummary.md")
+- [GetAggregateConformancePackComplianceSummary](../APIReference/API_GetAggregateConformancePackComplianceSummary.md "../APIReference/API_GetAggregateConformancePackComplianceSummary.md")
+- [GetAggregateDiscoveredResourceCounts](../APIReference/API_GetAggregateDiscoveredResourceCounts.md "../APIReference/API_GetAggregateDiscoveredResourceCounts.md")
+- [GetAggregateResourceConfig](../APIReference/API_GetAggregateResourceConfig.md "../APIReference/API_GetAggregateResourceConfig.md")
+- [ListAggregateDiscoveredResources](../APIReference/API_ListAggregateDiscoveredResources.md "../APIReference/API_ListAggregateDiscoveredResources.md")
+- [PutConfigurationAggregator](../APIReference/API_PutConfigurationAggregator.md "../APIReference/API_PutConfigurationAggregator.md")
+- [SelectAggregateResourceConfig](../APIReference/API_SelectAggregateResourceConfig.md "../APIReference/API_SelectAggregateResourceConfig.md")
+
+For example, you can restrict access to resource data from specific users by
+creating two aggregators `AccessibleAggregator` and
+`InAccessibleAggregator` and attaching an IAM policy that allows
+access to `AccessibleAggregator` but denies access to
+`InAccessibleAggregator`.
+
+**IAM Policy for AccessibleAggregator**
+
+In this policy, you allow access to the supported aggregator actions for the AWS Config
+Amazon Resource Name (ARN) that you specify. In this example, the AWS Config ARN is
+`arn:aws:config:ap-northeast-1:`AccountID`:config-aggregator/config-aggregator-mocpsqhs`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ConfigAllow",
+ "Effect": "Allow",
+ "Action": [
+ "config:BatchGetAggregateResourceConfig",
+ "config:DeleteConfigurationAggregator",
+ "config:DescribeAggregateComplianceByConfigRules",
+ "config:DescribeAggregateComplianceByConformancePacks",
+ "config:DescribeConfigurationAggregatorSourcesStatus",
+ "config:GetAggregateComplianceDetailsByConfigRule",
+ "config:GetAggregateConfigRuleComplianceSummary",
+ "config:GetAggregateConformancePackComplianceSummary",
+ "config:GetAggregateDiscoveredResourceCounts",
+ "config:GetAggregateResourceConfig",
+ "config:ListAggregateDiscoveredResources",
+ "config:PutConfigurationAggregator",
+ "config:SelectAggregateResourceConfig"
+ ],
+ "Resource": "arn:aws:config:ap-northeast-1:`111122223333`:config-aggregator/config-aggregator-mocpsqhs"
+ }
+ ]
+}`
+
+```
+
+**IAM Policy for InAccessibleAggregator**
+
+In this policy, you deny access to the supported aggregator actions for the AWS Config
+ARN that you specify. In this example, the AWS Config ARN is
+`arn:aws:config:ap-northeast-1:`AccountID`:config-aggregator/config-aggregator-pokxzldx`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ConfigDeny",
+ "Effect": "Deny",
+ "Action": [
+ "config:BatchGetAggregateResourceConfig",
+ "config:DeleteConfigurationAggregator",
+ "config:DescribeAggregateComplianceByConfigRules",
+ "config:DescribeAggregateComplianceByConformancePacks",
+ "config:DescribeConfigurationAggregatorSourcesStatus",
+ "config:GetAggregateComplianceDetailsByConfigRule",
+ "config:GetAggregateConfigRuleComplianceSummary",
+ "config:GetAggregateConformancePackComplianceSummary",
+ "config:GetAggregateDiscoveredResourceCounts",
+ "config:GetAggregateResourceConfig",
+ "config:ListAggregateDiscoveredResources",
+ "config:PutConfigurationAggregator",
+ "config:SelectAggregateResourceConfig"
+ ],
+ "Resource": "arn:aws:config:ap-northeast-1:`111122223333`:config-aggregator/config-aggregator-pokxzldx"
+ }
+ ]
+}`
+
+```
+
+If a user of the developer group tries to perform any of these actions on the AWS Config
+ARN that you specified, that user will get an access denied exception.
+
+**Checking User Access Permissions**
+
+To show the aggregators that you have created, run the following AWS CLI
+command:
+
+```
+aws configservice describe-configuration-aggregators
+```
+
+When command has successfully completed, you will be able to see the details for
+all the aggregators associated with your account. In this example, those are
+`AccessibleAggregator` and
+`InAccessibleAggregator`:
+
+```
+{
+    "ConfigurationAggregators": [
+        {
+            "ConfigurationAggregatorArn": "arn:aws:config:ap-northeast-1:AccountID:config-aggregator/config-aggregator-mocpsqhs",
+            "CreationTime": 1517942461.442,
+            "ConfigurationAggregatorName": "AccessibleAggregator",
+            "AccountAggregationSources": [
+                {
+                    "AllAwsRegions": true,
+                    "AccountIds": [
+                        "AccountID1",
+                        "AccountID2",
+                        "AccountID3"
+                    ]
+                }
+            ],
+            "LastUpdatedTime": 1517942461.455
+        },
+        {
+            "ConfigurationAggregatorArn": "arn:aws:config:ap-northeast-1:AccountID:config-aggregator/config-aggregator-pokxzldx",
+            "CreationTime": 1517942461.442,
+            "ConfigurationAggregatorName": "InAccessibleAggregator",
+            "AccountAggregationSources": [
+                {
+                    "AllAwsRegions": true,
+                    "AccountIds": [
+                        "AccountID1",
+                        "AccountID2",
+                        "AccountID3"
+                    ]
+                }
+            ],
+            "LastUpdatedTime": 1517942461.455
+        }
+    ]
+}
+```
+
+###### Note
+
+For `account-aggregation-sources` enter a comma-separated list of
+AWS account IDs for which you want to aggregate data. Wrap the account IDs in
+square brackets, and be sure to escape quotation marks (for example,
+`"[{\"AccountIds\":
+ [\"`AccountID1`\",\"`AccountID2`\",\"`AccountID3`\"],\"AllAwsRegions\":
+ true}]"`).
+
+Attach the following IAM policy to deny access to
+`InAccessibleAggregator`, or the aggregator to which you want to deny
+access.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ConfigDeny",
+ "Effect": "Deny",
+ "Action": [
+ "config:BatchGetAggregateResourceConfig",
+ "config:DeleteConfigurationAggregator",
+ "config:DescribeAggregateComplianceByConfigRules",
+ "config:DescribeAggregateComplianceByConformancePacks",
+ "config:DescribeConfigurationAggregatorSourcesStatus",
+ "config:GetAggregateComplianceDetailsByConfigRule",
+ "config:GetAggregateConfigRuleComplianceSummary",
+ "config:GetAggregateConformancePackComplianceSummary",
+ "config:GetAggregateDiscoveredResourceCounts",
+ "config:GetAggregateResourceConfig",
+ "config:ListAggregateDiscoveredResources",
+ "config:PutConfigurationAggregator",
+ "config:SelectAggregateResourceConfig"
+ ],
+ "Resource": "arn:aws:config:ap-northeast-1:`111122223333`:config-aggregator/config-aggregator-pokxzldx"
+ }
+ ]
+}`
+
+```
+
+Next, you can confirm that the IAM policy works for restricting access to rules
+for a specific aggregator:
+
+```
+aws configservice get-aggregate-compliance-details-by-config-rule --configuration-aggregator-name InAccessibleAggregator --config-rule-name `rule name` --account-id `AccountID` --aws-region `AwsRegion`
+```
+
+The command should return an access denied exception:
+
+```
+An error occurred (AccessDeniedException) when calling the GetAggregateComplianceDetailsByConfigRule operation: User: arn:aws:iam::`AccountID`:`user/` is not
+authorized to perform: config:GetAggregateComplianceDetailsByConfigRule on resource: arn:aws:config:`AwsRegion`-1:`AccountID`:config-aggregator/config-aggregator-pokxzldx
+```

@@ -477,33 +477,46 @@ This notification contains the configuration item change for the EC2 security gr
 }
 ```
 
-## Understanding the
+## Understanding
 
-`configurationItemDiff` field in Amazon SNS
+the `configurationItemDiff` field in Amazon SNS
 `ConfigurationItemChangeNotification` notifications
 
-AWS Config creates a configuration item whenever the configuration of a resource changes (create/update/delete). For a list of supported resource types that AWS Config can record, see [Supported Resource Types for AWS Config](resource-config-reference.md "resource-config-reference.md").
+AWS Config creates a configuration item whenever the configuration of a resource changes
+(create/update/delete). For a list of supported resource types that AWS Config can record, see
+[Supported Resource Types for AWS Config](resource-config-reference.md "resource-config-reference.md"). AWS Config uses Amazon SNS to deliver a notification as the changes occur. The Amazon SNS
+notification payload includes fields to help you track the resource changes in a given
+AWS Region.
 
-AWS Config uses Amazon SNS to deliver a notification as the changes occur.
-The Amazon SNS notification payload includes fields to help you track the resource changes in a given AWS Region.
-
-To understand why you receive a `ConfigurationItemChangeNotification` notification, review the `configurationItemDiff` details.
-The fields vary depending on the change type and can form different combinations such as UPDATE-UPDATE, UPDATE-CREATE, and DELETE-DELETE. The following are explanations of some common combinations.
+To understand why you receive a `ConfigurationItemChangeNotification`
+notification, review the `configurationItemDiff` details. The fields vary
+depending on the change type and can form different combinations such as UPDATE-UPDATE,
+UPDATE-CREATE, and DELETE-DELETE. The following are explanations of some common
+combinations.
 
 ### UPDATE-CREATE and UPDATE-UPDATE
 
-The following example includes changes in the resource direct relationships and resource configurations. The `configurationItemDiff` details reveal the following information:
+The following example includes changes in the resource direct relationships and
+resource configurations. The `configurationItemDiff` details reveal the
+following information:
 
-**Action performed**: A managed policy present in the account was attached to an AWS Identity and Access Management (IAM) role.
+**Action performed**: A managed policy present in the account was
+attached to an AWS Identity and Access Management (IAM) role.
 
-**Basic operation performed**: UPDATE (updating the number of associations of the resource type `AWS::IAM::Policy` in an account).
+**Basic operation performed**: UPDATE (updating the number of
+associations of the resource type `AWS::IAM::Policy` in an
+account).
 
 **Change type combinations**:
 
-1. Resource direct relationship change UPDATE-CREATE. A new attachment or association was created between an IAM policy and an IAM role.
-2. Resource configuration change UPDATE-UPDATE. The number IAM policy associations increased from 2 to 3 when the policy was attached to the IAM role.
+1. Resource direct relationship change UPDATE-CREATE. A new attachment or
+   association was created between an IAM policy and an IAM role.
+2. Resource configuration change UPDATE-UPDATE. The number IAM policy
+   associations increased from 2 to 3 when the policy was attached to the IAM
+   role.
 
-Example UPDATE-CREATE and UPDATE-UPDATE `configurationItemDiff` notification:
+Example UPDATE-CREATE and UPDATE-UPDATE `configurationItemDiff`
+notification:
 
 ```
 {
@@ -532,25 +545,32 @@ Example UPDATE-CREATE and UPDATE-UPDATE `configurationItemDiff` notification:
 
 ### UPDATE-DELETE
 
-The following example includes changes in the resource direct relationships and resource configurations. The `configurationItemDiff` details reveal the following information:
+The following example includes changes in the resource direct relationships and
+resource configurations. The `configurationItemDiff` details reveal the
+following information:
 
-**Action performed**: A managed policy present in the account was detached from an IAM user.
+**Action performed**: A managed policy present in the account was
+detached from an IAM user.
 
-**Basic operation performed**: UPDATE (updating the permissions policy associated with the resource type `AWS::IAM::User`).
+**Basic operation performed**: UPDATE (updating the permissions
+policy associated with the resource type `AWS::IAM::User`).
 
-**Change type combinations**: Resource direct relationship change UPDATE-DELETE. The association between an IAM user and an IAM policy in an account was deleted.
-
-Example UPDATE-DELETE `configurationItemDiff` notification:
+**Change type combinations**: Resource direct relationship change
+UPDATE-DELETE. The association between an IAM user and an IAM policy in an account
+was deleted.
 
 ### DELETE-DELETE
 
-The following example includes changes in the resource direct relationships and resource configurations. The `configurationItemDiff` details reveal the following information:
+The following example includes changes in the resource direct relationships and
+resource configurations. The `configurationItemDiff` details reveal the
+following information:
 
-**Action performed**: An IAM role present in an account was deleted.
+**Action performed**: An IAM role present in an account was
+deleted.
 
-**Basic operation performed**: DELETE (a resource of the resource type `AWS::IAM::Role` was deleted).
+**Basic operation performed**: DELETE (a resource of the resource
+type `AWS::IAM::Role` was deleted).
 
-**Change type combinations**: Resource direct relationship change and resource configuration change DELETE-DELETE.
-The deletion of the IAM role also deleted the association of the IAM policy with the IAM role.
-
-Example DELETE-DELETE `configurationItemDiff` notification:
+**Change type combinations**: Resource direct relationship change and
+resource configuration change DELETE-DELETE. The deletion of the IAM role also deleted
+the association of the IAM policy with the IAM role.

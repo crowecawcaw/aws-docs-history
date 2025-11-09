@@ -21,7 +21,7 @@ The rule is COMPLIANT in any of following scenarios:
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Middle East (UAE), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

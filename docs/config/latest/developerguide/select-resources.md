@@ -152,12 +152,163 @@ type can be used in multiple AWS Regions, but the configuration items (CIs) are
 only recorded in the home Region for the commercial partition or
 AWS GovCloud (US-West) for the AWS GovCloud (US) partition.
 
-| Home Regions for Global Resource Types   | AWS Service                        | Resource Type Value          | Home Region                           |
-| ---------------------------------------- | ---------------------------------- | ---------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Home Regions for Global Resource Types   | AWS Service                        | Resource Type Value          | Home Region |
+| ---------------------------------------- | ---------------------------------- | ---------------------------- | ----------- |
 | Amazon Elastic Container Registry Public | `AWS::ECR::PublicRepository`       | US East (N. Virginia) Region |
 | AWS Global Accelerator                   | `AWS::GlobalAccelerator::Listener` | US West (Oregon) Region      |
-| `AWS::GlobalAccelerator::EndpointGroup`  | US West (Oregon) Region            |                              | `AWS::GlobalAccelerator::Accelerator` | US West (Oregon) Region                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `AWS::GlobalAccelerator::EndpointGroup`  | US West (Oregon) Region            |
+| `AWS::GlobalAccelerator::Accelerator`    | US West (Oregon) Region            |
 | Amazon Route 53                          | `AWS::Route53::HostedZone`         | US East (N. Virginia) Region |
 | `AWS::Route53::HealthCheck`              | US East (N. Virginia) Region       |
 | Amazon CloudFront                        | `AWS::CloudFront::Distribution`    | US East (N. Virginia) Region |
-| AWS WAF                                  | `AWS::WAFv2::WebACL`               | US East (N. Virginia) Region | \*\*Global resource types             | Aurora global clusters** `AWS::RDS::GlobalCluster` is a global resource that is recorded in all supported AWS Config Regions where the customer managed configuration recorder is enabled. This global resource type is unique in that if you enable the recording of this resource in one Region, AWS Config will record configuration items (CIs) for this resource type in all your enabled Regions. If you do not want to record `AWS::RDS::GlobalCluster` in all enabled Regions, use one of the following recording strategies for the AWS Config console: <br>• **Record all resource types with customizable overrides**, choose "AWS RDS GlobalCluster", and choose the override "Exclude from recording" <br>• **Record specific resource types**. If you do not want to record `AWS::RDS::GlobalCluster` in all enabled Regions, use one of the following recording strategies for the API/CLI: <br>• **Record all current and future resource types with exclusions** (`EXCLUSION_BY_RESOURCE_TYPES`) <br>• **Record specific resource types\*\* (`INCLUSION_BY_RESOURCE_TYPES`). ## AWS Config Rules and global resource types The global IAM resource types onboarded before February 2022 (`AWS::IAM::Group`, `AWS::IAM::Policy`, `AWS::IAM::Role`, and `AWS::IAM::User`) can only be recorded by AWS Config in Regions where AWS Config was available before February 2022. These global IAM resource types cannot be recorded in Regions supported by AWS Config after February 2022. For a list of those Regions, see [Recording AWS Resources | Global Resources](select-resources.md#select-resources-all "select-resources.md#select-resources-all"). If you record a global IAM resource type in at least one Region, periodic rules that report compliance on the global IAM resource type will run evaluations in all Regions where the periodic rule is added, even if you have not enabled the recording of the global IAM resource type in the Region where the periodic rule was added. **Best Practices for reporting compliance on global resources onboarded before February 2022** To avoid unnecessary evaluations, you should only deploy AWS Config rules and conformance packs that have these global resources in scope to one of the supported Regions. For a list of which managed rules are supported in which Regions, see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md"). This applies to AWS Config rules, organizational AWS Config rules, and also rules created by other AWS services, such as AWS Security Hub and AWS Control Tower. If you are not recording global resource types onboarded before February 2022, it is recommended that you do not enable the following periodic rules to avoid unnecessary evaluations: <br>• [access-keys-rotated](access-keys-rotated.md "access-keys-rotated.md") <br>• [account-part-of-organizations](account-part-of-organizations.md "account-part-of-organizations.md") <br>• [iam-password-policy](iam-password-policy.md "iam-password-policy.md") <br>• [iam-policy-in-use](iam-policy-in-use.md "iam-policy-in-use.md") <br>• [iam-root-access-key-check](iam-root-access-key-check.md "iam-root-access-key-check.md") <br>• [iam-user-mfa-enabled](iam-user-mfa-enabled.md "iam-user-mfa-enabled.md") <br>• [iam-user-unused-credentials-check](iam-user-unused-credentials-check.md "iam-user-unused-credentials-check.md") <br>• [mfa-enabled-for-iam-console-access](mfa-enabled-for-iam-console-access.md "mfa-enabled-for-iam-console-access.md") <br>• [root-account-hardware-mfa-enabled](root-account-hardware-mfa-enabled.md "root-account-hardware-mfa-enabled.md") <br>• [root-account-mfa-enabled](root-account-mfa-enabled.md "root-account-mfa-enabled.md") **Best Practices for reporting compliance on global resources onboarded after February 2022** Global resource types onboarded to AWS Config recording after February 2022 will be recorded only in the service's home Region for the commercial partition and AWS GovCloud (US-West) for the AWS GovCloud (US) partition. You should deploy AWS Config rules and conformance packs that have these global resources in scope only to the resource type's home Region. For more information, see [Home Regions for Global Resource Types](select-resources.md#select-resources-all "select-resources.md#select-resources-all"). ## Recording frequency for AWS Config AWS Config supports _Continuous recording_ and _Daily recording_. Continuous recording allows you to record configuration changes continuously whenever a change occurs. Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded. For steps on how to change the recording frequency, see [Changing Recording Frequency](managing-recorder_console-change-recording-frequency.md "managing-recorder_console-change-recording-frequency.md"). **Continuous recording** Some benefits of continuous recording include: <br>• **Real-time Monitoring**: Continuous recording can provide immediate detection for unauthorized changes or unexpected alterations, which can enhance your security and compliance efforts. <br>• **Detailed Analysis**: Continuous recording can allow you to perfom in-depth analysis of configuration changes to your resources as they occur, which can allow you to identify patterns and trends in the moment. **Daily recording** Some benefits of daily recording include: <br>• **Minimal Disruption**: Daily recording can provide you with a more mangeable flow of information, which can reduce the frequency of notifications and alert fatigue. <br>• **Cost Efficiency**: Daily recording can provide you with the flexibility to record changes to your resources at at a lower frequency, which can reduce costs related to the number of configuration changes recorded. ###### Note AWS Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous. ## Non-recorded resources If a resource is not recorded, AWS Config captures only the creation and deletion of that resource, and no other details, at no cost to you. When a non-recorded resource is created or deleted, AWS Config sends a notification, and it displays the event on the resource details page. The details page for a non-recorded resource provides null values for most configuration details, and it does not provide information about relationships and configuration changes. The relationship information that AWS Config provides for recorded resources is not limited because of missing data for non-recorded resources. If a recorded resource is related to a non-recorded resource, that relationship is provided in the details page of the recorded resource. **IAM resource type considerations** The `AWS::IAM::User`, `AWS::IAM::Policy`,`AWS::IAM::Group`, `AWS::IAM::Role` resource types will only capture the creation (`ResourceNotRecorded`) and deletion (`ResourceDeletedNotRecorded`) states if the resource is, or previously was, selected as a resource to record in the customer managed configuration recorder . **CI recording schedule for non-recorded resources** The configuration items (CIs) for `ResourceNotRecorded` and `ResourceDeletedNotRecorded` do not follow the typical recording time for resource types. These resource types are only recorded during the periodic baselining process for the customer managed configuration recorder, which is at a less frequent cadance than that for the other resource types. This means that create and delete notifications are not sent upon creation or deletion, but during the baselining process. **CI delivery and service-linked recorder scope** For service-linked configuration recorders, the recording scope determines if you receive configuration items (CIs) in the delivery channel. The recording scope is set by the service that is linked to the configuration recorder. If the recording scope is internal, you will not receive CIs in the delivery channel. |
+| AWS WAF                                  | `AWS::WAFv2::WebACL`               | US East (N. Virginia) Region |
+
+**Global resource types | Aurora global clusters**
+
+`AWS::RDS::GlobalCluster` is a global resource that is recorded in
+all supported AWS Config Regions where the customer managed configuration recorder is
+enabled. This global resource type is unique in that if you enable the recording
+of this resource in one Region, AWS Config will record configuration items (CIs) for
+this resource type in all your enabled Regions.
+
+If you do not want to record `AWS::RDS::GlobalCluster` in all
+enabled Regions, use one of the following recording strategies for the AWS Config
+console:
+
+- **Record all resource types with customizable
+  overrides**, choose "AWS RDS GlobalCluster", and choose the
+  override "Exclude from recording"
+- **Record specific resource types**.
+
+If you do not want to record `AWS::RDS::GlobalCluster` in all
+enabled Regions, use one of the following recording strategies for the
+API/CLI:
+
+- **Record all current and future resource types with
+  exclusions** (`EXCLUSION_BY_RESOURCE_TYPES`)
+- **Record specific resource types**
+  (`INCLUSION_BY_RESOURCE_TYPES`).
+
+## AWS Config Rules and global resource
+
+types
+
+The global IAM resource types onboarded before February 2022
+(`AWS::IAM::Group`, `AWS::IAM::Policy`, `AWS::IAM::Role`,
+and `AWS::IAM::User`) can only be recorded by AWS Config in Regions where AWS Config was
+available before February 2022. These global IAM resource types cannot be recorded in Regions
+supported by AWS Config after February 2022. For a list of those Regions, see [Recording
+AWS Resources | Global Resources](select-resources.md#select-resources-all "select-resources.md#select-resources-all").
+
+If you record a global IAM resource type in at least one Region, periodic rules that
+report compliance on the global IAM resource type will run evaluations in all Regions where
+the periodic rule is added, even if you have not enabled the recording of the global IAM
+resource type in the Region where the periodic rule was added.
+
+**Best Practices for reporting compliance on global resources onboarded before
+February 2022**
+
+To avoid unnecessary evaluations, you should only deploy AWS Config rules and conformance packs
+that have these global resources in scope to one of the supported Regions. For a list of which
+managed rules are supported in which Regions, see [List of AWS Config
+Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md"). This applies to AWS Config rules, organizational
+AWS Config rules, and also rules created by other AWS services, such as AWS Security Hub and
+AWS Control Tower.
+
+If you are not recording global resource types onboarded before February 2022, it is
+recommended that you do not enable the following periodic rules to avoid unnecessary
+evaluations:
+
+- [access-keys-rotated](access-keys-rotated.md "access-keys-rotated.md")
+- [account-part-of-organizations](account-part-of-organizations.md "account-part-of-organizations.md")
+- [iam-password-policy](iam-password-policy.md "iam-password-policy.md")
+- [iam-policy-in-use](iam-policy-in-use.md "iam-policy-in-use.md")
+- [iam-root-access-key-check](iam-root-access-key-check.md "iam-root-access-key-check.md")
+- [iam-user-mfa-enabled](iam-user-mfa-enabled.md "iam-user-mfa-enabled.md")
+- [iam-user-unused-credentials-check](iam-user-unused-credentials-check.md "iam-user-unused-credentials-check.md")
+- [mfa-enabled-for-iam-console-access](mfa-enabled-for-iam-console-access.md "mfa-enabled-for-iam-console-access.md")
+- [root-account-hardware-mfa-enabled](root-account-hardware-mfa-enabled.md "root-account-hardware-mfa-enabled.md")
+- [root-account-mfa-enabled](root-account-mfa-enabled.md "root-account-mfa-enabled.md")
+
+**Best Practices for reporting compliance on global resources onboarded after
+February 2022**
+
+Global resource types onboarded to AWS Config recording after February 2022 will be recorded
+only in the service's home Region for the commercial partition and AWS GovCloud (US-West) for
+the AWS GovCloud (US) partition. You should deploy AWS Config rules and conformance packs that have
+these global resources in scope only to the resource type's home Region. For more information,
+see [Home Regions for
+Global Resource Types](select-resources.md#select-resources-all "select-resources.md#select-resources-all").
+
+## Recording frequency for AWS Config
+
+AWS Config supports _Continuous recording_ and _Daily
+recording_. Continuous recording allows you to record configuration changes
+continuously whenever a change occurs. Daily recording allows you to receive a configuration
+item (CI) representing the most recent state of your resources over the last 24-hour period,
+only if it’s different from the previous CI recorded. For steps on how to change the recording
+frequency, see [Changing Recording Frequency](managing-recorder_console-change-recording-frequency.md "managing-recorder_console-change-recording-frequency.md").
+
+**Continuous recording**
+
+Some benefits of continuous recording include:
+
+- **Real-time Monitoring**: Continuous recording can provide
+  immediate detection for unauthorized changes or unexpected alterations, which can enhance
+  your security and compliance efforts.
+- **Detailed Analysis**: Continuous recording can allow you to perfom
+  in-depth analysis of configuration changes to your resources as they occur, which can
+  allow you to identify patterns and trends in the moment.
+
+**Daily recording**
+
+Some benefits of daily recording include:
+
+- **Minimal Disruption**: Daily recording can provide you with a more
+  mangeable flow of information, which can reduce the frequency of notifications and alert
+  fatigue.
+- **Cost Efficiency**: Daily recording can provide you with the
+  flexibility to record changes to your resources at at a lower frequency, which can reduce
+  costs related to the number of configuration changes recorded.
+
+###### Note
+
+AWS Firewall Manager depends on continuous recording to monitor your resources. If you are using
+Firewall Manager, it is recommended that you set the recording frequency to Continuous.
+
+## Non-recorded resources
+
+If a resource is not recorded, AWS Config captures only the creation and deletion of that
+resource, and no other details, at no cost to you. When a non-recorded resource is created or
+deleted, AWS Config sends a notification, and it displays the event on the resource details page.
+The details page for a non-recorded resource provides null values for most configuration
+details, and it does not provide information about relationships and configuration
+changes.
+
+The relationship information that AWS Config provides for recorded resources is not limited
+because of missing data for non-recorded resources. If a recorded resource is related to a
+non-recorded resource, that relationship is provided in the details page of the recorded
+resource.
+
+**IAM resource type considerations**
+
+The `AWS::IAM::User`, `AWS::IAM::Policy`,`AWS::IAM::Group`, `AWS::IAM::Role` resource types will only capture the
+creation (`ResourceNotRecorded`) and deletion
+(`ResourceDeletedNotRecorded`) states if the resource is, or previously was,
+selected as a resource to record in the customer managed configuration recorder .
+
+**CI recording schedule for non-recorded resources**
+
+The configuration items (CIs) for `ResourceNotRecorded` and
+`ResourceDeletedNotRecorded` do not follow the typical recording time for
+resource types. These resource types are only recorded during the periodic baselining process
+for the customer managed configuration recorder, which is at a less frequent cadance than that
+for the other resource types. This means that create and delete notifications are not sent
+upon creation or deletion, but during the baselining process.
+
+**CI delivery and service-linked recorder scope**
+
+For service-linked configuration recorders, the recording scope determines if you
+receive configuration items (CIs) in the delivery channel. The recording scope is set by the
+service that is linked to the configuration recorder. If the recording scope is internal,
+you will not receive CIs in the delivery channel.

@@ -13,7 +13,7 @@ If the security group does not have one of those destinations, this rule returns
 
 **Trigger type:** Configuration changes and Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Melbourne) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

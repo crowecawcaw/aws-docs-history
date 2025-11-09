@@ -13,7 +13,7 @@ The rule returns `NOT_APPLICABLE` if SSM agent is not installed or an associatio
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
 
 **Parameters:**
 

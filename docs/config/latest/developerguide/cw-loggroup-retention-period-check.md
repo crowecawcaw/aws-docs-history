@@ -12,7 +12,7 @@ If the retention setting is "Never expire" for a log group, the rule is marked a
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Middle East (UAE) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

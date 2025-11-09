@@ -8,7 +8,7 @@ Checks if a Lambda function is configured with a dead-letter queue. The rule is 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Ningxia) Region
 
 **Parameters:**
 

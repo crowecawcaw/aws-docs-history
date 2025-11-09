@@ -8,7 +8,7 @@ Checks if Amazon Redshift clusters require TLS/SSL encryption to connect to SQL 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), AWS Secret - West, Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West, Mexico (Central) Region
 
 **Parameters:**
 

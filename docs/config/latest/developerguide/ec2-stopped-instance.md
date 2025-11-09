@@ -8,7 +8,7 @@ Checks if there are Amazon Elastic Compute Cloud (Amazon EC2) instances stopped 
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Africa (Cape Town), Middle East (UAE), AWS Secret - West, Asia Pacific (Osaka), Asia Pacific (Melbourne), Europe (Milan), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

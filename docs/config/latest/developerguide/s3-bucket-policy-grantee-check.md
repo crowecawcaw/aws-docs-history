@@ -17,7 +17,7 @@ If a bucket policy contains more than one statement, each statement in the bucke
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

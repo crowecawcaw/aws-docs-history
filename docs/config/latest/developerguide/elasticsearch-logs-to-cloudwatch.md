@@ -8,7 +8,7 @@ Checks if Amazon OpenSearch Service domains are configured to send logs to Amazo
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

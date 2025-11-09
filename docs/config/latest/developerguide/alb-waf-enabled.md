@@ -8,7 +8,7 @@ Checks if AWS WAF is enabled on Application Load Balancers (ALBs). The rule is N
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Osaka) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 

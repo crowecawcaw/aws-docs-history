@@ -8,7 +8,7 @@ Checks if Amazon EC2 Auto Scaling groups have public IP addresses enabled throug
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS Secret - West Region
 
 **Parameters:**
 
