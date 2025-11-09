@@ -203,6 +203,10 @@ Contributors to this reference architecture diagram include:
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
 | Change              | Description                                                                                                        | Date             |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------- |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------- |
 | Diagram updated     | Added _Segment Your Traffic over AWS Direct Connect by Using Several Transit VIFs and AWS Direct Connect Gateways_ | November 9, 2023 |
-| Initial publication | Reference architecture diagram first published.                                                                    | June 30, 2022    | ###### Note To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using. |
+| Initial publication | Reference architecture diagram first published.                                                                    | June 30, 2022    |
+
+###### Note
+
+To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using.
