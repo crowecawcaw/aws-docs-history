@@ -91,7 +91,7 @@ EndSection
 
 The DCV stylus pen, DCV stylus eraser, and DCV touchscreen appears in the command output. The following is example output.
 
-````
+```
 | Virtual core pointer                          id=2    [master pointer  (3)]
 |   | Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
 |   | dummy_mouse                               id=6    [slave  pointer  (2)]
@@ -99,5 +99,33 @@ The DCV stylus pen, DCV stylus eraser, and DCV touchscreen appears in the comman
 |   | **DCV Stylus Pen**                            id=8    [slave  pointer  (2)]
 |   | **DCV Stylus Eraser**                         id=9    [slave  pointer  (2)]
 |   | **DCV Touchscreen**                           id=10   [slave  pointer  (2)]
-| Virtual core keyboard                         id=3    [master keyboard (2)] | Virtual core XTEST keyboard               id=5    [slave  keyboard (3)] ``` ## Configuring a stylus pressure range There are some applications that require you to reduce the stylus pressure range to between 0 and 2048. You can configure the pressure range by setting the `Pressure2k` option to true in the `/etc/X11/xorg.conf` file. ###### To configure stylus pressure 1. Open `/etc/X11/xorg.conf` using your preferred text editor. 2. Add the following sections to the file. ``` Section "InputDevice" Identifier "DCV Stylus Pen" Driver "dcvinput" Option "Pressure2K" "true" EndSection Section "InputDevice" Identifier "DCV Stylus Eraser" Driver "dcvinput" Option "Pressure2K" "true" EndSection ``` 3. Save the changes and close the file. 4. Restart the X server.
-````
+| Virtual core keyboard                         id=3    [master keyboard (2)]
+    | Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
+```
+
+## Configuring a stylus pressure range
+
+There are some applications that require you to reduce the stylus pressure range to between 0 and 2048. You can configure the pressure range
+by setting the `Pressure2k` option to true in the `/etc/X11/xorg.conf` file.
+
+###### To configure stylus pressure
+
+1. Open `/etc/X11/xorg.conf` using your preferred text editor.
+2. Add the following sections to the file.
+
+```
+Section "InputDevice"
+  Identifier "DCV Stylus Pen"
+  Driver "dcvinput"
+  Option "Pressure2K" "true"
+EndSection
+
+Section "InputDevice"
+  Identifier "DCV Stylus Eraser"
+  Driver "dcvinput"
+  Option "Pressure2K" "true"
+EndSection
+```
+
+3. Save the changes and close the file.
+4. Restart the X server.

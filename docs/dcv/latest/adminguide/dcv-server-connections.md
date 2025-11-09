@@ -3,11 +3,19 @@
 Counters in this set provide information about a single client connection. Counter set instances are created when a client
 connects to the server and deleted when the client disconnects. The connection_id is a number, and it is only unique within one server session.
 
-| Counter name                | Description                                                               | Unit    |
-| --------------------------- | ------------------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Connection Duration sec     | Total number of seconds the connection has been open                      | Seconds | The following counters are the same as the ones in “DCV Server” counter set, with minor differences in the description: |
-| Counter name                | Description                                                               |         | ---                                                                                                                     | ---                                                                                       |
-| Receive Rate bits/sec       | Rate in bits per second at which data is received within the connection   |         | Received Bytes                                                                                                          | Total number of bytes received since the connection was established                       |
-| Send Rate bits/sec          | Rate in bits per second at which data is sent within the connection       |         | Sent Bytes                                                                                                              | Total number of bytes sent since the connection was established                           |
-| HTTP Download Rate bits/sec | Bandwidth in bits per second for outgoing HTTP data within the connection |         | HTTP Downloaded Bytes                                                                                                   | Total number of bytes sent over HTTP since the connection was established                 |
-| Round-Trip Time ms          | Average round-trip latency for the connection, in milliseconds            |         | Minimum Round-Trip Time ms                                                                                              | Minimum round-trip latency detected since the connection was established, in milliseconds |
+| Counter name            | Description                                          | Unit    |
+| ----------------------- | ---------------------------------------------------- | ------- |
+| Connection Duration sec | Total number of seconds the connection has been open | Seconds |
+
+The following counters are the same as the ones in “DCV Server” counter set, with minor differences in the description:
+
+| Counter name                | Description                                                                               |
+| --------------------------- | ----------------------------------------------------------------------------------------- |
+| Receive Rate bits/sec       | Rate in bits per second at which data is received within the connection                   |
+| Received Bytes              | Total number of bytes received since the connection was established                       |
+| Send Rate bits/sec          | Rate in bits per second at which data is sent within the connection                       |
+| Sent Bytes                  | Total number of bytes sent since the connection was established                           |
+| HTTP Download Rate bits/sec | Bandwidth in bits per second for outgoing HTTP data within the connection                 |
+| HTTP Downloaded Bytes       | Total number of bytes sent over HTTP since the connection was established                 |
+| Round-Trip Time ms          | Average round-trip latency for the connection, in milliseconds                            |
+| Minimum Round-Trip Time ms  | Minimum round-trip latency detected since the connection was established, in milliseconds |
