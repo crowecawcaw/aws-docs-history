@@ -1,11 +1,11 @@
 # Peripheral Devices
 
-The AppStream 2.0 client provides the following support for peripheral devices such
+The WorkSpaces Applications client provides the following support for peripheral devices such
 as monitors, webcams, mice, keyboards, and drawing tablets.
 
 ###### Note
 
-With certain exceptions, USB redirection is required for the AppStream 2.0 client to support USB devices. And in most cases, when USB redirection is required for a device, you must qualify the device before it can be used with AppStream 2.0 streaming sessions. For more information, see [USB
+With certain exceptions, USB redirection is required for the WorkSpaces Applications client to support USB devices. And in most cases, when USB redirection is required for a device, you must qualify the device before it can be used with WorkSpaces Applications streaming sessions. For more information, see [USB
 Redirection](feature-support-USB-devices-qualified.md#feature-support-USB-devices-USB-redirection "feature-support-USB-devices-qualified.md#feature-support-USB-devices-USB-redirection").
 
 ###### Topics

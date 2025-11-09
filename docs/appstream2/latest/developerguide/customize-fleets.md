@@ -1,8 +1,8 @@
-# Customize an Amazon AppStream 2.0 Fleet to Optimize Your Users'
+# Customize an Amazon WorkSpaces Applications Fleet to Optimize Your Users'
 
 Application Streaming Experience
 
-By customizing AppStream 2.0 fleet instances, you can define specific aspects of your AppStream 2.0
+By customizing WorkSpaces Applications fleet instances, you can define specific aspects of your WorkSpaces Applications
 environment to optimize your users' application streaming experience. For example, you can
 persist environment variables to dynamically pass settings across applications and set
 default file associations that are applied to all of your users. At a high level,
@@ -25,15 +25,15 @@ settings on a domain-joined computer.
 ###### Contents
 
 - [Persist Environment
-  Variables in Amazon AppStream 2.0](customize-fleets-persist-environment-variables.md "customize-fleets-persist-environment-variables.md")
+  Variables in Amazon WorkSpaces Applications](customize-fleets-persist-environment-variables.md "customize-fleets-persist-environment-variables.md")
 - [Set Default File
-  Associations for Your Users in Amazon AppStream 2.0](customize-fleets-set-default-file-associations.md "customize-fleets-set-default-file-associations.md")
+  Associations for Your Users in Amazon WorkSpaces Applications](customize-fleets-set-default-file-associations.md "customize-fleets-set-default-file-associations.md")
 - [Disable Internet Explorer Enhanced
-  Security Configuration in Amazon AppStream 2.0](customize-fleets-disable-ie-esc.md "customize-fleets-disable-ie-esc.md")
+  Security Configuration in Amazon WorkSpaces Applications](customize-fleets-disable-ie-esc.md "customize-fleets-disable-ie-esc.md")
 - [Change the Default Internet
-  Explorer Home Page for Users' Streaming Sessions in Amazon AppStream 2.0](customize-fleets-change-ie-homepage.md "customize-fleets-change-ie-homepage.md")
+  Explorer Home Page for Users' Streaming Sessions in Amazon WorkSpaces Applications](customize-fleets-change-ie-homepage.md "customize-fleets-change-ie-homepage.md")
 - [User and Instance
-  Metadata for Amazon AppStream 2.0 Fleets](customize-fleets-user-instance-metadata-fleets.md "customize-fleets-user-instance-metadata-fleets.md")
+  Metadata for Amazon WorkSpaces Applications Fleets](customize-fleets-user-instance-metadata-fleets.md "customize-fleets-user-instance-metadata-fleets.md")
   On Linux fleet instances, these environment variables are exported through the following
   profile.d scripts:
 

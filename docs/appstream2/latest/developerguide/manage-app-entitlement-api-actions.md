@@ -1,14 +1,14 @@
 # API Actions for Managing
 
-App Entitlement for AppStream 2.0
+App Entitlement for WorkSpaces Applications
 
 You can use the following API operations to manage application entitlement for
-AppStream 2.0.
+WorkSpaces Applications.
 
 ## `AddApplicationsRequest` operation
 
-Adds applications to the application catalog for AppStream 2.0 users. The
-application catalog displayed by AppStream 2.0 includes the applications that you
+Adds applications to the application catalog for WorkSpaces Applications users. The
+application catalog displayed by WorkSpaces Applications includes the applications that you
 add by using this API operation and the applications that you add in the
 image. After you add applications by using one or both of these methods,
 your users can launch the applications.
@@ -51,10 +51,10 @@ image.
 
 The identifier of the application being specified. This value,
 which corresponds to the `application_name` value in
-an AppStream 2.0 applications report, is provided when a user launches
+an WorkSpaces Applications applications report, is provided when a user launches
 the application. When you enable [usage reports](enable-usage-reports.md "enable-usage-reports.md"), for
 each day that users launch at least one application during their
-streaming sessions, AppStream 2.0 exports an applications report to
+streaming sessions, WorkSpaces Applications exports an applications report to
 your Amazon S3 bucket. For more information about applications
 reports, see [Applications Report Fields](usage-reports-fields-applications-reports.md "usage-reports-fields-applications-reports.md").
 
@@ -130,8 +130,8 @@ length of 32,767 characters.
 Removes applications that were added by using the
 `AddApplicationsRequest` operation. The applications are
 removed from the application catalog for the user. After applications are
-removed, they can't be launched. If an application is still running, AppStream 2.0
-does not close it. Applications that are specified directly in the AppStream 2.0
+removed, they can't be launched. If an application is still running, WorkSpaces Applications
+does not close it. Applications that are specified directly in the WorkSpaces Applications
 image can't be removed.
 
 **Request syntax**
@@ -166,8 +166,8 @@ The list of applications that the request applies to.
 Removes all applications that were added to the application catalog by
 using the `AddApplicationsRequest` operation. After applications
 are removed, they can't be launched. If the applications are running when
-the `ClearApplicationsRequest` operation is used, AppStream 2.0 does not
-close them. Applications that are specified directly in the AppStream 2.0 image
+the `ClearApplicationsRequest` operation is used, WorkSpaces Applications does not
+close them. Applications that are specified directly in the WorkSpaces Applications image
 can't be removed.
 
 **Request syntax**

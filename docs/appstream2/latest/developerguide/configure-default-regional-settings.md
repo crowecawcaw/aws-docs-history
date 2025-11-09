@@ -1,20 +1,20 @@
 # Configure Default Regional Settings
 
-for Your AppStream 2.0 Users
+for Your WorkSpaces Applications Users
 
 ###### Note
 
 The instructions on this page only apply to Windows fleets. Default regional settings
 are not supported for Elastic fleets.
 
-In AppStream 2.0, users in a Windows stack can configure their streaming sessions to use settings
-that are specific to their location or language. For more information, see [Enable Your AppStream 2.0 Users to Configure Their Regional
+In WorkSpaces Applications, users in a Windows stack can configure their streaming sessions to use settings
+that are specific to their location or language. For more information, see [Enable Your WorkSpaces Applications Users to Configure Their Regional
 Settings](regional-settings.md "regional-settings.md"). You can also configure
 your fleets to use default settings that are specific to your users’ location or language.
 In particular, you can apply the following Windows settings to your fleets:
 
 - **Time Zone** — Determines the system time used by Windows
-  and any applications that rely on the operating system time. AppStream 2.0 makes available
+  and any applications that rely on the operating system time. WorkSpaces Applications makes available
   the same options for this setting as Windows Server 2012 R2, Windows Server 2016,
   and Windows Server 2019.
 - **Display Language** — Determines the display language
@@ -27,7 +27,7 @@ In particular, you can apply the following Windows settings to your fleets:
   formatting dates, numbers, or currencies or when sorting strings.
 - **Input Method** — Determines the keystroke combinations
   that can be used to enter characters in another language.
-  Currently, AppStream 2.0 supports English and Japanese only for these language settings.
+  Currently, WorkSpaces Applications supports English and Japanese only for these language settings.
 
 ###### Contents
 

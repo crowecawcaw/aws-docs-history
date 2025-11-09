@@ -1,6 +1,6 @@
 # Feature and Device Support
 
-AppStream 2.0 provides the following feature and peripheral device support for users who access AppStream 2.0 through a web browser.
+WorkSpaces Applications provides the following feature and peripheral device support for users who access WorkSpaces Applications through a web browser.
 
 ###### Topics
 

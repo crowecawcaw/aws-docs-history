@@ -1,6 +1,6 @@
 # Remember My Settings
 
-The AppStream 2.0 macOS client application can save the preferences you configured in
+The WorkSpaces Applications macOS client application can save the preferences you configured in
 **Settings** for future sessions, except for
 **Audio & Video** settings. If you want to remember
 your audio (microphone) and video (webcam) settings for future sessions, choose

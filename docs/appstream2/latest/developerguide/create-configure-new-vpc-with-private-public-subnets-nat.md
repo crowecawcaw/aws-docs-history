@@ -25,7 +25,7 @@ If you already have a VPC, complete the steps in [Add a NAT Gateway to an Existi
 ## Step 1: Allocate an Elastic IP Address
 
 Before you create your VPC, you must allocate an Elastic IP address in
-your AppStream 2.0 Region. You must first allocate an Elastic IP address for use in
+your WorkSpaces Applications Region. You must first allocate an Elastic IP address for use in
 your VPC, and then associate it with your NAT gateway. For more information,
 see [Elastic
 IP Addresses](../../../vpc/latest/userguide/vpc-eips.md "../../../vpc/latest/userguide/vpc-eips.md") in the _Amazon VPC User
@@ -134,7 +134,7 @@ After you've created and configured your VPC, complete the following steps to sp
   private subnets to communicate with the internet.
 
 1. In the navigation pane, choose **Subnets**, and
-   select the public subnet that you created; for example, `AppStream 2.0
+   select the public subnet that you created; for example, `WorkSpaces Applications
 Public Subnet`.
    1. On the **Route Table** tab, choose the ID
       of the route table; for example,
@@ -147,12 +147,34 @@ Public Subnet`.
       there is one route for local traffic and another route that sends all
       other traffic to the internet gateway for the VPC. The following table describes these two routes:
 
-| Destination                                                                                                              | Target                | Description                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Public subnet IPv4 CIDR Block (for example, 10.0.0/20)                                                                   | Local                 | All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC.          |
-| Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0                                                     | Outbound (`igw-``ID`) | Traffic destined for all other IPv4 addresses is routed to the internet gateway (identified by `igw-``ID`) that was created by the VPC Wizard. | 2. In the navigation pane, choose **Subnets**, and select the first private subnet that you created (for example, `AppStream2 Private Subnet1`). 1. On the **Route Table** tab, choose the ID of the route table. 2. Select the route table. Under **Name**, choose the edit icon (the pencil), and enter a name (for example, `appstream2-private-routetable`), and then choose the check mark to save the name. 3. On the **Routes** tab, verify that the route table includes the following routes:                                                                                                                                                                                                                 |
-| Destination                                                                                                              | Target                | Description                                                                                                                                    |
-| ---                                                                                                                      | ---                   | ---                                                                                                                                            |
-| Public subnet IPv4 CIDR Block (for example, 10.0.0/20)                                                                   | Local                 | All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC.          |
-| Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0                                                     | Outbound (`nat-``ID`) | Traffic destined for all other IPv4 addresses is routed to the NAT gateway (identified by `nat-``ID`).                                         |
-| Traffic destined for S3 buckets (applicable if you specified an S3 endpoint) [`pl-``ID` (`com.amazonaws.``region``.s3`)] | Storage (`vpce-``ID`) | Traffic destined for S3 buckets is routed to the S3 endpoint (identified by `vpce-``ID`).                                                      | 3. In the navigation pane, choose **Subnets**, and select the second private subnet that you created (for example, `AppStream2 Private Subnet2`). 4. On the **Route Table** tab, verify that the route table is the private route table (for example, `appstream2-private-routetable`). If the route table is different, choose **Edit** and select this route table. **Next Steps** To enable your fleet instances, app block builders, and image builders to access the internet, complete the steps in [Enable Internet Access for Your Fleet, Image Builder, or App Block Builder in Amazon AppStream 2.0](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md"). |
+   | Destination                                                             | Target                | Description                                                                                                                                    |
+   | ----------------------------------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+   | Public subnet IPv4 CIDR Block (for example, 10.0.0/20)                  | Local                 | All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC.          |
+   | Traffic destined to all other IPv4<br>addresses (for example, 0.0.0.0/0 | Outbound (`igw-``ID`) | Traffic destined for all other IPv4 addresses is routed to the internet gateway (identified by `igw-``ID`) that was created by the VPC Wizard. |
+
+2. In the navigation pane, choose **Subnets**, and select the first
+   private subnet that you created (for example, `AppStream2 Private Subnet1`).
+   1. On the **Route Table** tab, choose the ID of the route
+      table.
+   2. Select the route table. Under **Name**, choose the edit icon (the pencil), and enter a name (for example,
+      `appstream2-private-routetable`), and then choose the check mark to save the
+      name.
+   3. On the **Routes** tab, verify that the route table includes the following routes:
+
+   | Destination                                                                                                                 | Target                | Description                                                                                                                           |
+   | --------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+   | Public subnet IPv4 CIDR Block (for example, 10.0.0/20)                                                                      | Local                 | All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC. |
+   | Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0                                                        | Outbound (`nat-``ID`) | Traffic destined for all other IPv4 addresses is routed to the NAT gateway (identified by `nat-``ID`).                                |
+   | Traffic destined for S3 buckets (applicable if you specified an S3 endpoint)<br>[`pl-``ID` (`com.amazonaws.``region``.s3`)] | Storage (`vpce-``ID`) | Traffic destined for S3 buckets is routed to the S3 endpoint (identified by `vpce-``ID`).                                             |
+
+3. In the navigation pane, choose **Subnets**, and select the second
+   private subnet that you created (for example, `AppStream2 Private Subnet2`).
+4. On the **Route Table** tab, verify that the route table is the
+   private route table (for example, `appstream2-private-routetable`). If the
+   route table is different, choose **Edit** and select this route table.
+
+**Next Steps**
+
+To enable your fleet instances, app block builders, and image builders to
+access the internet, complete the steps in [Enable Internet Access for Your
+Fleet, Image Builder, or App Block Builder in Amazon WorkSpaces Applications](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md").

@@ -1,4 +1,4 @@
-# Manage Applications Associated to an Elastic Fleet in Amazon AppStream 2.0
+# Manage Applications Associated to an Elastic Fleet in Amazon WorkSpaces Applications
 
 You can associate and disassociate applications from an Elastic fleet at any time.
 Changes to the applications associated to an Elastic fleet are visible to users
@@ -9,7 +9,7 @@ sessions.
 
 ###### To manage applications associated to an Elastic fleet
 
-1. Open the [AppStream 2.0
+1. Open the [WorkSpaces Applications
    console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md").
 2. In the left navigation pane, choose **Fleets**, then either
    select the name of the fleet, or select the fleet radio button, then choose

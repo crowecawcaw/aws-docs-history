@@ -5,7 +5,7 @@ has been mounted. Applications also include the name and icon that are displayed
 user on the application catalog. Applications are associated with the app block resource
 that contains the files and binaries for that application.
 
-You can use the AppStream 2.0 console to create the application resource once you have
+You can use the WorkSpaces Applications console to create the application resource once you have
 uploaded your application icon to an Amazon S3 bucket and created the app block that contains
 the files and folders necessary to launch the application. To learn more about uploading
 the application icon to an Amazon S3 bucket, see [Store Application Icon, Setup Script, Session Script,
@@ -19,7 +19,7 @@ resource.
 
 ###### To create the application resource
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. From the left-hand navigation menu, choose **Applications**
    and **Create application**.

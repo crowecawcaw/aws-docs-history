@@ -2,9 +2,9 @@
 
 with Session Scripts
 
-When AppStream 2.0 storage connectors are enabled, they begin mounting when the session
+When WorkSpaces Applications storage connectors are enabled, they begin mounting when the session
 start scripts run. If your script relies on the storage connectors being mounted,
-you can wait for the connectors to be available. AppStream 2.0 maintains the mount status
+you can wait for the connectors to be available. WorkSpaces Applications maintains the mount status
 of the storage connectors in the Windows registry on Windows instances, at the
 following key:
 
@@ -38,14 +38,19 @@ The registry key values are as follows:
 To view these registry keys, you must have Microsoft .NET Framework version
 4.7.2 or later installed on your image.
 
-| Value | Description                                                |
-| ----- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0     | Storage connector not be enabled for this user             |
-| 1     | Storage connector mounting is in progress                  |
-| 2     | Storage connector mounted successfully                     |
-| 3     | Storage connector mounting failed                          |
-| 4     | Storage connector mounting is enabled, but not mounted yet | On Linux instances, you can check the home folder mount status by looking at the value of appstream_home_folder_mount_status in the file ~/.config/appstream-home-folder/appstream-home-folder-mount-status. |
-| Value | Description                                                |
-| ---   | ---                                                        |
-| True  | Home folder is mounted successfully                        |
-| False | Home folder is not mounted yet                             |
+| Value | Description                                                   |
+| ----- | ------------------------------------------------------------- |
+| 0     | Storage connector not be enabled for this user                |
+| 1     | Storage connector mounting is in progress                     |
+| 2     | Storage connector mounted successfully                        |
+| 3     | Storage connector mounting failed                             |
+| 4     | Storage connector mounting is enabled, but not mounted<br>yet |
+
+On Linux instances, you can check the home folder mount status by looking at the
+value of appstream_home_folder_mount_status in the file
+~/.config/appstream-home-folder/appstream-home-folder-mount-status.
+
+| Value | Description                         |
+| ----- | ----------------------------------- |
+| True  | Home folder is mounted successfully |
+| False | Home folder is not mounted yet      |

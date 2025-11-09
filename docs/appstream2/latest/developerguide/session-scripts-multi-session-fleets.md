@@ -43,14 +43,14 @@ on the specific user session for which the script is running.
 
 ## Security Considerations
 
-AppStream 2.0 images should not be configured to allow write permission to session
+WorkSpaces Applications images should not be configured to allow write permission to session
 script files by any users. This introduces a critical attack vector for
 malicious users, where they could modify script files. These files could then be
 run as SYSTEM or another user, depending on your configuration.
 
 ###### Important
 
-It is your responsibility to make sure that your AppStream 2.0 images are
+It is your responsibility to make sure that your WorkSpaces Applications images are
 configured securely. This is especially important for multi-session
 instances, where multiple users are using the same instance. If images are
 not configured securely, there is a security risk for all users of that

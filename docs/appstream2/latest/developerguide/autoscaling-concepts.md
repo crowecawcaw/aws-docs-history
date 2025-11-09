@@ -1,8 +1,8 @@
-# Scaling Concepts for Amazon AppStream 2.0
+# Scaling Concepts for Amazon WorkSpaces Applications
 
-AppStream 2.0 scaling is provided by Application Auto Scaling. For more information, see the [Application Auto Scaling API Reference](../../../autoscaling/application/APIReference.md "../../../autoscaling/application/APIReference.md").
+WorkSpaces Applications scaling is provided by Application Auto Scaling. For more information, see the [Application Auto Scaling API Reference](../../../autoscaling/application/APIReference.md "../../../autoscaling/application/APIReference.md").
 
-For step-by-step guidance for working with AppStream 2.0 Fleet Auto Scaling, see [Scaling Your Desktop Application Streams with Amazon AppStream 2.0](https://aws.amazon.com/blogs/compute/scaling-your-desktop-application-streams-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/compute/scaling-your-desktop-application-streams-with-amazon-appstream-2-0/") in the
+For step-by-step guidance for working with WorkSpaces Applications Fleet Auto Scaling, see [Scaling Your Desktop Application Streams with Amazon AppStream 2.0](https://aws.amazon.com/blogs/compute/scaling-your-desktop-application-streams-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/compute/scaling-your-desktop-application-streams-with-amazon-appstream-2-0/") in the
 _AWS Compute Blog_.
 
 To use Fleet Auto Scaling effectively, you must understand the following terms and

@@ -1,6 +1,6 @@
-# Adding Your Custom Branding to Amazon AppStream 2.0
+# Adding Your Custom Branding to Amazon WorkSpaces Applications
 
-To customize AppStream 2.0 with your organizational branding, use the AppStream 2.0 console to
+To customize WorkSpaces Applications with your organizational branding, use the WorkSpaces Applications console to
 select the stack to customize, and then add your branding.
 
 If you want to choose your organization logo or favicon from your Amazon S3 buckets, make
@@ -11,15 +11,15 @@ favicon. If you require encryption at rest for your Amazon S3 objects, server-si
 with Amazon S3-managed encryption keys (SSE-S3) is an option for organization logo and
 favicon.
 
-###### To add your custom branding to AppStream 2.0
+###### To add your custom branding to WorkSpaces Applications
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left pane, choose **Stacks**.
 3. In the stack list, select the stack to customize with your branding.
 4. Choose **Branding**, **Custom**.
 5. For **Application catalog page**, customize how the streaming
-   application catalog page appears to users after they sign in to AppStream 2.0.
+   application catalog page appears to users after they sign in to WorkSpaces Applications.
    1. For **Organization logo**, do either of the
       following:
       - Either enter the Amazon S3 URI that represents the organization
@@ -39,7 +39,7 @@ favicon.
       link URL.
    3. For **Color theme**, choose the colors to use for
       your website links, body text, and buttons, and as an accent for the
-      page background. For information about each color theme, see [Color Theme Palettes in Amazon AppStream 2.0](branding-color-themes.md "branding-color-themes.md") later in this topic.
+      page background. For information about each color theme, see [Color Theme Palettes in Amazon WorkSpaces Applications](branding-color-themes.md "branding-color-themes.md") later in this topic.
 
 6. For **Browser tab**, customize the page title and icon to
    display to users at the top of their browser tab during streaming
@@ -61,10 +61,10 @@ favicon.
 
    ###### Note
 
-   AppStream 2.0 retains the custom branding changes that you save. If you save your custom branding
-   changes, but then choose to restore the AppStream 2.0 default branding,
+   WorkSpaces Applications retains the custom branding changes that you save. If you save your custom branding
+   changes, but then choose to restore the WorkSpaces Applications default branding,
    your custom branding changes are saved for later use. If you restore
-   the AppStream 2.0 default branding and decide later to reapply your custom
+   the WorkSpaces Applications default branding and decide later to reapply your custom
    branding, choose **Custom**,
    **Save**. In this case, the most recently saved
    custom branding is displayed to your users.

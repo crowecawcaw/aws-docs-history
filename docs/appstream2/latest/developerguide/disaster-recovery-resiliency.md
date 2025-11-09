@@ -1,4 +1,4 @@
-# Resilience in Amazon AppStream 2.0
+# Resilience in Amazon WorkSpaces Applications
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones. Regions
 provide multiple physically separated and isolated Availability Zones, which are connected through

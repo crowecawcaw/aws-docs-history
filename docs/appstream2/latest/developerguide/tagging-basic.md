@@ -1,7 +1,7 @@
-# Tagging Your Amazon AppStream 2.0 Resources
+# Tagging Your Amazon WorkSpaces Applications Resources
 
 AWS enables you to assign metadata to your AWS resources in the form of tags. You can use
-these tags to help manage your AppStream 2.0 image builders, images, fleets, and stacks, and also
+these tags to help manage your WorkSpaces Applications image builders, images, fleets, and stacks, and also
 organize data, including billing data.
 
 You can:
@@ -12,7 +12,7 @@ This is useful when you have many resources of the same type.
 
 - Quickly identify a specific resource based on the tags that you've assigned to it
 - Identify and control AWS costs
-  For example, you can identify and group AppStream 2.0 fleets that are in different environments
+  For example, you can identify and group WorkSpaces Applications fleets that are in different environments
   (such as Development or Production) or that are assigned to different business units (such
   as HR or Marketing). You can then track the associated AWS costs for these fleets on a
   detailed level. To do this, sign up to get your Amazon Web Services account bill with tag key values

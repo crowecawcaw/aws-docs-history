@@ -1,7 +1,7 @@
 # Amazon S3 Bucket Permissions
 
 The Amazon S3 bucket that you choose must have a bucket policy that
-provides sufficient access to the AppStream 2.0 service principal to access and download
+provides sufficient access to the WorkSpaces Applications service principal to access and download
 objects from the Amazon S3 bucket. You will need to modify the following
 bucket policy, then apply it to the Amazon S3 bucket you intend to use for
 application icons, setup scripts, and VHDs. For more information about how to apply
@@ -44,16 +44,16 @@ JSON
 ###### Note
 
 The bucket policy example defines specific objects in the S3 bucket that
-AppStream 2.0 can access. You can also use prefixes and wildcards to simplify policy
+WorkSpaces Applications can access. You can also use prefixes and wildcards to simplify policy
 management as you increase your app blocks. For more information about bucket
 policies, see [Using bucket
 policies](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md"). For more information about common bucket examples, see
 [Bucket policy
 examples](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../../AmazonS3/latest/userguide/example-bucket-policies.md").
 
-If you are using an AppStream 2.0 app block, then AppStream 2.0 requires additional permissions
+If you are using an WorkSpaces Applications app block, then WorkSpaces Applications requires additional permissions
 to upload the application package to your appropriate Amazon S3 bucket. For
-more information about AppStream 2.0 app blocks, see [AppStream 2.0 App Blocks](appstream-app-blocks.md "appstream-app-blocks.md").
+more information about WorkSpaces Applications app blocks, see [WorkSpaces Applications App Blocks](appstream-app-blocks.md "appstream-app-blocks.md").
 
 JSON
 

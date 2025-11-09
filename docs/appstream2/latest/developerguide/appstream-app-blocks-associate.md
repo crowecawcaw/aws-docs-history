@@ -1,19 +1,19 @@
 # Associate an App
 
-Block in Amazon AppStream 2.0
+Block in Amazon WorkSpaces Applications
 
-In order to create, test, or activate your app block with AppStream 2.0 packaging, you
+In order to create, test, or activate your app block with WorkSpaces Applications packaging, you
 need to associate it with an app block builder. One app block builder can only
 be associated with only one app block, and vice versa.
 
 ###### Note
 
 Associating and disassociating an app block is only supported for app blocks
-with AppStream 2.0 packaging.
+with WorkSpaces Applications packaging.
 
-###### Associate an app block with app block builder in Amazon AppStream 2.0
+###### Associate an app block with app block builder in Amazon WorkSpaces Applications
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. From the left-hand navigation menu, choose **Applications
    Manager**, **App blocks**.

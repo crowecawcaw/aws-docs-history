@@ -1,9 +1,9 @@
-# Security Groups in Amazon AppStream 2.0
+# Security Groups in Amazon WorkSpaces Applications
 
 You can provide additional access control to your VPC from streaming instances in a
-fleet or an image builder in Amazon AppStream 2.0 by associating them with VPC security groups.
+fleet or an image builder in Amazon WorkSpaces Applications by associating them with VPC security groups.
 Security groups that belong to your VPC allow you to control the network traffic between
-AppStream 2.0 streaming instances and VPC resources such as license servers, file servers, and
+WorkSpaces Applications streaming instances and VPC resources such as license servers, file servers, and
 database servers. For more information, see [Security Groups for your VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the
 _Amazon VPC User Guide_.
 
@@ -22,7 +22,7 @@ If you don't select a security group, your image builder or fleet is associated 
 the default security group for your VPC. For more information, see
 [Default Security Group for Your VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md#DefaultSecurityGroup "../../../vpc/latest/userguide/VPC_SecurityGroups.md#DefaultSecurityGroup") in the _Amazon VPC User Guide_.
 
-Use these additional considerations when using security groups with AppStream 2.0.
+Use these additional considerations when using security groups with WorkSpaces Applications.
 
 - All end user data, such as internet traffic, home folder data, or application
   communication with VPC resources, are affected by the security groups associated
@@ -39,7 +39,7 @@ Use these additional considerations when using security groups with AppStream 2.
   fleet**
 
       + *While creating the fleet* — Follow the
-       instructions at [Create a Fleet in Amazon AppStream 2.0](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
+       instructions at [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
       + *For an existing fleet* — Edit the fleet
        settings using the AWS Management Console.
 

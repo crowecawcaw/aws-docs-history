@@ -1,11 +1,11 @@
-# Roles Required for AppStream 2.0, Application Auto Scaling,
+# Roles Required for WorkSpaces Applications, Application Auto Scaling,
 
 and AWS Certificate Manager Private CA
 
 In AWS, IAM roles are used to grant permissions to an AWS service so it can
 access AWS resources. The policies that are attached to the role determine
 which AWS resources the service can access and what it can do with those resources.
-For AppStream 2.0, in addition to having the permissions defined in the
+For WorkSpaces Applications, in addition to having the permissions defined in the
 **AmazonAppStreamFullAccess** policy, you must also have the
 following roles in your AWS account.
 
@@ -19,16 +19,16 @@ following roles in your AWS account.
 ## AmazonAppStreamServiceAccess
 
 This role is a service role that is created for you automatically when you get
-started with AppStream 2.0 in an AWS Region. For more information about services roles,
+started with WorkSpaces Applications in an AWS Region. For more information about services roles,
 see [Creating a role
 to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
 _IAM User Guide_.
 
-While AppStream 2.0 resources are being created, the AppStream 2.0 service makes API
+While WorkSpaces Applications resources are being created, the WorkSpaces Applications service makes API
 calls to other AWS services on your behalf by assuming this role. To
 create fleets, you must have this role in your account. If this role is
 not in your AWS account and the required IAM permissions and trust
-relationship policies are not attached, you cannot create AppStream 2.0 fleets.
+relationship policies are not attached, you cannot create WorkSpaces Applications fleets.
 
 For more information, see [Checking for the
 AmazonAppStreamServiceAccess Service Role and Policies](controlling-access-checking-for-iam-service-access.md "controlling-access-checking-for-iam-service-access.md") to
@@ -38,22 +38,22 @@ is present and has the correct policies attached.
 ###### Note
 
 This service role can have permissions that are different from the first
-user that is getting started with AppStream 2.0. For details on the permissions of
-this role see “AmazonAppStreamServiceAccess” in [AWS Managed Policies Required to Access AppStream 2.0 Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md").
+user that is getting started with WorkSpaces Applications. For details on the permissions of
+this role see “AmazonAppStreamServiceAccess” in [AWS Managed Policies Required to Access WorkSpaces Applications Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md").
 
 ## ApplicationAutoScalingForAmazonAppStreamAccess
 
 This role is a service role that is created for you automatically when you get
-started with AppStream 2.0 in an AWS Region. For more information about services roles,
+started with WorkSpaces Applications in an AWS Region. For more information about services roles,
 see [Creating a role
 to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
 _IAM User Guide_.
 
-Automatic scaling is a feature of AppStream 2.0 fleets. To configure scaling
+Automatic scaling is a feature of WorkSpaces Applications fleets. To configure scaling
 policies, you must have this service role in your AWS account.
 If this service role is not in your AWS account and the required
 IAM permissions and trust relationship policies are not attached, you
-cannot scale AppStream 2.0 fleets.
+cannot scale WorkSpaces Applications fleets.
 
 For more information, see [Checking for the
 ApplicationAutoScalingForAmazonAppStreamAccess Service Role
@@ -76,12 +76,12 @@ Policies](controlling-access-checking-for-iam-service-linked-role-application-au
 ## AmazonAppStreamPCAAccess
 
 This role is a service role that is created for you automatically when you get
-started with AppStream 2.0 in an AWS Region. For more information about services
+started with WorkSpaces Applications in an AWS Region. For more information about services
 roles, see [Creating
 a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
 _IAM User Guide_.
 
-Certificate-based authentication is a feature of AppStream 2.0 fleets joined to
+Certificate-based authentication is a feature of WorkSpaces Applications fleets joined to
 Microsoft Active Directory domains. To enable and use certificate-based
 authentication, you must have this service role in your AWS account. If this
 service role is not in your AWS account and the required IAM permissions and

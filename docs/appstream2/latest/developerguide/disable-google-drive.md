@@ -1,4 +1,4 @@
-# Disable Google Drive for Your AppStream 2.0
+# Disable Google Drive for Your WorkSpaces Applications
 
 Users
 
@@ -13,13 +13,13 @@ effects:
   display Google Drive.
 - Only the specific stack for which Google Drive is disabled is
   affected.
-- Even if Google Drive is disabled for all stacks, AppStream 2.0 does not delete
+- Even if Google Drive is disabled for all stacks, WorkSpaces Applications does not delete
   the user content stored in their Google Drive.
   Follow these steps to disable Google Drive for an existing stack.
 
 ###### To disable Google Drive for an existing stack
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left navigation pane, choose **Stacks**, and
    select the stack for which to disable Google Drive.
@@ -30,6 +30,6 @@ effects:
    dialog box, type `CONFIRM` (case-sensitive) to confirm your
    choice, then choose **Disable**.
 
-When users of the stack start their next AppStream 2.0 streaming session, they
+When users of the stack start their next WorkSpaces Applications streaming session, they
 can no longer access their Google Drive folder from within that session and
 future sessions.

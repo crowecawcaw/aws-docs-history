@@ -1,14 +1,14 @@
-# Creating Default Application and Windows Settings for Your AppStream 2.0 Users
+# Creating Default Application and Windows Settings for Your WorkSpaces Applications Users
 
 Application customizations and Windows settings that are saved to the Windows user profile folder or
 the user registry hive can be set as defaults. When you save the default settings by
-using the **Template User** in Image Assistant, AppStream 2.0 replaces the Windows default user profile with the
+using the **Template User** in Image Assistant, WorkSpaces Applications replaces the Windows default user profile with the
 profile that you configure. The Windows default user profile is then used to create
 the initial settings for users in the fleet instance. If the application or Windows
 settings that you configure don't work in the fleet, confirm that they are saved in
 the Windows user profile. For more information, see Step 3: Create Default
-Application and Windows Settings in [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+Application and Windows Settings in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 Default settings that you can create and configure include:
 
@@ -18,4 +18,4 @@ Default settings that you can create and configure include:
 - Windows experience settings, including displaying file name extensions and hidden folders.
   Additionally, you can modify or disable Internet Explorer security settings,
   such as Enhanced Security Configuration (ESC). For more information, see [Disable Internet Explorer Enhanced
-  Security Configuration in Amazon AppStream 2.0](customize-fleets-disable-ie-esc.md "customize-fleets-disable-ie-esc.md").
+  Security Configuration in Amazon WorkSpaces Applications](customize-fleets-disable-ie-esc.md "customize-fleets-disable-ie-esc.md").

@@ -19,7 +19,7 @@ following steps before you finish creating the image.
    ![Admin Commands dropdown menu with Switch User option highlighted.](images/admin-commands-switch-user.png)
    - If you are not already connected to the image builder, connect
      by either [using the
-     AppStream 2.0 console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only) or [creating a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client
+     WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only) or [creating a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client
      connections).
 
    ###### Note
@@ -43,8 +43,8 @@ following steps before you finish creating the image.
 6. Choose **Administrator**, and log back into the image
    builder.
 7. Follow the necessary steps in Image Assistant to finish creating your
-   image. For information about how to create an image, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-   AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   image. For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
-AppStream 2.0 automatically optimizes the agents that are specified in the
+WorkSpaces Applications automatically optimizes the agents that are specified in the
 **Agents.json** configuration file.

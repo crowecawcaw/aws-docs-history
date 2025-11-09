@@ -25,7 +25,7 @@ that users can't change. For more information about administrative templates,
 see [Edit Administrative Template Policy Settings](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771479(v=ws.11)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771479(v=ws.11)") in the Microsoft
 documentation.
 
-1.  Open the AppStream 2.0 console at
+1.  Open the WorkSpaces Applications console at
     [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2.  If you are not using Active Directory in your environment, open Local
     Group Policy Editor. If you are using Active Directory, open the GPMC.

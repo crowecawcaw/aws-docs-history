@@ -1,9 +1,9 @@
-# Streaming URL (Amazon AppStream 2.0 Client or
+# Streaming URL (Amazon WorkSpaces Applications Client or
 
 Browser Connection)
 
 You can create a streaming URL to connect to an app block builder through a
-browser or the AppStream 2.0 client. Unlike a streaming URL that you create to enable
+browser or the WorkSpaces Applications client. Unlike a streaming URL that you create to enable
 user access to a fleet instance, which is valid for a maximum of seven days, by
 default, a streaming URL that you create to access an image builder expires
 after one hour. To set a different expiration time, you must generate the
@@ -16,17 +16,17 @@ macOS client.
 
 You can create a streaming URL in any of the following ways:
 
-- AppStream 2.0 console
+- WorkSpaces Applications console
 - The [CreateAppBlockBuilderStreamingURL](../APIReference/API_CreateAppBlockBuilderStreamingURL.md "../APIReference/API_CreateAppBlockBuilderStreamingURL.md") API action
 - The [create-app-block-builder-streaming-url](../../../cli/latest/reference/appstream/create-app-block-builder-streaming-url.md "../../../cli/latest/reference/appstream/create-app-block-builder-streaming-url.md") AWS CLI command
-  To create a streaming URL and connect to the app block builder by using the AppStream 2.0
+  To create a streaming URL and connect to the app block builder by using the WorkSpaces Applications
   console, complete the steps in the following procedure.
 
 ###### To create a streaming URL and connect to the app block builder by using the
 
-AppStream 2.0 console
+WorkSpaces Applications console
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the navigation pane, choose **Application Manager**,
    **App block builders**.
@@ -39,9 +39,9 @@ AppStream 2.0 console
    - To save the streaming URL to connect to the app block builder
      later, choose **Copy Link** to copy the URL, then
      save it to an accessible location.
-   - To connect to the app block builder through the AppStream 2.0 client,
+   - To connect to the app block builder through the WorkSpaces Applications client,
      choose **Launch in Client**. When you choose this
-     option, the AppStream 2.0 client sign-in page is prepopulated with the
+     option, the WorkSpaces Applications client sign-in page is prepopulated with the
      streaming URL.
    - To connect to the app block builder through a browser, choose
      **Launch in Browser**. When you choose this

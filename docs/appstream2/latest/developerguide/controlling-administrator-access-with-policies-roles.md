@@ -1,8 +1,8 @@
-# Using AWS Managed Policies and Linked Roles to Manage Administrator Access to AppStream 2.0 Resources
+# Using AWS Managed Policies and Linked Roles to Manage Administrator Access to WorkSpaces Applications Resources
 
-By default, IAM users don't have the permissions required to create or modify AppStream 2.0
-resources, or perform tasks by using the AppStream 2.0 API. This means that these users can't
-perform these actions in the AppStream 2.0 console or by using AppStream 2.0 AWS CLI commands. To
+By default, IAM users don't have the permissions required to create or modify WorkSpaces Applications
+resources, or perform tasks by using the WorkSpaces Applications API. This means that these users can't
+perform these actions in the WorkSpaces Applications console or by using WorkSpaces Applications AWS CLI commands. To
 allow IAM users to create or modify resources and perform tasks, attach an IAM
 policy to the IAM users or groups that require those permissions.
 
@@ -11,8 +11,8 @@ permission to perform the specified tasks on the specified resources.
 
 ###### Contents
 
-- [AWS Managed Policies Required to Access AppStream 2.0 Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md")
-- [Roles Required for AppStream 2.0, Application Auto Scaling,
+- [AWS Managed Policies Required to Access WorkSpaces Applications Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md")
+- [Roles Required for WorkSpaces Applications, Application Auto Scaling,
   and AWS Certificate Manager Private CA](roles-required-for-appstream.md "roles-required-for-appstream.md")
 - [Checking for the
   AmazonAppStreamServiceAccess Service Role and Policies](controlling-access-checking-for-iam-service-access.md "controlling-access-checking-for-iam-service-access.md")

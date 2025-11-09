@@ -1,4 +1,4 @@
-# Provide Your AppStream 2.0
+# Provide Your WorkSpaces Applications
 
 Users with Guidance for Working with File System Redirection
 

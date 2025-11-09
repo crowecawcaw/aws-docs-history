@@ -3,16 +3,16 @@
 Codes
 
 The following are notification codes and resolution steps for notifications that you
-might see when you set up and use Amazon AppStream 2.0. These notifications can be found in the
-**Notifications** tab in the AppStream 2.0 console, after selecting an
-image builder or fleet. You can also get fleet notifications by using the AppStream 2.0 API
+might see when you set up and use Amazon WorkSpaces Applications. These notifications can be found in the
+**Notifications** tab in the WorkSpaces Applications console, after selecting an
+image builder or fleet. You can also get fleet notifications by using the WorkSpaces Applications API
 operation [DescribeFleets](../APIReference/API_DescribeFleets.md "../APIReference/API_DescribeFleets.md") or the [describe-fleets](../../../cli/latest/reference/appstream/describe-fleets.md "../../../cli/latest/reference/appstream/describe-fleets.md") CLI
 command.
 
 ## Active Directory Internal Service
 
 Follow these steps if you receive an internal service error when you set up and
-use Active Directory with Amazon AppStream 2.0.
+use Active Directory with Amazon WorkSpaces Applications.
 
 **INTERNAL_SERVICE_ERROR**
 
@@ -31,7 +31,7 @@ For more information, see [AWS Support Center](https://console.aws.amazon.com/su
 
 The following are notification codes and resolution steps for issues with domain
 join that you might encounter when you set up and use Active Directory with
-Amazon AppStream 2.0.
+Amazon WorkSpaces Applications.
 
 **DOMAIN_JOIN_ERROR_ACCESS_DENIED**
 
@@ -60,7 +60,7 @@ fleet that had the error.
 has expired.
 
 **Resolution**: The password for the
-service account specified in the AppStream 2.0 directory configuration has
+service account specified in the WorkSpaces Applications directory configuration has
 expired. Change the password for the service account in your Active
 Directory domain, update the configuration, and then re-create the image
 builder or fleet that had the error.
@@ -107,7 +107,7 @@ does not exist or could not be contacted.
 **Resolution**: The streaming instance
 was unable to contact your Active Directory domain. To ensure network
 connectivity, confirm your VPC, subnet, and security group settings. For
-more information, see [My AppStream 2.0 streaming instances aren't joining
+more information, see [My WorkSpaces Applications streaming instances aren't joining
 the Active Directory domain.](troubleshooting-active-directory.md#troubleshooting-active-directory-5 "troubleshooting-active-directory.md#troubleshooting-active-directory-5")
 
 **DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED**
@@ -157,7 +157,7 @@ Name](active-directory-oudn.md "active-directory-oudn.md").
   and start the image builder or fleet. For more information, see
   [Granting Permissions to Create and Manage
   Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
-- After AppStream 2.0 creates the computer object, it is moved from the
+- After WorkSpaces Applications creates the computer object, it is moved from the
   OU in which it was created. In this case, the first image
   builder or fleet is created successfully, but any new image
   builder or fleet that uses the computer object fails. When
@@ -165,10 +165,10 @@ Name](active-directory-oudn.md "active-directory-oudn.md").
   specified OU and detects that an object with the same name
   exists elsewhere in the domain, the domain join is not
   successful.
-- The name of the OU specified in the AppStream 2.0 Directory Config
+- The name of the OU specified in the WorkSpaces Applications Directory Config
   includes spaces before or after the commas in the directory
   configuration. In this case, when a fleet or image builder
-  attempts to rejoin the Active Directory domain, AppStream 2.0 cannot
+  attempts to rejoin the Active Directory domain, WorkSpaces Applications cannot
   cycle the computer objects correctly and the domain rejoin does
   not succeed. To resolve this issue for a fleet, do the
   following:
@@ -179,7 +179,7 @@ Name](active-directory-oudn.md "active-directory-oudn.md").
        which the fleet is joined. For more information, see
        [Step 3: Create a Domain-Joined
        Fleet](active-directory-directory-setup.md#active-directory-setup-fleet "active-directory-directory-setup.md#active-directory-setup-fleet").
-      3. Update the AppStream 2.0 Directory Config to specify an OU
+      3. Update the WorkSpaces Applications Directory Config to specify an OU
        that doesn't contain spaces. For more information, see
        [Step 1: Create a Directory Config
        Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
@@ -191,7 +191,7 @@ Name](active-directory-oudn.md "active-directory-oudn.md").
   following:
 
       1. Delete the image builder.
-      2. Update the AppStream 2.0 Directory Config to specify an OU
+      2. Update the WorkSpaces Applications Directory Config to specify an OU
        that doesn't contain spaces. For more information, see
        [Step 1: Create a Directory Config
        Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
@@ -201,12 +201,12 @@ Name](active-directory-oudn.md "active-directory-oudn.md").
 
 ## Image Internal Service
 
-If you receive an internal service error after you use managed AppStream 2.0 image
+If you receive an internal service error after you use managed WorkSpaces Applications image
 updates to initiate an image update, follow these steps.
 
 **INTERNAL_SERVICE_ERROR**
 
-**Message**: AppStream 2.0 could not update
+**Message**: WorkSpaces Applications could not update
 image `image-name`. Failed to
 update/install/configure/disable <software name>. Check your source
 image and try again. If this problem persists, contact AWS Support.
@@ -216,7 +216,7 @@ there is an issue with the source image. Try to update the image
 again.
 
 If updating again doesn't work, make sure that you're using the latest
-version of SSM Agent. For version information, see [AppStream 2.0 Base Image and Managed Image Update
+version of SSM Agent. For version information, see [WorkSpaces Applications Base Image and Managed Image Update
 Release Notes](base-image-version-history.md "base-image-version-history.md"). For installation
 information, see [Manually install SSM Agent on EC2 instances for Windows
 Server](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").

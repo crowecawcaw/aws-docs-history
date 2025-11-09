@@ -2,19 +2,19 @@
 
 Existing App Package
 
-You can use your existing application package (VHD) with AppStream 2.0 packaging to
-create AppStream 2.0 app blocks. To do this, copy your application package (VHD) file
+You can use your existing application package (VHD) with WorkSpaces Applications packaging to
+create WorkSpaces Applications app blocks. To do this, copy your application package (VHD) file
 from the source Amazon S3 bucket to another destination
 Amazon S3 bucket. The destination bucket can be in a different region.
 
 ###### To create an app block with existing app package
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. From the left-hand navigation menu, choose **Applications
    Manager**, **App blocks**, and
    **Create app block**.
-3. For app block packaging, select **AppStream 2.0**.
+3. For app block packaging, select **WorkSpaces Applications**.
 4. For **App block details**, type a unique name identifier
    for the app block. Optionally, you can also specify the following:
    - **Name** – A unique name for the app
@@ -24,7 +24,7 @@ Amazon S3 bucket. The destination bucket can be in a different region.
    - **Description** (optional) – A description
      for the app block.
 
-5. (Optional) An app block with AppStream 2.0 packaging doesn't need a setup
+5. (Optional) An app block with WorkSpaces Applications packaging doesn't need a setup
    script. You can optionally provide post-installation steps the
    following **Advanced Options**:
    - For **Post setup script object in S3**,
@@ -65,7 +65,7 @@ duration for your setup script.
 
 ###### Note
 
-The execution duration in seconds is how long AppStream 2.0 waits for the
+The execution duration in seconds is how long WorkSpaces Applications waits for the
 post setup script to run before continuing. If your post setup
 script doesn’t complete within this duration, an error is displayed
 to your user and the application will attempt to launch. The setup

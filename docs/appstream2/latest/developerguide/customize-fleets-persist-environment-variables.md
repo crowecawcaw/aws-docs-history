@@ -1,6 +1,6 @@
 # Persist Environment
 
-Variables in Amazon AppStream 2.0
+Variables in Amazon WorkSpaces Applications
 
 Environment variables enable you to dynamically pass settings across applications. For
 example, many engineering applications rely on environment variables to specify the IP
@@ -25,7 +25,7 @@ The following instructions apply to Windows fleets only.
 
 ###### Note
 
-If you are using Active Directory and Group Policy with AppStream 2.0, keep in mind that
+If you are using Active Directory and Group Policy with WorkSpaces Applications, keep in mind that
 streaming instances must be joined to an Active Directory domain to use Group Policy
 for environment variables. For information about how to configure the Group Policy
 **Environment Variable** preference item, see [Configure an Environment Variable Item](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772047(v=ws.11)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772047(v=ws.11)") in the Microsoft

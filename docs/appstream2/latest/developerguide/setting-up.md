@@ -1,6 +1,6 @@
-# Setting Up for Amazon AppStream 2.0
+# Setting Up for Amazon WorkSpaces Applications
 
-Complete the following tasks to get set up for Amazon AppStream 2.0.
+Complete the following tasks to get set up for Amazon WorkSpaces Applications.
 
 ## Sign up for an AWS account
 

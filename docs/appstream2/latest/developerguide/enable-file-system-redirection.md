@@ -1,13 +1,13 @@
 # Enable File System Redirection for
 
-Your AppStream 2.0 Users
+Your WorkSpaces Applications Users
 
-AppStream 2.0 file system redirection lets users who have the AppStream 2.0 client installed
+WorkSpaces Applications file system redirection lets users who have the WorkSpaces Applications client installed
 access files on their local computer from within their streaming session. When you
 enable file system redirection, you can specify the list of local drives and folders
-that your users can choose to access. When users sign in to AppStream 2.0 and start a
+that your users can choose to access. When users sign in to WorkSpaces Applications and start a
 streaming session, they can choose the drive or folder that they want to access from
-the list. Then they can share the drive or folder with AppStream 2.0. The drive or folder
+the list. Then they can share the drive or folder with WorkSpaces Applications. The drive or folder
 remains available for them to access during their streaming sessions. Users can stop
 sharing their local drives or folders at any time.
 
@@ -24,5 +24,5 @@ instances, or when using the macOS client.
   System Redirection](how-to-enable-file-system-redirection.md "how-to-enable-file-system-redirection.md")
 - [Make
   Default Drives and Folders Available for Your Users to Share](prepopulate-drives-folders-system-redirection.md "prepopulate-drives-folders-system-redirection.md")
-- [Provide Your AppStream 2.0
+- [Provide Your WorkSpaces Applications
   Users with Guidance for Working with File System Redirection](end-user-guidance-file-system-redirection.md "end-user-guidance-file-system-redirection.md")

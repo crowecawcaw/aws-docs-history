@@ -5,7 +5,7 @@
 To view the list of license included applications installed on your image, follow
 these steps.
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Choose **Images** in the left navigation pane and the **Image
    Registry** tab.

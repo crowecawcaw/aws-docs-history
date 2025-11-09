@@ -1,15 +1,15 @@
 # Configure a New or Existing VPC with a Public Subnet
 
-If you created your Amazon Web Services account after 2013-12-04, you have a [default VPC](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") in each AWS Region that includes default public subnets. However, you may want to create your own nondefault VPC or configure an existing VPC to use with AppStream 2.0. This topic describes how to configure a nondefault VPC and public subnet to use with AppStream 2.0.
+If you created your Amazon Web Services account after 2013-12-04, you have a [default VPC](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") in each AWS Region that includes default public subnets. However, you may want to create your own nondefault VPC or configure an existing VPC to use with WorkSpaces Applications. This topic describes how to configure a nondefault VPC and public subnet to use with WorkSpaces Applications.
 
 After you configure your VPC and public subnet, you can provide your streaming
 instances (fleet instances and image builders) with access to the internet by
 enabling the **Default Internet Access** option. When you enable
-this option, AppStream 2.0 enables internet connectivity by associating an [Elastic IP address](../../../AWSEC2/latest/WindowsGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/WindowsGuide/elastic-ip-addresses-eip.md")
+this option, WorkSpaces Applications enables internet connectivity by associating an [Elastic IP address](../../../AWSEC2/latest/WindowsGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/WindowsGuide/elastic-ip-addresses-eip.md")
 to the network interface that is attached from the streaming instance to your public
 subnet. An Elastic IP address is a public IPv4 address that is reachable from the
 internet. For this reason, we recommend that you instead use a NAT gateway to
-provide internet access to your AppStream 2.0 instances. In addition, when
+provide internet access to your WorkSpaces Applications instances. In addition, when
 **Default Internet Access** is enabled, a maximum of 100 fleet
 instances is supported. If your deployment must support more than 100 concurrent
 users, use the [NAT gateway
@@ -53,7 +53,7 @@ internet gateway. To configure these components, complete the following
 steps.
 
 1. To add a public subnet, complete the steps in [Creating a Subnet in Your VPC](../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet "../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet"). Use the
-   existing VPC that you plan to use with AppStream 2.0.
+   existing VPC that you plan to use with WorkSpaces Applications.
 
 If your VPC is configured to support IPv6 addressing, the **IPv6 CIDR block** list displays. Select **Don't assign Ipv6**. 2. To create and attach an internet gateway to your VPC,
 complete the steps in [Creating and Attaching an Internet Gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Attach_Gateway "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Attach_Gateway"). 3. To configure your subnet to route internet traffic
@@ -81,13 +81,13 @@ For fleet instances that have the **Default Internet Access** option enabled, th
 
 ###### To enable internet access at fleet creation
 
-1. Complete the steps in [Create a Fleet in Amazon AppStream 2.0](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md") up to
+1. Complete the steps in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md") up to
    **Step 4: Configure Network**.
 2. Select the **Default Internet Access** check box.
 3. If the subnet fields are empty, select a subnet for
    **Subnet 1** and, optionally, **Subnet
    2**.
-4. Continue with the steps in [Create a Fleet in Amazon AppStream 2.0](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
+4. Continue with the steps in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
 
 ###### To enable internet access after fleet creation
 
@@ -102,7 +102,7 @@ For fleet instances that have the **Default Internet Access** option enabled, th
 
 You can test internet connectivity by starting your fleet, creating a stack,
 associating the fleet with a stack, and browsing the internet within a streaming session
-for stack. For more information, see [Create an Amazon AppStream 2.0 Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
+for stack. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
 
 ### Enable Default Internet Access for an
 

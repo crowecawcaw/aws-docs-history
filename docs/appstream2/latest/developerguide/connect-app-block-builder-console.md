@@ -1,11 +1,11 @@
-# Amazon AppStream 2.0 Console (Browser
+# Amazon WorkSpaces Applications Console (Browser
 
 Connection)
 
-To use the AppStream 2.0 console to connect to an app block builder through a browser,
+To use the WorkSpaces Applications console to connect to an app block builder through a browser,
 complete the following steps.
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left navigation pane, choose **Applications Manager**,
    and then choose **App block builders**.

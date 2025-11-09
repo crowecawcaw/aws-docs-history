@@ -7,7 +7,7 @@ Complete the steps in this section to check whether the
 **ApplicationAutoScalingForAmazonAppStreamAccess**
 service role is present and has the correct policies attached. If this role is not
 in your account and must be created, you or an administrator with the required
-permissions must perform the steps to get started with AppStream 2.0 in your Amazon Web Services
+permissions must perform the steps to get started with WorkSpaces Applications in your Amazon Web Services
 account.
 
 ###### To check whether the ApplicationAutoScalingForAmazonAppStreamAccess

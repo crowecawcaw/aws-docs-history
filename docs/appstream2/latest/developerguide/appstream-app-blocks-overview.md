@@ -1,9 +1,9 @@
 # Overview
 
-To create an app block with AppStream 2.0 packaging, you need to initiate a streaming
+To create an app block with WorkSpaces Applications packaging, you need to initiate a streaming
 session with an app block builder. After the session is launched, you can
 download your application installers and enable the recording options. From that
-point onwards, AppStream 2.0 records the file system and registry changes made on the
+point onwards, WorkSpaces Applications records the file system and registry changes made on the
 app block builder using Application Redirection technology.
 
 Application Redirection uses Windows filter driver framework to intercept and
@@ -20,7 +20,7 @@ at C:\Program Files\TestApplication.
 After all the installation changes are recorded, the VHD file is uploaded to
 an Amazon S3 bucket in your account.
 
-When a user requests a session using an Elastic fleet, AppStream 2.0 downloads the
+When a user requests a session using an Elastic fleet, WorkSpaces Applications downloads the
 VHD file, sets up the application, runs the post-installation setup scripts
 (optional), and starts the application streaming.
 

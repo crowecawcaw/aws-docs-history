@@ -1,32 +1,32 @@
-# Session Context in Amazon AppStream 2.0
+# Session Context in Amazon WorkSpaces Applications
 
 You can pass parameters to your streaming application by using either of the following
 methods:
 
-- Specify session content in the CreateStreamingURL AppStream 2.0 API operation. For
+- Specify session content in the CreateStreamingURL WorkSpaces Applications API operation. For
   more information, see [CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md").
 - Add the sts:TagSession permission to your IAM role's trust policy and specify
   the session context as a SAML assertion in your SAML 2.0 identity provider's
   authentication response. For more information, see [Step 5: Create
   Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions") and [Step 5: Create
   Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
-  If your image uses a version of the AppStream 2.0 agent that was released on or after October
+  If your image uses a version of the WorkSpaces Applications agent that was released on or after October
   30, 2018, the session context is stored within the image as a Windows or Linux
   environment variable. For information about specific environment variables, see "User
-  and Instance Metadata for AppStream 2.0 Fleets" in [Customize an Amazon AppStream 2.0 Fleet to Optimize Your Users'
+  and Instance Metadata for WorkSpaces Applications Fleets" in [Customize an Amazon WorkSpaces Applications Fleet to Optimize Your Users'
   Application Streaming Experience](customize-fleets.md "customize-fleets.md") .
 
 ###### Note
 
-The session context parameter is visible to the user in the AppStream 2.0 streaming URL.
+The session context parameter is visible to the user in the WorkSpaces Applications streaming URL.
 We strongly recommend that you never put confidential or sensitive information in
 the session context parameter. Because it is possible for users to modify the
 streaming URL, we recommend performing additional validation to determine that the
 session context is valid for the end user. For example, you can compare the session
 context with other session information, such as user and instance metadata for
-AppStream 2.0 fleets.
+WorkSpaces Applications fleets.
 
-AppStream 2.0 does not perform validation on the session context parameter.
+WorkSpaces Applications does not perform validation on the session context parameter.
 
 ## Using Session Context to Pass
 

@@ -1,6 +1,6 @@
 # File Storage Options
 
-If your AppStream 2.0 administrator has enabled it, you can use one or more of the following storage options for your files and folders during application streaming sessions.
+If your WorkSpaces Applications administrator has enabled it, you can use one or more of the following storage options for your files and folders during application streaming sessions.
 
 - [Home folders](home-folders-end-user.md "home-folders-end-user.md")
 - [Google Drive](google-drive-end-user.md "google-drive-end-user.md")

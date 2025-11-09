@@ -1,6 +1,6 @@
 # Create a Custom App Block
 
-You can use the AppStream 2.0 console to create the app block resource once you have your
+You can use the WorkSpaces Applications console to create the app block resource once you have your
 VHD and setup script created and uploaded to an S3 bucket in your AWS account. To
 learn more about storing the VHD and setup script in an Amazon S3 bucket, see [Store Application Icon, Setup Script, Session Script,
 and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md").
@@ -13,7 +13,7 @@ block resource.
 
 ###### To create the app block resource
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. From the left-hand navigation menu, choose
    **Applications**, **App block**, and
@@ -63,7 +63,7 @@ your setup script.
 
 ###### Note
 
-The execution duration in seconds is how long AppStream 2.0 waits for the
+The execution duration in seconds is how long WorkSpaces Applications waits for the
 setup script to run before continuing. If your setup script doesn’t
 complete within this duration, an error is displayed to your user and
 the application will attempt to launch. The setup script is terminated

@@ -1,6 +1,6 @@
 # Feature and Device Support
 
-The AppStream 2.0 client supports the following features and devices.
+The WorkSpaces Applications client supports the following features and devices.
 
 ###### Topics
 

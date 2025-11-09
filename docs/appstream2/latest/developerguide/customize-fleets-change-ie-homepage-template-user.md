@@ -1,4 +1,4 @@
-# Use the AppStream 2.0
+# Use the WorkSpaces Applications
 
 Template User Account to Change the Default Internet Explorer Home Page
 
@@ -14,8 +14,8 @@ account
     account. To do so, do either of the following:
 
         * [Use the
-         AppStream 2.0 console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
-        * [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client
+         WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
+        * [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client
          connections)
 
 
@@ -23,13 +23,13 @@ account
 
         If the image builder that you want to connect to is joined to
          an Active Directory domain and your organization requires smart
-         card sign in, you must create a streaming URL and use the AppStream 2.0
+         card sign in, you must create a streaming URL and use the WorkSpaces Applications
          client for the connection. For information about smart card sign
          in, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 
     **Template User** lets you create default application and
     Windows settings for your users. For more information, see "Creating Default
-    Application and Windows Settings for Your AppStream 2.0 Users" in [Default Application and Windows Settings and Application Launch Performance in Amazon AppStream 2.0](customizing-appstream-images.md "customizing-appstream-images.md").
+    Application and Windows Settings for Your WorkSpaces Applications Users" in [Default Application and Windows Settings and Application Launch Performance in Amazon WorkSpaces Applications](customizing-appstream-images.md "customizing-appstream-images.md").
 
 2.  Open Internet Explorer and complete the necessary steps to change the
     default home page.
@@ -49,5 +49,5 @@ the image builder by doing either of the following:
 
 5. On the image builder desktop, open Image Assistant.
 6. Follow the necessary steps in Image Assistant to finish creating your
-   image. For more information, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-   AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").

@@ -1,6 +1,6 @@
 # Supported Locales
 
-AppStream 2.0 supports the following locales:
+WorkSpaces Applications supports the following locales:
 
 | Locale                              | Language culture name |
 | ----------------------------------- | --------------------- |

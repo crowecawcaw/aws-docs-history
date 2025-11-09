@@ -7,19 +7,19 @@ installing your application or copying files to it that your user will need.
 
 To create the app block, you will need to create the VHD, install your
 applications to it, then detach it. Once detached you can test your VHD on another
-PC, an EC2 instance, or an AppStream 2.0 image builder to validate the applications
+PC, an EC2 instance, or an WorkSpaces Applications image builder to validate the applications
 work as expected. Once completed, upload to an Amazon S3 bucket in your account and
 create the app block.
 
 ###### Note
 
 This page describes using a VHD to deliver your application; however, the
-AppStream 2.0 streaming instance will download any object from Amazon S3. The object you
+WorkSpaces Applications streaming instance will download any object from Amazon S3. The object you
 store in Amazon S3 can also be a zip file, application installer, or the application
 executable itself. You can use the setup script to configure it correctly on the
 streaming instance before a user launches their application.
 
-The AppStream 2.0 streaming instance waits up to 120 seconds for the VHD to complete
+The WorkSpaces Applications streaming instance waits up to 120 seconds for the VHD to complete
 downloading before the setup script runs. If the VHD does not complete
 downloading within this duration, the download stops, and the setup script
 will not run.
@@ -85,11 +85,11 @@ before you can safely upload it to an Amazon S3 bucket.
 file=`C:\path\to\new\file.vhdx`** 3. Detach the VHD by entering the following command:
 
 **detach vdisk** 4. The VHD has now been detached, and can be tested on another Windows PC,
-Amazon EC2 instance, or an AppStream 2.0 image builder.
+Amazon EC2 instance, or an WorkSpaces Applications image builder.
 
 ###### To create a VHD for Linux
 
-1. From an Amazon Linux 2 EC2 instance, Amazon Linux 2 AppStream 2.0 image
+1. From an Amazon Linux 2 EC2 instance, Amazon Linux 2 WorkSpaces Applications image
    builder, or Amazon Linux 2 WorkSpaces, open a terminal session.
 2. Create the unformatted and uninitialized VHD file:
 
@@ -130,5 +130,5 @@ before you can safely upload it to an Amazon S3 bucket.
 
 **sudo umount
 `/path/to/mount/point`** 2. The VHD has now been detached, and can be tested on another Amazon Linux 2
-Amazon EC2 instance, Amazon Linux 2 AppStream 2.0 image builder, or Amazon Linux 2
+Amazon EC2 instance, Amazon Linux 2 WorkSpaces Applications image builder, or Amazon Linux 2
 WorkSpaces.

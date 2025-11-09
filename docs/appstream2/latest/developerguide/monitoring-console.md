@@ -1,10 +1,10 @@
 # Viewing Fleet Usage Using the Console
 
-You can monitor your Amazon AppStream 2.0 fleet usage using the AppStream 2.0 or CloudWatch console.
+You can monitor your Amazon WorkSpaces Applications fleet usage using the WorkSpaces Applications or CloudWatch console.
 
-###### To view fleet usage in the AppStream 2.0 console
+###### To view fleet usage in the WorkSpaces Applications console
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left pane, choose **Fleets**.
 3. Select a fleet and choose its **Fleet Usage** tab.

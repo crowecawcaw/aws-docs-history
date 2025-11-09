@@ -1,11 +1,11 @@
 # Using Amazon S3 VPC Endpoints for
 
-AppStream 2.0 Features
+WorkSpaces Applications Features
 
-When you enable Application Settings Persistence or Home folders on a stack, AppStream 2.0
+When you enable Application Settings Persistence or Home folders on a stack, WorkSpaces Applications
 uses the VPC you specify for your fleet to provide access to Amazon Simple Storage Service (Amazon S3) buckets.
-For Elastic fleets, AppStream 2.0 will use the VPC to access the Amazon S3 bucket containing
-applications assigned to the fleet's app block. To enable AppStream 2.0 access to your private
+For Elastic fleets, WorkSpaces Applications will use the VPC to access the Amazon S3 bucket containing
+applications assigned to the fleet's app block. To enable WorkSpaces Applications access to your private
 S3 endpoint, attach the following custom policy to your VPC endpoint for Amazon S3. For more
 information about private Amazon S3 endpoints, see [VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md") and
 [Endpoints for Amazon S3](../../../vpc/latest/userguide/vpc-endpoints-s3.md "../../../vpc/latest/userguide/vpc-endpoints-s3.md") in the _Amazon VPC User Guide_.

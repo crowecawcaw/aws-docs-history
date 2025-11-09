@@ -3,7 +3,7 @@
 Your Amazon Web Services account, if it was created after 2013-12-04, has a default VPC
 in each AWS Region. The default VPC includes a default public subnet in each
 Availability Zone and an internet gateway that is attached to your VPC. The VPC also
-includes a default security group. If you are new to AppStream 2.0 and want to get started
+includes a default security group. If you are new to WorkSpaces Applications and want to get started
 using the service, you can keep the default VPC and security group selected when you
 create a fleet, create an app block builder, or launch an image builder. Then, you
 can select at least one default subnet.
@@ -11,7 +11,7 @@ can select at least one default subnet.
 ###### Note
 
 If your Amazon Web Services account was created before 2013-12-04, you must create a new VPC or
-configure an existing one to use with AppStream 2.0. We recommend that you manually
+configure an existing one to use with WorkSpaces Applications. We recommend that you manually
 configure a VPC with two private subnets for your fleets, app block builders,
 and image builders and a NAT gateway in a public subnet. For more information,
 see [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md"). Alternatively, you can
@@ -22,7 +22,7 @@ configure a non-default VPC with a public subnet. For more information, see
 
 fleet
 
-1. Complete the steps in [Create a Fleet in Amazon AppStream 2.0](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md") up to **Step 4: Configure Network**.
+1. Complete the steps in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md") up to **Step 4: Configure Network**.
 2. In **Step 4: Configure Network**, do the following:
    - To enable your fleet instances to access the internet, select the **Default Internet
      Access** check box.
@@ -44,7 +44,7 @@ fleet
 
    The default security group name uses the following format: `sg-``security-group-id``-default`
 
-3. Continue with the steps in [Create a Fleet in Amazon AppStream 2.0](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
+3. Continue with the steps in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
    Complete the following steps to use the default VPC, subnet, and security group for an image builder.
 
 ###### To use the default VPC, subnet, and security group for an

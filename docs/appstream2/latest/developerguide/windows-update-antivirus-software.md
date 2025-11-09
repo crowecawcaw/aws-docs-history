@@ -1,16 +1,16 @@
-# Windows Update and Antivirus Software on Amazon AppStream 2.0
+# Windows Update and Antivirus Software on Amazon WorkSpaces Applications
 
-AppStream 2.0 streaming instances are non-persistent. When a user streaming session ends, AppStream 2.0 terminates the instance used by the session and, depending on your scaling policies, provisions a new instance to replace it in your fleet. All fleet instances are provisioned from the same image. Because images cannot be changed once created, all fleet instances used in user streaming sessions have only the Windows and application updates that were installed on the underlying image when the image was created. In addition, because a fleet instance used for a streaming session terminates at the end of the session, any updates made to Windows or to applications on the instance during the streaming session will not persist to future sessions by the same user or other users.
+WorkSpaces Applications streaming instances are non-persistent. When a user streaming session ends, WorkSpaces Applications terminates the instance used by the session and, depending on your scaling policies, provisions a new instance to replace it in your fleet. All fleet instances are provisioned from the same image. Because images cannot be changed once created, all fleet instances used in user streaming sessions have only the Windows and application updates that were installed on the underlying image when the image was created. In addition, because a fleet instance used for a streaming session terminates at the end of the session, any updates made to Windows or to applications on the instance during the streaming session will not persist to future sessions by the same user or other users.
 
 ###### Note
 
-If you enabled application settings persistence for your stack, AppStream 2.0 persists Windows and application configuration changes made by a user to future sessions for the same user if those configuration changes are stored in the user’s Windows profile. However, the application settings persistence feature persists only Windows and application configuration settings. It does not persist software updates to Windows or applications on the streaming instance.
+If you enabled application settings persistence for your stack, WorkSpaces Applications persists Windows and application configuration changes made by a user to future sessions for the same user if those configuration changes are stored in the user’s Windows profile. However, the application settings persistence feature persists only Windows and application configuration settings. It does not persist software updates to Windows or applications on the streaming instance.
 
-For these reasons, AppStream 2.0 takes the following approach to Windows Update and antivirus software on AppStream 2.0 instances.
+For these reasons, WorkSpaces Applications takes the following approach to Windows Update and antivirus software on WorkSpaces Applications instances.
 
 ## Windows Update
 
-Windows Update is not enabled by default on AppStream 2.0 base images. If you enable Windows Update on an image builder and then try to create an image, Image Assistant displays a warning and disables Windows Update during the image creation process. To ensure that your fleet instances have the latest Windows updates installed, we recommend that you install Windows updates on your image builder, create a new image, and update your fleet with the new image on a regular basis.
+Windows Update is not enabled by default on WorkSpaces Applications base images. If you enable Windows Update on an image builder and then try to create an image, Image Assistant displays a warning and disables Windows Update during the image creation process. To ensure that your fleet instances have the latest Windows updates installed, we recommend that you install Windows updates on your image builder, create a new image, and update your fleet with the new image on a regular basis.
 
 ## Antivirus Software
 
@@ -23,14 +23,14 @@ If you choose to install antivirus software on your image, we recommend that you
 
 Even if you do not enable automatic updates for your antivirus software, the antivirus software may perform hard drive scans or other operations that may impact the performance of your fleet instances during user sessions.
 
-AppStream 2.0 Windows Server 2012 R2 base images do not include any antivirus software. On AppStream 2.0 Windows Server 2016 and Windows Server 2019 base images published on or after September 10, 2019, Windows Defender is not enabled by default. On AppStream 2.0 Windows Server 2016 and Windows Server 2019 base images published on June 24, 2019, Windows Defender is enabled by default.
+WorkSpaces Applications Windows Server 2012 R2 base images do not include any antivirus software. On WorkSpaces Applications Windows Server 2016 and Windows Server 2019 base images published on or after September 10, 2019, Windows Defender is not enabled by default. On WorkSpaces Applications Windows Server 2016 and Windows Server 2019 base images published on June 24, 2019, Windows Defender is enabled by default.
 
 ###### To enable Windows Defender manually
 
 If Windows Defender is not enabled on your base image, you can enable it manually. To do
 so, complete the following steps.
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left navigation pane, choose **Images**, **Image Builder**.
 3. Choose the image builder on which to enable Windows Defender, verify that it is in the **Running** state, and choose **Connect**.

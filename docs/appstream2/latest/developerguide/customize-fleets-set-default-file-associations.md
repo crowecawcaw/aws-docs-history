@@ -1,9 +1,9 @@
 # Set Default File
 
-Associations for Your Users in Amazon AppStream 2.0
+Associations for Your Users in Amazon WorkSpaces Applications
 
 The associations for application file extensions are set on a per-user basis and so
-are not automatically applied to all users who launch AppStream 2.0 streaming sessions. For
+are not automatically applied to all users who launch WorkSpaces Applications streaming sessions. For
 example, if you set Adobe Reader as the default application for .pdf files on your image
 builder, this change is not applied to your users.
 
@@ -23,15 +23,15 @@ applied.
 1. Connect to the image builder on which to set default file associations and
    sign in with a domain account that has local administrator permissions on the
    image builder. To do so, do either of the following:
-   - [Use the AppStream 2.0
+   - [Use the WorkSpaces Applications
      console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a
-     streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client connections)
+     streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 
    ###### Note
 
    If your organization requires smart card sign in, you must create
-   a streaming URL and use the AppStream 2.0 client for the connection. For
+   a streaming URL and use the WorkSpaces Applications client for the connection. For
    information about smart card sign in, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 
 2. Set default file associations as needed.
@@ -103,8 +103,8 @@ associations configuration file:
 9. Close Local Group Policy Editor or the GPMC.
 10. On the image builder desktop, open Image Assistant.
 11. Follow the necessary steps in Image Assistant to finish creating your image.
-    For more information, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-    AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+    For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 The file associations that you configured are applied to the fleet instances
 and user streaming sessions that are launched from those instances.

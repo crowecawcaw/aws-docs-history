@@ -4,7 +4,7 @@ AWS Glue is a fully managed extract, transform, and load (ETL) service that lets
 create a database from your Amazon S3 data and query that database by using Athena. This
 database is also referred to as an AWS Glue Data Catalog. An AWS Glue crawler can
 automatically detect the schema of your Amazon S3 data and create the corresponding
-database and tables. AppStream 2.0 provides an AWS CloudFormation template that you can use to create
+database and tables. WorkSpaces Applications provides an AWS CloudFormation template that you can use to create
 the necessary AWS Glue resources.
 
 ###### Important
@@ -15,7 +15,7 @@ procedure. For more information about AWS Glue crawlers, see [Defining Crawlers]
 
 ###### To create an AWS Glue crawler
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Choose the AWS Region for which you have subscribed to usage reports.
 3. In the navigation pane, choose **Usage Reports**, and verify that usage reports logging is enabled.

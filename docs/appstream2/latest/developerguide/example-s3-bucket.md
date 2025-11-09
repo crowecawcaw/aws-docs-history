@@ -1,4 +1,4 @@
-# Example: AppStream 2.0 Application Amazon S3 bucket policy
+# Example: WorkSpaces Applications Application Amazon S3 bucket policy
 
 cross-service confused deputy prevention
 
@@ -15,11 +15,11 @@ either of the following:
 
 - The `aws:SourceAccount` with your AWS account ID
 - The global condition context key `aws:SourceArn`
-  AppStream 2.0 currently doesn't support confused deputy prevention for application icons. The
+  WorkSpaces Applications currently doesn't support confused deputy prevention for application icons. The
   service only supports VHD files and setup scripts. If you try to add additional
   conditions for application icons, the icons won't be displayed to end users.
 
-In the following example, the bucket policy only allows AppStream 2.0 Elastic fleet resources
+In the following example, the bucket policy only allows WorkSpaces Applications Elastic fleet resources
 in the owner's account to access `ELASTIC_FLEET_EXAMPLE_BUCKET`.
 
 JSON

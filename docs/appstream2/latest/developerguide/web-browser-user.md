@@ -1,14 +1,14 @@
 # Web Browser Access
 
-The following information helps you use a web browser to connect to AppStream 2.0 and
+The following information helps you use a web browser to connect to WorkSpaces Applications and
 stream applications.
 
 ###### Contents
 
 - [Requirements](web-browser-requirements-user.md "web-browser-requirements-user.md")
 - [Setup](web-browser-setup-user.md "web-browser-setup-user.md")
-- [Connect to AppStream 2.0](web-browser-start-streaming-session-user.md "web-browser-start-streaming-session-user.md")
-- [AppStream 2.0 Web Browser Access (Version 2)](web-browser-access-v2.md "web-browser-access-v2.md")
+- [Connect to WorkSpaces Applications](web-browser-start-streaming-session-user.md "web-browser-start-streaming-session-user.md")
+- [WorkSpaces Applications Web Browser Access (Version 2)](web-browser-access-v2.md "web-browser-access-v2.md")
 - [Monitors and Display Resolution](web-browser-monitors-display-resolution-user.md "web-browser-monitors-display-resolution-user.md")
 - [USB Devices](web-browser-usb-devices-user.md "web-browser-usb-devices-user.md")
 - [Touchscreen

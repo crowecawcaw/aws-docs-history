@@ -1,14 +1,14 @@
-# Use Session Scripts to Manage Your Amazon AppStream 2.0 Users'
+# Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users'
 
 Streaming Experience
 
-AppStream 2.0 provides on-instance session scripts. You can use these scripts to run your own
+WorkSpaces Applications provides on-instance session scripts. You can use these scripts to run your own
 custom scripts when specific events occur in users' streaming sessions. For example, you
-can use custom scripts to prepare your AppStream 2.0 environment before your users' streaming
+can use custom scripts to prepare your WorkSpaces Applications environment before your users' streaming
 sessions begin. You can also use custom scripts to clean up streaming instances after
 users complete their streaming sessions.
 
-Session scripts are specified within an AppStream 2.0 image. These scripts are run within the
+Session scripts are specified within an WorkSpaces Applications image. These scripts are run within the
 user context or the system context. If your session scripts use the standard out to
 write information, error, or debugging messaging, these can be optionally saved to an
 Amazon S3 bucket within your Amazon Web Services account.

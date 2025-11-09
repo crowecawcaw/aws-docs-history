@@ -1,8 +1,8 @@
-# Logging and Monitoring in Amazon AppStream 2.0
+# Logging and Monitoring in Amazon WorkSpaces Applications
 
 Monitoring is an important part of maintaining the reliability, availability, and
-performance of Amazon AppStream 2.0. This topic describes the services and tools that AWS provides for
-monitoring your AppStream 2.0 resources and responding to potential incidents.
+performance of Amazon WorkSpaces Applications. This topic describes the services and tools that AWS provides for
+monitoring your WorkSpaces Applications resources and responding to potential incidents.
 
 **Amazon CloudWatch Alarms**
 
@@ -10,18 +10,18 @@ Amazon CloudWatch alarms let you watch a single metric over a time period that y
 specify. If the metric exceeds a given threshold, a notification is sent to an
 Amazon Simple Notification Service topic or AWS Auto Scaling policy. CloudWatch alarms do not invoke actions that are
 in a particular state. Instead, the state must have changed and been maintained
-for a specified number of periods. For more information, see [Monitoring Amazon AppStream 2.0 Resources](monitoring.md "monitoring.md").
+for a specified number of periods. For more information, see [Monitoring Amazon WorkSpaces Applications Resources](monitoring.md "monitoring.md").
 
 ###### Note
 
-AppStream 2.0 currently can't be configured as a target for CloudWatch Events. For a list of services that you can configure as targets for CloudWatch events, see [What Is Amazon CloudWatch Events](../../../AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.md "../../../AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.md").
+WorkSpaces Applications currently can't be configured as a target for CloudWatch Events. For a list of services that you can configure as targets for CloudWatch events, see [What Is Amazon CloudWatch Events](../../../AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.md "../../../AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.md").
 
 **AWS CloudTrail**
 
 AWS CloudTrail provides a record of actions taken by a user, role, or an AWS
-service in AppStream 2.0. This record lets you determine the request that was made to
-AppStream 2.0, the IP address from which the request was made, who made the request,
-when it was made, and additional details. For more information, see [Logging AppStream 2.0 API Calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+service in WorkSpaces Applications. This record lets you determine the request that was made to
+WorkSpaces Applications, the IP address from which the request was made, who made the request,
+when it was made, and additional details. For more information, see [Logging Amazon WorkSpaces Applications API Calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 **AWS Trusted Advisor**
 
@@ -51,8 +51,8 @@ information can be useful in security and access audits. For more information,
 see [Amazon S3 Server
 Access Logging](../../../AmazonS3/latest/dev/ServerLogs.md "../../../AmazonS3/latest/dev/ServerLogs.md") in the _Amazon Simple Storage Service User Guide_.
 
-**AppStream 2.0 Usage Reports**
+**WorkSpaces Applications Usage Reports**
 
-You can subscribe to AppStream 2.0 usage reports to receive detailed reports about
+You can subscribe to WorkSpaces Applications usage reports to receive detailed reports about
 how your users are using the service. The reports include how long users stream
-and which applications they launch. For more information, see [AppStream 2.0 Usage Reports](configure-usage-reports.md "configure-usage-reports.md").
+and which applications they launch. For more information, see [WorkSpaces Applications Usage Reports](configure-usage-reports.md "configure-usage-reports.md").

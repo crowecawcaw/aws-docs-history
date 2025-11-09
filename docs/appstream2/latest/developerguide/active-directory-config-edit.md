@@ -2,13 +2,13 @@
 
 Configuration
 
-After a AppStream 2.0 directory configuration has been created, you can edit it to add,
+After a WorkSpaces Applications directory configuration has been created, you can edit it to add,
 remove, or modify organizational units, update the service account username, or
 update the service account password.
 
 ###### To update a directory configuration
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left navigation pane, choose **Directory Configs**
    and select the directory configuration to edit.

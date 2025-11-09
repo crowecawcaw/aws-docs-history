@@ -1,7 +1,7 @@
-# Extension SDK Developer Guide for Amazon AppStream 2.0
+# Extension SDK Developer Guide for Amazon WorkSpaces Applications
 
-Amazon AppStream 2.0 uses Amazon DCV technology to provide secure, high-performance access to your
-applications. With the Amazon DCV Extension SDK, developers can customize AppStream 2.0 experiences for
+Amazon WorkSpaces Applications uses Amazon DCV technology to provide secure, high-performance access to your
+applications. With the Amazon DCV Extension SDK, developers can customize WorkSpaces Applications experiences for
 end users, including the following actions:
 
 - Facilitate custom hardware support.
@@ -20,5 +20,5 @@ end users, including the following actions:
 
 ###### Topics
 
-- [Extension SDK Prerequisites for Amazon AppStream 2.0](extension-sdk-prereq.md "extension-sdk-prereq.md")
-- [Third-party vendor extensions for Amazon AppStream 2.0](extension-sdk-isv.md "extension-sdk-isv.md")
+- [Extension SDK Prerequisites for Amazon WorkSpaces Applications](extension-sdk-prereq.md "extension-sdk-prereq.md")
+- [Third-party vendor extensions for Amazon WorkSpaces Applications](extension-sdk-isv.md "extension-sdk-isv.md")

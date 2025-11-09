@@ -1,6 +1,6 @@
-# Tag Restrictions for Amazon AppStream 2.0
+# Tag Restrictions for Amazon WorkSpaces Applications
 
-- The maximum number of tags per AppStream 2.0 resource is 50.
+- The maximum number of tags per WorkSpaces Applications resource is 50.
 - The maximum key length is 128 Unicode characters in UTF-8.
 - The maximum value length is 256 Unicode characters in UTF-8.
 - Tag keys and values are case-sensitive.

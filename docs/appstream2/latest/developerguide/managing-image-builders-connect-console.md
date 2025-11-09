@@ -1,8 +1,8 @@
-# AppStream 2.0 Console (Web Connection)
+# WorkSpaces Applications Console (Web Connection)
 
-To use the AppStream 2.0 console to connect to an image builder through a web browser, complete the following steps.
+To use the WorkSpaces Applications console to connect to an image builder through a web browser, complete the following steps.
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left navigation pane, choose **Images**,
    **Image Builder**.
@@ -35,7 +35,7 @@ from https://stream.<aws-region>.amazonappstream.com/. 4. Log in to the image bu
 
     ###### Note
 
-    Smart card sign in isn't supported for connections through a web browser. Instead, you must create a streaming URL and use the AppStream 2.0 client. For information about smart card sign in, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
+    Smart card sign in isn't supported for connections through a web browser. Instead, you must create a streaming URL and use the WorkSpaces Applications client. For information about smart card sign in, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
     * If your image builder is powered by Amazon Linux 2, you are
      automatically logged in as
 

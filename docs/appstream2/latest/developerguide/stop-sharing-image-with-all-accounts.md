@@ -1,10 +1,10 @@
-# Stop Sharing an Image That You Own in Amazon AppStream 2.0
+# Stop Sharing an Image That You Own in Amazon WorkSpaces Applications
 
 Follow these steps to stop sharing an image that you own with any other AWS account.
 
 ###### To stop sharing an image that you own with any other AWS account
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the navigation pane, choose **Images**, **Image Registry**.
 3. In the image list, select the image that you want to change the permissions for.

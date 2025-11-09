@@ -1,5 +1,5 @@
-# Deleting a User in Amazon AppStream 2.0
+# Deleting a User in Amazon WorkSpaces Applications
 
 You can enable or disable a user, but you cannot delete a user by using
-the AppStream 2.0 console. To delete a user, you must use the [DeleteUser](../APIReference/API_DeleteUser.md "../APIReference/API_DeleteUser.md") API
+the WorkSpaces Applications console. To delete a user, you must use the [DeleteUser](../APIReference/API_DeleteUser.md "../APIReference/API_DeleteUser.md") API
 action.

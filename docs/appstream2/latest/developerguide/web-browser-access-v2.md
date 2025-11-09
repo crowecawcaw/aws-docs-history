@@ -1,14 +1,14 @@
-# AppStream 2.0 Web Browser Access (Version 2)
+# WorkSpaces Applications Web Browser Access (Version 2)
 
-AppStream 2.0 web browser access version 2 offers an enhanced end user experience,
+WorkSpaces Applications web browser access version 2 offers an enhanced end user experience,
 including menu options that are easily discoverable and textual guidance for end
 users. No new menu items have been added, and all configuration choices that
 were available in the previous version are still available in the new one. These
 setting options have been reorganized as a result of usability testing conducted
-by the AppStream 2.0 team.
+by the WorkSpaces Applications team.
 
 ![Toolbar with icons for various system functions and settings in a dark theme interface.](images/toolbar.png)
-End users can access an enhanced AppStream 2.0 toolbar, plus the following features
+End users can access an enhanced WorkSpaces Applications toolbar, plus the following features
 available under **My files**:
 
 - Download or delete multiple files. Select the file(s), choose

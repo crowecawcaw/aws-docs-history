@@ -1,8 +1,8 @@
-# Securing an AppStream 2.0 Session
+# Securing an WorkSpaces Applications Session
 
 ## Limiting application and operating system controls
 
-AppStream 2.0 gives the administrator the ability to specify
+WorkSpaces Applications gives the administrator the ability to specify
 exactly which applications can be launched from the web page in
 application streaming mode. This does not, however, guarantee
 that only those applications specified can be run.
@@ -18,7 +18,7 @@ system directories.
 
 Windows Server 2016 and 2019 require the Windows Application
 Identity service to be running to enforce AppLocker rules. Application
-access from AppStream 2.0 using Microsoft AppLocker is detailed in the [AppStream Admin Guide.](data-protection.md#application-access "data-protection.md#application-access")
+access from WorkSpaces Applications using Microsoft AppLocker is detailed in the [AppStream Admin Guide.](data-protection.md#application-access "data-protection.md#application-access")
 
 For fleet instances joined to an Active Directory domain, use
 Group Policy Objects (GPOs) to deliver user and system settings

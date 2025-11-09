@@ -1,4 +1,4 @@
-# Enable Your AppStream 2.0 Users to Configure Their Regional
+# Enable Your WorkSpaces Applications Users to Configure Their Regional
 
 Settings
 
@@ -7,12 +7,12 @@ Settings
 Enabling users to configure regional settings is currently not supported in
 Linux-based streaming sessions.
 
-Users can configure their Amazon AppStream 2.0 Windows streaming sessions to use settings that are
+Users can configure their Amazon WorkSpaces Applications Windows streaming sessions to use settings that are
 specific to their location or language. In particular, users can configure the following
 settings:
 
 - **Time zone** — Determines the system time used by Windows
-  and any applications that rely on the operating system time. AppStream 2.0 makes available
+  and any applications that rely on the operating system time. WorkSpaces Applications makes available
   the same options for this setting as the Windows Server version used in your
   fleet.
   - To sync the time zone for your streaming session to match the time zone
@@ -28,7 +28,7 @@ settings:
 - **Locale** (also known as culture) — Determines the
   conventions used by Windows and any applications that query the Windows culture when
   formatting dates, numbers, or currencies or when sorting strings. For a list of
-  locales that AppStream 2.0 supports, see [Supported Locales](supported-locales.md "supported-locales.md").
+  locales that WorkSpaces Applications supports, see [Supported Locales](supported-locales.md "supported-locales.md").
 - **Input method** — Determines the keystroke combinations
   that can be used to input characters in another language.
   If users change regional settings during their streaming sessions, the changes are applied
@@ -42,5 +42,5 @@ their regional settings, see [Configure Regional Settings](regional-settings-end
 ###### Contents
 
 - [Supported Locales](supported-locales.md "supported-locales.md")
-- [Enable Regional Settings for Your AppStream 2.0
+- [Enable Regional Settings for Your WorkSpaces Applications
   Users](regional-settings-enable.md "regional-settings-enable.md")

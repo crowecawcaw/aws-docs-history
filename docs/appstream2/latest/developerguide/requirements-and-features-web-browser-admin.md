@@ -1,6 +1,6 @@
 # System Requirements and Feature Support (Web Browser)
 
-This topic provides information to help you understand the requirements for providing user access to AppStream 2.0 through a web browser. It also provides information about supported features.
+This topic provides information to help you understand the requirements for providing user access to WorkSpaces Applications through a web browser. It also provides information about supported features.
 
 ###### Topics
 

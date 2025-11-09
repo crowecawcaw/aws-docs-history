@@ -1,6 +1,6 @@
 # Optimizing the Launch Performance of Your Applications with the Image Assistant CLI Operations
 
-AppStream 2.0 lets you optimize the launch performance of your applications for your
+WorkSpaces Applications lets you optimize the launch performance of your applications for your
 users’ streaming sessions. When you do so by using the Image Assistant CLI operations,
 you can specify the files to optimize for your application launch. Adding
 files to the application optimization manifest reduces the time that it
@@ -37,4 +37,4 @@ C:\Program Files (x86)\Notepad++\stylers.model.xml
 ```
 
 For more information about optimizing the launch performance of your
-applications, see _Optimizing the Launch Performance of Your Applications_ in [Default Application and Windows Settings and Application Launch Performance in Amazon AppStream 2.0](customizing-appstream-images.md "customizing-appstream-images.md").
+applications, see _Optimizing the Launch Performance of Your Applications_ in [Default Application and Windows Settings and Application Launch Performance in Amazon WorkSpaces Applications](customizing-appstream-images.md "customizing-appstream-images.md").

@@ -1,11 +1,11 @@
 # Troubleshooting Persistent Storage Issues
 
-Amazon AppStream 2.0 supports the following options for persistent storage: Home folders, Google
+Amazon WorkSpaces Applications supports the following options for persistent storage: Home folders, Google
 Drive for G Suite, and OneDrive for Business. Because content synchronization behaviors
 are consistent across these persistent storage solutions, we recommend that you review [Home Folder Content
 Synchronization](home-folders-content-synchronization.md "home-folders-content-synchronization.md") for information about expected behavior.
 
-The following are issues that might occur when you or your users use AppStream 2.0 persistent storage.
+The following are issues that might occur when you or your users use WorkSpaces Applications persistent storage.
 
 ###### Issues
 
@@ -17,7 +17,7 @@ The following are issues that might occur when you or your users use AppStream 2
 - [I removed or replaced a file in a user’s home folder in Amazon S3, but my users don’t see the changes in their home folder on the fleet instance during their streaming sessions.](#removed-replaced-folder-in-s3-users-dont-see-changes-on-fleet-instance "#removed-replaced-folder-in-s3-users-dont-see-changes-on-fleet-instance")
 - [Persistent storage isn't performing as expected. My users' files are taking longer than expected to save to persistent storage.](#troubleshooting-persistent-storage-applications-take-long-time-to-save-to-home-folder "#troubleshooting-persistent-storage-applications-take-long-time-to-save-to-home-folder")
 - [My users are getting errors that files are already in use when their files are not in use.](#troubleshooting-persistent-storage-application-errors-files-already-in-use "#troubleshooting-persistent-storage-application-errors-files-already-in-use")
-- [When a folder contains thousands of files, AppStream 2.0 might take a long time to display the list of files.](#troubleshooting-persistent-storage-delay-listing-thousands-of-files-in-folder "#troubleshooting-persistent-storage-delay-listing-thousands-of-files-in-folder")
+- [When a folder contains thousands of files, WorkSpaces Applications might take a long time to display the list of files.](#troubleshooting-persistent-storage-delay-listing-thousands-of-files-in-folder "#troubleshooting-persistent-storage-delay-listing-thousands-of-files-in-folder")
 
 ## My stack's home folders aren't working correctly.
 
@@ -60,14 +60,14 @@ complete. We recommend that you try again after waiting for a few minutes.
 
 To avoid this issue, you can use session scripts and monitor the storage mounting
 status. Then, start the streaming session after mounting is complete. This also
-improves your end-users’ experience. For more information, see [Use Session Scripts to Manage Your Amazon AppStream 2.0 Users'
+improves your end-users’ experience. For more information, see [Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users'
 Streaming Experience](use-session-scripts.md "use-session-scripts.md").
 
 ## I removed or replaced a file in a user’s home folder in Amazon S3, but my users don’t see the changes in their home folder on the fleet instance during their streaming sessions.
 
 Differences between content that is stored in a user’s home folder in an S3 bucket and content that is available to a user on a fleet instance during their streaming sessions may be due to the way in which home folder content stored in Amazon S3 buckets is synchronized with home folder content stored on AppStream 2.0 fleet instances.
 
-At the beginning of a user’s AppStream 2.0 streaming session, AppStream 2.0 catalogs the user’s home folder files stored in the Amazon S3 bucket for your Amazon Web Services account and Region. When a user uses a streaming application to open a file in their home folder on their fleet instance, AppStream 2.0 downloads the file to the fleet instance.
+At the beginning of a user’s WorkSpaces Applications streaming session, WorkSpaces Applications catalogs the user’s home folder files stored in the Amazon S3 bucket for your Amazon Web Services account and Region. When a user uses a streaming application to open a file in their home folder on their fleet instance, AppStream 2.0 downloads the file to the fleet instance.
 
 Changes that a user makes to files on a fleet instance during their active streaming session are uploaded to their home folder in the S3 bucket every few seconds, or at the end of the user’s streaming session.
 
@@ -90,10 +90,10 @@ Synchronization](home-folders-content-synchronization.md "home-folders-content-s
 
 ## Persistent storage isn't performing as expected. My users' files are taking longer than expected to save to persistent storage.
 
-During AppStream 2.0 streaming sessions, saving large files and directories associated with compute-intensive applications
+During WorkSpaces Applications streaming sessions, saving large files and directories associated with compute-intensive applications
 to persistent storage can take longer than saving files and directories required for basic productivity applications. For example, it might take longer for applications to save a large amount of data or frequently modify the same files than it would to save files created by applications that perform a single write action. It might also take longer to save many small files.
 
-If your users save files and directories associated with compute-intensive applications and AppStream 2.0 persistent storage options aren't performing as expected, we recommend that you use a Server Message Block (SMB) solution such as Amazon FSx for Windows File Server or an AWS Storage Gateway file gateway. Following are examples of files and directories associated with compute-intensive applications that are more suitable for use with these SMB solutions:
+If your users save files and directories associated with compute-intensive applications and WorkSpaces Applications persistent storage options aren't performing as expected, we recommend that you use a Server Message Block (SMB) solution such as Amazon FSx for Windows File Server or an AWS Storage Gateway file gateway. Following are examples of files and directories associated with compute-intensive applications that are more suitable for use with these SMB solutions:
 
 - Workspace folders for integrated development environments (IDEs)
 - Local database files
@@ -103,14 +103,14 @@ For more information, see:
 
 - [_Amazon FSx for Windows File Server Windows User
   Guide_](../../../fsx/latest/WindowsGuide/what-is.md "../../../fsx/latest/WindowsGuide/what-is.md")
-- [Using Amazon FSx with Amazon AppStream 2.0](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/")
+- [Using Amazon FSx with Amazon WorkSpaces Applications](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/")
 - [File gateways](../../../storagegateway/latest/userguide/StorageGatewayConcepts.md#file-gateway-concepts "../../../storagegateway/latest/userguide/StorageGatewayConcepts.md#file-gateway-concepts") in the _AWS Storage Gateway User
   Guide_
 
 ###### Note
 
 Before
-proceeding with further troubleshooting, first ensure that the issue your users are experiencing with saving files and directories is associated with AppStream 2.0 persistent storage only, and not another cause. To rule out other causes, have your users try saving the files or
+proceeding with further troubleshooting, first ensure that the issue your users are experiencing with saving files and directories is associated with WorkSpaces Applications persistent storage only, and not another cause. To rule out other causes, have your users try saving the files or
 directories to the Temporary Files directory that is available on their streaming
 instance.
 
@@ -127,14 +127,14 @@ significant time. Also, each attempt to upload the file might result in another 
 To resolve this issue, we recommend that you use a Server Message Block (SMB) solution such as Amazon FSx for Windows File Server or an AWS Storage Gateway file gateway. For more information, see:
 
 - [_Amazon FSx for Windows File Server Windows User Guide_](../../../fsx/latest/WindowsGuide/what-is.md "../../../fsx/latest/WindowsGuide/what-is.md")
-- [Using Amazon FSx with Amazon AppStream 2.0](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/")
+- [Using Amazon FSx with Amazon WorkSpaces Applications](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/")
 - [File gateways](../../../storagegateway/latest/userguide/StorageGatewayConcepts.md#file-gateway-concepts "../../../storagegateway/latest/userguide/StorageGatewayConcepts.md#file-gateway-concepts") in the _AWS Storage Gateway User Guide_
 
-## When a folder contains thousands of files, AppStream 2.0 might take a long time to display the list of files.
+## When a folder contains thousands of files, WorkSpaces Applications might take a long time to display the list of files.
 
-AppStream 2.0 uses API calls to retrieve the content of folders that are stored in AppStream 2.0
+WorkSpaces Applications uses API calls to retrieve the content of folders that are stored in WorkSpaces Applications
 persistent storage. There is a limit to the number of items that an API call can
-retrieve each time the call runs. For this reason, if AppStream 2.0 must retrieve thousands
+retrieve each time the call runs. For this reason, if WorkSpaces Applications must retrieve thousands
 of files in a single folder, it might take more time to display the list of all the files than it would to display the list of files in a folder that contains fewer files.
 
 To

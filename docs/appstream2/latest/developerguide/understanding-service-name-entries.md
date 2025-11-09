@@ -1,4 +1,4 @@
-# Example: AppStream 2.0 Log File Entries
+# Example: WorkSpaces Applications Log File Entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single
@@ -50,7 +50,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Associ
 ```
 
 The following example shows a CloudTrail log entry that demonstrates the
-`CreateImage` event when an image is created using the AppStream 2.0 image builder.
+`CreateImage` event when an image is created using the WorkSpaces Applications image builder.
 
 ```
 {

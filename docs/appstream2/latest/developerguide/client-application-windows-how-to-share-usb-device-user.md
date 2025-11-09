@@ -1,18 +1,18 @@
-# How to Share a USB Device with AppStream 2.0
+# How to Share a USB Device with WorkSpaces Applications
 
-If you are using a drawing tablet, USB redirection might not be required to use it with AppStream 2.0. However, if
+If you are using a drawing tablet, USB redirection might not be required to use it with WorkSpaces Applications. However, if
 you are streaming an application such as the Gnu Image Manipulation Program (GIMP),
 which requires USB redirection to support pressure sensitivity, you must share
-your drawing tablet with AppStream 2.0. For information about drawing tablets, see [Drawing Tablets](client-application-windows-drawing-tablets-user.md "client-application-windows-drawing-tablets-user.md").
+your drawing tablet with WorkSpaces Applications. For information about drawing tablets, see [Drawing Tablets](client-application-windows-drawing-tablets-user.md "client-application-windows-drawing-tablets-user.md").
 
-###### To share a USB device with AppStream 2.0
+###### To share a USB device with WorkSpaces Applications
 
-1. Use the AppStream 2.0 client to start a streaming session.
+1. Use the WorkSpaces Applications client to start a streaming session.
 2. In the top left area, choose the **Settings** icon,
    and then choose **USB Devices**.
 3. If your USB device is connected to your computer, the USB device name
    appears in the dialog box. If your USB device is not detected, contact
-   your AppStream 2.0 administrator for assistance.
+   your WorkSpaces Applications administrator for assistance.
 4. Switch the **Share** toggle key next to the name of
    the USB device that you want to share with the streaming session.
 

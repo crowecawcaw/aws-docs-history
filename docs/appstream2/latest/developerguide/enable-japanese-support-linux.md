@@ -25,8 +25,8 @@ packages of your choice.
 ###### To install Japanese font and input method
 
 1. Connect to the image builder by doing either of the following:
-   - [Use the AppStream 2.0 console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
-   - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client connections)
+   - [Use the WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
+   - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 
    ###### Note
 
@@ -70,7 +70,7 @@ To set the system locale and display language, run the following commands.
 
 Configure the input methods for the application you want to add to the image. For more
 information about how install an application, generate a manifest file, and create
-default settings, see [Tutorial: Create a Custom Linux-Based AppStream 2.0 Image](tutorial-create-linux-image.md "tutorial-create-linux-image.md"). In this step, we assume that you’ve
+default settings, see [Tutorial: Create a Custom Linux-Based WorkSpaces Applications Image](tutorial-create-linux-image.md "tutorial-create-linux-image.md"). In this step, we assume that you’ve
 already installed the application Firefox, which is located at
 `/usr/local/firefox/firefox`.
 
@@ -172,7 +172,7 @@ method, works as expected.
 
 ## Step 7: Create the Image
 
-Create the image on the image builder. For more information, see [Tutorial: Create a Custom Linux-Based AppStream 2.0 Image](tutorial-create-linux-image.md "tutorial-create-linux-image.md").
+Create the image on the image builder. For more information, see [Tutorial: Create a Custom Linux-Based WorkSpaces Applications Image](tutorial-create-linux-image.md "tutorial-create-linux-image.md").
 Make sure to create default application settings, including the regional settings you
 just configured. For more information, see "Creating Default Application Settings for
 Your Users" in [Create Your Linux-Based Images](create-linux-based-images.md "create-linux-based-images.md").

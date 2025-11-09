@@ -4,17 +4,17 @@
 
 Using an IAM role to access AWS services, and being specific in
 the IAM policy attached to it, is a best practice that provides
-only the users in AppStream 2.0 sessions have access without
+only the users in WorkSpaces Applications sessions have access without
 managing additional credentials. Follow the
 [best
-practices for using IAM Roles with AppStream 2.0](using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#best-practices-for-using-iam-role-with-streaming-instances "using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#best-practices-for-using-iam-role-with-streaming-instances").
+practices for using IAM Roles with WorkSpaces Applications](using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#best-practices-for-using-iam-role-with-streaming-instances "using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#best-practices-for-using-iam-role-with-streaming-instances").
 
 Create
 [IAM
 policies to protect Amazon S3 buckets](s3-iam-policy.md "s3-iam-policy.md") that are
 created to persist user data in both home folders and
 application settings persistence. This
-[prevents non-AppStream 2.0 administrators](s3-iam-policy.md#s3-iam-policy-restricted-access "s3-iam-policy.md#s3-iam-policy-restricted-access") from access.
+[prevents non-WorkSpaces Applications administrators](s3-iam-policy.md#s3-iam-policy-restricted-access "s3-iam-policy.md#s3-iam-policy-restricted-access") from access.
 
 ## VPC endpoints
 
@@ -26,14 +26,14 @@ network. If public internet access is required only for AWS services, VPC endpoi
 and internet gateways altogether.
 
 In environments where automation routines or developers require
-making API calls for AppStream 2.0,
-[create an interface VPC endpoint for AppStream 2.0 API
+making API calls for WorkSpaces Applications,
+[create an interface VPC endpoint for WorkSpaces Applications API
 operations](access-api-cli-through-interface-vpc-endpoint.md "access-api-cli-through-interface-vpc-endpoint.md"). For example, if there are EC2
 instances in private subnets without public internet access, a
-VPC endpoint for AppStream 2.0 API can be used to call AppStream
+VPC endpoint for WorkSpaces Applications API can be used to call AppStream
 2.0 API operations such as
 [CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md").
-The following diagram shows an example setup where AppStream 2.0
+The following diagram shows an example setup where WorkSpaces Applications
 API and streaming VPC endpoints are consumed by Lambda functions
 and EC2 instances.
 
@@ -46,7 +46,7 @@ a VPC endpoint. The streaming interface endpoint maintains the
 streaming traffic within your VPC. Streaming traffic includes
 pixel, USB, user input, audio, clipboard, file upload and
 download, and printer traffic. To use the VPC endpoint, the VPC
-endpoint setting must be enabled at the AppStream 2.0 stack.
+endpoint setting must be enabled at the WorkSpaces Applications stack.
 This serves as an alternative to streaming user sessions over
 the public internet from locations that have limited internet
 access and would benefit from accessing through a Direct Connect
@@ -61,15 +61,15 @@ the following:
   outbound traffic from ephemeral network ports `1024-65535`
   (TCP) to the IP address range from which your users connect.
 - Internet connectivity is required to authenticate users and
-  deliver the web assets that AppStream 2.0 requires to
+  deliver the web assets that WorkSpaces Applications requires to
   function.
 
 To learn more about restricting traffic to AWS services with
-AppStream 2.0, see the administration guide for
+WorkSpaces Applications, see the administration guide for
 [creating and streaming from VPC endpoints](creating-streaming-from-interface-vpc-endpoints.md "creating-streaming-from-interface-vpc-endpoints.md").
 
 When full public internet access is required, it’s a best
 practice to disable Internet Explorer Enhanced Security
 Configuration (ESC) on the Image Builder. For more information,
-see the AppStream 2.0 administration guide to
+see the WorkSpaces Applications administration guide to
 [disable Internet Explorer enhanced security configuration](customize-fleets.md#customize-fleets-disable-ie-esc "customize-fleets.md#customize-fleets-disable-ie-esc").

@@ -1,4 +1,4 @@
-# Amazon AppStream 2.0 Cross-Service Confused Deputy
+# Amazon WorkSpaces Applications Cross-Service Confused Deputy
 
 Prevention
 
@@ -38,11 +38,11 @@ these keys to protect your resources:
 
 ###### Topics
 
-- [Example: AppStream 2.0 service role cross-service
+- [Example: WorkSpaces Applications service role cross-service
   confused deputy prevention](example-confused-deputy.md "example-confused-deputy.md")
-- [Example: AppStream 2.0 fleet machine role cross-service
+- [Example: WorkSpaces Applications fleet machine role cross-service
   confused deputy prevention](example-fleet-machine.md "example-fleet-machine.md")
-- [Example: AppStream 2.0 Elastic fleets session script
+- [Example: WorkSpaces Applications Elastic fleets session script
   Amazon S3 bucket policy cross-service confused deputy prevention](example-elastic-fleets.md "example-elastic-fleets.md")
-- [Example: AppStream 2.0 Application Amazon S3 bucket policy
+- [Example: WorkSpaces Applications Application Amazon S3 bucket policy
   cross-service confused deputy prevention](example-s3-bucket.md "example-s3-bucket.md")

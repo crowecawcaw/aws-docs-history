@@ -2,13 +2,13 @@
 
 Storage for Session Script Logs
 
-When you enable Amazon S3 logging in your session script configuration, AppStream 2.0 captures
+When you enable Amazon S3 logging in your session script configuration, WorkSpaces Applications captures
 standard output from your session script. The output is periodically uploaded to an
-S3 bucket within your Amazon Web Services account. For every AWS Region, AppStream 2.0 creates a
+S3 bucket within your Amazon Web Services account. For every AWS Region, WorkSpaces Applications creates a
 bucket in your account that is unique to your account and the Region.
 
 You do not need to perform any configuration tasks to manage these S3 buckets.
-They are fully managed by the AppStream 2.0 service. The log files that are stored in each
+They are fully managed by the WorkSpaces Applications service. The log files that are stored in each
 bucket are encrypted in transit using Amazon S3's SSL endpoints and at rest using
 Amazon S3-managed encryption keys. The buckets are named in a specific format as
 follows:
@@ -30,7 +30,7 @@ bucket name, `appstream-logs`, does not change across
 accounts or Regions.
 
 For example, if you specify session scripts in an image in the US West (Oregon)
-Region (us-west-2) on account number 123456789012, AppStream 2.0 creates an Amazon S3 bucket
+Region (us-west-2) on account number 123456789012, WorkSpaces Applications creates an Amazon S3 bucket
 within your account in that Region with the name shown. Only an administrator with
 sufficient permissions can delete this bucket.
 
@@ -40,10 +40,10 @@ appstream-logs-us-west-2-1234567890123-abcdefg
 
 Disabling session scripts does not delete any log files stored in the S3 bucket.
 To permanently delete log files, you or another administrator with adequate
-permissions must do so by using the Amazon S3 console or API. AppStream 2.0 adds a bucket policy
+permissions must do so by using the Amazon S3 console or API. WorkSpaces Applications adds a bucket policy
 that prevents accidental deletion of the bucket. For more information, see
 _IAM Policies and the Amazon S3 Bucket for Application Settings
-Persistence_ in [Identity and Access Management for Amazon AppStream 2.0](controlling-access.md "controlling-access.md").
+Persistence_ in [Identity and Access Management for Amazon WorkSpaces Applications](controlling-access.md "controlling-access.md").
 
 When session scripts are enabled, a unique folder is created for each streaming
 session that is started.
@@ -70,7 +70,7 @@ The name of the fleet the session script is running on.
 
 **`access-mode`**
 
-The identity method of the user: `custom` for the AppStream 2.0
+The identity method of the user: `custom` for the WorkSpaces Applications
 API or CLI, `federated` for SAML, and `userpool`
 for users in the user pool.
 

@@ -1,6 +1,6 @@
-# AppStream 2.0 Active Directory Administration
+# WorkSpaces Applications Active Directory Administration
 
-Setting up and using Active Directory with AppStream 2.0 involves the following
+Setting up and using Active Directory with WorkSpaces Applications involves the following
 administrative tasks.
 
 ###### Tasks
@@ -19,7 +19,7 @@ administrative tasks.
   Configuration](active-directory-config-edit.md "active-directory-config-edit.md")
 - [Deleting a Directory
   Configuration](active-directory-config-delete.md "active-directory-config-delete.md")
-- [Configuring AppStream 2.0 to Use Domain
+- [Configuring WorkSpaces Applications to Use Domain
   Trusts](active-directory-domain-trusts.md "active-directory-domain-trusts.md")
-- [Managing AppStream 2.0 Computer Objects in
+- [Managing WorkSpaces Applications Computer Objects in
   Active Directory](active-directory-identify-objects.md "active-directory-identify-objects.md")

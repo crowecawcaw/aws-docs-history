@@ -1,22 +1,22 @@
-# Step 4. Configure Your Website for Integration with Amazon AppStream 2.0
+# Step 4. Configure Your Website for Integration with Amazon WorkSpaces Applications
 
-The following sections provide information about how to configure your webpage to host embedded AppStream 2.0 streaming sessions.
+The following sections provide information about how to configure your webpage to host embedded WorkSpaces Applications streaming sessions.
 
 ###### Contents
 
 - [Import the appstream-embed JavaScript File](#import-embed-javascript-file "#import-embed-javascript-file")
 - [Initialize and Configure the AppStream.Embed Interface Object](#initialize-configure-embed-interface-object "#initialize-configure-embed-interface-object")
-- [Examples for Hiding Items in the AppStream 2.0 User Interface](#examples-hiding-user-interface-items "#examples-hiding-user-interface-items")
+- [Examples for Hiding Items in the WorkSpaces Applications User Interface](#examples-hiding-user-interface-items "#examples-hiding-user-interface-items")
 
 ## Import the appstream-embed JavaScript File
 
-1. On the webpage where you plan to embed the AppStream 2.0 streaming session, import the **appstream-embed.js** file into the webpage by adding the following code:
+1. On the webpage where you plan to embed the WorkSpaces Applications streaming session, import the **appstream-embed.js** file into the webpage by adding the following code:
 
 ```
 <script type="text/javascript" src="./appstream_embed.js"> </script>
 ```
 
-2. Next, create an empty container div. The ID of the div that you set is passed into the AppStream 2.0 embed constructor. It's then used to inject an iframe for the streaming session. To create the div, add the following code:
+2. Next, create an empty container div. The ID of the div that you set is passed into the WorkSpaces Applications embed constructor. It's then used to inject an iframe for the streaming session. To create the div, add the following code:
 
 ```
 <div id="appstream-container"> </div>
@@ -41,11 +41,11 @@ In the code, replace `sessionURL` and `userInterfaceConfig` with your own values
 
 ###### Note
 
-The value specified for `userInterfaceConfig` hides the entire AppStream 2.0 toolbar. This value, which is included as an example, is optional.
+The value specified for `userInterfaceConfig` hides the entire WorkSpaces Applications toolbar. This value, which is included as an example, is optional.
 
 **`sessionUrl`**
 
-The streaming URL that you created by using the AppStream 2.0 console, the [CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md") API action, or the [create-streaming-url](../../../cli/latest/reference/appstream/create-streaming-url.md "../../../cli/latest/reference/appstream/create-streaming-url.md") AWS CLI command. This parameter is case-sensitive.
+The streaming URL that you created by using the WorkSpaces Applications console, the [CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md") API action, or the [create-streaming-url](../../../cli/latest/reference/appstream/create-streaming-url.md "../../../cli/latest/reference/appstream/create-streaming-url.md") AWS CLI command. This parameter is case-sensitive.
 
 **Type**: String
 
@@ -55,7 +55,7 @@ The streaming URL that you created by using the AppStream 2.0 console, the [Crea
 
 The configuration that generates the initial state of the user interface elements. The configuration is a key-value pair.
 
-The key, `AppStream.Embed.Options.HIDDEN_ELEMENTS`, specifies the user interface objects that are initially hidden when the embedded AppStream 2.0 streaming session is initialized. Later, you can return both hidden and visible objects by using the `getInterfaceState` parameter.
+The key, `AppStream.Embed.Options.HIDDEN_ELEMENTS`, specifies the user interface objects that are initially hidden when the embedded WorkSpaces Applications streaming session is initialized. Later, you can return both hidden and visible objects by using the `getInterfaceState` parameter.
 
 The value is an array of constants (toolbar buttons). For a list of constants that you can use, see [Working with HIDDEN_ELEMENTS](constants-functions-events-embedded-sessions.md#constants-hidden-elements "constants-functions-events-embedded-sessions.md#constants-hidden-elements").
 
@@ -63,19 +63,19 @@ The value is an array of constants (toolbar buttons). For a list of constants th
 
 **Required**: No
 
-## Examples for Hiding Items in the AppStream 2.0 User Interface
+## Examples for Hiding Items in the WorkSpaces Applications User Interface
 
-The examples in this section show how to hide items in the AppStream 2.0 user interface from users during their embedded AppStream 2.0 streaming sessions.
+The examples in this section show how to hide items in the WorkSpaces Applications user interface from users during their embedded WorkSpaces Applications streaming sessions.
 
 ###### Examples
 
-- [Example 1: Hide the entire AppStream 2.0 toolbar](#example-hide-the-entire-tooolbar "#example-hide-the-entire-tooolbar")
-- [Example 2: Hide a specific button on the AppStream 2.0 toolbar](#example-hide-a-specific-toolbar-button "#example-hide-a-specific-toolbar-button")
-- [Example 3: Hide multiple buttons on the AppStream 2.0 toolbar](#example-hide-multiple-toolbar-buttons "#example-hide-multiple-toolbar-buttons")
+- [Example 1: Hide the entire WorkSpaces Applications toolbar](#example-hide-the-entire-tooolbar "#example-hide-the-entire-tooolbar")
+- [Example 2: Hide a specific button on the WorkSpaces Applications toolbar](#example-hide-a-specific-toolbar-button "#example-hide-a-specific-toolbar-button")
+- [Example 3: Hide multiple buttons on the WorkSpaces Applications toolbar](#example-hide-multiple-toolbar-buttons "#example-hide-multiple-toolbar-buttons")
 
-### Example 1: Hide the entire AppStream 2.0 toolbar
+### Example 1: Hide the entire WorkSpaces Applications toolbar
 
-To prevent users from accessing any button on the AppStream 2.0 toolbar during embedded streaming sessions, use the `AppStream.Embed.Elements.TOOLBAR` constant. This constant lets you hide all AppStream 2.0 toolbar buttons.
+To prevent users from accessing any button on the WorkSpaces Applications toolbar during embedded streaming sessions, use the `AppStream.Embed.Elements.TOOLBAR` constant. This constant lets you hide all WorkSpaces Applications toolbar buttons.
 
 ```
 var appstreamOptions = {
@@ -84,9 +84,9 @@ var appstreamOptions = {
  };
 ```
 
-### Example 2: Hide a specific button on the AppStream 2.0 toolbar
+### Example 2: Hide a specific button on the WorkSpaces Applications toolbar
 
-You can display the AppStream 2.0 toolbar, while preventing users from accessing a specific toolbar button during embedded streaming sessions. To do so, specify the constant for the button that you want to hide. The following code uses the `AppStream.Embed.Elements.FILES_BUTTON` constant to hide the **My Files** button. This prevents users from accessing persistent storage options during embedded streaming sessions.
+You can display the WorkSpaces Applications toolbar, while preventing users from accessing a specific toolbar button during embedded streaming sessions. To do so, specify the constant for the button that you want to hide. The following code uses the `AppStream.Embed.Elements.FILES_BUTTON` constant to hide the **My Files** button. This prevents users from accessing persistent storage options during embedded streaming sessions.
 
 ```
 var appstreamOptions = {
@@ -95,9 +95,9 @@ var appstreamOptions = {
  };
 ```
 
-### Example 3: Hide multiple buttons on the AppStream 2.0 toolbar
+### Example 3: Hide multiple buttons on the WorkSpaces Applications toolbar
 
-You can display the AppStream 2.0 toolbar, while preventing users from accessing more than one toolbar button during embedded streaming sessions. To do so, specify the constants for the buttons that you want to hide. The following code uses the `AppStream.Embed.Elements.END_SESSION_BUTTON` and `AppStream.Embed.Elements.FULLSCREEN_BUTTON` constants to hide the **End Session** and **Fullscreen** buttons.
+You can display the WorkSpaces Applications toolbar, while preventing users from accessing more than one toolbar button during embedded streaming sessions. To do so, specify the constants for the buttons that you want to hide. The following code uses the `AppStream.Embed.Elements.END_SESSION_BUTTON` and `AppStream.Embed.Elements.FULLSCREEN_BUTTON` constants to hide the **End Session** and **Fullscreen** buttons.
 
 ###### Note
 

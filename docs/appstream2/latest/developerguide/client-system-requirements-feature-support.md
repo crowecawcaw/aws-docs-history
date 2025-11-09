@@ -1,6 +1,6 @@
-# System Requirements and Feature Support (AppStream 2.0 Client)
+# System Requirements and Feature Support (WorkSpaces Applications Client)
 
-This topic provides information to help you understand the requirements for the AppStream 2.0 client and supported features.
+This topic provides information to help you understand the requirements for the WorkSpaces Applications client and supported features.
 
 ###### Topics
 

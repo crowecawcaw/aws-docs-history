@@ -2,14 +2,14 @@
 
 To create a streaming URL, use one of the following methods:
 
-- AppStream 2.0 console
+- WorkSpaces Applications console
 - The [CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md") API action
 - The [create-streaming-url](../../../cli/latest/reference/appstream/create-streaming-url.md "../../../cli/latest/reference/appstream/create-streaming-url.md") AWS CLI command
-  To create a streaming URL by using the AppStream 2.0 console, complete the steps in the following procedure.
+  To create a streaming URL by using the WorkSpaces Applications console, complete the steps in the following procedure.
 
-###### To create a streaming URL by using the AppStream 2.0 console
+###### To create a streaming URL by using the WorkSpaces Applications console
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the navigation pane, choose **Fleets**.
 3. In the list of fleets, choose the fleet that is associated with the stack for which you want to create a streaming URL. Verify that the status of the fleet is **Running**.

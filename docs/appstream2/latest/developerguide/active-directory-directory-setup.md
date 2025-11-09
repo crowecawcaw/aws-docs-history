@@ -2,10 +2,10 @@
 
 Directory
 
-To use Active Directory with AppStream 2.0, you must first register your directory
-configuration by creating a Directory Config object in AppStream 2.0. This object includes the
+To use Active Directory with WorkSpaces Applications, you must first register your directory
+configuration by creating a Directory Config object in WorkSpaces Applications. This object includes the
 information required to join streaming instances to an Active Directory domain. You
-create a Directory Config object by using the AppStream 2.0 management console, AWS SDK, or
+create a Directory Config object by using the WorkSpaces Applications management console, AWS SDK, or
 AWS CLI. You can then use your directory configuration to launch domain-joined Always-On
 and On-Demand fleets and image builders.
 
@@ -28,16 +28,16 @@ Directory domain.
 
 Object
 
-The Directory Config object that you create in AppStream 2.0 will be used in later
+The Directory Config object that you create in WorkSpaces Applications will be used in later
 steps.
 
 If you are using the AWS SDK, you can use the
 [CreateDirectoryConfig](../APIReference/API_CreateDirectoryConfig.md "../APIReference/API_CreateDirectoryConfig.md") operation. If you are using the AWS CLI, you
 can use the [create-directory-config](../../../cli/latest/reference/appstream/create-directory-config.md "../../../cli/latest/reference/appstream/create-directory-config.md") command.
 
-###### To create a Directory Config object by using the AppStream 2.0 console
+###### To create a Directory Config object by using the WorkSpaces Applications console
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the navigation pane, choose **Directory Configs**,
    **Create Directory Config**.
@@ -61,14 +61,14 @@ can use the [create-directory-config](../../../cli/latest/reference/appstream/cr
 
 The OU name can't contain spaces. If you specify an OU name that
 contains spaces, when a fleet or image builder attempts to rejoin the
-Active Directory domain, AppStream 2.0 cannot cycle the computer objects
+Active Directory domain, WorkSpaces Applications cannot cycle the computer objects
 correctly and the domain rejoin does not succeed. For information about
 how to troubleshoot this issue, see the
 _DOMAIN_JOIN_INTERNAL_SERVICE_ERROR_ topic for
 "The account already exists" message in [Active Directory Domain Join](troubleshooting-notification-codes.md#troubleshooting-notification-codes-ad "troubleshooting-notification-codes.md#troubleshooting-notification-codes-ad").
 
 In addition, the default Computers container is not an OU and cannot
-be used by AppStream 2.0. For more information, see [Finding the Organizational Unit Distinguished
+be used by WorkSpaces Applications. For more information, see [Finding the Organizational Unit Distinguished
 Name](active-directory-oudn.md "active-directory-oudn.md"). 7. To add more than one OU, select the plus sign (**+**)
 next to **Organizational Unit (OU)**. To remove OUs, choose
 the **x** icon. 8. Choose **Next**. 9. Review the configuration information and choose
@@ -78,17 +78,17 @@ the **x** icon. 8. Choose **Next**. 9. Review the configuration information and 
 
 Using a Domain-Joined Image Builder
 
-Next, using the AppStream 2.0 image builder, create a new image with Active Directory
+Next, using the WorkSpaces Applications image builder, create a new image with Active Directory
 domain-join capabilities. Note that the fleet and image can be members of different
 domains. You join the image builder to a domain to enable domain join and to install
 applications. Fleet domain join is discussed in the next section.
 
 ###### To create an image for launching domain-joined fleets
 
-1. Follow the procedures in [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-   AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+1. Follow the procedures in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 2. For the base image selection step, use an AWS base image released on or
-   after July 24, 2017. For a current list of released AWS images, see [AppStream 2.0 Base Image and Managed Image Update
+   after July 24, 2017. For a current list of released AWS images, see [WorkSpaces Applications Base Image and Managed Image Update
    Release Notes](base-image-version-history.md "base-image-version-history.md").
 3. For **Step 3: Configure Network**, select a VPC and
    subnets with network connectivity to your Active Directory environment.
@@ -106,8 +106,8 @@ applications. Fleet domain join is discussed in the next section.
 7. Log in to the image builder in Administrator mode or as a directory user
    with local administrator permissions. For more information, see [Granting Local Administrator Rights on
    Image Builders](active-directory-image-builder-local-admin.md "active-directory-image-builder-local-admin.md").
-8. Complete the steps in [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-   AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md") to install applications and create a
+8. Complete the steps in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md") to install applications and create a
    new image.
 
 ## Step 3: Create a Domain-Joined
@@ -121,7 +121,7 @@ image.
 
 ###### To create a domain-joined Always-On or On-Demand fleet
 
-1. Follow the procedures in [Create a Fleet in Amazon AppStream 2.0](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
+1. Follow the procedures in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
 2. For the image selection step, use the image that was created in the
    previous step, [Step 2: Create an Image by
    Using a Domain-Joined Image Builder](#active-directory-setup-image-builder "#active-directory-setup-image-builder").
@@ -136,7 +136,7 @@ image.
    joined.
 5. Review the fleet configuration and choose
    **Create**.
-6. Complete the remaining steps in [Create an Amazon AppStream 2.0 Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md") so that your fleet is associated with a
+6. Complete the remaining steps in [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md") so that your fleet is associated with a
    stack and running.
 
 ## Step 4: Configure SAML 2.0
@@ -147,7 +147,7 @@ streaming sessions from your domain-joined fleet.
 ###### To configure SAML 2.0 for single sign-on access
 
 1.  Follow the procedures in [Setting Up SAML](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md").
-2.  AppStream 2.0 requires that the SAML_Subject `NameID` value for the
+2.  WorkSpaces Applications requires that the SAML_Subject `NameID` value for the
     user who is logging in be provided in either of the following
     formats:
 
@@ -161,14 +161,14 @@ streaming sessions from your domain-joined fleet.
     NetBIOS name or the fully qualified domain name (FQDN).
 
 3.  Provide access to your Active Directory users or groups to enable access
-    to the AppStream 2.0 stack from your identity provider application portal.
+    to the WorkSpaces Applications stack from your identity provider application portal.
 4.  Complete the remaining steps in [Setting Up SAML](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md").
 
 ###### To log in a user with SAML 2.0
 
-1. Log in to your SAML 2.0 provider's application catalog and open the AppStream 2.0
+1. Log in to your SAML 2.0 provider's application catalog and open the WorkSpaces Applications
    SAML application that you created in the previous procedure.
-2. When the AppStream 2.0 application catalog is displayed, select an application to
+2. When the WorkSpaces Applications application catalog is displayed, select an application to
    launch.
 3. When a loading icon is displayed, you are prompted to provide a password.
    The domain user name provided by your SAML 2.0 identity provider appears

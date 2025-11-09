@@ -1,6 +1,6 @@
-# Key Concepts of Amazon AppStream 2.0
+# Key Concepts of Amazon WorkSpaces Applications
 
-To get the most out of AppStream 2.0, be familiar with the following concepts:
+To get the most out of WorkSpaces Applications, be familiar with the following concepts:
 
 **application**
 
@@ -19,7 +19,7 @@ it.
 
 An _app block builder_ is a virtual machine that you
 use to create an app block. You can launch and connect to an app block
-builder by using the AppStream 2.0 console. After you connect to an appblock
+builder by using the WorkSpaces Applications console. After you connect to an appblock
 builder, you can install your application(s). App block builder packages
 your app contents, uploads it to an Amazon S3 bucket, and completes
 app block creation.
@@ -28,7 +28,7 @@ app block creation.
 
 An _image builder_ is a virtual machine that you use to
 create an image. You can launch and connect to an image builder by using the
-AppStream 2.0 console. After you connect to an image builder, you can install, add,
+WorkSpaces Applications console. After you connect to an image builder, you can install, add,
 and test your applications, and then use the image builder to create an
 image. You can launch new image builders by using private images that you
 own.
@@ -89,7 +89,7 @@ Multi-session is available only on Always-on and On-demand fleets
 powered by a Windows operating system. Multi-session is not available on
 Elastic fleets or the Linux operating system.
 
-Make sure you are using latest AppStream 2.0 images for multi-session fleets.
-To keep your images are up-to-date, see [Keep Your Amazon AppStream 2.0 Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). For details on supported images and
-AppStream 2.0 agent versions for multi-session, see [AppStream 2.0 Base Image and Managed Image Update
+Make sure you are using latest WorkSpaces Applications images for multi-session fleets.
+To keep your images are up-to-date, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). For details on supported images and
+WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update
 Release Notes](base-image-version-history.md "base-image-version-history.md").

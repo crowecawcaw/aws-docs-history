@@ -1,12 +1,12 @@
-# Adding, Editing, and Deleting Tags for Existing Resources in the Amazon AppStream 2.0
+# Adding, Editing, and Deleting Tags for Existing Resources in the Amazon WorkSpaces Applications
 
 Console
 
-You can add, edit, and delete tags for existing resources by using the AppStream 2.0 console.
+You can add, edit, and delete tags for existing resources by using the WorkSpaces Applications console.
 
-###### To add, edit, or delete tags for an existing AppStream 2.0 resource
+###### To add, edit, or delete tags for an existing WorkSpaces Applications resource
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. From the navigation bar, select the Region that contains the resource for
    which you want to add, edit, or delete tags.

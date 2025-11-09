@@ -8,4 +8,4 @@ following topics in the _Amazon Simple Storage Service User Guide_:
   Programmatically and In the Console](../../../IAM/latest/UserGuide/reference_policies_examples_s3_home-directory-console.md "../../../IAM/latest/UserGuide/reference_policies_examples_s3_home-directory-console.md") in the
   _IAM User Guide_.
 - You can enable file versioning for content stored in Amazon S3 buckets used
-  by AppStream 2.0. For more information, see [Using Versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md").
+  by WorkSpaces Applications. For more information, see [Using Versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md").

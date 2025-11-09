@@ -2,14 +2,14 @@
 
 Local Printer Redirection
 
-By default, local printer redirection is enabled when the AppStream 2.0 client is
+By default, local printer redirection is enabled when the WorkSpaces Applications client is
 installed. However, if local printer redirection is not enabled on the stack
-that your users access for streaming sessions, you can enable it in the AppStream 2.0
+that your users access for streaming sessions, you can enable it in the WorkSpaces Applications
 console by performing the following steps.
 
-###### To enable local printer redirection by using the AppStream 2.0 console
+###### To enable local printer redirection by using the WorkSpaces Applications console
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left navigation pane, choose
    **Stacks**.
@@ -23,5 +23,5 @@ console by performing the following steps.
    **Edit**, and then choose
    **Enabled**.
 6. Choose **Update**.
-   Alternatively, you can enable local printer redirection by using the AppStream 2.0
+   Alternatively, you can enable local printer redirection by using the WorkSpaces Applications
    API, an AWS SDK, or the AWS Command Line Interface (AWS CLI).

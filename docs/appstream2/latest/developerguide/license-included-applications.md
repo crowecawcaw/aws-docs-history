@@ -1,6 +1,6 @@
-# Manage License Included Applications on Your Image in Amazon AppStream 2.0
+# Manage License Included Applications on Your Image in Amazon WorkSpaces Applications
 
-You can stream the following Microsoft license included applications using AppStream 2.0. You
+You can stream the following Microsoft license included applications using WorkSpaces Applications. You
 can install these applications on your Windows Image, use this custom image to create
 fleet(s), and then stream these applications. All of the following applications are
 available in 32-bit and 64-bit architecture:
@@ -24,11 +24,11 @@ available in 32-bit and 64-bit architecture:
      versions are supported on Microsoft Windows Server 2019 and 2022.
      Microsoft Office, Visio, and Project 2024 Standard/Professional
      versions are supported on Microsoft Windows Server 2022.
-    + To enable this feature, you must use an AppStream 2.0 Image Builder that
-     uses an AppStream 2.0 agent released on or after October 2, 2025. For more
-     information, see [Manage AppStream 2.0 Agent Versions](base-images-agent.md "base-images-agent.md") . Or, your
-     image must use managed AppStream 2.0 image updates released on or after
-     October 3, 2025. For more information, see [Keep Your Amazon AppStream 2.0 Image Up-to-Date](keep-image-updated.md "keep-image-updated.md").
+    + To enable this feature, you must use an WorkSpaces Applications Image Builder that
+     uses an WorkSpaces Applications agent released on or after October 2, 2025. For more
+     information, see [Manage WorkSpaces Applications Agent Versions](base-images-agent.md "base-images-agent.md") . Or, your
+     image must use managed WorkSpaces Applications image updates released on or after
+     October 3, 2025. For more information, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md").
     + Outbound TCP on port 1688 must be open on the management network
      interface of all streaming instances.
     + All users streaming through a fleet powered by an image with one

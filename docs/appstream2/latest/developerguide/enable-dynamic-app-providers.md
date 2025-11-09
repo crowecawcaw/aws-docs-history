@@ -2,7 +2,7 @@
 
 Providers
 
-Dynamic app providers must first be enabled within an AppStream 2.0 image. After you
+Dynamic app providers must first be enabled within an WorkSpaces Applications image. After you
 enable these providers, they can manage applications for users on the streaming
 instance.
 
@@ -24,14 +24,14 @@ applicable provider.
    domain account that has local administrator permissions on the image
    builder. To do so, do either of the following:
    - [Use
-     the AppStream 2.0 console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
-   - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client
+     the WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
+   - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client
      connections)
 
    ###### Note
 
    If your organization requires smart card sign in, you must
-   create a streaming URL and use the AppStream 2.0 client for the
+   create a streaming URL and use the WorkSpaces Applications client for the
    connection. For information about smart card sign in, see
    [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 

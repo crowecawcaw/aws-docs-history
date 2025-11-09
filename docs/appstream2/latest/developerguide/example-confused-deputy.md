@@ -1,10 +1,10 @@
-# Example: AppStream 2.0 service role cross-service
+# Example: WorkSpaces Applications service role cross-service
 
 confused deputy prevention
 
-AppStream 2.0 assumes a service role using a variety of resource ARNs, which leads to a
+WorkSpaces Applications assumes a service role using a variety of resource ARNs, which leads to a
 complicated conditional statement. We recommend using a wildcard resource type to
-prevent any unexpected AppStream 2.0 resources failures.
+prevent any unexpected WorkSpaces Applications resources failures.
 
 ###### Example `aws:SourceAccount` Conditional:
 

@@ -8,8 +8,8 @@ application settings persistence is enabled. If the fleet associated with the st
 based on an image that contains default application and Windows settings, the default
 settings are used for the user's first streaming session. For more information about
 default settings, see _Step 3: Create Default Application and Windows
-Settings_ in [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+Settings_ in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 When the streaming session ends, the VHD is unmounted and uploaded to an Amazon S3 bucket
 within your account. The bucket is created when you enable persistent application
@@ -37,7 +37,7 @@ a streaming session from the fleet instance.
 
 ###### Important
 
-AppStream 2.0 supports applications that rely on the [Microsoft Data Protection API](https://docs.microsoft.com/en-us/windows/desktop/seccng/cng-dpapi "https://docs.microsoft.com/en-us/windows/desktop/seccng/cng-dpapi") only when the streaming instance is
+WorkSpaces Applications supports applications that rely on the [Microsoft Data Protection API](https://docs.microsoft.com/en-us/windows/desktop/seccng/cng-dpapi "https://docs.microsoft.com/en-us/windows/desktop/seccng/cng-dpapi") only when the streaming instance is
 joined to a Microsoft Active Directory domain. In cases where a streaming instance
 is not joined to an Active Directory domain, the Windows user, PhotonUser, is
 different on each fleet instance. Due to the way in which the DPAPI security model
@@ -46,7 +46,7 @@ scenario. In cases where streaming instances are joined to an Active Directory
 domain and the user is a domain user, the Windows user name is that of the logged in
 user, and users’ passwords persist for applications that use DPAPI.
 
-AppStream 2.0 automatically saves all files and folders in this path, except for the
+WorkSpaces Applications automatically saves all files and folders in this path, except for the
 following folders:
 
 - Contacts
@@ -61,8 +61,8 @@ following folders:
   Files and folders created outside of these folders are saved within the VHD and synced
   to Amazon S3. The default VHD maximum size is 1GB for Elastic fleets and 5GB for Always-On
   and On-Demand fleets. The size of the saved VHD is the total size of the files and
-  folders that it contains. AppStream 2.0 automatically saves the HKEY_CURRENT_USER registry hive
-  for the user. For new users (users whose profiles don't exist in Amazon S3), AppStream 2.0 creates
+  folders that it contains. WorkSpaces Applications automatically saves the HKEY_CURRENT_USER registry hive
+  for the user. For new users (users whose profiles don't exist in Amazon S3), WorkSpaces Applications creates
   the initial profile by using the default profile. This profile is created in the
   following location on the image builder: C:\users\default.
 
@@ -75,7 +75,7 @@ Enabling Application Settings Persistence](best-practices-app-settings-persisten
 
 When you enable application settings persistence, you must specify a settings group.
 The settings group determines which saved application settings are used for a streaming
-session from this stack. AppStream 2.0 creates a new VHD file for the settings group that is
+session from this stack. WorkSpaces Applications creates a new VHD file for the settings group that is
 stored separately within the S3 bucket in your AWS account. If the settings group is
 shared between stacks, the same application settings are used in each stack. If a stack
 requires its own application settings, specify a unique settings group for the

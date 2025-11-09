@@ -2,7 +2,7 @@
 
 for Application Settings Persistence
 
-When you create a stack in the AppStream 2.0 console, in **Step 3: User
+When you create a stack in the WorkSpaces Applications console, in **Step 3: User
 Settings**, if you use the same settings group under **Application
 settings persistence** as another stack that uses different regional
 settings, only one set of regional settings is used for both stacks. For each user, the

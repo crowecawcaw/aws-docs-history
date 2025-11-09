@@ -2,7 +2,7 @@
 
 the Amazon S3 Bucket for Home Folders and Application Settings Persistence
 
-By default, administrators who can access the Amazon S3 buckets created by AppStream 2.0 can
+By default, administrators who can access the Amazon S3 buckets created by WorkSpaces Applications can
 view and modify content that is part of users' home folders and persistent
 application settings. To restrict administrator access to the S3 buckets that contain
 user files, we recommend applying the S3 bucket access policy based on the following
@@ -28,7 +28,7 @@ template:
 ```
 
 This policy allows S3 bucket access only to the users specified and to
-the AppStream 2.0 service. For every IAM user who should have access, replicate the
+the WorkSpaces Applications service. For every IAM user who should have access, replicate the
 following line:
 
 ```
@@ -37,7 +37,7 @@ following line:
 
 In the following example, the policy restricts access to the home folder S3 bucket
 for anyone other than IAM users marymajor and johnstiles. It also allows access to
-the AppStream 2.0 service, in AWS Region US West (Oregon) for account ID 123456789012.
+the WorkSpaces Applications service, in AWS Region US West (Oregon) for account ID 123456789012.
 
 ```
 {

@@ -2,10 +2,10 @@
 
 Using a Third-Party SAML 2.0 Identity Provider
 
-Application entitlements control access to specific applications within your AppStream 2.0
+Application entitlements control access to specific applications within your WorkSpaces Applications
 stacks. This works by using SAML 2.0 attribute assertions from a third-party SAML 2.0
 identity provider. The assertion is matched to a value when a user identity federates to
-an AppStream 2.0 2.0 SAML application. If the entitlement is true, and the attribute name and
+an WorkSpaces Applications 2.0 SAML application. If the entitlement is true, and the attribute name and
 value match, access is entitled for the user identity to one or more applications within
 the stack.
 
@@ -13,17 +13,17 @@ Attribute-based application entitlements using a third-party SAML 2.0 identity
 provider do not apply in the following scenarios. In other words, the entitlement is
 ignored in cases such as the following:
 
-- AppStream 2.0 user pool authentication. For more information, see [Amazon AppStream 2.0 User Pools](user-pool.md "user-pool.md").
-- AppStream 2.0 streaming URL authentication. For more information, see [Streaming URL](use-client-start-streaming-session-streaming-URL.md "use-client-start-streaming-session-streaming-URL.md").
-- The desktop application when AppStream 2.0 fleets are configured for
-  **Desktop Stream view**. For more information, see [Create an Amazon AppStream 2.0 Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
+- WorkSpaces Applications user pool authentication. For more information, see [Amazon WorkSpaces Applications User Pools](user-pool.md "user-pool.md").
+- WorkSpaces Applications streaming URL authentication. For more information, see [Streaming URL](use-client-start-streaming-session-streaming-URL.md "use-client-start-streaming-session-streaming-URL.md").
+- The desktop application when WorkSpaces Applications fleets are configured for
+  **Desktop Stream view**. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
 - Stacks using the Dynamic Application Framework. Dynamic Application Framework
   provides separate application entitlement features. For more information, see
   [Application Entitlements from a Dynamic App
   Provider Using the Dynamic Application Framework](dynamic-app-framework.md "dynamic-app-framework.md").
-- When users federate to the AppStream 2.0 application catalog, application
+- When users federate to the WorkSpaces Applications application catalog, application
   entitlements will only display the applications the user is entitled to.
-  Applications are not restricted from running within the AppStream 2.0 session. For
+  Applications are not restricted from running within the WorkSpaces Applications session. For
   example, in a fleet configured for Desktop Stream view, a user can launch an
   application directly from the desktop.
 
@@ -33,11 +33,11 @@ Entitlements
 
 Before you create application entitlements, you must do the following:
 
-- Create an AppStream 2.0 fleet and stack with an image containing one or more
+- Create an WorkSpaces Applications fleet and stack with an image containing one or more
   applications (Always-On or On-Demand fleet) or assigned applications
-  (Elastic fleet) that will meet your needs. For more information, see [Create an Amazon AppStream 2.0 Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
+  (Elastic fleet) that will meet your needs. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
 - Provide user access to the stack using a third-party SAML 2.0 identity
-  provider. For more information, see [Amazon AppStream 2.0 Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md"). If you are using an
+  provider. For more information, see [Amazon WorkSpaces Applications Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md"). If you are using an
   existing SAML 2.0 identity provider that you setup previously, see [Step 2: Create a SAML 2.0 Federation IAM
   Role](external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms "external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms") for the steps
   to add the sts:TagSession permission to your IAM role trust policy. For more
@@ -47,7 +47,7 @@ Before you create application entitlements, you must do the following:
 
 ###### To create an application entitlement
 
-1. [Open the AppStream 2.0
+1. [Open the WorkSpaces Applications
    console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md").
 2. In the left navigation pane, choose **Stacks**, and
    select the stack for which to manage application entitlements.
@@ -70,7 +70,7 @@ is one of the following attributes:
     * userType
 
 The attributes that you defined are used to entitle applications in your
-stack to a user when they federate into an AppStream 2.0 session. Entitlement works
+stack to a user when they federate into an WorkSpaces Applications session. Entitlement works
 by matching the attribute name to a key value name in the SAML assertion
 created during federation. For more information, see [SAML PrincipalTag Attribute](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md#saml_role-session-tags.html "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md#saml_role-session-tags.html").
 
@@ -89,9 +89,9 @@ are added in the future. Choosing **Select applications**
 will filter on specific application names. 7. Review your settings and create your entitlement. You can repeat the
 process and create additional entitlements. Entitlement to applications in a
 stack will be a union of all entitlements that match the user based on
-attribute names and values. 8. In your SAML 2.0 identity provider, configure your AppStream 2.0 SAML application
+attribute names and values. 8. In your SAML 2.0 identity provider, configure your WorkSpaces Applications SAML application
 attribute mappings to send the attribute and value defined in your
-entitlement. When users federate to the AppStream 2.0 application catalog,
+entitlement. When users federate to the WorkSpaces Applications application catalog,
 application entitlements will only display the applications the user is
 entitled to.
 
@@ -106,7 +106,7 @@ URL, as follows:
 https:`//relay-state-region-endpoint?accountId=aws-account-id-without-hyphens`
 ```
 
-When users federate to the AppStream 2.0 application catalog, they will be presented with
+When users federate to the WorkSpaces Applications application catalog, they will be presented with
 all of the stacks where application entitlements have matched one or more
 applications to the user for the account ID and relay state endpoint associated with
 the Region in which your stacks are located. When a user selects a catalog,

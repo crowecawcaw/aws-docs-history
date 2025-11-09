@@ -4,9 +4,9 @@ and VHD in an S3 Bucket
 
 You must store the application icons, setup scripts, session scripts, and VHDs that
 you use for your applications and app blocks in an Amazon Simple Storage Service (Amazon S3) bucket in your AWS
-account. AppStream 2.0 Elastic fleets download the application icon, setup script, and VHD from
+account. WorkSpaces Applications Elastic fleets download the application icon, setup script, and VHD from
 the S3 bucket when your user starts their streaming session. The S3 bucket must reside
-in the AWS Region that you intend to create AppStream 2.0 Elastic fleets within.
+in the AWS Region that you intend to create WorkSpaces Applications Elastic fleets within.
 
 We recommend that you create a new S3 bucket that is used to store only the
 application icons, setup scripts, session scripts, and VHDs that you intend to use with
@@ -19,7 +19,7 @@ versioning in S3 buckets](../../../AmazonS3/latest/userguide/Versioning.md "../.
 
 ###### Note
 
-AppStream 2.0 uses your VPC to access the S3 bucket you select. The VPC you choose for
+WorkSpaces Applications uses your VPC to access the S3 bucket you select. The VPC you choose for
 your fleet must provide sufficient network access to the S3 bucket.
 
 Make sure that your S3 bucket content is not encrypted using keys that you manage

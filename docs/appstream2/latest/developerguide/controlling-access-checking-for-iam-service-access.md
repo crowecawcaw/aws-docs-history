@@ -5,7 +5,7 @@ AmazonAppStreamServiceAccess Service Role and Policies
 Complete the steps in this section to check whether the **AmazonAppStreamServiceAccess**
 service role is present and has the correct policies attached. If this role is
 not in your account and must be created, you or an administrator with the required permissions
-must perform the steps to get started with AppStream 2.0 in your Amazon Web Services account.
+must perform the steps to get started with WorkSpaces Applications in your Amazon Web Services account.
 
 ###### To check whether the AmazonAppStreamServiceAccess IAM service role is present
 
@@ -24,9 +24,9 @@ must perform the steps to get started with AppStream 2.0 in your Amazon Web Serv
 ## AmazonAppStreamServiceAccess trust relationship policy
 
 The **AmazonAppStreamServiceAccess** trust
-relationship policy must include the AppStream 2.0 service as the principal. A _principal_ is an entity in AWS that can perform actions and access resources. This
+relationship policy must include the WorkSpaces Applications service as the principal. A _principal_ is an entity in AWS that can perform actions and access resources. This
 policy must also include the `sts:AssumeRole` action. The following
-policy configuration defines AppStream 2.0 as a trusted entity.
+policy configuration defines WorkSpaces Applications as a trusted entity.
 
 JSON
 

@@ -1,13 +1,13 @@
 # Enabling and Disabling Webcam Support
 
-AppStream 2.0 supports real-time audio-video (AV) by redirecting local webcam video input to
-AppStream 2.0 streaming sessions. This capability enables your users to use their local webcam
-for video and audio conferencing within an AppStream 2.0 streaming session. With real-time AV
+WorkSpaces Applications supports real-time audio-video (AV) by redirecting local webcam video input to
+WorkSpaces Applications streaming sessions. This capability enables your users to use their local webcam
+for video and audio conferencing within an WorkSpaces Applications streaming session. With real-time AV
 and support for real-time audio, your users can collaborate by using familiar video and
-audio conferencing applications without having to leave their AppStream 2.0 streaming
+audio conferencing applications without having to leave their WorkSpaces Applications streaming
 session.
 
-To use this feature, you must use a Linux AppStream 2.0 image that uses a Linux AppStream 2.0 agent
+To use this feature, you must use a Linux WorkSpaces Applications image that uses a Linux WorkSpaces Applications agent
 released on or after September 21, 2022.
 
 ###### Note

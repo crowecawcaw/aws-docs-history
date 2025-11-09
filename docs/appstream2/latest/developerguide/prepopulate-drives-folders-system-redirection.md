@@ -21,14 +21,14 @@ streaming session:
 
   These drive and folder paths prepopulate the **Share your local drives
   and folders** dialog box. This dialog box is displayed when users
-  sign in to AppStream 2.0, start a streaming session, and choose
+  sign in to WorkSpaces Applications, start a streaming session, and choose
   **Settings**, **Local Resources**, and
   **Local Drives and Folders**.
 
 You can change or define your own default drive and folder paths by editing
 the registry. You can also use the administrative template file that is provided
-in the AppStream 2.0 client Enterprise Deployment Tool. This template lets you
-configure the client by using Group Policy. For more information, see [Install and Configure the AppStream 2.0 Client](install-configure-client.md "install-configure-client.md").
+in the WorkSpaces Applications client Enterprise Deployment Tool. This template lets you
+configure the client by using Group Policy. For more information, see [Install and Configure the WorkSpaces Applications Client](install-configure-client.md "install-configure-client.md").
 
 When users access their shared local drives and folders during a streaming
 session, the corresponding paths appear with backslashes replaced by

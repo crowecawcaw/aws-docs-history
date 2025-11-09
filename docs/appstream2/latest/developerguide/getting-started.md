@@ -1,13 +1,13 @@
-# Get Started with Amazon AppStream 2.0: Set Up With Sample Applications
+# Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications
 
-To stream your applications, Amazon AppStream 2.0 requires an environment that includes a fleet that is associated with a stack, and at least one application image. This tutorial describes how to configure a
-sample AppStream 2.0 environment for application streaming and give users access to that stream.
+To stream your applications, Amazon WorkSpaces Applications requires an environment that includes a fleet that is associated with a stack, and at least one application image. This tutorial describes how to configure a
+sample WorkSpaces Applications environment for application streaming and give users access to that stream.
 
 ###### Note
 
-For additional guidance in learning how to get started with AppStream 2.0, see the [Amazon AppStream 2.0 Getting
+For additional guidance in learning how to get started with WorkSpaces Applications, see the [Amazon WorkSpaces Applications Getting
 Started Guide](https://aws.amazon.com/appstream2/stream-desktop-applications/ "https://aws.amazon.com/appstream2/stream-desktop-applications/"). This guide describes how to install and configure two
-applications, perform foundational administrative tasks using the AppStream 2.0 console, and provision
+applications, perform foundational administrative tasks using the WorkSpaces Applications console, and provision
 an Amazon Virtual Private Cloud by using a provided AWS CloudFormation template.
 
 ###### Tasks
@@ -22,7 +22,7 @@ Before you can stream your applications, you need to set up a stack, choose an i
 
 ###### To set up a sample stack, choose an image, and configure a fleet
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Choose **Get Started** if you are new to the console, or
    **Quick Links** from the left navigation menu. Choose
@@ -42,10 +42,10 @@ Before you can stream your applications, you need to set up a stack, choose an i
    - **Streaming Protocol Preference** — Specify the
      streaming protocol you’d like your stack to prefer, UDP or TCP. UDP is
      currently only supported in the Windows native client. For more
-     information, see [System Requirements and Feature Support (AppStream 2.0 Client)](client-system-requirements-feature-support.md "client-system-requirements-feature-support.md").
+     information, see [System Requirements and Feature Support (WorkSpaces Applications Client)](client-system-requirements-feature-support.md "client-system-requirements-feature-support.md").
    - **Tags** — Choose **Add Tag**,
      and type the key and value for the tag. To add more tags, repeat this
-     step as needed. For more information, see [Tagging Your Amazon AppStream 2.0 Resources](tagging-basic.md "tagging-basic.md").
+     step as needed. For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
    - **VPC Endpoints (Advanced)** — You can create a
      private link, which is an [interface VPC endpoint](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") (interface endpoint), in your
      virtual private cloud (VPC). To start creating the interface endpoint,
@@ -56,16 +56,16 @@ Before you can stream your applications, you need to set up a stack, choose an i
 
    After you create the interface endpoint, you can use it to keep
    streaming traffic within your VPC.
-   - **Embed AppStream 2.0 (Optional)** — To embed an
-     AppStream 2.0 streaming session in a webpage, specify the domain to host the
+   - **Embed WorkSpaces Applications (Optional)** — To embed an
+     WorkSpaces Applications streaming session in a webpage, specify the domain to host the
      embedded streaming session. Embedded streaming sessions are only
      supported over HTTPS [TCP port 443].
 
    ###### Note
 
    You must meet prerequisites and perform additional steps to
-   configure embedded AppStream 2.0 streaming sessions. For more information,
-   see [Embed Amazon AppStream 2.0 Streaming Sessions](embed-streaming-sessions.md "embed-streaming-sessions.md").
+   configure embedded WorkSpaces Applications streaming sessions. For more information,
+   see [Embed Amazon WorkSpaces Applications Streaming Sessions](embed-streaming-sessions.md "embed-streaming-sessions.md").
 
 4. Choose **Next**.
 5. For **Step 2: Choose Image**, a sample image is already selected. The image contains pre-installed open-source applications for evaluation purposes. Choose **Next**.
@@ -75,7 +75,7 @@ Before you can stream your applications, you need to set up a stack, choose an i
    - **Choose instance type** — Choose the instance type
      that matches the performance requirements of your applications. All streaming
      instances in your fleet launch with the instance type that you select. For
-     more information, see [AppStream 2.0 Instance Families](instance-types.md "instance-types.md").
+     more information, see [WorkSpaces Applications Instance Families](instance-types.md "instance-types.md").
    - **Fleet type** — Choose the fleet type that suits
      your use case. The fleet type determines its immediate availability and
      how you pay for it.
@@ -114,9 +114,9 @@ Before you can stream your applications, you need to set up a stack, choose an i
    powered by a Windows operating system. Multi-session is not
    available on Elastic fleets or the Linux operating system.
 
-   Make sure you are using latest AppStream 2.0 images for multi-session
-   fleets. To keep your images are up-to-date, see [Keep Your Amazon AppStream 2.0 Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). For details on supported images
-   and AppStream 2.0 agent versions for multi-session, see [AppStream 2.0 Base Image and Managed Image Update
+   Make sure you are using latest WorkSpaces Applications images for multi-session
+   fleets. To keep your images are up-to-date, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). For details on supported images
+   and WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update
    Release Notes](base-image-version-history.md "base-image-version-history.md").
    - **Maximum sessions per instance** — Maximum
      number of user sessions on an instance. You must choose this value based
@@ -158,16 +158,16 @@ Before you can stream your applications, you need to set up a stack, choose an i
    decide how many instances are required based on your fleet type
    (multi-session or single-session) and maximum sessions per
    instance.
-   - **Scaling details** — Specify the scaling policies that AppStream 2.0 uses to
+   - **Scaling details** — Specify the scaling policies that WorkSpaces Applications uses to
      increase and decrease the capacity of your fleet. Note that the size of
      your fleet is limited by the minimum and maximum capacity that you
-     specified. For more information, see [Fleet Auto Scaling for Amazon AppStream 2.0](autoscaling.md "autoscaling.md").
+     specified. For more information, see [Fleet Auto Scaling for Amazon WorkSpaces Applications](autoscaling.md "autoscaling.md").
    - **IAM role (Advanced)** — When you apply an IAM role from your account
-     to an AppStream 2.0 fleet instance, you can make AWS API requests from the
+     to an WorkSpaces Applications fleet instance, you can make AWS API requests from the
      fleet instance without manually managing AWS credentials. To apply an
      IAM role, do either of the following:
-     - To use an existing IAM role in your Amazon Web Services account, choose the role that you want to use from the **IAM role** list. The role must must be accessible from the fleet instance. For more information, see [Configuring an Existing IAM Role to Use With AppStream 2.0 Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
-     - To create a new IAM role, choose **Create new IAM role** and follow the steps in [How to Create an IAM Role to Use With AppStream 2.0 Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
+     - To use an existing IAM role in your Amazon Web Services account, choose the role that you want to use from the **IAM role** list. The role must must be accessible from the fleet instance. For more information, see [Configuring an Existing IAM Role to Use With WorkSpaces Applications Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
+     - To create a new IAM role, choose **Create new IAM role** and follow the steps in [How to Create an IAM Role to Use With WorkSpaces Applications Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
 
 7. Choose **Next**.
 8. For **Step 4: Configure Network**, a default VPC is provided. This VPC includes a default public subnet in each Availability Zone and an internet gateway that is attached to your VPC. The VPC also includes a default security group. To use the default VPC configuration, do the following:
@@ -195,19 +195,19 @@ Google Drive and OneDrive options are currently not available for
 multi-session fleets.
 
     * **Enable Home Folders** — By default, this setting is enabled. Keep the default setting. For information about requirements for enabling home
-     folders, see [Enable Home Folders for Your AppStream 2.0
+     folders, see [Enable Home Folders for Your WorkSpaces Applications
      Users](enable-home-folders.md "enable-home-folders.md").
     * **Enable Google Drive** — Optionally, you can enable users to link
-     their Google Drive for G Suite account to AppStream 2.0. You can enable Google
+     their Google Drive for G Suite account to WorkSpaces Applications. You can enable Google
      Drive for accounts in G Suite domains only, not for personal Gmail
      accounts. For information about requirements for enabling Google Drive,
-     see [Enable Google Drive for Your AppStream 2.0
+     see [Enable Google Drive for Your WorkSpaces Applications
      Users](enable-google-drive.md "enable-google-drive.md").
     * **Enable OneDrive** — Optionally, you can
-     enable users to link their OneDrive for Business account to AppStream 2.0. You
+     enable users to link their OneDrive for Business account to WorkSpaces Applications. You
      can enable OneDrive for accounts in OneDrive domains only, not for
      personal accounts. For information about requirements for enabling
-     OneDrive, see [Enable OneDrive for Your AppStream 2.0 Users](enable-onedrive.md "enable-onedrive.md").
+     OneDrive, see [Enable OneDrive for Your WorkSpaces Applications Users](enable-onedrive.md "enable-onedrive.md").
 
 10. For **Step 6: User Settings**, configure the following settings. When you're done,
     choose **Review**:
@@ -229,7 +229,7 @@ multi-session fleets.
      **Copy to local device character limit** or
      **Paste to remote session character limit** or both
      to limit the amount of data that users can copy or paste when using the
-     clipboard, either in or out of their AppStream 2.0 streaming session. The value
+     clipboard, either in or out of their WorkSpaces Applications streaming session. The value
      can be between 1 and 20,971,520 (20 MB), and defaults to the maximum
      value when unspecified.
     * **File transfer** — By default, users can
@@ -241,18 +241,18 @@ multi-session fleets.
 
     ###### Important
 
-    If your users require AppStream 2.0 file system redirection to access local drives and folders during their streaming sessions, you must enable both file upload and download. To use file system redirection, your users must have AppStream 2.0 client version 1.0.480 or later installed. For more information, see [Enable File System Redirection for
-     Your AppStream 2.0 Users](enable-file-system-redirection.md "enable-file-system-redirection.md").
+    If your users require WorkSpaces Applications file system redirection to access local drives and folders during their streaming sessions, you must enable both file upload and download. To use file system redirection, your users must have WorkSpaces Applications client version 1.0.480 or later installed. For more information, see [Enable File System Redirection for
+     Your WorkSpaces Applications Users](enable-file-system-redirection.md "enable-file-system-redirection.md").
     * **Print to local device** — By default, users can print to their local device from within a streaming application. When they choose **Print** in the application, they can download a .pdf file that they can print to a local printer. You can disable this option to prevent users from printing to a local device.
     * **Password sign in for Active Directory** —
-     Users can enter their Active Directory domain password to sign in to an AppStream 2.0 streaming instance that is joined to an Active Directory domain.
+     Users can enter their Active Directory domain password to sign in to an WorkSpaces Applications streaming instance that is joined to an Active Directory domain.
 
 
 
     You can also enable **Smart card sign in for Active Directory**. At least one authentication method must be enabled.
     * **Smart card sign in for Active Directory** —
      Users can use a smart card reader and smart card connected to their
-     local computer to sign in to an AppStream 2.0 streaming instance that is joined
+     local computer to sign in to an WorkSpaces Applications streaming instance that is joined
      to an Active Directory domain.
 
 
@@ -260,12 +260,12 @@ multi-session fleets.
 
 ###### Note
 
-**Clipboard, file transfer, and print to local device settings** — These settings control only whether users can use AppStream 2.0 data transfer features. If your image
+**Clipboard, file transfer, and print to local device settings** — These settings control only whether users can use WorkSpaces Applications data transfer features. If your image
 provides access to a browser, network printer, or other remote resource,
 your users might be able to transfer data to or from their streaming session
 in other ways.
 
-**Authentication settings** — These settings control only the authentication method that can be used for Windows sign in to an AppStream 2.0 streaming instance (fleet or image builder). They do not
+**Authentication settings** — These settings control only the authentication method that can be used for Windows sign in to an WorkSpaces Applications streaming instance (fleet or image builder). They do not
 control the authentication method that can be used for in-session authentication, after a user signs in to a streaming instance. For information about configuration requirements for using smart cards for Windows sign in and in-session authentication, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 
 **Application settings persistence options**:
@@ -281,7 +281,7 @@ control the authentication method that can be used for in-session authentication
 
 For information about requirements for enabling and administering application settings
 persistence, see [Enable Application Settings Persistence for Your
-AppStream 2.0 Users](app-settings-persistence.md "app-settings-persistence.md"). 11. For **Step 7: Review**, confirm the details for the stack. To change the
+WorkSpaces Applications Users](app-settings-persistence.md "app-settings-persistence.md"). 11. For **Step 7: Review**, confirm the details for the stack. To change the
 configuration for any section, choose **Edit** and make the
 needed changes. After you finish reviewing the configuration details, choose
 **Create**. 12. In the pricing acknowledgement dialog box, select the acknowledgement check box, and choose **Create**. 13. After the service sets up resources, the **Stacks** page
@@ -290,15 +290,15 @@ appears. The status of your new stack appears as **Active** when it is ready to 
 ## Step 2: Provide Access to Users
 
 After you create a stack with an associated fleet, you can provide access to users
-through the AppStream 2.0 user pool, SAML 2.0 [single sign-on (SSO)], or the AppStream 2.0 API. For
-more information, see [User Pool Administration in Amazon AppStream 2.0](user-pool-admin.md "user-pool-admin.md")
-and [Amazon AppStream 2.0 Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md").
+through the WorkSpaces Applications user pool, SAML 2.0 [single sign-on (SSO)], or the WorkSpaces Applications API. For
+more information, see [User Pool Administration in Amazon WorkSpaces Applications](user-pool-admin.md "user-pool-admin.md")
+and [Amazon WorkSpaces Applications Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md").
 
 ###### Note
 
-Users in the AppStream 2.0 user pool can't be assigned to stacks with fleets that are joined to an Active Directory domain.
+Users in the WorkSpaces Applications user pool can't be assigned to stacks with fleets that are joined to an Active Directory domain.
 
-For this getting started exercise, you can use the AppStream 2.0 user
+For this getting started exercise, you can use the WorkSpaces Applications user
 pool. This access method enables you to create and manage users by using a permanent login portal URL.
 To quickly test application streaming without setting up users, complete the following steps to create a temporary URL, also known as a streaming URL.
 
@@ -314,30 +314,30 @@ To quickly test application streaming without setting up users, complete the fol
 5. To view the user ID and URL, choose **Get URL**.
 6. To copy the link to the clipboard, choose **Copy Link**.
 
-After you provide your users with access to AppStream 2.0, they can start AppStream 2.0 streaming sessions. If you provide access through the AppStream 2.0 user pool, they must use a web browser for streaming sessions.
+After you provide your users with access to WorkSpaces Applications, they can start WorkSpaces Applications streaming sessions. If you provide access through the WorkSpaces Applications user pool, they must use a web browser for streaming sessions.
 
-If you plan to use SAML 2.0 [single sign-on (SSO)] or the AppStream 2.0 API to provide access
-to your users, you can make the AppStream 2.0 client available to them. The AppStream 2.0 client is a
+If you plan to use SAML 2.0 [single sign-on (SSO)] or the WorkSpaces Applications API to provide access
+to your users, you can make the WorkSpaces Applications client available to them. The WorkSpaces Applications client is a
 native application that is designed for users who require additional functionality
-during their AppStream 2.0 streaming sessions. For more information, see [Provide Access Through the AppStream 2.0 Client](client-application.md "client-application.md").
+during their WorkSpaces Applications streaming sessions. For more information, see [Provide Access Through the WorkSpaces Applications Client](client-application.md "client-application.md").
 
 ## Resources
 
 For more information, see the following:
 
-- Learn how to use the AppStream 2.0 image builder to add your own applications and create
-  images that you can stream to your users. For more information, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-  AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
-- Provide persistent storage for your session users by using AppStream 2.0 home
+- Learn how to use the WorkSpaces Applications image builder to add your own applications and create
+  images that you can stream to your users. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+  WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+- Provide persistent storage for your session users by using WorkSpaces Applications home
   folders, Google Drive, and OneDrive. For more information, see [Enable and Administer Persistent Storage for Your
-  AppStream 2.0 Users](persistent-storage.md "persistent-storage.md").
-- Integrate your AppStream 2.0 streaming resources with your Microsoft Active
-  Directory environment. For more information, see [Using Active Directory with AppStream 2.0](active-directory.md "active-directory.md").
-- Control who has access to your AppStream 2.0 streaming instances. For more
-  information, see [Identity and Access Management for Amazon AppStream 2.0](controlling-access.md "controlling-access.md"),
-  [Amazon AppStream 2.0 User Pools](user-pool.md "user-pool.md") and
-  [Amazon AppStream 2.0 Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md").
-- Monitor your AppStream 2.0 resources by using Amazon CloudWatch. For more information, see
-  [AppStream 2.0 Metrics and Dimensions](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md") .
-- Troubleshoot your AppStream 2.0 streaming experience. For more information, see
+  WorkSpaces Applications Users](persistent-storage.md "persistent-storage.md").
+- Integrate your WorkSpaces Applications streaming resources with your Microsoft Active
+  Directory environment. For more information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md").
+- Control who has access to your WorkSpaces Applications streaming instances. For more
+  information, see [Identity and Access Management for Amazon WorkSpaces Applications](controlling-access.md "controlling-access.md"),
+  [Amazon WorkSpaces Applications User Pools](user-pool.md "user-pool.md") and
+  [Amazon WorkSpaces Applications Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md").
+- Monitor your WorkSpaces Applications resources by using Amazon CloudWatch. For more information, see
+  [WorkSpaces Applications Metrics and Dimensions](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md") .
+- Troubleshoot your WorkSpaces Applications streaming experience. For more information, see
   [Troubleshooting](troubleshooting.md "troubleshooting.md").

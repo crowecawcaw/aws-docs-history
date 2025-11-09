@@ -1,11 +1,11 @@
 # Create an App Block Builder
 
-You can use app block builder instance to create your application package for AppStream 2.0
+You can use app block builder instance to create your application package for WorkSpaces Applications
 Elastic fleets.
 
 ###### To create an app block builder
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Choose **Applications Manager** in the left navigation pane,
    then choose the **App block builders** tab and **Create
@@ -20,23 +20,23 @@ Elastic fleets.
      going to select for you elastic fleet, which your end users will use to
      stream the application.
    - **IAM role (Optional)**: When you apply an IAM
-     role from your account to an AppStream 2.0 app block builder, you can make
+     role from your account to an WorkSpaces Applications app block builder, you can make
      AWS API requests from the app block builder instance without manually
      managing AWS credentials. To apply an IAM role to the app block
      builder, do either of the following:
      - To use an existing IAM role in your Amazon Web Services account,
        choose the role that you want to use from the **IAM
        role** list. The role must must be accessible from
-       the image builder. For more information, see [Configuring an Existing IAM Role to Use With AppStream 2.0 Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
+       the image builder. For more information, see [Configuring an Existing IAM Role to Use With WorkSpaces Applications Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
      - To create a new IAM role, choose **Create new IAM
-       role** and follow the steps in [How to Create an IAM Role to Use With AppStream 2.0 Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
+       role** and follow the steps in [How to Create an IAM Role to Use With WorkSpaces Applications Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
 
    - **Instance Type**: Select the instance type for the
      app block builder. Choose a type that matches the performance
      requirements of the applications that you plan to install.
    - **Tags (optional)**: Choose **Add Tag**, and type the key and value
      for the tag. To add more tags, repeat this step. For more
-     information, see [Tagging Your Amazon AppStream 2.0 Resources](tagging-basic.md "tagging-basic.md").
+     information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
 
 4. Choose **Next**.
 5. For **Step 2: Configure Network**, do the following:
@@ -52,16 +52,16 @@ Elastic fleets.
    If you don't have your own VPC and subnet, you can use the [default VPC](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") or create your own. To create your own, choose the **Create a new
    VPC** and **Create new subnet** links to
    create them. Choosing these links opens the Amazon VPC console. After you
-   create your VPC and subnets, return to the AppStream 2.0 console and choose the refresh icon to the left of the **Create a new
-   VPC** and **Create new subnet** links to display them in the list. For more information, see [Configure a VPC for AppStream 2.0](appstream-vpc.md "appstream-vpc.md").
+   create your VPC and subnets, return to the WorkSpaces Applications console and choose the refresh icon to the left of the **Create a new
+   VPC** and **Create new subnet** links to display them in the list. For more information, see [Configure a VPC for WorkSpaces Applications](appstream-vpc.md "appstream-vpc.md").
    - For **Security group(s)**, choose up to five security groups to associate
      with this image builder. If you don't have your own security group and
      you don't want to use the default security group, choose the
      **Create new security group** link to create one.
-     After you create your subnets in the Amazon VPC console, return to the AppStream 2.0
+     After you create your subnets in the Amazon VPC console, return to the WorkSpaces Applications
      console and choose the refresh icon to the left of the **Create
      new security group** link to display them in the list. For
-     more information, see [Security Groups in Amazon AppStream 2.0](managing-network-security-groups.md "managing-network-security-groups.md").
+     more information, see [Security Groups in Amazon WorkSpaces Applications](managing-network-security-groups.md "managing-network-security-groups.md").
    - For **VPC Endpoints (Optional)**, you can create an
      interface VPC endpoint (interface endpoint) in your virtual private
      cloud (VPC). To create the interface endpoint, choose **Create

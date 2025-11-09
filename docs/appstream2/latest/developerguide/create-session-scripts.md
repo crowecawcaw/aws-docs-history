@@ -1,10 +1,10 @@
 # Creating Session Scripts
 
-AppStream 2.0 provides on-instance session scripts on both Windows- and Linux-based streaming
-instances. For more information about session scripts, see [Use Session Scripts to Manage Your Amazon AppStream 2.0 Users'
+WorkSpaces Applications provides on-instance session scripts on both Windows- and Linux-based streaming
+instances. For more information about session scripts, see [Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users'
 Streaming Experience](use-session-scripts.md "use-session-scripts.md").
 
-Session scripts are specified within an AppStream 2.0 image. To locate the session scripts
+Session scripts are specified within an WorkSpaces Applications image. To locate the session scripts
 configuration file on a Linux instance, navigate to
 `/opt/appstream/SessionScripts/config.json`. The following code
 is a sample `config.json` file that specifies a session start script

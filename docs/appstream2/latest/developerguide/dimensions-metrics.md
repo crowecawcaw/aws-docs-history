@@ -1,6 +1,6 @@
-# Dimensions for Amazon AppStream 2.0 Metrics
+# Dimensions for Amazon WorkSpaces Applications Metrics
 
-To filter the metrics provided by Amazon AppStream 2.0, use the following dimensions.
+To filter the metrics provided by Amazon WorkSpaces Applications, use the following dimensions.
 
 | Metric Type            | Dimension     | Description              | Metrics                            |
 | ---------------------- | ------------- | ------------------------ | ---------------------------------- |

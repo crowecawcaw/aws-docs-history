@@ -1,6 +1,6 @@
 # Troubleshooting Fleets
 
-The following are issues that might occur when users connect to Amazon AppStream 2.0 streaming sessions launched from fleet instances.
+The following are issues that might occur when users connect to Amazon WorkSpaces Applications streaming sessions launched from fleet instances.
 
 ###### Issues
 
@@ -14,10 +14,10 @@ The following are issues that might occur when users connect to Amazon AppStream
 
 You can increase your fleet capacity in either of the two following ways:
 
-- Manually, by increasing the **Minimum capacity** value on the **Scaling Policies** tab for the fleet in the AppStream 2.0 console.
+- Manually, by increasing the **Minimum capacity** value on the **Scaling Policies** tab for the fleet in the WorkSpaces Applications console.
 - Automatically, by configuring a fleet scaling policy that manages your capacity for the fleet.
 
-If your manual modification or scaling policy exceeds your current AppStream 2.0 quota
+If your manual modification or scaling policy exceeds your current WorkSpaces Applications quota
 for your fleet instance type and size, the new values will not take effect. If you
 experience this issue, you can use the AWS Command Line Interface (CLI) [describe-scaling-activities](../../../cli/latest/reference/application-autoscaling/describe-scaling-activities.md "../../../cli/latest/reference/application-autoscaling/describe-scaling-activities.md") command to verify whether your capacity request exceeds
 your quota for the applicable fleet instance type and size. This command uses the
@@ -45,7 +45,7 @@ detailed information about the cause of the error, including the fleet instance 
 
 ###### Note
 
-AppStream 2.0 instance type and size quotas are per Amazon Web Services account, per AWS Region. If you have multiple fleets in the same Region that use the same instance type and size, the total number of instances in all fleets in that Region must be less than or equal to the applicable quota.
+WorkSpaces Applications instance type and size quotas are per Amazon Web Services account, per AWS Region. If you have multiple fleets in the same Region that use the same instance type and size, the total number of instances in all fleets in that Region must be less than or equal to the applicable quota.
 
 ```
 {
@@ -66,17 +66,17 @@ AppStream 2.0 instance type and size quotas are per Amazon Web Services account,
 If you run the `describe-scaling-activities` command and the output indicates that your capacity request exceeds your current quota, you can resolve the issue by:
 
 - Changing your capacity request to a value that doesn’t exceed your quota.
-- Requesting a quota increase. To request a quota increase, use the [AppStream 2.0 Limits form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-appstream2 "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-appstream2").
+- Requesting a quota increase. To request a quota increase, use the [WorkSpaces Applications Limits form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-appstream2 "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-appstream2").
 
 ## My applications won't work correctly unless I use the Internet Explorer defaults. How do I restore the Internet Explorer default settings?
 
-If your AppStream 2.0 environment includes applications that render elements, you might
+If your WorkSpaces Applications environment includes applications that render elements, you might
 need to restore the Internet Explorer default settings to enable full enable access
 to the internet.
 
 ###### To automatically restore the Internet Explorer default settings
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left navigation pane, choose **Images**, **Image Builder**.
 3. Choose the image builder on which to restore the Internet Explorer
@@ -116,8 +116,8 @@ either of the following:
 
 8. On the image builder desktop, open Image Assistant.
 9. Follow the required steps in Image Assistant to finish creating your image. For more
-   information, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-   AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 ## I need to persist environment variables across my fleet instances.
 
@@ -126,22 +126,22 @@ You can make user environment variables and system environment variables availab
 across your fleet instances. You can also create environment variables with limited
 scope, which is useful when you need to use the same environment variable with
 different values across different applications. For more information, see [Persist Environment
-Variables in Amazon AppStream 2.0](customize-fleets-persist-environment-variables.md "customize-fleets-persist-environment-variables.md").
+Variables in Amazon WorkSpaces Applications](customize-fleets-persist-environment-variables.md "customize-fleets-persist-environment-variables.md").
 
 ## I want to change the default Internet Explorer home page for my users.
 
 You can use Group Policy to set the default home page in Internet Explorer for
 your users. You can also enable users to change the default page that you set. For
 more information, see [Change the Default Internet
-Explorer Home Page for Users' Streaming Sessions in Amazon AppStream 2.0](customize-fleets-change-ie-homepage.md "customize-fleets-change-ie-homepage.md").
+Explorer Home Page for Users' Streaming Sessions in Amazon WorkSpaces Applications](customize-fleets-change-ie-homepage.md "customize-fleets-change-ie-homepage.md").
 
 ## When my users end a streaming session and then start a new one, they see a message that says no streaming resources are available.
 
-When a user ends a session, AppStream 2.0 terminates the underlying instance and
+When a user ends a session, WorkSpaces Applications terminates the underlying instance and
 creates a new instance if needed to meet the desired capacity of the fleet. If a
-user tries to start a new session before AppStream 2.0 creates the new instance and all
+user tries to start a new session before WorkSpaces Applications creates the new instance and all
 other instances are in use, the user will receive an error stating that no streaming
 resources are available. If your users start and stop sessions frequently, consider
-increasing your fleet capacity. For more information, see [Fleet Auto Scaling for Amazon AppStream 2.0](autoscaling.md "autoscaling.md"). Or, consider increasing the
+increasing your fleet capacity. For more information, see [Fleet Auto Scaling for Amazon WorkSpaces Applications](autoscaling.md "autoscaling.md"). Or, consider increasing the
 maximum session duration for your fleet and instructing your users to close their
 browser during periods of inactivity rather than ending their session.

@@ -1,6 +1,6 @@
 # Troubleshooting Image Builders
 
-The following are issues that might occur when you use Amazon AppStream 2.0 image
+The following are issues that might occur when you use Amazon WorkSpaces Applications image
 builders.
 
 ###### Issues
@@ -43,14 +43,14 @@ Image builders cannot communicate to the internet by default. To resolve this
 issue, launch your image builder in a VPC subnet that has internet access. You can
 enable internet access from your VPC subnet using a [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md"). Or, you can
 configure an internet gateway in your VPC, and attach an Elastic IP address to your
-image builder. For more information, see [Networking and Access for Amazon AppStream 2.0](managing-network.md "managing-network.md").
+image builder. For more information, see [Networking and Access for Amazon WorkSpaces Applications](managing-network.md "managing-network.md").
 
 ## When I tried installing my application, I see an
 
 error that the operating system version is not supported.
 
 Only applications that can be installed on Windows Server 2012 R2, Windows Server
-2016, and Windows Server 2019 can be added to an AppStream 2.0 image. Check if your
+2016, and Windows Server 2019 can be added to an WorkSpaces Applications image. Check if your
 application is supported on one of these three operating systems, as applicable for
 your image builder.
 
@@ -71,14 +71,14 @@ To allow the specified script to open the application, you must override the Pow
 
 ## I want to make ClickOnce applications available to users.
 
-To make a ClickOnce application available to your AppStream 2.0 users, you must install
+To make a ClickOnce application available to your WorkSpaces Applications users, you must install
 the application on your image builder first as an Administrator, and then as a
 Template User. Because ClickOnce applications require a user-specific installation,
 you must install your application as a Template User to enable users to launch the
 application from fleet instances. To install the ClickOnce application as an
 Administrator and then as a Template User, perform these steps.
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left navigation pane, choose **Images**, **Image Builder**.
 3. In the list, select the image builder that you want to use, and log into it as an
@@ -122,7 +122,7 @@ builder session toolbar.
 
 a request for a password. I don't know how to get a password.
 
-AppStream 2.0 usually logs you into the user mode that you choose automatically. On some
+WorkSpaces Applications usually logs you into the user mode that you choose automatically. On some
 occasions, the switch might not happen automatically. If a password is requested,
 choose **Admin Commands**, **Log me in**. This
 sends a one-time password, securely, to your image builder and pastes it into the
@@ -156,7 +156,7 @@ mode.
 Check if your application requires elevated user privileges or any special
 permissions that are usually available only to an administrator. The Image Builder
 Test mode has the same limited permissions on the image builder instance as your end
-users have on an AppStream 2.0 test fleet. If your applications require elevated
+users have on an WorkSpaces Applications test fleet. If your applications require elevated
 permissions, they do not launch in the Image Builder Test mode.
 
 ## The application could not connect to a network
@@ -200,16 +200,16 @@ parameter.
 
 installing an antivirus application.
 
-You can install any tools, including antivirus programs, on your AppStream 2.0 stack by
+You can install any tools, including antivirus programs, on your WorkSpaces Applications stack by
 using the image builder before creating an image. However, these programs should not
-block any network ports or stop any processes that are used by the AppStream 2.0 service.
+block any network ports or stop any processes that are used by the WorkSpaces Applications service.
 We recommend testing your application in Image Builder
 Test mode before creating an image and attempting to use it with a
 fleet.
 
 ## My image creation failed.
 
-Verify that you did not make any changes to AppStream 2.0 services before starting the
+Verify that you did not make any changes to WorkSpaces Applications services before starting the
 image creation. Try creating your image again; if it fails, contact AWS Support. For
 more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 

@@ -8,12 +8,12 @@ compute options.
 
 ###### Note
 
-The test app block option is supported only for app blocks with AppStream 2.0
+The test app block option is supported only for app blocks with WorkSpaces Applications
 packaging.
 
 ###### To test an app block
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. From the left-hand navigation menu, choose **Applications
    Manager**, **App blocks**.

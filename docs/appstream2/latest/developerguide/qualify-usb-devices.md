@@ -3,11 +3,11 @@
 Applications
 
 There are two methods for specifying which USB devices your users can redirect
-into their AppStream 2.0 streaming instances:
+into their WorkSpaces Applications streaming instances:
 
 ###### Note
 
-USB redirection is currently only supported on Windows AppStream 2.0 streaming
+USB redirection is currently only supported on Windows WorkSpaces Applications streaming
 instances. It is not supported on the macOS client.
 
 - You can create the USB device filter strings within the configuration file
@@ -18,7 +18,7 @@ instances. It is not supported on the macOS client.
   `CreateFleet` API. For detailed information about these
   strings, see the section below. This method can only be used with Elastic
   fleets.
-  You can create a file on your AppStream 2.0 image that specifies which USB devices a user
+  You can create a file on your WorkSpaces Applications image that specifies which USB devices a user
   can make available for their streaming applications. To qualify your users' USB
   devices so that the devices can be used with streaming applications, perform these
   steps.
@@ -29,8 +29,8 @@ For security reasons, only qualify USB devices from approved trusted sources.
 Qualifying all generic devices or classes of devices might allow unapproved
 devices to be used with your streaming applications.
 
-1. If you haven't already done so, install the AppStream 2.0 client. For
-   information, see [Install and Configure the AppStream 2.0 Client](install-configure-client.md "install-configure-client.md").
+1. If you haven't already done so, install the WorkSpaces Applications client. For
+   information, see [Install and Configure the WorkSpaces Applications Client](install-configure-client.md "install-configure-client.md").
 2. Connect the USB device that you want to qualify to your computer.
 3. Navigate to
    **C:\Users\<logged-in-user>\AppData\Local\AppStreamClient**,
@@ -47,7 +47,7 @@ devices to be used with your streaming applications.
 6. Launch a new image builder. For more information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
 7. After your image builder is in the **Running** state,
    perform the following steps to create a streaming URL and connect to the
-   image builder by using the AppStream 2.0 client.
+   image builder by using the WorkSpaces Applications client.
    1. With your image builder selected in the list, choose
       **Actions**, **Create streaming
       URL**.
@@ -63,7 +63,7 @@ devices to be used with your streaming applications.
       next time you perform this step to connect to an image builder,
       select the **Remember my choice for amazonappstream
       links** check box.
-   5. If the AppStream 2.0 client displays links to the AWS Customer
+   5. If the WorkSpaces Applications client displays links to the AWS Customer
       Agreement, AWS Service Terms, and the AWS Privacy Notice, and
       third-party notices, review this information, and then choose
       **Finish**.
@@ -97,16 +97,16 @@ devices to be used with your streaming applications.
     strings, see [Working with USB Device Filter
     Strings](USB-device-filter-strings.md "USB-device-filter-strings.md").
 12. Disconnect from your image builder, restart it, and reconnect to it by
-    using the AppStream 2.0 client. To do so, open the AppStream 2.0 client and paste the
+    using the WorkSpaces Applications client. To do so, open the WorkSpaces Applications client and paste the
     streaming URL that you created in step 7 into the client sign-in web address
     field, and choose **Connect**.
 13. On the image builder, test your USB device to confirm that it works as
     expected.
-14. Before your users can use the USB device in an AppStream 2.0 session, they must
+14. Before your users can use the USB device in an WorkSpaces Applications session, they must
     first share the device with their session. For guidance that you can provide
     your users to help them perform this task, see [USB Devices](client-application-windows-how-to-share-usb-devices-user.md "client-application-windows-how-to-share-usb-devices-user.md").
 15. If the USB device works with the image builder as expected, create an
-    image. For more information, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-    AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
-16. After you finish creating the image, update your AppStream 2.0 fleet to use the
+    image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+16. After you finish creating the image, update your WorkSpaces Applications fleet to use the
     new image.

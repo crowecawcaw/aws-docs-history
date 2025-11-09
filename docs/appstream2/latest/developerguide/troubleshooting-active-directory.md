@@ -1,7 +1,7 @@
 # Troubleshooting Active Directory
 
 The following are issues that might occur when you set up and use Active
-Directory with Amazon AppStream 2.0. For help troubleshooting notification codes, see
+Directory with Amazon WorkSpaces Applications. For help troubleshooting notification codes, see
 [Troubleshooting Notification
 Codes](troubleshooting-notification-codes.md "troubleshooting-notification-codes.md").
 
@@ -15,7 +15,7 @@ Codes](troubleshooting-notification-codes.md "troubleshooting-notification-codes
   cycle correctly.](#troubleshooting-active-directory-3 "#troubleshooting-active-directory-3")
 - [My user Group Policy objects aren't being
   successfully applied.](#troubleshooting-active-directory-4 "#troubleshooting-active-directory-4")
-- [My AppStream 2.0 streaming instances aren't joining
+- [My WorkSpaces Applications streaming instances aren't joining
   the Active Directory domain.](#troubleshooting-active-directory-5 "#troubleshooting-active-directory-5")
 - [User login is taking a long time to complete on
   a domain-joined streaming session.](#troubleshooting-active-directory-6 "#troubleshooting-active-directory-6")
@@ -38,13 +38,13 @@ state and become available. If your instances are taking longer than 25 minutes 
 become available, in Active Directory, verify whether new computer objects were
 created in the correct organizational units (OUs). If there are new objects, the
 streaming instances will be available soon. If the objects aren't there, check the
-directory configuration details in your AppStream 2.0 Directory Config: Directory name (the
+directory configuration details in your WorkSpaces Applications Directory Config: Directory name (the
 fully qualified domain name of the directory, service account sign-in credentials,
 and the OU distinguished name.
 
-Image builder and fleet errors are displayed in the AppStream 2.0 console on the
+Image builder and fleet errors are displayed in the WorkSpaces Applications console on the
 **Notifications** tab for the fleet or image builder. Fleet
-errors are also available using the AppStream 2.0 API through the
+errors are also available using the WorkSpaces Applications API through the
 [DescribeFleets](../APIReference/API_DescribeFleets.md "../APIReference/API_DescribeFleets.md") operation or the CLI command
 [describe-fleets](../../../cli/latest/reference/appstream/describe-fleets.md "../../../cli/latest/reference/appstream/describe-fleets.md").
 
@@ -52,7 +52,7 @@ errors are also available using the AppStream 2.0 API through the
 
 application.
 
-AppStream 2.0 relies on the SAML_Subject "NameID" attribute from your identity provider
+WorkSpaces Applications relies on the SAML_Subject "NameID" attribute from your identity provider
 to populate the username field to log in your user. The username can either be
 formatted as "``domain`\username`", or
  "`user@domain.com`". If you are using
@@ -90,21 +90,21 @@ can do one of the following:
 
 For more information, see [Loopback processing of Group Policy](https://support.microsoft.com/en-us/help/231287/loopback-processing-of-group-policy "https://support.microsoft.com/en-us/help/231287/loopback-processing-of-group-policy") at Microsoft Support.
 
-## My AppStream 2.0 streaming instances aren't joining
+## My WorkSpaces Applications streaming instances aren't joining
 
 the Active Directory domain.
 
-The Active Directory domain to use with AppStream 2.0 must be accessible through its
+The Active Directory domain to use with WorkSpaces Applications must be accessible through its
 fully qualified domain name (FQDN) through the VPC in which your streaming instances
 are launched.
 
 ###### To test that your domain is accessible
 
 1. Launch an Amazon EC2 instance in the same VPC, subnet, and security groups that
-   you use with AppStream 2.0.
+   you use with WorkSpaces Applications.
 2. Manually join the EC2 instance to your Active Directory domain by using the
    FQDN (for example, `yourdomain.example.com`) with the service
-   account that you intend to use with AppStream 2.0. Use the following command in a
+   account that you intend to use with WorkSpaces Applications. Use the following command in a
    Windows PowerShell console:
 
 ```
@@ -146,13 +146,13 @@ documentation.
 
 a domain-joined streaming session.
 
-AppStream 2.0 performs a Windows login action after users provide their domain password.
-After successful authentication, AppStream 2.0 launches the application. The login and launch times are impacted by many variables, such as
+WorkSpaces Applications performs a Windows login action after users provide their domain password.
+After successful authentication, WorkSpaces Applications launches the application. The login and launch times are impacted by many variables, such as
 network contention for the domain controllers or the time it takes to apply Group Policy settings
 to the streaming instance. If domain authentication takes too long to complete, try performing
 the following actions.
 
-- Minimize the network latency from your AppStream 2.0 Region to your domain
+- Minimize the network latency from your WorkSpaces Applications Region to your domain
   controllers by choosing the correct domain controllers. For example, if your
   fleet is in `us-east-1`, use domain controllers with high bandwidth and low
   latency to `us-east-1` through Active Directory Sites and Services zone
@@ -162,9 +162,9 @@ the following actions.
 - Ensure that your Group Policy settings and user login scripts don't take
   prohibitively long to apply or run.
 
-If your domain users' login to AppStream 2.0 fails with the message "An unknown error
-occurred," you might need to update the Group Policy settings described in [Before You Begin Using Active Directory with Amazon AppStream 2.0](active-directory-prerequisites.md "active-directory-prerequisites.md"). Otherwise, these settings might
-prevent AppStream 2.0 from authenticating and logging in your domain users.
+If your domain users' login to WorkSpaces Applications fails with the message "An unknown error
+occurred," you might need to update the Group Policy settings described in [Before You Begin Using Active Directory with Amazon WorkSpaces Applications](active-directory-prerequisites.md "active-directory-prerequisites.md"). Otherwise, these settings might
+prevent WorkSpaces Applications from authenticating and logging in your domain users.
 
 ## My users can't access a domain resource in a
 
@@ -193,7 +193,7 @@ Windows, as this may be an intermittent issue with certificate-based authenticat
 If the problem continues, certificate-based authentication failure can result from
 one of the following issues:
 
-- AppStream 2.0 could not communicate with AWS Private CA, or AWS Private CA
+- WorkSpaces Applications could not communicate with AWS Private CA, or AWS Private CA
   did not issue the certificate. Check CloudTrail to determine if a certificate was
   issued. For more information, see [What Is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and [Manage Certificate-based
   Authentication](certificate-based-authentication-manage.md "certificate-based-authentication-manage.md").
@@ -209,8 +209,8 @@ one of the following issues:
   SAML_Subject NameID. Confirm that the attribute mapping is correct in your
   SAML federation, and that your SAML identity provider is synchronizing the
   SID attribute for the Active Directory user.
-- The AppStream 2.0 agent does not support certificate-based authentication. Use
-  AppStream 2.0 agent version 10-13-2022 or later.
+- The WorkSpaces Applications agent does not support certificate-based authentication. Use
+  WorkSpaces Applications agent version 10-13-2022 or later.
 - There are Group Policy settings that are modifying the default Active
   Directory settings for smart card logon, or taking action if a smart card is
   removed from a smart card reader. These settings may cause additional
@@ -222,18 +222,18 @@ one of the following issues:
   in your stack if you want to use certificate-based authentication. For more
   information, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 - The CRL distribution point for the private CA is not online or accessible
-  from either the AppStream 2.0 fleet instance or the domain controller. For more
+  from either the WorkSpaces Applications fleet instance or the domain controller. For more
   information, see step 5 in [Prerequisites](certificate-based-authentication-prereq.md "certificate-based-authentication-prereq.md").
 
-Additional troubleshooting steps involve reviewing the AppStream 2.0 instance Windows
+Additional troubleshooting steps involve reviewing the WorkSpaces Applications instance Windows
 event logs. A common event to review for logon failure is [4625(F): An account failed to log on](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625 "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625"). For more information about
 capturing log information, see [Persisting application and Windows event logs](../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/monitoring.md#persisting-application-and-windows-event-logs "../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/monitoring.md#persisting-application-and-windows-event-logs"). Alternatively, to
-troubleshoot an active AppStream 2.0 session as an administrator, you can connect to the
+troubleshoot an active WorkSpaces Applications session as an administrator, you can connect to the
 logs using an Event Viewer on another computer. For more information, see [How to Select Computers in Event Viewer](https://learn.microsoft.com/en-us/host-integration-server/core/how-to-select-computers-in-event-viewer1 "https://learn.microsoft.com/en-us/host-integration-server/core/how-to-select-computers-in-event-viewer1"). Or ,you can connect by using
 Remote Desktop to connect to the instance private IP address from another computer
-that can connect to Remote Desktop Services in your AppStream 2.0virtual private cloud
+that can connect to Remote Desktop Services in your WorkSpaces Applicationsvirtual private cloud
 (VPC). Use the AWS CLI to determine the IP address for the session based on the
-AWS Region, AppStream 2.0 stack name, fleet name, user ID, and authentication type. For
+AWS Region, WorkSpaces Applications stack name, fleet name, user ID, and authentication type. For
 more information, see the [AWS Command Line Interface.](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appstream/index.html#cli-aws-appstream "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/appstream/index.html#cli-aws-appstream")
 
 If the problem persists, contact AWS Support. For more information, see
@@ -246,17 +246,17 @@ your Active Directory (AD) service account for that fleet, your fleet instances
 might encounter domain join failures during provisioning.
 
 Microsoft has released a patch [KB5020276](https://support.microsoft.com/en-us/topic/kb5020276-netjoin-domain-join-hardening-changes-2b65a0f3-1f4c-42ef-ac0f-1caaf421baf8 "https://support.microsoft.com/en-us/topic/kb5020276-netjoin-domain-join-hardening-changes-2b65a0f3-1f4c-42ef-ac0f-1caaf421baf8"), which modifies the behavior of domain join operations.
-AppStream 2.0 reuses existing computer objects when joining your streaming instances to
+WorkSpaces Applications reuses existing computer objects when joining your streaming instances to
 your AD domains. This computer object is generated using the AD service account that
-you provide when you create a fleet or Directory Config with AppStream 2.0. Prior to this
+you provide when you create a fleet or Directory Config with WorkSpaces Applications. Prior to this
 Microsoft patch, new AD service accounts could reuse existing computer objects
-created by AppStream 2.0, as long as they had "Create Computer Object" permissions
+created by WorkSpaces Applications, as long as they had "Create Computer Object" permissions
 configured in the organizational unit (OU).
 
 When the Microsoft patch is enforced, starting on August 13, 2024, and if you
-change your AD service account for an existing AppStream 2.0 fleet, the new service account
+change your AD service account for an existing WorkSpaces Applications fleet, the new service account
 will no longer be able to reuse the existing computer objects in the AD. This
-results in domain join failures on AppStream 2.0 fleets, with one of the following error
+results in domain join failures on WorkSpaces Applications fleets, with one of the following error
 messages under fleet notifications:
 
 - DOMAIN_JOIN_INTERNAL_SERVICE_ERROR "The group name could not be
@@ -272,8 +272,8 @@ domain join operation. For your self-managed AD configuration, we recommend
 following the [Microsoft documented steps](https://support.microsoft.com/en-us/topic/kb5020276-netjoin-domain-join-hardening-changes-2b65a0f3-1f4c-42ef-ac0f-1caaf421baf8#bkmk_take_action "https://support.microsoft.com/en-us/topic/kb5020276-netjoin-domain-join-hardening-changes-2b65a0f3-1f4c-42ef-ac0f-1caaf421baf8#bkmk_take_action") to add your AD service account to the new
 allow list policy, using Group Policies on a domain controller.
 
-For Managed Active Directory (MAD), you must restart your AppStream 2.0 fleet after you
-make changes to your AppStream 2.0 domain join service account.
+For Managed Active Directory (MAD), you must restart your WorkSpaces Applications fleet after you
+make changes to your WorkSpaces Applications domain join service account.
 
 If the problem persists, contact AWS Support. For more information, see
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").

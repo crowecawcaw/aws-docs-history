@@ -1,12 +1,12 @@
-# Connect to AppStream 2.0 on macOS
+# Connect to WorkSpaces Applications on macOS
 
 client
 
-After the AppStream 2.0 client for macOS is installed on your PC, you can use it to
-connect to AppStream 2.0.
+After the WorkSpaces Applications client for macOS is installed on your PC, you can use it to
+connect to WorkSpaces Applications.
 
 ###### Topics
 
-- [AppStream 2.0 macOS Client Connection
+- [WorkSpaces Applications macOS Client Connection
   Mode](client-application-mac-connection-modes-user.md "client-application-mac-connection-modes-user.md")
-- [Connect to AppStream 2.0](client-application-mac-how-to-connect-user.md "client-application-mac-how-to-connect-user.md")
+- [Connect to WorkSpaces Applications](client-application-mac-how-to-connect-user.md "client-application-mac-how-to-connect-user.md")

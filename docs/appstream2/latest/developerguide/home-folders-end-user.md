@@ -1,10 +1,10 @@
 # Use Home Folders
 
-If your AppStream 2.0 administrator has enabled this file storage option, when you are signed in to an AppStream 2.0 streaming session, you can use your home folder. You can do the following with your home folder:
+If your WorkSpaces Applications administrator has enabled this file storage option, when you are signed in to an WorkSpaces Applications streaming session, you can use your home folder. You can do the following with your home folder:
 
 - Open and edit files and folders that you store in your home folder. Content that is stored in your home folder cannot be accessed by other users.
 - Upload and download files between your local computer and your home folder.
-  AppStream 2.0 continuously checks for the most recently modified files and folders and
+  WorkSpaces Applications continuously checks for the most recently modified files and folders and
   backs them up to your home folder.
 - When you are working in an application, you can access files and folders that
   are stored in your home folder. Choose **File Open** from
@@ -17,7 +17,7 @@ If your AppStream 2.0 administrator has enabled this file storage option, when y
 
 ###### Warning
 
-Files larger than 5 GB will not be persisted between AppStream 2.0
+Files larger than 5 GB will not be persisted between WorkSpaces Applications
 sessions.
 
 ###### Note
@@ -29,7 +29,7 @@ directory in File Explorer: C:\Users\PhotonUser\My Files\Home Folder.
 
 folder
 
-1. In the top left of the AppStream 2.0 toolbar, choose the **My
+1. In the top left of the WorkSpaces Applications toolbar, choose the **My
    Files** icon.
 2. Navigate to an existing folder, or choose **Add Folder**
    to create a folder.

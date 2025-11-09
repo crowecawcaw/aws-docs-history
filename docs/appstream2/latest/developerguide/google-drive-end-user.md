@@ -2,13 +2,13 @@
 
 ###### Note
 
-Amazon AppStream 2.0's use and transfer to any other app of information received from
+Amazon WorkSpaces Applications's use and transfer to any other app of information received from
 Google APIs will adhere to [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy "https://developers.google.com/terms/api-services-user-data-policy"), including the Limited Use
 requirements.
 
-If your AppStream 2.0 administrator has enabled this file storage option, you can add
-your Google Drive account to AppStream 2.0. After you add your account and you sign in to
-an AppStream 2.0 streaming session, you can do the following in Google Drive:
+If your WorkSpaces Applications administrator has enabled this file storage option, you can add
+your Google Drive account to WorkSpaces Applications. After you add your account and you sign in to
+an WorkSpaces Applications streaming session, you can do the following in Google Drive:
 
 ###### Note
 
@@ -30,14 +30,14 @@ instances.
   **Save** from the application and browse to the
   location in Google Drive where you want to save the file.
 - You can also access Google Drive by choosing **My Files**
-  from top left of the AppStream 2.0 toolbar.
+  from top left of the WorkSpaces Applications toolbar.
 
-###### To add your Google Drive account to AppStream 2.0
+###### To add your Google Drive account to WorkSpaces Applications
 
-To access your Google Drive during AppStream 2.0 streaming sessions, you must first
-add your Google Drive account to AppStream 2.0.
+To access your Google Drive during WorkSpaces Applications streaming sessions, you must first
+add your Google Drive account to WorkSpaces Applications.
 
-1. In the top left of the AppStream 2.0 toolbar, choose the **My
+1. In the top left of the WorkSpaces Applications toolbar, choose the **My
    Files** icon.
 2. In the **My Files** dialog box, choose **Add
    Storage**.
@@ -46,10 +46,10 @@ add your Google Drive account to AppStream 2.0.
 
 ![Google Drive option highlighted in the Add Storage dropdown menu.](images/AddGoogleDrive1.png) 4. Choose the domain for your Google Drive account.
 
-![Dropdown menu showing login account options with example.com highlighted.](images/LoginAccounts.png) 5. The **Sign in with Google** dialog box is displayed.
+![Dropdown menu showing login account options with example.com highlighted.](/images/appstream2/latest/developerguide/images/LoginAccounts.png) 5. The **Sign in with Google** dialog box is displayed.
 Enter the sign-in credentials for your Google Drive account when prompted.
 
-After your Google Drive account is added to AppStream 2.0, your Google Drive
+After your Google Drive account is added to WorkSpaces Applications, your Google Drive
 folder is displayed in **My Files**.
 
 ![File explorer window showing Google Drive folder added to My Files with last modified date.](images/AddGoogleDrive2.png) 6. To work with your files and folders in Google Drive, choose the
@@ -62,7 +62,7 @@ dialog box.
 
 Drive
 
-1. In the top left of the AppStream 2.0 toolbar, choose the **My
+1. In the top left of the WorkSpaces Applications toolbar, choose the **My
    Files** icon.
 2. In the **My Files** dialog box, choose **Google
    Drive**.

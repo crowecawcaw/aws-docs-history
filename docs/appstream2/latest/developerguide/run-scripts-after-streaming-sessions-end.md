@@ -4,15 +4,15 @@ Streaming Sessions End
 
 You can also configure your scripts to run after users' streaming sessions end.
 For example, you can run a script when users select **End Session**
-from the AppStream 2.0 toolbar, or when they reach the maximum allowed duration for the
-session. You can also use these session scripts to clean up your AppStream 2.0 environment
+from the WorkSpaces Applications toolbar, or when they reach the maximum allowed duration for the
+session. You can also use these session scripts to clean up your WorkSpaces Applications environment
 before a streaming instance is terminated. For example, you can use scripts to
 release file locks or upload log files. When you run scripts after streaming
 sessions end, the following process occurs:
 
-![Flowchart showing AppStream 2.0 session termination process with scripts and storage actions.](images/session-scripts-termination.png)
+![Flowchart showing WorkSpaces Applications session termination process with scripts and storage actions.](images/session-scripts-termination.png)
 
-1. Your users' AppStream 2.0 streaming session ends.
+1. Your users' WorkSpaces Applications streaming session ends.
 2. Your session termination scripts start.
 3. The session termination scripts complete or time out.
 4. Windows user logout occurs.

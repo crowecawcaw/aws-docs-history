@@ -1,8 +1,8 @@
 # Share an Image That You Own With Another AWS
 
-Account in Amazon AppStream 2.0
+Account in Amazon WorkSpaces Applications
 
-AppStream 2.0 images are a regional resource, so you can share an image that you own with
+WorkSpaces Applications images are a regional resource, so you can share an image that you own with
 other AWS accounts within the same AWS Region. Doing so can be helpful in several
 different scenarios. For example, if you separate your development and production
 resources by using different AWS accounts, you can create an image by using your
@@ -35,7 +35,7 @@ image.
 
 ###### To share an image that you own with another AWS account
 
-1.  Open the AppStream 2.0 console at
+1.  Open the WorkSpaces Applications console at
     [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2.  In the navigation pane, choose **Images**, **Image Registry**.
 3.  In the image list, select the image that you want to share.
@@ -57,7 +57,7 @@ image.
 
 ###### To add or update image sharing permissions for an image that you own
 
-1.  Open the AppStream 2.0 console at
+1.  Open the WorkSpaces Applications console at
     [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2.  In the navigation pane, choose **Images**, **Image Registry**.
 3.  In the image list, select the image that you want to change the permissions for.

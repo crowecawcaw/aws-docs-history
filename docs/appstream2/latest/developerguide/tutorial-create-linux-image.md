@@ -1,12 +1,12 @@
-# Tutorial: Create a Custom Linux-Based AppStream 2.0 Image
+# Tutorial: Create a Custom Linux-Based WorkSpaces Applications Image
 
-This tutorial describes how to create a custom Linux-based Amazon AppStream 2.0 image that contains
+This tutorial describes how to create a custom Linux-based Amazon WorkSpaces Applications image that contains
 applications which you can stream to your users.
 
 ###### Important
 
 Don't create a user named "as2-streaming-user" in your image builder. This is a
-reserved username for Fleet. If you create this username outside of the AppStream 2.0 workflow,
+reserved username for Fleet. If you create this username outside of the WorkSpaces Applications workflow,
 you might experience streaming issues in Fleets.
 
 ###### Contents
@@ -15,7 +15,7 @@ you might experience streaming issues in Fleets.
   Builder](#tutorial-linux-image-install "#tutorial-linux-image-install")
 - [Step 2: Generate Application
   Optimization Manifest File](#tutorial-linux-image-manifest "#tutorial-linux-image-manifest")
-- [Step 3: Create an AppStream 2.0 Application
+- [Step 3: Create an WorkSpaces Applications Application
   Catalog](#tutorial-linux-image-catalog "#tutorial-linux-image-catalog")
 - [Step 4: Create Default Application
   Settings and Environment Variables](#tutorial-linux-image-create-default-app-settings "#tutorial-linux-image-create-default-app-settings")
@@ -36,8 +36,8 @@ image builder.
 ###### To install applications on the image builder
 
 1. Connect to the image builder by doing either of the following:
-   - [Use the AppStream 2.0 console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
-   - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client connections)
+   - [Use the WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
+   - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 
    ###### Note
 
@@ -106,16 +106,16 @@ process found in step 3 above, and save it to a temporary manifest file:
 /tmp/chromium-manifest.txt** 8. Verify the content of the optimization manifest, which is a line-delimited
 text file for each application.
 
-## Step 3: Create an AppStream 2.0 Application
+## Step 3: Create an WorkSpaces Applications Application
 
 Catalog
 
 In this step, you use the CLI tool `AppStreamImageAssistant` on the
-image builder to create an AppStream 2.0 application catalog by specifying applications
+image builder to create an WorkSpaces Applications application catalog by specifying applications
 for your image. For each application that you plan to stream, you can specify the name,
 display name, executable ﬁle to launch, and icon to display.
 
-###### To create an AppStream 2.0 application catalog
+###### To create an WorkSpaces Applications application catalog
 
 1. From the image builder desktop, open **Terminal** either from
    the side panel or by opening the app grid.
@@ -123,7 +123,7 @@ display name, executable ﬁle to launch, and icon to display.
    available commands. You will use these commands to add applications and create
    an Image.
 3. Run the following command to add an installed application (e.g., Chromium) to
-   the application list for AppStream 2.0 users:
+   the application list for WorkSpaces Applications users:
 
 ```
 AppStreamImageAssistant add-application \
@@ -161,8 +161,8 @@ AppStreamImageAssistant add-application \
 Settings and Environment Variables
 
 In this step, you create default application settings and environment variables for your
-AppStream 2.0 users. Doing this enables your users to get started with applications quickly
-during their AppStream 2.0 streaming sessions, without the need to create or configure these
+WorkSpaces Applications users. Doing this enables your users to get started with applications quickly
+during their WorkSpaces Applications streaming sessions, without the need to create or configure these
 settings themselves.
 
 ###### To create default application and environment variables for your users
@@ -246,7 +246,7 @@ In this step, choose an image name and finish creating your image.
 
 To see the list of available options, run **AppStreamImageAssistant
 create-image --help**. For more information, see the
-**create-image** operation in [Create Your Amazon AppStream 2.0 Image Programmatically by Using the Image Assistant CLI Operations](programmatically-create-image.md "programmatically-create-image.md"). 2. The remote session disconnects after a few moments. When the **Lost
+**create-image** operation in [Create Your Amazon WorkSpaces Applications Image Programmatically by Using the Image Assistant CLI Operations](programmatically-create-image.md "programmatically-create-image.md"). 2. The remote session disconnects after a few moments. When the **Lost
 Connectivity** message appears, close the browser tab. While the
 image is created, the image builder status appears as
 **Snapshotting**. You cannot connect to the image builder
@@ -278,7 +278,7 @@ destination to which you are copying an image is at the image limit, you receive
 error. To copy the image in this case, you must first remove images from the
 destination. After the destination is below the image quota (also referred to as
 limit), initiate the image copy from the source Region. For more information, see
-[Amazon AppStream 2.0 Service Quotas](limits.md "limits.md").
+[Amazon WorkSpaces Applications Service Quotas](limits.md "limits.md").
 
 ###### To add tags to an existing image
 
@@ -289,14 +289,14 @@ limit), initiate the image copy from the source Region. For more information, se
    and then choose **Add Tag**. Specify the key and value for the
    tag, and then choose **Save**.
 
-For more information, see [Tagging Your Amazon AppStream 2.0 Resources](tagging-basic.md "tagging-basic.md").
+For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
 
 ###### To copy an image
 
 Copying an image across geographically diverse regions enables you to stream
 applications from multiple regions based on the same image. By streaming your
 applications in closer proximity to your users, you can improve your users'
-experience streaming applications with AppStream 2.0.
+experience streaming applications with WorkSpaces Applications.
 
 1. In the navigation pane, choose **Images**, **Image
    Registry**.
@@ -324,7 +324,7 @@ launch a stack and stream your applications.
 
 Finally, you can stop your running image builders to free up resources and avoid
 unintended charges to your account. We recommend stopping any unused, running image
-builders. For more information, see [AppStream 2.0 Pricing](https://aws.amazon.com/appstream2/pricing/ "https://aws.amazon.com/appstream2/pricing/").
+builders. For more information, see [WorkSpaces Applications Pricing](https://aws.amazon.com/appstream2/pricing/ "https://aws.amazon.com/appstream2/pricing/").
 
 ###### To stop a running image builder
 

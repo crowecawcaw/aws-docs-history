@@ -1,4 +1,4 @@
-# Clean Up Resources in Amazon AppStream 2.0
+# Clean Up Resources in Amazon WorkSpaces Applications
 
 You can stop your running fleet and delete your active stack to free up resources and
 to avoid unintended charges to your account. We recommend stopping any unused, running

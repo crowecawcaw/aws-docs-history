@@ -7,7 +7,7 @@ deployment goals. For example:
 
 - If your deployment must support more than 100 concurrent users, [configure a VPC with private subnets and a NAT gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md").
 - If your deployment supports fewer than 100 concurrent users, you can [configure a new or existing VPC with a public subnet](managing-network-default-internet-access.md "managing-network-default-internet-access.md").
-- If your deployment supports fewer than 100 concurrent users and you are new to AppStream 2.0 and want to get started using the service, you can [use the default VPC, public subnet, and security group](managing-network-default-internet-access.md "managing-network-default-internet-access.md").
+- If your deployment supports fewer than 100 concurrent users and you are new to WorkSpaces Applications and want to get started using the service, you can [use the default VPC, public subnet, and security group](managing-network-default-internet-access.md "managing-network-default-internet-access.md").
   The following sections provide more information about each of these deployment options.
 
 - [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md") (recommended) —
@@ -23,7 +23,7 @@ You can create and configure a new VPC to use with a NAT gateway, or add a NAT g
 - [Configure a New or Existing VPC with a Public Subnet](managing-network-default-internet-access.md "managing-network-default-internet-access.md") — With this
   configuration, you launch your fleets, app block builders, and image builders in
   a public subnet and enable **Default Internet Access**. When
-  you enable this option, AppStream 2.0 uses the internet gateway in your Amazon VPC public
+  you enable this option, WorkSpaces Applications uses the internet gateway in your Amazon VPC public
   subnet to provide the internet connection. Your streaming instances are assigned
   a public IP address that is directly accessible from the internet. You can
   create a new VPC or configure an existing one for this purpose.
@@ -32,10 +32,10 @@ You can create and configure a new VPC to use with a NAT gateway, or add a NAT g
 
 When **Default Internet Access** is enabled, a maximum of 100 fleet instances is supported. If your deployment must support more than 100 concurrent users, use the [NAT gateway configuration](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md") instead.
 
-- [Use the Default VPC, Public Subnet, and Security Group](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") — If you are new to AppStream 2.0 and want to get started using the service,
+- [Use the Default VPC, Public Subnet, and Security Group](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") — If you are new to WorkSpaces Applications and want to get started using the service,
   you can launch your fleets, app block builders, and image builders in a default
   public subnet and enable **Default Internet Access**. When you
-  enable this option, AppStream 2.0 uses the internet gateway in your Amazon VPC public subnet
+  enable this option, WorkSpaces Applications uses the internet gateway in your Amazon VPC public subnet
   to provide the internet connection. Your streaming instances are assigned a
   public IP address that is directly accessible from the internet.
 

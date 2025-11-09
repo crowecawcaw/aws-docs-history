@@ -6,7 +6,7 @@ Complete the steps in this section to check whether the
 **AmazonAppStreamPCAAccess** service role is present and has
 the correct policies attached. If this role is not in your account and must be
 created, you or an administrator with the required permissions must perform the
-steps to get started with AppStream 2.0 in your Amazon Web Services account.
+steps to get started with WorkSpaces Applications in your Amazon Web Services account.
 
 ###### To check whether the AmazonAppStreamPCAAccess IAM service role is
 
@@ -68,7 +68,7 @@ JSON
 2. Adjust the `AmazonAppStreamPCAAccess.json` path as needed
    and run the following AWS CLI commands to create the trust
    relationship policy and attach the AmazonAppStreamPCAAccess managed
-   policy. For more information about the managed policy, see [AWS Managed Policies Required to Access AppStream 2.0 Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md").
+   policy. For more information about the managed policy, see [AWS Managed Policies Required to Access WorkSpaces Applications Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md").
 
 ```
 aws iam create-role --path /service-role/ --role-name AmazonAppStreamPCAAccess --assume-role-policy-document file://AmazonAppStreamPCAAccess.json

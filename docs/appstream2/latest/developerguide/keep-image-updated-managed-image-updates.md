@@ -1,11 +1,11 @@
 # Update an Image by Using
 
-Managed AppStream 2.0 Image Updates
+Managed WorkSpaces Applications Image Updates
 
-AppStream 2.0 provides an automated way to update your image with the latest Windows
+WorkSpaces Applications provides an automated way to update your image with the latest Windows
 operating system updates, license included application updates, driver updates, and
-AppStream 2.0 agent software. With managed AppStream 2.0 image updates, you select the image that
-you want to update. AppStream 2.0 creates an image builder in the same AWS account and
+WorkSpaces Applications agent software. With managed WorkSpaces Applications image updates, you select the image that
+you want to update. WorkSpaces Applications creates an image builder in the same AWS account and
 Region to install the updates and create the new image. After the new image is
 created, you can test it on a pre-production fleet before updating your production
 fleets or sharing the image with other AWS accounts.
@@ -14,7 +14,7 @@ fleets or sharing the image with other AWS accounts.
 
 After your new image is created, you're responsible for maintaining updates
 for the Windows operating system. To do so, you can continue using managed
-AppStream 2.0 image updates.
+WorkSpaces Applications image updates.
 
 You are responsible for maintaining updates for the Amazon EC2 Windows Paravirtual
 (PV) driver, ENA driver, and AWS NVMe driver. For more information about how
@@ -33,15 +33,15 @@ image.
 The following are prerequisites and considerations for working with managed
 image updates.
 
-- Make sure that your AppStream 2.0 account quotas (also referred to as limits)
+- Make sure that your WorkSpaces Applications account quotas (also referred to as limits)
   are sufficient to support the creation of a new image builder and a new
   image. To request a quota increase, you can use the Service Quotas
   console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). For information about
-  default AppStream 2.0 quotas, see [Amazon AppStream 2.0 Service Quotas](limits.md "limits.md").
+  default WorkSpaces Applications quotas, see [Amazon WorkSpaces Applications Service Quotas](limits.md "limits.md").
 - You must own the image that you update. You can't update an image that
   is shared with you.
-- When AppStream 2.0 creates an image builder to install the latest Windows
-  operating system updates, driver updates, and AppStream 2.0 agent software, and
+- When WorkSpaces Applications creates an image builder to install the latest Windows
+  operating system updates, driver updates, and WorkSpaces Applications agent software, and
   creates the new image, you're charged for the image builder instance
   while it's updating.
 - Supported images must be created from a base image released on
@@ -50,17 +50,17 @@ image updates.
   information, see [Specify a Default Display
   Language](configure-default-display-language.md "configure-default-display-language.md").
 - Use the latest version of SSM Agent. For version information, see
-  [AppStream 2.0 Base Image and Managed Image Update
+  [WorkSpaces Applications Base Image and Managed Image Update
   Release Notes](base-image-version-history.md "base-image-version-history.md"). For installation
   information, see [Manually install SSM Agent on EC2 instances for Windows
   Server](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").
 
-## How to Update an Image by Using Managed AppStream 2.0 Image Updates
+## How to Update an Image by Using Managed WorkSpaces Applications Image Updates
 
-To update an AppStream 2.0 image with the latest patches, driver updates, and AppStream 2.0
+To update an WorkSpaces Applications image with the latest patches, driver updates, and WorkSpaces Applications
 agent software, perform the following steps.
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the navigation pane, choose **Images**,
    **Image Registry**.
@@ -79,7 +79,7 @@ agent software, perform the following steps.
      optionally provide a description for the image.
    - For **Tags**, you can choose **Add
      Tag**, and type the key and value for the tag. To
-     add more tags, repeat this step. For more information, see [Tagging Your Amazon AppStream 2.0 Resources](tagging-basic.md "tagging-basic.md").
+     add more tags, repeat this step. For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
 
 6. Choose **Update image**.
 
@@ -97,7 +97,7 @@ image appears in the list.
 
 While your image is being created, the image status in the image
 registry of the console appears as
-**Creating**. 10. After your image is created, AppStream 2.0 performs a qualification process
+**Creating**. 10. After your image is created, WorkSpaces Applications performs a qualification process
 to verify that the image works as expected.
 
 During this time, the image builder, which is also used for this
@@ -107,7 +107,7 @@ status of **Pending Qualification**. 11. After the qualification process success
 console and the image status in the image registry appears as
 **Available**.
 
-In addition, the image builder that AppStream 2.0 created is deleted
+In addition, the image builder that WorkSpaces Applications created is deleted
 automatically.
 
 ###### Note
@@ -125,6 +125,6 @@ section of the documentation for troubleshooting notification
 codes.
 
 If the qualification process is not successful, the image builder
-that AppStream 2.0 created is still deleted automatically. 12. After AppStream 2.0 creates the new image, test the image on a pre-production
+that WorkSpaces Applications created is still deleted automatically. 12. After WorkSpaces Applications creates the new image, test the image on a pre-production
 fleet. After you verify that your applications work as expected, update
 your production fleet with the new image.

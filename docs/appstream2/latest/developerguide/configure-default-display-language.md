@@ -3,10 +3,10 @@
 Language
 
 There are two ways to specify the default display language for your users’ streaming
-sessions. Use the AppStream 2.0 default application and Windows settings feature, or configure
+sessions. Use the WorkSpaces Applications default application and Windows settings feature, or configure
 your image builder while signed in with an account that has local administrator
 permissions. The procedure in this section describes how to specify a default display
-language by using the AppStream 2.0 default application and Windows settings feature.
+language by using the WorkSpaces Applications default application and Windows settings feature.
 
 ###### Note
 
@@ -19,23 +19,23 @@ locale or input method.
     **Template User** account. To do so, do either of the
     following:
 
-        * [Use the AppStream 2.0
+        * [Use the WorkSpaces Applications
          console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
         * [Create a
-         streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client connections)
+         streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 
 
         ###### Note
 
         If the image builder that you want to connect to is joined to an
          Active Directory domain and your organization requires smart card
-         sign in, you must create a streaming URL and use the AppStream 2.0 client
+         sign in, you must create a streaming URL and use the WorkSpaces Applications client
          for the connection. For information about smart card sign in, see
          [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 
     **Template User** lets you create default application and
     Windows settings for your users. For more information, see "Creating Default
-    Application and Windows Settings for Your AppStream 2.0 Users" in [Default Application and Windows Settings and Application Launch Performance in Amazon AppStream 2.0](customizing-appstream-images.md "customizing-appstream-images.md").
+    Application and Windows Settings for Your WorkSpaces Applications Users" in [Default Application and Windows Settings and Application Launch Performance in Amazon WorkSpaces Applications](customizing-appstream-images.md "customizing-appstream-images.md").
 
 2.  On the image builder desktop, choose the Windows **Start**
     button, and choose **Control Panel**.
@@ -45,7 +45,7 @@ locale or input method.
 
 ###### Note
 
-Currently, AppStream 2.0 supports only **English (United
+Currently, WorkSpaces Applications supports only **English (United
 States)** and **Japanese**. 5. The language that you selected appears in the list of languages you added to
 Windows. Choose the language that you just added. Then choose **Move
 up** until the language appears at the top of the language
@@ -63,11 +63,11 @@ Commands**, **Switch User**.
 Otherwise, on the image builder desktop, open Image Assistant and install and
 configure applications for streaming. 13. In Step 2 of the Image Assistant process, choose **Save
 settings**. 14. Follow the necessary steps in Image Assistant to finish creating your image.
-For information about how to create an image, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md"). 15. Do one of the following:
+For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 15. Do one of the following:
 
     * Create a new fleet and choose your new image for the fleet. For
-     information, see [Create an Amazon AppStream 2.0 Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
+     information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
     * Update an existing fleet to use the new image.
 
 16. Associate your fleet with the stack that is assigned to the users for whom you
@@ -89,7 +89,7 @@ process, the **Template User** settings take precedence.
 Your users can change their user locale and input method from the default settings
 that you configured. They can change to any one of 11 different supported locales
 and nine different supported input methods. To do so, they can configure their
-regional settings during application streaming sessions, as described in [Enable Your AppStream 2.0 Users to Configure Their Regional
+regional settings during application streaming sessions, as described in [Enable Your WorkSpaces Applications Users to Configure Their Regional
 Settings](regional-settings.md "regional-settings.md"). Also, if a user
 previously selected a user locale or input method when streaming from any fleet
 instance in the same Region, those user-specified settings automatically override

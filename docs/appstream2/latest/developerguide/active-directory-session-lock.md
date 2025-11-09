@@ -2,7 +2,7 @@
 
 User is Idle
 
-AppStream 2.0 relies on a setting that you configure in the GPMC to lock the streaming
+WorkSpaces Applications relies on a setting that you configure in the GPMC to lock the streaming
 session after your user is idle for specified amount of time. To use the GPMC,
 you'll need to do the following first:
 

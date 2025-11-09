@@ -2,7 +2,7 @@
 
 Devices
 
-AppStream 2.0 supports gestures on touch-enabled iPads, Android tablets, and Windows devices. Examples of supported touch gestures include long-tap to right-click, swipe to scroll, pinch to zoom, and two-finger rotation for supporting applications.
+WorkSpaces Applications supports gestures on touch-enabled iPads, Android tablets, and Windows devices. Examples of supported touch gestures include long-tap to right-click, swipe to scroll, pinch to zoom, and two-finger rotation for supporting applications.
 
 ###### Note
 
@@ -10,7 +10,7 @@ Touchscreen devices with a screen size of less than 8 inches are not
 supported.
 
 To display the on-screen keyboard on an iPad or Android tablet, tap the
-keyboard icon on the AppStream 2.0 toolbar. The keyboard icon turns blue, and you can
+keyboard icon on the WorkSpaces Applications toolbar. The keyboard icon turns blue, and you can
 use the on-screen keyboard to input text in the streaming application. Tap the
 keyboard icon again to hide the on-screen keyboard.
 
@@ -19,19 +19,19 @@ Tap the Fn icon to display a row of Windows-specific keys and keyboard shortcuts
 
 ![Row of icons including grid, folder, and settings symbols, with Fn dropdown highlighted.](images/CircleFnIconBorder.PNG)
 For touch-enabled devices, the _remote keyboard_, which
-is displayed when you tap the keyboard icon on the AppStream 2.0 toolbar, is
+is displayed when you tap the keyboard icon on the WorkSpaces Applications toolbar, is
 different than the _local keyboard_, the on-screen keyboard
 that a touch-enabled device automatically displays when you tap inside an
-input control in a locally running application. During AppStream 2.0 streaming
+input control in a locally running application. During WorkSpaces Applications streaming
 sessions, you can use the remote keyboard to input text into streaming
 applications only. You can display or hide the remote keyboard only by tapping
-the keyboard icon on the AppStream 2.0 toolbar. A blue keyboard icon on the AppStream 2.0
+the keyboard icon on the WorkSpaces Applications toolbar. A blue keyboard icon on the WorkSpaces Applications
 toolbar indicates that the remote keyboard is active.
 
-You can use the local keyboard to input text into elements of the AppStream 2.0
+You can use the local keyboard to input text into elements of the WorkSpaces Applications
 web portal, including the **My Files** dialog box. However, you can't use
 this keyboard to input text into streaming applications. Also,
-you can't display or hide it by using the keyboard icon on the AppStream 2.0
+you can't display or hide it by using the keyboard icon on the WorkSpaces Applications
 toolbar.
 
 ###### Note

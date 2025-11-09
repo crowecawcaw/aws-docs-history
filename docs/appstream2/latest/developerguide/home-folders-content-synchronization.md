@@ -2,29 +2,28 @@
 
 Synchronization
 
-When home folders are enabled, AppStream 2.0 creates a unique folder for each user in
+When home folders are enabled, WorkSpaces Applications creates a unique folder for each user in
 which to store their content. The folder is created as a unique Amazon S3 prefix that
 uses a hash of the user name within an S3 bucket for your Amazon Web Services account and
-Region. After AppStream 2.0 creates the home folder in Amazon S3, it copies the accessed
+Region. After WorkSpaces Applications creates the home folder in Amazon S3, it copies the accessed
 content in that folder from the S3 bucket to the fleet instance. This enables
 the user to access their home folder content quickly, from the fleet instance,
 during their streaming session. Changes that you make to a user’s home folder
 content in an S3 bucket and that the user makes to their home folder content on
-a fleet instance are synchronized between Amazon S3 and AppStream 2.0 as follows.
+a fleet instance are synchronized between Amazon S3 and WorkSpaces Applications as follows.
 
-1. At the beginning of a user’s AppStream 2.0 streaming session, AppStream 2.0 catalogs
+1. At the beginning of a user’s WorkSpaces Applications streaming session, WorkSpaces Applications catalogs
    the home folder files that are stored for that user in the Amazon S3 bucket
    for your Amazon Web Services account and Region.
-2. A user’s home folder content is also stored on the AppStream 2.0 fleet
+2. A user’s home folder content is also stored on the WorkSpaces Applications fleet
    instance from which they stream. When a user accesses their home folder
-   on the AppStream 2.0 fleet instance, the list of cataloged files is displayed.
-3. AppStream 2.0 downloads a file from the S3 bucket to the fleet instance only
+   on the WorkSpaces Applications fleet instance, the list of cataloged files is displayed.
+3. WorkSpaces Applications downloads a file from the S3 bucket to the fleet instance only
    after the user uses a streaming application to open the file during
    their streaming session.
-4. After AppStream 2.0 downloads the file to the fleet instance, synchronization
+4. After WorkSpaces Applications downloads the file to the fleet instance, synchronization
    occurs after the file is accessed
-5. If the user changes the file during their streaming session, AppStream
-   2.0 uploads the new version of the file from the fleet instance to the
+5. If the user changes the file during their streaming session, WorkSpaces Applications uploads the new version of the file from the fleet instance to the
    S3 bucket periodically or at the end of the streaming session. However,
    the file is not downloaded from the S3 bucket again during the streaming
    session.
@@ -44,7 +43,7 @@ a fleet instance are synchronized between Amazon S3 and AppStream 2.0 as follows
 
 Amazon S3
 
-If you add a new file to a user’s home folder in an S3 bucket, AppStream 2.0
+If you add a new file to a user’s home folder in an S3 bucket, WorkSpaces Applications
 catalogs the file and displays it in the list of files in the user’s home
 folder within a few minutes. However, the file isn’t downloaded from the S3
 bucket to the fleet instance until the user opens the file with an

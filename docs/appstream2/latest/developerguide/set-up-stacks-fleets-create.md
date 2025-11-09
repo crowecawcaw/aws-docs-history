@@ -1,4 +1,4 @@
-# Create a Fleet in Amazon AppStream 2.0
+# Create a Fleet in Amazon WorkSpaces Applications
 
 Set up and create a fleet from which user applications are launched and
 streamed.
@@ -7,14 +7,14 @@ streamed.
 
 To create an Always-On or On-Demand fleet, you must have an image that has
 applications installed to create an Always-On or On-Demand fleet that your users can
-stream from. To create an image, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md"). To
+stream from. To create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). To
 create an Elastic fleet, you must have applications associated to app blocks. To
 create applications and app blocks for an Elastic fleet, see [Applications Manager](app-blocks-applications.md "app-blocks-applications.md").
 
 ###### To set up and create a fleet
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Choose **Get Started** if you are new to the console, or
    **Fleets** from the left navigation pane. Choose
@@ -26,7 +26,7 @@ create applications and app blocks for an Elastic fleet, see [Applications Manag
 ###### Note
 
 The fleet type determines its immediate availability and how you pay for
-it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-type.md"). 4. For **Step 2: Configure fleet**, enter the following
+it. For more information, see [WorkSpaces Applications Fleet Types](fleet-type.md "fleet-type.md"). 4. For **Step 2: Configure fleet**, enter the following
 **details**:
 
     * For **Name**, enter a unique name identifier for the
@@ -39,7 +39,7 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
     * For **Choose instance type**, choose the instance
      type that meets the performance requirements of your applications. All
      streaming instances in your fleet launch with the instance type that you
-     select. For more information, see [AppStream 2.0 Instance Families](instance-types.md "instance-types.md").
+     select. For more information, see [WorkSpaces Applications Instance Families](instance-types.md "instance-types.md").
     * For Elastic fleets, for **Choose platform type**,
      choose the operating system that matches the requirements of your users’
      applications.
@@ -49,8 +49,8 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
      this limit is reached, they are prompted to save any open documents
      before being disconnected. After this time elapses, the instance is
      terminated and replaced by a new instance. The maximum session duration
-     that you can set in the AppStream 2.0 console is 5760 minutes (96 hours). The
-     maximum session duration that you can set using the AppStream 2.0 API and CLI
+     that you can set in the WorkSpaces Applications console is 5760 minutes (96 hours). The
+     maximum session duration that you can set using the WorkSpaces Applications API and CLI
      is 432000 seconds (120 hours).
     * For **Disconnect timeout in minutes**, choose the
      amount of time that a streaming session remains active after users
@@ -63,7 +63,7 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
 
 
     If a user ends the session by choosing **End
-     Session** or **Logout** on the AppStream 2.0
+     Session** or **Logout** on the WorkSpaces Applications
      toolbar, the disconnect timeout does not apply. Instead, the user is
      prompted to save any open documents, and then immediately disconnected
      from the streaming instance. The instance the user was using is then
@@ -118,7 +118,7 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
 
     Only base images and managed image updates released on or after
      May 15, 2023 support multi-session fleets. For more details, see
-     [AppStream 2.0 Base Image and Managed Image Update
+     [WorkSpaces Applications Base Image and Managed Image Update
      Release Notes](base-image-version-history.md "base-image-version-history.md").
     * **Maximum sessions per instance** — Maximum
      number of user sessions on an instance. You must choose this value based
@@ -144,7 +144,7 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
      number of user sessions. The service will calculate the required
      number of instances to be launched, based on your fleet
      configuration and the value of maximum sessions per instance.
-    * For **Stream view**, choose the AppStream 2.0 view that is
+    * For **Stream view**, choose the WorkSpaces Applications view that is
      displayed to your users during their streaming sessions. Choose
      **Application** to display only the windows of
      applications opened by users. Choose **Desktop** to
@@ -153,18 +153,18 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
 
     ###### Note
 
-    By default, AppStream 2.0 displays only the windows of applications
+    By default, WorkSpaces Applications displays only the windows of applications
      opened by users during their streaming sessions. To enable
      **Desktop** view for your users, configure your
-     fleet to use an AppStream 2.0 image that uses a version of the AppStream 2.0 agent
+     fleet to use an WorkSpaces Applications image that uses a version of the WorkSpaces Applications agent
      released on or after February 19, 2020.
     * For **Scaling details (Advanced)**, specify the
-     scaling policies that AppStream 2.0 uses to increase and decrease the capacity
+     scaling policies that WorkSpaces Applications uses to increase and decrease the capacity
      of your fleet. Note that the size of your fleet is limited by the
      minimum and maximum capacity that you specified. For more information,
-     see [Fleet Auto Scaling for Amazon AppStream 2.0](autoscaling.md "autoscaling.md").
+     see [Fleet Auto Scaling for Amazon WorkSpaces Applications](autoscaling.md "autoscaling.md").
     * For **IAM role (Advanced)**, when you apply an
-     IAM role from your account to an AppStream 2.0 fleet instance, you can make
+     IAM role from your account to an WorkSpaces Applications fleet instance, you can make
      AWS API requests from the fleet instance without manually managing
      AWS credentials. To apply an IAM role, do either of the
      following:
@@ -175,9 +175,9 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
     	+ To use an existing IAM role in your AWS account, choose
     	 the role that you want to use from the **IAM
     	 role** list. The role must be accessible from the
-    	 fleet instance. For more information, see [Configuring an Existing IAM Role to Use With AppStream 2.0 Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
+    	 fleet instance. For more information, see [Configuring an Existing IAM Role to Use With WorkSpaces Applications Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
     	+ To create a new IAM role, choose **Create new IAM
-    	 role** and follow the steps in [How to Create an IAM Role to Use With AppStream 2.0 Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
+    	 role** and follow the steps in [How to Create an IAM Role to Use With WorkSpaces Applications Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
 
 
     * For Elastic fleets, for **USB Redirection
@@ -206,7 +206,7 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
    Your VPC must provide access to Amazon Simple Storage Service (S3)
    if you enable features that rely on saving to an S3 bucket. For more
    information, see [Using Amazon S3 VPC Endpoints for
-   AppStream 2.0 Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
+   WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
    - For **VPC** and **Subnet 1**, choose
      a VPC and at least one subnet that has access to the network resources
      that your application needs. For increased fault tolerance, we recommend
@@ -222,24 +222,24 @@ it. For more information, see [AppStream 2.0 Fleet Types](fleet-type.md "fleet-t
    create your own. To create your own, choose the **Create a new
    VPC** and **Create new subnet** links to
    create them. Choosing these links opens the Amazon VPC console. After you
-   create your VPC and subnets, return to the AppStream 2.0 console and choose the
+   create your VPC and subnets, return to the WorkSpaces Applications console and choose the
    refresh icon to the left of the **Create a new VPC**
    and **Create new subnet** links to display them in the
-   list. For more information, see [Configure a VPC for AppStream 2.0](appstream-vpc.md "appstream-vpc.md").
+   list. For more information, see [Configure a VPC for WorkSpaces Applications](appstream-vpc.md "appstream-vpc.md").
    - For **Security group(s)**, choose up to five security
      groups to associate with this fleet. If you don't have your own security
      group and you don't want to use the default security group, choose the
      **Create new security group** link to create one.
-     After you create your subnets in the Amazon VPC console, return to the AppStream 2.0
+     After you create your subnets in the Amazon VPC console, return to the WorkSpaces Applications
      console and choose the refresh icon to the left of the **Create
      new security group** link to display them in the list. For
-     more information, see [Security Groups in Amazon AppStream 2.0](managing-network-security-groups.md "managing-network-security-groups.md").
+     more information, see [Security Groups in Amazon WorkSpaces Applications](managing-network-security-groups.md "managing-network-security-groups.md").
    - For Always-On and On-Demand fleets, for **Active Directory
      Domain (Optional)**, choose the Active Directory and
      organizational unit (OU) for your streaming instance computer objects.
      Ensure that the network access settings you selected enable DNS
      resolvability and communication with your directory. For more
-     information, see [Using Active Directory with AppStream 2.0](active-directory.md "active-directory.md").
+     information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md").
 
 9. Choose **Next**.
 10. For **Step 5: Review**, confirm the details for the fleet. To

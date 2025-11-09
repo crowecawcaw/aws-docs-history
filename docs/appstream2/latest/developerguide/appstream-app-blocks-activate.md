@@ -1,6 +1,6 @@
 # Activate an App Block
 
-If an app block with AppStream 2.0 packaging was created, but the application package
+If an app block with WorkSpaces Applications packaging was created, but the application package
 (VHD) was not attached to it, then the app block will be in an inactive state,
 and it can't be used to associate applications with Elastic fleets. To activate
 an app block, an application package (VHD) must be associated with the app
@@ -8,7 +8,7 @@ block.
 
 ###### To create the application package
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. From the left-hand navigation menu, choose **Applications
    Manager**, **App blocks**.

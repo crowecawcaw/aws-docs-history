@@ -1,11 +1,11 @@
 # Enable Local Printer Redirection
 
-for Your AppStream 2.0 Users
+for Your WorkSpaces Applications Users
 
-With local printer redirection, your AppStream 2.0 users can redirect print jobs from
+With local printer redirection, your WorkSpaces Applications users can redirect print jobs from
 their streaming application to a printer that is connected to their local computer,
 including any network printers that the users have mapped. You don't need a printer
-driver installed on the AppStream 2.0 streaming instance to enable users to print documents
+driver installed on the WorkSpaces Applications streaming instance to enable users to print documents
 during their streaming sessions.
 
 ###### Note

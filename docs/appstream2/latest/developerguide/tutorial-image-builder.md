@@ -1,12 +1,12 @@
-# Tutorial: Create a Custom AppStream 2.0 Image by Using the
+# Tutorial: Create a Custom WorkSpaces Applications Image by Using the
 
-AppStream 2.0 Console
+WorkSpaces Applications Console
 
-This tutorial describes how to create AppStream 2.0 images that are based on Microsoft Windows
+This tutorial describes how to create WorkSpaces Applications images that are based on Microsoft Windows
 Server operating systems. If you want to create custom images that are based on the Amazon
-Linux 2, Rocky Linux, or Red Hat Enterprise Linux operating systems, see [Tutorial: Create a Custom Linux-Based AppStream 2.0 Image](tutorial-create-linux-image.md "tutorial-create-linux-image.md").
+Linux 2, Rocky Linux, or Red Hat Enterprise Linux operating systems, see [Tutorial: Create a Custom Linux-Based WorkSpaces Applications Image](tutorial-create-linux-image.md "tutorial-create-linux-image.md").
 
-In this tutorial, you will learn how to create a custom Amazon AppStream 2.0 image that contains
+In this tutorial, you will learn how to create a custom Amazon WorkSpaces Applications image that contains
 applications you can stream to your users, and default application and Windows settings to
 enable your users to get started with their applications quickly. To complete this tutorial,
 you must already have an image builder. If you don't have an image builder, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
@@ -14,14 +14,14 @@ you must already have an image builder. If you don't have an image builder, see 
 ###### Important
 
 This tutorial includes information that applies to the latest base image release. For
-more information, see [AppStream 2.0 Base Image and Managed Image Update
+more information, see [WorkSpaces Applications Base Image and Managed Image Update
 Release Notes](base-image-version-history.md "base-image-version-history.md").
 
 ###### Contents
 
 - [Step 1: Install Applications on the
   Image Builder](#tutorial-image-builder-install "#tutorial-image-builder-install")
-- [Step 2: Create an AppStream 2.0 Application
+- [Step 2: Create an WorkSpaces Applications Application
   Catalog](#tutorial-image-builder-add "#tutorial-image-builder-add")
 - [Step 3: Create Default
   Application and Windows Settings](#tutorial-image-builder-create-default-app-settings "#tutorial-image-builder-create-default-app-settings")
@@ -52,16 +52,16 @@ account, the image builder will not start and image creation will fail.
 ###### To install applications on the image builder
 
 1. Connect to the image builder by doing either of the following:
-   - [Use the AppStream 2.0
+   - [Use the WorkSpaces Applications
      console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a
-     streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client connections)
+     streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 
    ###### Note
 
    If the image builder that you want to connect to is joined to an
    Active Directory domain and your organization requires smart card
-   sign in, you must create a streaming URL and use the AppStream 2.0 client
+   sign in, you must create a streaming URL and use the WorkSpaces Applications client
    for the connection. For information about smart card sign in, see
    [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 
@@ -77,11 +77,11 @@ so. Before the operating system restarts, you are disconnected from your image
 builder. After the restart is complete, connect to the image builder again, then
 finish installing the application.
 
-## Step 2: Create an AppStream 2.0 Application
+## Step 2: Create an WorkSpaces Applications Application
 
 Catalog
 
-In this step, create an AppStream 2.0 application catalog by specifying applications
+In this step, create an WorkSpaces Applications application catalog by specifying applications
 (_.exe_), batch scripts (_.bat_), and application shortcuts (_.lnk_) for your image. For each application that you plan to stream, you
 can specify the name, display name, executable file to launch, and icon to display. If
 you choose an application shortcut, these values are prepopulated for you.
@@ -92,7 +92,7 @@ To complete this step, you must be logged into the image builder with the local
 **Administrator** account or a domain account that has local
 administrator permissions.
 
-###### To create an AppStream 2.0 application catalog
+###### To create an WorkSpaces Applications application catalog
 
 1. From the image builder desktop, open Image Assistant. Image Assistant guides
    you through the image creation process.
@@ -108,7 +108,7 @@ choose **Save**.
 
 The **Display Name** and **Icon Path**
 settings determine how your application name and icon appear in the application
-catalog. The catalog displays to users when they sign in to an AppStream 2.0 streaming
+catalog. The catalog displays to users when they sign in to an WorkSpaces Applications streaming
 session. 4. Repeat steps 2 and 3 for each application in Image Assistant and confirm that
 the applications appear on the **Add Apps** tab. When you're
 done, choose **Next** to continue using Image Assistant to
@@ -118,9 +118,9 @@ create your image.
 
 Application and Windows Settings
 
-In this step, you create default application and Windows settings for your AppStream 2.0
+In this step, you create default application and Windows settings for your WorkSpaces Applications
 users. Doing this enables your users to get started with applications quickly during
-their AppStream 2.0 streaming sessions, without the need to create or configure these settings
+their WorkSpaces Applications streaming sessions, without the need to create or configure these settings
 themselves.
 
 ###### Important
@@ -247,7 +247,7 @@ list.
 
 1. In Image Assistant, in **4. Optimize**, choose
    **Launch**.
-2. AppStream 2.0 automatically launches the first application in your list. When the
+2. WorkSpaces Applications automatically launches the first application in your list. When the
    application completely starts, provide any required input to perform the first
    run experience for the application. For example, a web browser may prompt you to
    import settings before it is completely up and running.
@@ -272,7 +272,7 @@ In this step, choose an image name and finish creating your image.
 
 You can also add one or more tags to the image. To do so, choose **Add
 Tag**, and type the key and value for the tag. To add more tags,
-repeat this step. For more information, see [Tagging Your Amazon AppStream 2.0 Resources](tagging-basic.md "tagging-basic.md"). When you're done, choose
+repeat this step. For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md"). When you're done, choose
 **Next**.
 
 ###### Note
@@ -283,7 +283,7 @@ appears, selected by default. We recommend that you leave this option
 selected so that streaming instances that are launched from the image always
 use the latest version of the agent. If you disable this option, you can't
 enable it again after you finish creating the image. For information about
-the latest release of the AppStream 2.0 agent, see [AppStream 2.0 Agent Release Notes](agent-software-versions.md "agent-software-versions.md"). 2. In **6. Review**, verify the image details. To make changes,
+the latest release of the WorkSpaces Applications agent, see [WorkSpaces Applications Agent Release Notes](agent-software-versions.md "agent-software-versions.md"). 2. In **6. Review**, verify the image details. To make changes,
 choose **Previous** to navigate to the appropriate Image
 Assistant tab, make your changes, and then proceed through the steps in Image
 Assistant as needed. 3. After you finish reviewing the image details, choose **Disconnect and
@@ -308,9 +308,9 @@ the console, or create a new image builder.
 ###### Note
 
 After you create your image, you are responsible for maintaining updates for the
-Windows operating system. To do so, you can use managed AppStream 2.0 image updates. You
+Windows operating system. To do so, you can use managed WorkSpaces Applications image updates. You
 are also responsible for maintaining updates for your applications and their
-dependencies. For more information, see [Keep Your Amazon AppStream 2.0 Image Up-to-Date](keep-image-updated.md "keep-image-updated.md").
+dependencies. For more information, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md").
 
 To add other applications, update existing applications, or change image settings,
 you must start and reconnect to the image builder that you used to create the image.
@@ -334,7 +334,7 @@ destination to which you are copying an image is at the image limit, you receive
 error. To copy the image in this case, you must first remove images from the
 destination. After the destination is below the image quota (also referred to as
 limit), initiate the image copy from the source Region. For more information, see
-[Amazon AppStream 2.0 Service Quotas](limits.md "limits.md").
+[Amazon WorkSpaces Applications Service Quotas](limits.md "limits.md").
 
 ###### To add tags to an existing image
 
@@ -345,14 +345,14 @@ limit), initiate the image copy from the source Region. For more information, se
    choose **Add Tag**, specify the key and value for the tag, and
    then choose **Save**.
 
-For more information, see [Tagging Your Amazon AppStream 2.0 Resources](tagging-basic.md "tagging-basic.md").
+For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
 
 ###### To copy an image
 
 Copying an image across geographically diverse regions enables you to stream
 applications from multiple regions based on the same image. By streaming your
 applications in closer proximity to your users, you can improve your users'
-experience streaming applications with AppStream 2.0.
+experience streaming applications with WorkSpaces Applications.
 
 1. In the navigation pane, choose **Images**, **Image
    Registry**.
@@ -380,7 +380,7 @@ launch a stack and stream your applications.
 
 Finally, stop your running image builders to free up resources and avoid unintended
 charges to your account. We recommend stopping any unused, running image builders. For
-more information, see [AppStream 2.0
+more information, see [WorkSpaces Applications
 Pricing](https://aws.amazon.com/appstream2/pricing/ "https://aws.amazon.com/appstream2/pricing/").
 
 ###### To stop a running image builder

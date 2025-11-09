@@ -1,6 +1,6 @@
-# Fleet Auto Scaling for Amazon AppStream 2.0
+# Fleet Auto Scaling for Amazon WorkSpaces Applications
 
-Fleet Auto Scaling lets you change the size of your AppStream 2.0 Always-On or On-Demand fleet
+Fleet Auto Scaling lets you change the size of your WorkSpaces Applications Always-On or On-Demand fleet
 automatically to match the supply of available instances to user demand. The size of your
 fleet determines the number of users who can stream concurrently. For a multi-session fleet,
 more than one user can use a single instance. For a non multi-session fleet, one instance is
@@ -14,32 +14,32 @@ and make the fleet run at a fixed size.
 
 ###### Note
 
-Elastic fleet capacity is automatically managed by AppStream 2.0 for you. You do not need to
+Elastic fleet capacity is automatically managed by WorkSpaces Applications for you. You do not need to
 create auto scaling rules to manage the number of fleet streaming instances that are
 available for Elastic fleets.
 
 ###### Note
 
-As you develop your plan for AppStream 2.0 fleet scaling, make sure that your network
+As you develop your plan for WorkSpaces Applications fleet scaling, make sure that your network
 configuration meets your requirements.
 
 Before you can use Fleet Auto Scaling, Application Auto Scaling needs permissions to access Amazon CloudWatch
-alarms and AppStream 2.0 fleets. For more information, see [Using AWS Managed Policies and Linked Roles to Manage Administrator Access to AppStream 2.0 Resources](controlling-administrator-access-with-policies-roles.md "controlling-administrator-access-with-policies-roles.md") and [Using IAM Policies to Manage Administrator Access to Application Auto Scaling](autoscaling-iam-policy.md "autoscaling-iam-policy.md").
+alarms and WorkSpaces Applications fleets. For more information, see [Using AWS Managed Policies and Linked Roles to Manage Administrator Access to WorkSpaces Applications Resources](controlling-administrator-access-with-policies-roles.md "controlling-administrator-access-with-policies-roles.md") and [Using IAM Policies to Manage Administrator Access to Application Auto Scaling](autoscaling-iam-policy.md "autoscaling-iam-policy.md").
 
 ###### Note
 
 When you use scaling, you work with the Application Auto Scaling API. For Fleet Auto Scaling to work
-correctly for AppStream 2.0, Application Auto Scaling requires permission to describe and update your AppStream 2.0
+correctly for WorkSpaces Applications, Application Auto Scaling requires permission to describe and update your WorkSpaces Applications
 fleets and describe your Amazon CloudWatch alarms, and permissions to modify your fleet capacity
-on your behalf. For more information, see [Roles Required for AppStream 2.0, Application Auto Scaling,
+on your behalf. For more information, see [Roles Required for WorkSpaces Applications, Application Auto Scaling,
 and AWS Certificate Manager Private CA](roles-required-for-appstream.md "roles-required-for-appstream.md") and [Using IAM Policies to Manage Administrator Access to Application Auto Scaling](autoscaling-iam-policy.md "autoscaling-iam-policy.md").
 
-The following topics provide information to help you understand and use AppStream 2.0 Fleet Auto
+The following topics provide information to help you understand and use WorkSpaces Applications Fleet Auto
 Scaling.
 
 ###### Contents
 
-- [Scaling Concepts for Amazon AppStream 2.0](autoscaling-concepts.md "autoscaling-concepts.md")
-- [Managing Fleet Scaling Using the Amazon AppStream 2.0 Console](autoscaling-console.md "autoscaling-console.md")
-- [Managing Fleet Scaling Using the AWS CLI for Amazon AppStream 2.0](autoscaling-cli.md "autoscaling-cli.md")
-- [Additional Resources for Auto Scaling Amazon AppStream 2.0](autoscaling-additional-resources.md "autoscaling-additional-resources.md")
+- [Scaling Concepts for Amazon WorkSpaces Applications](autoscaling-concepts.md "autoscaling-concepts.md")
+- [Managing Fleet Scaling Using the Amazon WorkSpaces Applications Console](autoscaling-console.md "autoscaling-console.md")
+- [Managing Fleet Scaling Using the AWS CLI for Amazon WorkSpaces Applications](autoscaling-cli.md "autoscaling-cli.md")
+- [Additional Resources for Auto Scaling Amazon WorkSpaces Applications](autoscaling-additional-resources.md "autoscaling-additional-resources.md")

@@ -7,16 +7,16 @@ Provider Using the Dynamic Application Framework
 Managing application entitlement with the Dynamic Application Framework is
 currently not supported for Linux-based stacks.
 
-Amazon AppStream 2.0 supports dynamically building the application catalog that displays for
-your users when they stream from an AppStream 2.0 stack. You can use the API operations
-provided by AppStream 2.0 to develop a dynamic app provider that modifies, in real time, the
+Amazon WorkSpaces Applications supports dynamically building the application catalog that displays for
+your users when they stream from an WorkSpaces Applications stack. You can use the API operations
+provided by WorkSpaces Applications to develop a dynamic app provider that modifies, in real time, the
 applications that users can access on the streaming instance. Alternatively, you can
 implement a third-party dynamic app provider that uses these API operations.
 
 ###### Note
 
-This feature requires an AppStream 2.0 Always-On or On-Demand fleet that is joined to a
-Microsoft Active Directory domain. For more information, see [Using Active Directory with AppStream 2.0](active-directory.md "active-directory.md"). This feature is
+This feature requires an WorkSpaces Applications Always-On or On-Demand fleet that is joined to a
+Microsoft Active Directory domain. For more information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md"). This feature is
 not available on multi-session fleets.
 
 ###### Contents

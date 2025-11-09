@@ -1,7 +1,7 @@
-# Data Protection in Amazon AppStream 2.0
+# Data Protection in Amazon WorkSpaces Applications
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
-applies to data protection in Amazon AppStream 2.0. As described in this model, AWS is
+applies to data protection in Amazon WorkSpaces Applications. As described in this model, AWS is
 responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
 responsible for maintaining control over your content that is hosted on this infrastructure.
 This content includes the security configuration and management tasks for the AWS services
@@ -26,7 +26,7 @@ data in the following ways:
   available FIPS endpoints, see [Federal
   Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
   We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form fields such as a **Name** field. This includes when you work with AppStream 2.0 or other AWS
+  customers' email addresses, into tags or free-form fields such as a **Name** field. This includes when you work with WorkSpaces Applications or other AWS
   services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
   tags or free-form fields used for names may be used for billing or diagnostic logs. If you
   provide a URL to an external server, we strongly recommend that you do not include credentials

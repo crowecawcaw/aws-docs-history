@@ -1,7 +1,7 @@
 # Using IAM Policies to Manage Administrator Access to Application Auto Scaling
 
-Automatic scaling for fleets is made possible by a combination of the AppStream 2.0,
-Amazon CloudWatch, and Application Auto Scaling APIs. AppStream 2.0 fleets are created with AppStream 2.0, alarms are created
+Automatic scaling for fleets is made possible by a combination of the WorkSpaces Applications,
+Amazon CloudWatch, and Application Auto Scaling APIs. WorkSpaces Applications fleets are created with WorkSpaces Applications, alarms are created
 with CloudWatch, and scaling policies are created with Application Auto Scaling.
 
 In addition to having the permissions defined in the [AmazonAppStreamFullAccess](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md") policy,

@@ -2,7 +2,7 @@
 
 Metrics Using the Console
 
-You can monitor Amazon AppStream 2.0 fleet instances and session performance using the AppStream 2.0
+You can monitor Amazon WorkSpaces Applications fleet instances and session performance using the WorkSpaces Applications
 console or the CloudWatch console.
 
 Performance metrics are collected at a 5-minute interval. After a new session is
@@ -13,9 +13,9 @@ data points will be available at every 5-minute interval.
 
 Performance metrics are currently available only for multi-session fleets
 
-###### To view instance and session in the AppStream 2.0 console
+###### To view instance and session in the WorkSpaces Applications console
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the left pane, choose **Fleets**.
 3. Select a fleet and choose **View Details** and **View

@@ -1,14 +1,14 @@
 # Install AMD Driver on Graphics Design Instances
 
 If you need to update the AMD driver on your Windows Image Builder that is using a
-Graphics Design instance, you can either use the latest AppStream 2.0 Graphics Design base
+Graphics Design instance, you can either use the latest WorkSpaces Applications Graphics Design base
 images, or download the AMD driver and install it on your Image Builder. If you need to
 update the AMD driver for an existing image of the Graphics Design instance family, you
-can use managed AppStream 2.0 image updates. For more information, see [Update an Image by Using
-Managed AppStream 2.0 Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md").
+can use managed WorkSpaces Applications image updates. For more information, see [Update an Image by Using
+Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md").
 
 The AMD driver download is available to AWS customers only. By downloading, you
-agree to use the downloaded software only to build images for use with AppStream 2.0 Graphics
+agree to use the downloaded software only to build images for use with WorkSpaces Applications Graphics
 Design instances using AMD FirePro S7150x2 Server GPU hardware. Upon installation of the
 software, you are bound by the terms of the [AMD Software End User License
 Agreements](https://www.amd.com/en/support/eula "https://www.amd.com/en/support/eula").

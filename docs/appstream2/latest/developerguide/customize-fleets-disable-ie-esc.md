@@ -1,11 +1,11 @@
 # Disable Internet Explorer Enhanced
 
-Security Configuration in Amazon AppStream 2.0
+Security Configuration in Amazon WorkSpaces Applications
 
 Internet Explorer Enhanced Security Configuration (ESC) places servers and Internet
 Explorer in a configuration that limits exposure to the internet. However, this
-configuration can impact the AppStream 2.0 end user experience. Users who are connected to
-AppStream 2.0 streaming sessions may find that websites do not display or perform as
+configuration can impact the WorkSpaces Applications end user experience. Users who are connected to
+WorkSpaces Applications streaming sessions may find that websites do not display or perform as
 expected when:
 
 - Internet Explorer ESC is enabled on fleet instances from which users'
@@ -22,16 +22,16 @@ The following steps apply to Windows fleets only.
 1. Connect to the image builder on which to disable Internet Explorer ESC and
    sign in with an account that has local administrator permissions. To do so, do
    either of the following:
-   - [Use the AppStream 2.0
+   - [Use the WorkSpaces Applications
      console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a
-     streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or AppStream 2.0 client connections)
+     streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 
    ###### Note
 
    If the image builder that you want to connect to is joined to an
    Active Directory domain and your organization requires smart card
-   sign in, you must create a streaming URL and use the AppStream 2.0 client
+   sign in, you must create a streaming URL and use the WorkSpaces Applications client
    for the connection. For information about smart card sign in, see
    [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 
@@ -86,5 +86,5 @@ image builder by doing either of the following:
 9. In **Step 2. Configure Apps**, choose **Save
    settings**.
 10. Follow the necessary steps in Image Assistant to finish creating your image.
-    For more information, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-    AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+    For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").

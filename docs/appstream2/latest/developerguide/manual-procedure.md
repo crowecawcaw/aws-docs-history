@@ -12,7 +12,7 @@ rights must already exist.
 
 on the image builder
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Connect to the image builder in Administrator mode. The image builder
    must be running and domain-joined. For more information, see [Tutorial: Setting Up Active

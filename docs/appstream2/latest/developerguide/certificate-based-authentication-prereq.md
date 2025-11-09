@@ -13,8 +13,8 @@ authentication.
 
 Don't enable **Smart card sign in for Active
 Directory** in your stack if you want to use
-certificate-based authentication. For more information, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards"). 2. Use AppStream 2.0 agent version 10-13-2022 or later with your image. For more
-information, see [Keep Your Amazon AppStream 2.0 Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). 3. Configure the `ObjectSid` attribute in your SAML assertion. You
+certificate-based authentication. For more information, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards"). 2. Use WorkSpaces Applications agent version 10-13-2022 or later with your image. For more
+information, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). 3. Configure the `ObjectSid` attribute in your SAML assertion. You
 can use this attribute to perform strong mapping with the Active Directory
 user. Certificate-based authentication fails if the `ObjectSid`
 attribute doesn't match the Active Directory security identifier (SID) for
@@ -60,7 +60,7 @@ are common for many certificate-based authentication use cases:
     ###### Note
 
     Certificate-based authentication requires an online CRL
-     distribution point accessible from both the AppStream 2.0 fleet
+     distribution point accessible from both the WorkSpaces Applications fleet
      instance and the domain controller. This requires
      unauthenticated access to the Amazon S3 bucket configured for AWS
      Private CA CRL entries, or a CloudFront distribution with access to
@@ -68,10 +68,10 @@ are common for many certificate-based authentication use cases:
      about these options, see [Planning a certificate revocation list (CRL)](../../../privateca/latest/userguide/crl-planning.md "../../../privateca/latest/userguide/crl-planning.md").
 
 6.  Tag your private CA with a key entitled `euc-private-ca` to
-    designate the CA for use with AppStream 2.0 certificate-based authentication. This
+    designate the CA for use with WorkSpaces Applications certificate-based authentication. This
     key doesn't require a value. For more information, see [Managing tags for your private CA](../../../privateca/latest/userguide/PcaCaTagging.md "../../../privateca/latest/userguide/PcaCaTagging.md"). For more information about
-    the AWS managed policies used with AppStream 2.0 to grant permissions to
-    resources in your AWS account, see [AWS Managed Policies Required to Access AppStream 2.0 Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md").
+    the AWS managed policies used with WorkSpaces Applications to grant permissions to
+    resources in your AWS account, see [AWS Managed Policies Required to Access WorkSpaces Applications Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md").
 7.  Certificate-based authentication uses virtual smart cards to log on. For
     more information, see [Guidelines for enabling smart card logon with third-party certification
     authorities](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities"). Follow these steps:
@@ -131,7 +131,7 @@ are common for many certificate-based authentication use cases:
         Make sure that the commands complete successfully, then remove the
          private CA certificate file. Depending on your Active Directory
          replication settings, it can take several minutes for the CA to
-         publish to your domain controllers and AppStream 2.0 fleet
+         publish to your domain controllers and WorkSpaces Applications fleet
          instances.
 
 
@@ -139,12 +139,12 @@ are common for many certificate-based authentication use cases:
 
         Active Directory must distribute the CA to the Trusted Root
          Certification Authorities and Enterprise NTAuth stores
-         automatically for AppStream 2.0 fleet instances when they join the
+         automatically for WorkSpaces Applications fleet instances when they join the
          domain.
 
     For Windows operating systems, the distribution of the CA (Certificate Authority)
     happens automatically. However, for Rocky Linux and Red Hat Enterprise Linux, you
-    must download the root CA certificate(s) from the CA used by your AppStream 2.0 Directory
+    must download the root CA certificate(s) from the CA used by your WorkSpaces Applications Directory
     Config. If your KDC root CA certificate(s) are different, you must also download
     those. Before using certificate-based authentication, it's necessary to import these
     certificates onto an image or snapshot.
@@ -177,14 +177,14 @@ Below are instructions for downloading the root CA certificates:
    `/etc/sssd/pki/sssd_auth_ca_db.pem`.
 2. Open the [AWS Private CA
    console](https://console.aws.amazon.com/acm-pca/ "https://console.aws.amazon.com/acm-pca/").
-3. Choose the private certificate used with your AppStream 2.0 Directory
+3. Choose the private certificate used with your WorkSpaces Applications Directory
    Config.
 4. Choose the **CA certificate** tab.
 5. Copy the certificate chain and certificate body to
    `/etc/sssd/pki/sssd_auth_ca_db.pem` on the image
    builder.
    If the root CA certificates used by the KDCs are different from the root CA
-   certificate used by your AppStream 2.0 Directory Config, follow these example steps to download
+   certificate used by your WorkSpaces Applications Directory Config, follow these example steps to download
    them:
 
 6. Connect to a Windows instance joined to the same domain as your image

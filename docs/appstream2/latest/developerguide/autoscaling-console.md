@@ -1,10 +1,10 @@
-# Managing Fleet Scaling Using the Amazon AppStream 2.0 Console
+# Managing Fleet Scaling Using the Amazon WorkSpaces Applications Console
 
-You can set up and manage fleet scaling by using the AppStream 2.0 console in either of the
+You can set up and manage fleet scaling by using the WorkSpaces Applications console in either of the
 following two ways: During fleet creation, or any time, by using the
 **Fleets** tab. Two default scaling policies are associated with
 newly created fleets after launch. You can edit these policies on the **Scaling
-Policies** tab in the AppStream 2.0 console. For more information, see [Create a Fleet in Amazon AppStream 2.0](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
+Policies** tab in the WorkSpaces Applications console. For more information, see [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
 
 For user environments that vary in number, define scaling policies to control how
 scaling responds to demand. If you expect a fixed number of users or have other reasons
@@ -13,7 +13,7 @@ sessions.
 
 ###### To set a fleet scaling policy using the console
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the navigation pane, choose **Fleets**.
 3. Select the fleet and then choose **Scaling Policies**.
@@ -50,7 +50,7 @@ sessions running will be reclaimed.
 
 ###### To set a fixed capacity fleet using the console
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the navigation pane, choose **Fleets**.
 3. Select the fleet.

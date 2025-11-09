@@ -2,7 +2,7 @@
 
 Active Directory Computer Objects
 
-To allow AppStream 2.0 to perform Active Directory computer object operations, you need
+To allow WorkSpaces Applications to perform Active Directory computer object operations, you need
 an account with sufficient permissions. As a best practice, use an account that has
 only the minimum privileges necessary. The minimum Active Directory organizational
 unit (OU) permissions are as follows:
@@ -52,4 +52,4 @@ Before setting up permissions, you'll need to do the following first:
     If you delegated permissions to a group, create a user or service account with a
     strong password and add that account to the group. This account will then have
     sufficient privileges to connect your streaming instances to the directory. Use this
-    account when creating your AppStream 2.0 directory configuration.
+    account when creating your WorkSpaces Applications directory configuration.

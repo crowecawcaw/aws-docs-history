@@ -1,4 +1,4 @@
-# Color Theme Palettes in Amazon AppStream 2.0
+# Color Theme Palettes in Amazon WorkSpaces Applications
 
 When you choose a color theme, the colors for that theme are applied to the website
 links, text, and buttons in your streaming application catalog page. A color is also

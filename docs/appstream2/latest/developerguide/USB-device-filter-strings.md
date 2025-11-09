@@ -3,7 +3,7 @@
 Strings
 
 This section describes the filter strings that are available for qualifying
-USB devices for AppStream 2.0 streaming sessions. It also provides guidance for working
+USB devices for WorkSpaces Applications streaming sessions. It also provides guidance for working
 with these strings. The following filter strings are available:
 
 - `Name` — By default, the value for this filter
@@ -17,16 +17,16 @@ with these strings. The following filter strings are available:
   device.
 - `ID Product (PID)` — A unique identifier that
   assigned by the manufacturer to the USB device.
-- `Support Autoshare` — Lets the AppStream 2.0 client
+- `Support Autoshare` — Lets the WorkSpaces Applications client
   automatically share the device when a streaming session starts. Set this
   value to `1` to allow automatic device sharing. Set this
   value to `0` to not allow automatic device sharing.
 - `Skip Reset` — By default, when a USB device is
-  shared by AppStream 2.0 with a streaming session, the device is reset to ensure
+  shared by WorkSpaces Applications with a streaming session, the device is reset to ensure
   that it functions correctly. However, some USB devices don’t function
   correctly during the streaming session if they are reset. To prevent
   this problem from occurring, set the value for this filter string to
-  `1` to instruct the AppStream 2.0 client not to reset the device
+  `1` to instruct the WorkSpaces Applications client not to reset the device
   while it is shared with a streaming session. To ensure that the device
   is reset while it is shared with a streaming session, set this value to
   `0`. When you set a value for `Skip Reset`,

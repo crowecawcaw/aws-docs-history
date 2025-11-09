@@ -5,15 +5,15 @@ other accounts to use a centralized CA. The CA can generate and issue certificat
 by using [AWS Resource Access
 Manager](https://aws.amazon.com/ram/ "https://aws.amazon.com/ram/") (RAM) to manage the permissions. This removes the need for a
 Private CA in every account. Private CA cross-account sharing can be used with
-AppStream 2.0 certificate-based Authentication (CBA) within the same AWS Region.
+WorkSpaces Applications certificate-based Authentication (CBA) within the same AWS Region.
 
-To use a shared Private CA resource with AppStream 2.0 CBA, complete the following
+To use a shared Private CA resource with WorkSpaces Applications CBA, complete the following
 steps:
 
 1. Configure the Private CA for CBA in a centralized AWS account. For more
    information, see [Certificate-Based
    Authentication](certificate-based-authentication.md "certificate-based-authentication.md").
-2. Share the Private CA with the resource AWS accounts where AppStream 2.0
+2. Share the Private CA with the resource AWS accounts where WorkSpaces Applications
    resources utilize CBA. To do this, follow the steps in [How to use AWS RAM to share your ACM Private CA cross-account](https://aws.amazon.com/blogs/security/how-to-use-aws-ram-to-share-your-acm-private-ca-cross-account/ "https://aws.amazon.com/blogs/security/how-to-use-aws-ram-to-share-your-acm-private-ca-cross-account/").
    You do not need to complete step 3 to create a certificate. You can either
    share the Private CA with individual AWS accounts, or share through
@@ -25,9 +25,9 @@ When configuring the share, confirm that the AWS Resource Access Manager resourc
 the Private CA in the resource account is using the
 `AWSRAMBlankEndEntityCertificateAPICSRPassthroughIssuanceCertificateAuthority`
 managed permission template. This template aligns with the PCA template used
-by the AppStream 2.0 service role when issuing CBA certificates. 3. After the share is successful, view the shared Private CA by using the
-Private CA console in the resource account. 4. Use the API or CLI to associate the Private CA ARN with CBA in your AppStream 2.0
-Directory Config. At this time, the AppStream 2.0 console does not support
+by the WorkSpaces Applications service role when issuing CBA certificates. 3. After the share is successful, view the shared Private CA by using the
+Private CA console in the resource account. 4. Use the API or CLI to associate the Private CA ARN with CBA in your WorkSpaces Applications
+Directory Config. At this time, the WorkSpaces Applications console does not support
 selection of shared Private CA ARNs. The following are example CLI
 commands:
 

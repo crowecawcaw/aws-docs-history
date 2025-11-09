@@ -6,11 +6,11 @@ an image builder instance as described in the following procedure.
 ###### Important
 
 After you launch an image builder and it is running, your account may incur nominal
-charges. For more information, see [AppStream 2.0 Pricing](https://aws.amazon.com/appstream2/pricing/ "https://aws.amazon.com/appstream2/pricing/").
+charges. For more information, see [WorkSpaces Applications Pricing](https://aws.amazon.com/appstream2/pricing/ "https://aws.amazon.com/appstream2/pricing/").
 
 ###### To launch an image builder
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. You can launch the image builder in the following ways:
    - If a welcome screen appears displaying two options (**Try
@@ -18,7 +18,7 @@ charges. For more information, see [AppStream 2.0 Pricing](https://aws.amazon.co
      **Get started**, **Custom set
      up**.
 
-   For information about these two options, see [Amazon AppStream 2.0
+   For information about these two options, see [Amazon WorkSpaces Applications
    FAQs](https://aws.amazon.com/appstream2/faqs/ "https://aws.amazon.com/appstream2/faqs/").
    - If a welcome screen does not appear, choose **Quick
      links** in the left navigation pane, then **Custom
@@ -30,11 +30,11 @@ charges. For more information, see [AppStream 2.0 Pricing](https://aws.amazon.co
 3. For **Step 1: Choose Image**, choose a base image. If you are
    launching the image builder for the first time, you can use one of the latest
    base images released by AWS (selected by default). For a list of the latest
-   versions of base images released by AWS, see [AppStream 2.0 Base Image and Managed Image Update
+   versions of base images released by AWS, see [WorkSpaces Applications Base Image and Managed Image Update
    Release Notes](base-image-version-history.md "base-image-version-history.md"). If you have already created images,
    or you want to update applications in an existing image, you can select one of
    your existing images. Be sure to select an image that aligns with the instance
-   family that you need. For more information, see [AppStream 2.0 Instance Families](instance-types.md "instance-types.md").
+   family that you need. For more information, see [WorkSpaces Applications Instance Families](instance-types.md "instance-types.md").
 
 Choose **Next**. 4. For **Step 2: Configure Image Builder**, configure the image
 builder by doing the following:
@@ -43,10 +43,10 @@ builder by doing the following:
     * **Display name (optional)**: Type a name to display for the image builder (maximum of 100 characters).
     * **Tags (optional)**: Choose **Add Tag**, and type the key and value
      for the tag. To add more tags, repeat this step. For more
-     information, see [Tagging Your Amazon AppStream 2.0 Resources](tagging-basic.md "tagging-basic.md").
+     information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
     * **Instance Type**: Select the instance type for the image builder. Choose a type that
      matches the performance requirements of the applications that you
-     plan to install. For more information, see [AppStream 2.0 Instance Families](instance-types.md "instance-types.md").
+     plan to install. For more information, see [WorkSpaces Applications Instance Families](instance-types.md "instance-types.md").
     * **Available license included applications**: Select
      one or more license included applications that you want to install on
      your image.
@@ -67,13 +67,13 @@ builder by doing the following:
 
     After you create the interface endpoint, you can use it to keep streaming
      traffic within your VPC.
-    * **AppStream 2.0 Agent**: This section displays only if you are not using the latest base image from AWS or a custom image that uses the latest version of the agent.
+    * **WorkSpaces Applications Agent**: This section displays only if you are not using the latest base image from AWS or a custom image that uses the latest version of the agent.
 
 
-    The AppStream 2.0 agent software runs on your streaming instances,
+    The WorkSpaces Applications agent software runs on your streaming instances,
      enabling your users to connect to and stream their applications.
      Starting December 7, 2017, your streaming instances can be
-     automatically updated with the latest AppStream 2.0 agent software.
+     automatically updated with the latest WorkSpaces Applications agent software.
      This capability helps to ensure that your image builder includes
      the latest features, performance improvements, and security
      updates that are available from AWS.
@@ -81,17 +81,17 @@ builder by doing the following:
 
 
     You can enable automatic updates of the
-     AppStream 2.0 agent by creating a new image from any base image
+     WorkSpaces Applications agent by creating a new image from any base image
      published by AWS on or after December 7, 2017. If the image that you are launching your image builder from doesn't use the
-     latest version of the AppStream 2.0 agent, we recommend that you select
+     latest version of the WorkSpaces Applications agent, we recommend that you select
      the option to launch your image builder with the latest agent.
-    * **IAM role (Advanced)**: When you apply an IAM role from your account to an AppStream 2.0 image builder, you can make AWS API requests from the image builder instance without manually managing AWS credentials. To apply an IAM role to the image builder, do either of the following:
+    * **IAM role (Advanced)**: When you apply an IAM role from your account to an WorkSpaces Applications image builder, you can make AWS API requests from the image builder instance without manually managing AWS credentials. To apply an IAM role to the image builder, do either of the following:
 
 
 
 
-    	+ To use an existing IAM role in your Amazon Web Services account, choose the role that you want to use from the **IAM role** list. The role must must be accessible from the image builder. For more information, see [Configuring an Existing IAM Role to Use With AppStream 2.0 Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
-    	+ To create a new IAM role, choose **Create new IAM role** and follow the steps in [How to Create an IAM Role to Use With AppStream 2.0 Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
+    	+ To use an existing IAM role in your Amazon Web Services account, choose the role that you want to use from the **IAM role** list. The role must must be accessible from the image builder. For more information, see [Configuring an Existing IAM Role to Use With WorkSpaces Applications Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
+    	+ To create a new IAM role, choose **Create new IAM role** and follow the steps in [How to Create an IAM Role to Use With WorkSpaces Applications Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
 
 5. Choose **Next**.
 6. For **Step 3: Configure Network**, do the following:
@@ -105,22 +105,22 @@ builder by doing the following:
    If you don't have your own VPC and subnet, you can use the [default VPC](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") or create your own. To create your own, choose the **Create a new
    VPC** and **Create new subnet** links to
    create them. Choosing these links opens the Amazon VPC console. After you
-   create your VPC and subnets, return to the AppStream 2.0 console and choose the refresh icon to the left of the **Create a new
-   VPC** and **Create new subnet** links to display them in the list. For more information, see [Configure a VPC for AppStream 2.0](appstream-vpc.md "appstream-vpc.md").
+   create your VPC and subnets, return to the WorkSpaces Applications console and choose the refresh icon to the left of the **Create a new
+   VPC** and **Create new subnet** links to display them in the list. For more information, see [Configure a VPC for WorkSpaces Applications](appstream-vpc.md "appstream-vpc.md").
    - For **Security group(s)**, choose up to five security groups to associate
      with this image builder. If you don't have your own security group and
      you don't want to use the default security group, choose the
      **Create new security group** link to create one.
-     After you create your subnets in the Amazon VPC console, return to the AppStream 2.0
+     After you create your subnets in the Amazon VPC console, return to the WorkSpaces Applications
      console and choose the refresh icon to the left of the **Create
      new security group** link to display them in the list. For
-     more information, see [Security Groups in Amazon AppStream 2.0](managing-network-security-groups.md "managing-network-security-groups.md").
+     more information, see [Security Groups in Amazon WorkSpaces Applications](managing-network-security-groups.md "managing-network-security-groups.md").
 
 7. For **Active Directory Domain (Optional)**, expand this
    section to choose the Active Directory configuration and organizational unit in which to
    place your streaming instance computer objects. Ensure that the selected network
    access settings enable DNS resolvability and communication with your directory.
-   For more information, see [Using Active Directory with AppStream 2.0](active-directory.md "active-directory.md").
+   For more information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md").
 8. Choose **Review** and confirm the details for the image
    builder. To change the configuration for any section, choose
    **Edit** and make the needed changes.
@@ -129,8 +129,8 @@ builder by doing the following:
 
 ###### Note
 
-If an error message notifies you that you don't have sufficient limits (quotas) to create the image builder, submit a limit increase request through the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_. 10. During the image builder creation process, the status of the image builder displays as **Pending** while AppStream 2.0 prepares the necessary resources. Click the **Refresh** icon periodically to update the image builder status. After the status changes to **Running**, the image builder is ready to use and you can create a custom image.
+If an error message notifies you that you don't have sufficient limits (quotas) to create the image builder, submit a limit increase request through the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_. 10. During the image builder creation process, the status of the image builder displays as **Pending** while WorkSpaces Applications prepares the necessary resources. Click the **Refresh** icon periodically to update the image builder status. After the status changes to **Running**, the image builder is ready to use and you can create a custom image.
 **Next Steps**
 
-Next, install and configure your applications for streaming, and then create an image by creating a snapshot of the image builder instance. For more information, see [Tutorial: Create a Custom AppStream 2.0 Image by Using the
-AppStream 2.0 Console](tutorial-image-builder.md "tutorial-image-builder.md").
+Next, install and configure your applications for streaming, and then create an image by creating a snapshot of the image builder instance. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
+WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").

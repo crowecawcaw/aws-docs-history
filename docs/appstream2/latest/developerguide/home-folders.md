@@ -1,8 +1,8 @@
-# Enable and Administer Home Folders for Your AppStream 2.0
+# Enable and Administer Home Folders for Your WorkSpaces Applications
 
 Users
 
-AppStream 2.0 supports the following persistent storage options for users in your
+WorkSpaces Applications supports the following persistent storage options for users in your
 organization:
 
 - Home folders
@@ -10,7 +10,7 @@ organization:
 - OneDrive for Business
 - Custom shared folders (Server Message Block (SMB) network drives)
   You can enable one or more options for your organization. When you enable home folders
-  for an AppStream 2.0 stack, users of the stack can access a persistent storage folder during
+  for an WorkSpaces Applications stack, users of the stack can access a persistent storage folder during
   their application streaming sessions. No further conﬁguration is required for your users
   to access their home folder. Data stored by users in their home folder is automatically
   backed up to an Amazon Simple Storage Service bucket in your Amazon Web Services account and is made available to those
@@ -39,6 +39,6 @@ Home folders are stored on fleet instances in the following default locations:
 ###### Contents
 
 - [Files and Directories Associated with Compute-Intensive Applications](storage-solutions-files-directories-associated-with-compute-intensive-applications.md "storage-solutions-files-directories-associated-with-compute-intensive-applications.md")
-- [Enable Home Folders for Your AppStream 2.0
+- [Enable Home Folders for Your WorkSpaces Applications
   Users](enable-home-folders.md "enable-home-folders.md")
 - [Administer Your Home Folders](home-folders-admin.md "home-folders-admin.md")

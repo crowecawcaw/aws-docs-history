@@ -4,7 +4,7 @@
 
 Resolution
 
-The AppStream 2.0 client supports multiple monitors with the following display
+The WorkSpaces Applications client supports multiple monitors with the following display
 resolutions:
 
 - Multiple monitors (up to 2K resolution) — Up to 4 monitors
@@ -65,7 +65,7 @@ To enable this feature, complete the following steps:
 
 across selected monitors
 
-If there are three or more monitors connected, AppStream 2.0 can also extend
+If there are three or more monitors connected, WorkSpaces Applications can also extend
 full-screen across a selection of those available monitors. If your
 selected monitors cannot go full screen, an error message will appear
 and you will need to perform the procedure again. Selected monitors must
@@ -74,12 +74,12 @@ setting.
 
 The following are examples of adjacent monitor placement. If your
 monitors are not set adjacent in your display configuration, you must
-exit AppStream 2.0 and change your Display settings on your local
+exit WorkSpaces Applications and change your Display settings on your local
 machine.
 
 ###### Note
 
-The blue boxes are AppStream 2.0-enabled monitors, and the gray boxes are
+The blue boxes are WorkSpaces Applications-enabled monitors, and the gray boxes are
 other monitors.
 
 ![Adjacent and nonadjacent monitor placement](images/monitors.PNG)

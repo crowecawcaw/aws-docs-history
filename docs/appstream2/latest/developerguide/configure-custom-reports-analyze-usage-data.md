@@ -1,4 +1,4 @@
-# Create Custom Reports and Analyze AppStream 2.0 Usage Data
+# Create Custom Reports and Analyze WorkSpaces Applications Usage Data
 
 Amazon Athena is a serverless, interactive query service that you can use to analyze data
 stored in your S3 buckets using standard SQL queries. You can use Athena to aggregate your usage reports or

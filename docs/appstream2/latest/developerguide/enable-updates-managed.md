@@ -9,4 +9,4 @@ Image Update, follow these steps.
   applications. For more information, see
 
 [Update an Image by Using
-Managed AppStream 2.0 Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md").
+Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md").

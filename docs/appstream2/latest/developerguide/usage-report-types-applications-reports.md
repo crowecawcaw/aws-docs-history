@@ -1,13 +1,13 @@
-# AppStream 2.0 Applications Reports
+# WorkSpaces Applications Applications Reports
 
 For each day that users launch at least one application during their streaming sessions,
-AppStream 2.0 exports an applications report to your Amazon S3 bucket. The report, named
+WorkSpaces Applications exports an applications report to your Amazon S3 bucket. The report, named
 **daily-app-report-[YYYY]-[MM]-[DD].csv**, is stored
 in a nested folder structure in your Amazon S3 account, using the following folder path:
 
 [bucket\_name]/applications/schedule=DAILY/year=[YYYY]/month=[MM]/day=[DD]/
 
-This nesting structure facilitates partitioning if you choose to query your reports by using Amazon Athena. Athena is a serverless, interactive query service that you can use to analyze data stored in your S3 buckets using standard SQL. For more information, see [Create Custom Reports and Analyze AppStream 2.0 Usage Data](configure-custom-reports-analyze-usage-data.md "configure-custom-reports-analyze-usage-data.md").
+This nesting structure facilitates partitioning if you choose to query your reports by using Amazon Athena. Athena is a serverless, interactive query service that you can use to analyze data stored in your S3 buckets using standard SQL. For more information, see [Create Custom Reports and Analyze WorkSpaces Applications Usage Data](configure-custom-reports-analyze-usage-data.md "configure-custom-reports-analyze-usage-data.md").
 
 Each application launch is described in a single record in an applications report.
 For example, if a user launches five separate applications during a session, five

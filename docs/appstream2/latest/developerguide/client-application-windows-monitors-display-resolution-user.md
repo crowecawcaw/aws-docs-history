@@ -2,19 +2,19 @@
 
 ## Monitors and Display Resolution
 
-AppStream 2.0 supports the use of multiple monitors during streaming sessions, including monitors that have different resolutions. To help ensure an optimal streaming experience, we recommend that you set the display scale for your monitors to 100 percent if you use multiple monitors.
+WorkSpaces Applications supports the use of multiple monitors during streaming sessions, including monitors that have different resolutions. To help ensure an optimal streaming experience, we recommend that you set the display scale for your monitors to 100 percent if you use multiple monitors.
 
-The AppStream 2.0 client supports multiple monitors with the following display resolutions:
+The WorkSpaces Applications client supports multiple monitors with the following display resolutions:
 
 - Multiple monitors (up to 2K resolution) — Up to 4 monitors with a maximum display resolution of 2560x1600 pixels per monitor
 - Multiple monitors (4K resolution) — Up to 2 monitors with a maximum display resolution of 4096x2160 pixels per monitor
 
 ###### Note
 
-If you are connected to an AppStream 2.0 streaming session using
+If you are connected to an WorkSpaces Applications streaming session using
 native application mode, you can use monitors with up to 2K
-resolution. If you use higher-resolution monitors, the AppStream 2.0 client falls back to classic mode. In
-this case, the AppStream 2.0 classic mode streaming view occupies 2K of
+resolution. If you use higher-resolution monitors, the WorkSpaces Applications client falls back to classic mode. In
+this case, the WorkSpaces Applications classic mode streaming view occupies 2K of
 the screen, and the remaining portion of the screen is black.
 
 ## Using Multiple Monitors
@@ -57,7 +57,7 @@ To enable this feature, complete the following steps:
 
 ### Extending full-screen across selected monitors
 
-If there are three or more monitors connected, AppStream 2.0 can also extend
+If there are three or more monitors connected, WorkSpaces Applications can also extend
 full-screen across a selection of those available monitors. If your
 selected monitors cannot go full screen, an error message will appear
 and you will need to perform the procedure again. Selected monitors must
@@ -66,12 +66,12 @@ setting.
 
 The following are examples of adjacent monitor placement. If your
 monitors are not set adjacent in your Windows display configuration, you
-must exit AppStream 2.0 and change your Display settings on your local
+must exit WorkSpaces Applications and change your Display settings on your local
 machine.
 
 ###### Note
 
-The blue boxes are AppStream 2.0-enabled monitors, and the gray boxes are
+The blue boxes are WorkSpaces Applications-enabled monitors, and the gray boxes are
 other monitors.
 
 ![Adjacent and nonadjacent monitor placement](images/monitors.PNG)

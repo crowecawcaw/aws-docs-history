@@ -1,7 +1,7 @@
 # Local File Access
 
-AppStream 2.0 file redirection lets you access files on your local computer from your
-AppStream 2.0 streaming session. To use file redirection, open the AppStream 2.0 client,
+WorkSpaces Applications file redirection lets you access files on your local computer from your
+WorkSpaces Applications streaming session. To use file redirection, open the WorkSpaces Applications client,
 connect to a streaming session, and choose the drives and folders that you want
 to share. After you share a local drive or folder, you can access all files in
 the shared drive or folder from your streaming session. You can stop sharing
@@ -9,13 +9,13 @@ local drives and folders at any time.
 
 ###### Important
 
-To use AppStream 2.0 file redirection, you must have the AppStream 2.0 client installed on your local
-computer. File redirection is not available when you connect to AppStream 2.0 by using a web browser.
+To use WorkSpaces Applications file redirection, you must have the WorkSpaces Applications client installed on your local
+computer. File redirection is not available when you connect to WorkSpaces Applications by using a web browser.
 
 ###### To share local drives and folders
 
-1. Open the AppStream 2.0 client and connect to a streaming session.
-2. In your AppStream 2.0 session, in the top left area, choose the **Settings** icon, and then choose **Local Resources**, **Local Drives and Folders**.
+1. Open the WorkSpaces Applications client and connect to a streaming session.
+2. In your WorkSpaces Applications session, in the top left area, choose the **Settings** icon, and then choose **Local Resources**, **Local Drives and Folders**.
 
 ![Settings menu with Local Resources option and submenu showing Local Drives and Folders.](images/AppStream2-Client-Local-Drives-Folders-MenuOptions.png)
 
@@ -73,8 +73,8 @@ files in the shared drive or folder from your streaming session.
 
 ###### To access files in a shared local drive or folder
 
-1. Open the AppStream 2.0 client and connect to a streaming session.
-2. In your AppStream 2.0 session, open the application that you want to use.
+1. Open the WorkSpaces Applications client and connect to a streaming session.
+2. In your WorkSpaces Applications session, open the application that you want to use.
 3. From your application interface, choose **File Open**, and browse to the file
    that you want to access. The following screenshot shows how shared local
    drives and folders appear in the Notepad++ browse dialog box for Jane
@@ -88,8 +88,8 @@ If you want to stop sharing a local drive or folder, perform the following steps
 
 ###### To stop sharing local drives and folders
 
-1. Open the AppStream 2.0 client and connect to a streaming session.
-2. In your AppStream 2.0 session, in the top left area, choose the **Settings** icon, and then choose **Local Resources**, **Local Drives and Folders**.
+1. Open the WorkSpaces Applications client and connect to a streaming session.
+2. In your WorkSpaces Applications session, in the top left area, choose the **Settings** icon, and then choose **Local Resources**, **Local Drives and Folders**.
 
 The **Share your local drives and folders** dialog box displays the drives and folders that your administrator has made available for you to share, and any that you added, if applicable. To stop sharing one or more local drives and folders, do either of the following:
 
@@ -115,8 +115,8 @@ can delete it.
 
 ###### To delete local drives and folders
 
-1. Open the AppStream 2.0 client and connect to a streaming session.
-2. In your AppStream 2.0 session, in the top left area, choose the **Settings** icon, and then choose **Local Resources**, **Local Drives and Folders**.
+1. Open the WorkSpaces Applications client and connect to a streaming session.
+2. In your WorkSpaces Applications session, in the top left area, choose the **Settings** icon, and then choose **Local Resources**, **Local Drives and Folders**.
 
 The **Share your local drives and folders** dialog box
 displays the drives and folders that your administrator has made

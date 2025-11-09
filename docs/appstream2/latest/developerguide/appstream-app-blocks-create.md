@@ -1,6 +1,6 @@
-# Create an AppStream 2.0 App Block
+# Create an WorkSpaces Applications App Block
 
-Follow these steps to create an app block with the AppStream 2.0 packaging type.
+Follow these steps to create an app block with the WorkSpaces Applications packaging type.
 
 ## Step 1: Configure the app
 
@@ -8,12 +8,12 @@ block
 
 ###### To configure the app block
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. From the left-hand navigation menu, choose **Applications
    Manager**, **App blocks**, and
    **Create app block**.
-3. For app block packaging, select **AppStream 2.0**.
+3. For app block packaging, select **WorkSpaces Applications**.
 4. For **App block details**, type a unique name identifier
    for the app block. Optionally, you can also specify the following:
    - **Name** – A unique name for the app
@@ -23,7 +23,7 @@ block
    - **Description** (optional) – A description
      for the app block.
 
-5. (Optional) An app block with AppStream 2.0 packaging doesn't need a setup
+5. (Optional) An app block with WorkSpaces Applications packaging doesn't need a setup
    script. You can optionally provide post-installation steps the
    following **Advanced Options**:
    - For **Post setup script object in S3**,
@@ -66,7 +66,7 @@ duration for your setup script.
 
 ###### Note
 
-The execution duration in seconds is how long AppStream 2.0 waits for
+The execution duration in seconds is how long WorkSpaces Applications waits for
 the setup script to run before continuing. If your setup script
 doesn’t complete within this duration, an error is displayed to
 your user and the application will attempt to launch. The setup
@@ -110,7 +110,7 @@ At this point, your app block resource is created, but it is
 
 Use the app block builder streaming instance to package your applications and
 activate your app block. The app block created using app block builder will
-have AppStream 2.0 packaging, and the application package will be uploaded onto the
+have WorkSpaces Applications packaging, and the application package will be uploaded onto the
 Amazon S3 bucket in your AWS account.
 
 ###### To create the application package
@@ -144,9 +144,9 @@ Amazon S3 bucket in your AWS account.
 ###### Note
 
 If your application installation fails, choose
-**Report a problem** to collect AppStream 2.0
+**Report a problem** to collect WorkSpaces Applications
 related logs from the instance, and report the problem to the
-AppStream 2.0 team. When you are done, end your app block builder
+WorkSpaces Applications team. When you are done, end your app block builder
 streaming session. You can try to restart the process creating
 an app block by using a new app block builder instance. If the
 problem persists, then try to create your app block using custom
@@ -174,9 +174,9 @@ block will be in an **Active** state.
 ###### Note
 
 If your application installation fails, choose
-**Report a problem** to collect AppStream 2.0
+**Report a problem** to collect WorkSpaces Applications
 related logs from the instance, and report the problem to the
-AppStream 2.0 team. When you are done, end your app block builder
+WorkSpaces Applications team. When you are done, end your app block builder
 streaming session. You can try to restart the process creating
 an app block by using a new app block builder instance. If the
 problem persists, then try to create your app block using custom

@@ -2,7 +2,7 @@
 
 Application Settings
 
-Review the following topics to learn how to administer the Virtual Hard Disks (VHD) files for your AppStream 2.0
+Review the following topics to learn how to administer the Virtual Hard Disks (VHD) files for your WorkSpaces Applications
 users' application settings.
 
 ###### Contents

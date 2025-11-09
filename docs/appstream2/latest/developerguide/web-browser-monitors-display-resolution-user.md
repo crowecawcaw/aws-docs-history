@@ -1,6 +1,6 @@
 # Monitors and Display Resolution
 
-AppStream 2.0 supports the use of multiple monitors during streaming sessions,
+WorkSpaces Applications supports the use of multiple monitors during streaming sessions,
 including monitors that have different resolutions. To help ensure an
 optimal streaming experience, we recommend that you set the display scale for your monitors to 100 percent if you use multiple monitors.
 
@@ -14,4 +14,4 @@ web browsers:
   For browser-based streaming sessions on dual monitors, a maximum display
   resolution of 2560x1600 pixels is supported per monitor. If you require more than
   two monitors, or a display resolution that is greater than 2560x1600 pixels per monitor,
-  you must use the AppStream 2.0 client.
+  you must use the WorkSpaces Applications client.

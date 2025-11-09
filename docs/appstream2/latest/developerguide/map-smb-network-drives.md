@@ -70,8 +70,8 @@ with user permissions.
 
 ## Step 5: Create a script that gets invoked when user is logged on
 
-Create a script that gets invoked when user is logged on by either using an AppStream 2.0 session script or GPO logon script.
-If you choose to use the AppStream 2.0 session script, the session script will only get applied to that specific AppStream 2.0 image.
+Create a script that gets invoked when user is logged on by either using an WorkSpaces Applications session script or GPO logon script.
+If you choose to use the WorkSpaces Applications session script, the session script will only get applied to that specific WorkSpaces Applications image.
 If you use the GPO logon script, the GPOs will be applied to the domain / OU, which can be configured to your fleets.
 That way you don’t need configure scripts for every image that you own.
 

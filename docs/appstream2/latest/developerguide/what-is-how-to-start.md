@@ -1,7 +1,7 @@
-# How to Get Started with Amazon AppStream 2.0
+# How to Get Started with Amazon WorkSpaces Applications
 
-If you are using AppStream 2.0 for the first time, you can use the **Try
-it Now** feature or follow the [Get Started with Amazon AppStream 2.0: Set Up With Sample Applications](getting-started.md "getting-started.md") tutorial (both are available in the AppStream 2.0
+If you are using WorkSpaces Applications for the first time, you can use the **Try
+it Now** feature or follow the [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md "getting-started.md") tutorial (both are available in the WorkSpaces Applications
 console).
 
 - **Try It Now** provides you with a free trial
@@ -12,14 +12,14 @@ console).
   using sample applications, you can always add your own applications
   later.
 
-For more information about these two options, see [Amazon AppStream 2.0
+For more information about these two options, see [Amazon WorkSpaces Applications
 FAQs](https://aws.amazon.com/appstream2/faqs/ "https://aws.amazon.com/appstream2/faqs/").
-When you use the service for the first time, AppStream 2.0 creates an [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/faqs/ "https://aws.amazon.com/iam/faqs/")
-role to create and manage AppStream 2.0 resources on your behalf.
+When you use the service for the first time, WorkSpaces Applications creates an [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/faqs/ "https://aws.amazon.com/iam/faqs/")
+role to create and manage WorkSpaces Applications resources on your behalf.
 
 ###### To use the Try It Now feature
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Choose **Try it now**.
 3. Sign in using your AWS account credentials, if requested.
@@ -29,7 +29,7 @@ role to create and manage AppStream 2.0 resources on your behalf.
 
 ###### To run the Getting Started tutorial
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Choose **Get Started**.
-3. Select the option to learn more about AppStream 2.0 resources.
+3. Select the option to learn more about WorkSpaces Applications resources.

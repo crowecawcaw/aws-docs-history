@@ -1,4 +1,4 @@
-# Create a Stack in Amazon AppStream 2.0
+# Create a Stack in Amazon WorkSpaces Applications
 
 Set up and create a stack to control access to your fleet.
 
@@ -31,10 +31,10 @@ with a Linux fleet, please make sure these settings are disabled.
      Protocol Preference** — Specify the streaming
      protocol you’d like your stack to prefer, UDP or TCP. UDP is currently
      only supported in the Windows native client. For more information, see
-     [System Requirements and Feature Support (AppStream 2.0 Client)](client-system-requirements-feature-support.md "client-system-requirements-feature-support.md").
+     [System Requirements and Feature Support (WorkSpaces Applications Client)](client-system-requirements-feature-support.md "client-system-requirements-feature-support.md").
    - **Tags** — Choose **Add Tag**,
      and type the key and value for the tag. To add more tags, repeat this
-     step. For more information, see [Tagging Your Amazon AppStream 2.0 Resources](tagging-basic.md "tagging-basic.md").
+     step. For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
    - **VPC Endpoints (Advanced)** — You can create a
      private link, which is an [interface VPC endpoint](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") (interface endpoint), in your
      virtual private cloud (VPC). To start creating the interface endpoint,
@@ -45,16 +45,16 @@ with a Linux fleet, please make sure these settings are disabled.
 
    After you create the interface endpoint, you can use it to keep
    streaming traffic within your VPC.
-   - **Embed AppStream 2.0 (Optional)** — To embed an
-     AppStream 2.0 streaming session in a webpage, specify the domain to host the
+   - **Embed WorkSpaces Applications (Optional)** — To embed an
+     WorkSpaces Applications streaming session in a webpage, specify the domain to host the
      embedded streaming session. Embedded streaming sessions are only
      supported over HTTPS [TCP port 443].
 
    ###### Note
 
    You must meet prerequisites and perform additional steps to
-   configure embedded AppStream 2.0 streaming sessions. For more information,
-   see [Embed Amazon AppStream 2.0 Streaming Sessions](embed-streaming-sessions.md "embed-streaming-sessions.md").
+   configure embedded WorkSpaces Applications streaming sessions. For more information,
+   see [Embed Amazon WorkSpaces Applications Streaming Sessions](embed-streaming-sessions.md "embed-streaming-sessions.md").
 
 3. Choose **Next.**
 4. For **Step 2: Enable Storage**, you can provide persistent
@@ -62,10 +62,10 @@ with a Linux fleet, please make sure these settings are disabled.
    - **Home Folders** — Users can save their files
      to their home folder and access existing files in their home folder
      during application streaming sessions. For information about
-     requirements for enabling home folders, see [Enable Home Folders for Your AppStream 2.0
+     requirements for enabling home folders, see [Enable Home Folders for Your WorkSpaces Applications
      Users](enable-home-folders.md "enable-home-folders.md").
    - **Google Drive for Google Workspace** — Users
-     can link their Google Drive for Google Workspace account to AppStream 2.0.
+     can link their Google Drive for Google Workspace account to WorkSpaces Applications.
      During application streaming sessions, they can sign in to their Google
      Drive account, save files to Google Drive, and access their existing
      files in Google Drive. You can enable Google Drive for accounts in
@@ -83,10 +83,10 @@ with a Linux fleet, please make sure these settings are disabled.
    with your Google Workspace account. Access to Google Drive during
    application streaming sessions is limited to users that are in the
    domains that you specify. You can specify up to 10 domains. For more
-   information about requirements for enabling Google Drive, see [Enable Google Drive for Your AppStream 2.0
+   information about requirements for enabling Google Drive, see [Enable Google Drive for Your WorkSpaces Applications
    Users](enable-google-drive.md "enable-google-drive.md").
    - **OneDrive for Business** — Users can link
-     their OneDrive for Business account to AppStream 2.0. During application
+     their OneDrive for Business account to WorkSpaces Applications. During application
      streaming sessions, they can sign in to their OneDrive account, save
      files to OneDrive, and access their existing files in OneDrive. You can
      enable OneDrive for accounts in OneDrive domains only, not for personal
@@ -104,7 +104,7 @@ with a Linux fleet, please make sure these settings are disabled.
    OneDrive account. Access to OneDrive during application streaming
    sessions is limited to users that are in the domains that you
    specify. You can specify up to 10 domains. For more information
-   about requirements for enabling OneDrive, see [Enable OneDrive for Your AppStream 2.0 Users](enable-onedrive.md "enable-onedrive.md").
+   about requirements for enabling OneDrive, see [Enable OneDrive for Your WorkSpaces Applications Users](enable-onedrive.md "enable-onedrive.md").
 
 5. Choose **Next**.
 6. For **Step 3: User Settings**, configure the following
@@ -127,7 +127,7 @@ not available for multi-session fleets.
      **Copy to local device character limit** or
      **Paste to remote session character limit** or both
      to limit the amount of data that users can copy or paste when using the
-     clipboard, either in or out of their AppStream 2.0 streaming session. The value
+     clipboard, either in or out of their WorkSpaces Applications streaming session. The value
      can be between 1 and 20,971,520 (20 MB), and defaults to the maximum
      value when unspecified.
     * **File transfer** — By default, users can
@@ -139,12 +139,12 @@ not available for multi-session fleets.
 
     ###### Important
 
-    If your users require AppStream 2.0 file system redirection to access
+    If your users require WorkSpaces Applications file system redirection to access
      local drives and folders during their streaming sessions, you must
      enable both file upload and download. To use file system
-     redirection, your users must have AppStream 2.0 client version 1.0.480 or
+     redirection, your users must have WorkSpaces Applications client version 1.0.480 or
      later installed. For more information, see [Enable File System Redirection for
-     Your AppStream 2.0 Users](enable-file-system-redirection.md "enable-file-system-redirection.md").
+     Your WorkSpaces Applications Users](enable-file-system-redirection.md "enable-file-system-redirection.md").
     * **Print to local device** — By default, users
      can print to their local device from within a streaming application.
      When they choose **Print** in the application, they can
@@ -153,7 +153,7 @@ not available for multi-session fleets.
      device.
     * **Password sign in for Active Directory** —
      Users can enter their Active Directory domain password to sign in to an
-     AppStream 2.0 streaming instance that is joined to an Active Directory domain.
+     WorkSpaces Applications streaming instance that is joined to an Active Directory domain.
 
 
     You can also enable **Smart card sign in for Active
@@ -161,7 +161,7 @@ not available for multi-session fleets.
      enabled.
     * **Smart card sign in for Active Directory** —
      Users can use a smart card reader and smart card connected to their
-     local computer to sign in to an AppStream 2.0 streaming instance that is joined
+     local computer to sign in to an WorkSpaces Applications streaming instance that is joined
      to an Active Directory domain.
 
 
@@ -173,13 +173,13 @@ not available for multi-session fleets.
 
 **Clipboard, file transfer, and print to local device
 settings** — These settings control only whether users
-can use AppStream 2.0 data transfer features. If your image provides access to a
+can use WorkSpaces Applications data transfer features. If your image provides access to a
 browser, network printer, or other remote resource, your users might be able
 to transfer data to or from their streaming session in other ways.
 
 **Authentication settings** — These
 settings control only the authentication method that can be used for Windows
-sign in to an AppStream 2.0 streaming instance (fleet or image builder). They do
+sign in to an WorkSpaces Applications streaming instance (fleet or image builder). They do
 not control the authentication method that can be used for in-session
 authentication, after a user signs in to a streaming instance. For
 information about configuration requirements for using smart cards for
@@ -211,7 +211,7 @@ These settings are not supported for Linux-based stacks.
 
 For information about requirements for enabling and administering
 application settings persistence, see [Enable Application Settings Persistence for Your
-AppStream 2.0 Users](app-settings-persistence.md "app-settings-persistence.md"). 7. For **Step 4: Review**, confirm the details for the stack. To
+WorkSpaces Applications Users](app-settings-persistence.md "app-settings-persistence.md"). 7. For **Step 4: Review**, confirm the details for the stack. To
 change the configuration for any section, choose **Edit** and
 make the needed changes. After you finish reviewing the configuration details,
 choose **Create**.

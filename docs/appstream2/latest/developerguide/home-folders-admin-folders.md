@@ -22,7 +22,7 @@ user-specific folder name created using a lowercase SHA-256 hash hexadecimal
 string generated from the `UserId` value passed to the
 CreateStreamingURL API operation or `create-streaming-url`
 command. For more information, see [CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md") in
-the _Amazon AppStream 2.0 API Reference_ and
+the _Amazon WorkSpaces Applications API Reference_ and
 [create-streaming-url](../../../cli/latest/reference/appstream/create-streaming-url.md "../../../cli/latest/reference/appstream/create-streaming-url.md") in the
 _AWS CLI Command Reference_.
 
@@ -53,7 +53,7 @@ generated from the `NameID` SAML attribute value passed in the
 SAML federation request. To differentiate users who have the same name but
 belong to two different domains, send the SAML request with
 `NameID` in the format `domainname\username`. For
-more information, see [Amazon AppStream 2.0 Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md").
+more information, see [Amazon WorkSpaces Applications Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md").
 
 The following example folder structure applies to session access using
 SAML federation with `NameID` SAMPLEDOMAIN\testuser, account ID
@@ -64,7 +64,7 @@ appstream2-36fb080bb8-us-west-2-123456789012/user/federated/8dd9a642f511609454d3
 ```
 
 When part or all of the NameID string is capitalized (as the domain name
-`SAMPLEDOMAIN` is in the example), AppStream 2.0
+`SAMPLEDOMAIN` is in the example), WorkSpaces Applications
 generates the hash value based on the capitalization used in the string.
 Using this example, the hash value for SAMPLEDOMAIN\testuser is
 8DD9A642F511609454D344D53CB861A71190E44FED2B8AF9FDE0C507012A9901. In the

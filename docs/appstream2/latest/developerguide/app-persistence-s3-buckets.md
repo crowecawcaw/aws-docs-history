@@ -3,12 +3,12 @@
 When you enable application settings persistence, your users’ application
 customizations and Windows settings are automatically saved to a Virtual Hard Disk
 (VHD) file that is stored in an Amazon S3 bucket created in your AWS account. For every
-AWS Region, AppStream 2.0 creates a bucket in your account that is unique to your account
+AWS Region, WorkSpaces Applications creates a bucket in your account that is unique to your account
 and the Region. All application settings configured by your users are stored in the
 bucket for that Region.
 
 You do not need to perform any configuration tasks to manage these S3 buckets;
-they are fully managed by the AppStream 2.0 service. The VHD file that is stored in each
+they are fully managed by the WorkSpaces Applications service. The VHD file that is stored in each
 bucket is encrypted in transit using Amazon S3's SSL endpoints and at rest using [AWS Managed CMKs](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk"). The buckets are named in a specific format as
 follows:
 
@@ -29,7 +29,7 @@ name, `appstream-app-settings`, does not change across
 accounts or Regions.
 
 For example, if you enable application settings persistence for stacks in the US
-West (Oregon) Region (us-west-2) on account number 123456789012, AppStream 2.0 creates an
+West (Oregon) Region (us-west-2) on account number 123456789012, WorkSpaces Applications creates an
 Amazon S3 bucket within your account in that Region with the name shown. Only an
 administrator with sufficient permissions can delete this bucket.
 
@@ -39,10 +39,10 @@ appstream-app-settings-us-west-2-1234567890123-abcdefg
 
 Disabling application settings persistence does not delete any VHDs stored in the
 S3 bucket. To permanently delete settings VHDs, you or another administrator with
-adequate permissions must do so by using the Amazon S3 console or API. AppStream 2.0 adds a
+adequate permissions must do so by using the Amazon S3 console or API. WorkSpaces Applications adds a
 bucket policy that prevents accidental deletion of the bucket. For more information,
 see _IAM Policies and the Amazon S3 Bucket for Application Settings
-Persistence_ in [Identity and Access Management for Amazon AppStream 2.0](controlling-access.md "controlling-access.md").
+Persistence_ in [Identity and Access Management for Amazon WorkSpaces Applications](controlling-access.md "controlling-access.md").
 
 When application settings persistence is enabled, a unique folder is created for
 each settings group to store the settings VHD. The hierarchy of the folder in the S3
@@ -73,7 +73,7 @@ that share the same the same application settings.
 
 **`access-mode`**
 
-The identity method of the user: `custom` for the AppStream 2.0
+The identity method of the user: `custom` for the WorkSpaces Applications
 API or CLI, `federated` for SAML, and `userpool`
 for user pool users.
 

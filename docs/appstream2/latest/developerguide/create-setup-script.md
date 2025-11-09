@@ -1,15 +1,15 @@
-# Create the Setup Script for the VHD in Amazon AppStream 2.0
+# Create the Setup Script for the VHD in Amazon WorkSpaces Applications
 
-AppStream 2.0 uses a setup script that you provide to mount the VHD before the
+WorkSpaces Applications uses a setup script that you provide to mount the VHD before the
 application launches. You can also use the setup script to complete other tasks
 required to make your application work. For example, you can configure registry keys,
 register DLLs, manage pre-requisites, or modify the user profile from the setup
-script. AppStream 2.0 provides script examples that you can use to mount your VHD.
+script. WorkSpaces Applications provides script examples that you can use to mount your VHD.
 You will need to modify these scripts for your VHD and application needs.
 
 ###### Note
 
-Setup scripts aren't required for app blocks with AppStream 2.0 packaging.
+Setup scripts aren't required for app blocks with WorkSpaces Applications packaging.
 However, you can provide optional post-setup scripts to customize
 application installation.
 
@@ -22,10 +22,10 @@ Use the following links to download the example scripts:
 
 ###### Note
 
-AppStream 2.0 and the Microsoft Windows operating system reserve drive
+WorkSpaces Applications and the Microsoft Windows operating system reserve drive
 letters A through E. Don't mount VHDs or network shares to these drive
 letters.
-AppStream 2.0 downloads the setup script and VHD to a directory on the fleet streaming
+WorkSpaces Applications downloads the setup script and VHD to a directory on the fleet streaming
 instance, then runs the setup script. The setup script runs on the operating system
 with full administrator rights. The setup script runs in the `SYSTEM`
 context on Microsoft Windows, and as the `root` user on Amazon Linux 2.
@@ -49,7 +49,7 @@ correspond to.
 
 The name of the app block that the VHD and setup script
 correspond to.
-AppStream 2.0 maintains the file name as they are on the object. For example, if your app
+WorkSpaces Applications maintains the file name as they are on the object. For example, if your app
 block is named `MyApps`, with a VHD named
 `apps.vhd` and setup script named
 `mount-apps.ps1`, then the full path on a Windows streaming
@@ -62,7 +62,7 @@ instance is:
 - Setup script
 
 `C:\AppStream\AppBlocks\`MyApps`\`mount-apps.ps1``
-AppStream 2.0 captures the standard error and standard output from your setup script when
+WorkSpaces Applications captures the standard error and standard output from your setup script when
 it runs on a fleet streaming instance and uploads the output to an Amazon S3 bucket
 within your account. You can use these logs to identify and resolve issues you may
 have with your setup script. The buckets are named in a specific format as
@@ -84,7 +84,7 @@ conflict with other buckets in that Region. The first part of the bucket
 name, appstream-logs, does not change across accounts or Regions.
 
 For example, if you create an elastic fleet in the US West (Oregon) Region
-(us-west-2) on account number 123456789012, AppStream 2.0 creates an Amazon S3 bucket within
+(us-west-2) on account number 123456789012, WorkSpaces Applications creates an Amazon S3 bucket within
 your account in that Region with the name shown. Only an administrator with
 sufficient permissions can delete this bucket.
 
@@ -124,4 +124,4 @@ one log file for the standard error.
 
 ###### Topics
 
-- [App block setup script execution in Amazon AppStream 2.0](script-execution.md "script-execution.md")
+- [App block setup script execution in Amazon WorkSpaces Applications](script-execution.md "script-execution.md")

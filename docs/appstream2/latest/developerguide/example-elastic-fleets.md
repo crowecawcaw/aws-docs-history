@@ -1,4 +1,4 @@
-# Example: AppStream 2.0 Elastic fleets session script
+# Example: WorkSpaces Applications Elastic fleets session script
 
 Amazon S3 bucket policy cross-service confused deputy prevention
 

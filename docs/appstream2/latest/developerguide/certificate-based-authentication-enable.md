@@ -6,7 +6,7 @@ Complete the following steps to enable certificate-based authentication.
 
 ###### To enable certificate-based authentication
 
-1. Open the AppStream 2.0 console at
+1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. In the navigation pane, choose **Directory Configs**.
    Select the directory config you want to configure, and choose
@@ -25,8 +25,8 @@ Complete the following steps to enable certificate-based authentication.
    the session prompts the user for their AD domain password.
 6. Choose **Save Changes**.
 7. Certificate-based authentication is now enabled. When users authenticate
-   with SAML 2.0 to an AppStream 2.0 stack using the domain-joined fleet from the
-   AppStream 2.0 web client or the client for Windows (version 1.1.1099 and later),
+   with SAML 2.0 to an WorkSpaces Applications stack using the domain-joined fleet from the
+   WorkSpaces Applications web client or the client for Windows (version 1.1.1099 and later),
    they will no longer receive a prompt for the domain password. Users will see
    a “Connecting with certificate-based authentication...” message when
    connecting to a session enabled for certificate-based authentication.

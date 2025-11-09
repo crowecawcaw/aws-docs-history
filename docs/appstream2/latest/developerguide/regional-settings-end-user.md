@@ -1,12 +1,12 @@
 # Configure Regional Settings
 
-You can configure regional settings so that your AppStream 2.0 Windows streaming sessions use
+You can configure regional settings so that your WorkSpaces Applications Windows streaming sessions use
 settings that are specific to your location or language. Changes that you make during
 your streaming session are applied to future streaming sessions.
 
-###### To configure regional settings for your Windows AppStream 2.0 streaming sessions
+###### To configure regional settings for your Windows WorkSpaces Applications streaming sessions
 
-1.  In the top left of the AppStream 2.0 toolbar, choose the
+1.  In the top left of the WorkSpaces Applications toolbar, choose the
     **Settings** icon, and then choose **Regional
     settings**.
 2.  In the **Regional settings** dialog box, set the following
@@ -31,7 +31,7 @@ your streaming session are applied to future streaming sessions.
         	 option** in **Regional settings**,
         	 and choose a preferred time zone from the available list.
         * **Locale** (also known as culture) — Determines
-         how Windows displays numbers, currency, time, and dates. AppStream 2.0 supports
+         how Windows displays numbers, currency, time, and dates. WorkSpaces Applications supports
          the following locales: Chinese (Simplified and Traditional), Dutch,
          English, French, German, Italian, Japanese, Korean, Portuguese, Spanish,
          and Thai.

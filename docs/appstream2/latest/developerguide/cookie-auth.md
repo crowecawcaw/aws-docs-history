@@ -1,6 +1,6 @@
-# Cookie-Based Authentication in Amazon AppStream 2.0
+# Cookie-Based Authentication in Amazon WorkSpaces Applications
 
-AppStream 2.0 uses browser cookies to authenticate streaming sessions and allow users to
+WorkSpaces Applications uses browser cookies to authenticate streaming sessions and allow users to
 reconnect to an active session without re-entering their sign-in credentials every time.
 Authentication tokens are stored in browser cookies for every authentication scenario.
 While cookies are necessary for many online services, they can potentially be vulnerable
@@ -9,7 +9,7 @@ prevent cookie theft, such as implementing robust endpoint protection solutions 
 users' devices. Furthermore, to mitigate the potential impact in the event of cookie
 theft, we advise you to consider the following actions:
 
-- **Enforce single-session limit**: For your AppStream 2.0 Windows
+- **Enforce single-session limit**: For your WorkSpaces Applications Windows
   images, create a registry key under
   `HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management`
   with the name **max-concurrent-clients** set to 1 to only allow
@@ -33,21 +33,21 @@ theft, we advise you to consider the following actions:
     a configurable disconnect timeout period (in minutes). The disconnect
     timeout must be a number between 1 and 5760, with a default value of 15
     minutes. To prevent misuse of inactive sessions, we recommend setting a
-    short disconnect timeout. For more information, see [Create a Fleet in Amazon AppStream 2.0](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
+    short disconnect timeout. For more information, see [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
 
-- **Limit access to stream AppStream 2.0 applications to your IP
+- **Limit access to stream WorkSpaces Applications applications to your IP
   ranges**: We recommend that you implement IP-based IAM policies.
-  This ensures that AppStream 2.0 sessions can only be accessed from clients whose IP
+  This ensures that WorkSpaces Applications sessions can only be accessed from clients whose IP
   address belongs to an authorized IP range. All connection attempts initiated by
   a user whose client's IP address is outside an authorized range will be denied,
   even if they are presenting an otherwise valid authentication cookie
   (potentially stolen from a user). For more information, see [Limit access to stream Amazon AppStream 2.0 applications to your IP
   ranges](https://aws.amazon.com/blogs/desktop-and-application-streaming/limit-access-to-stream-amazon-appstream-2-0-applications-to-your-ip-ranges/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/limit-access-to-stream-amazon-appstream-2-0-applications-to-your-ip-ranges/").
 - **Add additional authentication**: To launch domain-joined
-  streaming instances, you can join your AppStream 2.0 Always-On and On-Demand Windows
+  streaming instances, you can join your WorkSpaces Applications Always-On and On-Demand Windows
   fleets and image builders to domains in Microsoft Active Directory, and use your
   existing Active Directory domains, either cloud-based or on-premises. After the
   initial SAML-based authentication, your users will be prompted to provide their
   domain credentials for additional authentication against the organizational
-  domain. For more information, see [Using Active Directory with AppStream 2.0](active-directory.md "active-directory.md").
+  domain. For more information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md").
   If you have any concerns or need help, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").

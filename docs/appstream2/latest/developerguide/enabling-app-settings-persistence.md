@@ -2,7 +2,7 @@
 
 Persistence
 
-Review the following topics to learn how to enable application settings persistence for your AppStream 2.0
+Review the following topics to learn how to enable application settings persistence for your WorkSpaces Applications
 users.
 
 ###### Contents

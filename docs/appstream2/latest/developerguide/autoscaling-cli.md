@@ -1,4 +1,4 @@
-# Managing Fleet Scaling Using the AWS CLI for Amazon AppStream 2.0
+# Managing Fleet Scaling Using the AWS CLI for Amazon WorkSpaces Applications
 
 You can set up and manage fleet scaling by using the AWS Command Line Interface (AWS CLI). For more
 advanced features such as setting up multiple scaling policies or setting scale-in and
@@ -227,7 +227,7 @@ connections at one time. To change your fleet capacity based on a schedule, you 
 use the Application Auto Scaling [PutScheduledAction](../../../autoscaling/application/APIReference/API_PutScheduledAction.md "../../../autoscaling/application/APIReference/API_PutScheduledAction.md") API action or the [put-scheduled-action](../../../cli/latest/reference/application-autoscaling/put-scheduled-action.md "../../../cli/latest/reference/application-autoscaling/put-scheduled-action.md") AWS CLI command.
 
 Before changing your fleet capacity, you can list your current fleet capacity by
-using the AppStream 2.0 [describe-fleets](../../../cli/latest/reference/appstream/describe-fleets.md "../../../cli/latest/reference/appstream/describe-fleets.md") AWS CLI command.
+using the WorkSpaces Applications [describe-fleets](../../../cli/latest/reference/appstream/describe-fleets.md "../../../cli/latest/reference/appstream/describe-fleets.md") AWS CLI command.
 
 ```
 aws appstream describe-fleets --name `fleetname`
@@ -313,7 +313,7 @@ specified target value. To ensure application availability, your fleet scales ou
 proportionally to the metric as fast as it can but scales in more gradually.
 
 The following [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") command defines a target tracking scaling policy
-that attempts to maintain 75% capacity utilization for an AppStream 2.0 fleet.
+that attempts to maintain 75% capacity utilization for an WorkSpaces Applications fleet.
 
 ```
 aws application-autoscaling put-scaling-policy --cli-input-json file://config.json

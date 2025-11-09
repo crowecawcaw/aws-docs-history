@@ -7,7 +7,7 @@ control to your VPC by specifying security groups.
 The following recommendations can help you configure your VPC more
 effectively and securely. In addition, they can help you configure an environment
 that supports effective fleet scaling. With effective fleet scaling, you can meet current and
-anticipated AppStream 2.0 user demand, while avoiding unecessary resource usage and associated costs.
+anticipated WorkSpaces Applications user demand, while avoiding unecessary resource usage and associated costs.
 
 **Overall VPC Configuration**
 
@@ -21,10 +21,10 @@ use, make sure that the number of fleet instances that your VPC can support
 is greater than the number of anticipated concurrent users for the same
 instance type.
 
-- Make sure that your AppStream 2.0 account quotas (also referred to as limits) are sufficient to
+- Make sure that your WorkSpaces Applications account quotas (also referred to as limits) are sufficient to
   support your anticipated demand. To request a quota increase, you can use
   the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). For information about
-  default AppStream 2.0 quotas, see [Amazon AppStream 2.0 Service Quotas](limits.md "limits.md").
+  default WorkSpaces Applications quotas, see [Amazon WorkSpaces Applications Service Quotas](limits.md "limits.md").
 - If you plan to provide your streaming instances (fleet instances, app block builder, or image
   builders) with access to the internet, we recommend that you configure a VPC
   with two private subnets for your streaming instances and a NAT gateway in a
@@ -39,7 +39,7 @@ configuration supports more than 100 fleet instances. For more information,
 see [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md").
 **Elastic Network Interfaces**
 
-- AppStream 2.0 creates as many [elastic network
+- WorkSpaces Applications creates as many [elastic network
   interfaces](../../../vpc/latest/userguide/VPC_ElasticNetworkInterfaces.md "../../../vpc/latest/userguide/VPC_ElasticNetworkInterfaces.md") (network interfaces) as the maximum desired capacity
   of your fleet. By default, the limit for network interfaces per Region is 5000.
 
@@ -51,7 +51,7 @@ used in the same Region.
 - If you are configuring more than one private subnet for your VPC,
   configure each in a different Availability Zone. Doing so increases fault
   tolerance and can help prevent insufficient capacity errors. If you use two
-  subnets in the same AZ, you might run out of IP addresses, because AppStream 2.0
+  subnets in the same AZ, you might run out of IP addresses, because WorkSpaces Applications
   will not use the second subnet.
 - Make sure that the network resources required for your applications are accessible through
   both of your private subnets.
@@ -61,17 +61,17 @@ used in the same Region.
   to account for anticipated growth. For more information, see [VPC and Subnet Sizing for IPv4](../../../vpc/latest/userguide/VPC_Subnets.md#vpc-sizing-ipv4 "../../../vpc/latest/userguide/VPC_Subnets.md#vpc-sizing-ipv4").
 - If you are using a VPC with NAT, configure at least one public subnet with a NAT Gateway for internet access, preferably two. Configure the public subnets in the same Availability Zones where your private subnets reside.
 
-To enhance fault tolerance and reduce the chance of insufficient capacity errors for large AppStream 2.0 fleet deployments, consider extending your VPC configuration into a third Availability Zone. Include a private subnet, public subnet, and NAT gateway in this additional Availability Zone.
+To enhance fault tolerance and reduce the chance of insufficient capacity errors for large WorkSpaces Applications fleet deployments, consider extending your VPC configuration into a third Availability Zone. Include a private subnet, public subnet, and NAT gateway in this additional Availability Zone.
 **Security Groups**
 
 - Use security groups to provide additional access control to your VPC.
 
 Security groups that belong to your VPC let you control the
-network traffic between AppStream 2.0 streaming instances and network resources
+network traffic between WorkSpaces Applications streaming instances and network resources
 required by applications. These resources may include other AWS services
 such as Amazon RDS or Amazon FSx, license servers, database servers, file servers, and application
 servers.
 
 - Make sure that the security groups provide access to the network resources that your applications require.
 
-For more information about configuring security groups for AppStream 2.0, see [Security Groups in Amazon AppStream 2.0](managing-network-security-groups.md "managing-network-security-groups.md"). For general information about security groups, see [Security Groups for Your VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the _Amazon VPC User Guide_.
+For more information about configuring security groups for WorkSpaces Applications, see [Security Groups in Amazon WorkSpaces Applications](managing-network-security-groups.md "managing-network-security-groups.md"). For general information about security groups, see [Security Groups for Your VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the _Amazon VPC User Guide_.

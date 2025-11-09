@@ -9,11 +9,11 @@ App blocks support two different types of packaging:
 
 - Custom - Choose this option to create your application package (VHD) manually.
   For more information, see [Custom App Blocks](custom-app-blocks.md "custom-app-blocks.md").
-- AppStream 2.0 - Choose this recommended option to create your application package
-  using app block builder. For more information, see [AppStream 2.0 App Blocks](appstream-app-blocks.md "appstream-app-blocks.md").
+- WorkSpaces Applications - Choose this recommended option to create your application package
+  using app block builder. For more information, see [WorkSpaces Applications App Blocks](appstream-app-blocks.md "appstream-app-blocks.md").
 
 ###### Contents
 
 - [Custom App Blocks](custom-app-blocks.md "custom-app-blocks.md")
-- [AppStream 2.0 App Blocks](appstream-app-blocks.md "appstream-app-blocks.md")
+- [WorkSpaces Applications App Blocks](appstream-app-blocks.md "appstream-app-blocks.md")
 - [Unsupported Applications](app-blocks-unsupported.md "app-blocks-unsupported.md")

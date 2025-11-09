@@ -1,14 +1,14 @@
 # Function Keys
 
-You can use keyboard shortcuts during AppStream 2.0 streaming sessions to enter
+You can use keyboard shortcuts during WorkSpaces Applications streaming sessions to enter
 special keystrokes or key combinations. To display a row of Windows-specific
 keys and keyboard shortcuts during your streaming session, choose the Fn icon
-(or the FN Keys on AppStream 2.0 web browser access v2). The Fn icon is displayed in
-the AppStream 2.0 toolbar in the top right of your session window.
+(or the FN Keys on WorkSpaces Applications web browser access v2). The Fn icon is displayed in
+the WorkSpaces Applications toolbar in the top right of your session window.
 
 ![Toolbar icons including grid, document, folder, and settings symbols with Fn highlighted.](images/AppStream-Fn-Key-1.png)
 Following is an example of how Windows-specific keys and keyboard shortcuts
-are displayed when you choose the Fn icon (or the FN Keys on AppStream 2.0 web browser
+are displayed when you choose the Fn icon (or the FN Keys on WorkSpaces Applications web browser
 access v2). If not all keys are displayed, you can scroll to the right or left
 on the shortcut toolbar to display more keys.
 

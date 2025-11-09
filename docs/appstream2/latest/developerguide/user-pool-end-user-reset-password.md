@@ -1,11 +1,11 @@
-# Resetting a Forgotten Password in Amazon AppStream 2.0
+# Resetting a Forgotten Password in Amazon WorkSpaces Applications
 
 If users forget their password, follow these steps to connect to the login portal
 link (provided in the welcome email) and choose a new password.
 
 ###### To choose a new password
 
-1. Open the AppStream 2.0 login portal by using the login link provided in the
+1. Open the WorkSpaces Applications login portal by using the login link provided in the
    welcome email.
 2. Choose **Forgot Password?**.
 3. Type the email address that you used to create the user in the user pool,

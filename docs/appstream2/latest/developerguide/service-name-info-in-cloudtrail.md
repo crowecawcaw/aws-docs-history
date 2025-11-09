@@ -1,12 +1,12 @@
-# AppStream 2.0 Information in CloudTrail
+# WorkSpaces Applications Information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When supported event
-activity occurs in AppStream 2.0, that activity is recorded in a CloudTrail event along with other
+activity occurs in WorkSpaces Applications, that activity is recorded in a CloudTrail event along with other
 AWS service events in **Event history**. You can view, search, and download
 recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event
 History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
 
-For an ongoing record of events in your AWS account, including events for AppStream 2.0,
+For an ongoing record of events in your AWS account, including events for WorkSpaces Applications,
 create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket.
 By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events
 from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you
@@ -20,7 +20,7 @@ the event data collected in CloudTrail logs. For more information, see the follo
   Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
 - [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail
   Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
-  AppStream 2.0 supports logging the following actions as events in CloudTrail log files:
+  WorkSpaces Applications supports logging the following actions as events in CloudTrail log files:
 
 - [AssociateFleet](../APIReference/API_AssociateFleet.md "../APIReference/API_AssociateFleet.md")
 - [BatchAssociateUserStack](../APIReference/API_BatchAssociateUserStack.md "../APIReference/API_BatchAssociateUserStack.md")

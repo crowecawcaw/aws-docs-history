@@ -1,6 +1,6 @@
-# AppStream 2.0 Usage Reports Fields
+# WorkSpaces Applications Usage Reports Fields
 
-This topic provides information about the fields included in AppStream 2.0 usage reports.
+This topic provides information about the fields included in WorkSpaces Applications usage reports.
 
 ###### Contents
 

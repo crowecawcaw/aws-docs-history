@@ -7,12 +7,12 @@ client version and client ID.
 
 Uploads
 
-To troubleshoot issues with the AppStream 2.0 client, you can enable diagnostic
-logging. The log files that are sent to AppStream 2.0 include detailed information
+To troubleshoot issues with the WorkSpaces Applications client, you can enable diagnostic
+logging. The log files that are sent to WorkSpaces Applications include detailed information
 about your device and connection to the AWS network. You can enable
-diagnostic log uploads before or during AppStream 2.0 streaming sessions, so these
-files are sent to AppStream 2.0 automatically. As a best practice, we recommend
-that you enable log upload to help the AppStream 2.0 team troubleshoot
+diagnostic log uploads before or during WorkSpaces Applications streaming sessions, so these
+files are sent to WorkSpaces Applications automatically. As a best practice, we recommend
+that you enable log upload to help the WorkSpaces Applications team troubleshoot
 issues.
 
 To enable file logging, follow these steps:
@@ -23,9 +23,9 @@ To enable file logging, follow these steps:
 2. Choose **Client Options** and **Client
    automatic logging**.
 
-## Collect Logs for AppStream 2.0 Client for macOS
+## Collect Logs for WorkSpaces Applications Client for macOS
 
-AppStream 2.0 logs can be used by your administrator to identify and troubleshoot
+WorkSpaces Applications logs can be used by your administrator to identify and troubleshoot
 configuration issues. They can also help enable AWS Support to diagnose
 and troubleshoot cases. To collect and share the logs, choose from the
 following options:
@@ -44,15 +44,15 @@ following options:
 
 ## Determine Client Version and Client ID
 
-If issues occur when you use the AppStream 2.0 client for macOS, your AppStream 2.0
+If issues occur when you use the WorkSpaces Applications client for macOS, your WorkSpaces Applications
 version number and client ID can help your administrator and AWS support
-team with troubleshooting. To find the version of the AppStream 2.0 client that you
-have installed, open the AppStream 2.0 client. On the system menu bar, choose
-**Amazon AppStream 2.0** and **About Amazon AppStream
-2.0**. The client version is displayed below the Amazon AppStream 2.0
+team with troubleshooting. To find the version of the WorkSpaces Applications client that you
+have installed, open the WorkSpaces Applications client. On the system menu bar, choose
+**Amazon WorkSpaces Applications** and **About Amazon AppStream
+2.0**. The client version is displayed below the Amazon WorkSpaces Applications
 logo.
 
-To find the client ID of the AppStream 2.0 client that you have installed, choose
-**Amazon AppStream 2.0** on the system menu bar, or navigate
+To find the client ID of the WorkSpaces Applications client that you have installed, choose
+**Amazon WorkSpaces Applications** on the system menu bar, or navigate
 to the top-right corner of the **Connect** page and choose
 **Client Option**.

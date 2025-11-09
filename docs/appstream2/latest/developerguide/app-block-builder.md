@@ -7,7 +7,7 @@ multiple app blocks one by one. Each time a streaming session is created for app
 builder for creating or testing an app block, a new instance is created and used. After the
 app block builder instance is terminated, the state of the instance is not persisted.
 
-AppStream 2.0 Elastic fleets use Amazon EC2 instances to stream applications. You must provide your
+WorkSpaces Applications Elastic fleets use Amazon EC2 instances to stream applications. You must provide your
 application package and associate it with your fleet. To create your own custom application
 packaging, connect to an app block builder instance, and then install and configure your
 applications for streaming. App block builder creates the packaging for your application and
@@ -15,7 +15,7 @@ uploads it to an Amazon S3 bucket in your AWS account.
 
 When you create an app block builder, you choose the following:
 
-- An instance type — AppStream 2.0 provides different instance sizes with various CPU and
+- An instance type — WorkSpaces Applications provides different instance sizes with various CPU and
   memory configurations. The instance type must align with the instance family you
   need.
 - The VPC, subnets, and security groups to use — Make sure that the subnets and
@@ -31,5 +31,5 @@ When you create an app block builder, you choose the following:
 
 - [Create an App Block Builder](create-app-block-builder.md "create-app-block-builder.md")
 - [Connect to an App Block Builder in
-  Amazon AppStream 2.0](connect-app-block-builder.md "connect-app-block-builder.md")
+  Amazon WorkSpaces Applications](connect-app-block-builder.md "connect-app-block-builder.md")
 - [App Block Builder Actions](app-block-builder-actions.md "app-block-builder-actions.md")

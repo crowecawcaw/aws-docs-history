@@ -5,8 +5,8 @@
 OneDrive for Business is currently not supported for Linux-based streaming
 instances.
 
-If your AppStream 2.0 administrator has enabled this file storage option, you can add
-your OneDrive account to AppStream 2.0. After you add your account and sign in to an AppStream 2.0
+If your WorkSpaces Applications administrator has enabled this file storage option, you can add
+your OneDrive account to WorkSpaces Applications. After you add your account and sign in to an WorkSpaces Applications
 streaming session, you can do the following in OneDrive:
 
 - Open and edit files and folders that you store in OneDrive. Other users
@@ -24,14 +24,14 @@ streaming session, you can do the following in OneDrive:
   the application and browse to the location in OneDrive where you want to
   save the file.
 - You can also access OneDrive by choosing **My Files**
-  from the top left of the AppStream 2.0 toolbar.
+  from the top left of the WorkSpaces Applications toolbar.
 
-###### To add your OneDrive account to AppStream 2.0
+###### To add your OneDrive account to WorkSpaces Applications
 
-To access your OneDrive during AppStream 2.0 streaming sessions, you must first add
-your OneDrive account to AppStream 2.0.
+To access your OneDrive during WorkSpaces Applications streaming sessions, you must first add
+your OneDrive account to WorkSpaces Applications.
 
-1. In the top left of the AppStream 2.0 toolbar, choose the **My
+1. In the top left of the WorkSpaces Applications toolbar, choose the **My
    Files** icon.
 2. In the **My Files** dialog box, choose **Add
    Storage**.
@@ -41,8 +41,8 @@ your OneDrive account to AppStream 2.0.
 ![OneDrive option highlighted in cloud storage selection menu.](images/AddOneDrive1.png) 4. Under **Login accounts**, choose the domain for your
 OneDrive account.
 
-![Dropdown menu showing login account options with example.com highlighted.](/images/appstream2/latest/developerguide/images/LoginAccounts.png) 5. In the **Sign in** dialog box, enter the sign-in
-credentials for your account. 6. After your OneDrive account is added to AppStream 2.0, your OneDrive folder is
+![Dropdown menu showing login account options with example.com highlighted.](images/LoginAccounts.png) 5. In the **Sign in** dialog box, enter the sign-in
+credentials for your account. 6. After your OneDrive account is added to WorkSpaces Applications, your OneDrive folder is
 displayed in **My Files**.
 
 ![File explorer window showing OneDrive folder added to My Files with last modified date.](images/AddOneDrive2.png) 7. To work with your files and folders in OneDrive, choose the
@@ -54,7 +54,7 @@ streaming session, close the **My Files** dialog box.
 
 OneDrive
 
-1. In the top left of the AppStream 2.0 toolbar, choose the **My
+1. In the top left of the WorkSpaces Applications toolbar, choose the **My
    Files** icon.
 2. In the **My Files** dialog box, choose
    **OneDrive**.
@@ -69,14 +69,14 @@ OneDrive
 
    ![File management interface showing PDF file with options to upload, download, and rename.](/images/appstream2/latest/developerguide/images/GoogleDrive_FileUploadDownload.png)
 
-###### To remove OneDrive permissions from AppStream 2.0
+###### To remove OneDrive permissions from WorkSpaces Applications
 
-If you no longer want to use OneDrive during your AppStream 2.0 streaming sessions,
-follow these steps to remove OneDrive permissions from AppStream 2.0.
+If you no longer want to use OneDrive during your WorkSpaces Applications streaming sessions,
+follow these steps to remove OneDrive permissions from WorkSpaces Applications.
 
 ###### Note
 
-You can restore these permissions at any time during an AppStream 2.0 streaming
+You can restore these permissions at any time during an WorkSpaces Applications streaming
 session.
 
 1. Sign in to Office 365 or OneDrive for Business.
@@ -85,5 +85,5 @@ session.
 3. On the account dashboard page, in **App permissions**,
    choose **Change app permissions**.
 4. On the **App permissions** page, under
-   **Amazon AppStream 2.0**, choose
+   **Amazon WorkSpaces Applications**, choose
    **Revoke**.

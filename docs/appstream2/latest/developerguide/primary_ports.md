@@ -1,4 +1,4 @@
-# Customer Network Interface Ports in Amazon AppStream 2.0
+# Customer Network Interface Ports in Amazon WorkSpaces Applications
 
 Follow the guidance below for customer network interface ports.
 
@@ -11,7 +11,7 @@ Follow the guidance below for customer network interface ports.
   - UDP 8433
 
 - If you join your streaming instances to a directory, the following ports must be
-  open between your AppStream 2.0 VPC and your directory controllers.
+  open between your WorkSpaces Applications VPC and your directory controllers.
 
       + TCP/UDP 53 - DNS
       + TCP/UDP 88 - Kerberos authentication
@@ -29,5 +29,5 @@ Follow the guidance below for customer network interface ports.
 - All streaming instances require that port 80 (HTTP) be open to IP address
   `169.254.169.254` to allow access to the EC2 metadata
   service. The IP address range `169.254.0.0/16` is reserved for
-  AppStream 2.0 service usage for management traffic. Failure to exclude this range
+  WorkSpaces Applications service usage for management traffic. Failure to exclude this range
   might result in streaming issues.

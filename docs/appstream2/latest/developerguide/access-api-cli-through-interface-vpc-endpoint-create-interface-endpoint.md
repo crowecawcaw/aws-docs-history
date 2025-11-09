@@ -1,4 +1,4 @@
-# Create an Interface Endpoint to Access AppStream 2.0 API Operations and CLI Commands
+# Create an Interface Endpoint to Access WorkSpaces Applications API Operations and CLI Commands
 
 Perform the following steps to create an interface endpoint.
 
