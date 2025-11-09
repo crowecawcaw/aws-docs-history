@@ -12,8 +12,8 @@ services have features which allow you to enable encryption with minimal effort 
 performance impact. There are encryption options available for the database and SAP
 application layer that you can consider.
 
-| ID       | Priority           | Best Practice                                                   |
-| -------- | ------------------ | --------------------------------------------------------------- |
-| ☐ BP 8.1 | Highly Recommended | Encrypt data at rest                                            |
-| ☐ BP 8.2 | Highly Recommended | Encrypt data in transit                                         |
-| ☐ BP 8.3 | Highly Recommended | Secure your data recovery mechanisms to protect against threats |
+| ID       | Priority           | Best Practice                                                      |
+| -------- | ------------------ | ------------------------------------------------------------------ |
+| ☐ BP 8.1 | Highly Recommended | Encrypt data at rest                                               |
+| ☐ BP 8.2 | Highly Recommended | Encrypt data in transit                                            |
+| ☐ BP 8.3 | Highly Recommended | Secure your data recovery mechanisms to protect against<br>threats |

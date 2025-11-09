@@ -10,9 +10,9 @@ SAP workload can be evaluated. Some standards are mandatory to ensure compliance
 regulatory requirements, while others are optional but help with establishing roles and
 responsibilities.
 
-| ID       | Priority           | Best Practice                                                                         |
-| -------- | ------------------ | ------------------------------------------------------------------------------------- |
-| ☐ BP 5.1 | Required           | Define security roles and responsibilities                                            |
-| ☐ BP 5.2 | Highly Recommended | Classify the data within your SAP workloads                                           |
-| ☐ BP 5.3 | Highly Recommended | Determine the required security controls based on application and data classification |
-| ☐ BP 5.4 | Highly Recommended | Create a strategy for managing security controls                                      |
+| ID       | Priority           | Best Practice                                                                            |
+| -------- | ------------------ | ---------------------------------------------------------------------------------------- |
+| ☐ BP 5.1 | Required           | Define security roles and responsibilities                                               |
+| ☐ BP 5.2 | Highly Recommended | Classify the data within your SAP workloads                                              |
+| ☐ BP 5.3 | Highly Recommended | Determine the required security controls based on<br>application and data classification |
+| ☐ BP 5.4 | Highly Recommended | Create a strategy for managing security controls                                         |

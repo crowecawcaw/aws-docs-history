@@ -14,14 +14,62 @@ your business requirements. The following are examples of failure scenarios whic
 used to guide your analysis. Granularity and coverage of the scenarios, classification and
 impact will vary depending on your requirements and architecture.
 
-| Failure Scenario Examples                                                                                    | Comparative Risk of Occurrence |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Planned / Controlled Maintenance                                                                             | Planned                        |
-| Resource exhausted or compromised (High CPU utilization / File system full / Out of memory / Storage issues) | Medium                         |
-| Distributed stateless component failure (for example, web dispatchers)                                       | Medium                         |
-| Distributed stateful component failure (for example, application servers)                                    | Medium                         |
-| Single point of failure (Database / SAP Central Services)                                                    | Medium                         |
-| AZ / Network failure                                                                                         | Low                            |
-| Core service failure (DNS / Amazon EFS / API calls)                                                          | Low / Medium                   |
-| Corruption / Accidental deletion / Malicious activities / Faulty code deployment                             | Low                            |
-| Region failure                                                                                               | Very Low                       | **Suggestion 11.4.2 – Define a set of test cases to simulate critical failures** You should have a complete set of tests defined to simulate the critical failure scenarios that would impact your SAP workload. You should be aware that for some failure scenarios a simulation might not fully represent the actual failure that would occur. For example, to simulate a hardware issue, you cannot cause a failure of an EC2 instance, but for Nitro-based instances you can generate a kernel panic to cause the instance to reboot. In addition, [AWS Fault Injection Simulation](https://aws.amazon.com/fis/ "https://aws.amazon.com/fis/") is designed to help simulate failures within your AWS resources. <br>• AWS Documentation: [High Availability Configuration Guide for SAP on HANA](../../../sap/latest/sap-hana/sap-hana-on-aws-ha-configuration.md "../../../sap/latest/sap-hana/sap-hana-on-aws-ha-configuration.md") <br>• AWS Documentation: [Send a diagnostic interrupt](../../../AWSEC2/latest/UserGuide/diagnostic-interrupt.md#diagnostic-interrupt-prereqs "../../../AWSEC2/latest/UserGuide/diagnostic-interrupt.md#diagnostic-interrupt-prereqs") **Suggestion 11.4.3 – Define the expected behavior for each test case** You should have a documented set of expected outcomes to baseline your testing. **Suggestion 11.4.4 – Define an approach for evaluating the impact of a change and the subsequent testing required** You should have an approach defined to evaluate the impact of a change on your environment and the testing required as part of that change to help ensure that it does not invalidate your approach to availability and reliability. Examples of these types of changes include software upgrades, patches, and parameter changes. **Suggestion 11.4.5 – Define a test schedule** Ensure that you have a test schedule that covers the initial implementation, testing of changes, and periodic validation of your environment. **Suggestion 11.4.6 – Review the testing outcomes** Based on the test outcomes, identify any improvements to the test cases, configuration or architecture. **Suggestion 11.4.7 – Define the required activities to return to a pre-test state** As part of each test, you should define the required activities to return to the pre-test state. This is to ensure that each test case is isolated from other tests and that the testing does not impact the availability and reliability of a production system. |
+| Failure Scenario Examples                                                                                       | Comparative Risk of Occurrence |
+| --------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| Planned / Controlled Maintenance                                                                                | Planned                        |
+| Resource exhausted or compromised (High CPU utilization /<br>File system full / Out of memory / Storage issues) | Medium                         |
+| Distributed stateless component failure (for example, web<br>dispatchers)                                       | Medium                         |
+| Distributed stateful component failure (for example,<br>application servers)                                    | Medium                         |
+| Single point of failure (Database / SAP Central<br>Services)                                                    | Medium                         |
+| AZ / Network failure                                                                                            | Low                            |
+| Core service failure (DNS / Amazon EFS / API<br>calls)                                                          | Low / Medium                   |
+| Corruption / Accidental deletion / Malicious activities /<br>Faulty code deployment                             | Low                            |
+| Region failure                                                                                                  | Very Low                       |
+
+**Suggestion 11.4.2 – Define a set of test cases to simulate critical
+failures**
+
+You should have a complete set of tests defined to simulate the critical failure
+scenarios that would impact your SAP workload.
+
+You should be aware that for some failure scenarios a simulation might not fully
+represent the actual failure that would occur. For example, to simulate a hardware issue,
+you cannot cause a failure of an EC2 instance, but for Nitro-based instances you can
+generate a kernel panic to cause the instance to reboot.
+
+In addition, [AWS Fault Injection
+Simulation](https://aws.amazon.com/fis/ "https://aws.amazon.com/fis/") is designed to help simulate failures within your AWS resources.
+
+- AWS Documentation: [High Availability Configuration Guide for SAP on HANA](../../../sap/latest/sap-hana/sap-hana-on-aws-ha-configuration.md "../../../sap/latest/sap-hana/sap-hana-on-aws-ha-configuration.md")
+- AWS Documentation: [Send a diagnostic interrupt](../../../AWSEC2/latest/UserGuide/diagnostic-interrupt.md#diagnostic-interrupt-prereqs "../../../AWSEC2/latest/UserGuide/diagnostic-interrupt.md#diagnostic-interrupt-prereqs")
+
+**Suggestion 11.4.3 – Define the expected behavior for each test
+case**
+
+You should have a documented set of expected outcomes to baseline your testing.
+
+**Suggestion 11.4.4 – Define an approach for evaluating the impact of
+a change and the subsequent testing required**
+
+You should have an approach defined to evaluate the impact of a change on your
+environment and the testing required as part of that change to help ensure that it does
+not invalidate your approach to availability and reliability. Examples of these types of
+changes include software upgrades, patches, and parameter changes.
+
+**Suggestion 11.4.5 – Define a test schedule**
+
+Ensure that you have a test schedule that covers the initial implementation, testing
+of changes, and periodic validation of your environment.
+
+**Suggestion 11.4.6 – Review the testing outcomes**
+
+Based on the test outcomes, identify any improvements to the test cases, configuration
+or architecture.
+
+**Suggestion 11.4.7 – Define the required activities to return to a
+pre-test state**
+
+As part of each test, you should define the required activities to return to the
+pre-test state. This is to ensure that each test case is isolated from other tests and
+that the testing does not impact the availability and reliability of a production
+system.

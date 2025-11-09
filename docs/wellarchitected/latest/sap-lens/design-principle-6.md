@@ -15,9 +15,17 @@ of the cloud” activities for which AWS is responsible, while operating system 
 application management for those same EC2 instances are “security in the cloud” activities
 for which you are responsible.
 
-| ID       | Priority | Best Practice                                                           |
-| -------- | -------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ☐ BP 6.1 | Required | Ensure that security and auditing are built into the SAP network design |
-| ☐ BP 6.2 | Required | Build and protect the operating system                                  |
-| ☐ BP 6.3 | Required | Protect the database and the application                                |
-| ☐ BP 6.4 | Required | Establish a plan for upgrading and patching all applicable software     | For more details, refer to the following information: <br>• AWS Documentation: [Best practices for Security, Identity, & Compliance](https://aws.amazon.com/architecture/security-identity-compliance/ "https://aws.amazon.com/architecture/security-identity-compliance/") <br>• SAP Note: [2191528 - Third-party report showing security vulnerabilities](https://launchpad.support.sap.com/#/notes/2191528 "https://launchpad.support.sap.com/#/notes/2191528") [Requires SAP Portal Access] <br>• SAP Documentation: [ABAP Platform Security Guide](https://help.sap.com/viewer/621bb4e3951b4a8ca633ca7ed1c0aba2/LATEST/en-US/4aaf6fd65e233893e10000000a42189c.html "https://help.sap.com/viewer/621bb4e3951b4a8ca633ca7ed1c0aba2/LATEST/en-US/4aaf6fd65e233893e10000000a42189c.html") |
+| ID       | Priority | Best Practice                                                              |
+| -------- | -------- | -------------------------------------------------------------------------- |
+| ☐ BP 6.1 | Required | Ensure that security and auditing are built into the SAP<br>network design |
+| ☐ BP 6.2 | Required | Build and protect the operating system                                     |
+| ☐ BP 6.3 | Required | Protect the database and the application                                   |
+| ☐ BP 6.4 | Required | Establish a plan for upgrading and patching all applicable<br>software     |
+
+For more details, refer to the following information:
+
+- AWS Documentation: [Best practices for Security, Identity, & Compliance](https://aws.amazon.com/architecture/security-identity-compliance/ "https://aws.amazon.com/architecture/security-identity-compliance/")
+- SAP Note: [2191528 -
+  Third-party report showing security vulnerabilities](https://launchpad.support.sap.com/#/notes/2191528 "https://launchpad.support.sap.com/#/notes/2191528") [Requires SAP Portal
+  Access]
+- SAP Documentation: [ABAP Platform Security Guide](https://help.sap.com/viewer/621bb4e3951b4a8ca633ca7ed1c0aba2/LATEST/en-US/4aaf6fd65e233893e10000000a42189c.html "https://help.sap.com/viewer/621bb4e3951b4a8ca633ca7ed1c0aba2/LATEST/en-US/4aaf6fd65e233893e10000000a42189c.html")

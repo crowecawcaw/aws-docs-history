@@ -7,11 +7,21 @@ workload?** Evaluate the operational readiness of your [workload](../userguide/w
 risks related to your [workload](../userguide/workloads.md "../userguide/workloads.md"). Create runbooks for common operations, playbooks for issues and
 automate as many operations as possible to improve resilience and reduce errors.
 
-| ID       | Priority           | Best Practice                                                          |
-| -------- | ------------------ | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ☐ BP 3.1 | Required           | Ensure personnel capability                                            |
-| ☐ BP 3.2 | Required           | Ensure your cloud operating model matches your operational aims        |
-| ☐ BP 3.3 | Required           | Share design standards and educate new support personnel in procedures |
-| ☐ BP 3.4 | Required           | Use runbooks to perform SAP landscape operations                       |
-| ☐ BP 3.5 | Required           | Use playbooks to investigate issues                                    |
-| ☐ BP 3.6 | Highly Recommended | Use automation to perform SAP landscape operations                     | For more details, see the following links and information: <br>• AWS Whitepaper: [AWS Cloud Operating Model](../../../whitepapers/latest/building-cloud-operating-model/building-cloud-operating-model.md "../../../whitepapers/latest/building-cloud-operating-model/building-cloud-operating-model.md") <br>• AWS Service: [AWS Cloud Adoption Framework (AWS CAF)](https://aws.amazon.com/professional-services/CAF/ "https://aws.amazon.com/professional-services/CAF/") <br>• AWS Service: [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") <br>• AWS Service: [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/") <br>• AWS Documentation: [AWS Systems Manager Features](https://aws.amazon.com/systems-manager/features/ "https://aws.amazon.com/systems-manager/features/") <br>• SAP on AWS Blog: [DevOps for SAP – Driving Innovation and Lowering Costs](https://aws.amazon.com/blogs/awsforsap/devops-for-sap-driving-innovation-and-lowering-costs/ "https://aws.amazon.com/blogs/awsforsap/devops-for-sap-driving-innovation-and-lowering-costs/") |
+| ID       | Priority           | Best Practice                                                             |
+| -------- | ------------------ | ------------------------------------------------------------------------- |
+| ☐ BP 3.1 | Required           | Ensure personnel capability                                               |
+| ☐ BP 3.2 | Required           | Ensure your cloud operating model matches your operational<br>aims        |
+| ☐ BP 3.3 | Required           | Share design standards and educate new support personnel in<br>procedures |
+| ☐ BP 3.4 | Required           | Use runbooks to perform SAP landscape operations                          |
+| ☐ BP 3.5 | Required           | Use playbooks to investigate issues                                       |
+| ☐ BP 3.6 | Highly Recommended | Use automation to perform SAP landscape operations                        |
+
+For more details, see the following links and information:
+
+- AWS Whitepaper: [AWS Cloud Operating Model](../../../whitepapers/latest/building-cloud-operating-model/building-cloud-operating-model.md "../../../whitepapers/latest/building-cloud-operating-model/building-cloud-operating-model.md")
+- AWS Service: [AWS Cloud Adoption Framework (AWS CAF)](https://aws.amazon.com/professional-services/CAF/ "https://aws.amazon.com/professional-services/CAF/")
+- AWS Service: [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
+- AWS Service: [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/")
+- AWS Documentation: [AWS
+  Systems Manager Features](https://aws.amazon.com/systems-manager/features/ "https://aws.amazon.com/systems-manager/features/")
+- SAP on AWS Blog: [DevOps for SAP – Driving Innovation and Lowering Costs](https://aws.amazon.com/blogs/awsforsap/devops-for-sap-driving-innovation-and-lowering-costs/ "https://aws.amazon.com/blogs/awsforsap/devops-for-sap-driving-innovation-and-lowering-costs/")

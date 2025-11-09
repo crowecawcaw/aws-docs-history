@@ -22,8 +22,37 @@ for required changes.
 - SAP Documentation: [SAP Security News](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html "https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html")
 
 | Operating System             | Guidance                                                                                                                                                                   |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SUSE Linux Enterprise Server | [SUSE Update Advisories](https://www.suse.com/support/update/ "https://www.suse.com/support/update/")                                                                      |
-| Red Hat Enterprise Linux     | [Red Hat Security Advisories](https://access.redhat.com/security/security-updates/#/ "https://access.redhat.com/security/security-updates/#/")                             |
+| Red Hat Enterprise Linux     | [Red Hat<br>Security Advisories](https://access.redhat.com/security/security-updates/#/ "https://access.redhat.com/security/security-updates/#/")                          |
 | Microsoft Windows            | [Microsoft Security Alerts](https://www.microsoft.com/en-us/msrc/technical-security-notifications "https://www.microsoft.com/en-us/msrc/technical-security-notifications") |
-| Oracle Enterprise Linux      | [Oracle Security Alerts](https://www.oracle.com/security-alerts/ "https://www.oracle.com/security-alerts/")                                                                | **Suggestion 6.4.2 – Review the recommended changes and risk to your business and implementation effort** SAP teams must learn to balance the need for system uptime with the criticality of system changes that have been recommended to improve SAP security. Failure to do so can introduce unnecessary risks such as service interruptions, financial impact, or lost productivity. Review the recommended changes and implementation steps to fix vulnerabilities from your vendors and plan to implement them promptly. This directly relates to the Operational Excellence best practices discussed in this Lens, particularly the creation of runbooks for security. <br>• SAP Lens [Operational Excellence]: [Suggestion 3.4.1 - Create specific runbooks for SAP security operations](best-practice-3-4.md "best-practice-3-4.md") **Suggestion 6.4.3 – Establish a plan to address vulnerabilities in a timely manner** Applying new SAP security recommendations and security-related patches as quickly as possible is paramount both for AWS based SAP solutions and those installed elsewhere. Regularly review the [SAP Security Notes and News](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html "https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html"), and create a process to remediate security issues quickly with the patches, notes, and recommendations found there. In some cases, SAP administrators may also have to put in temporary mitigation or control measures until the underlying vulnerability can be addressed. Also follow the Security Pillar recommendations around incident response. <br>• Well-Architected Framework [Security]: [Incident Response](../security-pillar/incident-response.md "../security-pillar/incident-response.md") <br>• SAP Documentation: [SAP Security Notes and News](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html "https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html") |
+| Oracle Enterprise Linux      | [Oracle Security<br>Alerts](https://www.oracle.com/security-alerts/ "https://www.oracle.com/security-alerts/")                                                             |
+
+**Suggestion 6.4.2 – Review the recommended changes and risk to your
+business and implementation effort**
+
+SAP teams must learn to balance the need for system uptime with the criticality of
+system changes that have been recommended to improve SAP security. Failure to do so can
+introduce unnecessary risks such as service interruptions, financial impact, or lost
+productivity. Review the recommended changes and implementation steps to fix
+vulnerabilities from your vendors and plan to implement them promptly. This directly
+relates to the Operational Excellence best practices discussed in this Lens, particularly
+the creation of runbooks for security.
+
+- SAP Lens [Operational Excellence]: [Suggestion
+  3.4.1 - Create specific runbooks for SAP security operations](best-practice-3-4.md "best-practice-3-4.md")
+
+**Suggestion 6.4.3 – Establish a plan to address vulnerabilities in a
+timely manner**
+
+Applying new SAP security recommendations and security-related patches as quickly as
+possible is paramount both for AWS based SAP solutions and those installed elsewhere.
+Regularly review the [SAP
+Security Notes and News](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html "https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html"), and create a process to remediate security issues quickly
+with the patches, notes, and recommendations found there. In some cases, SAP administrators
+may also have to put in temporary mitigation or control measures until the underlying
+vulnerability can be addressed. Also follow the Security Pillar recommendations around
+incident response.
+
+- Well-Architected Framework [Security]: [Incident Response](../security-pillar/incident-response.md "../security-pillar/incident-response.md")
+- SAP Documentation: [SAP Security Notes and News](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html "https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html")

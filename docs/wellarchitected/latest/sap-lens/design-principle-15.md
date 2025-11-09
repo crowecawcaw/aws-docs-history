@@ -10,9 +10,9 @@ performance excellence in a single document. With that in mind, the following gu
 should be applicable to the majority of SAP use cases, and we will call out specific focus
 areas where applicable.
 
-| ID        | Priority           | Best Practice                                                     |
-| --------- | ------------------ | ----------------------------------------------------------------- |
-| ☐ BP 15.1 | Required           | Follow operating system guidelines for SAP performance            |
-| ☐ BP 15.2 | Highly Recommended | Modify database parameters to align with hardware selection       |
-| ☐ BP 15.3 | Highly Recommended | Modify SAP parameters to align with hardware selection            |
-| ☐ BP 15.4 | Recommended        | Consider performance tuning for recovery and availability options |
+| ID        | Priority           | Best Practice                                                        |
+| --------- | ------------------ | -------------------------------------------------------------------- |
+| ☐ BP 15.1 | Required           | Follow operating system guidelines for SAP<br>performance            |
+| ☐ BP 15.2 | Highly Recommended | Modify database parameters to align with hardware<br>selection       |
+| ☐ BP 15.3 | Highly Recommended | Modify SAP parameters to align with hardware<br>selection            |
+| ☐ BP 15.4 | Recommended        | Consider performance tuning for recovery and availability<br>options |

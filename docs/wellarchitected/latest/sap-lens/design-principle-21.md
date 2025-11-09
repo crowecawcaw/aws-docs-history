@@ -12,11 +12,18 @@ to prioritize sustainability over performance goals. In addition, stakeholders s
 encourage the adoption of iterative code development practices that optimize for energy
 efficiency over time. 
 
-| **ID**
-| **Priority**
-| **Best Practice**
-|
-| --- | --- | --- |
-| ☐ BP 21.1 | Required | Understand business requirements to make sustainability-centric design decisions |
-| ☐ BP 21.2 | Required | Implement sustainability improvements for infrastructure and SAP |
-| ☐ BP 21.3 | Required | Implement sustainability monitoring for infrastructure and SAP | <br>• SAP Lens [Cost Optimization]: [Best Practice 17.3 – Understand business requirements to make cost-optimized design decisions per environment](best-practice-17-3.md "best-practice-17-3.md") <br>• Well-Architected Framework [Sustainability]: [Use the minimum amount of hardware to meet your needs](../sustainability-pillar/use-the-minimum-amount-of-hardware-to-meet-your-needs.md "../sustainability-pillar/use-the-minimum-amount-of-hardware-to-meet-your-needs.md") <br>• Well-Architected Framework [Sustainability]: [Development and deployment process](../sustainability-pillar/development-and-deployment-process.md "../sustainability-pillar/development-and-deployment-process.md")
+| **ID**    | **Priority** | **Best Practice**                                                                   |
+| --------- | ------------ | ----------------------------------------------------------------------------------- |
+| ☐ BP 21.1 | Required     | Understand business requirements to make<br>sustainability-centric design decisions |
+| ☐ BP 21.2 | Required     | Implement sustainability improvements for infrastructure<br>and SAP                 |
+| ☐ BP 21.3 | Required     | Implement sustainability monitoring for infrastructure<br>and SAP                   |
+
+- SAP Lens [Cost Optimization]: [Best Practice 17.3
+  – Understand business requirements to make cost-optimized design decisions per
+  environment](best-practice-17-3.md "best-practice-17-3.md")
+- Well-Architected Framework [Sustainability]:
+  [Use
+  the minimum amount of hardware to meet your needs](../sustainability-pillar/use-the-minimum-amount-of-hardware-to-meet-your-needs.md "../sustainability-pillar/use-the-minimum-amount-of-hardware-to-meet-your-needs.md")
+- Well-Architected Framework [Sustainability]:
+  [Development
+  and deployment process](../sustainability-pillar/development-and-deployment-process.md "../sustainability-pillar/development-and-deployment-process.md")
