@@ -1,6 +1,6 @@
 # ICD-10-CM linking
 
-Use InferICD10CM to detect possible medical conditions as entities and link them to codes from the 2025 version of the [International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM)](https://www.cdc.gov/nchs/icd/icd-10-cm/?CDC_AAref_Val=https://www.cdc.gov/nchs/icd/icd-10-cm.htm "https://www.cdc.gov/nchs/icd/icd-10-cm/?CDC_AAref_Val=https://www.cdc.gov/nchs/icd/icd-10-cm.htm"). The ICD-10-CM is provided by the US Centers for Disease Control and Prevention (CDC).
+Use InferICD10CM to detect possible medical conditions as entities and link them to codes from the 2026 version of the [International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM)](https://www.cdc.gov/nchs/icd/icd-10-cm/?CDC_AAref_Val=https://www.cdc.gov/nchs/icd/icd-10-cm.htm "https://www.cdc.gov/nchs/icd/icd-10-cm/?CDC_AAref_Val=https://www.cdc.gov/nchs/icd/icd-10-cm.htm"). The ICD-10-CM is provided by the US Centers for Disease Control and Prevention (CDC).
 
 When medical conditions are detected, `InferICD10CM` returns the matching ICD-10-CM codes and descriptions. The detected conditions are listed in descending order of confidence. The scores indicate the confidence in the accuracy of the entities matched to the concepts found in the text. Related information such as family history, signs, symptoms, and negation are recognized as traits. Additional information such as anatomical designations and acuity are listed as attributes.
 
@@ -128,7 +128,7 @@ The `InferICD10CM` operation returns the following output in JSON format (abbrev
             ]
         }
 ...
-    "ModelVersion": "3.1.0.20250401"
+    "ModelVersion": "3.2.0.20251001"
 }
 
 ```

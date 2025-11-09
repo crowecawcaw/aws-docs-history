@@ -416,7 +416,7 @@ The `InferSNOMEDCT` operation returns the following output in JSON format.
     "Characters": {
         "OriginalTextCharacters": 59
     },
-    "ModelVersion": "3.1.0.20220301"
+    "ModelVersion": "3.2.0.20220301"
 }
 
 ```

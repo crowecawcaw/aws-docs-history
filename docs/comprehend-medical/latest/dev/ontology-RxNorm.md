@@ -102,7 +102,7 @@ The `InferRxNorm` operation returns the following output in JSON format:
             ]
         }
     ],
-    "ModelVersion": "3.1.0.20221107"
+    "ModelVersion": "3.2.0.20221107"
 }
 ```
 
@@ -161,6 +161,6 @@ The `InferRxNorm` operation returns the following output in JSON format:
             ]
         }
     ],
-    "ModelVersion": "3.1.0.20221107"
+    "ModelVersion": "3.2.0.20221107"
 }
 ```
