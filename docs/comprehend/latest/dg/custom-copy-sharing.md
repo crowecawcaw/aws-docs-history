@@ -249,8 +249,99 @@ You can use Amazon Comprehend in the AWS Management Console.
    2. Under **Authorize**, specify one or more of the following
       entities to authorize them to import your model:
 
-| Field                  | Definition and examples                                                                                                                                             |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Service principals** | Service principal identifiers for the services that can access this model version. For example: **comprehend.amazonaws.com**                                        |
-| **AWS account IDs**    | AWS accounts that can access this model version. Authorizes all users who belong to the account. For example: **111122223333**, **123456789012**                    |
-| **IAM entities**       | ARNs for users or roles that can access this model version. For example: **arn:aws:iam::111122223333:user/ExampleUser, arn:aws:iam::444455556666:role/ExampleRole** | 8. Under **Share**, you can copy the ARN of the model version to help you share it with the person who will import your model. When someone imports a custom model from a different AWS account, the model version ARN is required. 9. Choose **Save**. Amazon Comprehend creates your resource-based policy and attaches it to your model. To add a resource-based policy to a custom model with the AWS CLI, use the [PutResourcePolicy](API_PutResourcePolicy.md "API_PutResourcePolicy.md") command. The command takes the following parameters: <br>• `resource-arn` – The ARN of the custom model, including the model version. <br>• `resource-policy` – A JSON file that defines the resource-based policy to attach to your custom model. You can also provide the policy as an inline JSON string. To provide valid JSON for your policy, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, you escape the double quotes that are inside the policy. <br>• `policy-revision-id` – The revision ID that Amazon Comprehend assigned to the policy that you are updating. If you are creating a new policy that has no prior version, don't use this parameter. Amazon Comprehend creates the revision ID for you. ###### Example Add a resource-based policy to a custom model using the `put-resource-policy` command This example defines a policy in a JSON file named **policyFile.json** and associates the policy to a model. The model is version **v2** of a classifier named **mycf1**. ``` `$` `aws comprehend put-resource-policy \` `>` `--resource-arn `arn:aws:comprehend:us-west-2:111122223333:document-classifier/mycf1/version/v2` \` `>` `--resource-policy file://`policyFile.json` \` `>` `--policy-revision-id `revision-id`` ``` The JSON file for the resource policy contains the following contents: <br>• _Action_ – The policy authorizes the named principals to use `comprehend:ImportModel`. <br>• _Resource_ – The ARN of the custom model. Resource "\*" refers to the model version that you specify in the `put-resource-policy` command. <br>• _Principal_ – The policy authorizes user `jane` from AWS account 444455556666 and all users from AWS account 123456789012. JSON `` `{ "Version":"2012-10-17", "Statement":[ {"Sid":"ResourcePolicyForImportModel", "Effect":"Allow", "Action":["comprehend:ImportModel"], "Resource":"*", "Principal": {"AWS": ["arn:aws:iam::444455556666:user/jane", "123456789012"] } } ] }` `` To add a resource-based policy to a custom model by using the Amazon Comprehend API, use the [PutResourcePolicy](API_PutResourcePolicy.md "API_PutResourcePolicy.md") API operation. You can also add a policy to a custom model in the API request that creates the model. To do this, provide the policy JSON for the ModelPolicy parameter when you submit a [CreateDocumentClassifier](API_CreateDocumentClassifier.md "API_CreateDocumentClassifier.md") or [CreateEntityRecognizer](API_CreateEntityRecognizer.md "API_CreateEntityRecognizer.md") request. ## Step 2: Provide the details that others need to import Now that you have added the resource-based policy to your custom model, you have authorized other Amazon Comprehend users to import your model into their AWS accounts. However, before they can import, you must provide them with the following details: <br>• The Amazon Resource Name (ARN) of the model version. <br>• The AWS Region that contains the model. Anyone who imports your model must use the same AWS Region . <br>• Whether the model is encrypted, and if it is, the type of AWS KMS key that you use: AWS owned key or customer managed key. <br>• If your model is encrypted with a customer managed key, then you must provide the ARN of the KMS key. Anyone who imports your model must include the ARN in an IAM service role in their AWS account. This role authorizes Amazon Comprehend to use the KMS key to decrypt the model during the import. For more information about how other users import your model, see [Importing a custom model from another AWS account](custom-copy-importing.md "custom-copy-importing.md"). |
+   | Field                  | Definition and examples                                                                                                                                                   |
+   | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **Service principals** | Service principal identifiers for the services that can access this model version. For example:<br>**comprehend.amazonaws.com**                                           |
+   | **AWS account IDs**    | AWS accounts that can access this model version. Authorizes all users who belong to<br>the account. For example:<br>**111122223333**,<br>**123456789012**                 |
+   | **IAM entities**       | ARNs for users or roles that can access this model version. For example:<br>**arn:aws:iam::111122223333:user/ExampleUser,<br>arn:aws:iam::444455556666:role/ExampleRole** |
+
+8. Under **Share**, you can copy the ARN of the model version to
+   help you share it with the person who will import your model. When someone imports a
+   custom model from a different AWS account, the model version ARN is required.
+9. Choose **Save**. Amazon Comprehend creates your resource-based policy and
+   attaches it to your model.
+   To add a resource-based policy to a custom model with the AWS CLI, use the [PutResourcePolicy](API_PutResourcePolicy.md "API_PutResourcePolicy.md")
+   command. The command takes the following parameters:
+
+- `resource-arn` – The ARN of the custom model, including the model version.
+- `resource-policy` – A JSON file that defines the resource-based policy to attach
+  to your custom model.
+
+You can also provide the policy as an inline JSON string. To provide valid JSON for your policy,
+enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double
+quotes, you escape the double quotes that are inside the policy.
+
+- `policy-revision-id` – The revision ID that Amazon Comprehend assigned to
+  the policy that you are updating. If you are creating a new policy that has no prior
+  version, don't use this parameter. Amazon Comprehend creates the revision ID for you.
+
+###### Example Add a resource-based policy to a custom model using the `put-resource-policy` command
+
+This example defines a policy in a JSON file named **policyFile.json** and
+associates the policy to a model. The model is version **v2** of a classifier
+named **mycf1**.
+
+```
+
+`$` `aws comprehend put-resource-policy \`
+`>` `--resource-arn `arn:aws:comprehend:us-west-2:111122223333:document-classifier/mycf1/version/v2` \`
+`>` `--resource-policy file://`policyFile.json` \`
+`>` `--policy-revision-id `revision-id``
+
+```
+
+The JSON file for the resource policy contains the following contents:
+
+- _Action_ – The policy authorizes the named principals to use
+  `comprehend:ImportModel`.
+- _Resource_ – The ARN of the custom model. Resource "\*" refers to the model
+  version that you specify in the `put-resource-policy` command.
+- _Principal_ – The policy authorizes user `jane` from AWS account
+  444455556666 and all users from AWS account 123456789012.
+
+JSON
+
+```
+`{
+"Version":"2012-10-17",
+ "Statement":[
+ {"Sid":"ResourcePolicyForImportModel",
+ "Effect":"Allow",
+ "Action":["comprehend:ImportModel"],
+ "Resource":"*",
+ "Principal":
+ {"AWS":
+ ["arn:aws:iam::444455556666:user/jane",
+ "123456789012"]
+ }
+ }
+ ]
+}`
+
+```
+
+To add a resource-based policy to a custom model by using the Amazon Comprehend API, use the [PutResourcePolicy](API_PutResourcePolicy.md "API_PutResourcePolicy.md") API
+operation.
+
+You can also add a policy to a custom model in the API request that creates the model.
+To do this, provide the policy JSON for the ModelPolicy parameter when you submit a [CreateDocumentClassifier](API_CreateDocumentClassifier.md "API_CreateDocumentClassifier.md") or [CreateEntityRecognizer](API_CreateEntityRecognizer.md "API_CreateEntityRecognizer.md") request.
+
+## Step 2: Provide the details that others need to
+
+import
+
+Now that you have added the resource-based policy to your custom model, you have
+authorized other Amazon Comprehend users to import your model into their AWS accounts. However, before
+they can import, you must provide them with the following details:
+
+- The Amazon Resource Name (ARN) of the model version.
+- The AWS Region that contains the model. Anyone who imports your model must use the
+  same AWS Region .
+- Whether the model is encrypted, and if it is, the type of AWS KMS key that you use:
+  AWS owned key or customer managed key.
+- If your model is encrypted with a customer managed key, then you must provide the ARN of the
+  KMS key. Anyone who imports your model must include the ARN in an IAM service role in
+  their AWS account. This role authorizes Amazon Comprehend to use the KMS key to decrypt the model
+  during the import.
+
+For more information about how other users import your model, see [Importing a custom model from another AWS account](custom-copy-importing.md "custom-copy-importing.md").

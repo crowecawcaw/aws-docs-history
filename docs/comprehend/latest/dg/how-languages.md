@@ -26,7 +26,7 @@ Amazon Comprehend language detection has the following limitations:
   Amazon Comprehend detects the following languages.
 
 | Code  | Language              |
-| ----- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----- | --------------------- |
 | af    | Afrikaans             |
 | am    | Amharic               |
 | ar    | Arabic                |
@@ -130,4 +130,31 @@ Amazon Comprehend language detection has the following limitations:
 | yi    | Yiddish               |
 | yo    | Yoruba                |
 | zh    | Chinese (Simplified)  |
-| zh-TW | Chinese (Traditional) | You can use any of the following operations to detect the dominant language in a document or set of documents. <br>• [DetectDominantLanguage](../APIReference/API_DetectDominantLanguage.md "../APIReference/API_DetectDominantLanguage.md") <br>• [BatchDetectDominantLanguage](../APIReference/API_BatchDetectDominantLanguage.md "../APIReference/API_BatchDetectDominantLanguage.md") <br>• [StartDominantLanguageDetectionJob](../APIReference/API_StartDominantLanguageDetectionJob.md "../APIReference/API_StartDominantLanguageDetectionJob.md") The `DetectDominantLanguage` operation returns a [DominantLanguage](../APIReference/API_DominantLanguage.md "../APIReference/API_DominantLanguage.md") object. The `BatchDetectDominantLanguage` operation returns a list of `DominantLanguage` objects, one for each document in the batch. The `StartDominantLanguageDetectionJob` operation starts an asynchronous job that produces a file containing a list of `DominantLanguage` objects, one for each document in the job. The following example is the response from the `DetectDominantLanguage` operation. `{ "Languages": [ { "LanguageCode": "en", "Score": 0.9793661236763 } ] }` |
+| zh-TW | Chinese (Traditional) |
+
+You can use any of the following operations to detect the dominant language in a
+document or set of documents.
+
+- [DetectDominantLanguage](../APIReference/API_DetectDominantLanguage.md "../APIReference/API_DetectDominantLanguage.md")
+- [BatchDetectDominantLanguage](../APIReference/API_BatchDetectDominantLanguage.md "../APIReference/API_BatchDetectDominantLanguage.md")
+- [StartDominantLanguageDetectionJob](../APIReference/API_StartDominantLanguageDetectionJob.md "../APIReference/API_StartDominantLanguageDetectionJob.md")
+  The `DetectDominantLanguage` operation returns a [DominantLanguage](../APIReference/API_DominantLanguage.md "../APIReference/API_DominantLanguage.md") object. The
+  `BatchDetectDominantLanguage` operation returns a list of
+  `DominantLanguage` objects, one for each document in the batch. The
+  `StartDominantLanguageDetectionJob` operation starts an asynchronous job
+  that produces a file containing a list of `DominantLanguage` objects, one for
+  each document in the job.
+
+The following example is the response from the `DetectDominantLanguage`
+operation.
+
+```
+{
+    "Languages": [
+        {
+            "LanguageCode": "en",
+            "Score": 0.9793661236763
+        }
+    ]
+}
+```

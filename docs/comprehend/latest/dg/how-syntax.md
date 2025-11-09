@@ -16,23 +16,64 @@ source text.
 
 Amazon Comprehend can identify the following parts of speech.
 
-| Token | Part of speech                                                                                                                                |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ADJ   | Adjective Words that typically modify nouns.                                                                                                  |
-| ADP   | Adposition The head of a prepositional or postpositional phrase.                                                                              |
-| ADV   | Adverb Words that typically modify verbs. They may also modify adjectives and other adverbs.                                                  |
-| AUX   | Auxiliary Function words that accompanies the verb of a verb phrase.                                                                          |
-| CCONJ | Coordinating conjunction A coordinating conjunction connects words, phrases, or clauses in a sentence without subordinating one to the other. |
-| CONJ  | Conjunction A conjunction connects words, phrases, or clauses in a sentence.                                                                  |
-| DET   | Determiner Articles and other words that specify a particular noun phrase.                                                                    |
-| INTJ  | Interjection Words used as an exclamation or part of an exclamation.                                                                          |
-| NOUN  | Noun Words that specify a person, place, thing, animal, or idea.                                                                              |
-| NUM   | Numeral Words, typically determiners, adjectives, or pronouns, that express a number.                                                         |
-| O     | Other Words that can't be assigned a part of speech category.                                                                                 |
-| PART  | Particle Function words associated with another word or phrase to impart meaning.                                                             |
-| PRON  | Pronoun Words that substitute for nouns or noun phrases.                                                                                      |
-| PROPN | Proper nounA noun that is the name of a specific individual, place or object.                                                                 |
-| PUNCT | Punctuation Non-alphabetical characters that delimit text.                                                                                    |
-| SCONJ | Subordinating conjunction A conjunction that joins a dependent clause to a sentence. An example of a subordinating conjunction is "because".  |
-| SYM   | SymbolWord-like entities such as the dollar sign ($) or mathematical symbols.                                                                 |
-| VERB  | VerbWords that signal events and actions.                                                                                                     | For more information about the parts of speech, see [Universal POS tags](http://universaldependencies.org/u/pos/ "http://universaldependencies.org/u/pos/") at the _Universal Dependencies_ website. The operations return tokens that identify the word and the part of speech that the word represents in the text. Each token represents a word in the source text. It provides the location of the word in the source, the part of speech that the word takes in the text, the confidence that Amazon Comprehend has that the part of speech was correctly identified, and the word that was parsed from the source text. The following is the structure of the list of syntax tokens. One syntax token is generated for each word in the document. `{ "SyntaxTokens": [ { "BeginOffset": number, "EndOffset": number, "PartOfSpeech": { "Score": number, "Tag": "string" }, "Text": "string", "TokenId": number } ] }` Each token provides the following information: <br>• `BeginOffset` and `EndOffset`—Provides the location of the word in the input text. <br>• `PartOfSpeech`—Provides two pieces of information, the `Tag` that identifies the part of speech and the `Score` that represents the confidence that Amazon Comprehend Syntax has that the part of speech was correctly identifies. <br>• `Text`—Provides the word that was identified. <br>• `TokenId`—Provides an identifier for the token. The identifier is the position of the token in the list of tokens. |
+| Token | Part of speech                                                                                                                                      |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ADJ   | Adjective<br>Words that typically modify nouns.                                                                                                     |
+| ADP   | Adposition<br>The head of a prepositional or postpositional phrase.                                                                                 |
+| ADV   | Adverb<br>Words that typically modify verbs. They may also modify adjectives and other<br>adverbs.                                                  |
+| AUX   | Auxiliary<br>Function words that accompanies the verb of a verb phrase.                                                                             |
+| CCONJ | Coordinating conjunction<br>A coordinating conjunction connects words, phrases, or clauses in a sentence without subordinating one to the<br>other. |
+| CONJ  | Conjunction<br>A conjunction connects words, phrases, or clauses in a sentence.                                                                     |
+| DET   | Determiner<br>Articles and other words that specify a particular noun phrase.                                                                       |
+| INTJ  | Interjection<br>Words used as an exclamation or part of an exclamation.                                                                             |
+| NOUN  | Noun<br>Words that specify a person, place, thing, animal, or idea.                                                                                 |
+| NUM   | Numeral<br>Words, typically determiners, adjectives, or pronouns, that express a<br>number.                                                         |
+| O     | Other<br>Words that can't be assigned a part of speech category.                                                                                    |
+| PART  | Particle<br>Function words associated with another word or phrase to impart meaning.                                                                |
+| PRON  | Pronoun<br>Words that substitute for nouns or noun phrases.                                                                                         |
+| PROPN | Proper nounA noun that is the name of a specific individual,<br>place or object.                                                                    |
+| PUNCT | Punctuation<br>Non-alphabetical characters that delimit text.                                                                                       |
+| SCONJ | Subordinating conjunction<br>A conjunction that joins a dependent clause to a sentence. An example of a<br>subordinating conjunction is "because".  |
+| SYM   | SymbolWord-like entities such as the dollar sign ($) or<br>mathematical symbols.                                                                    |
+| VERB  | VerbWords that signal events and actions.                                                                                                           |
+
+For more information about the parts of speech, see [Universal POS tags](http://universaldependencies.org/u/pos/ "http://universaldependencies.org/u/pos/") at the
+_Universal Dependencies_ website.
+
+The operations return tokens that identify the word and the part of speech that the word
+represents in the text. Each token represents a word in the source text. It provides the
+location of the word in the source, the part of speech that the word takes in the text, the
+confidence that Amazon Comprehend has that the part of speech was correctly identified, and the word that
+was parsed from the source text.
+
+The following is the structure of the list of syntax tokens. One syntax token is generated
+for each word in the document.
+
+```
+{
+   "SyntaxTokens": [
+      {
+         "BeginOffset": number,
+         "EndOffset": number,
+         "PartOfSpeech": {
+            "Score": number,
+            "Tag": "string"
+         },
+         "Text": "string",
+         "TokenId": number
+      }
+   ]
+}
+
+```
+
+Each token provides the following information:
+
+- `BeginOffset` and `EndOffset`—Provides the location of the
+  word in the input text.
+- `PartOfSpeech`—Provides two pieces of information, the `Tag`
+  that identifies the part of speech and the `Score` that represents the confidence
+  that Amazon Comprehend Syntax has that the part of speech was correctly identifies.
+- `Text`—Provides the word that was identified.
+- `TokenId`—Provides an identifier for the token. The identifier is the
+  position of the token in the list of tokens.
