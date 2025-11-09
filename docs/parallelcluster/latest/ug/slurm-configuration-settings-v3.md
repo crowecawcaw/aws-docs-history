@@ -39,8 +39,8 @@ as recommended in the [Slurm documentation](https://slurm.schedmd.com/documentat
 The following tables list the parameters with the AWS ParallelCluster versions that deny their use, starting with version 3.6.0.
 `CustomSlurmSettings` isn't supported for AWS ParallelCluster versions earlier than version 3.6.0.
 
-| Deny-listed parameters at cluster level: | Slurm parameter | Deny-listed in AWS ParallelCluster versions                                                                                                                                         |
-| ---------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------- |
+| Deny-listed parameters at cluster level: | Slurm parameter | Deny-listed in AWS ParallelCluster versions |
+| ---------------------------------------- | --------------- | ------------------------------------------- |
 | CommunicationParameters                  | 3.6.0           |
 | Epilog                                   | 3.6.0           |
 | GresTypes                                | 3.6.0           |
@@ -59,24 +59,30 @@ The following tables list the parameters with the AWS ParallelCluster versions t
 | SuspendProgram                           | 3.6.0           |
 | SuspendTime                              | 3.6.0           |
 | TaskPlugin                               | 3.6.0           |
-| TreeWidth                                | 3.6.0           | Deny-listed parameters at cluster level when the [native Slurm accounting integration](slurm-accounting-v3.md "slurm-accounting-v3.md") is configured in the cluster configuration: | Slurm parameter | Deny-listed in AWS ParallelCluster versions                   |
-| ---                                      | ---             |
-| AccountingStorageType                    | 3.6.0           |
-| AccountingStorageHost                    | 3.6.0           |
-| AccountingStoragePort                    | 3.6.0           |
-| AccountingStorageUser                    | 3.6.0           |
-| JobAcctGatherType                        | 3.6.0           | Deny-listed parameters at the queue (partition) level for queues managed by AWS ParallelCluster:                                                                                    | Slurm parameter | Deny-listed in AWS ParallelCluster versions                   |
-| ---                                      | ---             |
-| Nodes                                    | 3.6.0           |
-| PartitionName                            | 3.6.0           |
-| ResumeTimeout                            | 3.6.0           |
-| State                                    | 3.6.0           |
-| SuspendTime                              | 3.6.0           | Deny-listed parameters at the compute resource (node) level for compute resource managed by AWS ParallelCluster:                                                                    | Slurm parameter | Deny-listed in AWS ParallelCluster version and later versions |
-| ---                                      | ---             |
-| CPUs                                     | 3.6.0           |
-| Features                                 | 3.6.0           |
-| Gres                                     | 3.6.0           |
-| NodeAddr                                 | 3.6.0           |
-| NodeHostname                             | 3.6.0           |
-| NodeName                                 | 3.6.0           |
-| Weight                                   | 3.7.0           |
+| TreeWidth                                | 3.6.0           |
+
+| Deny-listed parameters at cluster level when the [native Slurm accounting integration](slurm-accounting-v3.md "slurm-accounting-v3.md") is configured in the cluster configuration: | Slurm parameter | Deny-listed in AWS ParallelCluster versions |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------- |
+| AccountingStorageType                                                                                                                                                               | 3.6.0           |
+| AccountingStorageHost                                                                                                                                                               | 3.6.0           |
+| AccountingStoragePort                                                                                                                                                               | 3.6.0           |
+| AccountingStorageUser                                                                                                                                                               | 3.6.0           |
+| JobAcctGatherType                                                                                                                                                                   | 3.6.0           |
+
+| Deny-listed parameters at the queue (partition) level for queues managed by AWS ParallelCluster: | Slurm parameter | Deny-listed in AWS ParallelCluster versions |
+| ------------------------------------------------------------------------------------------------ | --------------- | ------------------------------------------- |
+| Nodes                                                                                            | 3.6.0           |
+| PartitionName                                                                                    | 3.6.0           |
+| ResumeTimeout                                                                                    | 3.6.0           |
+| State                                                                                            | 3.6.0           |
+| SuspendTime                                                                                      | 3.6.0           |
+
+| Deny-listed parameters at the compute resource (node) level for compute resource managed by AWS ParallelCluster: | Slurm parameter | Deny-listed in AWS ParallelCluster version and later versions |
+| ---------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------- |
+| CPUs                                                                                                             | 3.6.0           |
+| Features                                                                                                         | 3.6.0           |
+| Gres                                                                                                             | 3.6.0           |
+| NodeAddr                                                                                                         | 3.6.0           |
+| NodeHostname                                                                                                     | 3.6.0           |
+| NodeName                                                                                                         | 3.6.0           |
+| Weight                                                                                                           | 3.7.0           |

@@ -147,4 +147,105 @@ Valid values: `CREATE_IN_PROGRESS | CREATE_FAILED | CREATE_COMPLETE |
  ROLLBACK_IN_PROGRESS | ROLLBACK_FAILED | ROLLBACK_COMPLETE | DELETE_IN_PROGRESS |
  DELETE_FAILED | DELETE_COMPLETE | UPDATE_IN_PROGRESS |
  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS | UPDATE_COMPLETE | UPDATE_ROLLBACK_IN_PROGRESS
-| UPDATE_ROLLBACK_FAILED | UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS | UPDATE_ROLLBACK_COMPLETE` **clusterStatus** Type: string Valid values: `CREATE_IN_PROGRESS | CREATE_FAILED | CREATE_COMPLETE | DELETE_IN_PROGRESS | DELETE_FAILED | DELETE_COMPLETE | UPDATE_IN_PROGRESS | UPDATE_COMPLETE | UPDATE_FAILED` **region** The AWS Region that the cluster is created in. Type: string **scheduler** **metadata** The scheduler metadata **name** The name of the scheduler. Type: string **version** The scheduler version. Type: string **type** The scheduler type. Type: string **version** The AWS ParallelCluster version that's used to create the cluster. Type: string **validation_messages** A list of messages with a validation level lower than `validationFailureLevel`. The list of messages is collected during configuration validation. **id** The ID of the validator. Type: string **level** Type: string Valid values: `INFO | WARNING | ERROR` **message** A validation message. Type: string **type** The type of the validator. Type: string ## Example Python Request `` `$` `create_cluster(`cluster_name_3x`, `cluster-config.yaml`)` `` 200 Response `` `{ "cluster": { "cloudformation_stack_arn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-3x/e0462730-50b5-11ed-99a3-0a5ddc4a34c7", "cloudformation_stack_status": "CREATE_IN_PROGRESS", "cluster_name": "cluster-3x", "cluster_status": "CREATE_IN_PROGRESS", "region": "us-east-1", "scheduler": { "type": "slurm" }, "version": "3.2.1" } }` ``
+ | UPDATE_ROLLBACK_FAILED | UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS |
+ UPDATE_ROLLBACK_COMPLETE`
+
+**clusterStatus**
+
+Type: string
+
+Valid values: `CREATE_IN_PROGRESS | CREATE_FAILED | CREATE_COMPLETE |
+ DELETE_IN_PROGRESS | DELETE_FAILED | DELETE_COMPLETE | UPDATE_IN_PROGRESS |
+ UPDATE_COMPLETE | UPDATE_FAILED`
+
+**region**
+
+The AWS Region that the cluster is created in.
+
+Type: string
+
+**scheduler**
+
+**metadata**
+
+The scheduler metadata
+
+**name**
+
+The name of the scheduler.
+
+Type: string
+
+**version**
+
+The scheduler version.
+
+Type: string
+
+**type**
+
+The scheduler type.
+
+Type: string
+
+**version**
+
+The AWS ParallelCluster version that's used to create the cluster.
+
+Type: string
+
+**validation_messages**
+
+A list of messages with a validation level lower than `validationFailureLevel`.
+The list of messages is collected during configuration validation.
+
+**id**
+
+The ID of the validator.
+
+Type: string
+
+**level**
+
+Type: string
+
+Valid values: `INFO | WARNING | ERROR`
+
+**message**
+
+A validation message.
+
+Type: string
+
+**type**
+
+The type of the validator.
+
+Type: string
+
+## Example
+
+Python
+Request
+
+```
+`$` `create_cluster(`cluster_name_3x`, `cluster-config.yaml`)`
+```
+
+200 Response
+
+```
+`{
+ "cluster": {
+ "cloudformation_stack_arn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-3x/e0462730-50b5-11ed-99a3-0a5ddc4a34c7",
+ "cloudformation_stack_status": "CREATE_IN_PROGRESS",
+ "cluster_name": "cluster-3x",
+ "cluster_status": "CREATE_IN_PROGRESS",
+ "region": "us-east-1",
+ "scheduler": {
+ "type": "slurm"
+ },
+ "version": "3.2.1"
+ }
+}`
+```

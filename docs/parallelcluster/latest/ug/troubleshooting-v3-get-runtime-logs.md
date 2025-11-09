@@ -62,8 +62,10 @@ Use the following steps to gather and export the logs:
 4. Choose a time range, such as 12 hours.
 5. Run the following query:
 
-````
+```
 `$` `fields @timestamp, @message
 | sort @timestamp desc
-| limit 10000` ``` 6. Choose **Export results**, **Download table (JSON)**.
-````
+| limit 10000`
+```
+
+6. Choose **Export results**, **Download table (JSON)**.

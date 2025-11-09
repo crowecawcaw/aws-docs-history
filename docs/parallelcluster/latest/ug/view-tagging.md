@@ -14,8 +14,8 @@ View tags
 8. In **Volumes**, choose the volume.
 9. Choose the **Tags** tab in the volume details and view the tags.
 
-| AWS ParallelCluster head node instance tags | Key                                                                                                              | Tag value                                         |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------- | --------- |
+| AWS ParallelCluster head node instance tags | Key                                                                                                              | Tag value |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------- |
 | `parallelcluster:cluster-name`              | `clustername`                                                                                                    |
 | `Name`                                      | `HeadNode`                                                                                                       |
 | `aws:ec2launchtemplate:id`                  | `lt-1234567890abcdef0`                                                                                           |
@@ -24,24 +24,32 @@ View tags
 | `aws:cloudformation:stack-name`             | `clustername`                                                                                                    |
 | `aws:cloudformation:logical-id`             | `HeadNode`                                                                                                       |
 | `aws:cloudformation:stack-id`               | `arn:aws:cloudformation:`region-id`:`ACCOUNTID`:stack/`clustername`/`1234abcd-12ab-12ab-12ab-1234567890abcdef0`` |
-| `parallelcluster:version`                   | `3.14.0`                                                                                                         | AWS ParallelCluster head node root volume tags    | Tag key | Tag value |
-| ---                                         | ---                                                                                                              |
-| `parallelcluster:cluster-name`              | `clustername`                                                                                                    |
-| `parallelcluster:node-type`                 | `HeadNode`                                                                                                       |
-| `parallelcluster:version`                   | `3.14.0`                                                                                                         | AWS ParallelCluster compute node instance tags    | Key     | Tag value |
-| ---                                         | ---                                                                                                              |
-| `parallelcluster:cluster-name`              | `clustername`                                                                                                    |
-| `parallelcluster:compute-resource-name`     | `compute-resource-name`                                                                                          |
-| `aws:ec2launchtemplate:id`                  | `lt-1234567890abcdef0`                                                                                           |
-| `aws:ec2launchtemplate:version`             | `1`                                                                                                              |
-| `parallelcluster:node-type`                 | `Compute`                                                                                                        |
-| `parallelcluster:queue-name`                | `queue-name`                                                                                                     |
-| `parallelcluster:version`                   | `3.14.0`                                                                                                         | AWS ParallelCluster compute node root volume tags | Tag key | Tag value |
-| ---                                         | ---                                                                                                              |
-| `parallelcluster:cluster-name`              | `clustername`                                                                                                    |
-| `parallelcluster:compute-resource-name`     | `compute-resource-name`                                                                                          |
-| `parallelcluster:node-type`                 | `Compute`                                                                                                        |
-| `parallelcluster:queue-name`                | `queue-name`                                                                                                     |
-| `parallelcluster:version`                   | `3.14.0`                                                                                                         | PCUI tags                                         | Tag key | Tag value |
-| ---                                         | ---                                                                                                              |
-| `parallelcluster-ui`                        | `true`                                                                                                           |
+| `parallelcluster:version`                   | `3.14.0`                                                                                                         |
+
+| AWS ParallelCluster head node root volume tags | Tag key       | Tag value |
+| ---------------------------------------------- | ------------- | --------- |
+| `parallelcluster:cluster-name`                 | `clustername` |
+| `parallelcluster:node-type`                    | `HeadNode`    |
+| `parallelcluster:version`                      | `3.14.0`      |
+
+| AWS ParallelCluster compute node instance tags | Key                     | Tag value |
+| ---------------------------------------------- | ----------------------- | --------- |
+| `parallelcluster:cluster-name`                 | `clustername`           |
+| `parallelcluster:compute-resource-name`        | `compute-resource-name` |
+| `aws:ec2launchtemplate:id`                     | `lt-1234567890abcdef0`  |
+| `aws:ec2launchtemplate:version`                | `1`                     |
+| `parallelcluster:node-type`                    | `Compute`               |
+| `parallelcluster:queue-name`                   | `queue-name`            |
+| `parallelcluster:version`                      | `3.14.0`                |
+
+| AWS ParallelCluster compute node root volume tags | Tag key                 | Tag value |
+| ------------------------------------------------- | ----------------------- | --------- |
+| `parallelcluster:cluster-name`                    | `clustername`           |
+| `parallelcluster:compute-resource-name`           | `compute-resource-name` |
+| `parallelcluster:node-type`                       | `Compute`               |
+| `parallelcluster:queue-name`                      | `queue-name`            |
+| `parallelcluster:version`                         | `3.14.0`                |
+
+| PCUI tags            | Tag key | Tag value |
+| -------------------- | ------- | --------- |
+| `parallelcluster-ui` | `true`  |
