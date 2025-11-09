@@ -145,7 +145,7 @@ JSON
 View details about updates to AWS managed policies for AWS DeepRacer since this service began tracking these changes. For
 automatic alerts about changes to this page, subscribe to the RSS feed on the AWS DeepRacer Document history page.
 
-| Change                                                                                   | Description                                                                                                                | Date             |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `AWSDeepRacerAccountAdminAccess` and `AWSDeepRacerDefaultMultiUserAccess` policies added | New managed policies added so you can sponsor multiple participants under one AWS DeepRacer account using multi-user mode. | October 26, 2021 |
-| AWS DeepRacer started tracking policy changes.                                           | AWS DeepRacer started tracking changes for its AWS managed policies.                                                       | October 26, 2021 |
+| Change                                                                                      | Description                                                                                                                   | Date             |
+| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `AWSDeepRacerAccountAdminAccess` and `AWSDeepRacerDefaultMultiUserAccess`<br>policies added | New managed policies added so you can sponsor multiple participants under one AWS DeepRacer account using<br>multi-user mode. | October 26, 2021 |
+| AWS DeepRacer started tracking policy changes.                                              | AWS DeepRacer started tracking changes for its AWS managed policies.                                                          | October 26, 2021 |

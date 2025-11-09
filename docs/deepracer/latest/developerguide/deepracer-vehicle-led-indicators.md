@@ -22,15 +22,22 @@ the **RESET** button. The first LED (on the left side of your field of view)
 shows the status of the system power. The second (middle) LED is reserved for future use.
 The last (right) LED shows the status of the Wi-Fi connection.
 
-| LED type | Color                                 | Status                                                                                       |
-| -------- | ------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power    | Off                                   | There is no power supply.                                                                    |
-|          | Blinking yellow                       | BIOS and OS are being loaded.                                                                |
-|          | Steady yellow                         | OS is loaded.                                                                                |
-|          | Steady blue                           | An application is running.                                                                   |
-|          | Blinking blue                         | A software update is in progress.                                                            |
-|          | Steady red                            | An error is encountered while the system is being booted or an application is being started. |
-| Wi-Fi    | Off                                   | There is no Wi-Fi connection.                                                                |
-|          | Blinking blue                         | The vehicle is connecting to the Wi-Fi network.                                              |
-|          | Steady red for 2 seconds and then off | The Wi-Fi connection failed.                                                                 |
-|          | Steady blue                           | The Wi-Fi connection is established.                                                         | ## AWS DeepRacer vehicle identification LEDs The AWS DeepRacer vehicle custom LEDs are located at the tail of the vehicle. They're used to help identifying your vehicle in races when multiple vehicles are present. You can use the AWS DeepRacer device console to [set them a supported color](deepracer-manage-vehicle-settings.md "deepracer-manage-vehicle-settings.md") of your choosing. |
+| LED type | Color                                 | Status                                                                                          |
+| -------- | ------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Power    | Off                                   | There is no power supply.                                                                       |
+|          | Blinking yellow                       | BIOS and OS are being loaded.                                                                   |
+|          | Steady yellow                         | OS is loaded.                                                                                   |
+|          | Steady blue                           | An application is running.                                                                      |
+|          | Blinking blue                         | A software update is in progress.                                                               |
+|          | Steady red                            | An error is encountered while the system is being booted<br>or an application is being started. |
+| Wi-Fi    | Off                                   | There is no Wi-Fi connection.                                                                   |
+|          | Blinking blue                         | The vehicle is connecting to the Wi-Fi network.                                                 |
+|          | Steady red for 2 seconds and then off | The Wi-Fi connection failed.                                                                    |
+|          | Steady blue                           | The Wi-Fi connection is established.                                                            |
+
+## AWS DeepRacer vehicle identification LEDs
+
+The AWS DeepRacer vehicle custom LEDs are located at the tail of the vehicle. They're used to help
+identifying your vehicle in races when multiple vehicles are present. You can use the
+AWS DeepRacer device console to [set them a supported
+color](deepracer-manage-vehicle-settings.md "deepracer-manage-vehicle-settings.md") of your choosing.
