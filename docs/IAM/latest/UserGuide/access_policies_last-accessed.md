@@ -338,7 +338,7 @@ AWS started tracking information in each Region.
   that Region will start at the later date.
 
 | Region name               | Region         | Tracking start date |
-| ------------------------- | -------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- | ------------------- |
 | US East (Ohio)            | us-east-2      | October 27, 2017    |
 | US East (N. Virginia)     | us-east-1      | October 1, 2015     |
 | US West (N. California)   | us-west-1      | October 1, 2015     |
@@ -368,4 +368,15 @@ AWS started tracking information in each Region.
 | Middle East (UAE)         | me-central-1   | August 30, 2022     |
 | South America (São Paulo) | sa-east-1      | December 11, 2015   |
 | AWS GovCloud (US-East)    | us-gov-east-1  | July 1, 2023        |
-| AWS GovCloud (US-West)    | us-gov-west-1  | July 1, 2023        | If a Region is not listed in the previous table, then that Region does not yet provide last accessed information. An AWS Region is a collection of AWS resources in a geographic area. Regions are grouped into partitions. The standard Regions are the Regions that belong to the `aws` partition. For more information about the different partitions, see [Amazon Resource Names (ARNs) Format](../../../general/latest/gr/aws-arns-and-namespaces.md#arns-syntax "../../../general/latest/gr/aws-arns-and-namespaces.md#arns-syntax") in the AWS General Reference. For more information about Regions, see [About AWS Regions](../../../general/latest/gr/rande-manage.md#region-what-is "../../../general/latest/gr/rande-manage.md#region-what-is") also in the AWS General Reference. |
+| AWS GovCloud (US-West)    | us-gov-west-1  | July 1, 2023        |
+
+If a Region is not listed in the previous table, then that Region does not yet provide
+last accessed information.
+
+An AWS Region is a collection of AWS resources in a geographic area. Regions are
+grouped into partitions. The standard Regions are the Regions that belong to the
+`aws` partition. For more information about the different partitions, see
+[Amazon Resource Names
+(ARNs) Format](../../../general/latest/gr/aws-arns-and-namespaces.md#arns-syntax "../../../general/latest/gr/aws-arns-and-namespaces.md#arns-syntax") in the AWS General Reference. For more information about Regions, see
+[About AWS Regions](../../../general/latest/gr/rande-manage.md#region-what-is "../../../general/latest/gr/rande-manage.md#region-what-is")
+also in the AWS General Reference.

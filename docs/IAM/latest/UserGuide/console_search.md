@@ -39,10 +39,52 @@ that account.
 The following icons identify the types of items that are found by a search:
 
 | Icon                                            | Description                                    |
-| ----------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------- | ---------------------------------------------- |
 | a portrait outline on gray background           | IAM users                                      |
 | multiple portrait outlines on a blue background | IAM groups                                     |
 | a magic wand icon on a navy background          | IAM roles                                      |
 | a document icon on an organe background         | IAM policies                                   |
 | a white start on an organe background           | Tasks such as "create user" or "attach policy" |
-| a white X on a red background                   | Results from the keyword `delete`              | **Sample search phrases** You can use the following phrases in the IAM search. Replace terms in italics with the names of the actual IAM users, groups, roles, access keys, policies, or identity providers that you want to locate. <br>• `user_name` or `group_name` or `role_name` or `policy_name` or `identity_provider_name` <br>• `access_key` <br>• `add user `user_name` to groups` or `add users to group `group_name`` <br>• `remove user `user_name` from groups` <br>• `delete `user_name`` or `delete `group_name`` or `delete `role_name``, or `delete `policy_name``, or `delete `identity_provider_name`` <br>• `manage access keys `user_name`` <br>• `manage signing certificates `user_name`` <br>• `users` <br>• `manage MFA for `user_name`` <br>• `manage password for `user_name`` <br>• `create role` <br>• `password policy` <br>• `edit trust policy for role `role_name`` <br>• `show policy document for role `role_name`` <br>• `attach policy to `role_name`` <br>• `create managed policy` <br>• `create user` <br>• `create group` <br>• `attach policy to `group_name`` <br>• `attach entities to `policy_name`` <br>• `detach entities from `policy_name`` |
+| a white X on a red background                   | Results from the keyword `delete`              |
+
+**Sample search phrases**
+
+You can use the following phrases in the IAM search. Replace terms in italics with the
+names of the actual IAM users, groups, roles, access keys, policies, or identity providers
+that you want to locate.
+
+- `user_name` or
+  `group_name` or `role_name` or
+  `policy_name` or
+  `identity_provider_name`
+- `access_key`
+- `add user `user_name` to groups` or
+  `add users to group `group_name``
+- `remove user `user_name` from
+groups`
+- `delete `user_name`` or
+`delete `group_name`` or `delete
+`role_name``, or `delete
+`policy_name``, or `delete
+`identity_provider_name``
+- `manage access keys `user_name``
+- `manage signing certificates
+`user_name``
+- `users`
+- `manage MFA for `user_name``
+- `manage password for `user_name``
+- `create role`
+- `password policy`
+- `edit trust policy for role
+`role_name``
+- `show policy document for role
+`role_name``
+- `attach policy to `role_name``
+- `create managed policy`
+- `create user`
+- `create group`
+- `attach policy to `group_name``
+- `attach entities to
+`policy_name``
+- `detach entities from
+`policy_name``

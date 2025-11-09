@@ -278,39 +278,45 @@ only one claim will be mapped.
 
 The following table shows eduPerson and eduOrg attributes.
 
-| eduPerson or eduOrg attribute (`Name` key)                                | Maps to this AWS context key (`FriendlyName` key) | Type            |
-| ------------------------------------------------------------------------- | ------------------------------------------------- | --------------- | ------------------------------------------------------ |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.1`                                        | `eduPersonAffiliation`                            | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.2`                                        | `eduPersonNickname`                               | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.3`                                        | `eduPersonOrgDN`                                  | String          |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.4`                                        | `eduPersonOrgUnitDN`                              | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.5`                                        | `eduPersonPrimaryAffiliation`                     | String          |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.6`                                        | `eduPersonPrincipalName`                          | String          |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.7`                                        | `eduPersonEntitlement`                            | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.8`                                        | `eduPersonPrimaryOrgUnitDN`                       | String          |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.9`                                        | `eduPersonScopedAffiliation`                      | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.10`                                       | `eduPersonTargetedID`                             | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.1.1.11`                                       | `eduPersonAssurance`                              | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.2.1.2`                                        | `eduOrgHomePageURI`                               | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.2.1.3`                                        | `eduOrgIdentityAuthNPolicyURI`                    | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.2.1.4`                                        | `eduOrgLegalName`                                 | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.2.1.5`                                        | `eduOrgSuperiorURI`                               | List of strings |
-| `urn:oid:1.3.6.1.4.1.5923.1.2.1.6`                                        | `eduOrgWhitePagesURI`                             | List of strings |
-| `urn:oid:2.5.4.3`                                                         | `cn`                                              | List of strings | The following table shows Active Directory attributes. |
-| AD attribute                                                              | Maps to this AWS context key                      | Type            |
-| ---                                                                       | ---                                               | ---             |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`              | `name`                                            | String          |
-| `http://schemas.xmlsoap.org/claims/CommonName`                            | `commonName`                                      | String          |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`         | `givenName`                                       | String          |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`           | `surname`                                         | String          |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`      | `mail`                                            | String          |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` | `uid`                                             | String          | The following table shows X.500 attributes.            |
-| X.500 attribute                                                           | Maps to this AWS context key                      | Type            |
-| ---                                                                       | ---                                               | ---             |
-| `2.5.4.3`                                                                 | `commonName`                                      | String          |
-| `2.5.4.4`                                                                 | `surname`                                         | String          |
-| `2.4.5.42`                                                                | `givenName`                                       | String          |
-| `2.5.4.45`                                                                | `x500UniqueIdentifier`                            | String          |
-| `0.9.2342.19200300100.1.1`                                                | `uid`                                             | String          |
-| `0.9.2342.19200300100.1.3`                                                | `mail`                                            | String          |
-| `0.9.2342.19200300.100.1.45`                                              | `organizationStatus`                              | String          |
+| eduPerson or eduOrg attribute (`Name` key) | Maps to this AWS context key (`FriendlyName` key) | Type            |
+| ------------------------------------------ | ------------------------------------------------- | --------------- |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.1`         | `eduPersonAffiliation`                            | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.2`         | `eduPersonNickname`                               | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.3`         | `eduPersonOrgDN`                                  | String          |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.4`         | `eduPersonOrgUnitDN`                              | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.5`         | `eduPersonPrimaryAffiliation`                     | String          |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.6`         | `eduPersonPrincipalName`                          | String          |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.7`         | `eduPersonEntitlement`                            | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.8`         | `eduPersonPrimaryOrgUnitDN`                       | String          |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.9`         | `eduPersonScopedAffiliation`                      | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.10`        | `eduPersonTargetedID`                             | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.1.1.11`        | `eduPersonAssurance`                              | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.2.1.2`         | `eduOrgHomePageURI`                               | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.2.1.3`         | `eduOrgIdentityAuthNPolicyURI`                    | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.2.1.4`         | `eduOrgLegalName`                                 | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.2.1.5`         | `eduOrgSuperiorURI`                               | List of strings |
+| `urn:oid:1.3.6.1.4.1.5923.1.2.1.6`         | `eduOrgWhitePagesURI`                             | List of strings |
+| `urn:oid:2.5.4.3`                          | `cn`                                              | List of strings |
+
+The following table shows Active Directory attributes.
+
+| AD attribute                                                              | Maps to this AWS context key | Type   |
+| ------------------------------------------------------------------------- | ---------------------------- | ------ |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`              | `name`                       | String |
+| `http://schemas.xmlsoap.org/claims/CommonName`                            | `commonName`                 | String |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`         | `givenName`                  | String |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`           | `surname`                    | String |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`      | `mail`                       | String |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` | `uid`                        | String |
+
+The following table shows X.500 attributes.
+
+| X.500 attribute              | Maps to this AWS context key | Type   |
+| ---------------------------- | ---------------------------- | ------ |
+| `2.5.4.3`                    | `commonName`                 | String |
+| `2.5.4.4`                    | `surname`                    | String |
+| `2.4.5.42`                   | `givenName`                  | String |
+| `2.5.4.45`                   | `x500UniqueIdentifier`       | String |
+| `0.9.2342.19200300100.1.1`   | `uid`                        | String |
+| `0.9.2342.19200300100.1.3`   | `mail`                       | String |
+| `0.9.2342.19200300.100.1.45` | `organizationStatus`         | String |

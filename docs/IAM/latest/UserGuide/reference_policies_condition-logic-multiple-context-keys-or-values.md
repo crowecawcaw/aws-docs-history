@@ -93,17 +93,89 @@ JSON
 The following table shows how AWS evaluates this policy based on the condition key
 values in your request.
 
-| Policy Condition                                                                                                                                                                                                                                           | Request Context                                                                                                                              | Result       |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }`    | `aws:PrincipalTag/department: legal aws:PrincipalTag/role: audit aws:PrincipalArn: arn:aws:iam::222222222222:user/Mary`                      | **Match**    |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }`    | `` aws:PrincipalTag/department: hr aws:PrincipalTag/role: audit aws:PrincipalArn: arn:aws:iam::222222222222:user/`Nikki` ``                  | **No match** |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }`    | ``aws:PrincipalTag/department: hr aws:PrincipalTag/role: `payroll` aws:PrincipalArn: arn:aws:iam::222222222222:user/Mary``                   | **No match** |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }`    | No `aws:PrincipalTag/role` in the request context. `aws:PrincipalTag/department: hr aws:PrincipalArn: arn:aws:iam::222222222222:user/Mary`   | **No match** |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }`    | No `aws:PrincipalTag` in the request context. `aws:PrincipalArn: arn:aws:iam::222222222222:user/Mary`                                        | **No match** | ## Evaluation logic for negated matching condition operators Some [condition operators,](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md") such as `StringNotEquals` or `ArnNotLike`, use negated matching to compare the context key-value pairs in your policy against the context key-value pairs in a request. When multiple values are specified for a single context key in a policy with negated matching condition operators, the effective permissions work like a logical `NOR`. In negated matching, a logical `NOR` or `NOT OR` returns true only if all values evaluate to false. The following figure illustrates the evaluation logic for a condition with multiple condition operators and context key-value pairs. The figure includes a negated matching condition operator for context key 3. ![Condition block showing how AND and OR are applied to multiple context keys and values when a negated matching condition operator is used](images/AccessPolicyLanguage_Condition_Block_AND_Negated_NOR_2.diagram.png) For example, the following S3 bucket policy illustrates how the previous figure is represented in a policy. The condition block includes condition operators `StringEquals` and `ArnNotLike`, and context keys `aws:PrincipalTag` and `aws:PrincipalArn`. To invoke the desired `Allow` or `Deny` effect, all context keys in the condition block must resolve to true. The user making the request must have both principal tag keys, _department_ and _role_, that include one of the tag key values specified in the policy. Since the `ArnNotLike` condition operator uses negated matching, the principal ARN of the user making the request must not match any of the `aws:PrincipalArn` values specified in the policy to be evaluated as true. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ExamplePolicy", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::222222222222:root" }, "Action": "s3:ListBucket", "Resource": "arn:aws:s3:::amzn-s3-demo-bucket", "Condition": { "StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnNotLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] } } } ] }` `` The following table shows how AWS evaluates this policy based on the condition key values in your request. |
-| Policy Condition                                                                                                                                                                                                                                           | Request Context                                                                                                                              | Result       |
-| ---                                                                                                                                                                                                                                                        | ---                                                                                                                                          | ---          |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnNotLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }` | `aws:PrincipalTag/department: legal aws:PrincipalTag/role: audit aws:PrincipalArn: arn:aws:iam::222222222222:user/Nikki`                     | **Match**    |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnNotLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }` | `` aws:PrincipalTag/department: hr aws:PrincipalTag/role: audit aws:PrincipalArn: arn:aws:iam::222222222222:user/`Mary` ``                   | **No match** |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnNotLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }` | ``aws:PrincipalTag/department: hr aws:PrincipalTag/role: `payroll` aws:PrincipalArn: arn:aws:iam::222222222222:user/Nikki``                  | **No match** |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnNotLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }` | >No `aws:PrincipalTag/role` in the request context. `aws:PrincipalTag/department: hr aws:PrincipalArn: arn:aws:iam::222222222222:user/Nikki` | **No match** |
-| `"StringEquals": { "aws:PrincipalTag/department": [ "finance", "hr", "legal" ], "aws:PrincipalTag/role": [ "audit", "security" ] }, "ArnNotLike": { "aws:PrincipalArn": [ "arn:aws:iam::222222222222:user/Ana", "arn:aws:iam::222222222222:user/Mary" ] }` | No `aws:PrincipalTag` in the request context. `aws:PrincipalArn: arn:aws:iam::222222222222:user/Nikki`                                       | **No match** |
+| Policy Condition                                                                                                                                                                                                                                                                                                | Request Context                                                                                                                                             | Result       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | `<br>aws:PrincipalTag/department: legal<br>aws:PrincipalTag/role: audit<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Mary<br>`                    | **Match**    |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | ``<br>aws:PrincipalTag/department: hr<br>aws:PrincipalTag/role: audit<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/`Nikki`<br>``                  | **No match** |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | ``<br>aws:PrincipalTag/department: hr<br>aws:PrincipalTag/role: `payroll`<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Mary<br>``                 | **No match** |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | No `aws:PrincipalTag/role` in the request context.<br>`<br>aws:PrincipalTag/department: hr<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Mary<br>` | **No match** |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | No `aws:PrincipalTag` in the request context.<br>`<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Mary<br>`                                         | **No match** |
+
+## Evaluation
+
+logic for negated matching condition operators
+
+Some [condition
+operators,](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md") such as `StringNotEquals` or `ArnNotLike`, use
+negated matching to compare the context key-value pairs in your policy against the context
+key-value pairs in a request. When multiple values are specified for a single context key in a
+policy with negated matching condition operators, the effective permissions work like a
+logical `NOR`. In negated matching, a logical `NOR` or `NOT
+ OR` returns true only if all values evaluate to false.
+
+The following figure illustrates the evaluation logic for a condition with multiple
+condition operators and context key-value pairs. The figure includes a negated matching
+condition operator for context key 3.
+
+![Condition block showing how AND and OR are applied to multiple context keys and values when a negated matching condition operator is used](images/AccessPolicyLanguage_Condition_Block_AND_Negated_NOR_2.diagram.png)
+
+For example, the following S3 bucket policy illustrates how the previous figure is
+represented in a policy. The condition block includes condition operators
+`StringEquals` and `ArnNotLike`, and context keys
+`aws:PrincipalTag` and `aws:PrincipalArn`. To invoke the desired
+`Allow` or `Deny` effect, all context keys in the condition block must
+resolve to true. The user making the request must have both principal tag keys,
+_department_ and _role_, that include one of the tag
+key values specified in the policy. Since the `ArnNotLike` condition operator uses
+negated matching, the principal ARN of the user making the request must not match any of the
+`aws:PrincipalArn` values specified in the policy to be evaluated as true.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ExamplePolicy",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::222222222222:root"
+ },
+ "Action": "s3:ListBucket",
+ "Resource": "arn:aws:s3:::amzn-s3-demo-bucket",
+ "Condition": {
+ "StringEquals": {
+ "aws:PrincipalTag/department": [
+ "finance",
+ "hr",
+ "legal"
+ ],
+ "aws:PrincipalTag/role": [
+ "audit",
+ "security"
+ ]
+ },
+ "ArnNotLike": {
+ "aws:PrincipalArn": [
+ "arn:aws:iam::222222222222:user/Ana",
+ "arn:aws:iam::222222222222:user/Mary"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+The following table shows how AWS evaluates this policy based on the condition key
+values in your request.
+
+| Policy Condition                                                                                                                                                                                                                                                                                                   | Request Context                                                                                                                                               | Result       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnNotLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | `<br>aws:PrincipalTag/department: legal<br>aws:PrincipalTag/role: audit<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Nikki<br>`                     | **Match**    |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnNotLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | ``<br>aws:PrincipalTag/department: hr<br>aws:PrincipalTag/role: audit<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/`Mary`<br>``                     | **No match** |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnNotLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | ``<br>aws:PrincipalTag/department: hr<br>aws:PrincipalTag/role: `payroll`<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Nikki<br>``                  | **No match** |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnNotLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | >No `aws:PrincipalTag/role` in the request context.<br>`<br>aws:PrincipalTag/department: hr<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Nikki<br>` | **No match** |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnNotLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | No `aws:PrincipalTag` in the request context.<br>`<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Nikki<br>`                                          | **No match** |

@@ -35,5 +35,113 @@ To perform the steps in this tutorial, you need to already have the following:
   follows:
 
 | User name  | Group  | Permissions |
-| ---------- | ------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| PolicyUser | <none> | <none>      | ## Step 1: Create the policy In this step, you create a customer managed policy that allows any attached user to sign in to the AWS Management Console with read-only access to IAM data. ###### To create the policy for your test user 1. Sign in to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") with your user that has administrator permissions. 2. In the navigation pane, choose **Policies**. 3. In the content pane, choose **Create policy**. 4. Choose the **JSON** option and copy the text from the following JSON policy document. Paste this text into the **JSON** text box. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iam:GenerateCredentialReport", "iam:Get*", "iam:List*" ], "Resource": "*" } ] }` `` 5. Resolve any security warnings, errors, or general warnings generated during [policy validation](access_policies_policy-validator.md "access_policies_policy-validator.md"), and then choose **Next**. ###### Note You can switch between the **Visual** and **JSON** editor options anytime. However, if you make changes or choose **Review policy** in the **Visual** editor tab, IAM might restructure your policy to optimize it for the visual editor. For more information, see [Policy restructuring](troubleshoot_policies.md#troubleshoot_viseditor-restructure "troubleshoot_policies.md#troubleshoot_viseditor-restructure"). 6. On the **Review and create** page, type `UsersReadOnlyAccessToIAMConsole` for the policy name. Review the permissions granted by your policy, and then choose **Create policy** to save your work. The new policy appears in the list of managed policies and is ready to attach. ## Step 2: Attach the policy Next you attach the policy you just created to your test IAM user. ###### To attach the policy to your test user 1. In the IAM console, in the navigation pane, choose **Policies**. 2. At the top of the policy list, in the search box, start typing `UsersReadOnlyAccesstoIAMConsole` until you can see your policy. Then choose the radio button next to **UsersReadOnlyAccessToIAMConsole** in the list. 3. Choose the **Actions** button, and then choose **Attach**. 4. In IAM entities choose the option to filter for **Users**. 5. In the search box, start typing `PolicyUser` until that user is visible on the list. Then check the box next to that user in the list. 6. Choose **Attach policy**. You have attached the policy to your IAM test user, which means that user now has read-only access to the IAM console. ## Step 3: Test user access For this tutorial, we recommend that you test access by signing in as the test user so you can see what your users might experience. ###### To test access by signing in with your test user 1. Sign in to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") with your `PolicyUser` test user. 2. Browse through the pages of the console and try to create a new user or group. Notice that `PolicyUser` can display data but cannot create or modify existing IAM data. ## Related resources For related information, see the following resources: <br>• [Managed policies and inline policies](access_policies_managed-vs-inline.md "access_policies_managed-vs-inline.md") <br>• [Control IAM user access to the AWS Management Console](console_controlling-access.md "console_controlling-access.md") ## Summary You've now successfully completed all of the steps necessary to create and attach a customer managed policy. As a result, you are able to sign in to the IAM console with your test account to see what the experience is like for your users. |
+| ---------- | ------ | ----------- |
+| PolicyUser | <none> | <none>      |
+
+## Step 1: Create the policy
+
+In this step, you create a customer managed policy that allows any attached user to sign
+in to the AWS Management Console with read-only access to IAM data.
+
+###### To create the policy for your test user
+
+1. Sign in to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") with your user that has
+   administrator permissions.
+2. In the navigation pane, choose **Policies**.
+3. In the content pane, choose **Create policy**.
+4. Choose the **JSON**
+   option
+   and copy the text from the following JSON policy document. Paste this
+   text into the **JSON** text box.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [ {
+ "Effect": "Allow",
+ "Action": [
+ "iam:GenerateCredentialReport",
+ "iam:Get*",
+ "iam:List*"
+ ],
+ "Resource": "*"
+ } ]
+}`
+
+```
+
+5. Resolve any security warnings, errors, or general warnings generated during [policy validation](access_policies_policy-validator.md "access_policies_policy-validator.md"), and then choose **Next**.
+
+###### Note
+
+You can switch between the
+**Visual**
+and **JSON**
+editor
+options anytime. However, if you make changes or choose
+**Review policy** in the
+**Visual**
+editor
+tab, IAM might restructure your policy to optimize it for the visual
+editor. For more information, see [Policy restructuring](troubleshoot_policies.md#troubleshoot_viseditor-restructure "troubleshoot_policies.md#troubleshoot_viseditor-restructure"). 6. On the
+**Review
+and create** page, type
+`UsersReadOnlyAccessToIAMConsole` for the policy name. Review the
+permissions granted by your policy, and
+then choose **Create policy** to save your work.
+
+The new policy appears in the list of managed policies and is ready to attach.
+
+## Step 2: Attach the policy
+
+Next you attach the policy you just created to your test IAM user.
+
+###### To attach the policy to your test user
+
+1. In the IAM console, in the navigation pane, choose
+   **Policies**.
+2. At the top of the policy list, in the search box, start typing
+   `UsersReadOnlyAccesstoIAMConsole` until you can see your policy.
+   Then choose the radio
+   button
+   next
+   to **UsersReadOnlyAccessToIAMConsole** in the list.
+3. Choose the **Actions** button, and then choose
+   **Attach**.
+4. In IAM entities
+
+choose the option to
+filter for **Users**. 5. In the search box, start typing `PolicyUser` until that user is
+visible on the list. Then check the box next to that user in the list. 6. Choose **Attach
+policy**.
+
+You have attached the policy to your IAM test user, which means that user now has
+read-only access to the IAM console.
+
+## Step 3: Test user access
+
+For this tutorial, we recommend that you test access by signing in as the test user so you
+can see what your users might experience.
+
+###### To test access by signing in with your test user
+
+1. Sign in to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") with your `PolicyUser` test user.
+2. Browse through the pages of the console and try to create a new user or group. Notice
+   that `PolicyUser` can display data but cannot create or modify existing IAM
+   data.
+
+## Related resources
+
+For related information, see the following resources:
+
+- [Managed policies and inline policies](access_policies_managed-vs-inline.md "access_policies_managed-vs-inline.md")
+- [Control IAM user access to the
+  AWS Management Console](console_controlling-access.md "console_controlling-access.md")
+
+## Summary
+
+You've now successfully completed all of the steps necessary to create and attach a
+customer managed policy. As a result, you are able to sign in to the IAM console with your
+test account to see what the experience is like for your users.

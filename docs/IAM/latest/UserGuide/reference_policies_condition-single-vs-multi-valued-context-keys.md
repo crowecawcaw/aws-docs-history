@@ -125,18 +125,77 @@ JSON
 The following table shows how AWS evaluates this policy based on the
 condition key values in your request.
 
-| Policy Condition                                                                                                       | Request Context                            | Result       |
-| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"ForAllValues:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }, "Null": { "aws:TagKeys": "false" }` | `aws:TagKeys: – environment`               | **Match**    |
-| `"ForAllValues:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }, "Null": { "aws:TagKeys": "false" }` | `aws:TagKeys: – cost-center`               | **Match**    |
-| `"ForAllValues:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }, "Null": { "aws:TagKeys": "false" }` | `aws:TagKeys: – environment – cost-center` | **Match**    |
-| `"ForAllValues:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }, "Null": { "aws:TagKeys": "false" }` | `aws:TagKeys: – environment – dept`        | **No match** |
-| `"ForAllValues:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }, "Null": { "aws:TagKeys": "false" }` | No `aws:TagKeys` in the request context.   | **No match** | Note that in the last example, the result is "No Match" because the Null condition check prevents matching when the context key is missing. This is a best practice to avoid overly permissive policies. ### ForAnyValue The `ForAnyValue` qualifier tests whether at least one member of the set of request context key values matches at least one member of the set of context key values in your policy condition. The condition returns `true` if any one of the context key values in the request matches any one of the context key values in the policy. For no matching context key or if the key does not exist, the condition returns `false`. ###### Important When using `ForAnyValue` with a `Deny` effect, if the context key is not present in the request, the policy evaluates as **No match**. For consistent behavior, add an explicit [Null](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") condition check in your policy to verify whether the context key exists. For details, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") . #### Example ForAnyValue set operator In the following example, ForAnyValue is used with aws:TagKeys to allow users to delete specific tags assigned to an EC2 instance. This policy allows users to delete tags for an instance if the tag keys specified in the request include `environment` or `cost-center`. The request can include additional tag keys beyond those specified in the policy, but must include at least one of the specified keys to match the condition. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "ec2:DeleteTags", "Resource": "arn:aws:ec2:us-east-1:`111122223333`:instance/*", "Condition": { "ForAnyValue:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] } } } ] }` `` The following table shows how AWS evaluates this policy based on the condition key values in your request. |
-| Policy Condition                                                                                                       | Request Context                            | Result       |
-| ---                                                                                                                    | ---                                        | ---          |
-| `"ForAnyValue:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }`                                      | `aws:TagKeys: – environment`               | **Match**    |
-| `"ForAnyValue:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }`                                      | `aws:TagKeys: – cost-center`               | **Match**    |
-| `"ForAnyValue:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }`                                      | `aws:TagKeys: – environment – cost-center` | **Match**    |
-| `"ForAnyValue:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }`                                      | `aws:TagKeys: – environment – dept`        | **Match**    |
-| `"ForAnyValue:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }`                                      | `aws:TagKeys: – dept`                      | **No match** |
-| `"ForAnyValue:StringEquals": { "aws:TagKeys": [ "environment", "cost-center" ] }`                                      | No `aws:TagKeys` in the request context.   | **No match** |
+| Policy Condition                                                                                                                                       | Request Context                                          | Result       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- | ------------ |
+| `<br>"ForAllValues:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>},<br>"Null": {<br>"aws:TagKeys": "false"<br>}<br>` | `<br>aws:TagKeys:<br>– environment<br>`                  | **Match**    |
+| `<br>"ForAllValues:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>},<br>"Null": {<br>"aws:TagKeys": "false"<br>}<br>` | `<br>aws:TagKeys:<br>– cost-center<br>`                  | **Match**    |
+| `<br>"ForAllValues:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>},<br>"Null": {<br>"aws:TagKeys": "false"<br>}<br>` | `<br>aws:TagKeys:<br>– environment<br>– cost-center<br>` | **Match**    |
+| `<br>"ForAllValues:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>},<br>"Null": {<br>"aws:TagKeys": "false"<br>}<br>` | `<br>aws:TagKeys:<br>– environment<br>– dept<br>`        | **No match** |
+| `<br>"ForAllValues:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>},<br>"Null": {<br>"aws:TagKeys": "false"<br>}<br>` | No `aws:TagKeys` in the request context.                 | **No match** |
+
+Note that in the last example, the result is "No Match" because the Null
+condition check prevents matching when the context key is missing. This is a
+best practice to avoid overly permissive policies.
+
+### ForAnyValue
+
+The `ForAnyValue` qualifier tests whether at least one member of the
+set of request context key values matches at least one member of the set of context
+key values in your policy condition. The condition returns `true` if any
+one of the context key values in the request matches any one of the context key
+values in the policy. For no matching context key or if the key does not exist, the
+condition returns `false`.
+
+###### Important
+
+When using `ForAnyValue` with a `Deny` effect, if the
+context key is not present in the request, the policy evaluates as **No match**. For consistent behavior, add an explicit
+[Null](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") condition check in
+your policy to verify whether the context key exists. For details, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") .
+
+#### Example
+
+ForAnyValue set operator
+
+In the following example, ForAnyValue is used with aws:TagKeys to allow users
+to delete specific tags assigned to an EC2 instance. This policy allows users to
+delete tags for an instance if the tag keys specified in the request include
+`environment` or `cost-center`. The request can
+include additional tag keys beyond those specified in the policy, but must
+include at least one of the specified keys to match the condition.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "ec2:DeleteTags",
+ "Resource": "arn:aws:ec2:us-east-1:`111122223333`:instance/*",
+ "Condition": {
+ "ForAnyValue:StringEquals": {
+ "aws:TagKeys": [
+ "environment",
+ "cost-center"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+The following table shows how AWS evaluates this policy based on the
+condition key values in your request.
+
+| Policy Condition                                                                                         | Request Context                                          | Result       |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ------------ |
+| `<br>"ForAnyValue:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>}<br>` | `<br>aws:TagKeys:<br>– environment<br>`                  | **Match**    |
+| `<br>"ForAnyValue:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>}<br>` | `<br>aws:TagKeys:<br>– cost-center<br>`                  | **Match**    |
+| `<br>"ForAnyValue:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>}<br>` | `<br>aws:TagKeys:<br>– environment<br>– cost-center<br>` | **Match**    |
+| `<br>"ForAnyValue:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>}<br>` | `<br>aws:TagKeys:<br>– environment<br>– dept<br>`        | **Match**    |
+| `<br>"ForAnyValue:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>}<br>` | `<br>aws:TagKeys:<br>– dept<br>`                         | **No match** |
+| `<br>"ForAnyValue:StringEquals": {<br>"aws:TagKeys": [<br>"environment",<br>"cost-center"<br>]<br>}<br>` | No `aws:TagKeys` in the request context.                 | **No match** |

@@ -184,9 +184,9 @@ matches the `amzn-s3-demo-bucket1` bucket name. The following table shows how
 AWS uses the request context to evaluate this policy and make authorization
 decisions.
 
-| Policy                                               | Request context                                                                                                                                      | Evaluation result |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `"StringEquals": { "aws:PrincipalTag/dept": "123" }` | `Principal: AIDA123456789EXAMPLE Action: s3:CreateBucket Resource: arn:aws:s3:::amzn-s3-demo-bucket1 Context: <br>• aws:PrincipalTag/dept=123`       | **Match**         |
-| `"StringEquals": { "aws:PrincipalTag/dept": "123" }` | ``Principal: AIDA123456789EXAMPLE Action: s3:`DeleteBucket` Resource: arn:aws:s3:::amzn-s3-demo-bucket1 Context: <br>• aws:PrincipalTag/dept=123``   | **No match**      |
-| `"StringEquals": { "aws:PrincipalTag/dept": "123" }` | `` Principal: AIDA123456789EXAMPLE Action: s3:CreateBucket Resource: arn:aws:s3:::amzn-s3-demo-bucket1 Context: <br>• aws:PrincipalTag/dept=`321` `` | **No match**      |
-| `"StringEquals": { "aws:PrincipalTag/dept": "123" }` | `Principal: AIDA123456789EXAMPLE Action: s3:CreateBucket Resource: arn:aws:s3:::amzn-s3-demo-bucket1 Context:` No `aws:PrincipalTag` in the request. | **No match**      |
+| Policy                                                             | Request context                                                                                                                                                          | Evaluation result |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/dept": "123"<br>}<br>` | `<br>Principal: AIDA123456789EXAMPLE<br>Action: s3:CreateBucket<br>Resource: arn:aws:s3:::amzn-s3-demo-bucket1<br>Context:<br>• aws:PrincipalTag/dept=123<br>`           | **Match**         |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/dept": "123"<br>}<br>` | ``<br>Principal: AIDA123456789EXAMPLE<br>Action: s3:`DeleteBucket`<br>Resource: arn:aws:s3:::amzn-s3-demo-bucket1<br>Context:<br>• aws:PrincipalTag/dept=123<br>``       | **No match**      |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/dept": "123"<br>}<br>` | ``<br>Principal: AIDA123456789EXAMPLE<br>Action: s3:CreateBucket<br>Resource: arn:aws:s3:::amzn-s3-demo-bucket1<br>Context:<br>• aws:PrincipalTag/dept=`321`<br>``       | **No match**      |
+| `<br>"StringEquals": {<br>"aws:PrincipalTag/dept": "123"<br>}<br>` | `<br>Principal: AIDA123456789EXAMPLE<br>Action: s3:CreateBucket<br>Resource: arn:aws:s3:::amzn-s3-demo-bucket1<br>Context:<br>`<br>No `aws:PrincipalTag` in the request. | **No match**      |

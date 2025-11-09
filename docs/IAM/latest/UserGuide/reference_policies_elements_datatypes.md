@@ -24,7 +24,7 @@ about each element, see the preceding sections.
 | Float     | Number                                                                                                                       |
 | Boolean   | true false                                                                                                                   |
 | Null      | null                                                                                                                         |
-| Date      | String adhering to the [W3C Profile of ISO 8601](http://www.w3.org/TR/NOTE-datetime "http://www.w3.org/TR/NOTE-datetime")    |
+| Date      | String adhering to the [W3C Profile<br>of ISO 8601](http://www.w3.org/TR/NOTE-datetime "http://www.w3.org/TR/NOTE-datetime") |
 | IpAddress | String adhering to [RFC 4632](https://datatracker.ietf.org/doc/html/rfc4632 "https://datatracker.ietf.org/doc/html/rfc4632") |
 | List      | Array                                                                                                                        |
 | Object    | Object                                                                                                                       |

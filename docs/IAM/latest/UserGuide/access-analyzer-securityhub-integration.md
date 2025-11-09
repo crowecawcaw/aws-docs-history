@@ -157,11 +157,150 @@ use a different naming scheme than AWS Identity and Access Management Access Ana
 about all of the ASFF types associated with AWS Identity and Access Management Access Analyzer findings as they appear in
 Security Hub.
 
-| ASFF finding type                                                                        | Security Hub finding title                         | Description                                                                                                                                     |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Effects/Data Exposure/External Access Granted                                            | <resource ARN> allows public access                | A resource-based policy attached to the resource allows public access on the resource to all external principals.                               |
-| Software and Configuration Checks/AWS Security Best Practices/External Access Granted    | <resource ARN> allows cross-account access         | A resource-based policy attached to the resource allows cross-account access to external principals outside the zone of trust for the analyzer. |
-| Software and Configuration Checks/AWS Security Best Practices/Unused Permission          | <resource ARN> contains unused permissions         | A user or role contains unused service and action permissions.                                                                                  |
-| Software and Configuration Checks/AWS Security Best Practices/Unused IAM Role            | <resource ARN> contains unused IAM role            | A user or role contains an unused IAM role.                                                                                                     |
-| Software and Configuration Checks/AWS Security Best Practices/Unused IAM User Password   | <resource ARN> contains unused IAM user password   | A user or role contains an unused IAM user password.                                                                                            |
-| Software and Configuration Checks/AWS Security Best Practices/Unused IAM User Access Key | <resource ARN> contains unused IAM user access key | A user or role contains an unused IAM user access key.                                                                                          | ## Typical findings from IAM Access Analyzer IAM Access Analyzer sends findings to Security Hub using the [AWS Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). Here is an example of a typical finding from IAM Access Analyzer for external access findings. `{ "SchemaVersion": "2018-10-08", "Id": "arn:aws:access-analyzer:us-west-2:111122223333:analyzer/my-analyzer/arn:aws:s3:::amzn-s3-demo-bucket", "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/access-analyzer", "GeneratorId": "aws/access-analyzer", "AwsAccountId": "111122223333", "Types": ["Software and Configuration Checks/AWS Security Best Practices/External Access Granted"], "CreatedAt": "2020-11-10T16:17:47Z", "UpdatedAt": "2020-11-10T16:43:49Z", "Severity": { "Product": 1, "Label": "LOW", "Normalized": 1 }, "Title": "AwsS3Bucket/arn:aws:s3:::amzn-s3-demo-bucket/ allows cross-account access", "Description": "AWS::S3::Bucket/arn:aws:s3:::amzn-s3-demo-bucket/ allows cross-account access from AWS 444455556666", "Remediation": { "Recommendation": {"Text": "If the access isn't intended, it indicates a potential security risk. Use the console for the resource to modify or remove the policy that grants the unintended access. You can use the Rescan button on the Finding details page in the Access Analyzer console to confirm whether the change removed the access. If the access is removed, the status changes to Resolved."} }, "SourceUrl": "https://console.aws.amazon.com/access-analyzer/home?region=us-west-2#/findings/details/dad90d5d-63b4-6575-b0fa-ef9c556ge798", "Resources": [ { "Type": "AwsS3Bucket", "Id": "arn:aws:s3:::amzn-s3-demo-bucket", "Details": { "Other": { "External Principal Type": "AWS", "Condition": "none", "Action Granted": "s3:GetObject,s3:GetObjectVersion", "External Principal": "444455556666" } } } ], "WorkflowState": "NEW", "Workflow": {"Status": "NEW"}, "RecordState": "ACTIVE" }` Here is an example of a typical finding from IAM Access Analyzer for unused access findings. `{ "Findings": [ { "SchemaVersion": "2018-10-08", "Id": "arn:aws:access-analyzer:us-west-2:111122223333:analyzer/integTestAnalyzer-DO-NOT-DELETE/arn:aws:iam::111122223333:role/TestRole/UnusedPermissions", "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/access-analyzer", "ProductName": "IAM Access Analyzer", "CompanyName": "AWS", "Region": "us-west-2", "GeneratorId": "aws/access-analyzer", "AwsAccountId": "111122223333", "Types": [ "Software and Configuration Checks/AWS Security Best Practices/Unused Permission" ], "CreatedAt": "2023-09-18T16:29:09.657Z", "UpdatedAt": "2023-09-21T20:39:16.651Z", "Severity": { "Product": 1, "Label": "LOW", "Normalized": 1 }, "Title": "AwsIamRole/arn:aws:iam::111122223333:role/IsengardRole-DO-NOT-DELETE/ contains unused permissions", "Description": "AWS::IAM::Role/arn:aws:iam::111122223333:role/IsengardRole-DO-NOT-DELETE/ contains unused service and action-level permissions", "Remediation": { "Recommendation": { "Text":"If the unused permissions aren’t required, delete the permissions to refine access to your account. Use the IAM console to modify or remove the policy that grants the unused permissions. If all the unused permissions are removed, the status of the finding changes to Resolved." } }, "SourceUrl": "https://us-west-2.console.aws.amazon.com/access-analyzer/home?region=us-west-2#/unused-access-findings?resource=arn%3Aaws%3Aiam%3A%3A903798373645%3Arole%2FTestRole", "ProductFields": { "numberOfUnusedActions": "256", "numberOfUnusedServices": "15", "resourceOwnerAccount": "111122223333", "findingId": "DEMO24d8d-0d3f-4d3d-99f4-299fc8a62ee7", "findingType": "UnusedPermission", "aws/securityhub/FindingId": "arn:aws:securityhub:us-west-2::product/aws/access-analyzer/arn:aws:access-analyzer:us-west-2:111122223333:analyzer/integTestAnalyzer-DO-NOT-DELETE/arn:aws:iam::111122223333:role/TestRole/UnusedPermissions", "aws/securityhub/ProductName": "AM Access Analyzer", "aws/securityhub/CompanyName": "AWS" }, "Resources": [ { "Type": "AwsIamRole", "Id": "arn:aws:iam::111122223333:role/TestRole" } ], "WorkflowState": "NEW", "Workflow": { "Status": "NEW" }, "RecordState": "ARCHIVED", "FindingProviderFields": { "Severity": { "Label": "LOW" }, "Types": [ "Software and Configuration Checks/AWS Security Best Practices/Unused Permission" ] } } ] }` ## Enabling and configuring the integration To use the integration with Security Hub, you must enable Security Hub. For information on how to enable Security Hub, see [Setting up Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_. When you enable both IAM Access Analyzer and Security Hub, the integration is enabled automatically. IAM Access Analyzer immediately begins to send findings to Security Hub. ## How to stop sending findings To stop sending findings to Security Hub, you can use either the Security Hub console or the API. See [Disabling and enabling the flow of findings from an integration (console)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console") or [Disabling the flow of findings from an integration (Security Hub API, AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub User Guide_. |
+| ASFF finding type                                                                           | Security Hub finding title                         | Description                                                                                                                                        |
+| ------------------------------------------------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Effects/Data Exposure/External Access Granted                                               | <resource ARN> allows public access                | A resource-based policy attached to the resource allows public access on the<br>resource to all external principals.                               |
+| Software and Configuration Checks/AWS Security Best Practices/External Access<br>Granted    | <resource ARN> allows cross-account access         | A resource-based policy attached to the resource allows cross-account access to<br>external principals outside the zone of trust for the analyzer. |
+| Software and Configuration Checks/AWS Security Best Practices/Unused<br>Permission          | <resource ARN> contains unused permissions         | A user or role contains unused service and action permissions.                                                                                     |
+| Software and Configuration Checks/AWS Security Best Practices/Unused IAM<br>Role            | <resource ARN> contains unused IAM role            | A user or role contains an unused IAM role.                                                                                                        |
+| Software and Configuration Checks/AWS Security Best Practices/Unused IAM<br>User Password   | <resource ARN> contains unused IAM user password   | A user or role contains an unused IAM user password.                                                                                               |
+| Software and Configuration Checks/AWS Security Best Practices/Unused IAM<br>User Access Key | <resource ARN> contains unused IAM user access key | A user or role contains an unused IAM user access key.                                                                                             |
+
+## Typical findings
+
+from IAM Access Analyzer
+
+IAM Access Analyzer sends findings to Security Hub using the [AWS Security Finding
+Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
+
+Here is an example of a typical finding from IAM Access Analyzer for external access
+findings.
+
+```
+{
+    "SchemaVersion": "2018-10-08",
+    "Id": "arn:aws:access-analyzer:us-west-2:111122223333:analyzer/my-analyzer/arn:aws:s3:::amzn-s3-demo-bucket",
+    "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/access-analyzer",
+    "GeneratorId": "aws/access-analyzer",
+    "AwsAccountId": "111122223333",
+    "Types": ["Software and Configuration Checks/AWS Security Best Practices/External Access Granted"],
+    "CreatedAt": "2020-11-10T16:17:47Z",
+    "UpdatedAt": "2020-11-10T16:43:49Z",
+    "Severity": {
+        "Product": 1,
+        "Label": "LOW",
+        "Normalized": 1
+    },
+    "Title": "AwsS3Bucket/arn:aws:s3:::amzn-s3-demo-bucket/ allows cross-account access",
+    "Description": "AWS::S3::Bucket/arn:aws:s3:::amzn-s3-demo-bucket/ allows cross-account access from AWS 444455556666",
+    "Remediation": {
+        "Recommendation": {"Text": "If the access isn't intended, it indicates a potential security risk. Use the console for the resource to modify or remove the policy that grants the unintended access. You can use the Rescan button on the Finding details page in the Access Analyzer console to confirm whether the change removed the access. If the access is removed, the status changes to Resolved."}
+    },
+    "SourceUrl": "https://console.aws.amazon.com/access-analyzer/home?region=us-west-2#/findings/details/dad90d5d-63b4-6575-b0fa-ef9c556ge798",
+    "Resources": [
+        {
+            "Type": "AwsS3Bucket",
+            "Id": "arn:aws:s3:::amzn-s3-demo-bucket",
+            "Details": {
+                "Other": {
+                    "External Principal Type": "AWS",
+                    "Condition": "none",
+                    "Action Granted": "s3:GetObject,s3:GetObjectVersion",
+                    "External Principal": "444455556666"
+                }
+            }
+        }
+    ],
+    "WorkflowState": "NEW",
+    "Workflow": {"Status": "NEW"},
+    "RecordState": "ACTIVE"
+}
+```
+
+Here is an example of a typical finding from IAM Access Analyzer for unused access
+findings.
+
+```
+{
+    "Findings": [
+    {
+      "SchemaVersion": "2018-10-08",
+      "Id": "arn:aws:access-analyzer:us-west-2:111122223333:analyzer/integTestAnalyzer-DO-NOT-DELETE/arn:aws:iam::111122223333:role/TestRole/UnusedPermissions",
+      "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/access-analyzer",
+      "ProductName": "IAM Access Analyzer",
+      "CompanyName": "AWS",
+      "Region": "us-west-2",
+      "GeneratorId": "aws/access-analyzer",
+      "AwsAccountId": "111122223333",
+      "Types": [
+        "Software and Configuration Checks/AWS Security Best Practices/Unused Permission"
+      ],
+      "CreatedAt": "2023-09-18T16:29:09.657Z",
+      "UpdatedAt": "2023-09-21T20:39:16.651Z",
+      "Severity": {
+        "Product": 1,
+        "Label": "LOW",
+        "Normalized": 1
+      },
+      "Title": "AwsIamRole/arn:aws:iam::111122223333:role/IsengardRole-DO-NOT-DELETE/ contains unused permissions",
+      "Description": "AWS::IAM::Role/arn:aws:iam::111122223333:role/IsengardRole-DO-NOT-DELETE/ contains unused service and action-level permissions",
+      "Remediation": {
+        "Recommendation": {
+          "Text":"If the unused permissions aren’t required, delete the permissions to refine access to your account. Use the IAM console to modify or remove the policy that grants the unused permissions. If all the unused permissions are removed, the status of the finding changes to Resolved."
+        }
+      },
+      "SourceUrl": "https://us-west-2.console.aws.amazon.com/access-analyzer/home?region=us-west-2#/unused-access-findings?resource=arn%3Aaws%3Aiam%3A%3A903798373645%3Arole%2FTestRole",
+      "ProductFields": {
+      "numberOfUnusedActions": "256",
+      "numberOfUnusedServices": "15",
+      "resourceOwnerAccount": "111122223333",
+      "findingId": "DEMO24d8d-0d3f-4d3d-99f4-299fc8a62ee7",
+      "findingType": "UnusedPermission",
+      "aws/securityhub/FindingId": "arn:aws:securityhub:us-west-2::product/aws/access-analyzer/arn:aws:access-analyzer:us-west-2:111122223333:analyzer/integTestAnalyzer-DO-NOT-DELETE/arn:aws:iam::111122223333:role/TestRole/UnusedPermissions",
+      "aws/securityhub/ProductName": "AM Access Analyzer",
+      "aws/securityhub/CompanyName": "AWS"
+    },
+    "Resources": [
+    {
+      "Type": "AwsIamRole",
+      "Id": "arn:aws:iam::111122223333:role/TestRole"
+    }
+  ],
+  "WorkflowState": "NEW",
+  "Workflow": {
+    "Status": "NEW"
+    },
+  "RecordState": "ARCHIVED",
+  "FindingProviderFields": {
+    "Severity": {
+      "Label": "LOW"
+    },
+    "Types": [
+    "Software and Configuration Checks/AWS Security Best Practices/Unused Permission"
+    ]
+  }
+  }
+]
+}
+```
+
+## Enabling and configuring the
+
+integration
+
+To use the integration with Security Hub, you must enable Security Hub. For information on how to enable
+Security Hub, see [Setting up Security
+Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
+
+When you enable both IAM Access Analyzer and Security Hub, the integration is enabled automatically.
+IAM Access Analyzer immediately begins to send findings to Security Hub.
+
+## How to stop sending
+
+findings
+
+To stop sending findings to Security Hub, you can use either the Security Hub console or the API.
+
+See [Disabling and enabling the flow of findings from an integration
+(console)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console") or [Disabling the flow of findings from an integration (Security Hub API,
+AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api") in the _AWS Security Hub User Guide_.
