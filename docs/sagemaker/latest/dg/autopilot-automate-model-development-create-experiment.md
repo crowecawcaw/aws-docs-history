@@ -354,112 +354,115 @@ permissions.
 The IAM policy defined in the provided JSON document grants those
 permissions:
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [{
-+            "Sid": "EMRServerlessCreateApplicationOperation",
-+            "Effect": "Allow",
-+            "Action": "emr-serverless:CreateApplication",
-+            "Resource": "arn:aws:emr-serverless:*:*:/*",
-+            "Condition": {
-+                "StringEquals": {
-+                    "aws:RequestTag/sagemaker:is-canvas-resource": "True",
-+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-+                }
-+            }
-+        },
-+        {
-+            "Sid": "EMRServerlessListApplicationOperation",
-+            "Effect": "Allow",
-+            "Action": "emr-serverless:ListApplications",
-+            "Resource": "arn:aws:emr-serverless:*:*:/*",
-+            "Condition": {
-+                "StringEquals": {
-+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-+                }
-+            }
-+        },
-+        {
-+            "Sid": "EMRServerlessApplicationOperations",
-+            "Effect": "Allow",
-+            "Action": [
-+                "emr-serverless:UpdateApplication",
-+                "emr-serverless:GetApplication"
-+            ],
-+            "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
-+            "Condition": {
-+                "StringEquals": {
-+                    "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
-+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-+                }
-+            }
-+        },
-+        {
-+            "Sid": "EMRServerlessStartJobRunOperation",
-+            "Effect": "Allow",
-+            "Action": "emr-serverless:StartJobRun",
-+            "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
-+            "Condition": {
-+                "StringEquals": {
-+                    "aws:RequestTag/sagemaker:is-canvas-resource": "True",
-+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-+                }
-+            }
-+        },
-+        {
-+            "Sid": "EMRServerlessListJobRunOperation",
-+            "Effect": "Allow",
-+            "Action": "emr-serverless:ListJobRuns",
-+            "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
-+            "Condition": {
-+                "StringEquals": {
-+                    "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
-+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-+                }
-+            }
-+        },
-+        {
-+            "Sid": "EMRServerlessJobRunOperations",
-+            "Effect": "Allow",
-+            "Action": [
-+                "emr-serverless:GetJobRun",
-+                "emr-serverless:CancelJobRun"
-+            ],
-+            "Resource": "arn:aws:emr-serverless:*:*:/applications/*/jobruns/*",
-+            "Condition": {
-+                "StringEquals": {
-+                    "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
-+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-+                }
-+            }
-+        },
-+        {
-+            "Sid": "EMRServerlessTagResourceOperation",
-+            "Effect": "Allow",
-+            "Action": "emr-serverless:TagResource",
-+            "Resource": "arn:aws:emr-serverless:*:*:/*",
-+            "Condition": {
-+                "StringEquals": {
-+                    "aws:RequestTag/sagemaker:is-canvas-resource": "True",
-+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-+                }
-+            }
-+        },
-+        {
-+            "Sid": "IAMPassOperationForEMRServerless",
-+            "Effect": "Allow",
-+            "Action": "iam:PassRole",
-+            "Resource": "arn:aws:iam::*:role/EMRServerlessRuntimeRole-*",
-+            "Condition": {
-+                "StringEquals": {
-+                    "iam:PassedToService": "emr-serverless.amazonaws.com",
-+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-+                }
-+            }
-         }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [{
+ "Sid": "EMRServerlessCreateApplicationOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:CreateApplication",
+ "Resource": "arn:aws:emr-serverless:*:*:/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessListApplicationOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:ListApplications",
+ "Resource": "arn:aws:emr-serverless:*:*:/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessApplicationOperations",
+ "Effect": "Allow",
+ "Action": [
+ "emr-serverless:UpdateApplication",
+ "emr-serverless:GetApplication"
+ ],
+ "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessStartJobRunOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:StartJobRun",
+ "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessListJobRunOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:ListJobRuns",
+ "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessJobRunOperations",
+ "Effect": "Allow",
+ "Action": [
+ "emr-serverless:GetJobRun",
+ "emr-serverless:CancelJobRun"
+ ],
+ "Resource": "arn:aws:emr-serverless:*:*:/applications/*/jobruns/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessTagResourceOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:TagResource",
+ "Resource": "arn:aws:emr-serverless:*:*:/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "IAMPassOperationForEMRServerless",
+ "Effect": "Allow",
+ "Action": "iam:PassRole",
+ "Resource": "arn:aws:iam::*:role/EMRServerlessRuntimeRole-*",
+ "Condition": {
+ "StringEquals": {
+ "iam:PassedToService": "emr-serverless.amazonaws.com",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 ## Migrate a CreateAutoMLJob to

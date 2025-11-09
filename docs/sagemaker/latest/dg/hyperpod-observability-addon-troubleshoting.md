@@ -64,68 +64,74 @@ association
 5. Ensure that the IAM role that is attached to this
    association has the following permissions.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PrometheusAccess",
-            "Effect": "Allow",
-            "Action": "aps:RemoteWrite",
-            "Resource": "arn:aws:aps:`AWS Region`:`account-ID`:workspace/`workspace-ID`"
-        },
-        {
-            "Sid": "CloudwatchLogsAccess",
-            "Effect": "Allow",
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-                "logs:PutLogEvents",
-                "logs:GetLogEvents",
-                "logs:FilterLogEvents",
-                "logs:GetLogRecord",
-                "logs:StartQuery",
-                "logs:StopQuery",
-                "logs:GetQueryResults"
-            ],
-            "Resource": [
-                "arn:aws:logs:`AWS Region`:`account-ID`:log-group:/aws/sagemaker/Clusters/*",
-                "arn:aws:logs:`AWS Region`:`account-ID`:log-group:/aws/sagemaker/Clusters/*:log-stream:*"
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "PrometheusAccess",
+ "Effect": "Allow",
+ "Action": "aps:RemoteWrite",
+ "Resource": "arn:aws:aps:`us-east-1`:`111122223333`:workspace/`workspace-ID`"
+ },
+ {
+ "Sid": "CloudwatchLogsAccess",
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogGroup",
+ "logs:CreateLogStream",
+ "logs:DescribeLogGroups",
+ "logs:DescribeLogStreams",
+ "logs:PutLogEvents",
+ "logs:GetLogEvents",
+ "logs:FilterLogEvents",
+ "logs:GetLogRecord",
+ "logs:StartQuery",
+ "logs:StopQuery",
+ "logs:GetQueryResults"
+ ],
+ "Resource": [
+ "arn:aws:logs:`us-east-1`:`111122223333`:log-group:/aws/sagemaker/Clusters/*",
+ "arn:aws:logs:`us-east-1`:`111122223333`:log-group:/aws/sagemaker/Clusters/*:log-stream:*"
+ ]
+ }
+ ]
+}`
+
 ```
 
 6. Ensure that the IAM role that is attached to this
    association has the following trust policy. Verify that the
    source ARN and source account are correct.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowEksAuthToAssumeRoleForPodIdentity",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "pods.eks.amazonaws.com"
-            },
-            "Action": [
-                "sts:AssumeRole",
-                "sts:TagSession"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceArn": "arn:aws:eks:us-east-1:111122223333:cluster/`cluster-name`",
-                    "aws:SourceAccount": "111122223333"
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowEksAuthToAssumeRoleForPodIdentity",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "pods.eks.amazonaws.com"
+ },
+ "Action": [
+ "sts:AssumeRole",
+ "sts:TagSession"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceArn": "arn:aws:eks:us-east-1:111122223333:cluster/`cluster-name`",
+ "aws:SourceAccount": "111122223333"
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 ### Check Amazon Managed Service for Prometheus

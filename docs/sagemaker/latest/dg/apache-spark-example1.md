@@ -136,9 +136,10 @@ trainingData.show()
 The `show` method displays the first 20 rows in the data
 frame:
 
-````
+```
 +-----+--------------------+
-|label|            features| +-----+--------------------+
+|label|            features|
++-----+--------------------+
 |  5.0|(784,[152,153,154...|
 |  0.0|(784,[127,128,129...|
 |  4.0|(784,[160,161,162...|
@@ -158,8 +159,134 @@ frame:
 |  2.0|(784,[151,152,153...|
 |  8.0|(784,[159,160,161...|
 |  6.0|(784,[100,101,102...|
-|  9.0|(784,[209,210,211...| +-----+--------------------+ only showing top 20 rows ``` In each row: + The `label` column identifies the image's label. For example, if the image of the handwritten number is the digit 5, the label value is 5. + The `features` column stores a vector (`org.apache.spark.ml.linalg.Vector`) of `Double` values. These are the 784 features of the handwritten number. (Each handwritten number is a 28 x 28-pixel image, making 784 features.) <br>• Creates a SageMaker AI estimator (`KMeansSageMakerEstimator`) The `fit` method of this estimator uses the k-means algorithm provided by SageMaker AI to train models using an input `DataFrame`. In response, it returns a `SageMakerModel` object that you can use to get inferences. ###### Note The `KMeansSageMakerEstimator` extends the SageMaker AI `SageMakerEstimator`, which extends the Apache Spark `Estimator`. ``` val estimator = new KMeansSageMakerEstimator( sagemakerRole = IAMRole(roleArn), trainingInstanceType = "ml.p2.xlarge", trainingInstanceCount = 1, endpointInstanceType = "ml.c4.xlarge", endpointInitialInstanceCount = 1) .setK(10).setFeatureDim(784) ``` The constructor parameters provide information that is used for training a model and deploying it on SageMaker AI: + `trainingInstanceType` and `trainingInstanceCount`—Identify the type and number of ML compute instances to use for model training. + `endpointInstanceType`—Identifies the ML compute instance type to use when hosting the model in SageMaker AI. By default, one ML compute instance is assumed. + `endpointInitialInstanceCount`—Identifies the number of ML compute instances initially backing the endpoint hosting the model in SageMaker AI. + `sagemakerRole`—SageMaker AI assumes this IAM role to perform tasks on your behalf. For example, for model training, it reads data from S3 and writes training results (model artifacts) to S3. ###### Note This example implicitly creates a SageMaker AI client. To create this client, you must provide your credentials. The API uses these credentials to authenticate requests to SageMaker AI. For example, it uses the credentials to authenticate requests to create a training job and API calls for deploying the model using SageMaker AI hosting services. + After the `KMeansSageMakerEstimator` object has been created, you set the following parameters, are used in model training: <br>• The number of clusters that the k-means algorithm should create during model training. You specify 10 clusters, one for each digit, 0 through 9. <br>• Identifies that each input image has 784 features (each handwritten number is a 28 x 28-pixel image, making 784 features). <br>• Calls the estimator `fit` method ``` // train val model = estimator.fit(trainingData) ``` You pass the input `DataFrame` as a parameter. The model does all the work of training the model and deploying it to SageMaker AI. For more information see, [Integrate your Apache Spark application with SageMaker AI](apache-spark.md#spark-sdk-common-process "apache-spark.md#spark-sdk-common-process"). In response, you get a `SageMakerModel` object, which you can use to get inferences from your model deployed in SageMaker AI. You provide only the input `DataFrame`. You don't need to specify the registry path to the k-means algorithm used for model training because the `KMeansSageMakerEstimator` knows it. <br>• Calls the `SageMakerModel.transform` method to get inferences from the model deployed in SageMaker AI. The `transform` method takes a `DataFrame` as input, transforms it, and returns another `DataFrame` containing inferences obtained from the model. ``` val transformedData = model.transform(testData) transformedData.show ``` For simplicity, we use the same `DataFrame` as input to the `transform` method that we used for model training in this example. The `transform` method does the following: + Serializes the `features` column in the input `DataFrame` to protobuf and sends it to the SageMaker AI endpoint for inference. + Deserializes the protobuf response into the two additional columns (`distance_to_cluster` and `closest_cluster`) in the transformed `DataFrame`. The `show` method gets inferences to the first 20 rows in the input `DataFrame`: ``` +-----+--------------------+-------------------+---------------+
-|label|            features|distance_to_cluster|closest_cluster| +-----+--------------------+-------------------+---------------+
+|  9.0|(784,[209,210,211...|
++-----+--------------------+
+only showing top 20 rows
+```
+
+In each row:
+
+    + The `label` column identifies the image's label. For
+     example, if the image of the handwritten number is the digit 5, the
+     label value is 5.
+    + The `features` column stores a vector
+     (`org.apache.spark.ml.linalg.Vector`) of
+     `Double` values. These are the 784 features of the
+     handwritten number. (Each handwritten number is a 28 x 28-pixel image,
+     making 784 features.)
+
+- Creates a SageMaker AI estimator (`KMeansSageMakerEstimator`)
+
+The `fit` method of this estimator uses the k-means algorithm
+provided by SageMaker AI to train models using an input `DataFrame`. In
+response,
+it
+returns a `SageMakerModel` object that you can use to get
+inferences.
+
+###### Note
+
+The `KMeansSageMakerEstimator` extends the SageMaker AI
+`SageMakerEstimator`, which extends the Apache Spark
+`Estimator`.
+
+```
+val estimator = new KMeansSageMakerEstimator(
+  sagemakerRole = IAMRole(roleArn),
+  trainingInstanceType = "ml.p2.xlarge",
+  trainingInstanceCount = 1,
+  endpointInstanceType = "ml.c4.xlarge",
+  endpointInitialInstanceCount = 1)
+  .setK(10).setFeatureDim(784)
+```
+
+The constructor parameters provide information that is used for training a
+model and deploying it on SageMaker AI:
+
+    + `trainingInstanceType` and
+     `trainingInstanceCount`—Identify the type and
+     number of ML compute instances to use for model training.
+    + `endpointInstanceType`—Identifies the ML compute
+     instance type to use when hosting the model in SageMaker AI.
+     By
+     default, one ML compute instance is assumed.
+    + `endpointInitialInstanceCount`—Identifies the number
+     of ML compute instances initially backing the endpoint hosting the model
+     in SageMaker AI.
+    + `sagemakerRole`—SageMaker AI assumes this IAM role to
+     perform tasks on your behalf. For example, for model training, it reads
+     data from S3 and writes training results (model artifacts) to S3.
+
+
+    ###### Note
+
+    This example implicitly creates a SageMaker AI client. To create this
+     client, you must provide your credentials. The API uses these
+     credentials to authenticate requests to SageMaker AI. For example, it uses
+     the credentials to authenticate requests to create a training job
+     and API calls for deploying the model using SageMaker AI hosting
+     services.
+    + After the `KMeansSageMakerEstimator` object has been
+     created, you set the following parameters, are used in model training:
+
+
+
+
+    	- The number of clusters that the k-means algorithm should
+    	 create during model training. You specify 10 clusters, one for
+    	 each digit, 0 through 9.
+    	- Identifies that each input image has 784 features (each
+    	 handwritten number is a 28 x 28-pixel image, making 784
+    	 features).
+
+- Calls the estimator `fit` method
+
+```
+// train
+val model = estimator.fit(trainingData)
+```
+
+You pass the input `DataFrame` as a parameter. The model does all
+the work of training the model and deploying it to SageMaker AI. For more information
+see, [Integrate your Apache Spark application with
+SageMaker AI](apache-spark.md#spark-sdk-common-process "apache-spark.md#spark-sdk-common-process"). In response, you get a
+`SageMakerModel` object, which you can use to get inferences from
+your model deployed in SageMaker AI.
+
+You provide only the input `DataFrame`. You don't need to specify
+the registry path to the k-means algorithm used for model training because the
+`KMeansSageMakerEstimator` knows it.
+
+- Calls the `SageMakerModel.transform` method to get inferences from
+  the model deployed in SageMaker AI.
+
+The `transform` method takes a `DataFrame` as input,
+transforms it, and returns another `DataFrame` containing inferences
+obtained from the model.
+
+```
+val transformedData = model.transform(testData)
+transformedData.show
+```
+
+For simplicity, we use the same `DataFrame` as input to the
+`transform` method that we used for model training in this
+example. The `transform` method does the following:
+
+    + Serializes the `features` column in the input
+     `DataFrame` to protobuf and sends it to the SageMaker AI endpoint
+     for inference.
+    + Deserializes the protobuf response into the two additional columns
+     (`distance_to_cluster` and `closest_cluster`)
+     in the transformed `DataFrame`.
+
+The `show` method gets inferences to the first 20 rows in the input
+`DataFrame`:
+
+```
++-----+--------------------+-------------------+---------------+
+|label|            features|distance_to_cluster|closest_cluster|
++-----+--------------------+-------------------+---------------+
 |  5.0|(784,[152,153,154...|  1767.897705078125|            4.0|
 |  0.0|(784,[127,128,129...|  1392.157470703125|            5.0|
 |  4.0|(784,[160,161,162...| 1671.5711669921875|            9.0|
@@ -179,5 +306,24 @@ frame:
 |  2.0|(784,[151,152,153...| 1635.0125732421875|            1.0|
 |  8.0|(784,[159,160,161...| 1436.3162841796875|            6.0|
 |  6.0|(784,[100,101,102...| 1499.7366943359375|            7.0|
-|  9.0|(784,[209,210,211...| 1364.6319580078125|            6.0| +-----+--------------------+-------------------+---------------+ ``` You can interpret the data, as follows: + A handwritten number with the `label` 5 belongs to cluster 4 (`closest_cluster`). + A handwritten number with the `label` 0 belongs to cluster 5. + A handwritten number with the `label` 4 belongs to cluster 9. + A handwritten number with the `label` 1 belongs to cluster 6. ###### Topics <br>• [Use Custom Algorithms for Model Training and Hosting on Amazon SageMaker AI with Apache Spark](apache-spark-example1-cust-algo.md "apache-spark-example1-cust-algo.md") <br>• [Use the SageMakerEstimator in a Spark Pipeline](apache-spark-example1-extend-pipeline.md "apache-spark-example1-extend-pipeline.md")
-````
+|  9.0|(784,[209,210,211...| 1364.6319580078125|            6.0|
++-----+--------------------+-------------------+---------------+
+```
+
+You can interpret the data, as follows:
+
+    + A handwritten number with the `label` 5 belongs to cluster
+     4 (`closest_cluster`).
+    + A handwritten number with the `label` 0 belongs to cluster
+     5.
+    + A handwritten number with the `label` 4 belongs to cluster
+     9.
+    + A handwritten number with the `label` 1 belongs to cluster
+     6.
+
+###### Topics
+
+- [Use Custom Algorithms for Model
+  Training and Hosting on Amazon SageMaker AI with Apache Spark](apache-spark-example1-cust-algo.md "apache-spark-example1-cust-algo.md")
+- [Use the SageMakerEstimator
+  in a Spark Pipeline](apache-spark-example1-extend-pipeline.md "apache-spark-example1-extend-pipeline.md")

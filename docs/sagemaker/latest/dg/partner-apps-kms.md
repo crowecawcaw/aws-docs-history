@@ -118,28 +118,30 @@ JSON
 
 The following policy statement is for the user of the Partner AI Apps.
 
+JSON
+
 ```
-{
-  Version:"2012-10-17",
-  Id:"example-key-policy",
-  Statement:[
-    {
-      Sid:"Allow use of the key for SageMaker",
-      Effect:"Allow",
-      Principal:{
-        AWS:"arn:aws:iam::`<account-id>`:role/`<user-role>`"
-      },
-      Action:[
-        "kms:Decrypt",
-        "kms:GenerateDataKey",
-      ],
-      Resource:"*",
-      Condition:{
-        StringEquals:{
-          'kms:ViaService':"sagemaker.`<`aws-region`>`.amazonaws.com"
-        }
-      }
-    }
-  ]
-}
+`{
+ "Version":"2012-10-17",
+ "Id":"example-key-policy",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Principal":{
+ "AWS":"arn:aws:iam::`111122223333`:role/`user-role`"
+ },
+ "Action":[
+ "kms:Decrypt",
+ "kms:GenerateDataKey"
+ ],
+ "Resource":"*",
+ "Condition":{
+ "StringEquals":{
+ "kms:ViaService":"sagemaker.`us-east-1`.amazonaws.com"
+ }
+ }
+ }
+ ]
+}`
+
 ```

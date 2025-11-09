@@ -95,7 +95,7 @@ configured with VPC and installed using Helm.
   table.
 
 | Instance type     | Max number of pods |
-| ----------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | ------------------ |
 | ml.p4d.24xlarge   | 49                 |
 | ml.p4de.24xlarge  | 49                 |
 | ml.p5.48xlarge    | 49                 |
@@ -152,4 +152,40 @@ configured with VPC and installed using Helm.
 | ml.g6e.16xlarge   | 49                 |
 | ml.g6e.24xlarge   | 49                 |
 | ml.g6e.48xlarge   | 49                 |
-| ml.p5e.48xlarge   | 49                 | <br>• Only Pods with `hostNetwork = true` have access to the Amazon EC2 Instance Metadata Service (IMDS) by default. Use the Amazon EKS Pod identity or the [IAM roles for service accounts (IRSA)](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md") to manage access to the AWS credentials for Pods. <br>• EKS-orchestrated HyperPod clusters support dual IP addressing modes, allowing configuration with IPv4 or IPv6 for IPv6 Amazon EKS clusters in IPv6-enabled VPC and subnet environments. For more information, see [Setting up SageMaker HyperPod with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc"). **Considerations for using the HyperPod cluster resiliency features** <br>• Node auto-replacement is not supported for CPU instances. <br>• The HyperPod health monitoring agent needs to be installed for node auto-recovery to work. The agent can be installed using Helm. For more information, see [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). <br>• The HyperPod deep health check and health monitoring agent supports GPU and Trn instances. <br>• SageMaker AI applies the following taint to nodes when they are undergoing deep health checks: `effect: NoSchedule key: sagemaker.amazonaws.com/node-health-status value: Unschedulable` ###### Note You cannot add custom taints to nodes in instance groups with `DeepHealthChecks` turned on. Once your Amazon EKS cluster is running, configure your cluster using the Helm package manager as instructed in [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md") before creating your HyperPod cluster. |
+| ml.p5e.48xlarge   | 49                 |
+
+- Only Pods with `hostNetwork = true` have access to the Amazon EC2 Instance
+  Metadata Service (IMDS) by default. Use the Amazon EKS Pod identity or the [IAM roles for
+  service accounts (IRSA)](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md") to manage access to the AWS credentials for
+  Pods.
+- EKS-orchestrated HyperPod clusters support dual IP addressing modes, allowing
+  configuration with IPv4 or IPv6 for IPv6 Amazon EKS clusters in IPv6-enabled VPC and
+  subnet environments. For more information, see [Setting up SageMaker HyperPod
+  with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc").
+  **Considerations for using the HyperPod cluster resiliency
+  features**
+
+- Node auto-replacement is not supported for CPU instances.
+- The HyperPod health monitoring agent needs to be installed for node
+  auto-recovery to work. The agent can be installed using Helm. For more information,
+  see [Installing
+  packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md").
+- The HyperPod deep health check and health monitoring agent supports GPU
+  and Trn instances.
+- SageMaker AI applies the following taint to nodes when they are undergoing deep health
+  checks:
+
+```
+effect: NoSchedule
+key: sagemaker.amazonaws.com/node-health-status
+value: Unschedulable
+```
+
+###### Note
+
+You cannot add custom taints to nodes in instance groups with
+`DeepHealthChecks` turned on.
+Once your Amazon EKS cluster is running, configure your cluster using the Helm package manager
+as instructed in [Installing
+packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md")
+before creating your HyperPod cluster.

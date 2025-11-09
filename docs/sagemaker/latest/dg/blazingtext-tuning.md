@@ -24,26 +24,49 @@ reports on a single metric during training: the `validation:accuracy`.
 When tuning the hyperparameter values for the text classification algorithm, use
 these metrics as the objective.
 
-| Metric Name           | Description                                                                                                                                                                              | Optimization Direction                       |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `train:mean_rho`      | The mean rho (Spearman's rank correlation coefficient) on [WS-353 word similarity datasets](http://alfonseca.org/pubs/ws353simrel.tar.gz "http://alfonseca.org/pubs/ws353simrel.tar.gz") | Maximize                                     |
-| `validation:accuracy` | The classification accuracy on the user-specified validation dataset                                                                                                                     | Maximize                                     | ## Tunable BlazingText Hyperparameters ### Tunable Hyperparameters for the Word2Vec Algorithm Tune an Amazon SageMaker AI BlazingText Word2Vec model with the following hyperparameters. The hyperparameters that have the greatest impact on Word2Vec objective metrics are: `mode`, `learning_rate`, `window_size`, `vector_dim`, and `negative_samples`. |
-| Parameter Name        | Parameter Type                                                                                                                                                                           | Recommended Ranges or Values                 |
-| ---                   | ---                                                                                                                                                                                      | ---                                          |
-| `batch_size`          | `IntegerParameterRange`                                                                                                                                                                  | [8-32]                                       |
-| `epochs`              | `IntegerParameterRange`                                                                                                                                                                  | [5-15]                                       |
-| `learning_rate`       | `ContinuousParameterRange`                                                                                                                                                               | MinValue: 0.005, MaxValue: 0.01              |
-| `min_count`           | `IntegerParameterRange`                                                                                                                                                                  | [0-100]                                      |
-| `mode`                | `CategoricalParameterRange`                                                                                                                                                              | [`'batch_skipgram'`, `'skipgram'`, `'cbow'`] |
-| `negative_samples`    | `IntegerParameterRange`                                                                                                                                                                  | [5-25]                                       |
-| `sampling_threshold`  | `ContinuousParameterRange`                                                                                                                                                               | MinValue: 0.0001, MaxValue: 0.001            |
-| `vector_dim`          | `IntegerParameterRange`                                                                                                                                                                  | [32-300]                                     |
-| `window_size`         | `IntegerParameterRange`                                                                                                                                                                  | [1-10]                                       | ### Tunable Hyperparameters for the Text Classification Algorithm Tune an Amazon SageMaker AI BlazingText text classification model with the following hyperparameters.                                                                                                                                                                                     |
-| Parameter Name        | Parameter Type                                                                                                                                                                           | Recommended Ranges or Values                 |
-| ---                   | ---                                                                                                                                                                                      | ---                                          |
-| `buckets`             | `IntegerParameterRange`                                                                                                                                                                  | [1000000-10000000]                           |
-| `epochs`              | `IntegerParameterRange`                                                                                                                                                                  | [5-15]                                       |
-| `learning_rate`       | `ContinuousParameterRange`                                                                                                                                                               | MinValue: 0.005, MaxValue: 0.01              |
-| `min_count`           | `IntegerParameterRange`                                                                                                                                                                  | [0-100]                                      |
-| `vector_dim`          | `IntegerParameterRange`                                                                                                                                                                  | [32-300]                                     |
-| `word_ngrams`         | `IntegerParameterRange`                                                                                                                                                                  | [1-3]                                        |
+| Metric Name           | Description                                                                                                                                                                                 | Optimization Direction |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `train:mean_rho`      | The mean rho (Spearman's rank correlation coefficient) on<br>[WS-353 word similarity datasets](http://alfonseca.org/pubs/ws353simrel.tar.gz "http://alfonseca.org/pubs/ws353simrel.tar.gz") | Maximize               |
+| `validation:accuracy` | The classification accuracy on the user-specified validation<br>dataset                                                                                                                     | Maximize               |
+
+## Tunable BlazingText
+
+Hyperparameters
+
+### Tunable
+
+Hyperparameters for the Word2Vec Algorithm
+
+Tune an Amazon SageMaker AI BlazingText Word2Vec model with the following
+hyperparameters. The hyperparameters that have the greatest impact on Word2Vec
+objective metrics are: `mode`, `learning_rate`,
+`window_size`, `vector_dim`, and
+`negative_samples`.
+
+| Parameter Name       | Parameter Type              | Recommended Ranges or Values                    |
+| -------------------- | --------------------------- | ----------------------------------------------- |
+| `batch_size`         | `IntegerParameterRange`     | [8-32]                                          |
+| `epochs`             | `IntegerParameterRange`     | [5-15]                                          |
+| `learning_rate`      | `ContinuousParameterRange`  | MinValue: 0.005, MaxValue: 0.01                 |
+| `min_count`          | `IntegerParameterRange`     | [0-100]                                         |
+| `mode`               | `CategoricalParameterRange` | [`'batch_skipgram'`, `'skipgram'`,<br>`'cbow'`] |
+| `negative_samples`   | `IntegerParameterRange`     | [5-25]                                          |
+| `sampling_threshold` | `ContinuousParameterRange`  | MinValue: 0.0001, MaxValue: 0.001               |
+| `vector_dim`         | `IntegerParameterRange`     | [32-300]                                        |
+| `window_size`        | `IntegerParameterRange`     | [1-10]                                          |
+
+### Tunable
+
+Hyperparameters for the Text Classification Algorithm
+
+Tune an Amazon SageMaker AI BlazingText text classification model with the following
+hyperparameters.
+
+| Parameter Name  | Parameter Type             | Recommended Ranges or Values    |
+| --------------- | -------------------------- | ------------------------------- |
+| `buckets`       | `IntegerParameterRange`    | [1000000-10000000]              |
+| `epochs`        | `IntegerParameterRange`    | [5-15]                          |
+| `learning_rate` | `ContinuousParameterRange` | MinValue: 0.005, MaxValue: 0.01 |
+| `min_count`     | `IntegerParameterRange`    | [0-100]                         |
+| `vector_dim`    | `IntegerParameterRange`    | [32-300]                        |
+| `word_ngrams`   | `IntegerParameterRange`    | [1-3]                           |

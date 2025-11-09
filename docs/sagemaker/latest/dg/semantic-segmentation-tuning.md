@@ -15,14 +15,20 @@ Segmentation Algorithm
 The semantic segmentation algorithm reports two validation metrics. When tuning
 hyperparameter values, choose one of these metrics as the objective.
 
-| Metric Name                 | Description                                                                                                                                                                                  | Optimization Direction         |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `validation:mIOU`           | The area of the intersection of the predicted segmentation and the ground truth divided by the area of union between them for images in the validation set. Also known as the Jaccard Index. | Maximize                       |
-| `validation:pixel_accuracy` | The percentage of pixels that are correctly classified in images from the validation set.                                                                                                    | Maximize                       | ## Tunable Semantic Segmentation Hyperparameters You can tune the following hyperparameters for the semantic segmentation algorithm. |
-| Parameter Name              | Parameter Type                                                                                                                                                                               | Recommended Ranges             |
-| ---                         | ---                                                                                                                                                                                          | ---                            |
-| `learning_rate`             | ContinuousParameterRange                                                                                                                                                                     | MinValue: 1e-4, MaxValue: 1e-1 |
-| `mini_batch_size`           | IntegerParameterRanges                                                                                                                                                                       | MinValue: 1, MaxValue: 128     |
-| `momentum`                  | ContinuousParameterRange                                                                                                                                                                     | MinValue: 0.9, MaxValue: 0.999 |
-| `optimzer`                  | CategoricalParameterRanges                                                                                                                                                                   | ['sgd', 'adam', 'adadelta']    |
-| `weight_decay`              | ContinuousParameterRange                                                                                                                                                                     | MinValue: 1e-5, MaxValue: 1e-3 |
+| Metric Name                 | Description                                                                                                                                                                                           | Optimization Direction |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `validation:mIOU`           | The area of the intersection of the predicted segmentation and<br>the ground truth divided by the area of union between them for<br>images in the validation set. Also known as the Jaccard<br>Index. | Maximize               |
+| `validation:pixel_accuracy` | The percentage of pixels that are correctly classified in images<br>from the validation set.                                                                                                          | Maximize               |
+
+## Tunable Semantic Segmentation Hyperparameters
+
+You can tune the following hyperparameters for the semantic segmentation
+algorithm.
+
+| Parameter Name    | Parameter Type             | Recommended Ranges             |
+| ----------------- | -------------------------- | ------------------------------ |
+| `learning_rate`   | ContinuousParameterRange   | MinValue: 1e-4, MaxValue: 1e-1 |
+| `mini_batch_size` | IntegerParameterRanges     | MinValue: 1, MaxValue: 128     |
+| `momentum`        | ContinuousParameterRange   | MinValue: 0.9, MaxValue: 0.999 |
+| `optimzer`        | CategoricalParameterRanges | ['sgd', 'adam', 'adadelta']    |
+| `weight_decay`    | ContinuousParameterRange   | MinValue: 1e-5, MaxValue: 1e-3 |

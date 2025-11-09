@@ -96,26 +96,181 @@ label map.
 The dataset specifying these files should look similar to the following
 example:
 
-````
+```
 s3://bucket_name
-|
-|- train
-|
-| - 0000.jpg
-| - coffee.jpg
-|- validation
-|
-| - 00a0.jpg
-| - bananna.jpg
-|- train_annotation
-|
-| - 0000.png
-| - coffee.png
-|- validation_annotation
-|
-| - 00a0.png
-| - bananna.png
-|- label_map
-| - train_label_map.json
-| - validation_label_map.json ``` Every JPG image in the train and validation directories has a corresponding PNG label image with the same name in the `train_annotation` and `validation_annotation` directories. This naming convention helps the algorithm to associate a label with its corresponding image during training. The `train`, `train_annotation`, `validation`, and `validation_annotation` channels are mandatory. The annotations are single-channel PNG images. The format works as long as the metadata (modes) in the image helps the algorithm read the annotation images into a single-channel 8-bit unsigned integer. For more information on our support for modes, see the [Python Image Library documentation](https://pillow.readthedocs.io/en/stable/handbook/concepts.html#modes "https://pillow.readthedocs.io/en/stable/handbook/concepts.html#modes"). We recommend using the 8-bit pixel, true color `P` mode. The image that is encoded is a simple 8-bit integer when using modes. To get from this mapping to a map of a label, the algorithm uses one mapping file per channel, called the *label map*. The label map is used to map the values in the image with actual label indices. In the default label map, which is provided by default if you don’t provide one, the pixel value in an annotation matrix (image) directly index the label. These images can be grayscale PNG files or 8-bit indexed PNG files. The label map file for the unscaled default case is the following: ``` { "scale": "1" } ``` To provide some contrast for viewing, some annotation software scales the label images by a constant amount. To support this, the SageMaker AI semantic segmentation algorithm provides a rescaling option to scale down the values to actual label values. When scaling down doesn’t convert the value to an appropriate integer, the algorithm defaults to the greatest integer less than or equal to the scale value. The following code shows how to set the scale value to rescale the label values: ``` { "scale": "3" } ``` The following example shows how this `"scale"` value is used to rescale the `encoded_label` values of the input annotation image when they are mapped to the `mapped_label` values to be used in training. The label values in the input annotation image are 0, 3, 6, with scale 3, so they are mapped to 0, 1, 2 for training: ``` encoded_label = [0, 3, 6] mapped_label = [0, 1, 2] ``` In some cases, you might need to specify a particular color mapping for each class. Use the map option in the label mapping as shown in the following example of a `label_map` file: ``` { "map": { "0": 5, "1": 0, "2": 2 } } ``` This label mapping for this example is: ``` encoded_label = [0, 5, 2] mapped_label = [1, 0, 2] ``` With label mappings, you can use different annotation systems and annotation software to obtain data without a lot of preprocessing. You can provide one label map per channel. The files for a label map in the `label_map` channel must follow the naming conventions for the four directory structure. If you don't provide a label map, the algorithm assumes a scale of 1 (the default). ### Training with the Augmented Manifest Format The augmented manifest format enables you to do training in Pipe mode using image files without needing to create RecordIO files. The augmented manifest file contains data objects and should be in [JSON Lines](http://jsonlines.org/ "http://jsonlines.org/") format, as described in the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") request. Each line in the manifest is an entry containing the Amazon S3 URI for the image and the URI for the annotation image. Each JSON object in the manifest file must contain a `source-ref` key. The `source-ref` key should contain the value of the Amazon S3 URI to the image. The labels are provided under the `AttributeNames` parameter value as specified in the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") request. It can also contain additional metadata under the metadata tag, but these are ignored by the algorithm. In the example below, the `AttributeNames` are contained in the list of image and annotation references `["source-ref", "city-streets-ref"]`. These names must have `-ref` appended to them. When using the Semantic Segmentation algorithm with Augmented Manifest, the value of the `RecordWrapperType` parameter must be `"RecordIO"` and value of the `ContentType` parameter must be `application/x-recordio`. ``` {"source-ref": "S3 bucket location", "city-streets-ref": "S3 bucket location", "city-streets-metadata": {"job-name": "label-city-streets", }} ``` For more information on augmented manifest files, see [Augmented Manifest Files for Training Jobs](augmented-manifest.md "augmented-manifest.md"). ### Incremental Training You can also seed the training of a new model with a model that you trained previously using SageMaker AI. This incremental training saves training time when you want to train a new model with the same or similar data. Currently, incremental training is supported only for models trained with the built-in SageMaker AI Semantic Segmentation. To use your own pre-trained model, specify the `ChannelName` as "model" in the `InputDataConfig` for the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") request. Set the `ContentType` for the model channel to `application/x-sagemaker-model`. The `backbone`, `algorithm`, `crop_size`, and `num_classes` input parameters that define the network architecture must be consistently specified in the input hyperparameters of the new model and the pre-trained model that you upload to the model channel. For the pretrained model file, you can use the compressed (.tar.gz) artifacts from SageMaker AI outputs. You can only use Image formats for input data. For more information on incremental training and for instructions on how to use it, see [Use Incremental Training in Amazon SageMaker AI](incremental-training.md "incremental-training.md"). ### Produce Inferences To query a trained model that is deployed to an endpoint, you need to provide an image and an `AcceptType` that denotes the type of output required. The endpoint takes JPEG images with an `image/jpeg` content type. If you request an `AcceptType` of `image/png`, the algorithm outputs a PNG file with a segmentation mask in the same format as the labels themselves. If you request an accept type of`application/x-recordio-protobuf`, the algorithm returns class probabilities encoded in recordio-protobuf format. The latter format outputs a 3D tensor where the third dimension is the same size as the number of classes. This component denotes the probability of each class label for each pixel. ## EC2 Instance Recommendation for the Semantic Segmentation Algorithm The SageMaker AI semantic segmentation algorithm only supports GPU instances for training, and we recommend using GPU instances with more memory for training with large batch sizes. The algorithm can be trained using P2, P3, G4dn, or G5 instances in single machine configurations. For inference, you can use either CPU instances (such as C5 and M5) and GPU instances (such as P3 and G4dn) or both. For information about the instance types that provide varying combinations of CPU, GPU, memory, and networking capacity for inference, see [Amazon SageMaker AI ML Instance Types](https://aws.amazon.com/sagemaker/pricing/instance-types/ "https://aws.amazon.com/sagemaker/pricing/instance-types/").
-````
+    |
+    |- train
+                 |
+                 | - 0000.jpg
+                 | - coffee.jpg
+    |- validation
+                 |
+                 | - 00a0.jpg
+                 | - bananna.jpg
+    |- train_annotation
+                 |
+                 | - 0000.png
+                 | - coffee.png
+    |- validation_annotation
+                 |
+                 | - 00a0.png
+                 | - bananna.png
+    |- label_map
+                 | - train_label_map.json
+                 | - validation_label_map.json
+```
+
+Every JPG image in the train and validation directories has a corresponding PNG
+label image with the same name in the `train_annotation` and
+`validation_annotation` directories. This naming convention helps the
+algorithm to associate a label with its corresponding image during training. The
+`train`, `train_annotation`, `validation`, and
+`validation_annotation` channels are mandatory. The annotations are
+single-channel PNG images. The format works as long as the metadata (modes) in the
+image helps the algorithm read the annotation images into a single-channel 8-bit
+unsigned integer. For more information on our support for modes, see the [Python
+Image Library documentation](https://pillow.readthedocs.io/en/stable/handbook/concepts.html#modes "https://pillow.readthedocs.io/en/stable/handbook/concepts.html#modes"). We recommend using the 8-bit pixel, true
+color `P` mode.
+
+The image that is encoded is a simple 8-bit integer when using modes. To get from
+this mapping to a map of a label, the algorithm uses one mapping file per channel,
+called the _label map_. The label map is used to map the values
+in the image with actual label indices. In the default label map, which is provided
+by default if you don’t provide one, the pixel value in an annotation matrix (image)
+directly index the label. These images can be grayscale PNG files or 8-bit indexed
+PNG files. The label map file for the unscaled default case is the following:
+
+```
+{
+  "scale": "1"
+}
+```
+
+To provide some contrast for viewing, some annotation software scales the label
+images by a constant amount. To support this, the SageMaker AI semantic segmentation
+algorithm provides a rescaling option to scale down the values to actual label
+values. When scaling down doesn’t convert the value to an appropriate integer, the
+algorithm defaults to the greatest integer less than or equal to the scale value.
+The following code shows how to set the scale value to rescale the label
+values:
+
+```
+{
+  "scale": "3"
+}
+```
+
+The following example shows how this `"scale"` value is used to rescale
+the `encoded_label` values of the input annotation image when they are
+mapped to the `mapped_label` values to be used in training. The label
+values in the input annotation image are 0, 3, 6, with scale 3, so they are mapped
+to 0, 1, 2 for training:
+
+```
+encoded_label = [0, 3, 6]
+mapped_label = [0, 1, 2]
+```
+
+In some cases, you might need to specify a particular color mapping for each
+class. Use the map option in the label mapping as shown in the following example of
+a `label_map` file:
+
+```
+{
+    "map": {
+        "0": 5,
+        "1": 0,
+        "2": 2
+    }
+}
+```
+
+This label mapping for this example is:
+
+```
+encoded_label = [0, 5, 2]
+mapped_label = [1, 0, 2]
+```
+
+With label mappings, you can use different annotation systems and annotation
+software to obtain data without a lot of preprocessing. You can provide one label
+map per channel. The files for a label map in the `label_map` channel
+must follow the naming conventions for the four directory structure. If you don't
+provide a label map, the algorithm assumes a scale of 1 (the default).
+
+### Training with the Augmented Manifest Format
+
+The augmented manifest format enables you to do training in Pipe mode using image
+files without needing to create RecordIO files. The augmented manifest file contains
+data objects and should be in [JSON Lines](http://jsonlines.org/ "http://jsonlines.org/")
+format, as described in the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") request. Each line in the manifest
+is an entry containing the Amazon S3 URI for the image and the URI for the annotation
+image.
+
+Each JSON object in the manifest file must contain a `source-ref` key.
+The `source-ref` key should contain the value of the Amazon S3 URI to the
+image. The labels are provided under the `AttributeNames` parameter value
+as specified in the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") request. It can also contain additional
+metadata under the metadata tag, but these are ignored by the algorithm. In the
+example below, the `AttributeNames` are contained in the list of image
+and annotation references `["source-ref", "city-streets-ref"]`. These
+names must have `-ref` appended to them. When using the Semantic
+Segmentation algorithm with Augmented Manifest, the value of the
+`RecordWrapperType` parameter must be `"RecordIO"` and
+value of the `ContentType` parameter must be
+`application/x-recordio`.
+
+```
+{"source-ref": "S3 bucket location", "city-streets-ref": "S3 bucket location", "city-streets-metadata": {"job-name": "label-city-streets", }}
+```
+
+For more information on augmented manifest files, see [Augmented Manifest Files for Training Jobs](augmented-manifest.md "augmented-manifest.md").
+
+### Incremental
+
+Training
+
+You can also seed the training of a new model with a model that you trained
+previously using SageMaker AI. This incremental training saves training time when you want
+to train a new model with the same or similar data. Currently, incremental training
+is supported only for models trained with the built-in SageMaker AI Semantic
+Segmentation.
+
+To use your own pre-trained model, specify the `ChannelName` as "model"
+in the `InputDataConfig` for the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") request. Set the `ContentType`
+for the model channel to `application/x-sagemaker-model`. The
+`backbone`, `algorithm`, `crop_size`, and
+`num_classes` input parameters that define the network architecture
+must be consistently specified in the input hyperparameters of the new model and the
+pre-trained model that you upload to the model channel. For the pretrained model
+file, you can use the compressed (.tar.gz) artifacts from SageMaker AI outputs. You can only
+use Image formats for input data. For more information on incremental training and
+for instructions on how to use it, see [Use Incremental Training in Amazon SageMaker AI](incremental-training.md "incremental-training.md").
+
+### Produce
+
+Inferences
+
+To query a trained model that is deployed to an endpoint, you need to provide an
+image and an `AcceptType` that denotes the type of output required. The
+endpoint takes JPEG images with an `image/jpeg` content type. If you
+request an `AcceptType` of `image/png`, the algorithm outputs
+a PNG file with a segmentation mask in the same format as the labels themselves. If
+you request an accept type of`application/x-recordio-protobuf`, the
+algorithm returns class probabilities encoded in recordio-protobuf format. The
+latter format outputs a 3D tensor where the third dimension is the same size as the
+number of classes. This component denotes the probability of each class label for
+each pixel.
+
+## EC2 Instance Recommendation for the
+
+Semantic Segmentation Algorithm
+
+The SageMaker AI semantic segmentation algorithm only supports GPU instances for training, and
+we recommend using GPU instances with more memory for training with large batch sizes.
+The algorithm can be trained using P2, P3, G4dn, or G5 instances in single machine configurations.
+
+For inference, you can use either CPU instances (such as C5 and M5) and GPU instances
+(such as P3 and G4dn) or both. For information about the instance types that provide
+varying combinations of CPU, GPU, memory, and networking capacity for inference, see
+[Amazon SageMaker AI ML Instance Types](https://aws.amazon.com/sagemaker/pricing/instance-types/ "https://aws.amazon.com/sagemaker/pricing/instance-types/").

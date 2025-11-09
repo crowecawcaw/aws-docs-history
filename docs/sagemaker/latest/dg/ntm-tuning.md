@@ -33,14 +33,30 @@ reconstruction
 loss and Kullback-Leibler divergence. When tuning hyperparameter
 values, choose this metric as the objective.
 
-| Metric Name                 | Description                  | Optimization Direction        |
-| --------------------------- | ---------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `validation:total_loss`     | Total Loss on validation set | Minimize                      | ## Tunable NTM Hyperparameters You can tune the following hyperparameters for the NTM algorithm. Usually setting low `mini_batch_size` and small `learning_rate` values results in lower validation losses, although it might take longer to train. Low validation losses don't necessarily produce more coherent topics as interpreted by humans. The effect of other hyperparameters on training and validation loss can vary from dataset to dataset. To see which values are compatible, see [NTM Hyperparameters](ntm_hyperparameters.md "ntm_hyperparameters.md"). |
-| Parameter Name              | Parameter Type               | Recommended Ranges            |
-| ---                         | ---                          | ---                           |
-| `encoder_layers_activation` | CategoricalParameterRanges   | ['sigmoid', 'tanh', 'relu']   |
-| `learning_rate`             | ContinuousParameterRange     | MinValue: 1e-4, MaxValue: 0.1 |
-| `mini_batch_size`           | IntegerParameterRanges       | MinValue: 16, MaxValue:2048   |
-| `optimizer`                 | CategoricalParameterRanges   | ['sgd', 'adam', 'adadelta']   |
-| `rescale_gradient`          | ContinuousParameterRange     | MinValue: 0.1, MaxValue: 1.0  |
-| `weight_decay`              | ContinuousParameterRange     | MinValue: 0.0, MaxValue: 1.0  |
+| Metric Name             | Description                  | Optimization Direction |
+| ----------------------- | ---------------------------- | ---------------------- |
+| `validation:total_loss` | Total Loss on validation set | Minimize               |
+
+## Tunable NTM Hyperparameters
+
+You can tune the following hyperparameters for the NTM algorithm. Usually setting
+low `mini_batch_size` and small `learning_rate` values results
+in lower validation losses, although it might take longer to train. Low validation
+losses don't necessarily produce more
+coherent
+topics as interpreted by humans.
+The
+effect of other hyperparameters on
+training and validation loss can vary from dataset to dataset. To see which values
+are
+compatible,
+see [NTM Hyperparameters](ntm_hyperparameters.md "ntm_hyperparameters.md").
+
+| Parameter Name              | Parameter Type             | Recommended Ranges               |
+| --------------------------- | -------------------------- | -------------------------------- |
+| `encoder_layers_activation` | CategoricalParameterRanges | ['sigmoid', 'tanh', 'relu']      |
+| `learning_rate`             | ContinuousParameterRange   | MinValue: 1e-4, MaxValue:<br>0.1 |
+| `mini_batch_size`           | IntegerParameterRanges     | MinValue: 16, MaxValue:2048      |
+| `optimizer`                 | CategoricalParameterRanges | ['sgd', 'adam', 'adadelta']      |
+| `rescale_gradient`          | ContinuousParameterRange   | MinValue: 0.1, MaxValue: 1.0     |
+| `weight_decay`              | ContinuousParameterRange   | MinValue: 0.0, MaxValue: 1.0     |

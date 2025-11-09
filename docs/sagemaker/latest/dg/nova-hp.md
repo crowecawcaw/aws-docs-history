@@ -25,30 +25,52 @@ details, see [SageMaker HyperPod pricing](https://aws.amazon.com/sagemaker-ai/pr
 The following tables summarize the computational requirements for SageMaker HyperPod
 training.
 
-| Pre-training                                     | Model  | Sequence length | Nodes          | Instance                             | Accelerator                          |
-| ------------------------------------------------ | ------ | --------------- | -------------- | ------------------------------------ | ------------------------------------ | -------------- | --------------------------- | --------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------- | ------------------- | -------- | ------------- |
-| Amazon Nova Micro                                | 8,192  | 8               | ml.p5.48xlarge | GPU H100                             |
-| Amazon Nova Lite                                 | 8,192  | 16              | ml.p5.48xlarge | GPU H100                             |
-| Amazon Nova Pro                                  | 8,192  | 24              | ml.p5.48xlarge | GPU H100                             | Direct preference optimization (DPO) | Model          | Sequence length             | Number of nodes             | Instance                    | Accelerator                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---                                              | ---    | ---             | ---            | ---                                  |
-| Direct Preference Optimization (Full)            | 32,768 | 2, 4, or 6      | ml.p5.48xlarge | GPU H100                             |
-| Direct Preference Optimization (LoRA)            | 32,768 | 2, 4, or 6      | ml.p5.48xlarge | GPU H100                             | Fine-tuning                          | Model          | Sequence length             | Number of nodes             | Instance                    | Accelerator                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---                                              | ---    | ---             | ---            | ---                                  |
-| Supervised Fine-Tuning (LoRA)                    | 65,536 | 2               | ml.p5.48xlarge | GPU H100                             |
-| Supervised Fine-Tuning (Full)                    | 65,536 | 2               | ml.p5.48xlarge | GPU H100                             |
-| Supervised Fine-Tuning (LoRA)                    | 32,768 | 4               | ml.p5.48xlarge | GPU H100                             |
-| Supervised Fine-Tuning (Full)                    | 65,536 | 4               | ml.p5.48xlarge | GPU H100                             |
-| Supervised Fine-Tuning (LoRA)                    | 65,536 | 6               | ml.p5.48xlarge | GPU H100                             |
-| Supervised Fine-Tuning (Full)                    | 65,536 | 6               | ml.p5.48xlarge | GPU H100                             | Distillation                         | Model          | Nodes                       | Instance                    |
-| ---                                              | ---    | ---             |                | Model Distillation for Post-Training | 1                                    | ml.r5.24xlarge | Evaluation                  | Model                       | Sequence length             | Nodes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Instance         | Accelerator         |
-| ---                                              | ---    | ---             | ---            | ---                                  |
-| General Text Benchmark Recipe                    | 8,192  | 1               | ml.p5.48xlarge | GPU H100                             |
-| Bring your own dataset (gen_qa) benchmark Recipe | 8,192  | 1               | ml.p5.48xlarge | GPU H100                             |
-| Amazon Nova LLM as a Judge Recipe                | 8,192  | 1               | ml.p5.48xlarge | GPU H100                             |
-| Standard Text Benchmarks                         | 8,192  | 1               | ml.p5.48xlarge | GPU H100                             |
-| Custom Dataset Evaluation                        | 8,192  | 1               | ml.p5.48xlarge | GPU H100                             |
-| Multi-Modal Benchmarks                           | 8,192  | 1               | ml.p5.48xlarge | GPU H100                             | Proximal policy optimization         | Model          | Critic Model Instance Count | Reward Model Instance Count | Anchor Model Instance Count | Actor Train                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Actor Generation | Number of Instances | Total Hours Per Run | P5 Hours | Instance Type |
-| ---                                              | ---    | ---             | ---            | ---                                  | ---                                  | ---            | ---                         | ---                         | ---                         |
-| Amazon Nova Micro                                | 1      | 1               | 1              | 2                                    | 2                                    | 7              | 8                           | 56                          | ml.p5.48xlarge              |
-| Amazon Nova Lite                                 | 1      | 1               | 1              | 2                                    | 2                                    | 7              | 16                          | 112                         | ml.p5.48xlarge              |
-| Amazon Nova Pro                                  | 1      | 1               | 1              | 6                                    | 2                                    | 11             | 26                          | 260                         | ml.p5.48xlarge              | ###### Topics <br>• [Creating a HyperPod EKS cluster with restricted instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md") <br>• [Continued pre-training (CPT)](nova-cpt.md "nova-cpt.md") <br>• [Supervised fine-tuning (SFT)](nova-fine-tune.md "nova-fine-tune.md") <br>• [Direct preference optimization (DPO)](nova-dpo.md "nova-dpo.md") <br>• [Proximal policy optimization (PPO)](nova-ppo.md "nova-ppo.md") <br>• [Starting a training job using the HyperPod CLI](nova-hp-train.md "nova-hp-train.md") <br>• [Evaluating your trained model](nova-hp-evaluate.md "nova-hp-evaluate.md") |
+| Pre-training      | Model | Sequence length | Nodes          | Instance | Accelerator |
+| ----------------- | ----- | --------------- | -------------- | -------- | ----------- |
+| Amazon Nova Micro | 8,192 | 8               | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova Lite  | 8,192 | 16              | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova Pro   | 8,192 | 24              | ml.p5.48xlarge | GPU H100 |
+
+| Direct preference optimization (DPO)  | Model  | Sequence length | Number of nodes | Instance | Accelerator |
+| ------------------------------------- | ------ | --------------- | --------------- | -------- | ----------- |
+| Direct Preference Optimization (Full) | 32,768 | 2, 4, or 6      | ml.p5.48xlarge  | GPU H100 |
+| Direct Preference Optimization (LoRA) | 32,768 | 2, 4, or 6      | ml.p5.48xlarge  | GPU H100 |
+
+| Fine-tuning                   | Model  | Sequence length | Number of nodes | Instance | Accelerator |
+| ----------------------------- | ------ | --------------- | --------------- | -------- | ----------- |
+| Supervised Fine-Tuning (LoRA) | 65,536 | 2               | ml.p5.48xlarge  | GPU H100 |
+| Supervised Fine-Tuning (Full) | 65,536 | 2               | ml.p5.48xlarge  | GPU H100 |
+| Supervised Fine-Tuning (LoRA) | 32,768 | 4               | ml.p5.48xlarge  | GPU H100 |
+| Supervised Fine-Tuning (Full) | 65,536 | 4               | ml.p5.48xlarge  | GPU H100 |
+| Supervised Fine-Tuning (LoRA) | 65,536 | 6               | ml.p5.48xlarge  | GPU H100 |
+| Supervised Fine-Tuning (Full) | 65,536 | 6               | ml.p5.48xlarge  | GPU H100 |
+
+| Distillation                         | Model | Nodes          | Instance |
+| ------------------------------------ | ----- | -------------- | -------- |
+| Model Distillation for Post-Training | 1     | ml.r5.24xlarge |
+
+| Evaluation                                       | Model | Sequence length | Nodes          | Instance | Accelerator |
+| ------------------------------------------------ | ----- | --------------- | -------------- | -------- | ----------- |
+| General Text Benchmark Recipe                    | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
+| Bring your own dataset (gen_qa) benchmark Recipe | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
+| Amazon Nova LLM as a Judge Recipe                | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
+| Standard Text Benchmarks                         | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
+| Custom Dataset Evaluation                        | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
+| Multi-Modal Benchmarks                           | 8,192 | 1               | ml.p5.48xlarge | GPU H100 |
+
+| Proximal policy optimization | Model | Critic Model Instance Count | Reward Model Instance Count | Anchor Model Instance Count | Actor Train | Actor Generation | Number of Instances | Total Hours Per Run | P5 Hours       | Instance Type |
+| ---------------------------- | ----- | --------------------------- | --------------------------- | --------------------------- | ----------- | ---------------- | ------------------- | ------------------- | -------------- | ------------- |
+| Amazon Nova Micro            | 1     | 1                           | 1                           | 2                           | 2           | 7                | 8                   | 56                  | ml.p5.48xlarge |
+| Amazon Nova Lite             | 1     | 1                           | 1                           | 2                           | 2           | 7                | 16                  | 112                 | ml.p5.48xlarge |
+| Amazon Nova Pro              | 1     | 1                           | 1                           | 6                           | 2           | 11               | 26                  | 260                 | ml.p5.48xlarge |
+
+###### Topics
+
+- [Creating a HyperPod EKS cluster with restricted instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
+- [Continued pre-training (CPT)](nova-cpt.md "nova-cpt.md")
+- [Supervised fine-tuning (SFT)](nova-fine-tune.md "nova-fine-tune.md")
+- [Direct preference optimization (DPO)](nova-dpo.md "nova-dpo.md")
+- [Proximal policy optimization (PPO)](nova-ppo.md "nova-ppo.md")
+- [Starting a training job using the HyperPod
+  CLI](nova-hp-train.md "nova-hp-train.md")
+- [Evaluating your trained model](nova-hp-evaluate.md "nova-hp-evaluate.md")

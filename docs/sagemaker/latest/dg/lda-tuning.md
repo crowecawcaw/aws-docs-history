@@ -22,10 +22,19 @@ The LDA algorithm reports on a single metric during training:
 `test:pwll`. When tuning a model, choose this metric as the objective
 metric.
 
-| Metric Name    | Description                                                                                                                         | Optimization Direction      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `test:pwll`    | Per-word log-likelihood on the test dataset. The likelihood that the test dataset is accurately described by the learned LDA model. | Maximize                    | ## Tunable LDA Hyperparameters You can tune the following hyperparameters for the LDA algorithm. Both hyperparameters, `alpha0` and `num_topics`, can affect the LDA objective metric (`test:pwll`). If you don't already know the optimal values for these hyperparameters, which maximize per-word log-likelihood and produce an accurate LDA model, automatic model tuning can help find them. |
-| Parameter Name | Parameter Type                                                                                                                      | Recommended Ranges          |
-| ---            | ---                                                                                                                                 | ---                         |
-| `alpha0`       | ContinuousParameterRanges                                                                                                           | MinValue: 0.1, MaxValue: 10 |
-| `num_topics`   | IntegerParameterRanges                                                                                                              | MinValue: 1, MaxValue: 150  |
+| Metric Name | Description                                                                                                                               | Optimization Direction |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `test:pwll` | Per-word log-likelihood on the test dataset. The likelihood<br>that the test dataset is accurately described by the learned LDA<br>model. | Maximize               |
+
+## Tunable LDA Hyperparameters
+
+You can tune the following hyperparameters for the LDA algorithm. Both
+hyperparameters, `alpha0` and `num_topics`, can affect the LDA
+objective metric (`test:pwll`). If you don't already know the optimal
+values for these hyperparameters, which maximize per-word log-likelihood and produce
+an accurate LDA model, automatic model tuning can help find them.
+
+| Parameter Name | Parameter Type            | Recommended Ranges          |
+| -------------- | ------------------------- | --------------------------- |
+| `alpha0`       | ContinuousParameterRanges | MinValue: 0.1, MaxValue: 10 |
+| `num_topics`   | IntegerParameterRanges    | MinValue: 1, MaxValue: 150  |

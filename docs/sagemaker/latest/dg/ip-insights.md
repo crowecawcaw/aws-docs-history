@@ -98,12 +98,28 @@ In Table 1, the value for `vector_dim` in the first column range from 32
 to 2048 and the values for `num_entity_vectors` in the first row range
 from 10,000 to 50,000,000.
 
-| `vector_dim` \ `num_entity_vectors`. | 10,000      | 50,000        | 100,000        | 500,000        | 1,000,000       | 5,000,000       | 10,000,000      | 50,000,000      |
-| ------------------------------------ | ----------- | ------------- | -------------- | -------------- | --------------- | --------------- | --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `32`                                 | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.large`   | `ml.m5.xlarge`  | `ml.m5.2xlarge` | `ml.m5.4xlarge` |
-| `64`                                 | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.large`   | `ml.m5.2xlarge` | `ml.m5.2xlarge` |                 |
-| `128`                                | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.large`   | `ml.m5.2xlarge` | `ml.m5.4xlarge` |                 |
-| `256`                                | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.xlarge`  | `ml.m5.4xlarge` |                 |                 |
-| `512`                                | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.2xlarge` |                 |                 |                 |
-| `1024`                               | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.xlarge` | `ml.m5.4xlarge` |                 |                 |                 |
-| `2048`                               | ml.m5.large | `ml.m5.large` | `ml.m5.xlarge` | `ml.m5.xlarge` |                 |                 |                 |                 | The values for the `mini_batch_size`, `num_ip_encoder_layers`, `random_negative_sampling_rate`, and `shuffled_negative_sampling_rate` hyperparameters also affect the amount of memory required. If these values are large, you might need to use a larger instance type than normal. ## IP Insights Sample Notebooks For a sample notebook that shows how to train the SageMaker AI IP Insights algorithm and perform inferences with it, see [An Introduction to the SageMaker AIIP Insights Algorithm](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/ipinsights_login/ipinsights-tutorial.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/ipinsights_login/ipinsights-tutorial.html") . For instructions how to create and access Jupyter notebook instances that you can use to run the example in SageMaker AI, see [Amazon SageMaker notebook instances](nbi.md "nbi.md"). After creating a notebook instance, choose the **SageMaker AI Examples** tab to see a list of all the SageMaker AI examples. To open a notebook, choose its **Use** tab and choose **Create copy**. |
+| `vector_dim` \<br>`num_entity_vectors`. | 10,000      | 50,000        | 100,000        | 500,000        | 1,000,000       | 5,000,000       | 10,000,000      | 50,000,000      |
+| --------------------------------------- | ----------- | ------------- | -------------- | -------------- | --------------- | --------------- | --------------- | --------------- |
+| `32`                                    | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.large`   | `ml.m5.xlarge`  | `ml.m5.2xlarge` | `ml.m5.4xlarge` |
+| `64`                                    | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.large`   | `ml.m5.2xlarge` | `ml.m5.2xlarge` |                 |
+| `128`                                   | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.large`   | `ml.m5.2xlarge` | `ml.m5.4xlarge` |                 |
+| `256`                                   | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.xlarge`  | `ml.m5.4xlarge` |                 |                 |
+| `512`                                   | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.large`  | `ml.m5.2xlarge` |                 |                 |                 |
+| `1024`                                  | ml.m5.large | `ml.m5.large` | `ml.m5.large`  | `ml.m5.xlarge` | `ml.m5.4xlarge` |                 |                 |                 |
+| `2048`                                  | ml.m5.large | `ml.m5.large` | `ml.m5.xlarge` | `ml.m5.xlarge` |                 |                 |                 |                 |
+
+The values for the `mini_batch_size`,
+`num_ip_encoder_layers`, `random_negative_sampling_rate`,
+and `shuffled_negative_sampling_rate` hyperparameters also affect the
+amount of memory required. If these values are large, you might need to use a larger
+instance type than normal.
+
+## IP Insights Sample Notebooks
+
+For a sample notebook that shows how to train the SageMaker AI IP Insights algorithm and
+perform inferences with it, see [An Introduction to the SageMaker AIIP Insights Algorithm](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/ipinsights_login/ipinsights-tutorial.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/ipinsights_login/ipinsights-tutorial.html") . For instructions how to
+create and access Jupyter notebook instances that you can use to run the example in
+SageMaker AI, see [Amazon SageMaker notebook instances](nbi.md "nbi.md"). After creating a notebook instance,
+choose the **SageMaker AI Examples** tab to see a list of all
+the SageMaker AI examples. To open a notebook, choose its **Use**
+tab and choose **Create copy**.

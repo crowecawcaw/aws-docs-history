@@ -48,8 +48,166 @@ replacement workflow and restarts the job after the faulty nodes are replaced. T
 following hardware checks are run whenever a job fails while using
 auto-resume:
 
-| Category    | Utility name | Instance type compatibility | Description                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------- | ------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Accelerator | NVIDIA SMI   | GPU                         | [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface "https://developer.nvidia.com/nvidia-system-management-interface") utility is a well-known CLI to manage and monitor GPUs. The built-in health checker parses the output from `nvidia-smi` to determine the health of the instance.                                                                            |
-| Accelerator | Neuron sysfs | Trainium                    | For Trainium-powered instances, the health of the Neuron devices is determined by reading counters from [Neuron sysfs](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-sysfs-user-guide.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-sysfs-user-guide.html") propagated directly by the Neuron driver. |
-| Network     | EFA          | GPU and Trainium            | To aid in the diagnostic of Elastic Fabric Adaptor (EFA) devices, the EFA health checker runs a series of connectivity tests using all available EFA cards within the instance.                                                                                                                                                                                                             | ###### Note When [Generic Resources (GRES)](https://slurm.schedmd.com/gres.html "https://slurm.schedmd.com/gres.html") are attached to a Slurm node, Slurm typically doesn't permit changes in the node allocation, such as replacing nodes, and thus doesn’t allow to resume a failed job. Unless explicitly forbidden, the HyperPod auto-resume functionality automatically re-queues any faulty job associated with the GRES-enabled nodes. This process involves stopping the job, placing it back into the job queue, and then restarting the job from the beginning. **Using the SageMaker HyperPod auto-resume functionality with Slurm** When you use SageMaker HyperPod auto-resume with Slurm, you should run the job inside an exclusive allocation acquired either by using `salloc` or `sbatch`. In any case, you need to modify the entrypoint script to make sure that all setup steps run in a single `srun` command when resuming the job. Through the entrypoint script, it is important to set up the environment on the replaced node to be consistent with the environment that the job step was running before it was stopped. The following precedure shows how to prepare an entrypoint script to keep the environment consistent and run it as a single `srun` command. ###### Tip If you use `sbatch`, you can keep the batch script simple by creating a separate script for setting up the environment and using a single `srun` command. 1. Create a script using the following code example and save it as `train_auto_resume.sh`. This script deploys training environment setups assuming that there is no manual configuration previously made to the replaced node. This ensures that the environment is node-agnostic, so that when a node is replaced, the same environment is provisioned on the node before resuming the job. ###### Note The following code example shows how to discover the Slurm node list associated with the job. Do not use the `$SLURM_JOB_NODELIST` environment variable provided by Slurm, because its value might be outdated after SageMaker HyperPod auto-resumes the job. The following code example shows how to define a new `NODE_LIST` variable to replace `SLURM_JOB_NODELIST`, and then set up the `MASTER_NODE` and `MASTER_ADDR` variables off of the `NODE_LIST` variable. ``` #!/bin/bash # Filename: train_auto_resume.sh # Sample containerized script to launch a training job with a single srun which can be auto-resumed. # Place your training environment setup here. # Example: Install conda, docker, activate virtual env, etc. # Get the list of nodes for a given job NODE_LIST=$(scontrol show jobid=$SLURM_JOBID | \ # Show details of the SLURM job awk -F= '/NodeList=/{print $2}' | \ # Extract NodeList field grep -v Exc) # Exclude nodes marked as excluded # Determine the master node from the node list MASTER_NODE=$(scontrol show hostname $NODE_LIST | \ # Convert node list to hostnames head -n 1) # Select the first hostname as master node # Get the master node address MASTER_ADDR=$(scontrol show node=$MASTER_NODE | \ # Show node information awk -F= '/NodeAddr=/{print $2}' | \ # Extract NodeAddr awk '{print $1}')                   # Print the first part of NodeAddr # Torchrun command to launch the training job torchrun_cmd="torchrun --nnodes=$SLURM_NNODES \ --nproc_per_node=1 \ --node_rank=$SLURM_NODE \ --master-addr=$MASTER_ADDR \ --master_port=`1234` \ `<your_training_script.py>`" # Execute the torchrun command in the 'pytorch' Conda environment, # streaming output live /opt/conda/bin/conda run --live-stream -n pytorch $torchrun_cmd ``###### Tip You can use the preceding script to add more commands for installing any additional dependencies for your job. However, we recommend that you keep the dependency installation scripts to the [set of lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.md") that are used during cluster creation. If you use a virtual environment hosted on a shared directory, you can also utilize this script to activate the virtual environment. 2. Launch the job with SageMaker HyperPod auto-resume enabled by adding the flag `--auto-resume=1` to indicate that the `srun` command should be automatically retried in case of hardware failure. ###### Note If you have set up a resource allocation using `sbatch` or `salloc`, you can run multiple `srun` commands within the allocation. In the event of a failure, the SageMaker HyperPod auto-resume functionality only operates in the current [job step](https://slurm.schedmd.com/job_launch.html#step_allocation "https://slurm.schedmd.com/job_launch.html#step_allocation") of the `srun` command with the flag `--auto-resume=1`. In other words, activating auto-resume in an `srun` command doesn't apply to other `srun` commands launched within a resource allocation session. The following are `srun` command examples with `auto-resume` enabled. **Using sbatch** Because most of the logic for setting up the environment is already in `train_auto_resume.sh`, the batch script should be simple and similar to the following code example. Assume that the following batch script is saved as `batch.sh`.`` #!/bin/bash #SBATCH --nodes 2 #SBATCH --exclusive srun --auto-resume=1 `train_auto_resume.sh` `Run the preceding batch script using the following command.` sbatch `batch.sh` ``**Using salloc** Start by acquiring an exclusive allocation, and run the `srun` command with the `--auto-resume` flag and the entrypoint script.`` salloc -N 2 --exclusive srun --auto-resume=1 `train_auto_resume.sh` ``` ## How automatic node recovery and auto-resume work together When both automatic node recovery and auto-resume systems are active, they follow a coordinated approach to handling failures. If the HMA detects a hardware fault, the node is marked for drain regardless of job-level status. With node automatic recovery enabled, the nodes are automatically replaced once all the jobs running in the nodes exit. In this scenario, for jobs with auto-resume enabled, if there is A non-zero status exit status in the step, the auto resume kicks in (the jobs resume once nodes are replaced). Jobs without auto-resume enabled will simply exit, requiring manual resubmission by administrators or users. ###### Note If you use auto-resume, the nodes are always replaced (no reboots) when hardware failures are detected. |
+| Category    | Utility name | Instance type compatibility | Description                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------- | ------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Accelerator | NVIDIA SMI   | GPU                         | [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface "https://developer.nvidia.com/nvidia-system-management-interface") utility is a well-known CLI to manage and<br>monitor GPUs. The built-in health checker parses the output from<br>`nvidia-smi` to determine the health of the<br>instance.                                                                         |
+| Accelerator | Neuron sysfs | Trainium                    | For Trainium-powered instances, the health of the Neuron devices<br>is determined by reading counters from [Neuron sysfs](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-sysfs-user-guide.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-sysfs-user-guide.html") propagated directly by the Neuron<br>driver. |
+| Network     | EFA          | GPU and Trainium            | To aid in the diagnostic of Elastic Fabric Adaptor (EFA) devices,<br>the EFA health checker runs a series of connectivity tests using all<br>available EFA cards within the instance.                                                                                                                                                                                                             |
+
+###### Note
+
+When [Generic Resources
+(GRES)](https://slurm.schedmd.com/gres.html "https://slurm.schedmd.com/gres.html") are attached to a Slurm node, Slurm typically doesn't permit
+changes in the node allocation, such as replacing nodes, and thus doesn’t allow
+to resume a failed job. Unless explicitly forbidden, the HyperPod
+auto-resume functionality automatically re-queues any faulty job associated with
+the GRES-enabled nodes. This process involves stopping the job, placing it back
+into the job queue, and then restarting the job from the beginning.
+
+**Using the SageMaker HyperPod auto-resume functionality with
+Slurm**
+
+When you use SageMaker HyperPod auto-resume with Slurm, you should run the job inside an
+exclusive allocation acquired either by using `salloc` or
+`sbatch`. In any case, you need to modify the entrypoint script to
+make sure that all setup steps run in a single `srun` command when
+resuming the job. Through the entrypoint script, it is important to set up the
+environment on the replaced node to be consistent with the environment that the job
+step was running before it was stopped. The following precedure shows how to prepare
+an entrypoint script to keep the environment consistent and run it as a single
+`srun` command.
+
+###### Tip
+
+If you use `sbatch`, you can keep the batch script simple by
+creating a separate script for setting up the environment and using a single
+`srun` command.
+
+1. Create a script using the following code example and save it as
+   `train_auto_resume.sh`. This script deploys training
+   environment setups assuming that there is no manual configuration previously
+   made to the replaced node. This ensures that the environment is
+   node-agnostic, so that when a node is replaced, the same environment is
+   provisioned on the node before resuming the job.
+
+###### Note
+
+The following code example shows how to discover the Slurm node list
+associated with the job. Do not use the `$SLURM_JOB_NODELIST`
+environment variable provided by Slurm, because its value might be
+outdated after SageMaker HyperPod auto-resumes the job. The following code
+example shows how to define a new `NODE_LIST` variable to
+replace `SLURM_JOB_NODELIST`, and then set up the
+`MASTER_NODE` and `MASTER_ADDR` variables off
+of the `NODE_LIST` variable.
+
+```
+#!/bin/bash
+
+# Filename: train_auto_resume.sh
+# Sample containerized script to launch a training job with a single srun which can be auto-resumed.
+
+# Place your training environment setup here.
+# Example: Install conda, docker, activate virtual env, etc.
+
+# Get the list of nodes for a given job
+NODE_LIST=$(scontrol show jobid=$SLURM_JOBID | \ # Show details of the SLURM job
+            awk -F= '/NodeList=/{print $2}' | \  # Extract NodeList field
+            grep -v Exc)                         # Exclude nodes marked as excluded
+
+# Determine the master node from the node list
+MASTER_NODE=$(scontrol show hostname $NODE_LIST | \ # Convert node list to hostnames
+              head -n 1)                            # Select the first hostname as master node
+
+# Get the master node address
+MASTER_ADDR=$(scontrol show node=$MASTER_NODE | \ # Show node information
+              awk -F= '/NodeAddr=/{print $2}' | \ # Extract NodeAddr
+              awk '{print $1}')                   # Print the first part of NodeAddr
+
+
+# Torchrun command to launch the training job
+torchrun_cmd="torchrun --nnodes=$SLURM_NNODES \
+                       --nproc_per_node=1 \
+                       --node_rank=$SLURM_NODE \
+                       --master-addr=$MASTER_ADDR \
+                       --master_port=`1234` \
+                       `<your_training_script.py>`"
+
+# Execute the torchrun command in the 'pytorch' Conda environment,
+# streaming output live
+/opt/conda/bin/conda run --live-stream -n pytorch $torchrun_cmd
+```
+
+###### Tip
+
+You can use the preceding script to add more commands for installing
+any additional dependencies for your job. However, we recommend that you
+keep the dependency installation scripts to the [set of lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.md") that are used during cluster
+creation. If you use a virtual environment hosted on a shared directory,
+you can also utilize this script to activate the virtual
+environment. 2. Launch the job with SageMaker HyperPod auto-resume enabled by adding the flag
+`--auto-resume=1` to indicate that the `srun`
+command should be automatically retried in case of hardware failure.
+
+###### Note
+
+If you have set up a resource allocation using `sbatch` or
+`salloc`, you can run multiple `srun` commands
+within the allocation. In the event of a failure, the SageMaker HyperPod
+auto-resume functionality only operates in the current [job
+step](https://slurm.schedmd.com/job_launch.html#step_allocation "https://slurm.schedmd.com/job_launch.html#step_allocation") of the `srun` command with the flag
+`--auto-resume=1`. In other words, activating auto-resume
+in an `srun` command doesn't apply to other `srun`
+commands launched within a resource allocation session.
+
+The following are `srun` command examples with
+`auto-resume` enabled.
+
+**Using sbatch**
+
+Because most of the logic for setting up the environment is already in
+`train_auto_resume.sh`, the batch script should be simple and
+similar to the following code example. Assume that the following batch
+script is saved as `batch.sh`.
+
+```
+#!/bin/bash
+#SBATCH --nodes 2
+#SBATCH --exclusive
+srun --auto-resume=1 `train_auto_resume.sh`
+```
+
+Run the preceding batch script using the following command.
+
+```
+sbatch `batch.sh`
+```
+
+**Using salloc**
+
+Start by acquiring an exclusive allocation, and run the `srun`
+command with the `--auto-resume` flag and the entrypoint
+script.
+
+```
+salloc -N 2 --exclusive
+srun --auto-resume=1 `train_auto_resume.sh`
+```
+
+## How automatic
+
+node recovery and auto-resume work together
+
+When both automatic node recovery and auto-resume systems are active, they follow
+a coordinated approach to handling failures. If the HMA detects a hardware fault,
+the node is marked for drain regardless of job-level status. With node automatic
+recovery enabled, the nodes are automatically replaced once all the jobs running in
+the nodes exit. In this scenario, for jobs with auto-resume enabled, if there is A
+non-zero status exit status in the step, the auto resume kicks in (the jobs resume
+once nodes are replaced). Jobs without auto-resume enabled will simply exit,
+requiring manual resubmission by administrators or users.
+
+###### Note
+
+If you use auto-resume, the nodes are always replaced (no reboots) when
+hardware failures are detected.

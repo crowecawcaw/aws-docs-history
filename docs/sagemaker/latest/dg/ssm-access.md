@@ -101,22 +101,21 @@ JSON
 You can restrict the endpoints that an IAM user can connect to, with the following
 policy. Replace the `italicized placeholder text` with your own information.
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:StartSession",
-            ],
-            "Resource": [
-                "`sagemaker-endpoint-arn`"
-            ]
-        }
-    ]
-}
+JSON
 
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ssm:StartSession"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-2`:`111122223333`:endpoint/`endpoint-name`"
+ }
+ ]
+}`
 
 ```
 

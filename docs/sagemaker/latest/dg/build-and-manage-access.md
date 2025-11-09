@@ -134,14 +134,221 @@ concatenation of fields described in the following table:
 
 `pipelines-`<executionId>`-`<stepNamePrefix>`-`<entityToken>`-`<failureCount>``
 
-| Field                                                                                                                       | Definition                                                                                                            |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pipelines                                                                                                                   | A static string always prepended. This string identifies the pipeline orchestration service as the job's source.      |
-| executionId                                                                                                                 | A randomized buffer for the running instance of the pipeline.                                                         |
-| stepNamePrefix                                                                                                              | The user-specified step name (given in the `name` argument of the pipeline step), limited to the first 20 characters. |
-| entityToken                                                                                                                 | A randomized token to ensure idempotency of the step entity.                                                          |
-| failureCount                                                                                                                | The current number of retries attempted to complete the job.                                                          | In this case, no custom prefix is prepended to the job name, and the corresponding IAM policy must match this string. For users who turn on job prefixing, the underlying job name takes the following form, with the custom prefix specified as `MyBaseJobName`: `<MyBaseJobName>`-`<executionId>`-`<entityToken>`-`<failureCount>` The custom prefix replaces the static `pipelines` string to help you narrow the selection of users who can run the SageMaker AI job as a part of a pipeline. **Prefix length restrictions** The job names have internal length constraints specific to individual pipeline steps. This constraint also limits the length of the allowed prefix. The prefix length requirements are as follows:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Pipeline step                                                                                                               | Prefix length                                                                                                         |
-| ---                                                                                                                         | ---                                                                                                                   |
-| `TrainingStep`, `ModelStep`, `TransformStep`, `ProcessingStep`, `ClarifyCheckStep`, `QualityCheckStep`, `RegisterModelStep` | 38                                                                                                                    |
-| `TuningStep`, `AutoML`                                                                                                      | 6                                                                                                                     | ### Apply job prefixes to an IAM policy Your admin creates IAM policies allowing users of specific prefixes to create jobs. The following example policy permits data scientists to create training jobs if they use the `MyBaseJobName` prefix. ``{ "Action": "sagemaker:CreateTrainingJob", "Effect": "Allow", "Resource": [ "arn:aws:sagemaker:`region`:`account-id`:*/MyBaseJobName-*" ] }`` ### Apply job prefixes to pipeline instantiations You specify your prefix with the `*base_job_name` argument of the job instance class. ###### Note You pass your job prefix with the `*base_job_name` argument to the job instance before creating a pipeline step. This job instance contains the necessary information for the job to run as a step in a pipeline. This argument varies depending upon the job instance used. The following list shows which argument to use for each pipeline step type: <br>• `base_job_name` for the `Estimator` (`TrainingStep`), `Processor` (`ProcessingStep`), and `AutoML` (`AutoMLStep`) classes <br>• `tuning_base_job_name` for the `Tuner` class (`TuningStep`) <br>• `transform_base_job_name` for the `Transformer` class (`TransformStep`) <br>• `base_job_name` of `CheckJobConfig` for the `QualityCheckStep` (Quality Check) and `ClarifyCheckstep` (Clarify Check) classes <br>• For the `Model` class, the argument used depends on if you run `create` or `register` on your model before passing the result to `ModelStep` + If you call `create`, the custom prefix comes from the `name` argument when you construct your model (i.e., `Model(name=)`) + If you call `register`, the custom prefix comes from the `model_package_name` argument of your call to `register` (i.e., ``my_model`.register(model_package_name=)`) The following example shows how to specify a prefix for a new training job instance. ``` # Create a job instance xgb_train = Estimator( image_uri=image_uri, instance_type="ml.m5.xlarge", instance_count=1, output_path=model_path, role=role, subnets=["subnet-0ab12c34567de89f0"], base_job_name="MyBaseJobName" security_group_ids=["sg-1a2bbcc3bd4444e55"], tags = [ ... ] encrypt_inter_container_traffic=True, ) # Attach your job instance to a pipeline step step_train = TrainingStep( name="TestTrainingJob", estimator=xgb_train, inputs={ "train": TrainingInput(...), "validation": TrainingInput(...) } ) ``` Job prefixing is off by default. To opt into this feature, use the `use_custom_job_prefix`option of`PipelineDefinitionConfig`as shown in the following snippet: ``` from sagemaker.workflow.pipeline_definition_config import PipelineDefinitionConfig # Create a definition configuration and toggle on custom prefixing definition_config = PipelineDefinitionConfig(use_custom_job_prefix=True); # Create a pipeline with a custom prefix pipeline = Pipeline( name="MyJobPrefixedPipeline", parameters=[...] steps=[...] pipeline_definition_config=definition_config ) ``` Create and run your pipeline. The following example creates and runs a pipeline, and also demonstrates how you can turn off job prefixing and rerun your pipeline. ``` pipeline.create(role_arn=sagemaker.get_execution_role()) # Optionally, call definition() to confirm your prefixed job names are in the built JSON pipeline.definition() pipeline.start() # To run a pipeline without custom-prefixes, toggle off use_custom_job_prefix, update the pipeline # via upsert() or update(), and start a new run definition_config = PipelineDefinitionConfig(use_custom_job_prefix=False) pipeline.pipeline_definition_config = definition_config pipeline.update() execution = pipeline.start() ``` Similarly, you can toggle the feature on for existing pipelines and start a new run which uses job prefixes. ``` definition_config = PipelineDefinitionConfig(use_custom_job_prefix=True) pipeline.pipeline_definition_config = definition_config pipeline.update() execution = pipeline.start() ``` Finally, you can view your custom-prefixed job by calling`list_steps`on the pipeline execution. ``` steps = execution.list_steps() prefixed_training_job_name = steps['PipelineExecutionSteps'][0]['Metadata']['TrainingJob']['Arn'] ``` ## Customize access to pipeline versions You can grant customized access to specific versions of Amazon SageMaker Pipelines by using the`sagemaker:PipelineVersionId`condition key. For example, the policy below grants access to start executions or update pipeline version only for version ID 6 and above. ``` { "Version": "2012-10-17", "Statement": [ { "Sid": "AllowStartPipelineExecution", "Effect": "Allow", "Action": [ "sagemaker:StartPipelineExecution", "sagemaker:UpdatePipelineVersion" ], "Resource": "*", "Condition": { "NumericGreaterThanEquals": { "sagemaker:PipelineVersionId": 6 } } } } ``` For more information about supported condition keys, see [Condition keys for Amazon SageMaker AI](../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-policy-keys "../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-policy-keys"). ## Service Control Policies with Pipelines Service control policies (SCPs) are a type of organization policy that you can use to manage permissions in your organization. SCPs offer central control over the maximum available permissions for all accounts in your organization. By using Pipelines within your organization, you can ensure that data scientists manage your pipeline executions without having to interact with the AWS console. If you're using a VPC with your SCP that restricts access to Amazon S3, you need to take steps to allow your pipeline to access other Amazon S3 resources. To allow Pipelines to access Amazon S3 outside of your VPC with the`JsonGet`function, update your organization's SCP to ensure that the role using Pipelines can access Amazon S3. To do this, create an exception for roles that are being used by the Pipelines executor via the pipeline execution role using a principal tag and condition key. ###### To allow Pipelines to access Amazon S3 outside of your VPC 1. Create a unique tag for your pipeline execution role following the steps in [Tagging IAM users and roles](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md"). 2. Grant an exception in your SCP using the`Aws:PrincipalTag IAM` condition key for the tag you created. For more information, see [Creating, updating, and deleting service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps_create.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_create.md"). |
+| Field          | Definition                                                                                                               |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| pipelines      | A static string always prepended. This string identifies the pipeline<br>orchestration service as the job's source.      |
+| executionId    | A randomized buffer for the running instance of the pipeline.                                                            |
+| stepNamePrefix | The user-specified step name (given in the `name` argument of the<br>pipeline step), limited to the first 20 characters. |
+| entityToken    | A randomized token to ensure idempotency of the step entity.                                                             |
+| failureCount   | The current number of retries attempted to complete the job.                                                             |
+
+In this case, no custom prefix is prepended to the job name, and the corresponding IAM
+policy must match this string.
+
+For users who turn on job prefixing, the underlying job name takes the following form,
+with the custom prefix specified as `MyBaseJobName`:
+
+`<MyBaseJobName>`-`<executionId>`-`<entityToken>`-`<failureCount>`
+
+The custom prefix replaces the static `pipelines` string to help you narrow
+the selection of users who can run the SageMaker AI job as a part of a pipeline.
+
+**Prefix length restrictions**
+
+The job names have internal length constraints specific to individual pipeline steps.
+This constraint also limits the length of the allowed prefix. The prefix length requirements
+are as follows:
+
+| Pipeline step                                                                                                               | Prefix length |
+| --------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `TrainingStep`, `ModelStep`, `TransformStep`, `ProcessingStep`, `ClarifyCheckStep`, `QualityCheckStep`, `RegisterModelStep` | 38            |
+| `TuningStep`, `AutoML`                                                                                                      | 6             |
+
+### Apply job prefixes to an
+
+IAM policy
+
+Your admin creates IAM policies allowing users of specific prefixes to create jobs.
+The following example policy permits data scientists to create training jobs if they use
+the `MyBaseJobName` prefix.
+
+```
+{
+    "Action": "sagemaker:CreateTrainingJob",
+    "Effect": "Allow",
+    "Resource": [
+        "arn:aws:sagemaker:`region`:`account-id`:*/MyBaseJobName-*"
+    ]
+}
+```
+
+### Apply job prefixes to
+
+pipeline instantiations
+
+You specify your prefix with the `*base_job_name` argument of the job
+instance class.
+
+###### Note
+
+You pass your job prefix with the `*base_job_name` argument to the job
+instance before creating a pipeline step. This job instance contains the necessary
+information for the job to run as a step in a pipeline. This argument varies depending
+upon the job instance used. The following list shows which argument to use for each
+pipeline step type:
+
+- `base_job_name` for the `Estimator` (`TrainingStep`), `Processor` (`ProcessingStep`), and `AutoML` (`AutoMLStep`) classes
+- `tuning_base_job_name` for the `Tuner` class (`TuningStep`)
+- `transform_base_job_name` for the `Transformer` class (`TransformStep`)
+- `base_job_name` of `CheckJobConfig` for the `QualityCheckStep` (Quality Check) and `ClarifyCheckstep` (Clarify Check) classes
+- For the `Model` class, the argument used depends on if you run
+  `create` or `register` on your model before passing the
+  result to `ModelStep`
+  - If you call `create`, the custom prefix comes from the
+    `name` argument when you construct your model (i.e.,
+    `Model(name=)`)
+  - If you call `register`, the custom prefix comes from the
+    `model_package_name` argument of your call to `register`
+    (i.e.,
+    ``my_model`.register(model_package_name=)`)
+
+The following example shows how to specify a prefix for a new training job
+instance.
+
+```
+# Create a job instance
+xgb_train = Estimator(
+    image_uri=image_uri,
+    instance_type="ml.m5.xlarge",
+    instance_count=1,
+    output_path=model_path,
+    role=role,
+    subnets=["subnet-0ab12c34567de89f0"],
+    base_job_name="MyBaseJobName"
+    security_group_ids=["sg-1a2bbcc3bd4444e55"],
+    tags = [ ... ]
+    encrypt_inter_container_traffic=True,
+)
+
+# Attach your job instance to a pipeline step
+step_train = TrainingStep(
+    name="TestTrainingJob",
+    estimator=xgb_train,
+    inputs={
+        "train": TrainingInput(...),
+        "validation": TrainingInput(...)
+    }
+)
+```
+
+Job prefixing is off by default. To opt into this feature, use the
+`use_custom_job_prefix` option of `PipelineDefinitionConfig` as
+shown in the following snippet:
+
+```
+from sagemaker.workflow.pipeline_definition_config import PipelineDefinitionConfig
+
+# Create a definition configuration and toggle on custom prefixing
+definition_config = PipelineDefinitionConfig(use_custom_job_prefix=True);
+
+# Create a pipeline with a custom prefix
+ pipeline = Pipeline(
+     name="MyJobPrefixedPipeline",
+     parameters=[...]
+     steps=[...]
+     pipeline_definition_config=definition_config
+)
+```
+
+Create and run your pipeline. The following example creates and runs a pipeline, and
+also demonstrates how you can turn off job prefixing and rerun your pipeline.
+
+```
+pipeline.create(role_arn=sagemaker.get_execution_role())
+
+# Optionally, call definition() to confirm your prefixed job names are in the built JSON
+pipeline.definition()
+pipeline.start()
+
+# To run a pipeline without custom-prefixes, toggle off use_custom_job_prefix, update the pipeline
+# via upsert() or update(), and start a new run
+definition_config = PipelineDefinitionConfig(use_custom_job_prefix=False)
+pipeline.pipeline_definition_config = definition_config
+pipeline.update()
+execution = pipeline.start()
+```
+
+Similarly, you can toggle the feature on for existing pipelines and start a new run
+which uses job prefixes.
+
+```
+definition_config = PipelineDefinitionConfig(use_custom_job_prefix=True)
+pipeline.pipeline_definition_config = definition_config
+pipeline.update()
+execution = pipeline.start()
+```
+
+Finally, you can view your custom-prefixed job by calling `list_steps` on
+the pipeline execution.
+
+```
+steps = execution.list_steps()
+
+prefixed_training_job_name = steps['PipelineExecutionSteps'][0]['Metadata']['TrainingJob']['Arn']
+```
+
+## Customize access to pipeline versions
+
+You can grant customized access to specific versions of Amazon SageMaker Pipelines by using the
+`sagemaker:PipelineVersionId` condition key. For example, the policy below
+grants access to start executions or update pipeline version only for version ID 6 and
+above.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Sid": "AllowStartPipelineExecution",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:StartPipelineExecution",
+ "sagemaker:UpdatePipelineVersion"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "NumericGreaterThanEquals": {
+ "sagemaker:PipelineVersionId": 6
+ }
+ }
+ }
+}`
+
+```
+
+For more information about supported condition keys, see [Condition keys for Amazon SageMaker AI](../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-policy-keys "../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-policy-keys").
+
+## Service Control Policies with Pipelines
+
+Service control policies (SCPs) are a type of organization policy that you can use to
+manage permissions in your organization. SCPs offer central control over the maximum
+available permissions for all accounts in your organization. By using Pipelines within your
+organization, you can ensure that data scientists manage your pipeline executions without
+having to interact with the AWS console. 
+
+If you're using a VPC with your SCP that restricts access to Amazon S3, you need to take
+steps to allow your pipeline to access other Amazon S3 resources.
+
+To allow Pipelines to access Amazon S3 outside of your VPC with the `JsonGet`
+function, update your organization's SCP to ensure that the role using Pipelines can access
+Amazon S3. To do this, create an exception for roles that are being used by the Pipelines executor
+via the pipeline execution role using a principal tag and condition key.
+
+###### To allow Pipelines to access Amazon S3 outside of your VPC
+
+1. Create a unique tag for your pipeline execution role following the steps in [Tagging IAM users and
+   roles](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md").
+2. Grant an exception in your SCP using the `Aws:PrincipalTag IAM` condition
+   key for the tag you created. For more information, see [Creating,
+   updating, and deleting service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps_create.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_create.md").

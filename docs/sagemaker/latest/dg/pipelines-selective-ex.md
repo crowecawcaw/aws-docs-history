@@ -41,8 +41,114 @@ The pipeline execution which SageMaker AI ultimately uses as a reference, whethe
 The following table summarizes how SageMaker AI chooses a reference execution.
 
 | The `source_pipeline_execution_arn` argument value | The `reference_latest_execution` argument value | The reference execution used                                  |
-| -------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------- |
 | A pipeline ARN                                     | `True` or unspecified                           | The specified pipeline ARN                                    |
 | A pipeline ARN                                     | `False`                                         | The specified pipeline ARN                                    |
 | `null` or unspecified                              | `True` or unspecified                           | The latest pipeline execution                                 |
-| `null` or unspecified                              | `False`                                         | None—in this case, select steps without upstream dependencies | For more information about selective execution configuration requirements, see the [sagemaker.workflow.selective_execution_config.SelectiveExecutionConfig](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#selective-execution-config "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#selective-execution-config") documentation. The following discussion includes examples for the cases in which you want to specify a pipeline reference execution, use the latest pipeline execution as a reference, or run selective execution without a reference pipeline execution. ## Selective execution with a user-specified pipeline reference The following example demonstrates a selective execution of the steps `AbaloneTrain` and `AbaloneEval` using a reference pipeline execution. `from sagemaker.workflow.selective_execution_config import SelectiveExecutionConfig selective_execution_config = SelectiveExecutionConfig( source_pipeline_execution_arn="arn:aws:sagemaker:us-west-2:123123123123:pipeline/abalone/execution/123ab12cd3ef", selected_steps=["AbaloneTrain", "AbaloneEval"] ) selective_execution = pipeline.start( execution_display_name=f"Sample-Selective-Execution-1", parameters={"MaxDepth":6, "NumRound":60}, selective_execution_config=selective_execution_config, )` ## Selective execution with the latest pipeline execution as a reference The following example demonstrates a selective execution of the steps `AbaloneTrain` and `AbaloneEval` using the latest pipeline execution as a reference. Since SageMaker AI uses the latest pipeline execution by default, you can optionally set the `reference_latest_execution` argument to `True`. `# Prepare a new selective execution. Select only the first step in the pipeline without providing source_pipeline_execution_arn. selective_execution_config = SelectiveExecutionConfig( selected_steps=["AbaloneTrain", "AbaloneEval"], # optional reference_latest_execution=True ) # Start pipeline execution without source_pipeline_execution_arn pipeline.start( execution_display_name=f"Sample-Selective-Execution-1", parameters={"MaxDepth":6, "NumRound":60}, selective_execution_config=selective_execution_config, )` ## Selective execution without a reference pipeline The following example demonstrates a selective execution of the steps `AbaloneProcess` and `AbaloneTrain` without providing a reference ARN and turning off the option to use the latest pipeline run as a reference. SageMaker AI permits this configuration since this subset of steps doesn’t depend on previous steps. `# Prepare a new selective execution. Select only the first step in the pipeline without providing source_pipeline_execution_arn. selective_execution_config = SelectiveExecutionConfig( selected_steps=["AbaloneProcess", "AbaloneTrain"], reference_latest_execution=False ) # Start pipeline execution without source_pipeline_execution_arn pipeline.start( execution_display_name=f"Sample-Selective-Execution-1", parameters={"MaxDepth":6, "NumRound":60}, selective_execution_config=selective_execution_config, )` ## Reuse runtime parameter values from a reference execution You can build the parameters from your reference pipeline execution using `build_parameters_from_execution`, and supply the result to your selective execution pipeline. You can use the original parameters from the reference execution, or apply any overrides using the `parameter_value_overrides` argument. The following example shows you how to build parameters from a reference execution and apply an override for the `MseThreshold` parameter. `# Prepare a new selective execution. selective_execution_config = SelectiveExecutionConfig( source_pipeline_execution_arn="arn:aws:sagemaker:us-west-2:123123123123:pipeline/abalone/execution/123ab12cd3ef", selected_steps=["AbaloneTrain", "AbaloneEval", "AbaloneMSECond"], ) # Define a new parameters list to test. new_parameters_mse={ "MseThreshold": 5, } # Build parameters from reference execution and override with new parameters to test. new_parameters = pipeline.build_parameters_from_execution( pipeline_execution_arn="arn:aws:sagemaker:us-west-2:123123123123:pipeline/abalone/execution/123ab12cd3ef", parameter_value_overrides=new_parameters_mse ) # Start pipeline execution with new parameters. execution = pipeline.start( selective_execution_config=selective_execution_config, parameters=new_parameters )` |
+| `null` or unspecified                              | `False`                                         | None—in this case, select steps without upstream dependencies |
+
+For more information about selective execution configuration requirements, see the
+[sagemaker.workflow.selective_execution_config.SelectiveExecutionConfig](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#selective-execution-config "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#selective-execution-config") documentation.
+
+The following discussion includes examples for the cases in which you want to specify a pipeline
+reference execution, use the latest pipeline execution as a reference, or run selective execution without a
+reference pipeline execution.
+
+## Selective execution with a user-specified pipeline reference
+
+The following example demonstrates a selective execution of the steps `AbaloneTrain`
+and `AbaloneEval` using a reference pipeline execution.
+
+```
+from sagemaker.workflow.selective_execution_config import SelectiveExecutionConfig
+
+selective_execution_config = SelectiveExecutionConfig(
+    source_pipeline_execution_arn="arn:aws:sagemaker:us-west-2:123123123123:pipeline/abalone/execution/123ab12cd3ef",
+    selected_steps=["AbaloneTrain", "AbaloneEval"]
+)
+
+selective_execution = pipeline.start(
+    execution_display_name=f"Sample-Selective-Execution-1",
+    parameters={"MaxDepth":6, "NumRound":60},
+    selective_execution_config=selective_execution_config,
+)
+```
+
+## Selective execution with the latest pipeline execution as a reference
+
+The following example demonstrates a selective execution of the steps `AbaloneTrain` and
+`AbaloneEval` using the latest pipeline execution as a reference. Since
+SageMaker AI uses the latest pipeline execution by default, you can optionally set the `reference_latest_execution`
+argument to `True`.
+
+```
+# Prepare a new selective execution. Select only the first step in the pipeline without providing source_pipeline_execution_arn.
+selective_execution_config = SelectiveExecutionConfig(
+    selected_steps=["AbaloneTrain", "AbaloneEval"],
+    # optional
+    reference_latest_execution=True
+)
+
+# Start pipeline execution without source_pipeline_execution_arn
+pipeline.start(
+    execution_display_name=f"Sample-Selective-Execution-1",
+    parameters={"MaxDepth":6, "NumRound":60},
+    selective_execution_config=selective_execution_config,
+)
+
+```
+
+## Selective execution without a reference pipeline
+
+The following example demonstrates a selective execution of the steps `AbaloneProcess`
+and `AbaloneTrain` without providing a reference ARN and turning off the
+option to use the latest pipeline run as a reference. SageMaker AI permits this configuration since this subset of steps doesn’t
+depend on previous steps.
+
+```
+# Prepare a new selective execution. Select only the first step in the pipeline without providing source_pipeline_execution_arn.
+selective_execution_config = SelectiveExecutionConfig(
+    selected_steps=["AbaloneProcess", "AbaloneTrain"],
+    reference_latest_execution=False
+)
+
+# Start pipeline execution without source_pipeline_execution_arn
+pipeline.start(
+    execution_display_name=f"Sample-Selective-Execution-1",
+    parameters={"MaxDepth":6, "NumRound":60},
+    selective_execution_config=selective_execution_config,
+)
+```
+
+## Reuse runtime parameter values from a reference execution
+
+You can build the parameters from your reference pipeline execution using `build_parameters_from_execution`,
+and supply the result to your selective execution pipeline. You can use the original parameters from the reference
+execution, or apply any overrides using the `parameter_value_overrides` argument.
+
+The following example shows you how to build parameters from a reference execution and apply an override for the
+`MseThreshold` parameter.
+
+```
+# Prepare a new selective execution.
+selective_execution_config = SelectiveExecutionConfig(
+    source_pipeline_execution_arn="arn:aws:sagemaker:us-west-2:123123123123:pipeline/abalone/execution/123ab12cd3ef",
+    selected_steps=["AbaloneTrain", "AbaloneEval", "AbaloneMSECond"],
+)
+# Define a new parameters list to test.
+new_parameters_mse={
+    "MseThreshold": 5,
+}
+
+# Build parameters from reference execution and override with new parameters to test.
+new_parameters = pipeline.build_parameters_from_execution(
+    pipeline_execution_arn="arn:aws:sagemaker:us-west-2:123123123123:pipeline/abalone/execution/123ab12cd3ef",
+    parameter_value_overrides=new_parameters_mse
+)
+
+# Start pipeline execution with new parameters.
+execution = pipeline.start(
+    selective_execution_config=selective_execution_config,
+    parameters=new_parameters
+)
+```

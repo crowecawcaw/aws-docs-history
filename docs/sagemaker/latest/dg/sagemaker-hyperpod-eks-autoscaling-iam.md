@@ -21,21 +21,24 @@ automatically based on workload demand.
 2. In the **Custom trust policy** editor, replace the default
    policy with the following:
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Service": [
-                    "hyperpod.sagemaker.amazonaws.com"
-                ]
-            },
-            "Action": "sts:AssumeRole"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "hyperpod.sagemaker.amazonaws.com"
+ ]
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
 ```
 
 3. Choose **Next**.
@@ -50,52 +53,55 @@ managed policies, you must create a custom policy.
 2. Choose the **JSON** tab.
 3. Replace the default policy with the following:
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:BatchAddClusterNodes",
-                "sagemaker:BatchDeleteClusterNodes"
-            ],
-            "Resource": "arn:aws:sagemaker:*:*:cluster/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "kms:CreateGrant",
-                "kms:DescribeKey"
-            ],
-            "Resource": "arn:aws:kms:*:*:key/*",
-            "Condition": {
-                "StringLike": {
-                    "kms:ViaService": "sagemaker.*.amazonaws.com"
-                },
-                "Bool": {
-                    "kms:GrantIsForAWSResource": "true"
-                },
-                "ForAllValues:StringEquals": {
-                    "kms:GrantOperations": [
-                        "CreateGrant",
-                        "Decrypt",
-                        "DescribeKey",
-                        "GenerateDataKeyWithoutPlaintext",
-                        "ReEncryptTo",
-                        "ReEncryptFrom",
-                        "RetireGrant"
-                    ]
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:BatchAddClusterNodes",
+ "sagemaker:BatchDeleteClusterNodes"
+ ],
+ "Resource": "arn:aws:sagemaker:*:*:cluster/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:CreateGrant",
+ "kms:DescribeKey"
+ ],
+ "Resource": "arn:aws:kms:*:*:key/*",
+ "Condition": {
+ "StringLike": {
+ "kms:ViaService": "sagemaker.*.amazonaws.com"
+ },
+ "Bool": {
+ "kms:GrantIsForAWSResource": "true"
+ },
+ "ForAllValues:StringEquals": {
+ "kms:GrantOperations": [
+ "CreateGrant",
+ "Decrypt",
+ "DescribeKey",
+ "GenerateDataKeyWithoutPlaintext",
+ "ReEncryptTo",
+ "ReEncryptFrom",
+ "RetireGrant"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 4. Choose **Next**.

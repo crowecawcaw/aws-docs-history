@@ -23,13 +23,22 @@ For more information about model tuning, see [Automatic model tuning with SageMa
 The k-means algorithm computes the following metrics during training. When tuning
 a model, choose one of these metrics as the objective metric.
 
-| Metric Name           | Description                                                                                           | Optimization Direction         |
-| --------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `test:msd`            | Mean squared distances between each record in the test set and the closest center of the model.       | Minimize                       |
-| `test:ssd`            | Sum of the squared distances between each record in the test set and the closest center of the model. | Minimize                       | ## Tunable K-Means Hyperparameters Tune the Amazon SageMaker AI k-means model with the following hyperparameters. The hyperparameters that have the greatest impact on k-means objective metrics are: `mini_batch_size`, `extra_center_factor`, and `init_method`. Tuning the hyperparameter `epochs` generally results in minor improvements. |
-| Parameter Name        | Parameter Type                                                                                        | Recommended Ranges             |
-| ---                   | ---                                                                                                   | ---                            |
-| `epochs`              | IntegerParameterRanges                                                                                | MinValue: 1, MaxValue:10       |
-| `extra_center_factor` | IntegerParameterRanges                                                                                | MinValue: 4, MaxValue:10       |
-| `init_method`         | CategoricalParameterRanges                                                                            | ['kmeans++', 'random']         |
-| `mini_batch_size`     | IntegerParameterRanges                                                                                | MinValue: 3000, MaxValue:15000 |
+| Metric Name | Description                                                                                              | Optimization Direction |
+| ----------- | -------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `test:msd`  | Mean squared distances between each record in the test set<br>and the closest center of the model.       | Minimize               |
+| `test:ssd`  | Sum of the squared distances between each record in the<br>test set and the closest center of the model. | Minimize               |
+
+## Tunable K-Means Hyperparameters
+
+Tune the Amazon SageMaker AI k-means model with the following hyperparameters. The
+hyperparameters that have the greatest impact on k-means objective metrics are:
+`mini_batch_size`, `extra_center_factor`, and
+`init_method`. Tuning the hyperparameter `epochs`
+generally results in minor improvements.
+
+| Parameter Name        | Parameter Type             | Recommended Ranges             |
+| --------------------- | -------------------------- | ------------------------------ |
+| `epochs`              | IntegerParameterRanges     | MinValue: 1, MaxValue:10       |
+| `extra_center_factor` | IntegerParameterRanges     | MinValue: 4, MaxValue:10       |
+| `init_method`         | CategoricalParameterRanges | ['kmeans++', 'random']         |
+| `mini_batch_size`     | IntegerParameterRanges     | MinValue: 3000, MaxValue:15000 |

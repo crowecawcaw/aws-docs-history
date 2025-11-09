@@ -70,41 +70,44 @@ Image band information from the USGS Landsat 8 and Sentinel-2 data collections a
 
 USGS Landsat
 
-| Band name  | Wave length range (nm)    | Units                  | Valid range | Fill value      | Spatial resolution     |
-| ---------- | ------------------------- | ---------------------- | ----------- | --------------- | ---------------------- | ---------- |
-| coastal    | 435 - 451                 | Unitless               | 1 - 65455   | 0 (No Data)     | 30m                    |
-| blue       | 452 - 512                 | Unitless               | 1 - 65455   | 0 (No Data)     | 30m                    |
-| green      | 533 - 590                 | Unitless               | 1 - 65455   | 0 (No Data)     | 30m                    |
-| red        | 636 - 673                 | Unitless               | 1 - 65455   | 0 (No Data)     | 30m                    |
-| nir        | 851 - 879                 | Unitless               | 1 - 65455   | 0 (No Data)     | 30m                    |
-| swir16     | 1566 - 1651               | Unitless               | 1 - 65455   | 0 (No Data)     | 30m                    |
-| swir22     | 2107 - 2294               | Unitless               | 1 - 65455   | 0 (No Data)     | 30m                    |
-| qa_aerosol | NA                        | Bit Index              | 0 - 255     | 1               | 30m                    |
-| qa_pixel   | NA                        | Bit Index              | 1 - 65455   | 1 (bit 0)       | 30m                    |
-| qa_radsat  | NA                        | Bit Index              | 1 - 65455   | NA              | 30m                    |
-| t          | 10600 - 11190             | Scaled Kelvin          | 1 - 65455   | 0 (No Data)     | 30m (scaled from 100m) |
-| atran      | NA                        | Unitless               | 0 - 10000   | -9999 (No Data) | 30m                    |
-| cdist      | NA                        | Kilometers             | 0 - 24000   | -9999 (No Data) | 30m                    |
-| drad       | NA                        | W/(m^2 sr µm)/DN       | 0 - 28000   | -9999 (No Data) | 30m                    |
-| urad       | NA                        | W/(m^2 sr µm)/DN       | 0 - 28000   | -9999 (No Data) | 30m                    |
-| trad       | NA                        | W/(m^2 sr µm)/DN       | 0 - 28000   | -9999 (No Data) | 30m                    |
-| emis       | NA                        | Emissivity coefficient | 1 - 10000   | -9999 (No Data) | 30m                    |
-| emsd       | NA                        | Emissivity coefficient | 1 - 10000   | -9999 (No Data) | 30m                    | Sentinel-2 |
-| Band name  | Wave length range (nm)    | Scale                  | Valid range | Fill value      | Spatial resolution     |
-| ---        | ---                       | ---                    | ---         | ---             | ---                    |
-| coastal    | 443                       | 0.0001                 | NA          | 0 (No Data)     | 60m                    |
-| blue       | 490                       | 0.0001                 | NA          | 0 (No Data)     | 10m                    |
-| green      | 560                       | 0.0001                 | NA          | 0 (No Data)     | 10m                    |
-| red        | 665                       | 0.0001                 | NA          | 0 (No Data)     | 10m                    |
-| rededge1   | 705                       | 0.0001                 | NA          | 0 (No Data)     | 20m                    |
-| rededge2   | 740                       | 0.0001                 | NA          | 0 (No Data)     | 20m                    |
-| rededge3   | 783                       | 0.0001                 | NA          | 0 (No Data)     | 20m                    |
-| nir        | 842                       | 0.0001                 | NA          | 0 (No Data)     | 10m                    |
-| nir08      | 865                       | 0.0001                 | NA          | 0 (No Data)     | 20m                    |
-| nir08      | 865                       | 0.0001                 | NA          | 0 (No Data)     | 20m                    |
-| nir09      | 940                       | 0.0001                 | NA          | 0 (No Data)     | 60m                    |
-| swir16     | 1610                      | 0.0001                 | NA          | 0 (No Data)     | 20m                    |
-| swir22     | 2190                      | 0.0001                 | NA          | 0 (No Data)     | 20m                    |
-| aot        | Aerosol optical thickness | 0.001                  | NA          | 0 (No Data)     | 10m                    |
-| wvp        | Scene-average water vapor | 0.001                  | NA          | 0 (No Data)     | 10m                    |
-| scl        | Scene classification data | NA                     | 1 - 11      | 0 (No Data)     | 20m                    |
+| Band name  | Wave length range (nm) | Units                  | Valid range  | Fill value      | Spatial resolution     |
+| ---------- | ---------------------- | ---------------------- | ------------ | --------------- | ---------------------- |
+| coastal    | 435<br>• 451           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| blue       | 452<br>• 512           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| green      | 533<br>• 590           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| red        | 636<br>• 673           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| nir        | 851<br>• 879           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| swir16     | 1566<br>• 1651         | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| swir22     | 2107<br>• 2294         | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| qa_aerosol | NA                     | Bit Index              | 0<br>• 255   | 1               | 30m                    |
+| qa_pixel   | NA                     | Bit Index              | 1<br>• 65455 | 1 (bit 0)       | 30m                    |
+| qa_radsat  | NA                     | Bit Index              | 1<br>• 65455 | NA              | 30m                    |
+| t          | 10600<br>• 11190       | Scaled Kelvin          | 1<br>• 65455 | 0 (No Data)     | 30m (scaled from 100m) |
+| atran      | NA                     | Unitless               | 0<br>• 10000 | -9999 (No Data) | 30m                    |
+| cdist      | NA                     | Kilometers             | 0<br>• 24000 | -9999 (No Data) | 30m                    |
+| drad       | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
+| urad       | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
+| trad       | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
+| emis       | NA                     | Emissivity coefficient | 1<br>• 10000 | -9999 (No Data) | 30m                    |
+| emsd       | NA                     | Emissivity coefficient | 1<br>• 10000 | -9999 (No Data) | 30m                    |
+
+Sentinel-2
+
+| Band name | Wave length range (nm)       | Scale  | Valid range | Fill value  | Spatial resolution |
+| --------- | ---------------------------- | ------ | ----------- | ----------- | ------------------ |
+| coastal   | 443                          | 0.0001 | NA          | 0 (No Data) | 60m                |
+| blue      | 490                          | 0.0001 | NA          | 0 (No Data) | 10m                |
+| green     | 560                          | 0.0001 | NA          | 0 (No Data) | 10m                |
+| red       | 665                          | 0.0001 | NA          | 0 (No Data) | 10m                |
+| rededge1  | 705                          | 0.0001 | NA          | 0 (No Data) | 20m                |
+| rededge2  | 740                          | 0.0001 | NA          | 0 (No Data) | 20m                |
+| rededge3  | 783                          | 0.0001 | NA          | 0 (No Data) | 20m                |
+| nir       | 842                          | 0.0001 | NA          | 0 (No Data) | 10m                |
+| nir08     | 865                          | 0.0001 | NA          | 0 (No Data) | 20m                |
+| nir08     | 865                          | 0.0001 | NA          | 0 (No Data) | 20m                |
+| nir09     | 940                          | 0.0001 | NA          | 0 (No Data) | 60m                |
+| swir16    | 1610                         | 0.0001 | NA          | 0 (No Data) | 20m                |
+| swir22    | 2190                         | 0.0001 | NA          | 0 (No Data) | 20m                |
+| aot       | Aerosol optical thickness    | 0.001  | NA          | 0 (No Data) | 10m                |
+| wvp       | Scene-average water<br>vapor | 0.001  | NA          | 0 (No Data) | 10m                |
+| scl       | Scene classification data    | NA     | 1<br>• 11   | 0 (No Data) | 20m                |

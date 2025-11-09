@@ -26,33 +26,49 @@ The algorithm reports a mean squared error regressor metric, which is computed
 during testing and validation. When tuning the model for regression tasks,
 choose this metric as the objective.
 
-| Metric Name                     | Description                | Optimization Direction                            |
-| ------------------------------- | -------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `test:mean_squared_error`       | The Mean Square Error      | Minimize                                          |
-| `validation:mean_squared_error` | The Mean Square Error      | Minimize                                          | ### Classification Metrics Computed by the Object2Vec Algorithm The Object2Vec algorithm reports accuracy and cross-entropy classification metrics, which are computed during test and validation. When tuning the model for classification tasks, choose one of these as the objective. |
-| Metric Name                     | Description                | Optimization Direction                            |
-| ---                             | ---                        | ---                                               |
-| `test:accuracy`                 | Accuracy                   | Maximize                                          |
-| `test:cross_entropy`            | Cross-entropy              | Minimize                                          |
-| `validation:accuracy`           | Accuracy                   | Maximize                                          |
-| `validation:cross_entropy`      | Cross-entropy              | Minimize                                          | ## Tunable Object2Vec Hyperparameters You can tune the following hyperparameters for the Object2Vec algorithm.                                                                                                                                                                           |
-| Hyperparameter Name             | Hyperparameter Type        | Recommended Ranges and Values                     |
-| ---                             | ---                        | ---                                               |
-| `dropout`                       | ContinuousParameterRange   | MinValue: 0.0, MaxValue: 1.0                      |
-| `early_stopping_patience`       | IntegerParameterRange      | MinValue: 1, MaxValue: 5                          |
-| `early_stopping_tolerance`      | ContinuousParameterRange   | MinValue: 0.001, MaxValue: 0.1                    |
-| `enc_dim`                       | IntegerParameterRange      | MinValue: 4, MaxValue: 4096                       |
-| `enc0_cnn_filter_width`         | IntegerParameterRange      | MinValue: 1, MaxValue: 5                          |
-| `enc0_layers`                   | IntegerParameterRange      | MinValue: 1, MaxValue: 4                          |
-| `enc0_token_embedding_dim`      | IntegerParameterRange      | MinValue: 5, MaxValue: 300                        |
-| `enc1_cnn_filter_width`         | IntegerParameterRange      | MinValue: 1, MaxValue: 5                          |
-| `enc1_layers`                   | IntegerParameterRange      | MinValue: 1, MaxValue: 4                          |
-| `enc1_token_embedding_dim`      | IntegerParameterRange      | MinValue: 5, MaxValue: 300                        |
-| `epochs`                        | IntegerParameterRange      | MinValue: 4, MaxValue: 20                         |
-| `learning_rate`                 | ContinuousParameterRange   | MinValue: 1e-6, MaxValue: 1.0                     |
-| `mini_batch_size`               | IntegerParameterRange      | MinValue: 1, MaxValue: 8192                       |
-| `mlp_activation`                | CategoricalParameterRanges | [`tanh`, `relu`, `linear`]                        |
-| `mlp_dim`                       | IntegerParameterRange      | MinValue: 16, MaxValue: 1024                      |
-| `mlp_layers`                    | IntegerParameterRange      | MinValue: 1, MaxValue: 4                          |
-| `optimizer`                     | CategoricalParameterRanges | [`adagrad`, `adam`, `rmsprop`, `sgd`, `adadelta`] |
-| `weight_decay`                  | ContinuousParameterRange   | MinValue: 0.0, MaxValue: 1.0                      |
+| Metric Name                     | Description           | Optimization Direction |
+| ------------------------------- | --------------------- | ---------------------- |
+| `test:mean_squared_error`       | The Mean Square Error | Minimize               |
+| `validation:mean_squared_error` | The Mean Square Error | Minimize               |
+
+### Classification Metrics Computed by the
+
+Object2Vec Algorithm
+
+The Object2Vec algorithm reports accuracy and cross-entropy classification
+metrics, which are computed during test and validation. When tuning the model
+for classification tasks, choose one of these as the objective.
+
+| Metric Name                | Description   | Optimization Direction |
+| -------------------------- | ------------- | ---------------------- |
+| `test:accuracy`            | Accuracy      | Maximize               |
+| `test:cross_entropy`       | Cross-entropy | Minimize               |
+| `validation:accuracy`      | Accuracy      | Maximize               |
+| `validation:cross_entropy` | Cross-entropy | Minimize               |
+
+## Tunable Object2Vec
+
+Hyperparameters
+
+You can tune the following hyperparameters for the Object2Vec algorithm.
+
+| Hyperparameter Name        | Hyperparameter<br>Type     | Recommended Ranges and Values                           |
+| -------------------------- | -------------------------- | ------------------------------------------------------- |
+| `dropout`                  | ContinuousParameterRange   | MinValue: 0.0, MaxValue: 1.0                            |
+| `early_stopping_patience`  | IntegerParameterRange      | MinValue: 1, MaxValue: 5                                |
+| `early_stopping_tolerance` | ContinuousParameterRange   | MinValue: 0.001, MaxValue: 0.1                          |
+| `enc_dim`                  | IntegerParameterRange      | MinValue: 4, MaxValue: 4096                             |
+| `enc0_cnn_filter_width`    | IntegerParameterRange      | MinValue: 1, MaxValue: 5                                |
+| `enc0_layers`              | IntegerParameterRange      | MinValue: 1, MaxValue: 4                                |
+| `enc0_token_embedding_dim` | IntegerParameterRange      | MinValue: 5, MaxValue: 300                              |
+| `enc1_cnn_filter_width`    | IntegerParameterRange      | MinValue: 1, MaxValue: 5                                |
+| `enc1_layers`              | IntegerParameterRange      | MinValue: 1, MaxValue: 4                                |
+| `enc1_token_embedding_dim` | IntegerParameterRange      | MinValue: 5, MaxValue: 300                              |
+| `epochs`                   | IntegerParameterRange      | MinValue: 4, MaxValue: 20                               |
+| `learning_rate`            | ContinuousParameterRange   | MinValue: 1e-6, MaxValue: 1.0                           |
+| `mini_batch_size`          | IntegerParameterRange      | MinValue: 1, MaxValue: 8192                             |
+| `mlp_activation`           | CategoricalParameterRanges | [`tanh`, `relu`,<br>`linear`]                           |
+| `mlp_dim`                  | IntegerParameterRange      | MinValue: 16, MaxValue: 1024                            |
+| `mlp_layers`               | IntegerParameterRange      | MinValue: 1, MaxValue: 4                                |
+| `optimizer`                | CategoricalParameterRanges | [`adagrad`, `adam`,<br>`rmsprop`, `sgd`,<br>`adadelta`] |
+| `weight_decay`             | ContinuousParameterRange   | MinValue: 0.0, MaxValue: 1.0                            |

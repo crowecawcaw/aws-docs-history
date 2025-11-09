@@ -169,29 +169,202 @@ the version and the Region of the SageMaker AI domain. 
 The following table lists the ARNs of the available JupyterLab versions for each
 Region:
 
-| Region
-| JL3
-|
-| --- | --- |
-| us-east-1 | arn:aws:sagemaker:us-east-1:081325390199:image/jupyter-server-3 |
-| us-east-2 | arn:aws:sagemaker:us-east-2:429704687514:image/jupyter-server-3 |
-| us-west-1 | arn:aws:sagemaker:us-west-1:742091327244:image/jupyter-server-3 |
-| us-west-2 | arn:aws:sagemaker:us-west-2:236514542706:image/jupyter-server-3 |
-| af-south-1 | arn:aws:sagemaker:af-south-1:559312083959:image/jupyter-server-3 |
-| ap-east-1 | arn:aws:sagemaker:ap-east-1:493642496378:image/jupyter-server-3 |
-| ap-south-1 | arn:aws:sagemaker:ap-south-1:394103062818:image/jupyter-server-3 |
-| ap-northeast-2 | arn:aws:sagemaker:ap-northeast-2:806072073708:image/jupyter-server-3 |
-| ap-southeast-1 | arn:aws:sagemaker:ap-southeast-1:492261229750:image/jupyter-server-3 |
-| ap-southeast-2 | arn:aws:sagemaker:ap-southeast-2:452832661640:image/jupyter-server-3 |
-| ap-northeast-1 | arn:aws:sagemaker:ap-northeast-1:102112518831:image/jupyter-server-3 |
-| ca-central-1 | arn:aws:sagemaker:ca-central-1:310906938811:image/jupyter-server-3 |
-| eu-central-1 | arn:aws:sagemaker:eu-central-1:936697816551:image/jupyter-server-3 |
-| eu-west-1 | arn:aws:sagemaker:eu-west-1:470317259841:image/jupyter-server-3 |
-| eu-west-2 | arn:aws:sagemaker:eu-west-2:712779665605:image/jupyter-server-3 |
-| eu-west-3 | arn:aws:sagemaker:eu-west-3:615547856133:image/jupyter-server-3 |
-| eu-north-1 | arn:aws:sagemaker:eu-north-1:243637512696:image/jupyter-server-3 |
-| eu-south-1 | arn:aws:sagemaker:eu-south-1:592751261982:image/jupyter-server-3 |
-| eu-south-2 | arn:aws:sagemaker:eu-south-2:127363102723:image/jupyter-server-3 |
-| sa-east-1 | arn:aws:sagemaker:sa-east-1:782484402741:image/jupyter-server-3 |
-| cn-north-1 | arn:aws-cn:sagemaker:cn-north-1:390048526115:image/jupyter-server-3 |
-| cn-northwest-1 | arn:aws-cn:sagemaker:cn-northwest-1:390780980154:image/jupyter-server-3 | #### Create or update domain You can set a default JupyterServer version at the domain level by invoking [CreateDomain](../APIReference/API_CreateDomain.md "../APIReference/API_CreateDomain.md") or [UpdateDomain](../APIReference/API_UpdateDomain.md "../APIReference/API_UpdateDomain.md") and passing the `UserSettings.JupyterServerAppSettings.DefaultResourceSpec.SageMakerImageArn` field. The following shows how to create a domain with JupyterLab 3 as the default, using the AWS CLI: ``aws --region `<REGION>` \ sagemaker create-domain \ --domain-name `<NEW_DOMAIN_NAME>` \ --auth-mode `<AUTHENTICATION_MODE>` \ --subnet-ids `<SUBNET-IDS>` \ --vpc-id `<VPC-ID>` \ --default-user-settings '{ "JupyterServerAppSettings": { "DefaultResourceSpec": { "SageMakerImageArn": "arn:aws:sagemaker:`<REGION>`:`<ACCOUNT_ID>`:image/jupyter-server-3", "InstanceType": "system" } } }'`` The following shows how to update a domain to use JupyterLab 3 as the default, using the AWS CLI: ``aws --region `<REGION>` \ sagemaker update-domain \ --domain-id `<YOUR_DOMAIN_ID>` \ --default-user-settings '{ "JupyterServerAppSettings": { "DefaultResourceSpec": { "SageMakerImageArn": "arn:aws:sagemaker:`<REGION>`:`<ACCOUNT_ID>`:image/jupyter-server-3", "InstanceType": "system" } } }'`` #### Create or update user profile You can set a default JupyterServer version at the user profile level by invoking [CreateUserProfile](../APIReference/API_CreateUserProfile.md "../APIReference/API_CreateUserProfile.md") or [UpdateUserProfile](../APIReference/API_UpdateUserProfile.md "../APIReference/API_UpdateUserProfile.md") and passing the `UserSettings.JupyterServerAppSettings.DefaultResourceSpec.SageMakerImageArn` field. The following shows how to create a user profile with JupyterLab 3 as the default on an existing domain, using the AWS CLI: ``aws --region `<REGION>` \ sagemaker create-user-profile \ --domain-id `<YOUR_DOMAIN_ID>` \ --user-profile-name `<NEW_USERPROFILE_NAME>` \ --query UserProfileArn --output text \ --user-settings '{ "JupyterServerAppSettings": { "DefaultResourceSpec": { "SageMakerImageArn": "arn:aws:sagemaker:`<REGION>`:`<ACCOUNT_ID>`:image/jupyter-server-3", "InstanceType": "system" } } }'`` The following shows how to update a user profile to use JupyterLab 3 as the default, using the AWS CLI: ``aws --region `<REGION>` \ sagemaker update-user-profile \ --domain-id `<YOUR_DOMAIN_ID>` \ --user-profile-name `<EXISTING_USERPROFILE_NAME>` \ --user-settings '{ "JupyterServerAppSettings": { "DefaultResourceSpec": { "SageMakerImageArn": "arn:aws:sagemaker:`<REGION>`:`<ACCOUNT_ID>`:image/jupyter-server-3", "InstanceType": "system" } } }'`` ## View and update the JupyterLab version of an application from the console The following shows how to view and update the JupyterLab version of an application. 1. Navigate to the SageMaker AI **domains** page. 2. Select a domain to view its user profiles. 3. Select a user to view their applications. 4. To view the JupyterLab version of an application, select the application's name. 5. To update the JupyterLab version, select **Action**. 6. From the dropdown menu, select **Change JupyterLab version**. 7. From the **Studio Classic settings** page, select the JupyterLab version from the dropdown menu. 8. After the JupyterLab version for the user profile has been successfully updated, restart the JupyterServer application to make the version changes effective. For more information about restarting a JupyterServer application, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md"). ## Installing JupyterLab and Jupyter Server extensions In JupyterLab 3, you must activate the `studio` conda environment before installing extensions. The method for this differs if you're installing the extensions from within Studio Classic or using a lifecycle configuration script. ### Installing Extension from within Studio Classic To install extensions from within Studio Classic, you must activate the `studio` environment before you install extensions. ``# Before installing extensions conda activate studio # Install your extensions pip install `<JUPYTER_EXTENSION>` # After installing extensions conda deactivate`` ### Installing Extensions using a lifecycle configuration script If you're installing JupyterLab and Jupyter Server extensions in your lifecycle configuration script, you must modify your script so that it works with JupyterLab 3. The following sections show the code needed for existing and new lifecycle configuration scripts. #### Existing lifecycle configuration script If you're reusing an existing lifecycle configuration script that must work with both versions of JupyterLab, use the following code in your script: ``# Before installing extension export AWS_SAGEMAKER_JUPYTERSERVER_IMAGE="${AWS_SAGEMAKER_JUPYTERSERVER_IMAGE:-'jupyter-server'}" if [ "$AWS_SAGEMAKER_JUPYTERSERVER_IMAGE" = "jupyter-server-3" ] ; then eval "$(conda shell.bash hook)" conda activate studio fi; # Install your extensions pip install `<JUPYTER_EXTENSION>` # After installing extension if [ "$AWS_SAGEMAKER_JUPYTERSERVER_IMAGE" = "jupyter-server-3" ]; then conda deactivate fi;`` #### New lifecycle configuration script If you're writing a new lifecycle configuration script that only uses JupyterLab 3, you can use the following code in your script: ``# Before installing extension eval "$(conda shell.bash hook)" conda activate studio # Install your extensions pip install `<JUPYTER_EXTENSION>` conda deactivate``
+| Region         | JL3                                                                     |
+| -------------- | ----------------------------------------------------------------------- |
+| us-east-1      | arn:aws:sagemaker:us-east-1:081325390199:image/jupyter-server-3         |
+| us-east-2      | arn:aws:sagemaker:us-east-2:429704687514:image/jupyter-server-3         |
+| us-west-1      | arn:aws:sagemaker:us-west-1:742091327244:image/jupyter-server-3         |
+| us-west-2      | arn:aws:sagemaker:us-west-2:236514542706:image/jupyter-server-3         |
+| af-south-1     | arn:aws:sagemaker:af-south-1:559312083959:image/jupyter-server-3        |
+| ap-east-1      | arn:aws:sagemaker:ap-east-1:493642496378:image/jupyter-server-3         |
+| ap-south-1     | arn:aws:sagemaker:ap-south-1:394103062818:image/jupyter-server-3        |
+| ap-northeast-2 | arn:aws:sagemaker:ap-northeast-2:806072073708:image/jupyter-server-3    |
+| ap-southeast-1 | arn:aws:sagemaker:ap-southeast-1:492261229750:image/jupyter-server-3    |
+| ap-southeast-2 | arn:aws:sagemaker:ap-southeast-2:452832661640:image/jupyter-server-3    |
+| ap-northeast-1 | arn:aws:sagemaker:ap-northeast-1:102112518831:image/jupyter-server-3    |
+| ca-central-1   | arn:aws:sagemaker:ca-central-1:310906938811:image/jupyter-server-3      |
+| eu-central-1   | arn:aws:sagemaker:eu-central-1:936697816551:image/jupyter-server-3      |
+| eu-west-1      | arn:aws:sagemaker:eu-west-1:470317259841:image/jupyter-server-3         |
+| eu-west-2      | arn:aws:sagemaker:eu-west-2:712779665605:image/jupyter-server-3         |
+| eu-west-3      | arn:aws:sagemaker:eu-west-3:615547856133:image/jupyter-server-3         |
+| eu-north-1     | arn:aws:sagemaker:eu-north-1:243637512696:image/jupyter-server-3        |
+| eu-south-1     | arn:aws:sagemaker:eu-south-1:592751261982:image/jupyter-server-3        |
+| eu-south-2     | arn:aws:sagemaker:eu-south-2:127363102723:image/jupyter-server-3        |
+| sa-east-1      | arn:aws:sagemaker:sa-east-1:782484402741:image/jupyter-server-3         |
+| cn-north-1     | arn:aws-cn:sagemaker:cn-north-1:390048526115:image/jupyter-server-3     |
+| cn-northwest-1 | arn:aws-cn:sagemaker:cn-northwest-1:390780980154:image/jupyter-server-3 |
+
+#### Create or update domain
+
+You can set a default JupyterServer version at the domain level by invoking [CreateDomain](../APIReference/API_CreateDomain.md "../APIReference/API_CreateDomain.md") or [UpdateDomain](../APIReference/API_UpdateDomain.md "../APIReference/API_UpdateDomain.md") and
+passing the
+`UserSettings.JupyterServerAppSettings.DefaultResourceSpec.SageMakerImageArn` field.
+
+The following shows how to create a domain with JupyterLab 3 as the default, using the
+AWS CLI:
+
+```
+aws --region `<REGION>` \
+sagemaker create-domain \
+--domain-name `<NEW_DOMAIN_NAME>` \
+--auth-mode `<AUTHENTICATION_MODE>` \
+--subnet-ids `<SUBNET-IDS>` \
+--vpc-id `<VPC-ID>` \
+--default-user-settings '{
+  "JupyterServerAppSettings": {
+    "DefaultResourceSpec": {
+      "SageMakerImageArn": "arn:aws:sagemaker:`<REGION>`:`<ACCOUNT_ID>`:image/jupyter-server-3",
+      "InstanceType": "system"
+    }
+  }
+}'
+```
+
+The following shows how to update a domain to use JupyterLab 3 as the default,
+using the AWS CLI:
+
+```
+aws --region `<REGION>` \
+sagemaker update-domain \
+--domain-id `<YOUR_DOMAIN_ID>` \
+--default-user-settings '{
+  "JupyterServerAppSettings": {
+    "DefaultResourceSpec": {
+      "SageMakerImageArn": "arn:aws:sagemaker:`<REGION>`:`<ACCOUNT_ID>`:image/jupyter-server-3",
+      "InstanceType": "system"
+    }
+  }
+}'
+```
+
+#### Create or update user profile
+
+You can set a default JupyterServer version at the user profile level by invoking [CreateUserProfile](../APIReference/API_CreateUserProfile.md "../APIReference/API_CreateUserProfile.md") or [UpdateUserProfile](../APIReference/API_UpdateUserProfile.md "../APIReference/API_UpdateUserProfile.md") and passing
+the `UserSettings.JupyterServerAppSettings.DefaultResourceSpec.SageMakerImageArn`
+field.
+
+The following shows how to create a user profile with JupyterLab 3 as the default on an
+existing domain, using the AWS CLI:
+
+```
+
+aws --region `<REGION>` \
+sagemaker create-user-profile \
+--domain-id `<YOUR_DOMAIN_ID>` \
+--user-profile-name `<NEW_USERPROFILE_NAME>` \
+--query UserProfileArn --output text \
+--user-settings '{
+  "JupyterServerAppSettings": {
+    "DefaultResourceSpec": {
+      "SageMakerImageArn": "arn:aws:sagemaker:`<REGION>`:`<ACCOUNT_ID>`:image/jupyter-server-3",
+      "InstanceType": "system"
+    }
+  }
+}'
+
+```
+
+The following shows how to update a user profile to use JupyterLab 3 as the
+default, using the AWS CLI:
+
+```
+aws --region `<REGION>` \
+sagemaker update-user-profile \
+ --domain-id `<YOUR_DOMAIN_ID>` \
+ --user-profile-name `<EXISTING_USERPROFILE_NAME>` \
+--user-settings '{
+  "JupyterServerAppSettings": {
+    "DefaultResourceSpec": {
+      "SageMakerImageArn": "arn:aws:sagemaker:`<REGION>`:`<ACCOUNT_ID>`:image/jupyter-server-3",
+      "InstanceType": "system"
+    }
+  }
+}'
+```
+
+## View and update the JupyterLab version of an application from the
+
+console
+
+The following shows how to view and update the JupyterLab version of an application.
+
+1. Navigate to the SageMaker AI **domains** page.
+2. Select a domain to view its user profiles.
+3. Select a user to view their applications.
+4. To view the JupyterLab version of an application, select the application's name.
+5. To update the JupyterLab version, select **Action**.
+6. From the dropdown menu, select **Change JupyterLab version**.
+7. From the **Studio Classic settings** page, select the JupyterLab version from the dropdown menu.
+8. After the JupyterLab version for the user profile has been successfully updated, restart
+   the JupyterServer application to make the version changes effective. For more information
+   about restarting a JupyterServer application, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md").
+
+## Installing JupyterLab and Jupyter Server extensions
+
+In JupyterLab 3, you must activate the `studio` conda environment before installing
+extensions. The method for this differs if you're installing the extensions from within
+Studio Classic or using a lifecycle configuration script.
+
+### Installing Extension from within Studio Classic
+
+To install extensions from within Studio Classic, you must activate the `studio`
+environment before you install extensions.
+
+```
+# Before installing extensions
+conda activate studio
+
+# Install your extensions
+pip install `<JUPYTER_EXTENSION>`
+
+# After installing extensions
+conda deactivate
+```
+
+### Installing Extensions using a lifecycle configuration script
+
+If you're installing JupyterLab and Jupyter Server extensions in your lifecycle
+configuration script, you must modify your script so that it works with JupyterLab 3. The
+following sections show the code needed for existing and new lifecycle configuration
+scripts.
+
+#### Existing lifecycle configuration script
+
+If you're reusing an existing lifecycle configuration script that must work with both
+versions of JupyterLab, use the following code in your script:
+
+```
+# Before installing extension
+export AWS_SAGEMAKER_JUPYTERSERVER_IMAGE="${AWS_SAGEMAKER_JUPYTERSERVER_IMAGE:-'jupyter-server'}"
+if [ "$AWS_SAGEMAKER_JUPYTERSERVER_IMAGE" = "jupyter-server-3" ] ; then
+   eval "$(conda shell.bash hook)"
+   conda activate studio
+fi;
+
+# Install your extensions
+pip install `<JUPYTER_EXTENSION>`
+
+
+# After installing extension
+if [ "$AWS_SAGEMAKER_JUPYTERSERVER_IMAGE" = "jupyter-server-3" ]; then
+   conda deactivate
+fi;
+```
+
+#### New lifecycle configuration script
+
+If you're writing a new lifecycle configuration script that only uses JupyterLab 3, you
+can use the following code in your script:
+
+```
+# Before installing extension
+eval "$(conda shell.bash hook)"
+conda activate studio
+
+
+# Install your extensions
+pip install `<JUPYTER_EXTENSION>`
+
+
+conda deactivate
+```

@@ -70,8 +70,30 @@ with Neo. The value in the field is the name of the Neo job used to compile and
 optimize your model.
 
 | EndpointName             | InstanceType  | InitialInstanceCount | EnvironmentParameters | CostPerHour | CostPerInference | MaxInvocations | ModelLatency | InferenceSpecificationName               |
-| ------------------------ | ------------- | -------------------- | --------------------- | ----------- | ---------------- | -------------- | ------------ | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ------------- | -------------------- | --------------------- | ----------- | ---------------- | -------------- | ------------ | ---------------------------------------- |
 | sm-epc-example-000111222 | ml.c5.9xlarge | 1                    | []                    | 1.836       | 9.15E-07         | 33456          | 7            | None                                     |
 | sm-epc-example-111222333 | ml.c5.2xlarge | 1                    | []                    | 0.408       | 2.11E-07         | 32211          | 21           | None                                     |
 | sm-epc-example-222333444 | ml.c5.xlarge  | 1                    | []                    | 0.204       | 1.86E-07         | 18276          | 92           | None                                     |
-| sm-epc-example-333444555 | ml.c5.xlarge  | 1                    | []                    | 0.204       | 1.60E-07         | 21286          | 42           | neo-00011122-2333-4445-5566-677788899900 | ## Get started The general steps for creating an Inference Recommender job that includes Neo-optimized recommendations are as follows: <br>• Prepare your ML model for compilation. For more information, see [Prepare Model for Compilation](neo-compilation-preparing-model.md "neo-compilation-preparing-model.md") in the Neo documentation. <br>• Package your model in a model archive (`.tar.gz` file). <br>• Create a sample payload archive. <br>• Register your model in SageMaker Model Registry. <br>• Create an Inference Recommender job. <br>• View the results of the Inference Recommender job and choose a configuration. <br>• Debug compilation failures, if any. For more information, see [Troubleshoot Neo Compilation Errors](neo-troubleshooting-compilation.md "neo-troubleshooting-compilation.md"). For an example that demonstrates the previous workflow and how to get Neo-optimized recommendations using XGBoost, see the following [example notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/xgboost/xgboost-inference-recommender.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/xgboost/xgboost-inference-recommender.ipynb"). For an example that show how to get Neo-optimized recommendations using TensorFlow, see the following [example notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/inference-recommender.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/inference-recommender.ipynb"). |
+| sm-epc-example-333444555 | ml.c5.xlarge  | 1                    | []                    | 0.204       | 1.60E-07         | 21286          | 42           | neo-00011122-2333-4445-5566-677788899900 |
+
+## Get
+
+started
+
+The general steps for creating an Inference Recommender job that includes Neo-optimized
+recommendations are as follows:
+
+- Prepare your ML model for compilation. For more information, see
+  [Prepare Model for Compilation](neo-compilation-preparing-model.md "neo-compilation-preparing-model.md") in the Neo
+  documentation.
+- Package your model in a model archive (`.tar.gz`
+  file).
+- Create a sample payload archive.
+- Register your model in SageMaker Model Registry.
+- Create an Inference Recommender job.
+- View the results of the Inference Recommender job and choose a configuration.
+- Debug compilation failures, if any. For more information, see [Troubleshoot Neo Compilation Errors](neo-troubleshooting-compilation.md "neo-troubleshooting-compilation.md").
+
+For an example that demonstrates the previous workflow and how to get
+Neo-optimized recommendations using XGBoost, see the following [example notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/xgboost/xgboost-inference-recommender.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/xgboost/xgboost-inference-recommender.ipynb"). For an example that show how to get Neo-optimized
+recommendations using TensorFlow, see the following [example notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/inference-recommender.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/inference-recommender.ipynb").

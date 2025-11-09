@@ -23,9 +23,26 @@ the `fmeval` library, this can be adjusted by passing the
 about customizing the factual knowledge evaluation using the `fmeval` library, see
 [Customize your workflow using the fmeval library](clarify-foundation-model-evaluate-auto-lib-custom.md "clarify-foundation-model-evaluate-auto-lib-custom.md").
 
-| Task type
-| Built-in datasets
-| Notes
-|
-| --- | --- | --- |
-| Open-ended generation | [T-REx](https://hadyelsahar.github.io/t-rex/ "https://hadyelsahar.github.io/t-rex/") | This dataset only supports the English language. To run this evaluation in any other language, you must upload your own dataset. | ## Computed values This evaluation averages a single binary metric across every prompt in the dataset. For information about the prompt structure required for the evaluation, see [Create an automatic model evaluation job in Studio](clarify-foundation-model-evaluate-auto-ui.md "clarify-foundation-model-evaluate-auto-ui.md"). For each prompt, the values correspond with the following: <br>• `0`: The lower-cased expected answer is not part of the model response. <br>• `1`: The lower-cased expected answer is part of the model response. Some subject and predicate pairs can have more than one expected answer. In that case, either of the answers are considered correct. ## Example <br>• **Prompt**: `Berlin is the capital of` <br>• **Expected answer**: `Germany`. <br>• **Generated text**: `Germany, and is also its most populous city` <br>• **Factual knowledge evaluation**: 1
+| Task type             | Built-in datasets                                                                    | Notes                                                                                                                               |
+| --------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Open-ended generation | [T-REx](https://hadyelsahar.github.io/t-rex/ "https://hadyelsahar.github.io/t-rex/") | This dataset only supports the English language. To run this evaluation in any other<br>language, you must upload your own dataset. |
+
+## Computed values
+
+This evaluation averages a single binary metric across every prompt in the dataset. For
+information about the prompt structure required for the evaluation,
+see [Create an automatic model evaluation job in Studio](clarify-foundation-model-evaluate-auto-ui.md "clarify-foundation-model-evaluate-auto-ui.md"). For each prompt, the values correspond with the
+following:
+
+- `0`: The lower-cased expected answer is not part of the model response.
+- `1`: The lower-cased expected answer is part of the model response. Some
+  subject and predicate pairs can have more than one expected answer. In that case, either
+  of the answers are considered correct.
+
+## Example
+
+- **Prompt**: `Berlin is the capital of`
+- **Expected answer**: `Germany`.
+- **Generated text**: `Germany, and is also its most
+populous city`
+- **Factual knowledge evaluation**: 1

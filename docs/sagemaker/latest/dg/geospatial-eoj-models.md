@@ -90,14 +90,14 @@ The availability of operations depends on whether you are using the SageMaker ge
 or the Amazon SageMaker Studio Classic notebooks with a SageMaker geospatial image. Currently, notebooks support all functionalities.
 To summarize, the following geospatial operations are supported by SageMaker AI:
 
-| Operations                 | Description                                                                                 | Availability |
-| -------------------------- | ------------------------------------------------------------------------------------------- | ------------ |
-| Cloud Masking              | Identify cloud and cloud-free pixels to get improved and accurate satellite imagery.        | UI, Notebook |
-| Cloud Removal              | Remove pixels containing parts of a cloud from satellite imagery.                           | Notebook     |
-| Temporal Statistics        | Calculate statistics through time for a given GeoTIFF.                                      | Notebook     |
-| Zonal Statistics           | Calculate statistics on user-defined regions.                                               | Notebook     |
-| Resampling                 | Scale images to different resolutions.                                                      | Notebook     |
-| Geomosaic                  | Combine multiple images for greater fidelity.                                               | Notebook     |
-| Band Stacking              | Combine multiple spectral bands to create a single image.                                   | Notebook     |
-| Band Math / Spectral Index | Obtain a combination of spectral bands that indicate the abundance of features of interest. | UI, Notebook |
-| Land Cover Segmentation    | Identify land cover types such as vegetation and water in satellite imagery.                | UI, Notebook |
+| Operations                 | Description                                                                                    | Availability |
+| -------------------------- | ---------------------------------------------------------------------------------------------- | ------------ |
+| Cloud Masking              | Identify cloud and cloud-free pixels to get improved and<br>accurate satellite imagery.        | UI, Notebook |
+| Cloud Removal              | Remove pixels containing parts of a cloud from satellite imagery.                              | Notebook     |
+| Temporal Statistics        | Calculate statistics through time for a given GeoTIFF.                                         | Notebook     |
+| Zonal Statistics           | Calculate statistics on user-defined regions.                                                  | Notebook     |
+| Resampling                 | Scale images to different resolutions.                                                         | Notebook     |
+| Geomosaic                  | Combine multiple images for greater fidelity.                                                  | Notebook     |
+| Band Stacking              | Combine multiple spectral bands to create a single image.                                      | Notebook     |
+| Band Math / Spectral Index | Obtain a combination of spectral bands that indicate the abundance of features<br>of interest. | UI, Notebook |
+| Land Cover Segmentation    | Identify land cover types such as vegetation and water in satellite imagery.                   | UI, Notebook |

@@ -33,57 +33,59 @@ SCPs are a type of organization policy that you can use to manage permissions in
 The following example shows a SCP that you can use to ensure that infrastructure parameters are properly set
 when creating or updating schedules for monitoring jobs.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Deny",
-            "Action": [
-                "sagemaker:CreateDataQualityJobDefinition",
-                "sagemaker:CreateModelBiasJobDefinition",
-                "sagemaker:CreateModelExplainabilityJobDefinition",
-                "sagemaker:CreateModelQualityJobDefinition"
-            ],
-            "Resource": "arn:*:sagemaker:*:*:*",
-            "Condition": {
-                "Null": {
-                    "sagemaker:VolumeKmsKey":"true",
-                    "sagemaker:VpcSubnets": "true",
-                    "sagemaker:VpcSecurityGroupIds": "true"
-                }
-            }
-        },
-        {
-            "Effect": "Deny",
-            "Action": [
-                "sagemaker:CreateDataQualityJobDefinition",
-                "sagemaker:CreateModelBiasJobDefinition",
-                "sagemaker:CreateModelExplainabilityJobDefinition",
-                "sagemaker:CreateModelQualityJobDefinition"
-            ],
-            "Resource": "arn:*:sagemaker:*:*:*",
-            "Condition": {
-                "Bool": {
-                    "sagemaker:InterContainerTrafficEncryption": "false"
-                }
-            }
-        },
-        {
-            "Effect": "Deny",
-            "Action": [
-                "sagemaker:CreateMonitoringSchedule",
-                "sagemaker:UpdateMonitoringSchedule",
-            ],
-            "Resource": "arn:*:sagemaker:*:*:monitoring-schedule/*",
-            "Condition": {
-                "Null": {
-                    "sagemaker:ModelMonitorJobDefinitionName": "true"
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Action": [
+ "sagemaker:CreateDataQualityJobDefinition",
+ "sagemaker:CreateModelBiasJobDefinition",
+ "sagemaker:CreateModelExplainabilityJobDefinition",
+ "sagemaker:CreateModelQualityJobDefinition"
+ ],
+ "Resource": "arn:*:sagemaker:*:*:*",
+ "Condition": {
+ "Null": {
+ "sagemaker:VolumeKmsKey":"true",
+ "sagemaker:VpcSubnets": "true",
+ "sagemaker:VpcSecurityGroupIds": "true"
+ }
+ }
+ },
+ {
+ "Effect": "Deny",
+ "Action": [
+ "sagemaker:CreateDataQualityJobDefinition",
+ "sagemaker:CreateModelBiasJobDefinition",
+ "sagemaker:CreateModelExplainabilityJobDefinition",
+ "sagemaker:CreateModelQualityJobDefinition"
+ ],
+ "Resource": "arn:*:sagemaker:*:*:*",
+ "Condition": {
+ "Bool": {
+ "sagemaker:InterContainerTrafficEncryption": "false"
+ }
+ }
+ },
+ {
+ "Effect": "Deny",
+ "Action": [
+ "sagemaker:CreateMonitoringSchedule",
+ "sagemaker:UpdateMonitoringSchedule"
+ ],
+ "Resource": "arn:*:sagemaker:*:*:monitoring-schedule/*",
+ "Condition": {
+ "Null": {
+ "sagemaker:ModelMonitorJobDefinitionName": "true"
+ }
+ }
+ }
+ ]
+}`
 
 ```
 

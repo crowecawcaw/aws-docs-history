@@ -36,22 +36,25 @@ configuration.
     example trust policy includes the `sts:SetSourceIdentity`
     permission.
 
+  JSON
+
   ```
-  {
-      "Version": "2012-10-17",
-      "Statement": [
-          {
-              "Effect": "Allow",
-              "Principal": {
-                  "Service": "sagemaker.amazonaws.com"
-              },
-              "Action": [
-                  "sts:AssumeRole",
-                  "sts:SetSourceIdentity"
-              ]
-          }
-      ]
-  }
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Effect": "Allow",
+   "Principal": {
+   "Service": "sagemaker.amazonaws.com"
+   },
+   "Action": [
+   "sts:AssumeRole",
+   "sts:SetSourceIdentity"
+   ]
+   }
+   ]
+  }`
+
   ```
 
   - When you assume a role with another role, called role chaining, do the

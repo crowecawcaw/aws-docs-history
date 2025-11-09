@@ -19,18 +19,29 @@ training loss. For recommendations for the training/test split for the DeepAR
 algorithm, see [Best Practices for Using the DeepAR
 Algorithm](deepar.md#deepar_best_practices "deepar.md#deepar_best_practices").
 
-| Metric Name               | Description                                                                                                                                 | Optimization Direction         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `test:RMSE`               | The root mean square error between the forecast and the actual target computed on the test set.                                             | Minimize                       |
-| `test:mean_wQuantileLoss` | The average overall quantile losses computed on the test set. To control which quantiles are used, set the `test_quantiles` hyperparameter. | Minimize                       |
-| `train:final_loss`        | The training negative log-likelihood loss averaged over the last training epoch for the model.                                              | Minimize                       | ## Tunable Hyperparameters for the DeepAR Algorithm Tune a DeepAR model with the following hyperparameters. The hyperparameters that have the greatest impact, listed in order from the most to least impactful, on DeepAR objective metrics are: `epochs`, `context_length`, `mini_batch_size`, `learning_rate`, and `num_cells`. |
-| Parameter Name            | Parameter Type                                                                                                                              | Recommended Ranges             |
-| ---                       | ---                                                                                                                                         | ---                            |
-| `epochs`                  | `IntegerParameterRanges`                                                                                                                    | MinValue: 1, MaxValue: 1000    |
-| `context_length`          | `IntegerParameterRanges`                                                                                                                    | MinValue: 1, MaxValue: 200     |
-| `mini_batch_size`         | `IntegerParameterRanges`                                                                                                                    | MinValue: 32, MaxValue: 1028   |
-| `learning_rate`           | `ContinuousParameterRange`                                                                                                                  | MinValue: 1e-5, MaxValue: 1e-1 |
-| `num_cells`               | `IntegerParameterRanges`                                                                                                                    | MinValue: 30, MaxValue: 200    |
-| `num_layers`              | `IntegerParameterRanges`                                                                                                                    | MinValue: 1, MaxValue: 8       |
-| `dropout_rate`            | `ContinuousParameterRange`                                                                                                                  | MinValue: 0.00, MaxValue: 0.2  |
-| `embedding_dimension`     | `IntegerParameterRanges`                                                                                                                    | MinValue: 1, MaxValue: 50      |
+| Metric Name               | Description                                                                                                                                       | Optimization Direction |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `test:RMSE`               | The root mean square error between the forecast and the actual<br>target computed on the test set.                                                | Minimize               |
+| `test:mean_wQuantileLoss` | The average overall quantile losses computed on the test set.<br>To control which quantiles are used, set the<br>`test_quantiles` hyperparameter. | Minimize               |
+| `train:final_loss`        | The training negative log-likelihood loss averaged over the<br>last training epoch for the model.                                                 | Minimize               |
+
+## Tunable Hyperparameters for the
+
+DeepAR Algorithm
+
+Tune a DeepAR model with the following hyperparameters. The hyperparameters that
+have the greatest impact, listed in order from the most to least impactful, on
+DeepAR objective metrics are: `epochs`, `context_length`,
+`mini_batch_size`, `learning_rate`, and
+`num_cells`.
+
+| Parameter Name        | Parameter Type             | Recommended Ranges             |
+| --------------------- | -------------------------- | ------------------------------ |
+| `epochs`              | `IntegerParameterRanges`   | MinValue: 1, MaxValue: 1000    |
+| `context_length`      | `IntegerParameterRanges`   | MinValue: 1, MaxValue: 200     |
+| `mini_batch_size`     | `IntegerParameterRanges`   | MinValue: 32, MaxValue: 1028   |
+| `learning_rate`       | `ContinuousParameterRange` | MinValue: 1e-5, MaxValue: 1e-1 |
+| `num_cells`           | `IntegerParameterRanges`   | MinValue: 30, MaxValue: 200    |
+| `num_layers`          | `IntegerParameterRanges`   | MinValue: 1, MaxValue: 8       |
+| `dropout_rate`        | `ContinuousParameterRange` | MinValue: 0.00, MaxValue: 0.2  |
+| `embedding_dimension` | `IntegerParameterRanges`   | MinValue: 1, MaxValue: 50      |

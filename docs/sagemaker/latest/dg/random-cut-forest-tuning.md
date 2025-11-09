@@ -27,10 +27,17 @@ Algorithm
 The RCF algorithm computes the following metric during training. When tuning the
 model, choose this metric as the objective metric.
 
-| Metric Name            | Description                                                                                        | Optimization Direction      |
-| ---------------------- | -------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------- |
-| `test:f1`              | F1-score on the test dataset, based on the difference between calculated labels and actual labels. | Maximize                    | ## Tunable RCF Hyperparameters You can tune a RCF model with the following hyperparameters. |
-| Parameter Name         | Parameter Type                                                                                     | Recommended Ranges          |
-| ---                    | ---                                                                                                | ---                         |
-| `num_samples_per_tree` | IntegerParameterRanges                                                                             | MinValue: 1, MaxValue:2048  |
-| `num_trees`            | IntegerParameterRanges                                                                             | MinValue: 50, MaxValue:1000 |
+| Metric Name | Description                                                                                           | Optimization Direction |
+| ----------- | ----------------------------------------------------------------------------------------------------- | ---------------------- |
+| `test:f1`   | F1-score on the test dataset, based on the difference<br>between calculated labels and actual labels. | Maximize               |
+
+## Tunable RCF
+
+Hyperparameters
+
+You can tune a RCF model with the following hyperparameters.
+
+| Parameter Name         | Parameter Type         | Recommended Ranges          |
+| ---------------------- | ---------------------- | --------------------------- |
+| `num_samples_per_tree` | IntegerParameterRanges | MinValue: 1, MaxValue:2048  |
+| `num_trees`            | IntegerParameterRanges | MinValue: 50, MaxValue:1000 |

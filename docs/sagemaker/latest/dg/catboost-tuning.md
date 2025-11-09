@@ -35,20 +35,33 @@ validation. The evaluation metric is automatically assigned based on the type of
 classification task, which is determined by the number of unique integers in the
 label column.
 
-| Metric Name           | Description               | Optimization Direction          | Regex Pattern              |
-| --------------------- | ------------------------- | ------------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------- |
-| `RMSE`                | root mean square error    | minimize                        | `"bestTest = ([0-9\\.]+)"` |
-| `MAE`                 | mean absolute error       | minimize                        | `"bestTest = ([0-9\\.]+)"` |
-| `MedianAbsoluteError` | median absolute error     | minimize                        | `"bestTest = ([0-9\\.]+)"` |
-| `R2`                  | r2 score                  | maximize                        | `"bestTest = ([0-9\\.]+)"` |
-| `Logloss`             | binary cross entropy      | maximize                        | `"bestTest = ([0-9\\.]+)"` |
-| `Precision`           | precision                 | maximize                        | `"bestTest = ([0-9\\.]+)"` |
-| `Recall`              | recall                    | maximize                        | `"bestTest = ([0-9\\.]+)"` |
-| `F1`                  | f1 score                  | maximize                        | `"bestTest = ([0-9\\.]+)"` |
-| `AUC`                 | auc score                 | maximize                        | `"bestTest = ([0-9\\.]+)"` |
-| `MultiClass`          | multiclass cross entropy  | maximize                        | `"bestTest = ([0-9\\.]+)"` |
-| `Accuracy`            | accuracy                  | maximize                        | `"bestTest = ([0-9\\.]+)"` |
-| `BalancedAccuracy`    | balanced accuracy         | maximize                        | `"bestTest = ([0-9\\.]+)"` | ## Tunable CatBoost hyperparameters Tune the CatBoost model with the following hyperparameters. The hyperparameters that have the greatest effect on optimizing the CatBoost evaluation metrics are: `learning_rate`, `depth`, `l2_leaf_reg`, and `random_strength`. For a list of all the CatBoost hyperparameters, see [CatBoost hyperparameters](catboost-hyperparameters.md "catboost-hyperparameters.md"). |
-| Parameter Name        | Parameter Type            | Recommended Ranges              |                            | ---                                                                                                                                                                                                                                                                                                                                                                                                             | ---                       | ---                       |
-| `learning_rate`       | ContinuousParameterRanges | MinValue: 0.001, MaxValue: 0.01 |                            | `depth`                                                                                                                                                                                                                                                                                                                                                                                                         | IntegerParameterRanges    | MinValue: 4, MaxValue: 10 |
-| `l2_leaf_reg`         | IntegerParameterRanges    | MinValue: 2, MaxValue: 10       |                            | `random_strength`                                                                                                                                                                                                                                                                                                                                                                                               | ContinuousParameterRanges | MinValue: 0, MaxValue: 10 |
+| Metric Name           | Description              | Optimization Direction | Regex Pattern              |
+| --------------------- | ------------------------ | ---------------------- | -------------------------- |
+| `RMSE`                | root mean square error   | minimize               | `"bestTest = ([0-9\\.]+)"` |
+| `MAE`                 | mean absolute error      | minimize               | `"bestTest = ([0-9\\.]+)"` |
+| `MedianAbsoluteError` | median absolute error    | minimize               | `"bestTest = ([0-9\\.]+)"` |
+| `R2`                  | r2 score                 | maximize               | `"bestTest = ([0-9\\.]+)"` |
+| `Logloss`             | binary cross entropy     | maximize               | `"bestTest = ([0-9\\.]+)"` |
+| `Precision`           | precision                | maximize               | `"bestTest = ([0-9\\.]+)"` |
+| `Recall`              | recall                   | maximize               | `"bestTest = ([0-9\\.]+)"` |
+| `F1`                  | f1 score                 | maximize               | `"bestTest = ([0-9\\.]+)"` |
+| `AUC`                 | auc score                | maximize               | `"bestTest = ([0-9\\.]+)"` |
+| `MultiClass`          | multiclass cross entropy | maximize               | `"bestTest = ([0-9\\.]+)"` |
+| `Accuracy`            | accuracy                 | maximize               | `"bestTest = ([0-9\\.]+)"` |
+| `BalancedAccuracy`    | balanced accuracy        | maximize               | `"bestTest = ([0-9\\.]+)"` |
+
+## Tunable CatBoost hyperparameters
+
+Tune the CatBoost model with the following hyperparameters. The hyperparameters
+that have the greatest effect on optimizing the CatBoost evaluation metrics are:
+`learning_rate`, `depth`, `l2_leaf_reg`, and
+`random_strength`.
+For a list of all the CatBoost hyperparameters, see
+[CatBoost hyperparameters](catboost-hyperparameters.md "catboost-hyperparameters.md").
+
+| Parameter Name    | Parameter Type            | Recommended Ranges              |
+| ----------------- | ------------------------- | ------------------------------- |
+| `learning_rate`   | ContinuousParameterRanges | MinValue: 0.001, MaxValue: 0.01 |
+| `depth`           | IntegerParameterRanges    | MinValue: 4, MaxValue: 10       |
+| `l2_leaf_reg`     | IntegerParameterRanges    | MinValue: 2, MaxValue: 10       |
+| `random_strength` | ContinuousParameterRanges | MinValue: 0, MaxValue: 10       |

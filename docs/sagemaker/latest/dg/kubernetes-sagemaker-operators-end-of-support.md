@@ -164,25 +164,52 @@ OIDC https://oidc.eks.us-east-1.amazonaws.com/id/D48675832CA65BD10A532F597OIDCID
    `<EKS Cluster region>` placeholders with values corresponding to
    your cluster.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": {
-          "Federated": "arn:aws:iam::`<AWS account number>`:oidc-provider/oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`"
-        },
-        "Action": "sts:AssumeRoleWithWebIdentity",
-        "Condition": {
-          "StringEquals": {
-            "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:aud": "sts.amazonaws.com",
-            "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:sub": "system:serviceaccount:sagemaker-k8s-operator-system:sagemaker-k8s-operator-default"
-          }
-        }
-      }
-    ]
-  }
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Federated": "arn:aws:iam::`111122223333`:oidc-provider/oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`"
+ },
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringEquals": {
+ "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:aud": "sts.amazonaws.com",
+ "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:sub": "system:serviceaccount:sagemaker-k8s-operator-system:sagemaker-k8s-operator-default"
+ }
+ }
+ }
+ ]
+ }`
+
+```
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Federated": "arn:aws-cn:iam::`111122223333`:oidc-provider/oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`"
+ },
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringEquals": {
+ "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:aud": "sts.amazonaws.com",
+ "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:sub": "system:serviceaccount:sagemaker-k8s-operator-system:sagemaker-k8s-operator-default"
+ }
+ }
+ }
+ ]
+ }`
+
 ```
 
 2. Run the following command to create a role with the trust relationship defined
@@ -414,25 +441,52 @@ OIDC https://oidc.eks.us-east-1.amazonaws.com/id/D48675832CA65BD10A532F597OIDCID
    placeholders with values corresponding to your cluster. For the purposes of this
    guide, `my-namespace` is used for the `<Namespace>` value.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": {
-          "Federated": "arn:aws:iam::`<AWS account number>`:oidc-provider/oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`"
-        },
-        "Action": "sts:AssumeRoleWithWebIdentity",
-        "Condition": {
-          "StringEquals": {
-            "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:aud": "sts.amazonaws.com",
-            "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:sub": "system:serviceaccount:`<Namespace>`:sagemaker-k8s-operator-default"
-          }
-        }
-      }
-    ]
-  }
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Federated": "arn:aws:iam::`111122223333`:oidc-provider/oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`"
+ },
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringEquals": {
+ "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:aud": "sts.amazonaws.com",
+ "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:sub": "system:serviceaccount:`<Namespace>`:sagemaker-k8s-operator-default"
+ }
+ }
+ }
+ ]
+ }`
+
+```
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Federated": "arn:aws-cn:iam::`111122223333`:oidc-provider/oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`"
+ },
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringEquals": {
+ "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:aud": "sts.amazonaws.com",
+ "oidc.eks.`<EKS Cluster region>`.amazonaws.com/id/`<OIDC ID>`:sub": "system:serviceaccount:`<Namespace>`:sagemaker-k8s-operator-default"
+ }
+ }
+ }
+ ]
+ }`
+
 ```
 
 2. Run the following command to create a role with the trust relationship defined

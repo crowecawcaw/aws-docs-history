@@ -16,12 +16,12 @@ building.
 The following table shows the issues that SageMaker Canvas checks for in your dataset and how to
 resolve them.
 
-| Issue                                                      | Resolution                                                                                                                                            |
-| ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Wrong model type for your data                             | Try another model type or use a different dataset.                                                                                                    |
-| Missing values in your target column                       | Replace the missing values, drop rows with missing values, or use a different dataset.                                                                |
-| Too many unique labels in your target column               | Verify that you've used the correct column for your target column, or use a different dataset.                                                        |
-| Too many non-numeric values in your target column          | Choose a different target column, select another model type, or use a different dataset.                                                              |
-| One or more column names contain double underscores        | Rename the columns to remove any double underscores, and try again.                                                                                   |
-| None of the rows in your dataset are complete              | Replace the missing values, or use a different dataset.                                                                                               |
-| Too many unique labels for the number of rows in your data | Check that you're using the right target column, increase the number of rows in your dataset, consolidate similar labels, or use a different dataset. |
+| Issue                                                      | Resolution                                                                                                                                               |
+| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Wrong model type for your data                             | Try another model type or use a different dataset.                                                                                                       |
+| Missing values in your target column                       | Replace the missing values, drop rows with missing values, or use a different<br>dataset.                                                                |
+| Too many unique labels in your target column               | Verify that you've used the correct column for your target column, or use a different<br>dataset.                                                        |
+| Too many non-numeric values in your target column          | Choose a different target column, select another model type, or use a different<br>dataset.                                                              |
+| One or more column names contain double underscores        | Rename the columns to remove any double underscores, and try again.                                                                                      |
+| None of the rows in your dataset are complete              | Replace the missing values, or use a different dataset.                                                                                                  |
+| Too many unique labels for the number of rows in your data | Check that you're using the right target column, increase the number of rows in your<br>dataset, consolidate similar labels, or use a different dataset. |

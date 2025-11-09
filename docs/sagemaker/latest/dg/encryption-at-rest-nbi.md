@@ -45,10 +45,17 @@ When you open a notebook instance, SageMaker AI saves it and any files associate
 the SageMaker AI folder in the ML storage volume by default. When you stop a notebook instance,
 SageMaker AI creates a snapshot of the ML storage volume. Any customizations to the operating
 system of the stopped instance, such as installed custom libraries or operating system
-level settings, are lost. Consider using a lifecycle configuration to automate
+level settings, that are saved outside of the folder `/home/ec2-user/SageMaker`
+are lost. Consider using a lifecycle configuration to automate
 customizations of the default notebook instance. When you terminate an instance, the
 snapshot and the ML storage volume are deleted. Any data that you need to persist beyond
 the lifespan of the notebook instance should be transferred to an Amazon S3 bucket.
+
+If the notebook instance isn't updated and is running unsecure software, SageMaker AI
+might periodically update the instance as part of regular maintenance. During these updates,
+data outside of the folder `/home/ec2-user/SageMaker` is not persisted.
+For information about maintenance and security patches, see
+[Maintenance](nbi.md#nbi-maintenance "nbi.md#nbi-maintenance").
 
 ###### Note
 

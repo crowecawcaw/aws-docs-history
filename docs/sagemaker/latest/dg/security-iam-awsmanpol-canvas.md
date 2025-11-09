@@ -91,533 +91,534 @@ This AWS managed policy includes the following permissions.
   credentials to connect to a Snowflake database using Secrets Manager.
 
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "SageMakerUserDetailsAndPackageOperations",
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:DescribeDomain",
-                "sagemaker:DescribeUserProfile",
-                "sagemaker:ListTags",
-                "sagemaker:ListModelPackages",
-                "sagemaker:ListModelPackageGroups",
-                "sagemaker:ListEndpoints"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "SageMakerPackageGroupOperations",
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:CreateModelPackageGroup",
-                "sagemaker:CreateModelPackage",
-                "sagemaker:DescribeModelPackageGroup",
-                "sagemaker:DescribeModelPackage"
-            ],
-            "Resource": [
-                "arn:aws:sagemaker:*:*:model-package/*",
-                "arn:aws:sagemaker:*:*:model-package-group/*"
-            ]
-        },
-        {
-            "Sid": "SageMakerTrainingOperations",
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:CreateCompilationJob",
-                "sagemaker:CreateEndpoint",
-                "sagemaker:CreateEndpointConfig",
-                "sagemaker:CreateModel",
-                "sagemaker:CreateProcessingJob",
-                "sagemaker:CreateAutoMLJob",
-                "sagemaker:CreateAutoMLJobV2",
-                "sagemaker:CreateTrainingJob",
-                "sagemaker:CreateTransformJob",
-                "sagemaker:DeleteEndpoint",
-                "sagemaker:DescribeCompilationJob",
-                "sagemaker:DescribeEndpoint",
-                "sagemaker:DescribeEndpointConfig",
-                "sagemaker:DescribeModel",
-                "sagemaker:DescribeProcessingJob",
-                "sagemaker:DescribeAutoMLJob",
-                "sagemaker:DescribeAutoMLJobV2",
-                "sagemaker:DescribeTrainingJob",
-                "sagemaker:DescribeTransformJob",
-                "sagemaker:ListCandidatesForAutoMLJob",
-                "sagemaker:StopAutoMLJob",
-                "sagemaker:StopTrainingJob",
-                "sagemaker:StopTransformJob",
-                "sagemaker:AddTags",
-                "sagemaker:DeleteApp"
-            ],
-            "Resource": [
-                "arn:aws:sagemaker:*:*:*Canvas*",
-                "arn:aws:sagemaker:*:*:*canvas*",
-                "arn:aws:sagemaker:*:*:*model-compilation-*"
-            ]
-        },
-        {
-            "Sid": "SageMakerHostingOperations",
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:DeleteEndpointConfig",
-                "sagemaker:DeleteModel",
-                "sagemaker:InvokeEndpoint",
-                "sagemaker:UpdateEndpointWeightsAndCapacities",
-                "sagemaker:InvokeEndpointAsync"
-            ],
-            "Resource": [
-                "arn:aws:sagemaker:*:*:*Canvas*",
-                "arn:aws:sagemaker:*:*:*canvas*"
-            ]
-        },
-        {
-            "Sid": "EC2VPCOperation",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:CreateVpcEndpoint",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeVpcs",
-                "ec2:DescribeVpcEndpoints",
-                "ec2:DescribeVpcEndpointServices"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "ECROperations",
-            "Effect": "Allow",
-            "Action": [
-                "ecr:BatchGetImage",
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:GetAuthorizationToken"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "IAMGetOperations",
-            "Effect": "Allow",
-            "Action": [
-                "iam:GetRole"
-            ],
-            "Resource": "arn:aws:iam::*:role/*"
-        },
-        {
-            "Sid": "IAMPassOperation",
-            "Effect": "Allow",
-            "Action": [
-                "iam:PassRole"
-            ],
-            "Resource": "arn:aws:iam::*:role/*",
-            "Condition": {
-                "StringEquals": {
-                    "iam:PassedToService": "sagemaker.amazonaws.com"
-                }
-            }
-        },
-        {
-            "Sid": "LoggingOperation",
-            "Effect": "Allow",
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-            ],
-            "Resource": "arn:aws:logs:*:*:log-group:/aws/sagemaker/*"
-        },
-        {
-            "Sid": "S3Operations",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject",
-                "s3:DeleteObject",
-                "s3:CreateBucket",
-                "s3:GetBucketCors",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::*SageMaker*",
-                "arn:aws:s3:::*Sagemaker*",
-                "arn:aws:s3:::*sagemaker*"
-            ]
-        },
-        {
-            "Sid": "ReadSageMakerJumpstartArtifacts",
-            "Effect": "Allow",
-            "Action": "s3:GetObject",
-            "Resource": [
-                "arn:aws:s3:::jumpstart-cache-prod-us-west-2/*",
-                "arn:aws:s3:::jumpstart-cache-prod-us-east-1/*",
-                "arn:aws:s3:::jumpstart-cache-prod-us-east-2/*",
-                "arn:aws:s3:::jumpstart-cache-prod-eu-west-1/*",
-                "arn:aws:s3:::jumpstart-cache-prod-eu-central-1/*",
-                "arn:aws:s3:::jumpstart-cache-prod-ap-south-1/*",
-                "arn:aws:s3:::jumpstart-cache-prod-ap-northeast-2/*",
-                "arn:aws:s3:::jumpstart-cache-prod-ap-northeast-1/*",
-                "arn:aws:s3:::jumpstart-cache-prod-ap-southeast-1/*",
-                "arn:aws:s3:::jumpstart-cache-prod-ap-southeast-2/*"
-            ]
-        },
-        {
-            "Sid": "S3ListOperations",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:ListAllMyBuckets"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "GlueOperations",
-            "Effect": "Allow",
-            "Action": "glue:SearchTables",
-            "Resource": [
-                "arn:aws:glue:*:*:table/*/*",
-                "arn:aws:glue:*:*:database/*",
-                "arn:aws:glue:*:*:catalog"
-            ]
-        },
-        {
-            "Sid": "SecretsManagerARNBasedOperation",
-            "Effect": "Allow",
-            "Action": [
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:CreateSecret",
-                "secretsmanager:PutResourcePolicy"
-            ],
-            "Resource": [
-                "arn:aws:secretsmanager:*:*:secret:AmazonSageMaker-*"
-            ]
-        },
-        {
-            "Sid": "SecretManagerTagBasedOperation",
-            "Effect": "Allow",
-            "Action": [
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetSecretValue"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "secretsmanager:ResourceTag/SageMaker": "true"
-                }
-            }
-        },
-        {
-            "Sid": "RedshiftOperations",
-            "Effect": "Allow",
-            "Action": [
-                "redshift-data:ExecuteStatement",
-                "redshift-data:DescribeStatement",
-                "redshift-data:CancelStatement",
-                "redshift-data:GetStatementResult",
-                "redshift-data:ListSchemas",
-                "redshift-data:ListTables",
-                "redshift-data:DescribeTable"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "RedshiftGetCredentialsOperation",
-            "Effect": "Allow",
-            "Action": [
-                "redshift:GetClusterCredentials"
-            ],
-            "Resource": [
-                "arn:aws:redshift:*:*:dbuser:*/sagemaker_access*",
-                "arn:aws:redshift:*:*:dbname:*"
-            ]
-        },
-        {
-            "Sid": "ForecastOperations",
-            "Effect": "Allow",
-            "Action": [
-                "forecast:CreateExplainabilityExport",
-                "forecast:CreateExplainability",
-                "forecast:CreateForecastEndpoint",
-                "forecast:CreateAutoPredictor",
-                "forecast:CreateDatasetImportJob",
-                "forecast:CreateDatasetGroup",
-                "forecast:CreateDataset",
-                "forecast:CreateForecast",
-                "forecast:CreateForecastExportJob",
-                "forecast:CreatePredictorBacktestExportJob",
-                "forecast:CreatePredictor",
-                "forecast:DescribeExplainabilityExport",
-                "forecast:DescribeExplainability",
-                "forecast:DescribeAutoPredictor",
-                "forecast:DescribeForecastEndpoint",
-                "forecast:DescribeDatasetImportJob",
-                "forecast:DescribeDataset",
-                "forecast:DescribeForecast",
-                "forecast:DescribeForecastExportJob",
-                "forecast:DescribePredictorBacktestExportJob",
-                "forecast:GetAccuracyMetrics",
-                "forecast:InvokeForecastEndpoint",
-                "forecast:GetRecentForecastContext",
-                "forecast:DescribePredictor",
-                "forecast:TagResource",
-                "forecast:DeleteResourceTree"
-            ],
-            "Resource": [
-                "arn:aws:forecast:*:*:*Canvas*"
-            ]
-        },
-        {
-            "Sid": "RDSOperation",
-            "Effect": "Allow",
-            "Action": "rds:DescribeDBInstances",
-            "Resource": "*"
-        },
-        {
-            "Sid": "IAMPassOperationForForecast",
-            "Effect": "Allow",
-            "Action": [
-                "iam:PassRole"
-            ],
-            "Resource": "arn:aws:iam::*:role/*",
-            "Condition": {
-                "StringEquals": {
-                    "iam:PassedToService": "forecast.amazonaws.com"
-                }
-            }
-        },
-        {
-            "Sid": "AutoscalingOperations",
-            "Effect": "Allow",
-            "Action": [
-                "application-autoscaling:PutScalingPolicy",
-                "application-autoscaling:RegisterScalableTarget"
-            ],
-            "Resource": "arn:aws:application-autoscaling:*:*:scalable-target/*",
-            "Condition": {
-                "StringEquals": {
-                    "application-autoscaling:service-namespace": "sagemaker",
-                    "application-autoscaling:scalable-dimension": "sagemaker:variant:DesiredInstanceCount"
-                }
-            }
-        },
-        {
-            "Sid": "AsyncEndpointOperations",
-            "Effect": "Allow",
-            "Action": [
-                "cloudwatch:DescribeAlarms",
-                "sagemaker:DescribeEndpointConfig"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "DescribeScalingOperations",
-            "Effect": "Allow",
-            "Action": [
-                "application-autoscaling:DescribeScalingActivities"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "SageMakerCloudWatchUpdate",
-            "Effect": "Allow",
-            "Action": [
-                "cloudwatch:PutMetricAlarm",
-                "cloudwatch:DeleteAlarms"
-            ],
-            "Resource": [
-                "arn:aws:cloudwatch:*:*:alarm:TargetTracking*"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "aws:CalledViaLast": "application-autoscaling.amazonaws.com"
-                }
-            }
-        },
-        {
-            "Sid": "AutoscalingSageMakerEndpointOperation",
-            "Action": "iam:CreateServiceLinkedRole",
-            "Effect": "Allow",
-            "Resource": "arn:aws:iam::*:role/aws-service-role/sagemaker.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_SageMakerEndpoint",
-            "Condition": {
-                "StringLike": {
-                    "iam:AWSServiceName": "sagemaker.application-autoscaling.amazonaws.com"
-                }
-            }
-        }
-        {
-            "Sid": "AthenaOperation",
-            "Action": [
-                "athena:ListTableMetadata",
-                "athena:ListDataCatalogs",
-                "athena:ListDatabases"
-            ],
-            "Effect": "Allow",
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            },
-        },
-        {
-            "Sid": "GlueOperation",
-            "Action": [
-                "glue:GetDatabases",
-                "glue:GetPartitions",
-                "glue:GetTables"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-                "arn:aws:glue:*:*:table/*",
-                "arn:aws:glue:*:*:catalog",
-                "arn:aws:glue:*:*:database/*"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "QuicksightOperation",
-            "Action": [
-                "quicksight:ListNamespaces"
-            ],
-            "Effect": "Allow",
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "AllowUseOfKeyInAccount",
-            "Effect": "Allow",
-            "Action": [
-                "kms:DescribeKey"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/Source": "SageMakerCanvas",
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "EMRServerlessCreateApplicationOperation",
-            "Effect": "Allow",
-            "Action": "emr-serverless:CreateApplication",
-            "Resource": "arn:aws:emr-serverless:*:*:/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:RequestTag/sagemaker:is-canvas-resource": "True",
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "EMRServerlessListApplicationOperation",
-            "Effect": "Allow",
-            "Action": "emr-serverless:ListApplications",
-            "Resource": "arn:aws:emr-serverless:*:*:/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "EMRServerlessApplicationOperations",
-            "Effect": "Allow",
-            "Action": [
-                "emr-serverless:UpdateApplication",
-                "emr-serverless:StopApplication",
-                "emr-serverless:GetApplication",
-                "emr-serverless:StartApplication"
-            ],
-            "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "EMRServerlessStartJobRunOperation",
-            "Effect": "Allow",
-            "Action": "emr-serverless:StartJobRun",
-            "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:RequestTag/sagemaker:is-canvas-resource": "True",
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "EMRServerlessListJobRunOperation",
-            "Effect": "Allow",
-            "Action": "emr-serverless:ListJobRuns",
-            "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "EMRServerlessJobRunOperations",
-            "Effect": "Allow",
-            "Action": [
-                "emr-serverless:GetJobRun",
-                "emr-serverless:CancelJobRun"
-            ],
-            "Resource": "arn:aws:emr-serverless:*:*:/applications/*/jobruns/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "EMRServerlessTagResourceOperation",
-            "Effect": "Allow",
-            "Action": "emr-serverless:TagResource",
-            "Resource": "arn:aws:emr-serverless:*:*:/*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:RequestTag/sagemaker:is-canvas-resource": "True",
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "IAMPassOperationForEMRServerless",
-            "Effect": "Allow",
-            "Action": "iam:PassRole",
-            "Resource": [
-                "arn:aws:iam::*:role/service-role/AmazonSageMakerCanvasEMRSExecutionAccess-*",
-                "arn:aws:iam::*:role/AmazonSageMakerCanvasEMRSExecutionAccess-*"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "iam:PassedToService": "emr-serverless.amazonaws.com",
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "SageMakerUserDetailsAndPackageOperations",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:DescribeDomain",
+ "sagemaker:DescribeUserProfile",
+ "sagemaker:ListTags",
+ "sagemaker:ListModelPackages",
+ "sagemaker:ListModelPackageGroups",
+ "sagemaker:ListEndpoints"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "SageMakerPackageGroupOperations",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateModelPackageGroup",
+ "sagemaker:CreateModelPackage",
+ "sagemaker:DescribeModelPackageGroup",
+ "sagemaker:DescribeModelPackage"
+ ],
+ "Resource": [
+ "arn:aws:sagemaker:*:*:model-package/*",
+ "arn:aws:sagemaker:*:*:model-package-group/*"
+ ]
+ },
+ {
+ "Sid": "SageMakerTrainingOperations",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateCompilationJob",
+ "sagemaker:CreateEndpoint",
+ "sagemaker:CreateEndpointConfig",
+ "sagemaker:CreateModel",
+ "sagemaker:CreateProcessingJob",
+ "sagemaker:CreateAutoMLJob",
+ "sagemaker:CreateAutoMLJobV2",
+ "sagemaker:CreateTrainingJob",
+ "sagemaker:CreateTransformJob",
+ "sagemaker:DeleteEndpoint",
+ "sagemaker:DescribeCompilationJob",
+ "sagemaker:DescribeEndpoint",
+ "sagemaker:DescribeEndpointConfig",
+ "sagemaker:DescribeModel",
+ "sagemaker:DescribeProcessingJob",
+ "sagemaker:DescribeAutoMLJob",
+ "sagemaker:DescribeAutoMLJobV2",
+ "sagemaker:DescribeTrainingJob",
+ "sagemaker:DescribeTransformJob",
+ "sagemaker:ListCandidatesForAutoMLJob",
+ "sagemaker:StopAutoMLJob",
+ "sagemaker:StopTrainingJob",
+ "sagemaker:StopTransformJob",
+ "sagemaker:AddTags",
+ "sagemaker:DeleteApp"
+ ],
+ "Resource": [
+ "arn:aws:sagemaker:*:*:*Canvas*",
+ "arn:aws:sagemaker:*:*:*canvas*",
+ "arn:aws:sagemaker:*:*:*model-compilation-*"
+ ]
+ },
+ {
+ "Sid": "SageMakerHostingOperations",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:DeleteEndpointConfig",
+ "sagemaker:DeleteModel",
+ "sagemaker:InvokeEndpoint",
+ "sagemaker:UpdateEndpointWeightsAndCapacities",
+ "sagemaker:InvokeEndpointAsync"
+ ],
+ "Resource": [
+ "arn:aws:sagemaker:*:*:*Canvas*",
+ "arn:aws:sagemaker:*:*:*canvas*"
+ ]
+ },
+ {
+ "Sid": "EC2VPCOperation",
+ "Effect": "Allow",
+ "Action": [
+ "ec2:CreateVpcEndpoint",
+ "ec2:DescribeSecurityGroups",
+ "ec2:DescribeSubnets",
+ "ec2:DescribeVpcs",
+ "ec2:DescribeVpcEndpoints",
+ "ec2:DescribeVpcEndpointServices"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "ECROperations",
+ "Effect": "Allow",
+ "Action": [
+ "ecr:BatchGetImage",
+ "ecr:GetDownloadUrlForLayer",
+ "ecr:GetAuthorizationToken"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "IAMGetOperations",
+ "Effect": "Allow",
+ "Action": [
+ "iam:GetRole"
+ ],
+ "Resource": "arn:aws:iam::*:role/*"
+ },
+ {
+ "Sid": "IAMPassOperation",
+ "Effect": "Allow",
+ "Action": [
+ "iam:PassRole"
+ ],
+ "Resource": "arn:aws:iam::*:role/*",
+ "Condition": {
+ "StringEquals": {
+ "iam:PassedToService": "sagemaker.amazonaws.com"
+ }
+ }
+ },
+ {
+ "Sid": "LoggingOperation",
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogGroup",
+ "logs:CreateLogStream",
+ "logs:PutLogEvents"
+ ],
+ "Resource": "arn:aws:logs:*:*:log-group:/aws/sagemaker/*"
+ },
+ {
+ "Sid": "S3Operations",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject",
+ "s3:DeleteObject",
+ "s3:CreateBucket",
+ "s3:GetBucketCors",
+ "s3:GetBucketLocation"
+ ],
+ "Resource": [
+ "arn:aws:s3:::*SageMaker*",
+ "arn:aws:s3:::*Sagemaker*",
+ "arn:aws:s3:::*sagemaker*"
+ ]
+ },
+ {
+ "Sid": "ReadSageMakerJumpstartArtifacts",
+ "Effect": "Allow",
+ "Action": "s3:GetObject",
+ "Resource": [
+ "arn:aws:s3:::jumpstart-cache-prod-us-west-2/*",
+ "arn:aws:s3:::jumpstart-cache-prod-us-east-1/*",
+ "arn:aws:s3:::jumpstart-cache-prod-us-east-2/*",
+ "arn:aws:s3:::jumpstart-cache-prod-eu-west-1/*",
+ "arn:aws:s3:::jumpstart-cache-prod-eu-central-1/*",
+ "arn:aws:s3:::jumpstart-cache-prod-ap-south-1/*",
+ "arn:aws:s3:::jumpstart-cache-prod-ap-northeast-2/*",
+ "arn:aws:s3:::jumpstart-cache-prod-ap-northeast-1/*",
+ "arn:aws:s3:::jumpstart-cache-prod-ap-southeast-1/*",
+ "arn:aws:s3:::jumpstart-cache-prod-ap-southeast-2/*"
+ ]
+ },
+ {
+ "Sid": "S3ListOperations",
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket",
+ "s3:ListAllMyBuckets"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "GlueOperations",
+ "Effect": "Allow",
+ "Action": "glue:SearchTables",
+ "Resource": [
+ "arn:aws:glue:*:*:table/*/*",
+ "arn:aws:glue:*:*:database/*",
+ "arn:aws:glue:*:*:catalog"
+ ]
+ },
+ {
+ "Sid": "SecretsManagerARNBasedOperation",
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:DescribeSecret",
+ "secretsmanager:GetSecretValue",
+ "secretsmanager:CreateSecret",
+ "secretsmanager:PutResourcePolicy"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:*:*:secret:AmazonSageMaker-*"
+ ]
+ },
+ {
+ "Sid": "SecretManagerTagBasedOperation",
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:DescribeSecret",
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "secretsmanager:ResourceTag/SageMaker": "true"
+ }
+ }
+ },
+ {
+ "Sid": "RedshiftOperations",
+ "Effect": "Allow",
+ "Action": [
+ "redshift-data:ExecuteStatement",
+ "redshift-data:DescribeStatement",
+ "redshift-data:CancelStatement",
+ "redshift-data:GetStatementResult",
+ "redshift-data:ListSchemas",
+ "redshift-data:ListTables",
+ "redshift-data:DescribeTable"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "RedshiftGetCredentialsOperation",
+ "Effect": "Allow",
+ "Action": [
+ "redshift:GetClusterCredentials"
+ ],
+ "Resource": [
+ "arn:aws:redshift:*:*:dbuser:*/sagemaker_access*",
+ "arn:aws:redshift:*:*:dbname:*"
+ ]
+ },
+ {
+ "Sid": "ForecastOperations",
+ "Effect": "Allow",
+ "Action": [
+ "forecast:CreateExplainabilityExport",
+ "forecast:CreateExplainability",
+ "forecast:CreateForecastEndpoint",
+ "forecast:CreateAutoPredictor",
+ "forecast:CreateDatasetImportJob",
+ "forecast:CreateDatasetGroup",
+ "forecast:CreateDataset",
+ "forecast:CreateForecast",
+ "forecast:CreateForecastExportJob",
+ "forecast:CreatePredictorBacktestExportJob",
+ "forecast:CreatePredictor",
+ "forecast:DescribeExplainabilityExport",
+ "forecast:DescribeExplainability",
+ "forecast:DescribeAutoPredictor",
+ "forecast:DescribeForecastEndpoint",
+ "forecast:DescribeDatasetImportJob",
+ "forecast:DescribeDataset",
+ "forecast:DescribeForecast",
+ "forecast:DescribeForecastExportJob",
+ "forecast:DescribePredictorBacktestExportJob",
+ "forecast:GetAccuracyMetrics",
+ "forecast:InvokeForecastEndpoint",
+ "forecast:GetRecentForecastContext",
+ "forecast:DescribePredictor",
+ "forecast:TagResource",
+ "forecast:DeleteResourceTree"
+ ],
+ "Resource": [
+ "arn:aws:forecast:*:*:*Canvas*"
+ ]
+ },
+ {
+ "Sid": "RDSOperation",
+ "Effect": "Allow",
+ "Action": "rds:DescribeDBInstances",
+ "Resource": "*"
+ },
+ {
+ "Sid": "IAMPassOperationForForecast",
+ "Effect": "Allow",
+ "Action": [
+ "iam:PassRole"
+ ],
+ "Resource": "arn:aws:iam::*:role/*",
+ "Condition": {
+ "StringEquals": {
+ "iam:PassedToService": "forecast.amazonaws.com"
+ }
+ }
+ },
+ {
+ "Sid": "AutoscalingOperations",
+ "Effect": "Allow",
+ "Action": [
+ "application-autoscaling:PutScalingPolicy",
+ "application-autoscaling:RegisterScalableTarget"
+ ],
+ "Resource": "arn:aws:application-autoscaling:*:*:scalable-target/*",
+ "Condition": {
+ "StringEquals": {
+ "application-autoscaling:service-namespace": "sagemaker",
+ "application-autoscaling:scalable-dimension": "sagemaker:variant:DesiredInstanceCount"
+ }
+ }
+ },
+ {
+ "Sid": "AsyncEndpointOperations",
+ "Effect": "Allow",
+ "Action": [
+ "cloudwatch:DescribeAlarms",
+ "sagemaker:DescribeEndpointConfig"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "DescribeScalingOperations",
+ "Effect": "Allow",
+ "Action": [
+ "application-autoscaling:DescribeScalingActivities"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "SageMakerCloudWatchUpdate",
+ "Effect": "Allow",
+ "Action": [
+ "cloudwatch:PutMetricAlarm",
+ "cloudwatch:DeleteAlarms"
+ ],
+ "Resource": [
+ "arn:aws:cloudwatch:*:*:alarm:TargetTracking*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:CalledViaLast": "application-autoscaling.amazonaws.com"
+ }
+ }
+ },
+ {
+ "Sid": "AutoscalingSageMakerEndpointOperation",
+ "Action": "iam:CreateServiceLinkedRole",
+ "Effect": "Allow",
+ "Resource": "arn:aws:iam::*:role/aws-service-role/sagemaker.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_SageMakerEndpoint",
+ "Condition": {
+ "StringLike": {
+ "iam:AWSServiceName": "sagemaker.application-autoscaling.amazonaws.com"
+ }
+ }
+ },
+ {
+ "Sid": "AthenaOperation",
+ "Action": [
+ "athena:ListTableMetadata",
+ "athena:ListDataCatalogs",
+ "athena:ListDatabases"
+ ],
+ "Effect": "Allow",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "GlueOperation",
+ "Action": [
+ "glue:GetDatabases",
+ "glue:GetPartitions",
+ "glue:GetTables"
+ ],
+ "Effect": "Allow",
+ "Resource": [
+ "arn:aws:glue:*:*:table/*",
+ "arn:aws:glue:*:*:catalog",
+ "arn:aws:glue:*:*:database/*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "QuicksightOperation",
+ "Action": [
+ "quicksight:ListNamespaces"
+ ],
+ "Effect": "Allow",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "AllowUseOfKeyInAccount",
+ "Effect": "Allow",
+ "Action": [
+ "kms:DescribeKey"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/Source": "SageMakerCanvas",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessCreateApplicationOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:CreateApplication",
+ "Resource": "arn:aws:emr-serverless:*:*:/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessListApplicationOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:ListApplications",
+ "Resource": "arn:aws:emr-serverless:*:*:/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessApplicationOperations",
+ "Effect": "Allow",
+ "Action": [
+ "emr-serverless:UpdateApplication",
+ "emr-serverless:StopApplication",
+ "emr-serverless:GetApplication",
+ "emr-serverless:StartApplication"
+ ],
+ "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessStartJobRunOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:StartJobRun",
+ "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessListJobRunOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:ListJobRuns",
+ "Resource": "arn:aws:emr-serverless:*:*:/applications/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessJobRunOperations",
+ "Effect": "Allow",
+ "Action": [
+ "emr-serverless:GetJobRun",
+ "emr-serverless:CancelJobRun"
+ ],
+ "Resource": "arn:aws:emr-serverless:*:*:/applications/*/jobruns/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "EMRServerlessTagResourceOperation",
+ "Effect": "Allow",
+ "Action": "emr-serverless:TagResource",
+ "Resource": "arn:aws:emr-serverless:*:*:/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/sagemaker:is-canvas-resource": "True",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ },
+ {
+ "Sid": "IAMPassOperationForEMRServerless",
+ "Effect": "Allow",
+ "Action": "iam:PassRole",
+ "Resource": [
+ "arn:aws:iam::*:role/service-role/AmazonSageMakerCanvasEMRSExecutionAccess-*",
+ "arn:aws:iam::*:role/AmazonSageMakerCanvasEMRSExecutionAccess-*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "iam:PassedToService": "emr-serverless.amazonaws.com",
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 [Show moreShow less](# "#")
@@ -666,8 +667,6 @@ This AWS managed policy includes the following permissions.
   case-insensitive.
 - `secretsmanager` – Allows principals to store and retrieve
   customer database credentials using Secrets Manager.
-
-JSON
 
 ```
 `{
@@ -1153,8 +1152,6 @@ This AWS managed policy includes the following permissions.
   and invoke foundation models.
 - `iam` – Allows principals to pass an IAM role to Amazon Bedrock.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -1348,32 +1345,35 @@ This AWS managed policy includes the following permissions.
   Amazon S3 buckets. These objects are limited to those whose name
   starts with "sagemaker-".
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::sagemaker-*/Canvas",
-                "arn:aws:s3:::sagemaker-*/canvas"
-            ]
-        }
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::sagemaker-*"
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::sagemaker-*/Canvas",
+ "arn:aws:s3:::sagemaker-*/canvas"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket"
+ ],
+ "Resource": [
+ "arn:aws:s3:::sagemaker-*"
+ ]
+ }
+ ]
+}`
+
 ```
 
 ## AWS
@@ -1510,29 +1510,29 @@ managed policies
 View details about updates to AWS managed policies for SageMaker Canvas since this service
 began tracking these changes.
 
-| Policy                                                                                                                                                                                                                                        | Version | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Date               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| [AmazonSageMakerCanvasSMDataScienceAssistantAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess") <br>• Update to an existing policy | 2       | Add `q:StartConversation` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | January 14, 2025   |
-| [AmazonSageMakerCanvasSMDataScienceAssistantAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess") <br>• New policy                   | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | December 4, 2024   |
-| [AmazonSageMakerCanvasDataPrepFullAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasDataPrepFullAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasDataPrepFullAccess") <br>• Update to an existing policy                               | 4       | Add resource to `IAMPassOperationForEMRServerless` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | August 16, 2024    |
-| [AmazonSageMakerCanvasFullAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess") <br>• Update to an existing policy                                                       | 11      | Add resource to `IAMPassOperationForEMRServerless` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | August 15, 2024    |
-| [AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy") <br>• New policy       | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | July 26, 2024      |
-| AmazonSageMakerCanvasDataPrepFullAccess <br>• Update to an existing policy                                                                                                                                                                    | 3       | Add `emr-serverless:CreateApplication`, `emr-serverless:ListApplications`, `emr-serverless:UpdateApplication`, `emr-serverless:GetApplication`, `emr-serverless:StartJobRun`, `emr-serverless:ListJobRuns`, `emr-serverless:GetJobRun`, `emr-serverless:CancelJobRun`, and `emr-serverless:TagResource` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | July 18, 2024      |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 10      | Add `application-autoscaling:DescribeScalingActivities` `iam:PassRole`, `kms:DescribeKey`, and `quicksight:ListNamespaces` permissions. Add `sagemaker:CreateTrainingJob`, `sagemaker:CreateTransformJob`, `sagemaker:DescribeTrainingJob`, `sagemaker:DescribeTransformJob`, `sagemaker:StopAutoMLJob`, `sagemaker:StopTrainingJob`, and `sagemaker:StopTransformJob` permissions. Add `athena:ListTableMetadata`, `athena:ListDataCatalogs`, and `athena:ListDatabases` permissions. Add `glue:GetDatabases`, `glue:GetPartitions`, and `glue:GetTables` permissions. Add `emr-serverless:CreateApplication`, `emr-serverless:ListApplications`, `emr-serverless:UpdateApplication`, `emr-serverless:StopApplication`, `emr-serverless:GetApplication`, `emr-serverless:StartApplication`, `emr-serverless:StartJobRun`, `emr-serverless:ListJobRuns`, `emr-serverless:GetJobRun`, `emr-serverless:CancelJobRun`, and `emr-serverless:TagResource` permissions. | July 9, 2024       |
-| [AmazonSageMakerCanvasBedrockAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasBedrockAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasBedrockAccess") <br>• New policy                                                                | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | February 2, 2024   |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 9       | Add `sagemaker:ListEndpoints` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | January 24, 2024   |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 8       | Add `sagemaker:UpdateEndpointWeightsAndCapacities`, `sagemaker:DescribeEndpointConfig`, `sagemaker:InvokeEndpointAsync`, `athena:ListDataCatalogs`, `athena:GetQueryExecution`, `athena:GetQueryResults`, `athena:StartQueryExecution`, `athena:StopQueryExecution`, `athena:ListDatabases`, `cloudwatch:DescribeAlarms`, `cloudwatch:PutMetricAlarm`, `cloudwatch:DeleteAlarms`, and `iam:CreateServiceLinkedRole` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | December 8, 2023   |
-| AmazonSageMakerCanvasDataPrepFullAccess <br>• Update to an existing policy                                                                                                                                                                    | 2       | Small update to enforce the intents of the previous policy, version 1; no permissions added or deleted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | December 7, 2023   |
-| [AmazonSageMakerCanvasAIServicesAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess") <br>• Update to an existing policy                                     | 3       | Add `bedrock:InvokeModelWithResponseStream`, `bedrock:GetModelCustomizationJob`, `bedrock:StopModelCustomizationJob`, `bedrock:GetCustomModel`, `bedrock:GetProvisionedModelThroughput`, `bedrock:DeleteProvisionedModelThroughput`, `bedrock:TagResource`, `bedrock:CreateModelCustomizationJob`, `bedrock:CreateProvisionedModelThroughput`, and `iam:PassRole` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | November 29, 2023  |
-| AmazonSageMakerCanvasDataPrepFullAccess - New policy                                                                                                                                                                                          | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | October 26, 2023   |
-| [AmazonSageMakerCanvasDirectDeployAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasDirectDeployAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasDirectDeployAccess") <br>• New policy                                                 | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | October 6, 2023    |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 7       | Add `sagemaker:DeleteEndpointConfig`, `sagemaker:DeleteModel`, and `sagemaker:InvokeEndpoint` permissions. Also add `s3:GetObject` permission for JumpStart resources in specific regions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | September 29, 2023 |
-| AmazonSageMakerCanvasAIServicesAccess - Update to an existing policy                                                                                                                                                                          | 2       | Add `bedrock:InvokeModel` and `bedrock:ListFoundationModels` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | September 29, 2023 |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 6       | Add `rds:DescribeDBInstances` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | August 29, 2023    |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 5       | Add `application-autoscaling:PutScalingPolicy` and `application-autoscaling:RegisterScalableTarget` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | July 24, 2023      |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 4       | Add `sagemaker:CreateModelPackage`, `sagemaker:CreateModelPackageGroup`, `sagemaker:DescribeModelPackage`, `sagemaker:DescribeModelPackageGroup`, `sagemaker:ListModelPackages`, and `sagemaker:ListModelPackageGroups` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | May 4, 2023        |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 3       | Add `sagemaker:CreateAutoMLJobV2`, `sagemaker:DescribeAutoMLJobV2`, and `glue:SearchTables` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | March 24, 2023     |
-| AmazonSageMakerCanvasAIServicesAccess - New policy                                                                                                                                                                                            | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | March 23, 2023     |
-| AmazonSageMakerCanvasFullAccess - Update to an existing policy                                                                                                                                                                                | 2       | Add `forecast:DeleteResourceTree` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | December 6, 2022   |
-| AmazonSageMakerCanvasFullAccess - New policy                                                                                                                                                                                                  | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | September 8, 2022  |
-| [AmazonSageMakerCanvasForecastAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess") <br>• New policy                                                             | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | August 24, 2022    |
+| Policy                                                                                                                                                                                                                                       | Version | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Date               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AmazonSageMakerCanvasSMDataScienceAssistantAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess")<br>• Update to an existing policy | 2       | Add `q:StartConversation` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | January 14, 2025   |
+| [AmazonSageMakerCanvasSMDataScienceAssistantAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess")<br>• New policy                   | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | December 4, 2024   |
+| [AmazonSageMakerCanvasDataPrepFullAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasDataPrepFullAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasDataPrepFullAccess")<br>• Update to an existing policy                               | 4       | Add resource to `IAMPassOperationForEMRServerless` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | August 16, 2024    |
+| [AmazonSageMakerCanvasFullAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess")<br>• Update to an existing policy                                                       | 11      | Add resource to `IAMPassOperationForEMRServerless` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | August 15, 2024    |
+| [AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy")<br>• New policy       | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | July 26, 2024      |
+| AmazonSageMakerCanvasDataPrepFullAccess<br>• Update to an existing policy                                                                                                                                                                    | 3       | Add `emr-serverless:CreateApplication`,<br>`emr-serverless:ListApplications`,<br>`emr-serverless:UpdateApplication`,<br>`emr-serverless:GetApplication`,<br>`emr-serverless:StartJobRun`,<br>`emr-serverless:ListJobRuns`,<br>`emr-serverless:GetJobRun`,<br>`emr-serverless:CancelJobRun`, and<br>`emr-serverless:TagResource` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | July 18, 2024      |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing policy                                                                                                                                                                            | 10      | Add `application-autoscaling:DescribeScalingActivities`<br>`iam:PassRole`,<br>`kms:DescribeKey`, and<br>`quicksight:ListNamespaces` permissions.<br>Add `sagemaker:CreateTrainingJob`,<br>`sagemaker:CreateTransformJob`,<br>`sagemaker:DescribeTrainingJob`,<br>`sagemaker:DescribeTransformJob`,<br>`sagemaker:StopAutoMLJob`,<br>`sagemaker:StopTrainingJob`, and<br>`sagemaker:StopTransformJob` permissions.<br>Add `athena:ListTableMetadata`,<br>`athena:ListDataCatalogs`, and<br>`athena:ListDatabases` permissions.<br>Add `glue:GetDatabases`,<br>`glue:GetPartitions`, and<br>`glue:GetTables` permissions.<br>Add `emr-serverless:CreateApplication`,<br>`emr-serverless:ListApplications`,<br>`emr-serverless:UpdateApplication`,<br>`emr-serverless:StopApplication`,<br>`emr-serverless:GetApplication`,<br>`emr-serverless:StartApplication`,<br>`emr-serverless:StartJobRun`,<br>`emr-serverless:ListJobRuns`,<br>`emr-serverless:GetJobRun`,<br>`emr-serverless:CancelJobRun`, and<br>`emr-serverless:TagResource` permissions. | July 9, 2024       |
+| [AmazonSageMakerCanvasBedrockAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasBedrockAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasBedrockAccess")<br>• New policy                                                                | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | February 2, 2024   |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing policy                                                                                                                                                                            | 9       | Add `sagemaker:ListEndpoints` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | January 24, 2024   |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing policy                                                                                                                                                                            | 8       | Add `sagemaker:UpdateEndpointWeightsAndCapacities`,<br>`sagemaker:DescribeEndpointConfig`,<br>`sagemaker:InvokeEndpointAsync`,<br>`athena:ListDataCatalogs`,<br>`athena:GetQueryExecution`,<br>`athena:GetQueryResults`,<br>`athena:StartQueryExecution`,<br>`athena:StopQueryExecution`,<br>`athena:ListDatabases`,<br>`cloudwatch:DescribeAlarms`,<br>`cloudwatch:PutMetricAlarm`,<br>`cloudwatch:DeleteAlarms`, and<br>`iam:CreateServiceLinkedRole` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | December 8, 2023   |
+| AmazonSageMakerCanvasDataPrepFullAccess<br>• Update to an existing policy                                                                                                                                                                    | 2       | Small update to enforce the intents of the previous policy,<br>version 1; no permissions added or deleted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | December 7, 2023   |
+| [AmazonSageMakerCanvasAIServicesAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess")<br>• Update to an existing policy                                     | 3       | Add `bedrock:InvokeModelWithResponseStream`,<br>`bedrock:GetModelCustomizationJob`,<br>`bedrock:StopModelCustomizationJob`,<br>`bedrock:GetCustomModel`,<br>`bedrock:GetProvisionedModelThroughput`,<br>`bedrock:DeleteProvisionedModelThroughput`,<br>`bedrock:TagResource`,<br>`bedrock:CreateModelCustomizationJob`,<br>`bedrock:CreateProvisionedModelThroughput`, and<br>`iam:PassRole` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | November 29, 2023  |
+| AmazonSageMakerCanvasDataPrepFullAccess<br>• New policy                                                                                                                                                                                      | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | October 26, 2023   |
+| [AmazonSageMakerCanvasDirectDeployAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasDirectDeployAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasDirectDeployAccess")<br>• New policy                                                 | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | October 6, 2023    |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing<br>policy                                                                                                                                                                         | 7       | Add `sagemaker:DeleteEndpointConfig`,<br>`sagemaker:DeleteModel`, and<br>`sagemaker:InvokeEndpoint` permissions.<br>Also add `s3:GetObject` permission for JumpStart<br>resources in specific regions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | September 29, 2023 |
+| AmazonSageMakerCanvasAIServicesAccess<br>• Update to an existing<br>policy                                                                                                                                                                   | 2       | Add `bedrock:InvokeModel` and<br>`bedrock:ListFoundationModels` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | September 29, 2023 |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing<br>policy                                                                                                                                                                         | 6       | Add `rds:DescribeDBInstances` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | August 29, 2023    |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing<br>policy                                                                                                                                                                         | 5       | Add `application-autoscaling:PutScalingPolicy` and<br>`application-autoscaling:RegisterScalableTarget` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | July 24, 2023      |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing<br>policy                                                                                                                                                                         | 4       | Add `sagemaker:CreateModelPackage`,<br>`sagemaker:CreateModelPackageGroup`,<br>`sagemaker:DescribeModelPackage`,<br>`sagemaker:DescribeModelPackageGroup`,<br>`sagemaker:ListModelPackages`, and<br>`sagemaker:ListModelPackageGroups`<br>permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | May 4, 2023        |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing<br>policy                                                                                                                                                                         | 3       | Add `sagemaker:CreateAutoMLJobV2`,<br>`sagemaker:DescribeAutoMLJobV2`, and<br>`glue:SearchTables` permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | March 24, 2023     |
+| AmazonSageMakerCanvasAIServicesAccess<br>• New policy                                                                                                                                                                                        | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | March 23, 2023     |
+| AmazonSageMakerCanvasFullAccess<br>• Update to an existing<br>policy                                                                                                                                                                         | 2       | Add `forecast:DeleteResourceTree` permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | December 6, 2022   |
+| AmazonSageMakerCanvasFullAccess<br>• New policy                                                                                                                                                                                              | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | September 8, 2022  |
+| [AmazonSageMakerCanvasForecastAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess")<br>• New policy                                                             | 1       | Initial policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | August 24, 2022    |

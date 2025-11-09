@@ -311,16 +311,35 @@ depending on the `Accept` field in the
 `CreateTransformJobRequest`, `AssembleWith` must
 be set accordingly. Use the following table to set these fields:
 
-| ContentType                       | Recommended SplitType    |
-| --------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `application/x-recordio-protobuf` | `RecordIO`               |
-| `text/csv`                        | `Line`                   |
-| `application/jsonlines`           | `Line`                   |
-| `application/json`                | `None`                   |
-| `application/x-image`             | `None`                   |
-| `image/*`                         | `None`                   |
+| ContentType                       | Recommended SplitType |
+| --------------------------------- | --------------------- |
+| `application/x-recordio-protobuf` | `RecordIO`            |
+| `text/csv`                        | `Line`                |
+| `application/jsonlines`           | `Line`                |
+| `application/json`                | `None`                |
+| `application/x-image`             | `None`                |
+| `image/*`                         | `None`                |
+
 | Accept                            | Recommended AssembleWith |
-| ---                               | ---                      |
+| --------------------------------- | ------------------------ |
 | `application/x-recordio-protobuf` | `None`                   |
 | `application/json`                | `None`                   |
-| `application/jsonlines`           | `Line`                   | For more information on response formats for specific algorithms, see the following: <br>• [DeepAR Inference Formats](deepar-in-formats.md "deepar-in-formats.md") <br>• [Factorization Machines Response Formats](fm-in-formats.md "fm-in-formats.md") <br>• [IP Insights Inference Data Formats](ip-insights-inference-data-formats.md "ip-insights-inference-data-formats.md") <br>• [K-Means Response Formats](km-in-formats.md "km-in-formats.md") <br>• [k-NN Request and Response Formats](kNN-inference-formats.md "kNN-inference-formats.md") <br>• [Linear learner response formats](LL-in-formats.md "LL-in-formats.md") <br>• [NTM Response Formats](ntm-in-formats.md "ntm-in-formats.md") <br>• [Data Formats for Object2Vec Inference](object2vec-inference-formats.md "object2vec-inference-formats.md") <br>• [Encoder Embeddings for Object2Vec](object2vec-encoder-embeddings.md "object2vec-encoder-embeddings.md") <br>• [PCA Response Formats](PCA-in-formats.md "PCA-in-formats.md") <br>• [RCF Response Formats](rcf-in-formats.md "rcf-in-formats.md") |
+| `application/jsonlines`           | `Line`                   |
+
+For more information on response formats for specific
+algorithms,
+see the following:
+
+- [DeepAR Inference Formats](deepar-in-formats.md "deepar-in-formats.md")
+- [Factorization Machines Response Formats](fm-in-formats.md "fm-in-formats.md")
+- [IP Insights Inference Data
+  Formats](ip-insights-inference-data-formats.md "ip-insights-inference-data-formats.md")
+- [K-Means Response Formats](km-in-formats.md "km-in-formats.md")
+- [k-NN Request and Response Formats](kNN-inference-formats.md "kNN-inference-formats.md")
+- [Linear learner response formats](LL-in-formats.md "LL-in-formats.md")
+- [NTM Response Formats](ntm-in-formats.md "ntm-in-formats.md")
+- [Data Formats for Object2Vec
+  Inference](object2vec-inference-formats.md "object2vec-inference-formats.md")
+- [Encoder Embeddings for Object2Vec](object2vec-encoder-embeddings.md "object2vec-encoder-embeddings.md")
+- [PCA Response Formats](PCA-in-formats.md "PCA-in-formats.md")
+- [RCF Response Formats](rcf-in-formats.md "rcf-in-formats.md")

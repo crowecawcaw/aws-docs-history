@@ -42,54 +42,68 @@ following managed policies and permissions to your console role.
 
 
 
+      JSON
+
+
+
+
+
       ```
-      {
-          "Version": "2012-10-17",
-          "Statement": [
-              {
-                  "Sid": "CreateRoleAccess",
-                  "Effect": "Allow",
-                  "Action": [
-                      "iam:CreateRole",
-                      "iam:CreatePolicy",
-                      "iam:AttachRolePolicy",
-                      "iam:ListRoles"
-                  ],
-                  "Resource": [
-                      "arn:aws:iam::*:role/service-role/AmazonSageMakerHyperPodObservabilityGrafanaAccess*",
-                      "arn:aws:iam::*:role/service-role/AmazonSageMakerHyperPodObservabilityAddonAccess*",
-                      "arn:aws:iam::*:policy/service-role/HyperPodObservabilityAddonPolicy*",
-                      "arn:aws:iam::*:policy/service-role/HyperPodObservabilityGrafanaPolicy*"
-                  ]
-              }
-          ]
-      }
+      `{
+       "Version":"2012-10-17",
+       "Statement": [
+       {
+       "Sid": "CreateRoleAccess",
+       "Effect": "Allow",
+       "Action": [
+       "iam:CreateRole",
+       "iam:CreatePolicy",
+       "iam:AttachRolePolicy",
+       "iam:ListRoles"
+       ],
+       "Resource": [
+       "arn:aws:iam::*:role/service-role/AmazonSageMakerHyperPodObservabilityGrafanaAccess*",
+       "arn:aws:iam::*:role/service-role/AmazonSageMakerHyperPodObservabilityAddonAccess*",
+       "arn:aws:iam::*:policy/service-role/HyperPodObservabilityAddonPolicy*",
+       "arn:aws:iam::*:policy/service-role/HyperPodObservabilityGrafanaPolicy*"
+       ]
+       }
+       ]
+      }`
+
       ```
       + Additional permissions needed to manage IAM Identity Center users for
        Amazon Managed Grafana:
 
 
 
+      JSON
+
+
+
+
+
       ```
-      {
-          "Version": "2012-10-17",
-          "Statement": [
-              {
-                  "Sid": "SSOAccess",
-                  "Effect": "Allow",
-                  "Action": [
-                      "sso:ListProfileAssociations",
-                      "sso-directory:SearchUsers",
-                      "sso-directory:SearchGroups",
-                      "sso:AssociateProfile",
-                      "sso:DisassociateProfile"
-                  ],
-                  "Resource": [
-                      "*"
-                  ]
-              }
-          ]
-      }
+      `{
+       "Version":"2012-10-17",
+       "Statement": [
+       {
+       "Sid": "SSOAccess",
+       "Effect": "Allow",
+       "Action": [
+       "sso:ListProfileAssociations",
+       "sso-directory:SearchUsers",
+       "sso-directory:SearchGroups",
+       "sso:AssociateProfile",
+       "sso:DisassociateProfile"
+       ],
+       "Resource": [
+       "*"
+       ]
+       }
+       ]
+      }`
+
       ```
 
   After you ensure that you have met the above prerequisites, you can install

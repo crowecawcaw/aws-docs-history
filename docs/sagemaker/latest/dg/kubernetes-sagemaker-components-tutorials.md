@@ -158,10 +158,168 @@ kfp run submit --experiment-name `<experiment-name>` --run-name `<job-name>` --p
 
 Your output should look like the following:
 
-````
+```
 Creating experiment aws.
 Run 95084a2c-f18d-4b77-a9da-eba00bf01e63 is submitted
 +--------------------------------------+--------+----------+---------------------------+
-| run id                               | name   | status   | created at                | +======================================+========+==========+===========================+
-| 95084a2c-f18d-4b77-a9da-eba00bf01e63 | sm-job |          | 2020-04-30T20:36:41+00:00 | +--------------------------------------+--------+----------+---------------------------+ ``` 3. Navigate to the UI to check the progress of the job. #### Upload and run the pipeline using the KFP UI 1. On the left panel, choose the **Pipelines** tab. 2. In the upper-right corner, choose **+UploadPipeline**. 3. Enter the pipeline name and description. 4. Choose **Upload a file** and enter the path to the tar.gz file you created using the CLI or with AWS SDK for Python (Boto3). 5. On the left panel, choose the **Pipelines** tab. 6. Find the pipeline you created. 7. Choose **+CreateRun**. 8. Enter your input parameters. 9. Choose **Run**. ### Run predictions Once your classification pipeline is deployed, you can run classification predictions against the endpoint that was created by the Deploy component. Use the KFP UI to check the output artifacts for `sagemaker-deploy-model-endpoint_name`. Download the .tgz file to extract the endpoint name or check the SageMaker AI console in the region you used. #### Configure permissions to run predictions If you want to run predictions from your gateway node, skip this section. ###### To use any other machine to run predictions, assign the `sagemaker:InvokeEndpoint` permission to the IAM role used by the client machine. 1. On your gateway node, run the following to create an IAM policy file: ``` cat <<EoF > ./sagemaker-invoke.json { "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "sagemaker:InvokeEndpoint" ], "Resource": "*" } ] } EoF ``` 2. Attach the policy to the IAM role of the client node. Run the following command. Replace `<your-instance-IAM-role>` with the name of the IAM role. Replace `<path-to-sagemaker-invoke-json>` with the path to the policy file you created. ``` aws iam put-role-policy --role-name `<your-instance-IAM-role>` --policy-name sagemaker-invoke-for-worker --policy-document file://`<path-to-sagemaker-invoke-json>` ``` #### Run predictions 1. Create a AWS SDK for Python (Boto3) file from your client machine named `mnist-predictions.py` with the following content. Replace the `ENDPOINT_NAME` variable. The script loads the MNIST dataset, creates a CSV from those digits, then sends the CSV to the endpoint for prediction and prints the results. ``` import boto3 import gzip import io import json import numpy import pickle ENDPOINT_NAME='`<endpoint-name>`' region = boto3.Session().region_name # S3 bucket where the original mnist data is downloaded and stored downloaded_data_bucket = f"jumpstart-cache-prod-{region}" downloaded_data_prefix = "1p-notebooks-datasets/mnist" # Download the dataset s3 = boto3.client("s3") s3.download_file(downloaded_data_bucket, f"{downloaded_data_prefix}/mnist.pkl.gz", "mnist.pkl.gz") # Load the dataset with gzip.open('mnist.pkl.gz', 'rb') as f: train_set, valid_set, test_set = pickle.load(f, encoding='latin1') # Simple function to create a csv from our numpy array def np2csv(arr): csv = io.BytesIO() numpy.savetxt(csv, arr, delimiter=',', fmt='%g') return csv.getvalue().decode().rstrip() runtime = boto3.Session(region).client('sagemaker-runtime') payload = np2csv(train_set[0][30:31]) response = runtime.invoke_endpoint(EndpointName=ENDPOINT_NAME, ContentType='text/csv', Body=payload) result = json.loads(response['Body'].read().decode()) print(result) ``` 2. Run the AWS SDK for Python (Boto3) file as follows: ``` python mnist-predictions.py ``` ### View results and logs When the pipeline is running, you can choose any component to check execution details, such as inputs and outputs. This lists the names of created resources. If the KFP request is successfully processed and an SageMaker AI job is created, the component logs in the KFP UI provide a link to the job created in SageMaker AI. The CloudWatch logs are also provided if the job is successfully created. If you run too many pipeline jobs on the same cluster, you may see an error message that indicates that you do not have enough pods available. To fix this, log in to your gateway node and delete the pods created by the pipelines you are not using: ``` kubectl get pods -n kubeflow kubectl delete pods -n kubeflow `<name-of-pipeline-pod>` ``` ### Cleanup When you're finished with your pipeline, you need to clean up your resources. 1. From the KFP dashboard, terminate your pipeline runs if they do not exit properly by choosing **Terminate**. 2. If the **Terminate** option doesn't work, log in to your gateway node and manually terminate all the pods created by your pipeline run as follows: ``` kubectl get pods -n kubeflow kubectl delete pods -n kubeflow `<name-of-pipeline-pod>` ``` 3. Using your AWS account, log in to the SageMaker AI service. Manually stop all training, batch transform, and HPO jobs. Delete models, data buckets, and endpoints to avoid incurring any additional costs. Terminating the pipeline runs does not stop the jobs in SageMaker AI.
-````
+| run id                               | name   | status   | created at                |
++======================================+========+==========+===========================+
+| 95084a2c-f18d-4b77-a9da-eba00bf01e63 | sm-job |          | 2020-04-30T20:36:41+00:00 |
++--------------------------------------+--------+----------+---------------------------+
+```
+
+3. Navigate to the UI to check the progress of the job.
+
+#### Upload and run the
+
+pipeline using the KFP UI
+
+1. On the left panel, choose the **Pipelines** tab.
+2. In the upper-right corner, choose **+UploadPipeline**.
+3. Enter the pipeline name and description.
+4. Choose **Upload a file** and enter the path to the tar.gz file
+   you created using the CLI or with AWS SDK for Python (Boto3).
+5. On the left panel, choose the **Pipelines** tab.
+6. Find the pipeline you created.
+7. Choose **+CreateRun**.
+8. Enter your input parameters.
+9. Choose **Run**.
+
+### Run predictions
+
+Once your classification pipeline is deployed, you can run classification predictions
+against the endpoint that was created by the Deploy component. Use the KFP UI to check the
+output artifacts for `sagemaker-deploy-model-endpoint_name`. Download the .tgz
+file to extract the endpoint name or check the SageMaker AI console in the region you used.
+
+#### Configure permissions to run
+
+predictions
+
+If you want to run predictions from your gateway node, skip this section.
+
+###### To use any other machine to run predictions, assign
+
+the `sagemaker:InvokeEndpoint` permission to the IAM role used by the
+client machine.
+
+1. On your gateway node, run the following to create an IAM policy file:
+
+```
+cat <<EoF > ./sagemaker-invoke.json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:InvokeEndpoint"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+EoF
+```
+
+2. Attach the policy to the IAM role of the client node.
+
+Run the following command. Replace `<your-instance-IAM-role>`
+with the name of the IAM role.
+Replace `<path-to-sagemaker-invoke-json>` with the path to the
+policy file you created.
+
+```
+aws iam put-role-policy --role-name `<your-instance-IAM-role>` --policy-name sagemaker-invoke-for-worker --policy-document file://`<path-to-sagemaker-invoke-json>`
+```
+
+#### Run predictions
+
+1. Create a AWS SDK for Python (Boto3) file from your client machine
+   named `mnist-predictions.py` with the following content. Replace
+   the `ENDPOINT_NAME` variable. The script loads the MNIST dataset,
+   creates a CSV from those digits, then sends the CSV to the endpoint for prediction
+   and prints the results.
+
+```
+import boto3
+import gzip
+import io
+import json
+import numpy
+import pickle
+
+ENDPOINT_NAME='`<endpoint-name>`'
+region = boto3.Session().region_name
+
+# S3 bucket where the original mnist data is downloaded and stored
+downloaded_data_bucket = f"jumpstart-cache-prod-{region}"
+downloaded_data_prefix = "1p-notebooks-datasets/mnist"
+
+# Download the dataset
+s3 = boto3.client("s3")
+s3.download_file(downloaded_data_bucket, f"{downloaded_data_prefix}/mnist.pkl.gz", "mnist.pkl.gz")
+
+# Load the dataset
+with gzip.open('mnist.pkl.gz', 'rb') as f:
+    train_set, valid_set, test_set = pickle.load(f, encoding='latin1')
+
+# Simple function to create a csv from our numpy array
+def np2csv(arr):
+    csv = io.BytesIO()
+    numpy.savetxt(csv, arr, delimiter=',', fmt='%g')
+    return csv.getvalue().decode().rstrip()
+
+runtime = boto3.Session(region).client('sagemaker-runtime')
+
+payload = np2csv(train_set[0][30:31])
+
+response = runtime.invoke_endpoint(EndpointName=ENDPOINT_NAME,
+                                   ContentType='text/csv',
+                                   Body=payload)
+result = json.loads(response['Body'].read().decode())
+print(result)
+```
+
+2. Run the AWS SDK for Python (Boto3) file as follows:
+
+```
+python mnist-predictions.py
+```
+
+### View results and logs
+
+When the pipeline is running, you can choose any component to check execution details,
+such as inputs and outputs. This lists the names of created resources.
+
+If the KFP request is successfully processed and an SageMaker AI job is created, the component
+logs in the KFP UI provide a link to the job created in SageMaker AI. The CloudWatch logs are also
+provided if the job is successfully created.
+
+If you run too many pipeline jobs on the same cluster, you may see an error message
+that indicates that you do not have enough pods available. To fix this, log in to your
+gateway node and delete the pods created by the pipelines you are not using:
+
+```
+kubectl get pods -n kubeflow
+kubectl delete pods -n kubeflow `<name-of-pipeline-pod>`
+```
+
+### Cleanup
+
+When you're finished with your pipeline, you need to clean up your resources.
+
+1. From the KFP dashboard, terminate your pipeline runs if they do not exit properly
+   by choosing **Terminate**.
+2. If the **Terminate** option doesn't work, log in to your gateway
+   node and manually terminate all the pods created by your pipeline run as follows:
+
+```
+kubectl get pods -n kubeflow
+kubectl delete pods -n kubeflow `<name-of-pipeline-pod>`
+```
+
+3. Using your AWS account, log in to the SageMaker AI service. Manually stop all training,
+   batch transform, and HPO jobs. Delete models, data buckets, and endpoints to avoid
+   incurring any additional costs. Terminating the pipeline runs does not stop the jobs in
+   SageMaker AI.

@@ -29,17 +29,26 @@ The IP Insights algorithm computes a `validation:discriminator_auc`
 metric during validation, the value of which is used as the objective function to
 optimize for hyperparameter tuning.
 
-| Metric Name                       | Description                                                                                                                                                                                                                                                                    | Optimization Direction             |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `validation:discriminator_auc`    | Area under the receiver operating characteristic curve on the validation dataset. The validation dataset is not labeled. Area Under the Curve (AUC) is a metric that describes the model's ability to discriminate validation data points from randomly generated data points. | Maximize                           | ## Tunable IP Insights Hyperparameters You can tune the following hyperparameters for the SageMaker AI IP Insights algorithm. |
-| Parameter Name                    | Parameter Type                                                                                                                                                                                                                                                                 | Recommended Ranges                 |
-| ---                               | ---                                                                                                                                                                                                                                                                            | ---                                |
-| `epochs`                          | IntegerParameterRange                                                                                                                                                                                                                                                          | MinValue: 1, MaxValue: 100         |
-| `learning_rate`                   | ContinuousParameterRange                                                                                                                                                                                                                                                       | MinValue: 1e-4, MaxValue: 0.1      |
-| `mini_batch_size`                 | IntegerParameterRanges                                                                                                                                                                                                                                                         | MinValue: 100, MaxValue: 50000     |
-| `num_entity_vectors`              | IntegerParameterRanges                                                                                                                                                                                                                                                         | MinValue: 10000, MaxValue: 1000000 |
-| `num_ip_encoder_layers`           | IntegerParameterRanges                                                                                                                                                                                                                                                         | MinValue: 1, MaxValue: 10          |
-| `random_negative_sampling_rate`   | IntegerParameterRanges                                                                                                                                                                                                                                                         | MinValue: 0, MaxValue: 10          |
-| `shuffled_negative_sampling_rate` | IntegerParameterRanges                                                                                                                                                                                                                                                         | MinValue: 0, MaxValue: 10          |
-| `vector_dim`                      | IntegerParameterRanges                                                                                                                                                                                                                                                         | MinValue: 8, MaxValue: 256         |
-| `weight_decay`                    | ContinuousParameterRange                                                                                                                                                                                                                                                       | MinValue: 0.0, MaxValue: 1.0       |
+| Metric Name                    | Description                                                                                                                                                                                                                                                                                | Optimization Direction |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| `validation:discriminator_auc` | Area under the receiver operating characteristic curve<br>on the validation dataset. The<br>validation dataset is not labeled. Area Under the Curve (AUC) is a metric that<br>describes the model's ability to discriminate validation data<br>points from randomly generated data points. | Maximize               |
+
+## Tunable IP Insights
+
+Hyperparameters
+
+You can tune the following
+hyperparameters
+for the SageMaker AI IP Insights algorithm.
+
+| Parameter Name                    | Parameter Type           | Recommended Ranges                 |
+| --------------------------------- | ------------------------ | ---------------------------------- |
+| `epochs`                          | IntegerParameterRange    | MinValue: 1, MaxValue: 100         |
+| `learning_rate`                   | ContinuousParameterRange | MinValue: 1e-4, MaxValue: 0.1      |
+| `mini_batch_size`                 | IntegerParameterRanges   | MinValue: 100, MaxValue: 50000     |
+| `num_entity_vectors`              | IntegerParameterRanges   | MinValue: 10000, MaxValue: 1000000 |
+| `num_ip_encoder_layers`           | IntegerParameterRanges   | MinValue: 1, MaxValue: 10          |
+| `random_negative_sampling_rate`   | IntegerParameterRanges   | MinValue: 0, MaxValue: 10          |
+| `shuffled_negative_sampling_rate` | IntegerParameterRanges   | MinValue: 0, MaxValue: 10          |
+| `vector_dim`                      | IntegerParameterRanges   | MinValue: 8, MaxValue: 256         |
+| `weight_decay`                    | ContinuousParameterRange | MinValue: 0.0, MaxValue: 1.0       |

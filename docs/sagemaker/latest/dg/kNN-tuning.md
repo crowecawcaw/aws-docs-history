@@ -32,11 +32,17 @@ table during training depending on the type of task specified by the
 Choose the `predictor_type` value appropriate for the type of task
 undertaken to calculate the relevant objective metric when tuning a model.
 
-| Metric Name     | Description                                                                                                                                                                                                                                                           | Optimization Direction            |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `test:accuracy` | When `predictor_type` is set to _classifier_, k-NN compares the predicted label, based on the average of the k-nearest neighbors' labels, to the ground truth label provided in the test channel data. The accuracy reported ranges from 0.0 (0%) to 1.0 (100%).      | Maximize                          |
-| `test:mse`      | When `predictor_type` is set to _regressor_, k-NN compares the predicted label, based on the average of the k-nearest neighbors' labels, to the ground truth label provided in the test channel data. The mean squared error is computed by comparing the two labels. | Minimize                          | ## Tunable k-NN Hyperparameters Tune the Amazon SageMaker AI k-nearest neighbor model with the following hyperparameters. |
-| Parameter Name  | Parameter Type                                                                                                                                                                                                                                                        | Recommended Ranges                |
-| ---             | ---                                                                                                                                                                                                                                                                   | ---                               |
-| `k`             | IntegerParameterRanges                                                                                                                                                                                                                                                | MinValue: 1, MaxValue: 1024       |
-| `sample_size`   | IntegerParameterRanges                                                                                                                                                                                                                                                | MinValue: 256, MaxValue: 20000000 |
+| Metric Name     | Description                                                                                                                                                                                                                                                                          | Optimization Direction |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| `test:accuracy` | When `predictor_type` is set to<br>_classifier_, k-NN compares the predicted<br>label, based on the average of the k-nearest neighbors' labels,<br>to the ground truth label provided in the test channel data. The<br>accuracy reported ranges from 0.0 (0%) to 1.0 (100%).         | Maximize               |
+| `test:mse`      | When `predictor_type` is set to<br>_regressor_, k-NN compares the predicted<br>label, based on the average of the k-nearest neighbors' labels,<br>to the ground truth label provided in the test channel data. The<br>mean squared error is computed by comparing the two<br>labels. | Minimize               |
+
+## Tunable k-NN Hyperparameters
+
+Tune the Amazon SageMaker AI k-nearest neighbor model with the following
+hyperparameters.
+
+| Parameter Name | Parameter Type         | Recommended Ranges                |
+| -------------- | ---------------------- | --------------------------------- |
+| `k`            | IntegerParameterRanges | MinValue: 1, MaxValue: 1024       |
+| `sample_size`  | IntegerParameterRanges | MinValue: 256, MaxValue: 20000000 |

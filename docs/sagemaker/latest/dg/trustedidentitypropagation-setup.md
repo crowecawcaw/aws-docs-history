@@ -122,22 +122,25 @@ for all roles to include the `sts:AssumeRole` and `sts:SetContext`
 actions. Use the following policy when you [update your role trust
 policy](../../../IAM/latest/UserGuide/id_roles_update-role-trust-policy.md "../../../IAM/latest/UserGuide/id_roles_update-role-trust-policy.md").
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Service": [
-                    "sagemaker.amazonaws.com"
-                ]
-            },
-            "Action": [
-                "sts:AssumeRole",
-                "sts:SetContext"
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "sagemaker.amazonaws.com"
+ ]
+ },
+ "Action": [
+ "sts:AssumeRole",
+ "sts:SetContext"
+ ]
+ }
+ ]
+}`
+
 ```

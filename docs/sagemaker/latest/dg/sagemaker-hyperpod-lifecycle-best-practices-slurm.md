@@ -96,4 +96,3 @@ cluster creation.
 - [Validating runtime before running production workloads on a HyperPod Slurm
   cluster](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-validate-runtime.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-validate-runtime.md")
 - [Developing lifecycle scripts interactively on a HyperPod cluster node](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-develop-lifecycle-scripts.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-develop-lifecycle-scripts.md")
-- [Updating a cluster with new or updated lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-update-cluster-lifecycle.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-update-cluster-lifecycle.md")

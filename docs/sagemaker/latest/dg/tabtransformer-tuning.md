@@ -35,12 +35,26 @@ The SageMaker AI TabTransformer algorithm computes the following metrics to use 
 The evaluation metric is automatically assigned based on the type of classification task,
 which is determined by the number of unique integers in the label column.
 
-| Metric Name      | Description               | Optimization Direction          | Regex Pattern                    |
-| ---------------- | ------------------------- | ------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | --------------------------------------- |
-| `r2`             | r square                  | maximize                        | `"metrics={'r2': (\\S+)}"`       |
-| `f1_score`       | binary cross entropy      | maximize                        | `"metrics={'f1': (\\S+)}"`       |
-| `accuracy_score` | multiclass cross entropy  | maximize                        | `"metrics={'accuracy': (\\S+)}"` | ## Tunable TabTransformer hyperparameters Tune the TabTransformer model with the following hyperparameters. The hyperparameters that have the greatest effect on optimizing the TabTransformer evaluation metrics are: `learning_rate`, `input_dim`, `n_blocks`, `attn_dropout`, `mlp_dropout`, and `frac_shared_embed`. For a list of all the TabTransformer hyperparameters, see [TabTransformer hyperparameters](tabtransformer-hyperparameters.md "tabtransformer-hyperparameters.md"). |
-| Parameter Name   | Parameter Type            | Recommended Ranges              |                                  | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ---                        | ---                                     |
-| `learning_rate`  | ContinuousParameterRanges | MinValue: 0.001, MaxValue: 0.01 |                                  | `input_dim`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | CategoricalParameterRanges | [`16`, `32`, `64`, `128`, `256`, `512`] |
-| `n_blocks`       | IntegerParameterRanges    | MinValue: 1, MaxValue: 12       |                                  | `attn_dropout`                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | ContinuousParameterRanges  | MinValue: 0.0, MaxValue: 0.8            |
-| `mlp_dropout`    | ContinuousParameterRanges | MinValue: 0.0, MaxValue: 0.8    |                                  | `frac_shared_embed`                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ContinuousParameterRanges  | MinValue: 0.0, MaxValue: 0.5            |
+| Metric Name      | Description              | Optimization Direction | Regex Pattern                    |
+| ---------------- | ------------------------ | ---------------------- | -------------------------------- |
+| `r2`             | r square                 | maximize               | `"metrics={'r2': (\\S+)}"`       |
+| `f1_score`       | binary cross entropy     | maximize               | `"metrics={'f1': (\\S+)}"`       |
+| `accuracy_score` | multiclass cross entropy | maximize               | `"metrics={'accuracy': (\\S+)}"` |
+
+## Tunable TabTransformer hyperparameters
+
+Tune the TabTransformer model with the following hyperparameters. The
+hyperparameters that have the greatest effect on optimizing the TabTransformer
+evaluation metrics are: `learning_rate`, `input_dim`,
+`n_blocks`, `attn_dropout`, `mlp_dropout`, and
+`frac_shared_embed`. For a list of all the TabTransformer
+hyperparameters, see [TabTransformer hyperparameters](tabtransformer-hyperparameters.md "tabtransformer-hyperparameters.md").
+
+| Parameter Name      | Parameter Type             | Recommended Ranges                      |
+| ------------------- | -------------------------- | --------------------------------------- |
+| `learning_rate`     | ContinuousParameterRanges  | MinValue: 0.001, MaxValue: 0.01         |
+| `input_dim`         | CategoricalParameterRanges | [`16`, `32`, `64`, `128`, `256`, `512`] |
+| `n_blocks`          | IntegerParameterRanges     | MinValue: 1, MaxValue: 12               |
+| `attn_dropout`      | ContinuousParameterRanges  | MinValue: 0.0, MaxValue: 0.8            |
+| `mlp_dropout`       | ContinuousParameterRanges  | MinValue: 0.0, MaxValue: 0.8            |
+| `frac_shared_embed` | ContinuousParameterRanges  | MinValue: 0.0, MaxValue: 0.5            |

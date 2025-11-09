@@ -297,8 +297,19 @@ at the start of Jupyter cells that provide a quick and easy way to help you cont
 your environment. In your AWS Glue interactive session, the following magics are set
 for you by default:
 
-| Magic           | Default value                                         |
-| --------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `%glue_version` | 3.0                                                   |
-| `%iam_role`     | `execution role attached to your SageMaker AI domain` |
-| `%region`       | your region                                           | You can use magics to further customize your environment. For example, if you want to change the number of workers allocated to your job from the default five to 10, you can specify `%number_of_workers 10`. If you want to configure your session to stop after 10 minutes of idle time instead of the default 2880, you can specify `%idle_timeout 10`. All of the Jupyter magics currently available in AWS Glue are also available in Studio or Studio Classic. For the complete list of AWS Glue magics available, see [Configuring AWS Glue interactive sessions for Jupyter and AWS Glue Studio notebooks](../../../glue/latest/dg/interactive-sessions-magics.md "../../../glue/latest/dg/interactive-sessions-magics.md"). |
+| Magic           | Default value                                            |
+| --------------- | -------------------------------------------------------- |
+| `%glue_version` | 3.0                                                      |
+| `%iam_role`     | `execution role attached to your SageMaker AI<br>domain` |
+| `%region`       | your region                                              |
+
+You can use magics to further customize your environment. For example, if you want
+to change the number of workers allocated to your job from the default five to 10,
+you can specify `%number_of_workers 10`. If you want to configure your
+session to stop after 10 minutes of idle time instead of the default 2880, you can
+specify `%idle_timeout 10`.
+
+All of the Jupyter magics currently available in AWS Glue are also available in
+Studio or Studio Classic. For the complete list of AWS Glue magics available, see
+[Configuring AWS Glue
+interactive sessions for Jupyter and AWS Glue Studio notebooks](../../../glue/latest/dg/interactive-sessions-magics.md "../../../glue/latest/dg/interactive-sessions-magics.md").

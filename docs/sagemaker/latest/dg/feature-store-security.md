@@ -104,51 +104,58 @@ for the offline store. If you add this special condition to your customer manage
 Before using an example key policy, replace the example principals with actual
 principals from your AWS account.
 
+JSON
+
 ```
-{"Id": "key-policy-feature-store",
-   "Version":"2012-10-17",
-   "Statement": [
-     {"Sid" : "Allow access through Amazon SageMaker AI Feature Store for all principals in the account that are authorized to use  Amazon SageMaker AI Feature Store",
-       "Effect": "Allow",
-       "Principal": {"AWS": "arn:aws:iam::111122223333:user/featurestore-user"},
-       "Action": [
-         "kms:Encrypt",
-         "kms:Decrypt",
-         "kms:DescribeKey",
-         "kms:CreateGrant",
-         "kms:RetireGrant",
-         "kms:ReEncryptFrom",
-         "kms:ReEncryptTo",
-         "kms:GenerateDataKey",
-         "kms:ListAliases",
-         "kms:ListGrants"
-       ],
-       "Resource": "*",
-       "Condition": {"StringLike": {"kms:ViaService" : "sagemaker.*.amazonaws.com"
-          }
-       }
-     },
-     {"Sid":  "Allow administrators to view the customer managed key and revoke grants",
-       "Effect": "Allow",
-       "Principal": {"AWS": "arn:aws:iam::111122223333:role/featurestore-admin"
-        },
-       "Action": [
-         "kms:Describe*",
-         "kms:Get*",
-         "kms:List*",
-         "kms:RevokeGrant"
-       ],
-       "Resource": "*"
-     },
-     {"Sid": "Enable IAM User Permissions",
-       "Effect": "Allow",
-        "Principal": {"AWS": "arn:aws:iam::123456789:root"
-        },
-        "Action": "kms:*",
-        "Resource": "*"
-     }
-   ]
+`{"Id": "key-policy-feature-store",
+ "Version":"2012-10-17",
+ "Statement": [
+ {"Sid" : "Allow access through Amazon SageMaker AI Feature Store for all principals in the account that are authorized to use Amazon SageMaker AI Feature Store ",
+ "Effect": "Allow",
+ "Principal": {"AWS": "arn:aws:iam::111122223333:user/featurestore-user"},
+ "Action": [
+ "kms:Encrypt",
+ "kms:Decrypt",
+ "kms:DescribeKey",
+ "kms:CreateGrant",
+ "kms:RetireGrant",
+ "kms:ReEncryptFrom",
+ "kms:ReEncryptTo",
+ "kms:GenerateDataKey",
+ "kms:ListGrants"
+ ],
+ "Resource": "*",
+ "Condition": {"StringLike": {"kms:ViaService" : "sagemaker.*.amazonaws.com"
  }
+ }
+ },
+ {"Sid" : "Allow listing aliases",
+ "Effect": "Allow",
+ "Principal": {"AWS": "arn:aws:iam::111122223333:user/featurestore-user"},
+ "Action": "kms:ListAliases",
+ "Resource": "*"
+ },
+ {"Sid": "Allow administrators to view the customer managed key and revoke grants",
+ "Effect": "Allow",
+ "Principal": {"AWS": "arn:aws:iam::111122223333:role/featurestore-admin"
+ },
+ "Action": [
+ "kms:Describe*",
+ "kms:Get*",
+ "kms:List*",
+ "kms:RevokeGrant"
+ ],
+ "Resource": "*"
+ },
+ {"Sid": "Enable IAM User Permissions",
+ "Effect": "Allow",
+ "Principal": {"AWS": "arn:aws:iam::111122223333:root"
+ },
+ "Action": "kms:*",
+ "Resource": "*"
+ }
+ ]
+ }`
 
 ```
 

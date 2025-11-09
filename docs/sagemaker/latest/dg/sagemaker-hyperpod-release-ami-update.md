@@ -125,10 +125,96 @@ cron(`Minutes` `Hours` `Day-of-month` `Month` `Day-of-week` `Year`)
 ```
 
 | **Fields**   | **Values**          | **Wildcards** |
-| ------------ | ------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------ | ------------------- | ------------- |
 | Minutes      | 00 – 59             | N/A           |
 | Hours        | 00 – 23             | N/A           |
 | Day-of-month | 01 – 31             | ?             |
-| Month        | 01 – 12             | \* /          |
+| Month        | 01 – 12             | \<br>• /      |
 | Day-of-week  | 1 – 7 or MON-SUN    | ? # L         |
-| Year         | Current year – 2099 | \*            | ###### Wildcards <br>• The **\*** (asterisk) wildcard includes all values in the field. In the `Hours` field, **\*** would include every hour. <br>• The **/** (forward slash) wildcard specifies increments. In the `Months` field, you could enter `*/3` to specify every 3rd month. <br>• The **?** (question mark) wildcard specifies one or another. In the `Day-of-month` field you could enter **7**, and if you didn't care what day of the week the seventh was, you could enter **?** in the Day-of-week field. <br>• The **L** wildcard in the `day-of-week` or field specifies the last day of the month or week. For example, `5L` means the last Friday of the month. <br>• The **#** wildcard in the ay-of-week field specifies a certain instance of the specified day of the week within a month. For example, 3#2 would be the second Tuesday of the month: the 3 refers to Tuesday because it is the third day of each week, and the 2 refers to the second day of that type within the month. You can use cron expressions for the following scenarios: <br>• One-time schedule that runs at a certain time and day. You can use the `?` wildcard to denote that day-of-month or day-of-week don't matter. `cron(30 14 ? 12 MON 2024)` `cron(30 14 15 12 ? 2024)` <br>• A weekly schedule that runs at a certain time and day. The following example creates a schedule that runs at 12:00pm on every Monday regardless of day-of-month. `cron(00 12 ? * 1 *)` <br>• Monthly schedule that runs every month regardless of the day-of-week. The following schedule runs at 12:30pm on the 15th of every month. `cron(30 12 15 * ? *)` <br>• A monthly schedule that uses day-of-week. `cron(30 12 ? * MON *)` <br>• To create a schedule that runs every Nth month, use the `/` wildcard. The following example creates a monthly schedule that runs every 3 months. The following two examples demonstrate how it works with day-of-week and day-of-month. `cron(30 12 15 */3 ? *)` `cron(30 12 ? */3 MON *)` <br>• A schedule that runs on a certain instance of the specified day of the week. The following example creates a schedule that runs at 12:30pm on the second Monday of every month. `cron(30 12 ? * 1#2 *)` <br>• A schedule that runs on the last instance of the specified day of the week. The following schedule runs at 12:30pm on the last Monday of every month. `cron(30 12 ? * 1L *)` |
+| Year         | Current year – 2099 | \*            |
+
+###### Wildcards
+
+- The **\*** (asterisk) wildcard includes all values in the
+  field. In the `Hours` field, **\*** would include
+  every hour.
+- The **/** (forward slash) wildcard specifies increments.
+  In the `Months` field, you could enter `*/3`
+  to specify every 3rd month.
+- The **?** (question mark) wildcard specifies one or
+  another. In the `Day-of-month` field you could enter
+  **7**, and if you didn't care what day of the week the
+  seventh was, you could enter **?** in the Day-of-week
+  field.
+- The **L** wildcard in the `day-of-week` or
+  field specifies the last day of the month or week. For example,
+  `5L` means the last Friday of the month.
+- The **#** wildcard in the ay-of-week field specifies a
+  certain instance of the specified day of the week within a month. For
+  example, 3#2 would be the second Tuesday of the month: the 3 refers to
+  Tuesday because it is the third day of each week, and the 2 refers to the
+  second day of that type within the month.
+
+You can use cron expressions for the following scenarios:
+
+- One-time schedule that runs at a certain time and day. You can use the
+  `?` wildcard to denote that day-of-month or day-of-week don't
+  matter.
+
+```
+cron(30 14 ? 12 MON 2024)
+```
+
+```
+cron(30 14 15 12 ? 2024)
+```
+
+- A weekly schedule that runs at a certain time and day. The following
+  example creates a schedule that runs at 12:00pm on every Monday regardless
+  of day-of-month.
+
+```
+cron(00 12 ? * 1 *)
+```
+
+- Monthly schedule that runs every month regardless of the day-of-week. The
+  following schedule runs at 12:30pm on the 15th of every month.
+
+```
+cron(30 12 15 * ? *)
+```
+
+- A monthly schedule that uses day-of-week.
+
+```
+cron(30 12 ? * MON *)
+```
+
+- To create a schedule that runs every Nth month, use the `/`
+  wildcard. The following example creates a monthly schedule that runs every 3
+  months. The following two examples demonstrate how it works with day-of-week
+  and day-of-month.
+
+```
+cron(30 12 15 */3 ? *)
+```
+
+```
+cron(30 12 ? */3 MON *)
+```
+
+- A schedule that runs on a certain instance of the specified day of the
+  week. The following example creates a schedule that runs at 12:30pm on the
+  second Monday of every month.
+
+```
+cron(30 12 ? * 1#2 *)
+```
+
+- A schedule that runs on the last instance of the specified day of the
+  week. The following schedule runs at 12:30pm on the last Monday of every
+  month.
+
+```
+cron(30 12 ? * 1L *)
+```

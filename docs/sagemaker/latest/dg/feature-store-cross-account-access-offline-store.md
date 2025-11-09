@@ -104,30 +104,33 @@ objects.
 This document refers to the following example bucket policy as
 `Account-B-Offline-Feature-Store-Bucket`.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "S3CrossAccountBucketAccess",
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject",
-                "s3:PutObjectAcl",
-                "s3:GetBucketAcl"
-            ],
-            "Principal": {
-                "AWS": [
-                    "*Account-A-Offline-Feature-Store-Role-ARN*"
-                ],
-            },
-            "Resource": [
-                "arn:aws:s3:::offline-store-bucket-name/*",
-                "arn:aws:s3:::offline-store-bucket-name"
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "S3CrossAccountBucketAccess",
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject",
+ "s3:PutObjectAcl",
+ "s3:GetBucketAcl"
+ ],
+ "Principal": {
+ "AWS": [
+ "`Account-A-Offline-Feature-Store-Role-ARN`"
+ ]
+ },
+ "Resource": [
+ "arn:aws:s3:::offline-store-bucket-name/*",
+ "arn:aws:s3:::offline-store-bucket-name"
+ ]
+ }
+ ]
+}`
+
 ```
 
 In the preceding policy, the principal is
@@ -148,84 +151,87 @@ read from the offline store (in this case, identities from Account B).
 This document refers to the following example key policy as
 `Account-A-Offline-Feature-Store-KMS-Key-ARN`.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Id": "key-consolepolicy-3",
-    "Statement": [
-        {
-            "Sid": "Enable IAM User Permissions",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::Account-A-Account-Id:root"
-            },
-            "Action": "kms:*",
-            "Resource": "*"
-        },
-        {
-            "Sid": "Allow access for Key Administrators",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": [
-                    "arn:aws:iam::Account-A-Account-Id:role/Administrator",
-                ]
-            },
-            "Action": [
-                "kms:Create*",
-                "kms:Describe*",
-                "kms:Enable*",
-                "kms:List*",
-                "kms:Put*",
-                "kms:Update*",
-                "kms:Revoke*",
-                "kms:Disable*",
-                "kms:Get*",
-                "kms:Delete*",
-                "kms:TagResource",
-                "kms:UntagResource",
-                "kms:ScheduleKeyDeletion",
-                "kms:CancelKeyDeletion"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "Allow Feature Store to get information about the customer managed key",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "sagemaker.amazonaws.com"
-            },
-            "Action": [
-                "kms:Describe*",
-                "kms:Get*",
-                "kms:List*"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "Allow use of the key",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": [
-                    "*Account-A-Offline-Feature-Store-Role-ARN*",
-                    "*arn:aws:iam::Account-B-Account-Id:root*"
-                ]
-            },
-            "Action": [
-                "kms:Encrypt",
-                "kms:Decrypt",
-                "kms:DescribeKey",
-                "kms:CreateGrant",
-                "kms:RetireGrant",
-                "kms:ReEncryptFrom",
-                "kms:ReEncryptTo",
-                "kms:GenerateDataKey",
-                "kms:ListAliases",
-                "kms:ListGrants"
-            ],
-            "Resource": "*",
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Id": "key-consolepolicy-3",
+ "Statement": [
+ {
+ "Sid": "Enable IAM User Permissions",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::111122223333:root"
+ },
+ "Action": "kms:*",
+ "Resource": "*"
+ },
+ {
+ "Sid": "Allow access for Key Administrators",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": [
+ "arn:aws:iam::111122223333:role/Administrator"
+ ]
+ },
+ "Action": [
+ "kms:Create*",
+ "kms:Describe*",
+ "kms:Enable*",
+ "kms:List*",
+ "kms:Put*",
+ "kms:Update*",
+ "kms:Revoke*",
+ "kms:Disable*",
+ "kms:Get*",
+ "kms:Delete*",
+ "kms:TagResource",
+ "kms:UntagResource",
+ "kms:ScheduleKeyDeletion",
+ "kms:CancelKeyDeletion"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "Allow Feature Store to get information about the customer managed key",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "sagemaker.amazonaws.com"
+ },
+ "Action": [
+ "kms:Describe*",
+ "kms:Get*",
+ "kms:List*"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "Allow use of the key",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": [
+ "`Account-A-Offline-Feature-Store-Role-ARN`",
+ "`arn:aws:iam::444455556666:root`"
+ ]
+ },
+ "Action": [
+ "kms:Encrypt",
+ "kms:Decrypt",
+ "kms:DescribeKey",
+ "kms:CreateGrant",
+ "kms:RetireGrant",
+ "kms:ReEncryptFrom",
+ "kms:ReEncryptTo",
+ "kms:GenerateDataKey",
+ "kms:ListAliases",
+ "kms:ListGrants"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
 ```
 
 ## Step 4: Create a feature group in

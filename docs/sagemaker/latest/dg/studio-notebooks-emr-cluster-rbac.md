@@ -166,19 +166,23 @@ JSON
 2. Create the trust policy to specify which Studio account IDs are trusted to
    assume the Amazon EMR access role. The following policy is an example:
 
+JSON
+
 ```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowCrossAccountSageMakerExecutionRoleToAssumeThisRole",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::`studio_account_id`:role/`studio_execution_role`"
-      },
-      "Action": "sts:AssumeRole"
-    }
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowCrossAccountSageMakerExecutionRoleToAssumeThisRole",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`studio_execution_role`"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
 ```
 
 3. Create the Amazon EMR access role permission policy, which grants the Amazon EMR runtime

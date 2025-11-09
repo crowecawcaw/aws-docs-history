@@ -18,17 +18,35 @@ The image classification algorithm is a supervised algorithm. It reports an
 accuracy metric that is computed during training. When tuning the model, choose this
 metric as the objective metric.
 
-| Metric Name           | Description                                                                             | Optimization Direction            |
-| --------------------- | --------------------------------------------------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `validation:accuracy` | The ratio of the number of correct predictions to the total number of predictions made. | Maximize                          | ## Tunable Image Classification Hyperparameters Tune an image classification model with the following hyperparameters. The hyperparameters that have the greatest impact on image classification objective metrics are: `mini_batch_size`, `learning_rate`, and `optimizer`. Tune the optimizer-related hyperparameters, such as `momentum`, `weight_decay`, `beta_1`, `beta_2`, `eps`, and `gamma`, based on the selected `optimizer`. For example, use `beta_1` and `beta_2` only when `adam` is the `optimizer`. For more information about which hyperparameters are used in each optimizer, see [Image Classification Hyperparameters](IC-Hyperparameter.md "IC-Hyperparameter.md"). |
-| Parameter Name        | Parameter Type                                                                          | Recommended Ranges                |
-| ---                   | ---                                                                                     | ---                               |
-| `beta_1`              | ContinuousParameterRanges                                                               | MinValue: 1e-6, MaxValue: 0.999   |
-| `beta_2`              | ContinuousParameterRanges                                                               | MinValue: 1e-6, MaxValue: 0.999   |
-| `eps`                 | ContinuousParameterRanges                                                               | MinValue: 1e-8, MaxValue: 1.0     |
-| `gamma`               | ContinuousParameterRanges                                                               | MinValue: 1e-8, MaxValue: 0.999   |
-| `learning_rate`       | ContinuousParameterRanges                                                               | MinValue: 1e-6, MaxValue: 0.5     |
-| `mini_batch_size`     | IntegerParameterRanges                                                                  | MinValue: 8, MaxValue: 512        |
-| `momentum`            | ContinuousParameterRanges                                                               | MinValue: 0.0, MaxValue: 0.999    |
-| `optimizer`           | CategoricalParameterRanges                                                              | ['sgd', ‘adam’, ‘rmsprop’, 'nag'] |
-| `weight_decay`        | ContinuousParameterRanges                                                               | MinValue: 0.0, MaxValue: 0.999    |
+| Metric Name           | Description                                                                                | Optimization Direction |
+| --------------------- | ------------------------------------------------------------------------------------------ | ---------------------- |
+| `validation:accuracy` | The ratio of the number of correct predictions to the total<br>number of predictions made. | Maximize               |
+
+## Tunable Image Classification
+
+Hyperparameters
+
+Tune an image classification model with the following hyperparameters. The
+hyperparameters that have the greatest impact on image classification objective
+metrics are: `mini_batch_size`, `learning_rate`, and
+`optimizer`. Tune the optimizer-related hyperparameters, such as
+`momentum`, `weight_decay`, `beta_1`,
+`beta_2`, `eps`, and `gamma`, based on the
+selected `optimizer`. For example, use `beta_1` and
+`beta_2` only when `adam` is the
+`optimizer`.
+
+For more information about which hyperparameters are used in each optimizer, see
+[Image Classification Hyperparameters](IC-Hyperparameter.md "IC-Hyperparameter.md").
+
+| Parameter Name    | Parameter Type             | Recommended Ranges                |
+| ----------------- | -------------------------- | --------------------------------- |
+| `beta_1`          | ContinuousParameterRanges  | MinValue: 1e-6, MaxValue: 0.999   |
+| `beta_2`          | ContinuousParameterRanges  | MinValue: 1e-6, MaxValue: 0.999   |
+| `eps`             | ContinuousParameterRanges  | MinValue: 1e-8, MaxValue: 1.0     |
+| `gamma`           | ContinuousParameterRanges  | MinValue: 1e-8, MaxValue: 0.999   |
+| `learning_rate`   | ContinuousParameterRanges  | MinValue: 1e-6, MaxValue: 0.5     |
+| `mini_batch_size` | IntegerParameterRanges     | MinValue: 8, MaxValue: 512        |
+| `momentum`        | ContinuousParameterRanges  | MinValue: 0.0, MaxValue: 0.999    |
+| `optimizer`       | CategoricalParameterRanges | ['sgd', ‘adam’, ‘rmsprop’, 'nag'] |
+| `weight_decay`    | ContinuousParameterRanges  | MinValue: 0.0, MaxValue: 0.999    |

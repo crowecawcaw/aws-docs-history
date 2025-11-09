@@ -105,33 +105,35 @@ Amazon SageMaker Partner AI Apps
 The account with which an Amazon SageMaker Partner AI App is shared needs to have the following AWS Identity and Access Management
 policy.
 
+JSON
+
 ```
-{
-  "Version" : "2012-10-17",
-  "Statement" : [
-    {
-      "Sid" : "AmazonSageMakerPartnerListAppsPermission",
-      "Effect" : "Allow",
-      "Action" : "sagemaker:ListPartnerApps",
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "AmazonSageMakerPartnerAppsPermission",
-      "Effect" : "Allow",
-      "Action" : [
-        "sagemaker:CreatePartnerAppPresignedUrl",
-        "sagemaker:DescribePartnerApp",
-        "sagemaker:CallPartnerAppApi"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : [
-                        "`App-owner AWS account-1`", "`App-owner AWS account-2`", ...
-                    ]
-        }
-      },
-      "Resource" : "arn:aws:sagemaker:*:*:partner-app/*"
-    }
-  ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement" : [
+ {
+ "Sid" : "AmazonSageMakerPartnerListAppsPermission",
+ "Effect" : "Allow",
+ "Action" : "sagemaker:ListPartnerApps",
+ "Resource" : "*"
+ },
+ {
+ "Sid" : "AmazonSageMakerPartnerAppsPermission",
+ "Effect" : "Allow",
+ "Action" : [
+ "sagemaker:CreatePartnerAppPresignedUrl",
+ "sagemaker:DescribePartnerApp",
+ "sagemaker:CallPartnerAppApi"
+ ],
+ "Condition" : {
+ "StringEquals" : {
+ "aws:ResourceAccount" : [
+ "`App-owner AWS account-1`", "`App-owner AWS account-2`"]
+ }
+ },
+ "Resource" : "arn:aws:sagemaker:*:*:partner-app/*"
+ }
+ ]
+}`
+
 ```

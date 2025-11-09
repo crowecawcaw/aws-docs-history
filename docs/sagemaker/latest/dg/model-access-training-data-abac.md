@@ -45,32 +45,37 @@ have access to the value associated with the `tenant-id` key. For more
 information on naming tag keys, see [Rules for tagging in IAM and
 STS](../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules "../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules").
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::<your-input-s3-bucket>/${aws:PrincipalTag/`tenant-id`}/*"
-            ],
-            "Effect": "Allow"
-        },
-            "Action": [
-                "s3:PutObject"
-            ],
-            "Resource": "arn:aws:s3:::<your-output-s3-bucket>/${aws:PrincipalTag/`tenant-id`}/*"
-        },
-        {
-            "Action": "s3:ListBucket",
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`your-input-s3-bucket`/${aws:PrincipalTag/`tenant-id`}/*"
+ ],
+ "Effect": "Allow"
+ },
+ {
+ "Action": [
+ "s3:PutObject"
+ ],
+ "Resource": "arn:aws:s3:::`your-output-s3-bucket`/${aws:PrincipalTag/`tenant-id`}/*",
+ "Effect": "Allow"
+ },
+ {
+ "Action": "s3:ListBucket",
+ "Resource": "*",
+ "Effect": "Allow"
+ }
+ ]
+}`
+
 ```
 
 ## Create a training job with
@@ -135,32 +140,37 @@ sagemaker_session = sagemaker.Session(sagemaker_client=sagemaker_client)
 When appending the tags `"tenant-id=example-tenant"` to the job creation
 role, these tags are extracted by the execution role to use the following policy:
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::<your-input-s3-bucket>/`example-tenant`/*"
-            ],
-            "Effect": "Allow"
-        },
-            "Action": [
-                "s3:PutObject"
-            ],
-            "Resource": "arn:aws:s3:::<your-output-s3-bucket>/`example-tenant`/*"
-        },
-        {
-            "Action": "s3:ListBucket",
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`your-input-s3-bucket`/`example-tenant`/*"
+ ],
+ "Effect": "Allow"
+ },
+ {
+ "Action": [
+ "s3:PutObject"
+ ],
+ "Resource": "arn:aws:s3:::`your-output-s3-bucket`/`example-tenant`/*",
+ "Effect": "Allow"
+ },
+ {
+ "Action": "s3:ListBucket",
+ "Resource": "*",
+ "Effect": "Allow"
+ }
+ ]
+}`
+
 ```
 
 3. Define an estimator to create a training job using the SageMaker Python SDK. Set

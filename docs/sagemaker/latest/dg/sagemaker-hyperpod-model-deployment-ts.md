@@ -269,34 +269,37 @@ Replace the following placeholders:
 - `<REGION>`: Your AWS region
 - `<OIDC_ID>`: Your Amazon EKS cluster's OIDC provider ID
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Federated": "arn:aws:iam::<ACCOUNT_ID>:oidc-provider/oidc.eks.<REGION>.amazonaws.com/id/<OIDC_ID>"
-            },
-            "Action": "sts:AssumeRoleWithWebIdentity",
-            "Condition": {
-                "StringLike": {
-                    "oidc.eks.<REGION>.amazonaws.com/id/<OIDC_ID>:sub": "system:serviceaccount:*:*",
-                    "oidc.eks.<REGION>.amazonaws.com/id/<OIDC_ID>:aud": "sts.amazonaws.com"
-                }
-            }
-        },
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Service": [
-                    "sagemaker.amazonaws.com"
-                ]
-            },
-            "Action": "sts:AssumeRole"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Federated": "arn:aws:iam::111122223333:oidc-provider/oidc.eks.us-east-2.amazonaws.com/id/<OIDC_ID>"
+ },
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringLike": {
+ "oidc.eks.us-east-2.amazonaws.com/id/<OIDC_ID>:sub": "system:serviceaccount:<namespace>:<service-account-name>",
+ "oidc.eks.us-east-2.amazonaws.com/id/<OIDC_ID>:aud": "sts.amazonaws.com"
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "sagemaker.amazonaws.com"
+ ]
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
 ```
 
 **Verification:**
@@ -388,29 +391,32 @@ for the HyperPod inference operator:
 HyperpodInferenceAccessPolicy-ml-cluster to include all resources
 ```
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:PutObject",
-                "s3:GetObject",
-                "s3:DeleteObject"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ecr:GetAuthorizationToken"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket",
+ "s3:PutObject",
+ "s3:GetObject",
+ "s3:DeleteObject"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:GetAuthorizationToken"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
 ```
 
 **Verification steps:**

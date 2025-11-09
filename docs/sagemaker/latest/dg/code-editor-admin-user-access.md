@@ -27,116 +27,118 @@ You must provide your users with permissions to the following:
   To provide permissions, attach the following policy to the IAM roles of your
   users.
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
+JSON
 
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:CreateApp",
-        "sagemaker:DeleteApp"
-      ],
-      "Resource": "arn:aws:sagemaker:{{Region}}:{{AccountId}}:app/*",
-      "Condition": {
-        "Null": {
-          "sagemaker:OwnerUserProfileArn": "true"
-        }
-      }
-    },
-    {
-      "Sid": "SMStudioCreatePresignedDomainUrlForUserProfile",
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:CreatePresignedDomainUrl"
-      ],
-      "Resource": "arn:aws:sagemaker:{{Region}}:{{AccountId}}:user-profile/${sagemaker:DomainId}/${sagemaker:UserProfileName}"
-    },
-    {
-      "Sid": "SMStudioAppPermissionsListAndDescribe",
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:ListApps",
-        "sagemaker:ListDomains",
-        "sagemaker:ListUserProfiles",
-        "sagemaker:ListSpaces",
-        "sagemaker:DescribeApp",
-        "sagemaker:DescribeDomain",
-        "sagemaker:DescribeUserProfile",
-        "sagemaker:DescribeSpace"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "SMStudioAppPermissionsTagOnCreate",
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:AddTags"
-      ],
-      "Resource": "arn:aws:sagemaker:{{Region}}:{{AccountId}}:*/*",
-      "Condition": {
-        "Null": {
-          "sagemaker:TaggingAction": "false"
-        }
-      }
-    },
-    {
-      "Sid": "SMStudioRestrictSharedSpacesWithoutOwners",
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:CreateSpace",
-        "sagemaker:UpdateSpace",
-        "sagemaker:DeleteSpace"
-      ],
-      "Resource": "arn:aws:sagemaker:{{Region}}:{{AccountId}}:space/${sagemaker:DomainId}/*",
-      "Condition": {
-        "Null": {
-          "sagemaker:OwnerUserProfileArn": "true"
-        }
-      }
-    },
-    {
-      "Sid": "SMStudioRestrictSpacesToOwnerUserProfile",
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:CreateSpace",
-        "sagemaker:UpdateSpace",
-        "sagemaker:DeleteSpace"
-      ],
-      "Resource": "arn:aws:sagemaker:{{Region}}:{{AccountId}}:space/${sagemaker:DomainId}/*",
-      "Condition": {
-        "ArnLike": {
-          "sagemaker:OwnerUserProfileArn": "arn:aws:sagemaker:$`AWS Region`:$`111122223333`:user-profile/${sagemaker:`DomainId`}/${sagemaker:`UserProfileName}`"
-        },
-        "StringEquals": {
-          "sagemaker:SpaceSharingType": [
-            "Private",
-            "Shared"
-          ]
-        }
-      }
-    },
-    {
-      "Sid": "SMStudioRestrictCreatePrivateSpaceAppsToOwnerUserProfile",
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:CreateApp",
-        "sagemaker:DeleteApp"
-      ],
-      "Resource": "arn:aws:sagemaker:{{Region}}:{{AccountId}}:app/${sagemaker:DomainId}/*",
-      "Condition": {
-        "ArnLike": {
-          "sagemaker:OwnerUserProfileArn": "arn:aws:sagemaker:${aws:Region}:${aws:PrincipalAccount}:user-profile/${sagemaker:DomainId}/${sagemaker:UserProfileName}"
-        },
-        "StringEquals": {
-          "sagemaker:SpaceSharingType": [
-            "Private"
-          ]
-        }
-      }
-    },
-  ]
-}
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateApp",
+ "sagemaker:DeleteApp"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:app/*",
+ "Condition": {
+ "Null": {
+ "sagemaker:OwnerUserProfileArn": "true"
+ }
+ }
+ },
+ {
+ "Sid": "SMStudioCreatePresignedDomainUrlForUserProfile",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreatePresignedDomainUrl"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:user-profile/`domain-id`/`user-profile-name`"
+ },
+ {
+ "Sid": "SMStudioAppPermissionsListAndDescribe",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:ListApps",
+ "sagemaker:ListDomains",
+ "sagemaker:ListUserProfiles",
+ "sagemaker:ListSpaces",
+ "sagemaker:DescribeApp",
+ "sagemaker:DescribeDomain",
+ "sagemaker:DescribeUserProfile",
+ "sagemaker:DescribeSpace"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "SMStudioAppPermissionsTagOnCreate",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:AddTags"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:*/*",
+ "Condition": {
+ "Null": {
+ "sagemaker:TaggingAction": "false"
+ }
+ }
+ },
+ {
+ "Sid": "SMStudioRestrictSharedSpacesWithoutOwners",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateSpace",
+ "sagemaker:UpdateSpace",
+ "sagemaker:DeleteSpace"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/*",
+ "Condition": {
+ "Null": {
+ "sagemaker:OwnerUserProfileArn": "true"
+ }
+ }
+ },
+ {
+ "Sid": "SMStudioRestrictSpacesToOwnerUserProfile",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateSpace",
+ "sagemaker:UpdateSpace",
+ "sagemaker:DeleteSpace"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/*",
+ "Condition": {
+ "ArnLike": {
+ "sagemaker:OwnerUserProfileArn": "arn:aws:sagemaker:`us-east-1`:`111122223333`:user-profile/`domain-id`/`user-profile-name`"
+ },
+ "StringEquals": {
+ "sagemaker:SpaceSharingType": [
+ "Private",
+ "Shared"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "SMStudioRestrictCreatePrivateSpaceAppsToOwnerUserProfile",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateApp",
+ "sagemaker:DeleteApp"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:app/`domain-id`/*",
+ "Condition": {
+ "ArnLike": {
+ "sagemaker:OwnerUserProfileArn": "arn:aws:sagemaker:`us-east-1`:`111122223333`:user-profile/`domain-id`/`user-profile-name`"
+ },
+ "StringEquals": {
+ "sagemaker:SpaceSharingType": [
+ "Private"
+ ]
+ }
+ }
+ }
+ ]
+}`
 
 ```

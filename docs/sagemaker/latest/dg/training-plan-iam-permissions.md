@@ -156,46 +156,50 @@ Plan users require these permissions:
     `"arn:aws:sagemaker:::training-plan/"` and
     `"arn:aws:sagemaker:::reserved-capacity/"` resource ARNs.
 
+JSON
+
 ```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:CreateTrainingJob"
-        ...// other existing known required actions
-      ],
-      "Resource": [
-        "arn:aws:sagemaker:::training-job/",
-        "arn:aws:sagemaker:::training-plan/",
-        "arn:aws:sagemaker:::reserved-capacity/*"
-      ]
-    }
-  ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateTrainingJob"
+ ],
+ "Resource": [
+ "arn:aws:sagemaker:`us-east-2`:`111122223333`:training-job/",
+ "arn:aws:sagemaker:`us-east-2`:`111122223333`:training-plan/",
+ "arn:aws:sagemaker:`us-east-2`:`111122223333`:reserved-capacity/*"
+ ]
+ }
+ ]
+}`
+
 ```
 
 Similarly, for SageMaker HyperPod configurations, include these same ARNs in addition to the
 cluster-specific resources.
 
+JSON
+
 ```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "sagemaker:CreateCluster",
-        "sagemaker:UpdateCluster",
-        ...// other existing known required actions
-      ],
-      "Resource": [
-        "arn:aws:sagemaker:::cluster/",
-        "arn:aws:sagemaker:::training-plan/",
-        "arn:aws:sagemaker:::reserved-capacity/*"
-      ]
-    }
-  ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateCluster",
+ "sagemaker:UpdateCluster"
+ ],
+ "Resource": [
+ "arn:aws:sagemaker:`us-east-2`:`111122223333`:cluster/",
+ "arn:aws:sagemaker:`us-east-2`:`111122223333`:training-plan/",
+ "arn:aws:sagemaker:`us-east-2`:`111122223333`:reserved-capacity/*"
+ ]
+ }
+ ]
+}`
+
 ```

@@ -214,10 +214,92 @@ job. An `X` under **Model
 name** and **Endpoint name** notes
 the API operation that is required for each input.
 
-| API Operation                                                                                                     | Model name | Endpoint name | What is it used for                                                                 |
-| ----------------------------------------------------------------------------------------------------------------- | ---------- | ------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ListTags](../APIReference/API_ListTags.md "../APIReference/API_ListTags.md")                                     | X          |               | Tags of the job are applied to the shadow endpoint.                                 |
-| [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md") | X          |               | Create endpoint config using the model name that you provided                       |
-| [CreateEndpoint](../APIReference/API_CreateEndpoint.md "../APIReference/API_CreateEndpoint.md")                   | X          |               | Create shadow endpoint using the endpoint config.                                   |
-| [DescribeEndpoint](../APIReference/API_DescribeEndpoint.md "../APIReference/API_DescribeEndpoint.md")             | X          | X             | Describe endpoint for its status, the endpoint must be InService to serve requests. |
-| [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md")   | X          | X             | Invoke the endpoint for predictions.                                                | For more information about required permissions, see [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md"). For more information about passing roles to SageMaker AI, see [Passing Roles](sagemaker-roles.md#sagemaker-roles-pass-role "sagemaker-roles.md#sagemaker-roles-pass-role"). After you have the individual pieces of the processing job configuration, combine them to configure the job. The following code example shows how to launch a SageMaker Clarify processing job using the [AWS SDK for Python](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/"). ``sagemaker_client.create_processing_job( ProcessingJobName="`your-clarify-job-name`", AppSpecification={ "ImageUri": "t`he-clarify-container-image-uri`", }, ProcessingInputs=[{ "InputName": "analysis_config", "S3Input": { "S3Uri": "s3://`your-bucket/analysis_config.json`", "S3DataType": "S3Prefix", "S3InputMode": "File", "LocalPath": "/opt/ml/processing/`input/config`", }, }, { "InputName": "dataset", "S3Input": { "S3Uri": "s3://`your-bucket/your-dataset.csv`", "S3DataType": "S3Prefix", "S3InputMode": "File", "LocalPath": "/opt/ml/processing/`input/data`", }, }, ], ProcessingOutputConfig={ "Outputs": [{ "OutputName": "analysis_result", "S3Output": { "S3Uri": "s3://`your-bucket/result/`", "S3UploadMode": "EndOfJob", "LocalPath": "/opt/ml/processing/`output`", }, }], }, ProcessingResources={ "ClusterConfig": { "InstanceCount": `1`, "InstanceType": "`ml.m5.xlarge`", "VolumeSizeInGB": `20`, }, }, NetworkConfig={ "EnableNetworkIsolation": False, "VpcConfig": { ... }, }, StoppingCondition={ "MaxRuntimeInSeconds": `3600`, }, RoleArn="arn:aws:iam::`<your-account-id>:role/service-role/AmazonSageMaker-ExecutionRole`", )`` For an example notebook with instructions for running a SageMaker Clarify processing job using AWS SDK for Python, see [Fairness and Explainability with SageMaker Clarify using AWS SDK for Python](http://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability_boto3.ipynb "http://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability_boto3.ipynb"). Any S3 bucket used in the notebook must be in the same AWS Region as the notebook instance that accesses it. You can also configure a SageMaker Clarify processing job using the [SageMaker ClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor") in the SageMaker Python SDK API. For more information, see [Run SageMaker Clarify Processing Jobs for Bias Analysis and Explainability](clarify-processing-job-run.md "clarify-processing-job-run.md"). ###### Topics <br>• [Prebuilt SageMaker Clarify Containers](clarify-processing-job-configure-container.md "clarify-processing-job-configure-container.md") <br>• [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md") <br>• [Data Format Compatibility Guide](clarify-processing-job-data-format.md "clarify-processing-job-data-format.md") |
+| API Operation                                                                                                     | Model name | Endpoint name | What is it used for                                                                    |
+| ----------------------------------------------------------------------------------------------------------------- | ---------- | ------------- | -------------------------------------------------------------------------------------- |
+| [ListTags](../APIReference/API_ListTags.md "../APIReference/API_ListTags.md")                                     | X          |               | Tags of the job are applied to the shadow<br>endpoint.                                 |
+| [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md") | X          |               | Create endpoint config using the model name that you<br>provided                       |
+| [CreateEndpoint](../APIReference/API_CreateEndpoint.md "../APIReference/API_CreateEndpoint.md")                   | X          |               | Create shadow endpoint using the endpoint<br>config.                                   |
+| [DescribeEndpoint](../APIReference/API_DescribeEndpoint.md "../APIReference/API_DescribeEndpoint.md")             | X          | X             | Describe endpoint for its status, the endpoint must be<br>InService to serve requests. |
+| [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md")   | X          | X             | Invoke the endpoint for predictions.                                                   |
+
+For more information about required permissions, see [Amazon SageMaker AI API Permissions: Actions,
+Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
+
+For more information about passing roles to SageMaker AI, see [Passing Roles](sagemaker-roles.md#sagemaker-roles-pass-role "sagemaker-roles.md#sagemaker-roles-pass-role").
+
+After you have the individual pieces of the processing job configuration,
+combine them to configure the job.
+The following code example shows how to launch a SageMaker Clarify processing job using the
+[AWS SDK for
+Python](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/").
+
+```
+sagemaker_client.create_processing_job(
+    ProcessingJobName="`your-clarify-job-name`",
+    AppSpecification={
+        "ImageUri": "t`he-clarify-container-image-uri`",
+    },
+    ProcessingInputs=[{
+            "InputName": "analysis_config",
+            "S3Input": {
+                "S3Uri": "s3://`your-bucket/analysis_config.json`",
+                "S3DataType": "S3Prefix",
+                "S3InputMode": "File",
+                "LocalPath": "/opt/ml/processing/`input/config`",
+            },
+        }, {
+            "InputName": "dataset",
+            "S3Input": {
+                "S3Uri": "s3://`your-bucket/your-dataset.csv`",
+                "S3DataType": "S3Prefix",
+                "S3InputMode": "File",
+                "LocalPath": "/opt/ml/processing/`input/data`",
+            },
+        },
+    ],
+    ProcessingOutputConfig={
+        "Outputs": [{
+            "OutputName": "analysis_result",
+            "S3Output": {
+               "S3Uri": "s3://`your-bucket/result/`",
+               "S3UploadMode": "EndOfJob",
+               "LocalPath": "/opt/ml/processing/`output`",
+            },
+        }],
+    },
+    ProcessingResources={
+        "ClusterConfig": {
+            "InstanceCount": `1`,
+            "InstanceType": "`ml.m5.xlarge`",
+            "VolumeSizeInGB": `20`,
+        },
+    },
+    NetworkConfig={
+        "EnableNetworkIsolation": False,
+        "VpcConfig": {
+            ...
+        },
+    },
+    StoppingCondition={
+        "MaxRuntimeInSeconds": `3600`,
+    },
+    RoleArn="arn:aws:iam::`<your-account-id>:role/service-role/AmazonSageMaker-ExecutionRole`",
+)
+
+```
+
+For an example notebook with instructions for running a SageMaker Clarify processing job using
+AWS SDK for Python, see [Fairness and Explainability with SageMaker Clarify using AWS SDK for Python](http://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability_boto3.ipynb "http://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability_boto3.ipynb"). Any
+S3 bucket used in the notebook must be in the same AWS Region as the notebook
+instance that accesses it.
+
+You can also configure a SageMaker Clarify processing job using the [SageMaker ClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor") in the SageMaker Python SDK API. For more information, see
+[Run SageMaker Clarify Processing Jobs for Bias Analysis and
+Explainability](clarify-processing-job-run.md "clarify-processing-job-run.md").
+
+###### Topics
+
+- [Prebuilt SageMaker Clarify
+  Containers](clarify-processing-job-configure-container.md "clarify-processing-job-configure-container.md")
+- [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md")
+- [Data Format Compatibility Guide](clarify-processing-job-data-format.md "clarify-processing-job-data-format.md")

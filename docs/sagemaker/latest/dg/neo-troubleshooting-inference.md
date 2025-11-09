@@ -30,8 +30,16 @@ W-9001-model-stdout com.amazonaws.ml.mms.wlm.WorkerLifeCycle - AttributeError: '
 ```
 
 | Key                           | Value              |
-| ----------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------- | ------------------ |
 | SAGEMAKER_PROGRAM             | inference.py       |
 | SAGEMAKER_SUBMIT_DIRECTORY    | /opt/ml/model/code |
 | SAGEMAKER_CONTAINER_LOG_LEVEL | 20                 |
-| SAGEMAKER_REGION              | <your region>      | <br>• Make sure that the `MMS_DEFAULT_RESPONSE_TIMEOUT` environment variable is set to 500 or a higher value while creating the Amazon SageMaker AI model; otherwise, the following error message may be seen on the terminal: `An error occurred (ModelError) when calling the InvokeEndpoint operation: Received server error (0) from <users-sagemaker-endpoint> with message "Your invocation timed out while waiting for a response from container model. Review the latency metrics for each container in Amazon CloudWatch, resolve the issue, and try again."` |
+| SAGEMAKER_REGION              | <your region>      |
+
+- Make sure that the `MMS_DEFAULT_RESPONSE_TIMEOUT` environment
+  variable is set to 500 or a higher value while creating the Amazon SageMaker AI model;
+  otherwise, the following error message may be seen on the terminal:
+
+```
+An error occurred (ModelError) when calling the InvokeEndpoint operation: Received server error (0) from <users-sagemaker-endpoint> with message "Your invocation timed out while waiting for a response from container model. Review the latency metrics for each container in Amazon CloudWatch, resolve the issue, and try again."
+```

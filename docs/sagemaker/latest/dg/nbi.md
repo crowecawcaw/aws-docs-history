@@ -25,6 +25,10 @@ perform any operations during this period while the underlying software is being
 updated. We recommend that you restart your notebooks at least once every 30 days to
 automatically consume patches.
 
+If the notebook instance isn't updated and is running unsecure software, SageMaker AI
+might periodically update the instance as part of regular maintenance. During these updates,
+data outside of the folder `/home/ec2-user/SageMaker` is not persisted.
+
 For more information, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
 ## Machine Learning with the SageMaker Python

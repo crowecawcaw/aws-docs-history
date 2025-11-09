@@ -63,7 +63,7 @@ Studio Classic
    Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 2. In the left navigation pane, choose the
    **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![Black square icon representing a placeholder or empty image.](/images/sagemaker/latest/dg/images/studio/icons/house.png)
    ).
 3. Choose **Models**, and then **Model
    registry**.

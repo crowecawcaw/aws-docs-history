@@ -25,15 +25,101 @@ always keep the SageMaker Python SDK up to date in your development environment.
 supports**
 
 | PyTorch version                       | SageMaker model parallelism library version | SMP Docker image URI                                                                                 | SMP Enroot image URI                                                                                            |
-| ------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | v2.5.1                                | `smdistributed-modelparallel==v2.8.0`       | `658645717510.dkr.ecr.`<us-west-2>`.amazonaws.com/smdistributed-modelparallel:2.5.1-gpu-py311-cu124` | `https://sagemaker-distributed-model-parallel.s3.`<us-west-2>`.amazonaws.com/enroot/2.5.1-gpu-py311-cu124.sqsh` |
 | v2.4.1                                | `smdistributed-modelparallel==v2.7.0`       | `658645717510.dkr.ecr.`<us-west-2>`.amazonaws.com/smdistributed-modelparallel:2.4.1-gpu-py311-cu121` | `https://sagemaker-distributed-model-parallel.s3.`<us-west-2>`.amazonaws.com/enroot/2.4.1-gpu-py311-cu121.sqsh` |
-| `smdistributed-modelparallel==v2.6.1` | N/A                                         |                                                                                                      | `smdistributed-modelparallel==v2.6.0`                                                                           | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `smdistributed-modelparallel==v2.6.1` | N/A                                         |
+| `smdistributed-modelparallel==v2.6.0` | N/A                                         |
 | v2.3.1                                | `smdistributed-modelparallel==v2.5.0`       | `658645717510.dkr.ecr.`us-west-2`.amazonaws.com/smdistributed-modelparallel:2.3.1-gpu-py311-cu121`   | N/A                                                                                                             |
 | `smdistributed-modelparallel==v2.4.0` |
 | v2.2.0                                | `smdistributed-modelparallel==v2.3.0`       | `658645717510.dkr.ecr.`us-west-2`.amazonaws.com/smdistributed-modelparallel:2.2.0-gpu-py310-cu121`   | N/A                                                                                                             |
 | `smdistributed-modelparallel==v2.2.0` |
 | v2.1.2                                | `smdistributed-modelparallel==v2.1.0`       | `658645717510.dkr.ecr.`us-west-2`.amazonaws.com/smdistributed-modelparallel:2.1.2-gpu-py310-cu121`   | N/A                                                                                                             |
-| v2.0.1                                | `smdistributed-modelparallel==v2.0.0`       | `658645717510.dkr.ecr.`us-west-2`.amazonaws.com/smdistributed-modelparallel:2.0.1-gpu-py310-cu121`   | N/A                                                                                                             | **SMP Conda channel** The following Amazon S3 bucket is a public Conda channel hosted by the SMP service team. If you want to install the SMP v2 library in an environment such as SageMaker HyperPod clusters, use this Conda channel to properly install the SMP library. ``https://sagemaker-distributed-model-parallel.s3.`us-west-2`.amazonaws.com/smp-v2/`` For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_. ###### Note To find previous versions of the SMP library v1.x and pre-packaged DLCs, see [Supported Frameworks](distributed-model-parallel-support.md#distributed-model-parallel-supported-frameworks "distributed-model-parallel-support.md#distributed-model-parallel-supported-frameworks") in the _SMP v1 documentation_. ### Use SMP v2 with open source libraries The SMP v2 library works with other PyTorch-based open source libraries such as PyTorch Lightning, Hugging Face Transformers, and Hugging Face Accelerate, because SMP v2 is compatible with the PyTorch FSDP APIs. If you have further questions on using the SMP library with other third party libraries, contact the SMP service team at `sm-model-parallel-feedback@amazon.com`. ## AWS Regions SMP v2 is available in the following AWS Regions. If you'd like to use the SMP Docker image URIs or the SMP Conda channel, check the following list and choose the AWS Region matching with yours, and update the image URI or the channel URL accordingly. <br>• ap-northeast-1 <br>• ap-northeast-2 <br>• ap-northeast-3 <br>• ap-south-1 <br>• ap-southeast-1 <br>• ap-southeast-2 <br>• ca-central-1 <br>• eu-central-1 <br>• eu-north-1 <br>• eu-west-1 <br>• eu-west-2 <br>• eu-west-3 <br>• sa-east-1 <br>• us-east-1 <br>• us-east-2 <br>• us-west-1 <br>• us-west-2 ## Supported instance types SMP v2 requires one of the following ML instance types. |
-| Instance type                         |                                             | ---                                                                                                  |                                                                                                                 | `ml.p4d.24xlarge`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `ml.p4de.24xlarge`                    |                                             | `ml.p5.48xlarge`                                                                                     |                                                                                                                 | `ml.p5e.48xlarge`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | ###### Tip Starting from SMP v2.2.0 supporting PyTorch v2.2.0 and later, [Mixed precision training with FP8 on P5 instances using Transformer Engine](model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5") is available. For specs of the SageMaker machine learning instance types in general, see the **Accelerated Computing** section in the [Amazon EC2 Instance Types page](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/"). For information about instance pricing, see [Amazon SageMaker AI Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/"). If you encountered an error message similar to the following, follow the instructions at [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _AWS Service Quotas User Guide_. `ResourceLimitExceeded: An error occurred (ResourceLimitExceeded) when calling the CreateTrainingJob operation: The account-level service limit 'ml.p3dn.24xlarge for training job usage' is 0 Instances, with current utilization of 0 Instances and a request delta of 1 Instances. Please contact AWS support to request an increase for this limit.` |
+| v2.0.1                                | `smdistributed-modelparallel==v2.0.0`       | `658645717510.dkr.ecr.`us-west-2`.amazonaws.com/smdistributed-modelparallel:2.0.1-gpu-py310-cu121`   | N/A                                                                                                             |
+
+**SMP Conda channel**
+
+The following Amazon S3 bucket is a public Conda channel hosted by the SMP service team. If
+you want to install the SMP v2 library in an environment such as SageMaker HyperPod clusters,
+use this Conda channel to properly install the SMP library.
+
+```
+https://sagemaker-distributed-model-parallel.s3.`us-west-2`.amazonaws.com/smp-v2/
+```
+
+For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_.
+
+###### Note
+
+To find previous versions of the SMP library v1.x and pre-packaged DLCs, see [Supported Frameworks](distributed-model-parallel-support.md#distributed-model-parallel-supported-frameworks "distributed-model-parallel-support.md#distributed-model-parallel-supported-frameworks") in the _SMP
+v1 documentation_.
+
+### Use
+
+SMP v2 with open source libraries
+
+The SMP v2 library works with other PyTorch-based open source libraries such as
+PyTorch Lightning, Hugging Face Transformers, and Hugging Face Accelerate, because
+SMP v2 is compatible with the PyTorch FSDP APIs. If you have further questions on
+using the SMP library with other third party libraries, contact the SMP service team
+at `sm-model-parallel-feedback@amazon.com`.
+
+## AWS Regions
+
+SMP v2 is available in the following AWS Regions. If you'd like to use the SMP
+Docker image URIs or the SMP Conda channel, check the following list and choose the
+AWS Region matching with yours, and update the image URI or the channel URL
+accordingly.
+
+- ap-northeast-1
+- ap-northeast-2
+- ap-northeast-3
+- ap-south-1
+- ap-southeast-1
+- ap-southeast-2
+- ca-central-1
+- eu-central-1
+- eu-north-1
+- eu-west-1
+- eu-west-2
+- eu-west-3
+- sa-east-1
+- us-east-1
+- us-east-2
+- us-west-1
+- us-west-2
+
+## Supported
+
+instance types
+
+SMP v2 requires one of the following ML instance types.
+
+| Instance type      |
+| ------------------ |
+| `ml.p4d.24xlarge`  |
+| `ml.p4de.24xlarge` |
+| `ml.p5.48xlarge`   |
+| `ml.p5e.48xlarge`  |
+
+###### Tip
+
+Starting from SMP v2.2.0 supporting PyTorch v2.2.0 and later, [Mixed precision training with FP8 on P5 instances using Transformer
+Engine](model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5")
+is available.
+
+For specs of the SageMaker machine learning instance types in general, see the **Accelerated Computing** section in the [Amazon EC2 Instance Types page](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/"). For information about
+instance pricing, see [Amazon SageMaker AI
+Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
+
+If you encountered an error message similar to the following, follow the instructions
+at [Requesting a quota
+increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _AWS Service Quotas User Guide_.
+
+```
+ResourceLimitExceeded: An error occurred (ResourceLimitExceeded) when calling
+    the CreateTrainingJob operation: The account-level service limit 'ml.p3dn.24xlarge
+    for training job usage' is 0 Instances, with current utilization of 0 Instances
+    and a request delta of 1 Instances.
+    Please contact AWS support to request an increase for this limit.
+```

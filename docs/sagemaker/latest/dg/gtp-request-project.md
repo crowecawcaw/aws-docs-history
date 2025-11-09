@@ -28,26 +28,28 @@ To request a project, do the following:
 
       IAM role
 
+      JSON
+
       ```
-      {
-          "Version": "2012-10-17",
-          "Statement": [
-              {
-                  "Effect": "Allow",
-                  "Action": [
-                      "s3:GetObject",
-                      "s3:GetBucketLocation",
-                      "s3:ListBucket",
-                      "s3:PutObject"
-                  ],
-                  "Resource": [
-                      "arn:aws:s3:::`your-bucket-name`",
-                      "arn:aws:s3:::`your-bucket-name`/*"
-                      //Ex: "arn:aws:s3:::input-data-to-label/*"
-                  ]
-              }
-          ]
-      }
+      `{
+       "Version":"2012-10-17",
+       "Statement": [
+       {
+       "Effect": "Allow",
+       "Action": [
+       "s3:GetObject",
+       "s3:GetBucketLocation",
+       "s3:ListBucket",
+       "s3:PutObject"
+       ],
+       "Resource": [
+       "arn:aws:s3:::`your-bucket-name`",
+       "arn:aws:s3:::`your-bucket-name`/*"
+       ]
+       }
+       ]
+      }`
+
       ```
 
       Trust policy

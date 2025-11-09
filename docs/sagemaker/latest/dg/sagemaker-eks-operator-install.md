@@ -75,24 +75,27 @@ CLI
    with the following trust policy. Alternatively, you could use the Amazon EKS console
    to install the add-on, which creates a recommended role.
 
+JSONJSON
+
 ```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowEksAuthToAssumeRoleForPodIdentity",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "pods.eks.amazonaws.com"
-      },
-      "Action": [
-        "sts:AssumeRole",
-        "sts:TagSession",
-        "eks-auth:AssumeRoleForPodIdentity"
-      ]
-    }
-  ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowEksAuthToAssumeRoleForPodIdentity",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "pods.eks.amazonaws.com"
+ },
+ "Action": [
+ "sts:AssumeRole",
+ "sts:TagSession",
+ "eks-auth:AssumeRoleForPodIdentity"
+ ]
+ }
+ ]
+}`
+
 ```
 
 2. Attach the [AmazonSageMakerHyperPodTrainingOperatorAccess managed policy](../../../aws-managed-policy/latest/reference/AmazonSageMakerHyperPodTrainingOperatorAccess.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerHyperPodTrainingOperatorAccess.md") to your created role.
@@ -138,22 +141,182 @@ The training operator comes with a number of options with default values that mi
 We recommend that you try out the training operator with default values before changing them.
 The table below describes all parameters and examples of when you might want to configure each parameter.
 
-| Parameter                                                     | Description                                                 | Default                                                                                               |
-| ------------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hpTrainingControllerManager.manager.resources.requests.cpu    | How many processors to allocate for the controller          | 1                                                                                                     |
-| hpTrainingControllerManager.manager.resources.requests.memory | How much memory to allocate to the controller               | 2Gi                                                                                                   |
-| hpTrainingControllerManager.manager.resources.limits.cpu      | The CPU limit for the controller                            | 2                                                                                                     |
-| hpTrainingControllerManager.manager.resources.limits.memory   | The memory limit for the controller                         | 4Gi                                                                                                   |
-| hpTrainingControllerManager.nodeSelector                      | Node selector for the controller pods                       | Default behavior is to select nodes with the label `sagemaker.amazonaws.com/compute-type: "HyperPod"` | ## HyperPod elastic agent The HyperPod elastic agent is an extension of [PyTorch’s ElasticAgent](https://docs.pytorch.org/docs/stable/elastic/agent.html "https://docs.pytorch.org/docs/stable/elastic/agent.html"). It orchestrates lifecycles of training workers on each container and communicates with the HyperPod training operator. To use the HyperPod training operator, you must first install the HyperPod elastic agent into your training image before you can submit and run jobs using the operator. The following is a docker file that installs elastic agent and uses `hyperpodrun` to create the job launcher. ``RUN pip install hyperpod-elastic-agent ENTRYPOINT ["entrypoint.sh"] # entrypoint.sh ... hyperpodrun --nnodes=`node_count` --nproc-per-node=`proc_count` \ --rdzv-backend hyperpod \ # Optional ... # Other torchrun args # pre-traing arg_group --pre-train-script pre.sh --pre-train-args "pre_1 pre_2 pre_3" \ # post-train arg_group --post-train-script post.sh --post-train-args "post_1 post_2 post_3" \ `training.py` --script-args`` You can now submit jobs with `kubectl`. ### HyperPod elastic agent arguments The HyperPod elastic agent supports all of the original arguments and adds some additional arguments. The following is all of the arguments available in the HyperPod elastic agent. For more information about PyTorch's Elastic Agent, see their [official documentation](https://docs.pytorch.org/docs/stable/elastic/agent.html "https://docs.pytorch.org/docs/stable/elastic/agent.html").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Argument                                                      | Description                                                 | Default Value                                                                                         |
-| ---                                                           | ---                                                         | ---                                                                                                   |
-| --shutdown-signal                                             | Signal to send to workers for shutdown (SIGTERM or SIGKILL) | "SIGKILL"                                                                                             |
-| --shutdown-timeout                                            | Timeout in seconds between SIGTERM and SIGKILL signals      | 30                                                                                                    |
-| --server-host                                                 | Agent server address                                        | "0.0.0.0"                                                                                             |
-| --server-port                                                 | Agent server port                                           | 8080                                                                                                  |
-| --server-log-level                                            | Agent server log level                                      | "info"                                                                                                |
-| --server-shutdown-timeout                                     | Server shutdown timeout in seconds                          | 300                                                                                                   |
-| --pre-train-script                                            | Path to pre-training script                                 | None                                                                                                  |
-| --pre-train-args                                              | Arguments for pre-training script                           | None                                                                                                  |
-| --post-train-script                                           | Path to post-training script                                | None                                                                                                  |
-| --post-train-args                                             | Arguments for post-training script                          | None                                                                                                  | ## Task governance (optional) The training operator is integrated with [HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance.md "sagemaker-hyperpod-eks-operate-console-ui-governance.md"), a robust management system designed to streamline resource allocation and ensure efficient utilization of compute resources across teams and projects for your Amazon EKS clusters. To set up HyperPod task governance, see [Setup for SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md "sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md"). ###### Note When installing the HyperPod task governance add-on, you must use version v1.3.0-eksbuild.1 or higher. When submitting a job, make sure you include your queue name and priority class labels of `hyperpod-ns-`team-name`-localqueue` and ``priority-class`-name-priority`. For example, if you're using Kueue, your labels become the following: <br>• kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue <br>• kueue.x-k8s.io/priority-class: `priority-class`-name-priority The following is an example of what your configuration file might look like: ``` apiVersion: sagemaker.amazonaws.com/v1 kind: HyperPodPytorchJob metadata: name: hp-task-governance-sample namespace: hyperpod-ns-`team-name` labels: kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue kueue.x-k8s.io/priority-class: `priority-class`-priority spec: nprocPerNode: "1" runPolicy: cleanPodPolicy: "None" replicaSpecs: <br>• name: pods replicas: 4 spares: 2 template: spec: containers: <br>• name: ptjob image: XXXX imagePullPolicy: Always ports: <br>• containerPort: 8080 resources: requests: cpu: "2" ``` Then use the following kubectl command to apply the YAML file. ``` kubectl apply -f task-governance-job.yaml ``` ## Kueue (optional) While you can run jobs directly, your organization can also integrate the training operator with Kueue to allocate resources and schedule jobs. Follow the steps below to install Kueue into your HyperPod cluster. 1. Follow the installation guide in the [official Kueue documentation](https://kueue.sigs.k8s.io/docs/installation/#install-a-custom-configured-released-version "https://kueue.sigs.k8s.io/docs/installation/#install-a-custom-configured-released-version"). When you reach the step of configuring `controller_manager_config.yaml`, add the following configuration: ``` externalFrameworks: <br>• "HyperPodPytorchJob.v1.sagemaker.amazonaws.com" ``` 2. Follow the rest of the steps in the official installation guide. After you finish installing Kueue, you can create some sample queues with the `kubectl apply -f sample-queues.yaml` command. Use the following YAML file. `apiVersion: kueue.x-k8s.io/v1beta1 kind: ClusterQueue metadata: name: cluster-queue spec: namespaceSelector: {} preemption: withinClusterQueue: LowerPriority resourceGroups: <br>• coveredResources: <br>• cpu <br>• nvidia.com/gpu <br>• pods flavors: <br>• name: default-flavor resources: <br>• name: cpu nominalQuota: 16 <br>• name: nvidia.com/gpu nominalQuota: 16 <br>• name: pods nominalQuota: 16 --- apiVersion: kueue.x-k8s.io/v1beta1 kind: LocalQueue metadata: name: user-queue namespace: default spec: clusterQueue: cluster-queue --- apiVersion: kueue.x-k8s.io/v1beta1 kind: ResourceFlavor metadata: name: default-flavor --- apiVersion: kueue.x-k8s.io/v1beta1 description: High priority kind: WorkloadPriorityClass metadata: name: high-priority-class value: 1000 --- apiVersion: kueue.x-k8s.io/v1beta1 description: Low Priority kind: WorkloadPriorityClass metadata: name: low-priority-class value: 500` |
+| Parameter                                                     | Description                                        | Default                                                                                               |
+| ------------------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| hpTrainingControllerManager.manager.resources.requests.cpu    | How many processors to allocate for the controller | 1                                                                                                     |
+| hpTrainingControllerManager.manager.resources.requests.memory | How much memory to allocate to the controller      | 2Gi                                                                                                   |
+| hpTrainingControllerManager.manager.resources.limits.cpu      | The CPU limit for the controller                   | 2                                                                                                     |
+| hpTrainingControllerManager.manager.resources.limits.memory   | The memory limit for the controller                | 4Gi                                                                                                   |
+| hpTrainingControllerManager.nodeSelector                      | Node selector for the controller pods              | Default behavior is to select nodes with the label `sagemaker.amazonaws.com/compute-type: "HyperPod"` |
+
+## HyperPod elastic agent
+
+The HyperPod elastic agent is an extension of [PyTorch’s ElasticAgent](https://docs.pytorch.org/docs/stable/elastic/agent.html "https://docs.pytorch.org/docs/stable/elastic/agent.html"). It orchestrates
+lifecycles of training workers on each container and communicates with the HyperPod training operator.
+To use the HyperPod training operator, you must first install the HyperPod elastic agent into your training image
+before you can submit and run jobs using the operator. The following is a docker file that installs elastic agent and uses
+`hyperpodrun` to create the job launcher.
+
+```
+RUN pip install hyperpod-elastic-agent
+
+ENTRYPOINT ["entrypoint.sh"]
+# entrypoint.sh
+...
+hyperpodrun --nnodes=`node_count` --nproc-per-node=`proc_count` \
+            --rdzv-backend hyperpod \ # Optional
+            ... # Other torchrun args
+            # pre-traing arg_group
+            --pre-train-script pre.sh --pre-train-args "pre_1 pre_2 pre_3" \
+            # post-train arg_group
+            --post-train-script post.sh --post-train-args "post_1 post_2 post_3" \
+            `training.py` --script-args
+```
+
+You can now submit jobs with `kubectl`.
+
+### HyperPod elastic agent arguments
+
+The HyperPod elastic agent supports all of the original arguments and adds some additional arguments.
+The following is all of the arguments available in the HyperPod elastic agent. For more information about
+PyTorch's Elastic Agent, see their [official documentation](https://docs.pytorch.org/docs/stable/elastic/agent.html "https://docs.pytorch.org/docs/stable/elastic/agent.html").
+
+| Argument                  | Description                                                 | Default Value |
+| ------------------------- | ----------------------------------------------------------- | ------------- |
+| --shutdown-signal         | Signal to send to workers for shutdown (SIGTERM or SIGKILL) | "SIGKILL"     |
+| --shutdown-timeout        | Timeout in seconds between SIGTERM and SIGKILL signals      | 30            |
+| --server-host             | Agent server address                                        | "0.0.0.0"     |
+| --server-port             | Agent server port                                           | 8080          |
+| --server-log-level        | Agent server log level                                      | "info"        |
+| --server-shutdown-timeout | Server shutdown timeout in seconds                          | 300           |
+| --pre-train-script        | Path to pre-training script                                 | None          |
+| --pre-train-args          | Arguments for pre-training script                           | None          |
+| --post-train-script       | Path to post-training script                                | None          |
+| --post-train-args         | Arguments for post-training script                          | None          |
+
+## Task governance (optional)
+
+The training operator is integrated with [HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance.md "sagemaker-hyperpod-eks-operate-console-ui-governance.md"), a robust management system designed to streamline resource allocation and ensure efficient
+utilization of compute resources across teams and projects for your Amazon EKS clusters. To set up HyperPod task governance,
+see [Setup for
+SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md "sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md").
+
+###### Note
+
+When installing the HyperPod task governance add-on, you must
+use version v1.3.0-eksbuild.1 or higher.
+
+When submitting a job, make sure you include your queue name and priority class labels of
+`hyperpod-ns-`team-name`-localqueue` and ``priority-class`-name-priority`. For example, if you're using Kueue,
+your labels become the following:
+
+- kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue
+- kueue.x-k8s.io/priority-class: `priority-class`-name-priority
+
+The following is an example of what your configuration file might look like:
+
+```
+apiVersion: sagemaker.amazonaws.com/v1
+kind: HyperPodPytorchJob
+metadata:
+  name: hp-task-governance-sample
+  namespace: hyperpod-ns-`team-name`
+  labels:
+    kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue
+    kueue.x-k8s.io/priority-class: `priority-class`-priority
+spec:
+  nprocPerNode: "1"
+  runPolicy:
+    cleanPodPolicy: "None"
+  replicaSpecs:
+    - name: pods
+      replicas: 4
+      spares: 2
+      template:
+        spec:
+          containers:
+            - name: ptjob
+              image: XXXX
+              imagePullPolicy: Always
+              ports:
+                - containerPort: 8080
+              resources:
+                requests:
+                  cpu: "2"
+```
+
+Then use the following kubectl command to apply the YAML file.
+
+```
+kubectl apply -f task-governance-job.yaml
+```
+
+## Kueue (optional)
+
+While you can run jobs directly, your organization can also integrate the training operator
+with Kueue to allocate resources and schedule jobs.
+Follow the steps below to install Kueue into your HyperPod cluster.
+
+1. Follow the installation guide in the [official Kueue documentation](https://kueue.sigs.k8s.io/docs/installation/#install-a-custom-configured-released-version "https://kueue.sigs.k8s.io/docs/installation/#install-a-custom-configured-released-version"). When you reach the
+   step of configuring `controller_manager_config.yaml`, add the following configuration:
+
+```
+externalFrameworks:
+- "HyperPodPytorchJob.v1.sagemaker.amazonaws.com"
+```
+
+2. Follow the rest of the steps in the official installation guide. After you finish installing Kueue,
+   you can create some sample queues with the `kubectl apply -f sample-queues.yaml` command.
+   Use the following YAML file.
+
+```
+apiVersion: kueue.x-k8s.io/v1beta1
+kind: ClusterQueue
+metadata:
+  name: cluster-queue
+spec:
+  namespaceSelector: {}
+  preemption:
+    withinClusterQueue: LowerPriority
+  resourceGroups:
+  - coveredResources:
+    - cpu
+    - nvidia.com/gpu
+    - pods
+    flavors:
+    - name: default-flavor
+      resources:
+      - name: cpu
+        nominalQuota: 16
+      - name: nvidia.com/gpu
+        nominalQuota: 16
+      - name: pods
+        nominalQuota: 16
+---
+apiVersion: kueue.x-k8s.io/v1beta1
+kind: LocalQueue
+metadata:
+  name: user-queue
+  namespace: default
+spec:
+  clusterQueue: cluster-queue
+---
+apiVersion: kueue.x-k8s.io/v1beta1
+kind: ResourceFlavor
+metadata:
+  name: default-flavor
+---
+apiVersion: kueue.x-k8s.io/v1beta1
+description: High priority
+kind: WorkloadPriorityClass
+metadata:
+  name: high-priority-class
+value: 1000
+---
+apiVersion: kueue.x-k8s.io/v1beta1
+description: Low Priority
+kind: WorkloadPriorityClass
+metadata:
+  name: low-priority-class
+value: 500
+```

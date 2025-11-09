@@ -105,7 +105,7 @@ SageMaker training plans managed policies
 View details about updates to AWS managed policies for Amazon SageMaker AI since this service
 began tracking these changes.
 
-| Policy                                                   | Version | Change                                                                                                                                         | Date             |
-| -------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| AmazonSageMakerTrainingPlanCreateAccess - updated policy | 2       | Updated policy to add permissions to retrieve information about a specific reserved capacity and list all UltraServers in a reserved capacity. | July 29, 2024    |
-| AmazonSageMakerTrainingPlanCreateAccess - New policy     | 1       | Initial policy                                                                                                                                 | December 4, 2024 |
+| Policy                                                      | Version | Change                                                                                                                                            | Date             |
+| ----------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| AmazonSageMakerTrainingPlanCreateAccess<br>• updated policy | 2       | Updated policy to add permissions to retrieve information about a<br>specific reserved capacity and list all UltraServers in a reserved capacity. | July 29, 2024    |
+| AmazonSageMakerTrainingPlanCreateAccess<br>• New<br>policy  | 1       | Initial policy                                                                                                                                    | December 4, 2024 |

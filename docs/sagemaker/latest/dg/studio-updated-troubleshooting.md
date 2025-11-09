@@ -160,11 +160,60 @@ instances types per Region, see [Amazon SageMaker AI pricing](https://aws.amazon
 The following table lists instance families and their recommended alternatives.
 
 | Instance family | CPU Type                                      | vCPUs    | Memory (GiB) | GPU type                | GPUs   | GPU Memory (GiB)                 | Recommended alternative |
-| --------------- | --------------------------------------------- | -------- | ------------ | ----------------------- | ------ | -------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | --------------------------------------------- | -------- | ------------ | ----------------------- | ------ | -------------------------------- | ----------------------- |
 | G4dn            | 2nd Generation Intel Xeon Scalable Processors | 4 to 96  | 16 to 384    | NVIDIA T4 Tensor Core   | 1 to 8 | 16 per GPU                       | G6                      |
 | G5              | 2nd generation AMD EPYC processors            | 4 to 192 | 16 to 768    | NVIDIA A10G Tensor core | 1 to 8 | 24 per GPU                       | G6e                     |
 | G6              | 3rd generation AMD EPYC processors            | 4 to 192 | 16 to 768    | NVIDIA L4 Tensor Core   | 1 to 8 | 24 per GPU                       | G4dn                    |
 | G6e             | 3rd generation AMD EPYC processors            | 4 to 192 | 32 to 1536   | NVIDIA L40S Tensor Core | 1 to 8 | 48 per GPU                       | G5, P4                  |
 | P3              | Intel Xeon Scalable Processors                | 8 to 96  | 61 to 768    | NVIDIA Tesla V100       | 1 to 8 | 16 per GPU (32 per GPU for P3dn) | G6e, P4                 |
 | P4              | 2nd Generation Intel Xeon Scalable processors | 96       | 1152         | NVIDIA A100 Tensor Core | 8      | 320 (640 for P4de)               | G6e                     |
-| P5              | 3rd Gen AMD EPYC processors                   | 192      | 2000         | NVIDIA H100 Tensor Core | 8      | 640                              | P4de                    | ## Insufficient limit (quota increase required) This issue occurs when you get the following error message while attempting to run a space. `Error when creating application for space: ... : The account-level service limit is X Apps, with current utilization Y Apps and a request delta of 1 Apps. Please use Service Quotas to request an increase for this quota.` There is a default limit on the number of instances, for each instance type, that you can run in each AWS Region. This error means that you have reached that limit. To resolve this issue, request an instance limit increase for the AWS Region that you are launching the space in. For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md"). ## Failure to load custom image This issue occurs when a SageMaker AI image is deleted before detaching the image from your domain. This can be seen when you view the **Environment** tab for your domain. To resolve this issue, you will need to create a temporary new image with the same name as the deleted one, detach the image, then delete the temporary image. Use the following instructions for a walk through. 1. If you have not already done so, launch the [SageMaker AI console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker"). 2. In the left navigation menu, under **Admin configurations**, choose **Domains**. 3. Choose your domain. 4. Choose the **Environment** tab. You will see the error message on this page. 5. Copy your image name from the image ARN. 6. In the left navigation menu, under **Admin configurations**, choose **Images**. 7. Choose **Create image**. 8. Follow the steps in the procedure, but ensure that your image name is the same as the image name from above. If you do not have an image in a Amazon ECR directory, see the instructions in [Create a custom image and push to Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md"). 9. Once you have created your SageMaker AI image, navigate back to your domain **Environment** tab. You will see the image attached to your domain. 10. Select the image and choose **Detach**. 11. Follow the instructions to detach and delete the temporary SageMaker AI image. |
+| P5              | 3rd Gen AMD EPYC processors                   | 192      | 2000         | NVIDIA H100 Tensor Core | 8      | 640                              | P4de                    |
+
+## Insufficient limit
+
+(quota increase required)
+
+This issue occurs when you get the following error message while attempting to run a
+space.
+
+```
+Error when creating application for space: ... : The account-level service limit is X Apps, with current utilization Y Apps and a request delta of 1 Apps. Please use Service Quotas to request an increase for this quota.
+```
+
+There is a default limit on the number of instances, for each instance type, that you
+can run in each AWS Region. This error means that you have reached that limit.
+
+To resolve this issue, request an instance limit increase for the AWS Region that
+you are launching the space in. For more information, see [Requesting a quota
+increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md").
+
+## Failure to load custom
+
+image
+
+This issue occurs when a SageMaker AI image is deleted before detaching the image from your
+domain. This can be seen when you view the **Environment** tab for
+your domain.
+
+To resolve this issue, you will need to create a temporary new image with the same
+name as the deleted one, detach the image, then delete the temporary image. Use the
+following instructions for a walk through.
+
+1. If you have not already done so, launch the [SageMaker AI console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker").
+2. In the left navigation menu, under **Admin configurations**,
+   choose **Domains**.
+3. Choose your domain.
+4. Choose the **Environment** tab. You will see the error
+   message on this page.
+5. Copy your image name from the image ARN.
+6. In the left navigation menu, under **Admin configurations**,
+   choose **Images**.
+7. Choose **Create image**.
+8. Follow the steps in the procedure, but ensure that your image name is the same
+   as the image name from above.
+
+If you do not have an image in a Amazon ECR directory, see the instructions in
+[Create a custom image and push to
+Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md"). 9. Once you have created your SageMaker AI image, navigate back to your domain
+**Environment** tab. You will see the image attached to
+your domain. 10. Select the image and choose **Detach**. 11. Follow the instructions to detach and delete the temporary SageMaker AI image.

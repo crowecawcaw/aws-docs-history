@@ -49,25 +49,28 @@ For users connecting via deep links from the SageMaker UI, use the following
 permission and attach it to your SageMaker AI [space execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role-space "sagemaker-roles.md#sagemaker-roles-get-execution-role-space") or [domain execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role"). If the space execution role is not
 configured, the domain execution role is used by default.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "RestrictStartSessionOnSpacesToUserProfile",
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:StartSession"
-            ],
-            "Resource": "arn:*:sagemaker:*:*:space/${sagemaker:DomainId}/*",
-            "Condition": {
-                "ArnLike": {
-                    "sagemaker:ResourceTag/sagemaker:user-profile-arn": "arn:aws:sagemaker:*:*:user-profile/${sagemaker:DomainId}/${sagemaker:UserProfileName}"
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RestrictStartSessionOnSpacesToUserProfile",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:StartSession"
+ ],
+ "Resource": "arn:*:sagemaker:*:*:space/${sagemaker:DomainId}/*",
+ "Condition": {
+ "ArnLike": {
+ "sagemaker:ResourceTag/sagemaker:user-profile-arn": "arn:aws:sagemaker:*:*:user-profile/${sagemaker:DomainId}/${sagemaker:UserProfileName}"
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 ### Method 2: AWS Toolkit permissions
@@ -91,36 +94,39 @@ the principle of least privilege. See [Advanced access control](remote-access-re
 granular permission policies using resource ARNs, tags, and network-based
 constraints.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:ListSpaces",
-                "sagemaker:DescribeSpace",
-                "sagemaker:ListApps",
-                "sagemaker:DescribeApp",
-                "sagemaker:DescribeDomain",
-                "sagemaker:UpdateSpace",
-                "sagemaker:CreateApp",
-                "sagemaker:DeleteApp",
-                "sagemaker:AddTags"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "AllowStartSessionOnSpaces",
-            "Effect": "Allow",
-            "Action": "sagemaker:StartSession",
-            "Resource": [
-                "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name-1`",
-                "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name-2`"
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:ListSpaces",
+ "sagemaker:DescribeSpace",
+ "sagemaker:ListApps",
+ "sagemaker:DescribeApp",
+ "sagemaker:DescribeDomain",
+ "sagemaker:UpdateSpace",
+ "sagemaker:CreateApp",
+ "sagemaker:DeleteApp",
+ "sagemaker:AddTags"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowStartSessionOnSpaces",
+ "Effect": "Allow",
+ "Action": "sagemaker:StartSession",
+ "Resource": [
+ "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name-1`",
+ "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name-2`"
+ ]
+ }
+ ]
+}`
+
 ```
 
 ### Method 3: SSH terminal permissions
@@ -146,21 +152,24 @@ The policy needs to be attached to the IAM identity (user/role)
 used in your local AWS credentials configuration, not to the
 Amazon SageMaker AI domain execution role.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowStartSessionOnSpecificSpaces",
-            "Effect": "Allow",
-            "Action": "sagemaker:StartSession",
-            "Resource": [
-                "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name-1`",
-                "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name-2`"
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowStartSessionOnSpecificSpaces",
+ "Effect": "Allow",
+ "Action": "sagemaker:StartSession",
+ "Resource": [
+ "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name-1`",
+ "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name-2`"
+ ]
+ }
+ ]
+}`
+
 ```
 
 After setup, users can run `ssh my_studio_space_abc` to start up

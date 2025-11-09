@@ -26,6 +26,27 @@ follows:
 
         L1(Pa,
 Pd) =
-|na(0) - nd(0)| +
-|na(1) - nd(1)| +
-|na(2) - nd(2)| Where: <br>• na(i) is number of the ith category outcomes in facet _a_: for example na(0) is number of facet _a_ acceptances. <br>• nd(i) is number of the ith category outcomes in facet d: for example nd(2) is number of facet _d_ rejections. The range of TVD values for binary, multicategory, and continuous outcomes is [0, 1), where: + Values near zero mean the labels are similarly distributed. + Positive values mean the label distributions diverge, the more positive the larger the divergence.
+|na(0) -
+nd(0)| +
+|na(1) -
+nd(1)| +
+|na(2) -
+nd(2)|
+
+Where:
+
+- na(i) is number of the
+  ith category outcomes in facet _a_: for
+  example na(0) is number of
+  facet _a_ acceptances.
+- nd(i) is number of the
+  ith category outcomes in facet d: for example
+  nd(2) is number of
+  facet _d_ rejections.
+
+The range of TVD values for binary, multicategory, and continuous outcomes
+is [0, 1), where:
+
+    + Values near zero mean the labels are similarly distributed.
+    + Positive values mean the label distributions diverge, the more
+     positive the larger the divergence.

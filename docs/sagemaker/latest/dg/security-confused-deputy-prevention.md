@@ -56,30 +56,30 @@ The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount` global condition keys in SageMaker AI to prevent the confused deputy
 problem.
 
+JSON
+
 ```
-{
-  "Version": "2012-10-17",
-  "Statement": {
-    "Sid": "ConfusedDeputyPreventionExamplePolicy",
-    "Effect": "Allow",
-    "Principal": {
-      "Service": "sagemaker.amazonaws.com"
-    },
-    # Specify an action and resource policy for another service
-    "Action": "`service`:`ActionName`",
-    "Resource": [
-      "arn:aws:`service`:::`ResourceName`/*"
-    ],
-    "Condition": {
-      "ArnLike": {
-        "aws:SourceArn": "arn:`partition`:sagemaker:`region`:`123456789012`:*"
-      },
-      "StringEquals": {
-        "aws:SourceAccount": "`123456789012`"
-      }
-    }
-  }
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Sid": "ConfusedDeputyPreventionExamplePolicy",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "sagemaker.amazonaws.com"
+ },
+ "Action": "`sagemaker`:`StartSession`",
+ "Resource": "arn:aws:`sagemaker`:`us-east-1`:`123456789012`:`ResourceName`/*",
+ "Condition": {
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:sagemaker:`us-east-1`:`123456789012`:*"
+ },
+ "StringEquals": {
+ "aws:SourceAccount": "`123456789012`"
+ }
+ }
+ }
+}`
+
 ```
 
 ## SageMaker Edge Manager

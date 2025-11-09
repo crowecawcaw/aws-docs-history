@@ -24,27 +24,30 @@ You can specify any additional Amazon S3 buckets that you want your hub to acces
 below. Be sure to replace `REGION` with
 the Region of your hub.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "s3:*",
-            "Effect": "Deny",
-            "NotResource": [
-                "arn:aws:s3:::jumpstart-cache-prod-`REGION`/*.ipynb",
-                "arn:aws:s3:::jumpstart-cache-prod-`REGION`/*eula*",
-                `"Additional-S3-bucket-ARNs-as-needed"`
-            ],
-        },
-        {
-            "Action": "sagemaker:*",
-            "Effect": "Deny",
-            "Resource": [
-                "arn:aws:sagemaker:`REGION`:aws:hub/SageMakerPublicHub",
-                "arn:aws:sagemaker:`REGION`:aws:hub-content/SageMakerPublicHub/*/*"
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": "s3:*",
+ "Effect": "Deny",
+ "NotResource": [
+ "arn:aws:s3:::jumpstart-cache-prod-us-east-1/*.ipynb",
+ "arn:aws:s3:::jumpstart-cache-prod-us-east-1/*eula*",
+ "arn:aws:s3:::amzn-s3-demo-bucket/*"
+ ]
+ },
+ {
+ "Action": "sagemaker:*",
+ "Effect": "Deny",
+ "Resource": [
+ "arn:aws:sagemaker:us-east-1:aws:hub/SageMakerPublicHub",
+ "arn:aws:sagemaker:us-east-1:aws:hub-content/SageMakerPublicHub/*/*"
+ ]
+ }
+ ]
+}`
+
 ```

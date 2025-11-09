@@ -55,29 +55,32 @@ allow all of the following operations:
 
 resource share for an accounts lineage group.
 
+JSON
+
 ```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "FullLineageAccess",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "`123456789012`" #account-id
-      },
-      "Action": [
-        "sagemaker:DescribeAction",
-        "sagemaker:DescribeArtifact",
-        "sagemaker:DescribeContext",
-        "sagemaker:DescribeTrialComponent",
-        "sagemaker:AddAssociation",
-        "sagemaker:DeleteAssociation",
-        "sagemaker:QueryLineage"
-      ],
-      "Resource": "arn:aws:sagemaker:`us-west-2`:`111111111111`:lineage-group/sagemaker-default-lineage-group" #Sample lineage group resource
-    }
-  ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "FullLineageAccess",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "`111122223333`"
+ },
+ "Action": [
+ "sagemaker:DescribeAction",
+ "sagemaker:DescribeArtifact",
+ "sagemaker:DescribeContext",
+ "sagemaker:DescribeTrialComponent",
+ "sagemaker:AddAssociation",
+ "sagemaker:DeleteAssociation",
+ "sagemaker:QueryLineage"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-west-2`:`111111111111`:lineage-group/sagemaker-default-lineage-group"
+ }
+ ]
+}`
+
 ```
 
 ## Tracking Cross-Account Lineage Entities

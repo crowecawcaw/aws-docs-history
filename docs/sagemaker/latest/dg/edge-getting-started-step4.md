@@ -210,7 +210,7 @@ cd agent_demo
 Your `agent_demo` directory on your edge device should look similar
 to the following:
 
-````
+```
 ├──agent_demo
 |    ├── bin
 |        ├── sagemaker_edge_agent_binary
@@ -227,5 +227,5 @@ to the following:
 |        └── examples
 |    ├── ATTRIBUTIONS.txt
 |    ├── LICENSE.txt
-|    └── RELEASE_NOTES.md ```
-````
+|    └── RELEASE_NOTES.md
+```

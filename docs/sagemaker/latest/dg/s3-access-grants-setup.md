@@ -15,28 +15,31 @@ permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.
 - `S3-ACCESS-GRANT-ROLE` is your Amazon S3 Access
   Grant role
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowDataAccessAPI",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetDataAccess"
-            ],
-            "Resource": [
-                "arn:aws:s3:`us-east-1`:`111122223333`:access-grants/default"
-            ]
-        },
-        {
-            "Sid": "RequiredForTIP",
-            "Effect": "Allow",
-            "Action": "sts:SetContext",
-            "Resource": "arn:aws:iam::`111122223333`:role/`S3-ACCESS-GRANT-ROLE`"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowDataAccessAPI",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetDataAccess"
+ ],
+ "Resource": [
+ "arn:aws:s3:`us-east-1`:`111122223333`:access-grants/default"
+ ]
+ },
+ {
+ "Sid": "RequiredForTIP",
+ "Effect": "Allow",
+ "Action": "sts:SetContext",
+ "Resource": "arn:aws:iam::`111122223333`:role/`S3-ACCESS-GRANT-ROLE`"
+ }
+ ]
+}`
+
 ```
 
 Ensure that your Amazon S3 Access Grants role's trust policy allows the
@@ -44,30 +47,33 @@ Ensure that your Amazon S3 Access Grants role's trust policy allows the
 example policy for when you [update your role trust
 policy](../../../IAM/latest/UserGuide/id_roles_update-role-trust-policy.md "../../../IAM/latest/UserGuide/id_roles_update-role-trust-policy.md").
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Service": [
-                    "access-grants.s3.amazonaws.com"
-                ]
-            },
-            "Action": [
-                "sts:AssumeRole",
-                "sts:SetContext"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": "`111122223333`",
-                    "aws:SourceArn": "arn:aws:s3:`us-east-1`:`111122223333`:access-grants/default"
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "access-grants.s3.amazonaws.com"
+ ]
+ },
+ "Action": [
+ "sts:AssumeRole",
+ "sts:SetContext"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`111122223333`",
+ "aws:SourceArn": "arn:aws:s3:`us-east-1`:`111122223333`:access-grants/default"
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 ## Use Amazon S3 Access Grants to call

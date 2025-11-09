@@ -223,8 +223,25 @@ The following table lists the Amazon Elastic Compute Cloud (Amazon EC2) instance
 automated data labeling for training and batch inference jobs.
 
 | Automated Data Labeling Job Type | Training Instance Type | Inference Instance Type |
-| -------------------------------- | ---------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------- | ---------------------- | ----------------------- |
 | Image classification             | ml.p3.2xlarge\*        | ml.c5.xlarge            |
 | Object detection (bounding box)  | ml.p3.2xlarge\*        | ml.c5.4xlarge           |
 | Text classification              | ml.c5.2xlarge          | ml.m4.xlarge            |
-| Semantic segmentation            | ml.p3.2xlarge\*        | ml.p3.2xlarge\*         | \* In the Asia Pacific (Mumbai) Region (ap-south-1) use ml.p2.8xlarge instead. Ground Truth manages the instances that you use for automated data labeling jobs. It creates, configures, and terminates the instances as needed to perform your job. These instances don't appear in your Amazon EC2 instance dashboard. ## Set up an active learning workflow with your own model You can create an active learning workflow with your own algorithm to run training and inferences in that workflow to auto-label your data. The notebook bring_your_own_model_for_sagemaker_labeling_workflows_with_active_learning.ipynb demonstrates this using the SageMaker AI built-in algorithm, [BlazingText](blazingtext.md "blazingtext.md"). This notebook provides an AWS CloudFormation stack that you can use to execute this workflow using AWS Step Functions. You can find the notebook and supporting files in this [GitHub repository](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/ground_truth_labeling_jobs/bring_your_own_model_for_sagemaker_labeling_workflows_with_active_learning "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/ground_truth_labeling_jobs/bring_your_own_model_for_sagemaker_labeling_workflows_with_active_learning"). |
+| Semantic segmentation            | ml.p3.2xlarge\*        | ml.p3.2xlarge\*         |
+
+\* In the Asia Pacific (Mumbai) Region (ap-south-1) use ml.p2.8xlarge instead.
+
+Ground Truth manages the instances that you use for automated data labeling jobs. It
+creates, configures, and terminates the instances as needed to perform your job.
+These instances don't appear in your Amazon EC2 instance dashboard.
+
+## Set up an active learning workflow
+
+with your own model
+
+You can create an active learning workflow with your own algorithm to run training
+and inferences in that workflow to auto-label your data. The notebook
+bring_your_own_model_for_sagemaker_labeling_workflows_with_active_learning.ipynb
+demonstrates this using the SageMaker AI built-in algorithm, [BlazingText](blazingtext.md "blazingtext.md"). This notebook
+provides an AWS CloudFormation stack that you can use to execute this workflow using AWS Step Functions.
+You can find the notebook and supporting files in this [GitHub repository](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/ground_truth_labeling_jobs/bring_your_own_model_for_sagemaker_labeling_workflows_with_active_learning "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/ground_truth_labeling_jobs/bring_your_own_model_for_sagemaker_labeling_workflows_with_active_learning").

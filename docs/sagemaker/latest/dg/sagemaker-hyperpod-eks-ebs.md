@@ -96,30 +96,33 @@ the IAM role used to run the driver add-on. Note that this is the IAM role
 specified in your service account configuration for the driver add-on, not the
 HyperPod cluster execution role.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement":
-    [
-        {
-            "Effect": "Allow",
-            "Action":
-            [
-                "sagemaker:AttachClusterNodeVolume",
-                "sagemaker:DetachClusterNodeVolume"
-            ],
-            "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:cluster/*"
-        },
-        {
-            "Effect": "Allow",
-            "Action":
-            [
-                "eks:DescribeCluster"
-            ],
-            "Resource": "arn:aws:eks:`us-east-1`:`111122223333`:cluster/my-cluster-name"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement":
+ [
+ {
+ "Effect": "Allow",
+ "Action":
+ [
+ "sagemaker:AttachClusterNodeVolume",
+ "sagemaker:DetachClusterNodeVolume"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:cluster/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action":
+ [
+ "eks:DescribeCluster"
+ ],
+ "Resource": "arn:aws:eks:`us-east-1`:`111122223333`:cluster/my-cluster-name"
+ }
+ ]
+}`
+
 ```
 
 ## Using the APIs
@@ -141,76 +144,82 @@ following.**
 
 ### Required permissions for `sagemaker:AttachClusterNodeVolume`
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement":
-    [
-        {
-            "Effect": "Allow",
-            "Action":
-            [
-                "sagemaker:AttachClusterNodeVolume"
-            ],
-            "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:cluster/*"
-        },
-        {
-            "Effect": "Allow",
-            "Action":
-            [
-                "eks:DescribeCluster"
-            ],
-            "Resource": "arn:aws:eks:`us-east-1`:`111122223333`:cluster/my-cluster-name"
-        },
-        {
-            "Effect": "Allow",
-            "Action":
-            [
-                "ec2:AttachVolume",
-                "ec2:DescribeVolume"
-            ],
-            "Resource": "arn:aws:ec2:`us-east-1`:`111122223333`:volume/*"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement":
+ [
+ {
+ "Effect": "Allow",
+ "Action":
+ [
+ "sagemaker:AttachClusterNodeVolume"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:cluster/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action":
+ [
+ "eks:DescribeCluster"
+ ],
+ "Resource": "arn:aws:eks:`us-east-1`:`111122223333`:cluster/my-cluster-name"
+ },
+ {
+ "Effect": "Allow",
+ "Action":
+ [
+ "ec2:AttachVolume",
+ "ec2:DescribeVolumes"
+ ],
+ "Resource": "arn:aws:ec2:`us-east-1`:`111122223333`:volume/*"
+ }
+ ]
+}`
+
 ```
 
 ### Required
 
 permissions for `sagemaker:DetachClusterNodeVolume`
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement":
-    [
-        {
-            "Effect": "Allow",
-            "Action":
-            [
-                "sagemaker:DetachClusterNodeVolume"
-            ],
-            "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:cluster/*"
-        },
-        {
-            "Effect": "Allow",
-            "Action":
-            [
-                "eks:DescribeCluster"
-            ],
-            "Resource": "arn:aws:eks:`us-east-1`:`111122223333`:cluster/my-cluster-name"
-        },
-        {
-            "Effect": "Allow",
-            "Action":
-            [
-                "ec2:DetachVolume",
-                "ec2:DescribeVolume"
-            ],
-            "Resource": "arn:aws:ec2:`us-east-1`:`111122223333`:volume/*"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement":
+ [
+ {
+ "Effect": "Allow",
+ "Action":
+ [
+ "sagemaker:DetachClusterNodeVolume"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:cluster/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action":
+ [
+ "eks:DescribeCluster"
+ ],
+ "Resource": "arn:aws:eks:`us-east-1`:`111122223333`:cluster/my-cluster-name"
+ },
+ {
+ "Effect": "Allow",
+ "Action":
+ [
+ "ec2:DetachVolume",
+ "ec2:DescribeVolumes"
+ ],
+ "Resource": "arn:aws:ec2:`us-east-1`:`111122223333`:volume/*"
+ }
+ ]
+}`
+
 ```
 
 ### Required permissions
@@ -222,55 +231,58 @@ KMS keys to encrypt your Amazon EBS volumes attached to HyperPod
 cluster nodes. These permissions are not required if you're using
 AWS-managed KMS keys (the default encryption option).
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Id": "key-default-1",
-    "Statement":
-    [
-        {
-            "Effect": "Allow",
-            "Principal":
-            {
-                "AWS": "arn:aws:iam::`111122223333`:role/caller-role"
-            },
-            "Action": "kms:DescribeKey",
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Principal":
-            {
-                "AWS": "arn:aws:iam::`111122223333`:role/caller-role"
-            },
-            "Action": "kms:CreateGrant",
-            "Resource": "*",
-            "Condition":
-            {
-                "StringEquals":
-                {
-                    "kms:CallerAccount": "`111122223333`",
-                    "kms:ViaService": "ec2.region.amazonaws.com"
-                },
-                "ForAnyValue:StringEquals":
-                {
-                    "kms:EncryptionContextKeys": "aws:ebs:id"
-                },
-                "Bool":
-                {
-                    "kms:GrantIsForAWSResource": true
-                },
-                "ForAllValues:StringEquals":
-                {
-                    "kms:GrantOperations":
-                    [
-                        "Decrypt"
-                    ]
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Id": "key-default-1",
+ "Statement":
+ [
+ {
+ "Effect": "Allow",
+ "Principal":
+ {
+ "AWS": "arn:aws:iam::`111122223333`:role/caller-role"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Principal":
+ {
+ "AWS": "arn:aws:iam::`111122223333`:role/caller-role"
+ },
+ "Action": "kms:CreateGrant",
+ "Resource": "*",
+ "Condition":
+ {
+ "StringEquals":
+ {
+ "kms:CallerAccount": "`111122223333`",
+ "kms:ViaService": "ec2.`us-east-1`.amazonaws.com"
+ },
+ "ForAnyValue:StringEquals":
+ {
+ "kms:EncryptionContextKeys": "aws:ebs:id"
+ },
+ "Bool":
+ {
+ "kms:GrantIsForAWSResource": true
+ },
+ "ForAllValues:StringEquals":
+ {
+ "kms:GrantOperations":
+ [
+ "Decrypt"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 ###### Note

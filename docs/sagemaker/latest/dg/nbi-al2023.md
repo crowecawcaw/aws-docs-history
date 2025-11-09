@@ -27,11 +27,11 @@ The following table gives information about the available kernels for SageMaker 
 instances. All of these images are supported on notebook instances based on the
 `notebook-al2023-v1` operating system.
 
-| Kernel name          | Description                                                                                                                                                                 |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| R                    | A kernel used to perform data analysis and visualization using R code from a Jupyter notebook.                                                                              |
-| Sparkmagic (PySpark) | A kernel used to do data science with remote Spark clusters from Jupyter notebooks using the Python programming language. This kernel comes with Python 3.10.               |
-| Sparkmagic (Spark)   | A kernel used to do data science with remote Spark clusters from Jupyter notebooks using the Scala programming language. This kernel comes with Python 3.10.                |
-| Sparkmagic (SparkR)  | A kernel used to do data science with remote Spark clusters from Jupyter notebooks using the R programming language. This kernel comes with Python 3.10.                    |
-| conda_python3        | A conda environment that comes pre-installed with popular packages for data science and machine learning. This kernel comes with Python 3.10.                               |
-| conda_pytorch        | A conda environment that comes pre-installed with PyTorch version 2.7.0, as well as popular data science and machine learning packages. This kernel comes with Python 3.10. |
+| Kernel name          | Description                                                                                                                                                                       |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| R                    | A kernel used to perform data analysis and visualization using R code<br>from a Jupyter notebook.                                                                                 |
+| Sparkmagic (PySpark) | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the Python programming language. This kernel<br>comes with Python 3.10.               |
+| Sparkmagic (Spark)   | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the Scala programming language. This kernel<br>comes with Python 3.10.                |
+| Sparkmagic (SparkR)  | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the R programming language. This kernel comes<br>with Python 3.10.                    |
+| conda_python3        | A conda environment that comes pre-installed with popular packages<br>for data science and machine learning. This kernel comes with Python<br>3.10.                               |
+| conda_pytorch        | A conda environment that comes pre-installed with PyTorch version<br>2.7.0, as well as popular data science and machine learning packages.<br>This kernel comes with Python 3.10. |

@@ -22,4 +22,7 @@ ExecuteBashScript("./utils/`configure_xyz.sh`").run()
 5. Upload the updated lifecycle scripts to the S3 bucket that you initially used
    for uploading the base lifecycle scripts.
 6. Test the integrated version of `lifecycle_script.py` by creating a
-   new HyperPod cluster.
+   new HyperPod cluster. You can also use manual instance replacement to
+   test the updated lifecycle scripts by creating new instances. For detailed
+   instructions, see [Manually replace a node](sagemaker-hyperpod-resiliency-slurm-replace-faulty-instance.md#sagemaker-hyperpod-resiliency-slurm-replace-faulty-instance-replace "sagemaker-hyperpod-resiliency-slurm-replace-faulty-instance.md#sagemaker-hyperpod-resiliency-slurm-replace-faulty-instance-replace"). Note that only worker nodes are
+   replaceable.

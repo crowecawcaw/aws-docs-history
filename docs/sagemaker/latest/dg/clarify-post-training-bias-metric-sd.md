@@ -44,12 +44,35 @@ The following variables used to calculated SD are defined as follows:
 Confusion matrix for the favored facet `a`
 
 | Class a predictions | Actual outcome 0 | Actual outcome 1 | Total |
-| ------------------- | ---------------- | ---------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ---------------- | ---------------- | ----- |
 | 0                   | 20               | 5                | 25    |
 | 1                   | 10               | 65               | 75    |
-| Total               | 30               | 70               | 100   | Confusion matrix for the disfavored facet `d`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Total               | 30               | 70               | 100   |
+
+Confusion matrix for the disfavored facet `d`
+
 | Class d predictions | Actual outcome 0 | Actual outcome 1 | Total |
-| ---                 | ---              | ---              | ---   |
+| ------------------- | ---------------- | ---------------- | ----- |
 | 0                   | 18               | 7                | 25    |
 | 1                   | 5                | 20               | 25    |
-| Total               | 23               | 27               | 50    | The value of the specificity difference is `SD = 18/(18+5) - 20/(20+10) = 0.7826 <br>• 0.6667 = 0.1159`, which indicates a bias against facet _d_. The range of values for the specificity difference between facets _a_ and _d_ for binary and multicategory classification is `[-1, +1]`. This metric is not available for the case of continuous labels. Here is what different values of SD imply: <br>• Positive values are obtained when there is higher specificity for facet _d_ than for facet _a_. This suggests that the model finds less false positives for facet _d_ than for facet _a_. A positive value indicates bias against facet _d_. <br>• Values near zero indicate that the specificity for facets that are being compared is similar. This suggests that the model finds a similar number of false positives in both of these facets and is not biased. <br>• Negative values are obtained when there is higher specificity for facet _a_ than for facet _d_. This suggests that the model finds more false positives for facet _a_ than for facet _d_. A negative value indicates bias against facet _a_. |
+| Total               | 23               | 27               | 50    |
+
+The value of the specificity difference is `SD = 18/(18+5) - 20/(20+10) = 0.7826
+
+- 0.6667 = 0.1159`, which indicates a bias against facet _d_.
+
+The range of values for the specificity difference between facets _a_ and _d_ for binary and
+multicategory classification is `[-1, +1]`. This metric is not available for
+the case of continuous labels. Here is what different values of SD imply:
+
+- Positive values are obtained when there is higher specificity for facet
+  _d_ than for facet _a_. This suggests that the model finds less false positives for
+  facet _d_ than for facet _a_. A positive value indicates bias against facet
+  _d_.
+- Values near zero indicate that the specificity for facets that are being
+  compared is similar. This suggests that the model finds a similar number of
+  false positives in both of these facets and is not biased.
+- Negative values are obtained when there is higher specificity for facet
+  _a_ than for facet _d_. This suggests that the model finds more false positives for
+  facet _a_ than for facet _d_. A negative value indicates bias against facet
+  _a_.

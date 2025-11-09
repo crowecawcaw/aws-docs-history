@@ -93,7 +93,7 @@ These ARNs are passed as part of an `update-domain` command to set the
 desired version.
 
 | Region         | `2023.03.3-547.pro5` Image ARN                                                | `2024.04.2+764.pro1` Image ARN                                                |
-| -------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | us-east-1      | arn:aws:sagemaker:us-east-1:081325390199:image/rstudio-workbench-2023.03      | arn:aws:sagemaker:us-east-1:081325390199:image/rstudio-workbench-2024.04      |
 | us-east-2      | arn:aws:sagemaker:us-east-2:429704687514:image/rstudio-workbench-2023.03      | arn:aws:sagemaker:us-east-2:429704687514:image/rstudio-workbench-2024.04      |
 | us-west-1      | arn:aws:sagemaker:us-west-1:742091327244:image/rstudio-workbench-2023.03      | arn:aws:sagemaker:us-west-1:742091327244:image/rstudio-workbench-2024.04      |
@@ -112,4 +112,31 @@ desired version.
 | eu-west-3      | arn:aws:sagemaker:eu-west-3:615547856133:image/rstudio-workbench-2023.03      | arn:aws:sagemaker:eu-west-3:615547856133:image/rstudio-workbench-2024.04      |
 | eu-north-1     | arn:aws:sagemaker:eu-north-1:243637512696:image/rstudio-workbench-2023.03     | arn:aws:sagemaker:eu-north-1:243637512696:image/rstudio-workbench-2024.04     |
 | eu-south-1     | arn:aws:sagemaker:eu-south-1:592751261982:image/rstudio-workbench-2023.03     | arn:aws:sagemaker:eu-south-1:592751261982:image/rstudio-workbench-2024.04     |
-| sa-east-1      | arn:aws:sagemaker:sa-east-1:782484402741:image/rstudio-workbench-2023.03      | arn:aws:sagemaker:sa-east-1:782484402741:image/rstudio-workbench-2024.04      | ### Changes to BYOI Images If you use a BYOI image with RStudio and update your `RStudioServerPro` version to `2024.04.2+764.pro1`, you must upgrade your custom images to use the `2024.04.2+764.pro1` release and redeploy your existing RSessions. If you attempt to load a non-compatible image in an RSession of a domain using the `2024.04.2+764.pro1` version, the RSession fails because it cannot parse parameters that it receives. To prevent failure, update all of the deployed custom images in your existing `RStudioServerPro` application. The `RSW_VERSION` in the Dockerfile must be consistent with the Posit Workbench version used in RStudio on SageMaker AI. You can validate the current version in Posit Workbench. To do so, use the version name that's located in the lower left corner of the Posit Workbench launcher page. ``` ARG RSW_VERSION=2024.04.2+764.pro1 ENV RSTUDIO_FORCE_NON_ZERO_EXIT_CODE="1" ARG RSW_NAME=rstudio-workbench ARG OS_CODE_NAME=jammy ARG RSW_DOWNLOAD_URL=https://s3.amazonaws.com/rstudio-ide-build/server/${OS_CODE_NAME}/amd64 RUN RSW_VERSION_URL=`echo -n "${RSW_VERSION}" | sed 's/+/-/g'` \ && curl -o rstudio-workbench.deb ${RSW_DOWNLOAD_URL}/${RSW_NAME}-${RSW_VERSION_URL}-amd64.deb \ && gdebi -n ./rstudio-workbench.deb ``` |
+| sa-east-1      | arn:aws:sagemaker:sa-east-1:782484402741:image/rstudio-workbench-2023.03      | arn:aws:sagemaker:sa-east-1:782484402741:image/rstudio-workbench-2024.04      |
+
+### Changes to BYOI Images
+
+If you use a BYOI image with RStudio and update your `RStudioServerPro`
+version to `2024.04.2+764.pro1`, you must upgrade your custom images to use
+the `2024.04.2+764.pro1` release and redeploy your existing RSessions. If
+you attempt to load a non-compatible image in an RSession of a domain using
+the `2024.04.2+764.pro1` version, the RSession fails because it cannot
+parse parameters that it receives. To prevent failure, update all of the deployed custom
+images in your existing `RStudioServerPro` application.
+
+The `RSW_VERSION` in the Dockerfile must be consistent with
+the Posit Workbench version used in RStudio on SageMaker AI. You can validate the
+current version in Posit Workbench. To do so, use the version name that's
+located in the lower left corner of the Posit Workbench launcher
+page.
+
+```
+ARG RSW_VERSION=2024.04.2+764.pro1
+ENV RSTUDIO_FORCE_NON_ZERO_EXIT_CODE="1"
+ARG RSW_NAME=rstudio-workbench
+ARG OS_CODE_NAME=jammy
+ARG RSW_DOWNLOAD_URL=https://s3.amazonaws.com/rstudio-ide-build/server/${OS_CODE_NAME}/amd64
+RUN RSW_VERSION_URL=`echo -n "${RSW_VERSION}" | sed 's/+/-/g'` \
+    && curl -o rstudio-workbench.deb ${RSW_DOWNLOAD_URL}/${RSW_NAME}-${RSW_VERSION_URL}-amd64.deb \
+    && gdebi -n ./rstudio-workbench.deb
+```

@@ -93,9 +93,103 @@ spec:
 
 The following table explains the new parameters you can use in the kubectl YAML file.
 
-| Parameter                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| kueue.x-k8s.io/queue-name     | The name of the queue to use to run the job. The format of this queue-name must be `hyperpod-ns-`team-name`-localqueue`.                                                                                                                                                                                                                                                                                                                                                                            |
-| kueue.x-k8s.io/priority-class | Lets you specify a priority for pod scheduling. This specification is optional.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| annotations                   | Contains the topology annotation that you attach to the job. Available topologies are _kueue.x-k8s.io/podset-required-topology_ and _kueue.x-k8s.io/podset-preferred-topology._ You can use either an annotation or nodeSelector, but not both at the same time.                                                                                                                                                                                                                                    |
-| nodeSelector                  | Specifies the network layer that represents the layer of Amazon EC2 instance placement. Use either this field or an annotation, but not both at the same time. In your YAML file, you can also use the nodeSelector parameter to choose the exact layer for your pods. To get the value of your label, use the [DescribeInstanceTopology](../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md") API operation. | You can also use the HyperPod CLI to run your job and use topology aware scheduling. For more information about the HyperPod CLI, see [SageMaker HyperPod CLI commands](sagemaker-hyperpod-eks-hyperpod-cli-reference.md "sagemaker-hyperpod-eks-hyperpod-cli-reference.md"). ``hyp create hyp-pytorch-job \ --version 1.1 \ --job-name sample-pytorch-job \ --image 123456789012.dkr.ecr.us-west-2.amazonaws.com/ptjob:latest \ --pull-policy "Always" \ --tasks-per-node 1 \ --max-retry 1 \ --priority high-priority \ --namespace hyperpod-ns-`team-name` \ --queue-name hyperpod-ns-`team-name`-localqueue \ --preferred-topology-label topology.k8s.aws/network-node-layer-1`` The following is an example configuration file that you might use to run a PytorchJob with topology labels. The file is largely similar if you want to run MPI and Tensorflow jobs. If you want to run those jobs instead, remember to change the configuration file accordingly, such as using the correct image instead of PyTorchJob. If you’re running a PyTorchJob, you can assign different topologies to the master and worker nodes. PyTorchJob always has one master node, so we recommend that you use topology to support worker pods instead. ``apiVersion: kubeflow.org/v1 kind: PyTorchJob metadata: annotations: {} labels: kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue name: tas-test-pytorch-job namespace: hyperpod-ns-team-name spec: pytorchReplicaSpecs: Master: replicas: 1 restartPolicy: OnFailure template: metadata: labels: kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue spec: containers: <br>• command: <br>• python3 <br>• /opt/pytorch-mnist/mnist.py <br>• --epochs=1 image: docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727 imagePullPolicy: Always name: pytorch Worker: replicas: 10 restartPolicy: OnFailure template: metadata: # annotations: # kueue.x-k8s.io/podset-required-topology: "topology.k8s.aws/network-node-layer-3" labels: kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue spec: containers: <br>• command: <br>• python3 <br>• /opt/pytorch-mnist/mnist.py <br>• --epochs=1 image: docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727 imagePullPolicy: Always name: pytorch resources: limits: cpu: 1 requests: memory: 200Mi cpu: 1 #nodeSelector: #  topology.k8s.aws/network-node-layer-3: xxxxxxxxxxx`` To see the topologies for your cluster, use the [DescribeInstanceTopology](../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md") API operation. By default, the topologies are hidden in the AWS Management Console and Amazon SageMaker Studio. Follow these steps to see them in the interface that you’re using. **SageMaker Studio** 1. In SageMaker Studio, navigate to your cluster. 2. In the Tasks view, choose the options menu in the Name column, then choose **Manage columns**. 3. Select **Requested topology** and **Topology constraint** to add the columns to see the topology information in the list of Kubernetes pods. **AWS Management Console** 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/"). 2. Under **HyperPod clusters**, choose **Cluster management**. 3. Choose the **Tasks** tab, then choose the gear icon. 4. Under instance attributes, toggle **Requested topology** and **Topology constraint**. 5. Choose **Confirm** to see the topology information in the table. |
+| Parameter                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| kueue.x-k8s.io/queue-name     | The name of the queue to use to run the job. The format of this queue-name must be `hyperpod-ns-`team-name`-localqueue`.                                                                                                                                                                                                                                                                                                                                                                                  |
+| kueue.x-k8s.io/priority-class | Lets you specify a priority for pod scheduling. This specification is optional.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| annotations                   | Contains the topology annotation that you attach to the job. Available topologies are _kueue.x-k8s.io/podset-required-topology_<br>and \*kueue.x-k8s.io/podset-preferred-topology.<br>• You can use either an annotation or nodeSelector, but not both at the same time.                                                                                                                                                                                                                                  |
+| nodeSelector                  | Specifies the network layer that represents the layer of Amazon EC2 instance placement. Use either this field or an annotation,<br>but not both at the same time. In your YAML file, you can also use the nodeSelector parameter to choose the exact layer for your pods.<br>To get the value of your label, use the [DescribeInstanceTopology](../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md") API operation. |
+
+You can also use the HyperPod CLI to run your job and use topology aware scheduling. For more information about the HyperPod CLI, see
+[SageMaker HyperPod CLI
+commands](sagemaker-hyperpod-eks-hyperpod-cli-reference.md "sagemaker-hyperpod-eks-hyperpod-cli-reference.md").
+
+```
+hyp create hyp-pytorch-job \
+  --version 1.1 \
+  --job-name sample-pytorch-job \
+  --image 123456789012.dkr.ecr.us-west-2.amazonaws.com/ptjob:latest \
+  --pull-policy "Always" \
+  --tasks-per-node 1 \
+  --max-retry 1 \
+  --priority high-priority \
+  --namespace hyperpod-ns-`team-name` \
+  --queue-name hyperpod-ns-`team-name`-localqueue \
+  --preferred-topology-label topology.k8s.aws/network-node-layer-1
+```
+
+The following is an example configuration file that you might use to run a PytorchJob with topology labels. The file is largely similar
+if you want to run MPI and Tensorflow jobs. If you want to run those jobs instead, remember to change the configuration file accordingly,
+such as using the correct image instead of PyTorchJob. If you’re running a PyTorchJob, you can assign different topologies to the master and worker nodes.
+PyTorchJob always has one master node, so we recommend that you use topology to support worker pods instead.
+
+```
+apiVersion: kubeflow.org/v1
+kind: PyTorchJob
+metadata:
+  annotations: {}
+  labels:
+    kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue
+  name: tas-test-pytorch-job
+  namespace: hyperpod-ns-team-name
+spec:
+  pytorchReplicaSpecs:
+    Master:
+      replicas: 1
+      restartPolicy: OnFailure
+      template:
+        metadata:
+          labels:
+            kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue
+        spec:
+          containers:
+          - command:
+            - python3
+            - /opt/pytorch-mnist/mnist.py
+            - --epochs=1
+            image: docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727
+            imagePullPolicy: Always
+            name: pytorch
+    Worker:
+      replicas: 10
+      restartPolicy: OnFailure
+      template:
+        metadata:
+          # annotations:
+            # kueue.x-k8s.io/podset-required-topology: "topology.k8s.aws/network-node-layer-3"
+          labels:
+            kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue
+        spec:
+          containers:
+          - command:
+            - python3
+            - /opt/pytorch-mnist/mnist.py
+            - --epochs=1
+            image: docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727
+            imagePullPolicy: Always
+            name: pytorch
+            resources:
+              limits:
+                cpu: 1
+              requests:
+                memory: 200Mi
+                cpu: 1
+          #nodeSelector:
+          #  topology.k8s.aws/network-node-layer-3: xxxxxxxxxxx
+```
+
+To see the topologies for your cluster, use the [DescribeInstanceTopology](../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md") API operation. By default, the topologies are hidden in the AWS Management Console and Amazon SageMaker Studio.
+Follow these steps to see them in the interface that you’re using.
+
+**SageMaker Studio**
+
+1. In SageMaker Studio, navigate to your cluster.
+2. In the Tasks view, choose the options menu in the Name column, then choose **Manage columns**.
+3. Select **Requested topology** and **Topology constraint** to add the columns to see the topology information in the list of Kubernetes pods.
+   **AWS Management Console**
+
+4. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
+5. Under **HyperPod clusters**, choose **Cluster management**.
+6. Choose the **Tasks** tab, then choose the gear icon.
+7. Under instance attributes, toggle **Requested topology** and **Topology constraint**.
+8. Choose **Confirm** to see the topology information in the table.

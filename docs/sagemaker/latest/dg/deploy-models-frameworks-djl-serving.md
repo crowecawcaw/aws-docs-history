@@ -203,9 +203,36 @@ You can set model-specific configurations in the `serving.properties` file
 and model-specific inference handler code in `model.py`. For a multi-model endpoint, models
 need to be arranged in the following way:
 
-````
+```
  root_dir
-|-- model_1.tar.gz
-|-- model_2.tar.gz
-|-- model_3.tar.gz . . . ``` The Amazon SageMaker Python SDK uses the [MultiDataModel](https://sagemaker.readthedocs.io/en/stable/api/inference/multi_data_model.html "https://sagemaker.readthedocs.io/en/stable/api/inference/multi_data_model.html") object to instantiate a multi-model endpoint. The Amazon S3 URI for the root directory should be passed as the `model_data_prefix` argument to the `MultiDataModel` constructor. DJL Serving also provides several configuration parameters to manage model memory requirements, such as `required_memory_mb` and `reserved_memory_mb`, that can be configured for each model in the [serving.properties](https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md#servingproperties "https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md#servingproperties") file. These parameters are useful to handle out of memory errors more gracefully. For all of the configurable parameters, see [OutofMemory handling in djl-serving](https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/out_of_memory_management.md "https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/out_of_memory_management.md"). The auto scaling feature of DJL Serving makes it easy to ensure that the models are scaled appropriately for incoming traffic. By default, DJL Serving determines the maximum number of workers for a model that can be supported based on the hardware available (such as CPU cores or GPU devices). You can set lower and upper bounds for each model to ensure that a minimum traffic level can always be served, and that a single model does not consume all available resources. You can set the following properties in the [serving.properties](https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md#servingproperties "https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md#servingproperties") file: <br>• `gpu.minWorkers`: Minimum number of workers for GPUs. <br>• `gpu.maxWorkers`: Maximum number of workers for GPUs. <br>• `cpu.minWorkers`: Minimum number of workers for CPUs. <br>• `cpu.maxWorkers`: Maximum number of workers for CPUs. For an end-to-end example of how to deploy a multi-model endpoint on SageMaker AI using a DJL Serving container, see the example notebook [Multi-Model-Inference-Demo.ipynb](https://github.com/deepjavalibrary/djl-demo/blob/master/aws/sagemaker/Multi-Model-Inference-Demo.ipynb "https://github.com/deepjavalibrary/djl-demo/blob/master/aws/sagemaker/Multi-Model-Inference-Demo.ipynb").
-````
+        |-- model_1.tar.gz
+        |-- model_2.tar.gz
+        |-- model_3.tar.gz
+            .
+            .
+            .
+```
+
+The Amazon SageMaker Python SDK uses the [MultiDataModel](https://sagemaker.readthedocs.io/en/stable/api/inference/multi_data_model.html "https://sagemaker.readthedocs.io/en/stable/api/inference/multi_data_model.html") object to instantiate a multi-model endpoint. The Amazon S3 URI for the root
+directory should be passed as the `model_data_prefix` argument to the `MultiDataModel`
+constructor.
+
+DJL Serving also provides several configuration parameters to manage model memory requirements, such as `required_memory_mb`
+and `reserved_memory_mb`, that can be configured for each model in the [serving.properties](https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md#servingproperties "https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md#servingproperties") file. These parameters are
+useful to handle out of memory errors more gracefully. For all of the configurable parameters, see [OutofMemory handling in djl-serving](https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/out_of_memory_management.md "https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/out_of_memory_management.md").
+
+The auto scaling feature of DJL Serving makes it easy to ensure that the models are
+scaled appropriately for incoming traffic. By default, DJL Serving determines the
+maximum number of workers for a model that can be supported based on the hardware
+available (such as CPU cores or GPU devices). You can set lower and upper bounds for each
+model to ensure that a minimum traffic level can always be served, and that a single
+model does not consume all available resources. You can set the following properties
+in the [serving.properties](https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md#servingproperties "https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md#servingproperties") file:
+
+- `gpu.minWorkers`: Minimum number of workers for GPUs.
+- `gpu.maxWorkers`: Maximum number of workers for GPUs.
+- `cpu.minWorkers`: Minimum number of workers for CPUs.
+- `cpu.maxWorkers`: Maximum number of workers for CPUs.
+
+For an end-to-end example of how to deploy a multi-model endpoint on SageMaker AI
+using a DJL Serving container, see the example notebook [Multi-Model-Inference-Demo.ipynb](https://github.com/deepjavalibrary/djl-demo/blob/master/aws/sagemaker/Multi-Model-Inference-Demo.ipynb "https://github.com/deepjavalibrary/djl-demo/blob/master/aws/sagemaker/Multi-Model-Inference-Demo.ipynb").

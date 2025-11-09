@@ -27,53 +27,56 @@ The following policy is a scoped down policy to ensure only AMIs
 tagged with `AllowSharing` as `true` are
 allowed.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "iam:PassRole",
-            "Resource": "`arn:aws:iam::111122223333:role/your-execution-role-name`"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:CreateCluster",
-                "sagemaker:DeleteCluster",
-                "sagemaker:DescribeCluster",
-                "sagemaker:DescribeCluterNode",
-                "sagemaker:ListClusterNodes",
-                "sagemaker:ListClusters",
-                "sagemaker:UpdateCluster",
-                "sagemaker:UpdateClusterSoftware",
-                "sagemaker:BatchDeleteClusterNodes",
-                "eks:DescribeCluster",
-                "eks:CreateAccessEntry",
-                "eks:DescribeAccessEntry",
-                "eks:DeleteAccessEntry",
-                "eks:AssociateAccessPolicy",
-                "iam:CreateServiceLinkedRole",
-                "ec2:DescribeImages",
-                "ec2:DescribeSnapshots"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:ModifyImageAttribute",
-                "ec2:ModifySnapshotAttribute"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "ec2:ResourceTag/AllowSharing": "true"
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iam:PassRole",
+ "Resource": "`arn:aws:iam::111122223333:role/your-execution-role-name`"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateCluster",
+ "sagemaker:DeleteCluster",
+ "sagemaker:DescribeCluster",
+ "sagemaker:DescribeClusterNode",
+ "sagemaker:ListClusterNodes",
+ "sagemaker:ListClusters",
+ "sagemaker:UpdateCluster",
+ "sagemaker:UpdateClusterSoftware",
+ "sagemaker:BatchDeleteClusterNodes",
+ "eks:DescribeCluster",
+ "eks:CreateAccessEntry",
+ "eks:DescribeAccessEntry",
+ "eks:DeleteAccessEntry",
+ "eks:AssociateAccessPolicy",
+ "iam:CreateServiceLinkedRole",
+ "ec2:DescribeImages",
+ "ec2:DescribeSnapshots"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ec2:ModifyImageAttribute",
+ "ec2:ModifySnapshotAttribute"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "ec2:ResourceTag/AllowSharing": "true"
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 ###### Important

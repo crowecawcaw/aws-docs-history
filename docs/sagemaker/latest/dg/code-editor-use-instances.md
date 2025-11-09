@@ -23,7 +23,7 @@ The following table lists the ARNs of the available Code Editor CPU and GPU imag
 Region.
 
 | Region         | CPU                                                                            | GPU                                                                            |
-| -------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | us-east-1      | arn:aws:sagemaker:us-east-1:885854791233:image/sagemaker-distribution-cpu      | arn:aws:sagemaker:us-east-1:885854791233:image/sagemaker-distribution-gpu      |
 | us-east-2      | arn:aws:sagemaker:us-east-2:37914896644:image/sagemaker-distribution-cpu       | arn:aws:sagemaker:us-east-2:37914896644:image/sagemaker-distribution-gpu       |
 | us-west-1      | arn:aws:sagemaker:us-west-1:053634841547:image/sagemaker-distribution-cpu      | arn:aws:sagemaker:us-west-1:053634841547:image/sagemaker-distribution-gpu      |
@@ -51,4 +51,8 @@ Region.
 | cn-north-1     | arn:aws:sagemaker:cn-north-1:674439102856:image/sagemaker-distribution-cpu     | arn:aws:sagemaker:cn-north-1:674439102856:image/sagemaker-distribution-gpu     |
 | cn-northwest-1 | arn:aws:sagemaker:cn-northwest-1:651871951035:image/sagemaker-distribution-cpu | arn:aws:sagemaker:cn-northwest-1:651871951035:image/sagemaker-distribution-gpu |
 | us-gov-west-1  | arn:aws:sagemaker:us-gov-west-1:300992924816:image/sagemaker-distribution-cpu  | arn:aws:sagemaker:us-gov-west-1:300992924816:image/sagemaker-distribution-gpu  |
-| us-gov-east-1  | arn:aws:sagemaker:us-gov-east-1:300993876623:image/sagemaker-distribution-cpu  | arn:aws:sagemaker:us-gov-east-1:300993876623:image/sagemaker-distribution-gpu  | If you encounter instance limits, contact your administrator. To get more storage and compute for a user, administrators can request an increase to a user's AWS quotas. For more information about requesting a quota increase, see [Amazon SageMaker AI endpoints and quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md"). |
+| us-gov-east-1  | arn:aws:sagemaker:us-gov-east-1:300993876623:image/sagemaker-distribution-cpu  | arn:aws:sagemaker:us-gov-east-1:300993876623:image/sagemaker-distribution-gpu  |
+
+If you encounter instance limits, contact your administrator. To get more storage and
+compute for a user, administrators can request an increase to a user's AWS quotas. For
+more information about requesting a quota increase, see [Amazon SageMaker AI endpoints and quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md").

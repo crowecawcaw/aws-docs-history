@@ -100,7 +100,13 @@ files specify the statistics calculated and the violations monitored for.
 
 Output Files for Tabular Datasets
 
-| File Name                        | Description                                                                                                                                                                                         |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`statistics.json`**            | Contains columnar statistics for each feature in the dataset that is analyzed. See the schema of this file in the next topic. NoteThis file is created only for data quality monitoring.            |
-| **`constraint_violations.json`** | Contains a list of violations found in this current set of data as compared to the baseline statistics and constraints file specified in the `baseline_constaints` and `baseline_statistics` paths. | The [Amazon SageMaker Model Monitor prebuilt container](model-monitor-pre-built-container.md "model-monitor-pre-built-container.md") saves a set of Amazon CloudWatch metrics for each feature by default. The container code can emit CloudWatch metrics in this location: `/opt/ml/output/metrics/cloudwatch`. |
+| File Name                        | Description                                                                                                                                                                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`statistics.json`**            | Contains columnar statistics for each feature in the dataset<br>that is analyzed. See the schema of this file in the next<br>topic.<br>NoteThis file is created only for data quality<br>monitoring.         |
+| **`constraint_violations.json`** | Contains a list of violations found in this current set of<br>data as compared to the baseline statistics and constraints file<br>specified in the `baseline_constaints` and<br>`baseline_statistics` paths. |
+
+The [Amazon SageMaker Model Monitor prebuilt container](model-monitor-pre-built-container.md "model-monitor-pre-built-container.md") saves a set of Amazon CloudWatch
+metrics for each feature by default.
+
+The container code can emit CloudWatch metrics in this location:
+`/opt/ml/output/metrics/cloudwatch`.

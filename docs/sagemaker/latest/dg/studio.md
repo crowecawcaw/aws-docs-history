@@ -33,7 +33,43 @@ For the AWS Regions supported by Studio Classic, see
 
 The following table gives information about the timeline for when Amazon SageMaker Studio Classic entered its extended maintenance phase.
 
-| Date       | Description                                                                                                                                                                                                                                                                                               |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 12/31/2024 | Starting December 31st, Studio Classic reaches end of maintenance. At this point, Studio Classic will no longer receive updates and security fixes. All new domains will be created with Amazon SageMaker Studio as the default.                                                                          |
-| 1/31/2025  | Starting January 31st, users will no longer be able to create new JupyterLab 3 notebooks in Studio Classic. Users will also not be able to restart or update existing notebooks. Users will be able to access existing Studio Classic applications from Studio only to delete or stop existing notebooks. | ###### Note Your existing Studio Classic domain is not automatically migrated to Studio. For information about migrating, see [Migration from Amazon SageMaker Studio Classic](studio-updated-migrate.md "studio-updated-migrate.md"). ###### Topics <br>• [Amazon SageMaker Studio Classic Features](#studio-features "#studio-features") <br>• [Amazon SageMaker Studio Classic UI Overview](studio-ui.md "studio-ui.md") <br>• [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md") <br>• [JupyterLab Versioning in Amazon SageMaker Studio Classic](studio-jl.md "studio-jl.md") <br>• [Use the Amazon SageMaker Studio Classic Launcher](studio-launcher.md "studio-launcher.md") <br>• [Use Amazon SageMaker Studio Classic Notebooks](notebooks.md "notebooks.md") <br>• [Customize Amazon SageMaker Studio Classic](studio-customize.md "studio-customize.md") <br>• [Perform Common Tasks in Amazon SageMaker Studio Classic](studio-tasks.md "studio-tasks.md") <br>• [Amazon SageMaker Studio Classic Pricing](studio-pricing.md "studio-pricing.md") <br>• [Troubleshooting Amazon SageMaker Studio Classic](studio-troubleshooting.md "studio-troubleshooting.md") ## Amazon SageMaker Studio Classic Features Studio Classic includes the following features: <br>• [SageMaker Autopilot](autopilot-automate-model-development.md "autopilot-automate-model-development.md") <br>• [SageMaker Clarify](model-explainability.md "model-explainability.md") <br>• [SageMaker Data Wrangler](data-wrangler.md "data-wrangler.md") <br>• [SageMaker Debugger](debugger-on-studio.md "debugger-on-studio.md") <br>• [SageMaker Experiments](experiments.md "experiments.md") <br>• [SageMaker Feature Store](feature-store-use-with-studio.md "feature-store-use-with-studio.md") <br>• [SageMaker JumpStart](studio-jumpstart.md "studio-jumpstart.md") <br>• [Amazon SageMaker Pipelines](pipelines-studio.md "pipelines-studio.md") <br>• [SageMaker Model Registry](model-registry.md "model-registry.md") <br>• [SageMaker Projects](sagemaker-projects.md "sagemaker-projects.md") <br>• [SageMaker Studio Classic Notebooks](notebooks.md "notebooks.md") <br>• [SageMaker Studio Universal Notebook](studio-notebooks-emr-cluster.md "studio-notebooks-emr-cluster.md") |
+| Date       | Description                                                                                                                                                                                                                                                                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 12/31/2024 | Starting December 31st, Studio Classic reaches end of maintenance. At this point,<br>Studio Classic will no longer receive updates and security fixes. All new domains will<br>be created with Amazon SageMaker Studio as the default.                                                                             |
+| 1/31/2025  | Starting January 31st, users will no longer be able to create new JupyterLab 3<br>notebooks in Studio Classic. Users will also not be able to restart or update existing<br>notebooks. Users will be able to access existing Studio Classic applications from<br>Studio only to delete or stop existing notebooks. |
+
+###### Note
+
+Your existing Studio Classic domain is not automatically migrated to Studio. For information
+about migrating, see [Migration from Amazon SageMaker Studio Classic](studio-updated-migrate.md "studio-updated-migrate.md").
+
+###### Topics
+
+- [Amazon SageMaker Studio Classic Features](#studio-features "#studio-features")
+- [Amazon SageMaker Studio Classic UI Overview](studio-ui.md "studio-ui.md")
+- [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md")
+- [JupyterLab Versioning in Amazon SageMaker Studio Classic](studio-jl.md "studio-jl.md")
+- [Use the Amazon SageMaker Studio Classic Launcher](studio-launcher.md "studio-launcher.md")
+- [Use Amazon SageMaker Studio Classic Notebooks](notebooks.md "notebooks.md")
+- [Customize Amazon SageMaker Studio Classic](studio-customize.md "studio-customize.md")
+- [Perform Common Tasks in Amazon SageMaker Studio Classic](studio-tasks.md "studio-tasks.md")
+- [Amazon SageMaker Studio Classic Pricing](studio-pricing.md "studio-pricing.md")
+- [Troubleshooting Amazon SageMaker Studio Classic](studio-troubleshooting.md "studio-troubleshooting.md")
+
+## Amazon SageMaker Studio Classic Features
+
+Studio Classic includes the following features:
+
+- [SageMaker Autopilot](autopilot-automate-model-development.md "autopilot-automate-model-development.md")
+- [SageMaker Clarify](model-explainability.md "model-explainability.md")
+- [SageMaker Data Wrangler](data-wrangler.md "data-wrangler.md")
+- [SageMaker Debugger](debugger-on-studio.md "debugger-on-studio.md")
+- [SageMaker Experiments](experiments.md "experiments.md")
+- [SageMaker Feature Store](feature-store-use-with-studio.md "feature-store-use-with-studio.md")
+- [SageMaker JumpStart](studio-jumpstart.md "studio-jumpstart.md")
+- [Amazon SageMaker Pipelines](pipelines-studio.md "pipelines-studio.md")
+- [SageMaker Model Registry](model-registry.md "model-registry.md")
+- [SageMaker Projects](sagemaker-projects.md "sagemaker-projects.md")
+- [SageMaker
+  Studio Classic Notebooks](notebooks.md "notebooks.md")
+- [SageMaker Studio Universal Notebook](studio-notebooks-emr-cluster.md "studio-notebooks-emr-cluster.md")

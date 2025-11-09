@@ -62,7 +62,21 @@ the location you specify with `output_s3_uri`.
 
 Output Files for Tabular Dataset Statistics and Constraints
 
-| File Name              | Description                                                                                                                                                                                                                                                                       |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`statistics.json`**  | This file is expected to have columnar statistics for each feature in the dataset that is analyzed. For more information about the schema for this file, see [Schema for Statistics (statistics.json file)](model-monitor-byoc-statistics.md "model-monitor-byoc-statistics.md"). |
-| **`constraints.json`** | This file is expected to have the constraints on the features observed. For more information about the schema for this file, see [Schema for Constraints (constraints.json file)](model-monitor-byoc-constraints.md "model-monitor-byoc-constraints.md").                         | The [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") provides convenience functions described to generate the baseline statistics and constraints. But if you want to call processing job directly for this purpose instead, you need to set the `Environment` map as shown in the following example: `"Environment": { "dataset_format": "{\"csv\”: { \”header\”: true}", "dataset_source": "/opt/ml/processing/sm_input", "output_path": "/opt/ml/processing/sm_output", "publish_cloudwatch_metrics": "Disabled", }` |
+| File Name              | Description                                                                                                                                                                                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`statistics.json`**  | This file is expected to have columnar statistics for each<br>feature in the dataset that is analyzed. For more information<br>about the schema for this file, see [Schema for Statistics<br>(statistics.json file)](model-monitor-byoc-statistics.md "model-monitor-byoc-statistics.md"). |
+| **`constraints.json`** | This file is expected to have the constraints on the features<br>observed. For more information about the schema for this file,<br>see [Schema for Constraints<br>(constraints.json file)](model-monitor-byoc-constraints.md "model-monitor-byoc-constraints.md").                         |
+
+The [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") provides convenience functions described to generate the
+baseline statistics and constraints. But if you want to call processing job directly
+for this purpose instead, you need to set the `Environment` map as shown
+in the following example:
+
+```
+"Environment": {
+    "dataset_format": "{\"csv\”: { \”header\”: true}",
+    "dataset_source": "/opt/ml/processing/sm_input",
+    "output_path": "/opt/ml/processing/sm_output",
+    "publish_cloudwatch_metrics": "Disabled",
+}
+```

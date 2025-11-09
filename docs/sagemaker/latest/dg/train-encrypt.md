@@ -49,7 +49,64 @@ group.
 1. Add the following inbound and outbound rules in the security group for your
    private VPC:
 
-| Protocol | Port Range | Source                   |
-| -------- | ---------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `UDP`    | `500`      | `Self Security Group ID` |
-| `ESP 50` | `N/A`      | `Self Security Group ID` | 2. When you send a request to the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") or [`CreateHyperParameterTuningJob`](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md") API, specify `True` for the `EnableInterContainerTrafficEncryption` parameter. ###### Note For the `ESP 50` protocol, the AWS Security Group Console might display the port range as "All". However, Amazon EC2 ignores the specified port range because it is not applicable for the ESP 50 IP protocol. ## Enable Inter-container Traffic Encryption (Console) ### Enable Inter-container Traffic Encryption in a Training Job ###### To enable inter-container traffic encryption in a training job 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/"). 2. In the navigation pane, choose **Training**, then choose **Training jobs**. 3. Choose **Create training job**. 4. Under **Network**, choose a **VPC**. You can use the default VPC or one that you have created. 5. Choose **Enable inter-container traffic encryption**. After you enable inter-container traffic encryption, finish creating the training job. For more information, see [Train a Model](ex1-train-model.md "ex1-train-model.md"). ### Enable Inter-container Traffic Encryption in a Hyperparameter Tuning Job ###### To enable inter-container traffic encryption in a hyperparameter tuning job 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/"). 2. In the navigation pane, choose **Training**, then choose **Hyperparameter tuning jobs**. 3. Choose **Create hyperparameter tuning job**. 4. Under **Network**, choose a **VPC**. You can use the default VPC or one that you created. 5. Choose **Enable inter-container traffic encryption**. After enabling inter-container traffic encryption, finish creating the hyperparameter tuning job. For more information, see [Configure and Launch a Hyperparameter Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md"). |
+| Protocol | Port Range | Source                      |
+| -------- | ---------- | --------------------------- |
+| `UDP`    | `500`      | `Self Security Group<br>ID` |
+| `ESP 50` | `N/A`      | `Self Security Group<br>ID` |
+
+2. When you send a request to the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") or [`CreateHyperParameterTuningJob`](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md") API, specify
+   `True` for the
+   `EnableInterContainerTrafficEncryption`
+   parameter.
+
+###### Note
+
+For the `ESP 50` protocol, the AWS Security Group Console might
+display the port range as "All". However, Amazon EC2 ignores the specified port range
+because it is not applicable for the ESP 50 IP protocol.
+
+## Enable Inter-container Traffic Encryption
+
+(Console)
+
+### Enable Inter-container Traffic
+
+Encryption in a Training Job
+
+###### To enable inter-container traffic encryption in a training
+
+job
+
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
+2. In the navigation pane, choose **Training**, then
+   choose **Training jobs**.
+3. Choose **Create training job**.
+4. Under **Network**, choose a **VPC**.
+   You can use the default VPC or one that you have created.
+5. Choose **Enable inter-container traffic encryption**.
+
+After you enable inter-container traffic encryption, finish creating the
+training job. For more information, see [Train a Model](ex1-train-model.md "ex1-train-model.md").
+
+### Enable Inter-container Traffic
+
+Encryption in a Hyperparameter Tuning Job
+
+###### To
+
+enable inter-container traffic encryption in a hyperparameter tuning
+job
+
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
+2. In the navigation pane, choose **Training**, then
+   choose **Hyperparameter tuning jobs**.
+3. Choose **Create hyperparameter tuning job**.
+4. Under **Network**, choose a **VPC**.
+   You can use the default VPC or one that you created.
+5. Choose **Enable
+   inter-container
+   traffic encryption**.
+
+After enabling inter-container traffic encryption, finish creating the
+hyperparameter tuning job. For more information, see [Configure and Launch a Hyperparameter
+Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md").

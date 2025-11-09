@@ -56,11 +56,33 @@ and optionally, **Container host name**, and
 
 
 
+    	| Key | Values for MXNet and PyTorch | Values TensorFlow |
+    	| --- | --- | --- |
+    	| SAGEMAKER\_PROGRAM | inference.py | inference.py |
+    	| SAGEMAKER\_SUBMIT\_DIRECTORY | /opt/ml/model/code | /opt/ml/model/code |
+    	| SAGEMAKER\_CONTAINER\_LOG\_LEVEL | 20 | 20 |
+    	| SAGEMAKER\_REGION | <your region> | <your region> |
+    	| MMS\_DEFAULT\_RESPONSE\_TIMEOUT | 500 | Leave this field blank for TF |
 
-| Key                           | Values for MXNet and PyTorch | Values TensorFlow             |
-| ----------------------------- | ---------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SAGEMAKER_PROGRAM             | inference.py                 | inference.py                  |
-| SAGEMAKER_SUBMIT_DIRECTORY    | /opt/ml/model/code           | /opt/ml/model/code            |
-| SAGEMAKER_CONTAINER_LOG_LEVEL | 20                           | 20                            |
-| SAGEMAKER_REGION              | <your region>                | <your region>                 |
-| MMS_DEFAULT_RESPONSE_TIMEOUT  | 500                          | Leave this field blank for TF | 4. Confirm that the information for the containers is accurate, and then choose **Create model**. On the **Create model landing page**, choose **Create endpoint**. ![Create Model landing page](images/neo-deploy-console-create-model-land-page.png) 5. In **Create and configure endpoint** diagram, specify the **Endpoint name**. For **Attach endpoint configuration**, choose **Create a new endpoint configuration**. ![Neo console create and configure endpoint UI.](images/neo-deploy-console-config-endpoint.png) 6. In **New endpoint configuration** page, specify the **Endpoint configuration name**. ![Neo console new endpoint configuration UI.](images/neo-deploy-console-new-endpoint-config.png) 7. Choose **Edit** next to the name of the model and specify the correct **Instance type** on the **Edit Production Variant** page. It is imperative that the **Instance type** value match the one specified in your compilation job. ![Neo console new endpoint configuration UI.](images/neo-deploy-console-edit-production-variant.png) 8. Choose **Save**. 9. On the **New endpoint configuration** page, choose **Create endpoint configuration**, and then choose **Create endpoint**. |
+4. Confirm that the information for the containers is accurate, and then
+   choose **Create model**. On the **Create model
+   landing page**, choose **Create
+   endpoint**.
+
+![Create Model landing page](images/neo-deploy-console-create-model-land-page.png) 5. In **Create and configure endpoint** diagram, specify
+the **Endpoint name**. For **Attach endpoint
+configuration**, choose **Create a new endpoint
+configuration**.
+
+![Neo console create and configure endpoint UI.](images/neo-deploy-console-config-endpoint.png) 6. In **New endpoint configuration** page, specify the
+**Endpoint configuration name**.
+
+![Neo console new endpoint configuration UI.](images/neo-deploy-console-new-endpoint-config.png) 7. Choose **Edit** next to the name of the model and specify
+the correct **Instance type** on the **Edit
+Production Variant** page. It is imperative that the
+**Instance type** value match the one specified in your
+compilation job.
+
+![Neo console new endpoint configuration UI.](images/neo-deploy-console-edit-production-variant.png) 8. Choose **Save**. 9. On the **New endpoint configuration** page, choose
+**Create endpoint configuration**, and then choose
+**Create endpoint**.

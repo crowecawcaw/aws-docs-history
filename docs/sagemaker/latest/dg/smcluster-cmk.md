@@ -41,71 +41,77 @@ following prerequisites:
   For more information on updating your IAM role's permissions, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM
   User Guide_.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "kms:CreateGrant",
-                "kms:DescribeKey"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:CreateGrant",
+ "kms:DescribeKey"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
 ```
 
 - Add the following permissions to your KMS key policy. For more
   information, see [Change a key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the _AWS KMS Developer
   Guide_.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Id": "hyperpod-key-policy",
-    "Statement": [
-        {
-            "Sid": "Enable IAM User Permissions",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::`111122223333`:root"
-            },
-            "Action": "kms:*",
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::`111122223333`:role/`<iam-role>`"
-            },
-            "Action": "kms:CreateGrant",
-            "Resource": "arn:aws:kms:`us-east-1`:111122223333:key/`key-id`",
-            "Condition": {
-                "StringEquals": {
-                    "kms:ViaService": "sagemaker.`us-east-1`.amazonaws.com"
-                },
-                "Bool": {
-                    "kms:GrantIsForAWSResource": "true"
-                }
-            }
-        },
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::`111122223333`:role/`<iam-role>`"
-            },
-            "Action": "kms:DescribeKey",
-            "Resource": "arn:aws:kms:`us-east-1`:111122223333:key/`key-id`",
-            "Condition": {
-                "StringEquals": {
-                    "kms:ViaService": "sagemaker.`us-east-1`.amazonaws.com"
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Id": "hyperpod-key-policy",
+ "Statement": [
+ {
+ "Sid": "Enable IAM User Permissions",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:root"
+ },
+ "Action": "kms:*",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`<iam-role>`"
+ },
+ "Action": "kms:CreateGrant",
+ "Resource": "arn:aws:kms:`us-east-1`:111122223333:key/`key-id`",
+ "Condition": {
+ "StringEquals": {
+ "kms:ViaService": "sagemaker.`us-east-1`.amazonaws.com"
+ },
+ "Bool": {
+ "kms:GrantIsForAWSResource": "true"
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`<iam-role>`"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "arn:aws:kms:`us-east-1`:111122223333:key/`key-id`",
+ "Condition": {
+ "StringEquals": {
+ "kms:ViaService": "sagemaker.`us-east-1`.amazonaws.com"
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 ## How to use your KMS key

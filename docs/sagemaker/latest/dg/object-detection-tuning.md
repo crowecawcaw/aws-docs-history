@@ -18,13 +18,23 @@ The object detection algorithm reports on a single metric during training:
 `validation:mAP`. When tuning a model, choose this metric as the
 objective metric.
 
-| Metric Name       | Description                                                  | Optimization Direction                 |
-| ----------------- | ------------------------------------------------------------ | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `validation:mAP`  | Mean Average Precision (mAP) computed on the validation set. | Maximize                               | ## Tunable Object Detection Hyperparameters Tune the Amazon SageMaker AI object detection model with the following hyperparameters. The hyperparameters that have the greatest impact on the object detection objective metric are: `mini_batch_size`, `learning_rate`, and `optimizer`. |
-| Parameter Name    | Parameter Type                                               | Recommended Ranges                     |
-| ---               | ---                                                          | ---                                    |
-| `learning_rate`   | ContinuousParameterRange                                     | MinValue: 1e-6, MaxValue: 0.5          |
-| `mini_batch_size` | IntegerParameterRanges                                       | MinValue: 8, MaxValue: 64              |
-| `momentum`        | ContinuousParameterRange                                     | MinValue: 0.0, MaxValue: 0.999         |
-| `optimizer`       | CategoricalParameterRanges                                   | ['sgd', 'adam', 'rmsprop', 'adadelta'] |
-| `weight_decay`    | ContinuousParameterRange                                     | MinValue: 0.0, MaxValue: 0.999         |
+| Metric Name      | Description                                                     | Optimization Direction |
+| ---------------- | --------------------------------------------------------------- | ---------------------- |
+| `validation:mAP` | Mean Average Precision (mAP) computed on the validation<br>set. | Maximize               |
+
+## Tunable Object Detection
+
+Hyperparameters
+
+Tune the Amazon SageMaker AI object detection model with the following hyperparameters. The
+hyperparameters that have the greatest impact on the object detection objective
+metric are: `mini_batch_size`, `learning_rate`, and
+`optimizer`.
+
+| Parameter Name    | Parameter Type             | Recommended Ranges                     |
+| ----------------- | -------------------------- | -------------------------------------- |
+| `learning_rate`   | ContinuousParameterRange   | MinValue: 1e-6, MaxValue: 0.5          |
+| `mini_batch_size` | IntegerParameterRanges     | MinValue: 8, MaxValue: 64              |
+| `momentum`        | ContinuousParameterRange   | MinValue: 0.0, MaxValue: 0.999         |
+| `optimizer`       | CategoricalParameterRanges | ['sgd', 'adam', 'rmsprop', 'adadelta'] |
+| `weight_decay`    | ContinuousParameterRange   | MinValue: 0.0, MaxValue: 0.999         |

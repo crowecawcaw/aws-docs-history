@@ -55,34 +55,37 @@ resources, not folders.
 The following example IAM policy grants the required
 permissions for `roleB` to access objects in `bucketA`:
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject",
-                "s3:DeleteObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::bucketA/FolderName/*",
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:GetBucketCors",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::bucketA",
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject",
+ "s3:DeleteObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`bucketA`/`FolderName`/*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket",
+ "s3:GetBucketCors",
+ "s3:GetBucketLocation"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`bucketA`"
+ ]
+ }
+ ]
+}`
+
 ```
 
 3. Configure the bucket policy for `bucketA` in Account A to grant permissions to the IAM role `roleB` in Account B.

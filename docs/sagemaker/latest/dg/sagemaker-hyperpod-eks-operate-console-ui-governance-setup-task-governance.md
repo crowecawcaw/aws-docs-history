@@ -20,6 +20,169 @@ If you are having issues setting up, please see [Troubleshoot](sagemaker-hyperpo
 HyperPod task governance EKS add-on installs [Kueue](https://github.com/kubernetes-sigs/kueue/tree/main/apis/kueue "https://github.com/kubernetes-sigs/kueue/tree/main/apis/kueue") for your HyperPod EKS clusters. Kueue is a
 kubernetes-native system that manages quotas and how jobs consume them.
 
-| EKS HyperPod task governance add-on version | Version of Kueue that is installed as part of the add-on |
-| ------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v1.1.3                                      | v0.12.0                                                  | ###### Note Kueue v.012.0 and higher don't include kueue-rbac-proxy as part of the installation. Previous versions might have kueue-rbac-proxy installed. For example, if you're using Kueue v0.8.1, you might have kueue-rbac-proxy v0.18.1. HyperPod task governance leverages Kueue for Kubernetes-native job queueing, scheduling, and quota management, and is installed with the HyperPod task governance EKS add-on. When installed, HyperPod creates and modifies SageMaker AI-managed Kubernetes resources such as `KueueManagerConfig`, `ClusterQueues`, `LocalQueues`, `WorkloadPriorityClasses`, `ResourceFlavors`, and `ValidatingAdmissionPolicies`. While Kubernetes administrators have the flexibility to modify the state of these resources, it is possible that any changes made to a SageMaker AI-managed resource may be updated and overwritten by the service. The following information outlines the configuration settings utilized by the HyperPod task governance add-on for setting up Kueue. `apiVersion: config.kueue.x-k8s.io/v1beta1 kind: Configuration health: healthProbeBindAddress: :8081 metrics: bindAddress: :8443 enableClusterQueueResources: true webhook: port: 9443 manageJobsWithoutQueueName: false leaderElection: leaderElect: true resourceName: c1f6bfd2.kueue.x-k8s.io controller: groupKindConcurrency: Job.batch: 5 Pod: 5 Workload.kueue.x-k8s.io: 5 LocalQueue.kueue.x-k8s.io: 1 ClusterQueue.kueue.x-k8s.io: 1 ResourceFlavor.kueue.x-k8s.io: 1 clientConnection: qps: 50 burst: 100 integrations: frameworks: <br>• "batch/job" <br>• "kubeflow.org/mpijob" <br>• "ray.io/rayjob" <br>• "ray.io/raycluster" <br>• "jobset.x-k8s.io/jobset" <br>• "kubeflow.org/mxjob" <br>• "kubeflow.org/paddlejob" <br>• "kubeflow.org/pytorchjob" <br>• "kubeflow.org/tfjob" <br>• "kubeflow.org/xgboostjob" <br>• "pod" <br>• "deployment" <br>• "statefulset" <br>• "leaderworkerset.x-k8s.io/leaderworkerset" podOptions: namespaceSelector: matchExpressions: <br>• key: kubernetes.io/metadata.name operator: NotIn values: [ kube-system, kueue-system ] fairSharing: enable: true preemptionStrategies: [LessThanOrEqualToFinalShare, LessThanInitialShare] resources: excludeResourcePrefixes: []` For more information about each configuration entry, see [Configuration](https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta1/#Configuration "https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta1/#Configuration") in the Kueue documentation. ## HyperPod Task governance prerequisites <br>• Ensure that you have the minimum permission policy for HyperPod cluster administrators, in [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin"). This includes permissions to run the SageMaker HyperPod core APIs, manage SageMaker HyperPod clusters within your AWS account, and performing the tasks in [Managing SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-operate.md "sagemaker-hyperpod-eks-operate.md"). <br>• You will need to have your Kubernetes version >= 1.30. For instructions, see [Update existing clusters to the new Kubernetes version](../../../eks/latest/userguide/update-cluster.md "../../../eks/latest/userguide/update-cluster.md"). <br>• If you already have Kueue installed in their clusters, uninstall Kueue before installing the EKS add-on. <br>• A HyperPod node must already exist in the EKS cluster before installing the HyperPod task governance add-on. ## HyperPod task governance setup The following provides information on how to get set up with HyperPod task governance. Setup using the SageMaker AI console The following provides information on how to get set up with HyperPod task governance using the SageMaker HyperPod console. You already have all of the following permissions attached if you have already granted permissions to manage Amazon CloudWatch Observability EKS and view the HyperPod cluster dashboard through the SageMaker AI console in the [HyperPod Amazon CloudWatch Observability EKS add-on setup](sagemaker-hyperpod-eks-operate-console-ui-governance-setup-dashboard.md#hp-eks-dashboard-setup "sagemaker-hyperpod-eks-operate-console-ui-governance-setup-dashboard.md#hp-eks-dashboard-setup"). If you have not set this up, use the sample policy below to grant permissions to manage the HyperPod task governance add-on and view the HyperPod cluster dashboard through the SageMaker AI console. JSONJSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "eks:ListAddons", "eks:CreateAddon", "eks:UpdateAddon", "eks:DescribeAddon", "eks:DescribeAddonVersions", "sagemaker:DescribeCluster", "sagemaker:DescribeClusterNode", "sagemaker:ListClusterNodes", "sagemaker:ListClusters", "eks:DescribeCluster", "eks:AccessKubernetesApi" ], "Resource": "*" } ] }` `` Navigate to the **Dashboard** tab in the SageMaker HyperPod console to install the Amazon SageMaker HyperPod task governance Add-on. Setup using the Amazon EKS AWS CLI Use the example [`create-addon`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html") EKS AWS CLI command to set up the HyperPod task governance Amazon EKS API and console UI using the AWS CLI: ``aws eks create-addon --region `region` --cluster-name `cluster-name` --addon-name amazon-sagemaker-hyperpod-taskgovernance`` You can view the **Policies** tab in the HyperPod SageMaker AI console if the install was successful. You can also use the following example [`describe-addon`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/describe-addon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/describe-addon.html") EKS AWS CLI command to check the status. ``aws eks describe-addon --region `region` --cluster-name `cluster-name` --addon-name amazon-sagemaker-hyperpod-taskgovernance`` |
+| EKS HyperPod task governance add-on version | Version of Kueue that is installed as part of the<br>add-on |
+| ------------------------------------------- | ----------------------------------------------------------- |
+| v1.1.3                                      | v0.12.0                                                     |
+
+###### Note
+
+Kueue v.012.0 and higher don't include kueue-rbac-proxy as part of the installation.
+Previous versions might have kueue-rbac-proxy installed. For example, if you're using Kueue v0.8.1,
+you might have kueue-rbac-proxy v0.18.1.
+
+HyperPod task governance leverages Kueue for Kubernetes-native job
+queueing, scheduling, and quota management, and is installed with the
+HyperPod task governance EKS add-on. When installed, HyperPod
+creates and modifies SageMaker AI-managed Kubernetes resources such as
+`KueueManagerConfig`, `ClusterQueues`,
+`LocalQueues`, `WorkloadPriorityClasses`,
+`ResourceFlavors`, and `ValidatingAdmissionPolicies`.
+While Kubernetes administrators have the flexibility to modify the state of
+these resources, it is possible that any changes made to a SageMaker AI-managed resource
+may be updated and overwritten by the service.
+
+The following information outlines the configuration settings utilized by the
+HyperPod task governance add-on for setting up Kueue.
+
+```
+  apiVersion: config.kueue.x-k8s.io/v1beta1
+    kind: Configuration
+    health:
+      healthProbeBindAddress: :8081
+    metrics:
+      bindAddress: :8443
+      enableClusterQueueResources: true
+    webhook:
+      port: 9443
+    manageJobsWithoutQueueName: false
+    leaderElection:
+      leaderElect: true
+      resourceName: c1f6bfd2.kueue.x-k8s.io
+    controller:
+      groupKindConcurrency:
+        Job.batch: 5
+        Pod: 5
+        Workload.kueue.x-k8s.io: 5
+        LocalQueue.kueue.x-k8s.io: 1
+        ClusterQueue.kueue.x-k8s.io: 1
+        ResourceFlavor.kueue.x-k8s.io: 1
+    clientConnection:
+      qps: 50
+      burst: 100
+    integrations:
+      frameworks:
+      - "batch/job"
+      - "kubeflow.org/mpijob"
+      - "ray.io/rayjob"
+      - "ray.io/raycluster"
+      - "jobset.x-k8s.io/jobset"
+      - "kubeflow.org/mxjob"
+      - "kubeflow.org/paddlejob"
+      - "kubeflow.org/pytorchjob"
+      - "kubeflow.org/tfjob"
+      - "kubeflow.org/xgboostjob"
+      - "pod"
+      - "deployment"
+      - "statefulset"
+      - "leaderworkerset.x-k8s.io/leaderworkerset"
+      podOptions:
+        namespaceSelector:
+          matchExpressions:
+            - key: kubernetes.io/metadata.name
+              operator: NotIn
+              values: [ kube-system, kueue-system ]
+    fairSharing:
+      enable: true
+      preemptionStrategies: [LessThanOrEqualToFinalShare, LessThanInitialShare]
+    resources:
+      excludeResourcePrefixes: []
+```
+
+For more information about each configuration entry, see [Configuration](https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta1/#Configuration "https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta1/#Configuration") in the Kueue documentation.
+
+## HyperPod Task
+
+governance prerequisites
+
+- Ensure that you have the minimum permission policy for
+  HyperPod cluster administrators, in [IAM users for
+  cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin"). This includes permissions to run the SageMaker HyperPod core APIs, manage
+  SageMaker HyperPod clusters within your AWS account, and performing the
+  tasks in [Managing SageMaker HyperPod clusters orchestrated
+  by Amazon EKS](sagemaker-hyperpod-eks-operate.md "sagemaker-hyperpod-eks-operate.md").
+- You will need to have your Kubernetes version >= 1.30. For
+  instructions, see [Update existing
+  clusters to the new Kubernetes version](../../../eks/latest/userguide/update-cluster.md "../../../eks/latest/userguide/update-cluster.md").
+- If you already have Kueue installed in their clusters, uninstall Kueue
+  before installing the EKS add-on.
+- A HyperPod node must already exist in the EKS cluster before
+  installing the HyperPod task governance add-on.
+
+## HyperPod task governance
+
+setup
+
+The following provides information on how to get set up with HyperPod
+task governance.
+
+Setup using the SageMaker AI console
+The following provides information on how to get set up with
+HyperPod task governance using the SageMaker HyperPod
+console.
+
+You already have all of the following permissions attached if you
+have already granted permissions to manage Amazon CloudWatch Observability
+EKS and view the HyperPod cluster dashboard through the
+SageMaker AI console in the [HyperPod Amazon CloudWatch
+Observability EKS add-on setup](sagemaker-hyperpod-eks-operate-console-ui-governance-setup-dashboard.md#hp-eks-dashboard-setup "sagemaker-hyperpod-eks-operate-console-ui-governance-setup-dashboard.md#hp-eks-dashboard-setup"). If you have not set
+this up, use the sample policy below to grant permissions to manage
+the HyperPod task governance add-on and view the
+HyperPod cluster dashboard through the SageMaker AI console.
+
+JSONJSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "eks:ListAddons",
+ "eks:CreateAddon",
+ "eks:UpdateAddon",
+ "eks:DescribeAddon",
+ "eks:DescribeAddonVersions",
+ "sagemaker:DescribeCluster",
+ "sagemaker:DescribeClusterNode",
+ "sagemaker:ListClusterNodes",
+ "sagemaker:ListClusters",
+ "eks:DescribeCluster",
+ "eks:AccessKubernetesApi"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+Navigate to the **Dashboard** tab in the
+SageMaker HyperPod console to install the Amazon SageMaker HyperPod task governance
+Add-on.
+
+Setup using the Amazon EKS AWS CLI
+Use the example [`create-addon`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html") EKS AWS CLI command to set
+up the HyperPod task governance Amazon EKS API and console UI
+using the AWS CLI:
+
+```
+aws eks create-addon --region `region` --cluster-name `cluster-name` --addon-name amazon-sagemaker-hyperpod-taskgovernance
+```
+
+You can view the **Policies** tab in the HyperPod SageMaker AI
+console if the install was successful. You can also use the following example [`describe-addon`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/describe-addon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/describe-addon.html") EKS AWS CLI command to check the status.
+
+```
+aws eks describe-addon --region `region` --cluster-name `cluster-name` --addon-name amazon-sagemaker-hyperpod-taskgovernance
+```

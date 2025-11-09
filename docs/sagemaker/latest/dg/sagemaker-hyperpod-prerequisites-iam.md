@@ -80,453 +80,466 @@ Creating HyperPod clusters requires the IAM permissions outlined in the
 following policy example. If your AWS account has [`AdministratorAccess`](../../../aws-managed-policy/latest/reference/AdministratorAccess.md "../../../aws-managed-policy/latest/reference/AdministratorAccess.md") permissions, these permissions are
 granted by default.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:CreateCluster",
-                "sagemaker:DeleteCluster",
-                "sagemaker:UpdateCluster"
-            ],
-            "Resource": "arn:aws:sagemaker:*:*:cluster/*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:AddTags"
-            ],
-            "Resource": "arn:aws:sagemaker:*:*:cluster/*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:ListTags",
-                "sagemaker:ListClusters",
-                "sagemaker:ListClusterNodes",
-                "sagemaker:ListComputeQuotas",
-                "sagemaker:ListTrainingPlans",
-                "sagemaker:DescribeCluster",
-                "sagemaker:DescribeClusterNode"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:CreateStack",
-                "cloudformation:UpdateStack",
-                "cloudformation:DeleteStack",
-                "cloudformation:ContinueUpdateRollback",
-                "cloudformation:SetStackPolicy",
-                "cloudformation:ValidateTemplate",
-                "cloudformation:DescribeStacks",
-                "cloudformation:DescribeStackEvents",
-                "cloudformation:Get*",
-                "cloudformation:List*"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::*:role/sagemaker-*",
-            "Condition": {
-                "StringEquals": {
-                    "iam:PassedToService": [
-                        "sagemaker.amazonaws.com",
-                        "eks.amazonaws.com",
-                        "lambda.amazonaws.com"
-                    ]
-                }
-            }
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iam:PassRole",
-                "iam:GetRole"
-            ],
-            "Resource": "arn:aws:iam::*:role/*"
-        },
-        {
-            "Sid": "AmazonVPCFullAccess",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:AcceptVpcPeeringConnection",
-                "ec2:AcceptVpcEndpointConnections",
-                "ec2:AllocateAddress",
-                "ec2:AssignIpv6Addresses",
-                "ec2:AssignPrivateIpAddresses",
-                "ec2:AssociateAddress",
-                "ec2:AssociateDhcpOptions",
-                "ec2:AssociateRouteTable",
-                "ec2:AssociateSecurityGroupVpc",
-                "ec2:AssociateSubnetCidrBlock",
-                "ec2:AssociateVpcCidrBlock",
-                "ec2:AttachClassicLinkVpc",
-                "ec2:AttachInternetGateway",
-                "ec2:AttachNetworkInterface",
-                "ec2:AttachVpnGateway",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:CreateCarrierGateway",
-                "ec2:CreateCustomerGateway",
-                "ec2:CreateDefaultSubnet",
-                "ec2:CreateDefaultVpc",
-                "ec2:CreateDhcpOptions",
-                "ec2:CreateEgressOnlyInternetGateway",
-                "ec2:CreateFlowLogs",
-                "ec2:CreateInternetGateway",
-                "ec2:CreateLocalGatewayRouteTableVpcAssociation",
-                "ec2:CreateNatGateway",
-                "ec2:CreateNetworkAcl",
-                "ec2:CreateNetworkAclEntry",
-                "ec2:CreateNetworkInterface",
-                "ec2:CreateNetworkInterfacePermission",
-                "ec2:CreateRoute",
-                "ec2:CreateRouteTable",
-                "ec2:CreateSecurityGroup",
-                "ec2:CreateSubnet",
-                "ec2:CreateTags",
-                "ec2:CreateVpc",
-                "ec2:CreateVpcEndpoint",
-                "ec2:CreateVpcEndpointConnectionNotification",
-                "ec2:CreateVpcEndpointServiceConfiguration",
-                "ec2:CreateVpcPeeringConnection",
-                "ec2:CreateVpnConnection",
-                "ec2:CreateVpnConnectionRoute",
-                "ec2:CreateVpnGateway",
-                "ec2:DeleteCarrierGateway",
-                "ec2:DeleteCustomerGateway",
-                "ec2:DeleteDhcpOptions",
-                "ec2:DeleteEgressOnlyInternetGateway",
-                "ec2:DeleteFlowLogs",
-                "ec2:DeleteInternetGateway",
-                "ec2:DeleteLocalGatewayRouteTableVpcAssociation",
-                "ec2:DeleteNatGateway",
-                "ec2:DeleteNetworkAcl",
-                "ec2:DeleteNetworkAclEntry",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DeleteNetworkInterfacePermission",
-                "ec2:DeleteRoute",
-                "ec2:DeleteRouteTable",
-                "ec2:DeleteSecurityGroup",
-                "ec2:DeleteSubnet",
-                "ec2:DeleteTags",
-                "ec2:DeleteVpc",
-                "ec2:DeleteVpcEndpoints",
-                "ec2:DeleteVpcEndpointConnectionNotifications",
-                "ec2:DeleteVpcEndpointServiceConfigurations",
-                "ec2:DeleteVpcPeeringConnection",
-                "ec2:DeleteVpnConnection",
-                "ec2:DeleteVpnConnectionRoute",
-                "ec2:DeleteVpnGateway",
-                "ec2:DescribeAccountAttributes",
-                "ec2:DescribeAddresses",
-                "ec2:DescribeAvailabilityZones",
-                "ec2:DescribeCarrierGateways",
-                "ec2:DescribeClassicLinkInstances",
-                "ec2:DescribeCustomerGateways",
-                "ec2:DescribeDhcpOptions",
-                "ec2:DescribeEgressOnlyInternetGateways",
-                "ec2:DescribeFlowLogs",
-                "ec2:DescribeInstances",
-                "ec2:DescribeInternetGateways",
-                "ec2:DescribeIpv6Pools",
-                "ec2:DescribeLocalGatewayRouteTables",
-                "ec2:DescribeLocalGatewayRouteTableVpcAssociations",
-                "ec2:DescribeKeyPairs",
-                "ec2:DescribeMovingAddresses",
-                "ec2:DescribeNatGateways",
-                "ec2:DescribeNetworkAcls",
-                "ec2:DescribeNetworkInterfaceAttribute",
-                "ec2:DescribeNetworkInterfacePermissions",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DescribePrefixLists",
-                "ec2:DescribeRouteTables",
-                "ec2:DescribeSecurityGroupReferences",
-                "ec2:DescribeSecurityGroupRules",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeSecurityGroupVpcAssociations",
-                "ec2:DescribeStaleSecurityGroups",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeTags",
-                "ec2:DescribeVpcAttribute",
-                "ec2:DescribeVpcClassicLink",
-                "ec2:DescribeVpcClassicLinkDnsSupport",
-                "ec2:DescribeVpcEndpointConnectionNotifications",
-                "ec2:DescribeVpcEndpointConnections",
-                "ec2:DescribeVpcEndpoints",
-                "ec2:DescribeVpcEndpointServiceConfigurations",
-                "ec2:DescribeVpcEndpointServicePermissions",
-                "ec2:DescribeVpcEndpointServices",
-                "ec2:DescribeVpcPeeringConnections",
-                "ec2:DescribeVpcs",
-                "ec2:DescribeVpnConnections",
-                "ec2:DescribeVpnGateways",
-                "ec2:DetachClassicLinkVpc",
-                "ec2:DetachInternetGateway",
-                "ec2:DetachNetworkInterface",
-                "ec2:DetachVpnGateway",
-                "ec2:DisableVgwRoutePropagation",
-                "ec2:DisableVpcClassicLink",
-                "ec2:DisableVpcClassicLinkDnsSupport",
-                "ec2:DisassociateAddress",
-                "ec2:DisassociateRouteTable",
-                "ec2:DisassociateSecurityGroupVpc",
-                "ec2:DisassociateSubnetCidrBlock",
-                "ec2:DisassociateVpcCidrBlock",
-                "ec2:EnableVgwRoutePropagation",
-                "ec2:EnableVpcClassicLink",
-                "ec2:EnableVpcClassicLinkDnsSupport",
-                "ec2:GetSecurityGroupsForVpc",
-                "ec2:ModifyNetworkInterfaceAttribute",
-                "ec2:ModifySecurityGroupRules",
-                "ec2:ModifySubnetAttribute",
-                "ec2:ModifyVpcAttribute",
-                "ec2:ModifyVpcEndpoint",
-                "ec2:ModifyVpcEndpointConnectionNotification",
-                "ec2:ModifyVpcEndpointServiceConfiguration",
-                "ec2:ModifyVpcEndpointServicePermissions",
-                "ec2:ModifyVpcPeeringConnectionOptions",
-                "ec2:ModifyVpcTenancy",
-                "ec2:MoveAddressToVpc",
-                "ec2:RejectVpcEndpointConnections",
-                "ec2:RejectVpcPeeringConnection",
-                "ec2:ReleaseAddress",
-                "ec2:ReplaceNetworkAclAssociation",
-                "ec2:ReplaceNetworkAclEntry",
-                "ec2:ReplaceRoute",
-                "ec2:ReplaceRouteTableAssociation",
-                "ec2:ResetNetworkInterfaceAttribute",
-                "ec2:RestoreAddressToClassic",
-                "ec2:RevokeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress",
-                "ec2:UnassignIpv6Addresses",
-                "ec2:UnassignPrivateIpAddresses",
-                "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
-                "ec2:UpdateSecurityGroupRuleDescriptionsIngress"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "CloudWatchPermissions",
-            "Effect": "Allow",
-            "Action": [
-                "cloudwatch:*",
-                "logs:*",
-                "sns:CreateTopic",
-                "sns:ListSubscriptions",
-                "sns:ListSubscriptionsByTopic",
-                "sns:ListTopics",
-                "sns:Subscribe",
-                "iam:GetPolicy",
-                "iam:GetPolicyVersion",
-                "iam:GetRole",
-                "oam:ListSinks",
-                "rum:*",
-                "synthetics:*",
-                "xray:*"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:CreateBucket",
-                "s3:DeleteBucket",
-                "s3:PutBucketPolicy",
-                "s3:PutBucketTagging",
-                "s3:PutBucketPublicAccessBlock",
-                "s3:PutBucketLogging",
-                "s3:DeleteBucketPolicy",
-                "s3:PutObject",
-                "s3:DeleteObject",
-                "s3:PutEncryptionConfiguration",
-                "s3:AbortMultipartUpload",
-                "s3:Get*",
-                "s3:List*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::*",
-                "arn:aws:s3:::*/*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "eks:CreateCluster",
-                "eks:DeleteCluster",
-                "eks:CreateNodegroup",
-                "eks:DeleteNodegroup",
-                "eks:UpdateNodegroupConfig",
-                "eks:UpdateNodegroupVersion",
-                "eks:UpdateClusterConfig",
-                "eks:UpdateClusterVersion",
-                "eks:CreateFargateProfile",
-                "eks:DeleteFargateProfile",
-                "eks:CreateAddon",
-                "eks:DeleteAddon",
-                "eks:UpdateAddon",
-                "eks:CreateAccessEntry",
-                "eks:DeleteAccessEntry",
-                "eks:UpdateAccessEntry",
-                "eks:AssociateAccessPolicy",
-                "eks:AssociateIdentityProviderConfig",
-                "eks:DisassociateIdentityProviderConfig",
-                "eks:TagResource",
-                "eks:UntagResource",
-                "eks:AccessKubernetesApi",
-                "eks:Describe*",
-                "eks:List*"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:GetParameter",
-                "ssm:PutParameter",
-                "ssm:DeleteParameter",
-                "ssm:DescribeParameters"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "kms:Decrypt",
-                "kms:GenerateDataKey"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringLike": {
-                    "kms:ViaService": [
-                        "sagemaker.*.amazonaws.com",
-                        "ec2.*.amazonaws.com",
-                        "s3.*.amazonaws.com",
-                        "eks.*.amazonaws.com"
-                    ]
-                }
-            }
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:GetFunction",
-                "lambda:UpdateFunctionCode",
-                "lambda:UpdateFunctionConfiguration",
-                "lambda:AddPermission",
-                "lambda:RemovePermission",
-                "lambda:PublishLayerVersion",
-                "lambda:DeleteLayerVersion",
-                "lambda:InvokeFunction",
-                "lambda:Get*",
-                "lambda:List*",
-                "lambda:TagResource"
-            ],
-            "Resource": [
-                "arn:aws:lambda:*:*:function:*",
-                "arn:aws:lambda:*:*:layer:*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy"
-            ],
-            "Resource": [
-                "arn:aws:iam::*:role/*sagemaker*",
-                "arn:aws:iam::*:role/*eks*",
-                "arn:aws:iam::*:role/*hyperpod*",
-                "arn:aws:iam::*:policy/*sagemaker*",
-                "arn:aws:iam::*:policy/*hyperpod*",
-                "arn:aws:iam::*:role/*LifeCycleScriptStack*",
-                "arn:aws:iam::*:role/*LifeCycleScript*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateRole",
-                "iam:TagRole",
-                "iam:PutRolePolicy",
-                "iam:Get*",
-                "iam:List*",
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy"
-            ],
-            "Resource": [
-                "arn:aws:iam::*:role/*",
-                "arn:aws:iam::*:policy/*"
-            ]
-        },
-        {
-            "Sid": "FullAccessToFSx",
-            "Effect": "Allow",
-            "Action": [
-                "fsx:AssociateFileGateway",
-                "fsx:AssociateFileSystemAliases",
-                "fsx:CancelDataRepositoryTask",
-                "fsx:CopyBackup",
-                "fsx:CopySnapshotAndUpdateVolume",
-                "fsx:CreateAndAttachS3AccessPoint",
-                "fsx:CreateBackup",
-                "fsx:CreateDataRepositoryAssociation",
-                "fsx:CreateDataRepositoryTask",
-                "fsx:CreateFileCache",
-                "fsx:CreateFileSystem",
-                "fsx:CreateFileSystemFromBackup",
-                "fsx:CreateSnapshot",
-                "fsx:CreateStorageVirtualMachine",
-                "fsx:CreateVolume",
-                "fsx:CreateVolumeFromBackup",
-                "fsx:DetachAndDeleteS3AccessPoint",
-                "fsx:DeleteBackup",
-                "fsx:DeleteDataRepositoryAssociation",
-                "fsx:DeleteFileCache",
-                "fsx:DeleteFileSystem",
-                "fsx:DeleteSnapshot",
-                "fsx:DeleteStorageVirtualMachine",
-                "fsx:DeleteVolume",
-                "fsx:DescribeAssociatedFileGateways",
-                "fsx:DescribeBackups",
-                "fsx:DescribeDataRepositoryAssociations",
-                "fsx:DescribeDataRepositoryTasks",
-                "fsx:DescribeFileCaches",
-                "fsx:DescribeFileSystemAliases",
-                "fsx:DescribeFileSystems",
-                "fsx:DescribeS3AccessPointAttachments",
-                "fsx:DescribeSharedVpcConfiguration",
-                "fsx:DescribeSnapshots",
-                "fsx:DescribeStorageVirtualMachines",
-                "fsx:DescribeVolumes",
-                "fsx:DisassociateFileGateway",
-                "fsx:DisassociateFileSystemAliases",
-                "fsx:ListTagsForResource",
-                "fsx:ManageBackupPrincipalAssociations",
-                "fsx:ReleaseFileSystemNfsV3Locks",
-                "fsx:RestoreVolumeFromSnapshot",
-                "fsx:TagResource",
-                "fsx:UntagResource",
-                "fsx:UpdateDataRepositoryAssociation",
-                "fsx:UpdateFileCache",
-                "fsx:UpdateFileSystem",
-                "fsx:UpdateSharedVpcConfiguration",
-                "fsx:UpdateSnapshot",
-                "fsx:UpdateStorageVirtualMachine",
-                "fsx:UpdateVolume"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateCluster",
+ "sagemaker:DeleteCluster",
+ "sagemaker:UpdateCluster"
+ ],
+ "Resource": "arn:aws:sagemaker:*:*:cluster/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:AddTags"
+ ],
+ "Resource": "arn:aws:sagemaker:*:*:cluster/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:ListTags",
+ "sagemaker:ListClusters",
+ "sagemaker:ListClusterNodes",
+ "sagemaker:ListComputeQuotas",
+ "sagemaker:ListTrainingPlans",
+ "sagemaker:DescribeCluster",
+ "sagemaker:DescribeClusterNode"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "cloudformation:CreateStack",
+ "cloudformation:UpdateStack",
+ "cloudformation:DeleteStack",
+ "cloudformation:ContinueUpdateRollback",
+ "cloudformation:SetStackPolicy",
+ "cloudformation:ValidateTemplate",
+ "cloudformation:DescribeStacks",
+ "cloudformation:DescribeStackEvents",
+ "cloudformation:Get*",
+ "cloudformation:List*"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "iam:PassRole",
+ "Resource": "arn:aws:iam::*:role/sagemaker-*",
+ "Condition": {
+ "StringEquals": {
+ "iam:PassedToService": [
+ "sagemaker.amazonaws.com",
+ "eks.amazonaws.com",
+ "lambda.amazonaws.com"
+ ]
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iam:PassRole",
+ "iam:GetRole"
+ ],
+ "Resource": "arn:aws:iam::*:role/*",
+ "Condition": {
+ "StringEquals": {
+ "iam:PassedToService": [
+ "sagemaker.amazonaws.com",
+ "eks.amazonaws.com",
+ "lambda.amazonaws.com",
+ "cloudformation.amazonaws.com"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "AmazonVPCFullAccess",
+ "Effect": "Allow",
+ "Action": [
+ "ec2:AcceptVpcPeeringConnection",
+ "ec2:AcceptVpcEndpointConnections",
+ "ec2:AllocateAddress",
+ "ec2:AssignIpv6Addresses",
+ "ec2:AssignPrivateIpAddresses",
+ "ec2:AssociateAddress",
+ "ec2:AssociateDhcpOptions",
+ "ec2:AssociateRouteTable",
+ "ec2:AssociateSecurityGroupVpc",
+ "ec2:AssociateSubnetCidrBlock",
+ "ec2:AssociateVpcCidrBlock",
+ "ec2:AttachClassicLinkVpc",
+ "ec2:AttachInternetGateway",
+ "ec2:AttachNetworkInterface",
+ "ec2:AttachVpnGateway",
+ "ec2:AuthorizeSecurityGroupEgress",
+ "ec2:AuthorizeSecurityGroupIngress",
+ "ec2:CreateCarrierGateway",
+ "ec2:CreateCustomerGateway",
+ "ec2:CreateDefaultSubnet",
+ "ec2:CreateDefaultVpc",
+ "ec2:CreateDhcpOptions",
+ "ec2:CreateEgressOnlyInternetGateway",
+ "ec2:CreateFlowLogs",
+ "ec2:CreateInternetGateway",
+ "ec2:CreateLocalGatewayRouteTableVpcAssociation",
+ "ec2:CreateNatGateway",
+ "ec2:CreateNetworkAcl",
+ "ec2:CreateNetworkAclEntry",
+ "ec2:CreateNetworkInterface",
+ "ec2:CreateNetworkInterfacePermission",
+ "ec2:CreateRoute",
+ "ec2:CreateRouteTable",
+ "ec2:CreateSecurityGroup",
+ "ec2:CreateSubnet",
+ "ec2:CreateTags",
+ "ec2:CreateVpc",
+ "ec2:CreateVpcEndpoint",
+ "ec2:CreateVpcEndpointConnectionNotification",
+ "ec2:CreateVpcEndpointServiceConfiguration",
+ "ec2:CreateVpcPeeringConnection",
+ "ec2:CreateVpnConnection",
+ "ec2:CreateVpnConnectionRoute",
+ "ec2:CreateVpnGateway",
+ "ec2:DeleteCarrierGateway",
+ "ec2:DeleteCustomerGateway",
+ "ec2:DeleteDhcpOptions",
+ "ec2:DeleteEgressOnlyInternetGateway",
+ "ec2:DeleteFlowLogs",
+ "ec2:DeleteInternetGateway",
+ "ec2:DeleteLocalGatewayRouteTableVpcAssociation",
+ "ec2:DeleteNatGateway",
+ "ec2:DeleteNetworkAcl",
+ "ec2:DeleteNetworkAclEntry",
+ "ec2:DeleteNetworkInterface",
+ "ec2:DeleteNetworkInterfacePermission",
+ "ec2:DeleteRoute",
+ "ec2:DeleteRouteTable",
+ "ec2:DeleteSecurityGroup",
+ "ec2:DeleteSubnet",
+ "ec2:DeleteTags",
+ "ec2:DeleteVpc",
+ "ec2:DeleteVpcEndpoints",
+ "ec2:DeleteVpcEndpointConnectionNotifications",
+ "ec2:DeleteVpcEndpointServiceConfigurations",
+ "ec2:DeleteVpcPeeringConnection",
+ "ec2:DeleteVpnConnection",
+ "ec2:DeleteVpnConnectionRoute",
+ "ec2:DeleteVpnGateway",
+ "ec2:DescribeAccountAttributes",
+ "ec2:DescribeAddresses",
+ "ec2:DescribeAvailabilityZones",
+ "ec2:DescribeCarrierGateways",
+ "ec2:DescribeClassicLinkInstances",
+ "ec2:DescribeCustomerGateways",
+ "ec2:DescribeDhcpOptions",
+ "ec2:DescribeEgressOnlyInternetGateways",
+ "ec2:DescribeFlowLogs",
+ "ec2:DescribeInstances",
+ "ec2:DescribeInternetGateways",
+ "ec2:DescribeIpv6Pools",
+ "ec2:DescribeLocalGatewayRouteTables",
+ "ec2:DescribeLocalGatewayRouteTableVpcAssociations",
+ "ec2:DescribeKeyPairs",
+ "ec2:DescribeMovingAddresses",
+ "ec2:DescribeNatGateways",
+ "ec2:DescribeNetworkAcls",
+ "ec2:DescribeNetworkInterfaceAttribute",
+ "ec2:DescribeNetworkInterfacePermissions",
+ "ec2:DescribeNetworkInterfaces",
+ "ec2:DescribePrefixLists",
+ "ec2:DescribeRouteTables",
+ "ec2:DescribeSecurityGroupReferences",
+ "ec2:DescribeSecurityGroupRules",
+ "ec2:DescribeSecurityGroups",
+ "ec2:DescribeSecurityGroupVpcAssociations",
+ "ec2:DescribeStaleSecurityGroups",
+ "ec2:DescribeSubnets",
+ "ec2:DescribeTags",
+ "ec2:DescribeVpcAttribute",
+ "ec2:DescribeVpcClassicLink",
+ "ec2:DescribeVpcClassicLinkDnsSupport",
+ "ec2:DescribeVpcEndpointConnectionNotifications",
+ "ec2:DescribeVpcEndpointConnections",
+ "ec2:DescribeVpcEndpoints",
+ "ec2:DescribeVpcEndpointServiceConfigurations",
+ "ec2:DescribeVpcEndpointServicePermissions",
+ "ec2:DescribeVpcEndpointServices",
+ "ec2:DescribeVpcPeeringConnections",
+ "ec2:DescribeVpcs",
+ "ec2:DescribeVpnConnections",
+ "ec2:DescribeVpnGateways",
+ "ec2:DetachClassicLinkVpc",
+ "ec2:DetachInternetGateway",
+ "ec2:DetachNetworkInterface",
+ "ec2:DetachVpnGateway",
+ "ec2:DisableVgwRoutePropagation",
+ "ec2:DisableVpcClassicLink",
+ "ec2:DisableVpcClassicLinkDnsSupport",
+ "ec2:DisassociateAddress",
+ "ec2:DisassociateRouteTable",
+ "ec2:DisassociateSecurityGroupVpc",
+ "ec2:DisassociateSubnetCidrBlock",
+ "ec2:DisassociateVpcCidrBlock",
+ "ec2:EnableVgwRoutePropagation",
+ "ec2:EnableVpcClassicLink",
+ "ec2:EnableVpcClassicLinkDnsSupport",
+ "ec2:GetSecurityGroupsForVpc",
+ "ec2:ModifyNetworkInterfaceAttribute",
+ "ec2:ModifySecurityGroupRules",
+ "ec2:ModifySubnetAttribute",
+ "ec2:ModifyVpcAttribute",
+ "ec2:ModifyVpcEndpoint",
+ "ec2:ModifyVpcEndpointConnectionNotification",
+ "ec2:ModifyVpcEndpointServiceConfiguration",
+ "ec2:ModifyVpcEndpointServicePermissions",
+ "ec2:ModifyVpcPeeringConnectionOptions",
+ "ec2:ModifyVpcTenancy",
+ "ec2:MoveAddressToVpc",
+ "ec2:RejectVpcEndpointConnections",
+ "ec2:RejectVpcPeeringConnection",
+ "ec2:ReleaseAddress",
+ "ec2:ReplaceNetworkAclAssociation",
+ "ec2:ReplaceNetworkAclEntry",
+ "ec2:ReplaceRoute",
+ "ec2:ReplaceRouteTableAssociation",
+ "ec2:ResetNetworkInterfaceAttribute",
+ "ec2:RestoreAddressToClassic",
+ "ec2:RevokeSecurityGroupEgress",
+ "ec2:RevokeSecurityGroupIngress",
+ "ec2:UnassignIpv6Addresses",
+ "ec2:UnassignPrivateIpAddresses",
+ "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
+ "ec2:UpdateSecurityGroupRuleDescriptionsIngress"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "CloudWatchPermissions",
+ "Effect": "Allow",
+ "Action": [
+ "cloudwatch:*",
+ "logs:*",
+ "sns:CreateTopic",
+ "sns:ListSubscriptions",
+ "sns:ListSubscriptionsByTopic",
+ "sns:ListTopics",
+ "sns:Subscribe",
+ "iam:GetPolicy",
+ "iam:GetPolicyVersion",
+ "iam:GetRole",
+ "oam:ListSinks",
+ "rum:*",
+ "synthetics:*",
+ "xray:*"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:CreateBucket",
+ "s3:DeleteBucket",
+ "s3:PutBucketPolicy",
+ "s3:PutBucketTagging",
+ "s3:PutBucketPublicAccessBlock",
+ "s3:PutBucketLogging",
+ "s3:DeleteBucketPolicy",
+ "s3:PutObject",
+ "s3:DeleteObject",
+ "s3:PutEncryptionConfiguration",
+ "s3:AbortMultipartUpload",
+ "s3:Get*",
+ "s3:List*"
+ ],
+ "Resource": [
+ "arn:aws:s3:::*",
+ "arn:aws:s3:::*/*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "eks:CreateCluster",
+ "eks:DeleteCluster",
+ "eks:CreateNodegroup",
+ "eks:DeleteNodegroup",
+ "eks:UpdateNodegroupConfig",
+ "eks:UpdateNodegroupVersion",
+ "eks:UpdateClusterConfig",
+ "eks:UpdateClusterVersion",
+ "eks:CreateFargateProfile",
+ "eks:DeleteFargateProfile",
+ "eks:CreateAddon",
+ "eks:DeleteAddon",
+ "eks:UpdateAddon",
+ "eks:CreateAccessEntry",
+ "eks:DeleteAccessEntry",
+ "eks:UpdateAccessEntry",
+ "eks:AssociateAccessPolicy",
+ "eks:AssociateIdentityProviderConfig",
+ "eks:DisassociateIdentityProviderConfig",
+ "eks:TagResource",
+ "eks:UntagResource",
+ "eks:AccessKubernetesApi",
+ "eks:Describe*",
+ "eks:List*"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ssm:GetParameter",
+ "ssm:PutParameter",
+ "ssm:DeleteParameter",
+ "ssm:DescribeParameters"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:Decrypt",
+ "kms:GenerateDataKey"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringLike": {
+ "kms:ViaService": [
+ "sagemaker.*.amazonaws.com",
+ "ec2.*.amazonaws.com",
+ "s3.*.amazonaws.com",
+ "eks.*.amazonaws.com"
+ ]
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "lambda:CreateFunction",
+ "lambda:DeleteFunction",
+ "lambda:GetFunction",
+ "lambda:UpdateFunctionCode",
+ "lambda:UpdateFunctionConfiguration",
+ "lambda:AddPermission",
+ "lambda:RemovePermission",
+ "lambda:PublishLayerVersion",
+ "lambda:DeleteLayerVersion",
+ "lambda:InvokeFunction",
+ "lambda:Get*",
+ "lambda:List*",
+ "lambda:TagResource"
+ ],
+ "Resource": [
+ "arn:aws:lambda:*:*:function:*",
+ "arn:aws:lambda:*:*:layer:*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iam:DeleteRole",
+ "iam:DeleteRolePolicy"
+ ],
+ "Resource": [
+ "arn:aws:iam::*:role/*sagemaker*",
+ "arn:aws:iam::*:role/*eks*",
+ "arn:aws:iam::*:role/*hyperpod*",
+ "arn:aws:iam::*:policy/*sagemaker*",
+ "arn:aws:iam::*:policy/*hyperpod*",
+ "arn:aws:iam::*:role/*LifeCycleScriptStack*",
+ "arn:aws:iam::*:role/*LifeCycleScript*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iam:CreateRole",
+ "iam:TagRole",
+ "iam:PutRolePolicy",
+ "iam:Get*",
+ "iam:List*",
+ "iam:AttachRolePolicy",
+ "iam:DetachRolePolicy"
+ ],
+ "Resource": [
+ "arn:aws:iam::*:role/*",
+ "arn:aws:iam::*:policy/*"
+ ]
+ },
+ {
+ "Sid": "FullAccessToFSx",
+ "Effect": "Allow",
+ "Action": [
+ "fsx:AssociateFileGateway",
+ "fsx:AssociateFileSystemAliases",
+ "fsx:CancelDataRepositoryTask",
+ "fsx:CopyBackup",
+ "fsx:CopySnapshotAndUpdateVolume",
+ "fsx:CreateAndAttachS3AccessPoint",
+ "fsx:CreateBackup",
+ "fsx:CreateDataRepositoryAssociation",
+ "fsx:CreateDataRepositoryTask",
+ "fsx:CreateFileCache",
+ "fsx:CreateFileSystem",
+ "fsx:CreateFileSystemFromBackup",
+ "fsx:CreateSnapshot",
+ "fsx:CreateStorageVirtualMachine",
+ "fsx:CreateVolume",
+ "fsx:CreateVolumeFromBackup",
+ "fsx:DetachAndDeleteS3AccessPoint",
+ "fsx:DeleteBackup",
+ "fsx:DeleteDataRepositoryAssociation",
+ "fsx:DeleteFileCache",
+ "fsx:DeleteFileSystem",
+ "fsx:DeleteSnapshot",
+ "fsx:DeleteStorageVirtualMachine",
+ "fsx:DeleteVolume",
+ "fsx:DescribeAssociatedFileGateways",
+ "fsx:DescribeBackups",
+ "fsx:DescribeDataRepositoryAssociations",
+ "fsx:DescribeDataRepositoryTasks",
+ "fsx:DescribeFileCaches",
+ "fsx:DescribeFileSystemAliases",
+ "fsx:DescribeFileSystems",
+ "fsx:DescribeS3AccessPointAttachments",
+ "fsx:DescribeSharedVpcConfiguration",
+ "fsx:DescribeSnapshots",
+ "fsx:DescribeStorageVirtualMachines",
+ "fsx:DescribeVolumes",
+ "fsx:DisassociateFileGateway",
+ "fsx:DisassociateFileSystemAliases",
+ "fsx:ListTagsForResource",
+ "fsx:ManageBackupPrincipalAssociations",
+ "fsx:ReleaseFileSystemNfsV3Locks",
+ "fsx:RestoreVolumeFromSnapshot",
+ "fsx:TagResource",
+ "fsx:UntagResource",
+ "fsx:UpdateDataRepositoryAssociation",
+ "fsx:UpdateFileCache",
+ "fsx:UpdateFileSystem",
+ "fsx:UpdateSharedVpcConfiguration",
+ "fsx:UpdateSnapshot",
+ "fsx:UpdateStorageVirtualMachine",
+ "fsx:UpdateVolume"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
 ```
 
 ## IAM users for
@@ -548,7 +561,6 @@ condition keys supported for these actions, search for `CreateCluster` or
 `UpdateCluster` in the [Actions defined by SageMaker AI](../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-actions-as-permissions").
 
 Slurm
-JSONJSON
 
 ```
 `{
@@ -583,42 +595,43 @@ JSONJSON
 Amazon EKS
 
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "iam:PassRole",
-            "Resource": `<execution-role-arn>`
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:CreateCluster",
-                "sagemaker:DeleteCluster",
-                "sagemaker:DescribeCluster",
-                "sagemaker:DescribeCluterNode",
-                "sagemaker:ListClusterNodes",
-                "sagemaker:ListClusters",
-                "sagemaker:UpdateCluster",
-                "sagemaker:UpdateClusterSoftware",
-                "sagemaker:BatchAddClusterNodes",
-                "sagemaker:BatchDeleteClusterNodes",
-                "sagemaker:ListComputeQuotas",
-                "sagemaker:ListClusterSchedulerConfig",
-                "sagemaker:DeleteClusterSchedulerConfig",
-                "sagemaker:DeleteComputeQuota",
-                "eks:DescribeCluster",
-                "eks:CreateAccessEntry",
-                "eks:DescribeAccessEntry",
-                "eks:DeleteAccessEntry",
-                "eks:AssociateAccessPolicy",
-                "iam:CreateServiceLinkedRole"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iam:PassRole",
+ "Resource": "arn:aws:iam::`111122223333`:role/`execution-role-name`"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:CreateCluster",
+ "sagemaker:DeleteCluster",
+ "sagemaker:DescribeCluster",
+ "sagemaker:DescribeClusterNode",
+ "sagemaker:ListClusterNodes",
+ "sagemaker:ListClusters",
+ "sagemaker:UpdateCluster",
+ "sagemaker:UpdateClusterSoftware",
+ "sagemaker:BatchAddClusterNodes",
+ "sagemaker:BatchDeleteClusterNodes",
+ "sagemaker:ListComputeQuotas",
+ "sagemaker:ListClusterSchedulerConfigs",
+ "sagemaker:DeleteClusterSchedulerConfig",
+ "sagemaker:DeleteComputeQuota",
+ "eks:DescribeCluster",
+ "eks:CreateAccessEntry",
+ "eks:DescribeAccessEntry",
+ "eks:DeleteAccessEntry",
+ "eks:AssociateAccessPolicy",
+ "iam:CreateServiceLinkedRole"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
 ```
 
 To grant permissions to access the SageMaker AI console, use the sample policy provided at
@@ -677,44 +690,47 @@ orchestrated by Amazon EKS](sagemaker-hyperpod-eks-run-jobs.md "sagemaker-hyperp
 session permissions to connect to an SSM target for all resources. This
 allows you to access HyperPod clusters.
 
+JSONJSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DescribeHyerpodClusterPermissions",
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:DescribeCluster"
-            ],
-            "Resource": "<hyperpod-cluster-arn>"
-        },
-        {
-            "Sid": "UseEksClusterPermissions",
-            "Effect": "Allow",
-            "Action": [
-                "eks:DescribeCluster",
-            ],
-            "Resource": "<eks-cluster-arn>"
-        },
-        {
-            "Sid": "ListClustersPermission",
-            "Effect": "Allow",
-            "Action": [
-                "sagemaker:ListClusters"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:StartSession",
-                "ssm:TerminateSession"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DescribeHyerpodClusterPermissions",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:DescribeCluster"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-2`:`111122223333`:cluster/`hyperpod-cluster-name`"
+ },
+ {
+ "Sid": "UseEksClusterPermissions",
+ "Effect": "Allow",
+ "Action": [
+ "eks:DescribeCluster"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-2`:`111122223333`:cluster/`eks-cluster-name`"
+ },
+ {
+ "Sid": "ListClustersPermission",
+ "Effect": "Allow",
+ "Action": [
+ "sagemaker:ListClusters"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ssm:StartSession",
+ "ssm:TerminateSession"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
 ```
 
 To grant data scientists IAM users or roles access to Kubernetes APIs in
@@ -919,29 +935,33 @@ to load data from Amazon S3. You must add the additional Amazon S3 permissions t
 execution role so that customization jobs running in restricted instance
 groups can properly fetch input data.
 
+JSONJSON
+
 ```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:ListBucket"
-      ],
-      "Resource": [
-        "arn:aws:s3:::`your-bucket-name`"      ]
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:DeleteObject",
-      ],
-      "Resource": [
-        "arn:aws:s3:::`your-bucket-name`/*"
-      ]
-    }
-  ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket"
+ ],
+ "Resource": [
+ "arn:aws:s3:::amzn-s3-demo-bucket"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject",
+ "s3:DeleteObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::amzn-s3-demo-bucket/*"
+ ]
+ }
+ ]
+}`
+
 ```

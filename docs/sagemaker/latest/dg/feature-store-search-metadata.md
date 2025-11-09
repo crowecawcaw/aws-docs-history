@@ -24,7 +24,7 @@ the searchable metadata and whether you can search for it in the console or with
 API.
 
 | Searchable metadata | API field name   | Searchable in the console? |
-| ------------------- | ---------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ---------------- | -------------------------- |
 | All Parameters      | AllParameters    | Yes                        |
 | Creation time       | CreationTime     | Yes                        |
 | Description         | Description      | Yes                        |
@@ -32,4 +32,208 @@ API.
 | Feature name        | FeatureName      | Yes                        |
 | Feature type        | FeatureType      | No                         |
 | Last modified time  | LastModifiedTime | No                         |
-| Parameters          | Parameters.`key` | Yes                        | ## How to search for your features The instructions for using Feature Store through the console depends on whether you have enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Amazon SageMaker Studio Classic](studio.md "studio.md") as your default experience. Choose one of the following instructions based on your use case. 1. Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md"). 2. Choose **Data** in the left navigation pane to expand the dropdown list. 3. From the dropdown list, choose **Feature Store**. 4. (Optional) To view your features, choose **My account**. To view shared features, choose **Cross account**. 5. Under the **Feature Catalog** tab, choose **My account** to view your feature groups. 6. Under the **Feature Catalog** tab, choose **Cross account** to view feature groups that others made discoverable to you. Under **Created by**, you can view the resource owner account ID. 7. You can search for your feature in the **Search** dropdown list: <br>• (Optional) To filter your search, choose the filter icon next to the **Search** dropdown list. You can use filters to specify parameters or date ranges in your search results. If you search for a parameter, specify both its key and value. To find your features, specify time ranges, or clear (deselect) columns that you don't want to query. <br>• For shared resources, you can only edit feature group metadata or feature definitions if you have the proper access permission granted from the resource owner account. The discoverability permission alone won't allow you to edit metadata or feature definitions. For more information about granting access permissions, see[Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md"). Use the latest version of Amazon SageMaker Studio Classic so that you have the most recent version of the search functionality. For information about updating Studio Classic, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md"). 1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md"). 2. Choose the **Home** icon ( ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png) ) in the left navigation pane. 3. Choose **Data**. 4. From the dropdown list, choose **Feature Store**. 5. (Optional) To view your features, choose **My account**. To view shared features, choose **Cross account**. 6. Under the **Feature Catalog** tab, choose **My account** to view your feature groups. 7. Under the **Feature Catalog** tab, choose **Cross account** to view feature groups that others made discoverable to you. Under **Created by**, you can view the resource owner account ID. 8. You can search for your feature in the **Search** dropdown list: <br>• (Optional) To filter your search, choose the filter icon next to the **Search** dropdown list. You can use filters to specify parameters or date ranges in your search results. If you search for a parameter, specify both its key and value. To find your features, specify time ranges, or clear (deselect) columns that you don't want to query. <br>• For shared resources, you can only edit feature group metadata or feature definitions if you have the proper access permission granted from the resource owner account. The discoverability permission alone won't allow you to edit metadata or feature definitions. For more information about granting access permissions, see[Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md"). The code in this section uses the [`Search`](../APIReference/API_Search.md "../APIReference/API_Search.md") operation in the AWS SDK for Python (Boto3) to run the search query to find features in your feature groups. For information about the other languages to submit a query, see [See Also](../APIReference/API_Search.md#API_Search_SeeAlso "../APIReference/API_Search.md#API_Search_SeeAlso") in the _Amazon SageMaker API Reference_. For more Feature Store examples and resources, see [Amazon SageMaker Feature Store resources](feature-store-resources.md "feature-store-resources.md"). The following code shows different example search queries using the API: `# Return all features in your feature groups sagemaker_client.search( Resource="FeatureMetadata", ) # Search for all features that belong to a feature group that contain the "ver" substring sagemaker_client.search( Resource="FeatureMetadata", SearchExpression={ 'Filters': [ { 'Name': 'FeatureGroupName', 'Operator': 'Contains', 'Value': 'ver' }, ] } ) # Search for all features that belong to a feature group that have the EXACT name "airport" sagemaker_client.search( Resource="FeatureMetadata", SearchExpression={ 'Filters': [ { 'Name': 'FeatureGroupName', 'Operator': 'Equals', 'Value': 'airport' }, ] } ) # Search for all features that belong to a feature group that contains the name "ver" AND have a name that contains "wha" AND have a parameter (key or value) that contains "hea" sagemaker_client.search( Resource="FeatureMetadata", SearchExpression={ 'Filters': [ { 'Name': 'FeatureGroupName', 'Operator': 'Contains', 'Value': 'ver' }, { 'Name': 'FeatureName', 'Operator': 'Contains', 'Value': 'wha' }, { 'Name': 'AllParameters', 'Operator': 'Contains', 'Value': 'hea' }, ] } ) # Search for all features that belong to a feature group with substring "ver" in its name OR features that have a name that contain "wha" OR features that have a parameter (key or value) that contains "hea" sagemaker_client.search( Resource="FeatureMetadata", SearchExpression={ 'Filters': [ { 'Name': 'FeatureGroupName', 'Operator': 'Contains', 'Value': 'ver' }, { 'Name': 'FeatureName', 'Operator': 'Contains', 'Value': 'wha' }, { 'Name': 'AllParameters', 'Operator': 'Contains', 'Value': 'hea' }, ], 'Operator': 'Or' # note that this is explicitly set to "Or"- the default is "And" } ) # Search for all features that belong to a feature group with substring "ver" in its name OR features that have a name that contain "wha" OR parameters with the value 'Sage' for the 'org' key sagemaker_client.search( Resource="FeatureMetadata", SearchExpression={ 'Filters': [ { 'Name': 'FeatureGroupName', 'Operator': 'Contains', 'Value': 'ver' }, { 'Name': 'FeatureName', 'Operator': 'Contains', 'Value': 'wha' }, { 'Name': 'Parameters.org', 'Operator': 'Contains', 'Value': 'Sage' }, ], 'Operator': 'Or' # note that this is explicitly set to "Or"- the default is "And" } )` |
+| Parameters          | Parameters.`key` | Yes                        |
+
+## How to search for your
+
+features
+
+The instructions for using Feature Store through the console depends on whether you have
+enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Amazon SageMaker Studio Classic](studio.md "studio.md") as your default experience. Choose one of
+the following instructions based on your use case.
+
+1.  Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
+2.  Choose **Data** in the left navigation pane to
+    expand the dropdown list.
+3.  From the dropdown list, choose **Feature Store**.
+4.  (Optional) To view your features, choose **My
+    account**. To view shared features, choose **Cross
+    account**.
+5.  Under the **Feature Catalog** tab, choose
+    **My account** to view your feature groups.
+6.  Under the **Feature Catalog** tab, choose
+    **Cross account** to view feature groups that
+    others made discoverable to you. Under **Created by**,
+    you can view the resource owner account ID.
+7.  You can search for your feature in the **Search**
+    dropdown list:
+
+        * (Optional) To filter your search, choose the filter icon next
+         to the **Search** dropdown list. You can use
+         filters to specify parameters or date ranges in your search
+         results. If you search for a parameter, specify both its key and
+         value. To find your features, specify time ranges, or clear
+         (deselect) columns that you don't want to query.
+        * For shared resources, you can only edit feature group metadata
+         or feature definitions if you have the proper access permission
+         granted from the resource owner account. The discoverability
+         permission alone won't allow you to edit metadata or feature
+         definitions. For more information about granting access
+         permissions, see[Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md").
+
+    Use the latest version of Amazon SageMaker Studio Classic so that you have the most recent
+    version of the search functionality. For information about updating Studio Classic,
+    see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md").
+
+8.  Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
+9.  Choose the **Home** icon (
+    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+    ) in the left navigation pane.
+10. Choose **Data**.
+11. From the dropdown list, choose **Feature Store**.
+12. (Optional) To view your features, choose **My
+    account**. To view shared features, choose **Cross
+    account**.
+13. Under the **Feature Catalog** tab, choose
+    **My account** to view your feature groups.
+14. Under the **Feature Catalog** tab, choose
+    **Cross account** to view feature groups that
+    others made discoverable to you. Under **Created by**,
+    you can view the resource owner account ID.
+15. You can search for your feature in the **Search**
+    dropdown list:
+
+        * (Optional) To filter your search, choose the filter icon next
+         to the **Search** dropdown list. You can use
+         filters to specify parameters or date ranges in your search
+         results. If you search for a parameter, specify both its key and
+         value. To find your features, specify time ranges, or clear
+         (deselect) columns that you don't want to query.
+        * For shared resources, you can only edit feature group metadata
+         or feature definitions if you have the proper access permission
+         granted from the resource owner account. The discoverability
+         permission alone won't allow you to edit metadata or feature
+         definitions. For more information about granting access
+         permissions, see[Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md").
+
+    The code in this section uses the [`Search`](../APIReference/API_Search.md "../APIReference/API_Search.md") operation in the AWS SDK for Python (Boto3) to run the
+    search query to find features in your feature groups. For information about the
+    other languages to submit a query, see [See
+    Also](../APIReference/API_Search.md#API_Search_SeeAlso "../APIReference/API_Search.md#API_Search_SeeAlso") in the _Amazon SageMaker API
+    Reference_.
+
+For more Feature Store examples and resources, see [Amazon SageMaker Feature Store resources](feature-store-resources.md "feature-store-resources.md").
+
+The following code shows different example search queries using the
+API:
+
+```
+
+# Return all features in your feature groups
+sagemaker_client.search(
+    Resource="FeatureMetadata",
+)
+
+# Search for all features that belong to a feature group that contain the "ver" substring
+sagemaker_client.search(
+    Resource="FeatureMetadata",
+    SearchExpression={
+        'Filters': [
+            {
+                'Name': 'FeatureGroupName',
+                'Operator': 'Contains',
+                'Value': 'ver'
+            },
+        ]
+    }
+)
+
+# Search for all features that belong to a feature group that have the EXACT name "airport"
+sagemaker_client.search(
+    Resource="FeatureMetadata",
+    SearchExpression={
+        'Filters': [
+            {
+                'Name': 'FeatureGroupName',
+                'Operator': 'Equals',
+                'Value': 'airport'
+            },
+        ]
+    }
+)
+
+# Search for all features that belong to a feature group that contains the name "ver"
+AND have a name that contains "wha"
+AND have a parameter (key or value) that contains "hea"
+
+sagemaker_client.search(
+    Resource="FeatureMetadata",
+    SearchExpression={
+        'Filters': [
+            {
+                'Name': 'FeatureGroupName',
+                'Operator': 'Contains',
+                'Value': 'ver'
+            },
+            {
+                'Name': 'FeatureName',
+                'Operator': 'Contains',
+                'Value': 'wha'
+            },
+            {
+                'Name': 'AllParameters',
+                'Operator': 'Contains',
+                'Value': 'hea'
+            },
+        ]
+    }
+)
+
+# Search for all features that belong to a feature group with substring "ver" in its name
+OR features that have a name that contain "wha"
+OR features that have a parameter (key or value) that contains "hea"
+
+sagemaker_client.search(
+    Resource="FeatureMetadata",
+    SearchExpression={
+        'Filters': [
+            {
+                'Name': 'FeatureGroupName',
+                'Operator': 'Contains',
+                'Value': 'ver'
+            },
+            {
+                'Name': 'FeatureName',
+                'Operator': 'Contains',
+                'Value': 'wha'
+            },
+            {
+                'Name': 'AllParameters',
+                'Operator': 'Contains',
+                'Value': 'hea'
+            },
+        ],
+        'Operator': 'Or' # note that this is explicitly set to "Or"- the default is "And"
+    }
+)
+
+
+# Search for all features that belong to a feature group with substring "ver" in its name
+OR features that have a name that contain "wha"
+OR parameters with the value 'Sage' for the 'org' key
+
+sagemaker_client.search(
+    Resource="FeatureMetadata",
+    SearchExpression={
+        'Filters': [
+            {
+                'Name': 'FeatureGroupName',
+                'Operator': 'Contains',
+                'Value': 'ver'
+            },
+            {
+                'Name': 'FeatureName',
+                'Operator': 'Contains',
+                'Value': 'wha'
+            },
+            {
+                'Name': 'Parameters.org',
+                'Operator': 'Contains',
+                'Value': 'Sage'
+            },
+        ],
+        'Operator': 'Or' # note that this is explicitly set to "Or"- the default is "And"
+    }
+)
+
+```

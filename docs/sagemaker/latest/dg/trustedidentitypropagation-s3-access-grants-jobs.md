@@ -56,27 +56,30 @@ permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.
 - `S3-ACCESS-GRANT-ROLE` is your Amazon S3 Access
   Grant role
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowDataAccessAPI",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetDataAccess",
-                "s3:GetAccessGrantsInstanceForPrefix"
-            ],
-            "Resource": [
-                "arn:aws:s3:`us-east-1`:`111122223333`:access-grants/default"
-            ]
-        },
-        {
-            "Sid": "RequiredForIdentificationPropagation",
-            "Effect": "Allow",
-            "Action": "sts:SetContext",
-            "Resource": "arn:aws:iam::`111122223333`:role/`S3-ACCESS-GRANT-ROLE`"
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowDataAccessAPI",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetDataAccess",
+ "s3:GetAccessGrantsInstanceForPrefix"
+ ],
+ "Resource": [
+ "arn:aws:s3:`us-east-1`:`111122223333`:access-grants/default"
+ ]
+ },
+ {
+ "Sid": "RequiredForIdentificationPropagation",
+ "Effect": "Allow",
+ "Action": "sts:SetContext",
+ "Resource": "arn:aws:iam::`111122223333`:role/`S3-ACCESS-GRANT-ROLE`"
+ }
+ ]
+}`
+
 ```

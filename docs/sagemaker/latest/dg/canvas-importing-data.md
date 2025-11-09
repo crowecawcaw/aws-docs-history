@@ -36,7 +36,7 @@ You can import data and build custom models in SageMaker Canvas for the followin
   For a full list of data sources from which you can import, see the following table:
 
 | Source                                                                                                                                                                                | Type                   | Supported data types     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------ |
 | Local file upload                                                                                                                                                                     | Local                  | Tabular, Image, Document |
 | Amazon Aurora                                                                                                                                                                         | Amazon internal        | Tabular                  |
 | Amazon S3 bucket                                                                                                                                                                      | Amazon internal        | Tabular, Image, Document |
@@ -89,4 +89,41 @@ You can import data and build custom models in SageMaker Canvas for the followin
 | [Zendesk Chat](../../../appflow/latest/userguide/connectors-zendesk-chat.md "../../../appflow/latest/userguide/connectors-zendesk-chat.md")                                           | External SaaS platform | Tabular                  |
 | [Zendesk Sell](../../../appflow/latest/userguide/connectors-zendesk-sell.md "../../../appflow/latest/userguide/connectors-zendesk-sell.md")                                           | External SaaS platform | Tabular                  |
 | [Zendesk Sunshine](../../../appflow/latest/userguide/connectors-zendesk-sunshine.md "../../../appflow/latest/userguide/connectors-zendesk-sunshine.md")                               | External SaaS platform | Tabular                  |
-| [Zoom Meetings](../../../appflow/latest/userguide/connectors-zoom.md "../../../appflow/latest/userguide/connectors-zoom.md")                                                          | External SaaS platform | Tabular                  | For instructions on how to import data and information regarding input data requirements, such as the maximum file size for images, see [Create a dataset](canvas-import-dataset.md "canvas-import-dataset.md"). Canvas also provides several sample datasets in your application to help you get started. To learn more about the SageMaker AI-provided sample datasets you can experiment with, see [Use sample datasets](canvas-sample-datasets.md "canvas-sample-datasets.md"). After you import a dataset into Canvas, you can update the dataset at any time. You can do a manual update or you can set up a schedule for automatic dataset updates. For more information, see [Update a dataset](canvas-update-dataset.md "canvas-update-dataset.md"). For more information specific to each dataset type, see the following sections: **Tabular** To import data from an external data source (such as a Snowflake database or a SaaS platform), you must authenticate and connect to the data source in the Canvas application. For more information, see [Connect to data sources](canvas-connecting-external.md "canvas-connecting-external.md"). If you want to import datasets larger than 5 GB from Amazon S3 into Canvas, you can achieve faster sampling by using Amazon Athena to query and sample the data from Amazon S3. After creating datasets in Canvas, you can prepare and transform your data using the data preparation functionality of Data Wrangler. You can use Data Wrangler to handle missing values, transform your features, join multiple datasets into a single dataset, and more. For more information, see [Data preparation](canvas-data-prep.md "canvas-data-prep.md"). ###### Tip As long as your data is arranged into tables, you can join datasets from various sources, such as Amazon Redshift, Amazon Athena, or Snowflake. **Image** For information about how to edit an image dataset and perform tasks such as assigning or reassigning labels, adding images, or deleting images, see [Edit an image dataset](canvas-edit-image.md "canvas-edit-image.md"). |
+| [Zoom Meetings](../../../appflow/latest/userguide/connectors-zoom.md "../../../appflow/latest/userguide/connectors-zoom.md")                                                          | External SaaS platform | Tabular                  |
+
+For instructions on how to import data and information regarding input data requirements, such as
+the maximum file size for images, see [Create a dataset](canvas-import-dataset.md "canvas-import-dataset.md").
+
+Canvas also provides several sample datasets in your application to help you get started.
+To learn more about the SageMaker AI-provided sample datasets you can experiment with, see
+[Use sample datasets](canvas-sample-datasets.md "canvas-sample-datasets.md").
+
+After you import a dataset into Canvas, you can update the dataset at any time. You can do a
+manual update or you can set up a schedule for automatic dataset updates. For more information, see
+[Update a dataset](canvas-update-dataset.md "canvas-update-dataset.md").
+
+For more information specific to each dataset type, see the following sections:
+
+**Tabular**
+
+To import data from an external data source (such as a Snowflake database or a SaaS platform), you must
+authenticate and connect to the data source in the Canvas application. For more information, see
+[Connect to data sources](canvas-connecting-external.md "canvas-connecting-external.md").
+
+If you want to import datasets larger than 5 GB from Amazon S3 into Canvas, you can achieve
+faster sampling by using Amazon Athena to query and sample the data from Amazon S3.
+
+After creating datasets in Canvas, you can prepare and transform your data using the
+data preparation functionality of Data Wrangler. You can use Data Wrangler to handle missing values, transform your features,
+join multiple datasets into a single dataset, and more. For more information, see
+[Data preparation](canvas-data-prep.md "canvas-data-prep.md").
+
+###### Tip
+
+As long as your data is arranged into tables, you can join datasets from various sources, such
+as Amazon Redshift, Amazon Athena, or Snowflake.
+
+**Image**
+
+For information about how to edit an image dataset and perform tasks such as assigning or reassigning
+labels, adding images, or deleting images, see [Edit an image dataset](canvas-edit-image.md "canvas-edit-image.md").

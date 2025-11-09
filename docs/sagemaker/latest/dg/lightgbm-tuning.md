@@ -34,23 +34,37 @@ The SageMaker AI LightGBM algorithm computes the following metrics to use for mo
 The evaluation metric is automatically assigned based on the type of classification task,
 which is determined by the number of unique integers in the label column.
 
-| Metric Name         | Description               | Optimization Direction          | Regex Pattern                      |
-| ------------------- | ------------------------- | ------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ---------------------------- |
-| `rmse`              | root mean square error    | minimize                        | `"rmse: ([0-9\\.]+)"`              |
-| `l1`                | mean absolute error       | minimize                        | `"l1: ([0-9\\.]+)"`                |
-| `l2`                | mean squared error        | minimize                        | `"l2: ([0-9\\.]+)"`                |
-| `huber`             | huber loss                | minimize                        | `"huber: ([0-9\\.]+)"`             |
-| `fair`              | fair loss                 | minimize                        | `"fair: ([0-9\\.]+)"`              |
-| `binary_logloss`    | binary cross entropy      | maximize                        | `"binary_logloss: ([0-9\\.]+)"`    |
-| `binary_error`      | binary error              | minimize                        | `"binary_error: ([0-9\\.]+)"`      |
-| `auc`               | AUC                       | maximize                        | `"auc: ([0-9\\.]+)"`               |
-| `average_precision` | average precision score   | maximize                        | `"average_precision: ([0-9\\.]+)"` |
-| `multi_logloss`     | multiclass cross entropy  | maximize                        | `"multi_logloss: ([0-9\\.]+)"`     |
-| `multi_error`       | multiclass error score    | minimize                        | `"multi_error: ([0-9\\.]+)"`       |
-| `auc_mu`            | AUC-mu                    | maximize                        | `"auc_mu: ([0-9\\.]+)"`            |
-| `cross_entropy`     | cross entropy             | minimize                        | `"cross_entropy: ([0-9\\.]+)"`     | ## Tunable LightGBM hyperparameters Tune the LightGBM model with the following hyperparameters. The hyperparameters that have the greatest effect on optimizing the LightGBM evaluation metrics are: `learning_rate`, `num_leaves`, `feature_fraction`, `bagging_fraction`, `bagging_freq`, `max_depth` and `min_data_in_leaf`. For a list of all the LightGBM hyperparameters, see [LightGBM hyperparameters](lightgbm-hyperparameters.md "lightgbm-hyperparameters.md"). |
-| Parameter Name      | Parameter Type            | Recommended Ranges              |                                    | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | ---                       | ---                          |
-| `learning_rate`     | ContinuousParameterRanges | MinValue: 0.001, MaxValue: 0.01 |                                    | `num_leaves`                                                                                                                                                                                                                                                                                                                                                                                                                                                               | IntegerParameterRanges    | MinValue: 10, MaxValue: 100  |
-| `feature_fraction`  | ContinuousParameterRanges | MinValue: 0.1, MaxValue: 1.0    |                                    | `bagging_fraction`                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ContinuousParameterRanges | MinValue: 0.1, MaxValue: 1.0 |
-| `bagging_freq`      | IntegerParameterRanges    | MinValue: 0, MaxValue: 10       |                                    | `max_depth`                                                                                                                                                                                                                                                                                                                                                                                                                                                                | IntegerParameterRanges    | MinValue: 15, MaxValue: 100  |
-| `min_data_in_leaf`  | IntegerParameterRanges    | MinValue: 10, MaxValue: 200     |
+| Metric Name         | Description              | Optimization Direction | Regex Pattern                      |
+| ------------------- | ------------------------ | ---------------------- | ---------------------------------- |
+| `rmse`              | root mean square error   | minimize               | `"rmse: ([0-9\\.]+)"`              |
+| `l1`                | mean absolute error      | minimize               | `"l1: ([0-9\\.]+)"`                |
+| `l2`                | mean squared error       | minimize               | `"l2: ([0-9\\.]+)"`                |
+| `huber`             | huber loss               | minimize               | `"huber: ([0-9\\.]+)"`             |
+| `fair`              | fair loss                | minimize               | `"fair: ([0-9\\.]+)"`              |
+| `binary_logloss`    | binary cross entropy     | maximize               | `"binary_logloss: ([0-9\\.]+)"`    |
+| `binary_error`      | binary error             | minimize               | `"binary_error: ([0-9\\.]+)"`      |
+| `auc`               | AUC                      | maximize               | `"auc: ([0-9\\.]+)"`               |
+| `average_precision` | average precision score  | maximize               | `"average_precision: ([0-9\\.]+)"` |
+| `multi_logloss`     | multiclass cross entropy | maximize               | `"multi_logloss: ([0-9\\.]+)"`     |
+| `multi_error`       | multiclass error score   | minimize               | `"multi_error: ([0-9\\.]+)"`       |
+| `auc_mu`            | AUC-mu                   | maximize               | `"auc_mu: ([0-9\\.]+)"`            |
+| `cross_entropy`     | cross entropy            | minimize               | `"cross_entropy: ([0-9\\.]+)"`     |
+
+## Tunable LightGBM hyperparameters
+
+Tune the LightGBM model with the following hyperparameters. The hyperparameters
+that have the greatest effect on optimizing the LightGBM evaluation metrics are:
+`learning_rate`, `num_leaves`, `feature_fraction`,
+`bagging_fraction`, `bagging_freq`, `max_depth` and `min_data_in_leaf`.
+For a list of all the LightGBM hyperparameters, see
+[LightGBM hyperparameters](lightgbm-hyperparameters.md "lightgbm-hyperparameters.md").
+
+| Parameter Name     | Parameter Type            | Recommended Ranges              |
+| ------------------ | ------------------------- | ------------------------------- |
+| `learning_rate`    | ContinuousParameterRanges | MinValue: 0.001, MaxValue: 0.01 |
+| `num_leaves`       | IntegerParameterRanges    | MinValue: 10, MaxValue: 100     |
+| `feature_fraction` | ContinuousParameterRanges | MinValue: 0.1, MaxValue: 1.0    |
+| `bagging_fraction` | ContinuousParameterRanges | MinValue: 0.1, MaxValue: 1.0    |
+| `bagging_freq`     | IntegerParameterRanges    | MinValue: 0, MaxValue: 10       |
+| `max_depth`        | IntegerParameterRanges    | MinValue: 15, MaxValue: 100     |
+| `min_data_in_leaf` | IntegerParameterRanges    | MinValue: 10, MaxValue: 200     |

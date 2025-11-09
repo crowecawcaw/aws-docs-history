@@ -356,7 +356,7 @@ Using the textual pattern, you can see which rows in your data you need to corre
 The following describes the patterns that Data Wrangler can recognize:
 
 | Pattern      | Textual Format                         |
-| ------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------ | -------------------------------------- |
 | {alnum}      | Alphanumeric strings                   |
 | {any}        | Any string of word characters          |
 | {digits}     | A sequence of digits                   |
@@ -364,4 +364,356 @@ The following describes the patterns that Data Wrangler can recognize:
 | {mixed}      | A mixed-case word                      |
 | {name}       | A word beginning with a capital letter |
 | {upper}      | An uppercase word                      |
-| {whitespace} | Whitespace characters                  | A word character is either an underscore or a character that might appear in a word in any language. For example, the strings `'Hello_word'` and `'écoute'` both consist of word characters. 'H' and 'é' are both examples of word characters. ## Bias report SageMaker Canvas provides the bias report in Data Wrangler to help uncover potential biases in your data. The bias report analyzes the relationship between the target column (label) and a column that you believe might contain bias (facet variable). For example, if you are trying to predict customer conversion, the facet variable may be the age of the customer. The bias report can help you determine whether or not your data is biased toward a certain age group. To generate a bias report in Canvas, do the following: 1. In your data flow in Data Wrangler, choose the **More options** icon ( ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png) ) next to a node in the flow. 2. From the context menu, choose **Get data insights**. 3. The **Create analysis** side panel opens. For the **Analysis type** dropdown menu, select **Bias Report**. 4. In the **Analysis name** field, enter a name for the bias report. 5. For the **Select the column your model predicts (target)** dropdown menu, select your target column. 6. For **Is your predicted column a value or threshold?**, select **Value** if your target column has categorical values or **Threshold** if it has numerical values. 7. For **Predicted value** (or **Predicted threshold**, depending on your selection in the previous step), enter the target column value or values that correspond to a positive outcome. For example, if predicting customer conversion, your value might be `yes` to indicate that a customer was converted. 8. For the **Select the column to analyze for bias** dropdown menu, select the column that you believe might contain bias, also known as the facet variable. 9. For **Is your column a value or threshold?**, select **Value** if the facet variable has categorical values or **Threshold** if it has numerical values. 10. For **Column value(s) to analyze for bias** (or **Column threshold to analyze for bias**, depending on your selection in the previous step), enter the value or values that you want to analyze for potential bias. For example, if you're checking for bias against customers over a certain age, use the beginning of that age range as your threshold. 11. For **Choose bias metrics**, select the bias metrics you'd like to include in your bias report. Hover over the info icons for more information about each metric. 12. (Optional) When prompted with the option **Would you like to analyze additional metrics?**, select **Yes** to view and include more bias metrics. 13. When you're ready to create the bias report, choose **Add**. Once generated, the report gives you an overview of the bias metrics you selected. You can view the bias report at any time from the **Analyses** tab of your data flow. ## Histogram Use histograms to see the counts of feature values for a specific feature. You can inspect the relationships between features using the **Color by** option. You can use the **Facet by** feature to create histograms of one column, for each value in another column. ## Scatter plot Use the **Scatter Plot** feature to inspect the relationship between features. To create a scatter plot, select a feature to plot on the **X axis** and the **Y axis**. Both of these columns must be numeric typed columns. You can color scatter plots by an additional column. Additionally, you can facet scatter plots by features. ## Table summary Use the **Table Summary** analysis to quickly summarize your data. For columns with numerical data, including log and float data, a table summary reports the number of entries (count), minimum (min), maximum (max), mean, and standard deviation (stddev) for each column. For columns with non-numerical data, including columns with string, Boolean, or date/time data, a table summary reports the number of entries (count), least frequent value (min), and most frequent value (max). ## Quick model Use the **Quick Model** visualization to quickly evaluate your data and produce importance scores for each feature. A [feature importance score](http://spark.apache.org/docs/2.1.0/api/python/pyspark.ml.html#pyspark.ml.classification.DecisionTreeClassificationModel.featureImportances "http://spark.apache.org/docs/2.1.0/api/python/pyspark.ml.html#pyspark.ml.classification.DecisionTreeClassificationModel.featureImportances") score indicates how useful a feature is at predicting a target label. The feature importance score is between [0, 1] and a higher number indicates that the feature is more important to the whole dataset. On the top of the quick model chart, there is a model score. A classification problem shows an F1 score. A regression problem has a mean squared error (MSE) score. When you create a quick model chart, you select a dataset you want evaluated, and a target label against which you want feature importance to be compared. Data Wrangler does the following: <br>• Infers the data types for the target label and each feature in the dataset selected. <br>• Determines the problem type. Based on the number of distinct values in the label column, Data Wrangler determines if this is a regression or classification problem type. Data Wrangler sets a categorical threshold to 100. If there are more than 100 distinct values in the label column, Data Wrangler classifies it as a regression problem; otherwise, it is classified as a classification problem. <br>• Pre-processes features and label data for training. The algorithm used requires encoding features to vector type and encoding labels to double type. <br>• Trains a random forest algorithm with 70% of data. Spark’s [RandomForestRegressor](https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-regression "https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-regression") is used to train a model for regression problems. The [RandomForestClassifier](https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-classifier "https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-classifier") is used to train a model for classification problems. <br>• Evaluates a random forest model with the remaining 30% of data. Data Wrangler evaluates classification models using an F1 score and evaluates regression models using an MSE score. <br>• Calculates feature importance for each feature using the Gini importance method. ## Target leakage Target leakage occurs when there is data in a machine learning training dataset that is strongly correlated with the target label, but is not available in real-world data. For example, you may have a column in your dataset that serves as a proxy for the column you want to predict with your model. When you use the **Target Leakage** analysis, you specify the following: <br>• **Target**: This is the feature about which you want your ML model to be able to make predictions. <br>• **Problem type**: This is the ML problem type on which you are working. Problem type can either be **classification** or **regression**. <br>• (Optional) **Max features**: This is the maximum number of features to present in the visualization, which shows features ranked by their risk of being target leakage. For classification, the target leakage analysis uses the area under the receiver operating characteristic, or AUC - ROC curve for each column, up to **Max features**. For regression, it uses a coefficient of determination, or R2 metric. The AUC - ROC curve provides a predictive metric, computed individually for each column using cross-validation, on a sample of up to around 1000 rows. A score of 1 indicates perfect predictive abilities, which often indicates target leakage. A score of 0.5 or lower indicates that the information on the column could not provide, on its own, any useful information towards predicting the target. Although it can happen that a column is uninformative on its own but is useful in predicting the target when used in tandem with other features, a low score could indicate the feature is redundant. ## Multicollinearity Multicollinearity is a circumstance where two or more predictor variables are related to each other. The predictor variables are the features in your dataset that you're using to predict a target variable. When you have multicollinearity, the predictor variables are not only predictive of the target variable, but also predictive of each other. You can use the **Variance Inflation Factor (VIF)**, **Principal Component Analysis (PCA)**, or **Lasso feature selection** as measures for the multicollinearity in your data. For more information, see the following. Variance Inflation Factor (VIF) The Variance Inflation Factor (VIF) is a measure of collinearity among variable pairs. Data Wrangler returns a VIF score as a measure of how closely the variables are related to each other. A VIF score is a positive number that is greater than or equal to 1. A score of 1 means that the variable is uncorrelated with the other variables. Scores greater than 1 indicate higher correlation. Theoretically, you can have a VIF score with a value of infinity. Data Wrangler clips high scores to 50. If you have a VIF score greater than 50, Data Wrangler sets the score to 50. You can use the following guidelines to interpret your VIF scores: <br>• A VIF score less than or equal to 5 indicates that the variables are moderately correlated with the other variables. <br>• A VIF score greater than or equal to 5 indicates that the variables are highly correlated with the other variables. Principle Component Analysis (PCA) Principal Component Analysis (PCA) measures the variance of the data along different directions in the feature space. The feature space consists of all the predictor variables that you use to predict the target variable in your dataset. For example, if you're trying to predict who survived on the _RMS Titanic_ after it hit an iceberg, your feature space can include the passengers' age, gender, and the fare that they paid. From the feature space, PCA generates an ordered list of variances. These variances are also known as singular values. The values in the list of variances are greater than or equal to 0. We can use them to determine how much multicollinearity there is in our data. When the numbers are roughly uniform, the data has very few instances of multicollinearity. When there is a lot of variability among the values, we have many instances of multicollinearity. Before it performs PCA, Data Wrangler normalizes each feature to have a mean of 0 and a standard deviation of 1. ###### Note PCA in this circumstance can also be referred to as Singular Value Decomposition (SVD). Lasso feature selection Lasso feature selection uses the L1 regularization technique to only include the most predictive features in your dataset. For both classification and regression, the regularization technique generates a coefficient for each feature. The absolute value of the coefficient provides an importance score for the feature. A higher importance score indicates that it is more predictive of the target variable. A common feature selection method is to use all the features that have a non-zero lasso coefficient. ## Detect anomalies in time series data You can use the anomaly detection visualization to see outliers in your time series data. To understand what determines an anomaly, you need to understand that we decompose the time series into a predicted term and an error term. We treat the seasonality and trend of the time series as the predicted term. We treat the residuals as the error term. For the error term, you specify a threshold as the number of standard of deviations the residual can be away from the mean for it to be considered an anomaly. For example, you can specify a threshold as being 3 standard deviations. Any residual greater than 3 standard deviations away from the mean is an anomaly. You can use the following procedure to perform an **Anomaly detection** analysis. 1. Open your Data Wrangler data flow. 2. In your data flow, under **Data types**, choose the **+**, and select **Add analysis**. 3. For **Analysis type**, choose **Time Series**. 4. For **Visualization**, choose **Anomaly detection**. 5. For **Anomaly threshold**, choose the threshold that a value is considered an anomaly. 6. Choose **Preview** to generate a preview of the analysis. 7. Choose **Add** to add the transform to the Data Wrangler data flow. ## Seasonal trend decomposition in time series data You can determine whether there's seasonality in your time series data by using the Seasonal Trend Decomposition visualization. We use the STL (Seasonal Trend decomposition using LOESS) method to perform the decomposition. We decompose the time series into its seasonal, trend, and residual components. The trend reflects the long term progression of the series. The seasonal component is a signal that recurs in a time period. After removing the trend and the seasonal components from the time series, you have the residual. You can use the following procedure to perform a **Seasonal-Trend decomposition** analysis. 1. Open your Data Wrangler data flow. 2. In your data flow, under **Data types**, choose the **+**, and select **Add analysis**. 3. For **Analysis type**, choose **Time Series**. 4. For **Visualization**, choose **Seasonal-Trend decomposition**. 5. For **Anomaly threshold**, choose the threshold that a value is considered an anomaly. 6. Choose **Preview** to generate a preview of the analysis. 7. Choose **Add** to add the transform to the Data Wrangler data flow. ## Create custom visualizations You can add an analysis to your Data Wrangler flow to create a custom visualization. Your dataset, with all the transformations you've applied, is available as a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html"). Data Wrangler uses the `df` variable to store the dataframe. You access the dataframe by calling the variable. You must provide the output variable, `chart`, to store an [Altair](https://altair-viz.github.io/ "https://altair-viz.github.io/") output chart. For example, you can use the following code block to create a custom histogram using the Titanic dataset. `import altair as alt df = df.iloc[:30] df = df.rename(columns={"Age": "value"}) df = df.assign(count=df.groupby('value').value.transform('count')) df = df[["value", "count"]] base = alt.Chart(df) bar = base.mark_bar().encode(x=alt.X('value', bin=True, axis=None), y=alt.Y('count')) rule = base.mark_rule(color='red').encode( x='mean(value):Q', size=alt.value(5)) chart = bar + rule` ###### To create a custom visualization: 1. Next to the node containing the transformation that you'd like to visualize, choose the **+**. 2. Choose **Add analysis**. 3. For **Analysis type**, choose **Custom Visualization**. 4. For **Analysis name**, specify a name. 5. Enter your code in the code box. 6. Choose **Preview** to preview your visualization. 7. Choose **Save** to add your visualization. If you don’t know how to use the Altair visualization package in Python, you can use custom code snippets to help you get started. Data Wrangler has a searchable collection of visualization snippets. To use a visualization snippet, choose **Search example snippets** and specify a query in the search bar. The following example uses the **Binned scatterplot** code snippet. It plots a histogram for 2 dimensions. The snippets have comments to help you understand the changes that you need to make to the code. You usually need to specify the column names of your dataset in the code. `import altair as alt # Specify the number of top rows for plotting rows_number = 1000 df = df.head(rows_number) # You can also choose bottom rows or randomly sampled rows # df = df.tail(rows_number) # df = df.sample(rows_number) chart = ( alt.Chart(df) .mark_circle() .encode( # Specify the column names for binning and number of bins for X and Y axis x=alt.X("col1:Q", bin=alt.Bin(maxbins=20)), y=alt.Y("col2:Q", bin=alt.Bin(maxbins=20)), size="count()", ) ) # :Q specifies that label column has quantitative type. # For more details on Altair typing refer to # https://altair-viz.github.io/user_guide/encoding.html#encoding-data-types` |
+| {whitespace} | Whitespace characters                  |
+
+A word character is either an underscore or a character that might appear in a word in any language. For example, the strings `'Hello_word'` and `'écoute'` both consist of word characters. 'H' and 'é' are both examples of word characters.
+
+## Bias report
+
+SageMaker Canvas provides the bias report in Data Wrangler to help uncover potential biases in your data.
+The bias report analyzes the relationship between the target column (label) and a column
+that you believe might contain bias (facet variable). For example, if you are trying to
+predict customer conversion, the facet variable may be the age of the customer. The bias
+report can help you determine whether or not your data is biased toward a certain age
+group.
+
+To generate a bias report in Canvas, do the following:
+
+1. In your data flow in Data Wrangler, choose the **More options** icon (
+   ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+   ) next to a node in the flow.
+2. From the context menu, choose **Get data insights**.
+3. The **Create analysis** side panel opens.
+   For the **Analysis type** dropdown menu, select **Bias Report**.
+4. In the **Analysis name** field, enter a name for the bias report.
+5. For the **Select the column your model predicts (target)** dropdown menu,
+   select your target column.
+6. For **Is your predicted column a value or threshold?**, select
+   **Value** if your target column has categorical values or
+   **Threshold** if it has numerical values.
+7. For **Predicted value** (or **Predicted threshold**, depending
+   on your selection in the previous step), enter the target column value or values that correspond to a positive outcome.
+   For example, if predicting customer conversion, your value might be `yes` to indicate that a customer was converted.
+8. For the **Select the column to analyze for bias** dropdown menu, select the
+   column that you believe might contain bias, also known as the facet
+   variable.
+9. For **Is your column a value or threshold?**, select
+   **Value** if the facet variable has categorical values or
+   **Threshold** if it has numerical values.
+10. For **Column value(s) to analyze for bias** (or
+    **Column threshold to analyze for bias**, depending on your selection in the previous step),
+    enter the value or values that you want to analyze for potential bias. For example, if you're checking for
+    bias against customers over a certain age, use the beginning of that age range as your threshold.
+11. For **Choose bias metrics**, select the bias metrics you'd like to include
+    in your bias report. Hover over the info icons for more information about each metric.
+12. (Optional) When prompted with the option **Would you like to analyze additional
+    metrics?**, select **Yes** to view and include more bias metrics.
+13. When you're ready to create the bias report, choose **Add**.
+
+Once generated, the report gives you an overview of the bias metrics you selected. You can view
+the bias report at any time from the **Analyses** tab of your data flow.
+
+## Histogram
+
+Use histograms to see the counts of feature values for a specific feature. You can
+inspect the relationships between features using the **Color by**
+option.
+
+You can use the **Facet by** feature to create histograms of one
+column, for each value in another column.
+
+## Scatter plot
+
+Use the **Scatter Plot** feature to inspect the relationship between
+features. To create a scatter plot, select a feature to plot on the **X
+axis** and the **Y axis**. Both of these columns must be
+numeric typed columns.
+
+You can color scatter plots by an additional column.
+
+Additionally, you can facet scatter plots by features.
+
+## Table summary
+
+Use the **Table Summary** analysis to quickly summarize your
+data.
+
+For columns with numerical data, including log and float data, a table summary reports
+the number of entries (count), minimum (min), maximum (max), mean, and standard
+deviation (stddev) for each column.
+
+For columns with non-numerical data, including columns with string, Boolean, or
+date/time data, a table summary reports the number of entries (count), least frequent
+value (min), and most frequent value (max).
+
+## Quick model
+
+Use the **Quick Model** visualization to quickly evaluate your data
+and produce importance scores for each feature. A [feature importance score](http://spark.apache.org/docs/2.1.0/api/python/pyspark.ml.html#pyspark.ml.classification.DecisionTreeClassificationModel.featureImportances "http://spark.apache.org/docs/2.1.0/api/python/pyspark.ml.html#pyspark.ml.classification.DecisionTreeClassificationModel.featureImportances") score indicates how useful a feature is at
+predicting a target label. The feature importance score is between [0, 1] and a higher
+number indicates that the feature is more important to the whole dataset. On the top of
+the quick model chart, there is a model score. A classification problem shows an F1
+score. A regression problem has a mean squared error (MSE) score.
+
+When you create a quick model chart, you select a dataset you want evaluated, and a
+target label against which you want feature importance to be compared. Data Wrangler does the
+following:
+
+- Infers the data types for the target label and each feature in the dataset
+  selected.
+- Determines the problem type. Based on the number of distinct values in the
+  label column, Data Wrangler determines if this is a regression or classification problem
+  type. Data Wrangler sets a categorical threshold to 100. If there are more than 100
+  distinct values in the label column, Data Wrangler classifies it as a regression problem;
+  otherwise, it is classified as a classification problem.
+- Pre-processes features and label data for training. The algorithm used
+  requires encoding features to vector type and encoding labels to double type.
+- Trains a random forest algorithm with 70% of data. Spark’s [RandomForestRegressor](https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-regression "https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-regression") is used to train a model for regression
+  problems. The [RandomForestClassifier](https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-classifier "https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-classifier") is used to train a model for classification
+  problems.
+- Evaluates a random forest model with the remaining 30% of data. Data Wrangler evaluates
+  classification models using an F1 score and evaluates regression models using an
+  MSE score.
+- Calculates feature importance for each feature using the Gini importance
+  method.
+
+## Target leakage
+
+Target leakage occurs when there is data in a machine learning training dataset that
+is strongly correlated with the target label, but is not available in real-world data.
+For example, you may have a column in your dataset that serves as a proxy for the column
+you want to predict with your model.
+
+When you use the **Target Leakage** analysis, you specify the
+following:
+
+- **Target**: This is the feature about which you want your ML
+  model to be able to make predictions.
+- **Problem type**: This is the ML problem type on which you
+  are working. Problem type can either be **classification** or
+  **regression**.
+- (Optional) **Max features**: This is the maximum number of
+  features to present in the visualization, which shows features ranked by their
+  risk of being target leakage.
+
+For classification, the target leakage analysis uses the area under the receiver
+operating characteristic, or AUC - ROC curve for each column, up to **Max
+features**. For regression, it uses a coefficient of determination, or R2
+metric.
+
+The AUC - ROC curve provides a predictive metric, computed individually for each
+column using cross-validation, on a sample of up to around 1000 rows. A score of 1
+indicates perfect predictive abilities, which often indicates target leakage. A score of
+0.5 or lower indicates that the information on the column could not provide, on its own,
+any useful information towards predicting the target. Although it can happen that a
+column is uninformative on its own but is useful in predicting the target when used in
+tandem with other features, a low score could indicate the feature is redundant.
+
+## Multicollinearity
+
+Multicollinearity is a circumstance where two or more predictor variables are related
+to each other. The predictor variables are the features in your dataset that you're
+using to predict a target variable. When you have multicollinearity, the predictor
+variables are not only predictive of the target variable, but also predictive of each
+other.
+
+You can use the **Variance Inflation Factor (VIF)**,
+**Principal Component Analysis (PCA)**, or **Lasso feature
+selection** as measures for the multicollinearity in your data. For more
+information, see the following.
+
+Variance Inflation Factor (VIF)
+The Variance Inflation Factor (VIF) is a measure of collinearity among
+variable pairs. Data Wrangler returns a VIF score as a measure of how closely the
+variables are related to each other. A VIF score is a positive number that
+is greater than or equal to 1.
+
+A score of 1 means that the variable is uncorrelated with the other
+variables. Scores greater than 1 indicate higher correlation.
+
+Theoretically, you can have a VIF score with a value of infinity. Data Wrangler
+clips high scores to 50. If you have a VIF score greater than 50, Data Wrangler sets
+the score to 50.
+
+You can use the following guidelines to interpret your VIF scores:
+
+- A VIF score less than or equal to 5 indicates that the variables
+  are moderately correlated with the other variables.
+- A VIF score greater than or equal to 5 indicates that the
+  variables are highly correlated with the other variables.
+
+Principle Component Analysis (PCA)
+Principal Component Analysis (PCA) measures the variance of the data along
+different directions in the feature space. The feature space consists of all
+the predictor variables that you use to predict the target variable in your
+dataset.
+
+For example, if you're trying to predict who survived on the _RMS
+Titanic_ after it hit an iceberg, your feature space can
+include the passengers' age, gender, and the fare that they paid.
+
+From the feature space, PCA generates an ordered list of variances. These
+variances are also known as singular values. The values in the list of
+variances are greater than or equal to 0. We can use them to determine how
+much multicollinearity there is in our data.
+
+When the numbers are roughly uniform, the data has very few instances of
+multicollinearity. When there is a lot of variability among the values, we
+have many instances of multicollinearity. Before it performs PCA, Data Wrangler
+normalizes each feature to have a mean of 0 and a standard deviation of
+
+1.
+
+###### Note
+
+PCA in this circumstance can also be referred to as Singular Value
+Decomposition (SVD).
+
+Lasso feature selection
+Lasso feature selection uses the L1 regularization technique to only
+include the most predictive features in your dataset.
+
+For both classification and regression, the regularization technique
+generates a coefficient for each feature. The absolute value of the
+coefficient provides an importance score for the feature. A higher
+importance score indicates that it is more predictive of the target
+variable. A common feature selection method is to use all the features that
+have a non-zero lasso coefficient.
+
+## Detect anomalies in time
+
+series data
+
+You can use the anomaly detection visualization to see outliers in your time series
+data. To understand what determines an anomaly, you need to understand that we decompose
+the time series into a predicted term and an error term. We treat the seasonality and
+trend of the time series as the predicted term. We treat the residuals as the error
+term.
+
+For the error term, you specify a threshold as the number of standard of deviations
+the residual can be away from the mean for it to be considered an anomaly. For example,
+you can specify a threshold as being 3 standard deviations. Any residual greater than 3
+standard deviations away from the mean is an anomaly.
+
+You can use the following procedure to perform an **Anomaly
+detection** analysis.
+
+1. Open your Data Wrangler data flow.
+2. In your data flow, under **Data types**, choose the
+   **+**, and select **Add analysis**.
+3. For **Analysis type**, choose **Time
+   Series**.
+4. For **Visualization**, choose **Anomaly
+   detection**.
+5. For **Anomaly threshold**, choose the threshold that a value is
+   considered an anomaly.
+6. Choose **Preview** to generate a preview of the analysis.
+7. Choose **Add** to add the transform to the Data Wrangler data flow.
+
+## Seasonal trend decomposition in
+
+time series data
+
+You can determine whether there's seasonality in your time series data by using the
+Seasonal Trend Decomposition visualization. We use the STL (Seasonal Trend decomposition
+using LOESS) method to perform the decomposition. We decompose the time series into its
+seasonal, trend, and residual components. The trend reflects the long term progression
+of the series. The seasonal component is a signal that recurs in a time period. After
+removing the trend and the seasonal components from the time series, you have the
+residual.
+
+You can use the following procedure to perform a **Seasonal-Trend
+decomposition** analysis.
+
+1. Open your Data Wrangler data flow.
+2. In your data flow, under **Data types**, choose the
+   **+**, and select **Add analysis**.
+3. For **Analysis type**, choose **Time
+   Series**.
+4. For **Visualization**, choose **Seasonal-Trend
+   decomposition**.
+5. For **Anomaly threshold**, choose the threshold that a value
+   is considered an anomaly.
+6. Choose **Preview** to generate a preview of the
+   analysis.
+7. Choose **Add** to add the transform to the Data Wrangler data
+   flow.
+
+## Create custom visualizations
+
+You can add an analysis to your Data Wrangler flow to create a custom visualization. Your
+dataset, with all the transformations you've applied, is available as a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html"). Data Wrangler uses the `df` variable to store the
+dataframe. You access the dataframe by calling the variable.
+
+You must provide the output variable, `chart`, to store an [Altair](https://altair-viz.github.io/ "https://altair-viz.github.io/") output chart. For example, you
+can use the following code block to create a custom histogram using the Titanic
+dataset.
+
+```
+import altair as alt
+df = df.iloc[:30]
+df = df.rename(columns={"Age": "value"})
+df = df.assign(count=df.groupby('value').value.transform('count'))
+df = df[["value", "count"]]
+base = alt.Chart(df)
+bar = base.mark_bar().encode(x=alt.X('value', bin=True, axis=None), y=alt.Y('count'))
+rule = base.mark_rule(color='red').encode(
+    x='mean(value):Q',
+    size=alt.value(5))
+chart = bar + rule
+```
+
+###### To create a custom visualization:
+
+1. Next to the node containing the transformation that you'd like to visualize,
+   choose the **+**.
+2. Choose **Add analysis**.
+3. For **Analysis type**, choose **Custom
+   Visualization**.
+4. For **Analysis name**, specify a name.
+5. Enter your code in the code box.
+6. Choose **Preview** to preview your visualization.
+7. Choose **Save** to add your visualization.
+
+If you don’t know how to use the Altair visualization package in Python, you can use
+custom code snippets to help you get started.
+
+Data Wrangler has a searchable collection of visualization snippets. To use a visualization
+snippet, choose **Search example snippets** and specify a query in the
+search bar.
+
+The following example uses the **Binned scatterplot** code snippet.
+It plots a histogram for 2 dimensions.
+
+The snippets have comments to help you understand the changes that you need to make to
+the code. You usually need to specify the column names of your dataset in the
+code.
+
+```
+
+import altair as alt
+
+# Specify the number of top rows for plotting
+rows_number = 1000
+df = df.head(rows_number)
+# You can also choose bottom rows or randomly sampled rows
+# df = df.tail(rows_number)
+# df = df.sample(rows_number)
+
+
+chart = (
+    alt.Chart(df)
+    .mark_circle()
+    .encode(
+        # Specify the column names for binning and number of bins for X and Y axis
+        x=alt.X("col1:Q", bin=alt.Bin(maxbins=20)),
+        y=alt.Y("col2:Q", bin=alt.Bin(maxbins=20)),
+        size="count()",
+    )
+)
+
+# :Q specifies that label column has quantitative type.
+# For more details on Altair typing refer to
+# https://altair-viz.github.io/user_guide/encoding.html#encoding-data-types
+
+```

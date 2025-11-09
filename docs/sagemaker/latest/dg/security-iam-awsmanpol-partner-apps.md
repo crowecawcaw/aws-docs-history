@@ -68,6 +68,6 @@ began tracking these changes. For automatic alerts about changes to this page, s
 to the RSS feed on the SageMaker AI [Document history
 page.](doc-history.md "doc-history.md")
 
-| Policy                                            | Version | Change         | Date             |
-| ------------------------------------------------- | ------- | -------------- | ---------------- |
-| AmazonSageMakerPartnerAppsFullAccess - New policy | 1       | Initial policy | January 17, 2025 |
+| Policy                                               | Version | Change         | Date             |
+| ---------------------------------------------------- | ------- | -------------- | ---------------- |
+| AmazonSageMakerPartnerAppsFullAccess<br>• New policy | 1       | Initial policy | January 17, 2025 |

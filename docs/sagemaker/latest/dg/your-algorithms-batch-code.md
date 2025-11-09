@@ -132,7 +132,43 @@ parameters using this order of precedence:
 3. The default parameter values, listed in the following table.
 
 | Parameter                 | Default Values |
-| ------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- |
 | `MaxConcurrentTransforms` | 1              |
 | `BatchStrategy`           | `MULTI_RECORD` |
-| `MaxPayloadInMB`          | 6              | The response for a `GET` execution-parameters request is a JSON object with keys for `MaxConcurrentTransforms`, `BatchStrategy`, and `MaxPayloadInMB` parameters. This is an example of a valid response: `{ “MaxConcurrentTransforms”: 8, “BatchStrategy": "MULTI_RECORD", "MaxPayloadInMB": 6 }` ## How Your Container Should Respond to Inference Requests To obtain inferences, Amazon SageMaker AI sends a POST request to the inference container. The POST request body contains data from Amazon S3. Amazon SageMaker AI passes the request to the container, and returns the inference result from the container, saving the data from the response to Amazon S3. To receive inference requests, the container must have a web server listening on port 8080 and must accept POST requests to the `/invocations` endpoint. The inference request timeout and max retries can be configured through `ModelClientConfig`. ## How Your Container Should Respond to Health Check (Ping) Requests The simplest requirement on the container is to respond with an HTTP 200 status code and an empty body. This indicates to SageMaker AI that the container is ready to accept inference requests at the `/invocations` endpoint. While the minimum bar is for the container to return a static 200, a container developer can use this functionality to perform deeper checks. The request timeout on `/ping` attempts is 2 seconds. |
+| `MaxPayloadInMB`          | 6              |
+
+The response for a `GET` execution-parameters request is a JSON object with
+keys for `MaxConcurrentTransforms`, `BatchStrategy`, and
+`MaxPayloadInMB` parameters. This is an example of a valid
+response:
+
+```
+{
+“MaxConcurrentTransforms”: 8,
+“BatchStrategy": "MULTI_RECORD",
+"MaxPayloadInMB": 6
+}
+```
+
+## How Your Container Should Respond to Inference Requests
+
+To obtain inferences, Amazon SageMaker AI sends a POST request to the inference container. The
+POST request body contains data from Amazon S3. Amazon SageMaker AI passes the request to the container,
+and returns the inference result from the container, saving the data from the response
+to Amazon S3.
+
+To receive inference requests, the container must have a web server listening on port
+8080 and must accept POST requests to the `/invocations` endpoint. The
+inference request timeout and max retries can be configured through `ModelClientConfig`.
+
+## How Your Container Should
+
+Respond to Health Check (Ping) Requests
+
+The simplest requirement on the container is to respond with an HTTP 200 status code
+and an empty body. This indicates to SageMaker AI that the container is ready to accept
+inference requests at the `/invocations` endpoint.
+
+While the minimum bar is for the container to return a static 200, a container
+developer can use this functionality to perform deeper checks. The request timeout on
+`/ping` attempts is 2 seconds.

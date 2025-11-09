@@ -23,7 +23,313 @@ on GitHub](https://github.com/pytorch/serve "https://github.com/pytorch/serve").
 The following table lists the AWS PyTorch DLCs supported by TorchServe.
 
 | Instance type | SageMaker AI PyTorch DLC link                                                                                                                                                                                                                                                                                                 |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------- | ----------- | -------------------------------------------------- |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU and GPU   | [SageMaker AI PyTorch containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only")                            |
 | Neuron        | [PyTorch Neuron containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#neuron-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#neuron-containers")                                                                                            |
-| Graviton      | [SageMaker AI PyTorch Graviton containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-graviton-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-graviton-containers-sm-support-only") | The following sections describe the setup to build and test PyTorch DLCs on Amazon SageMaker AI. ## Getting started To get started, ensure that you have the following prerequisites: 1. Ensure that you have access to an AWS account. Set up your environment so that the AWS CLI can access your account through either an AWS IAM user or an IAM role. We recommend using an IAM role. For the purposes of testing in your personal account, you can attach the following managed permissions policies to the IAM role: <br>• [AmazonEC2ContainerRegistryFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess") <br>• [AmazonEC2FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess") <br>• [AWSServiceRoleForAmazonEKSNodegroup](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup") <br>• [AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess") <br>• [AmazonS3FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess") 2. Locally configure your dependencies, as shown in the following example: `from datetime import datetime import os import json import logging import time # External Dependencies: import boto3 from botocore.exceptions import ClientError import sagemaker sess = boto3.Session() sm = sess.client("sagemaker") region = sess.region_name account = boto3.client("sts").get_caller_identity().get("Account") smsess = sagemaker.Session(boto_session=sess) role = sagemaker.get_execution_role() # Configuration: bucket_name = smsess.default_bucket() prefix = "torchserve" output_path = f"s3://{bucket_name}/{prefix}/models" print(f"account={account}, region={region}, role={role}")` 3. Retrieve the PyTorch DLC image, as shown in the following example. SageMaker AI PyTorch DLC images are available in all AWS regions. For more information, see the [list of DLC container images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only"). ``baseimage = sagemaker.image_uris.retrieve( framework="pytorch", region="`<region>`", py_version="py310", image_scope="inference", version="2.0.1", instance_type="ml.g4dn.16xlarge", )`` 4. Create a local workspace. `mkdir -p workspace/` ## Adding a package The following sections describe how to add and preinstall packages to your PyTorch DLC image. **BYOC use cases** The following steps outline how to add a package to your PyTorch DLC image. For more information about customizing your container, see [Building AWS Deep Learning Containers Custom Images](https://github.com/aws/deep-learning-containers/blob/master/custom_images.md "https://github.com/aws/deep-learning-containers/blob/master/custom_images.md"). 1. Suppose you want to add a package to the PyTorch DLC docker image. Create a Dockerfile under the `docker` directory, as shown in the following example: `mkdir -p workspace/docker cat workspace/docker/Dockerfile ARG BASE_IMAGE FROM $BASE_IMAGE #Install any additional libraries RUN pip install transformers==4.28.1` 2. Build and publish the customized docker image by using the following [build_and_push.sh](https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/workspace/docker/build_and_push.sh "https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/workspace/docker/build_and_push.sh") script. `# Download script build_and_push.sh to workspace/docker ls workspace/docker build_and_push.sh  Dockerfile # Build and publish your docker image reponame = "torchserve" versiontag = "demo-0.1" ./build_and_push.sh {reponame} {versiontag} {baseimage} {region} {account}` **SageMaker AI preinstall use cases** The following example shows you how to preinstall a package to your PyTorch DLC container. You must create a `requirements.txt` file locally under the directory `workspace/code`. `mkdir -p workspace/code cat workspace/code/requirements.txt transformers==4.28.1` ## Create TorchServe model artifacts In the following example, we use the pre-trained [MNIST model](https://github.com/pytorch/serve/tree/master/examples/image_classifier/mnist "https://github.com/pytorch/serve/tree/master/examples/image_classifier/mnist"). We create a directory `workspace/mnist`, implement [mnist_handler.py](https://github.com/pytorch/serve/blob/master/examples/image_classifier/mnist/mnist_handler.py "https://github.com/pytorch/serve/blob/master/examples/image_classifier/mnist/mnist_handler.py") by following the [TorchServe custom service instructions](https://github.com/pytorch/serve/blob/master/docs/custom_service.md#custom-service "https://github.com/pytorch/serve/blob/master/docs/custom_service.md#custom-service"), and [configure the model parameters](https://github.com/pytorch/serve/tree/master/model-archiver#config-file "https://github.com/pytorch/serve/tree/master/model-archiver#config-file") (such as batch size and workers) in [model-config.yaml](https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/workspace/lama/model-config.yaml "https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/workspace/lama/model-config.yaml"). Then, we use the TorchServe tool `torch-model-archiver` to build the model artifacts and upload to Amazon S3. 1. Configure the model parameters in `model-config.yaml`. `ls -al workspace/mnist-dev mnist.py mnist_handler.py mnist_cnn.pt model-config.yaml # config the model cat workspace/mnist-dev/model-config.yaml minWorkers: 1 maxWorkers: 1 batchSize: 4 maxBatchDelay: 200 responseTimeout: 300` 2. Build the model artifacts by using [torch-model-archiver](https://github.com/pytorch/serve/tree/master/model-archiver#torch-model-archiver-for-torchserve "https://github.com/pytorch/serve/tree/master/model-archiver#torch-model-archiver-for-torchserve") . `torch-model-archiver --model-name mnist --version 1.0 --model-file workspace/mnist-dev/mnist.py --serialized-file workspace/mnist-dev/mnist_cnn.pt --handler workspace/mnist-dev/mnist_handler.py --config-file workspace/mnist-dev/model-config.yaml --archive-format tgz` If you want to preinstall a package, you must include the `code` directory in the `tar.gz` file. `cd workspace torch-model-archiver --model-name mnist --version 1.0 --model-file mnist-dev/mnist.py --serialized-file mnist-dev/mnist_cnn.pt --handler mnist-dev/mnist_handler.py --config-file mnist-dev/model-config.yaml --archive-format no-archive cd mnist mv ../code . tar cvzf mnist.tar.gz .` 3. Upload `mnist.tar.gz` to Amazon S3. `# upload mnist.tar.gz to S3 output_path = f"s3://{bucket_name}/{prefix}/models" aws s3 cp mnist.tar.gz {output_path}/mnist.tar.gz` ## Using single model endpoints to deploy with TorchServe The following example shows you how to create a [single model real-time inference endpoint](realtime-endpoints-deployment.md "realtime-endpoints-deployment.md"), deploy the model to the endpoint, and test the endpoint by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"). `from sagemaker.model import Model from sagemaker.predictor import Predictor # create the single model endpoint and deploy it on SageMaker AI model = Model(model_data = f'{output_path}/mnist.tar.gz', image_uri = baseimage, role = role, predictor_cls = Predictor, name = "mnist", sagemaker_session = smsess) endpoint_name = 'torchserve-endpoint-' + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime()) predictor = model.deploy(instance_type='ml.g4dn.xlarge', initial_instance_count=1, endpoint_name = endpoint_name, serializer=JSONSerializer(), deserializer=JSONDeserializer()) # test the endpoint import random import numpy as np dummy_data = {"inputs": np.random.rand(16, 1, 28, 28).tolist()} res = predictor.predict(dummy_data)` ## Using multi-model endpoints to deploy with TorchServe [Multi-model endpoints](multi-model-endpoints.md "multi-model-endpoints.md") are a scalable and cost-effective solution to hosting large numbers of models behind one endpoint. They improve endpoint utilization by sharing the same fleet of resources and serving container to host all of your models. They also reduce deployment overhead because SageMaker AI manages dynamically loading and unloading models, as well as scaling resources based on traffic patterns. Multi-model endpoints are particularly useful for deep learning and generative AI models that require accelerated compute power. By using TorchServe on SageMaker AI multi-model endpoints, you can speed up your development by using a serving stack that you are familiar with while leveraging the resource sharing and simplified model management that SageMaker AI multi-model endpoints provide. The following example shows you how to create a multi-model endpoint, deploy the model to the endpoint, and test the endpoint by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"). Additional details can be found in this [notebook example](https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/torchserve_multi_model_endpoint.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/torchserve_multi_model_endpoint.ipynb"). `from sagemaker.multidatamodel import MultiDataModel from sagemaker.model import Model from sagemaker.predictor import Predictor # create the single model endpoint and deploy it on SageMaker AI model = Model(model_data = f'{output_path}/mnist.tar.gz', image_uri = baseimage, role = role, sagemaker_session = smsess) endpoint_name = 'torchserve-endpoint-' + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime()) mme = MultiDataModel( name = endpoint_name, model_data_prefix = output_path, model = model, sagemaker_session = smsess) mme.deploy( initial_instance_count = 1, instance_type = "ml.g4dn.xlarge", serializer=sagemaker.serializers.JSONSerializer(), deserializer=sagemaker.deserializers.JSONDeserializer()) # list models list(mme.list_models()) # create mnist v2 model artifacts cp mnist.tar.gz mnistv2.tar.gz # add mnistv2 mme.add_model(mnistv2.tar.gz) # list models list(mme.list_models()) predictor = Predictor(endpoint_name=mme.endpoint_name, sagemaker_session=smsess) # test the endpoint import random import numpy as np dummy_data = {"inputs": np.random.rand(16, 1, 28, 28).tolist()} res = predictor.predict(date=dummy_data, target_model="mnist.tar.gz")` ## Metrics TorchServe supports both system level and model level metrics. You can enable metrics in either log format mode or Prometheus mode through the environment variable `TS_METRICS_MODE`. You can use the TorchServe central metrics config file `metrics.yaml` to specify the types of metrics to be tracked, such as request counts, latency, memory usage, GPU utilization, and more. By referring to this file, you can gain insights into the performance and health of the deployed models and effectively monitor the TorchServe server's behavior in real-time. For more detailed information, see the [TorchServe metrics documentation](https://github.com/pytorch/serve/blob/master/docs/metrics.md#torchserve-metrics "https://github.com/pytorch/serve/blob/master/docs/metrics.md#torchserve-metrics"). You can access TorchServe metrics logs that are similar to the StatsD format through the Amazon CloudWatch log filter. The following is an example of a TorchServe metrics log: ``` CPUUtilization.Percent:0.0 | #Level:Host | #hostname:my_machine_name,timestamp:1682098185 DiskAvailable.Gigabytes:318.0416717529297 | #Level:Host | #hostname:my_machine_name,timestamp:1682098185 ``` |
+| Graviton      | [SageMaker AI PyTorch Graviton containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-graviton-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-graviton-containers-sm-support-only") |
+
+The following sections describe the setup to build and test PyTorch DLCs on
+Amazon SageMaker AI.
+
+## Getting
+
+started
+
+To get started, ensure that you have the following prerequisites:
+
+1. Ensure that you have access to an AWS account. Set up your environment
+   so that the AWS CLI can access your account through either an AWS IAM user
+   or an IAM role. We recommend using an IAM role. For the purposes of
+   testing in your personal account, you can attach the following managed
+   permissions policies to the IAM role:
+   - [AmazonEC2ContainerRegistryFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess")
+   - [AmazonEC2FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess")
+   - [AWSServiceRoleForAmazonEKSNodegroup](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup")
+   - [AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess")
+   - [AmazonS3FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess")
+
+2. Locally configure your dependencies, as shown in the following
+   example:
+
+```
+from datetime import datetime
+    import os
+    import json
+    import logging
+    import time
+
+    # External Dependencies:
+    import boto3
+    from botocore.exceptions import ClientError
+    import sagemaker
+
+    sess = boto3.Session()
+    sm = sess.client("sagemaker")
+    region = sess.region_name
+    account = boto3.client("sts").get_caller_identity().get("Account")
+
+    smsess = sagemaker.Session(boto_session=sess)
+    role = sagemaker.get_execution_role()
+
+    # Configuration:
+    bucket_name = smsess.default_bucket()
+    prefix = "torchserve"
+    output_path = f"s3://{bucket_name}/{prefix}/models"
+    print(f"account={account}, region={region}, role={role}")
+```
+
+3. Retrieve the PyTorch DLC image, as shown in the following example.
+
+SageMaker AI PyTorch DLC images are available in all AWS regions. For more
+information, see the [list of DLC container images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only").
+
+```
+baseimage = sagemaker.image_uris.retrieve(
+        framework="pytorch",
+        region="`<region>`",
+        py_version="py310",
+        image_scope="inference",
+        version="2.0.1",
+        instance_type="ml.g4dn.16xlarge",
+    )
+```
+
+4. Create a local workspace.
+
+```
+mkdir -p workspace/
+```
+
+## Adding a
+
+package
+
+The following sections describe how to add and preinstall packages to your PyTorch
+DLC image.
+
+**BYOC use cases**
+
+The following steps outline how to add a package to your PyTorch DLC image. For
+more information about customizing your container, see [Building AWS Deep Learning Containers Custom Images](https://github.com/aws/deep-learning-containers/blob/master/custom_images.md "https://github.com/aws/deep-learning-containers/blob/master/custom_images.md").
+
+1. Suppose you want to add a package to the PyTorch DLC docker image. Create
+   a Dockerfile under the `docker` directory, as shown in the
+   following example:
+
+```
+mkdir -p workspace/docker
+    cat workspace/docker/Dockerfile
+
+    ARG BASE_IMAGE
+
+    FROM $BASE_IMAGE
+
+    #Install any additional libraries
+    RUN pip install transformers==4.28.1
+```
+
+2. Build and publish the customized docker image by using the following
+   [build_and_push.sh](https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/workspace/docker/build_and_push.sh "https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/workspace/docker/build_and_push.sh") script.
+
+```
+# Download script build_and_push.sh to workspace/docker
+    ls workspace/docker
+    build_and_push.sh  Dockerfile
+
+    # Build and publish your docker image
+    reponame = "torchserve"
+    versiontag = "demo-0.1"
+
+    ./build_and_push.sh {reponame} {versiontag} {baseimage} {region} {account}
+```
+
+**SageMaker AI preinstall use cases**
+
+The following example shows you how to preinstall a package to your PyTorch DLC
+container. You must create a `requirements.txt` file locally under the
+directory `workspace/code`.
+
+```
+mkdir -p workspace/code
+    cat workspace/code/requirements.txt
+
+    transformers==4.28.1
+
+```
+
+## Create TorchServe
+
+model artifacts
+
+In the following example, we use the pre-trained [MNIST model](https://github.com/pytorch/serve/tree/master/examples/image_classifier/mnist "https://github.com/pytorch/serve/tree/master/examples/image_classifier/mnist"). We create a directory `workspace/mnist`,
+implement [mnist_handler.py](https://github.com/pytorch/serve/blob/master/examples/image_classifier/mnist/mnist_handler.py "https://github.com/pytorch/serve/blob/master/examples/image_classifier/mnist/mnist_handler.py") by following the [TorchServe custom service instructions](https://github.com/pytorch/serve/blob/master/docs/custom_service.md#custom-service "https://github.com/pytorch/serve/blob/master/docs/custom_service.md#custom-service"), and [configure the model parameters](https://github.com/pytorch/serve/tree/master/model-archiver#config-file "https://github.com/pytorch/serve/tree/master/model-archiver#config-file") (such as batch size and workers) in
+[model-config.yaml](https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/workspace/lama/model-config.yaml "https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/workspace/lama/model-config.yaml"). Then, we use the TorchServe tool
+`torch-model-archiver` to build the model artifacts and upload to
+Amazon S3.
+
+1. Configure the model parameters in `model-config.yaml`.
+
+```
+ls -al workspace/mnist-dev
+
+    mnist.py
+    mnist_handler.py
+    mnist_cnn.pt
+    model-config.yaml
+
+    # config the model
+    cat workspace/mnist-dev/model-config.yaml
+    minWorkers: 1
+    maxWorkers: 1
+    batchSize: 4
+    maxBatchDelay: 200
+    responseTimeout: 300
+```
+
+2. Build the model artifacts by using [torch-model-archiver](https://github.com/pytorch/serve/tree/master/model-archiver#torch-model-archiver-for-torchserve "https://github.com/pytorch/serve/tree/master/model-archiver#torch-model-archiver-for-torchserve") .
+
+```
+torch-model-archiver --model-name mnist --version 1.0 --model-file workspace/mnist-dev/mnist.py --serialized-file workspace/mnist-dev/mnist_cnn.pt --handler workspace/mnist-dev/mnist_handler.py --config-file workspace/mnist-dev/model-config.yaml --archive-format tgz
+```
+
+If you want to preinstall a package, you must include the
+`code` directory in the `tar.gz` file.
+
+```
+cd workspace
+    torch-model-archiver --model-name mnist --version 1.0 --model-file mnist-dev/mnist.py --serialized-file mnist-dev/mnist_cnn.pt --handler mnist-dev/mnist_handler.py --config-file mnist-dev/model-config.yaml --archive-format no-archive
+
+    cd mnist
+    mv ../code .
+    tar cvzf mnist.tar.gz .
+```
+
+3. Upload `mnist.tar.gz` to Amazon S3.
+
+```
+# upload mnist.tar.gz to S3
+    output_path = f"s3://{bucket_name}/{prefix}/models"
+    aws s3 cp mnist.tar.gz {output_path}/mnist.tar.gz
+```
+
+## Using single
+
+model endpoints to deploy with TorchServe
+
+The following example shows you how to create a [single model
+real-time inference endpoint](realtime-endpoints-deployment.md "realtime-endpoints-deployment.md"), deploy the model to the endpoint, and test
+the endpoint by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
+
+```
+from sagemaker.model import Model
+    from sagemaker.predictor import Predictor
+
+    # create the single model endpoint and deploy it on SageMaker AI
+    model = Model(model_data = f'{output_path}/mnist.tar.gz',
+                  image_uri = baseimage,
+                  role = role,
+                  predictor_cls = Predictor,
+                  name = "mnist",
+                  sagemaker_session = smsess)
+
+    endpoint_name = 'torchserve-endpoint-' + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
+    predictor = model.deploy(instance_type='ml.g4dn.xlarge',
+                             initial_instance_count=1,
+                             endpoint_name = endpoint_name,
+                             serializer=JSONSerializer(),
+                             deserializer=JSONDeserializer())
+
+    # test the endpoint
+    import random
+    import numpy as np
+    dummy_data = {"inputs": np.random.rand(16, 1, 28, 28).tolist()}
+
+    res = predictor.predict(dummy_data)
+```
+
+## Using multi-model endpoints to
+
+deploy with TorchServe
+
+[Multi-model endpoints](multi-model-endpoints.md "multi-model-endpoints.md") are a scalable and cost-effective solution to
+hosting large numbers of models behind one endpoint. They improve endpoint
+utilization by sharing the same fleet of resources and serving container to host all
+of your models. They also reduce deployment overhead because SageMaker AI manages
+dynamically loading and unloading models, as well as scaling resources based on
+traffic patterns. Multi-model endpoints are particularly useful for deep learning
+and generative AI models that require accelerated compute power.
+
+By using TorchServe on SageMaker AI multi-model endpoints, you can speed up your
+development by using a serving stack that you are familiar with while leveraging the
+resource sharing and simplified model management that SageMaker AI multi-model endpoints
+provide.
+
+The following example shows you how to create a multi-model endpoint, deploy the
+model to the endpoint, and test the endpoint by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
+Additional details can be found in this [notebook example](https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/torchserve_multi_model_endpoint.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/torchserve_multi_model_endpoint.ipynb").
+
+```
+from sagemaker.multidatamodel import MultiDataModel
+    from sagemaker.model import Model
+    from sagemaker.predictor import Predictor
+
+    # create the single model endpoint and deploy it on SageMaker AI
+    model = Model(model_data = f'{output_path}/mnist.tar.gz',
+                  image_uri = baseimage,
+                  role = role,
+                  sagemaker_session = smsess)
+
+    endpoint_name = 'torchserve-endpoint-' + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
+    mme = MultiDataModel(
+        name = endpoint_name,
+        model_data_prefix = output_path,
+        model = model,
+        sagemaker_session = smsess)
+
+    mme.deploy(
+        initial_instance_count = 1,
+        instance_type = "ml.g4dn.xlarge",
+        serializer=sagemaker.serializers.JSONSerializer(),
+        deserializer=sagemaker.deserializers.JSONDeserializer())
+
+    # list models
+    list(mme.list_models())
+
+    # create mnist v2 model artifacts
+    cp mnist.tar.gz mnistv2.tar.gz
+
+    # add mnistv2
+    mme.add_model(mnistv2.tar.gz)
+
+    # list models
+    list(mme.list_models())
+
+    predictor = Predictor(endpoint_name=mme.endpoint_name, sagemaker_session=smsess)
+
+    # test the endpoint
+    import random
+    import numpy as np
+    dummy_data = {"inputs": np.random.rand(16, 1, 28, 28).tolist()}
+
+    res = predictor.predict(date=dummy_data, target_model="mnist.tar.gz")
+```
+
+## Metrics
+
+TorchServe supports both system level and model level metrics. You can enable
+metrics in either log format mode or Prometheus mode through the environment
+variable `TS_METRICS_MODE`. You can use the TorchServe central metrics
+config file `metrics.yaml` to specify the types of metrics to be tracked,
+such as request counts, latency, memory usage, GPU utilization, and more. By
+referring to this file, you can gain insights into the performance and health of the
+deployed models and effectively monitor the TorchServe server's behavior in
+real-time. For more detailed information, see the [TorchServe metrics documentation](https://github.com/pytorch/serve/blob/master/docs/metrics.md#torchserve-metrics "https://github.com/pytorch/serve/blob/master/docs/metrics.md#torchserve-metrics").
+
+You can access TorchServe metrics logs that are similar to the StatsD format
+through the Amazon CloudWatch log filter. The following is an example of a TorchServe metrics
+log:
+
+```
+CPUUtilization.Percent:0.0|#Level:Host|#hostname:my_machine_name,timestamp:1682098185
+    DiskAvailable.Gigabytes:318.0416717529297|#Level:Host|#hostname:my_machine_name,timestamp:1682098185
+```

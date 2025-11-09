@@ -75,11 +75,17 @@ After receiving the request, SageMaker AI does the following:
 Only files and data saved within the `/home/ec2-user/SageMaker`
 folder persist between notebook instance sessions. Files and data that are saved
 outside this directory are overwritten when the notebook instance stops and
-restarts. Each notebook instance's /tmp directory provides a minimum of 10 GB of
+restarts. Each notebook instance's `/tmp` directory provides a minimum of 10 GB of
 storage in an instance store. An instance store is temporary, block-level
 storage that isn't persistent. When the instance is stopped or restarted, SageMaker AI
-deletes the directory's contents. This temporary storage is part of the root
-volume of the notebook instance.
+deletes the directory's contents and any operating system customizations.
+This temporary storage is part of the root volume of the notebook instance.
+
+If the notebook instance isn't updated and is running unsecure software, SageMaker AI
+might periodically update the instance as part of regular maintenance. During these updates,
+data outside of the folder `/home/ec2-user/SageMaker` is not persisted.
+For more information about maintenance and security patches, see
+[Maintenance](nbi.md#nbi-maintenance "nbi.md#nbi-maintenance").
 
 If the instance type used by the notebook instance has NVMe support, customers
 can use the NVMe instance store volumes available for that instance type. For

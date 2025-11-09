@@ -107,29 +107,190 @@ information about controlling access to your data, see
 
 The following are the VPC endpoints for each service you can use with SageMaker Canvas:
 
-| Service                                         | Endpoint                                                                                                      | Endpoint type |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS Application Auto Scaling                    | com.amazonaws.`Region`.application-autoscaling                                                                | Interface     |
-| Amazon Athena                                   | com.amazonaws.`Region`.athena                                                                                 | Interface     |
-| Amazon SageMaker AI                             | com.amazonaws.`Region`.sagemaker.api com.amazonaws.`Region`.sagemaker.runtime com.amazonaws.`Region`.notebook | Interface     |
-| Amazon SageMaker AI Data Science Assistant      | com.amazonaws.`Region`.sagemaker-data-science-assistant                                                       | Interface     |
-| AWS Security Token Service                      | com.amazonaws.`Region`.sts                                                                                    | Interface     |
-| Amazon Elastic Container Registry (Amazon ECR)  | com.amazonaws.`Region`.ecr.api com.amazonaws.`Region`.ecr.dkr                                                 | Interface     |
-| Amazon Elastic Compute Cloud (Amazon EC2)       | com.amazonaws.`Region`.ec2                                                                                    | Interface     |
-| Amazon Simple Storage Service (Amazon S3)       | com.amazonaws.`Region`.s3                                                                                     | Gateway       |
-| Amazon Redshift                                 | com.amazonaws.`Region`.redshift-data                                                                          | Interface     |
-| AWS Secrets Manager                             | com.amazonaws.`Region`.secretsmanager                                                                         | Interface     |
-| AWS Systems Manager                             | com.amazonaws.`Region`.ssm                                                                                    | Interface     |
-| Amazon CloudWatch                               | com.amazonaws.`Region`.monitoring                                                                             | Interface     |
-| Amazon CloudWatch Logs                          | com.amazonaws.`Region`.logs                                                                                   | Interface     |
-| Amazon Forecast                                 | com.amazonaws.`Region`.forecast com.amazonaws.`Region`.forecastquery                                          | Interface     |
-| Amazon Textract                                 | com.amazonaws.`Region`.textract                                                                               | Interface     |
-| Amazon Comprehend                               | com.amazonaws.`Region`.comprehend                                                                             | Interface     |
-| Amazon Rekognition                              | com.amazonaws.`Region`.rekognition                                                                            | Interface     |
-| AWS Glue                                        | com.amazonaws.`Region`.glue                                                                                   | Interface     |
-| AWS Application Auto Scaling                    | com.amazonaws.`Region`.application-autoscaling                                                                | Interface     |
-| Amazon Relational Database Service (Amazon RDS) | com.amazonaws.`Region`.rds                                                                                    | Interface     |
-| Amazon Bedrock (see note after table)           | com.amazonaws.`Region`.bedrock-runtime                                                                        | Interface     |
-| Amazon Kendra                                   | com.amazonaws.`Region`.kendra                                                                                 | Interface     |
-| Amazon EMR Serverless                           | com.amazonaws.`Region`.emr-serverless                                                                         | Interface     |
-| Amazon Q Developer (see note after table)       | com.amazonaws.`Region`.q                                                                                      | Interface     | ###### Note The Amazon Q Developer VPC endpoint is currently available only in the US East (N. Virginia) region. To connect to it from other regions, you can choose one of the following options based on your security and infrastructure preferences: <br>• **Set up a NAT Gateway.** Configure a NAT Gateway in your VPC's private subnet to enable internet connectivity for the Q Developer endpoint. For more information, see [Setting up a NAT Gateway in a VPC Private Subnet](https://repost.aws/knowledge-center/nat-gateway-vpc-private-subnet "https://repost.aws/knowledge-center/nat-gateway-vpc-private-subnet"). <br>• **Enable cross-region VPC endpoint access.** Set up cross-region VPC endpoint access for Q Developer. Use this option to connect securely without requiring internet access. For more information, see [Configuring Cross-Region VPC Endpoint Access](https://repost.aws/knowledge-center/vpc-endpoints-cross-region-aws-services "https://repost.aws/knowledge-center/vpc-endpoints-cross-region-aws-services"). ###### Note For Amazon Bedrock, the interface endpoint service name `com.amazonaws.`Region`.bedrock` has been deprecated. Create a new VPC endpoint with the service name listed in the preceding table. Additionally, you can't fine-tune foundation models from Canvas VPCs with no internet access. This is because Amazon Bedrock doesn't support VPC endpoints for model customization APIs. To learn more about fine-tuning foundation models in Canvas, see [Fine-tune foundation models](canvas-fm-chat-fine-tune.md "canvas-fm-chat-fine-tune.md"). You must also add an endpoint policy for Amazon S3 to control AWS principal access to your VPC endpoint. For information about how to update your VPC endpoint policy, see [Control access to VPC endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md"). The following are two VPC endpoint policies that you can use. Use the first policy if you only want to grant access to the basic functionality of Canvas, such as importing data and creating models. Use the second policy if you want to grant access to the additional [genenerative AI features](canvas-fm-chat.md "canvas-fm-chat.md") in Canvas. Basic VPC endpoint policy The following policy grants the necessary access to your VPC endpoint for basic operations in Canvas. `{ "Effect": "Allow", "Action": [ "s3:GetObject", "s3:PutObject", "s3:DeleteObject", "s3:CreateBucket", "s3:GetBucketCors", "s3:GetBucketLocation" ], "Resource": [ "arn:aws:s3:::*SageMaker*", "arn:aws:s3:::*Sagemaker*", "arn:aws:s3:::*sagemaker*" ] }, { "Effect": "Allow", "Action": [ "s3:ListBucket", "s3:ListAllMyBuckets" ], "Resource": "*" }` Generative AI VPC endpoint policy The following policy grants the necessary access to your VPC endpoint for basic operations in Canvas, as well as using generative AI foundation models. `{ "Effect": "Allow", "Action": [ "s3:GetObject", "s3:PutObject", "s3:DeleteObject", "s3:CreateBucket", "s3:GetBucketCors", "s3:GetBucketLocation" ], "Resource": [ "arn:aws:s3:::*SageMaker*", "arn:aws:s3:::*Sagemaker*", "arn:aws:s3:::*sagemaker*", "arn:aws:s3:::*fmeval/datasets*", "arn:aws:s3:::*jumpstart-cache-prod*" ] }, { "Effect": "Allow", "Action": [ "s3:ListBucket", "s3:ListAllMyBuckets" ], "Resource": "*" }` ### Step 3: Grant IAM permissions The SageMaker Canvas user must have the necessary AWS Identity and Access Management permissions to allow connection to the VPC endpoints. The IAM role to which you give permissions must be the same one you used when onboarding to Amazon SageMaker AI domain. You can attach the SageMaker AI managed `AmazonSageMakerFullAccess` policy to the IAM role for the user to give the user the required permissions. If you require more restrictive IAM permissions and use custom policies instead, then give the user’s role the `ec2:DescribeVpcEndpointServices` permission. SageMaker Canvas requires these permissions to verify the existence of the required VPC endpoints for standard build jobs. If it detects these VPC endpoints, then standard build jobs run by default in your VPC. Otherwise, they will run in the default AWS managed VPC. For instructions on how to attach the `AmazonSageMakerFullAccess` IAM policy to your user’s IAM role, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md"). To grant your user’s IAM role the granular `ec2:DescribeVpcEndpointServices` permission, use the following procedure. 1. Sign in to the AWS Management Console and open the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. In the navigation pane, choose **Roles**. 3. In the list, choose the name of the role to which you want to grant permissions. 4. Choose the **Permissions** tab. 5. Choose **Add permissions** and then choose **Create inline policy**. 6. Choose the **JSON** tab and enter the following policy, which grants the `ec2:DescribeVpcEndpointServices` permission: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": "ec2:DescribeVpcEndpointServices", "Resource": "*" } ] }` `` 7. Choose **Review policy**, and then enter a **Name** for the policy (for example, `VPCEndpointPermissions`). 8. Choose **Create policy**. The user’s IAM role should now have permissions to access the VPC endpoints configured in your VPC. ### (Optional) Step 4: Override security group settings for specific users If you are an administrator, you might want different users to have different VPC settings, or user-specific VPC settings. When you override the default VPC’s security group settings for a specific user, these settings are passed on to the SageMaker Canvas application for that user. You can override the security groups that a specific user has access to in your VPC when you set up a new user profile in Studio Classic. You can use the [CreateUserProfile](../APIReference/API_CreateUserProfile.md "../APIReference/API_CreateUserProfile.md") SageMaker API call (or [create_user_profile](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_user_profile "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_user_profile") with the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md")), and then in the `UserSettings`, you can specify the `SecurityGroups` for the user. |
+| Service                                         | Endpoint                                                                                                            | Endpoint type |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------- |
+| AWS Application Auto Scaling                    | com.amazonaws.`Region`.application-autoscaling                                                                      | Interface     |
+| Amazon Athena                                   | com.amazonaws.`Region`.athena                                                                                       | Interface     |
+| Amazon SageMaker AI                             | com.amazonaws.`Region`.sagemaker.api<br>com.amazonaws.`Region`.sagemaker.runtime<br>com.amazonaws.`Region`.notebook | Interface     |
+| Amazon SageMaker AI Data Science Assistant      | com.amazonaws.`Region`.sagemaker-data-science-assistant                                                             | Interface     |
+| AWS Security Token Service                      | com.amazonaws.`Region`.sts                                                                                          | Interface     |
+| Amazon Elastic Container Registry (Amazon ECR)  | com.amazonaws.`Region`.ecr.api<br>com.amazonaws.`Region`.ecr.dkr                                                    | Interface     |
+| Amazon Elastic Compute Cloud (Amazon EC2)       | com.amazonaws.`Region`.ec2                                                                                          | Interface     |
+| Amazon Simple Storage Service (Amazon S3)       | com.amazonaws.`Region`.s3                                                                                           | Gateway       |
+| Amazon Redshift                                 | com.amazonaws.`Region`.redshift-data                                                                                | Interface     |
+| AWS Secrets Manager                             | com.amazonaws.`Region`.secretsmanager                                                                               | Interface     |
+| AWS Systems Manager                             | com.amazonaws.`Region`.ssm                                                                                          | Interface     |
+| Amazon CloudWatch                               | com.amazonaws.`Region`.monitoring                                                                                   | Interface     |
+| Amazon CloudWatch Logs                          | com.amazonaws.`Region`.logs                                                                                         | Interface     |
+| Amazon Forecast                                 | com.amazonaws.`Region`.forecast<br>com.amazonaws.`Region`.forecastquery                                             | Interface     |
+| Amazon Textract                                 | com.amazonaws.`Region`.textract                                                                                     | Interface     |
+| Amazon Comprehend                               | com.amazonaws.`Region`.comprehend                                                                                   | Interface     |
+| Amazon Rekognition                              | com.amazonaws.`Region`.rekognition                                                                                  | Interface     |
+| AWS Glue                                        | com.amazonaws.`Region`.glue                                                                                         | Interface     |
+| AWS Application Auto Scaling                    | com.amazonaws.`Region`.application-autoscaling                                                                      | Interface     |
+| Amazon Relational Database Service (Amazon RDS) | com.amazonaws.`Region`.rds                                                                                          | Interface     |
+| Amazon Bedrock (see note after table)           | com.amazonaws.`Region`.bedrock-runtime                                                                              | Interface     |
+| Amazon Kendra                                   | com.amazonaws.`Region`.kendra                                                                                       | Interface     |
+| Amazon EMR Serverless                           | com.amazonaws.`Region`.emr-serverless                                                                               | Interface     |
+| Amazon Q Developer (see note after table)       | com.amazonaws.`Region`.q                                                                                            | Interface     |
+
+###### Note
+
+The Amazon Q Developer VPC endpoint is currently available only in the US East (N. Virginia) region. To connect to it from
+other regions, you can choose one of the following options based on your security and infrastructure preferences:
+
+- **Set up a NAT Gateway.** Configure a NAT Gateway in your VPC's
+  private subnet to enable internet connectivity for the Q Developer endpoint. For more information, see
+  [Setting up a NAT Gateway in a VPC Private Subnet](https://repost.aws/knowledge-center/nat-gateway-vpc-private-subnet "https://repost.aws/knowledge-center/nat-gateway-vpc-private-subnet").
+- **Enable cross-region VPC endpoint access.** Set up cross-region
+  VPC endpoint access for Q Developer. Use this option to connect securely without requiring internet access. For more information,
+  see [Configuring Cross-Region VPC Endpoint Access](https://repost.aws/knowledge-center/vpc-endpoints-cross-region-aws-services "https://repost.aws/knowledge-center/vpc-endpoints-cross-region-aws-services").
+
+###### Note
+
+For Amazon Bedrock, the interface endpoint service name
+`com.amazonaws.`Region`.bedrock` has been deprecated. Create a new VPC endpoint
+with the service name listed in the preceding table.
+
+Additionally, you can't fine-tune foundation models from Canvas VPCs with no internet access. This is because
+Amazon Bedrock doesn't support VPC endpoints for model customization APIs. To learn more about fine-tuning foundation models
+in Canvas, see [Fine-tune foundation models](canvas-fm-chat-fine-tune.md "canvas-fm-chat-fine-tune.md").
+
+You must also add an endpoint policy for Amazon S3 to control AWS principal access to
+your VPC endpoint. For information about how to update your VPC endpoint policy, see
+[Control access to VPC
+endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md").
+
+The following are two VPC endpoint policies that you can use. Use the first policy
+if you only want to grant access to the basic functionality of Canvas, such as
+importing data and creating models. Use the second policy if you want to grant
+access to the additional [genenerative AI features](canvas-fm-chat.md "canvas-fm-chat.md")
+in Canvas.
+
+Basic VPC endpoint policy
+The following policy grants the necessary access to your VPC endpoint for
+basic operations in Canvas.
+
+```
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:CreateBucket",
+                "s3:GetBucketCors",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*SageMaker*",
+                "arn:aws:s3:::*Sagemaker*",
+                "arn:aws:s3:::*sagemaker*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "*"
+        }
+```
+
+Generative AI VPC endpoint policy
+The following policy grants the necessary access to your VPC endpoint for
+basic operations in Canvas, as well as using generative AI foundation models.
+
+```
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:CreateBucket",
+                "s3:GetBucketCors",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*SageMaker*",
+                "arn:aws:s3:::*Sagemaker*",
+                "arn:aws:s3:::*sagemaker*",
+                "arn:aws:s3:::*fmeval/datasets*",
+                "arn:aws:s3:::*jumpstart-cache-prod*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "*"
+        }
+```
+
+### Step 3: Grant IAM permissions
+
+The SageMaker Canvas user must have the necessary AWS Identity and Access Management permissions to allow connection
+to the VPC endpoints. The IAM role to which you give permissions must be the same
+one you used when onboarding to Amazon SageMaker AI domain. You can attach the SageMaker AI managed
+`AmazonSageMakerFullAccess` policy to the IAM role for the user to
+give the user the required permissions. If you require more restrictive IAM
+permissions and use custom policies instead, then give the user’s role the
+`ec2:DescribeVpcEndpointServices` permission. SageMaker Canvas requires these
+permissions to verify the existence of the required VPC endpoints for standard build
+jobs. If it detects these VPC endpoints, then standard build jobs run by default in
+your VPC. Otherwise, they will run in the default AWS managed VPC.
+
+For instructions on how to attach the `AmazonSageMakerFullAccess` IAM
+policy to your user’s IAM role, see [Adding and
+removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
+
+To grant your user’s IAM role the granular `ec2:DescribeVpcEndpointServices` permission, use the following procedure.
+
+1. Sign in to the AWS Management Console and open the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Roles**.
+3. In the list, choose the name of the role to which you want to grant permissions.
+4. Choose the **Permissions** tab.
+5. Choose **Add permissions** and then choose **Create inline policy**.
+6. Choose the **JSON** tab and enter the following policy, which grants the
+   `ec2:DescribeVpcEndpointServices` permission:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": "ec2:DescribeVpcEndpointServices",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+7. Choose **Review policy**, and then enter a
+   **Name** for the policy (for example, `VPCEndpointPermissions`).
+8. Choose **Create policy**.
+
+The user’s IAM role should now have permissions to access the VPC endpoints configured in your VPC.
+
+### (Optional) Step 4: Override security group settings
+
+for specific users
+
+If you are an administrator, you might want different users to have different VPC settings, or
+user-specific VPC settings. When you override the default VPC’s security group settings for a specific user,
+these settings are passed on to the SageMaker Canvas application for that user.
+
+You can override the security groups that a specific user has access to in your VPC when you set
+up a new user profile in Studio Classic. You can use the [CreateUserProfile](../APIReference/API_CreateUserProfile.md "../APIReference/API_CreateUserProfile.md")
+SageMaker API call (or [create_user_profile](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_user_profile "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_user_profile")
+with the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md")),
+and then in the `UserSettings`, you can specify the `SecurityGroups` for the user.

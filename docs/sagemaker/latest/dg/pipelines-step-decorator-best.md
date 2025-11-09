@@ -24,12 +24,14 @@ You are advised to use code modules while using the `@step` decorator. Put the `
 in which you invoke the step functions and define the pipeline, at the root of the workspace. The recommended structure
 is shown as follows:
 
-````
+```
 .
 ├── config.yaml # the configuration file that define the infra settings
 ├── requirements.txt # dependencies
 ├── pipeline.py  # invoke @step-decorated functions and define the pipeline here
 ├── steps/
 | ├── processing.py
-| ├── train.py ├── data/ ├── test/ ```
-````
+| ├── train.py
+├── data/
+├── test/
+```

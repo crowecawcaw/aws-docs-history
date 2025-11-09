@@ -154,87 +154,85 @@ For more information, see _Example IAM permissions
 policies_ in [Athena
 documentation](../../../athena/latest/ug/federated-query-iam-access.md "../../../athena/latest/ug/federated-query-iam-access.md").
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "GetS3AndDataSourcesMetadata",
-            "Effect": "Allow",
-            "Action": [
-                "glue:GetDatabases",
-                "glue:GetSchema",
-                "glue:GetTables",
-                "s3:ListBucket",
-                "s3:GetObject",
-                "s3:GetBucketLocation",
-                "glue:GetDatabase",
-                "glue:GetTable",
-                "glue:ListSchemas",
-                "glue:GetPartitions"
-            ],
-            "Resource": [
-                "arn:aws:s3:::amzn-s3-demo-bucket/*",
-                "arn:aws:glue:`region`:`account_id`:catalog",
-                "arn:aws:glue:`region`:`account_id`:connection/*",
-                "..."
-            ]
-        },
-        {
-            "Sid": "ExecuteAthenaQueries",
-            "Effect": "Allow",
-            "Action": [
-                "athena:ListDataCatalogs",
-                "athena:ListDatabases",
-                "athena:ListTableMetadata",
-                "athena:StartQueryExecution",
-                "athena:GetQueryExecution",
-                "athena:RunQuery",
-                "athena:StartSession",
-                "athena:GetQueryResults",
-                "athena:ListWorkGroups",
-                "s3:ListMultipartUploadParts",
-                "s3:ListBucket",
-                "s3:GetBucketLocation",
-                "athena:GetDataCatalog",
-                "s3:AbortMultipartUpload",
-                "s3:GetObject",
-                "s3:PutObject",
-                "athena:GetWorkGroup"
-            ],
-            "Resource": [
-                "arn:aws:s3:::amzn-s3-demo-bucket/*",
-                "arn:aws:athena:`region`:`account_id`:workgroup/`workgroup-name`",
-                "..."
-            ]
-            ]
-        },
-        {
-            "Sid": "GetGlueConnections",
-            "Effect": "Allow",
-            "Action": [
-                "glue:GetConnections",
-                "glue:GetConnection"
-            ],
-            "Resource": [
-                "arn:aws:glue:`region`:`account_id`:catalog",
-                "arn:aws:glue:`region`:`account_id`:connection/*",
-                "..."
-            ]
-        },
-        {
-            "Sid": "GetSecrets",
-            "Effect": "Allow",
-            "Action": [
-                "secretsmanager:GetSecretValue"
-            ],
-            "Resource": [
-                "arn:aws:secretsmanager:`region`:`account_id`:secret:`secret-name`",
-                "..."
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "GetS3AndDataSourcesMetadata",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetDatabases",
+ "glue:GetSchema",
+ "glue:GetTables",
+ "s3:ListBucket",
+ "s3:GetObject",
+ "s3:GetBucketLocation",
+ "glue:GetDatabase",
+ "glue:GetTable",
+ "glue:ListSchemas",
+ "glue:GetPartitions"
+ ],
+ "Resource": [
+ "arn:aws:s3:::amzn-s3-demo-bucket/*",
+ "arn:aws:glue:`us-east-2`:`111122223333`:catalog",
+ "arn:aws:glue:`us-east-2`:`111122223333`:connection/*"
+ ]
+ },
+ {
+ "Sid": "ExecuteAthenaQueries",
+ "Effect": "Allow",
+ "Action": [
+ "athena:ListDataCatalogs",
+ "athena:ListDatabases",
+ "athena:ListTableMetadata",
+ "athena:StartQueryExecution",
+ "athena:GetQueryExecution",
+ "athena:RunQuery",
+ "athena:StartSession",
+ "athena:GetQueryResults",
+ "athena:ListWorkGroups",
+ "s3:ListMultipartUploadParts",
+ "s3:ListBucket",
+ "s3:GetBucketLocation",
+ "athena:GetDataCatalog",
+ "s3:AbortMultipartUpload",
+ "s3:GetObject",
+ "s3:PutObject",
+ "athena:GetWorkGroup"
+ ],
+ "Resource": [
+ "arn:aws:s3:::amzn-s3-demo-bucket/*",
+ "arn:aws:athena:`us-east-2`:`111122223333`:workgroup/`workgroup-name`"
+ ]
+ },
+ {
+ "Sid": "GetGlueConnections",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetConnections",
+ "glue:GetConnection"
+ ],
+ "Resource": [
+ "arn:aws:glue:`us-east-2`:`111122223333`:catalog",
+ "arn:aws:glue:`us-east-2`:`111122223333`:connection/*"
+ ]
+ },
+ {
+ "Sid": "GetSecrets",
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:`us-east-2`:`111122223333`:secret:`secret-name`"
+ ]
+ }
+ ]
+}`
+
 ```
 
 ###### Note
@@ -242,49 +240,49 @@ documentation](../../../athena/latest/ug/federated-query-iam-access.md "../../..
 We strongly recommend scoping down this policy to only the resources
 required.
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "GetS3Metadata",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:GetObject",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::amzn-s3-demo-bucket/*",
-                "..."
-            ]
-        },
-        {
-            "Sid": "GetGlueConnections",
-            "Effect": "Allow",
-            "Action": [
-                "glue:GetConnections",
-                "glue:GetConnection"
-            ],
-            "Resource":
-                "arn:aws:glue:`region`:`account_id`:catalog",
-                "arn:aws:glue:`region`:`account_id`:connection/*",
-                "..."
-            ]
-        },
-        {
-            "Sid": "GetSecrets",
-            "Effect": "Allow",
-            "Action": [
-                "secretsmanager:GetSecretValue"
-            ],
-            "Resource": [
-                "arn:aws:secretsmanager:`region`:`account_id`:secret:`secret-name`",
-                "..."
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "GetS3Metadata",
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket",
+ "s3:GetObject",
+ "s3:GetBucketLocation"
+ ],
+ "Resource": [
+ "arn:aws:s3:::amzn-s3-demo-bucket/*"
+ ]
+ },
+ {
+ "Sid": "GetGlueConnections",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetConnections",
+ "glue:GetConnection"
+ ],
+ "Resource": [
+ "arn:aws:glue:`us-east-2`:`111122223333`:catalog",
+ "arn:aws:glue:`us-east-2`:`111122223333`:connection/*"
+ ]
+ },
+ {
+ "Sid": "GetSecrets",
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:`us-east-2`:`111122223333`:secret:`secret-name`"
+ ]
+ }
+ ]
+}`
+
 ```
 
 ###### Note
@@ -356,62 +354,59 @@ JSON
 We strongly recommend scoping down this policy to only the resources
 required.
 
+JSON
+
 ```
-{
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "GetS3Metadata",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:GetObject",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::amzn-s3-demo-bucket/*",
-                "..."
-            ]
-        },
-        {
-            "Sid": "GetGlueConnections",
-            "Effect": "Allow",
-            "Action": [
-                "glue:GetConnections",
-                "glue:GetConnection"
-            ],
-            "Resource": [
-                "arn:aws:glue:`region`:`account_id`:catalog",
-                "arn:aws:glue:`region`:`account_id`:connection/*",
-                "..."
-            ]
-        },
-        {
-            "Sid": "GetSecrets",
-            "Effect": "Allow",
-            "Action": [
-                "secretsmanager:GetSecretValue"
-            ],
-            "Resource": [
-                "arn:aws:secretsmanager:`region`:`account_id`:secret:`secret-name`",
-                "..."
-            ]
-        },
-        {
-            "Sid": "GetRedshiftServerlessCredentials",
-            "Effect": "Allow",
-            "Action": [
-                "redshift-serverless:GetCredentials"
-            ],
-            "Resource": [
-                "arn:aws:redshift-serverless:`region`:`account_id`:namespace/`namespace-id`",
-                "..."
-            ]
-        }
-    ]
-}
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "GetS3Metadata",
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket",
+ "s3:GetObject",
+ "s3:GetBucketLocation"
+ ],
+ "Resource": [
+ "arn:aws:s3:::amzn-s3-demo-bucket/*"
+ ]
+ },
+ {
+ "Sid": "GetGlueConnections",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetConnections",
+ "glue:GetConnection"
+ ],
+ "Resource": [
+ "arn:aws:glue:`us-east-2`:`111122223333`:catalog",
+ "arn:aws:glue:`us-east-2`:`111122223333`:connection/*"
+ ]
+ },
+ {
+ "Sid": "GetSecrets",
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:`us-east-2`:`111122223333`:secret:`secret-name`"
+ ]
+ },
+ {
+ "Sid": "GetRedshiftServerlessCredentials",
+ "Effect": "Allow",
+ "Action": [
+ "redshift-serverless:GetCredentials"
+ ],
+ "Resource": [
+ "arn:aws:redshift-serverless:`us-east-2`:`111122223333`:namespace/`namespace-id`"
+ ]
+ }
+ ]
+}`
+
 ```
 
 ## User-defined connections required

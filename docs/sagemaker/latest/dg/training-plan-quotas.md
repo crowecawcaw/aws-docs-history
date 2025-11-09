@@ -30,12 +30,38 @@ To search for a specific quota value:
 
 The following table outlines the quota limit names for SageMaker training plans.
 
-| SageMaker training plans quota limits | Limit Name                                                                                 | Display Name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| training-plan-total_count             | Number of training plans per Region                                                        |
-| reserved-capacity-ml-p4d-24xlarge     | Number of ml.p4d.24xlarge instances in reserved capacity across training plans per Region  |
-| reserved-capacity-ml-p5-48xlarge      | Number of ml.p5.48xlarge instances in reserved capacity across training plans per Region   |
-| reserved-capacity-ml-p5e-48xlarge     | Number of ml.p5e.48xlarge instances in reserved capacity across training plans per Region  |
-| reserved-capacity-ml-p5en-48xlarge    | Number of ml.p5en.48xlarge instances in reserved capacity across training plans per Region |
-| reserved-capacity-ml-trn1-32xlarge    | Number of ml-trn1-32xlarge instances in reserved capacity across training plans per Region |
-| reserved-capacity-ml-trn2-48xlarge    | Number of ml.trn2.48xlarge instances in reserved capacity across training plans per Region | If you need higher limits for your SageMaker training plans, you may be able to request a quota increase. The ability to increase a quota depends on whether it's adjustable, which you can see in the **Service quotas** console. To request a quota increase: 1. Navigate to the specific quota in the **Service quotas** console. 2. If the quota is adjustable, you can request a quota increase at either the account level or resource level based on the value listed in the **Adjustability** column. 3. For **Increase quota value**, enter the new value. The new value must be greater than the current value. 4. Choose **Request**. 5. Quota increase requests are subject to review and approval by AWS. To view any pending or recently resolved requests in the console, navigate to the **Request history** tab from the service's details page, or choose **Dashboard** from the navigation pane. For pending requests, choose the status of the request to open the request receipt. The initial status of a request is `Pending`. After the status changes to `Quota requested`, you see the case number with AWS Support. Choose the case number to open the ticket for your request. To learn more about requesting a quota increase in general, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _AWS Service Quotas User Guide_. |
+| SageMaker training plans quota limits | Limit Name                                                                                    | Display Name |
+| ------------------------------------- | --------------------------------------------------------------------------------------------- | ------------ |
+| training-plan-total_count             | Number of training plans per Region                                                           |
+| reserved-capacity-ml-p4d-24xlarge     | Number of ml.p4d.24xlarge instances in reserved capacity across training plans per<br>Region  |
+| reserved-capacity-ml-p5-48xlarge      | Number of ml.p5.48xlarge instances in reserved capacity across training plans per<br>Region   |
+| reserved-capacity-ml-p5e-48xlarge     | Number of ml.p5e.48xlarge instances in reserved capacity across training plans per<br>Region  |
+| reserved-capacity-ml-p5en-48xlarge    | Number of ml.p5en.48xlarge instances in reserved capacity across training plans per<br>Region |
+| reserved-capacity-ml-trn1-32xlarge    | Number of ml-trn1-32xlarge instances in reserved capacity across training plans per<br>Region |
+| reserved-capacity-ml-trn2-48xlarge    | Number of ml.trn2.48xlarge instances in reserved capacity across training plans per<br>Region |
+
+If you need higher limits for your SageMaker training plans, you may be able to request a quota
+increase. The ability to increase a quota depends on whether it's adjustable, which you can see
+in the **Service quotas** console.
+
+To request a quota increase:
+
+1. Navigate to the specific quota in the **Service quotas**
+   console.
+2. If the quota is adjustable, you can request a quota increase at either the account level
+   or resource level based on the value listed in the **Adjustability**
+   column.
+3. For **Increase quota value**, enter the new value. The new value must
+   be greater than the current value.
+4. Choose **Request**.
+5. Quota increase requests are subject to review and approval by AWS. To view any pending
+   or recently resolved requests in the console, navigate to the **Request
+   history** tab from the service's details page, or choose
+   **Dashboard** from the navigation pane. For pending requests, choose the
+   status of the request to open the request receipt. The initial status of a request is
+   `Pending`. After the status changes to `Quota requested`, you see
+   the case number with AWS Support. Choose the case number to open the ticket for your
+   request.
+   To learn more about requesting a quota increase in general, see [Requesting a quota
+   increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _AWS Service Quotas User
+   Guide_.

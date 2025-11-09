@@ -26,7 +26,154 @@ supply them to the SageMaker Clarify processing job:
 The following table lists supported data formats, their file extensions, and MIME types.
 
 | Data format         | File extension | MIME type          |
-| ------------------- | -------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | -------------- | ------------------ |
 | `item_records`      | json           | `application/json` |
 | `timestamp_records` | json           | `application/json` |
-| `columns`           | json           | `application/json` | JSON is a flexible format that can represent any level of complexity in your structured data. As shown in the table, SageMaker Clarify supports formats `item_records`, `timestamp_records`, and `columns`. ## Time series dataset config examples This section shows you how to set an analysis configuration using `time_series_data_config` for time series data in JSON format. Suppose you have a dataset with two items, each with a timestamp (t), target time series (x), two related time series (r) and two static covariates (u) as follows: t1 = [0,1,2], t2 = [2,3] x1 = [5,6,4], x2 = [0,4] r1 = [0,1,0], r21 = [1,1] r12 = [0,0,0], r22 = [1,0] u11 = -1, u21 = 0 u12 = 1, u22 = 2 You can encode the dataset using `time_series_data_config` in three different ways, depending on `dataset_format`. The following sections describe each method. ### Time series data config when `dataset_format` is `columns` The following example uses the `columns` value for `dataset_format`. The following JSON file represents the preceding dataset. `{ "ids": [1, 1, 1, 2, 2], "timestamps": [0, 1, 2, 2, 3], # t "target_ts": [5, 6, 4, 0, 4], # x "rts1": [0, 1, 0, 1, 1], # r1 "rts2": [0, 0, 0, 1, 0], # r2 "scv1": [-1, -1, -1, 0, 0], # u1 "scv2": [1, 1, 1, 2, 2], # u2 }` Note that the item ids are repeated in the `ids` field. The correct implementation of `time_series_data_config` is shown as follows: `"time_series_data_config": { "item_id": "ids", "timestamp": "timestamps", "target_time_series": "target_ts", "related_time_series": ["rts1", "rts2"], "static_covariates": ["scv1", "scv2"], "dataset_format": "columns" }` ### Time series data config when `dataset_format` is `item_records` The following example uses the `item_records` value for `dataset_format`. The following JSON file represents the dataset. `[ { "id": 1, "scv1": -1, "scv2": 1, "timeseries": [ {"timestamp": 0, "target_ts": 5, "rts1": 0, "rts2": 0}, {"timestamp": 1, "target_ts": 6, "rts1": 1, "rts2": 0}, {"timestamp": 2, "target_ts": 4, "rts1": 0, "rts2": 0} ] }, { "id": 2, "scv1": 0, "scv2": 2, "timeseries": [ {"timestamp": 2, "target_ts": 0, "rts1": 1, "rts2": 1}, {"timestamp": 3, "target_ts": 4, "rts1": 1, "rts2": 0} ] } ]` Each item is represented as a separate entry in the JSON. The following snippet shows the corresponding `time_series_data_config` (which uses JMESPath). `"time_series_data_config": { "item_id": "[*].id", "timestamp": "[*].timeseries[].timestamp", "target_time_series": "[*].timeseries[].target_ts", "related_time_series": ["[*].timeseries[].rts1", "[*].timeseries[].rts2"], "static_covariates": ["[*].scv1", "[*].scv2"], "dataset_format": "item_records" }` ### Time series data config when `dataset_format` is `timestamp_record` The following example uses the `timestamp_record` value for `dataset_format`. The following JSON file represents the preceding dataset. `[ {"id": 1, "timestamp": 0, "target_ts": 5, "rts1": 0, "rts2": 0, "svc1": -1, "svc2": 1}, {"id": 1, "timestamp": 1, "target_ts": 6, "rts1": 1, "rts2": 0, "svc1": -1, "svc2": 1}, {"id": 1, "timestamp": 2, "target_ts": 4, "rts1": 0, "rts2": 0, "svc1": -1, "svc2": 1}, {"id": 2, "timestamp": 2, "target_ts": 0, "rts1": 1, "rts2": 1, "svc1": 0, "svc2": 2}, {"id": 2, "timestamp": 3, "target_ts": 4, "rts1": 1, "rts2": 0, "svc1": 0, "svc2": 2}, ]` Each entry of the JSON represents a single timestamp and corresponds to a single item. The implementation `time_series_data_config` is shown as follows: `{ "item_id": "[*].id", "timestamp": "[*].timestamp", "target_time_series": "[*].target_ts", "related_time_series": ["[*].rts1"], "static_covariates": ["[*].scv1"], "dataset_format": "timestamp_records" }` |
+| `columns`           | json           | `application/json` |
+
+JSON is a flexible format that can represent any level of complexity
+in your structured data. As shown in the table, SageMaker Clarify supports formats
+`item_records`, `timestamp_records`, and
+`columns`.
+
+## Time series
+
+dataset config examples
+
+This section shows you how to set an analysis configuration using
+`time_series_data_config` for time series data in JSON format. Suppose
+you have a dataset with two items, each with a timestamp (t),
+target time series (x), two related
+time series (r) and two static covariates (u) as follows:
+
+t1 = [0,1,2], t2 = [2,3]
+
+x1 = [5,6,4], x2 = [0,4]
+
+r1 = [0,1,0],
+r21 = [1,1]
+
+r12 = [0,0,0],
+r22 = [1,0]
+
+u11 = -1,
+u21 = 0
+
+u12 = 1,
+u22 = 2
+
+You can encode the dataset using `time_series_data_config` in
+three different ways, depending on `dataset_format`. The following
+sections describe each method.
+
+### Time
+
+series data config when `dataset_format` is `columns`
+
+The following example uses the `columns` value for `dataset_format`.
+The following JSON file represents the preceding dataset.
+
+```
+{
+    "ids": [1, 1, 1, 2, 2],
+    "timestamps": [0, 1, 2, 2, 3], # t
+    "target_ts": [5, 6, 4, 0, 4], # x
+    "rts1": [0, 1, 0, 1, 1], # r1
+    "rts2": [0, 0, 0, 1, 0], # r2
+    "scv1": [-1, -1, -1, 0, 0], # u1
+    "scv2": [1, 1, 1, 2, 2], # u2
+}
+```
+
+Note that the item ids are repeated in the `ids` field.
+The correct implementation of `time_series_data_config`
+is shown as follows:
+
+```
+"time_series_data_config": {
+    "item_id": "ids",
+    "timestamp": "timestamps",
+    "target_time_series": "target_ts",
+    "related_time_series": ["rts1", "rts2"],
+    "static_covariates": ["scv1", "scv2"],
+    "dataset_format": "columns"
+}
+```
+
+### Time
+
+series data config when `dataset_format` is `item_records`
+
+The following example uses the `item_records` value for `dataset_format`.
+The following JSON file represents the dataset.
+
+```
+[
+    {
+        "id": 1,
+        "scv1": -1,
+        "scv2": 1,
+        "timeseries": [
+            {"timestamp": 0, "target_ts": 5, "rts1": 0, "rts2": 0},
+            {"timestamp": 1, "target_ts": 6, "rts1": 1, "rts2": 0},
+            {"timestamp": 2, "target_ts": 4, "rts1": 0, "rts2": 0}
+        ]
+    },
+    {
+        "id": 2,
+        "scv1": 0,
+        "scv2": 2,
+        "timeseries": [
+            {"timestamp": 2, "target_ts": 0, "rts1": 1, "rts2": 1},
+            {"timestamp": 3, "target_ts": 4, "rts1": 1, "rts2": 0}
+        ]
+    }
+]
+```
+
+Each item is represented as a separate entry in the JSON. The
+following snippet shows the corresponding `time_series_data_config` (which
+uses JMESPath).
+
+```
+"time_series_data_config": {
+    "item_id": "[*].id",
+    "timestamp": "[*].timeseries[].timestamp",
+    "target_time_series": "[*].timeseries[].target_ts",
+    "related_time_series": ["[*].timeseries[].rts1", "[*].timeseries[].rts2"],
+    "static_covariates": ["[*].scv1", "[*].scv2"],
+    "dataset_format": "item_records"
+}
+```
+
+### Time
+
+series data config when `dataset_format` is `timestamp_record`
+
+The following example uses the `timestamp_record` value for `dataset_format`.
+The following JSON file represents the preceding dataset.
+
+```
+[
+    {"id": 1, "timestamp": 0, "target_ts": 5, "rts1": 0, "rts2": 0, "svc1": -1, "svc2": 1},
+    {"id": 1, "timestamp": 1, "target_ts": 6, "rts1": 1, "rts2": 0, "svc1": -1, "svc2": 1},
+    {"id": 1, "timestamp": 2, "target_ts": 4, "rts1": 0, "rts2": 0, "svc1": -1, "svc2": 1},
+    {"id": 2, "timestamp": 2, "target_ts": 0, "rts1": 1, "rts2": 1, "svc1": 0, "svc2": 2},
+    {"id": 2, "timestamp": 3, "target_ts": 4, "rts1": 1, "rts2": 0, "svc1": 0, "svc2": 2},
+]
+```
+
+Each entry of the JSON represents a single timestamp and corresponds
+to a single item. The implementation `time_series_data_config` is
+shown as follows:
+
+```
+{
+    "item_id": "[*].id",
+    "timestamp": "[*].timestamp",
+    "target_time_series": "[*].target_ts",
+    "related_time_series": ["[*].rts1"],
+    "static_covariates": ["[*].scv1"],
+    "dataset_format": "timestamp_records"
+}
+```

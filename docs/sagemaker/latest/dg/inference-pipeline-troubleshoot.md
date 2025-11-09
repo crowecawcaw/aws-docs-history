@@ -24,24 +24,28 @@ When you use custom Docker images in a pipeline that includes [SageMaker AI buil
 permission for SageMaker AI to pull the image. The policy must add the following
 permissions:
 
+JSON
+
 ```
-{
-    "Version": "2008-10-17",
-    "Statement": [
-        {
-            "Sid": "allowSageMakerToPull",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "sagemaker.amazonaws.com"
-            },
-            "Action": [
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability"
-            ]
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "allowSageMakerToPull",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "sagemaker.amazonaws.com"
+ },
+ "Action": [
+ "ecr:GetDownloadUrlForLayer",
+ "ecr:BatchGetImage",
+ "ecr:BatchCheckLayerAvailability"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
 ```
 
 ## Use CloudWatch Logs to Troubleshoot

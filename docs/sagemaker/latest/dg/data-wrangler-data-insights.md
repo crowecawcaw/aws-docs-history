@@ -353,7 +353,7 @@ Using the textual pattern, you can see which rows in your data you need to corre
 The following describes the patterns that Data Wrangler can recognize:
 
 | Pattern      | Textual Format                         |
-| ------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------ | -------------------------------------- |
 | {alnum}      | Alphanumeric strings                   |
 | {any}        | Any string of word characters          |
 | {digits}     | A sequence of digits                   |
@@ -361,4 +361,6 @@ The following describes the patterns that Data Wrangler can recognize:
 | {mixed}      | A mixed-case word                      |
 | {name}       | A word beginning with a capital letter |
 | {upper}      | An uppercase word                      |
-| {whitespace} | whitespace characters                  | A word character is either an underscore or a character that might appear in a word in any language. For example, the strings 'Hello_word' and 'écoute' both consist of word characters. 'H' and 'é' are both examples of word characters. |
+| {whitespace} | whitespace characters                  |
+
+A word character is either an underscore or a character that might appear in a word in any language. For example, the strings 'Hello_word' and 'écoute' both consist of word characters. 'H' and 'é' are both examples of word characters.

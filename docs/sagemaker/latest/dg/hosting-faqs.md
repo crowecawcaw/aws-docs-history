@@ -95,21 +95,198 @@ such as TensorFlow, PyTorch, or MXNet, the container expects your TAR structure 
 
 **TensorFlow**
 
-````
+```
 model.tar.gz/
-|--[model_version_number]/
-|--variables
-|--saved_model.pb code/
-|--inference.py
-|--requirements.txt ``` **PyTorch** ``` model.tar.gz/
-|- model.pth
-|- code/
-|- inference.py
-|- requirements.txt  # only for versions 1.3.1 and higher ``` **MXNet** ``` model.tar.gz/
-|- model-symbol.json
-|- model-shapes.json
-|- model-0000.params
-|- code/
-|- inference.py
-|- requirements.txt # only for versions 1.6.0 and higher ``` A: `ContentType` is the MIME type of the input data in the request body (the MIME type of the data you are sending to your endpoint). The model server uses the `ContentType` to determine if it can handle the type provided or not. `Accept` is the MIME type of the inference response (the MIME type of the data your endpoint returns). The model server uses the `Accept` type to determine if it can handle returning the type provided or not. Common MIME types include `text/csv`, `application/json`, and `application/jsonlines`. A: SageMaker AI passes any request onto the model container without modification. The container must contain the logic to deserialize the request. For information about the formats defined for built-in algorithms, see [Common Data Formats for Inference](cdf-inference.md "cdf-inference.md"). If you are building your own container or using a SageMaker AI Framework container, you can include the logic to accept a request format of your choice. Similarly, SageMaker AI also returns the response without modification, and then the client must deserialize the response. In case of the built-in algorithms, they return responses in specific formats. If you are building your own container or using a SageMaker AI Framework container, you can include the logic to return a response in the format you choose. Use the [Invoke Endpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md") API call to make inference against your endpoint. When passing your input as a payload to the `InvokeEndpoint` API, you must provide the correct type of input data that your model expects. When passing a payload in the `InvokeEndpoint` API call, the request bytes are forwarded directly to the model container. For example, for an image, you may use `application/jpeg` for the `ContentType`, and make sure that your model can perform inference on this type of data. This applies for JSON, CSV, video, or any other type of input with which you may be dealing. Another factor to consider is payload size limits. The payload limits are 25 MB for real-time endpoints and 4 MB for serverless endpoints. You can split your video into multiple frames and invoke the endpoint with each frame individually. Alternatively, if your use case permits, you can send the whole video in the payload using an asynchronous endpoint, which supports up to 1 GB payloads. For an example that showcases how to run computer vision inference on large videos with Asynchronous Inference, see this [blog post](https://aws.amazon.com/blogs/machine-learning/run-computer-vision-inference-on-large-videos-with-amazon-sagemaker-asynchronous-endpoints/ "https://aws.amazon.com/blogs/machine-learning/run-computer-vision-inference-on-large-videos-with-amazon-sagemaker-asynchronous-endpoints/"). ## Real-Time Inference The following FAQ items answer common questions for SageMaker AI Real-Time Inference. A: You can create a SageMaker AI endpoint through AWS-supported tooling such as the AWS SDKs, the SageMaker Python SDK, the AWS Management Console, AWS CloudFormation, and the AWS Cloud Development Kit (AWS CDK). There are three key entities in endpoint creation: a SageMaker AI model, a SageMaker AI endpoint configuration, and a SageMaker AI endpoint. The SageMaker AI model points towards the model data and image you are using. The endpoint configuration defines your production variants, which might include the instance type and instance count. You can then use either the [create\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint") API call or the [.deploy()](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html "https://sagemaker.readthedocs.io/en/stable/api/inference/model.html") call for SageMaker AI to create an endpoint using the metadata from your model and endpoint configuration. A: No, you can use the various AWS SDKs (see [Invoke](../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_SeeAlso "../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_SeeAlso")/[Create](../APIReference/API_CreateEndpoint.md#API_CreateEndpoint_SeeAlso "../APIReference/API_CreateEndpoint.md#API_CreateEndpoint_SeeAlso") for available SDKs) or even call the corresponding web APIs directly. A: A Multi-Model Endpoint is a Real-Time Inference option that SageMaker AI provides. With Multi-Model Endpoints, you can host thousands of models behind one endpoint. [Multi Model Server](https://github.com/awslabs/multi-model-server "https://github.com/awslabs/multi-model-server") is an open-source framework for serving machine learning models. It provides the HTTP front-end and model management capabilities required by multi-model endpoints to host multiple models within a single container, load models into and unload models out of the container dynamically, and perform inference on a specified loaded model. A: SageMaker AI Real-Time Inference supports various model deployment architecture such as Multi-Model Endpoints, Multi-Container Endpoints, and Serial Inference Pipelines. [Multi-Model Endpoints (MME)](multi-model-endpoints.md "multi-model-endpoints.md") – MME allows customers to deploy 1000s of hyper‐personalized models in a cost effective way. All the models are deployed on a shared‐resource fleet. MME works best when the models are of similar size and latency and belong to the same ML framework. These endpoints are ideal for when you have don’t need to call the same model at all times. You can dynamically load respective models onto the SageMaker AI endpoint to serve your request. [Multi-Container Endpoints (MCE)](multi-container-endpoints.md "multi-container-endpoints.md") – MCE allows customers to deploy 15 different containers with diverse ML frameworks and functionalities with no cold starts while only using one SageMaker endpoint. You can directly invoke these containers. MCE is best for when you want to keep all the models in memory. [Serial Inference Pipelines (SIP)](inference-pipelines.md "inference-pipelines.md") – You can use SIP to chain together 2‐15 containers on a single endpoint. SIP is mostly suitable for combining preprocessing and model inference in one endpoint and for low latency operations. ## Serverless Inference The following FAQ items answer common questions for Amazon SageMaker Serverless Inference. A: [Deploy models with Amazon SageMaker Serverless Inference](serverless-endpoints.md "serverless-endpoints.md") is a purpose-built serverless model serving option that makes it easy to deploy and scale ML models. Serverless Inference endpoints automatically start compute resources and scale them in and out depending on traffic, eliminating the need for you to choose instance type, run provisioned capacity, or manage scaling. You can optionally specify the memory requirements for your serverless endpoint. You pay only for the duration of running the inference code and the amount of data processed, not for idle periods. A: Serverless Inference simplifies the developer experience by eliminating the need to provision capacity up front and manage scaling policies. Serverless Inference can scale instantly from tens to thousands of inferences within seconds based on the usage patterns, making it ideal for ML applications with intermittent or unpredictable traffic. For example, a chatbot service used by a payroll processing company experiences an increase in inquiries at the end of the month while traffic is intermittent for rest of the month. Provisioning instances for the entire month in such scenarios is not cost-effective, as you end up paying for idle periods. Serverless Inference helps address these types of use cases by providing you automatic and fast scaling out of the box without the need for you to forecast traffic up front or manage scaling policies. Additionally, you pay only for the compute time to run your inference code and for data processing, making it ideal for workloads with intermittent traffic. A: Your serverless endpoint has a minimum RAM size of 1024 MB (1 GB), and the maximum RAM size you can choose is 6144 MB (6 GB). The memory sizes you can choose are 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB. Serverless Inference auto-assigns compute resources proportional to the memory you select. If you choose a larger memory size, your container has access to more vCPUs. Choose your endpoint’s memory size according to your model size. Generally, the memory size should be at least as large as your model size. You may need to benchmark in order to choose the right memory selection for your model based on your latency SLAs. The memory size increments have different pricing; see the [Amazon SageMaker pricing page](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/") for more information. ## Batch Transform The following FAQ items answer common questions for SageMaker AI Batch Transform. A: For specific file formats such as CSV, RecordIO and TFRecord, SageMaker AI can split your data into single-record or multi-record mini batches and send this as a payload to your model container. When the value of `BatchStrategy` is `MultiRecord`, SageMaker AI sends the maximum number of records in each request, up to the `MaxPayloadInMB` limit. When the value of `BatchStrategy` is `SingleRecord`, SageMaker AI sends individual records in each request. A: The maximum timeout for Batch Transform is 3600 seconds. The [maximum payload size](../APIReference/API_CreateTransformJob.md#sagemaker-CreateTransformJob-request-MaxPayloadInMB "../APIReference/API_CreateTransformJob.md#sagemaker-CreateTransformJob-request-MaxPayloadInMB") for a record (per mini batch) is 100 MB. A: If you are using the `CreateTransformJob` API, you can reduce the time it takes to complete batch transform jobs by using optimal values for parameters such as `MaxPayloadInMB`, `MaxConcurrentTransforms`, or `BatchStrategy`. The ideal value for `MaxConcurrentTransforms` is equal to the number of compute workers in the batch transform job. If you are using the SageMaker AI console, you can specify these optimal parameter values in the **Additional configuration** section of the **Batch transform job configuration** page. SageMaker AI automatically finds the optimal parameter settings for built-in algorithms. For custom algorithms, provide these values through an [execution-parameters](your-algorithms-batch-code.md#your-algorithms-batch-code-how-containe-serves-requests "your-algorithms-batch-code.md#your-algorithms-batch-code-how-containe-serves-requests") endpoint. A: Batch Transform supports CSV and JSON. ## Asynchronous Inference The following FAQ items answer common general questions for SageMaker AI Asynchronous Inference. A: Asynchronous Inference queues incoming requests and processes them asynchronously. This option is ideal for requests with large payload sizes or long processing times that need to be processed as they arrive. Optionally, you can configure auto-scaling settings to scale down the instance count to zero when not actively processing requests. A: Amazon SageMaker AI supports automatic scaling (autoscaling) your asynchronous endpoint. Autoscaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload. Unlike other hosted models SageMaker AI supports, with Asynchronous Inference you can also scale down your asynchronous endpoints instances to zero. Requests that are received when there are zero instances are queued for processing once the endpoint scales up. For more information, see [Autoscale an asynchronous endpoint](async-inference-autoscale.md "async-inference-autoscale.md"). Amazon SageMaker Serverless Inference also automatically scales down to zero. You won’t see this because SageMaker AI manages scaling your serverless endpoints, but if you are not experiencing any traffic, the same infrastructure applies.
-````
+             |--[model_version_number]/
+                                       |--variables
+                                       |--saved_model.pb
+            code/
+                |--inference.py
+                |--requirements.txt
+```
+
+**PyTorch**
+
+```
+model.tar.gz/
+             |- model.pth
+             |- code/
+                     |- inference.py
+                     |- requirements.txt  # only for versions 1.3.1 and higher
+```
+
+**MXNet**
+
+```
+model.tar.gz/
+            |- model-symbol.json
+            |- model-shapes.json
+            |- model-0000.params
+            |- code/
+                    |- inference.py
+                    |- requirements.txt # only for versions 1.6.0 and higher
+```
+
+A: `ContentType` is the MIME type of the input data in the request body (the MIME type of the data you are sending to your endpoint).
+The model server uses the `ContentType` to determine if it can handle the type provided or not.
+
+`Accept` is the MIME type of the inference response (the MIME type of the data your endpoint returns).
+The model server uses the `Accept` type to determine if it can handle returning the type provided or not.
+
+Common MIME types include `text/csv`, `application/json`,
+and `application/jsonlines`.
+
+A: SageMaker AI passes any request onto the model container without modification. The container must contain the logic to deserialize the request.
+For information about the formats defined for built-in algorithms, see [Common Data Formats for Inference](cdf-inference.md "cdf-inference.md"). If you are building your own container or using a SageMaker AI Framework container, you can include the logic to accept a request format of your choice.
+
+Similarly, SageMaker AI also returns the response without modification, and then the client must deserialize the response. In case of the built-in algorithms,
+they return responses in specific formats. If you are building your own container or using a SageMaker AI Framework container, you can include the logic to return a response in the format you choose.
+
+Use the [Invoke Endpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md")
+API call to make inference against your endpoint.
+
+When passing your input as a payload to the `InvokeEndpoint` API, you
+must provide the correct type of input data that your model expects. When
+passing a payload in the `InvokeEndpoint` API call, the request bytes
+are forwarded directly to the model container. For example, for an image, you
+may use `application/jpeg` for the `ContentType`, and make
+sure that your model can perform inference on this type of data. This applies
+for JSON, CSV, video, or any other type of input with which you may be
+dealing.
+
+Another factor to consider is payload size limits. The payload limits are 25 MB for real-time endpoints and 4 MB for serverless endpoints.
+You can split your video into multiple frames and invoke the endpoint with each frame individually. Alternatively, if your use case permits,
+you can send the whole video in the payload using an asynchronous endpoint, which supports up to 1 GB payloads.
+
+For an example that showcases how to run computer vision inference on large videos with Asynchronous Inference, see this
+[blog post](https://aws.amazon.com/blogs/machine-learning/run-computer-vision-inference-on-large-videos-with-amazon-sagemaker-asynchronous-endpoints/ "https://aws.amazon.com/blogs/machine-learning/run-computer-vision-inference-on-large-videos-with-amazon-sagemaker-asynchronous-endpoints/").
+
+## Real-Time Inference
+
+The following FAQ items answer common questions for SageMaker AI Real-Time Inference.
+
+A: You can create a SageMaker AI endpoint through AWS-supported tooling such as the AWS SDKs, the SageMaker Python SDK,
+the AWS Management Console, AWS CloudFormation, and the AWS Cloud Development Kit (AWS CDK).
+
+There are three key entities in endpoint creation: a SageMaker AI model, a SageMaker AI endpoint configuration, and a SageMaker AI endpoint.
+The SageMaker AI model points towards the model data and image you are using. The endpoint configuration defines your production variants,
+which might include the instance type and instance count. You can then use either the
+[create_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint")
+API call or the [.deploy()](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html "https://sagemaker.readthedocs.io/en/stable/api/inference/model.html") call for
+SageMaker AI to create an endpoint using the metadata from your model and endpoint configuration.
+
+A: No, you can use the various AWS SDKs (see [Invoke](../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_SeeAlso "../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_SeeAlso")/[Create](../APIReference/API_CreateEndpoint.md#API_CreateEndpoint_SeeAlso "../APIReference/API_CreateEndpoint.md#API_CreateEndpoint_SeeAlso") for available SDKs) or even call the corresponding web APIs
+directly.
+
+A: A Multi-Model Endpoint is a Real-Time Inference option that SageMaker AI provides.
+With Multi-Model Endpoints, you can host thousands of models behind one
+endpoint. [Multi Model
+Server](https://github.com/awslabs/multi-model-server "https://github.com/awslabs/multi-model-server") is an open-source framework for serving machine learning
+models. It provides the HTTP front-end and model management capabilities
+required by multi-model endpoints to host multiple models within a single
+container, load models into and unload models out of the container dynamically,
+and perform inference on a specified loaded model.
+
+A: SageMaker AI Real-Time Inference supports various model deployment architecture
+such as Multi-Model Endpoints, Multi-Container Endpoints, and Serial Inference Pipelines.
+
+[Multi-Model Endpoints (MME)](multi-model-endpoints.md "multi-model-endpoints.md")
+– MME allows customers to deploy 1000s of hyper‐personalized models
+in a cost effective way. All the models are deployed on a shared‐resource
+fleet. MME works best when the models are of similar size and latency and belong
+to the same ML framework. These endpoints are ideal for when you have don’t need
+to call the same model at all times. You can dynamically load respective models
+onto the SageMaker AI endpoint to serve your request.
+
+[Multi-Container
+Endpoints (MCE)](multi-container-endpoints.md "multi-container-endpoints.md") – MCE allows customers to deploy 15 different
+containers with diverse ML frameworks and functionalities with no cold starts
+while only using one SageMaker endpoint. You can directly invoke these
+containers. MCE is best for when you want to keep all the models in
+memory.
+
+[Serial Inference Pipelines (SIP)](inference-pipelines.md "inference-pipelines.md") – You can use SIP to chain
+together 2‐15 containers on a single endpoint. SIP is mostly suitable for
+combining preprocessing and model inference in one endpoint and for low latency
+operations.
+
+## Serverless Inference
+
+The following FAQ items answer common questions for Amazon SageMaker Serverless Inference.
+
+A: [Deploy models with Amazon SageMaker Serverless Inference](serverless-endpoints.md "serverless-endpoints.md")
+is a purpose-built serverless model serving option that makes it easy to deploy and scale ML models.
+Serverless Inference endpoints automatically start compute resources and scale them in and out depending on traffic,
+eliminating the need for you to choose instance type, run provisioned capacity, or manage scaling.
+You can optionally specify the memory requirements for your serverless endpoint.
+You pay only for the duration of running the inference code and the amount of data processed, not for idle periods.
+
+A: Serverless Inference simplifies the developer experience by eliminating the need to provision capacity
+up front and manage scaling policies. Serverless Inference can scale instantly from tens to thousands of inferences
+within seconds based on the usage patterns, making it ideal for ML applications with intermittent or unpredictable traffic.
+For example, a chatbot service used by a payroll processing company experiences an increase in inquiries at the end of the
+month while traffic is intermittent for rest of the month. Provisioning instances for the entire month in
+such scenarios is not cost-effective, as you end up paying for idle periods.
+
+Serverless Inference helps address these types of use cases by providing you automatic and fast scaling out of the box
+without the need for you to forecast traffic up front or manage scaling policies. Additionally, you pay only for
+the compute time to run your inference code and for data processing, making it ideal for workloads with intermittent traffic.
+
+A: Your serverless endpoint has a minimum RAM size of 1024 MB (1 GB), and the maximum RAM size you can choose is 6144 MB (6 GB).
+The memory sizes you can choose are 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB. Serverless Inference auto-assigns compute
+resources proportional to the memory you select. If you choose a larger memory size, your container has access to more vCPUs.
+
+Choose your endpoint’s memory size according to your model size. Generally, the memory size should be at least as large as your model size.
+You may need to benchmark in order to choose the right memory selection for your model based on your latency SLAs.
+The memory size increments have different pricing; see the [Amazon SageMaker pricing page](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/") for more information.
+
+## Batch Transform
+
+The following FAQ items answer common questions for SageMaker AI Batch Transform.
+
+A: For specific file formats such as CSV, RecordIO and TFRecord, SageMaker AI can
+split your data into single-record or multi-record mini batches and send this as
+a payload to your model container. When the value of `BatchStrategy` is `MultiRecord`, SageMaker AI sends
+the maximum number of records in each request, up to the
+`MaxPayloadInMB` limit. When the value of
+`BatchStrategy` is `SingleRecord`, SageMaker AI sends
+individual records in each request.
+
+A: The maximum timeout for Batch Transform is 3600 seconds. The
+[maximum payload size](../APIReference/API_CreateTransformJob.md#sagemaker-CreateTransformJob-request-MaxPayloadInMB "../APIReference/API_CreateTransformJob.md#sagemaker-CreateTransformJob-request-MaxPayloadInMB") for a record (per mini batch) is 100 MB.
+
+A: If you are using the `CreateTransformJob` API, you can reduce the time it takes
+to complete batch transform jobs by using optimal values for parameters such as
+`MaxPayloadInMB`,
+`MaxConcurrentTransforms`,
+or `BatchStrategy`.
+The ideal value for `MaxConcurrentTransforms` is equal to the number
+of compute workers in the batch transform job. If you are using the SageMaker AI
+console, you can specify these optimal parameter values in the
+**Additional configuration** section of the **Batch
+transform job configuration** page. SageMaker AI automatically finds the
+optimal parameter settings for built-in algorithms. For custom algorithms,
+provide these values through an [execution-parameters](your-algorithms-batch-code.md#your-algorithms-batch-code-how-containe-serves-requests "your-algorithms-batch-code.md#your-algorithms-batch-code-how-containe-serves-requests") endpoint.
+
+A: Batch Transform supports CSV and JSON.
+
+## Asynchronous Inference
+
+The following FAQ items answer common general questions for SageMaker AI Asynchronous Inference.
+
+A: Asynchronous Inference queues incoming requests and processes them asynchronously. This
+option is ideal for requests with large payload sizes or long processing times
+that need to be processed as they arrive. Optionally, you can configure
+auto-scaling settings to scale down the instance count to zero when not actively
+processing requests.
+
+A: Amazon SageMaker AI supports automatic scaling (autoscaling) your asynchronous
+endpoint. Autoscaling dynamically adjusts the number of instances provisioned
+for a model in response to changes in your workload. Unlike other hosted models
+SageMaker AI supports, with Asynchronous Inference you can also scale down your asynchronous endpoints
+instances to zero. Requests that are received when there are zero instances are
+queued for processing once the endpoint scales up. For more information, see
+[Autoscale an asynchronous endpoint](async-inference-autoscale.md "async-inference-autoscale.md").
+
+Amazon SageMaker Serverless Inference also automatically scales down to zero. You won’t see this because SageMaker AI manages scaling your serverless endpoints,
+but if you are not experiencing any traffic, the same infrastructure applies.

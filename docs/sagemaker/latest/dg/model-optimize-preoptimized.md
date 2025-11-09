@@ -114,13 +114,131 @@ model_builder.display_benchmark_metrics()
 This `display_benchmark_metrics()` method prints a table like
 the following:
 
-````
+```
 | Instance Type   | Config Name   |   Concurrent Users |   Latency, TTFT (P50 in sec) |   Throughput (P50 in tokens/sec/user) |
 |:----------------|:--------------|-------------------:|-----------------------------:|--------------------------------------:|
 | ml.g5.48xlarge  | lmi-optimized |                  1 |                         2.25 |                                 49.70 |
 | ml.g5.48xlarge  | lmi-optimized |                  2 |                         2.28 |                                 21.10 |
-| ml.g5.48xlarge  | lmi-optimized |                  4 |                         2.37 |                                 14.10 | . . .
+| ml.g5.48xlarge  | lmi-optimized |                  4 |                         2.37 |                                 14.10 |
+. . .
 | ml.p4d.24xlarge | lmi-optimized |                  1 |                         0.10 |                                137.40 |
 | ml.p4d.24xlarge | lmi-optimized |                  2 |                         0.11 |                                109.20 |
-| ml.p4d.24xlarge | lmi-optimized |                  4 |                         0.13 |                                 85.00 | . . . ``` In the first column, the table lists potential instance types that you can use to host your chosen JumpStart model. For each instance type, under `Config Name`, it lists the names of the pre-optimized configurations. The configurations that SageMaker AI provides are named `lmi-optimized`. For each instance type and configuration, the table provides benchmark metrics. These metrics indicate the throughput and latency that your model will support for different numbers of concurrent users. 2. Based on the benchmark metrics, pick the instance type and configuration name that best supports your performance needs. You will use these values when you create a deployment configuration. ###### To deploy a pre-optimized model 1. Create a deployment configuration. The following example uses a `ModelBuilder` instance. It passes an instance type and configuration name to the to the `set_deployment_config()` method: ``` model_builder.set_deployment_config( config_name="``config-name``", instance_type="``instance-type``", ) ``` Replace ``config-name`` with a configuration name from the table, such as such as `lmi-optimized`. Replace ``instance-type`` with an instance type from the table, such as `ml.p4d.24xlarge`. 2. Build your model. The following example uses the `.build()` method of the `ModelBuilder` instance: ``` optimized_model = model_builder.build() ``` The `.build()` method returns a deployable `Model` instance. 3. Deploy your model to an inference endpoint. The following example uses the `.deploy()` method of the `Model` instance: ``` predictor = optimized_model.deploy(accept_eula=True) ``` The `deploy()` method returns a `Predictor` instance, which you can use to send inference requests to the model. ###### To test your model with an inference request <br>• After you deploy your model to an inference endpoint, test the model's predictions. The following example sends an inference request by using the ``Predictor`` instance: ``` predictor.predict(sample_input) ``` The model returns the text that it generates with a response like the following: ``` {'generated_text': ' Jupiter is the largest planet in the solar system. It is the fifth planet from the sun. It is a gas giant with . . .'} ``` ## Pre-optimized JumpStart models The following are the JumpStart models that have pre-optimized configurations. ###### Meta <br>• Llama 3.1 70B Instruct <br>• Llama 3.1 70B <br>• Llama 3.1 405B Instruct FP8 <br>• Llama 3.1 405B FP8 <br>• Llama 3 8B Instruct <br>• Llama 3 8B <br>• Llama 3 70B Instruct <br>• Llama 3 70B <br>• Llama 2 70B Chat <br>• Llama 2 7B Chat <br>• Llama 2 13B Chat ###### HuggingFace <br>• Mixtral 8x7B Instruct <br>• Mixtral 8x7B <br>• Mistral 7B Instruct <br>• Mistral 7B ### Pre-compiled JumpStart models For some models and configurations, SageMaker AI provides models that are pre-compiled for specific AWS Inferentia and AWS Trainium instances. For these, if you create a compilation optimization job, and you choose ml.inf2.48xlarge or ml.trn1.32xlarge as the deployment instance type, SageMaker AI fetches the compiled artifacts. Because the job uses a model that’s already compiled, it completes quickly without running the compilation from scratch. The following are the JumpStart models for which SageMaker AI has pre-compiled models: ###### Meta <br>• Llama3 8B <br>• Llama3 70B <br>• Llama2 7B <br>• Llama2 70B <br>• Llama2 13B <br>• Code Llama 7B <br>• Code Llama 70B ###### HuggingFace <br>• Mistral 7B
-````
+| ml.p4d.24xlarge | lmi-optimized |                  4 |                         0.13 |                                 85.00 |
+. . .
+```
+
+In the first column, the table lists potential instance types that you can
+use to host your chosen JumpStart model. For each instance type, under
+`Config Name`, it lists the names of the pre-optimized
+configurations. The configurations that SageMaker AI provides are named
+`lmi-optimized`. For each instance type and configuration,
+the table provides benchmark metrics. These metrics indicate the throughput
+and latency that your model will support for different numbers of concurrent
+users. 2. Based on the benchmark metrics, pick the instance type and configuration
+name that best supports your performance needs. You will use these values
+when you create a deployment configuration.
+
+###### To deploy a pre-optimized model
+
+1. Create a deployment configuration. The following example uses a
+   `ModelBuilder` instance. It passes an instance type and
+   configuration name to the to the `set_deployment_config()`
+   method:
+
+```
+model_builder.set_deployment_config(
+    config_name="``config-name``",
+    instance_type="``instance-type``",
+)
+```
+
+Replace `config-name` with a
+configuration name from the table, such as such as
+`lmi-optimized`. Replace
+`instance-type` with an
+instance type from the table, such as `ml.p4d.24xlarge`. 2. Build your model. The following example uses the `.build()`
+method of the `ModelBuilder` instance:
+
+```
+optimized_model = model_builder.build()
+```
+
+The `.build()` method returns a deployable `Model`
+instance. 3. Deploy your model to an inference endpoint. The following example uses the
+`.deploy()` method of the `Model` instance:
+
+```
+predictor = optimized_model.deploy(accept_eula=True)
+```
+
+The `deploy()` method returns a `Predictor`
+instance, which you can use to send inference requests to the model.
+
+###### To test your model with an inference request
+
+- After you deploy your model to an inference endpoint, test the model's
+  predictions. The following example sends an inference request by using the
+  `Predictor` instance:
+
+```
+predictor.predict(sample_input)
+```
+
+The model returns the text that it generates with a response like the
+following:
+
+```
+{'generated_text': ' Jupiter is the largest planet in the solar system. It is the fifth planet from the sun. It is a gas giant with . . .'}
+```
+
+## Pre-optimized JumpStart models
+
+The following are the JumpStart models that have pre-optimized
+configurations.
+
+###### Meta
+
+- Llama 3.1 70B Instruct
+- Llama 3.1 70B
+- Llama 3.1 405B Instruct FP8
+- Llama 3.1 405B FP8
+- Llama 3 8B Instruct
+- Llama 3 8B
+- Llama 3 70B Instruct
+- Llama 3 70B
+- Llama 2 70B Chat
+- Llama 2 7B Chat
+- Llama 2 13B Chat
+
+###### HuggingFace
+
+- Mixtral 8x7B Instruct
+- Mixtral 8x7B
+- Mistral 7B Instruct
+- Mistral 7B
+
+### Pre-compiled JumpStart models
+
+For some models and configurations, SageMaker AI provides models that are pre-compiled for
+specific AWS Inferentia and AWS Trainium instances. For these, if you create a
+compilation optimization job, and you choose ml.inf2.48xlarge or ml.trn1.32xlarge as
+the deployment instance type, SageMaker AI fetches the compiled artifacts. Because the job
+uses a model that’s already compiled, it completes quickly without running the
+compilation from scratch.
+
+The following are the JumpStart models for which SageMaker AI has pre-compiled
+models:
+
+###### Meta
+
+- Llama3 8B
+- Llama3 70B
+- Llama2 7B
+- Llama2 70B
+- Llama2 13B
+- Code Llama 7B
+- Code Llama 70B
+
+###### HuggingFace
+
+- Mistral 7B

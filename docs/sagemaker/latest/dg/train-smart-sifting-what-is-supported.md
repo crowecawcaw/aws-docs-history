@@ -28,5 +28,18 @@ through AWS Deep Learning Containers.
 ### PyTorch
 
 | Framework | Framework version | Deep Learning Container URI                                                                                |
-| --------- | ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PyTorch   | 2.1.0             | `763104351884`.dkr.ecr.`region`.amazonaws.com/pytorch-training:2.1.0-gpu-py310-cu121-ubuntu20.04-sagemaker | For more information about the pre-built containers, see [SageMaker AI Framework Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") in the _AWS Deep Learning Containers GitHub repository_. ## AWS Regions The [containers packaged with the SageMaker smart sifting library](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers") are available in the AWS Regions where [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") are in service. ## Instance types You can use SageMaker smart sifting for any PyTorch training jobs on any instance types. We recommend that you use P4d, P4de, or P5 instances. |
+| --------- | ----------------- | ---------------------------------------------------------------------------------------------------------- |
+| PyTorch   | 2.1.0             | `763104351884`.dkr.ecr.`region`.amazonaws.com/pytorch-training:2.1.0-gpu-py310-cu121-ubuntu20.04-sagemaker |
+
+For more information about the pre-built containers, see [SageMaker AI Framework Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") in the _AWS Deep
+Learning Containers GitHub repository_.
+
+## AWS Regions
+
+The [containers packaged with the SageMaker smart sifting library](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers") are available in the
+AWS Regions where [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") are in service.
+
+## Instance types
+
+You can use SageMaker smart sifting for any PyTorch training jobs on any instance types. We
+recommend that you use P4d, P4de, or P5 instances.

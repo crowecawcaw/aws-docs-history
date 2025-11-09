@@ -178,15 +178,96 @@ hyperpod start-job [--namespace <namespace>] --recipe {{fine-tuning | evaluation
 - `--recipe`: The type of the job you are running using the recipe. Valid values
   are: `fine-tuning` | `evaluation` | `training`.
 
-| Job type              | Value                                                                                  |
-| --------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SFT/PEFT/PPO/DPO jobs | `fine-tuning`                                                                          |
-| Evaluation jobs       | `evaluation`                                                                           |
-| CPT jobs              | `training`                                                                             | <br>• Recipe name: You can find the name in the repository under the directory:`/src/hyperpod_cli/sagemaker_hyperpod_recipes/recipe_collection/recipes/`. <br>• Example recipe: `--recipe evaluation/nova/nova_lite_g5_12xl_bring_your_own_dataset_eval`. <br>• Container: This field is required. To find your images for the job types, see the following table.                                                                                                                                                                                                                                     |
-| Technique             | Container                                                                              |
-| ---                   | ---                                                                                    |
-| DPO                   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-DPO-latest      |
-| Evaluation jobs       | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest    |
-| CPT                   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-CPT-latest         |
-| PPO                   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SMHP-PPO-TRAIN-latest |
-| SFT/PEFT              | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest      | <br>• Custom run name: There are definition constraints on the `custom-run-time` input, for example, no capitals, no spaces, no underscores. For more information, see [Object Names and IDs](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names "https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names"). **[Optional] If you already have a training job and want to target a specific node for your next job, follow these steps.** 1. To get all free nodes, run the following command. ``` kubectl get nodes —no-headers | awk '$2 != "NotReady" && $3 != "SchedulingDisabled" {print $1}' ``2. Add the following to the `src\hyperpod_cli\sagemaker_hyperpod_recipes\recipes_collection\cluster\k8s.yaml`file for label selector.`` label_selector: required: kubernetes.io/hostname: <br>• <node_name> `3. On the root directory, run the following command. This ensures SageMaker HyperPod is installed on the user's system, enabling them to use the "hyperpod" keyword for job submission and other functions. You should run this command from the root folder where the HyperPod CLI code is.` pip install . `## List jobs To list jobs, run the following command.` hyperpod list-jobs [--namespace <namespace>] [--all-namespaces] `The command lists all jobs in the specified namespace or across all namespaces. ## Get job details To get the details of a job, run the following command.` hyperpod get-job --job-name <job-name> [--namespace <namespace>] [--verbose] `The command retrieves detailed information about a specific job. ## List pods To list pods, run the following command.` hyperpod list-pods --job-name <job-name> [--namespace <namespace>] `The command lists all pods associated with a specific job in the specified namespace. ## Cancel jobs To cancel a job, run the following command.` hyperpod cancel-job --job-name <job-name> [--namespace <namespace>] ``` This command cancels and deletes a running training job in the specified namespace. |
+| Job type              | Value         |
+| --------------------- | ------------- |
+| SFT/PEFT/PPO/DPO jobs | `fine-tuning` |
+| Evaluation jobs       | `evaluation`  |
+| CPT jobs              | `training`    |
+
+- Recipe name: You can find the name in the repository under the
+  directory:`/src/hyperpod_cli/sagemaker_hyperpod_recipes/recipe_collection/recipes/`.
+- Example recipe: `--recipe
+evaluation/nova/nova_lite_g5_12xl_bring_your_own_dataset_eval`.
+- Container: This field is required. To find your images for the job types, see
+  the following table.
+
+| Technique       | Container                                                                              |
+| --------------- | -------------------------------------------------------------------------------------- |
+| DPO             | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-DPO-latest      |
+| Evaluation jobs | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest    |
+| CPT             | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-CPT-latest         |
+| PPO             | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SMHP-PPO-TRAIN-latest |
+| SFT/PEFT        | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest      |
+
+- Custom run name: There are definition constraints on the
+  `custom-run-time` input, for example, no capitals, no spaces, no
+  underscores. For more information, see [Object Names and IDs](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names "https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names").
+
+**[Optional] If you already have a training job and want to target a
+specific node for your next job, follow these steps.**
+
+1. To get all free nodes, run the following command.
+
+```
+kubectl get nodes —no-headers | awk '$2 != "NotReady" && $3 != "SchedulingDisabled" {print $1}'
+```
+
+2. Add the following to the `src\hyperpod_cli\sagemaker_hyperpod_recipes\recipes_collection\cluster\k8s.yaml`file for label selector.
+
+```
+label_selector:
+  required:
+    kubernetes.io/hostname:
+      - <node_name>
+```
+
+3. On the root directory, run the following command. This ensures SageMaker HyperPod is
+   installed on the user's system, enabling them to use the "hyperpod" keyword for job
+   submission and other functions. You should run this command from the root folder where
+   the HyperPod CLI code is.
+
+```
+pip install .
+```
+
+## List jobs
+
+To list jobs, run the following command.
+
+```
+hyperpod list-jobs [--namespace <namespace>] [--all-namespaces]
+```
+
+The command lists all jobs in the specified namespace or across all namespaces.
+
+## Get job details
+
+To get the details of a job, run the following command.
+
+```
+hyperpod get-job --job-name <job-name> [--namespace <namespace>] [--verbose]
+```
+
+The command retrieves detailed information about a specific job.
+
+## List pods
+
+To list pods, run the following command.
+
+```
+hyperpod list-pods --job-name <job-name> [--namespace <namespace>]
+```
+
+The command lists all pods associated with a specific job in the specified
+namespace.
+
+## Cancel jobs
+
+To cancel a job, run the following command.
+
+```
+hyperpod cancel-job --job-name <job-name> [--namespace <namespace>]
+```
+
+This command cancels and deletes a running training job in the specified
+namespace.

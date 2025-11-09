@@ -311,17 +311,172 @@ the directory: `recipes-collection/recipes/fine-tuning/nova`. The
 data augmentation process is controlled by a YAML configuration file. Below is a
 detailed explanation of each parameter. All are required fields.
 
-| Parameter                                      | Description                                                                                                                                                                                                                                                                                |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name                                           | A descriptive name for your training job. This helps identify your job in the AWS Management Console.                                                                                                                                                                                      |
-| distillation_data                              | Enables data distillation job, do not modify this field.                                                                                                                                                                                                                                   |
-| maxNumberOfPrompts                             | The Maximum number of prompts in the dataset.                                                                                                                                                                                                                                              |
-| maxResponseLength                              | The Maximum response length per prompt (tokens).                                                                                                                                                                                                                                           |
-| maxInputFileSizeInGB                           | The Maximum size of the input file (in GB).                                                                                                                                                                                                                                                |
-| maxLineLengthInKB                              | The Maximum size of a single line in the input file (in KB).                                                                                                                                                                                                                               |
-| maxStudentModelFineTuningContextLengthInTokens | The Maximum context window size (tokens) for student model. The is value must not exceed student model capacity. You can set this value to 32k or 64k based on student model capacity.                                                                                                     |
-| teacherModelId                                 | When you set Teacher Model Id, select from two: <br>• For Amazon Nova Premier: "us.amazon.nova-premier-v1:0" for IAD region. Note: This is only available in IAD region. <br>• For Amazon Nova Pro: "us.amazon.nova-pro-v1:0" for IAD region and "eu.amazon.nova-pro-v1:0" for ARN region. |
-| temperature                                    | Controls response randomness (0.7 recommended for balance).                                                                                                                                                                                                                                |
-| top_p                                          | Cumulative probability threshold for token sampling (0.9 is recommended).                                                                                                                                                                                                                  |
-| customer_bucket                                | Amazon S3 bucket for input/output data.                                                                                                                                                                                                                                                    |
-| kms_key                                        | AWS KMS key to encrypt output in S3, This needed by Bedrock batch inference to store output returned by inference job.                                                                                                                                                                     | **Limitation** For Teacher Model as Nova Premier - Only supported in IAD region (`us-east-1`) due to Amazon Bedrock batch inference is not available in ARN (`eu-north-1`) region. **Best Practices** Data preparation <br>• Include 100 high-quality labeled examples to guide the teacher model <br>• Remove poor quality labels before submission <br>• Follow text understanding prompting best practices <br>• Test prompts with the teacher model before starting distillation Model selection <br>• Use Nova Pro as teacher for general use cases <br>• Consider Nova Premier for specialized domain knowledge <br>• Choose student model based on latency and cost requirements Performance optimization <br>• Start with recommended temperature (0.7) and top_p (0.9) <br>• Validate augmented data quality before fine-tuning <br>• Follow the guidelines in [Selecting hyperparameters](../../../nova/latest/userguide/customize-fine-tune-hyperparameters.md "../../../nova/latest/userguide/customize-fine-tune-hyperparameters.md") to adjust the hyperparameters **Starting a job with PySDK** The following sample notebook demonstrates how to run a SageMaker training job for distillation. For more information, see [Use a SageMaker AI estimator to run a training job](docker-containers-adapt-your-own-private-registry-estimator.md "docker-containers-adapt-your-own-private-registry-estimator.md"). `import os import sagemaker,boto3 from sagemaker.pytorch import PyTorch from sagemaker.inputs import TrainingInput sagemaker_session = sagemaker.Session() role = sagemaker.get_execution_role() # SETUP job_name = <Your_job_name> # Must be unique for every run input_s3_uri = <S3 URI to your input dataset> # Must end in .jsonl file output_s3_uri = <S3 URI to your output bucket> + job_name image_uri = "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-distillation-repo:SM-TJ-DISTILL-LATEST" # Do not change instance_type = "ml.r5.4xlarge" # Recommedation is to use cpu instances instance_count = 1 # Must be 1, do not change role_arn = <IAM role to execute the job with> recipe_path = <Local path to your recipe> # Execution estimator = PyTorch( output_path=output_s3_uri, base_job_name=job_name, role=role_arn, instance_count=instance_count, instance_type=instance_type, training_recipe=recipe_path, max_run=432000, sagemaker_session=sagemaker_session, image_uri=image_uri, subnets= ['subnet-xxxxxxxxxxxxxxxxx','subnet-xxxxxxxxxxxxxxxxx'], # Add subnet groups created in previous steps security_group_ids= ['sg-xxxxxxxxxxxxxxxxx'], # Add security group created in previous steps disable_profiler=True, debugger_hook_config=False ) trainingInput = TrainingInput( s3_data=input_s3_uri, distribution='FullyReplicated', s3_data_type='Converse' ) # The keys must be "train". estimator.fit(inputs={"train": trainingInput})` ## CloudWatch logs Logs are available in Amazon CloudWatch under the `/aws/sagemaker/TrainingJobs` log group in your AWS account. You will see one log file per host used for your training job. ## Successful training For a successful training job, you will see the log message "Training is complete" at the end of the log. The output bucket contains the following files: <br>• `distillation_data/manifest.json`: Contains the location of augmented data. You can use this dataset to start an Amazon Nova fine-tuning job. Only SFT training is supported with this dataset. ``{ "distillation_data": "s3://`customer_escrow_bucket`/`job_id`/distillation_data/" }`` <br>• `distillation_data/sample_training_data.jsonl`: This JSONL file contains 50 samples of augmented data for preview to help you determine data quality. <br>• `distillation_data/training_config.json`: This file contains recommended hyperparameters for Amazon Nova fine-tuning jobs. The following is an example file: `{ "epochCount": 5, "learningRate": 1e-05, "batchSize": 1, "learningRateWarmupSteps": 1 }` ## Validating augmented data quality Before proceeding to fine-tuning, it's crucial to validate the quality of the augmented data: 1. Review the `sample_training_data.jsonl` file in your output bucket. This file contains 50 random samples from the augmented dataset. 2. Manually inspect these samples for relevance, coherence, and alignment with your use case. 3. If the quality doesn't meet your expectations, you may need to adjust your input data or distillation parameters and rerun the data augmentation process. After data augmentation completes, the second phase involves fine-tuning the student model using Amazon SageMaker HyperPod. For more information, see [Full-rank supervised fine-tuning (SFT)](nova-fine-tune.md#nova-fine-tune-sft "nova-fine-tune.md#nova-fine-tune-sft"). In SFT training recipe you can pass the dataset path returned form previous job. `data_s3_path: "s3://[escrow-bucket]/[job-name]/distillation_data/training_data.jsonl"` Also override the training config recommended generated from previous step. **Limitations** <br>• Only supports SFT Nova fine-tuning technique on this augmented data. <br>• Only supports SFT Nova fine-tuning technique on Amazon SageMaker HyperPod. <br>• No support for multi-modal distillation. <br>• No support for custom teacher models. |
+| Parameter                                      | Description                                                                                                                                                                                                                                                                                          |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name                                           | A descriptive name for your training job. This helps<br>identify your job in the AWS Management Console.                                                                                                                                                                                             |
+| distillation_data                              | Enables data distillation job, do not modify this<br>field.                                                                                                                                                                                                                                          |
+| maxNumberOfPrompts                             | The Maximum number of prompts in the dataset.                                                                                                                                                                                                                                                        |
+| maxResponseLength                              | The Maximum response length per prompt (tokens).                                                                                                                                                                                                                                                     |
+| maxInputFileSizeInGB                           | The Maximum size of the input file (in GB).                                                                                                                                                                                                                                                          |
+| maxLineLengthInKB                              | The Maximum size of a single line in the input file (in<br>KB).                                                                                                                                                                                                                                      |
+| maxStudentModelFineTuningContextLengthInTokens | The Maximum context window size (tokens) for student<br>model. The is value must not exceed student model capacity.<br>You can set this value to 32k or 64k based on student model<br>capacity.                                                                                                      |
+| teacherModelId                                 | When you set Teacher Model Id, select from two:<br>• For Amazon Nova Premier:<br>"us.amazon.nova-premier-v1:0" for IAD region. Note:<br>This is only available in IAD region.<br>• For Amazon Nova Pro: "us.amazon.nova-pro-v1:0" for<br>IAD region and "eu.amazon.nova-pro-v1:0" for ARN<br>region. |
+| temperature                                    | Controls response randomness (0.7 recommended for<br>balance).                                                                                                                                                                                                                                       |
+| top_p                                          | Cumulative probability threshold for token sampling (0.9<br>is recommended).                                                                                                                                                                                                                         |
+| customer_bucket                                | Amazon S3 bucket for input/output data.                                                                                                                                                                                                                                                              |
+| kms_key                                        | AWS KMS key to encrypt output in S3, This needed by Bedrock batch<br>inference to store output returned by inference job.                                                                                                                                                                            |
+
+**Limitation**
+
+For Teacher Model as Nova Premier - Only supported in IAD region (`us-east-1`)
+due to Amazon Bedrock batch inference is not available in ARN (`eu-north-1`) region.
+
+**Best Practices**
+
+Data preparation
+
+- Include 100 high-quality labeled examples to guide the teacher
+  model
+- Remove poor quality labels before submission
+- Follow text understanding prompting best practices
+- Test prompts with the teacher model before starting
+  distillation
+
+Model selection
+
+- Use Nova Pro as teacher for general use cases
+- Consider Nova Premier for specialized domain knowledge
+- Choose student model based on latency and cost requirements
+
+Performance optimization
+
+- Start with recommended temperature (0.7) and top_p (0.9)
+- Validate augmented data quality before fine-tuning
+- Follow the guidelines in [Selecting hyperparameters](../../../nova/latest/userguide/customize-fine-tune-hyperparameters.md "../../../nova/latest/userguide/customize-fine-tune-hyperparameters.md") to adjust the
+  hyperparameters
+
+**Starting a job with PySDK**
+
+The following sample notebook demonstrates how to run a SageMaker training job for
+distillation. For more information, see [Use a SageMaker AI estimator to run a training job](docker-containers-adapt-your-own-private-registry-estimator.md "docker-containers-adapt-your-own-private-registry-estimator.md").
+
+```
+import os
+import sagemaker,boto3
+from sagemaker.pytorch import PyTorch
+from sagemaker.inputs import TrainingInput
+
+sagemaker_session = sagemaker.Session()
+role = sagemaker.get_execution_role()
+
+# SETUP
+job_name = <Your_job_name> # Must be unique for every run
+
+input_s3_uri = <S3 URI to your input dataset> # Must end in .jsonl file
+output_s3_uri = <S3 URI to your output bucket> + job_name
+
+image_uri = "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-distillation-repo:SM-TJ-DISTILL-LATEST" # Do not change
+instance_type = "ml.r5.4xlarge" # Recommedation is to use cpu instances
+instance_count = 1 # Must be 1, do not change
+role_arn = <IAM role to execute the job with>
+recipe_path = <Local path to your recipe>
+
+# Execution
+
+estimator = PyTorch(
+    output_path=output_s3_uri,
+    base_job_name=job_name,
+    role=role_arn,
+    instance_count=instance_count,
+    instance_type=instance_type,
+    training_recipe=recipe_path,
+    max_run=432000,
+    sagemaker_session=sagemaker_session,
+    image_uri=image_uri,
+    subnets= ['subnet-xxxxxxxxxxxxxxxxx','subnet-xxxxxxxxxxxxxxxxx'], # Add subnet groups created in previous steps
+    security_group_ids= ['sg-xxxxxxxxxxxxxxxxx'], # Add security group created in previous steps
+    disable_profiler=True,
+    debugger_hook_config=False
+)
+
+trainingInput = TrainingInput(
+    s3_data=input_s3_uri,
+    distribution='FullyReplicated',
+    s3_data_type='Converse'
+)
+
+# The keys must be "train".
+estimator.fit(inputs={"train": trainingInput})
+```
+
+## CloudWatch logs
+
+Logs are available in Amazon CloudWatch under the
+`/aws/sagemaker/TrainingJobs` log group in your AWS account.
+You will see one log file per host used for your training job.
+
+## Successful training
+
+For a successful training job, you will see the log message "Training is
+complete" at the end of the log.
+
+The output bucket contains the following files:
+
+- `distillation_data/manifest.json`: Contains the location of
+  augmented data. You can use this dataset to start an Amazon Nova fine-tuning
+  job. Only SFT training is supported with this dataset.
+
+```
+{
+  "distillation_data": "s3://`customer_escrow_bucket`/`job_id`/distillation_data/"
+}
+```
+
+- `distillation_data/sample_training_data.jsonl`: This JSONL
+  file contains 50 samples of augmented data for preview to help you
+  determine data quality.
+- `distillation_data/training_config.json`: This file
+  contains recommended hyperparameters for Amazon Nova fine-tuning jobs. The
+  following is an example file:
+
+```
+{
+    "epochCount": 5,
+    "learningRate": 1e-05,
+    "batchSize": 1,
+    "learningRateWarmupSteps": 1
+}
+```
+
+## Validating augmented data quality
+
+Before proceeding to fine-tuning, it's crucial to validate the quality of the
+augmented data:
+
+1. Review the `sample_training_data.jsonl` file in your output bucket. This
+   file contains 50 random samples from the augmented dataset.
+2. Manually inspect these samples for relevance, coherence, and alignment
+   with your use case.
+3. If the quality doesn't meet your expectations, you may need to adjust
+   your input data or distillation parameters and rerun the data
+   augmentation process.
+
+After data augmentation completes, the second phase involves fine-tuning the
+student model using Amazon SageMaker HyperPod. For more information, see [Full-rank supervised fine-tuning (SFT)](nova-fine-tune.md#nova-fine-tune-sft "nova-fine-tune.md#nova-fine-tune-sft").
+
+In SFT training recipe you can pass the dataset path returned form previous
+job.
+
+```
+data_s3_path: "s3://[escrow-bucket]/[job-name]/distillation_data/training_data.jsonl"
+```
+
+Also override the training config recommended generated from previous step.
+
+**Limitations**
+
+- Only supports SFT Nova fine-tuning technique on this augmented
+  data.
+- Only supports SFT Nova fine-tuning technique on Amazon SageMaker HyperPod.
+- No support for multi-modal distillation.
+- No support for custom teacher models.

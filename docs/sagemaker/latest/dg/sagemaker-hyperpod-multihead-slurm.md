@@ -70,9 +70,27 @@ controller (head) nodes architecture include the following.
 AWS services that work together to support the SageMaker HyperPod multiple
 controller nodes architecture | Service | Description |
 | --- | --- |
-| **IAM (AWS Identity and Access Management)** | Defines two IAM roles to control the access permissions: one role for the compute node instance group and the other for the controller node instance group. |
-| **Amazon RDS for MariaDB** | Stores accounting data for Slurm, which holds job records and metering data. |
-| **AWS Secrets Manager** | Stores and manages credentials that can be accessed by Amazon FSx for Lustre. |
+| **IAM (AWS Identity and Access Management)** | Defines two IAM roles to control the access permissions: one<br>role for the compute node instance group and the other for the<br>controller node instance group. |
+| **Amazon RDS for MariaDB** | Stores accounting data for Slurm, which holds job records and<br>metering data. |
+| **AWS Secrets Manager** | Stores and manages credentials that can be accessed by<br>Amazon FSx for Lustre. |
 | **Amazon FSx for Lustre** | Stores Slurm configurations and runtime state. |
-| **Amazon VPC** | Provides an isolated network environment where the HyperPod cluster and its resources are deployed. |
-| **Amazon SNS** | Sends notifications to administrators when there are status changes (Slurm controller is `ON` or `OFF`) related to the primary controller (head) node. | The HyperPod cluster itself consists of controller nodes (primary and backup) and compute nodes. The controller nodes run the Slurm controller (SlurmCtld) and database (SlurmDBd) components, which manage and monitor the workload across the compute nodes. The controller nodes access Slurm configurations and runtime state stored in the Amazon FSx for Lustre file system. The Slurm accounting data is stored in the Amazon RDS for MariaDB database. AWS Secrets Manager provides secure access to the database credentials for the controller nodes. If there is a status change (Slurm controller is `ON` or `OFF`) in the Slurm controller nodes, Amazon SNS sends notifications to the admin for further action. This multiple controller nodes architecture eliminates the single point of failure of a single controller (head) node, enables fast and automatic failover recovery, and gives you control over the Slurm accounting database and configurations.
+| **Amazon VPC** | Provides an isolated network environment where the<br>HyperPod cluster and its resources are deployed. |
+| **Amazon SNS** | Sends notifications to administrators when there are status<br>changes (Slurm controller is `ON` or `OFF`)<br>related to the primary controller (head) node. |
+
+The HyperPod cluster itself consists of controller nodes (primary and
+backup) and compute nodes. The controller nodes run the Slurm controller (SlurmCtld)
+and database (SlurmDBd) components, which manage and monitor the workload across the
+compute nodes.
+
+The controller nodes access Slurm configurations and runtime state stored in the
+Amazon FSx for Lustre file system. The Slurm accounting data is stored in the
+Amazon RDS for MariaDB database. AWS Secrets Manager provides secure access to the database
+credentials for the controller nodes.
+
+If there is a status change (Slurm controller is `ON` or
+`OFF`) in the Slurm controller nodes, Amazon SNS sends notifications to
+the admin for further action.
+
+This multiple controller nodes architecture eliminates the single point of failure
+of a single controller (head) node, enables fast and automatic failover recovery,
+and gives you control over the Slurm accounting database and configurations.

@@ -37,6 +37,3 @@ For Code Editor applications, the instance is considered idle when the followi
 - No text file or notebook changes
 - No files being viewed
 - No interaction with the terminal
-- No background processes running
-- No notebook kernels processing
-- No unsaved work

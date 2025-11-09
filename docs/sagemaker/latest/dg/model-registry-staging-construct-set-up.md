@@ -32,10 +32,181 @@ can define your own stage constructs based on your use cases. The relevant
 permissions will need to be set up before users can use them.
 
 | Stage         | Stage status    |
-| ------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | --------------- |
 | Proposal      | PendingApproval |
 | Development   | InProgress      |
 | QA            | OnHold          |
 | PreProduction | Approved        |
 | Production    | Rejected        |
-| Archived      | Retired         | The `ModelLifeCycle` parameter can be invoked by the following APIs: <br>• [`CreateModelPackage`](../APIReference/API_CreateModelPackage.md "../APIReference/API_CreateModelPackage.md") <br>• [`UpdateModelPackage`](../APIReference/API_UpdateModelPackage.md "../APIReference/API_UpdateModelPackage.md") <br>• [`DescribeModelPackage`](../APIReference/API_DescribeModelPackage.md "../APIReference/API_DescribeModelPackage.md") Policy for a data scientist role The following is an example IAM policy using model lifecycle condition keys. You can modify them based on your own requirements. In this example, the role’s permissions are limited to set or define the model lifecycle stage to: <br>• Create or update a model with the stage `"Development"` and status `"Approved"`. <br>• Update a model package with the stage quality assurance, `"QA"`, and status `"PendingApproval"`. `{ "Action" : [ "sagemaker:UpdateModelPackage", "sagemaker:CreateModelPackage" ], "Resource": [ "*" ], "Condition": { "StringEquals": { "sagemaker:ModelLifeCycle:stage" : "Development" "sagemaker:ModelLifeCycle:stageStatus" : "Approved" } } }, { "Action" : [ "sagemaker:UpdateModelPackage" ], "Resource": [ "*" ], "Condition": { "StringEquals": { "sagemaker:ModelLifeCycle:stage" : "Staging" "sagemaker:ModelLifeCycle:stageStatus" : "PendingApproval" } } }` Policy for a quality assurance specialist The following is an example IAM policy using model lifecycle condition keys. You can modify them based on your own requirements. In this example, the role’s permissions are limited to set or define the model lifecycle stage to: <br>• Update a model package with: + The stage `"QA"` and status `"Approved"` or `"Rejected"`. + The stage `"Production"` and status `"PendingApproval"`. `{ "Action": [ "sagemaker:UpdateModelPackage" ], "Resource": [ "*" ], "Condition": { "StringEquals": { "sagemaker:ModelLifeCycle:stage": "Staging", "sagemaker:ModelLifeCycle:stageStatus": "Approved" } } }, { "Action": [ "sagemaker:UpdateModelPackage" ], "Resource": [ "*" ], "Condition": { "StringEquals": { "sagemaker:ModelLifeCycle:stage": "Staging", "sagemaker:ModelLifeCycle:stageStatus": "Rejected" } } }, { "Action": [ "sagemaker:UpdateModelPackage" ], "Resource": [ "*" ], "Condition": { "StringEquals": { "sagemaker:ModelLifeCycle:stage": "Production", "sagemaker:ModelLifeCycle:stageStatus": "PendingApproval" } } }` Policy for lead engineer role The following is an example IAM policy using model lifecycle condition keys. You can modify them based on your own requirements. In this example, the role’s permissions are limited to set or define the model lifecycle stage to: <br>• Update a model package with: + The stage `"Production"` and status `"Approved"` or `"Rejected"`. + The stage `"Development"` and status `"PendingApproval"`. `{ "Action" : [ "sagemaker:UpdateModelPackage" ], "Resource": [ "*" ], "Condition": { "ForAnyvalue:StringEquals" : { "sagemaker:ModelLifeCycle:stage" : "Production", "sagemaker:ModelLifeCycle:stageStatus" : "Approved" } } }, { "Action" : [ "sagemaker:UpdateModelPackage" ], "Resource": [ "*" ], "Condition": { "StringEquals:" { "sagemaker:ModelLifeCycle:stage" : "Production" "sagemaker:ModelLifeCycle:stageStatus" : "Rejected" } } }, { "Action" : [ "sagemaker:UpdateModelPackage" ], "Resource": [ "*" ], "Condition": { "StringEquals": { "sagemaker:ModelLifeCycle:stage" : "Development" "sagemaker:ModelLifeCycle:stageStatus" : "PendingApproval" } } }` To get Amazon EventBridge notifications on any model status update, see the example in [Get event notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md"). For an example EventBridge payload you may receive, see [SageMaker model package state change](automating-sagemaker-with-eventbridge.md#eventbridge-model-package "automating-sagemaker-with-eventbridge.md#eventbridge-model-package"). |
+| Archived      | Retired         |
+
+The `ModelLifeCycle` parameter can be invoked by the following
+APIs:
+
+- [`CreateModelPackage`](../APIReference/API_CreateModelPackage.md "../APIReference/API_CreateModelPackage.md")
+- [`UpdateModelPackage`](../APIReference/API_UpdateModelPackage.md "../APIReference/API_UpdateModelPackage.md")
+- [`DescribeModelPackage`](../APIReference/API_DescribeModelPackage.md "../APIReference/API_DescribeModelPackage.md")
+
+Policy for a data scientist role
+The following is an example IAM policy using model lifecycle
+condition keys. You can modify them based on your own requirements.
+In this example, the role’s permissions are limited to set or define
+the model lifecycle stage to:
+
+- Create or update a model with the stage
+  `"Development"` and status
+  `"Approved"`.
+- Update a model package with the stage quality assurance,
+  `"QA"`, and status
+  `"PendingApproval"`.
+
+```
+{
+    "Action" : [
+        "sagemaker:UpdateModelPackage",
+        "sagemaker:CreateModelPackage"
+    ],
+    "Resource": [
+        "*"
+    ],
+    "Condition": {
+        "StringEquals": {
+            "sagemaker:ModelLifeCycle:stage" : "Development"
+            "sagemaker:ModelLifeCycle:stageStatus" : "Approved"
+        }
+    }
+},
+{
+    "Action" : [
+        "sagemaker:UpdateModelPackage"
+    ],
+    "Resource": [
+        "*"
+    ],
+    "Condition": {
+        "StringEquals": {
+            "sagemaker:ModelLifeCycle:stage" : "Staging"
+            "sagemaker:ModelLifeCycle:stageStatus" : "PendingApproval"
+        }
+    }
+}
+```
+
+Policy for a quality assurance specialist
+The following is an example IAM policy using model lifecycle
+condition keys. You can modify them based on your own requirements.
+In this example, the role’s permissions are limited to set or define
+the model lifecycle stage to:
+
+- Update a model package with:
+  - The stage `"QA"` and status
+    `"Approved"` or
+    `"Rejected"`.
+  - The stage `"Production"` and status
+    `"PendingApproval"`.
+
+```
+{
+    "Action": [
+        "sagemaker:UpdateModelPackage"
+    ],
+    "Resource": [
+        "*"
+    ],
+    "Condition": {
+        "StringEquals": {
+            "sagemaker:ModelLifeCycle:stage": "Staging",
+            "sagemaker:ModelLifeCycle:stageStatus": "Approved"
+        }
+    }
+}, {
+    "Action": [
+        "sagemaker:UpdateModelPackage"
+    ],
+    "Resource": [
+        "*"
+    ],
+    "Condition": {
+        "StringEquals": {
+            "sagemaker:ModelLifeCycle:stage": "Staging",
+            "sagemaker:ModelLifeCycle:stageStatus": "Rejected"
+        }
+    }
+}, {
+    "Action": [
+        "sagemaker:UpdateModelPackage"
+    ],
+    "Resource": [
+        "*"
+    ],
+    "Condition": {
+        "StringEquals": {
+            "sagemaker:ModelLifeCycle:stage": "Production",
+            "sagemaker:ModelLifeCycle:stageStatus": "PendingApproval"
+        }
+    }
+}
+```
+
+Policy for lead engineer role
+The following is an example IAM policy using model lifecycle
+condition keys. You can modify them based on your own requirements.
+In this example, the role’s permissions are limited to set or define
+the model lifecycle stage to:
+
+- Update a model package with:
+  - The stage `"Production"` and status
+    `"Approved"` or
+    `"Rejected"`.
+  - The stage `"Development"` and status
+    `"PendingApproval"`.
+
+```
+{
+    "Action" : [
+        "sagemaker:UpdateModelPackage"
+    ],
+    "Resource": [
+        "*"
+    ],
+    "Condition": {
+        "ForAnyvalue:StringEquals" : {
+            "sagemaker:ModelLifeCycle:stage" : "Production",
+            "sagemaker:ModelLifeCycle:stageStatus" : "Approved"
+        }
+    }
+},
+{
+    "Action" : [
+        "sagemaker:UpdateModelPackage"
+    ],
+    "Resource": [
+        "*"
+    ],
+    "Condition": {
+        "StringEquals:" {
+            "sagemaker:ModelLifeCycle:stage" : "Production"
+            "sagemaker:ModelLifeCycle:stageStatus" : "Rejected"
+        }
+    }
+},
+{
+    "Action" : [
+        "sagemaker:UpdateModelPackage"
+    ],
+    "Resource": [
+        "*"
+    ],
+    "Condition": {
+        "StringEquals": {
+            "sagemaker:ModelLifeCycle:stage" : "Development"
+            "sagemaker:ModelLifeCycle:stageStatus" : "PendingApproval"
+        }
+    }
+}
+```
+
+To get Amazon EventBridge notifications on any model status update, see the example in
+[Get event
+notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md"). For an
+example EventBridge payload you may receive, see [SageMaker model package state change](automating-sagemaker-with-eventbridge.md#eventbridge-model-package "automating-sagemaker-with-eventbridge.md#eventbridge-model-package").

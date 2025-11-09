@@ -18,26 +18,28 @@ of the following:
   following policy allows `InvokeEndpont` requests only when the value of the
   `TargetModel` field matches one of the specified regular expressions:
 
+JSON
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "sagemaker:InvokeEndpoint"
-            ],
-            "Effect": "Allow",
-            "Resource":
-            "arn:aws:sagemaker:`region`:`account-id`:endpoint/`endpoint_name`",
-            "Condition": {
-                // TargetModel provided must be from this set of values
-                "StringLike": {
-                    "sagemaker:TargetModel": ["company_a/*", "common/*"]
-                }
-            }
-        }
-    ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "sagemaker:InvokeEndpoint"
+ ],
+ "Effect": "Allow",
+ "Resource":
+ "arn:aws:sagemaker:`us-east-1`:`111122223333`:endpoint/`endpoint_name`",
+ "Condition": {
+ "StringLike": {
+ "sagemaker:TargetModel": ["company_a/*", "common/*"]
+ }
+ }
+ }
+ ]
+}`
+
 ```
 
 For information about SageMaker AI condition keys, see [Condition Keys for Amazon SageMaker AI](../../../IAM/latest/UserGuide/list_amazonsagemaker.md#amazonsagemaker-policy-keys "../../../IAM/latest/UserGuide/list_amazonsagemaker.md#amazonsagemaker-policy-keys") in the _AWS Identity and Access Management User

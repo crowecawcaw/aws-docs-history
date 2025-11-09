@@ -65,6 +65,154 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Resource type (console) | resources.type value       | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SageMaker endpoint**  | `AWS::SageMaker::Endpoint` | <br>• [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md") <br>• [InvokeEndpointAsync](../APIReference/API_runtime_InvokeEndpointAsync.md "../APIReference/API_runtime_InvokeEndpointAsync.md") <br>• [InvokeEndpointWithResponseStream](../APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../APIReference/API_runtime_InvokeEndpointWithResponseStream.md") | ###### Note The `InvokeEndpoint` and `InvokeEndpointAsync` API calls don't log the request parameters. You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. The following example shows you how to log data events for an Amazon SageMaker endpoint. In this example, you use the [put-event-selectors](../../../cli/latest/reference/cloudtrail/put-event-selectors.md "../../../cli/latest/reference/cloudtrail/put-event-selectors.md") AWS CLI command to add advanced event selectors that capture data events from your endpoint. You should have an existing CloudTrail trail. Before running the command, you can also save the advanced event selectors JSON object in a file like the following: ``[ { "FieldSelectors": [ { "Field": "eventCategory", "Equals": ["Data"] }, { "Field": "resources.ARN", "Equals": ["arn:aws:sagemaker:us-east-1:111122223333:endpoint/`your-inference-endpoint-arn`"] }, { "Field": "resources.type", "Equals": ["AWS::SageMaker::Endpoint"] } ] } ]`` Then, you can run the following command to start logging data events from the endpoint. ``aws cloudtrail put-event-selectors --trail-name `your-trail-name` --advanced-event-selectors=file://`advanced-event-selectors.json` # specify your previously created JSON file`` ## Amazon SageMaker AI management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. Amazon SageMaker AI logs all Amazon SageMaker AI control plane operations as management events. For a list of the Amazon SageMaker AI control plane operations that Amazon SageMaker AI logs to CloudTrail, see the [Amazon SageMaker AI API Reference](../APIReference.md "../APIReference.md"). ## Operations Performed by Automatic Model Tuning SageMaker AI supports logging non-API service events to your CloudTrail log files for automatic model tuning jobs. These events are related to your tuning jobs but, are not the direct result of a customer request to the public AWS API. For example, when you create a hyperparameter tuning job by calling [`CreateHyperParameterTuningJob`](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md"), SageMaker AI creates training jobs to evaluate various combinations of hyperparameters to find the best result. Similarly, when you call [`StopHyperParameterTuningJob`](../APIReference/API_StopHyperParameterTuningJob.md "../APIReference/API_StopHyperParameterTuningJob.md") to stop a hyperparameter tuning job, SageMaker AI might stop any of the associated running training jobs. Non-API events for your tuning jobs are logged to CloudTrail to help you improve governance, compliance, and operational and risk auditing of your AWS account. Log entries that result from non-API service events have an `eventType` of `AwsServiceEvent` instead of `AwsApiCall`. ## Amazon SageMaker AI event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail event that demonstrates the `CreateEndpoint` operation. `{ "eventVersion":"1.05", "userIdentity": { "type":"IAMUser", "principalId":"AIXDAYQEXAMPLEUMLYNGL", "arn":"arn:aws:iam::123456789012:user/intern", "accountId":"123456789012", "accessKeyId":"ASXIAGXEXAMPLEQULKNXV", "userName":"intern" }, "eventTime":"2018-01-02T13:39:06Z", "eventSource":"sagemaker.amazonaws.com", "eventName":"CreateEndpoint", "awsRegion":"us-west-2", "sourceIPAddress":"127.0.0.1", "userAgent":"USER_AGENT", "requestParameters": { "endpointName":"ExampleEndpoint", "endpointConfigName":"ExampleEndpointConfig" }, "responseElements": { "endpointArn":"arn:aws:sagemaker:us-west-2:123456789012:endpoint/exampleendpoint" }, "requestID":"6b1b42b9-EXAMPLE", "eventID":"a6f85b21-EXAMPLE", "eventType":"AwsApiCall", "recipientAccountId":"444455556666" }` The following example shows a CloudTrail event that demonstrates the `CreateModel` operation. `{ "eventVersion":"1.05", "userIdentity": { "type":"IAMUser", "principalId":"AIXDAYQEXAMPLEUMLYNGL", "arn":"arn:aws:iam::123456789012:user/intern", "accountId":"123456789012", "accessKeyId":"ASXIAGXEXAMPLEQULKNXV", "userName":"intern" }, "eventTime":"2018-01-02T15:23:46Z", "eventSource":"sagemaker.amazonaws.com", "eventName":"CreateModel", "awsRegion":"us-west-2", "sourceIPAddress":"127.0.0.1", "userAgent":"USER_AGENT", "requestParameters": { "modelName":"ExampleModel", "primaryContainer": { "image":"174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:latest" }, "executionRoleArn":"arn:aws:iam::123456789012:role/EXAMPLEARN" }, "responseElements": { "modelArn":"arn:aws:sagemaker:us-west-2:123456789012:model/barkinghappy2018-01-02t15-23-32-275z-ivrdog" }, "requestID":"417b8dab-EXAMPLE", "eventID":"0f2b3e81-EXAMPLE", "eventType":"AwsApiCall", "recipientAccountId":"444455556666" }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Resource type (console) | resources.type value       | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SageMaker endpoint**  | `AWS::SageMaker::Endpoint` | • [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md")<br>• [InvokeEndpointAsync](../APIReference/API_runtime_InvokeEndpointAsync.md "../APIReference/API_runtime_InvokeEndpointAsync.md")<br>• [InvokeEndpointWithResponseStream](../APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../APIReference/API_runtime_InvokeEndpointWithResponseStream.md") |
+
+###### Note
+
+The `InvokeEndpoint` and `InvokeEndpointAsync` API calls don't log
+the request parameters.
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+The following example shows you how to log data events for an Amazon SageMaker endpoint. In this
+example, you use the [put-event-selectors](../../../cli/latest/reference/cloudtrail/put-event-selectors.md "../../../cli/latest/reference/cloudtrail/put-event-selectors.md")
+AWS CLI command to add advanced event selectors that capture data events from your endpoint. You
+should have an existing CloudTrail trail. Before running the command, you can also save the advanced
+event selectors JSON object in a file like the following:
+
+```
+[
+  {
+    "FieldSelectors": [
+      {
+        "Field": "eventCategory",
+        "Equals": ["Data"]
+      },
+      {
+        "Field": "resources.ARN",
+        "Equals": ["arn:aws:sagemaker:us-east-1:111122223333:endpoint/`your-inference-endpoint-arn`"]
+      },
+      {
+        "Field": "resources.type",
+        "Equals": ["AWS::SageMaker::Endpoint"]
+      }
+    ]
+  }
+]
+```
+
+Then, you can run the following command to start logging data events from the endpoint.
+
+```
+aws cloudtrail put-event-selectors
+      --trail-name `your-trail-name`
+      --advanced-event-selectors=file://`advanced-event-selectors.json` # specify your previously created JSON file
+```
+
+## Amazon SageMaker AI management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+Amazon SageMaker AI logs all Amazon SageMaker AI control plane operations as management events. For a list
+of the Amazon SageMaker AI control plane operations that Amazon SageMaker AI logs to CloudTrail, see the
+[Amazon SageMaker AI API Reference](../APIReference.md "../APIReference.md").
+
+## Operations Performed by Automatic Model
+
+Tuning
+
+SageMaker AI supports logging non-API service events to your CloudTrail log files for automatic model
+tuning jobs. These events are related to your tuning jobs but, are not the direct result of
+a customer request to the public AWS API. For example, when you create a hyperparameter
+tuning job by calling [`CreateHyperParameterTuningJob`](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md"), SageMaker AI creates training jobs to evaluate
+various combinations of hyperparameters to find the best result. Similarly, when you call
+[`StopHyperParameterTuningJob`](../APIReference/API_StopHyperParameterTuningJob.md "../APIReference/API_StopHyperParameterTuningJob.md") to stop a hyperparameter tuning job, SageMaker AI
+might stop any of the associated running training jobs. Non-API events for your tuning jobs
+are logged to CloudTrail to help you improve governance, compliance, and operational and risk
+auditing of your AWS account.
+
+Log entries that result from non-API service events have an `eventType` of
+`AwsServiceEvent` instead of `AwsApiCall`.
+
+## Amazon SageMaker AI event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail event that demonstrates the
+`CreateEndpoint` operation.
+
+```
+{
+    "eventVersion":"1.05",
+    "userIdentity": {
+        "type":"IAMUser",
+        "principalId":"AIXDAYQEXAMPLEUMLYNGL",
+        "arn":"arn:aws:iam::123456789012:user/intern",
+        "accountId":"123456789012",
+        "accessKeyId":"ASXIAGXEXAMPLEQULKNXV",
+        "userName":"intern"
+    },
+    "eventTime":"2018-01-02T13:39:06Z",
+    "eventSource":"sagemaker.amazonaws.com",
+    "eventName":"CreateEndpoint",
+    "awsRegion":"us-west-2",
+    "sourceIPAddress":"127.0.0.1",
+    "userAgent":"USER_AGENT",
+    "requestParameters": {
+        "endpointName":"ExampleEndpoint",
+        "endpointConfigName":"ExampleEndpointConfig"
+    },
+    "responseElements": {
+        "endpointArn":"arn:aws:sagemaker:us-west-2:123456789012:endpoint/exampleendpoint"
+    },
+    "requestID":"6b1b42b9-EXAMPLE",
+    "eventID":"a6f85b21-EXAMPLE",
+    "eventType":"AwsApiCall",
+    "recipientAccountId":"444455556666"
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the
+`CreateModel` operation.
+
+```
+{
+    "eventVersion":"1.05",
+    "userIdentity": {
+        "type":"IAMUser",
+        "principalId":"AIXDAYQEXAMPLEUMLYNGL",
+        "arn":"arn:aws:iam::123456789012:user/intern",
+        "accountId":"123456789012",
+        "accessKeyId":"ASXIAGXEXAMPLEQULKNXV",
+        "userName":"intern"
+    },
+    "eventTime":"2018-01-02T15:23:46Z",
+    "eventSource":"sagemaker.amazonaws.com",
+    "eventName":"CreateModel",
+    "awsRegion":"us-west-2",
+    "sourceIPAddress":"127.0.0.1",
+    "userAgent":"USER_AGENT",
+    "requestParameters": {
+        "modelName":"ExampleModel",
+        "primaryContainer": {
+            "image":"174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:latest"
+        },
+        "executionRoleArn":"arn:aws:iam::123456789012:role/EXAMPLEARN"
+    },
+    "responseElements": {
+        "modelArn":"arn:aws:sagemaker:us-west-2:123456789012:model/barkinghappy2018-01-02t15-23-32-275z-ivrdog"
+    },
+    "requestID":"417b8dab-EXAMPLE",
+    "eventID":"0f2b3e81-EXAMPLE",
+    "eventType":"AwsApiCall",
+    "recipientAccountId":"444455556666"
+}
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
