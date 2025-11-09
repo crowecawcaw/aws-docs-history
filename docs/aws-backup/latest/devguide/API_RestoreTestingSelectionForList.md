@@ -53,6 +53,9 @@ Required: Yes
 
 Unique name of a restore testing selection.
 
+The name consists of only alphanumeric characters and underscores.
+Maximum length is 50.
+
 Type: String
 
 Required: Yes

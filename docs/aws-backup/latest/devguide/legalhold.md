@@ -176,9 +176,60 @@ Response
 
 The following are the possible status values.
 
-| Status     | Description                                                                                                                                                              |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CREATING   | Requested recovery points are in the process of being held, and delete requests of those recovery points may be successful since the hold hasn't finished being created. |
-| ACTIVE     | The legal hold has been created, All recovery points listed under this legal hold are held.                                                                              |
-| CANCELLING | Legal holds are in the process of being removed, and delete requests of recovery points under the hold may succeed.                                                      |
-| CANCELED   | Legal hold is fully released and no longer has any effect. Recovery points can be deleted.                                                                               | ## Release a legal hold Legal holds remain in effect until they are removed by a user with sufficient permissions. Removing a legal hold is also known as cancelling, deleting, or releasing a legal hold. Removing a legal hold eliminates it from all backups to which it was attached. Any backups that expired during the legal hold are deleted within 24 hours after the legal hold is removed. ###### To release a hold using the console 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup"). 2. Enter the description you would like associated with the release. 3. Review the details, then click **Release hold**. 4. When the Release hold dialogue box appears, confirm your intent to release the hold by typing `confirm` into the text box. 1. Check the box that acknowledges you are cancelling the hold. On the **Legal holds** page you can see all your holds. If the release was successful, the status of that hold will be shown as `Released`. To remove a hold programmatically, use the API call [CancelLegalHold](API_CancelLegalHold.md "API_CancelLegalHold.md"). Use the following JSON template. `DELETE /legal-holds/{legalHoldId} Request { CancelDescription: String DeleteAfterDays: number // optional } DeleteAfterDays: optional. Defaults to 180 days. how long to keep legal hold record after canceled. This applies to the actual legal hold record only. Recovery points are unlocked as soon as cancelation processes and are not subject to this date. Response Empty body 200 if successful other standard codes` |
+| Status     | Description                                                                                                                                                                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| CREATING   | Requested recovery points are in the process of being held, and delete<br>requests of those recovery points may be successful since the hold<br>hasn't finished being created. |
+| ACTIVE     | The legal hold has been created, All recovery points listed under this<br>legal hold are held.                                                                                 |
+| CANCELLING | Legal holds are in the process of being removed, and delete requests of<br>recovery points under the hold may succeed.                                                         |
+| CANCELED   | Legal hold is fully released and no longer has any effect. Recovery<br>points can be deleted.                                                                                  |
+
+## Release a legal hold
+
+Legal holds remain in effect until they are removed by a user with sufficient permissions.
+Removing a legal hold is also known as cancelling, deleting, or releasing a legal hold. Removing
+a legal hold eliminates it from all backups to which it was attached. Any backups that expired
+during the legal hold are deleted within 24 hours after the legal hold is removed.
+
+###### To release a hold using the console
+
+1.  Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+2.  Enter the description you would like associated with the release.
+3.  Review the details, then click **Release hold**.
+4.  When the Release hold dialogue box appears, confirm your intent to
+    release the hold by typing `confirm` into the text box.
+
+        1. Check the box that acknowledges you are cancelling the hold.
+
+    On the **Legal holds** page you can see all your holds. If the
+    release was successful, the status of that hold will be shown as `Released`.
+
+To remove a hold programmatically, use the API call
+[CancelLegalHold](API_CancelLegalHold.md "API_CancelLegalHold.md").
+
+Use the following JSON template.
+
+```
+DELETE /legal-holds/{legalHoldId}
+
+
+Request
+
+{
+   CancelDescription: String
+   DeleteAfterDays: number // optional
+}
+
+
+DeleteAfterDays: optional.
+  Defaults to 180 days. how long to keep legal hold record after canceled.
+  This applies to the actual legal hold record only.
+  Recovery points are unlocked as soon as cancelation processes and are not subject to this date.
+
+Response
+
+Empty body
+
+200 if successful
+other standard codes
+
+```

@@ -41,6 +41,7 @@ Content-type: application/json
    "CreationDate": ***number***,
    "CreatorRequestId": "***string***",
    "EncryptionKeyArn": "***string***",
+   "EncryptionKeyType": "***string***",
    "LatestMpaApprovalTeamUpdate": {
       "ExpiryDate": ***number***,
       "InitiationDate": ***number***,
@@ -105,6 +106,14 @@ The server-side encryption key that is used to protect your backups; for example
 `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`.
 
 Type: String
+
+**[EncryptionKeyType](#API_DescribeBackupVault_ResponseSyntax "#API_DescribeBackupVault_ResponseSyntax")**
+
+The type of encryption key used for the backup vault. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or AWS_OWNED_KMS_KEY for AWS-owned keys.
+
+Type: String
+
+Valid Values: `AWS_OWNED_KMS_KEY | CUSTOMER_MANAGED_KMS_KEY`
 
 **[LatestMpaApprovalTeamUpdate](#API_DescribeBackupVault_ResponseSyntax "#API_DescribeBackupVault_ResponseSyntax")**
 

@@ -145,6 +145,9 @@ Type: String
 
 The name of the restore testing selection for the related restore testing plan.
 
+The name cannot be changed after creation. The name consists of only
+alphanumeric characters and underscores. Maximum length is 50.
+
 Type: String
 
 ## Errors

@@ -55,6 +55,7 @@ Content-type: application/json
          "CreationDate": ***number***,
          "CreatorRequestId": "***string***",
          "EncryptionKeyArn": "***string***",
+         "EncryptionKeyType": "***string***",
          "LockDate": ***number***,
          "Locked": ***boolean***,
          "MaxRetentionDays": ***number***,

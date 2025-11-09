@@ -56,7 +56,7 @@ When you enable continuous backups in a rule, the summary reminds you that PITR 
 
 - Aurora databases
 - Amazon RDS databases
-- HANA databases
+- SAP HANA databases
 - Amazon S3 buckets
 
 ### Cold tier storage support
@@ -65,9 +65,9 @@ When you configure cold tier transitions, the summary shows which services suppo
 
 - Amazon DynamoDB tables
 - Amazon Elastic File System file systems
-- HANA databases
-- databases
-- virtual machines
+- SAP HANA databases
+- Amazon Timestream databases
+- VMware virtual machines
 
 ## Accessing backup plan summaries
 

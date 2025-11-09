@@ -2,7 +2,7 @@
 
 ## Associate a Multi-party approval
 
-team with a LAG vault
+team with a logically air-gapped vault
 
 Requester: **User with access to account that
 owns the logically air-gapped vault**.
@@ -12,7 +12,7 @@ enable collaborative approval for access to the vault (step 5 in the [Overview](
 
 Console
 
-###### Associate a Multi-party approval team with a LAG vault
+###### Associate a Multi-party approval team with a logically air-gapped vault
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. Navigate to the **Backup vaults** section in the left
@@ -126,7 +126,7 @@ You can disassociate a Multi-party approval team from a logically air-gapped vau
 
 Console
 
-###### Disassociate approval team from LAG vault
+###### Disassociate approval team from logically air-gapped vault
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. Navigate to the **Backup vaults** section in the left
@@ -220,7 +220,7 @@ vault will be deleted from the recovery account.
 
 ## Update the Multi-party approval team
 
-associated with a LAG vault
+associated with a logically air-gapped vault
 
 Requester: **Administrator of account that
 owns the logically air-gapped vault**.

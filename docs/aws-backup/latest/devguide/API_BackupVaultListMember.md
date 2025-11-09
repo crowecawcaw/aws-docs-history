@@ -63,6 +63,16 @@ Type: String
 
 Required: No
 
+**EncryptionKeyType**
+
+The type of encryption key used for the backup vault. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or AWS_OWNED_KMS_KEY for AWS-owned keys.
+
+Type: String
+
+Valid Values: `AWS_OWNED_KMS_KEY | CUSTOMER_MANAGED_KMS_KEY`
+
+Required: No
+
 **LockDate**
 
 The date and time when AWS Backup Vault Lock configuration becomes immutable,

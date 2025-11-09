@@ -44,6 +44,16 @@ Type: String
 
 Required: No
 
+**EncryptionKeyType**
+
+The type of encryption key used for the recovery point. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or AWS_OWNED_KMS_KEY for AWS-owned keys.
+
+Type: String
+
+Valid Values: `AWS_OWNED_KMS_KEY | CUSTOMER_MANAGED_KMS_KEY`
+
+Required: No
+
 **IndexStatus**
 
 This is the current status for the backup index associated

@@ -128,6 +128,7 @@ Content-type: application/json
          },
          "CreationDate": ***number***,
          "EncryptionKeyArn": "***string***",
+         "EncryptionKeyType": "***string***",
          "IamRoleArn": "***string***",
          "IndexStatus": "***string***",
          "IndexStatusMessage": "***string***",

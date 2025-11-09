@@ -22,6 +22,7 @@ Content-type: application/json
       "`string`" : "`string`"
    },
    "CreatorRequestId": "`string`",
+   "EncryptionKeyArn": "`string`",
    "MaxRetentionDays": `number`,
    "MinRetentionDays": `number`
 }
@@ -59,6 +60,14 @@ The ID of the creation request.
 
 This parameter is optional. If used, this parameter must contain
 1 to 50 alphanumeric or '-\_.' characters.
+
+Type: String
+
+Required: No
+
+**[EncryptionKeyArn](#API_CreateLogicallyAirGappedBackupVault_RequestSyntax "#API_CreateLogicallyAirGappedBackupVault_RequestSyntax")**
+
+The ARN of the customer-managed KMS key to use for encrypting the logically air-gapped backup vault. If not specified, the vault will be encrypted with an AWS-owned key managed by AWS Backup.
 
 Type: String
 

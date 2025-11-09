@@ -76,5 +76,85 @@ endpoint for backup Gateway:
 - TCP 2222
 
 | Protocol | Port        | Direction | Source         | Destination | Usage                                                             |
-| -------- | ----------- | --------- | -------------- | ----------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TCP      | 443 (HTTPS) | Outbound  | Backup Gateway | AWS         | For communication from Backup Gateway to the AWS service endpoint | ### Use a VPC endpoint If you enable private DNS for the endpoint, you can make API requests to AWS Backup with the VPC endpoint using its default DNS name for the AWS Region, for example `backup.us-east-1.api.aws`. However, for the China (Beijing) Region and China (Ningxia) Region AWS Regions, API requests should be made with the VPC endpoint using `backup.cn-north-1.amazonaws.com.cn` and `backup.cn-northwest-1.amazonaws.com.cn`, respectively. ### Creating a VPC endpoint policy You can attach an endpoint policy to your VPC endpoint that controls access to the Amazon Backup API. The policy specifies: <br>• The principal that can perform actions. <br>• The actions that can be performed. <br>• The resources on which actions can be performed. ###### Important When a non-default policy is applied to an interface VPC endpoint for AWS Backup, certain failed API requests, such as those failing from `RequestLimitExceeded`, might not be logged to AWS CloudTrail or Amazon CloudWatch. For more information, see [Control access to services using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _AWS PrivateLink Guide_. **Example: VPC endpoint policy for AWS Backup actions** The following is an example of an endpoint policy for AWS Backup. When attached to an endpoint, this policy grants access to the listed AWS Backup actions for all principles on all resources. `{ "Statement":[ { "Action":"backup:*", "Effect":"Allow", "Principal":"*", "Resource":"*" } ] }` **Example: VPC endpoint policy that denies all access from a specified AWS account** The following VPC endpoint policy denies AWS account `123456789012` all access to resources using the endpoint. The policy allows all actions from other accounts. JSON `` `{ "Id":"Policy1645236617225", "Version":"2012-10-17", "Statement":[ { "Sid":"Stmt1645236612384", "Action":"backup:*", "Effect":"Deny", "Resource":"*", "Principal":{ "AWS":[ "123456789012" ] } } ] }` `` For more information about available API responses, see the [API Guide](api-reference.md "api-reference.md"). |
+| -------- | ----------- | --------- | -------------- | ----------- | ----------------------------------------------------------------- |
+| TCP      | 443 (HTTPS) | Outbound  | Backup Gateway | AWS         | For communication from Backup Gateway to the AWS service endpoint |
+
+### Use a VPC endpoint
+
+If you enable private DNS for the endpoint, you can make API requests to AWS Backup with the
+VPC endpoint using its default DNS name for the AWS Region, for example
+`backup.us-east-1.api.aws`.
+
+However, for the China (Beijing) Region and China (Ningxia) Region AWS Regions, API requests
+should be made with the VPC endpoint using `backup.cn-north-1.amazonaws.com.cn`
+and `backup.cn-northwest-1.amazonaws.com.cn`, respectively.
+
+### Creating a VPC endpoint policy
+
+You can attach an endpoint policy to your VPC endpoint that controls access to the
+Amazon Backup API. The policy specifies:
+
+- The principal that can perform actions.
+- The actions that can be performed.
+- The resources on which actions can be performed.
+
+###### Important
+
+When a non-default policy is applied to an interface VPC endpoint for AWS Backup, certain
+failed API requests, such as those failing from `RequestLimitExceeded`, might
+not be logged to AWS CloudTrail or Amazon CloudWatch.
+
+For more information, see [Control access to services using
+endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _AWS PrivateLink Guide_.
+
+**Example: VPC endpoint policy for AWS Backup actions**
+
+The following is an example of an endpoint policy for AWS Backup. When attached to an
+endpoint, this policy grants access to the listed AWS Backup actions for all principles on all
+resources.
+
+```
+{
+  "Statement":[
+    {
+      "Action":"backup:*",
+      "Effect":"Allow",
+      "Principal":"*",
+      "Resource":"*"
+    }
+  ]
+}
+```
+
+**Example: VPC endpoint policy that denies all access from a specified AWS
+account**
+
+The following VPC endpoint policy denies AWS account `123456789012` all
+access to resources using the endpoint. The policy allows all actions from other
+accounts.
+
+JSON
+
+```
+`{
+ "Id":"Policy1645236617225",
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Sid":"Stmt1645236612384",
+ "Action":"backup:*",
+ "Effect":"Deny",
+ "Resource":"*",
+ "Principal":{
+ "AWS":[
+ "123456789012"
+ ]
+ }
+ }
+ ]
+}`
+
+```
+
+For more information about available API responses, see the [API
+Guide](api-reference.md "api-reference.md").

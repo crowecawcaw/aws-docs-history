@@ -74,6 +74,7 @@ Content-type: application/json
          "BackupVaultName": "***string***",
          "CreationDate": ***number***,
          "EncryptionKeyArn": "***string***",
+         "EncryptionKeyType": "***string***",
          "IndexStatus": "***string***",
          "IndexStatusMessage": "***string***",
          "IsParent": ***boolean***,
