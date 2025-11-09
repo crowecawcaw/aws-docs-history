@@ -46,28 +46,49 @@ private keys and `USA_PASSPORT_NUMBER` for US passport numbers.
 To detect occurrences of credentials data in S3 objects, the recommended set uses the
 following managed data identifiers.
 
-| Sensitive data type                                 | Managed data identifier ID                                                                                                                                                                                                         |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS secret access key                               | `AWS_CREDENTIALS`                                                                                                                                                                                                                  |
-| HTTP Basic Authorization header                     | `HTTP_BASIC_AUTH_HEADER`                                                                                                                                                                                                           |
-| OpenSSH private key                                 | `OPENSSH_PRIVATE_KEY`                                                                                                                                                                                                              |
-| PGP private key                                     | `PGP_PRIVATE_KEY`                                                                                                                                                                                                                  |
-| Public Key Cryptography Standard (PKCS) private key | `PKCS`                                                                                                                                                                                                                             |
-| PuTTY private key                                   | `PUTTY_PRIVATE_KEY`                                                                                                                                                                                                                | ## Financial information To detect occurrences of financial information in S3 objects, the recommended set uses the following managed data identifiers.                                                                                                                                                        |
-| Sensitive data type                                 | Managed data identifier ID                                                                                                                                                                                                         |
-| ---                                                 | ---                                                                                                                                                                                                                                |
-| Credit card magnetic stripe data                    | `CREDIT_CARD_MAGNETIC_STRIPE`                                                                                                                                                                                                      |
-| Credit card number                                  | `CREDIT_CARD_NUMBER` (for credit card numbers in proximity of a keyword)                                                                                                                                                           | ## Personally identifiable information (PII) To detect occurrences of personally identifiable information (PII) in S3 objects, the recommended set uses the following managed data identifiers.                                                                                                                |
-| Sensitive data type                                 | Managed data identifier ID                                                                                                                                                                                                         |
-| ---                                                 | ---                                                                                                                                                                                                                                |
-| Driver’s license identification number              | `CANADA_DRIVERS_LICENSE, DRIVERS_LICENSE` (for the US), `UK_DRIVERS_LICENSE`                                                                                                                                                       |
-| Electoral roll number                               | `UK_ELECTORAL_ROLL_NUMBER`                                                                                                                                                                                                         |
-| National identification number                      | `FRANCE_NATIONAL_IDENTIFICATION_NUMBER, GERMANY_NATIONAL_IDENTIFICATION_NUMBER, ITALY_NATIONAL_IDENTIFICATION_NUMBER, SPAIN_DNI_NUMBER`                                                                                            |
-| National Insurance Number (NINO)                    | `UK_NATIONAL_INSURANCE_NUMBER`                                                                                                                                                                                                     |
-| Passport number                                     | `CANADA_PASSPORT_NUMBER, FRANCE_PASSPORT_NUMBER, GERMANY_PASSPORT_NUMBER, ITALY_PASSPORT_NUMBER, SPAIN_PASSPORT_NUMBER, UK_PASSPORT_NUMBER, USA_PASSPORT_NUMBER`                                                                   |
-| Social Insurance Number (SIN)                       | `CANADA_SOCIAL_INSURANCE_NUMBER`                                                                                                                                                                                                   |
-| Social Security number (SSN)                        | `SPAIN_SOCIAL_SECURITY_NUMBER, USA_SOCIAL_SECURITY_NUMBER`                                                                                                                                                                         |
-| Taxpayer identification or reference number         | `AUSTRALIA_TAX_FILE_NUMBER, BRAZIL_CPF_NUMBER, FRANCE_TAX_IDENTIFICATION_NUMBER, GERMANY_TAX_IDENTIFICATION_NUMBER, SPAIN_NIE_NUMBER, SPAIN_NIF_NUMBER, SPAIN_TAX_IDENTIFICATION_NUMBER, USA_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER` | ## Updates to the recommended set The following table describes changes to the set of managed data identifiers that we recommend for sensitive data discovery jobs. For automatic alerts about these changes, subscribe to the RSS feed on the [Macie document history](doc-history.md "doc-history.md") page. |
-| Change                                              | Description                                                                                                                                                                                                                        | Date                                                                                                                                                                                                                                                                                                           |
-| ---                                                 | ---                                                                                                                                                                                                                                | ---                                                                                                                                                                                                                                                                                                            |
-| General availability                                | Initial release of the recommended set.                                                                                                                                                                                            | June 27, 2023                                                                                                                                                                                                                                                                                                  |
+| Sensitive data type                                 | Managed data identifier ID |
+| --------------------------------------------------- | -------------------------- |
+| AWS secret access key                               | `AWS_CREDENTIALS`          |
+| HTTP Basic Authorization header                     | `HTTP_BASIC_AUTH_HEADER`   |
+| OpenSSH private key                                 | `OPENSSH_PRIVATE_KEY`      |
+| PGP private key                                     | `PGP_PRIVATE_KEY`          |
+| Public Key Cryptography Standard (PKCS) private key | `PKCS`                     |
+| PuTTY private key                                   | `PUTTY_PRIVATE_KEY`        |
+
+## Financial information
+
+To detect occurrences of financial information in S3 objects, the recommended set uses the
+following managed data identifiers.
+
+| Sensitive data type              | Managed data identifier ID                                                  |
+| -------------------------------- | --------------------------------------------------------------------------- |
+| Credit card magnetic stripe data | `CREDIT_CARD_MAGNETIC_STRIPE`                                               |
+| Credit card number               | `CREDIT_CARD_NUMBER` (for credit card numbers in proximity of a<br>keyword) |
+
+## Personally
+
+identifiable information (PII)
+
+To detect occurrences of personally identifiable information (PII) in S3 objects, the
+recommended set uses the following managed data identifiers.
+
+| Sensitive data type                         | Managed data identifier ID                                                                                                                                                                                                               |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Driver’s license identification number      | `CANADA_DRIVERS_LICENSE, DRIVERS_LICENSE` (for the US),<br>`UK_DRIVERS_LICENSE`                                                                                                                                                          |
+| Electoral roll number                       | `UK_ELECTORAL_ROLL_NUMBER`                                                                                                                                                                                                               |
+| National identification number              | `FRANCE_NATIONAL_IDENTIFICATION_NUMBER, GERMANY_NATIONAL_IDENTIFICATION_NUMBER,<br>ITALY_NATIONAL_IDENTIFICATION_NUMBER, SPAIN_DNI_NUMBER`                                                                                               |
+| National Insurance Number (NINO)            | `UK_NATIONAL_INSURANCE_NUMBER`                                                                                                                                                                                                           |
+| Passport number                             | `CANADA_PASSPORT_NUMBER, FRANCE_PASSPORT_NUMBER,<br>GERMANY_PASSPORT_NUMBER, ITALY_PASSPORT_NUMBER,<br>SPAIN_PASSPORT_NUMBER, UK_PASSPORT_NUMBER,<br>USA_PASSPORT_NUMBER`                                                                |
+| Social Insurance Number (SIN)               | `CANADA_SOCIAL_INSURANCE_NUMBER`                                                                                                                                                                                                         |
+| Social Security number (SSN)                | `SPAIN_SOCIAL_SECURITY_NUMBER,<br>USA_SOCIAL_SECURITY_NUMBER`                                                                                                                                                                            |
+| Taxpayer identification or reference number | `AUSTRALIA_TAX_FILE_NUMBER, BRAZIL_CPF_NUMBER, FRANCE_TAX_IDENTIFICATION_NUMBER,<br>GERMANY_TAX_IDENTIFICATION_NUMBER, SPAIN_NIE_NUMBER, SPAIN_NIF_NUMBER,<br>SPAIN_TAX_IDENTIFICATION_NUMBER, USA_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER` |
+
+## Updates to the recommended set
+
+The following table describes changes to the set of managed data identifiers that we
+recommend for sensitive data discovery jobs. For automatic alerts about these changes, subscribe to the RSS
+feed on the [Macie document history](doc-history.md "doc-history.md") page.
+
+| Change               | Description                             | Date          |
+| -------------------- | --------------------------------------- | ------------- |
+| General availability | Initial release of the recommended set. | June 27, 2023 |

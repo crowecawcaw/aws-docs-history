@@ -90,18 +90,399 @@ finding type taxonomy in Macie.
 The following table lists the ASFF finding type for each type of sensitive
 data finding that Macie can create.
 
-| Macie finding type                          | ASFF finding type                                                                                         |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SensitiveData:S3Object/Credentials          | Sensitive Data Identifications/Passwords/SensitiveData:S3Object-Credentials                               |
-| SensitiveData:S3Object/CustomIdentifier     | Sensitive Data Identifications/PII/SensitiveData:S3Object-CustomIdentifier                                |
-| SensitiveData:S3Object/Financial            | Sensitive Data Identifications/Financial/SensitiveData:S3Object-Financial                                 |
-| SensitiveData:S3Object/Multiple             | Sensitive Data Identifications/PII/SensitiveData:S3Object-Multiple                                        |
-| SensitiveData:S3Object/Personal             | Sensitive Data Identifications/PII/SensitiveData:S3Object-Personal                                        | #### Policy findings If you configure Macie to publish [policy findings](findings-types.md#findings-policy-types "findings-types.md#findings-policy-types") to Security Hub, Macie automatically publishes each new policy finding that it creates, and it does so immediately after it finishes processing the finding. If Macie detects a subsequent occurrence of an existing policy finding, it automatically publishes an update to the existing finding in Security Hub, using a publication frequency that you specify for your account. Macie performs these tasks for all policy findings that aren't archived automatically by a [suppression rule](findings-suppression.md "findings-suppression.md"). If you're the Macie administrator for an organization, publication is limited to policy findings for S3 buckets that are owned directly by your account. Macie doesn't publish policy findings that it creates or updates for member accounts in your organization. This helps ensure that you don't have duplicate findings data in Security Hub. As is the case for sensitive data findings, Macie uses the AWS Security Finding Format (ASFF) when it publishes new and updated policy findings to Security Hub. In the ASFF, the `Types` field uses a taxonomy that's slightly different from the finding type taxonomy in Macie. The following table lists the ASFF finding type for each type of policy finding that Macie can create. If Macie created or updated a policy finding in Security Hub on or after January 28, 2021, the finding has one of the following values for the ASFF `Types` field in Security Hub.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Macie finding type                          | ASFF finding type                                                                                         |
-| ---                                         | ---                                                                                                       |
-| Policy:IAMUser/S3BlockPublicAccessDisabled  | Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BlockPublicAccessDisabled  |
-| Policy:IAMUser/S3BucketEncryptionDisabled   | Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BucketEncryptionDisabled   |
-| Policy:IAMUser/S3BucketPublic               | Effects/Data Exposure/Policy:IAMUser-S3BucketPublic                                                       |
-| Policy:IAMUser/S3BucketReplicatedExternally | Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BucketReplicatedExternally |
-| Policy:IAMUser/S3BucketSharedExternally     | Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BucketSharedExternally     |
-| Policy:IAMUser/S3BucketSharedWithCloudFront | Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BucketSharedWithCloudFront | If Macie created or last updated a policy finding before January 28, 2021, the finding has one of the following values for the ASFF `Types` field in Security Hub: <br>• Policy:IAMUser/S3BlockPublicAccessDisabled <br>• Policy:IAMUser/S3BucketEncryptionDisabled <br>• Policy:IAMUser/S3BucketPublic <br>• Policy:IAMUser/S3BucketReplicatedExternally <br>• Policy:IAMUser/S3BucketSharedExternally The values in the preceding list map directly to values for the **Finding type** (`type`) field in Macie. ###### Notes As you review and process policy findings in Security Hub, note the following exceptions: <br>• In certain AWS Regions, Macie began using ASFF finding types for new and updated findings as early as January 25, 2021. <br>• If you acted upon a policy finding in Security Hub before Macie began using ASFF finding types in your AWS Region, the value for the ASFF `Types` field of the finding will be one of the Macie finding types in the preceding list. It will not be one of the ASFF finding types in the preceding table. This is true for policy findings that you acted upon using the AWS Security Hub console or the `BatchUpdateFindings` operation of the AWS Security Hub API. ### Latency for publishing findings to Security Hub When Amazon Macie creates a new policy or sensitive data finding, it publishes the finding to AWS Security Hub immediately after it finishes processing the finding. If Macie detects a subsequent occurrence of an existing policy finding, it publishes an update to the existing finding in Security Hub. The timing of the update depends on the publication frequency that you choose for your Macie account. By default, Macie publishes updates every 15 minutes. For more information, including how to change the setting for your account, see [Configuring publication settings for findings](findings-publish-frequency.md "findings-publish-frequency.md"). ### Retrying publication when Security Hub isn't available If AWS Security Hub isn't available, Amazon Macie creates a queue of findings that haven't been received by Security Hub. When the system is restored, Macie retries publication until the findings are received by Security Hub. ### Updating existing findings in Security Hub After Amazon Macie publishes a policy finding to AWS Security Hub, Macie updates the finding to reflect any additional occurrences of the finding or finding activity. Macie does this only for policy findings. Macie doesn't update sensitive data findings in Security Hub. Unlike policy findings, all sensitive data findings are treated as new (unique). When Macie publishes an update to a policy finding, Macie updates the value for the **Updated At** (`UpdatedAt`) field of the finding. You can use this value to determine when Macie most recently detected a subsequent occurrence of the potential policy violation or issue that produced the finding. Macie might also update the value for the **Types** (`Types`) field of a finding if the existing value for the field isn't an [ASFF finding type](#securityhub-integration-finding-types-policy "#securityhub-integration-finding-types-policy"). This depends on whether you've acted upon the finding in Security Hub. If you haven't acted upon the finding, Macie changes the field's value to the appropriate ASFF finding type. If you've acted upon the finding, using either the AWS Security Hub console or the `BatchUpdateFindings` operation of the AWS Security Hub API, Macie doesn't change the field's value. ## Examples of Macie findings in AWS Security Hub When Amazon Macie publishes findings to AWS Security Hub, it uses the [AWS Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). This is the standard format for all findings in Security Hub. The following examples use sample data to demonstrate the structure and nature of the findings data that Macie publishes to Security Hub in this format: <br>• [Example of a sensitive data finding](#securityhub-integration-finding-example-sdf "#securityhub-integration-finding-example-sdf") <br>• [Example of a policy finding](#securityhub-integration-finding-example-policy "#securityhub-integration-finding-example-policy") ### Example of a sensitive data finding in Security Hub Here's an example of a sensitive data finding that Macie published to Security Hub using the ASFF. `{ "SchemaVersion": "2018-10-08", "Id": "5be50fce24526e670df77bc00example", "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/macie", "ProductName": "Macie", "CompanyName": "Amazon", "Region": "us-east-1", "GeneratorId": "aws/macie", "AwsAccountId": "111122223333", "Types":[ "Sensitive Data Identifications/PII/SensitiveData:S3Object-Personal" ], "CreatedAt": "2022-05-11T10:23:49.667Z", "UpdatedAt": "2022-05-11T10:23:49.667Z", "Severity": { "Label": "HIGH", "Normalized": 70 }, "Title": "The S3 object contains personal information.", "Description": "The object contains personal information such as first or last names, addresses, or identification numbers.", "ProductFields": { "JobArn": "arn:aws:macie2:us-east-1:111122223333:classification-job/698e99c283a255bb2c992feceexample", "S3Object.Path": "amzn-s3-demo-bucket/2022 Sourcing.tsv", "S3Object.Extension": "tsv", "S3Bucket.effectivePermission": "NOT_PUBLIC", "OriginType": "SENSITIVE_DATA_DISCOVERY_JOB", "S3Object.PublicAccess": "false", "S3Object.Size": "14", "S3Object.StorageClass": "STANDARD", "S3Bucket.allowsUnencryptedObjectUploads": "TRUE", "JobId": "698e99c283a255bb2c992feceexample", "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-1::product/aws/macie/5be50fce24526e670df77bc00example", "aws/securityhub/ProductName": "Macie", "aws/securityhub/CompanyName": "Amazon" }, "Resources": [ { "Type": "AwsS3Bucket", "Id": "arn:aws:s3:::amzn-s3-demo-bucket", "Partition": "aws", "Region": "us-east-1", "Details": { "AwsS3Bucket": { "OwnerId": "7009a8971cd538e11f6b6606438875e7c86c5b672f46db45460ddcd08example", "OwnerName": "johndoe", "OwnerAccountId": "444455556666", "CreatedAt": "2020-12-30T18:16:25.000Z", "ServerSideEncryptionConfiguration": { "Rules": [ { "ApplyServerSideEncryptionByDefault": { "SSEAlgorithm": "aws:kms", "KMSMasterKeyID": "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" } } ] }, "PublicAccessBlockConfiguration": { "BlockPublicAcls": true, "BlockPublicPolicy": true, "IgnorePublicAcls": true, "RestrictPublicBuckets": true } } } }, { "Type": "AwsS3Object", "Id": "arn:aws:s3:::amzn-s3-demo-bucket/2022 Sourcing.tsv", "Partition": "aws", "Region": "us-east-1", "DataClassification": { "DetailedResultsLocation": "s3://macie-data-discovery-results/AWSLogs/111122223333/Macie/us-east-1/ 698e99c283a255bb2c992feceexample/111122223333/32b8485d-4f3a-3aa1-be33-aa3f0example.jsonl.gz", "Result":{ "MimeType": "text/tsv", "SizeClassified": 14, "AdditionalOccurrences": false, "Status": { "Code": "COMPLETE" }, "SensitiveData": [ { "Category": "PERSONAL_INFORMATION", "Detections": [ { "Count": 1, "Type": "USA_SOCIAL_SECURITY_NUMBER", "Occurrences": { "Cells": [ { "Column": 10, "Row": 1, "ColumnName": "Other" } ] } } ], "TotalCount": 1 } ], "CustomDataIdentifiers": { "Detections": [ ], "TotalCount": 0 } } }, "Details": { "AwsS3Object": { "LastModified": "2022-04-22T18:16:46.000Z", "ETag": "ebe1ca03ee8d006d457444445example", "VersionId": "SlBC72z5hArgexOJifxw_IN57example", "ServerSideEncryption": "aws:kms", "SSEKMSKeyId": "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" } } } ], "WorkflowState": "NEW", "Workflow": { "Status": "NEW" }, "RecordState": "ACTIVE", "FindingProviderFields": { "Severity": { "Label": "HIGH" }, "Types": [ "Sensitive Data Identifications/PII/SensitiveData:S3Object-Personal" ] }, "Sample": false, "ProcessedAt": "2022-05-11T10:23:49.667Z" }` ### Example of a policy finding in Security Hub Here's an example of a new policy finding that Macie published to Security Hub in the ASFF. `{ "SchemaVersion": "2018-10-08", "Id": "36ca8ba0-caf1-4fee-875c-37760example", "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/macie", "ProductName": "Macie", "CompanyName": "Amazon", "Region": "us-east-1", "GeneratorId": "aws/macie", "AwsAccountId": "111122223333", "Types": [ "Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BlockPublicAccessDisabled" ], "CreatedAt": "2022-04-24T09:27:43.313Z", "UpdatedAt": "2022-04-24T09:27:43.313Z", "Severity": { "Label": "HIGH", "Normalized": 70 }, "Title": "Block Public Access settings are disabled for the S3 bucket", "Description": "All Amazon S3 block public access settings are disabled for the Amazon S3 bucket. Access to the bucket is controlled only by access control lists (ACLs) or bucket policies.", "ProductFields": { "S3Bucket.effectivePermission": "NOT_PUBLIC", "S3Bucket.allowsUnencryptedObjectUploads": "FALSE", "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-1::product/aws/macie/36ca8ba0-caf1-4fee-875c-37760example", "aws/securityhub/ProductName": "Macie", "aws/securityhub/CompanyName": "Amazon" }, "Resources": [ { "Type": "AwsS3Bucket", "Id": "arn:aws:s3:::amzn-s3-demo-bucket", "Partition": "aws", "Region": "us-east-1", "Tags": { "Team": "Recruiting", "Division": "HR" }, "Details": { "AwsS3Bucket": { "OwnerId": "7009a8971cd538e11f6b6606438875e7c86c5b672f46db45460ddcd08example", "OwnerName": "johndoe", "OwnerAccountId": "444455556666", "CreatedAt": "2020-11-25T18:24:38.000Z", "ServerSideEncryptionConfiguration": { "Rules": [ { "ApplyServerSideEncryptionByDefault": { "SSEAlgorithm": "aws:kms", "KMSMasterKeyID": "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" } } ] }, "PublicAccessBlockConfiguration": { "BlockPublicAcls": false, "BlockPublicPolicy": false, "IgnorePublicAcls": false, "RestrictPublicBuckets": false } } } } ], "WorkflowState": "NEW", "Workflow": { "Status": "NEW" }, "RecordState": "ACTIVE", "FindingProviderFields": { "Severity": { "Label": "HIGH" }, "Types": [ "Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BlockPublicAccessDisabled" ] }, "Sample": false }` ## Integrating Macie with AWS Security Hub To integrate Amazon Macie with AWS Security Hub, enable Security Hub for your AWS account. To learn how, see [Enabling Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_. When you enable both Macie and Security Hub, the integration is enabled automatically. By default, Macie begins to publish new and updated policy findings to Security Hub automatically. You don't need to take additional steps to configure the integration. If you have existing policy findings when the integration is enabled, Macie doesn't publish them to Security Hub. Instead, Macie publishes only those policy findings that it creates or updates after the integration is enabled. You can optionally customize your configuration by choosing the frequency with which Macie publishes updates to policy findings in Security Hub. You can also choose to publish sensitive data findings to Security Hub. To learn how, see [Configuring publication settings for findings](findings-publish-frequency.md "findings-publish-frequency.md"). ## Stopping publication of Macie findings to AWS Security Hub To stop publishing Amazon Macie findings to AWS Security Hub, you can change the publication settings for your Macie account. To learn how, see [Choosing publication destinations for findings](findings-publish-frequency.md#findings-publish-destinations-change "findings-publish-frequency.md#findings-publish-destinations-change"). You can also do this by using Security Hub. To learn how, see [Disabling the flow of findings from an integration](../../../securityhub/latest/userguide/securityhub-findings-providers.md#securityhub-integration-disable "../../../securityhub/latest/userguide/securityhub-findings-providers.md#securityhub-integration-disable") in the _AWS Security Hub User Guide_. |
+| Macie finding type                      | ASFF finding type                                                              |
+| --------------------------------------- | ------------------------------------------------------------------------------ |
+| SensitiveData:S3Object/Credentials      | Sensitive Data<br>Identifications/Passwords/SensitiveData:S3Object-Credentials |
+| SensitiveData:S3Object/CustomIdentifier | Sensitive Data<br>Identifications/PII/SensitiveData:S3Object-CustomIdentifier  |
+| SensitiveData:S3Object/Financial        | Sensitive Data<br>Identifications/Financial/SensitiveData:S3Object-Financial   |
+| SensitiveData:S3Object/Multiple         | Sensitive Data<br>Identifications/PII/SensitiveData:S3Object-Multiple          |
+| SensitiveData:S3Object/Personal         | Sensitive Data<br>Identifications/PII/SensitiveData:S3Object-Personal          |
+
+#### Policy
+
+findings
+
+If you configure Macie to publish [policy
+findings](findings-types.md#findings-policy-types "findings-types.md#findings-policy-types") to Security Hub, Macie automatically publishes each new policy
+finding that it creates, and it does so immediately after it finishes processing
+the finding. If Macie detects a subsequent occurrence of an existing policy
+finding, it automatically publishes an update to the existing finding in Security Hub,
+using a publication frequency that you specify for your account. Macie performs
+these tasks for all policy findings that aren't archived automatically by a
+[suppression rule](findings-suppression.md "findings-suppression.md").
+
+If you're the Macie administrator for an organization, publication is limited to policy findings
+for S3 buckets that are owned directly by your account. Macie doesn't publish
+policy findings that it creates or updates for member accounts in your
+organization. This helps ensure that you don't have duplicate findings data in
+Security Hub.
+
+As is the case for sensitive data findings, Macie uses the AWS Security
+Finding Format (ASFF) when it publishes new and updated policy findings to
+Security Hub. In the ASFF, the `Types` field uses a taxonomy that's slightly
+different from the finding type taxonomy in Macie.
+
+The following table lists the ASFF finding type for each type of policy
+finding that Macie can create. If Macie created or updated a policy finding in
+Security Hub on or after January 28, 2021, the finding has one of the following values
+for the ASFF `Types` field in Security Hub.
+
+| Macie finding type                          | ASFF finding type                                                                                            |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Policy:IAMUser/S3BlockPublicAccessDisabled  | Software and Configuration Checks/AWS Security Best<br>Practices/Policy:IAMUser-S3BlockPublicAccessDisabled  |
+| Policy:IAMUser/S3BucketEncryptionDisabled   | Software and Configuration Checks/AWS Security Best<br>Practices/Policy:IAMUser-S3BucketEncryptionDisabled   |
+| Policy:IAMUser/S3BucketPublic               | Effects/Data Exposure/Policy:IAMUser-S3BucketPublic                                                          |
+| Policy:IAMUser/S3BucketReplicatedExternally | Software and Configuration Checks/AWS Security Best<br>Practices/Policy:IAMUser-S3BucketReplicatedExternally |
+| Policy:IAMUser/S3BucketSharedExternally     | Software and Configuration Checks/AWS Security Best<br>Practices/Policy:IAMUser-S3BucketSharedExternally     |
+| Policy:IAMUser/S3BucketSharedWithCloudFront | Software and Configuration Checks/AWS Security Best<br>Practices/Policy:IAMUser-S3BucketSharedWithCloudFront |
+
+If Macie created or last updated a policy finding before January 28, 2021, the
+finding has one of the following values for the ASFF `Types` field in
+Security Hub:
+
+- Policy:IAMUser/S3BlockPublicAccessDisabled
+- Policy:IAMUser/S3BucketEncryptionDisabled
+- Policy:IAMUser/S3BucketPublic
+- Policy:IAMUser/S3BucketReplicatedExternally
+- Policy:IAMUser/S3BucketSharedExternally
+
+The values in the preceding list map directly to values for the
+**Finding type** (`type`) field in Macie.
+
+###### Notes
+
+As you review and process policy findings in Security Hub, note the following
+exceptions:
+
+- In certain AWS Regions, Macie began using ASFF finding types for new and updated
+  findings as early as January 25, 2021.
+- If you acted upon a policy finding in Security Hub before Macie began using ASFF finding types
+  in your AWS Region, the value for the ASFF `Types`
+  field of the finding will be one of the Macie finding types in the
+  preceding list. It will not be one of the ASFF finding types in the
+  preceding table. This is true for policy findings that you acted
+  upon using the AWS Security Hub console or the
+  `BatchUpdateFindings` operation of the AWS Security Hub
+  API.
+
+### Latency for publishing findings to
+
+Security Hub
+
+When Amazon Macie creates a new policy or sensitive data finding, it publishes the finding to
+AWS Security Hub immediately after it finishes processing the finding.
+
+If Macie detects a subsequent occurrence of an existing policy finding, it publishes an
+update to the existing finding in Security Hub. The timing of the update depends on the
+publication frequency that you choose for your Macie account. By default, Macie
+publishes updates every 15 minutes. For more information, including how to change
+the setting for your account, see [Configuring publication settings
+for findings](findings-publish-frequency.md "findings-publish-frequency.md").
+
+### Retrying publication when Security Hub isn't
+
+available
+
+If AWS Security Hub isn't available, Amazon Macie creates a queue of findings that haven't been
+received by Security Hub. When the system is restored, Macie retries publication until the
+findings are received by Security Hub.
+
+### Updating existing findings in
+
+Security Hub
+
+After Amazon Macie publishes a policy finding to AWS Security Hub, Macie updates the finding to
+reflect any additional occurrences of the finding or finding activity. Macie does
+this only for policy findings. Macie doesn't update sensitive data findings in
+Security Hub. Unlike policy findings, all sensitive data findings are treated as new
+(unique).
+
+When Macie publishes an update to a policy finding, Macie updates the value for the
+**Updated At** (`UpdatedAt`) field of the finding.
+You can use this value to determine when Macie most recently detected a subsequent
+occurrence of the potential policy violation or issue that produced the
+finding.
+
+Macie might also update the value for the **Types** (`Types`)
+field of a finding if the existing value for the field isn't an [ASFF finding type](#securityhub-integration-finding-types-policy "#securityhub-integration-finding-types-policy").
+This depends on whether you've acted upon the finding in Security Hub. If you haven't acted
+upon the finding, Macie changes the field's value to the appropriate ASFF finding
+type. If you've acted upon the finding, using either the AWS Security Hub console or the
+`BatchUpdateFindings` operation of the AWS Security Hub API, Macie doesn't
+change the field's value.
+
+## Examples of Macie findings in
+
+AWS Security Hub
+
+When Amazon Macie publishes findings to AWS Security Hub, it uses the [AWS Security
+Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). This is the standard format for all findings in Security Hub.
+The following examples use sample data to demonstrate the structure and nature of the
+findings data that Macie publishes to Security Hub in this format:
+
+- [Example of a sensitive data
+  finding](#securityhub-integration-finding-example-sdf "#securityhub-integration-finding-example-sdf")
+- [Example of a policy
+  finding](#securityhub-integration-finding-example-policy "#securityhub-integration-finding-example-policy")
+
+### Example of a sensitive data finding in
+
+Security Hub
+
+Here's an example of a sensitive data finding that Macie published to Security Hub using the
+ASFF.
+
+```
+{
+    "SchemaVersion": "2018-10-08",
+    "Id": "5be50fce24526e670df77bc00example",
+    "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/macie",
+    "ProductName": "Macie",
+    "CompanyName": "Amazon",
+    "Region": "us-east-1",
+    "GeneratorId": "aws/macie",
+    "AwsAccountId": "111122223333",
+    "Types":[
+        "Sensitive Data Identifications/PII/SensitiveData:S3Object-Personal"
+    ],
+    "CreatedAt": "2022-05-11T10:23:49.667Z",
+    "UpdatedAt": "2022-05-11T10:23:49.667Z",
+    "Severity": {
+        "Label": "HIGH",
+        "Normalized": 70
+    },
+    "Title": "The S3 object contains personal information.",
+    "Description": "The object contains personal information such as first or last names, addresses, or identification numbers.",
+    "ProductFields": {
+        "JobArn": "arn:aws:macie2:us-east-1:111122223333:classification-job/698e99c283a255bb2c992feceexample",
+        "S3Object.Path": "amzn-s3-demo-bucket/2022 Sourcing.tsv",
+        "S3Object.Extension": "tsv",
+        "S3Bucket.effectivePermission": "NOT_PUBLIC",
+        "OriginType": "SENSITIVE_DATA_DISCOVERY_JOB",
+        "S3Object.PublicAccess": "false",
+        "S3Object.Size": "14",
+        "S3Object.StorageClass": "STANDARD",
+        "S3Bucket.allowsUnencryptedObjectUploads": "TRUE",
+        "JobId": "698e99c283a255bb2c992feceexample",
+        "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-1::product/aws/macie/5be50fce24526e670df77bc00example",
+        "aws/securityhub/ProductName": "Macie",
+        "aws/securityhub/CompanyName": "Amazon"
+    },
+    "Resources": [
+        {
+            "Type": "AwsS3Bucket",
+            "Id": "arn:aws:s3:::amzn-s3-demo-bucket",
+            "Partition": "aws",
+            "Region": "us-east-1",
+            "Details": {
+                "AwsS3Bucket": {
+                    "OwnerId": "7009a8971cd538e11f6b6606438875e7c86c5b672f46db45460ddcd08example",
+                    "OwnerName": "johndoe",
+                    "OwnerAccountId": "444455556666",
+                    "CreatedAt": "2020-12-30T18:16:25.000Z",
+                    "ServerSideEncryptionConfiguration": {
+                        "Rules": [
+                            {
+                                "ApplyServerSideEncryptionByDefault": {
+                                    "SSEAlgorithm": "aws:kms",
+                                    "KMSMasterKeyID": "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+                                }
+                            }
+                        ]
+                    },
+                    "PublicAccessBlockConfiguration": {
+                        "BlockPublicAcls": true,
+                        "BlockPublicPolicy": true,
+                        "IgnorePublicAcls": true,
+                        "RestrictPublicBuckets": true
+                    }
+                }
+            }
+        },
+        {
+            "Type": "AwsS3Object",
+            "Id": "arn:aws:s3:::amzn-s3-demo-bucket/2022 Sourcing.tsv",
+            "Partition": "aws",
+            "Region": "us-east-1",
+            "DataClassification": {
+                "DetailedResultsLocation": "s3://macie-data-discovery-results/AWSLogs/111122223333/Macie/us-east-1/
+                698e99c283a255bb2c992feceexample/111122223333/32b8485d-4f3a-3aa1-be33-aa3f0example.jsonl.gz",
+                "Result":{
+                    "MimeType": "text/tsv",
+                    "SizeClassified": 14,
+                    "AdditionalOccurrences": false,
+                    "Status": {
+                        "Code": "COMPLETE"
+                    },
+                    "SensitiveData": [
+                        {
+                            "Category": "PERSONAL_INFORMATION",
+                            "Detections": [
+                                {
+                                    "Count": 1,
+                                    "Type": "USA_SOCIAL_SECURITY_NUMBER",
+                                    "Occurrences": {
+                                        "Cells": [
+                                            {
+                                                "Column": 10,
+                                                "Row": 1,
+                                                "ColumnName": "Other"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "TotalCount": 1
+                        }
+                    ],
+                    "CustomDataIdentifiers": {
+                        "Detections": [
+                        ],
+                        "TotalCount": 0
+                    }
+                }
+            },
+            "Details": {
+                "AwsS3Object": {
+                    "LastModified": "2022-04-22T18:16:46.000Z",
+                    "ETag": "ebe1ca03ee8d006d457444445example",
+                    "VersionId": "SlBC72z5hArgexOJifxw_IN57example",
+                    "ServerSideEncryption": "aws:kms",
+                    "SSEKMSKeyId": "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+                }
+            }
+        }
+    ],
+    "WorkflowState": "NEW",
+    "Workflow": {
+        "Status": "NEW"
+    },
+    "RecordState": "ACTIVE",
+    "FindingProviderFields": {
+        "Severity": {
+            "Label": "HIGH"
+        },
+        "Types": [
+            "Sensitive Data Identifications/PII/SensitiveData:S3Object-Personal"
+        ]
+    },
+    "Sample": false,
+    "ProcessedAt": "2022-05-11T10:23:49.667Z"
+}
+```
+
+### Example of a policy finding in
+
+Security Hub
+
+Here's an example of a new policy finding that Macie published to Security Hub in the ASFF.
+
+```
+{
+    "SchemaVersion": "2018-10-08",
+    "Id": "36ca8ba0-caf1-4fee-875c-37760example",
+    "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/macie",
+    "ProductName": "Macie",
+    "CompanyName": "Amazon",
+    "Region": "us-east-1",
+    "GeneratorId": "aws/macie",
+    "AwsAccountId": "111122223333",
+    "Types": [
+        "Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BlockPublicAccessDisabled"
+    ],
+    "CreatedAt": "2022-04-24T09:27:43.313Z",
+    "UpdatedAt": "2022-04-24T09:27:43.313Z",
+    "Severity": {
+        "Label": "HIGH",
+        "Normalized": 70
+    },
+    "Title": "Block Public Access settings are disabled for the S3 bucket",
+    "Description": "All Amazon S3 block public access settings are disabled for the Amazon S3 bucket. Access to the bucket is
+      controlled only by access control lists (ACLs) or bucket policies.",
+    "ProductFields": {
+        "S3Bucket.effectivePermission": "NOT_PUBLIC",
+        "S3Bucket.allowsUnencryptedObjectUploads": "FALSE",
+        "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-1::product/aws/macie/36ca8ba0-caf1-4fee-875c-37760example",
+        "aws/securityhub/ProductName": "Macie",
+        "aws/securityhub/CompanyName": "Amazon"
+    },
+    "Resources": [
+        {
+        "Type": "AwsS3Bucket",
+        "Id": "arn:aws:s3:::amzn-s3-demo-bucket",
+        "Partition": "aws",
+        "Region": "us-east-1",
+        "Tags": {
+            "Team": "Recruiting",
+            "Division": "HR"
+        },
+        "Details": {
+            "AwsS3Bucket": {
+              "OwnerId": "7009a8971cd538e11f6b6606438875e7c86c5b672f46db45460ddcd08example",
+              "OwnerName": "johndoe",
+              "OwnerAccountId": "444455556666",
+              "CreatedAt": "2020-11-25T18:24:38.000Z",
+              "ServerSideEncryptionConfiguration": {
+                "Rules": [
+                    {
+                    "ApplyServerSideEncryptionByDefault": {
+                        "SSEAlgorithm": "aws:kms",
+                        "KMSMasterKeyID": "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+                    }
+                  }
+                ]
+              },
+              "PublicAccessBlockConfiguration": {
+                "BlockPublicAcls": false,
+                "BlockPublicPolicy": false,
+                "IgnorePublicAcls": false,
+                "RestrictPublicBuckets": false
+               }
+            }
+         }
+      }
+    ],
+    "WorkflowState": "NEW",
+    "Workflow": {
+        "Status": "NEW"
+    },
+    "RecordState": "ACTIVE",
+    "FindingProviderFields": {
+        "Severity": {
+            "Label": "HIGH"
+        },
+        "Types": [
+            "Software and Configuration Checks/AWS Security Best Practices/Policy:IAMUser-S3BlockPublicAccessDisabled"
+        ]
+    },
+    "Sample": false
+}
+```
+
+## Integrating Macie with AWS Security Hub
+
+To integrate Amazon Macie with AWS Security Hub, enable Security Hub for your AWS account. To learn
+how, see [Enabling
+Security Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
+
+When you enable both Macie and Security Hub, the integration is enabled automatically. By
+default, Macie begins to publish new and updated policy findings to Security Hub automatically.
+You don't need to take additional steps to configure the integration. If you have
+existing policy findings when the integration is enabled, Macie doesn't publish them to
+Security Hub. Instead, Macie publishes only those policy findings that it creates or updates
+after the integration is enabled.
+
+You can optionally customize your configuration by choosing the frequency with which
+Macie publishes updates to policy findings in Security Hub. You can also choose to publish
+sensitive data findings to Security Hub. To learn how, see [Configuring publication settings
+for findings](findings-publish-frequency.md "findings-publish-frequency.md").
+
+## Stopping publication of Macie findings to
+
+AWS Security Hub
+
+To stop publishing Amazon Macie findings to AWS Security Hub, you can change the publication settings
+for your Macie account. To learn how, see [Choosing publication destinations
+for findings](findings-publish-frequency.md#findings-publish-destinations-change "findings-publish-frequency.md#findings-publish-destinations-change"). You can also do this by
+using Security Hub. To learn how, see [Disabling the flow of findings from an integration](../../../securityhub/latest/userguide/securityhub-findings-providers.md#securityhub-integration-disable "../../../securityhub/latest/userguide/securityhub-findings-providers.md#securityhub-integration-disable") in
+the _AWS Security Hub User Guide_.

@@ -98,12 +98,300 @@ encryption. You can also determine which buckets use certain types of server-sid
 encryption by default when storing new objects. The following table provides examples of
 filters that you can apply to your bucket inventory to find this information.
 
-| To show buckets that...                                             | Apply this filter...                                                       |
-| ------------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Store objects that use SSE-C encryption                             | **Object count by encryption** is **Customer provided** and **From** = _1_ |
-| Store objects that use DSSE-KMS or SSE-KMS encryption               | **Object count by encryption** is **AWS KMS managed** and **From** = _1_   |
-| Store objects that use SSE-S3 encryption                            | **Object count by encryption** is **Amazon S3 managed** and **From** = _1_ |
-| Store objects that use client-side encryption (or aren't encrypted) | **Object count by encryption** is **No encryption** and **From** = _1_     |
-| Encrypt new objects by default using DSSE-KMS encryption            | **Default encryption** = **aws:kms:dsse**                                  |
-| Encrypt new objects by default using SSE-KMS encryption             | **Default encryption** = **aws:kms**                                       |
-| Encrypt new objects by default using SSE-S3 encryption              | **Default encryption** = **AES256**                                        | If a bucket is configured to encrypt new objects by default using DSSE-KMS or SSE-KMS encryption, you can also determine which AWS KMS key is used. To do this, choose the bucket on the **S3 buckets** page. In the bucket details panel, under **Server-side encryption**, refer to the **AWS KMS key** field. This field shows the Amazon Resource Name (ARN) or unique identifier (key ID) for the key. ## Allowing Macie to use a customer managed AWS KMS key If an Amazon S3 object is encrypted using dual-layer server-side encryption or server-side encryption with a customer managed AWS KMS key (DSSE-KMS or SSE-KMS), Amazon Macie can decrypt the object only if it is allowed to use the key. How to provide this access depends on whether the account that owns the key also owns the S3 bucket that stores the object: <br>• If the same account owns the AWS KMS key and the bucket, a user of the account has to update the key's policy. <br>• If one account owns the AWS KMS key and a different account owns the bucket, a user of the account that owns the key has to allow cross-account access to the key. This topic describes how to perform these tasks and provides examples for both scenarios. To learn more about allowing access to customer managed AWS KMS keys, see [KMS key access and permissions](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md") in the _AWS Key Management Service Developer Guide_. ### Allowing same-account access to a customer managed key If the same account owns both the AWS KMS key and the S3 bucket, a user of the account has to add a statement to the policy for the key. The additional statement must allow the Macie service-linked role for the account to decrypt data by using the key. For detailed information about updating a key policy, see [Changing a key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the _AWS Key Management Service Developer Guide_. In the statement: <br>• The `Principal` element must specify the Amazon Resource Name (ARN) of the Macie service-linked role for the account that owns the AWS KMS key and the S3 bucket. If the account is in an opt-in AWS Region, the ARN must also include the appropriate Region code for the Region. For example, if the account is in the Middle East (Bahrain) Region, which has the Region code _me-south-1_, the `Principal` element must specify `arn:aws:iam::`123456789012`:role/aws-service-role/macie.me-south-1.amazonaws.com/AWSServiceRoleForAmazonMacie`, where `123456789012` is the account ID for the account. For a list of Region codes for the Regions where Macie is currently available, see [Amazon Macie endpoints and quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in the _AWS General Reference_. <br>• The `Action` array must specify the `kms:Decrypt` action. This is the only AWS KMS action that Macie must be allowed to perform to decrypt an S3 object that's encrypted with the key. The following is an example of the statement to add to the policy for an AWS KMS key. ``{ "Sid": "Allow the Macie service-linked role to use the key", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::`123456789012`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie" }, "Action": [ "kms:Decrypt" ], "Resource": "*" }`` In the preceding example: <br>• The `AWS` field in the `Principal` element specifies the ARN of the Macie service-linked role (`AWSServiceRoleForAmazonMacie`) for the account. It allows the Macie service-linked role to perform the action specified by the policy statement. `123456789012` is an example account ID. Replace this value with the account ID for the account that owns the KMS key and the S3 bucket. <br>• The `Action` array specifies the action that the Macie service-linked role is allowed to perform using the KMS key—decrypt ciphertext that's encrypted with the key. Where you add this statement to a key policy depends on the structure and elements that the policy currently contains. When you add the statement, ensure that the syntax is valid. Key policies use JSON format. This means that you have to also add a comma before or after the statement, depending on where you add the statement to the policy. ### Allowing cross-account access to a customer managed key If one account owns the AWS KMS key (_key owner_) and a different account owns the S3 bucket (_bucket owner_), the key owner has to provide the bucket owner with cross-account access to the KMS key. To do this, the key owner first ensures that the key's policy allows the bucket owner to both use the key and create a grant for the key. The bucket owner then creates a grant for the key. A _grant_ is a policy instrument that allows AWS principals to use KMS keys in cryptographic operations if the conditions specified by the grant are met. In this case, the grant delegates the relevant permissions to the Macie service-linked role for the bucket owner's account. For detailed information about updating a key policy, see [Changing a key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the _AWS Key Management Service Developer Guide_. To learn about grants, see [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS Key Management Service Developer Guide_. ###### Step 1: Update the key policy In the key policy, the key owner should ensure that the policy includes two statements: <br>• The first statement allows the bucket owner to use the key to decrypt data. <br>• The second statement allows the bucket owner to create a grant for the Macie service-linked role for their (the bucket owner's) account. In the first statement, the `Principal` element must specify the ARN of the bucket owner's account. The `Action` array must specify the `kms:Decrypt` action. This is the only AWS KMS action that Macie must be allowed to perform to decrypt an object that's encrypted with the key. The following is an example of this statement in the policy for an AWS KMS key. ``{ "Sid": "Allow account `111122223333` to use the key", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::`111122223333`:root" }, "Action": [ "kms:Decrypt" ], "Resource": "*" }`` In the preceding example: <br>• The `AWS` field in the `Principal` element specifies the ARN of the bucket owner's account (`111122223333`). It allows the bucket owner to perform the action specified by the policy statement. `111122223333` is an example account ID. Replace this value with the account ID for the bucket owner's account. <br>• The `Action` array specifies the action that the bucket owner is allowed to perform using the KMS key—decrypt ciphertext that's encrypted with the key. The second statement in the key policy allows the bucket owner to create a grant for the Macie service-linked role for their account. In this statement, the `Principal` element must specify the ARN of the bucket's owner's account. The `Action` array must specify the `kms:CreateGrant` action. A `Condition` element can filter access to the `kms:CreateGrant` action specified in the statement. The following is an example of this statement in the policy for an AWS KMS key. ``{ "Sid": "Allow account `111122223333` to create a grant", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::`111122223333`:root" }, "Action": [ "kms:CreateGrant" ], "Resource": "*", "Condition": { "StringEquals": { "kms:GranteePrincipal": "arn:aws:iam::`111122223333`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie" } } }`` In the preceding example: <br>• The `AWS` field in the `Principal` element specifies the ARN of the bucket owner's account (`111122223333`). It allows the bucket owner to perform the action specified by the policy statement. `111122223333` is an example account ID. Replace this value with the account ID for the bucket owner's account. <br>• The `Action` array specifies the action that the bucket owner is allowed to perform on the KMS key—create a grant for the key. <br>• The `Condition` element uses the `StringEquals` [condition operator](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md") and the `kms:GranteePrincipal` [condition key](../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys "../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys") to filter access to the action specified by the policy statement. In this case, the bucket owner can create a grant only for the specified `GranteePrincipal`, which is the ARN of the Macie service-linked role for their account. In that ARN, `111122223333` is an example account ID. Replace this value with the account ID for the bucket owner's account. If the bucket owner's account is in an opt-in AWS Region, also include the appropriate Region code in the ARN of the Macie service-linked role. For example, if the account is in the Middle East (Bahrain) Region, which has the Region code _me-south-1_, replace `macie.amazonaws.com` with `macie.me-south-1.amazonaws.com` in the ARN. For a list of Region codes for the Regions where Macie is currently available, see [Amazon Macie endpoints and quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in the _AWS General Reference_. Where the key owner adds these statements to the key policy depends on the structure and elements that the policy currently contains. When the key owner adds the statements, they should ensure that the syntax is valid. Key policies use JSON format. This means that the key owner has to also add a comma before or after each statement, depending on where they add the statement to the policy. ###### Step 2: Create a grant After the key owner updates the key policy as necessary, the bucket owner must create a grant for the key. The grant delegates the relevant permissions to the Macie service-linked role for their (the bucket owner's) account. Before the bucket owner creates the grant, they should verify that they're allowed to perform the `kms:CreateGrant` action for their account. This action allows them to add a grant to an existing, customer managed AWS KMS key. To create the grant, the bucket owner can use the [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") operation of the AWS Key Management Service API. When the bucket owner creates the grant, they should specify the following values for the required parameters: <br>• `KeyId` – The ARN of the KMS key. For cross-account access to a KMS key, this value must be an ARN. It can't be a key ID. <br>• `GranteePrincipal` – The ARN of the Macie service-linked role (`AWSServiceRoleForAmazonMacie`) for their account. This value should be `arn:aws:iam::`111122223333`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie`, where `111122223333` is the account ID for the bucket owner's account. If their account is in an opt-in Region, the ARN must include the appropriate Region code. For example, if their account is in the Middle East (Bahrain) Region, which has the Region code _me-south-1_, the ARN should be `arn:aws:iam::`111122223333`:role/aws-service-role/macie.me-south-1.amazonaws.com/AWSServiceRoleForAmazonMacie`, where `111122223333` is the account ID for the bucket owner's account. <br>• `Operations` – The AWS KMS decrypt action (`Decrypt`). This is the only AWS KMS action that Macie must be allowed to perform to decrypt an object that's encrypted with the KMS key. To create a grant for a customer managed KMS key by using the AWS Command Line Interface (AWS CLI), run the [create-grant](../../../cli/latest/reference/kms/create-grant.md "../../../cli/latest/reference/kms/create-grant.md") command. The following example shows how. The example is formatted for Microsoft Windows and it uses the caret (^) line-continuation character to improve readability. `` `C:\>` `aws kms create-grant ^ --key-id `arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab` ^ --grantee-principal `arn:aws:iam::111122223333:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie` ^ --operations "Decrypt"` `` Where: <br>• `key-id` specifies the ARN of the KMS key to apply the grant to. <br>• `grantee-principal` specifies the ARN of the Macie service-linked role for the account that's allowed to perform the action specified by the grant. This value should match the ARN specified by the `kms:GranteePrincipal` condition of the second statement in the key policy. <br>• `operations` specifies the action that the grant allows the specified principal to perform—decrypt ciphertext that's encrypted with the KMS key. If the command runs successfully, you receive output similar to the following. `` `{ "GrantToken": "<grant token>", "GrantId": "1a2b3c4d2f5e69f440bae30eaec9570bb1fb7358824f9ddfa1aa5a0dab1a59b2" }` `` Where `GrantToken` is a unique, non-secret, variable-length, base64-encoded string that represents the grant that was created, and `GrantId` is the unique identifier for the grant. |
+| To show buckets that...                                                | Apply this filter...                                                                         |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Store objects that use SSE-C encryption                                | **Object count by encryption\*<br>• is **Customer<br>provided*<br>• and \*\*From*<br>• = _1_ |
+| Store objects that use DSSE-KMS or SSE-KMS encryption                  | **Object count by encryption\*<br>• is **AWS KMS<br>managed*<br>• and \*\*From*<br>• = _1_   |
+| Store objects that use SSE-S3 encryption                               | **Object count by encryption\*<br>• is **Amazon S3<br>managed*<br>• and \*\*From*<br>• = _1_ |
+| Store objects that use client-side encryption (or aren't<br>encrypted) | **Object count by encryption\*<br>• is **No<br>encryption*<br>• and \*\*From*<br>• =<br>_1_  |
+| Encrypt new objects by default using DSSE-KMS encryption               | **Default encryption\*<br>• =<br>**aws:kms:dsse\*\*                                          |
+| Encrypt new objects by default using SSE-KMS encryption                | **Default encryption\*<br>• =<br>**aws:kms\*\*                                               |
+| Encrypt new objects by default using SSE-S3 encryption                 | **Default encryption\*<br>• =<br>**AES256\*\*                                                |
+
+If a bucket is configured to encrypt new objects by default using DSSE-KMS or SSE-KMS
+encryption, you can also determine which AWS KMS key is used. To do this, choose the
+bucket on the **S3 buckets** page. In the bucket details panel, under
+**Server-side encryption**, refer to the
+**AWS KMS key** field. This field shows the Amazon Resource Name
+(ARN) or unique identifier (key ID) for the key.
+
+## Allowing Macie to use a
+
+customer managed AWS KMS key
+
+If an Amazon S3 object is encrypted using dual-layer server-side encryption or server-side
+encryption with a customer managed AWS KMS key (DSSE-KMS or SSE-KMS), Amazon Macie can
+decrypt the object only if it is allowed to use the key. How to provide this access
+depends on whether the account that owns the key also owns the S3 bucket that stores the
+object:
+
+- If the same account owns the AWS KMS key and the bucket, a user of the account has to
+  update the key's policy.
+- If one account owns the AWS KMS key and a different account owns the bucket, a user of
+  the account that owns the key has to allow cross-account access to the
+  key.
+
+This topic describes how to perform these tasks and provides examples for both scenarios. To
+learn more about allowing access to customer managed AWS KMS keys, see [KMS key
+access and permissions](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md") in the _AWS Key Management Service Developer Guide_.
+
+### Allowing
+
+same-account access to a customer managed key
+
+If the same account owns both the AWS KMS key and the S3 bucket, a user of the account
+has to add a statement to the policy for the key. The additional statement must
+allow the Macie service-linked role for the account to decrypt data by using the
+key. For detailed information about updating a key policy, see [Changing a key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the _AWS Key Management Service Developer Guide_.
+
+In the statement:
+
+- The `Principal` element must specify the Amazon Resource Name (ARN) of the
+  Macie service-linked role for the account that owns the AWS KMS key and
+  the S3 bucket.
+
+If the account is in an opt-in AWS Region, the ARN must also include the appropriate
+Region code for the Region. For example, if the account is in the
+Middle East (Bahrain) Region, which has the Region code _me-south-1_, the `Principal` element must specify
+`arn:aws:iam::`123456789012`:role/aws-service-role/macie.me-south-1.amazonaws.com/AWSServiceRoleForAmazonMacie`,
+where `123456789012` is the account ID for
+the account. For a list of Region codes for the Regions where Macie is
+currently available, see [Amazon Macie
+endpoints and quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in the _AWS General Reference_.
+
+- The `Action` array must specify the `kms:Decrypt` action. This is
+  the only AWS KMS action that Macie must be allowed to perform to decrypt an S3
+  object that's encrypted with the key.
+
+The following is an example of the statement to add to the policy for an AWS KMS key.
+
+```
+{
+    "Sid": "Allow the Macie service-linked role to use the key",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:iam::`123456789012`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie"
+    },
+    "Action": [
+        "kms:Decrypt"
+    ],
+    "Resource": "*"
+}
+```
+
+In the preceding example:
+
+- The `AWS` field in the `Principal` element specifies the ARN of
+  the Macie service-linked role (`AWSServiceRoleForAmazonMacie`)
+  for the account. It allows the Macie service-linked role to perform the
+  action specified by the policy statement.
+  `123456789012` is an example account
+  ID. Replace this value with the account ID for the account that owns the
+  KMS key and the S3 bucket.
+- The `Action` array specifies the action that the Macie service-linked role is
+  allowed to perform using the KMS key—decrypt ciphertext that's
+  encrypted with the key.
+
+Where you add this statement to a key policy depends on the structure and elements
+that the policy currently contains. When you add the statement, ensure that the syntax
+is valid. Key policies use JSON format. This means that you have to also add a comma
+before or after the statement, depending on where you add the statement to the policy.
+
+### Allowing
+
+cross-account access to a customer managed key
+
+If one account owns the AWS KMS key (_key
+owner_) and a different account owns the S3 bucket (_bucket owner_), the key owner has to provide the bucket
+owner with cross-account access to the KMS key. To do this, the key owner first
+ensures that the key's policy allows the bucket owner to both use the key and create
+a grant for the key. The bucket owner then creates a grant for the key. A _grant_ is a policy instrument that allows AWS
+principals to use KMS keys in cryptographic operations if the conditions specified
+by the grant are met. In this case, the grant delegates the relevant permissions to
+the Macie service-linked role for the bucket owner's account.
+
+For detailed information about updating a key policy, see [Changing a key
+policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the _AWS Key Management Service Developer Guide_. To
+learn about grants, see [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the
+_AWS Key Management Service Developer Guide_.
+
+###### Step 1: Update the key policy
+
+In the key policy, the key owner should ensure that the policy includes two
+statements:
+
+- The first statement allows the bucket owner to use the key to decrypt
+  data.
+- The second statement allows the bucket owner to create a grant for the
+  Macie service-linked role for their (the bucket owner's) account.
+
+In the first statement, the `Principal` element must specify the ARN of
+the bucket owner's account. The `Action` array must specify the
+`kms:Decrypt` action. This is the only AWS KMS action that Macie must
+be allowed to perform to decrypt an object that's encrypted with the key. The
+following is an example of this statement in the policy for an AWS KMS key.
+
+```
+{
+    "Sid": "Allow account `111122223333` to use the key",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:iam::`111122223333`:root"
+    },
+    "Action": [
+        "kms:Decrypt"
+    ],
+    "Resource": "*"
+}
+```
+
+In the preceding example:
+
+- The `AWS` field in the `Principal` element
+  specifies the ARN of the bucket owner's account
+  (`111122223333`). It allows the
+  bucket owner to perform the action specified by the policy statement.
+  `111122223333` is an example account
+  ID. Replace this value with the account ID for the bucket owner's
+  account.
+- The `Action` array specifies the action that the bucket owner
+  is allowed to perform using the KMS key—decrypt ciphertext that's
+  encrypted with the key.
+
+The second statement in the key policy allows the bucket owner to create a grant
+for the Macie service-linked role for their account. In this statement, the
+`Principal` element must specify the ARN of the bucket's owner's
+account. The `Action` array must specify the `kms:CreateGrant`
+action. A `Condition` element can filter access to the
+`kms:CreateGrant` action specified in the statement. The following is
+an example of this statement in the policy for an AWS KMS key.
+
+```
+{
+    "Sid": "Allow account `111122223333` to create a grant",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:iam::`111122223333`:root"
+    },
+    "Action": [
+        "kms:CreateGrant"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "kms:GranteePrincipal": "arn:aws:iam::`111122223333`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie"
+        }
+    }
+}
+```
+
+In the preceding example:
+
+- The `AWS` field in the `Principal` element specifies
+  the ARN of the bucket owner's account
+  (`111122223333`). It allows the
+  bucket owner to perform the action specified by the policy statement.
+  `111122223333` is an example account
+  ID. Replace this value with the account ID for the bucket owner's
+  account.
+- The `Action` array specifies the action that the bucket owner
+  is allowed to perform on the KMS key—create a grant for the
+  key.
+- The `Condition` element uses the `StringEquals`
+  [condition operator](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md") and the `kms:GranteePrincipal`
+  [condition key](../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys "../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys") to filter access to the action specified by the
+  policy statement. In this case, the bucket owner can create a grant only for
+  the specified `GranteePrincipal`, which is the ARN of the Macie
+  service-linked role for their account. In that ARN,
+  `111122223333` is an example account
+  ID. Replace this value with the account ID for the bucket owner's
+  account.
+
+If the bucket owner's account is in an opt-in AWS Region, also include
+the appropriate Region code in the ARN of the Macie service-linked role. For
+example, if the account is in the Middle East (Bahrain) Region, which has the Region code
+_me-south-1_, replace
+`macie.amazonaws.com` with
+`macie.me-south-1.amazonaws.com` in the ARN. For a list of
+Region codes for the Regions where Macie is currently available, see [Amazon Macie endpoints and quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in
+the _AWS General Reference_.
+
+Where the key owner adds these statements to the key policy depends on the
+structure and elements that the policy currently contains. When the key owner adds
+the statements, they should ensure that the syntax is valid. Key policies use JSON
+format. This means that the key owner has to also add a comma before or after each
+statement, depending on where they add the statement to the policy.
+
+###### Step 2: Create a grant
+
+After the key owner updates the key policy as necessary, the bucket owner must
+create a grant for the key. The grant delegates the relevant permissions to the
+Macie service-linked role for their (the bucket owner's) account. Before the
+bucket owner creates the grant, they should verify that they're allowed to
+perform the `kms:CreateGrant` action for their account. This action
+allows them to add a grant to an existing, customer managed
+AWS KMS key.
+
+To create the grant, the bucket owner can use the [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") operation
+of the AWS Key Management Service API. When the bucket owner creates the grant, they should specify
+the following values for the required parameters:
+
+- `KeyId` – The ARN of the KMS key. For cross-account
+  access to a KMS key, this value must be an ARN. It can't be a key ID.
+- `GranteePrincipal` – The ARN of the Macie service-linked
+  role (`AWSServiceRoleForAmazonMacie`) for their account. This
+  value should be
+  `arn:aws:iam::`111122223333`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie`,
+  where `111122223333` is the account ID
+  for the bucket owner's account.
+
+If their account is in an opt-in Region, the ARN must include the
+appropriate Region code. For example, if their account is in the
+Middle East (Bahrain) Region, which has the Region code _me-south-1_, the ARN should be
+`arn:aws:iam::`111122223333`:role/aws-service-role/macie.me-south-1.amazonaws.com/AWSServiceRoleForAmazonMacie`,
+where `111122223333` is the account ID
+for the bucket owner's account.
+
+- `Operations` – The AWS KMS decrypt action
+  (`Decrypt`). This is the only AWS KMS action that Macie must be
+  allowed to perform to decrypt an object that's encrypted with the
+  KMS key.
+
+To create a grant for a customer managed KMS key by using the AWS Command Line Interface (AWS CLI),
+run the [create-grant](../../../cli/latest/reference/kms/create-grant.md "../../../cli/latest/reference/kms/create-grant.md") command. The following example shows how. The example is
+formatted for Microsoft Windows and it uses the caret (^) line-continuation
+character to improve readability.
+
+```
+`C:\>` `aws kms create-grant ^
+--key-id `arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab` ^
+--grantee-principal `arn:aws:iam::111122223333:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie` ^
+--operations "Decrypt"`
+```
+
+Where:
+
+- `key-id` specifies the ARN of the KMS key to apply the grant
+  to.
+- `grantee-principal` specifies the ARN of the Macie service-linked role for the
+  account that's allowed to perform the action specified by the grant. This
+  value should match the ARN specified by the
+  `kms:GranteePrincipal` condition of the second statement in
+  the key policy.
+- `operations` specifies the action that the grant allows the specified
+  principal to perform—decrypt ciphertext that's encrypted with the
+  KMS key.
+
+If the command runs successfully, you receive output similar to the
+following.
+
+```
+`{
+ "GrantToken": "<grant token>",
+ "GrantId": "1a2b3c4d2f5e69f440bae30eaec9570bb1fb7358824f9ddfa1aa5a0dab1a59b2"
+}`
+```
+
+Where `GrantToken` is a unique, non-secret, variable-length,
+base64-encoded string that represents the grant that was created, and
+`GrantId` is the unique identifier for the grant.

@@ -176,8 +176,12 @@ occurrences thresholds, one for each severity level that Macie supports.
 The following table indicates the severity of the findings that the custom data
 identifier produces.
 
-| Occurrences threshold | Severity level | Result                                                                                                                                       |
-| --------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1                     | Low            | If an S3 object contains 1–49 occurrences of text that match the detection criteria, the severity of the resulting finding is _Low_.         |
-| 50                    | Medium         | If an S3 object contains 50–99 occurrences of text that match the detection criteria, the severity of the resulting finding is _Medium_.     |
-| 100                   | High           | If an S3 object contains 100 or more occurrences of text that match the detection criteria, the severity of the resulting finding is _High_. | You can also use severity settings to specify whether to create a finding at all. If an S3 object contains fewer occurrences than the lowest occurrences threshold, Macie doesn't create a finding. |
+| Occurrences threshold | Severity level | Result                                                                                                                                             |
+| --------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1                     | Low            | If an S3 object contains 1–49 occurrences of text that<br>match the detection criteria, the severity of the resulting finding<br>is _Low_.         |
+| 50                    | Medium         | If an S3 object contains 50–99 occurrences of text that<br>match the detection criteria, the severity of the resulting finding<br>is _Medium_.     |
+| 100                   | High           | If an S3 object contains 100 or more occurrences of text that<br>match the detection criteria, the severity of the resulting finding<br>is _High_. |
+
+You can also use severity settings to specify whether to create a finding at all.
+If an S3 object contains fewer occurrences than the lowest occurrences threshold,
+Macie doesn't create a finding.

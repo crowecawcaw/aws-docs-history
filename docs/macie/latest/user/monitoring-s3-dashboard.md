@@ -150,7 +150,7 @@ and results of automated sensitive data discovery activities that Macie has perf
 your Amazon S3 data. The following image shows an example of the statistics that
 these sections provide.
 
-![Automated sensitive data discovery statistics on the dashboard. Each statistic has example data.](images/scrn-summary-dashboard-sensitivity.png)
+![Automated sensitive data discovery statistics on the dashboard. Each statistic has example data.](/images/macie/latest/user/images/scrn-summary-dashboard-sensitivity.png)
 
 For details about these statistics, see [Reviewing data sensitivity statistics on
 the Summary dashboard](discovery-asdd-results-s3-dashboard.md "discovery-asdd-results-s3-dashboard.md").

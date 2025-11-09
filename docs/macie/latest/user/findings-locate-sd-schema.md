@@ -150,18 +150,253 @@ In a `cells` array, a `Cell` object specifies a cell or field that
 Macie detected an occurrence of sensitive data in. The following table describes the
 purpose of each field in a `Cell` object.
 
-| Field           | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cellReference` | String  | The location of the cell, as an absolute cell reference, that contains the occurrence. This field applies only to Excel workbooks. This value is null for CSV and TSV files.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `column`        | Integer | The column number of the column that contains the occurrence. For an Excel workbook, this value correlates to the alphabetical character(s) for a column identifier—for example, `1` for column A, `2` for column B, and so on.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `columnName`    | String  | The name of the column that contains the occurrence, if available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `row`           | Integer | The row number of the row that contains the occurrence.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | The following example shows the structure of a `Cell` object that specifies the location of an occurrence of sensitive data that Macie detected in a CSV file. `"cells": [ { "cellReference": null, "column": 3, "columnName": "SSN", "row": 5 } ]` In the preceding example, the finding indicates that Macie detected sensitive data in the field in the fifth row of the third column (named _SSN_) of the file. The following example shows the structure of a `Cell` object that specifies the location of an occurrence of sensitive data that Macie detected in an Excel workbook. `"cells": [ { "cellReference": "Sheet2!C5", "column": 3, "columnName": "SSN", "row": 5 } ]` In the preceding example, the finding indicates that Macie detected sensitive data in the worksheet named _Sheet2_ in the workbook. In that worksheet, Macie detected sensitive data in the cell in the fifth row of the third column (column C, named _SSN_). ### LineRanges array **Applies to:** Email message (EML) files, and non-binary text files other than CSV, JSON, JSON Lines, and TSV files—for example, HTML, TXT, and XML files In a `lineRanges` array, a `Range` object specifies a line or an inclusive range of lines that Macie detected an occurrence of sensitive data in, and the position of the data on the specified line or lines. This object is often empty for file types that are supported by other types of arrays in `occurrences` objects. Exceptions are: <br>• Data in unstructured sections of an otherwise structured file, such as a comment in a file. <br>• Data in a malformed file that Macie analyzes as plaintext. <br>• A CSV or TSV file that has one or more column names that Macie detected sensitive data in. The following table describes the purpose of each field in a `Range` object of a `lineRanges` array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Field           | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---             | ---     | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `end`           | Integer | The number of lines from the beginning of the file to the end of the occurrence.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `start`         | Integer | The number of lines from the beginning of the file to the beginning of the occurrence.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `startColumn`   | Integer | The number of characters, with spaces and starting from 1, from the beginning of the first line that contains the occurrence (`start`) to the beginning of the occurrence.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | The following example shows the structure of a `Range` object that specifies the location of an occurrence of sensitive data that Macie detected on a single line in a TXT file. `"lineRanges": [ { "end": 1, "start": 1, "startColumn": 119 } ]` In the preceding example, the finding indicates that Macie detected a complete occurrence of sensitive data (a mailing address) in the first line of the file. The first character in the occurrence is 119 characters (with spaces) from the beginning of that line. The following example shows the structure of a `Range` object that specifies the location of an occurrence of sensitive data that spans multiple lines in a TXT file. `"lineRanges": [ { "end": 54, "start": 51, "startColumn": 1 } ]` In the preceding example, the finding indicates that Macie detected an occurrence of sensitive data (a mailing address) spanning lines 51 through 54 of the file. The first character in the occurrence is the first character on line 51 of the file. ### Pages array **Applies to:** Adobe Portable Document Format (PDF) files In a `pages` array, a `Page` object specifies a page that Macie detected an occurrence of sensitive data in. The object contains a `pageNumber` field. The `pageNumber` field stores an integer that specifies the page number of the page that contains the occurrence. The following example shows the structure of a `Page` object that specifies the location of an occurrence of sensitive data that Macie detected in a PDF file. `"pages": [ { "pageNumber": 10 } ]` In the preceding example, the finding indicates that page 10 of the file contains the occurrence. ### Records array **Applies to:** Apache Avro object containers, Apache Parquet files, JSON files, and JSON Lines files For an Avro object container or a Parquet file, a `Record` object in a `records` array specifies a record index and the path to a field in a record that Macie detected an occurrence of sensitive data in. For JSON and JSON Lines files, a `Record` object specifies the path to a field or array that Macie detected an occurrence of sensitive data in. For JSON Lines files, it also specifies the index of the line that contains the occurrence. The following table describes the purpose of each field in a `Record` object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Field           | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---             | ---     | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `jsonPath`      | String  | The path, as a JSONPath expression, to the occurrence. For an Avro object container or a Parquet file, this is the path to the field in the record (`recordIndex`) that contains the occurrence. For a JSON or JSON Lines file, this is the path to the field or array that contains the occurrence. If the data is a value in an array, the path also indicates which value contains the occurrence. If Macie detects sensitive data in the name of any element in the path, Macie omits the `jsonPath` field from a `Record` object. If the name of a path element exceeds 240 characters, Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters. |
-| `recordIndex`   | Integer | For an Avro object container or a Parquet file, the record index, starting from 0, for the record that contains the occurrence. For a JSON Lines file, the line index, starting from 0, for the line that contains the occurrence. This value is always `0` for JSON files.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | The following example shows the structure of a `Record` object that specifies the location of an occurrence of sensitive data that Macie detected in a Parquet file. `"records": [ { "jsonPath": "$['abcdefghijklmnopqrstuvwxyz']", "recordIndex": 7663 } ]` In the preceding example, the finding indicates that Macie detected sensitive data in the record of index 7663 (record number 7664). In that record, Macie detected sensitive data in the field named `abcdefghijklmnopqrstuvwxyz`. The full JSON path to the field in the record is `$.abcdefghijklmnopqrstuvwxyz`. The field is a direct descendant of the root (outer-level) object. The following example also shows the structure of a `Record` object for an occurrence of sensitive data that Macie detected in a Parquet file. However, in this example, Macie truncated the name of the field that contains the occurrence because the name exceeds the character limit. `"records": [ { "jsonPath": "$['...uvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz']", "recordIndex": 7663 } ]` In the preceding example, the field is a direct descendant of the root (outer-level) object. In the following example, also for an occurrence of sensitive data that Macie detected in a Parquet file, Macie truncated the full path to the field that contains the occurrence. The full path exceeds the character limit. `"records": [ { "jsonPath": "$..usssn2.usssn3.usssn4.usssn5.usssn6.usssn7.usssn8.usssn9.usssn10.usssn11.usssn12.usssn13.usssn14.usssn15.usssn16.usssn17.usssn18.usssn19.usssn20.usssn21.usssn22.usssn23.usssn24.usssn25.usssn26.usssn27.usssn28.usssn29['abcdefghijklmnopqrstuvwxyz']", "recordIndex": 2335 } ]` In the preceding example, the finding indicates that Macie detected sensitive data in the record of index 2335 (record number 2336). In that record, Macie detected sensitive data in the field named `abcdefghijklmnopqrstuvwxyz`. The full JSON path to the field in the record is: `$['1234567890']usssn1.usssn2.usssn3.usssn4.usssn5.usssn6.usssn7.usssn8.usssn9.usssn10.usssn11.usssn12.usssn13.usssn14.usssn15.usssn16.usssn17.usssn18.usssn19.usssn20.usssn21.usssn22.usssn23.usssn24.usssn25.usssn26.usssn27.usssn28.usssn29['abcdefghijklmnopqrstuvwxyz']` The following example shows the structure of a `Record` object that specifies the location of an occurrence of sensitive data that Macie detected in a JSON file. In this example, the occurrence is a specific value in an array. `"records": [ { "jsonPath": "$.access.key[2]", "recordIndex": 0 } ]` In the preceding example, the finding indicates that Macie detected sensitive data in the second value of an array named `key`. The array is a child of an object named `access`. The following example shows the structure of a `Record` object that specifies the location of an occurrence of sensitive data that Macie detected in a JSON Lines file. `"records": [ { "jsonPath": "$.access.key", "recordIndex": 3 } ]` In the preceding example, the finding indicates that Macie detected sensitive data in the third value (line) in the file. In that line, the occurrence is in a field named `key`, which is a child of an object named `access`. |
+| Field           | Type    | Description                                                                                                                                                                                                                              |
+| --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cellReference` | String  | The location of the cell, as an absolute cell reference, that contains the occurrence.<br>This field applies only to Excel workbooks. This value is null for<br>CSV and TSV files.                                                       |
+| `column`        | Integer | The column number of the column that contains the occurrence. For an Excel workbook,<br>this value correlates to the alphabetical character(s) for a column<br>identifier—for example, `1` for column A,<br>`2` for column B, and so on. |
+| `columnName`    | String  | The name of the column that contains the occurrence, if available.                                                                                                                                                                       |
+| `row`           | Integer | The row number of the row that contains the occurrence.                                                                                                                                                                                  |
+
+The following example shows the structure of a `Cell` object that specifies the
+location of an occurrence of sensitive data that Macie detected in a CSV
+file.
+
+```
+"cells": [
+   {
+      "cellReference": null,
+      "column": 3,
+      "columnName": "SSN",
+      "row": 5
+   }
+]
+```
+
+In the preceding example, the finding indicates that Macie detected sensitive data in the
+field in the fifth row of the third column (named _SSN_) of the file.
+
+The following example shows the structure of a `Cell` object that specifies the
+location of an occurrence of sensitive data that Macie detected in an Excel
+workbook.
+
+```
+"cells": [
+   {
+      "cellReference": "Sheet2!C5",
+      "column": 3,
+      "columnName": "SSN",
+      "row": 5
+   }
+]
+```
+
+In the preceding example, the finding indicates that Macie detected sensitive data in the
+worksheet named _Sheet2_ in the workbook. In that
+worksheet, Macie detected sensitive data in the cell in the fifth row of the third
+column (column C, named _SSN_).
+
+### LineRanges
+
+array
+
+**Applies to:** Email message (EML) files, and non-binary text
+files other than CSV, JSON, JSON Lines, and TSV files—for example, HTML, TXT,
+and XML files
+
+In a `lineRanges` array, a `Range` object specifies a line or an
+inclusive range of lines that Macie detected an occurrence of sensitive data in, and
+the position of the data on the specified line or lines.
+
+This object is often empty for file types that are supported by other types of
+arrays in `occurrences` objects. Exceptions are:
+
+- Data in unstructured sections of an otherwise structured file, such as a
+  comment in a file.
+- Data in a malformed file that Macie analyzes as plaintext.
+- A CSV or TSV file that has one or more column names that Macie detected sensitive data
+  in.
+
+The following table describes the purpose of each field in a `Range`
+object of a `lineRanges` array.
+
+| Field         | Type    | Description                                                                                                                                                                      |
+| ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `end`         | Integer | The number of lines from the beginning of the file to the end of the<br>occurrence.                                                                                              |
+| `start`       | Integer | The number of lines from the beginning of the file to the beginning of the<br>occurrence.                                                                                        |
+| `startColumn` | Integer | The number of characters, with spaces and starting from 1, from the beginning of the<br>first line that contains the occurrence (`start`) to the<br>beginning of the occurrence. |
+
+The following example shows the structure of a `Range` object that specifies the
+location of an occurrence of sensitive data that Macie detected on a single line in
+a TXT file.
+
+```
+"lineRanges": [
+   {
+      "end": 1,
+      "start": 1,
+      "startColumn": 119
+   }
+]
+```
+
+In the preceding example, the finding indicates that Macie detected a complete occurrence
+of sensitive data (a mailing address) in the first line of the file. The first
+character in the occurrence is 119 characters (with spaces) from the beginning of
+that line.
+
+The following example shows the structure of a `Range` object that specifies the
+location of an occurrence of sensitive data that spans multiple lines in a TXT
+file.
+
+```
+"lineRanges": [
+   {
+      "end": 54,
+      "start": 51,
+      "startColumn": 1
+   }
+]
+```
+
+In the preceding example, the finding indicates that Macie detected an occurrence of
+sensitive data (a mailing address) spanning lines 51 through 54 of the file. The
+first character in the occurrence is the first character on line 51 of the
+file.
+
+### Pages array
+
+**Applies to:** Adobe Portable Document Format (PDF)
+files
+
+In a `pages` array, a `Page` object specifies a page that Macie
+detected an occurrence of sensitive data
+in. The object contains a
+`pageNumber` field. The `pageNumber` field stores an
+integer that specifies the page number of the page that contains the
+occurrence.
+
+The following example shows the structure of a `Page` object that specifies the
+location of an occurrence of sensitive data that Macie detected in a PDF
+file.
+
+```
+"pages": [
+   {
+      "pageNumber": 10
+   }
+]
+```
+
+In the preceding example, the finding indicates that page 10 of the file contains the
+occurrence.
+
+### Records array
+
+**Applies to:** Apache Avro object containers, Apache
+Parquet files, JSON files, and JSON Lines files
+
+For an Avro object container or a Parquet file, a `Record` object in a
+`records` array specifies a record index and the path to a field in a
+record that Macie detected an occurrence of sensitive data in. For JSON and JSON
+Lines files, a `Record` object specifies the path to a field or array
+that Macie detected an occurrence of sensitive data in. For JSON Lines files, it
+also specifies the index of the line that contains the occurrence.
+
+The following table describes the purpose of each field in a `Record`
+object.
+
+| Field         | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `jsonPath`    | String  | The path, as a JSONPath expression, to the occurrence.<br>For an Avro object container or a Parquet file, this is the<br>path to the field in the record (`recordIndex`) that<br>contains the occurrence. For a JSON or JSON Lines file, this is<br>the path to the field or array that contains the occurrence. If<br>the data is a value in an array, the path also indicates which<br>value contains the occurrence.<br>If Macie detects sensitive data in the name of any element in<br>the path, Macie omits the `jsonPath` field from a<br>`Record` object. If the name of a path element<br>exceeds 240 characters, Macie truncates the name by removing<br>characters from the beginning of the name. If the resulting full<br>path exceeds 250 characters, Macie also truncates the path,<br>starting with the first element in the path, until the path<br>contains 250 or fewer characters. |
+| `recordIndex` | Integer | For an Avro object container or a Parquet file, the record index,<br>starting from 0, for the record that contains the occurrence. For a<br>JSON Lines file, the line index, starting from 0, for the line that<br>contains the occurrence. This value is always `0` for<br>JSON files.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+The following example shows the structure of a `Record` object that
+specifies the location of an occurrence of sensitive data that Macie detected in a
+Parquet file.
+
+```
+"records": [
+   {
+      "jsonPath": "$['abcdefghijklmnopqrstuvwxyz']",
+      "recordIndex": 7663
+   }
+]
+```
+
+In the preceding example, the finding indicates that Macie detected sensitive data
+in the record of index 7663 (record number 7664). In that record, Macie detected
+sensitive data in the field named `abcdefghijklmnopqrstuvwxyz`. The full
+JSON path to the field in the record is `$.abcdefghijklmnopqrstuvwxyz`.
+The field is a direct descendant of the root (outer-level) object.
+
+The following example also shows the structure of a `Record` object for
+an occurrence of sensitive data that Macie detected in a Parquet file. However, in
+this example, Macie truncated the name of the field that contains the occurrence
+because the name exceeds the character limit.
+
+```
+"records": [
+   {
+      "jsonPath": "$['...uvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz']",
+      "recordIndex": 7663
+   }
+]
+```
+
+In the preceding example, the field is a direct descendant of the root
+(outer-level) object.
+
+In the following example, also for an occurrence of sensitive data that Macie
+detected in a Parquet file, Macie truncated the full path to the field that contains
+the occurrence. The full path exceeds the character limit.
+
+```
+"records": [
+   {
+      "jsonPath": "$..usssn2.usssn3.usssn4.usssn5.usssn6.usssn7.usssn8.usssn9.usssn10.usssn11.usssn12.usssn13.usssn14.usssn15.usssn16.usssn17.usssn18.usssn19.usssn20.usssn21.usssn22.usssn23.usssn24.usssn25.usssn26.usssn27.usssn28.usssn29['abcdefghijklmnopqrstuvwxyz']",
+      "recordIndex": 2335
+   }
+]
+```
+
+In the preceding example, the finding indicates that Macie detected sensitive data
+in the record of index 2335 (record number 2336). In that record, Macie detected
+sensitive data in the field named `abcdefghijklmnopqrstuvwxyz`. The full
+JSON path to the field in the record is:
+
+`$['1234567890']usssn1.usssn2.usssn3.usssn4.usssn5.usssn6.usssn7.usssn8.usssn9.usssn10.usssn11.usssn12.usssn13.usssn14.usssn15.usssn16.usssn17.usssn18.usssn19.usssn20.usssn21.usssn22.usssn23.usssn24.usssn25.usssn26.usssn27.usssn28.usssn29['abcdefghijklmnopqrstuvwxyz']`
+
+The following example shows the structure of a `Record` object that
+specifies the location of an occurrence of sensitive data that Macie detected in a
+JSON file. In this example, the occurrence is a specific value in an array.
+
+```
+"records": [
+   {
+      "jsonPath": "$.access.key[2]",
+      "recordIndex": 0
+   }
+]
+```
+
+In the preceding example, the finding indicates that Macie detected sensitive data
+in the second value of an array named `key`. The array is a child of an
+object named `access`.
+
+The following example shows the structure of a `Record` object that
+specifies the location of an occurrence of sensitive data that Macie detected in a
+JSON Lines file.
+
+```
+"records": [
+   {
+      "jsonPath": "$.access.key",
+      "recordIndex": 3
+   }
+]
+```
+
+In the preceding example, the finding indicates that Macie detected sensitive data
+in the third value (line) in the file. In that line, the occurrence is in a field
+named `key`, which is a child of an object named
+`access`.
