@@ -1,5 +1,14 @@
 # Optimize high-performance compute
 
 | GENPERF03: How do you optimize computational resources required for high-performance distributed computation tasks? |
-| ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                     | Foundation models require high processing power to customize and deliver inference at scale. Optimize high-performance compute used for foundation models to help meet performance requirements. ###### Best practices <br>• [GENPERF03-BP01 Use managed solutions for model hosting and customization](genperf03-bp01.md "genperf03-bp01.md") |
+| ------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                     |
+
+Foundation models require high processing power to customize and
+deliver inference at scale. Optimize high-performance compute used
+for foundation models to help meet performance requirements.
+
+###### Best practices
+
+- [GENPERF03-BP01 Use managed solutions for model hosting and
+  customization](genperf03-bp01.md "genperf03-bp01.md")

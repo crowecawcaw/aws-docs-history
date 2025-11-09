@@ -1,5 +1,18 @@
 # Response validation
 
 | GENSEC02: How do you prevent generative AI applications from generating harmful, biased, or factually incorrect responses? |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                            | It is possible for foundation models to generate harmful, biased, or factually incorrect responses, particularly when guardrails are not implemented appropriately or at all. This risk creates additional considerations for generative AI applications before they are put into a production environment. This question addresses the best practices associated with mitigating risk of harmful, biased or factually incorrect responses. ###### Best practices <br>• [GENSEC02-BP01 Implement guardrails to mitigate harmful or incorrect model responses](gensec02-bp01.md "gensec02-bp01.md") |
+| -------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                            |
+
+It is possible for foundation models to generate harmful, biased,
+or factually incorrect responses, particularly when guardrails are
+not implemented appropriately or at all. This risk creates
+additional considerations for generative AI applications before
+they are put into a production environment. This question
+addresses the best practices associated with mitigating risk of
+harmful, biased or factually incorrect responses.
+
+###### Best practices
+
+- [GENSEC02-BP01 Implement guardrails to mitigate harmful or
+  incorrect model responses](gensec02-bp01.md "gensec02-bp01.md")

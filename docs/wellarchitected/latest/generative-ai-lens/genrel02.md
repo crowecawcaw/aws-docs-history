@@ -1,5 +1,16 @@
 # Network reliability
 
 | GENREL02: How do you maintain reliable communication between different components of your generative AI architecture? |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                       | Generative AI workloads can be composed of several independent systems. Foundation models are often complemented by databases, data processing pipelines, prompt catalogs, and even APIs for agents. These systems communicate over a network and require reliable connectivity. ###### Best practices <br>• [GENREL02-BP01 Implement redundant network connections between model endpoints and supporting infrastructure](genrel02-bp01.md "genrel02-bp01.md") |
+| --------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                       |
+
+Generative AI workloads can be composed of several independent
+systems. Foundation models are often complemented by databases,
+data processing pipelines, prompt catalogs, and even APIs for
+agents. These systems communicate over a network and require
+reliable connectivity.
+
+###### Best practices
+
+- [GENREL02-BP01 Implement redundant network connections between
+  model endpoints and supporting infrastructure](genrel02-bp01.md "genrel02-bp01.md")

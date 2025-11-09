@@ -1,5 +1,17 @@
 # Data poisoning
 
 | GENSEC06: How do you detect and remediate data poisoning risks? |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                 | Data poisoning is a type of exploit that can occur during model training or customization. This happens when data not meant for model training or customization is used for training or customization, resulting in potentially undesirable effects for the finished model. Data poisoning can be difficult to detect and can be challenging to remediate. ###### Best practices <br>• [GENSEC06-BP01 Implement data purification filters for model training workflows](gensec06-bp01.md "gensec06-bp01.md") |
+| --------------------------------------------------------------- |
+|                                                                 |
+
+Data poisoning is a type of exploit that can occur during model
+training or customization. This happens when data not meant for
+model training or customization is used for training or
+customization, resulting in potentially undesirable effects for
+the finished model. Data poisoning can be difficult to detect and
+can be challenging to remediate.
+
+###### Best practices
+
+- [GENSEC06-BP01 Implement data purification filters for model
+  training workflows](gensec06-bp01.md "gensec06-bp01.md")

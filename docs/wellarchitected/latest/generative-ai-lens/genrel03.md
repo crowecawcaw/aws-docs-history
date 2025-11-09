@@ -1,5 +1,17 @@
 # Prompt remediation and recovery actions
 
 | GENREL03: How do you implement remediation actions for generative AI workload loops, retries, and failures? |
-| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                             | Generative AI workloads can be susceptible to logical loops, retries, and potentially even failures. Addressing these through the appropriate best practice helps to keeping your application reliable and improves user experience. ###### Best practices <br>• [GENREL03-BP01 Use logic to manage prompt flows and gracefully recover from failure](genrel03-bp01.md "genrel03-bp01.md") <br>• [GENREL03-BP02 Implement timeout mechanisms on agentic workflows](genrel03-bp02.md "genrel03-bp02.md") |
+| ----------------------------------------------------------------------------------------------------------- |
+|                                                                                                             |
+
+Generative AI workloads can be susceptible to logical loops,
+retries, and potentially even failures. Addressing these through
+the appropriate best practice helps to keeping your application
+reliable and improves user experience.
+
+###### Best practices
+
+- [GENREL03-BP01 Use logic to manage prompt flows and gracefully
+  recover from failure](genrel03-bp01.md "genrel03-bp01.md")
+- [GENREL03-BP02 Implement timeout mechanisms on agentic
+  workflows](genrel03-bp02.md "genrel03-bp02.md")

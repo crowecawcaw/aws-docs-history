@@ -1,5 +1,19 @@
 # Maintaining model performance
 
 | GENPERF02: How do you verify your generative AI workload maintains acceptable performance levels? |
-| ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                   | Foundation models are inherently non-deterministic. They introduce an element of randomness into systems which must be accounted for. Furthermore, while they are flexible and multi-purposed, foundation models are compute-intensive resources that may require tuning and customization to meet your organization requirements. ###### Best practices <br>• [GENPERF02-BP01 Load test model endpoints](genperf02-bp01.md "genperf02-bp01.md") <br>• [GENPERF02-BP02 Optimize inference parameters to improve response quality](genperf02-bp02.md "genperf02-bp02.md") <br>• [GENPERF02-BP03 Select and customize the appropriate model for your use case](genperf02-bp03.md "genperf02-bp03.md") |
+| ------------------------------------------------------------------------------------------------- |
+|                                                                                                   |
+
+Foundation models are inherently non-deterministic. They introduce
+an element of randomness into systems which must be accounted for.
+Furthermore, while they are flexible and multi-purposed,
+foundation models are compute-intensive resources that may require
+tuning and customization to meet your organization requirements.
+
+###### Best practices
+
+- [GENPERF02-BP01 Load test model endpoints](genperf02-bp01.md "genperf02-bp01.md")
+- [GENPERF02-BP02 Optimize inference parameters to improve
+  response quality](genperf02-bp02.md "genperf02-bp02.md")
+- [GENPERF02-BP03 Select and customize the appropriate model for
+  your use case](genperf02-bp03.md "genperf02-bp03.md")
