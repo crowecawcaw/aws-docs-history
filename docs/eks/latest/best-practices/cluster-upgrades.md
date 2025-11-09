@@ -283,7 +283,7 @@ cluster.
 To verify that your subnets have enough IP addresses to upgrade the
 cluster you can run the following command:
 
-````
+```
 CLUSTER=<cluster name>
 aws ec2 describe-subnets --subnet-ids \
   $(aws eks describe-cluster --name ${CLUSTER} \
@@ -293,9 +293,652 @@ aws ec2 describe-subnets --subnet-ids \
   --output table
 
 ----------------------------------------------------
-|                  DescribeSubnets                 | +---------------------------+--------------+-------+
+|                  DescribeSubnets                 |
++---------------------------+--------------+-------+
 |  subnet-067fa8ee8476abbd6 |  us-east-1a  |  8184 |
 |  subnet-0056f7403b17d2b43 |  us-east-1b  |  8153 |
 |  subnet-09586f8fb3addbc8c |  us-east-1a  |  8120 |
-|  subnet-047f3d276a22c6bce |  us-east-1b  |  8184 | +---------------------------+--------------+-------+ ``` The [VPC CNI Metrics Helper](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/cmd/cni-metrics-helper/README.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/cmd/cni-metrics-helper/README.md") may be used to create a CloudWatch dashboard for VPC metrics. Amazon EKS recommends updating the cluster subnets using the "UpdateClusterConfiguration" API prior to beginning a Kubernetes version upgrade if you are running out of IP addresses in the subnets initially specified during cluster creation. Please verify that the new subnets you will be provided: <br>• belong to same set of AZs that are selected during cluster creation. <br>• belong to the same VPC provided during cluster creation Please consider associating additional CIDR blocks if the IP addresses in the existing VPC CIDR block run out. AWS enables the association of additional CIDR blocks with your existing cluster VPC, effectively expanding your IP address pool. This expansion can be accomplished by introducing additional private IP ranges (RFC 1918) or, if necessary, public IP ranges (non-RFC 1918). You must add new VPC CIDR blocks and allow VPC refresh to complete before Amazon EKS can use the new CIDR. After that, you can update the subnets based on the newly set up CIDR blocks to the VPC. ### Verify EKS IAM role To verify that the IAM role is available and has the correct assume role policy in your account you can run the following commands: ``` CLUSTER=<cluster name> ROLE_ARN=$(aws eks describe-cluster --name ${CLUSTER} \ --query 'cluster.roleArn' --output text) aws iam get-role --role-name ${ROLE_ARN##*/} \ --query 'Role.AssumeRolePolicyDocument' { "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "Service": "eks.amazonaws.com" }, "Action": "sts:AssumeRole" } ] } ``` ## Migrate to EKS Add-ons Amazon EKS automatically installs add-ons such as the Amazon VPC CNI plugin for Kubernetes, `kube-proxy`, and CoreDNS for every cluster. Add-ons may be self-managed, or installed as Amazon EKS Add-ons. Amazon EKS Add-ons is an alternate way to manage add-ons using the EKS API. You can use Amazon EKS Add-ons to update versions with a single command. For Example: ``` aws eks update-addon —cluster-name my-cluster —addon-name vpc-cni —addon-version version-number \ --service-account-role-arn arn:aws:iam::111122223333:role/role-name —configuration-values '{}' —resolve-conflicts PRESERVE ``` Check if you have any EKS Add-ons with: ``` aws eks list-addons --cluster-name <cluster name> ``` ###### Warning EKS Add-ons are not automatically upgraded during a control plane upgrade. You must initiate EKS add-on updates, and select the desired version. <br>• You are responsible for selecting a compatible version from all available versions. [Review the guidance on add-on version compatibility.](#upgrade-addons "#upgrade-addons") <br>• Amazon EKS Add-ons may only be upgraded one minor version at a time. [Learn more about what components are available as EKS Add-ons, and how to get started.](../userguide/eks-add-ons.md "../userguide/eks-add-ons.md") [Learn how to supply a custom configuration to an EKS Add-on.](https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/ "https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/") ## Identify and remediate removed API usage before upgrading the control plane You should identify API usage of removed APIs before upgrading your EKS control plane. To do that we recommend using tools that can check a running cluster or static, rendered Kubernetes manifest files. Running the check against static manifest files is generally more accurate. If run against live clusters, these tools may return false positives. A deprecated Kubernetes API does not mean the API has been removed. You should check the [Kubernetes Deprecation Policy](https://kubernetes.io/docs/reference/using-api/deprecation-policy/ "https://kubernetes.io/docs/reference/using-api/deprecation-policy/") to understand how API removal affects your workloads. ### Cluster Insights [Cluster Insights](../userguide/cluster-insights.md "../userguide/cluster-insights.md") is a feature that provides findings on issues that may impact the ability to upgrade an EKS cluster to newer versions of Kubernetes. These findings are curated and managed by Amazon EKS and offer recommendations on how to remediate them. By leveraging Cluster Insights, you can minimize the effort spent to upgrade to newer Kubernetes versions. To view insights of an EKS cluster, you can run the command: ``` aws eks list-insights --region <region-code> --cluster-name <my-cluster> { "insights": [ { "category": "UPGRADE_READINESS", "name": "Deprecated APIs removed in Kubernetes v1.29", "insightStatus": { "status": "PASSING", "reason": "No deprecated API usage detected within the last 30 days." }, "kubernetesVersion": "1.29", "lastTransitionTime": 1698774710.0, "lastRefreshTime": 1700157422.0, "id": "123e4567-e89b-42d3-a456-579642341238", "description": "Checks for usage of deprecated APIs that are scheduled for removal in Kubernetes v1.29. Upgrading your cluster before migrating to the updated APIs supported by v1.29 could cause application impact." } ] } ``` For a more descriptive output about the insight received, you can run the command: ``` aws eks describe-insight --region <region-code> --id <insight-id> --cluster-name <my-cluster> ``` You also have the option to view insights in the [Amazon EKS Console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters"). After selecting your cluster from the cluster list, insight findings are located under the `Upgrade Insights` tab. If you find a cluster insight with `"status": ERROR`, you must address the issue prior to performing the cluster upgrade. Run the `aws eks describe-insight` command which will share the following remediation advice: Resources affected: ``` "resources": [ { "insightStatus": { "status": "ERROR" }, "kubernetesResourceUri": "/apis/policy/v1beta1/podsecuritypolicies/null" } ] ``` APIs deprecated: ``` "deprecationDetails": [ { "usage": "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas", "replacedWith": "/apis/flowcontrol.apiserver.k8s.io/v1beta3/flowschemas", "stopServingVersion": "1.29", "clientStats": [], "startServingReplacementVersion": "1.26" } ] ``` Recommended action to take: ``` "recommendation": "Update manifests and API clients to use newer Kubernetes APIs if applicable before upgrading to Kubernetes v1.26." ``` Utilizing cluster insights through the EKS Console or CLI help speed the process of successfully upgrading EKS cluster versions. Learn more with the following resources: \* [Official EKS Docs](../userguide/cluster-insights.md "../userguide/cluster-insights.md") \* [Cluster Insights launch blog](https://aws.amazon.com/blogs/containers/accelerate-the-testing-and-verification-of-amazon-eks-upgrades-with-upgrade-insights/ "https://aws.amazon.com/blogs/containers/accelerate-the-testing-and-verification-of-amazon-eks-upgrades-with-upgrade-insights/"). ### Kube-no-trouble [Kube-no-trouble](https://github.com/doitintl/kube-no-trouble "https://github.com/doitintl/kube-no-trouble") is an open source command line utility with the command `kubent`. When you run `kubent` without any arguments it will use your current KubeConfig context and scan the cluster and print a report with what APIs will be deprecated and removed. ``` kubent 4:17PM INF >>> Kube No Trouble `kubent` <<< 4:17PM INF version 0.7.0 (git sha d1bb4e5fd6550b533b2013671aa8419d923ee042) 4:17PM INF Initializing collectors and retrieving data 4:17PM INF Target K8s version is 1.24.8-eks-ffeb93d 4:l INF Retrieved 93 resources from collector name=Cluster 4:17PM INF Retrieved 16 resources from collector name="Helm v3" 4:17PM INF Loaded ruleset name=custom.rego.tmpl 4:17PM INF Loaded ruleset name=deprecated-1-16.rego 4:17PM INF Loaded ruleset name=deprecated-1-22.rego 4:17PM INF Loaded ruleset name=deprecated-1-25.rego 4:17PM INF Loaded ruleset name=deprecated-1-26.rego 4:17PM INF Loaded ruleset name=deprecated-future.rego __________________________________________________________________________________________ >>> Deprecated APIs removed in 1.25 <<< ------------------------------------------------------------------------------------------ KIND                NAMESPACE     NAME             API_VERSION      REPLACE_WITH (SINCE) PodSecurityPolicy   <undefined>   eks.privileged   policy/v1beta1   <removed> (1.21.0) ``` It can also be used to scan static manifest files and helm packages. It is recommended to run `kubent` as part of a continuous integration (CI) process to identify issues before manifests are deployed. Scanning manifests is also more accurate than scanning live clusters. Kube-no-trouble provides a sample [Service Account and Role](https://github.com/doitintl/kube-no-trouble/blob/master/docs/k8s-sa-and-role-example.yaml "https://github.com/doitintl/kube-no-trouble/blob/master/docs/k8s-sa-and-role-example.yaml") with the appropriate permissions for scanning the cluster. ### Pluto Another option is [pluto](https://pluto.docs.fairwinds.com/ "https://pluto.docs.fairwinds.com/") which is similar to `kubent` because it supports scanning a live cluster, manifest files, helm charts and has a GitHub Action you can include in your CI process. ``` pluto detect-all-in-cluster NAME             KIND                VERSION          REPLACEMENT   REMOVED   DEPRECATED   REPL AVAIL eks.privileged   PodSecurityPolicy   policy/v1beta1                 false     true         true ``` ### Resources To verify that your cluster don’t use deprecated APIs before the upgrade, you should monitor: <br>• metric `apiserver_requested_deprecated_apis` since Kubernetes v1.19: ``` kubectl get --raw /metrics | grep apiserver_requested_deprecated_apis apiserver_requested_deprecated_apis{group="policy",removed_release="1.25",resource="podsecuritypolicies",subresource="",version="v1beta1"} 1 ``` <br>• events in the [audit logs](../userguide/control-plane-logs.md "../userguide/control-plane-logs.md") with `k8s.io/deprecated` set to `true`: ``` CLUSTER="<cluster_name>" QUERY_ID=$(aws logs start-query \ --log-group-name /aws/eks/${CLUSTER}/cluster \ --start-time $(date -u --date="-30 minutes" "+%s") # or date -v-30M "+%s" on MacOS \ --end-time $(date "+%s") \ --query-string 'fields @message | filter `annotations.k8s.io/deprecated`="true"' \ --query queryId --output text) echo "Query started (query id: $QUERY_ID), please hold ..." && sleep 5 # give it some time to query aws logs get-query-results --query-id $QUERY_ID ``` Which will output lines if deprecated APIs are in use: ``` { "results": [ [ { "field": "@message", "value": "{\"kind\":\"Event\",\"apiVersion\":\"audit.k8s.io/v1\",\"level\":\"Request\",\"auditID\":\"8f7883c6-b3d5-42d7-967a-1121c6f22f01\",\"stage\":\"ResponseComplete\",\"requestURI\":\"/apis/policy/v1beta1/podsecuritypolicies?allowWatchBookmarks=true\\u0026resourceVersion=4131\\u0026timeout=9m19s\\u0026timeoutSeconds=559\\u0026watch=true\",\"verb\":\"watch\",\"user\":{\"username\":\"system:apiserver\",\"uid\":\"8aabfade-da52-47da-83b4-46b16cab30fa\",\"groups\":[\"system:masters\"]},\"sourceIPs\":[\"::1\"],\"userAgent\":\"kube-apiserver/v1.24.16 (linux/amd64) kubernetes/af930c1\",\"objectRef\":{\"resource\":\"podsecuritypolicies\",\"apiGroup\":\"policy\",\"apiVersion\":\"v1beta1\"},\"responseStatus\":{\"metadata\":{},\"code\":200},\"requestReceivedTimestamp\":\"2023-10-04T12:36:11.849075Z\",\"stageTimestamp\":\"2023-10-04T12:45:30.850483Z\",\"annotations\":{\"authorization.k8s.io/decision\":\"allow\",\"authorization.k8s.io/reason\":\"\",\"k8s.io/deprecated\":\"true\",\"k8s.io/removed-release\":\"1.25\"}}" }, [...] ``` ## Update Kubernetes workloads. Use kubectl-convert to update manifests After you have identified what workloads and manifests need to be updated, you may need to change the resource type in your manifest files (e.g. PodSecurityPolicies to PodSecurityStandards). This will require updating the resource specification and additional research depending on what resource is being replaced. If the resource type is staying the same but API version needs to be updated you can use the `kubectl-convert` command to automatically convert your manifest files. For example, to convert an older Deployment to `apps/v1`. For more information, see [Install kubectl convert plugin](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin "https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin")on the Kubernetes website. `kubectl-convert -f <file> --output-version <group>/<version>` ## Configure PodDisruptionBudgets and topologySpreadConstraints to ensure availability of your workloads while the data plane is upgraded Ensure your workloads have the proper [PodDisruptionBudgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets") and [topologySpreadConstraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints "https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints") to ensure availability of your workloads while the data plane is upgraded. Not every workload requires the same level of availability so you need to validate the scale and requirements of your workload. Make sure workloads are spread in multiple Availability Zones and on multiple hosts with topology spreads will give a higher level of confidence that workloads will migrate to the new data plane automatically without incident. Here is an example workload that will always have 80% of replicas available and spread replicas across zones and hosts ``` apiVersion: policy/v1 kind: PodDisruptionBudget metadata: name: myapp spec: minAvailable: "80%" selector: matchLabels: app: myapp --- apiVersion: apps/v1 kind: Deployment metadata: name: myapp spec: replicas: 10 selector: matchLabels: app: myapp template: metadata: labels: app: myapp spec: containers: <br>• image: public.ecr.aws/eks-distro/kubernetes/pause:3.2 name: myapp resources: requests: cpu: "1" memory: 256M topologySpreadConstraints: <br>• labelSelector: matchLabels: app: host-zone-spread maxSkew: 2 topologyKey: kubernetes.io/hostname whenUnsatisfiable: DoNotSchedule <br>• labelSelector: matchLabels: app: host-zone-spread maxSkew: 2 topologyKey: topology.kubernetes.io/zone whenUnsatisfiable: DoNotSchedule ``` [AWS Resilience Hub](https://aws.amazon.com/resilience-hub/ "https://aws.amazon.com/resilience-hub/") has added Amazon Elastic Kubernetes Service (Amazon EKS) as a supported resource. Resilience Hub provides a single place to define, validate, and track the resilience of your applications so that you can avoid unnecessary downtime caused by software, infrastructure, or operational disruptions. ## Use Managed Node Groups or Karpenter to simplify data plane upgrades Managed Node Groups and Karpenter both simplify node upgrades, but they take different approaches. Managed node groups automate the provisioning and lifecycle management of nodes. This means that you can create, automatically update, or terminate nodes with a single operation. In the default configuration, Karpenter automatically creates new nodes using the latest compatible EKS Optimized AMI. As EKS releases updated EKS Optimized AMIs or the cluster is upgraded, Karpenter will automatically start using these images. [Karpenter also implements Node Expiry to update nodes.](#enable-node-expiry-for-karpenter-managed-nodes "#enable-node-expiry-for-karpenter-managed-nodes") [Karpenter can be configured to use custom AMIs.](https://karpenter.sh/docs/concepts/nodeclasses/ "https://karpenter.sh/docs/concepts/nodeclasses/") If you use custom AMIs with Karpenter, you are responsible for the version of kubelet. ## Confirm version compatibility with existing nodes and the control plane Before proceeding with a Kubernetes upgrade in Amazon EKS, it’s vital to ensure compatibility between your managed node groups, self-managed nodes, and the control plane. Compatibility is determined by the Kubernetes version you are using, and it varies based on different scenarios. Tactics: <br>• **Kubernetes v1.28+** — **\***\* Starting from Kubernetes version 1.28 and onwards, there’s a more lenient version policy for core components. Specifically, the supported skew between the Kubernetes API server and the kubelet has been extended by one minor version, going from n-2 to n-3. For example, if your EKS control plane version is 1.28, you can safely use kubelet versions as old as 1.25. This version skew is supported across [AWS Fargate](../userguide/fargate.md "../userguide/fargate.md"), [managed node groups](../userguide/managed-node-groups.md "../userguide/managed-node-groups.md"), and [self-managed nodes](../userguide/worker.md "../userguide/worker.md"). We highly recommend keeping your [Amazon Machine Image (AMI)](../userguide/eks-optimized-amis.md "../userguide/eks-optimized-amis.md") versions up-to-date for security reasons. Older kubelet versions might pose security risks due to potential Common Vulnerabilities and Exposures (CVEs), which could outweigh the benefits of using older kubelet versions. <br>• **Kubernetes < v1.28** — If you are using a version older than v1.28, the supported skew between the API server and the kubelet is n-2. For example, if your EKS version is 1.27, the oldest kubelet version you can use is 1.25. This version skew is applicable across [AWS Fargate](../userguide/fargate.md "../userguide/fargate.md"), [managed node groups](../userguide/managed-node-groups.md "../userguide/managed-node-groups.md"), and [self-managed nodes](../userguide/worker.md "../userguide/worker.md"). ## Enable node expiry for Karpenter managed nodes One way Karpenter implements node upgrades is using the concept of node expiry. This reduces the planning required for node upgrades. When you set a value for **ttlSecondsUntilExpired** in your provisioner, this activates node expiry. After nodes reach the defined age in seconds, they’re safely drained and deleted. This is true even if they’re in use, allowing you to replace nodes with newly provisioned upgraded instances. When a node is replaced, Karpenter uses the latest EKS-optimized AMIs. For more information, see [Deprovisioning](https://karpenter.sh/docs/concepts/deprovisioning/#methods "https://karpenter.sh/docs/concepts/deprovisioning/#methods") on the Karpenter website. Karpenter doesn’t automatically add jitter to this value. To prevent excessive workload disruption, define a [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/ "https://kubernetes.io/docs/tasks/run-application/configure-pdb/"), as shown in Kubernetes documentation. If you configure **ttlSecondsUntilExpired** on a provisioner, this applies to existing nodes associated with the provisioner. ## Use Drift feature for Karpenter managed nodes [Karpenter’s Drift feature](https://karpenter.sh/docs/concepts/deprovisioning/#drift "https://karpenter.sh/docs/concepts/deprovisioning/#drift") can automatically upgrade the Karpenter-provisioned nodes to stay in-sync with the EKS control plane. Karpenter Drift currently needs to be enabled using a [feature gate](https://karpenter.sh/docs/concepts/settings/#feature-gates "https://karpenter.sh/docs/concepts/settings/#feature-gates"). Karpenter’s default configuration uses the latest EKS-Optimized AMI for the same major and minor version as the EKS cluster’s control plane. After an EKS Cluster upgrade completes, Karpenter’s Drift feature will detect that the Karpenter-provisioned nodes are using EKS-Optimized AMIs for the previous cluster version, and automatically cordon, drain, and replace those nodes. To support pods moving to new nodes, follow Kubernetes best practices by setting appropriate pod [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/ "https://kubernetes.io/docs/concepts/policy/resource-quotas/"), and using [pod disruption budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/ "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/") (PDB). Karpenter’s deprovisioning will pre-spin up replacement nodes based on the pod resource requests, and will respect the PDBs when deprovisioning nodes. ## Use eksctl to automate upgrades for self-managed node groups Self managed node groups are EC2 instances that were deployed in your account and attached to the cluster outside of the EKS service. These are usually deployed and managed by some form of automation tooling. To upgrade self-managed node groups you should refer to your tools documentation. For example, eksctl supports [deleting and draining self-managed nodes.](https://eksctl.io/usage/managing-nodegroups/#deleting-and-draining "https://eksctl.io/usage/managing-nodegroups/#deleting-and-draining") Some common tools include: <br>• [eksctl](https://eksctl.io/usage/nodegroup-upgrade/ "https://eksctl.io/usage/nodegroup-upgrade/") <br>• [kOps](https://kops.sigs.k8s.io/operations/updates_and_upgrades/ "https://kops.sigs.k8s.io/operations/updates_and_upgrades/") <br>• [EKS Blueprints](https://aws-ia.github.io/terraform-aws-eks-blueprints/node-groups/#self-managed-node-groups "https://aws-ia.github.io/terraform-aws-eks-blueprints/node-groups/#self-managed-node-groups") ## Backup the cluster before upgrading New versions of Kubernetes introduce significant changes to your Amazon EKS cluster. After you upgrade a cluster, you can’t downgrade it. [Velero](https://velero.io/ "https://velero.io/") is an community supported open-source tool that can be used to take backups of existing clusters and apply the backups to a new cluster. Note that you can only create new clusters for Kubernetes versions currently supported by EKS. If the version your cluster is currently running is still supported and an upgrade fails, you can create a new cluster with the original version and restore the data plane. Note that AWS resources, including IAM, are not included in the backup by Velero. These resources would need to be recreated. ## Restart Fargate deployments after upgrading the control plane To upgrade Fargate data plane nodes you need to redeploy the workloads. You can identify which workloads are running on fargate nodes by listing all pods with the `-o wide` option. Any node name that begins with `fargate-` will need to be redeployed in the cluster. ## Evaluate Blue/Green Clusters as an alternative to in-place cluster upgrades Some customers prefer to do a blue/green upgrade strategy. This can have benefits, but also includes downsides that should be considered. Benefits include: <br>• Possible to change multiple EKS versions at once (e.g. 1.23 to 1.25) <br>• Able to switch back to the old cluster <br>• Creates a new cluster which may be managed with newer systems (e.g. terraform) <br>• Workloads can be migrated individually Some downsides include: <br>• API endpoint and OIDC change which requires updating consumers (e.g. kubectl and CI/CD) <br>• Requires 2 clusters to be run in parallel during the migration, which can be expensive and limit region capacity <br>• More coordination is needed if workloads depend on each other to be migrated together <br>• Load balancers and external DNS cannot easily span multiple clusters While this strategy is possible to do, it is more expensive than an in-place upgrade and requires more time for coordination and workload migrations. It may be required in some situations and should be planned carefully. With high degrees of automation and declarative systems like GitOps, this may be easier to do. You will need to take additional precautions for stateful workloads so data is backed up and migrated to new clusters. Review these blogs posts for more information: <br>• [Kubernetes cluster upgrade: the blue-green deployment strategy](https://aws.amazon.com/blogs/containers/kubernetes-cluster-upgrade-the-blue-green-deployment-strategy/ "https://aws.amazon.com/blogs/containers/kubernetes-cluster-upgrade-the-blue-green-deployment-strategy/") <br>• [Blue/Green or Canary Amazon EKS clusters migration for stateless ArgoCD workloads](https://aws.amazon.com/blogs/containers/blue-green-or-canary-amazon-eks-clusters-migration-for-stateless-argocd-workloads/ "https://aws.amazon.com/blogs/containers/blue-green-or-canary-amazon-eks-clusters-migration-for-stateless-argocd-workloads/") ## Track planned major changes in the Kubernetes project — Think ahead Don’t look only at the next version. Review new versions of Kubernetes as they are released, and identify major changes. For example, some applications directly used the docker API, and support for Container Runtime Interface (CRI) for Docker (also known as Dockershim) was removed in Kubernetes `1.24`. This kind of change requires more time to prepare for. Review all documented changes for the version that you’re upgrading to, and note any required upgrade steps. Also, note any requirements or procedures that are specific to Amazon EKS managed clusters. <br>• [Kubernetes changelog](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG "https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG") ## Specific Guidance on Feature Removals ### Removal of Dockershim in 1.25 - Use Detector for Docker Socket (DDS) The EKS Optimized AMI for 1.25 no longer includes support for Dockershim. If you have a dependency on Dockershim, e.g. you are mounting the Docker socket, you will need to remove those dependencies before upgrading your worker nodes to 1.25. Find instances where you have a dependency on the Docker socket before upgrading to 1.25. We recommend using [Detector for Docker Socket (DDS), a kubectl plugin.](https://github.com/aws-containers/kubectl-detector-for-docker-socket "https://github.com/aws-containers/kubectl-detector-for-docker-socket"). ### Removal of PodSecurityPolicy in 1.25 - Migrate to Pod Security Standards or a policy-as-code solution `PodSecurityPolicy` was [deprecated in Kubernetes 1.21](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/ "https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/"), and has been removed in Kubernetes 1.25. If you are using PodSecurityPolicy in your cluster, then you must migrate to the built-in Kubernetes Pod Security Standards (PSS) or to a policy-as-code solution before upgrading your cluster to version 1.25 to avoid interruptions to your workloads. AWS published a [detailed FAQ in the EKS documentation.](../userguide/pod-security-policy-removal-faq.md "../userguide/pod-security-policy-removal-faq.md") Review the [Pod Security Standards (PSS) and Pod Security Admission (PSA)](https://aws.github.io/aws-eks-best-practices/security/docs/pods/#pod-security-standards-pss-and-pod-security-admission-psa "https://aws.github.io/aws-eks-best-practices/security/docs/pods/#pod-security-standards-pss-and-pod-security-admission-psa") best practices. Review the [PodSecurityPolicy Deprecation blog post](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/ "https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/") on the Kubernetes website. ### Deprecation of In-Tree Storage Driver in 1.23 - Migrate to Container Storage Interface (CSI) Drivers The Container Storage Interface (CSI) was designed to help Kubernetes replace its existing, in-tree storage driver mechanisms. The Amazon EBS container storage interface (CSI) migration feature is enabled by default in Amazon EKS `1.23` and later clusters. If you have pods running on a version `1.22` or earlier cluster, then you must install the [Amazon EBS CSI driver](../userguide/ebs-csi.md "../userguide/ebs-csi.md") before updating your cluster to version `1.23` to avoid service interruption. Review the [Amazon EBS CSI migration frequently asked questions](../userguide/ebs-csi-migration-faq.md "../userguide/ebs-csi-migration-faq.md"). ## Additional Resources ### ClowdHaus EKS Upgrade Guidance [ClowdHaus EKS Upgrade Guidance](https://clowdhaus.github.io/eksup/ "https://clowdhaus.github.io/eksup/") is a CLI to aid in upgrading Amazon EKS clusters. It can analyze a cluster for any potential issues to remediate prior to upgrade. ### GoNoGo [GoNoGo](https://github.com/FairwindsOps/GoNoGo "https://github.com/FairwindsOps/GoNoGo") is an alpha-stage tool to determine the upgrade confidence of your cluster add-ons.
-````
+|  subnet-047f3d276a22c6bce |  us-east-1b  |  8184 |
++---------------------------+--------------+-------+
+```
+
+The
+[VPC
+CNI Metrics Helper](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/cmd/cni-metrics-helper/README.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/cmd/cni-metrics-helper/README.md") may be used to create a CloudWatch dashboard for VPC
+metrics. Amazon EKS recommends updating the cluster subnets using the
+"UpdateClusterConfiguration" API prior to beginning a Kubernetes
+version upgrade if you are running out of IP addresses in the subnets
+initially specified during cluster creation. Please verify that the new
+subnets you will be provided:
+
+- belong to same set of AZs that are selected during cluster creation.
+- belong to the same VPC provided during cluster creation
+
+Please consider associating additional CIDR blocks if the IP addresses
+in the existing VPC CIDR block run out. AWS enables the association of
+additional CIDR blocks with your existing cluster VPC, effectively
+expanding your IP address pool. This expansion can be accomplished by
+introducing additional private IP ranges (RFC 1918) or, if necessary,
+public IP ranges (non-RFC 1918). You must add new VPC CIDR blocks and
+allow VPC refresh to complete before Amazon EKS can use the new CIDR.
+After that, you can update the subnets based on the newly set up CIDR
+blocks to the VPC.
+
+### Verify EKS IAM role
+
+To verify that the IAM role is available and has the correct assume role
+policy in your account you can run the following commands:
+
+```
+CLUSTER=<cluster name>
+ROLE_ARN=$(aws eks describe-cluster --name ${CLUSTER} \
+  --query 'cluster.roleArn' --output text)
+aws iam get-role --role-name ${ROLE_ARN##*/} \
+  --query 'Role.AssumeRolePolicyDocument'
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "eks.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+```
+
+## Migrate to EKS Add-ons
+
+Amazon EKS automatically installs add-ons such as the Amazon VPC CNI
+plugin for Kubernetes, `kube-proxy`, and CoreDNS for every cluster.
+Add-ons may be self-managed, or installed as Amazon EKS Add-ons. Amazon
+EKS Add-ons is an alternate way to manage add-ons using the EKS API.
+
+You can use Amazon EKS Add-ons to update versions with a single command.
+For Example:
+
+```
+aws eks update-addon —cluster-name my-cluster —addon-name vpc-cni —addon-version version-number \
+--service-account-role-arn arn:aws:iam::111122223333:role/role-name —configuration-values '{}' —resolve-conflicts PRESERVE
+```
+
+Check if you have any EKS Add-ons with:
+
+```
+aws eks list-addons --cluster-name <cluster name>
+```
+
+###### Warning
+
+EKS Add-ons are not automatically upgraded during a control plane upgrade. You must initiate EKS add-on updates, and select the desired version.
+
+- You are responsible for selecting a compatible version from all available versions. [Review the guidance on add-on version compatibility.](#upgrade-addons "#upgrade-addons")
+- Amazon EKS Add-ons may only be upgraded one minor version at a time.
+
+[Learn
+more about what components are available as EKS Add-ons, and how to
+get started.](../userguide/eks-add-ons.md "../userguide/eks-add-ons.md")
+
+[Learn
+how to supply a custom configuration to an EKS Add-on.](https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/ "https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/")
+
+## Identify and remediate removed API usage before upgrading the control plane
+
+You should identify API usage of removed APIs before upgrading your EKS
+control plane. To do that we recommend using tools that can check a
+running cluster or static, rendered Kubernetes manifest files.
+
+Running the check against static manifest files is generally more
+accurate. If run against live clusters, these tools may return false
+positives.
+
+A deprecated Kubernetes API does not mean the API has been removed. You
+should check the
+[Kubernetes
+Deprecation Policy](https://kubernetes.io/docs/reference/using-api/deprecation-policy/ "https://kubernetes.io/docs/reference/using-api/deprecation-policy/") to understand how API removal affects your
+workloads.
+
+### Cluster Insights
+
+[Cluster
+Insights](../userguide/cluster-insights.md "../userguide/cluster-insights.md") is a feature that provides findings on issues that may impact
+the ability to upgrade an EKS cluster to newer versions of Kubernetes.
+These findings are curated and managed by Amazon EKS and offer
+recommendations on how to remediate them. By leveraging Cluster
+Insights, you can minimize the effort spent to upgrade to newer
+Kubernetes versions.
+
+To view insights of an EKS cluster, you can run the command:
+
+```
+aws eks list-insights --region <region-code> --cluster-name <my-cluster>
+
+{
+    "insights": [
+        {
+            "category": "UPGRADE_READINESS",
+            "name": "Deprecated APIs removed in Kubernetes v1.29",
+            "insightStatus": {
+                "status": "PASSING",
+                "reason": "No deprecated API usage detected within the last 30 days."
+            },
+            "kubernetesVersion": "1.29",
+            "lastTransitionTime": 1698774710.0,
+            "lastRefreshTime": 1700157422.0,
+            "id": "123e4567-e89b-42d3-a456-579642341238",
+            "description": "Checks for usage of deprecated APIs that are scheduled for removal in Kubernetes v1.29. Upgrading your cluster before migrating to the updated APIs supported by v1.29 could cause application impact."
+        }
+    ]
+}
+```
+
+For a more descriptive output about the insight received, you can run
+the command:
+
+```
+aws eks describe-insight --region <region-code> --id <insight-id> --cluster-name <my-cluster>
+```
+
+You also have the option to view insights in the
+[Amazon EKS Console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+After selecting your cluster from the cluster list, insight findings are
+located under the `Upgrade Insights` tab.
+
+If you find a cluster insight with `"status": ERROR`, you must address
+the issue prior to performing the cluster upgrade. Run the
+`aws eks describe-insight` command which will share the following
+remediation advice:
+
+Resources affected:
+
+```
+"resources": [
+      {
+        "insightStatus": {
+          "status": "ERROR"
+        },
+        "kubernetesResourceUri": "/apis/policy/v1beta1/podsecuritypolicies/null"
+      }
+]
+```
+
+APIs deprecated:
+
+```
+"deprecationDetails": [
+      {
+        "usage": "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas",
+        "replacedWith": "/apis/flowcontrol.apiserver.k8s.io/v1beta3/flowschemas",
+        "stopServingVersion": "1.29",
+        "clientStats": [],
+        "startServingReplacementVersion": "1.26"
+      }
+]
+```
+
+Recommended action to take:
+
+```
+"recommendation": "Update manifests and API clients to use newer Kubernetes APIs if applicable before upgrading to Kubernetes v1.26."
+```
+
+Utilizing cluster insights through the EKS Console or CLI help speed the
+process of successfully upgrading EKS cluster versions. Learn more with
+the following resources: \*
+[Official
+EKS Docs](../userguide/cluster-insights.md "../userguide/cluster-insights.md") \*
+[Cluster
+Insights launch blog](https://aws.amazon.com/blogs/containers/accelerate-the-testing-and-verification-of-amazon-eks-upgrades-with-upgrade-insights/ "https://aws.amazon.com/blogs/containers/accelerate-the-testing-and-verification-of-amazon-eks-upgrades-with-upgrade-insights/").
+
+### Kube-no-trouble
+
+[Kube-no-trouble](https://github.com/doitintl/kube-no-trouble "https://github.com/doitintl/kube-no-trouble") is an open
+source command line utility with the command `kubent`. When you run
+`kubent` without any arguments it will use your current KubeConfig
+context and scan the cluster and print a report with what APIs will be
+deprecated and removed.
+
+```
+kubent
+
+4:17PM INF >>> Kube No Trouble `kubent` <<<
+4:17PM INF version 0.7.0 (git sha d1bb4e5fd6550b533b2013671aa8419d923ee042)
+4:17PM INF Initializing collectors and retrieving data
+4:17PM INF Target K8s version is 1.24.8-eks-ffeb93d
+4:l INF Retrieved 93 resources from collector name=Cluster
+4:17PM INF Retrieved 16 resources from collector name="Helm v3"
+4:17PM INF Loaded ruleset name=custom.rego.tmpl
+4:17PM INF Loaded ruleset name=deprecated-1-16.rego
+4:17PM INF Loaded ruleset name=deprecated-1-22.rego
+4:17PM INF Loaded ruleset name=deprecated-1-25.rego
+4:17PM INF Loaded ruleset name=deprecated-1-26.rego
+4:17PM INF Loaded ruleset name=deprecated-future.rego
+__________________________________________________________________________________________
+>>> Deprecated APIs removed in 1.25 <<<
+------------------------------------------------------------------------------------------
+KIND                NAMESPACE     NAME             API_VERSION      REPLACE_WITH (SINCE)
+PodSecurityPolicy   <undefined>   eks.privileged   policy/v1beta1   <removed> (1.21.0)
+```
+
+It can also be used to scan static manifest files and helm packages. It
+is recommended to run `kubent` as part of a continuous integration
+(CI) process to identify issues before manifests are deployed. Scanning
+manifests is also more accurate than scanning live clusters.
+
+Kube-no-trouble provides a sample
+[Service
+Account and Role](https://github.com/doitintl/kube-no-trouble/blob/master/docs/k8s-sa-and-role-example.yaml "https://github.com/doitintl/kube-no-trouble/blob/master/docs/k8s-sa-and-role-example.yaml") with the appropriate permissions for scanning the
+cluster.
+
+### Pluto
+
+Another option is [pluto](https://pluto.docs.fairwinds.com/ "https://pluto.docs.fairwinds.com/") which is
+similar to `kubent` because it supports scanning a live cluster,
+manifest files, helm charts and has a GitHub Action you can include in
+your CI process.
+
+```
+pluto detect-all-in-cluster
+
+NAME             KIND                VERSION          REPLACEMENT   REMOVED   DEPRECATED   REPL AVAIL
+eks.privileged   PodSecurityPolicy   policy/v1beta1                 false     true         true
+```
+
+### Resources
+
+To verify that your cluster don’t use deprecated APIs before the
+upgrade, you should monitor:
+
+- metric `apiserver_requested_deprecated_apis` since Kubernetes v1.19:
+
+```
+kubectl get --raw /metrics | grep apiserver_requested_deprecated_apis
+
+apiserver_requested_deprecated_apis{group="policy",removed_release="1.25",resource="podsecuritypolicies",subresource="",version="v1beta1"} 1
+```
+
+- events in the
+  [audit
+  logs](../userguide/control-plane-logs.md "../userguide/control-plane-logs.md") with `k8s.io/deprecated` set to `true`:
+
+```
+CLUSTER="<cluster_name>"
+QUERY_ID=$(aws logs start-query \
+ --log-group-name /aws/eks/${CLUSTER}/cluster \
+ --start-time $(date -u --date="-30 minutes" "+%s") # or date -v-30M "+%s" on MacOS \
+ --end-time $(date "+%s") \
+ --query-string 'fields @message | filter `annotations.k8s.io/deprecated`="true"' \
+ --query queryId --output text)
+
+echo "Query started (query id: $QUERY_ID), please hold ..." && sleep 5 # give it some time to query
+
+aws logs get-query-results --query-id $QUERY_ID
+```
+
+Which will output lines if deprecated APIs are in use:
+
+```
+{
+    "results": [
+        [
+            {
+                "field": "@message",
+                "value": "{\"kind\":\"Event\",\"apiVersion\":\"audit.k8s.io/v1\",\"level\":\"Request\",\"auditID\":\"8f7883c6-b3d5-42d7-967a-1121c6f22f01\",\"stage\":\"ResponseComplete\",\"requestURI\":\"/apis/policy/v1beta1/podsecuritypolicies?allowWatchBookmarks=true\\u0026resourceVersion=4131\\u0026timeout=9m19s\\u0026timeoutSeconds=559\\u0026watch=true\",\"verb\":\"watch\",\"user\":{\"username\":\"system:apiserver\",\"uid\":\"8aabfade-da52-47da-83b4-46b16cab30fa\",\"groups\":[\"system:masters\"]},\"sourceIPs\":[\"::1\"],\"userAgent\":\"kube-apiserver/v1.24.16 (linux/amd64) kubernetes/af930c1\",\"objectRef\":{\"resource\":\"podsecuritypolicies\",\"apiGroup\":\"policy\",\"apiVersion\":\"v1beta1\"},\"responseStatus\":{\"metadata\":{},\"code\":200},\"requestReceivedTimestamp\":\"2023-10-04T12:36:11.849075Z\",\"stageTimestamp\":\"2023-10-04T12:45:30.850483Z\",\"annotations\":{\"authorization.k8s.io/decision\":\"allow\",\"authorization.k8s.io/reason\":\"\",\"k8s.io/deprecated\":\"true\",\"k8s.io/removed-release\":\"1.25\"}}"
+            },
+[...]
+```
+
+## Update Kubernetes workloads. Use kubectl-convert to update manifests
+
+After you have identified what workloads and manifests need to be
+updated, you may need to change the resource type in your manifest files
+(e.g. PodSecurityPolicies to PodSecurityStandards). This will require
+updating the resource specification and additional research depending on
+what resource is being replaced.
+
+If the resource type is staying the same but API version needs to be
+updated you can use the `kubectl-convert` command to automatically
+convert your manifest files. For example, to convert an older Deployment
+to `apps/v1`. For more information, see
+[Install
+kubectl convert plugin](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin "https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin")on the Kubernetes website.
+
+`kubectl-convert -f <file> --output-version <group>/<version>`
+
+## Configure PodDisruptionBudgets and topologySpreadConstraints to ensure availability of your workloads while the data plane is upgraded
+
+Ensure your workloads have the proper
+[PodDisruptionBudgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets")
+and
+[topologySpreadConstraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints "https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints")
+to ensure availability of your workloads while the data plane is
+upgraded. Not every workload requires the same level of availability so
+you need to validate the scale and requirements of your workload.
+
+Make sure workloads are spread in multiple Availability Zones and on
+multiple hosts with topology spreads will give a higher level of
+confidence that workloads will migrate to the new data plane
+automatically without incident.
+
+Here is an example workload that will always have 80% of replicas
+available and spread replicas across zones and hosts
+
+```
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: myapp
+spec:
+  minAvailable: "80%"
+  selector:
+    matchLabels:
+      app: myapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - image: public.ecr.aws/eks-distro/kubernetes/pause:3.2
+        name: myapp
+        resources:
+          requests:
+            cpu: "1"
+            memory: 256M
+      topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app: host-zone-spread
+        maxSkew: 2
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+      - labelSelector:
+          matchLabels:
+            app: host-zone-spread
+        maxSkew: 2
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: DoNotSchedule
+```
+
+[AWS Resilience Hub](https://aws.amazon.com/resilience-hub/ "https://aws.amazon.com/resilience-hub/") has added
+Amazon Elastic Kubernetes Service (Amazon EKS) as a supported resource.
+Resilience Hub provides a single place to define, validate, and track
+the resilience of your applications so that you can avoid unnecessary
+downtime caused by software, infrastructure, or operational disruptions.
+
+## Use Managed Node Groups or Karpenter to simplify data plane upgrades
+
+Managed Node Groups and Karpenter both simplify node upgrades, but they
+take different approaches.
+
+Managed node groups automate the provisioning and lifecycle management
+of nodes. This means that you can create, automatically update, or
+terminate nodes with a single operation.
+
+In the default configuration, Karpenter automatically creates new nodes
+using the latest compatible EKS Optimized AMI. As EKS releases updated
+EKS Optimized AMIs or the cluster is upgraded, Karpenter will
+automatically start using these images.
+[Karpenter also
+implements Node Expiry to update nodes.](#enable-node-expiry-for-karpenter-managed-nodes "#enable-node-expiry-for-karpenter-managed-nodes")
+
+[Karpenter can be
+configured to use custom AMIs.](https://karpenter.sh/docs/concepts/nodeclasses/ "https://karpenter.sh/docs/concepts/nodeclasses/") If you use custom AMIs with Karpenter,
+you are responsible for the version of kubelet.
+
+## Confirm version compatibility with existing nodes and the control plane
+
+Before proceeding with a Kubernetes upgrade in Amazon EKS, it’s vital to
+ensure compatibility between your managed node groups, self-managed
+nodes, and the control plane. Compatibility is determined by the
+Kubernetes version you are using, and it varies based on different
+scenarios. Tactics:
+
+- **Kubernetes v1.28+** — **\***\* Starting from Kubernetes version 1.28 and
+  onwards, there’s a more lenient version policy for core components.
+  Specifically, the supported skew between the Kubernetes API server and
+  the kubelet has been extended by one minor version, going from n-2 to
+  n-3. For example, if your EKS control plane version is 1.28, you can
+  safely use kubelet versions as old as 1.25. This version skew is
+  supported across
+  [AWS
+  Fargate](../userguide/fargate.md "../userguide/fargate.md"),
+  [managed
+  node groups](../userguide/managed-node-groups.md "../userguide/managed-node-groups.md"), and
+  [self-managed
+  nodes](../userguide/worker.md "../userguide/worker.md"). We highly recommend keeping your
+  [Amazon
+  Machine Image (AMI)](../userguide/eks-optimized-amis.md "../userguide/eks-optimized-amis.md") versions up-to-date for security reasons. Older
+  kubelet versions might pose security risks due to potential Common
+  Vulnerabilities and Exposures (CVEs), which could outweigh the benefits
+  of using older kubelet versions.
+- **Kubernetes < v1.28** — If you are using a version older than v1.28,
+  the supported skew between the API server and the kubelet is n-2. For
+  example, if your EKS version is 1.27, the oldest kubelet version you can
+  use is 1.25. This version skew is applicable across
+  [AWS
+  Fargate](../userguide/fargate.md "../userguide/fargate.md"),
+  [managed
+  node groups](../userguide/managed-node-groups.md "../userguide/managed-node-groups.md"), and
+  [self-managed
+  nodes](../userguide/worker.md "../userguide/worker.md").
+
+## Enable node expiry for Karpenter managed nodes
+
+One way Karpenter implements node upgrades is using the concept of node
+expiry. This reduces the planning required for node upgrades. When you
+set a value for **ttlSecondsUntilExpired** in your provisioner, this
+activates node expiry. After nodes reach the defined age in seconds,
+they’re safely drained and deleted. This is true even if they’re in use,
+allowing you to replace nodes with newly provisioned upgraded instances.
+When a node is replaced, Karpenter uses the latest EKS-optimized AMIs.
+For more information, see
+[Deprovisioning](https://karpenter.sh/docs/concepts/deprovisioning/#methods "https://karpenter.sh/docs/concepts/deprovisioning/#methods")
+on the Karpenter website.
+
+Karpenter doesn’t automatically add jitter to this value. To prevent
+excessive workload disruption, define a
+[pod
+disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/ "https://kubernetes.io/docs/tasks/run-application/configure-pdb/"), as shown in Kubernetes documentation.
+
+If you configure **ttlSecondsUntilExpired** on a provisioner, this
+applies to existing nodes associated with the provisioner.
+
+## Use Drift feature for Karpenter managed nodes
+
+[Karpenter’s
+Drift feature](https://karpenter.sh/docs/concepts/deprovisioning/#drift "https://karpenter.sh/docs/concepts/deprovisioning/#drift") can automatically upgrade the Karpenter-provisioned nodes
+to stay in-sync with the EKS control plane. Karpenter Drift currently
+needs to be enabled using a
+[feature
+gate](https://karpenter.sh/docs/concepts/settings/#feature-gates "https://karpenter.sh/docs/concepts/settings/#feature-gates"). Karpenter’s default configuration uses the latest EKS-Optimized
+AMI for the same major and minor version as the EKS cluster’s control
+plane.
+
+After an EKS Cluster upgrade completes, Karpenter’s Drift feature will
+detect that the Karpenter-provisioned nodes are using EKS-Optimized AMIs
+for the previous cluster version, and automatically cordon, drain, and
+replace those nodes. To support pods moving to new nodes, follow
+Kubernetes best practices by setting appropriate pod
+[resource
+quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/ "https://kubernetes.io/docs/concepts/policy/resource-quotas/"), and using
+[pod
+disruption budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/ "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/") (PDB). Karpenter’s deprovisioning will pre-spin up
+replacement nodes based on the pod resource requests, and will respect
+the PDBs when deprovisioning nodes.
+
+## Use eksctl to automate upgrades for self-managed node groups
+
+Self managed node groups are EC2 instances that were deployed in your
+account and attached to the cluster outside of the EKS service. These
+are usually deployed and managed by some form of automation tooling. To
+upgrade self-managed node groups you should refer to your tools
+documentation.
+
+For example, eksctl supports
+[deleting
+and draining self-managed nodes.](https://eksctl.io/usage/managing-nodegroups/#deleting-and-draining "https://eksctl.io/usage/managing-nodegroups/#deleting-and-draining")
+
+Some common tools include:
+
+- [eksctl](https://eksctl.io/usage/nodegroup-upgrade/ "https://eksctl.io/usage/nodegroup-upgrade/")
+- [kOps](https://kops.sigs.k8s.io/operations/updates_and_upgrades/ "https://kops.sigs.k8s.io/operations/updates_and_upgrades/")
+- [EKS
+  Blueprints](https://aws-ia.github.io/terraform-aws-eks-blueprints/node-groups/#self-managed-node-groups "https://aws-ia.github.io/terraform-aws-eks-blueprints/node-groups/#self-managed-node-groups")
+
+## Backup the cluster before upgrading
+
+New versions of Kubernetes introduce significant changes to your Amazon
+EKS cluster. After you upgrade a cluster, you can’t downgrade it.
+
+[Velero](https://velero.io/ "https://velero.io/") is an community supported open-source tool
+that can be used to take backups of existing clusters and apply the
+backups to a new cluster.
+
+Note that you can only create new clusters for Kubernetes versions
+currently supported by EKS. If the version your cluster is currently
+running is still supported and an upgrade fails, you can create a new
+cluster with the original version and restore the data plane. Note that
+AWS resources, including IAM, are not included in the backup by Velero.
+These resources would need to be recreated.
+
+## Restart Fargate deployments after upgrading the control plane
+
+To upgrade Fargate data plane nodes you need to redeploy the workloads.
+You can identify which workloads are running on fargate nodes by listing
+all pods with the `-o wide` option. Any node name that begins with
+`fargate-` will need to be redeployed in the cluster.
+
+## Evaluate Blue/Green Clusters as an alternative to in-place cluster upgrades
+
+Some customers prefer to do a blue/green upgrade strategy. This can have
+benefits, but also includes downsides that should be considered.
+
+Benefits include:
+
+- Possible to change multiple EKS versions at once (e.g. 1.23 to 1.25)
+- Able to switch back to the old cluster
+- Creates a new cluster which may be managed with newer systems
+  (e.g. terraform)
+- Workloads can be migrated individually
+
+Some downsides include:
+
+- API endpoint and OIDC change which requires updating consumers
+  (e.g. kubectl and CI/CD)
+- Requires 2 clusters to be run in parallel during the migration, which
+  can be expensive and limit region capacity
+- More coordination is needed if workloads depend on each other to be
+  migrated together
+- Load balancers and external DNS cannot easily span multiple clusters
+
+While this strategy is possible to do, it is more expensive than an
+in-place upgrade and requires more time for coordination and workload
+migrations. It may be required in some situations and should be planned
+carefully.
+
+With high degrees of automation and declarative systems like GitOps,
+this may be easier to do. You will need to take additional precautions
+for stateful workloads so data is backed up and migrated to new
+clusters.
+
+Review these blogs posts for more information:
+
+- [Kubernetes
+  cluster upgrade: the blue-green deployment strategy](https://aws.amazon.com/blogs/containers/kubernetes-cluster-upgrade-the-blue-green-deployment-strategy/ "https://aws.amazon.com/blogs/containers/kubernetes-cluster-upgrade-the-blue-green-deployment-strategy/")
+- [Blue/Green
+  or Canary Amazon EKS clusters migration for stateless ArgoCD workloads](https://aws.amazon.com/blogs/containers/blue-green-or-canary-amazon-eks-clusters-migration-for-stateless-argocd-workloads/ "https://aws.amazon.com/blogs/containers/blue-green-or-canary-amazon-eks-clusters-migration-for-stateless-argocd-workloads/")
+
+## Track planned major changes in the Kubernetes project — Think ahead
+
+Don’t look only at the next version. Review new versions of Kubernetes
+as they are released, and identify major changes. For example, some
+applications directly used the docker API, and support for Container
+Runtime Interface (CRI) for Docker (also known as Dockershim) was
+removed in Kubernetes `1.24`. This kind of change requires more time
+to prepare for.
+
+Review all documented changes for the version that you’re upgrading to,
+and note any required upgrade steps. Also, note any requirements or
+procedures that are specific to Amazon EKS managed clusters.
+
+- [Kubernetes
+  changelog](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG "https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG")
+
+## Specific Guidance on Feature Removals
+
+### Removal of Dockershim in 1.25 - Use Detector for Docker Socket (DDS)
+
+The EKS Optimized AMI for 1.25 no longer includes support for
+Dockershim. If you have a dependency on Dockershim, e.g. you are
+mounting the Docker socket, you will need to remove those dependencies
+before upgrading your worker nodes to 1.25.
+
+Find instances where you have a dependency on the Docker socket before
+upgrading to 1.25. We recommend using
+[Detector
+for Docker Socket (DDS), a kubectl plugin.](https://github.com/aws-containers/kubectl-detector-for-docker-socket "https://github.com/aws-containers/kubectl-detector-for-docker-socket").
+
+### Removal of PodSecurityPolicy in 1.25 - Migrate to Pod Security Standards or a policy-as-code solution
+
+`PodSecurityPolicy` was
+[deprecated
+in Kubernetes 1.21](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/ "https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/"), and has been removed in Kubernetes 1.25. If you are
+using PodSecurityPolicy in your cluster, then you must migrate to the
+built-in Kubernetes Pod Security Standards (PSS) or to a policy-as-code
+solution before upgrading your cluster to version 1.25 to avoid
+interruptions to your workloads.
+
+AWS published a
+[detailed
+FAQ in the EKS documentation.](../userguide/pod-security-policy-removal-faq.md "../userguide/pod-security-policy-removal-faq.md")
+
+Review the
+[Pod
+Security Standards (PSS) and Pod Security Admission (PSA)](https://aws.github.io/aws-eks-best-practices/security/docs/pods/#pod-security-standards-pss-and-pod-security-admission-psa "https://aws.github.io/aws-eks-best-practices/security/docs/pods/#pod-security-standards-pss-and-pod-security-admission-psa") best
+practices.
+
+Review the
+[PodSecurityPolicy
+Deprecation blog post](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/ "https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/") on the Kubernetes website.
+
+### Deprecation of In-Tree Storage Driver in 1.23 - Migrate to Container Storage Interface (CSI) Drivers
+
+The Container Storage Interface (CSI) was designed to help Kubernetes
+replace its existing, in-tree storage driver mechanisms. The Amazon EBS
+container storage interface (CSI) migration feature is enabled by
+default in Amazon EKS `1.23` and later clusters. If you have pods
+running on a version `1.22` or earlier cluster, then you must install
+the [Amazon
+EBS CSI driver](../userguide/ebs-csi.md "../userguide/ebs-csi.md") before updating your cluster to version `1.23` to
+avoid service interruption.
+
+Review the
+[Amazon
+EBS CSI migration frequently asked questions](../userguide/ebs-csi-migration-faq.md "../userguide/ebs-csi-migration-faq.md").
+
+## Additional Resources
+
+### ClowdHaus EKS Upgrade Guidance
+
+[ClowdHaus EKS Upgrade Guidance](https://clowdhaus.github.io/eksup/ "https://clowdhaus.github.io/eksup/") is a
+CLI to aid in upgrading Amazon EKS clusters. It can analyze a cluster
+for any potential issues to remediate prior to upgrade.
+
+### GoNoGo
+
+[GoNoGo](https://github.com/FairwindsOps/GoNoGo "https://github.com/FairwindsOps/GoNoGo") is an alpha-stage tool to
+determine the upgrade confidence of your cluster add-ons.

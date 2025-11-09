@@ -141,14 +141,103 @@ example of a metrics filter for the Kubernetes audit log,
 `{($.verb="get") && ($.objectRef.resource="secret")}`. You can also
 use the following queries with CloudWatch Log Insights:
 
-````
+```
 fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | stats count(*) by objectRef.name as secret
-| filter verb="get" and objectRef.resource="secrets" ``` The above query will display the number of times a secret has been accessed within a specific timeframe. ``` fields @timestamp, @message
+| filter verb="get" and objectRef.resource="secrets"
+```
+
+The above query will display the number of times a secret has been
+accessed within a specific timeframe.
+
+```
+fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter verb="get" and objectRef.resource="secrets"
-| display objectRef.namespace, objectRef.name, user.username, responseStatus.code ``` This query will display the secret, along with the namespace and username of the user who attempted to access the secret and the response code. ### Rotate your secrets periodically Kubernetes doesn’t automatically rotate secrets. If you have to rotate secrets, consider using an external secret store, e.g. Vault or AWS Secrets Manager. ### Use separate namespaces as a way to isolate secrets from different applications If you have secrets that cannot be shared between applications in a namespace, create a separate namespace for those applications. ### Use volume mounts instead of environment variables The values of environment variables can unintentionally appear in logs. Secrets mounted as volumes are instantiated as tmpfs volumes (a RAM backed file system) that are automatically removed from the node when the pod is deleted. ### Use an external secrets provider There are several viable alternatives to using Kubernetes secrets, including [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/ "https://aws.amazon.com/secrets-manager/") and Hashicorp’s [Vault](https://www.hashicorp.com/blog/injecting-vault-secrets-into-kubernetes-pods-via-a-sidecar/ "https://www.hashicorp.com/blog/injecting-vault-secrets-into-kubernetes-pods-via-a-sidecar/"). These services offer features such as fine grained access controls, strong encryption, and automatic rotation of secrets that are not available with Kubernetes Secrets. Bitnami’s [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets "https://github.com/bitnami-labs/sealed-secrets") is another approach that uses asymmetric encryption to create "sealed secrets". A public key is used to encrypt the secret while the private key used to decrypt the secret is kept within the cluster, allowing you to safely store sealed secrets in source control systems like Git. See [Managing secrets deployment in Kubernetes using Sealed Secrets](https://aws.amazon.com/blogs/opensource/managing-secrets-deployment-in-kubernetes-using-sealed-secrets/ "https://aws.amazon.com/blogs/opensource/managing-secrets-deployment-in-kubernetes-using-sealed-secrets/") for further information. As the use of external secrets stores has grown, so has need for integrating them with Kubernetes. The [Secret Store CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver "https://github.com/kubernetes-sigs/secrets-store-csi-driver") is a community project that uses the CSI driver model to fetch secrets from external secret stores. Currently, the Driver has support for [AWS Secrets Manager](https://github.com/aws/secrets-store-csi-driver-provider-aws "https://github.com/aws/secrets-store-csi-driver-provider-aws"), Azure, Vault, and GCP. The AWS provider supports both AWS Secrets Manager **and** AWS Parameter Store. It can also be configured to rotate secrets when they expire and can synchronize AWS Secrets Manager secrets to Kubernetes Secrets. Synchronization of secrets can be useful when you need to reference a secret as an environment variable instead of reading them from a volume. ###### Note When the secret store CSI driver has to fetch a secret, it assumes the IRSA role assigned to the pod that references a secret. The code for this operation can be found [here](https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/auth/auth.go "https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/auth/auth.go"). For additional information about the AWS Secrets & Configuration Provider (ASCP) refer to the following resources: <br>• [How to use AWS Secrets Configuration Provider with Kubernetes Secret Store CSI Driver](https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/ "https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/") <br>• [Integrating Secrets Manager secrets with Kubernetes Secrets Store CSI Driver](../../../secretsmanager/latest/userguide/integrating_csi_driver.md "../../../secretsmanager/latest/userguide/integrating_csi_driver.md") [external-secrets](https://github.com/external-secrets/external-secrets "https://github.com/external-secrets/external-secrets") is yet another way to use an external secret store with Kubernetes. Like the CSI Driver, external-secrets works against a variety of different backends, including AWS Secrets Manager. The difference is, rather than retrieving secrets from the external secret store, external-secrets copies secrets from these backends to Kubernetes as Secrets. This lets you manage secrets using your preferred secret store and interact with secrets in a Kubernetes-native way. ## Tools and resources <br>• [Amazon EKS Security Immersion Workshop - Data Encryption and Secrets Management](https://catalog.workshops.aws/eks-security-immersionday/en-US/13-data-encryption-and-secret-management "https://catalog.workshops.aws/eks-security-immersionday/en-US/13-data-encryption-and-secret-management")
-````
+| display objectRef.namespace, objectRef.name, user.username, responseStatus.code
+```
+
+This query will display the secret, along with the namespace and
+username of the user who attempted to access the secret and the response
+code.
+
+### Rotate your secrets periodically
+
+Kubernetes doesn’t automatically rotate secrets. If you have to rotate
+secrets, consider using an external secret store, e.g. Vault or AWS
+Secrets Manager.
+
+### Use separate namespaces as a way to isolate secrets from different applications
+
+If you have secrets that cannot be shared between applications in a
+namespace, create a separate namespace for those applications.
+
+### Use volume mounts instead of environment variables
+
+The values of environment variables can unintentionally appear in logs.
+Secrets mounted as volumes are instantiated as tmpfs volumes (a RAM
+backed file system) that are automatically removed from the node when
+the pod is deleted.
+
+### Use an external secrets provider
+
+There are several viable alternatives to using Kubernetes secrets,
+including [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/ "https://aws.amazon.com/secrets-manager/")
+and Hashicorp’s
+[Vault](https://www.hashicorp.com/blog/injecting-vault-secrets-into-kubernetes-pods-via-a-sidecar/ "https://www.hashicorp.com/blog/injecting-vault-secrets-into-kubernetes-pods-via-a-sidecar/").
+These services offer features such as fine grained access controls,
+strong encryption, and automatic rotation of secrets that are not
+available with Kubernetes Secrets. Bitnami’s
+[Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets "https://github.com/bitnami-labs/sealed-secrets") is
+another approach that uses asymmetric encryption to create "sealed
+secrets". A public key is used to encrypt the secret while the private
+key used to decrypt the secret is kept within the cluster, allowing you
+to safely store sealed secrets in source control systems like Git. See
+[Managing
+secrets deployment in Kubernetes using Sealed Secrets](https://aws.amazon.com/blogs/opensource/managing-secrets-deployment-in-kubernetes-using-sealed-secrets/ "https://aws.amazon.com/blogs/opensource/managing-secrets-deployment-in-kubernetes-using-sealed-secrets/") for further
+information.
+
+As the use of external secrets stores has grown, so has need for
+integrating them with Kubernetes. The
+[Secret Store
+CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver "https://github.com/kubernetes-sigs/secrets-store-csi-driver") is a community project that uses the CSI driver model to
+fetch secrets from external secret stores. Currently, the Driver has
+support for
+[AWS Secrets
+Manager](https://github.com/aws/secrets-store-csi-driver-provider-aws "https://github.com/aws/secrets-store-csi-driver-provider-aws"), Azure, Vault, and GCP. The AWS provider supports both AWS
+Secrets Manager **and** AWS Parameter Store. It can also be configured to
+rotate secrets when they expire and can synchronize AWS Secrets Manager
+secrets to Kubernetes Secrets. Synchronization of secrets can be useful
+when you need to reference a secret as an environment variable instead
+of reading them from a volume.
+
+###### Note
+
+When the secret store CSI driver has to fetch a secret, it assumes the IRSA role assigned to the pod that references a secret. The code for this operation can be found [here](https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/auth/auth.go "https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/auth/auth.go").
+
+For additional information about the AWS Secrets & Configuration
+Provider (ASCP) refer to the following resources:
+
+- [How
+  to use AWS Secrets Configuration Provider with Kubernetes Secret Store
+  CSI Driver](https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/ "https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/")
+- [Integrating
+  Secrets Manager secrets with Kubernetes Secrets Store CSI Driver](../../../secretsmanager/latest/userguide/integrating_csi_driver.md "../../../secretsmanager/latest/userguide/integrating_csi_driver.md")
+
+[external-secrets](https://github.com/external-secrets/external-secrets "https://github.com/external-secrets/external-secrets")
+is yet another way to use an external secret store with Kubernetes. Like
+the CSI Driver, external-secrets works against a variety of different
+backends, including AWS Secrets Manager. The difference is, rather than
+retrieving secrets from the external secret store, external-secrets
+copies secrets from these backends to Kubernetes as Secrets. This lets
+you manage secrets using your preferred secret store and interact with
+secrets in a Kubernetes-native way.
+
+## Tools and resources
+
+- [Amazon
+  EKS Security Immersion Workshop - Data Encryption and Secrets
+  Management](https://catalog.workshops.aws/eks-security-immersionday/en-US/13-data-encryption-and-secret-management "https://catalog.workshops.aws/eks-security-immersionday/en-US/13-data-encryption-and-secret-management")

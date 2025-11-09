@@ -97,7 +97,7 @@ For example, to investigate the issue above, we will use the following CloudWatc
 
 An appropriate Count needs to be used as to not pull normal List/Resync behavior on a Watch.
 
-````
+```
 fields @timestamp, @message
 | filter @logStream like "kube-apiserver-audit"
 | filter ispresent(requestURI)
@@ -107,20 +107,145 @@ fields @timestamp, @message
 | fields (StartHour * 3600 + StartMinute * 60 + StartSec + StartMsec / 1000000) as StartTime, (EndHour * 3600 + EndMinute * 60 + EndSec + EndMsec / 1000000) as EndTime, (EndTime - StartTime) as DeltaTime
 | stats avg(DeltaTime) as AverageDeltaTime, count(*) as CountTime by requestURI, userAgent
 | filter CountTime >=50
-| sort AverageDeltaTime desc ``` Using this query we found two different agents running a large number of high latency list operations. Splunk and CloudWatch agent. Armed with the data, we can make a decision to remove, update, or replace this controller with another project. ![Query results](images/scalability/query-results.png) ###### Note For more details on this subject please see the following [blog](https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/ "https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/") ## Scheduler Since the EKS control plane instances are run in separate AWS account we will not be able to scrape those components for metrics (The API server being the exception). However, since we have access to the audit logs for these components, we can turn those logs into metrics to see if any of the sub-systems are causing a scaling bottleneck. Let’s use CloudWatch Logs Insights to see how many unscheduled pods are in the scheduler queue. ### Unscheduled pods in the scheduler log If we had access to scrape the scheduler metrics directly on a self managed Kubernetes (such as Kops) we would use the following PromQL to understand the scheduler backlog. ``` max without(instance)(scheduler_pending_pods) ``` Since we do not have access to the above metric in EKS, we will use the below CloudWatch Logs Insights query to see the backlog by checking for how many pods were unable to unscheduled during a particular time frame. Then we could dive further into into the messages at the peak time frame to understand the nature of the bottleneck. For example, nodes not spinning up fast enough, or the rate limiter in the scheduler itself. ``` fields timestamp, pod, err, @message
+| sort AverageDeltaTime desc
+```
+
+Using this query we found two different agents running a large number of high latency list operations. Splunk and CloudWatch agent. Armed with the data, we can make a decision to remove, update, or replace this controller with another project.
+
+![Query results](images/scalability/query-results.png)
+
+###### Note
+
+For more details on this subject please see the following [blog](https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/ "https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/")
+
+## Scheduler
+
+Since the EKS control plane instances are run in separate AWS account we will not be able to scrape those components for metrics (The API server being the exception). However, since we have access to the audit logs for these components, we can turn those logs into metrics to see if any of the sub-systems are causing a scaling bottleneck. Let’s use CloudWatch Logs Insights to see how many unscheduled pods are in the scheduler queue.
+
+### Unscheduled pods in the scheduler log
+
+If we had access to scrape the scheduler metrics directly on a self managed Kubernetes (such as Kops) we would use the following PromQL to understand the scheduler backlog.
+
+```
+max without(instance)(scheduler_pending_pods)
+```
+
+Since we do not have access to the above metric in EKS, we will use the below CloudWatch Logs Insights query to see the backlog by checking for how many pods were unable to unscheduled during a particular time frame. Then we could dive further into into the messages at the peak time frame to understand the nature of the bottleneck. For example, nodes not spinning up fast enough, or the rate limiter in the scheduler itself.
+
+```
+fields timestamp, pod, err, @message
 | filter @logStream like "scheduler"
 | filter @message like "Unable to schedule pod"
 | parse @message  /^.(?<date>\d{4})\s+(?<timestamp>\d+:\d+:\d+\.\d+)\s+\S*\s+\S+\]\s\"(.*?)\"\s+pod=(?<pod>\"(.*?)\")\s+err=(?<err>\"(.*?)\")/
 | count(*) as count by pod, err
-| sort count desc ``` Here we see the errors from the scheduler saying the pod did not deploy because the storage PVC was unavailable. ![CloudWatch Logs query](images/scalability/cwl-query.png) ###### Note Audit logging must be turned on the control plane to enable this function. It is also a best practice to limit the log retention as to not drive up cost over time unnecessarily. An example for turning on all logging functions using the EKSCTL tool below. ``` cloudWatch: clusterLogging: enableTypes: ["*"] logRetentionInDays: 10 ``` ## Kube Controller Manager Kube Controller Manager, like all other controllers, has limits on how many operations it can do at once. Let’s review what some of those flags are by looking at a KOPS configuration where we can set these parameters. ``` kubeControllerManager: concurrentEndpointSyncs: 5 concurrentReplicasetSyncs: 5 concurrentNamespaceSyncs: 10 concurrentServiceaccountTokenSyncs: 5 concurrentServiceSyncs: 5 concurrentResourceQuotaSyncs: 5 concurrentGcSyncs: 20 kubeAPIBurst: 30 kubeAPIQPS: "20" ``` These controllers have queues that fill up during times of high churn on a cluster. In this case we see the replicaset set controller has a large backlog in its queue. ![Queues](images/scalability/queues.png) We have two different ways of addressing such a situation. If running self managed we could simply increase the concurrent goroutines, however this would have an impact on etcd by processing more data in the KCM. The other option would be to reduce the number of replicaset objects using `.spec.revisionHistoryLimit` on the deployment to reduce the number of replicaset objects we can rollback, thus reducing the pressure on this controller. ``` spec: revisionHistoryLimit: 2 ``` Other Kubernetes features can be tuned or turned off to reduce pressure in high churn rate systems. For example, if the application in our pods doesn’t need to speak to the k8s API directly then turning off the projected secret into those pods would decrease the load on ServiceaccountTokenSyncs. This is the more desirable way to address such issues if possible. ``` kind: Pod spec: automountServiceAccountToken: false ``` In systems where we can’t get access to the metrics, we can again look at the logs to detect contention. If we wanted to see the number of requests being being processed on a per controller or an aggregate level we would use the following CloudWatch Logs Insights Query. ### Total Volume Processed by the KCM ``` # Query to count API qps coming from kube-controller-manager, split by controller type. # If you're seeing values close to 20/sec for any particular controller, it's most likely seeing client-side API throttling. fields @timestamp, @logStream, @message
+| sort count desc
+```
+
+Here we see the errors from the scheduler saying the pod did not deploy because the storage PVC was unavailable.
+
+![CloudWatch Logs query](images/scalability/cwl-query.png)
+
+###### Note
+
+Audit logging must be turned on the control plane to enable this function. It is also a best practice to limit the log retention as to not drive up cost over time unnecessarily. An example for turning on all logging functions using the EKSCTL tool below.
+
+```
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
+    logRetentionInDays: 10
+```
+
+## Kube Controller Manager
+
+Kube Controller Manager, like all other controllers, has limits on how many operations it can do at once. Let’s review what some of those flags are by looking at a KOPS configuration where we can set these parameters.
+
+```
+  kubeControllerManager:
+    concurrentEndpointSyncs: 5
+    concurrentReplicasetSyncs: 5
+    concurrentNamespaceSyncs: 10
+    concurrentServiceaccountTokenSyncs: 5
+    concurrentServiceSyncs: 5
+    concurrentResourceQuotaSyncs: 5
+    concurrentGcSyncs: 20
+    kubeAPIBurst: 30
+    kubeAPIQPS: "20"
+```
+
+These controllers have queues that fill up during times of high churn on a cluster. In this case we see the replicaset set controller has a large backlog in its queue.
+
+![Queues](images/scalability/queues.png)
+
+We have two different ways of addressing such a situation. If running self managed we could simply increase the concurrent goroutines, however this would have an impact on etcd by processing more data in the KCM. The other option would be to reduce the number of replicaset objects using `.spec.revisionHistoryLimit` on the deployment to reduce the number of replicaset objects we can rollback, thus reducing the pressure on this controller.
+
+```
+spec:
+  revisionHistoryLimit: 2
+```
+
+Other Kubernetes features can be tuned or turned off to reduce pressure in high churn rate systems. For example, if the application in our pods doesn’t need to speak to the k8s API directly then turning off the projected secret into those pods would decrease the load on ServiceaccountTokenSyncs. This is the more desirable way to address such issues if possible.
+
+```
+kind: Pod
+spec:
+  automountServiceAccountToken: false
+```
+
+In systems where we can’t get access to the metrics, we can again look at the logs to detect contention. If we wanted to see the number of requests being being processed on a per controller or an aggregate level we would use the following CloudWatch Logs Insights Query.
+
+### Total Volume Processed by the KCM
+
+```
+# Query to count API qps coming from kube-controller-manager, split by controller type.
+# If you're seeing values close to 20/sec for any particular controller, it's most likely seeing client-side API throttling.
+fields @timestamp, @logStream, @message
 | filter @logStream like /kube-apiserver-audit/
-| filter userAgent like /kube-controller-manager/ # Exclude lease-related calls (not counted under kcm qps)
-| filter requestURI not like "apis/coordination.k8s.io/v1/namespaces/kube-system/leases/kube-controller-manager" # Exclude API discovery calls (not counted under kcm qps)
-| filter requestURI not like "?timeout=32s" # Exclude watch calls (not counted under kcm qps)
-| filter verb != "watch" # If you want to get counts of API calls coming from a specific controller, uncomment the appropriate line below: # | filter user.username like "system:serviceaccount:kube-system:job-controller" # | filter user.username like "system:serviceaccount:kube-system:cronjob-controller" # | filter user.username like "system:serviceaccount:kube-system:deployment-controller" # | filter user.username like "system:serviceaccount:kube-system:replicaset-controller" # | filter user.username like "system:serviceaccount:kube-system:horizontal-pod-autoscaler" # | filter user.username like "system:serviceaccount:kube-system:persistent-volume-binder" # | filter user.username like "system:serviceaccount:kube-system:endpointslice-controller" # | filter user.username like "system:serviceaccount:kube-system:endpoint-controller" # | filter user.username like "system:serviceaccount:kube-system:generic-garbage-controller"
+| filter userAgent like /kube-controller-manager/
+# Exclude lease-related calls (not counted under kcm qps)
+| filter requestURI not like "apis/coordination.k8s.io/v1/namespaces/kube-system/leases/kube-controller-manager"
+# Exclude API discovery calls (not counted under kcm qps)
+| filter requestURI not like "?timeout=32s"
+# Exclude watch calls (not counted under kcm qps)
+| filter verb != "watch"
+# If you want to get counts of API calls coming from a specific controller, uncomment the appropriate line below:
+# | filter user.username like "system:serviceaccount:kube-system:job-controller"
+# | filter user.username like "system:serviceaccount:kube-system:cronjob-controller"
+# | filter user.username like "system:serviceaccount:kube-system:deployment-controller"
+# | filter user.username like "system:serviceaccount:kube-system:replicaset-controller"
+# | filter user.username like "system:serviceaccount:kube-system:horizontal-pod-autoscaler"
+# | filter user.username like "system:serviceaccount:kube-system:persistent-volume-binder"
+# | filter user.username like "system:serviceaccount:kube-system:endpointslice-controller"
+# | filter user.username like "system:serviceaccount:kube-system:endpoint-controller"
+# | filter user.username like "system:serviceaccount:kube-system:generic-garbage-controller"
 | stats count(*) as count by user.username
-| sort count desc ``` The key takeaway here is when looking into scalability issues, to look at every step in the path (API, scheduler, KCM, etcd) before moving to the detailed troubleshooting phase. Often in production you will find that it takes adjustments to more than one part of Kubernetes to allow the system to work at its most performant. It’s easy to inadvertently troubleshoot what is just a symptom (such as a node timeout) of a much larger bottle neck. ## ETCD etcd uses a memory mapped file to store key value pairs efficiently. There is a protection mechanism to set the size of this memory space available set commonly at the 2, 4, and 8GB limits. Fewer objects in the database means less clean up etcd needs to do when objects are updated and older versions needs to be cleaned out. This process of cleaning old versions of an object out is referred to as compaction. After a number of compaction operations, there is a subsequent process that recovers usable space space called defragging that happens above a certain threshold or on a fixed schedule of time. There are a couple user related items we can do to limit the number of objects in Kubernetes and thus reduce the impact of both the compaction and de-fragmentation process. For example, Helm keeps a high `revisionHistoryLimit`. This keeps older objects such as ReplicaSets on the system to be able to do rollbacks. By setting the history limits down to 2 we can reduce the number of objects (like ReplicaSets) from ten to two which in turn would put less load on the system. ``` apiVersion: apps/v1 kind: Deployment spec: revisionHistoryLimit: 2 ``` From a monitoring standpoint, if system latency spikes occur in a set pattern separated by hours, checking to see if this defragmentation process is the source can be helpful. We can see this by using CloudWatch Logs. If you want to see start/end times of defrag use the following query: ``` fields @timestamp, @message
+| sort count desc
+```
+
+The key takeaway here is when looking into scalability issues, to look at every step in the path (API, scheduler, KCM, etcd) before moving to the detailed troubleshooting phase. Often in production you will find that it takes adjustments to more than one part of Kubernetes to allow the system to work at its most performant. It’s easy to inadvertently troubleshoot what is just a symptom (such as a node timeout) of a much larger bottle neck.
+
+## ETCD
+
+etcd uses a memory mapped file to store key value pairs efficiently. There is a protection mechanism to set the size of this memory space available set commonly at the 2, 4, and 8GB limits. Fewer objects in the database means less clean up etcd needs to do when objects are updated and older versions needs to be cleaned out. This process of cleaning old versions of an object out is referred to as compaction. After a number of compaction operations, there is a subsequent process that recovers usable space space called defragging that happens above a certain threshold or on a fixed schedule of time.
+
+There are a couple user related items we can do to limit the number of objects in Kubernetes and thus reduce the impact of both the compaction and de-fragmentation process. For example, Helm keeps a high `revisionHistoryLimit`. This keeps older objects such as ReplicaSets on the system to be able to do rollbacks. By setting the history limits down to 2 we can reduce the number of objects (like ReplicaSets) from ten to two which in turn would put less load on the system.
+
+```
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  revisionHistoryLimit: 2
+```
+
+From a monitoring standpoint, if system latency spikes occur in a set pattern separated by hours, checking to see if this defragmentation process is the source can be helpful. We can see this by using CloudWatch Logs.
+
+If you want to see start/end times of defrag use the following query:
+
+```
+fields @timestamp, @message
 | filter @logStream like /etcd-manager/
 | filter @message like /defraging|defraged/
-| sort @timestamp asc ``` ![Defrag query](images/scalability/defrag.png)
-````
+| sort @timestamp asc
+```
+
+![Defrag query](images/scalability/defrag.png)

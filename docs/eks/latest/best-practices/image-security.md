@@ -265,10 +265,228 @@ mapping between the AWS accounts where EKS images are vended from and
 cluster region.
 
 | Account Number | Region                                               |
-| -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------- | ---------------------------------------------------- |
 | 602401143452   | All commercial regions except for those listed below |
 | —              | —                                                    |
-| 800184023465   | ap-east-1 - Asia Pacific (Hong Kong)                 |
-| 558608220178   | me-south-1 - Middle East (Bahrain)                   |
-| 918309763551   | cn-north-1 - China (Beijing)                         |
-| 961992271922   | cn-northwest-1 - China (Ningxia)                     | For further information about using endpoint policies, see [Using VPC endpoint policies to control Amazon ECR access](https://aws.amazon.com/blogs/containers/using-vpc-endpoint-policies-to-control-amazon-ecr-access/ "https://aws.amazon.com/blogs/containers/using-vpc-endpoint-policies-to-control-amazon-ecr-access/"). ### Implement lifecycle policies for ECR The [NIST Application Container Security Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-190.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-190.pdf") warns about the risk of "stale images in registries", noting that over time old images with vulnerable, out-of-date software packages should be removed to prevent accidental deployment and exposure. Each ECR repository can have a lifecycle policy that sets rules for when images expire. The [AWS official documentation](../../../AmazonECR/latest/userguide/LifecyclePolicies.md "../../../AmazonECR/latest/userguide/LifecyclePolicies.md") describes how to set up test rules, evaluate them and then apply them. There are several [lifecycle policy examples](../../../AmazonECR/latest/userguide/lifecycle_policy_examples.md "../../../AmazonECR/latest/userguide/lifecycle_policy_examples.md") in the official docs that show different ways of filtering the images in a repository: <br>• Filtering by image age or count <br>• Filtering by tagged or untagged images <br>• Filtering by image tags, either in multiple rules or a single rule ???+ warning If the image for long running application is purged from ECR, it can cause an image pull errors when the application is redeployed or scaled horizontally. When using image lifecycle policies, be sure you have good CI/CD practices in place to keep deployments and the images that they reference up to date and always create [image] expiry rules that account for how often you do releases/deployments. ### Create a set of curated images Rather than allowing developers to create their own images, consider creating a set of vetted images for the different application stacks in your organization. By doing so, developers can forego learning how to compose Dockerfiles and concentrate on writing code. As changes are merged into Master, a CI/CD pipeline can automatically compile the asset, store it in an artifact repository and copy the artifact into the appropriate image before pushing it to a Docker registry like ECR. At the very least you should create a set of base images from which developers to create their own Dockerfiles. Ideally, you want to avoid pulling images from Dockerhub because 1/ you don’t always know what is in the image and 2/ about [a fifth](https://www.kennasecurity.com/blog/one-fifth-of-the-most-used-docker-containers-have-at-least-one-critical-vulnerability/ "https://www.kennasecurity.com/blog/one-fifth-of-the-most-used-docker-containers-have-at-least-one-critical-vulnerability/") of the top 1000 images have vulnerabilities. A list of those images and their vulnerabilities can be found [here](https://vulnerablecontainers.org/ "https://vulnerablecontainers.org/"). ### Add the USER directive to your Dockerfiles to run as a non-root user As was mentioned in the pod security section, you should avoid running container as root. While you can configure this as part of the podSpec, it is a good habit to use the `USER` directive to your Dockerfiles. The `USER` directive sets the UID to use when running `RUN`, `ENTRYPOINT`, or `CMD` instruction that appears after the USER directive. ### Lint your Dockerfiles Linting can be used to verify that your Dockerfiles are adhering to a set of predefined guidelines, e.g. the inclusion of the `USER` directive or the requirement that all images be tagged. [dockerfile_lint](https://github.com/projectatomic/dockerfile_lint "https://github.com/projectatomic/dockerfile_lint") is an open source project from RedHat that verifies common best practices and includes a rule engine that you can use to build your own rules for linting Dockerfiles. It can be incorporated into a CI pipeline, in that builds with Dockerfiles that violate a rule will automatically fail. ### Build images from Scratch Reducing the attack surface of your container images should be primary aim when building images. The ideal way to do this is by creating minimal images that are devoid of binaries that can be used to exploit vulnerabilities. Fortunately, Docker has a mechanism to create images from [`scratch`](https://docs.docker.com/develop/develop-images/baseimages/#create-a-simple-parent-image-using-scratch "https://docs.docker.com/develop/develop-images/baseimages/#create-a-simple-parent-image-using-scratch"). With languages like Go, you can create a static linked binary and reference it in your Dockerfile as in this example: `############################ # STEP 1 build executable binary ############################ FROM golang:alpine AS builder# Install git. # Git is required for fetching the dependencies. RUN apk update && apk add --no-cache gitWORKDIR $GOPATH/src/mypackage/myapp/COPY . . # Fetch dependencies. # Using go get. RUN go get -d -v# Build the binary. RUN go build -o /go/bin/hello ############################ # STEP 2 build a small image ############################ FROM scratch# Copy our static executable. COPY --from=builder /go/bin/hello /go/bin/hello# Run the hello binary. ENTRYPOINT ["/go/bin/hello"]` This creates a container image that consists of your application and nothing else, making it extremely secure. ### Use immutable tags with ECR [Immutable tags](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecr-now-supports-immutable-image-tags/ "https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecr-now-supports-immutable-image-tags/") force you to update the image tag on each push to the image repository. This can thwart an attacker from overwriting an image with a malicious version without changing the image’s tags. Additionally, it gives you a way to easily and uniquely identify an image. ### Sign your images, SBOMs, pipeline runs and vulnerability reports When Docker was first introduced, there was no cryptographic model for verifying container images. With v2, Docker added digests to the image manifest. This allowed an image’s configuration to be hashed and for the hash to be used to generate an ID for the image. When image signing is enabled, the Docker engine verifies the manifest’s signature, ensuring that the content was produced from a trusted source and no tampering has occurred. After each layer is downloaded, the engine verifies the digest of the layer, ensuring that the content matches the content specified in the manifest. Image signing effectively allows you to create a secure supply chain, through the verification of digital signatures associated with the image. We can use [AWS Signer](../../../signer/latest/developerguide/Welcome.md "../../../signer/latest/developerguide/Welcome.md") or [Sigstore Cosign](https://github.com/sigstore/cosign "https://github.com/sigstore/cosign"), to sign container images, create attestations for SBOMs, vulnerability scan reports and pipeline run reports. These attestations assure the trustworthiness and integrity of the image, that it is in fact created by the trusted pipeline without any interference or tampering, and that it contains only the software components that are documented (in the SBOM) that is verified and trusted by the image publisher. These attestations can be attached to the container image and pushed to the repository. In the next section we will see how to use the attested artifacts for audits and admissions controller verification. ### Image integrity verification using Kubernetes admission controller We can verify image signatures, attested artifacts in an automated way before deploying the image to target Kubernetes cluster using [dynamic admission controller](https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/ "https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/") and admit deployments only when the security metadata of the artifacts comply with the admission controller policies. For example we can write a policy that cryptographically verifies the signature of an image, an attested SBOM, attested pipeline run report, or attested CVE scan report. We can write conditions in the policy to check data in the report, e.g. a CVE scan should not have any critical CVEs. Deployment is allowed only for images that satisfy these conditions and all other deployments will be rejected by the admissions controller. Examples of admission controller include: <br>• [Kyverno](https://kyverno.io/ "https://kyverno.io/") <br>• [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper "https://github.com/open-policy-agent/gatekeeper") <br>• [Portieris](https://github.com/IBM/portieris "https://github.com/IBM/portieris") <br>• [Ratify](https://github.com/deislabs/ratify "https://github.com/deislabs/ratify") <br>• [Kritis](https://github.com/grafeas/kritis "https://github.com/grafeas/kritis") <br>• [Grafeas tutorial](https://github.com/kelseyhightower/grafeas-tutorial "https://github.com/kelseyhightower/grafeas-tutorial") <br>• [Voucher](https://github.com/Shopify/voucher "https://github.com/Shopify/voucher") ### Update the packages in your container images You should include RUN `apt-get update && apt-get upgrade` in your Dockerfiles to upgrade the packages in your images. Although upgrading requires you to run as root, this occurs during image build phase. The application doesn’t need to run as root. You can install the updates and then switch to a different user with the USER directive. If your base image runs as a non-root user, switch to root and back; don’t solely rely on the maintainers of the base image to install the latest security updates. Run `apt-get clean` to delete the installer files from `/var/cache/apt/archives/`. You can also run `rm -rf /var/lib/apt/lists/*` after installing packages. This removes the index files or the lists of packages that are available to install. Be aware that these commands may be different for each package manager. For example: `RUN apt-get update && apt-get install -y \ curl \ git \ libsqlite3-dev \ && apt-get clean && rm -rf /var/lib/apt/lists/*` ## Tools and resources <br>• [Amazon EKS Security Immersion Workshop - Image Security](https://catalog.workshops.aws/eks-security-immersionday/en-US/12-image-security "https://catalog.workshops.aws/eks-security-immersionday/en-US/12-image-security") <br>• [docker-slim](https://github.com/docker-slim/docker-slim "https://github.com/docker-slim/docker-slim") Build secure minimal images <br>• [dockle](https://github.com/goodwithtech/dockle "https://github.com/goodwithtech/dockle") Verifies that your Dockerfile aligns with best practices for creating secure images <br>• [dockerfile-lint](https://github.com/projectatomic/dockerfile_lint "https://github.com/projectatomic/dockerfile_lint") Rule based linter for Dockerfiles <br>• [hadolint](https://github.com/hadolint/hadolint "https://github.com/hadolint/hadolint") A smart dockerfile linter <br>• [Gatekeeper and OPA](https://github.com/open-policy-agent/gatekeeper "https://github.com/open-policy-agent/gatekeeper") A policy based admission controller <br>• [Kyverno](https://kyverno.io/ "https://kyverno.io/") A Kubernetes-native policy engine <br>• [in-toto](https://in-toto.io/ "https://in-toto.io/") Allows the user to verify if a step in the supply chain was intended to be performed, and if the step was performed by the right actor <br>• [Notary](https://github.com/theupdateframework/notary "https://github.com/theupdateframework/notary") A project for signing container images <br>• [Notary v2](https://github.com/notaryproject/nv2 "https://github.com/notaryproject/nv2") <br>• [Grafeas](https://grafeas.io/ "https://grafeas.io/") An open artifact metadata API to audit and govern your software supply chain <br>• [NeuVector by SUSE](https://www.suse.com/neuvector/ "https://www.suse.com/neuvector/") open source, zero-trust container security platform, provides container, image and registry scanning for vulnerabilities, secrets and compliance. |
+| 800184023465   | ap-east-1<br>• Asia Pacific (Hong Kong)              |
+| 558608220178   | me-south-1<br>• Middle East (Bahrain)                |
+| 918309763551   | cn-north-1<br>• China (Beijing)                      |
+| 961992271922   | cn-northwest-1<br>• China (Ningxia)                  |
+
+For further information about using endpoint policies, see
+[Using
+VPC endpoint policies to control Amazon ECR access](https://aws.amazon.com/blogs/containers/using-vpc-endpoint-policies-to-control-amazon-ecr-access/ "https://aws.amazon.com/blogs/containers/using-vpc-endpoint-policies-to-control-amazon-ecr-access/").
+
+### Implement lifecycle policies for ECR
+
+The
+[NIST
+Application Container Security Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-190.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-190.pdf") warns about the risk of "stale
+images in registries", noting that over time old images with
+vulnerable, out-of-date software packages should be removed to prevent
+accidental deployment and exposure. Each ECR repository can have a
+lifecycle policy that sets rules for when images expire. The
+[AWS
+official documentation](../../../AmazonECR/latest/userguide/LifecyclePolicies.md "../../../AmazonECR/latest/userguide/LifecyclePolicies.md") describes how to set up test rules, evaluate
+them and then apply them. There are several
+[lifecycle
+policy examples](../../../AmazonECR/latest/userguide/lifecycle_policy_examples.md "../../../AmazonECR/latest/userguide/lifecycle_policy_examples.md") in the official docs that show different ways of
+filtering the images in a repository:
+
+- Filtering by image age or count
+- Filtering by tagged or untagged images
+- Filtering by image tags, either in multiple rules or a single rule
+
+???+ warning If the image for long running application is purged from
+ECR, it can cause an image pull errors when the application is
+redeployed or scaled horizontally. When using image lifecycle policies,
+be sure you have good CI/CD practices in place to keep deployments and
+the images that they reference up to date and always create [image]
+expiry rules that account for how often you do releases/deployments.
+
+### Create a set of curated images
+
+Rather than allowing developers to create their own images, consider
+creating a set of vetted images for the different application stacks in
+your organization. By doing so, developers can forego learning how to
+compose Dockerfiles and concentrate on writing code. As changes are
+merged into Master, a CI/CD pipeline can automatically compile the
+asset, store it in an artifact repository and copy the artifact into the
+appropriate image before pushing it to a Docker registry like ECR. At
+the very least you should create a set of base images from which
+developers to create their own Dockerfiles. Ideally, you want to avoid
+pulling images from Dockerhub because 1/ you don’t always know what is
+in the image and 2/ about
+[a
+fifth](https://www.kennasecurity.com/blog/one-fifth-of-the-most-used-docker-containers-have-at-least-one-critical-vulnerability/ "https://www.kennasecurity.com/blog/one-fifth-of-the-most-used-docker-containers-have-at-least-one-critical-vulnerability/") of the top 1000 images have vulnerabilities. A list of those
+images and their vulnerabilities can be found
+[here](https://vulnerablecontainers.org/ "https://vulnerablecontainers.org/").
+
+### Add the USER directive to your Dockerfiles to run as a non-root user
+
+As was mentioned in the pod security section, you should avoid running
+container as root. While you can configure this as part of the podSpec,
+it is a good habit to use the `USER` directive to your Dockerfiles.
+The `USER` directive sets the UID to use when running `RUN`,
+`ENTRYPOINT`, or `CMD` instruction that appears after the USER
+directive.
+
+### Lint your Dockerfiles
+
+Linting can be used to verify that your Dockerfiles are adhering to a
+set of predefined guidelines, e.g. the inclusion of the `USER`
+directive or the requirement that all images be tagged.
+[dockerfile_lint](https://github.com/projectatomic/dockerfile_lint "https://github.com/projectatomic/dockerfile_lint") is an
+open source project from RedHat that verifies common best practices and
+includes a rule engine that you can use to build your own rules for
+linting Dockerfiles. It can be incorporated into a CI pipeline, in that
+builds with Dockerfiles that violate a rule will automatically fail.
+
+### Build images from Scratch
+
+Reducing the attack surface of your container images should be primary
+aim when building images. The ideal way to do this is by creating
+minimal images that are devoid of binaries that can be used to exploit
+vulnerabilities. Fortunately, Docker has a mechanism to create images
+from
+[`scratch`](https://docs.docker.com/develop/develop-images/baseimages/#create-a-simple-parent-image-using-scratch "https://docs.docker.com/develop/develop-images/baseimages/#create-a-simple-parent-image-using-scratch").
+With languages like Go, you can create a static linked binary and
+reference it in your Dockerfile as in this example:
+
+```
+############################
+# STEP 1 build executable binary
+############################
+FROM golang:alpine AS builder# Install git.
+# Git is required for fetching the dependencies.
+RUN apk update && apk add --no-cache gitWORKDIR $GOPATH/src/mypackage/myapp/COPY . . # Fetch dependencies.
+# Using go get.
+RUN go get -d -v# Build the binary.
+RUN go build -o /go/bin/hello
+
+############################
+# STEP 2 build a small image
+############################
+FROM scratch# Copy our static executable.
+COPY --from=builder /go/bin/hello /go/bin/hello# Run the hello binary.
+ENTRYPOINT ["/go/bin/hello"]
+```
+
+This creates a container image that consists of your application and
+nothing else, making it extremely secure.
+
+### Use immutable tags with ECR
+
+[Immutable
+tags](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecr-now-supports-immutable-image-tags/ "https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecr-now-supports-immutable-image-tags/") force you to update the image tag on each push to the image
+repository. This can thwart an attacker from overwriting an image with a
+malicious version without changing the image’s tags. Additionally, it
+gives you a way to easily and uniquely identify an image.
+
+### Sign your images, SBOMs, pipeline runs and vulnerability reports
+
+When Docker was first introduced, there was no cryptographic model for
+verifying container images. With v2, Docker added digests to the image
+manifest. This allowed an image’s configuration to be hashed and for the
+hash to be used to generate an ID for the image. When image signing is
+enabled, the Docker engine verifies the manifest’s signature, ensuring
+that the content was produced from a trusted source and no tampering has
+occurred. After each layer is downloaded, the engine verifies the digest
+of the layer, ensuring that the content matches the content specified in
+the manifest. Image signing effectively allows you to create a secure
+supply chain, through the verification of digital signatures associated
+with the image.
+
+We can use
+[AWS
+Signer](../../../signer/latest/developerguide/Welcome.md "../../../signer/latest/developerguide/Welcome.md") or [Sigstore Cosign](https://github.com/sigstore/cosign "https://github.com/sigstore/cosign"), to sign
+container images, create attestations for SBOMs, vulnerability scan
+reports and pipeline run reports. These attestations assure the
+trustworthiness and integrity of the image, that it is in fact created
+by the trusted pipeline without any interference or tampering, and that
+it contains only the software components that are documented (in the
+SBOM) that is verified and trusted by the image publisher. These
+attestations can be attached to the container image and pushed to the
+repository.
+
+In the next section we will see how to use the attested artifacts for
+audits and admissions controller verification.
+
+### Image integrity verification using Kubernetes admission controller
+
+We can verify image signatures, attested artifacts in an automated way
+before deploying the image to target Kubernetes cluster using
+[dynamic
+admission controller](https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/ "https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/") and admit deployments only when the security
+metadata of the artifacts comply with the admission controller policies.
+
+For example we can write a policy that cryptographically verifies the
+signature of an image, an attested SBOM, attested pipeline run report,
+or attested CVE scan report. We can write conditions in the policy to
+check data in the report, e.g. a CVE scan should not have any critical
+CVEs. Deployment is allowed only for images that satisfy these
+conditions and all other deployments will be rejected by the admissions
+controller.
+
+Examples of admission controller include:
+
+- [Kyverno](https://kyverno.io/ "https://kyverno.io/")
+- [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper "https://github.com/open-policy-agent/gatekeeper")
+- [Portieris](https://github.com/IBM/portieris "https://github.com/IBM/portieris")
+- [Ratify](https://github.com/deislabs/ratify "https://github.com/deislabs/ratify")
+- [Kritis](https://github.com/grafeas/kritis "https://github.com/grafeas/kritis")
+- [Grafeas tutorial](https://github.com/kelseyhightower/grafeas-tutorial "https://github.com/kelseyhightower/grafeas-tutorial")
+- [Voucher](https://github.com/Shopify/voucher "https://github.com/Shopify/voucher")
+
+### Update the packages in your container images
+
+You should include RUN `apt-get update && apt-get upgrade` in your
+Dockerfiles to upgrade the packages in your images. Although upgrading
+requires you to run as root, this occurs during image build phase. The
+application doesn’t need to run as root. You can install the updates and
+then switch to a different user with the USER directive. If your base
+image runs as a non-root user, switch to root and back; don’t solely
+rely on the maintainers of the base image to install the latest security
+updates.
+
+Run `apt-get clean` to delete the installer files from
+`/var/cache/apt/archives/`. You can also run
+`rm -rf /var/lib/apt/lists/*` after installing packages. This removes
+the index files or the lists of packages that are available to install.
+Be aware that these commands may be different for each package manager.
+For example:
+
+```
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    libsqlite3-dev \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+```
+
+## Tools and resources
+
+- [Amazon
+  EKS Security Immersion Workshop - Image Security](https://catalog.workshops.aws/eks-security-immersionday/en-US/12-image-security "https://catalog.workshops.aws/eks-security-immersionday/en-US/12-image-security")
+- [docker-slim](https://github.com/docker-slim/docker-slim "https://github.com/docker-slim/docker-slim") Build secure
+  minimal images
+- [dockle](https://github.com/goodwithtech/dockle "https://github.com/goodwithtech/dockle") Verifies that your
+  Dockerfile aligns with best practices for creating secure images
+- [dockerfile-lint](https://github.com/projectatomic/dockerfile_lint "https://github.com/projectatomic/dockerfile_lint") Rule
+  based linter for Dockerfiles
+- [hadolint](https://github.com/hadolint/hadolint "https://github.com/hadolint/hadolint") A smart dockerfile
+  linter
+- [Gatekeeper and OPA](https://github.com/open-policy-agent/gatekeeper "https://github.com/open-policy-agent/gatekeeper") A
+  policy based admission controller
+- [Kyverno](https://kyverno.io/ "https://kyverno.io/") A Kubernetes-native policy engine
+- [in-toto](https://in-toto.io/ "https://in-toto.io/") Allows the user to verify if a step in
+  the supply chain was intended to be performed, and if the step was
+  performed by the right actor
+- [Notary](https://github.com/theupdateframework/notary "https://github.com/theupdateframework/notary") A project for
+  signing container images
+- [Notary v2](https://github.com/notaryproject/nv2 "https://github.com/notaryproject/nv2")
+- [Grafeas](https://grafeas.io/ "https://grafeas.io/") An open artifact metadata API to audit
+  and govern your software supply chain
+- [NeuVector by SUSE](https://www.suse.com/neuvector/ "https://www.suse.com/neuvector/") open source,
+  zero-trust container security platform, provides container, image and
+  registry scanning for vulnerabilities, secrets and compliance.

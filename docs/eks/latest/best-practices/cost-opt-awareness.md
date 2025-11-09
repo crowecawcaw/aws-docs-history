@@ -96,10 +96,115 @@ CloudWatch creates aggregated metrics at the cluster, node, pod, task, and servi
 
 **The following query shows a list of nodes, sorted by average node CPU utilization**
 
-````
+```
 STATS avg(node_cpu_utilization) as avg_node_cpu_utilization by NodeName
-| SORT avg_node_cpu_utilization DESC ``` **CPU usage by Container name** ``` stats pct(container_cpu_usage_total, 50) as CPUPercMedian by kubernetes.container_name
-| filter Type="Container" ``` **Disk usage by Container name** ``` stats floor(avg(container_filesystem_usage/1024)) as container_filesystem_usage_avg_kb by InstanceId, kubernetes.container_name, device
+| SORT avg_node_cpu_utilization DESC
+```
+
+**CPU usage by Container name**
+
+```
+stats pct(container_cpu_usage_total, 50) as CPUPercMedian by kubernetes.container_name
+| filter Type="Container"
+```
+
+**Disk usage by Container name**
+
+```
+stats floor(avg(container_filesystem_usage/1024)) as container_filesystem_usage_avg_kb by InstanceId, kubernetes.container_name, device
 | filter Type="ContainerFS"
-| sort container_filesystem_usage_avg_kb desc ``` More sample queries are given in the [Container Insights documention](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.md") This awareness will help in understanding resource usage and help in controlling costs. ### Using Kubecost for expenditure awareness and guidance Third party tools like [kubecost](https://kubecost.com/ "https://kubecost.com/") can also be deployed on Amazon EKS to get visibility into cost of running your Kubernetes cluster. Please refer to this [AWS blog](https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/ "https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/") for tracking costs using Kubecost Deploying kubecost using Helm 3: ``` $ curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash $ helm version --short v3.2.1+gfe51cd1 $ helm repo add stable https://kubernetes-charts.storage.googleapis.com/ $ helm repo add stable https://kubernetes-charts.storage.googleapis.com/c^C $ kubectl create namespace kubecost namespace/kubecost created $ helm repo add kubecost https://kubecost.github.io/cost-analyzer/ "kubecost" has been added to your repositories $ helm install kubecost kubecost/cost-analyzer --namespace kubecost --set kubecostToken="aGRoZEBqc2pzLmNvbQ==xm343yadf98" NAME: kubecost LAST DEPLOYED: Mon May 18 08:49:05 2020 NAMESPACE: kubecost STATUS: deployed REVISION: 1 TEST SUITE: None NOTES: --------------------------------------------------Kubecost has been successfully installed. When pods are Ready, you can enable port-forwarding with the following command: kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 9090 Next, navigate to http://localhost:9090 in a web browser. $ kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 9090 NOTE: If you are using Cloud 9 or have a need to forward it to a different port like 8080, issue the following command $ kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 8080:9090 ``` Kubecost Dashboard - ![Kubernetes Cluster Auto Scaler logs](images/kube-cost.png) ### Use Kubernetes Cost Allocation and Capacity Planning Analytics Tool [Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics "https://github.com/rchakode/kube-opex-analytics") is a tool to help organizations track the resources being consumed by their Kubernetes clusters to prevent overpaying. To do so it generates, short- (7 days), mid- (14 days) and long-term (12 months) usage reports showing relevant insights on what amount of resources each project is spending over time. ![Kubernetes Opex Analytics](images/kube-opex-analytics.png) ### Yotascale Yotascale helps with accurately allocating Kubernetes costs. Yotascale Kubernetes Cost Allocation feature utilizes actual cost data, which is inclusive of Reserved Instance discounts and spot instance pricing instead of generic market-rate estimations, to inform the total Kubernetes cost footprint More details can be found at [their website](https://www.yotascale.com/ "https://www.yotascale.com/"). ### Alcide Advisor Alcide is an AWS Partner Network (APN) Advanced Technology Partner. Alcide Advisor helps ensure your Amazon EKS cluster, nodes, and pods configuration are tuned to run according to security best practices and internal guidelines. Alcide Advisor is an agentless service for Kubernetes audit and compliance that’s built to ensure a frictionless and secured DevSecOps flow by hardening the development stage before moving to production. More details can be found in this [blog post](https://aws.amazon.com/blogs/apn/driving-continuous-security-and-configuration-checks-for-amazon-eks-with-alcide-advisor/ "https://aws.amazon.com/blogs/apn/driving-continuous-security-and-configuration-checks-for-amazon-eks-with-alcide-advisor/"). ## Other tools ### Kubernetes Garbage Collection The role of the [Kubernetes garbage collector](https://kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ "https://kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/") is to delete certain objects that once had an owner, but no longer have an owner. ### Fargate count [Fargatecount](https://github.com/mreferre/fargatecount "https://github.com/mreferre/fargatecount") is an useful tool, which allows AWS customers to track, with a custom CloudWatch metric, the total number of EKS pods that have been deployed on Fargate in a specific region of a specific account. This helps in keeping track of all the Fargate pods running across an EKS cluster. ### Popeye - A Kubernetes Cluster Sanitizer [Popeye - A Kubernetes Cluster Sanitizer](https://github.com/derailed/popeye "https://github.com/derailed/popeye") is a utility that scans live Kubernetes cluster and reports potential issues with deployed resources and configurations. It sanitizes your cluster based on what’s deployed and not what’s sitting on disk. By scanning your cluster, it detects misconfigurations and helps you to ensure that best practices are in place ### Resources Refer to the following resources to learn more about best practices for cost optimization. #### Documentation and Blogs <br>• [Amazon EKS supports tagging](../userguide/eks-using-tags.md "../userguide/eks-using-tags.md") #### Tools <br>• [What is AWS Billing and Cost Management?](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") <br>• [Amazon CloudWatch Container Insights](../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md "../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md") <br>• [How to track costs in multi-tenant Amazon EKS clusters using Kubecost](https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/ "https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/") <br>• [Kubecost](https://kubecost.com/ "https://kubecost.com/") <br>• [Kube Opsview](https://github.com/hjacobs/kube-ops-view "https://github.com/hjacobs/kube-ops-view") <br>• [Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics "https://github.com/rchakode/kube-opex-analytics")
-````
+| sort container_filesystem_usage_avg_kb desc
+```
+
+More sample queries are given in the [Container Insights documention](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.md")
+
+This awareness will help in understanding resource usage and help in controlling costs.
+
+### Using Kubecost for expenditure awareness and guidance
+
+Third party tools like [kubecost](https://kubecost.com/ "https://kubecost.com/") can also be deployed on Amazon EKS to get visibility into cost of running your Kubernetes cluster. Please refer to this [AWS blog](https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/ "https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/") for tracking costs using Kubecost
+
+Deploying kubecost using Helm 3:
+
+```
+$ curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+$ helm version --short
+v3.2.1+gfe51cd1
+$ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+$ helm repo add stable https://kubernetes-charts.storage.googleapis.com/c^C
+$ kubectl create namespace kubecost
+namespace/kubecost created
+$ helm repo add kubecost https://kubecost.github.io/cost-analyzer/
+"kubecost" has been added to your repositories
+
+$ helm install kubecost kubecost/cost-analyzer --namespace kubecost --set kubecostToken="aGRoZEBqc2pzLmNvbQ==xm343yadf98"
+NAME: kubecost
+LAST DEPLOYED: Mon May 18 08:49:05 2020
+NAMESPACE: kubecost
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+--------------------------------------------------Kubecost has been successfully installed. When pods are Ready, you can enable port-forwarding with the following command:
+
+    kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 9090
+
+Next, navigate to http://localhost:9090 in a web browser.
+$ kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 9090
+
+NOTE: If you are using Cloud 9 or have a need to forward it to a different port like 8080, issue the following command
+$ kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 8080:9090
+```
+
+Kubecost Dashboard -
+
+![Kubernetes Cluster Auto Scaler logs](images/kube-cost.png)
+
+### Use Kubernetes Cost Allocation and Capacity Planning Analytics Tool
+
+[Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics "https://github.com/rchakode/kube-opex-analytics") is a tool to help organizations track the resources being consumed by their Kubernetes clusters to prevent overpaying. To do so it generates, short- (7 days), mid- (14 days) and long-term (12 months) usage reports showing relevant insights on what amount of resources each project is spending over time.
+
+![Kubernetes Opex Analytics](images/kube-opex-analytics.png)
+
+### Yotascale
+
+Yotascale helps with accurately allocating Kubernetes costs. Yotascale Kubernetes Cost Allocation feature utilizes actual cost data, which is inclusive of Reserved Instance discounts and spot instance pricing instead of generic market-rate estimations, to inform the total Kubernetes cost footprint
+
+More details can be found at [their website](https://www.yotascale.com/ "https://www.yotascale.com/").
+
+### Alcide Advisor
+
+Alcide is an AWS Partner Network (APN) Advanced Technology Partner. Alcide Advisor helps ensure your Amazon EKS cluster, nodes, and pods configuration are tuned to run according to security best practices and internal guidelines. Alcide Advisor is an agentless service for Kubernetes audit and compliance that’s built to ensure a frictionless and secured DevSecOps flow by hardening the development stage before moving to production.
+
+More details can be found in this [blog post](https://aws.amazon.com/blogs/apn/driving-continuous-security-and-configuration-checks-for-amazon-eks-with-alcide-advisor/ "https://aws.amazon.com/blogs/apn/driving-continuous-security-and-configuration-checks-for-amazon-eks-with-alcide-advisor/").
+
+## Other tools
+
+### Kubernetes Garbage Collection
+
+The role of the [Kubernetes garbage collector](https://kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ "https://kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/") is to delete certain objects that once had an owner, but no longer have an owner.
+
+### Fargate count
+
+[Fargatecount](https://github.com/mreferre/fargatecount "https://github.com/mreferre/fargatecount") is an useful tool, which allows AWS customers to track, with a custom CloudWatch metric, the total number of EKS pods that have been deployed on Fargate in a specific region of a specific account. This helps in keeping track of all the Fargate pods running across an EKS cluster.
+
+### Popeye - A Kubernetes Cluster Sanitizer
+
+[Popeye - A Kubernetes Cluster Sanitizer](https://github.com/derailed/popeye "https://github.com/derailed/popeye") is a utility that scans live Kubernetes cluster and reports potential issues with deployed resources and configurations. It sanitizes your cluster based on what’s deployed and not what’s sitting on disk. By scanning your cluster, it detects misconfigurations and helps you to ensure that best practices are in place
+
+### Resources
+
+Refer to the following resources to learn more about best practices for cost optimization.
+
+#### Documentation and Blogs
+
+- [Amazon EKS supports tagging](../userguide/eks-using-tags.md "../userguide/eks-using-tags.md")
+
+#### Tools
+
+- [What is AWS Billing and Cost Management?](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md")
+- [Amazon CloudWatch Container Insights](../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md "../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md")
+- [How to track costs in multi-tenant Amazon EKS clusters using Kubecost](https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/ "https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/")
+- [Kubecost](https://kubecost.com/ "https://kubecost.com/")
+- [Kube Opsview](https://github.com/hjacobs/kube-ops-view "https://github.com/hjacobs/kube-ops-view")
+- [Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics "https://github.com/rchakode/kube-opex-analytics")

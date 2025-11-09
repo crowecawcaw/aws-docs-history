@@ -104,14 +104,20 @@ If you have two clusters that should have similar performance but do not, try co
 
 For example, comparing cluster latency is a common issue. This is usually caused by difference in the volume of API requests. You can run the following CloudWatch LogInsight query to understand the difference.
 
-````
+```
 filter @logStream like "kube-apiserver-audit"
 | stats count(*) as cnt by objectRef.apiGroup, objectRef.apiVersion, objectRef.resource, userAgent, verb, responseStatus.code
 | sort cnt desc
-| limit 1000 ``` You can add additional filters to narrow it down. e.g. focusing on all list request from `foo`. ``` filter @logStream like "kube-apiserver-audit"
+| limit 1000
+```
+
+You can add additional filters to narrow it down. e.g. focusing on all list request from `foo`.
+
+```
+filter @logStream like "kube-apiserver-audit"
 | filter verb = "list"
 | filter user.username like "foo"
 | stats count(*) as cnt by objectRef.apiGroup, objectRef.apiVersion, objectRef.resource, responseStatus.code
 | sort cnt desc
-| limit 1000 ```
-````
+| limit 1000
+```

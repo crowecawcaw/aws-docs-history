@@ -210,33 +210,139 @@ sample queries appear below:
 
 Lists updates to the `aws-auth` ConfigMap:
 
-````
+```
 fields @timestamp, @message
 | filter @logStream like "kube-apiserver-audit"
 | filter verb in ["update", "patch"]
 | filter objectRef.resource = "configmaps" and objectRef.name = "aws-auth" and objectRef.namespace = "kube-system"
-| sort @timestamp desc ``` Lists creation of new or changes to validation webhooks: ``` fields @timestamp, @message
+| sort @timestamp desc
+```
+
+Lists creation of new or changes to validation webhooks:
+
+```
+fields @timestamp, @message
 | filter @logStream like "kube-apiserver-audit"
 | filter verb in ["create", "update", "patch"] and responseStatus.code = 201
 | filter objectRef.resource = "validatingwebhookconfigurations"
-| sort @timestamp desc ``` Lists create, update, delete operations to Roles: ``` fields @timestamp, @message
+| sort @timestamp desc
+```
+
+Lists create, update, delete operations to Roles:
+
+```
+fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
-| filter objectRef.resource="roles" and verb in ["create", "update", "patch", "delete"] ``` Lists create, update, delete operations to RoleBindings: ``` fields @timestamp, @message
+| filter objectRef.resource="roles" and verb in ["create", "update", "patch", "delete"]
+```
+
+Lists create, update, delete operations to RoleBindings:
+
+```
+fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
-| filter objectRef.resource="rolebindings" and verb in ["create", "update", "patch", "delete"] ``` Lists create, update, delete operations to ClusterRoles: ``` fields @timestamp, @message
+| filter objectRef.resource="rolebindings" and verb in ["create", "update", "patch", "delete"]
+```
+
+Lists create, update, delete operations to ClusterRoles:
+
+```
+fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
-| filter objectRef.resource="clusterroles" and verb in ["create", "update", "patch", "delete"] ``` Lists create, update, delete operations to ClusterRoleBindings: ``` fields @timestamp, @message
+| filter objectRef.resource="clusterroles" and verb in ["create", "update", "patch", "delete"]
+```
+
+Lists create, update, delete operations to ClusterRoleBindings:
+
+```
+fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
-| filter objectRef.resource="clusterrolebindings" and verb in ["create", "update", "patch", "delete"] ``` Plots unauthorized read operations against Secrets: ``` fields @timestamp, @message
+| filter objectRef.resource="clusterrolebindings" and verb in ["create", "update", "patch", "delete"]
+```
+
+Plots unauthorized read operations against Secrets:
+
+```
+fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter objectRef.resource="secrets" and verb in ["get", "watch", "list"] and responseStatus.code="401"
-| stats count() by bin(1m) ``` List of failed anonymous requests: ``` fields @timestamp, @message, sourceIPs.0
+| stats count() by bin(1m)
+```
+
+List of failed anonymous requests:
+
+```
+fields @timestamp, @message, sourceIPs.0
 | sort @timestamp desc
 | limit 100
-| filter user.username="system:anonymous" and responseStatus.code in ["401", "403"] ``` ### Audit your CloudTrail logs AWS APIs called by pods that are utilizing IAM Roles for Service Accounts (IRSA) are automatically logged to CloudTrail along with the name of the service account. If the name of a service account that wasn’t explicitly authorized to call an API appears in the log, it may be an indication that the IAM role’s trust policy was misconfigured. Generally speaking, Cloudtrail is a great way to ascribe AWS API calls to specific IAM principals. ### Use CloudTrail Insights to unearth suspicious activity CloudTrail insights automatically analyzes write management events from CloudTrail trails and alerts you of unusual activity. This can help you identify when there’s an increase in call volume on write APIs in your AWS account, including from pods that use IRSA to assume an IAM role. See [Announcing CloudTrail Insights: Identify and Response to Unusual API Activity](https://aws.amazon.com/blogs/aws/announcing-cloudtrail-insights-identify-and-respond-to-unusual-api-activity/ "https://aws.amazon.com/blogs/aws/announcing-cloudtrail-insights-identify-and-respond-to-unusual-api-activity/") for further information. ### Additional resources As the volume of logs increases, parsing and filtering them with Log Insights or another log analysis tool may become ineffective. As an alternative, you might want to consider running [Sysdig Falco](https://github.com/falcosecurity/falco "https://github.com/falcosecurity/falco") and [ekscloudwatch](https://github.com/sysdiglabs/ekscloudwatch "https://github.com/sysdiglabs/ekscloudwatch"). Falco analyzes audit logs and flags anomalies or abuse over an extended period of time. The ekscloudwatch project forwards audit log events from CloudWatch to Falco for analysis. Falco provides a set of [default audit rules](https://github.com/falcosecurity/plugins/blob/master/plugins/k8saudit/rules/k8s_audit_rules.yaml "https://github.com/falcosecurity/plugins/blob/master/plugins/k8saudit/rules/k8s_audit_rules.yaml") along with the ability to add your own. Yet another option might be to store the audit logs in S3 and use the SageMaker [Random Cut Forest](../../../sagemaker/latest/dg/randomcutforest.md "../../../sagemaker/latest/dg/randomcutforest.md") algorithm to anomalous behaviors that warrant further investigation. ## Tools and resources The following commercial and open source projects can be used to assess your cluster’s alignment with established best practices: <br>• [Amazon EKS Security Immersion Workshop - Detective Controls](https://catalog.workshops.aws/eks-security-immersionday/en-US/5-detective-controls "https://catalog.workshops.aws/eks-security-immersionday/en-US/5-detective-controls") <br>• [kubeaudit](https://github.com/Shopify/kubeaudit "https://github.com/Shopify/kubeaudit") <br>• [kube-scan](https://github.com/octarinesec/kube-scan "https://github.com/octarinesec/kube-scan") Assigns a risk score to the workloads running in your cluster in accordance with the Kubernetes Common Configuration Scoring System framework <br>• [kubesec.io](https://kubesec.io/ "https://kubesec.io/") <br>• [polaris](https://github.com/FairwindsOps/polaris "https://github.com/FairwindsOps/polaris") <br>• [Starboard](https://github.com/aquasecurity/starboard "https://github.com/aquasecurity/starboard") <br>• [Snyk](https://support.snyk.io/hc/en-us/articles/360003916138-Kubernetes-integration-overview "https://support.snyk.io/hc/en-us/articles/360003916138-Kubernetes-integration-overview") <br>• [Kubescape](https://github.com/kubescape/kubescape "https://github.com/kubescape/kubescape") Kubescape is an open source kubernetes security tool that scans clusters, YAML files, and Helm charts. It detects misconfigurations according to multiple frameworks (including [NSA-CISA](https://www.armosec.io/blog/kubernetes-hardening-guidance-summary-by-armo/?utm_source=github&utm_medium=repository "https://www.armosec.io/blog/kubernetes-hardening-guidance-summary-by-armo/?utm_source=github&utm_medium=repository") and [MITRE ATT&CK®](https://www.microsoft.com/security/blog/2021/03/23/secure-containerized-environments-with-updated-threat-matrix-for-kubernetes/ "https://www.microsoft.com/security/blog/2021/03/23/secure-containerized-environments-with-updated-threat-matrix-for-kubernetes/").)
-````
+| filter user.username="system:anonymous" and responseStatus.code in ["401", "403"]
+```
+
+### Audit your CloudTrail logs
+
+AWS APIs called by pods that are utilizing IAM Roles for Service
+Accounts (IRSA) are automatically logged to CloudTrail along with the
+name of the service account. If the name of a service account that
+wasn’t explicitly authorized to call an API appears in the log, it may
+be an indication that the IAM role’s trust policy was misconfigured.
+Generally speaking, Cloudtrail is a great way to ascribe AWS API calls
+to specific IAM principals.
+
+### Use CloudTrail Insights to unearth suspicious activity
+
+CloudTrail insights automatically analyzes write management events from
+CloudTrail trails and alerts you of unusual activity. This can help you
+identify when there’s an increase in call volume on write APIs in your
+AWS account, including from pods that use IRSA to assume an IAM role.
+See
+[Announcing
+CloudTrail Insights: Identify and Response to Unusual API Activity](https://aws.amazon.com/blogs/aws/announcing-cloudtrail-insights-identify-and-respond-to-unusual-api-activity/ "https://aws.amazon.com/blogs/aws/announcing-cloudtrail-insights-identify-and-respond-to-unusual-api-activity/") for
+further information.
+
+### Additional resources
+
+As the volume of logs increases, parsing and filtering them with Log
+Insights or another log analysis tool may become ineffective. As an
+alternative, you might want to consider running
+[Sysdig Falco](https://github.com/falcosecurity/falco "https://github.com/falcosecurity/falco") and
+[ekscloudwatch](https://github.com/sysdiglabs/ekscloudwatch "https://github.com/sysdiglabs/ekscloudwatch"). Falco
+analyzes audit logs and flags anomalies or abuse over an extended period
+of time. The ekscloudwatch project forwards audit log events from
+CloudWatch to Falco for analysis. Falco provides a set of
+[default
+audit rules](https://github.com/falcosecurity/plugins/blob/master/plugins/k8saudit/rules/k8s_audit_rules.yaml "https://github.com/falcosecurity/plugins/blob/master/plugins/k8saudit/rules/k8s_audit_rules.yaml") along with the ability to add your own.
+
+Yet another option might be to store the audit logs in S3 and use the
+SageMaker
+[Random
+Cut Forest](../../../sagemaker/latest/dg/randomcutforest.md "../../../sagemaker/latest/dg/randomcutforest.md") algorithm to anomalous behaviors that warrant further
+investigation.
+
+## Tools and resources
+
+The following commercial and open source projects can be used to assess
+your cluster’s alignment with established best practices:
+
+- [Amazon
+  EKS Security Immersion Workshop - Detective Controls](https://catalog.workshops.aws/eks-security-immersionday/en-US/5-detective-controls "https://catalog.workshops.aws/eks-security-immersionday/en-US/5-detective-controls")
+- [kubeaudit](https://github.com/Shopify/kubeaudit "https://github.com/Shopify/kubeaudit")
+- [kube-scan](https://github.com/octarinesec/kube-scan "https://github.com/octarinesec/kube-scan") Assigns a risk
+  score to the workloads running in your cluster in accordance with the
+  Kubernetes Common Configuration Scoring System framework
+- [kubesec.io](https://kubesec.io/ "https://kubesec.io/")
+- [polaris](https://github.com/FairwindsOps/polaris "https://github.com/FairwindsOps/polaris")
+- [Starboard](https://github.com/aquasecurity/starboard "https://github.com/aquasecurity/starboard")
+- [Snyk](https://support.snyk.io/hc/en-us/articles/360003916138-Kubernetes-integration-overview "https://support.snyk.io/hc/en-us/articles/360003916138-Kubernetes-integration-overview")
+- [Kubescape](https://github.com/kubescape/kubescape "https://github.com/kubescape/kubescape") Kubescape is an open
+  source kubernetes security tool that scans clusters, YAML files, and
+  Helm charts. It detects misconfigurations according to multiple
+  frameworks (including
+  [NSA-CISA](https://www.armosec.io/blog/kubernetes-hardening-guidance-summary-by-armo/?utm_source=github&utm_medium=repository "https://www.armosec.io/blog/kubernetes-hardening-guidance-summary-by-armo/?utm_source=github&utm_medium=repository")
+  and
+  [MITRE
+  ATT&CK®](https://www.microsoft.com/security/blog/2021/03/23/secure-containerized-environments-with-updated-threat-matrix-for-kubernetes/ "https://www.microsoft.com/security/blog/2021/03/23/secure-containerized-environments-with-updated-threat-matrix-for-kubernetes/").)

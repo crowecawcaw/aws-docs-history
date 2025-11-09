@@ -624,8 +624,134 @@ once they exceed their requested memory.
 
 Requests don’t affect the `memory_limit_in_bytes` value of the container’s cgroup; the cgroup limit is set to the amount of memory available on the host. Nevertheless, setting the requests value too low could cause the pod to be targeted for termination by the kubelet if the node undergoes memory pressure.
 
-| Class       | Priority | Condition               | Kill Condition                                       |
-| ----------- | -------- | ----------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Guaranteed  | highest  | limit = request != 0    | Only exceed memory limits                            |
-| Burstable   | medium   | limit != request != 0   | Can be killed if exceed request memory               |
-| Best-Effort | lowest   | limit & request Not Set | First to get killed when there’s insufficient memory | For additional information about resource QoS, please refer to the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/ "https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/"). You can force the use of requests and limits by setting a [resource quota](https://kubernetes.io/docs/concepts/policy/resource-quotas/ "https://kubernetes.io/docs/concepts/policy/resource-quotas/") on a namespace or by creating a [limit range](https://kubernetes.io/docs/concepts/policy/limit-range/ "https://kubernetes.io/docs/concepts/policy/limit-range/"). A resource quota allows you to specify the total amount of resources, e.g. CPU and RAM, allocated to a namespace. When it’s applied to a namespace, it forces you to specify requests and limits for all containers deployed into that namespace. By contrast, limit ranges give you more granular control of the allocation of resources. With limit ranges you can min/max for CPU and memory resources per pod or per container within a namespace. You can also use them to set default request/limit values if none are provided. Policy-as-code solutions can be used enforce requests and limits. or to even create the resource quotas and limit ranges when namespaces are created. ### Do not allow privileged escalation Privileged escalation allows a process to change the security context under which its running. Sudo is a good example of this as are binaries with the SUID or SGID bit. Privileged escalation is basically a way for users to execute a file with the permissions of another user or group. You can prevent a container from using privileged escalation by implementing a policy-as-code mutating policy that sets `allowPrivilegeEscalation` to `false` or by setting `securityContext.allowPrivilegeEscalation` in the `podSpec`. Policy-as-code policies can also be used to prevent API server requests from succeeding if incorrect settings are detected. Pod Security Standards can also be used to prevent pods from using privilege escalation. ### Disable ServiceAccount token mounts For pods that do not need to access the Kubernetes API, you can disable the automatic mounting of a ServiceAccount token on a pod spec, or for all pods that use a particular ServiceAccount. `apiVersion: v1 kind: Pod metadata: name: pod-no-automount spec: automountServiceAccountToken: false` `apiVersion: v1 kind: ServiceAccount metadata: name: sa-no-automount automountServiceAccountToken: false` ### Disable service discovery For pods that do not need to lookup or call in-cluster services, you can reduce the amount of information given to a pod. You can set the Pod’s DNS policy to not use CoreDNS, and not expose services in the pod’s namespace as environment variables. See the [Kubernetes docs on environment variables](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables "https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables") for more information on service links. The default value for a pod’s DNS policy is "ClusterFirst" which uses in-cluster DNS, while the non-default value "Default" uses the underlying node’s DNS resolution. See the [Kubernetes docs on Pod DNS policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy") for more information. `apiVersion: v1 kind: Pod metadata: name: pod-no-service-info spec: dnsPolicy: Default # "Default" is not the true default value enableServiceLinks: false` ### Configure your images with read-only root file system Configuring your images with a read-only root file system prevents an attacker from overwriting a binary on the file system that your application uses. If your application has to write to the file system, consider writing to a temporary directory or attach and mount a volume. You can enforce this by setting the pod’s SecurityContext as follows: `... securityContext: readOnlyRootFilesystem: true ...` Policy-as-code and Pod Security Standards can be used to enforce this behavior. As per [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/ "https://kubernetes.io/docs/concepts/windows/intro/") `securityContext.readOnlyRootFilesystem` cannot be set to `true` for a container running on Windows as write access is required for registry and system processes to run inside the container. ## Tools and resources <br>• [Amazon EKS Security Immersion Workshop - Pod Security](https://catalog.workshops.aws/eks-security-immersionday/en-US/3-pod-security "https://catalog.workshops.aws/eks-security-immersionday/en-US/3-pod-security") <br>• [open-policy-agent/gatekeeper-library: The OPA Gatekeeper policy library](https://github.com/open-policy-agent/gatekeeper-library "https://github.com/open-policy-agent/gatekeeper-library") a library of OPA/Gatekeeper policies that you can use as a substitute for PSPs. <br>• [Kyverno Policy Library](https://kyverno.io/policies/ "https://kyverno.io/policies/") <br>• A collection of common OPA and Kyverno [policies](https://github.com/aws/aws-eks-best-practices/tree/master/policies "https://github.com/aws/aws-eks-best-practices/tree/master/policies") for EKS. <br>• [Policy based countermeasures: part 1](https://aws.amazon.com/blogs/containers/policy-based-countermeasures-for-kubernetes-part-1/ "https://aws.amazon.com/blogs/containers/policy-based-countermeasures-for-kubernetes-part-1/") <br>• [Policy based countermeasures: part 2](https://aws.amazon.com/blogs/containers/policy-based-countermeasures-for-kubernetes-part-2/ "https://aws.amazon.com/blogs/containers/policy-based-countermeasures-for-kubernetes-part-2/") <br>• [Pod Security Policy Migrator](https://appvia.github.io/psp-migration/ "https://appvia.github.io/psp-migration/") a tool that converts PSPs to OPA/Gatekeeper, KubeWarden, or Kyverno policies <br>• [NeuVector by SUSE](https://www.suse.com/neuvector/ "https://www.suse.com/neuvector/") open source, zero-trust container security platform, provides process and filesystem policies as well as admission control rules. |
+| Class       | Priority | Condition               | Kill Condition                                          |
+| ----------- | -------- | ----------------------- | ------------------------------------------------------- |
+| Guaranteed  | highest  | limit = request != 0    | Only exceed memory limits                               |
+| Burstable   | medium   | limit != request != 0   | Can be killed if exceed<br>request memory               |
+| Best-Effort | lowest   | limit & request Not Set | First to get killed when<br>there’s insufficient memory |
+
+For additional information about resource QoS, please refer to the
+[Kubernetes
+documentation](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/ "https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/").
+
+You can force the use of requests and limits by setting a
+[resource
+quota](https://kubernetes.io/docs/concepts/policy/resource-quotas/ "https://kubernetes.io/docs/concepts/policy/resource-quotas/") on a namespace or by creating a
+[limit range](https://kubernetes.io/docs/concepts/policy/limit-range/ "https://kubernetes.io/docs/concepts/policy/limit-range/"). A
+resource quota allows you to specify the total amount of resources,
+e.g. CPU and RAM, allocated to a namespace. When it’s applied to a
+namespace, it forces you to specify requests and limits for all
+containers deployed into that namespace. By contrast, limit ranges give
+you more granular control of the allocation of resources. With limit
+ranges you can min/max for CPU and memory resources per pod or per
+container within a namespace. You can also use them to set default
+request/limit values if none are provided.
+
+Policy-as-code solutions can be used enforce requests and limits. or to
+even create the resource quotas and limit ranges when namespaces are
+created.
+
+### Do not allow privileged escalation
+
+Privileged escalation allows a process to change the security context
+under which its running. Sudo is a good example of this as are binaries
+with the SUID or SGID bit. Privileged escalation is basically a way for
+users to execute a file with the permissions of another user or group.
+You can prevent a container from using privileged escalation by
+implementing a policy-as-code mutating policy that sets
+`allowPrivilegeEscalation` to `false` or by setting
+`securityContext.allowPrivilegeEscalation` in the `podSpec`.
+Policy-as-code policies can also be used to prevent API server requests
+from succeeding if incorrect settings are detected. Pod Security
+Standards can also be used to prevent pods from using privilege
+escalation.
+
+### Disable ServiceAccount token mounts
+
+For pods that do not need to access the Kubernetes API, you can disable
+the automatic mounting of a ServiceAccount token on a pod spec, or for
+all pods that use a particular ServiceAccount.
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-no-automount
+spec:
+  automountServiceAccountToken: false
+```
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-no-automount
+automountServiceAccountToken: false
+```
+
+### Disable service discovery
+
+For pods that do not need to lookup or call in-cluster services, you can
+reduce the amount of information given to a pod. You can set the Pod’s
+DNS policy to not use CoreDNS, and not expose services in the pod’s
+namespace as environment variables. See the
+[Kubernetes
+docs on environment variables](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables "https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables") for more information on service links.
+The default value for a pod’s DNS policy is "ClusterFirst" which uses
+in-cluster DNS, while the non-default value "Default" uses the
+underlying node’s DNS resolution. See the
+[Kubernetes
+docs on Pod DNS policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy") for more information.
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-no-service-info
+spec:
+    dnsPolicy: Default # "Default" is not the true default value
+    enableServiceLinks: false
+```
+
+### Configure your images with read-only root file system
+
+Configuring your images with a read-only root file system prevents an
+attacker from overwriting a binary on the file system that your
+application uses. If your application has to write to the file system,
+consider writing to a temporary directory or attach and mount a volume.
+You can enforce this by setting the pod’s SecurityContext as follows:
+
+```
+...
+securityContext:
+  readOnlyRootFilesystem: true
+...
+```
+
+Policy-as-code and Pod Security Standards can be used to enforce this
+behavior.
+
+As per [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/ "https://kubernetes.io/docs/concepts/windows/intro/")
+`securityContext.readOnlyRootFilesystem` cannot be set to `true` for a container running on Windows as write access is required for registry and system processes to run inside the container.
+
+## Tools and resources
+
+- [Amazon
+  EKS Security Immersion Workshop - Pod Security](https://catalog.workshops.aws/eks-security-immersionday/en-US/3-pod-security "https://catalog.workshops.aws/eks-security-immersionday/en-US/3-pod-security")
+- [open-policy-agent/gatekeeper-library:
+  The OPA Gatekeeper policy library](https://github.com/open-policy-agent/gatekeeper-library "https://github.com/open-policy-agent/gatekeeper-library") a library of OPA/Gatekeeper policies
+  that you can use as a substitute for PSPs.
+- [Kyverno Policy Library](https://kyverno.io/policies/ "https://kyverno.io/policies/")
+- A collection of common OPA and Kyverno
+  [policies](https://github.com/aws/aws-eks-best-practices/tree/master/policies "https://github.com/aws/aws-eks-best-practices/tree/master/policies")
+  for EKS.
+- [Policy
+  based countermeasures: part 1](https://aws.amazon.com/blogs/containers/policy-based-countermeasures-for-kubernetes-part-1/ "https://aws.amazon.com/blogs/containers/policy-based-countermeasures-for-kubernetes-part-1/")
+- [Policy
+  based countermeasures: part 2](https://aws.amazon.com/blogs/containers/policy-based-countermeasures-for-kubernetes-part-2/ "https://aws.amazon.com/blogs/containers/policy-based-countermeasures-for-kubernetes-part-2/")
+- [Pod Security Policy Migrator](https://appvia.github.io/psp-migration/ "https://appvia.github.io/psp-migration/")
+  a tool that converts PSPs to OPA/Gatekeeper, KubeWarden, or Kyverno
+  policies
+- [NeuVector by SUSE](https://www.suse.com/neuvector/ "https://www.suse.com/neuvector/") open source,
+  zero-trust container security platform, provides process and filesystem
+  policies as well as admission control rules.

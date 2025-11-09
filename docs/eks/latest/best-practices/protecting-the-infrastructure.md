@@ -238,8 +238,109 @@ SELinux for Containers has a set of options that can be configured to
 modify the default restrictions. The following SELinux Booleans can be
 enabled or disabled based on your needs:
 
-| Boolean                   | Default | Description                                                                                                                                     |
-| ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `container_connect_any`   | `off`   | Allow containers to access privileged ports on the host. For example, if you have a container that needs to map ports to 443 or 80 on the host. |
-| `container_manage_cgroup` | `off`   | Allow containers to manage cgroup configuration. For example, a container running systemd will need this to be enabled.                         |
-| `container_use_cephfs`    | `off`   | Allow containers to use a ceph file system.                                                                                                     | By default, containers are allowed to read/execute under `/usr` and read most content from `/etc`. The files under `/var/lib/docker` and `/var/lib/containers` have the label `container_var_lib_t`. To view a full list of default, labels see the [container.fc](https://github.com/containers/container-selinux/blob/master/container.fc "https://github.com/containers/container-selinux/blob/master/container.fc") file. `docker container run -it \ -v /var/lib/docker/image/overlay2/repositories.json:/host/repositories.json \ centos:7 cat /host/repositories.json # cat: /host/repositories.json: Permission denied docker container run -it \ -v /etc/passwd:/host/etc/passwd \ centos:7 cat /host/etc/passwd # cat: /host/etc/passwd: Permission denied` Files labeled with `container_file_t` are the only files that are writable by containers. If you want a volume mount to be writeable, you will needed to specify `:z` or `:Z` at the end. <br>• `:z` will re-label the files so that the container can read/write <br>• `:Z` will re-label the files so that **only** the container can read/write `ls -Z /var/lib/misc # -rw-r--r--. root root system_u:object_r:var_lib_t:s0   postfix.aliasesdb-stamp docker container run -it \ -v /var/lib/misc:/host/var/lib/misc:z \ centos:7 echo "Relabeled!" ls -Z /var/lib/misc #-rw-r--r--. root root system_u:object_r:container_file_t:s0 postfix.aliasesdb-stamp` `docker container run -it \ -v /var/log:/host/var/log:Z \ fluentbit:latest` In Kubernetes, relabeling is slightly different. Rather than having Docker automatically relabel the files, you can specify a custom MCS label to run the pod. Volumes that support relabeling will automatically be relabeled so that they are accessible. Pods with a matching MCS label will be able to access the volume. If you need strict isolation, set a different MCS label for each pod. `securityContext: seLinuxOptions: # Provide a unique MCS label per container # You can specify user, role, and type also # enforcement based on type and level (svert) level: s0:c144:c154` In this example `s0:c144:c154` corresponds to an MCS label assigned to a file that the container is allowed to access. On EKS you could create policies that allow for privileged containers to run, like FluentD and create an SELinux policy to allow it to read from /var/log on the host without needing to relabel the host directory. Pods with the same label will be able to access the same host volumes. We have implemented [sample AMIs for Amazon EKS](https://github.com/aws-samples/amazon-eks-custom-amis "https://github.com/aws-samples/amazon-eks-custom-amis") that have SELinux configured on CentOS 7 and RHEL 7. These AMIs were developed to demonstrate sample implementations that meet requirements of highly regulated customers. ###### Warning SELinux will ignore containers where the type is unconfined. ## Tools and resources <br>• [SELinux Kubernetes RBAC and Shipping Security Policies for On-prem Applications](https://platform9.com/blog/selinux-kubernetes-rbac-and-shipping-security-policies-for-on-prem-applications/ "https://platform9.com/blog/selinux-kubernetes-rbac-and-shipping-security-policies-for-on-prem-applications/") <br>• [Iterative Hardening of Kubernetes](https://jayunit100.blogspot.com/2019/07/iterative-hardening-of-kubernetes-and.html "https://jayunit100.blogspot.com/2019/07/iterative-hardening-of-kubernetes-and.html") <br>• [Audit2Allow](https://linux.die.net/man/1/audit2allow "https://linux.die.net/man/1/audit2allow") <br>• [SEAlert](https://linux.die.net/man/8/sealert "https://linux.die.net/man/8/sealert") <br>• [Generate SELinux policies for containers with Udica](https://www.redhat.com/en/blog/generate-selinux-policies-containers-with-udica "https://www.redhat.com/en/blog/generate-selinux-policies-containers-with-udica") describes a tool that looks at container spec files for Linux capabilities, ports, and mount points, and generates a set of SELinux rules that allow the container to run properly <br>• [AMI Hardening](https://github.com/aws-samples/amazon-eks-custom-amis#hardening "https://github.com/aws-samples/amazon-eks-custom-amis#hardening") playbooks for hardening the OS to meet different regulatory requirements <br>• [Keiko Upgrade Manager](https://github.com/keikoproj/upgrade-manager "https://github.com/keikoproj/upgrade-manager") an open source project from Intuit that orchestrates the rotation of worker nodes. <br>• [Sysdig Secure](https://sysdig.com/products/kubernetes-security/ "https://sysdig.com/products/kubernetes-security/") <br>• [eksctl](https://eksctl.io/ "https://eksctl.io/") |
+| Boolean                   | Default | Description                                                                                                                                           |
+| ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `container_connect_any`   | `off`   | Allow containers to access<br>privileged ports on the host. For example, if you have a container that<br>needs to map ports to 443 or 80 on the host. |
+| `container_manage_cgroup` | `off`   | Allow containers to manage cgroup<br>configuration. For example, a container running systemd will need this<br>to be enabled.                         |
+| `container_use_cephfs`    | `off`   | Allow containers to use a ceph file<br>system.                                                                                                        |
+
+By default, containers are allowed to read/execute under `/usr` and
+read most content from `/etc`. The files under `/var/lib/docker` and
+`/var/lib/containers` have the label `container_var_lib_t`. To view
+a full list of default, labels see the
+[container.fc](https://github.com/containers/container-selinux/blob/master/container.fc "https://github.com/containers/container-selinux/blob/master/container.fc")
+file.
+
+```
+docker container run -it \
+  -v /var/lib/docker/image/overlay2/repositories.json:/host/repositories.json \
+  centos:7 cat /host/repositories.json
+# cat: /host/repositories.json: Permission denied
+
+docker container run -it \
+  -v /etc/passwd:/host/etc/passwd \
+  centos:7 cat /host/etc/passwd
+# cat: /host/etc/passwd: Permission denied
+```
+
+Files labeled with `container_file_t` are the only files that are
+writable by containers. If you want a volume mount to be writeable, you
+will needed to specify `:z` or `:Z` at the end.
+
+- `:z` will re-label the files so that the container can read/write
+- `:Z` will re-label the files so that **only** the container can
+  read/write
+
+```
+ls -Z /var/lib/misc
+# -rw-r--r--. root root system_u:object_r:var_lib_t:s0   postfix.aliasesdb-stamp
+
+docker container run -it \
+  -v /var/lib/misc:/host/var/lib/misc:z \
+  centos:7 echo "Relabeled!"
+
+ls -Z /var/lib/misc
+#-rw-r--r--. root root system_u:object_r:container_file_t:s0 postfix.aliasesdb-stamp
+```
+
+```
+docker container run -it \
+  -v /var/log:/host/var/log:Z \
+  fluentbit:latest
+```
+
+In Kubernetes, relabeling is slightly different. Rather than having
+Docker automatically relabel the files, you can specify a custom MCS
+label to run the pod. Volumes that support relabeling will automatically
+be relabeled so that they are accessible. Pods with a matching MCS label
+will be able to access the volume. If you need strict isolation, set a
+different MCS label for each pod.
+
+```
+securityContext:
+  seLinuxOptions:
+    # Provide a unique MCS label per container
+    # You can specify user, role, and type also
+    # enforcement based on type and level (svert)
+    level: s0:c144:c154
+```
+
+In this example `s0:c144:c154` corresponds to an MCS label assigned to
+a file that the container is allowed to access.
+
+On EKS you could create policies that allow for privileged containers to
+run, like FluentD and create an SELinux policy to allow it to read from
+/var/log on the host without needing to relabel the host directory. Pods
+with the same label will be able to access the same host volumes.
+
+We have implemented
+[sample AMIs for
+Amazon EKS](https://github.com/aws-samples/amazon-eks-custom-amis "https://github.com/aws-samples/amazon-eks-custom-amis") that have SELinux configured on CentOS 7 and RHEL 7. These
+AMIs were developed to demonstrate sample implementations that meet
+requirements of highly regulated customers.
+
+###### Warning
+
+SELinux will ignore containers where the type is unconfined.
+
+## Tools and resources
+
+- [SELinux
+  Kubernetes RBAC and Shipping Security Policies for On-prem Applications](https://platform9.com/blog/selinux-kubernetes-rbac-and-shipping-security-policies-for-on-prem-applications/ "https://platform9.com/blog/selinux-kubernetes-rbac-and-shipping-security-policies-for-on-prem-applications/")
+- [Iterative
+  Hardening of Kubernetes](https://jayunit100.blogspot.com/2019/07/iterative-hardening-of-kubernetes-and.html "https://jayunit100.blogspot.com/2019/07/iterative-hardening-of-kubernetes-and.html")
+- [Audit2Allow](https://linux.die.net/man/1/audit2allow "https://linux.die.net/man/1/audit2allow")
+- [SEAlert](https://linux.die.net/man/8/sealert "https://linux.die.net/man/8/sealert")
+- [Generate
+  SELinux policies for containers with Udica](https://www.redhat.com/en/blog/generate-selinux-policies-containers-with-udica "https://www.redhat.com/en/blog/generate-selinux-policies-containers-with-udica") describes a tool that looks
+  at container spec files for Linux capabilities, ports, and mount points,
+  and generates a set of SELinux rules that allow the container to run
+  properly
+- [AMI
+  Hardening](https://github.com/aws-samples/amazon-eks-custom-amis#hardening "https://github.com/aws-samples/amazon-eks-custom-amis#hardening") playbooks for hardening the OS to meet different regulatory
+  requirements
+- [Keiko Upgrade Manager](https://github.com/keikoproj/upgrade-manager "https://github.com/keikoproj/upgrade-manager") an
+  open source project from Intuit that orchestrates the rotation of worker
+  nodes.
+- [Sysdig Secure](https://sysdig.com/products/kubernetes-security/ "https://sysdig.com/products/kubernetes-security/")
+- [eksctl](https://eksctl.io/ "https://eksctl.io/")

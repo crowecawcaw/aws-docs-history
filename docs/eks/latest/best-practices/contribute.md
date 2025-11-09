@@ -242,14 +242,42 @@ image::image-file.jpg[Alt text]
 
 [Learn how to build a basic table.](https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/ "https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/")
 
-````
+```
 [cols="1,1"]
 |===
 |Cell in column 1, row 1
 |Cell in column 2, row 1
+
 |Cell in column 1, row 2
 |Cell in column 2, row 2
+
 |Cell in column 1, row 3
 |Cell in column 2, row 3
-|=== ``` ### Admonitions ``` NOTE: This is a note admonition. WARNING: This is a warning admonition. TIP: This is a tip admonition. IMPORTANT: This is an important admonition. CAUTION: This is a caution admonition. ``` Preview: ###### Note This is a note admonition. ### Includes ``` include::filename.adoc[] ```
-````
+|===
+```
+
+### Admonitions
+
+```
+NOTE: This is a note admonition.
+
+WARNING: This is a warning admonition.
+
+TIP: This is a tip admonition.
+
+IMPORTANT: This is an important admonition.
+
+CAUTION: This is a caution admonition.
+```
+
+Preview:
+
+###### Note
+
+This is a note admonition.
+
+### Includes
+
+```
+ include::filename.adoc[]
+```
