@@ -19,8 +19,12 @@ aws cloudwatch list-metrics --namespace "AWS/SSMForSAP"
 **The following are all the metrics available to you.**
 
 |                    |                |           |                            |
-| ------------------ | -------------- | --------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | -------------- | --------- | -------------------------- |
 | **Metric**         | **Dimensions** | **Units** | **Description**            |
 | OperationStarted   | OperationType  | Count     | An operation is started.   |
 | OperationSucceeded | OperationType  | Count     | An operation is succeeded. |
-| OperationFailed    | OperationType  | Count     | An operation is failed.    | **Usage Metrics** AWS Systems Manager for SAP provides resource usage metrics in the **AWS/Usage** namespace. For more information, see [AWS usage metrics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Service-Quota-Integration.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Service-Quota-Integration.md"). |
+| OperationFailed    | OperationType  | Count     | An operation is failed.    |
+
+**Usage Metrics**
+
+AWS Systems Manager for SAP provides resource usage metrics in the **AWS/Usage** namespace. For more information, see [AWS usage metrics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Service-Quota-Integration.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Service-Quota-Integration.md").
