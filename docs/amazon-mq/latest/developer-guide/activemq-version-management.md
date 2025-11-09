@@ -28,8 +28,40 @@ Additionally, you cannot create new brokers on versions scheduled for end of sup
 days of the end of support date.
 
 | Apache ActiveMQ version     | End of support on Amazon MQ |
-| --------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | --------------------------- |
 | ActiveMQ 5.18 (recommended) |                             |
 | ActiveMQ 5.17               | June 16, 2025               |
 | ActiveMQ 5.16               | November 15, 2024           |
-| ActiveMQ 5.15               | September 16, 2024          | When you create a new Amazon MQ for ActiveMQ broker, you can specify any supported ActiveMQ engine version. If you do not specify the engine version number when creating a broker, Amazon MQ automatically defaults to the latest engine version number. ## Engine version upgrades You can manually upgrade your broker at any time to the next supported major or minor version. When you turn on [automatic minor version upgrades](../api-reference/brokers-broker-id.md#brokers-broker-id-prop-updatebrokerinput-autominorversionupgrade "../api-reference/brokers-broker-id.md#brokers-broker-id-prop-updatebrokerinput-autominorversionupgrade"), Amazon MQ will upgrade your broker to the latest supported patch version during the [maintenance window](maintaining-brokers.md "maintaining-brokers.md"). For more information about manually upgrading your broker, see [Upgrading an Amazon MQ broker engine version](upgrading-brokers.md "upgrading-brokers.md"). ## Listing supported engine versions You can list all supported minor and major engine versions by using the [`describe-broker-instance-options`](../../../cli/latest/reference/mq/describe-broker-instance-options.md "../../../cli/latest/reference/mq/describe-broker-instance-options.md") AWS CLI command. `aws mq describe-broker-instance-options` To filter the results by engine and instance type use the `--engine-type` and `--host-instance-type` options as shown in the following. `` aws mq describe-broker-instance-options --engine-type `engine-type` --host-instance-type `instance-type` `` For example, to filter the results for ActiveMQ, and `mq.m5.large` instance type, replace `engine-type` with `ACTIVEMQ` and `instance-type` with `mq.m5.large`. |
+| ActiveMQ 5.15               | September 16, 2024          |
+
+When you create a new Amazon MQ for ActiveMQ broker, you can specify any supported ActiveMQ engine version.
+If you do not specify the engine version number
+when creating a broker, Amazon MQ automatically defaults
+to the latest engine version number.
+
+## Engine version upgrades
+
+You can manually upgrade your broker at any time to the next supported major or minor version. When you turn on
+[automatic minor version upgrades](../api-reference/brokers-broker-id.md#brokers-broker-id-prop-updatebrokerinput-autominorversionupgrade "../api-reference/brokers-broker-id.md#brokers-broker-id-prop-updatebrokerinput-autominorversionupgrade"),
+Amazon MQ will upgrade your broker to the latest supported patch version during the [maintenance window](maintaining-brokers.md "maintaining-brokers.md").
+
+For more information about manually upgrading your broker, see [Upgrading an Amazon MQ broker engine version](upgrading-brokers.md "upgrading-brokers.md").
+
+## Listing supported engine versions
+
+You can list all supported minor and major engine versions by using the [`describe-broker-instance-options`](../../../cli/latest/reference/mq/describe-broker-instance-options.md "../../../cli/latest/reference/mq/describe-broker-instance-options.md")
+AWS CLI command.
+
+```
+aws mq describe-broker-instance-options
+```
+
+To filter the results by engine and instance type use the
+`--engine-type` and `--host-instance-type` options as shown in the following.
+
+```
+aws mq describe-broker-instance-options --engine-type `engine-type` --host-instance-type `instance-type`
+```
+
+For example, to filter the results for ActiveMQ, and `mq.m5.large` instance type, replace
+`engine-type` with `ACTIVEMQ` and `instance-type` with `mq.m5.large`.

@@ -28,10 +28,17 @@ Amazon MQ enables metrics for your broker by default. You can view your broker m
 or by using the CloudWatch API.
 The following metrics are useful for understanding the replication and switchover/failover performance of your CRDR brokers:
 
-| Amazon MQ CloudWatch metric | Reason for CRDR use                                                                          |
-| --------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TotalReplicationLag`       | The estimated time between TA and TC of the last unacknowledged event on the primary broker. |
-| `ReplicationLag`            | The estimated time between TP and TC of the last unacknowledged event on the replica broker. |
-| `PrimaryWaitTime`           | The estimated time between TCO and TC of the last processed event on the primary broker.     |
-| `ReplicaWaitTime`           | The estimated time between TCO and TP of the last processed event on the replica broker.     |
-| `QueueSize`                 | The total number of unacknowledged events in the replication queue on the primary broker.    | `TotalReplicationLag` and `ReplicationLag` describe the delayed replication between the primary and replica brokers. The two metrics can also be used to estimate the time until the ongoing switchover or failover operation complete. `PrimaryWaitTime` and `ReplicaWaitTime` can be used to identify any ongoing issues with the replication process. If the value of the metric is constantly growing, this can indicate the replication process is degraded or paused. Slow replication may happen due issues like to network partitioning, broker starts, and long recovery. |
+| Amazon MQ CloudWatch metric | Reason for CRDR use                                                                             |
+| --------------------------- | ----------------------------------------------------------------------------------------------- |
+| `TotalReplicationLag`       | The estimated time between TA and TC of the last unacknowledged event<br>on the primary broker. |
+| `ReplicationLag`            | The estimated time between TP and TC of the last unacknowledged event<br>on the replica broker. |
+| `PrimaryWaitTime`           | The estimated time between TCO and TC of the last processed event on<br>the primary broker.     |
+| `ReplicaWaitTime`           | The estimated time between TCO and TP of the last processed<br>event on the replica broker.     |
+| `QueueSize`                 | The total number of unacknowledged events in the replication queue on<br>the primary broker.    |
+
+`TotalReplicationLag` and `ReplicationLag` describe the delayed replication between the primary and replica brokers.
+The two metrics can also be used to estimate the time until the ongoing switchover or failover operation complete.
+
+`PrimaryWaitTime` and `ReplicaWaitTime` can be used to identify any ongoing issues with the replication process.
+If the value of the metric is constantly growing, this can indicate the replication process is degraded or paused.
+Slow replication may happen due issues like to network partitioning, broker starts, and long recovery.

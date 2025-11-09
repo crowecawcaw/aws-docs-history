@@ -19,8 +19,17 @@ Types
 The following table provides a brief overview of the differences between
 in-memory, Amazon EFS, and Amazon EBS storage types for ActiveMQ brokers.
 
-| Storage Type | Persistence    | Example Use Case                                                             | Approximate Maximum Number of Messages Enqueued per Producer, per Second (1KB Message) | Replication                                            |
-| ------------ | -------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In-memory    | Non-persistent | <br>• Stock quotes <br>• Location data updates <br>• Frequently changed data | 5,000                                                                                  | None                                                   |
-| Amazon EBS   | Persistent     | <br>• High volumes of text <br>• Order processing                            | 500                                                                                    | Multiple copies within a single Availability Zone (AZ) |
-| Amazon EFS   | Persistent     | Financial transactions                                                       | 80                                                                                     | Multiple copies across multiple AZs                    | In-memory message storage provides the lowest latency and the highest throughput. However, messages are lost during instance replacement or broker restart. Amazon EFS is designed to be highly durable, replicated across multiple AZs to prevent the loss of data resulting from the failure of any single component or an issue that affects the availability of an AZ. Amazon EBS is optimized for throughput and replicated across multiple servers within a single AZ. |
+| Storage Type | Persistence    | Example Use Case                                                       | Approximate Maximum Number of Messages Enqueued per Producer,<br>per Second (1KB Message) | Replication                                               |
+| ------------ | -------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| In-memory    | Non-persistent | • Stock quotes<br>• Location data updates<br>• Frequently changed data | 5,000                                                                                     | None                                                      |
+| Amazon EBS   | Persistent     | • High volumes of text<br>• Order processing                           | 500                                                                                       | Multiple copies within a single Availability Zone<br>(AZ) |
+| Amazon EFS   | Persistent     | Financial transactions                                                 | 80                                                                                        | Multiple copies across multiple AZs                       |
+
+In-memory message storage provides the lowest latency and the highest
+throughput. However, messages are lost during instance replacement or broker
+restart.
+
+Amazon EFS is designed to be highly durable, replicated across multiple AZs to
+prevent the loss of data resulting from the failure of any single component or
+an issue that affects the availability of an AZ. Amazon EBS is optimized for
+throughput and replicated across multiple servers within a single AZ.

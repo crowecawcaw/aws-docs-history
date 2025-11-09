@@ -272,7 +272,7 @@ If your broker has restarted automatically, it may be due to one of the followin
 - Your broker may have restarted because of a scheduled weekly maintenance window. Periodically, Amazon MQ performs maintenance to the hardware, operating system, or the engine software of a message broker.
   The duration of the maintenance varies, but can last up to two hours, depending on the operations that are scheduled for your message broker. Brokers might restart at any point during the two hour maintenance window.
   For more information on broker maintenance windows, see [Scheduling the maintenance window for an Amazon MQ broker](maintaining-brokers.md "maintaining-brokers.md").
-- Your broker instance type might not be suitable to your application workload. For example, running a production workload on a `mq.t2.micro`
+- Your broker instance type might not be suitable to your application workload. For example, running a production workload on a `mq.t3.micro`
   might result in the broker running out of resources. High CPU utilization, or high broker memory usage can cause a broker to unexpectedly restart.
   To see how much CPU and memory is being utilized by your broker, use the following CloudWatch metrics for your engine type.
   - ActiveMQ on Amazon MQ –

@@ -8,60 +8,98 @@ Apache ActiveMQ documentation.
 
 Use the scroll bars to see the rest of the table.
 
-| Element                                     | Child Collection Element                                                                                  | Child Element                                                                                                   |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| `authorizationMap`                          | `authorizationEntries`                                                                                    | [authorizationEntry](child-element-details.md#authorizationEntry "child-element-details.md#authorizationEntry") |
-| `tempDestinationAuthorizationEntry`         |                                                                                                           | `defaultEntry`                                                                                                  | `authorizationEntry`                              |
-| `tempDestinationAuthorizationEntry`         |                                                                                                           | `tempDestinationAuthorizationEntry`                                                                             | `tempDestinationAuthorizationEntry`               |
-| `authorizationPlugin`                       | `map`                                                                                                     | `authorizationMap`                                                                                              |
-| `broker`                                    | `destinationInterceptors`                                                                                 | `mirroredQueue`                                                                                                 |
-| `virtualDestinationInterceptor`             |                                                                                                           | `destinationPolicy`                                                                                             | `policyMap`                                       |
-| `destinations`                              | `queue`                                                                                                   |                                                                                                                 | `tempQueue`                                       |
-| `tempTopic`                                 |                                                                                                           | `topic`                                                                                                         |
-| `networkConnectors`                         | [networkConnector](child-element-details.md#networkConnector "child-element-details.md#networkConnector") |                                                                                                                 | `persistenceAdapter`                              | [kahaDB](child-element-details.md#kahaDB "child-element-details.md#kahaDB") |
-| `plugins`                                   | `authorizationPlugin`                                                                                     |                                                                                                                 | `discardingDLQBrokerPlugin`                       |
-| `forcePersistencyModeBrokerPlugin`          |                                                                                                           | `redeliveryPlugin`                                                                                              |
-| `statisticsBrokerPlugin`                    |                                                                                                           | `timeStampingBrokerPlugin`                                                                                      |
-| `systemUsage`                               | [systemUsage](child-element-details.md#systemUsage "child-element-details.md#systemUsage")                |                                                                                                                 | `transportConnector`                              | `name`                                                                      |
-| `updateClusterClients`                      |                                                                                                           | `rebalanceClusterClients`                                                                                       |
-| `updateClusterClientsOnRemove`              |
-| `compositeQueue`                            | `forwardTo`                                                                                               | `queue`                                                                                                         |
-| `tempQueue`                                 |                                                                                                           | `tempTopic`                                                                                                     |
-| `topic`                                     |                                                                                                           | `filteredDestination`                                                                                           |
-| `compositeTopic`                            | `forwardTo`                                                                                               | `queue`                                                                                                         |
-| `tempQueue`                                 |                                                                                                           | `tempTopic`                                                                                                     |
-| `topic`                                     |                                                                                                           | `filteredDestination`                                                                                           |
-| `policyEntry`                               | `deadLetterStrategy`                                                                                      | `discarding`                                                                                                    |
-| `individualDeadLetterStrategy`              |                                                                                                           | `sharedDeadLetterStrategy`                                                                                      |
-| `destination`                               | `queue`                                                                                                   |                                                                                                                 | `tempQueue`                                       |
-| `tempTopic`                                 |                                                                                                           | `topic`                                                                                                         |
-| `dispatchPolicy`                            | `priorityDispatchPolicy`                                                                                  |                                                                                                                 | `priorityNetworkDispatchPolicy`                   |
-| `roundRobinDispatchPolicy`                  |                                                                                                           | `simpleDispatchPolicy`                                                                                          |
-| `strictOrderDispatchPolicy`                 |                                                                                                           | `clientIdFilterDispatchPolicy`                                                                                  |
-| `messageEvictionStrategy`                   | `oldestMessageEvictionStrategy`                                                                           |                                                                                                                 | `oldestMessageWithLowestPriorityEvictionStrategy` |
-| `uniquePropertyMessageEvictionStrategy`     |                                                                                                           | `messageGroupMapFactory`                                                                                        | `cachedMessageGroupMapFactory`                    |
-| `messageGroupHashBucketFactory`             |                                                                                                           | `simpleMessageGroupMapFactory`                                                                                  |
-| `pendingDurableSubscriberPolicy`            | `fileDurableSubscriberCursor`                                                                             |                                                                                                                 | `storeDurableSubscriberCursor`                    |
-| `vmDurableCursor`                           |                                                                                                           | `pendingMessageLimitStrategy`                                                                                   | `constantPendingMessageLimitStrategy`             |
-| `prefetchRatePendingMessageLimitStrategy`   |                                                                                                           | `pendingQueuePolicy`                                                                                            | `fileQueueCursor`                                 |
-| `storeCursor`                               |                                                                                                           | `vmQueueCursor`                                                                                                 |
-| `pendingSubscriberPolicy`                   | `fileCursor`                                                                                              |                                                                                                                 | `vmCursor`                                        |
-| `slowConsumerStrategy`                      | `abortSlowAckConsumerStrategy`                                                                            |                                                                                                                 | `abortSlowConsumerStrategy`                       |
-| `subscriptionRecoveryPolicy`                | `fixedCountSubscriptionRecoveryPolicy`                                                                    |                                                                                                                 | `fixedSizedSubscriptionRecoveryPolicy`            |
-| `lastImageSubscriptionRecoveryPolicy`       |                                                                                                           | `noSubscriptionRecoveryPolicy`                                                                                  |
-| `queryBasedSubscriptionRecoveryPolicy`      |                                                                                                           | `retainedMessageSubscriptionRecoveryPolicy`                                                                     |
-| `timedSubscriptionRecoveryPolicy`           |
-| `policyMap`                                 | `defaultEntry`                                                                                            | `policyEntry`                                                                                                   |
-| `policyEntries`                             | `policyEntry`                                                                                             |
-| `redeliveryPlugin`                          | `redeliveryPolicyMap`                                                                                     | `redeliveryPolicyMap`                                                                                           |
-| `redeliveryPolicyMap`                       | `defaultEntry`                                                                                            | `redeliveryPolicy`                                                                                              |
-| `redeliveryPolicyEntries`                   | `redeliveryPolicy`                                                                                        |
-| `retainedMessageSubscriptionRecoveryPolicy` | `wrapped`                                                                                                 | `fixedCountSubscriptionRecoveryPolicy`                                                                          |
-| `fixedSizedSubscriptionRecoveryPolicy`      |                                                                                                           | `lastImageSubscriptionRecoveryPolicy`                                                                           |
-| `noSubscriptionRecoveryPolicy`              |                                                                                                           | `queryBasedSubscriptionRecoveryPolicy`                                                                          |
-| `retainedMessageSubscriptionRecoveryPolicy` |                                                                                                           | `timedSubscriptionRecoveryPolicy`                                                                               |
-| `sharedDeadLetterStrategy`                  | `deadLetterQueue`                                                                                         | `queue`                                                                                                         |
-| `tempQueue`                                 |                                                                                                           | `tempTopic`                                                                                                     |
-| `topic`                                     |
-| `virtualDestinationInterceptor`             | `virtualDestinations`                                                                                     | `compositeQueue`                                                                                                |
-| `compositeTopic`                            |                                                                                                           | `virtualTopic`                                                                                                  |
+| Element                                           | Child Collection Element                                                                                  | Child Element                                                                                                   |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `authorizationMap`                                | `authorizationEntries`                                                                                    | [authorizationEntry](child-element-details.md#authorizationEntry "child-element-details.md#authorizationEntry") |
+| `tempDestinationAuthorizationEntry`               |
+| `defaultEntry`                                    | `authorizationEntry`                                                                                      |
+| `tempDestinationAuthorizationEntry`               |
+| `tempDestinationAuthorizationEntry`               | `tempDestinationAuthorizationEntry`                                                                       |
+| `authorizationPlugin`                             | `map`                                                                                                     | `authorizationMap`                                                                                              |
+| `broker`                                          | `destinationInterceptors`                                                                                 | `mirroredQueue`                                                                                                 |
+| `virtualDestinationInterceptor`                   |
+| `destinationPolicy`                               | `policyMap`                                                                                               |
+| `destinations`                                    | `queue`                                                                                                   |
+| `tempQueue`                                       |
+| `tempTopic`                                       |
+| `topic`                                           |
+| `networkConnectors`                               | [networkConnector](child-element-details.md#networkConnector "child-element-details.md#networkConnector") |
+| `persistenceAdapter`                              | [kahaDB](child-element-details.md#kahaDB "child-element-details.md#kahaDB")                               |
+| `plugins`                                         | `authorizationPlugin`                                                                                     |
+| `discardingDLQBrokerPlugin`                       |
+| `forcePersistencyModeBrokerPlugin`                |
+| `redeliveryPlugin`                                |
+| `statisticsBrokerPlugin`                          |
+| `timeStampingBrokerPlugin`                        |
+| `systemUsage`                                     | [systemUsage](child-element-details.md#systemUsage "child-element-details.md#systemUsage")                |
+| `transportConnector`                              | `name`                                                                                                    |
+| `updateClusterClients`                            |
+| `rebalanceClusterClients`                         |
+| `updateClusterClientsOnRemove`                    |
+| `compositeQueue`                                  | `forwardTo`                                                                                               | `queue`                                                                                                         |
+| `tempQueue`                                       |
+| `tempTopic`                                       |
+| `topic`                                           |
+| `filteredDestination`                             |
+| `compositeTopic`                                  | `forwardTo`                                                                                               | `queue`                                                                                                         |
+| `tempQueue`                                       |
+| `tempTopic`                                       |
+| `topic`                                           |
+| `filteredDestination`                             |
+| `policyEntry`                                     | `deadLetterStrategy`                                                                                      | `discarding`                                                                                                    |
+| `individualDeadLetterStrategy`                    |
+| `sharedDeadLetterStrategy`                        |
+| `destination`                                     | `queue`                                                                                                   |
+| `tempQueue`                                       |
+| `tempTopic`                                       |
+| `topic`                                           |
+| `dispatchPolicy`                                  | `priorityDispatchPolicy`                                                                                  |
+| `priorityNetworkDispatchPolicy`                   |
+| `roundRobinDispatchPolicy`                        |
+| `simpleDispatchPolicy`                            |
+| `strictOrderDispatchPolicy`                       |
+| `clientIdFilterDispatchPolicy`                    |
+| `messageEvictionStrategy`                         | `oldestMessageEvictionStrategy`                                                                           |
+| `oldestMessageWithLowestPriorityEvictionStrategy` |
+| `uniquePropertyMessageEvictionStrategy`           |
+| `messageGroupMapFactory`                          | `cachedMessageGroupMapFactory`                                                                            |
+| `messageGroupHashBucketFactory`                   |
+| `simpleMessageGroupMapFactory`                    |
+| `pendingDurableSubscriberPolicy`                  | `fileDurableSubscriberCursor`                                                                             |
+| `storeDurableSubscriberCursor`                    |
+| `vmDurableCursor`                                 |
+| `pendingMessageLimitStrategy`                     | `constantPendingMessageLimitStrategy`                                                                     |
+| `prefetchRatePendingMessageLimitStrategy`         |
+| `pendingQueuePolicy`                              | `fileQueueCursor`                                                                                         |
+| `storeCursor`                                     |
+| `vmQueueCursor`                                   |
+| `pendingSubscriberPolicy`                         | `fileCursor`                                                                                              |
+| `vmCursor`                                        |
+| `slowConsumerStrategy`                            | `abortSlowAckConsumerStrategy`                                                                            |
+| `abortSlowConsumerStrategy`                       |
+| `subscriptionRecoveryPolicy`                      | `fixedCountSubscriptionRecoveryPolicy`                                                                    |
+| `fixedSizedSubscriptionRecoveryPolicy`            |
+| `lastImageSubscriptionRecoveryPolicy`             |
+| `noSubscriptionRecoveryPolicy`                    |
+| `queryBasedSubscriptionRecoveryPolicy`            |
+| `retainedMessageSubscriptionRecoveryPolicy`       |
+| `timedSubscriptionRecoveryPolicy`                 |
+| `policyMap`                                       | `defaultEntry`                                                                                            | `policyEntry`                                                                                                   |
+| `policyEntries`                                   | `policyEntry`                                                                                             |
+| `redeliveryPlugin`                                | `redeliveryPolicyMap`                                                                                     | `redeliveryPolicyMap`                                                                                           |
+| `redeliveryPolicyMap`                             | `defaultEntry`                                                                                            | `redeliveryPolicy`                                                                                              |
+| `redeliveryPolicyEntries`                         | `redeliveryPolicy`                                                                                        |
+| `retainedMessageSubscriptionRecoveryPolicy`       | `wrapped`                                                                                                 | `fixedCountSubscriptionRecoveryPolicy`                                                                          |
+| `fixedSizedSubscriptionRecoveryPolicy`            |
+| `lastImageSubscriptionRecoveryPolicy`             |
+| `noSubscriptionRecoveryPolicy`                    |
+| `queryBasedSubscriptionRecoveryPolicy`            |
+| `retainedMessageSubscriptionRecoveryPolicy`       |
+| `timedSubscriptionRecoveryPolicy`                 |
+| `sharedDeadLetterStrategy`                        | `deadLetterQueue`                                                                                         | `queue`                                                                                                         |
+| `tempQueue`                                       |
+| `tempTopic`                                       |
+| `topic`                                           |
+| `virtualDestinationInterceptor`                   | `virtualDestinations`                                                                                     | `compositeQueue`                                                                                                |
+| `compositeTopic`                                  |
+| `virtualTopic`                                    |
