@@ -151,7 +151,7 @@ window. You can either put your cursor at the CloudShell prompt and press Ctrl+V
 or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
 to sign in to the administration dashboard of your WordPress website.
 
-![Viewing WordPress admin password in Lightsail.](images/amazon-wordpress-viewing-admin-password-01.png)
+![Viewing WordPress admin password in Lightsail.](/images/lightsail/latest/userguide/images/amazon-wordpress-viewing-admin-password-01.png)
 
 ## Step 4: Sign in to your WordPress
 
@@ -178,7 +178,7 @@ you can perform administrative actions. For more information about administering
 WordPress website, see the [WordPress
 Codex](https://codex.wordpress.org/ "https://codex.wordpress.org/") in the WordPress documentation.
 
-![Launching and configuring WordPress in Lightsail.](images/amazon-wordpress-tutorial-08.png)
+![Launching and configuring WordPress in Lightsail.](/images/lightsail/latest/userguide/images/amazon-wordpress-tutorial-08.png)
 
 ## Step 5: Read the
 
@@ -199,8 +199,8 @@ periodic snapshots of your instance to back it up. A snapshot is a copy of the s
 snapshot contains all of the data that is needed to restore your instance (from the moment
 when the snapshot was taken).
 
-You can create snapshots manually, or
-enable automatic snapshots to have Lightsail create daily snapshots for you. If
+You can create [snapshots manually](understanding-snapshots-in-amazon-lightsail.md#manual-snapshots "understanding-snapshots-in-amazon-lightsail.md#manual-snapshots"), or
+[enable automatic snapshots](understanding-snapshots-in-amazon-lightsail.md#automatic-snapshots "understanding-snapshots-in-amazon-lightsail.md#automatic-snapshots") to have Lightsail create daily snapshots for you. If
 something goes wrong with your instance, you can create a new replacement instance using
 the snapshot.
 

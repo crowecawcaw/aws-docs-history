@@ -85,17 +85,6 @@ distribution’s default domain. If your DNS hosting provider does not support A
 you can use Lightsail DNS zones to easily configure your apex domain to point to your
 distribution’s domain.
 
-## What are the differences between Lightsail’s instance data transfer quotas and
-
-distribution data transfer quotas?
-
-While data transfer IN and OUT count toward your instance’s data transfer quota, only
-data transfer OUT to your origin and to your viewers counts toward you distribution’s quota.
-In addition, all data transfer OUT in excess of your distribution’s quota is charged an
-overage fee, whereas some types of data transfer OUT are free for instances. Finally,
-Lightsail distributions use a different regional overage model, though the majority of the
-rates are the same as those charged for instance overage.
-
 ## Can I change the plan associated with my
 
 distribution?
@@ -179,7 +168,7 @@ using an excessively large number of distributions with a single origin) is beyo
 intended scope of use and is not permitted. In addition, workloads that involve a high
 number of requests per second or large amount of video streaming are not permitted. Engaging
 in these behaviors may result in throttling or suspension of your data services or
-account.
+account. For more information, see [What does data transfer cost?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost").
 
 ## Do Lightsail CDN distributions support IPv6?
 

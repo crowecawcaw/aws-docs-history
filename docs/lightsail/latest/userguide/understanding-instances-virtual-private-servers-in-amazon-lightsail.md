@@ -17,6 +17,7 @@ See the following topics for more information about instances:
 
 - [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md")
 - [Blueprints](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md")
+- [Bundles](amazon-lightsail-bundles.md "amazon-lightsail-bundles.md")
 - [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md")
 - [Burst capacity and performance](amazon-lightsail-viewing-instance-burst-capacity.md "amazon-lightsail-viewing-instance-burst-capacity.md")
 - [Instance management](managing-your-instance-using-lightsail.md "managing-your-instance-using-lightsail.md")

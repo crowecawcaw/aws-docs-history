@@ -14,7 +14,8 @@ Also referred to as a bundle, a Lightsail plan includes a virtual server with a 
 amount of memory (RAM) and compute (vCPUs), SSD-based storage (disks), and a free data
 transfer allowance. Lightsail plans also offer static IPv4 addresses, and DNS management.
 Lightsail plans are charged on an hourly, on-demand basis, so you only pay for a plan when
-you're using it.
+you're using it. For more
+information about data transfer costs, see [What does data transfer cost?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost").
 
 ## What software can I run on my instances?
 

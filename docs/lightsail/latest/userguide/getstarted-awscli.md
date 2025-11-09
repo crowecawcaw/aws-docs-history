@@ -270,7 +270,7 @@ security settings.
 Use the following command to connect to your instance via SSH, replacing the IP
 address with your instance's public IP.
 
-````
+```
 $ `ssh -i ~/.ssh/cli-tutorial-keys.pem bitnami@`192.0.2.1``
 Linux ip-172-26-6-136 6.1.0-32-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.129-1 (2025-03-06) x86_64
 
@@ -281,7 +281,421 @@ individual files in /usr/share/doc/*/copyright.
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
        ___ _ _                   _
-| _ |_) |_ _ _  __ _ _ __ (_)
-| _ \ |  _| ' \/ _` | '  \| |
-|___/_|\__|_|_|\__,_|_|_|_|_| *** Welcome to the Bitnami package for WordPress 6.7.2           *** *** Documentation:  https://docs.bitnami.com/aws/apps/wordpress/ *** ***                 https://docs.bitnami.com/aws/                *** *** Bitnami Forums: https://github.com/bitnami/vms/              *** bitnami@ip-172-26-6-136:~$ df Filesystem      1K-blocks    Used Available Use% Mounted on udev               217920       0    217920   0% /dev tmpfs               45860     480     45380   2% /run /dev/nvme0n1p1   20403592 3328832  16142256  18% / tmpfs              229292       0    229292   0% /dev/shm tmpfs                5120       0      5120   0% /run/lock /dev/nvme0n1p15    126678   11840    114838  10% /boot/efi tmpfs               45856       0     45856   0% /run/user/1000 ``` Once connected, you can manage your WordPress installation, configure your server, or install additional software. The example above shows the disk usage on the instance using the `df` command. ###### Example – Close public ports When you are not using SSH, you can close the public ports on your instance. This helps protect your instance from unauthorized access attempts. ``` $ `aws lightsail close-instance-public-ports --instance-name cli-tutorial \ --port-info fromPort=22,protocol=TCP,toPort=22` { "operation": { "id": "6cdxmpl-9f39-4357-a66d-230096140b4f", "resourceName": "cli-tutorial", "resourceType": "Instance", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2a", "regionName": "us-east-2" }, "isTerminal": true, "operationDetails": "22/tcp", "operationType": "CloseInstancePublicPorts", "status": "Succeeded", "statusChangedAt": 1673596800.000 } } ``` ###### Note Closing port 22 prevents all SSH connections, including those initiated from the Lightsail console. For more information, see the following topics. <br>• [Manage SSH key pairs and connect to your Lightsail instances](understanding-ssh-in-amazon-lightsail.md "understanding-ssh-in-amazon-lightsail.md") <br>• [Control instance traffic with firewalls in Lightsail](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md") The response confirms that port 22 has been closed successfully. When you need to reconnect via SSH, you can reopen the port using the `open-instance-public-ports` command. ## Add storage to your instance As your application grows, you might need additional storage space. Lightsail allows you to create and attach additional disks to your instances. This section demonstrates how to add extra storage. ###### Example – Create a disk The following command creates a new 32GB disk. ``` $ `aws lightsail create-disk --disk-name cli-tutorial-disk \ --availability-zone ${AWS_REGION}a --size-in-gb 32` { "operations": [ { "id": "070xmpl-3364-4aa2-bff2-3c589de832fc", "resourceName": "cli-tutorial-disk", "resourceType": "Disk", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2a", "regionName": "us-east-2" }, "isTerminal": false, "operationType": "CreateDisk", "status": "Started", "statusChangedAt": 1673596800.000 } ] } ``` The response indicates that the disk creation operation has started. It may take a few moments for the disk to become available. ###### Example – Attach the disk to your instance Once the disk is created, you can attach it to your instance using the following command. ``` $ `aws lightsail attach-disk --disk-name cli-tutorial-disk \ --disk-path /dev/xvdf --instance-name cli-tutorial` { "operations": [ { "id": "d17xmpl-2bdb-4292-ac63-ba5537522cea", "resourceName": "cli-tutorial-disk", "resourceType": "Disk", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2a", "regionName": "us-east-2" }, "isTerminal": false, "operationDetails": "cli-tutorial", "operationType": "AttachDisk", "status": "Started", "statusChangedAt": 1673596800.000 }, { "id": "01exmpl-c04e-42d4-aa6b-45ce50562a54", "resourceName": "cli-tutorial", "resourceType": "Instance", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2a", "regionName": "us-east-2" }, "isTerminal": false, "operationDetails": "cli-tutorial-disk", "operationType": "AttachDisk", "status": "Started", "statusChangedAt": 1673596800.000 } ] } ``` The disk-path parameter specifies where the disk will be attached in the Linux file system. After attaching the disk, you will need to format and mount it from within your instance. ###### Example – Verify disk attachment You can confirm that the disk is properly attached by retrieving its details. ``` $ `aws lightsail get-disk --disk-name cli-tutorial-disk` { "disk": { "name": "cli-tutorial-disk", "arn": "arn:aws:lightsail:us-east-2:123456789012:Disk/1a9xmpl-8a34-46a4-b87e-19184f0cca9c", "supportCode": "123456789012/vol-0dacxmplc1c3108e2", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2a", "regionName": "us-east-2" }, "resourceType": "Disk", "tags": [], "sizeInGb": 32, "isSystemDisk": false, "iops": 100, "path": "/dev/xvdf", "state": "in-use", "attachedTo": "cli-tutorial", "isAttached": true, "attachmentState": "attached" } } ``` The output confirms that the disk is attached to your instance. The "state" field shows "in-use" and "isAttached" is set to true, indicating a successful attachment. ## Create and use snapshots Snapshots provide a way to back up your instance and create new instances from the backup. This is useful for disaster recovery, testing, or creating duplicate environments. ###### Example – Create an instance snapshot The following command creates a snapshot of your instance. ``` $ `aws lightsail create-instance-snapshot --instance-name cli-tutorial \ --instance-snapshot-name cli-tutorial-snapshot` { "operations": [ { "id": "41bxmpl-7824-4591-bfcc-1b1c341613a4", "resourceName": "cli-tutorial-snapshot", "resourceType": "InstanceSnapshot", "createdAt": 1673596800.000, "location": { "availabilityZone": "all", "regionName": "us-east-2" }, "isTerminal": false, "operationDetails": "cli-tutorial", "operationType": "CreateInstanceSnapshot", "status": "Started", "statusChangedAt": 1673596800.000 }, { "id": "725xmpl-158e-46f6-bd49-27b0e6805aa2", "resourceName": "cli-tutorial", "resourceType": "Instance", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2a", "regionName": "us-east-2" }, "isTerminal": false, "operationDetails": "cli-tutorial-snapshot", "operationType": "CreateInstanceSnapshot", "status": "Started", "statusChangedAt": 1673596800.000 } ] } ``` The response indicates that the snapshot process has started. There is one asynchronous operation for the instance getting the snapshot, and one for the snapshot being created. The snapshot includes all disks attached to the instance. ###### Example – Create a new instance from a snapshot Once the snapshot is complete, you can use it to create a new instance. ``` $ `aws lightsail create-instances-from-snapshot --availability-zone ${AWS_REGION}b \ --instance-snapshot-name cli-tutorial-snapshot --instance-name cli-tutorial-bup --bundle-id small_3_0` { "operations": [ { "id": "a35xmpl-efa1-4d6c-958e-9d58fd258f5f", "resourceName": "cli-tutorial-bup", "resourceType": "Instance", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2b", "regionName": "us-east-2" }, "isTerminal": false, "operationType": "CreateInstancesFromSnapshot", "status": "Started", "statusChangedAt": 1673596800.000 } ] } ``` This command creates a new instance named `cli-tutorial-bup` in availability zone `us-east-2b` using the `small_3_0` bundle size. Note that you can choose a different bundle size for the new instance, which can be useful for scaling up or down. ## Clean up resources When you're finished with your Lightsail resources, you should delete them to avoid incurring additional charges. This section shows you how to clean up all the resources created in this tutorial. ###### Example – Delete an instance snapshot To delete a snapshot that you no longer need, use the following command. ``` $ `aws lightsail delete-instance-snapshot --instance-snapshot-name cli-tutorial-snapshot` { "operations": [ { "id": "cf8xmpl-0ec7-43ec-9cbc-6dedd9d8eda8", "resourceName": "cli-tutorial-snapshot", "resourceType": "InstanceSnapshot", "createdAt": 1673596800.000, "location": { "availabilityZone": "all", "regionName": "us-east-2" }, "isTerminal": true, "operationDetails": "", "operationType": "DeleteInstanceSnapshot", "status": "Succeeded", "statusChangedAt": 1673596800.000 } ] } ``` The response confirms that the snapshot deletion operation has succeeded. ###### Example – Delete an instance To delete an instance, use the following command. ``` $ `aws lightsail delete-instance --instance-name cli-tutorial` { "operations": [ { "id": "f4bxmpl-2df1-4740-90d7-e30adaf7e3a1", "resourceName": "cli-tutorial", "resourceType": "Instance", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2a", "regionName": "us-east-2" }, "isTerminal": true, "operationDetails": "", "operationType": "DeleteInstance", "status": "Succeeded", "statusChangedAt": 1673596800.000 } ] } ``` Remember to delete all instances you created, including any instances created from snapshots. ###### Example – Delete a disk To delete a disk that's no longer needed, use the following command. ``` $ `aws lightsail delete-disk --disk-name cli-tutorial-disk` { "operations": [ { "id": "aacxmpl-8626-4edd-8b3b-bf108d6b279c", "resourceName": "cli-tutorial-disk", "resourceType": "Disk", "createdAt": 1673596800.000, "location": { "availabilityZone": "us-east-2a", "regionName": "us-east-2" }, "isTerminal": true, "operationDetails": "", "operationType": "DeleteDisk", "status": "Succeeded", "statusChangedAt": 1673596800.000 } ] } ``` If the disk is attached to an instance, you will need to detach it first using the `detach-disk` command. ###### Example – Delete a key pair Finally, delete the key pair you created at the beginning of this tutorial. ``` $ `aws lightsail delete-key-pair --key-pair-name cli-tutorial-keys` { "operation": { "id": "dbfxmpl-c954-4a45-93a4-ab3e627d2c23", "resourceName": "cli-tutorial-keys", "resourceType": "KeyPair", "createdAt": 1673596800.000, "location": { "availabilityZone": "all", "regionName": "us-east-2" }, "isTerminal": true, "operationDetails": "", "operationType": "DeleteKeyPair", "status": "Succeeded", "statusChangedAt": 1673596800.000 } } ``` This command only deletes the key pair from AWS. Now you can delete the local copy as well. ``` $ `rm ~/.ssh/cli-tutorial-keys.pem` ``` ## Next steps Now that you've learned the basics of managing Lightsail resources using the AWS CLI, explore other Lightsail features. 1. **Domains** – [Assign a domain name](amazon-lightsail-domain-registration.md "amazon-lightsail-domain-registration.md") to your application. 2. **Load balancers** – [Route traffic to multiple instances](understanding-lightsail-load-balancers.md "understanding-lightsail-load-balancers.md") to increase capacity and resilience. 3. **Automatic snapshots** – [Back up your application data automatically](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md"). 4. **Metrics** – [Monitor your resources' health](amazon-lightsail-resource-health-metrics.md "amazon-lightsail-resource-health-metrics.md"), get notifications, and set up alarms. 5. **Databases** – [Connect your application to a relational database](amazon-lightsail-databases.md "amazon-lightsail-databases.md"). For more information about available AWS CLI commands, see the [AWS CLI Command Reference for Lightsail](../../../cli/latest/reference/lightsail.md "../../../cli/latest/reference/lightsail.md").
-````
+      | _ |_) |_ _ _  __ _ _ __ (_)
+      | _ \ |  _| ' \/ _` | '  \| |
+      |___/_|\__|_|_|\__,_|_|_|_|_|
+
+  *** Welcome to the Bitnami package for WordPress 6.7.2           ***
+  *** Documentation:  https://docs.bitnami.com/aws/apps/wordpress/ ***
+  ***                 https://docs.bitnami.com/aws/                ***
+  *** Bitnami Forums: https://github.com/bitnami/vms/              ***
+
+bitnami@ip-172-26-6-136:~$ df
+Filesystem      1K-blocks    Used Available Use% Mounted on
+udev               217920       0    217920   0% /dev
+tmpfs               45860     480     45380   2% /run
+/dev/nvme0n1p1   20403592 3328832  16142256  18% /
+tmpfs              229292       0    229292   0% /dev/shm
+tmpfs                5120       0      5120   0% /run/lock
+/dev/nvme0n1p15    126678   11840    114838  10% /boot/efi
+tmpfs               45856       0     45856   0% /run/user/1000
+```
+
+Once connected, you can manage your WordPress installation, configure your server, or
+install additional software. The example above shows the disk usage on the instance
+using the `df` command.
+
+###### Example – Close public ports
+
+When you are not using SSH, you can close the public ports on your instance. This
+helps protect your instance from unauthorized access attempts.
+
+```
+$ `aws lightsail close-instance-public-ports --instance-name cli-tutorial \
+ --port-info fromPort=22,protocol=TCP,toPort=22`
+{
+    "operation": {
+        "id": "6cdxmpl-9f39-4357-a66d-230096140b4f",
+        "resourceName": "cli-tutorial",
+        "resourceType": "Instance",
+        "createdAt": 1673596800.000,
+        "location": {
+            "availabilityZone": "us-east-2a",
+            "regionName": "us-east-2"
+        },
+        "isTerminal": true,
+        "operationDetails": "22/tcp",
+        "operationType": "CloseInstancePublicPorts",
+        "status": "Succeeded",
+        "statusChangedAt": 1673596800.000
+    }
+}
+```
+
+###### Note
+
+Closing port 22 prevents all SSH connections, including those initiated from the
+Lightsail console. For more information, see the following topics.
+
+- [Manage SSH key pairs and connect to your
+  Lightsail instances](understanding-ssh-in-amazon-lightsail.md "understanding-ssh-in-amazon-lightsail.md")
+- [Control instance
+  traffic with firewalls in Lightsail](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md")
+
+The response confirms that port 22 has been closed successfully. When you need to
+reconnect via SSH, you can reopen the port using the
+`open-instance-public-ports` command.
+
+## Add storage to your
+
+instance
+
+As your application grows, you might need additional storage space. Lightsail allows
+you to create and attach additional disks to your instances. This section demonstrates
+how to add extra storage.
+
+###### Example – Create a disk
+
+The following command creates a new 32GB disk.
+
+```
+$ `aws lightsail create-disk --disk-name cli-tutorial-disk \
+ --availability-zone ${AWS_REGION}a --size-in-gb 32`
+{
+    "operations": [
+        {
+            "id": "070xmpl-3364-4aa2-bff2-3c589de832fc",
+            "resourceName": "cli-tutorial-disk",
+            "resourceType": "Disk",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "us-east-2a",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": false,
+            "operationType": "CreateDisk",
+            "status": "Started",
+            "statusChangedAt": 1673596800.000
+        }
+    ]
+}
+```
+
+The response indicates that the disk creation operation has started. It may take a few
+moments for the disk to become available.
+
+###### Example – Attach the disk to your instance
+
+Once the disk is created, you can attach it to your instance using the following
+command.
+
+```
+$ `aws lightsail attach-disk --disk-name cli-tutorial-disk \
+ --disk-path /dev/xvdf --instance-name cli-tutorial`
+{
+    "operations": [
+        {
+            "id": "d17xmpl-2bdb-4292-ac63-ba5537522cea",
+            "resourceName": "cli-tutorial-disk",
+            "resourceType": "Disk",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "us-east-2a",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": false,
+            "operationDetails": "cli-tutorial",
+            "operationType": "AttachDisk",
+            "status": "Started",
+            "statusChangedAt": 1673596800.000
+        },
+        {
+            "id": "01exmpl-c04e-42d4-aa6b-45ce50562a54",
+            "resourceName": "cli-tutorial",
+            "resourceType": "Instance",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "us-east-2a",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": false,
+            "operationDetails": "cli-tutorial-disk",
+            "operationType": "AttachDisk",
+            "status": "Started",
+            "statusChangedAt": 1673596800.000
+        }
+    ]
+}
+```
+
+The disk-path parameter specifies where the disk will be attached in the Linux file
+system. After attaching the disk, you will need to format and mount it from within your
+instance.
+
+###### Example – Verify disk attachment
+
+You can confirm that the disk is properly attached by retrieving its
+details.
+
+```
+$ `aws lightsail get-disk --disk-name cli-tutorial-disk`
+{
+    "disk": {
+        "name": "cli-tutorial-disk",
+        "arn": "arn:aws:lightsail:us-east-2:123456789012:Disk/1a9xmpl-8a34-46a4-b87e-19184f0cca9c",
+        "supportCode": "123456789012/vol-0dacxmplc1c3108e2",
+        "createdAt": 1673596800.000,
+        "location": {
+            "availabilityZone": "us-east-2a",
+            "regionName": "us-east-2"
+        },
+        "resourceType": "Disk",
+        "tags": [],
+        "sizeInGb": 32,
+        "isSystemDisk": false,
+        "iops": 100,
+        "path": "/dev/xvdf",
+        "state": "in-use",
+        "attachedTo": "cli-tutorial",
+        "isAttached": true,
+        "attachmentState": "attached"
+    }
+}
+```
+
+The output confirms that the disk is attached to your instance. The "state" field
+shows "in-use" and "isAttached" is set to true, indicating a successful
+attachment.
+
+## Create and use
+
+snapshots
+
+Snapshots provide a way to back up your instance and create new instances from the
+backup. This is useful for disaster recovery, testing, or creating duplicate
+environments.
+
+###### Example – Create an instance snapshot
+
+The following command creates a snapshot of your instance.
+
+```
+$ `aws lightsail create-instance-snapshot --instance-name cli-tutorial \
+ --instance-snapshot-name cli-tutorial-snapshot`
+{
+    "operations": [
+        {
+            "id": "41bxmpl-7824-4591-bfcc-1b1c341613a4",
+            "resourceName": "cli-tutorial-snapshot",
+            "resourceType": "InstanceSnapshot",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "all",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": false,
+            "operationDetails": "cli-tutorial",
+            "operationType": "CreateInstanceSnapshot",
+            "status": "Started",
+            "statusChangedAt": 1673596800.000
+        },
+        {
+            "id": "725xmpl-158e-46f6-bd49-27b0e6805aa2",
+            "resourceName": "cli-tutorial",
+            "resourceType": "Instance",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "us-east-2a",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": false,
+            "operationDetails": "cli-tutorial-snapshot",
+            "operationType": "CreateInstanceSnapshot",
+            "status": "Started",
+            "statusChangedAt": 1673596800.000
+        }
+    ]
+}
+```
+
+The response indicates that the snapshot process has started. There is one
+asynchronous operation for the instance getting the snapshot, and one for the snapshot
+being created. The snapshot includes all disks attached to the instance.
+
+###### Example – Create a new instance from a snapshot
+
+Once the snapshot is complete, you can use it to create a new instance.
+
+```
+$ `aws lightsail create-instances-from-snapshot --availability-zone ${AWS_REGION}b \
+ --instance-snapshot-name cli-tutorial-snapshot --instance-name cli-tutorial-bup --bundle-id small_3_0`
+{
+    "operations": [
+        {
+            "id": "a35xmpl-efa1-4d6c-958e-9d58fd258f5f",
+            "resourceName": "cli-tutorial-bup",
+            "resourceType": "Instance",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "us-east-2b",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": false,
+            "operationType": "CreateInstancesFromSnapshot",
+            "status": "Started",
+            "statusChangedAt": 1673596800.000
+        }
+    ]
+}
+```
+
+This command creates a new instance named `cli-tutorial-bup` in
+availability zone `us-east-2b` using the `small_3_0` bundle size.
+Note that you can choose a different bundle size for the new instance, which can be
+useful for scaling up or down.
+
+## Clean up resources
+
+When you're finished with your Lightsail resources, you should delete them to avoid
+incurring additional charges. This section shows you how to clean up all the resources
+created in this tutorial.
+
+###### Example – Delete an instance snapshot
+
+To delete a snapshot that you no longer need, use the following command.
+
+```
+$ `aws lightsail delete-instance-snapshot --instance-snapshot-name cli-tutorial-snapshot`
+{
+    "operations": [
+        {
+            "id": "cf8xmpl-0ec7-43ec-9cbc-6dedd9d8eda8",
+            "resourceName": "cli-tutorial-snapshot",
+            "resourceType": "InstanceSnapshot",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "all",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": true,
+            "operationDetails": "",
+            "operationType": "DeleteInstanceSnapshot",
+            "status": "Succeeded",
+            "statusChangedAt": 1673596800.000
+        }
+    ]
+}
+```
+
+The response confirms that the snapshot deletion operation has succeeded.
+
+###### Example – Delete an instance
+
+To delete an instance, use the following command.
+
+```
+$ `aws lightsail delete-instance --instance-name cli-tutorial`
+{
+    "operations": [
+        {
+            "id": "f4bxmpl-2df1-4740-90d7-e30adaf7e3a1",
+            "resourceName": "cli-tutorial",
+            "resourceType": "Instance",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "us-east-2a",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": true,
+            "operationDetails": "",
+            "operationType": "DeleteInstance",
+            "status": "Succeeded",
+            "statusChangedAt": 1673596800.000
+        }
+    ]
+}
+```
+
+Remember to delete all instances you created, including any instances created from
+snapshots.
+
+###### Example – Delete a disk
+
+To delete a disk that's no longer needed, use the following command.
+
+```
+$ `aws lightsail delete-disk --disk-name cli-tutorial-disk`
+{
+    "operations": [
+        {
+            "id": "aacxmpl-8626-4edd-8b3b-bf108d6b279c",
+            "resourceName": "cli-tutorial-disk",
+            "resourceType": "Disk",
+            "createdAt": 1673596800.000,
+            "location": {
+                "availabilityZone": "us-east-2a",
+                "regionName": "us-east-2"
+            },
+            "isTerminal": true,
+            "operationDetails": "",
+            "operationType": "DeleteDisk",
+            "status": "Succeeded",
+            "statusChangedAt": 1673596800.000
+        }
+    ]
+}
+```
+
+If the disk is attached to an instance, you will need to detach it first using the
+`detach-disk` command.
+
+###### Example – Delete a key pair
+
+Finally, delete the key pair you created at the beginning of this tutorial.
+
+```
+$ `aws lightsail delete-key-pair --key-pair-name cli-tutorial-keys`
+{
+    "operation": {
+        "id": "dbfxmpl-c954-4a45-93a4-ab3e627d2c23",
+        "resourceName": "cli-tutorial-keys",
+        "resourceType": "KeyPair",
+        "createdAt": 1673596800.000,
+        "location": {
+            "availabilityZone": "all",
+            "regionName": "us-east-2"
+        },
+        "isTerminal": true,
+        "operationDetails": "",
+        "operationType": "DeleteKeyPair",
+        "status": "Succeeded",
+        "statusChangedAt": 1673596800.000
+    }
+}
+```
+
+This command only deletes the key pair from AWS. Now you can delete the local copy
+as well.
+
+```
+$ `rm ~/.ssh/cli-tutorial-keys.pem`
+```
+
+## Next steps
+
+Now that you've learned the basics of managing Lightsail resources using the AWS CLI,
+explore other Lightsail features.
+
+1. **Domains** – [Assign a domain name](amazon-lightsail-domain-registration.md "amazon-lightsail-domain-registration.md")
+   to your application.
+2. **Load balancers** – [Route traffic to multiple
+   instances](understanding-lightsail-load-balancers.md "understanding-lightsail-load-balancers.md") to increase capacity and resilience.
+3. **Automatic snapshots** – [Back up your
+   application data automatically](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+4. **Metrics** – [Monitor your resources'
+   health](amazon-lightsail-resource-health-metrics.md "amazon-lightsail-resource-health-metrics.md"), get notifications, and set up alarms.
+5. **Databases** – [Connect your application to a
+   relational database](amazon-lightsail-databases.md "amazon-lightsail-databases.md").
+
+For more information about available AWS CLI commands, see the [AWS CLI Command Reference
+for Lightsail](../../../cli/latest/reference/lightsail.md "../../../cli/latest/reference/lightsail.md").

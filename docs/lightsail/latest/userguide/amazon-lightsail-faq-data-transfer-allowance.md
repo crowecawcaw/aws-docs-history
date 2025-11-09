@@ -125,10 +125,9 @@ Amazon Lightsail API Reference.
 transfer allowance for instances vary by AWS Region?
 
 The regional data transfer allowance for Lightsail instances is found on [Amazon Lightsail pricing](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/"). The
-allowance is the same for all AWS Regions, with the exception of the
-Asia Pacific (Jakarta), Asia Pacific (Mumbai), and Asia Pacific (Sydney) Regions. Plans in
-the Jakarta, Mumbai, and Sydney Regions include half the data transfer allowances of other
-Regions.
+allowance is the same for all AWS Regions, with the exception of the Asia Pacific (Mumbai
+& Sydney) Regions. Plans in the Mumbai and Sydney Regions include half the data transfer
+allowances of other Regions.
 
 The data transfer allowance for Lightsail managed databases is the same in all
 AWS Regions.

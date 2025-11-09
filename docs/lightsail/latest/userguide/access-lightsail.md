@@ -102,20 +102,114 @@ The following are the service endpoints for Lightsail. For more information
 about the Regions available for Lightsail, see [Regions and
 Availability Zones for Lightsail](understanding-regions-and-availability-zones-in-amazon-lightsail.md "understanding-regions-and-availability-zones-in-amazon-lightsail.md").
 
-| Region Name              | Region         | Endpoint                                                                | Protocol    |
-| ------------------------ | -------------- | ----------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (Ohio)           | us-east-2      | lightsail.us-east-2.amazonaws.com lightsail.us-east-2.api.aws           | HTTPS HTTPS |
-| US East (N. Virginia)    | us-east-1      | lightsail.us-east-1.amazonaws.com lightsail.us-east-1.api.aws           | HTTPS HTTPS |
-| US West (Oregon)         | us-west-2      | lightsail.us-west-2.amazonaws.com lightsail.us-west-2.api.aws           | HTTPS HTTPS |
-| Asia Pacific (Jakarta)   | ap-southeast-3 | lightsail.ap-southeast-3.amazonaws.com lightsail.ap-southeast-3.api.aws | HTTPS HTTPS |
-| Asia Pacific (Mumbai)    | ap-south-1     | lightsail.ap-south-1.amazonaws.com lightsail.ap-south-1.api.aws         | HTTPS HTTPS |
-| Asia Pacific (Seoul)     | ap-northeast-2 | lightsail.ap-northeast-2.amazonaws.com lightsail.ap-northeast-2.api.aws | HTTPS HTTPS |
-| Asia Pacific (Singapore) | ap-southeast-1 | lightsail.ap-southeast-1.amazonaws.com lightsail.ap-southeast-1.api.aws | HTTPS HTTPS |
-| Asia Pacific (Sydney)    | ap-southeast-2 | lightsail.ap-southeast-2.amazonaws.com lightsail.ap-southeast-2.api.aws | HTTPS HTTPS |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | lightsail.ap-northeast-1.amazonaws.com lightsail.ap-northeast-1.api.aws | HTTPS HTTPS |
-| Canada (Central)         | ca-central-1   | lightsail.ca-central-1.amazonaws.com lightsail.ca-central-1.api.aws     | HTTPS HTTPS |
-| Europe (Frankfurt)       | eu-central-1   | lightsail.eu-central-1.amazonaws.com lightsail.eu-central-1.api.aws     | HTTPS HTTPS |
-| Europe (Ireland)         | eu-west-1      | lightsail.eu-west-1.amazonaws.com lightsail.eu-west-1.api.aws           | HTTPS HTTPS |
-| Europe (London)          | eu-west-2      | lightsail.eu-west-2.amazonaws.com lightsail.eu-west-2.api.aws           | HTTPS HTTPS |
-| Europe (Paris)           | eu-west-3      | lightsail.eu-west-3.amazonaws.com lightsail.eu-west-3.api.aws           | HTTPS HTTPS |
-| Europe (Stockholm)       | eu-north-1     | lightsail.eu-north-1.amazonaws.com lightsail.eu-north-1.api.aws         | HTTPS HTTPS | ## Examples of specifying an endpoint This section provides some examples of how to specify an endpoint when making a request. ###### Note If you do not specify an endpoint, the IPv4 endpoint is used by default. AWS CLI The following examples show how to specify an endpoint for the `us-east-2` Region using the AWS CLI. <br>• **IPv4** `` aws lightsail get-regions --region us-east-2 --endpoint-url https://`lightsail.us-east-2.amazonaws.com` `` <br>• **Dual-stack** `` aws lightsail get-regions --region us-east-2 --endpoint-url https://`lightsail.us-east-2.api.aws` `` AWS SDK for Java 2.x The following examples show how to specify an endpoint for the `us-east-2` Region using the AWS SDK for Java 2.x. <br>• **IPv4** ``LightsailClient client = LightsailClient.builder() .region(Region.US_EAST_2) .endpointOverride(URI.create("https://`lightsail.us-east-2.amazonaws.com`")) .build();`` <br>• **Dual-stack** ``LightsailClient client = LightsailClient.builder() .region(Region.US_EAST_2) .endpointOverride(URI.create("https://`lightsail.us-east-2.api.aws`")) .build();`` AWS SDK for Java 1.x The following examples show how to specify an endpoint for the `us-east-2` Region using the AWS SDK for Java 1.x. <br>• **IPv4** ``AmazonLightsail lightsail = AmazonLightsailClientBuilder.standard() .withEndpointConfiguration(new EndpointConfiguration( "https://`lightsail.us-east-2.amazonaws.com`", "us-east-2")) .build();`` <br>• **Dual-stack** ``AmazonLightsail lightsail = AmazonLightsailClientBuilder.standard() .withEndpointConfiguration(new EndpointConfiguration( "https://`lightsail.us-east-2.api.aws`", "us-east-2")) .build();`` AWS SDK for Go The following examples show how to specify an endpoint for the `us-east-2` Region using the AWS SDK for Go. <br>• **IPv4** ``sess := session.Must(session.NewSession()) svc := lightsail.New(sess, &aws.Config{ Region: aws.String(endpoints.UsEast2RegionID), Endpoint: aws.String("https://`lightsail.us-east-2.amazonaws.com`") })`` <br>• **Dual-stack** ``sess := session.Must(session.NewSession()) svc := lightsail.New(sess, &aws.Config{ Region: aws.String(endpoints.UsEast2RegionID), Endpoint: aws.String("https://`lightsail.us-east-2.api.aws`") })`` |
+| Region Name              | Region         | Endpoint                                                                   | Protocol       |
+| ------------------------ | -------------- | -------------------------------------------------------------------------- | -------------- |
+| US East (Ohio)           | us-east-2      | lightsail.us-east-2.amazonaws.com<br>lightsail.us-east-2.api.aws           | HTTPS<br>HTTPS |
+| US East (N. Virginia)    | us-east-1      | lightsail.us-east-1.amazonaws.com<br>lightsail.us-east-1.api.aws           | HTTPS<br>HTTPS |
+| US West (Oregon)         | us-west-2      | lightsail.us-west-2.amazonaws.com<br>lightsail.us-west-2.api.aws           | HTTPS<br>HTTPS |
+| Asia Pacific (Jakarta)   | ap-southeast-3 | lightsail.ap-southeast-3.amazonaws.com<br>lightsail.ap-southeast-3.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Mumbai)    | ap-south-1     | lightsail.ap-south-1.amazonaws.com<br>lightsail.ap-south-1.api.aws         | HTTPS<br>HTTPS |
+| Asia Pacific (Seoul)     | ap-northeast-2 | lightsail.ap-northeast-2.amazonaws.com<br>lightsail.ap-northeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Singapore) | ap-southeast-1 | lightsail.ap-southeast-1.amazonaws.com<br>lightsail.ap-southeast-1.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney)    | ap-southeast-2 | lightsail.ap-southeast-2.amazonaws.com<br>lightsail.ap-southeast-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Tokyo)     | ap-northeast-1 | lightsail.ap-northeast-1.amazonaws.com<br>lightsail.ap-northeast-1.api.aws | HTTPS<br>HTTPS |
+| Canada (Central)         | ca-central-1   | lightsail.ca-central-1.amazonaws.com<br>lightsail.ca-central-1.api.aws     | HTTPS<br>HTTPS |
+| Europe (Frankfurt)       | eu-central-1   | lightsail.eu-central-1.amazonaws.com<br>lightsail.eu-central-1.api.aws     | HTTPS<br>HTTPS |
+| Europe (Ireland)         | eu-west-1      | lightsail.eu-west-1.amazonaws.com<br>lightsail.eu-west-1.api.aws           | HTTPS<br>HTTPS |
+| Europe (London)          | eu-west-2      | lightsail.eu-west-2.amazonaws.com<br>lightsail.eu-west-2.api.aws           | HTTPS<br>HTTPS |
+| Europe (Paris)           | eu-west-3      | lightsail.eu-west-3.amazonaws.com<br>lightsail.eu-west-3.api.aws           | HTTPS<br>HTTPS |
+| Europe (Stockholm)       | eu-north-1     | lightsail.eu-north-1.amazonaws.com<br>lightsail.eu-north-1.api.aws         | HTTPS<br>HTTPS |
+
+## Examples of specifying an endpoint
+
+This section provides some examples of how to specify an endpoint when making a request.
+
+###### Note
+
+If you do not specify an endpoint, the IPv4 endpoint is used by default.
+
+AWS CLI
+The following examples show how to specify an endpoint for the
+`us-east-2` Region using the AWS CLI.
+
+- **IPv4**
+
+```
+aws lightsail get-regions --region us-east-2 --endpoint-url https://`lightsail.us-east-2.amazonaws.com`
+```
+
+- **Dual-stack**
+
+```
+aws lightsail get-regions --region us-east-2 --endpoint-url https://`lightsail.us-east-2.api.aws`
+```
+
+AWS SDK for Java 2.x
+The following examples show how to specify an endpoint for the
+`us-east-2` Region using the AWS SDK for Java 2.x.
+
+- **IPv4**
+
+```
+LightsailClient client = LightsailClient.builder()
+    .region(Region.US_EAST_2)
+    .endpointOverride(URI.create("https://`lightsail.us-east-2.amazonaws.com`"))
+    .build();
+```
+
+- **Dual-stack**
+
+```
+LightsailClient client = LightsailClient.builder()
+    .region(Region.US_EAST_2)
+    .endpointOverride(URI.create("https://`lightsail.us-east-2.api.aws`"))
+    .build();
+```
+
+AWS SDK for Java 1.x
+The following examples show how to specify an endpoint for the
+`us-east-2` Region using the AWS SDK for Java 1.x.
+
+- **IPv4**
+
+```
+AmazonLightsail lightsail = AmazonLightsailClientBuilder.standard()
+     .withEndpointConfiguration(new EndpointConfiguration(
+          "https://`lightsail.us-east-2.amazonaws.com`",
+          "us-east-2"))
+     .build();
+```
+
+- **Dual-stack**
+
+```
+AmazonLightsail lightsail = AmazonLightsailClientBuilder.standard()
+     .withEndpointConfiguration(new EndpointConfiguration(
+          "https://`lightsail.us-east-2.api.aws`",
+          "us-east-2"))
+     .build();
+```
+
+AWS SDK for Go
+The following examples show how to specify an endpoint for the
+`us-east-2` Region using the AWS SDK for Go.
+
+- **IPv4**
+
+```
+sess := session.Must(session.NewSession())
+svc := lightsail.New(sess, &aws.Config{
+    Region: aws.String(endpoints.UsEast2RegionID),
+    Endpoint: aws.String("https://`lightsail.us-east-2.amazonaws.com`")
+})
+```
+
+- **Dual-stack**
+
+```
+sess := session.Must(session.NewSession())
+svc := lightsail.New(sess, &aws.Config{
+    Region: aws.String(endpoints.UsEast2RegionID),
+    Endpoint: aws.String("https://`lightsail.us-east-2.api.aws`")
+})
+```

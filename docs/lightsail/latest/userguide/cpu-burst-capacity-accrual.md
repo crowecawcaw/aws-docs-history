@@ -2,10 +2,8 @@
 
 instances
 
-Amazon Lightsail instance plans, except for the **Linux or Unix
-$384** and **Windows $574** plans, accrue 4.17% of CPU
-burst capacity per hour. The maximum CPU burst capacity that can be accrued is equivalent to
-the amount of CPU burst capacity percentage that can be earned in a 24-hour period. Your
+Amazon Lightsail instance plans accrue 4.17% of CPU burst capacity per hour, except for Linux or Unix $380 and larger plans, and Windows $570 and larger plans.
+The maximum CPU burst capacity that can be accrued is equivalent to the amount of CPU burst capacity percentage that can be earned in a 24-hour period. Your
 instance stops accruing CPU burst capacity when the CPU burst capacity percentage reaches
 100%.
 
@@ -13,7 +11,7 @@ instance stops accruing CPU burst capacity when the CPU burst capacity percentag
 
 ###### Accrued CPU burst capacity
 
-- **Linux or Unix $384** and **Windows $574** instance plans – These plans do not accrue CPU burst
+- **Linux or Unix $380** and **Windows $570** and larger instance plans – These plans don't accrue CPU burst
   capacity. They will burst automatically, as needed.
 - **Instances created before June 29, 2023** – CPU
   burst capacity does not persist if your instance is stopped. If you stop your instance,

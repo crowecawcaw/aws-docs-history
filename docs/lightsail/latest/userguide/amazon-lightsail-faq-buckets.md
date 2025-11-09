@@ -22,30 +22,6 @@ data transfer. Lightsail object storage includes unlimited data transfer into yo
 as the bundled data transfer allowance is used only for data transfer out from your
 bucket.
 
-## Does Lightsail object storage have overage
-
-charges?
-
-When you exceed the monthly storage capacity or data transfer allowance of the selected
-storage plan for an individual bucket, you will get charged for the additional amount. For
-more information, see the [Lightsail
-pricing page](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/").
-
-## How does my data transfer allowance work with object
-
-storage?
-
-You can consume your data transfer allowance by transferring data into and out of
-Lightsail object storage, except for the following.
-
-- Data transferred into Lightsail object storage from the internet
-- Data transfer between Lightsail object storage resources
-- Data transferred out from Lightsail object storage to another Lightsail resource
-  in the same AWS Region (including to a resource in a different AWS account, but in
-  the same AWS Region)
-- Data transferred out from Lightsail object storage to a Lightsail CDN
-  distribution
-
 ## Can I change the plan associated with my Lightsail
 
 bucket?

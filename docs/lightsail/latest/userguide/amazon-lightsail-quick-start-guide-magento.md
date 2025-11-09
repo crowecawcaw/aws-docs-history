@@ -328,8 +328,8 @@ periodic snapshots of your instance to back it up. A snapshot is a copy of the s
 snapshot contains all of the data that is needed to restore your instance (from the moment
 when the snapshot was taken).
 
-You can create snapshots manually, or
-enable automatic snapshots to have Lightsail create daily snapshots for you. If
+You can create [snapshots manually](understanding-snapshots-in-amazon-lightsail.md#manual-snapshots "understanding-snapshots-in-amazon-lightsail.md#manual-snapshots"), or
+[enable automatic snapshots](understanding-snapshots-in-amazon-lightsail.md#automatic-snapshots "understanding-snapshots-in-amazon-lightsail.md#automatic-snapshots") to have Lightsail create daily snapshots for you. If
 something goes wrong with your instance, you can create a new replacement instance using
 the snapshot.
 

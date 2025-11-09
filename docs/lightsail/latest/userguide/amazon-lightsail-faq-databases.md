@@ -65,7 +65,8 @@ Each plan comes with a fixed amount of storage and a monthly allowance of data t
 can also scale up to larger plans over time, as needed, and switch between standard and high
 availability plans. High availability plans mirror the same resources as standard plans and
 additionally include a standby database running in a separate Availability Zones from your
-primary database for redundancy.
+primary database for redundancy. For more
+information about data transfer costs, see [What does data transfer cost?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost").
 
 ## What is a high availability plan?
 
@@ -171,7 +172,8 @@ You can connect your Lightsail managed database to EC2 instances by connecting o
 the public internet. Note that connection to all AWS services will consume your database
 data transfer allowance, and data out over the public internet to AWS services in excess
 of your data transfer allowance will accrue overage charges. You cannot use VPC peering
-between Lightsail managed databases and EC2 instances.
+between Lightsail managed databases and EC2 instances. For more
+information about data transfer costs, see [What does data transfer cost?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost").
 
 ## What is the difference between public and private modes for my Lightsail managed
 

@@ -24,7 +24,7 @@ console.
 2. On the Lightsail home page, choose your user or role on the top navigation menu.
 3. Choose **Account** in the dropdown menu.
 
-![Lightsail account tab](/images/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png) 4. On the account page, choose the **Profile** tab. 5. In the **Supported opt-in Regions** section, choose **Start
+![Lightsail account tab](images/amazon-lightsail-console-account-menu.png) 4. On the account page, choose the **Profile** tab. 5. In the **Supported opt-in Regions** section, choose **Start
 opt-in** for the Region that you want to enable.
 
 ![Displays an opt-in Region in the Lightsail console.](images/opt-in-regions-region-is-disabled.png) 6. Review the opt-in information and choose **Start Opt-in**. 7. Review the required steps and choose **Manage AWS profile** to
