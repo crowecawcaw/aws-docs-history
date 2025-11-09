@@ -33,51 +33,98 @@ supported client version before they reach EOL to avoid disruption of service.
 - Linux 2024.6-2024.8 for Ubuntu 22.04
 - Linux 2024.6-2024.8 for Ubuntu 20.04
 
-| Windows client                 | General support                                      | Technical guidance                                                                 | EOL                | Notes                                                                               |
-| ------------------------------ | ---------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 5.22.1+                        | September 3, 2024                                    |                                                                                    |                    | Supported                                                                           |
-| Linux client                   | General support                                      | Technical guidance                                                                 | EOL                | Notes                                                                               |
-| ---                            | ---                                                  | ---                                                                                | ---                | ---                                                                                 |
-| 2025.0+ for Ubuntu 22.04       | May 28, 2025                                         |                                                                                    |                    | Supported                                                                           |
-| 2025.0+ for Ubuntu 20.04       | May 28, 2025                                         |                                                                                    |                    | Supported                                                                           |
-| 2024.6-2024.8 for Ubuntu 22.04 | September 6, 2024                                    | August 29, 2025                                                                    | November 15, 2025  | Make sure you upgrade to the latest client version before this version reaches EOL. |
-| 2024.6-2024.8 for Ubuntu 20.04 | September 6, 2024                                    | August 29, 2025                                                                    | November 15, 2025  | Make sure you upgrade to the latest client version before this version reaches EOL. |
-| macOS client                   | General support                                      | Technical guidance                                                                 | EOL                | Notes                                                                               |
-| ---                            | ---                                                  | ---                                                                                | ---                | ---                                                                                 |
-| 5.22.1+                        | September 3, 2024                                    |                                                                                    |                    | Supported                                                                           |
-| iPad client                    | General support                                      | Technical guidance                                                                 | EOL                | Notes                                                                               |
-| ---                            | ---                                                  | ---                                                                                | ---                | ---                                                                                 |
-| 2.x                            | 2019                                                 |                                                                                    |                    | Supported                                                                           |
-| Android client                 | General support                                      | Technical guidance                                                                 | EOL                | Notes                                                                               |
-| ---                            | ---                                                  | ---                                                                                | ---                | ---                                                                                 |
-| 5.0.1+                         | November 6, 2024                                     |                                                                                    |                    | Supported                                                                           |
-| Web access                     | General support                                      |                                                                                    | ---                | ---                                                                                 |
-| Google Chrome                  | Current version, plus two most recent major versions |                                                                                    | Mozilla Firefox    | Current version, plus two most recent major versions                                |
-| Microsoft Edge                 | Current version, plus two most recent major versions | ## Unsupported client versions The following WorkSpaces clients are not supported. |
-| Operating system               | Client version                                       | General support                                                                    | Technical guidance | EOL                                                                                 | Notes         |
-| ---                            | ---                                                  | ---                                                                                | ---                | ---                                                                                 | ---           |
-| Windows                        | 5.0-5.22.0                                           | June 2, 2022                                                                       | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Windows                        | 5.11                                                 | July 3, 2023                                                                       | October 1, 2023    | October 1, 2023                                                                     | Not supported |
-| Windows                        | 5.10                                                 | June 19, 2023                                                                      | October 1, 2023    | October 1, 2023                                                                     | Not supported |
-| Windows                        | 5.9                                                  | May 9, 2023                                                                        | October 1, 2023    | October 1, 2023                                                                     | Not supported |
-| Windows                        | 4.x                                                  | June 30, 2021                                                                      | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Windows                        | 3.x                                                  | November 25, 2019                                                                  | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Windows                        | 2.x                                                  | 2018                                                                               | March 31, 2023     | August 31, 2023                                                                     | Not supported |
-| Ubuntu                         | 2024.0-2024.5 for Ubuntu 22.04                       | February 28, 2024                                                                  | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Ubuntu                         | 2024.0-2024.5 for Ubuntu 20.04                       | August 24, 2023                                                                    | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Ubuntu                         | 2023.x for Ubuntu 22.04                              | August 24, 2023                                                                    | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Ubuntu                         | 2023.x for Ubuntu 20.04                              | August 24, 2023                                                                    | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Ubuntu                         | 4.x for Ubuntu 20.04                                 | October 27, 2022                                                                   | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Ubuntu                         | 4.x for Ubuntu 18.04                                 | August 12, 2021                                                                    | March 31, 2023     | August 31, 2023                                                                     | Not supported |
-| Ubuntu                         | 3.x for Ubuntu 18.04                                 | November 25, 2019                                                                  | March 31, 2023     | August 31, 2023                                                                     | Not supported |
-| macOS                          | 5.1-5.22.0                                           | June 30, 2022                                                                      | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| macOS                          | 4.x                                                  | August 5, 2021                                                                     | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| macOS                          | 3.x                                                  | November 25, 2019                                                                  | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| macOS                          | 2.x                                                  | 2019                                                                               | March 31, 2023     | August 31, 2023                                                                     | Not supported |
-| macOS                          | 1.x                                                  | 2018                                                                               | March 31, 2023     | August 31, 2023                                                                     | Not supported |
-| iPad                           | 1.x                                                  | 2018                                                                               | March 31, 2023     | August 31, 2023                                                                     | Not supported |
-| Android                        | 5.0.0                                                | February 26, 2024                                                                  | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Android                        | 4.x                                                  | May 12, 2022                                                                       | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Android                        | 3.x                                                  | June 30, 2021                                                                      | November 21, 2024  | March 31, 2025                                                                      | Not supported |
-| Android                        | 2.x                                                  | 2019                                                                               | March 31, 2023     | August 31, 2023                                                                     | Not supported |
-| Android                        | 1.x                                                  | 2018                                                                               | March 31, 2023     | August 31, 2023                                                                     | Not supported | ## EOL FAQs ### I’m using a version of a WorkSpaces client that has reached its EOL. What should I do to upgrade to a supported version? Go to the [WorkSpaces client download page](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/") to download and install a fully supported version of WorkSpaces. ### Can I use a version of the WorkSpaces client that has reached its EOL with a supported WorkSpace? We strongly recommend upgrading your clients to the latest version as previous resolutions and features are no longer applied to clients versions that have reached their EOL. If you are using a client version that has reached its EOL, contact the AWS support team for more information. ### I’m using a version of a WorkSpaces client that has reached its EOL. Can I still report issues for it? You must first upgrade to a supported version and try to reproduce the issue. If the issue persists in the supported version, open a support case with the AWS support team. ### I'm using a supported WorkSpaces client version on an operating system that has reached its EOL. Can I still report issues for it? Technical assistance and software updates are no longer available for operating systems that have reached EOL and AWS doesn't provide support to WorkSpaces clients that use operating systems that have reached its EOL. Use a supported operating system to ensure you have support for your WorkSpaces clients. |
+| Windows client | General support   | Technical guidance | EOL | Notes     |
+| -------------- | ----------------- | ------------------ | --- | --------- |
+| 5.22.1+        | September 3, 2024 |                    |     | Supported |
+
+| Linux client                   | General support   | Technical guidance | EOL               | Notes                                                                               |
+| ------------------------------ | ----------------- | ------------------ | ----------------- | ----------------------------------------------------------------------------------- |
+| 2025.0+ for Ubuntu 22.04       | May 28, 2025      |                    |                   | Supported                                                                           |
+| 2025.0+ for Ubuntu 20.04       | May 28, 2025      |                    |                   | Supported                                                                           |
+| 2024.6-2024.8 for Ubuntu 22.04 | September 6, 2024 | August 29, 2025    | November 15, 2025 | Make sure you upgrade to the latest client version before this version reaches EOL. |
+| 2024.6-2024.8 for Ubuntu 20.04 | September 6, 2024 | August 29, 2025    | November 15, 2025 | Make sure you upgrade to the latest client version before this version reaches EOL. |
+
+| macOS client | General support   | Technical guidance | EOL | Notes     |
+| ------------ | ----------------- | ------------------ | --- | --------- |
+| 5.22.1+      | September 3, 2024 |                    |     | Supported |
+
+| iPad client | General support | Technical guidance | EOL | Notes     |
+| ----------- | --------------- | ------------------ | --- | --------- |
+| 2.x         | 2019            |                    |     | Supported |
+
+| Android client | General support  | Technical guidance | EOL | Notes     |
+| -------------- | ---------------- | ------------------ | --- | --------- |
+| 5.0.1+         | November 6, 2024 |                    |     | Supported |
+
+| Web access      | General support                                      |
+| --------------- | ---------------------------------------------------- |
+| Google Chrome   | Current version, plus two most recent major versions |
+| Mozilla Firefox | Current version, plus two most recent major versions |
+| Microsoft Edge  | Current version, plus two most recent major versions |
+
+## Unsupported client versions
+
+The following WorkSpaces clients are not supported.
+
+| Operating system | Client version                 | General support   | Technical guidance | EOL             | Notes         |
+| ---------------- | ------------------------------ | ----------------- | ------------------ | --------------- | ------------- |
+| Windows          | 5.0-5.22.0                     | June 2, 2022      | November 21, 2024  | March 31, 2025  | Not supported |
+| Windows          | 5.11                           | July 3, 2023      | October 1, 2023    | October 1, 2023 | Not supported |
+| Windows          | 5.10                           | June 19, 2023     | October 1, 2023    | October 1, 2023 | Not supported |
+| Windows          | 5.9                            | May 9, 2023       | October 1, 2023    | October 1, 2023 | Not supported |
+| Windows          | 4.x                            | June 30, 2021     | November 21, 2024  | March 31, 2025  | Not supported |
+| Windows          | 3.x                            | November 25, 2019 | November 21, 2024  | March 31, 2025  | Not supported |
+| Windows          | 2.x                            | 2018              | March 31, 2023     | August 31, 2023 | Not supported |
+| Ubuntu           | 2024.0-2024.5 for Ubuntu 22.04 | February 28, 2024 | November 21, 2024  | March 31, 2025  | Not supported |
+| Ubuntu           | 2024.0-2024.5 for Ubuntu 20.04 | August 24, 2023   | November 21, 2024  | March 31, 2025  | Not supported |
+| Ubuntu           | 2023.x for Ubuntu 22.04        | August 24, 2023   | November 21, 2024  | March 31, 2025  | Not supported |
+| Ubuntu           | 2023.x for Ubuntu 20.04        | August 24, 2023   | November 21, 2024  | March 31, 2025  | Not supported |
+| Ubuntu           | 4.x for Ubuntu 20.04           | October 27, 2022  | November 21, 2024  | March 31, 2025  | Not supported |
+| Ubuntu           | 4.x for Ubuntu 18.04           | August 12, 2021   | March 31, 2023     | August 31, 2023 | Not supported |
+| Ubuntu           | 3.x for Ubuntu 18.04           | November 25, 2019 | March 31, 2023     | August 31, 2023 | Not supported |
+| macOS            | 5.1-5.22.0                     | June 30, 2022     | November 21, 2024  | March 31, 2025  | Not supported |
+| macOS            | 4.x                            | August 5, 2021    | November 21, 2024  | March 31, 2025  | Not supported |
+| macOS            | 3.x                            | November 25, 2019 | November 21, 2024  | March 31, 2025  | Not supported |
+| macOS            | 2.x                            | 2019              | March 31, 2023     | August 31, 2023 | Not supported |
+| macOS            | 1.x                            | 2018              | March 31, 2023     | August 31, 2023 | Not supported |
+| iPad             | 1.x                            | 2018              | March 31, 2023     | August 31, 2023 | Not supported |
+| Android          | 5.0.0                          | February 26, 2024 | November 21, 2024  | March 31, 2025  | Not supported |
+| Android          | 4.x                            | May 12, 2022      | November 21, 2024  | March 31, 2025  | Not supported |
+| Android          | 3.x                            | June 30, 2021     | November 21, 2024  | March 31, 2025  | Not supported |
+| Android          | 2.x                            | 2019              | March 31, 2023     | August 31, 2023 | Not supported |
+| Android          | 1.x                            | 2018              | March 31, 2023     | August 31, 2023 | Not supported |
+
+## EOL FAQs
+
+### I’m using a version of a WorkSpaces client that has
+
+reached its EOL. What should I do to upgrade to a supported version?
+
+Go to the [WorkSpaces client download
+page](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/") to download and install a fully supported version of WorkSpaces.
+
+### Can I use a version of the WorkSpaces client that
+
+has reached its EOL with a supported WorkSpace?
+
+We strongly recommend upgrading your clients to the latest version as previous resolutions
+and features are no longer applied to clients versions that have reached their EOL. If you are
+using a client version that has reached its EOL, contact the AWS support team for more information.
+
+### I’m using a version of a WorkSpaces client that has
+
+reached its EOL. Can I still report issues for it?
+
+You must first upgrade to a supported version and try to reproduce the issue. If
+the issue persists in the supported version, open a support case with the AWS
+support team.
+
+### I'm using a supported WorkSpaces client version on
+
+an operating system that has reached its EOL. Can I still report issues for
+it?
+
+Technical assistance and software updates are no longer available for operating
+systems that have reached EOL and AWS doesn't provide support to WorkSpaces clients
+that use operating systems that have reached its EOL. Use a supported operating
+system to ensure you have support for your WorkSpaces clients.

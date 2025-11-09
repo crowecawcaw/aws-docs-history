@@ -5,7 +5,7 @@ other accounts to use a centralized CA. The CA can generate and issue certificat
 by using [AWS Resource Access
 Manager](https://aws.amazon.com/ram/ "https://aws.amazon.com/ram/") (RAM) to manage the permissions. This removes the need for a
 Private CA in every account. Private CA cross-account sharing can be used with
-AppStream 2.0 certificate-based Authentication (CBA) within the same
+WorkSpaces Applications certificate-based Authentication (CBA) within the same
 AWS Region.
 
 To use a shared Private CA resource with WorkSpaces Pools CBA, complete the following

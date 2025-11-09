@@ -10,7 +10,12 @@ Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles "h
 The following table provides information about the licensing, streaming protocols, and
 bundles that are supported by each OS.
 
-| Operating System    | Licenses | Streaming protocols | Supported bundles                                                       |
-| ------------------- | -------- | ------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows Server 2019 | Included | DCV                 | Value, Standard, Performance, Power, PowerPro                           |
-| Windows Server 2022 | Included | DCV                 | Standard, Performance, Power, PowerPro, Graphics.G4dn, GraphicsPro.G4dn | ###### Note <br>• Operating system versions that are no longer supported by the vender are not guaranteed to work and are not supported by AWS support. |
+| Operating System    | Licenses | Streaming protocols | Supported bundles                                                          |
+| ------------------- | -------- | ------------------- | -------------------------------------------------------------------------- |
+| Windows Server 2019 | Included | DCV                 | Value, Standard, Performance, Power,<br>PowerPro                           |
+| Windows Server 2022 | Included | DCV                 | Standard, Performance, Power,<br>PowerPro, Graphics.G4dn, GraphicsPro.G4dn |
+
+###### Note
+
+- Operating system versions that are no longer supported by the vender are
+  not guaranteed to work and are not supported by AWS support.

@@ -26,7 +26,7 @@ using the latest WorkSpaces Web Access, Windows, and macOS client applications. 
 - macOS client version 5.6.0 or later
   For more information on configuring certificate-based authentication with Amazon WorkSpaces, see
   [How to configure certificate-based authentication for Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/how-to-configure-certificate-based-authentication-for-amazon-workspaces/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/how-to-configure-certificate-based-authentication-for-amazon-workspaces/") and
-  [Design considerations in highly regulated environments for Certificate Based Authentication with AppStream 2.0 and WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/design-considerations-in-highly-regulated-environments-for-certificate-based-authentication-with-appstream-2-0-workspaces/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/design-considerations-in-highly-regulated-environments-for-certificate-based-authentication-with-appstream-2-0-workspaces/") .
+  [Design considerations in highly regulated environments for Certificate Based Authentication with WorkSpaces Applications and WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/design-considerations-in-highly-regulated-environments-for-certificate-based-authentication-with-appstream-2-0-workspaces/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/design-considerations-in-highly-regulated-environments-for-certificate-based-authentication-with-appstream-2-0-workspaces/") .
 
 ## Prerequisites
 

@@ -35,8 +35,8 @@ the screen during a streaming session, the sustained throughput is much lower.
 Although users who have less bandwidth available can still stream their
 applications, the frame rate or image quality may not be optimal.
 
-| Workload                      | Description                                                              | Bandwidth recommended per user | Recommended maximum roundtrip latency |
-| ----------------------------- | ------------------------------------------------------------------------ | ------------------------------ | ------------------------------------- |
-| Line of business applications | Document writing applications, database analysis utilities               | 2 Mbps                         | < 150 ms                              |
-| Graphics applications         | Computer-aided design and modeling applications, photo and video editing | 5 Mbps                         | < 100 ms                              |
-| High fidelity                 | High-fidelity datasets or maps across multiple monitors                  | 10 Mbps                        | < 50 ms                               |
+| Workload                      | Description                                                                 | Bandwidth recommended per user | Recommended maximum roundtrip latency |
+| ----------------------------- | --------------------------------------------------------------------------- | ------------------------------ | ------------------------------------- |
+| Line of business applications | Document writing applications, database analysis<br>utilities               | 2 Mbps                         | < 150 ms                              |
+| Graphics applications         | Computer-aided design and modeling applications, photo and video<br>editing | 5 Mbps                         | < 100 ms                              |
+| High fidelity                 | High-fidelity datasets or maps across multiple monitors                     | 10 Mbps                        | < 50 ms                               |

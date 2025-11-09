@@ -63,7 +63,18 @@ WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requiremen
    invitation email.
 2. Depending on which client you're using, do one of the following.
 
-| If you're using...       | Do this                                                                                         |
-| ------------------------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows or Linux clients | In the upper-right corner of the client application, select the **Network** icon Network icon . |
-| macOS client             | Choose **Connections**, **Network**.                                                            | The client application tests the network connection, ports, and round-trip time, and reports the results of these tests. 3. Close the **Network** dialog box to return to the sign-in page. 1. Open your WorkSpaces client. If this is the first time you have opened the client, you are prompted to enter the registration code that you received in the invitation email. 2. Choose **Network** in the lower-right corner of the client application. The client application tests the network connection, ports, and round-trip time, and reports the results of these tests. 3. Choose **Dismiss** to return to the sign-in page. |
+| If you're using...       | Do this                                                                                                     |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| Windows or Linux clients | In the upper-right corner of the client<br>application, select the **Network**<br>icon<br>Network icon<br>. |
+| macOS client             | Choose **Connections**, **Network**.                                                                        |
+
+The client application tests the network connection, ports, and
+round-trip time, and reports the results of these tests. 3. Close the **Network** dialog box to return to the sign-in page.
+
+1. Open your WorkSpaces client. If this is the first time you have opened the client,
+   you are prompted to enter the registration code that you received in the
+   invitation email.
+2. Choose **Network** in the lower-right corner of the client
+   application. The client application tests the network connection, ports, and
+   round-trip time, and reports the results of these tests.
+3. Choose **Dismiss** to return to the sign-in page.

@@ -26,6 +26,21 @@ bundles. The following table provides information about the licensing, streaming
 and bundles that are supported by each OS.
 
 | Operating System    | Licenses | Streaming protocols | Supported bundles                                                       | Lifecycle policy / retirement date                                                                                                                                      |
-| ------------------- | -------- | ------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | -------- | ------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Windows Server 2019 | Included | DCV                 | Value, Standard, Performance, Power, PowerPro                           | [January 9, 2029](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019")  |
-| Windows Server 2022 | Included | DCV                 | Standard, Performance, Power, PowerPro, Graphics.G4dn, GraphicsPro.G4dn | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022") | ###### Note <br>• Operating system versions that are no longer supported by the vender are not guaranteed to work and are not supported by AWS support. ###### Topics <br>• [Bundle options for WorkSpaces Pools](pools-custom-images-bundles.md "pools-custom-images-bundles.md") <br>• [Create a custom image and bundle for WorkSpaces Pools](pools-images-custom-image.md "pools-images-custom-image.md") <br>• [Manage custom images and bundles for WorkSpaces Pools](pools-images-managing.md "pools-images-managing.md") <br>• [Use session scripts to manage your users' streaming experience](pools-images-session-scripts.md "pools-images-session-scripts.md") |
+| Windows Server 2022 | Included | DCV                 | Standard, Performance, Power, PowerPro, Graphics.G4dn, GraphicsPro.G4dn | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022") |
+
+###### Note
+
+- Operating system versions that are no longer supported by the vender are not
+  guaranteed to work and are not supported by AWS support.
+
+###### Topics
+
+- [Bundle options for WorkSpaces Pools](pools-custom-images-bundles.md "pools-custom-images-bundles.md")
+- [Create a custom image and bundle for
+  WorkSpaces Pools](pools-images-custom-image.md "pools-images-custom-image.md")
+- [Manage custom images and bundles for
+  WorkSpaces Pools](pools-images-managing.md "pools-images-managing.md")
+- [Use session scripts to manage your
+  users' streaming experience](pools-images-session-scripts.md "pools-images-session-scripts.md")

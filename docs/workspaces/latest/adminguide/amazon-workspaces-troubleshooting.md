@@ -1136,14 +1136,329 @@ The default allowed rate for WorkSpaces API calls is a constant rate of two API 
 allowed "burst" rate of five API calls per second. The following table shows how the burst rate limit works for
 API requests.
 
-| Second | Number of requests sent | Net requests allowed | Details                                                                                                                                                                                                  |
-| ------ | ----------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1      | 0                       | 5                    | During the first second (second 1), five requests are allowed, up to the burst rate maximum of five calls per second.                                                                                    |
-| 2      | 2                       | 5                    | Because two or fewer calls were issued in second 1, the full burst capacity of five calls is still available.                                                                                            |
-| 3      | 5                       | 5                    | Because only two calls were issued in second 2, the full burst capacity of five calls is still available.                                                                                                |
-| 4      | 2                       | 2                    | Because the full burst capacity was used in second 3, only the constant rate of two calls per second is available.                                                                                       |
-| 5      | 3                       | 2                    | Because there is no remaining burst capacity, only two calls are allowed at this time. This means that one of the three API calls is throttled. The one throttled call will respond after a short delay. |
-| 6      | 0                       | 1                    | Because one of the calls from second 5 is being retried in second 6, there is capacity for only one additional call in second 6 because of the constant rate limit of two calls per second.              |
-| 7      | 0                       | 3                    | Now that there are no longer any throttled API calls in the queue, the rate limit continues to increase, up to the burst rate limit of five calls.                                                       |
-| 8      | 0                       | 5                    | Because no calls were issued in second 7, the maximum number of requests is allowed.                                                                                                                     |
-| 9      | 0                       | 5                    | Even though no calls were issued in second 8, the rate limit does not increase above five.                                                                                                               | ### My WorkSpace keeps disconnecting when I let it run in the background For Mac users, check to see if the Power Nap feature is on. If it is on, turn it off. To turn Power Nap off, open your terminal and run the following command: `defaults write com.amazon.workspaces NSAppSleepDisabled -bool YES` ### SAML 2.0 federation isn't working. My users are not authorized to stream their WorkSpaces desktop. This might happen because the inline policy that is embedded for the SAML 2.0 federation IAM role does not include permissions to stream from the directory Amazon Resource Name (ARN). The IAM role is assumed by the federated user who is accessing a WorkSpaces directory. Edit the role permissions to include the directory ARN and ensure that the user has a WorkSpace in the directory. For more information, see [SAML 2.0 Authentication](amazon-workspaces-saml.md "amazon-workspaces-saml.md") and [Troubleshooting SAML 2.0 Federation with AWS](../../../IAM/latest/UserGuide/troubleshoot_saml.md "../../../IAM/latest/UserGuide/troubleshoot_saml.md"). ### My users are getting disconnected from their WorkSpaces session every 60 minutes. If you have configured SAML 2.0 authentication to WorkSpaces, depending on your identity provider (IdP), you might need to configure the information that the IdP passes as SAML attributes to AWS as part of the authentication response. This includes configuring the **Attribute** element with the `SessionDuration` attribute set to `https://aws.amazon.com/SAML/Attributes/SessionDuration`. `SessionDuration` specifies the maximum amount of time that a federated streaming session can remain active for a user before reauthentication is required. Although `SessionDuration` is an optional attribute, we recommend that you include it in the SAML authentication response. If you don't specify this attribute, the session duration defaults to 60 minutes. To resolve this issue, configure your IdP to include the `SessionDuration` value in the SAML authentication response and set the value as required. For more information, see [Step 5: Create assertions for the SAML authentication response](setting-up-saml.md#create-assertions-saml-auth "setting-up-saml.md#create-assertions-saml-auth"). ### My users get a redirect URI error when they federate using the SAML 2.0 identity provider (IdP)-initiated flow, or an additional instance of the WorkSpaces client application starts every time my users attempt to sign in from the client after federating to the IdP. This error occurs due to a relay state URL that's not valid. Make sure that the relay state in your IdP federation setup is correct, and that the user access URL and relay state parameter name are configured correctly for your IdP federation in the WorkSpaces directory properties. If they are valid and the problem still persists, contact AWS Support. For more information, see [Setting Up SAML](setting-up-saml.md "setting-up-saml.md"). ### My users receive the message, "Something went wrong: An error occurred while launching your WorkSpace" when they attempt to sign in to the WorkSpaces client application after federating to the IdP. Review the SAML 2.0 assertions for your federation. The **SAML Subject NameID** value must match the WorkSpaces user name, and is typically the same as the **sAMAccountName** attribute for the Active Directory user. In addition, the **Attribute** element that has the `PrincipalTag:Email` attribute set to `https://aws.amazon.com/SAML/Attributes/PrincipalTag:Email` must match the WorkSpaces user's email address as defined in the WorkSpaces directory. For more information, see [Setting Up SAML](setting-up-saml.md "setting-up-saml.md"). ### My users receive the message, "Unable to validate tags” when they attempt to sign in to the WorkSpaces client application after federating to the IdP. Review the `PrincipalTag` attribute values in the SAML 2.0 assertions for your federation, such as `https://aws.amazon.com/SAML/Attributes/PrincipalTag:Email`. Tag values may include combinations of the characters `_ . : / = + - @`, letters, numbers, and spaces.. For more information, see [Rules for tagging in IAM and AWS STS](../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules "../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules"). ### My users receive the message, "The client and the server cannot communicate, because they do not possess a common algorithm". This problem can occur if you do not enable TLS 1.2. ### My microphone or web cam is not working on Windows WorkSpaces. Check your privacy setting by opening the Start menu <br>• **Start** > **Settings** > **Privacy** > **Camera** <br>• **Start** > **Settings** > **Privacy** > **Microphone** If they are turned off turn them on. Alternatively, WorkSpaces administrators can create a Group Policy Object (GPO) to enable microphone and or webcam as needed. ### My users cannot log in using certificate-based authentication and are prompted for the password either at the WorkSpaces client or the Windows sign-on screen when they connect to their desktop session. Certificate-based authentication was unsuccessful for the session. If the problem continues, certificate-based authentication failure can be the result of one of the following issues: <br>• The WorkSpaces or the client is not supported. Certificate-based authentication is supported with Windows WorkSpaces on DCV bundles using the latest WorkSpaces Windows client application. <br>• The WorkSpaces needs to be rebooted after enabling certificate-based authentication on the WorkSpaces Directory. <br>• WorkSpaces could not communicate with AWS Private CA, or AWS Private CA did not issue the certificate. Check [AWS CloudTrail](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md") to determine if a certificate was issued. For more information, see [Manage certificate-based authentication](certificate-based-authentication.md#manage-cert-based-auth "certificate-based-authentication.md#manage-cert-based-auth"). <br>• The domain controller has no domain controller certificate for smart card logon, or it is expired. For more information, see step 7, “_Configure domain controllers with a domain controller certificate to authenticate smart card users_” in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites"). <br>• The certificate is not trusted. For more information, see step 7, “_Publish the CA to Active Directory_” in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites"). Run `certutil –viewstore –enterprise NTAuth` on domain controllers to confirm that the CA is published. <br>• There is a certificate in cache, but attributes have changed for the user that have invalidated the certificate. Contact Support to clear the cache before certificate expiry (24 hours). For more information, see [Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). <br>• The userPrincipalName format for the `UserPrincipalName` SAML attribute is not formatted properly or does not resolve to the actual domain for the user. For more information, see step 1 in in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites"). <br>• The (optional) `ObjectSid` attribute in your SAML assertion does not match the Active Directory security identifier (SID) for user specified in the SAML_Subject `NameID`. Confirm that attribute mapping is correct in your SAML federation and that your SAML identity provider is synchronizing the SID attribute for the Active Directory user. <br>• There are Group Policy settings that are modifying the default Active Directory settings for smart card logon or taking action if a smart card is removed from a smart card reader. These settings may cause additional unexpected behavior than the errors listed above. Certificate-based authentication presents a virtual smart card to the instance operating system and removes it after logon is complete. Check the [Primary Group Policy settings for smart cards](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#primary-group-policy-settings-for-smart-cards "https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#primary-group-policy-settings-for-smart-cards") and the [Additional smart card Group Policy settings and registry keys](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#additional-smart-card-group-policy-settings-and-registry-keys "https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#additional-smart-card-group-policy-settings-and-registry-keys"), including Smart card removal behavior. <br>• The CRL distribution point for the private CA is not online nor accessible from either the WorkSpaces or the domain controller. For more information, see step 5 in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites"). <br>• To check if there are any stale CAs in the domain or forest, run `PKIVIEW.msc` on the CA to verify. If there are stale CAs, use the `PKIVIEW.msc` mmc to manually delete them. <br>• To check if Active Directory replication is working and that there are no stale domain controllers in the domain, run `repadmin /replsum`. Additional troubleshooting steps involve reviewing the WorkSpaces instance Windows event logs. A common event to review for logon failure is [Event 4625: An account failed to logon](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625 "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625") in the Windows Security log. If the problem persists, contact Support. For more information, see [Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). ### I am trying to do something that requires Windows installation media but WorkSpaces does not provide it. If you are using an AWS-provided public bundle, you can use the Windows Server OS installation media EBS snapshots provided by Amazon EC2 when needed. Create an EBS volume from these snapshots, attach it to Amazon EC2, and transfer the files to the WorkSpace where the files as needed. If you are using Windows 10 on BYOL on WorkSpaces and need an installation media, you will need to prepare your own installation media. For more information, see [Add Windows components using installation media](../../../AWSEC2/latest/WindowsGuide/windows-optional-components.md#adding-windows-components-console "../../../AWSEC2/latest/WindowsGuide/windows-optional-components.md#adding-windows-components-console"). Since you can't directly attach an EBS volume to a WorkSpace, you'll need to attach it to an Amazon EC2 instance and copy the files. ### I want to launch WorkSpaces with an existing AWS Managed Directory created in an unsupported WorkSpaces Region. To launch Amazon WorkSpaces using a directory in a Region that is not currently supported by WorkSpaces, follow the steps below. ###### Note If you receive errors when running AWS Command Line Interface commands, ensure you’re using the most recent AWS CLI version. For more information, see [Confirm that you're running a recent version of the AWS CLI](../../../cli/latest/userguide/cli-chap-troubleshooting.md#general-latest "../../../cli/latest/userguide/cli-chap-troubleshooting.md#general-latest"). #### Step 1: Create virtual private cloud (VPC) peering with another VPC in your account 1. Create the VPC peering connection with a VPC in a different Region. For more information, see [Create with VPCs in the same account and different Regions](../../../vpc/latest/peering/create-vpc-peering-connection.md#same-account-different-region "../../../vpc/latest/peering/create-vpc-peering-connection.md#same-account-different-region"). 2. Accept the VPC peering connection. For more information, see [Accept a VPC peering connection](../../../vpc/latest/peering/accept-vpc-peering-connection.md "../../../vpc/latest/peering/accept-vpc-peering-connection.md"). 3. After you activate the VPC peering connection, you can view your VPC peering connections using the Amazon VPC console, the AWS CLI, or an API. #### Step 2: Update route tables for VPC peering in both Regions Update your route tables to turn on communication with the peer VPC over IPv4 or IPv6. For more information, see [Update your route tables for a VPC peering connection](../../../vpc/latest/peering/vpc-peering-routing.md "../../../vpc/latest/peering/vpc-peering-routing.md"). #### Step 3: Create an AD Connector and register Amazon WorkSpaces 1. To review the AD Connector prerequisites, see [AD Connector prerequisites](../../../directoryservice/latest/admin-guide/prereq_connector.md "../../../directoryservice/latest/admin-guide/prereq_connector.md"). 2. Connect your existing directory with AD Connector. For more information, see [Create an AD Connector](../../../directoryservice/latest/admin-guide/create_ad_connector.md "../../../directoryservice/latest/admin-guide/create_ad_connector.md"). 3. When the AD Connector status changes to **Active**, open the [AWS Directory Service console](https://console.aws.amazon.com/directoryservice "https://console.aws.amazon.com/directoryservice"), then choose the hyperlink for your **Directory ID**. 4. For AWS apps and services, choose **Amazon WorkSpaces** to turn on access for WorkSpaces on this directory. 5. Register the directory with WorkSpaces. For more information, see [Register a directory with WorkSpaces](register-deregister-directory.md "register-deregister-directory.md"). ### I want to update Firefox on Amazon Linux 2. #### Step 1: Verify auto-update is enabled To verify that autoupdate is enabled, run the command `systemctl status \*os-update-mgmt.timer | grep enabled`on your WorkSpace. In the output, there should be two lines with the word`enabled`on them. #### Step 2: Initiate an update Firefox usually updates automatically in Amazon Linux 2 WorkSpaces along with all other software packages in the system during the maintenance window. However, this depends on the type of WorkSpaces you are using. <br>• For AlwaysOn WorkSpaces, the weekly maintenance window is on Sunday 00h00 to 04h00, in the time zone of the WorkSpace. <br>• For AutoStop WorkSpaces. beginning on the third Monday of the month, and for up to two weeks, the maintenance window is open each day from about 00h00 to 05h00, in the time zone of the AWS Region for the WorkSpace. For more information about maintenance windows, see [WorkSpace maintenance](workspace-maintenance.md "workspace-maintenance.md"). You can also initiate an immediate update cycle by rebooting your WorkSpace and reconnecting after 15 minutes. You can also initiate updates by entering`sudo yum update`. To initiate an update for Firefox only, enter `sudo yum install firefox`. If you are not able to configure access for Amazon Linux 2 repositories and prefer to install Firefox using binaries built by Mozilla, see [Install Firefox from Mozilla builds](https://support.mozilla.org/en-US/kb/install-firefox-linux#w_install-firefox-from-mozilla-builds "https://support.mozilla.org/en-US/kb/install-firefox-linux#w_install-firefox-from-mozilla-builds") on Mozilla support. We recommend uninstalling the RPM-packaged version of Firefox altogether to make sure you don't run an outdated version by mistake. You can uninstall it by running command `sudo yum remove firefox`. You can also download the necessary RPM packages from Amazon Linux 2 repositories by running the command `yumdownloader firefox`on a different machine. Then, side-load the repositories onto WorkSpaces, where you can install them with a standard`YUM`command like`sudo yum install firefox-102.11.0-2.amzn2.0.1.x86_64.rpm`. ###### Note The exact file name will change based on the package version. #### Step 3: Verify Firefox repository is used Amazon Linux Extras automatically provides Firefox updates for Amazon Linux 2 WorkSpaces. Amazon Linux 2 WorkSpaces created after July 31, 2023 will already have the Firefox Extra repository activated. To verify that your WorkSpace is using the Firefox Extra repository, run the following command. ``` yum repolist | grep amzn2extra-firefox ``The command output should look something like `amzn2extra-firefox/2/x86_64 Amazon Extras repo for firefox 10` if Firefox Extra repository is used. It will be empty if the Firefox Extra repository is not used. If Firefox Extra repository is not used, you can attempt to enable it manually with the following command:`` sudo amazon-linux-extras install firefox ``` If the Firefox Extra repository activation still fails, check your internet access and ensure that your VPC endpoints are unconfigured. To continue receiving Firefox updates for Amazon Linux 2 WorkSpaces via YUM repositories, ensure that your WorkSpaces are able to reach Amazon Linux 2 repositories. For more information on accessing Amazon Linux 2 repositories without internet access, see [this knowledge center article](https://repost.aws/knowledge-center/ec2-al1-al2-update-yum-without-internet "https://repost.aws/knowledge-center/ec2-al1-al2-update-yum-without-internet"). ### My user is able to reset their password using the WorkSpaces client, ignoring the Fine Grained Password Policy (FFGP) setting that is configured on AWS Managed Microsoft AD. If your user's WorkSpaces client is associated with AWS Managed Microsoft AD, they will have to reset their password using the default complexity setting. The default complexity password is case-sensitive and must be between 8 and 64 characters in length, inclusive. It must contain at least one character from each of the following categories: <br>• Lowercase characters (a-z) <br>• Uppercase characters (A-Z) <br>• Numbers (0-9) <br>• Non-alphanumeric characters (~!@#$%^&\*\_-+=` | \(){}[]:;"'<>,.?/) Make sure the password doesn't include non-printable unicode characters, such as white spaces, carriage reture tabs, line breaks, and null characters. If your organization requires you to enforce FFGP for WorkSpaces, contact your Active Directory administrator to reset your user's password directly from the Active Directory instead of the WorkSpaces client. ### My users receive the error message "This OS/platform is not authorized to access your WorkSpace" when trying to access the Windows/Linux WorkSpace using Web Access The operating system version your user is trying to use isn't compatible with WorkSpaces Web Access. Make sure you enable Web Access under the WorkSpace directory's **Other Platform** setting. For more information on enabling your WorkSpace's Web Access, see [Enable and configure WorkSpaces Web Access for WorkSpaces Personal](web-access.md "web-access.md"). ### My user's WorkSpace is showing as unhealthy after they connect to an AutoStop WorkSpace that is in the stopped state Your user might be using software that is known to cause issues to the network interfaces when resuming from hibernation. For example, if the WorkSpace has the NPCAP 1.1 application installed, update to version 1.2 or above to resolve this issue. ### Gnome crashes on WorkSpaces Ubuntu bundles after login If a WorkSpace is launched using the `ubuntu` username, there will be conflicts with the `ubuntu` user that exists by default. This will cause crashes in Gnome and potentially other degraded performance. To avoid this issue, don't specify the `ubuntu` username when provisioning Ubuntu WorkSpaces. |
+| Second | Number of requests sent | Net requests allowed | Details                                                                                                                                                                                                        |
+| ------ | ----------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1      | 0                       | 5                    | During the first second (second 1), five requests are allowed,<br>up to the burst rate maximum of five calls per second.                                                                                       |
+| 2      | 2                       | 5                    | Because two or fewer calls were issued in second 1, the full burst capacity<br>of five calls is still available.                                                                                               |
+| 3      | 5                       | 5                    | Because only two calls were issued in second 2, the full burst capacity of<br>five calls is still available.                                                                                                   |
+| 4      | 2                       | 2                    | Because the full burst capacity was used in second 3, only the constant rate of two<br>calls per second is available.                                                                                          |
+| 5      | 3                       | 2                    | Because there is no remaining burst capacity, only two calls are allowed at this time.<br>This means that one of the three API calls is throttled. The one throttled call will<br>respond after a short delay. |
+| 6      | 0                       | 1                    | Because one of the calls from second 5 is being retried in second 6, there is capacity<br>for only one additional call in second 6 because of the constant rate limit of two calls<br>per second.              |
+| 7      | 0                       | 3                    | Now that there are no longer any throttled API calls in the queue,<br>the rate limit continues to increase, up to the burst rate limit<br>of five calls.                                                       |
+| 8      | 0                       | 5                    | Because no calls were issued in second 7, the maximum number of requests is allowed.                                                                                                                           |
+| 9      | 0                       | 5                    | Even though no calls were issued in second 8, the rate limit does not increase above five.                                                                                                                     |
+
+### My WorkSpace keeps disconnecting when I let it run in the background
+
+For Mac users, check to see if the Power Nap feature is on. If it is on, turn it off. To turn Power Nap off, open your
+terminal and run the following command:
+
+```
+defaults write com.amazon.workspaces NSAppSleepDisabled -bool YES
+```
+
+### SAML 2.0 federation isn't working. My
+
+users are not authorized to stream their WorkSpaces desktop.
+
+This might happen because the inline policy that is embedded for the SAML 2.0
+federation IAM role does not include permissions to stream from the directory
+Amazon Resource Name (ARN). The IAM role is assumed by the federated user who is
+accessing a WorkSpaces directory. Edit the role permissions to include the directory ARN
+and ensure that the user has a WorkSpace in the directory. For more information, see
+[SAML 2.0 Authentication](amazon-workspaces-saml.md "amazon-workspaces-saml.md") and [Troubleshooting SAML 2.0 Federation with AWS](../../../IAM/latest/UserGuide/troubleshoot_saml.md "../../../IAM/latest/UserGuide/troubleshoot_saml.md").
+
+### My users are getting disconnected from
+
+their WorkSpaces session every 60 minutes.
+
+If you have configured SAML 2.0 authentication to WorkSpaces, depending on your
+identity provider (IdP), you might need to configure the information that the IdP
+passes as SAML attributes to AWS as part of the authentication response. This
+includes configuring the **Attribute** element with the
+`SessionDuration` attribute set to
+`https://aws.amazon.com/SAML/Attributes/SessionDuration`.
+
+`SessionDuration` specifies the maximum amount of time that a federated
+streaming session can remain active for a user before reauthentication is required.
+Although `SessionDuration` is an optional attribute, we recommend that
+you include it in the SAML authentication response. If you don't specify this
+attribute, the session duration defaults to 60 minutes.
+
+To resolve this issue, configure your IdP to include the
+`SessionDuration` value in the SAML authentication response and set
+the value as required. For more information, see [Step 5: Create assertions for the SAML authentication response](setting-up-saml.md#create-assertions-saml-auth "setting-up-saml.md#create-assertions-saml-auth").
+
+### My users get a redirect URI error when they
+
+federate using the SAML 2.0 identity provider (IdP)-initiated flow, or an
+additional instance of the WorkSpaces client application starts every time my users
+attempt to sign in from the client after federating to the IdP.
+
+This error occurs due to a relay state URL that's not valid. Make sure that the
+relay state in your IdP federation setup is correct, and that the user access URL
+and relay state parameter name are configured correctly for your IdP federation in
+the WorkSpaces directory properties. If they are valid and the problem still persists,
+contact AWS Support. For more information, see [Setting Up SAML](setting-up-saml.md "setting-up-saml.md").
+
+### My users receive the message, "Something
+
+went wrong: An error occurred while launching your WorkSpace" when they attempt
+to sign in to the WorkSpaces client application after federating to the IdP.
+
+Review the SAML 2.0 assertions for your federation. The **SAML Subject
+NameID** value must match the WorkSpaces user name, and is typically the
+same as the **sAMAccountName** attribute for the Active Directory
+user. In addition, the **Attribute** element that has the
+`PrincipalTag:Email` attribute set to
+`https://aws.amazon.com/SAML/Attributes/PrincipalTag:Email` must
+match the WorkSpaces user's email address as defined in the WorkSpaces directory. For more
+information, see [Setting Up SAML](setting-up-saml.md "setting-up-saml.md").
+
+### My users receive the message, "Unable to
+
+validate tags” when they attempt to sign in to the WorkSpaces client application
+after federating to the IdP.
+
+Review the `PrincipalTag` attribute values in the SAML 2.0 assertions
+for your federation, such as
+`https://aws.amazon.com/SAML/Attributes/PrincipalTag:Email`. Tag
+values may include combinations of the characters `_ . : / = + - @`,
+letters, numbers, and spaces.. For more information, see [Rules for tagging in IAM and AWS STS](../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules "../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules").
+
+### My users receive the message, "The client and
+
+the server cannot communicate, because they do not possess a common algorithm".
+
+This problem can occur if you do not enable TLS 1.2.
+
+### My microphone or web cam is not working on
+
+Windows WorkSpaces.
+
+Check your privacy setting by opening the Start menu
+
+- **Start** > **Settings** > **Privacy** > **Camera**
+- **Start** > **Settings** > **Privacy** > **Microphone**
+
+If they are turned off turn them on.
+
+Alternatively, WorkSpaces administrators can create a Group Policy Object (GPO) to enable microphone and or webcam as needed.
+
+### My users cannot log in using
+
+certificate-based authentication and are prompted for the password either at the
+WorkSpaces client or the Windows sign-on screen when they connect to their desktop
+session.
+
+Certificate-based authentication was unsuccessful for the session. If the problem
+continues, certificate-based authentication failure can be the result of one of the
+following issues:
+
+- The WorkSpaces or the client is not supported. Certificate-based authentication
+  is supported with Windows WorkSpaces on DCV bundles using the latest
+  WorkSpaces Windows client application.
+- The WorkSpaces needs to be rebooted after enabling certificate-based
+  authentication on the WorkSpaces Directory.
+- WorkSpaces could not communicate with AWS Private CA, or AWS Private CA did not issue the
+  certificate. Check [AWS CloudTrail](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md") to determine if a
+  certificate was issued. For more information, see [Manage certificate-based authentication](certificate-based-authentication.md#manage-cert-based-auth "certificate-based-authentication.md#manage-cert-based-auth").
+- The domain controller has no domain controller certificate for smart card
+  logon, or it is expired. For more information, see step 7,
+  “_Configure domain controllers with a domain controller
+  certificate to authenticate smart card users_” in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites").
+- The certificate is not trusted. For more information, see step 7,
+  “_Publish the CA to Active Directory_” in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites").
+  Run `certutil –viewstore –enterprise NTAuth` on domain
+  controllers to confirm that the CA is published.
+- There is a certificate in cache, but attributes have changed for the user
+  that have invalidated the certificate. Contact Support to clear the cache
+  before certificate expiry (24 hours). For more information, see [Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+- The userPrincipalName format for the `UserPrincipalName` SAML
+  attribute is not formatted properly or does not resolve to the actual domain
+  for the user. For more information, see step 1 in in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites").
+- The (optional) `ObjectSid` attribute in your SAML assertion
+  does not match the Active Directory security identifier (SID) for user
+  specified in the SAML_Subject `NameID`. Confirm that attribute
+  mapping is correct in your SAML federation and that your SAML identity
+  provider is synchronizing the SID attribute for the Active Directory
+  user.
+- There are Group Policy settings that are modifying the default Active
+  Directory settings for smart card logon or taking action if a smart card is
+  removed from a smart card reader. These settings may cause additional
+  unexpected behavior than the errors listed above. Certificate-based
+  authentication presents a virtual smart card to the instance operating
+  system and removes it after logon is complete. Check the [Primary Group Policy settings for smart cards](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#primary-group-policy-settings-for-smart-cards "https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#primary-group-policy-settings-for-smart-cards") and the [Additional smart card Group Policy settings and registry keys](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#additional-smart-card-group-policy-settings-and-registry-keys "https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#additional-smart-card-group-policy-settings-and-registry-keys"),
+  including Smart card removal behavior.
+- The CRL distribution point for the private CA is not online nor accessible
+  from either the WorkSpaces or the domain controller. For more information, see
+  step 5 in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites").
+- To check if there are any stale CAs in the domain or forest, run `PKIVIEW.msc` on the CA to verify.
+  If there are stale CAs, use the `PKIVIEW.msc` mmc to manually delete them.
+- To check if Active Directory replication is working and that there are no stale domain controllers in the
+  domain, run `repadmin /replsum`.
+
+Additional troubleshooting steps involve reviewing the WorkSpaces instance Windows
+event logs. A common event to review for logon failure is [Event 4625: An account failed to logon](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625 "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625") in the Windows Security
+log.
+
+If the problem persists, contact Support. For more information, see [Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+
+### I am trying to do something that
+
+requires Windows installation media but WorkSpaces does not provide it.
+
+If you are using an AWS-provided public bundle, you can use the Windows Server OS installation media EBS snapshots provided by Amazon EC2 when needed.
+
+Create an EBS volume from these snapshots, attach it to Amazon EC2, and transfer the files to the WorkSpace where the files as needed.
+If you are using Windows 10 on BYOL on WorkSpaces and need an installation media, you will need to prepare your own installation media.
+For more information, see [Add Windows components using installation media](../../../AWSEC2/latest/WindowsGuide/windows-optional-components.md#adding-windows-components-console "../../../AWSEC2/latest/WindowsGuide/windows-optional-components.md#adding-windows-components-console"). Since you can't directly attach an EBS volume to a WorkSpace, you'll need to attach it
+to an Amazon EC2 instance and copy the files.
+
+### I want to launch WorkSpaces with an existing AWS Managed Directory created in an
+
+unsupported WorkSpaces Region.
+
+To launch Amazon WorkSpaces using a directory in a Region that is not currently supported by WorkSpaces, follow the steps below.
+
+###### Note
+
+If you receive errors when running AWS Command Line Interface commands, ensure you’re using the most recent AWS CLI version. For more information,
+see [Confirm that you're running a recent version
+of the AWS CLI](../../../cli/latest/userguide/cli-chap-troubleshooting.md#general-latest "../../../cli/latest/userguide/cli-chap-troubleshooting.md#general-latest").
+
+#### Step 1: Create virtual private cloud (VPC) peering with another VPC in your account
+
+1. Create the VPC peering connection with a VPC in a different Region. For more information, see
+   [Create with VPCs in the same account and different Regions](../../../vpc/latest/peering/create-vpc-peering-connection.md#same-account-different-region "../../../vpc/latest/peering/create-vpc-peering-connection.md#same-account-different-region").
+2. Accept the VPC peering connection. For more information, see
+   [Accept a VPC peering connection](../../../vpc/latest/peering/accept-vpc-peering-connection.md "../../../vpc/latest/peering/accept-vpc-peering-connection.md").
+3. After you activate the VPC peering connection, you can view your VPC peering connections using the Amazon VPC console, the AWS CLI, or an API.
+
+#### Step 2: Update route tables for VPC peering in both Regions
+
+Update your route tables to turn on communication with the peer VPC over IPv4 or IPv6. For more information, see
+[Update your route tables for a VPC peering connection](../../../vpc/latest/peering/vpc-peering-routing.md "../../../vpc/latest/peering/vpc-peering-routing.md").
+
+#### Step 3: Create an AD Connector and register Amazon WorkSpaces
+
+1. To review the AD Connector prerequisites, see [AD Connector prerequisites](../../../directoryservice/latest/admin-guide/prereq_connector.md "../../../directoryservice/latest/admin-guide/prereq_connector.md").
+2. Connect your existing directory with AD Connector. For more information, see
+   [Create an AD Connector](../../../directoryservice/latest/admin-guide/create_ad_connector.md "../../../directoryservice/latest/admin-guide/create_ad_connector.md").
+3. When the AD Connector status changes to **Active**, open the [AWS Directory Service console](https://console.aws.amazon.com/directoryservice "https://console.aws.amazon.com/directoryservice"), then choose the hyperlink for your **Directory ID**.
+4. For AWS apps and services, choose **Amazon WorkSpaces** to turn on access for WorkSpaces on this directory.
+5. Register the directory with WorkSpaces. For more information, see
+   [Register a directory with WorkSpaces](register-deregister-directory.md "register-deregister-directory.md").
+
+### I want to update Firefox on Amazon Linux 2.
+
+#### Step 1: Verify auto-update is enabled
+
+To verify that autoupdate is enabled, run the command `systemctl status
+ *os-update-mgmt.timer | grep enabled` on your WorkSpace. In the
+output, there should be two lines with the word `enabled` on
+them.
+
+#### Step 2: Initiate an update
+
+Firefox usually updates automatically in Amazon Linux 2 WorkSpaces along with all other
+software packages in the system during the maintenance window. However, this
+depends on the type of WorkSpaces you are using.
+
+- For AlwaysOn WorkSpaces, the weekly maintenance window is on Sunday 00h00 to 04h00, in the time zone of the WorkSpace.
+- For AutoStop WorkSpaces. beginning on the third Monday of the month, and for up to two weeks, the maintenance window is open each day
+  from about 00h00 to 05h00, in the time zone of the AWS Region for the WorkSpace.
+
+For more information about maintenance windows, see [WorkSpace maintenance](workspace-maintenance.md "workspace-maintenance.md").
+
+You can also initiate an immediate update cycle by rebooting your WorkSpace
+and reconnecting after 15 minutes. You can also initiate updates by entering
+`sudo yum update`. To initiate an update for Firefox only, enter
+`sudo yum install firefox`.
+
+If you are not able to configure access for Amazon Linux 2 repositories and prefer to install Firefox using binaries built by Mozilla, see
+[Install Firefox from Mozilla builds](https://support.mozilla.org/en-US/kb/install-firefox-linux#w_install-firefox-from-mozilla-builds "https://support.mozilla.org/en-US/kb/install-firefox-linux#w_install-firefox-from-mozilla-builds")
+on Mozilla support. We recommend uninstalling the RPM-packaged version of Firefox altogether to make sure you don't run an outdated version by mistake.
+You can uninstall it by running command `sudo yum remove firefox`.
+
+You can also download the necessary RPM packages from Amazon Linux 2 repositories by
+running the command `yumdownloader firefox` on a different machine.
+Then, side-load the repositories onto WorkSpaces, where you can install them with a
+standard `YUM` command like `sudo yum install
+ firefox-102.11.0-2.amzn2.0.1.x86_64.rpm`.
+
+###### Note
+
+The exact file name will change based on the package version.
+
+#### Step 3: Verify Firefox repository is used
+
+Amazon Linux Extras automatically provides Firefox updates for Amazon Linux 2 WorkSpaces. Amazon Linux 2
+WorkSpaces created after July 31, 2023 will already have the Firefox Extra repository
+activated. To verify that your WorkSpace is using the Firefox Extra repository,
+run the following command.
+
+```
+yum repolist | grep amzn2extra-firefox
+```
+
+The command output should look something like
+`amzn2extra-firefox/2/x86_64 Amazon Extras repo for firefox 10`
+if Firefox Extra repository is used. It will be empty if the Firefox Extra
+repository is not used. If Firefox Extra repository is not used, you can attempt
+to enable it manually with the following command:
+
+```
+sudo amazon-linux-extras install firefox
+```
+
+If the Firefox Extra repository activation still fails, check your internet
+access and ensure that your VPC endpoints are unconfigured. To continue
+receiving Firefox updates for Amazon Linux 2 WorkSpaces via YUM repositories, ensure that your
+WorkSpaces are able to reach Amazon Linux 2 repositories. For more information on accessing
+Amazon Linux 2 repositories without internet access, see [this knowledge center article](https://repost.aws/knowledge-center/ec2-al1-al2-update-yum-without-internet "https://repost.aws/knowledge-center/ec2-al1-al2-update-yum-without-internet").
+
+### My user is able to reset their password using the WorkSpaces client,
+
+ignoring the Fine Grained Password Policy (FFGP) setting that is configured on AWS Managed Microsoft AD.
+
+If your user's WorkSpaces client is associated with AWS Managed Microsoft AD, they will have to reset their password using
+the default complexity setting.
+
+The default complexity password is case-sensitive and must be between 8 and 64
+characters in length, inclusive. It must contain at least one character
+from each of the following categories:
+
+- Lowercase characters (a-z)
+- Uppercase characters (A-Z)
+- Numbers (0-9)
+- Non-alphanumeric characters (~!@#$%^&\*\_-+=`|\(){}[]:;"'<>,.?/)
+
+Make sure the password doesn't include non-printable unicode characters, such as white spaces, carriage reture tabs, line breaks, and null characters.
+
+If your organization requires you to enforce FFGP for WorkSpaces, contact your Active Directory administrator to reset your
+user's password directly from the Active Directory instead of the WorkSpaces client.
+
+### My users receive the error message "This OS/platform is not authorized to access your WorkSpace"
+
+when trying to access the Windows/Linux WorkSpace using Web Access
+
+The operating system version your user is trying to use isn't compatible with WorkSpaces Web Access. Make sure you enable
+Web Access under the WorkSpace directory's **Other Platform** setting. For more information on enabling your
+WorkSpace's Web Access, see [Enable and configure WorkSpaces Web Access for WorkSpaces Personal](web-access.md "web-access.md").
+
+### My user's WorkSpace is showing as unhealthy after they connect
+
+to an AutoStop WorkSpace that is in the stopped state
+
+Your user might be using software that is known to cause issues to the network interfaces when resuming from hibernation.
+For example, if the WorkSpace has the NPCAP 1.1 application installed, update to version 1.2 or above to resolve this issue.
+
+### Gnome crashes on WorkSpaces Ubuntu bundles after
+
+login
+
+If a WorkSpace is launched using the `ubuntu` username, there will be conflicts
+with the `ubuntu` user that exists by default. This will cause
+crashes in Gnome and potentially other degraded performance. To avoid this issue, don't specify the
+`ubuntu` username when provisioning Ubuntu WorkSpaces.

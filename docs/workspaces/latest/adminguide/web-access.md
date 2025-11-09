@@ -6,7 +6,7 @@ support web browser access, see "Which Amazon WorkSpaces bundles support Web Acc
 
 ###### Note
 
-- Starting November 7, 2025, Amazon WorkSpaces PCoIP Web Access will no longer be open to new customers. After this date, the feature will only receive critical functional and security updates. For more information, see the [Amazon WorkSpaces User Guide](../userguide/amazon-workspaces-web-access.md "../userguide/amazon-workspaces-web-access.md").
+- As of November 7, 2025, Amazon WorkSpaces PCoIP Web Access is no longer open to new customers. The feature will only receive critical functional and security updates going forward. For more information, see the [Amazon WorkSpaces User Guide](../userguide/amazon-workspaces-web-access.md "../userguide/amazon-workspaces-web-access.md").
 - Web Access with DCV for Windows and Ubuntu WorkSpaces is supported in all Regions where DCV WorkSpaces
   are available. DCV for Amazon Linux WorkSpaces is only available in AWS GovCloud (US-West).
 - We strongly recommend using Web Access with DCV WorkSpaces for best streaming quality and user experience.

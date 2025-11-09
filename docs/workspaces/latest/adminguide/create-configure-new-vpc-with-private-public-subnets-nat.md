@@ -203,12 +203,40 @@ Public Subnet`.
       other traffic to the internet gateway for the VPC. The
       following table describes these two routes:
 
-| Destination                                                                                                              | Target                | Description                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Public subnet IPv4 CIDR Block (for example, 10.0.0/20)                                                                   | Local                 | All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC.          |
-| Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0                                                     | Outbound (`igw-``ID`) | Traffic destined for all other IPv4 addresses is routed to the internet gateway (identified by `igw-``ID`) that was created by the VPC Wizard. | 2. In the navigation pane, choose **Subnets**, and select the first private subnet that you created (for example, `WorkSpaces Private Subnet1`). 1. On the **Route Table** tab, choose the ID of the route table. 2. Select the route table. Under **Name**, choose the edit icon (the pencil), and enter a name (for example, `workspaces-private-routetable`), and then choose the check mark to save the name. 3. On the **Routes** tab, verify that the route table includes the following routes:                                                                                                                                 |
-| Destination                                                                                                              | Target                | Description                                                                                                                                    |
-| ---                                                                                                                      | ---                   | ---                                                                                                                                            |
-| Public subnet IPv4 CIDR Block (for example, 10.0.0/20)                                                                   | Local                 | All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC.          |
-| Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0                                                     | Outbound (`nat-``ID`) | Traffic destined for all other IPv4 addresses is routed to the NAT gateway (identified by `nat-``ID`).                                         |
-| Traffic destined for S3 buckets (applicable if you specified an S3 endpoint) [`pl-``ID` (`com.amazonaws.``region``.s3`)] | Storage (`vpce-``ID`) | Traffic destined for S3 buckets is routed to the S3 endpoint (identified by `vpce-``ID`).                                                      | 3. In the navigation pane, choose **Subnets**, and select the second private subnet that you created (for example, `WorkSpaces Private Subnet2`). 4. On the **Route Table** tab, verify that the route table is the private route table (for example, `workspaces-private-routetable`). If the route table is different, choose **Edit** and select this route table. **Next Steps** To enable your WorkSpaces in WorkSpaces Pools to access the internet, complete the steps in [Enable Internet Access for WorkSpaces Pools](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md"). |
+   | Destination                                                             | Target                   | Description                                                                                                                                                |
+   | ----------------------------------------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | Public subnet IPv4 CIDR Block (for example,<br>10.0.0/20)               | Local                    | All traffic from the resources destined for<br>IPv4 addresses within the public subnet IPv4 CIDR<br>block is routed locally within the VPC.                |
+   | Traffic destined to all other IPv4<br>addresses (for example, 0.0.0.0/0 | Outbound<br>(`igw-``ID`) | Traffic destined for all other IPv4<br>addresses is routed to the internet gateway<br>(identified by<br>`igw-``ID`)<br>that was created by the VPC Wizard. |
+
+2. In the navigation pane, choose **Subnets**, and
+   select the first private subnet that you created (for example,
+   `WorkSpaces Private Subnet1`).
+   1. On the **Route Table** tab, choose the ID
+      of the route table.
+   2. Select the route table. Under **Name**,
+      choose the edit icon (the pencil), and enter a name (for
+      example, `workspaces-private-routetable`), and
+      then choose the check mark to save the name.
+   3. On the **Routes** tab, verify that the
+      route table includes the following routes:
+
+   | Destination                                                                                                                          | Target                   | Description                                                                                                                                 |
+   | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+   | Public subnet IPv4 CIDR Block (for example,<br>10.0.0/20)                                                                            | Local                    | All traffic from the resources destined for<br>IPv4 addresses within the public subnet IPv4 CIDR<br>block is routed locally within the VPC. |
+   | Traffic destined to all other IPv4<br>addresses (for example, 0.0.0.0/0                                                              | Outbound<br>(`nat-``ID`) | Traffic destined for all other IPv4<br>addresses is routed to the NAT gateway (identified<br>by<br>`nat-``ID`).                             |
+   | Traffic destined for S3 buckets<br>(applicable if you specified an S3<br>endpoint)<br>[`pl-``ID`<br>(`com.amazonaws.``region``.s3`)] | Storage<br>(`vpce-``ID`) | Traffic destined for S3 buckets is routed<br>to the S3 endpoint (identified by<br>`vpce-``ID`).                                             |
+
+3. In the navigation pane, choose **Subnets**, and
+   select the second private subnet that you created (for example,
+   `WorkSpaces Private Subnet2`).
+4. On the **Route Table** tab, verify that the route
+   table is the private route table (for example,
+   `workspaces-private-routetable`). If the route table
+   is different, choose **Edit** and select this route
+   table.
+
+**Next Steps**
+
+To enable your WorkSpaces in WorkSpaces Pools to access the internet, complete the
+steps in [Enable Internet
+Access for WorkSpaces Pools](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md").

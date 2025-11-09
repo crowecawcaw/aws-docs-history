@@ -10,7 +10,7 @@ that are part of your Windows WorkSpaces directory.
   see [Create a dedicated Microsoft Entra ID directory with WorkSpaces Personal](launch-entra-id.md "launch-entra-id.md").
 - Linux instances do not adhere to Group Policy. For information about managing Amazon Linux
   WorkSpaces, see [Manage your Amazon Linux 2 WorkSpaces in WorkSpaces Personal](manage_linux_workspace.md "manage_linux_workspace.md").
-  We recommend that you create an organizational unit for your WorkSpaces Computer Objects and an
+  Amazon recommends that you create an organizational unit for your WorkSpaces Computer Objects and an
   organizational unit for your WorkSpaces User Objects.
 
 To use the Group Policy settings that are specific to Amazon WorkSpaces, you must install the
@@ -56,7 +56,7 @@ follows:
   see [Allow log on locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally "https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally") in the Microsoft documentation.
 
 For more information about enabling or disabling audio-in redirection, see
-[Enable or disable audio-in redirection for
+[Configure audio-in redirection for
 PCoIP](#gp_audio "#gp_audio") or [Configure audio-in redirection for
 DCV](#gp_audio_in_wsp "#gp_audio_in_wsp").
 
@@ -221,7 +221,7 @@ support as needed.
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Configure remote printing**
     setting.
 3.  In the **Configure remote printing** dialog box, do
@@ -256,7 +256,7 @@ support as needed.
 1. In the Group Policy Management Editor, choose **Computer
    Configuration**, **Policies**,
    **Administrative Templates**, **Amazon**,
-   and **DCV**.
+   and **WSP**.
 2. Open the **Configure clipboard redirection**
    setting.
 3. In the **Configure clipboard redirection** dialog
@@ -303,7 +303,7 @@ domain's Group Policy settings.
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Enable/disable automatic reconnect**
     setting.
 3.  In the **Enable/disable automatic reconnect** dialog
@@ -330,7 +330,7 @@ domain's Group Policy settings.
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Enable/disable video-in redirection**
     setting.
 3.  In the **Enable/disable video-in redirection** dialog
@@ -356,7 +356,7 @@ domain's Group Policy settings.
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Enable/disable audio-in redirection**
     setting.
 3.  In the **Enable/disable audio-in redirection** dialog
@@ -382,7 +382,7 @@ domain's Group Policy settings.
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Enable/disable audio-out redirection**
     setting.
 3.  In the **Enable/disable audio-out redirection**
@@ -419,7 +419,7 @@ domain's Group Policy settings.
 1. In the Group Policy Management Editor, choose **Computer
    Configuration**, **Policies**,
    **Administrative Templates**, **Amazon**,
-   and **DCV**.
+   and **WSP**.
 2. Open the **Enable/disable time zone redirection**
    setting.
 3. In the **Enable/disable time zone redirection**
@@ -460,7 +460,7 @@ server negotiate which cipher to use:
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open **Configure security settings**.
 3.  In the **Configure security settings** dialog box,
     choose **Enabled**. Add cipher suites that you want to
@@ -494,7 +494,7 @@ server negotiate which cipher to use:
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Configure extensions** setting.
 3.  In the **Configure extensions** dialog box, choose
     **Enabled** and then set the desired support
@@ -537,7 +537,7 @@ required. For more information, see [Use smart cards for authentication in WorkS
 1. In the Group Policy Management Editor, choose **Computer
    Configuration**, **Policies**,
    **Administrative Templates**, **Amazon**,
-   and **DCV**.
+   and **WSP**.
 2. Open the **Enable/disable smart card redirection**
    setting.
 3. In the **Enable/disable smart card redirection**
@@ -835,7 +835,7 @@ to redirect WebRTC API calls to the local client.
 1. In the Group Policy Management Editor, choose **Computer
    Configuration**, **Policies**,
    **Administrative Templates**, **Amazon**,
-   and **DCV**.
+   and **WSP**.
 2. Open the **Configure WebRTC Redirection** setting.
 3. In the **Configure WebRTC Redirection** dialog box,
    choose **Enabled** or **Disabled**.
@@ -971,7 +971,7 @@ WorkSpaces
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Enable/disable disconnect session on screen
     lock** setting.
 3.  In the **Enable/disable disconnect session on screen
@@ -1000,7 +1000,7 @@ WorkSpaces
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Enable the AWS Indirect Display Driver**
     setting.
 3.  In the **Enable the AWS Indirect Display Driver**
@@ -1049,7 +1049,7 @@ frame rate, minimum image quality, and maximum image quality values.
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Configure display settings**
     setting.
 3.  In the **Configure display settings** dialog box,
@@ -1078,7 +1078,7 @@ frame rate, minimum image quality, and maximum image quality values.
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Enable VSync feature of the AWS Virtual Display
     Only Driver** setting.
 3.  In the **Enable VSync feature of the AWS Virtual Display
@@ -1120,7 +1120,7 @@ frame rate, minimum image quality, and maximum image quality values.
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
     **Administrative Templates**, **Amazon**,
-    and **DCV**.
+    and **WSP**.
 2.  Open the **Configure log verbosity** setting.
 3.  In the **Configure log verbosity** dialog box, choose
     **Enabled** and then set the log verbosity level to
@@ -1163,7 +1163,7 @@ you can use Group Policy settings to configure this feature.
 1. In the Group Policy Management Editor, choose **Computer
    Configuration**, **Policies**,
    **Administrative Templates**, **Amazon**,
-   and **DCV**.
+   and **WSP**.
 2. Open the **Configure Idle Disconnect Timeout** setting.
 3. In the **Configure Idle Disconnect Timeout** dialog box, choose
    **Enabled** and then set the desired disconnect timeout value (in minutes),
@@ -1176,36 +1176,112 @@ you can use Group Policy settings to configure this feature.
 
 ###### To enable file transfer for Windows WorkSpaces
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **DCV**.
-2.  Open the **Configure session storage** setting.
-3.  In the **Configure Session Storage** dialog box, choose
-    **Enabled**.
-4.  (Optional) Specify a folder for session storage (for example,
-    `c:/session-storage`). If not specified, the default folder
-    for session storage will be the home folder.
-5.  You can configure your WorkSpaces with one of the following file transfer options:
-    - Choose `Download and Upload` to allow two-way file transfer.
-    - Choose `Upload Only` to only allow file uploads from a local computer
-      to your WorkSpaces session.
-    - Choose `Download Only` to only allow file downloads from your WorkSpaces
-      session to a local computer.
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Configure session storage** setting.
+3. In the **Configure Session Storage** dialog box, choose
+   **Enabled**.
+4. (Optional) Specify a folder for session storage (for example,
+   `c:/session-storage`). If not specified, the default folder
+   for session storage will be the home folder.
+5. You can configure your WorkSpaces with one of the following file transfer options:
+   - Choose `Download and Upload` to allow two-way file transfer.
+   - Choose `Upload Only` to only allow file uploads from a local computer
+     to your WorkSpaces session.
+   - Choose `Download Only` to only allow file downloads from your WorkSpaces
+     session to a local computer.
 
-6.  Choose **OK**.
-7.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after you restart the WorkSpace
-    session. To apply the Group Policy changes, do one of the
-    following:
+6. Choose **OK**.
+7. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after you restart the WorkSpace
+   session. To apply the Group Policy changes, do one of the
+   following:
+   - Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**.
+   - In an administrative command prompt, enter `gpupdate
+/force`.
 
-        * Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**.
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
+#### Overview
 
-    Use this setting to configure webcam resolution settings. If you enable this policy setting, you can specify:
+Starting with version 2.2.0.2047, Amazon WorkSpaces supports generic USB redirection for DCV-based Windows WorkSpaces, allowing users to access local USB devices within their virtual desktop environments. This feature complements existing optimized redirection solutions for specific device classes.
+
+###### Note
+
+Amazon recommends using generic redirection only for devices where optimized redirection solutions are not available. Where available, optimized redirection solutions offer better performance.
+
+#### Prerequisites
+
+- Windows WorkSpaces using DCV protocol version 2.2.0.2047 or later
+- Latest version of WorkSpaces Windows client (version 5.30.0 or later)
+- Administrative access to configure Group Policy settings
+
+#### Configuration
+
+USB redirection is disabled by default. You can enable the feature by using Group Policy Objects (GPO). After the feature is enabled, you can add devices to the allowlist for redirection. By default, devices not in the allowlist are not available for redirection.
+
+##### Group Policy Configuration
+
+###### To configure USB redirection for DCV using Group Policy
+
+1. Connect to the Windows WorkSpaces.
+2. Copy policy template files (`wsp.admx` and `wsp.adml`) from the `C:\Program Files\Amazon\WSP` folder.
+3. Paste `wsp.admx` into the `C:\Windows\PolicyDefinitions` folder.
+4. Paste `wsp.adml` into the `C:\Windows\PolicyDefinitions\en-US` folder.
+5. Launch Local GPO Editor (**gpedit.msc**).
+6. Navigate to **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **Amazon** > **WSP**.
+7. Configure **Enable/disable USB** in the WSP setting.
+8. Choose **Enabled** to activate USB redirection.
+
+###### Note
+
+Changes to this setting are applied on the next connection.
+
+#### Device Management
+
+After USB redirection is enabled, you can configure the device allowlist in the GPO to add devices that you want to support for redirection.
+
+##### Device Allowlist Configuration
+
+USB redirection follows a default deny-all security stance. Administrators must explicitly allow devices by adding them to the allowlist in the GPO using the following format:
+
+```
+Name, Base class, Subclass, Protocol, Id Vendor, Id Product, Support Auto-share, Skip reset
+// Use * to skip any values
+```
+
+**Examples:**
+
+**Adding a device with Vendor ID/Product ID:**
+
+```
+Credit Card Reader, *, *, *, 0x0483, 0x2016, 1, 0
+// Allows Credit Card Reader with VID 0x0483 and PID 0x2016 with auto-share support
+```
+
+**Adding a device with Class/Subclass:**
+
+```
+3D Mouse Devices, 03, 01, *, *, *, 1, 0
+// Allows all 3D mice using HID class (03), boot interface subclass (01), with auto-share support
+```
+
+###### Note
+
+Test devices for compatibility and performance before adding them to the allowlist.
+
+#### Security Considerations
+
+##### Best Practices
+
+- Use dedicated redirection methods when available for supported devices for best performance and compatibility. For example, for security keys like YubiKey, use WebAuthn redirection instead.
+- Implement strict device allowlists.
+- Monitor device access through audit logs.
+- Assess data security implications before allowing new devices.
+
+Use this setting to configure webcam resolution settings. If you enable this policy setting, you can specify:
 
 - Maximum webcam resolution: This specifies the maximum webcam resolution that can be selected among the resolutions provided. If this value is missing
   or (0, 0) the default value is used.
@@ -1766,7 +1842,7 @@ Amazon WorkSpaces currently supports USB redirection only for YubiKey U2F. Other
 types of USB devices might be redirected but they are not supported and
 might not work properly.
 
-###### To enable USB redirection for YubiKey U2F
+###### To enable USB redirection for PCoIP
 
 1. Make sure that you've installed the most recent [WorkSpaces Group Policy
    administrative template for PCoIP (32-Bit)](#gp_install_template_pcoip_32_bit "#gp_install_template_pcoip_32_bit") or [WorkSpaces Group Policy

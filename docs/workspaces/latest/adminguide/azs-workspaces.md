@@ -28,7 +28,7 @@ table lists the AZ IDs that you can use for each Region. To see the mapping of A
 in your account, see [AZ IDs for Your Resources](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") in the _AWS RAM User Guide_.
 
 | Region name               | Region code      | Supported AZ IDs                      |
-| ------------------------- | ---------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ---------------- | ------------------------------------- |
 | US East (N. Virginia)     | `us-east-1`      | `use1-az2`, `use1-az4`, `use1-az6`    |
 | US West (Oregon)          | `us-west-2`      | `usw2-az1`, `usw2-az2`, `usw2-az3`    |
 | Asia Pacific (Mumbai)     | `ap-south-1`     | `aps1-az1`, `aps1-az2`, `aps1-az3`    |
@@ -45,4 +45,7 @@ in your account, see [AZ IDs for Your Resources](../../../ram/latest/userguide/w
 | Africa (Cape Town)        | `af-south-1`     | `afs1-az1`, `afs1-az2`, `afs1-az3`    |
 | Israel (Tel Aviv)         | `il-central-1`   | `ilc1-az1`, `ilc1-az2`, `ilc1-az3`    |
 | AWS GovCloud (US-West)    | `us-gov-west-1`  | `usgw1-az1`, `usgw1-az2`, `usgw1-az3` |
-| AWS GovCloud (US-East)    | `us-gov-east-1`  | `usge1-az1`, `usge1-az2`, `usge1-az3` | For more information about Availability Zones and AZ IDs, see [Regions, Availability Zones, and Local Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _Amazon EC2 User Guide_. |
+| AWS GovCloud (US-East)    | `us-gov-east-1`  | `usge1-az1`, `usge1-az2`, `usge1-az3` |
+
+For more information about Availability Zones and AZ IDs, see
+[Regions, Availability Zones, and Local Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _Amazon EC2 User Guide_.
