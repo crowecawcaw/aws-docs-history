@@ -157,57 +157,74 @@ The throttling and decision quotas are same across all regions.
 The following quotas are applicable at individual account-levels. You can also request an increase to the following quotas. For information about doing this, see
 [Requesting a quota increase](#swf-dg-limits-how-to-increase "#swf-dg-limits-how-to-increase").
 
+| API name                         | Bucket size | Refill rate per second |
+| -------------------------------- | ----------- | ---------------------- |
+| `CountClosedWorkflowExecutions`  | 2000        | 6                      |
+| `CountOpenWorkflowExecutions`    | 2000        | 6                      |
+| `CountPendingActivityTasks`      | 200         | 6                      |
+| `CountPendingDecisionTasks`      | 200         | 6                      |
+| `DeleteActivityType`             | 200         | 6                      |
+| `DeleteWorkflowType`             | 200         | 6                      |
+| `DeprecateActivityType`          | 200         | 6                      |
+| `DeprecateDomain`                | 100         | 6                      |
+| `DeprecateWorkflowType`          | 200         | 6                      |
+| `DescribeActivityType`           | 2000        | 6                      |
+| `DescribeDomain`                 | 200         | 6                      |
+| `DescribeWorkflowExecution`      | 2000        | 6                      |
+| `DescribeWorkflowType`           | 2000        | 6                      |
+| `GetWorkflowExecutionHistory`    | 2000        | 60                     |
+| `ListActivityTypes`              | 200         | 6                      |
+| `ListClosedWorkflowExecutions`   | 200         | 6                      |
+| `ListDomains`                    | 100         | 6                      |
+| `ListOpenWorkflowExecutions`     | 200         | 48                     |
+| `ListTagsForResource`            | 50          | 30                     |
+| `ListWorkflowTypes`              | 200         | 6                      |
+| `PollForActivityTask`            | 2000        | 200                    |
+| `PollForDecisionTask`            | 2000        | 200                    |
+| `RecordActivityTaskHeartbeat`    | 2000        | 160                    |
+| `RegisterActivityType`           | 200         | 60                     |
+| `RegisterDomain`                 | 100         | 6                      |
+| `RegisterWorkflowType`           | 200         | 60                     |
+| `RequestCancelWorkflowExecution` | 2000        | 30                     |
+| `RespondActivityTaskCanceled`    | 2000        | 200                    |
+| `RespondActivityTaskCompleted`   | 2000        | 200                    |
+| `RespondActivityTaskFailed`      | 2000        | 200                    |
+| `RespondDecisionTaskCompleted`   | 2000        | 200                    |
+| `SignalWorkflowExecution`        | 2000        | 30                     |
+| `StartWorkflowExecution`         | 2000        | 200                    |
+| `TagResource`                    | 50          | 30                     |
+| `TerminateWorkflowExecution`     | 2000        | 60                     |
+| `UndeprecateActivityType`        | 200         | 6                      |
+| `UndeprecateDomain`              | 100         | 6                      |
+| `UndeprecateWorkflowType`        | 200         | 6                      |
+| `UntagResource`                  | 50          | 30                     |
+
+### Decision quotas for all Regions
+
+The following quotas are applicable at individual account-levels. You can also request an increase to the following quotas. For information about doing this, see
+[Requesting a quota increase](#swf-dg-limits-how-to-increase "#swf-dg-limits-how-to-increase").
+
 | API name                                 | Bucket size | Refill rate per second |
-| ---------------------------------------- | ----------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CountClosedWorkflowExecutions`          | 2000        | 6                      |
-| `CountOpenWorkflowExecutions`            | 2000        | 6                      |
-| `CountPendingActivityTasks`              | 200         | 6                      |
-| `CountPendingDecisionTasks`              | 200         | 6                      |
-| `DeleteActivityType`                     | 200         | 6                      |
-| `DeleteWorkflowType`                     | 200         | 6                      |
-| `DeprecateActivityType`                  | 200         | 6                      |
-| `DeprecateDomain`                        | 100         | 6                      |
-| `DeprecateWorkflowType`                  | 200         | 6                      |
-| `DescribeActivityType`                   | 2000        | 6                      |
-| `DescribeDomain`                         | 200         | 6                      |
-| `DescribeWorkflowExecution`              | 2000        | 6                      |
-| `DescribeWorkflowType`                   | 2000        | 6                      |
-| `GetWorkflowExecutionHistory`            | 2000        | 60                     |
-| `ListActivityTypes`                      | 200         | 6                      |
-| `ListClosedWorkflowExecutions`           | 200         | 6                      |
-| `ListDomains`                            | 100         | 6                      |
-| `ListOpenWorkflowExecutions`             | 200         | 48                     |
-| `ListTagsForResource`                    | 50          | 30                     |
-| `ListWorkflowTypes`                      | 200         | 6                      |
-| `PollForActivityTask`                    | 2000        | 200                    |
-| `PollForDecisionTask`                    | 2000        | 200                    |
-| `RecordActivityTaskHeartbeat`            | 2000        | 160                    |
-| `RegisterActivityType`                   | 200         | 60                     |
-| `RegisterDomain`                         | 100         | 6                      |
-| `RegisterWorkflowType`                   | 200         | 60                     |
-| `RequestCancelWorkflowExecution`         | 2000        | 30                     |
-| `RespondActivityTaskCanceled`            | 2000        | 200                    |
-| `RespondActivityTaskCompleted`           | 2000        | 200                    |
-| `RespondActivityTaskFailed`              | 2000        | 200                    |
-| `RespondDecisionTaskCompleted`           | 2000        | 200                    |
-| `SignalWorkflowExecution`                | 2000        | 30                     |
-| `StartWorkflowExecution`                 | 2000        | 200                    |
-| `TagResource`                            | 50          | 30                     |
-| `TerminateWorkflowExecution`             | 2000        | 60                     |
-| `UndeprecateActivityType`                | 200         | 6                      |
-| `UndeprecateDomain`                      | 100         | 6                      |
-| `UndeprecateWorkflowType`                | 200         | 6                      |
-| `UntagResource`                          | 50          | 30                     | ### Decision quotas for all Regions The following quotas are applicable at individual account-levels. You can also request an increase to the following quotas. For information about doing this, see [Requesting a quota increase](#swf-dg-limits-how-to-increase "#swf-dg-limits-how-to-increase"). |
-| API name                                 | Bucket size | Refill rate per second |
-| ---                                      | ---         | ---                    |
+| ---------------------------------------- | ----------- | ---------------------- |
 | `RequestCancelExternalWorkflowExecution` | 1200        | 120                    |
 | `ScheduleActivityTask`                   | 1000        | 200                    |
 | `SignalExternalWorkflowExecution`        | 1200        | 120                    |
 | `StartChildWorkflowExecution`            | 500         | 12                     |
-| `StartTimer`                             | 2000        | 200                    | ### Workflow-level quotas The following quotas are applicable at workflow-levels and can't be increased.                                                                                                                                                                                              |
-| API name                                 | Bucket size | Refill rate per second |
-| ---                                      | ---         | ---                    |
-| `GetWorkflowExecutionHistory`            | 400         | 200                    |
-| `SignalWorkflowExecution`                | 1000        | 1000                   |
-| `RecordActivityTaskHeartbeat`            | 1000        | 1000                   |
-| `RequestCancelWorkflowExecution`         | 200         | 200                    | ## Requesting a quota increase For more information, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") in the _AWS General Reference_.                                                                                    |
+| `StartTimer`                             | 2000        | 200                    |
+
+### Workflow-level quotas
+
+The following quotas are applicable at workflow-levels and can't be increased.
+
+| API name                         | Bucket size | Refill rate per second |
+| -------------------------------- | ----------- | ---------------------- |
+| `GetWorkflowExecutionHistory`    | 400         | 200                    |
+| `SignalWorkflowExecution`        | 1000        | 1000                   |
+| `RecordActivityTaskHeartbeat`    | 1000        | 1000                   |
+| `RequestCancelWorkflowExecution` | 200         | 200                    |
+
+## Requesting a quota increase
+
+For more information, see
+[AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") in the
+_AWS General Reference_.

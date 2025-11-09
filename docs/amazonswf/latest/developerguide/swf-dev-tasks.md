@@ -24,9 +24,20 @@ and allows only one decision task at a time to be active in a workflow execution
 The following table shows the relationship between the different constructs related to workflows and
 deciders.
 
+| Logical Design | Registered As | Performed By | Receives & Performs | Generates |
+| -------------- | ------------- | ------------ | ------------------- | --------- |
+| Workflow       | Workflow Type | Decider      | Decision Tasks      | Decisions |
+
+When an activity worker has completed the activity task, it reports to Amazon SWF that the task was completed, and
+it includes any relevant results that were generated. Amazon SWF updates the workflow execution history with an event that
+indicates the task completed and then schedules a decision task to transmit the updated history to the
+decider.
+
+Amazon SWF assigns each activity task to exactly one activity worker. Once the task is assigned, no other activity
+worker can claim or perform that task.
+
+The following table shows the relationship between the different constructs related to activities.
+
 | Logical Design | Registered As | Performed By    | Receives & Performs | Generates    |
-| -------------- | ------------- | --------------- | ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Workflow       | Workflow Type | Decider         | Decision Tasks      | Decisions    | When an activity worker has completed the activity task, it reports to Amazon SWF that the task was completed, and it includes any relevant results that were generated. Amazon SWF updates the workflow execution history with an event that indicates the task completed and then schedules a decision task to transmit the updated history to the decider. Amazon SWF assigns each activity task to exactly one activity worker. Once the task is assigned, no other activity worker can claim or perform that task. The following table shows the relationship between the different constructs related to activities. |
-| Logical Design | Registered As | Performed By    | Receives & Performs | Generates    |
-| ---            | ---           | ---             | ---                 | ---          |
+| -------------- | ------------- | --------------- | ------------------- | ------------ |
 | Activity       | Activity Type | Activity Worker | Activity Tasks      | Results Data |

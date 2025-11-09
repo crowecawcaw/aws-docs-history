@@ -68,6 +68,45 @@ You can specify only one tag in the `tagFilter` parameter with
 Assume you have already set up two executions that are tagged as follows.
 
 | Execution Name | Assigned Tags           |
-| -------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ----------------------- |
 | Execution-One  | Consumer, 2011-February |
-| Execution-Two  | Wholesale, 2011-March   | You can filter the list of executions returned by `ListOpenWorkflowExecutions` on the Consumer tag. The `oldestDate` and `latestDate` values are specified as [Unix Time](https://en.wikipedia.org/wiki/Unix_time "https://en.wikipedia.org/wiki/Unix_time") values. `https://swf.us-east-1.amazonaws.com RespondDecisionTaskCompleted { "domain":"867530901", "startTimeFilter":{ "oldestDate":1262332800, "latestDate":1325348400 }, "tagFilter":{ "tag":"Consumer" } }` ## Control access to domains with tags You can control access to Amazon Simple Workflow Service domains by referencing tags associated with Amazon SWF domains in IAM. For instance, you could restrict Amazon SWF domains that include a tag with the key `environment` and the value `production` with the following condition: `"Condition": { "StringEquals": {"aws:ResourceTag/environment": "production"} }` For more information, see: <br>• [Controlling Access Using IAM Tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md") <br>• [Tag-based Policies](tag-based-policies.md "tag-based-policies.md") |
+| Execution-Two  | Wholesale, 2011-March   |
+
+You can filter the list of executions returned by `ListOpenWorkflowExecutions` on the Consumer tag.
+The `oldestDate` and `latestDate` values are specified as [Unix Time](https://en.wikipedia.org/wiki/Unix_time "https://en.wikipedia.org/wiki/Unix_time") values.
+
+```
+https://swf.us-east-1.amazonaws.com
+  RespondDecisionTaskCompleted
+  {
+    "domain":"867530901",
+    "startTimeFilter":{
+        "oldestDate":1262332800,
+        "latestDate":1325348400
+    },
+    "tagFilter":{
+      "tag":"Consumer"
+      }
+  }
+```
+
+## Control access to domains with tags
+
+You can control access to Amazon Simple Workflow Service domains by referencing tags associated with Amazon SWF
+domains in IAM.
+
+For instance, you could restrict Amazon SWF domains that include a tag with the key
+`environment` and the value `production` with the following
+condition:
+
+```
+"Condition": {
+    "StringEquals": {"aws:ResourceTag/environment": "production"}
+}
+```
+
+For more information, see:
+
+- [Controlling Access Using IAM
+  Tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md")
+- [Tag-based Policies](tag-based-policies.md "tag-based-policies.md")
