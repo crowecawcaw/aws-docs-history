@@ -19,6 +19,6 @@ in the `AWS/simspaceweaver` namespace.
 The SimSpace Weaver namespace includes the following metrics related to
 activity at the AWS account level.
 
-| Metric            | Description                                                                                                            |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `SimulationCount` | The number of simulations for the current account. Units: Count Dimensions: none Statistics: Average, Minimum, Maximum |
+| Metric            | Description                                                                                                                     |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `SimulationCount` | The number of simulations for the current account.<br>Units: Count<br>Dimensions: none<br>Statistics: Average, Minimum, Maximum |
