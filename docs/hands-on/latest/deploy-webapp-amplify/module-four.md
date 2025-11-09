@@ -1,6 +1,114 @@
 # Task 4: Deploy the App
 
 |                      |                                                                                                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Time to complete** | 10 minutes                                                                                                                                                   |
-| **Get help**         | [Troubleshooting Amplify](https://docs.amplify.aws/react/build-a-backend/troubleshooting/ "https://docs.amplify.aws/react/build-a-backend/troubleshooting/") | ## Overview In this task, you will store your application on a GitHub repository, and then set up continuous deployment using the Amplify Console. ## What you will accomplish In this task, you will: <br>• Connect a Github repository to Amplify <br>• Set up continuous deployment using Amplify ## Implementation In this step, you will create a GitHub repository and commit your code to the repository. You will need a GitHub account to complete this step. If you do not have an account, [sign up here](https://github.com/ "https://github.com/") . ###### Note If you have never used GitHub on your computer, follow [these steps](https://docs.github.com/en/authentication/connecting-to-github-with-ssh "https://docs.github.com/en/authentication/connecting-to-github-with-ssh") before continuing to allow connection to your account. 1. Sign in to GitHub **Sign in** to GitHub at [https://github.com/](https://github.com/ "https://github.com/") . ![The GitHub sign in page, showing username/email and password fields, used in the AWS Amplify web app deployment tutorial.](images/github-edbca-ddca-sign-page-username-email.png) 2. Start a new repository In the **Start a new repository** section, make the following selections: <br>• For **Repository name** , enter **expensetracker** , and choose the **Public** radio button. <br>• Then select, **Create a new repository** . ![The process of creating a new public repository named 'expensetracker' on GitHub, as part of the AWS Amplify web app deployment tutorial. The options for repository visibility and the button to create the repository are highlighted.](images/ovndxxey-start-repository-aeab-process.png) 3. Initialize git and push the application **Open** a new terminal window, **navigate** to your projects root folder ( **expensetracker** ) , and **run** the following commands to initialize a git and push of the application to the new GitHub repo: ###### Note **Replace** the SSH GitHub URL in the command with your GitHub URL. `git init git add . git commit -m "first commit" git remote add origin git@github.com:<your-username>/profilesapp.git git branch -M main git push -u origin main` ![Terminal commands to initialize a Git repository, make the first commit, and push code to GitHub during an AWS Amplify web app deployment tutorial.](images/jrmu-initialize-git-bde-cbffe-terminal.png) In this step, you will connect the GitHub repository you just created to the AWS Amplify. This will allow you to build, deploy, and host your app on AWS. 1. Create a new app **Sign in** to the AWS Management Console in a new browser window, and **open** the AWS Amplify console at [https://console.aws.amazon.com/amplify/apps](https://console.aws.amazon.com/amplify/apps "https://console.aws.amazon.com/amplify/apps"). Choose **Create new app**. ![The AWS console All apps dashboard, showing a list of apps with deployment status and options to manage sandboxes or create a new app.](images/console-apps-dashboard-list-deployment.png) 2. Choose GitHub for deployment On the **Start building with Amplify** page, for **Deploy your app** , select **GitHub** , and select **Next**. ![The AWS Amplify interface showing the 'Start building with Amplify' setup screen. Options to deploy your app from a Git provider (GitHub, BitBucket, CodeCommit, GitLab) or 'Deploy without Git' are displayed, with GitHub and 'Next' highlighted.](images/amplifylong-interface-start-building-setup.png) 3. Add your repository and main branch When prompted, **authenticate** with GitHub. You will be automatically redirected back to the Amplify console. Choose the **repository** and **main branch** that you created earlier. Then, select **Next** . ![The 'Add repository and branch' step in the process of creating a new app with AWS Amplify. The user is selecting a Git repository and the 'main' branch before proceeding to the next step.](images/authenticate-repository-process-creating.png) 4. Confirm default settings Leave the default **build setting,** and select **Next**. ![The 'App settings' configuration step in the AWS Amplify web app deployment tutorial, showing options for setting app name, build settings, detected frameworks, frontend build command, service role, and advanced settings, with 'Next' button highlighted at the bottom right.](images/qtqhgowd-configure-settings-aeed.png) 5. Review settings Review the inputs selected and choose **Save and deploy**. ![The review settings step in an AWS Amplify web app deployment tutorial. The image shows the final review of repository details, app settings, and advanced settings before clicking 'Save and deploy' to launch the app.](images/gasgdvrp-settings-edbfd-amplifylong.png) 6. Verify app deployment AWS Amplify will now **build** your source code and **deploy** your app at \***\*https://...amplifyapp.com\*\*** , and on every git push your deployment instance will update. It may take up to 5 minutes to deploy your app. Once the build completes, select the **Visit deployed URL** button to see your web app up and running live. ![The AWS Amplify console showing the overview page for an expensetracker app after deployment, including production branch status, app domain, repository link, and a highlighted 'Visit deployed URL' button. Used for the tutorial step verifying successful web app deployment.](images/verify-deployment-amplifylong-console.png) |
+| **Get help**         | [Troubleshooting Amplify](https://docs.amplify.aws/react/build-a-backend/troubleshooting/ "https://docs.amplify.aws/react/build-a-backend/troubleshooting/") |
+
+## Overview
+
+In this task, you will store your application on a GitHub
+repository, and then set up continuous deployment using the
+Amplify Console.
+
+## What you will accomplish
+
+In this task, you will:
+
+- Connect a Github repository to Amplify
+- Set up continuous deployment using Amplify
+
+## Implementation
+
+In this step, you will create a GitHub repository and commit your
+code to the repository. You will need a GitHub account to complete
+this step. If you do not have an account,
+[sign up here](https://github.com/ "https://github.com/") .
+
+###### Note
+
+If you have never used
+GitHub on your computer, follow
+[these
+steps](https://docs.github.com/en/authentication/connecting-to-github-with-ssh "https://docs.github.com/en/authentication/connecting-to-github-with-ssh") before continuing to allow connection to your account.
+
+1. Sign in to GitHub
+
+**Sign in** to GitHub at [https://github.com/](https://github.com/ "https://github.com/") .
+
+![The GitHub sign in page, showing username/email and password fields, used in the AWS Amplify web app deployment tutorial.](images/github-edbca-ddca-sign-page-username-email.png) 2. Start a new repository
+
+In the **Start a new repository** section, make the
+following selections:
+
+    * For **Repository name** , enter **expensetracker** , and choose the **Public** radio button.
+    * Then select, **Create a new repository** .
+
+
+
+    ![The process of creating a new public repository named 'expensetracker' on GitHub, as part of the AWS Amplify web app deployment tutorial. The options for repository visibility and the button to create the repository are highlighted.](images/ovndxxey-start-repository-aeab-process.png)
+
+3. Initialize git and push the application
+
+**Open** a new terminal window, **navigate** to your projects root folder ( **expensetracker** ) , and **run** the
+following commands to initialize a git and push of the application to the new GitHub
+repo:
+
+###### Note
+
+**Replace** the SSH GitHub URL in the command with
+your GitHub URL. 
+
+```
+git init
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:<your-username>/profilesapp.git git branch -M main
+git push -u origin main
+
+```
+
+![Terminal commands to initialize a Git repository, make the first commit, and push code to GitHub during an AWS Amplify web app deployment tutorial.](images/jrmu-initialize-git-bde-cbffe-terminal.png)
+In this step, you will connect the GitHub repository you just
+created to the AWS Amplify. This will allow you to build, deploy,
+and host your app on AWS.
+
+1. Create a new app
+
+**Sign in** to the AWS Management Console in a new browser window,
+and **open** the AWS Amplify console at [https://console.aws.amazon.com/amplify/apps](https://console.aws.amazon.com/amplify/apps "https://console.aws.amazon.com/amplify/apps").
+
+Choose **Create new app**.
+
+![The AWS console All apps dashboard, showing a list of apps with deployment status and options to manage sandboxes or create a new app.](images/console-apps-dashboard-list-deployment.png) 2. Choose GitHub for deployment
+
+On the **Start building with Amplify** page, for
+**Deploy your app** , select **GitHub** , and select **Next**.
+
+![The AWS Amplify interface showing the 'Start building with Amplify' setup screen. Options to deploy your app from a Git provider (GitHub, BitBucket, CodeCommit, GitLab) or 'Deploy without Git' are displayed, with GitHub and 'Next' highlighted.](images/amplifylong-interface-start-building-setup.png) 3. Add your repository and main branch
+
+When prompted, **authenticate** with GitHub. You will
+be automatically redirected back to the Amplify console. Choose the **repository** and **main branch**
+ that you created earlier. Then, select **Next** .
+
+![The 'Add repository and branch' step in the process of creating a new app with AWS Amplify. The user is selecting a Git repository and the 'main' branch before proceeding to the next step.](images/authenticate-repository-process-creating.png) 4. Confirm default settings
+
+Leave the default **build setting,** and select
+**Next**.
+
+![The 'App settings' configuration step in the AWS Amplify web app deployment tutorial, showing options for setting app name, build settings, detected frameworks, frontend build command, service role, and advanced settings, with 'Next' button highlighted at the bottom right.](images/qtqhgowd-configure-settings-aeed.png) 5. Review settings
+
+Review the inputs selected and choose **Save and
+deploy**.
+
+![The review settings step in an AWS Amplify web app deployment tutorial. The image shows the final review of repository details, app settings, and advanced settings before clicking 'Save and deploy' to launch the app.](images/gasgdvrp-settings-edbfd-amplifylong.png) 6. Verify app deployment
+
+AWS Amplify will now **build** your source code and
+**deploy** your app at \***\*https://...amplifyapp.com\*\*** , and on every git
+push your deployment instance will update. It may take up to 5 minutes to deploy your
+app.
+
+Once the build completes, select the **Visit deployed
+URL** button to see your web app up and running live. 
+
+![The AWS Amplify console showing the overview page for an expensetracker app after deployment, including production branch status, app domain, repository link, and a highlighted 'Visit deployed URL' button. Used for the tutorial step verifying successful web app deployment.](images/verify-deployment-amplifylong-console.png)
