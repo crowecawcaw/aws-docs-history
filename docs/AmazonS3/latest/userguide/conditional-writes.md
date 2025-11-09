@@ -34,15 +34,19 @@ Signature Version 4 to sign the request.
 key names
 
 You can use the HTTP `If-None-Match` conditional header to check whether an
-object already exists in the specified bucket based on its key name before creating it.
-When you upload an object to Amazon S3, specify the key name: a unique, case sensitive
-identifier of an object in a bucket. Without the HTTP `If-None-Match` header,
-if you upload an object with an identical key name in an unversioned or
-version-suspended bucket, the object is overwritten. In a versioned bucket, the most
-recently uploaded object becomes the current version of the object. Conditional writes with
-the HTTP `If-None-Match` header check for the existence of an object during
-the `WRITE` operation. If an identical key name is found in the bucket, the
-operation fails. For more information about using key names, see [Naming Amazon S3 objects](object-keys.md "object-keys.md").
+object already exists in the specified bucket based on its key name before creating it
+or copying it to the destination bucket.
+
+Conditional writes with the HTTP `If-None-Match` header check for
+the existence of an object during the `WRITE` operation. If an identical key
+name is found in the bucket, the operation fails. Without the HTTP
+`If-None-Match` header, if you upload or copy an object with an identical
+key name in an unversioned or version-suspended bucket, the object is overwritten. For
+more information about using key names, see [Naming Amazon S3 objects](object-keys.md "object-keys.md").
+
+###### Note
+
+The HTTP `If-None-Match` header only applies to the current version of an object in a version bucket.
 
 To perform conditional writes with the HTTP `If-None-Match` header you must have
 the `s3:PutObject` permission. This enables the caller to check for the
@@ -53,6 +57,7 @@ You can use the `If-None-Match` header with the following APIs:
 
 - [PutObject](../API/API_PutObject.md "../API/API_PutObject.md")
 - [CompleteMultipartUpload](../API/API_CompleteMultipartUpload.md "../API/API_CompleteMultipartUpload.md")
+- [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md")
 
 The following `put-object` example command attempts to perform a
 conditional write for an object with the key name
@@ -63,6 +68,34 @@ aws s3api put-object --bucket `amzn-s3-demo-bucket` --key dir-1/my_images.tar.bz
 ```
 
 For more information, see [put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html") in the _AWS CLI Command Reference_.
+
+For information about the AWS CLI, see [What
+is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_.
+
+The following `copy-object` example command attempts to copy an object to a destination bucket with a
+conditional write for an object with the key name
+`dir-1/my_images.tar.bz2`.
+
+```
+aws s3api copy-object --copy-source `amzn-s3-demo-bucket`/key --key dir-1/my_images.tar.bz2 --bucket `amzn-s3-demo-bucket2` --if-none-match "*"
+```
+
+For more information, see [copy-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html") in the _AWS CLI Command Reference_.
+
+For information about the AWS CLI, see [What
+is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_.
+
+The following `complete-multipart-upload` example command attempts to complete a multipart upload with a conditional write for an object with the key name
+`dir-1/my_images.tar.bz2`. In this example, the
+file:// prefix is used to load the JSON structure from a file in the local
+folder named `mpustruct` which list of all the parts that
+have been uploaded for tnis specific multipart upload.
+
+```
+aws s3api complete-multipart-upload --multipart-upload file://mpustruct --bucket `amzn-s3-demo-bucket` --key dir-1/my_images.tar.bz2 --upload-id `upload-id`  --if-none-match "*"
+```
+
+For more information, see [complete-multipart-upload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/complete-multipart-upload.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/complete-multipart-upload.html") in the _AWS CLI Command Reference_.
 
 For information about the AWS CLI, see [What
 is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_.
@@ -85,6 +118,7 @@ You can use the `If-Match` header with the following APIs:
 
 - [PutObject](../API/API_PutObject.md "../API/API_PutObject.md")
 - [CompleteMultipartUpload](../API/API_CompleteMultipartUpload.md "../API/API_CompleteMultipartUpload.md")
+- [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md")
 
 The following `put-object` example command attempts to perform a
 conditional write with the provided ETag value
@@ -99,9 +133,38 @@ For more information, see [put-object](https://awscli.amazonaws.com/v2/documenta
 For information about the AWS CLI, see [What
 is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_.
 
+The following `copy-object` example command attempts to perform a
+conditional write with the provided ETag value
+`6805f2cfc46c0f04559748bb039d69ae`.
+
+```
+aws s3api copy-object --copy-source `amzn-s3-demo-bucket`/key --key dir-1/my_images.tar.bz2 --bucket `amzn-s3-demo-bucket2` --if-match "`6805f2cfc46c0f04559748bb039d69ae`"
+```
+
+For more information, see [copy-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html") in the _AWS CLI Command Reference_.
+
+For information about the AWS CLI, see [What
+is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_.
+
+The following `complete-multipart-upload` example command attempts
+to complete a multipart upload with a conditional write using the provided ETag value
+`6805f2cfc46c0f04559748bb039d69ae`. In this example, the
+file:// prefix is used to load the JSON structure from a file in the local
+folder named `mpustruct` which list of all the parts that
+have been uploaded for tnis specific multipart upload.
+
+```
+aws s3api complete-multipart-upload --multipart-upload file://mpustruct --bucket `amzn-s3-demo-bucket` --key dir-1/my_images.tar.bz2 --upload-id `upload-id` --if-match "`6805f2cfc46c0f04559748bb039d69ae`"
+```
+
+For more information, see [complete-multipart-upload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/complete-multipart-upload.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/complete-multipart-upload.html") in the _AWS CLI Command Reference_.
+
+For information about the AWS CLI, see [What
+is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_.
+
 ## Conditional write behavior
 
-**Conditional writes with `If-None-Match` header**
+**Conditional writesor copies with `If-None-Match` header**
 
 Conditional writes with the `If-None-Match` header evaluate
 against existing objects in a bucket. If there's no existing object with the
@@ -115,7 +178,7 @@ with the same name, or if the current object version is a delete marker, the
 write operation succeeds. Otherwise, it results in a failed write operation
 with a `412 Precondition Failed` response.
 
-If multiple conditional writes occur for the same object name, the first write
+If multiple conditional writes or copies occur for the same object name, the first write
 operation to finish succeeds. Amazon S3 then fails subsequent writes with a
 `412 Precondition Failed` response.
 
@@ -128,7 +191,7 @@ with `PutObject`, uploads may be retried after receiving a
 re-initiated with `CreateMultipartUpload` to upload the object
 again after receiving a `409 Conflict` error.
 
-**Conditional writes with `If-Match` header**
+**Conditional writes or copies with `If-Match` header**
 
 The `If-Match` header evaluates against existing objects in a
 bucket. If there's an existing object with the same key name and matching

@@ -24,10 +24,24 @@ S3 Vectors endpoints are dual-stack endpoints that support requests over IPv6 an
 
 Gateway VPC endpoints and AWS PrivateLink aren't supported.
 
-| S3 Vectors AWS Regions and endpoints | Region Name    | Region                           | Endpoint | Protocol | Signature Version(s) Support                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------------ | -------------- | -------------------------------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| S3 Vectors AWS Regions and endpoints | Region Name    | Region                           | Endpoint | Protocol | Signature Version(s) Support |
+| ------------------------------------ | -------------- | -------------------------------- | -------- | -------- | ---------------------------- |
 | US East (N. Virginia)                | us-east-1      | s3vectors.us-east-1.api.aws      | HTTPS    | 4        |
 | US East (Ohio)                       | us-east-2      | s3vectors.us-east-2.api.aws      | HTTPS    | 4        |
 | US West (Oregon)                     | us-west-2      | s3vectors.us-west-2.api.aws      | HTTPS    | 4        |
 | EU Central 1 (Frankfurt)             | eu-central-1   | s3vectors.eu-central-1.api.aws   | HTTPS    | 4        |
-| Asia Pacific (Sydney)                | ap-southeast-2 | s3vectors.ap-southeast-2.api.aws | HTTPS    | 4        | ## S3 Vectors service quotas Quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. The limits are the service quotas for S3 Vectors resources. For detailed limits that apply to S3 Vectors, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md"). Unless otherwise noted, each quota is per AWS Region. You can request increases for some quotas, and other quotas can't be increased. For more information about requesting a quota increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_. For more Amazon S3 quota information, see [Amazon S3 endpoints and quotas](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md") in the _AWS General Reference_. |
+| Asia Pacific (Sydney)                | ap-southeast-2 | s3vectors.ap-southeast-2.api.aws | HTTPS    | 4        |
+
+## S3 Vectors service quotas
+
+Quotas, also referred to as limits, are the maximum number of service resources or
+operations for your AWS account. The limits are the service quotas for S3 Vectors
+resources.
+
+For detailed limits that apply to S3 Vectors, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
+
+Unless otherwise noted, each quota is per AWS Region. You can request increases for
+some quotas, and other quotas can't be increased. For more information about requesting
+a quota increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User
+Guide_. For more Amazon S3 quota information, see [Amazon S3 endpoints and
+quotas](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md") in the _AWS General Reference_.

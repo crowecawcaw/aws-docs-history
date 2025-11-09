@@ -45,7 +45,18 @@ running a `SELECT` query in Athena: **`"GENERIC_INTERNAL_ERROR: Get table reques
 
 ## Integrating table buckets with AWS analytics services
 
-This integration must be done once per AWS Region.
+Amazon S3 Tables integrates with AWS Glue Data Catalog (Data Catalog) and registers the catalog as a Lake Formation data location. You can set up
+this registration from the Lake Formation console or by using the service APIs. When you register the location, you must specify an IAM role that grants
+read/write permissions to the Lake Formation registered role to access that location. Lake Formation assumes that role when supplying temporary
+credentials to integrated AWS services.
+
+If you have an IAM or S3 Tables resource-based policy that restricts IAM users and
+IAM roles based on principal tags, you must attach the same principal tags to the IAM role
+that Lake Formation uses to access your Amazon S3 data (for example, LakeFormationDataAccessRole) and
+grant this role the necessary permissions. This is required for your tag-based access control
+policy to work correctly with your S3 Tables analytics integration.
+
+This integration must be configured once per AWS Region.
 
 ###### Important
 

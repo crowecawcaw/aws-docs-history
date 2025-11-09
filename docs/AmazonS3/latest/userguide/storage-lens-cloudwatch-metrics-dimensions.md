@@ -103,13 +103,13 @@ To see which dimensions are available for your S3 Storage Lens configuration, se
 following
 table.
 
-| **Dimension**        | **Description**                                                                             | **Bucket** | **Account** | **Organization** | **Organization and bucket** | **Organization and account** |
-| -------------------- | ------------------------------------------------------------------------------------------- | ---------- | ----------- | ---------------- | --------------------------- | ---------------------------- |
-| `configuration_id`   | The dashboard name for the S3 Storage Lens configuration reported in the metrics            |            |             |                  |                             |                              |
-| `metrics_version`    | The version of the S3 Storage Lens metrics. The metrics version has a fixed value of `1.0`. |            |             |                  |                             |                              |
-| `organization_id`    | The AWS Organizations ID for the metrics                                                    |            |             |                  |                             |                              |
-| `aws_account_number` | The AWS account that's associated with the metrics                                          |            |             |                  |                             |                              |
-| `aws_region`         | The AWS Region for the metrics                                                              |            |             |                  |                             |                              |
-| `bucket_name`        | The name of the S3 bucket that's reported in the metrics                                    |            |             |                  |                             |                              |
-| `storage_class`      | The storage class for the bucket that's reported in the metrics                             |            |             |                  |                             |                              |
-| `record_type`        | The granularity of the metrics: ORGANIZATION, ACCOUNT, BUCKET                               | BUCKET     | ACCOUNT     | BUCKET           | ACCOUNT                     | ORGANIZATION                 |
+| **Dimension**        | **Description**                                                                                | **Bucket** | **Account** | **Organization** | **Organization and bucket** | **Organization and account** |
+| -------------------- | ---------------------------------------------------------------------------------------------- | ---------- | ----------- | ---------------- | --------------------------- | ---------------------------- |
+| `configuration_id`   | The dashboard name for the S3 Storage Lens configuration reported in the<br>metrics            |            |             |                  |                             |                              |
+| `metrics_version`    | The version of the S3 Storage Lens metrics. The metrics version has a fixed value<br>of `1.0`. |            |             |                  |                             |                              |
+| `organization_id`    | The AWS Organizations ID for the metrics                                                       |            |             |                  |                             |                              |
+| `aws_account_number` | The AWS account that's associated with the metrics                                             |            |             |                  |                             |                              |
+| `aws_region`         | The AWS Region for the metrics                                                                 |            |             |                  |                             |                              |
+| `bucket_name`        | The name of the S3 bucket that's reported in the metrics                                       |            |             |                  |                             |                              |
+| `storage_class`      | The storage class for the bucket that's reported in the<br>metrics                             |            |             |                  |                             |                              |
+| `record_type`        | The granularity of the metrics:<br>ORGANIZATION,<br>ACCOUNT, BUCKET                            | BUCKET     | ACCOUNT     | BUCKET           | ACCOUNT                     | ORGANIZATION                 |

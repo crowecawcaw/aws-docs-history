@@ -450,8 +450,7 @@ The four settings provided by Amazon S3 Block Public Access are as follows:
 An error occurred (AccessDenied) when calling the CopyObject operation:
 User: arn:aws:sts::`123456789012`:user/`MaryMajor` is not authorized to
 perform: s3:CopyObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`"
-because public access control lists (ACLs) are blocked by the BlockPublicAcls block
-public access setting.
+because public ACLs are prevented by the BlockPublicAcls setting in S3 Block Public Access.
 ```
 
 - `IgnorePublicAcls` – The `IgnorePublicAcls`
@@ -494,8 +493,7 @@ the following message:
 An error occurred (AccessDenied) when calling the PutBucketPolicy operation:
 User: arn:aws:sts::`123456789012`:user/`MaryMajor` is not authorized to
 perform: s3:PutBucketPolicy on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`"
-because public policies are blocked by the BlockPublicPolicy block public
-access setting.
+because public policies are prevented by the BlockPublicPolicy setting in S3 Block Public Access.
 ```
 
 - `RestrictPublicBuckets` – The

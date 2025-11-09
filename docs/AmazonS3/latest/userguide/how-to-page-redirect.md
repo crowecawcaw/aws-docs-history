@@ -148,16 +148,303 @@ XML
 
 The following table describes the elements in the routing rule.
 
-| Name                          | Description                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RoutingRules`                | Container for a collection of `RoutingRule` elements.                                                                                                                                                                                                                                                                                                                                                       |
-| `RoutingRule`                 | A rule that identifies a condition and the redirect that is applied when the condition is met. Condition: <br>• A `RoutingRules` container must contain at least one routing rule.                                                                                                                                                                                                                          |
-| `Condition`                   | Container for describing a condition that must be met for the specified redirect to be applied. If the routing rule does not include a condition, the rule is applied to all requests.                                                                                                                                                                                                                      |
-| `KeyPrefixEquals`             | The prefix of the object key name from which requests are redirected. `KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not specified. If both `KeyPrefixEquals` and `HttpErrorCodeReturnedEquals` are specified, both must be true for the condition to be met.                                                                                                                            |
-| `HttpErrorCodeReturnedEquals` | The HTTP error code that must match for the redirect to apply. If an error occurs, and if the error code meets this value, then the specified redirect applies. `HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not specified. If both `KeyPrefixEquals` and `HttpErrorCodeReturnedEquals` are specified, both must be true for the condition to be met.                                  |
-| `Redirect`                    | Container element that provides instructions for redirecting the request. You can redirect requests to another host or another page, or you can specify another protocol to use. A `RoutingRule` must have a `Redirect` element. A `Redirect` element must contain at least one of the following sibling elements: `Protocol`, `HostName`, `ReplaceKeyPrefixWith`, `ReplaceKeyWith`, or `HttpRedirectCode`. |
-| `Protocol`                    | The protocol, `http` or `https`, to be used in the `Location` header that is returned in the response. If one of its siblings is supplied, `Protocol` is not required.                                                                                                                                                                                                                                      |
-| `HostName`                    | The hostname to be used in the `Location` header that is returned in the response. If one of its siblings is supplied, `HostName` is not required.                                                                                                                                                                                                                                                          |
-| `ReplaceKeyPrefixWith`        | The prefix of the object key name that replaces the value of `KeyPrefixEquals` in the redirect request. If one of its siblings is supplied, `ReplaceKeyPrefixWith` is not required. It can be supplied only if `ReplaceKeyWith` is not supplied.                                                                                                                                                            |
-| `ReplaceKeyWith`              | The object key to be used in the `Location` header that is returned in the response. If one of its siblings is supplied, `ReplaceKeyWith` is not required. It can be supplied only if `ReplaceKeyPrefixWith` is not supplied.                                                                                                                                                                               |
-| `HttpRedirectCode`            | The HTTP redirect code to be used in the `Location` header that is returned in the response. If one of its siblings is supplied, `HttpRedirectCode` is not required.                                                                                                                                                                                                                                        | #### Redirection rules examples The following examples explain common redirection tasks: ###### Important To create redirection rules in the new Amazon S3 console, you must use JSON. ###### Example 1: Redirect after renaming a key prefix Suppose that your bucket contains the following objects: <br>• index.html <br>• docs/article1.html <br>• docs/article2.html You decide to rename the folder from `docs/` to `documents/`. After you make this change, you need to redirect requests for prefix `docs/` to `documents/`. For example, request for `docs/article1.html` will be redirected to `documents/article1.html`. In this case, you add the following routing rule to the website configuration. JSON `[ { "Condition": { "KeyPrefixEquals": "docs/" }, "Redirect": { "ReplaceKeyPrefixWith": "documents/" } } ]` XML `<RoutingRules> <RoutingRule> <Condition> <KeyPrefixEquals>docs/</KeyPrefixEquals> </Condition> <Redirect> <ReplaceKeyPrefixWith>documents/</ReplaceKeyPrefixWith> </Redirect> </RoutingRule> </RoutingRules>` ###### Example 2: Redirect requests for a deleted folder to a page Suppose that you delete the `images/` folder (that is, you delete all objects with the key prefix `images/`). You can add a routing rule that redirects requests for any object with the key prefix `images/` to a page named `folderdeleted.html`. JSON `[ { "Condition": { "KeyPrefixEquals": "images/" }, "Redirect": { "ReplaceKeyWith": "folderdeleted.html" } } ]` XML `<RoutingRules> <RoutingRule> <Condition> <KeyPrefixEquals>images/</KeyPrefixEquals> </Condition> <Redirect> <ReplaceKeyWith>folderdeleted.html</ReplaceKeyWith> </Redirect> </RoutingRule> </RoutingRules>` ###### Example 3: Redirect to another domain with a specific path Suppose you want to redirect requests for a specific path to another domain. For example, you want to redirect requests for `/redirect/me` to `https://example.com/new/path`. When using both `HostName` and `ReplaceKeyWith` together, Amazon S3 constructs the redirect URL by concatenating the hostname and the replacement key with a forward slash between them. Therefore, you should not include a leading slash in the `ReplaceKeyWith` value. Amazon S3 automatically adds the forward slash between the hostname and the replacement key. JSON `[ { "Condition": { "KeyPrefixEquals": "redirect/me" }, "Redirect": { "HostName": "example.com", "ReplaceKeyWith": "new/path" } } ]` XML `<RoutingRules> <RoutingRule> <Condition> <KeyPrefixEquals>redirect/me</KeyPrefixEquals> </Condition> <Redirect> <HostName>example.com</HostName> <ReplaceKeyWith>new/path</ReplaceKeyWith> </Redirect> </RoutingRule> </RoutingRules>` This configuration redirects a request for `https://yourbucket.s3-website-region.amazonaws.com/redirect/me` to `https://example.com/new/path`. Note that `ReplaceKeyWith` is set to `new/path` without a leading slash. ###### Example 4: Redirect for an HTTP error Suppose that when a requested object is not found, you want to redirect requests to an Amazon Elastic Compute Cloud (Amazon EC2) instance. Add a redirection rule so that when an HTTP status code **`404 (Not Found)`** is returned, the site visitor is redirected to an Amazon EC2 instance that handles the request. The following example also inserts the object key prefix `report-404/` in the redirect. For example, if you request a page `ExamplePage.html` and it results in an HTTP 404 error, the request is redirected to a page `report-404/ExamplePage.html` on the specified Amazon EC2 instance. If there is no routing rule and the HTTP error 404 occurs, the error document that is specified in the configuration is returned. JSON `[ { "Condition": { "HttpErrorCodeReturnedEquals": "404" }, "Redirect": { "HostName": "ec2-11-22-333-44.compute-1.amazonaws.com", "ReplaceKeyPrefixWith": "report-404/" } } ]` XML `<RoutingRules> <RoutingRule> <Condition> <HttpErrorCodeReturnedEquals>404</HttpErrorCodeReturnedEquals > </Condition> <Redirect> <HostName>ec2-11-22-333-44.compute-1.amazonaws.com</HostName> <ReplaceKeyPrefixWith>report-404/</ReplaceKeyPrefixWith> </Redirect> </RoutingRule> </RoutingRules>` ## Redirect requests for an object You can redirect requests for an object to another object or URL by setting the website redirect location in the metadata of the object. You set the redirect by adding the `x-amz-website-redirect-location` property to the object metadata. On the Amazon S3 console, you set the **Website Redirect Location** in the metadata of the object. If you use the [Amazon S3 API](#page-redirect-using-rest-api "#page-redirect-using-rest-api"), you set `x-amz-website-redirect-location`. The website then interprets the object as a 301 redirect. To redirect a request to another object, you set the redirect location to the key of the target object. To redirect a request to an external URL, you set the redirect location to the URL that you want. For more information about object metadata, see [System-defined object metadata](UsingMetadata.md#SysMetadata "UsingMetadata.md#SysMetadata"). When you set a page redirect, you can either keep or delete the source object content. For example, if you have a `page1.html` object in your bucket, you can redirect any requests for this page to another object, `page2.html`. You have two options: <br>• Keep the content of the `page1.html` object and redirect page requests. <br>• Delete the content of `page1.html` and upload a zero-byte object named `page1.html` to replace the existing object and redirect page requests. 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the **Buckets** list, choose the name of the bucket that you have configured as a static website (for example, `example.com`). 3. Under **Objects**, select your object. 4. Choose **Actions**, and choose **Edit metadata**. 5. Choose **Metadata**. 6. Choose **Add Metadata**. 7. Under **Type**, choose **System Defined**. 8. In **Key**, choose **x-amz-website-redirect-location**. 9. In **Value**, enter the key name of the object that you want to redirect to, for example, `/page2.html`. For another object in the same bucket, the `/` prefix in the value is required. You can also set the value to an external URL, for example, `http://www.example.com`. 10. Choose **Edit metadata**. The following Amazon S3 API actions support the `x-amz-website-redirect-location` header in the request. Amazon S3 stores the header value in the object metadata as `x-amz-website-redirect-location`. <br>• [PUT Object](../API/RESTObjectPUT.md "../API/RESTObjectPUT.md") <br>• [Initiate Multipart Upload](../API/mpUploadInitiate.md "../API/mpUploadInitiate.md") <br>• [POST Object](../API/RESTObjectPOST.md "../API/RESTObjectPOST.md") <br>• [PUT Object - Copy](../API/RESTObjectCOPY.md "../API/RESTObjectCOPY.md") A bucket configured for website hosting has both the website endpoint and the REST endpoint. A request for a page that is configured as a 301 redirect has the following possible outcomes, depending on the endpoint of the request: <br>• Region-specific website endpoint – Amazon S3 redirects the page request according to the value of the `x-amz-website-redirect-location` property. <br>• REST endpoint – Amazon S3 doesn't redirect the page request. It returns the requested object. For more information about the endpoints, see [Key differences between a website endpoint and a REST API endpoint](WebsiteEndpoints.md#WebsiteRestEndpointDiff "WebsiteEndpoints.md#WebsiteRestEndpointDiff"). When setting a page redirect, you can either keep or delete the object content. For example, suppose that you have a `page1.html` object in your bucket. <br>• To keep the content of `page1.html` and only redirect page requests, you can submit a [PUT Object - Copy](../API/RESTObjectCOPY.md "../API/RESTObjectCOPY.md") request to create a new `page1.html` object that uses the existing `page1.html` object as the source. In your request, you set the `x-amz-website-redirect-location` header. When the request is complete, you have the original page with its content unchanged, but Amazon S3 redirects any requests for the page to the redirect location that you specify. <br>• To delete the content of the `page1.html` object and redirect requests for the page, you can send a PUT Object request to upload a zero-byte object that has the same object key: `page1.html`. In the PUT request, you set `x-amz-website-redirect-location` for `page1.html` to the new object. When the request is complete, `page1.html` has no content, and requests are redirected to the location that is specified by `x-amz-website-redirect-location`. When you retrieve the object using the [GET Object](../API/RESTObjectGET.md "../API/RESTObjectGET.md") action, along with other object metadata, Amazon S3 returns the `x-amz-website-redirect-location` header in the response. |
+| Name                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RoutingRules`                | Container for a collection of `RoutingRule`<br>elements.                                                                                                                                                                                                                                                                                                                                                                               |
+| `RoutingRule`                 | A rule that identifies a condition and the redirect that<br>is applied when the condition is met.<br>Condition:<br>• A `RoutingRules` container must contain<br>at least one routing rule.                                                                                                                                                                                                                                             |
+| `Condition`                   | Container for describing a condition that must be met for<br>the specified redirect to be applied. If the routing rule<br>does not include a condition, the rule is applied to all<br>requests.                                                                                                                                                                                                                                        |
+| `KeyPrefixEquals`             | The prefix of the object key name from which requests are<br>redirected.<br>`KeyPrefixEquals` is required if<br>`HttpErrorCodeReturnedEquals` is not<br>specified. If both `KeyPrefixEquals` and<br>`HttpErrorCodeReturnedEquals` are specified,<br>both must be true for the condition to be met.                                                                                                                                     |
+| `HttpErrorCodeReturnedEquals` | The HTTP error code that must match for the redirect to<br>apply. If an error occurs, and if the error code meets this<br>value, then the specified redirect applies.<br>`HttpErrorCodeReturnedEquals` is required if<br>`KeyPrefixEquals` is not specified. If both<br>`KeyPrefixEquals` and<br>`HttpErrorCodeReturnedEquals` are specified,<br>both must be true for the condition to be met.                                        |
+| `Redirect`                    | Container element that provides instructions for<br>redirecting the request. You can redirect requests to<br>another host or another page, or you can specify another<br>protocol to use. A `RoutingRule` must have a<br>`Redirect` element. A `Redirect`<br>element must contain at least one of the following sibling<br>elements: `Protocol`, `HostName`,<br>`ReplaceKeyPrefixWith`,<br>`ReplaceKeyWith`, or<br>`HttpRedirectCode`. |
+| `Protocol`                    | The protocol, `http` or `https`, to<br>be used in the `Location` header that is returned<br>in the response.<br>If one of its siblings is supplied, `Protocol`<br>is not required.                                                                                                                                                                                                                                                     |
+| `HostName`                    | The hostname to be used in the `Location`<br>header that is returned in the response.<br>If one of its siblings is supplied, `HostName`<br>is not required.                                                                                                                                                                                                                                                                            |
+| `ReplaceKeyPrefixWith`        | The prefix of the object key name that replaces the value<br>of `KeyPrefixEquals` in the redirect request.<br>If one of its siblings is supplied,<br>`ReplaceKeyPrefixWith` is not required. It<br>can be supplied only if `ReplaceKeyWith` is not<br>supplied.                                                                                                                                                                        |
+| `ReplaceKeyWith`              | The object key to be used in the `Location`<br>header that is returned in the response.<br>If one of its siblings is supplied,<br>`ReplaceKeyWith` is not required. It can be<br>supplied only if `ReplaceKeyPrefixWith` is not<br>supplied.                                                                                                                                                                                           |
+| `HttpRedirectCode`            | The HTTP redirect code to be used in the<br>`Location` header that is returned in the<br>response.<br>If one of its siblings is supplied,<br>`HttpRedirectCode` is not required.                                                                                                                                                                                                                                                       |
+
+#### Redirection rules examples
+
+The following examples explain common redirection tasks:
+
+###### Important
+
+To create redirection rules in the new Amazon S3 console, you must use
+JSON.
+
+###### Example 1: Redirect after renaming a key prefix
+
+Suppose that your bucket contains the following objects:
+
+- index.html
+- docs/article1.html
+- docs/article2.html
+  You decide to rename the folder from `docs/` to
+  `documents/`. After you make this change, you need to
+  redirect requests for prefix `docs/` to
+  `documents/`. For example, request for
+  `docs/article1.html` will be redirected to
+  `documents/article1.html`.
+
+In this case, you add the following routing rule to the website
+configuration.
+
+JSON
+
+```
+[
+    {
+        "Condition": {
+            "KeyPrefixEquals": "docs/"
+        },
+        "Redirect": {
+            "ReplaceKeyPrefixWith": "documents/"
+        }
+    }
+]
+
+```
+
+XML
+
+```
+  <RoutingRules>
+    <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>docs/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>documents/</ReplaceKeyPrefixWith>
+    </Redirect>
+    </RoutingRule>
+  </RoutingRules>
+```
+
+###### Example 2: Redirect requests for a deleted folder to a page
+
+Suppose that you delete the `images/` folder (that is, you
+delete all objects with the key prefix `images/`). You can
+add a routing rule that redirects requests for any object with the key
+prefix `images/` to a page named
+`folderdeleted.html`.
+
+JSON
+
+```
+[
+    {
+        "Condition": {
+            "KeyPrefixEquals": "images/"
+        },
+        "Redirect": {
+            "ReplaceKeyWith": "folderdeleted.html"
+        }
+    }
+]
+
+```
+
+XML
+
+```
+  <RoutingRules>
+    <RoutingRule>
+    <Condition>
+       <KeyPrefixEquals>images/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyWith>folderdeleted.html</ReplaceKeyWith>
+    </Redirect>
+    </RoutingRule>
+  </RoutingRules>
+```
+
+###### Example 3: Redirect to another domain with a specific path
+
+Suppose you want to redirect requests for a specific path to another domain. For example, you want to redirect requests for `/redirect/me` to `https://example.com/new/path`.
+
+When using both `HostName` and `ReplaceKeyWith` together, Amazon S3 constructs the redirect URL by concatenating the hostname and the replacement key with a forward slash between them. Therefore, you should not include a leading slash in the `ReplaceKeyWith` value. Amazon S3 automatically adds the forward slash between the hostname and the replacement key.
+
+JSON
+
+```
+[
+    {
+        "Condition": {
+            "KeyPrefixEquals": "redirect/me"
+        },
+        "Redirect": {
+            "HostName": "example.com",
+            "ReplaceKeyWith": "new/path"
+        }
+    }
+]
+
+```
+
+XML
+
+```
+  <RoutingRules>
+    <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>redirect/me</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <HostName>example.com</HostName>
+      <ReplaceKeyWith>new/path</ReplaceKeyWith>
+    </Redirect>
+    </RoutingRule>
+  </RoutingRules>
+```
+
+This configuration redirects a request for `https://yourbucket.s3-website-region.amazonaws.com/redirect/me` to `https://example.com/new/path`. Note that `ReplaceKeyWith` is set to `new/path` without a leading slash.
+
+###### Example 4: Redirect for an HTTP error
+
+Suppose that when a requested object is not found, you want to
+redirect requests to an Amazon Elastic Compute Cloud (Amazon EC2) instance. Add a redirection
+rule so that when an HTTP status code **`404 (Not
+ Found)`** is returned, the site visitor is redirected to an
+Amazon EC2 instance that handles the request.
+
+The following example also inserts the object key prefix
+`report-404/` in the redirect. For example, if you
+request a page `ExamplePage.html` and it results in an HTTP
+404 error, the request is redirected to a page
+`report-404/ExamplePage.html` on the specified Amazon EC2
+instance. If there is no routing rule and the HTTP error 404 occurs, the
+error document that is specified in the configuration is
+returned.
+
+JSON
+
+```
+[
+    {
+        "Condition": {
+            "HttpErrorCodeReturnedEquals": "404"
+        },
+        "Redirect": {
+            "HostName": "ec2-11-22-333-44.compute-1.amazonaws.com",
+            "ReplaceKeyPrefixWith": "report-404/"
+        }
+    }
+]
+
+```
+
+XML
+
+```
+  <RoutingRules>
+    <RoutingRule>
+    <Condition>
+      <HttpErrorCodeReturnedEquals>404</HttpErrorCodeReturnedEquals >
+    </Condition>
+    <Redirect>
+      <HostName>ec2-11-22-333-44.compute-1.amazonaws.com</HostName>
+      <ReplaceKeyPrefixWith>report-404/</ReplaceKeyPrefixWith>
+    </Redirect>
+    </RoutingRule>
+  </RoutingRules>
+```
+
+## Redirect requests for an
+
+object
+
+You can redirect requests for an object to another object or URL by setting the
+website redirect location in the metadata of the object. You set the redirect by
+adding the `x-amz-website-redirect-location` property to the object
+metadata. On the Amazon S3 console, you set the **Website Redirect
+Location** in the metadata of the object. If you use the [Amazon S3 API](#page-redirect-using-rest-api "#page-redirect-using-rest-api"), you set
+`x-amz-website-redirect-location`. The website then interprets the
+object as a 301 redirect.
+
+To redirect a request to another object, you set the redirect location to the key
+of the target object. To redirect a request to an external URL, you set the redirect
+location to the URL that you want. For more information about object metadata, see
+[System-defined object metadata](UsingMetadata.md#SysMetadata "UsingMetadata.md#SysMetadata").
+
+When you set a page redirect, you can either keep or delete the source object
+content. For example, if you have a `page1.html` object in your bucket,
+you can redirect any requests for this page to another object,
+`page2.html`. You have two options:
+
+- Keep the content of the `page1.html` object and redirect page
+  requests.
+- Delete the content of `page1.html` and upload a zero-byte
+  object named `page1.html` to replace the existing object and
+  redirect page requests.
+
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the **Buckets** list, choose the name of the
+   bucket that you have configured as a static website (for example,
+   `example.com`).
+3. Under **Objects**, select your object.
+4. Choose **Actions**, and choose **Edit
+   metadata**.
+5. Choose **Metadata**.
+6. Choose **Add Metadata**.
+7. Under **Type**, choose **System
+   Defined**.
+8. In **Key**, choose
+   **x-amz-website-redirect-location**.
+9. In **Value**, enter the key name of the object
+   that you want to redirect to, for example,
+   `/page2.html`.
+
+For another object in the same bucket, the `/` prefix
+in the value is required. You can also set the value to an external
+URL, for example, `http://www.example.com`. 10. Choose **Edit metadata**.
+The following Amazon S3 API actions support the
+`x-amz-website-redirect-location` header in the request. Amazon S3
+stores the header value in the object metadata as
+`x-amz-website-redirect-location`.
+
+- [PUT
+  Object](../API/RESTObjectPUT.md "../API/RESTObjectPUT.md")
+- [Initiate Multipart
+  Upload](../API/mpUploadInitiate.md "../API/mpUploadInitiate.md")
+- [POST
+  Object](../API/RESTObjectPOST.md "../API/RESTObjectPOST.md")
+- [PUT Object -
+  Copy](../API/RESTObjectCOPY.md "../API/RESTObjectCOPY.md")
+  A bucket configured for website hosting has both the website endpoint and
+  the REST endpoint. A request for a page that is configured as a 301 redirect
+  has the following possible outcomes, depending on the endpoint of the
+  request:
+
+- Region-specific website endpoint –
+  Amazon S3 redirects the page request according to the value of
+  the `x-amz-website-redirect-location` property.
+- REST endpoint – Amazon S3 doesn't
+  redirect the page request. It returns the requested object.
+  For more information about the endpoints, see [Key differences between a website endpoint
+  and a REST API endpoint](WebsiteEndpoints.md#WebsiteRestEndpointDiff "WebsiteEndpoints.md#WebsiteRestEndpointDiff").
+
+When setting a page redirect, you can either keep or delete the object
+content. For example, suppose that you have a `page1.html` object
+in your bucket.
+
+- To keep the content of `page1.html` and only redirect
+  page requests, you can submit a [PUT Object - Copy](../API/RESTObjectCOPY.md "../API/RESTObjectCOPY.md")
+  request to create a new `page1.html` object that uses the
+  existing `page1.html` object as the source. In your
+  request, you set the `x-amz-website-redirect-location`
+  header. When the request is complete, you have the original page
+  with its content unchanged, but Amazon S3 redirects any requests for the
+  page to the redirect location that you specify.
+- To delete the content of the `page1.html` object and
+  redirect requests for the page, you can send a PUT Object request to
+  upload a zero-byte object that has the same object key:
+  `page1.html`. In the PUT request, you set
+  `x-amz-website-redirect-location` for
+  `page1.html` to the new object. When the request is
+  complete, `page1.html` has no content, and requests are
+  redirected to the location that is specified by
+  `x-amz-website-redirect-location`.
+  When you retrieve the object using the [GET Object](../API/RESTObjectGET.md "../API/RESTObjectGET.md") action, along
+  with other object metadata, Amazon S3 returns the
+  `x-amz-website-redirect-location` header in the
+  response.

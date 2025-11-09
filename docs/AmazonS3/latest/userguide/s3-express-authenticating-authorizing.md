@@ -50,7 +50,7 @@ Access to bucket-level actions can be granted only in IAM identity-based policie
 (user or role), not bucket policies.
 
 | API                                   | Endpoint type | IAM action                                      | Cross-account access |
-| ------------------------------------- | ------------- | ----------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------- | ------------- | ----------------------------------------------- | -------------------- |
 | `CreateBucket`                        | Regional      | `s3express:CreateBucket`                        | No                   |
 | `DeleteBucket`                        | Regional      | `s3express:DeleteBucket`                        | No                   |
 | `ListDirectoryBuckets`                | Regional      | `s3express:ListAllMyDirectoryBuckets`           | No                   |
@@ -77,4 +77,10 @@ Access to bucket-level actions can be granted only in IAM identity-based policie
 | `ListAccessPointsForDirectoryBuckets` | Zonal         | `s3express:ListAccessPointsForDirectoryBuckets` | Yes                  |
 | `GetAccessPointScope`                 | Zonal         | `s3express:GetAccessPointScope`                 | Yes                  |
 | `PutAccessPointScope`                 | Zonal         | `s3express:PutAccessPointScope`                 | Yes                  |
-| `DeleteAccessPointScope`              | Zonal         | `s3express:DeleteAccessPointScope`              | Yes                  | ###### Topics <br>• [Authorizing Regional endpoint API operations with IAM](s3-express-security-iam.md "s3-express-security-iam.md") <br>• [Authorizing Zonal endpoint API operations with CreateSession](s3-express-create-session.md "s3-express-create-session.md") |
+| `DeleteAccessPointScope`              | Zonal         | `s3express:DeleteAccessPointScope`              | Yes                  |
+
+###### Topics
+
+- [Authorizing Regional endpoint API operations with IAM](s3-express-security-iam.md "s3-express-security-iam.md")
+- [Authorizing Zonal endpoint API operations with
+  CreateSession](s3-express-create-session.md "s3-express-create-session.md")

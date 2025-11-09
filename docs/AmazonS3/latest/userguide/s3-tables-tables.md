@@ -58,3 +58,4 @@ general purpose bucket. For more information, see [Discovering your data with S3
 - [Deleting an Amazon S3 table](s3-tables-delete.md "s3-tables-delete.md")
 - [Viewing details about an Amazon S3 table](s3-tables-table-details.md "s3-tables-table-details.md")
 - [Managing table policies](s3-tables-table-policy.md "s3-tables-table-policy.md")
+- [Using tags with S3 tables](table-tagging.md "table-tagging.md")

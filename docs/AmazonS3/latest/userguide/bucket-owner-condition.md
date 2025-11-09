@@ -81,9 +81,135 @@ You can use bucket owner condition with the AWS Command Line Interface (AWS CLI)
 REST APIs. When using bucket owner condition with the AWS CLI and Amazon S3 REST APIs, use the
 following parameter names.
 
-| Access method          | Parameter for non-copy operations    | Copy operation source parameter             | Copy operation destination parameter |
-| ---------------------- | ------------------------------------ | ------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS CLI                | `--expected-bucket-owner`            | `--expected-source-bucket-owner`            | `--expected-bucket-owner`            |
-| Amazon S3 REST APIs    | `x-amz-expected-bucket-owner` header | `x-amz-source-expected-bucket-owner` header | `x-amz-expected-bucket-owner` header | The parameter names that are required to use bucket owner condition with the AWS SDKs vary depending on the language. To determine the required parameters, see the SDK documentation for your desired language. You can find the SDK documentation at [Tools to Build on AWS](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/"). ## Examples The following examples show how you can implement bucket owner condition in Amazon S3 using the AWS CLI or the AWS SDK for Java 2.x. **_Example: Upload an object_** The following example uploads an object to S3 bucket `amzn-s3-demo-bucket1`, using bucket owner condition to ensure that `amzn-s3-demo-bucket1` is owned by AWS account `111122223333`. AWS CLI ``` aws s3api put-object \ --bucket ``amzn-s3-demo-bucket1`` --key `exampleobject` --body `example_file.txt` \ --expected-bucket-owner `111122223333` ``` AWS SDK for Java 2.x ```public void putObjectExample() { S3Client s3Client = S3Client.create();; PutObjectRequest request = PutObjectRequest.builder() .bucket("``amzn-s3-demo-bucket1``") .key("`exampleobject`") .expectedBucketOwner("`111122223333`") .build(); Path path = Paths.get("`example_file.txt`"); s3Client.putObject(request, path); }``` **_Example: Copy an object_** The following example copies the object `object1` from S3 bucket `amzn-s3-demo-bucket1` to S3 bucket `amzn-s3-demo-bucket2`. It uses bucket owner condition to ensure that the buckets are owned by the expected accounts according to the following table. |
-| Bucket                 | Expected owner                       |                                             | ---                                  | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `amzn-s3-demo-bucket1` | `111122223333`                       |                                             | `amzn-s3-demo-bucket2`               | `444455556666`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | AWS CLI ``` aws s3api copy-object --copy-source ``amzn-s3-demo-bucket1`/object1` \ --bucket ``amzn-s3-demo-bucket2`` --key `object1copy` \ --expected-source-bucket-owner `111122223333` --expected-bucket-owner `444455556666` ``` AWS SDK for Java 2.x ```public void copyObjectExample() { S3Client s3Client = S3Client.create(); CopyObjectRequest request = CopyObjectRequest.builder() .copySource("``amzn-s3-demo-bucket1`/object1`") .destinationBucket("``amzn-s3-demo-bucket2``") .destinationKey("`object1copy`") .expectedSourceBucketOwner("`111122223333`") .expectedBucketOwner("`444455556666`") .build(); s3Client.copyObject(request); }``` **_Example: Retrieve a bucket policy_** The following example retrieves the access policy for S3 bucket `amzn-s3-demo-bucket1`, using bucket owner condition to ensure that `amzn-s3-demo-bucket1` is owned by AWS account `111122223333`. AWS CLI ``` aws s3api get-bucket-policy --bucket ``amzn-s3-demo-bucket1`` --expected-bucket-owner `111122223333` ``` AWS SDK for Java 2.x ```public void getBucketPolicyExample() { S3Client s3Client = S3Client.create(); GetBucketPolicyRequest request = GetBucketPolicyRequest.builder() .bucket("``amzn-s3-demo-bucket1``") .expectedBucketOwner("`111122223333`") .build(); try { GetBucketPolicyResponse response = s3Client.getBucketPolicy(request); } catch (S3Exception e) { // The call was transmitted successfully, but Amazon S3 couldn't process // it, so it returned an error response. e.printStackTrace(); } }``` ## Restrictions and limitations Amazon S3 bucket owner condition has the following restrictions and limitations: <br>• The value of the bucket owner condition parameter must be an AWS account ID (12-digit numeric value). Service principals aren't supported. <br>• Bucket owner condition isn't available for [CreateBucket](../API/API_CreateBucket.md "../API/API_CreateBucket.md"), [ListBuckets](../API/API_ListBuckets.md "../API/API_ListBuckets.md"), or any of the operations included in [AWS S3 Control](../API/API_Operations_AWS_S3_Control.md "../API/API_Operations_AWS_S3_Control.md"). Amazon S3 ignores any bucket owner condition parameters included with requests to these operations. <br>• Bucket owner condition only verifies that the account specified in the verification parameter owns the bucket. Bucket owner condition doesn't check the configuration of the bucket. It also doesn't guarantee that the bucket's configuration meets any specific conditions or matches any past state. |
+| Access method       | Parameter for non-copy operations    | Copy operation source parameter             | Copy operation destination parameter |
+| ------------------- | ------------------------------------ | ------------------------------------------- | ------------------------------------ |
+| AWS CLI             | `--expected-bucket-owner`            | `--expected-source-bucket-owner`            | `--expected-bucket-owner`            |
+| Amazon S3 REST APIs | `x-amz-expected-bucket-owner` header | `x-amz-source-expected-bucket-owner` header | `x-amz-expected-bucket-owner` header |
+
+The parameter names that are required to use bucket owner condition with the AWS
+SDKs vary depending on the language. To determine the required parameters, see the SDK
+documentation for your desired language. You can find the SDK documentation at [Tools to Build on AWS](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/").
+
+## Examples
+
+The following examples show how you can implement bucket owner condition in Amazon S3 using
+the AWS CLI or the AWS SDK for Java 2.x.
+
+**_Example: Upload an
+object_**
+
+The following example uploads an object to S3 bucket
+`amzn-s3-demo-bucket1`, using bucket owner condition to ensure that
+`amzn-s3-demo-bucket1` is owned by AWS account
+`111122223333`.
+
+AWS CLI
+
+```
+aws s3api put-object \
+                 --bucket ``amzn-s3-demo-bucket1`` --key `exampleobject` --body `example_file.txt` \
+                 --expected-bucket-owner `111122223333`
+```
+
+AWS SDK for Java 2.x
+
+```
+public void putObjectExample() {
+    S3Client s3Client = S3Client.create();;
+    PutObjectRequest request = PutObjectRequest.builder()
+            .bucket("``amzn-s3-demo-bucket1``")
+            .key("`exampleobject`")
+            .expectedBucketOwner("`111122223333`")
+            .build();
+    Path path = Paths.get("`example_file.txt`");
+    s3Client.putObject(request, path);
+}
+```
+
+**_Example: Copy an
+object_**
+
+The following example copies the object `object1` from S3 bucket
+`amzn-s3-demo-bucket1` to S3 bucket
+`amzn-s3-demo-bucket2`. It uses bucket owner condition to ensure
+that the buckets are owned by the expected accounts according to the following
+table.
+
+| Bucket                 | Expected owner |
+| ---------------------- | -------------- |
+| `amzn-s3-demo-bucket1` | `111122223333` |
+| `amzn-s3-demo-bucket2` | `444455556666` |
+
+AWS CLI
+
+```
+aws s3api copy-object --copy-source ``amzn-s3-demo-bucket1`/object1` \
+                            --bucket ``amzn-s3-demo-bucket2`` --key `object1copy` \
+                            --expected-source-bucket-owner `111122223333` --expected-bucket-owner `444455556666`
+```
+
+AWS SDK for Java 2.x
+
+```
+public void copyObjectExample() {
+        S3Client s3Client = S3Client.create();
+        CopyObjectRequest request = CopyObjectRequest.builder()
+                .copySource("``amzn-s3-demo-bucket1`/object1`")
+                .destinationBucket("``amzn-s3-demo-bucket2``")
+                .destinationKey("`object1copy`")
+                .expectedSourceBucketOwner("`111122223333`")
+                .expectedBucketOwner("`444455556666`")
+                .build();
+        s3Client.copyObject(request);
+    }
+```
+
+**_Example: Retrieve a bucket
+policy_**
+
+The following example retrieves the access policy for S3 bucket
+`amzn-s3-demo-bucket1`, using bucket owner condition to ensure that
+`amzn-s3-demo-bucket1` is owned by AWS account
+`111122223333`.
+
+AWS CLI
+
+```
+aws s3api get-bucket-policy --bucket ``amzn-s3-demo-bucket1`` --expected-bucket-owner `111122223333`
+```
+
+AWS SDK for Java 2.x
+
+```
+public void getBucketPolicyExample() {
+    S3Client s3Client = S3Client.create();
+    GetBucketPolicyRequest request = GetBucketPolicyRequest.builder()
+            .bucket("``amzn-s3-demo-bucket1``")
+            .expectedBucketOwner("`111122223333`")
+            .build();
+    try {
+        GetBucketPolicyResponse response = s3Client.getBucketPolicy(request);
+    }
+    catch (S3Exception e) {
+        // The call was transmitted successfully, but Amazon S3 couldn't process
+        // it, so it returned an error response.
+        e.printStackTrace();
+    }
+}
+```
+
+## Restrictions and
+
+limitations
+
+Amazon S3 bucket owner condition has the following restrictions and limitations:
+
+- The value of the bucket owner condition parameter must be an AWS account ID
+  (12-digit numeric value). Service principals aren't supported.
+- Bucket owner condition isn't available for [CreateBucket](../API/API_CreateBucket.md "../API/API_CreateBucket.md"), [ListBuckets](../API/API_ListBuckets.md "../API/API_ListBuckets.md"), or any of the operations included in [AWS S3
+  Control](../API/API_Operations_AWS_S3_Control.md "../API/API_Operations_AWS_S3_Control.md"). Amazon S3 ignores any bucket owner condition parameters included
+  with requests to these operations.
+- Bucket owner condition only verifies that the account specified in the
+  verification parameter owns the bucket. Bucket owner condition doesn't check the
+  configuration of the bucket. It also doesn't guarantee that the bucket's
+  configuration meets any specific conditions or matches any past state.

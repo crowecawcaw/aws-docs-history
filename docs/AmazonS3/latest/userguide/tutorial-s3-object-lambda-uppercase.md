@@ -4,7 +4,7 @@ application with S3 Object Lambda
 
 ###### Note
 
-Starting on November 7th, 2025, S3 Object Lambda will be available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. If you would like to use the service, please sign up prior to November 7th, 2025. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](amazons3-ol-change.md "amazons3-ol-change.md").
+As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](amazons3-ol-change.md "amazons3-ol-change.md").
 
 When you store data in Amazon S3, you can easily share it for use by multiple applications.
 However, each application might have unique data format requirements, and might need
@@ -479,9 +479,449 @@ For **Windows users**, run these commands:
 After you complete this step, you should have the following directory
 structure:
 
-````
+```
 lambda.zip$
   │ transform.py
   │ __pycache__
-| boto3/ │ certifi/ │ pip/ │ requests/ ... ``` ### Create a Lambda function with an execution role (console) 1. Sign in to the AWS Management Console and open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"). 2. In the left navigation pane, choose **Functions**. 3. Choose **Create function**. 4. Choose **Author from scratch**. 5. Under **Basic information**, do the following: 1. For **Function name**, enter `tutorial-object-lambda-function`. 2. For **Runtime**, choose **Python 3.8** or a later version. 6. Expand the **Change default execution role** section. Under **Execution role**, choose **Create a new role with basic Lambda permissions**. In [Step 5](#ol-upper-step5 "#ol-upper-step5") later in this tutorial, you attach the **AmazonS3ObjectLambdaExecutionRolePolicy** to this Lambda function's execution role. 7. Keep the remaining settings set to the defaults. 8. Choose **Create function**. ### Deploy your Lambda function code with .zip file archives and configure the Lambda function (console) 1. In the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"), choose **Functions** in the left navigation pane. 2. Choose the Lambda function that you created earlier (for example, `tutorial-object-lambda-function`). 3. On the Lambda function's details page, choose the **Code** tab. In the **Code Source** section, choose **Upload from** and then **.zip file**. 4. Choose **Upload** to select your local `.zip` file. 5. Choose the `lambda.zip` file that you created earlier, and then choose **Open**. 6. Choose **Save**. 7. In the **Runtime settings** section, choose **Edit**. 8. On the **Edit runtime settings** page, confirm that **Runtime** is set to **Python 3.8** or a later version. 9. To tell the Lambda runtime which handler method in your Lambda function code to invoke, enter `transform.lambda_handler` for **Handler**. When you configure a function in Python, the value of the handler setting is the file name and the name of the handler module, separated by a dot. For example, `transform.lambda_handler` calls the `lambda_handler` method defined in the `transform.py` file. 10. Choose **Save**. 11. (Optional) On your Lambda function's details page, choose the **Configuration** tab. In the left navigation pane, choose **General configuration**, then choose **Edit**. In the **Timeout** field, enter `1` min `0` sec. Keep the remaining settings set to the defaults, and choose **Save**. **Timeout** is the amount of time that Lambda allows a function to run for an invocation before stopping it. The default is 3 seconds. The maximum duration for a Lambda function used by S3 Object Lambda is 60 seconds. Pricing is based on the amount of memory configured and the amount of time that your code runs. ## Step 5: Configure an IAM policy for your Lambda function's execution role To enable your Lambda function to provide customized data and response headers to the `GetObject` caller, your Lambda function's execution role must have IAM permissions to call the `WriteGetObjectResponse` API. ###### To attach an IAM policy to your Lambda function role 1. In the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"), choose **Functions** in the left navigation pane. 2. Choose the function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example, `tutorial-object-lambda-function`). 3. On your Lambda function's details page, choose the **Configuration** tab, and then choose **Permissions** in the left navigation pane. 4. Under **Execution role**, choose the link of the **Role name**. The IAM console opens. 5. On the IAM console's **Summary** page for your Lambda function's execution role, choose the **Permissions** tab. Then, from the **Add Permissions** menu, choose **Attach policies**. 6. On the **Attach Permissions** page, enter `AmazonS3ObjectLambdaExecutionRolePolicy` in the search box to filter the list of policies. Select the check box next to the name of the **AmazonS3ObjectLambdaExecutionRolePolicy** policy. 7. Choose **Attach policies**. ## Step 6: Create an S3 Object Lambda Access Point An S3 Object Lambda Access Point provides the flexibility to invoke a Lambda function directly from an S3 GET request so that the function can process data retrieved from an S3 access point. When creating and configuring an S3 Object Lambda Access Point, you must specify the Lambda function to invoke and provide the event context in JSON format as custom parameters for Lambda to use. ###### To create an S3 Object Lambda Access Point 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the left navigation pane, choose **Object Lambda Access Points**. 3. On the **Object Lambda Access Points** page, choose **Create Object Lambda Access Point**. 4. For **Object Lambda Access Point name**, enter the name that you want to use for the Object Lambda Access Point (for example, `tutorial-object-lambda-accesspoint`). 5. For **Supporting Access Point**, enter or browse to the standard access point that you created in [Step 3](#ol-upper-step3 "#ol-upper-step3") (for example, `tutorial-access-point`), and then choose **Choose supporting Access Point**. 6. For **S3 APIs**, to retrieve objects from the S3 bucket for Lambda function to process, select **GetObject**. 7. For **Invoke Lambda function**, you can choose either of the following two options for this tutorial. <br>• Choose **Choose from functions in your account**, and then choose the Lambda function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example, `tutorial-object-lambda-function`) from the **Lambda function** dropdown list. <br>• Choose **Enter ARN**, and then enter the Amazon Resource Name (ARN) of the Lambda function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4"). 8. For **Lambda function version**, choose **$LATEST** (the latest version of the Lambda function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4")). 9. (Optional) If you need your Lambda function to recognize and process GET requests with range and part number headers, select **Lambda function supports requests using range** and **Lambda function supports requests using part numbers**. Otherwise, clear these two check boxes. For more information about how to use range or part numbers with S3 Object Lambda, see [Working with Range and partNumber headers](range-get-olap.md "range-get-olap.md"). 10. (Optional) Under **Payload - *optional***, add JSON text to provide your Lambda function with additional information. A payload is optional JSON text that you can provide to your Lambda function as input for all invocations coming from a specific S3 Object Lambda Access Point. To customize the behaviors for multiple Object Lambda Access Points that invoke the same Lambda function, you can configure payloads with different parameters, thereby extending the flexibility of your Lambda function. For more information about payload, see [Event context format and usage](olap-event-context.md "olap-event-context.md"). 11. (Optional) For **Request metrics - *optional***, choose **Disable** or **Enable** to add Amazon S3 monitoring to your Object Lambda Access Point. Request metrics are billed at the standard Amazon CloudWatch rate. For more information, see [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 12. Under **Object Lambda Access Point policy - *optional***, keep the default setting. (Optional) You can set a resource policy. This resource policy grants the `GetObject` API permission to use the specified Object Lambda Access Point. 13. Keep the remaining settings set to the defaults, and choose **Create Object Lambda Access Point**. ## Step 7: View the transformed data Now, S3 Object Lambda is ready to transform your data for your use case. In this tutorial, S3 Object Lambda transforms all the text in your object to uppercase. ###### Substeps <br>• [View the transformed data in your S3 Object Lambda Access Point](#ol-upper-step7-check-data "#ol-upper-step7-check-data") <br>• [Run a Python script to print the original and transformed data](#ol-upper-step7-python-print "#ol-upper-step7-python-print") ### View the transformed data in your S3 Object Lambda Access Point When you request to retrieve a file through your S3 Object Lambda Access Point, you make a `GetObject` API call to S3 Object Lambda. S3 Object Lambda invokes the Lambda function to transform your data, and then returns the transformed data as the response to the standard S3 `GetObject` API call. 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the left navigation pane, choose **Object Lambda Access Points**. 3. On the **Object Lambda Access Points** page, choose the S3 Object Lambda Access Point that you created in [Step 6](#ol-upper-step6 "#ol-upper-step6") (for example, `tutorial-object-lambda-accesspoint`). 4. On the **Objects** tab of your S3 Object Lambda Access Point, select the file that has the same name (for example, `tutorial.txt`) as the one that you uploaded to the S3 bucket in [Step 2](#ol-upper-step2 "#ol-upper-step2"). This file should contain all the transformed data. 5. To view the transformed data, choose **Open** or **Download**. ### Run a Python script to print the original and transformed data You can use S3 Object Lambda with your existing applications. To do so, update your application configuration to use the new S3 Object Lambda Access Point ARN that you created in [Step 6](#ol-upper-step6 "#ol-upper-step6") to retrieve data from S3. The following example Python script prints both the original data from the S3 bucket and the transformed data from the S3 Object Lambda Access Point. 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the left navigation pane, choose **Object Lambda Access Points**. 3. On the **Object Lambda Access Points** page, choose the radio button to the left of the S3 Object Lambda Access Point that you created in [Step 6](#ol-upper-step6 "#ol-upper-step6") (for example, `tutorial-object-lambda-accesspoint`). 4. Choose **Copy ARN**. 5. Save the ARN for use later. 6. Write a Python script on your local machine to print both the original data (for example, `tutorial.txt`) from your S3 Bucket and the transformed data (for example, `tutorial.txt`) from your S3 Object Lambda Access Point). You can use the following example script. ``` import boto3 from botocore.config import Config s3 = boto3.client('s3', config=Config(signature_version='s3v4')) def getObject(bucket, key): objectBody = s3.get_object(Bucket = bucket, Key = key) print(objectBody["Body"].read().decode("utf-8")) print("\n") print('Original object from the S3 bucket:') # Replace the two input parameters of getObject() below with # the S3 bucket name that you created in Step 1 and # the name of the file that you uploaded to the S3 bucket in Step 2 getObject("`tutorial-bucket`", "`tutorial.txt`") print('Object transformed by S3 Object Lambda:') # Replace the two input parameters of getObject() below with # the ARN of your S3 Object Lambda Access Point that you saved earlier and # the name of the file with the transformed data (which in this case is # the same as the name of the file that you uploaded to the S3 bucket # in Step 2) getObject("`arn:aws:s3-object-lambda:us-west-2:111122223333:accesspoint/tutorial-object-lambda-accesspoint`", "`tutorial.txt`") ``` 7. Save your Python script with a custom name (for example, `tutorial_print.py` ) in the folder (for example, `object-lambda`) that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") on your local machine. 8. In your local terminal, run the following command from the root of the directory (for example, `object-lambda`) that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4"). ``` `python3 tutorial_print.py` ``` You should see both the original data and the transformed data (all text as uppercase) through the terminal. For example, you should see something like the following text. ``` Original object from the S3 bucket: Amazon S3 Object Lambda Tutorial: You can add your own code to process data retrieved from S3 before returning it to an application. Object transformed by S3 Object Lambda: AMAZON S3 OBJECT LAMBDA TUTORIAL: YOU CAN ADD YOUR OWN CODE TO PROCESS DATA RETRIEVED FROM S3 BEFORE RETURNING IT TO AN APPLICATION. ``` ## Step 8: Clean up If you transformed your data through S3 Object Lambda only as a learning exercise, delete the AWS resources that you allocated so that you no longer accrue charges. ###### Substeps <br>• [Delete the Object Lambda Access Point](#ol-upper-step8-delete-olap "#ol-upper-step8-delete-olap") <br>• [Delete the S3 access point](#ol-upper-step8-delete-ap "#ol-upper-step8-delete-ap") <br>• [Delete the execution role for your Lambda function](#ol-upper-step8-delete-lambda-role "#ol-upper-step8-delete-lambda-role") <br>• [Delete the Lambda function](#ol-upper-step8-delete-lambda-function "#ol-upper-step8-delete-lambda-function") <br>• [Delete the CloudWatch log group](#ol-upper-step8-delete-cloudwatch "#ol-upper-step8-delete-cloudwatch") <br>• [Delete the original file in the S3 source bucket](#ol-upper-step8-delete-file "#ol-upper-step8-delete-file") <br>• [Delete the S3 source bucket](#ol-upper-step8-delete-bucket "#ol-upper-step8-delete-bucket") <br>• [Delete the IAM user](#ol-upper-step8-delete-user "#ol-upper-step8-delete-user") ### Delete the Object Lambda Access Point 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the left navigation pane, choose **Object Lambda Access Points**. 3. On the **Object Lambda Access Points** page, choose the radio button to the left of the S3 Object Lambda Access Point that you created in [Step 6](#ol-upper-step6 "#ol-upper-step6") (for example, `tutorial-object-lambda-accesspoint`). 4. Choose **Delete**. 5. Confirm that you want to delete your Object Lambda Access Point by entering its name in the text field that appears, and then choose **Delete**. ### Delete the S3 access point 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the left navigation pane, choose **Access Points**. 3. Navigate to the access point that you created in [Step 3](#ol-upper-step3 "#ol-upper-step3") (for example, `tutorial-access-point`), and choose the radio button next to the name of the access point. 4. Choose **Delete**. 5. Confirm that you want to delete your access point by entering its name in the text field that appears, and then choose **Delete**. ### Delete the execution role for your Lambda function 1. Sign in to the AWS Management Console and open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"). 2. In the left navigation pane, choose **Functions**. 3. Choose the function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example, `tutorial-object-lambda-function`). 4. On your Lambda function's details page, choose the **Configuration** tab, and then choose **Permissions** in the left navigation pane. 5. Under **Execution role**, choose the link of the **Role name**. The IAM console opens. 6. On the IAM console's **Summary** page of your Lambda function's execution role, choose **Delete role**. 7. In the **Delete role** dialog box, choose **Yes, delete**. ### Delete the Lambda function 1. In the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"), choose **Functions** in the left navigation pane. 2. Select the check box to the left of the name of the function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example, `tutorial-object-lambda-function`). 3. Choose **Actions**, and then choose **Delete**. 4. In the **Delete function** dialog box, choose **Delete**. ### Delete the CloudWatch log group 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the left navigation pane, choose **Log groups**. 3. Find the log group whose name ends with the Lambda function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example, `tutorial-object-lambda-function`). 4. Select the check box to the left of the name of the log group. 5. Choose **Actions**, and then choose **Delete log group(s)**. 6. In the **Delete log group(s)** dialog box, choose **Delete**. ### Delete the original file in the S3 source bucket 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the left navigation pane, choose **Buckets**. 3. In the **Bucket name** list, choose the name of the bucket that you uploaded the original file to in [Step 2](#ol-upper-step2 "#ol-upper-step2") (for example, `tutorial-bucket`). 4. Select the check box to the left of the name of the object that you want to delete (for example, `tutorial.txt`). 5. Choose **Delete**. 6. On the **Delete objects** page, in the **Permanently delete objects?** section, confirm that you want to delete this object by entering `permanently delete` in the text box. 7. Choose **Delete objects**. ### Delete the S3 source bucket 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the left navigation pane, choose **Buckets**. 3. In the **Buckets** list, choose the radio button next to the name of the bucket that you created in [Step 1](#ol-upper-step1 "#ol-upper-step1") (for example, `tutorial-bucket`). 4. Choose **Delete**. 5. On the **Delete bucket** page, confirm that you want to delete the bucket by entering the bucket name in the text field, and then choose **Delete bucket**. ### Delete the IAM user 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. In the left navigation pane, choose **Users**, and then select the check box next to the user name that you want to delete. 3. At the top of the page, choose **Delete**. 4. In the **Delete `user name`?** dialog box, enter the user name in the text input field to confirm the deletion of the user. Choose **Delete**. ## Next steps After completing this tutorial, you can customize the Lambda function for your use case to modify the data returned by standard S3 GET requests. The following is a list of common use cases for S3 Object Lambda: <br>• Masking sensitive data for security and compliance. For more information, see [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md"). <br>• Filtering certain rows of data to deliver specific information. <br>• Augmenting data with information from other services or databases. <br>• Converting across data formats, such as converting XML to JSON for application compatibility. <br>• Compressing or decompressing files as they are being downloaded. <br>• Resizing and watermarking images. For more information, see [Tutorial: Using S3 Object Lambda to dynamically watermark images as they are retrieved](https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/tutorial-s3-object-lambda-uppercase.html "https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/tutorial-s3-object-lambda-uppercase.html"). <br>• Implementing custom authorization rules to access data. For more information about S3 Object Lambda, see [Transforming objects with S3 Object Lambda](transforming-objects.md "transforming-objects.md").
-````
+  | boto3/
+  │ certifi/
+  │ pip/
+  │ requests/
+  ...
+```
+
+### Create a Lambda function with an
+
+execution role (console)
+
+1. Sign in to the AWS Management Console and open the AWS Lambda console at
+   [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+2. In the left navigation pane, choose **Functions**.
+3. Choose **Create function**.
+4. Choose **Author from scratch**.
+5. Under **Basic information**, do the following:
+   1. For **Function name**, enter
+      `tutorial-object-lambda-function`.
+   2. For **Runtime**, choose **Python
+      3.8** or a later version.
+
+6. Expand the **Change default execution role** section.
+   Under **Execution role**, choose **Create a new
+   role with basic Lambda permissions**.
+
+In [Step 5](#ol-upper-step5 "#ol-upper-step5") later in this tutorial,
+you attach the **AmazonS3ObjectLambdaExecutionRolePolicy**
+to this Lambda function's execution role. 7. Keep the remaining settings set to the defaults. 8. Choose **Create function**.
+
+### Deploy your Lambda function code with .zip file
+
+archives and configure the Lambda function (console)
+
+1. In the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"), choose
+   **Functions** in the left navigation pane.
+2. Choose the Lambda function that you created earlier (for example,
+   `tutorial-object-lambda-function`).
+3. On the Lambda function's details page, choose the **Code**
+   tab. In the **Code Source** section, choose
+   **Upload from** and then **.zip
+   file**.
+4. Choose **Upload** to select your local
+   `.zip` file.
+5. Choose the `lambda.zip` file that you created earlier,
+   and then choose **Open**.
+6. Choose **Save**.
+7. In the **Runtime settings** section, choose
+   **Edit**.
+8. On the **Edit runtime settings** page, confirm that
+   **Runtime** is set to **Python 3.8**
+   or a later version.
+9. To tell the Lambda runtime which handler method in your Lambda function code
+   to invoke, enter `transform.lambda_handler` for
+   **Handler**.
+
+When you configure a function in Python, the value of the handler setting
+is the file name and the name of the handler module, separated by a dot. For
+example, `transform.lambda_handler` calls the
+`lambda_handler` method defined in the
+`transform.py` file. 10. Choose **Save**. 11. (Optional) On your Lambda function's details page, choose the
+**Configuration** tab. In the left navigation pane,
+choose **General configuration**, then choose
+**Edit**. In the **Timeout** field,
+enter `1` min `0` sec. Keep the
+remaining settings set to the defaults, and choose
+**Save**.
+
+**Timeout** is the amount of time that Lambda allows a
+function to run for an invocation before stopping it. The default is 3
+seconds. The maximum duration for a Lambda function used by S3 Object Lambda is 60
+seconds. Pricing is based on the amount of memory configured and the amount
+of time that your code runs.
+
+## Step 5: Configure an IAM policy for your Lambda
+
+function's execution role
+
+To enable your Lambda function to provide customized data and response headers to the
+`GetObject` caller, your Lambda function's execution role must have IAM
+permissions to call the `WriteGetObjectResponse` API.
+
+###### To attach an IAM policy to your Lambda function role
+
+1. In the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"), choose
+   **Functions** in the left navigation pane.
+2. Choose the function that you created in [Step
+   4](#ol-upper-step4 "#ol-upper-step4") (for example,
+   `tutorial-object-lambda-function`).
+3. On your Lambda function's details page, choose the
+   **Configuration** tab, and then choose
+   **Permissions** in the left navigation pane.
+4. Under **Execution role**, choose the link of the
+   **Role name**. The IAM console opens.
+5. On the IAM console's **Summary** page for your Lambda
+   function's execution role, choose the **Permissions** tab.
+   Then, from the **Add Permissions** menu, choose
+   **Attach policies**.
+6. On the **Attach Permissions** page, enter
+   `AmazonS3ObjectLambdaExecutionRolePolicy` in the search
+   box to filter the list of policies. Select the check box next to the name of the
+   **AmazonS3ObjectLambdaExecutionRolePolicy** policy.
+7. Choose **Attach policies**.
+
+## Step 6: Create an S3 Object Lambda Access Point
+
+An S3 Object Lambda Access Point provides the flexibility to invoke a Lambda function directly from an S3
+GET request so that the function can process data retrieved from an S3 access point. When
+creating and configuring an S3 Object Lambda Access Point, you must specify the Lambda function to invoke and
+provide the event context in JSON format as custom parameters for Lambda to use.
+
+###### To create an S3 Object Lambda Access Point
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Object Lambda Access Points**.
+3. On the **Object Lambda Access Points** page, choose **Create
+   Object Lambda Access Point**.
+4. For **Object Lambda Access Point name**, enter the name that you want to
+   use for the Object Lambda Access Point (for example,
+   `tutorial-object-lambda-accesspoint`).
+5. For **Supporting Access Point**, enter or browse to the
+   standard access point that you created in [Step 3](#ol-upper-step3 "#ol-upper-step3")
+   (for example, `tutorial-access-point`), and then choose
+   **Choose supporting Access Point**.
+6. For **S3 APIs**, to retrieve objects from the S3 bucket for
+   Lambda function to process, select **GetObject**.
+7. For **Invoke Lambda function**, you can choose either of the
+   following two options for this tutorial.
+   - Choose **Choose from functions in your account**, and
+     then choose the Lambda function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example,
+     `tutorial-object-lambda-function`) from the
+     **Lambda function** dropdown list.
+   - Choose **Enter ARN**, and then enter the Amazon
+     Resource Name (ARN) of the Lambda function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4").
+
+8. For **Lambda function version**, choose
+   **$LATEST** (the latest version of the Lambda function that
+   you created in [Step 4](#ol-upper-step4 "#ol-upper-step4")).
+9. (Optional) If you need your Lambda function to recognize and process GET
+   requests with range and part number headers, select **Lambda function
+   supports requests using range** and **Lambda function
+   supports requests using part numbers**. Otherwise, clear these two
+   check boxes.
+
+For more information about how to use range or part numbers with S3 Object Lambda, see
+[Working with Range and
+partNumber headers](range-get-olap.md "range-get-olap.md"). 10. (Optional) Under **Payload - _optional_**, add JSON text to provide your Lambda
+function with additional information.
+
+A payload is optional JSON text that you can provide to your Lambda function as
+input for all invocations coming from a specific S3 Object Lambda Access Point. To customize the
+behaviors for multiple Object Lambda Access Points that invoke the same Lambda function, you can
+configure payloads with different parameters, thereby extending the flexibility
+of your Lambda function.
+
+For more information about payload, see [Event context format and usage](olap-event-context.md "olap-event-context.md"). 11. (Optional) For **Request metrics - _optional_**, choose **Disable** or
+**Enable** to add Amazon S3 monitoring to your Object Lambda Access Point. Request
+metrics are billed at the standard Amazon CloudWatch rate. For more information, see
+[CloudWatch
+pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 12. Under **Object Lambda Access Point policy - _optional_**, keep the default setting.
+
+(Optional) You can set a resource policy. This resource policy grants the
+`GetObject` API permission
+to
+use the specified Object Lambda Access Point. 13. Keep the remaining settings set to the defaults, and choose **Create
+Object Lambda Access Point**.
+
+## Step 7: View the transformed data
+
+Now, S3 Object Lambda is ready to transform your data for your use case. In this tutorial, S3 Object Lambda
+transforms all the text in your object to uppercase.
+
+###### Substeps
+
+- [View the transformed data in your S3
+  Object Lambda Access Point](#ol-upper-step7-check-data "#ol-upper-step7-check-data")
+- [Run a Python script to print the
+  original and transformed data](#ol-upper-step7-python-print "#ol-upper-step7-python-print")
+
+### View the transformed data in your S3
+
+Object Lambda Access Point
+
+When you request to retrieve a file through your S3 Object Lambda Access Point, you make a
+`GetObject` API call to S3 Object Lambda. S3 Object Lambda invokes the Lambda function to
+transform your data, and then returns the transformed data as the response to the
+standard S3 `GetObject` API call.
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose
+   **Object Lambda Access Points**.
+3. On the **Object Lambda Access Points** page, choose the S3 Object Lambda Access Point that
+   you created in [Step 6](#ol-upper-step6 "#ol-upper-step6") (for example,
+   `tutorial-object-lambda-accesspoint`).
+4. On the **Objects** tab of your S3 Object Lambda Access Point, select the file
+   that has the same name (for example, `tutorial.txt`) as
+   the one that you uploaded to the S3 bucket in [Step 2](#ol-upper-step2 "#ol-upper-step2").
+
+This file should contain all the transformed data. 5. To view the transformed data, choose **Open** or
+**Download**.
+
+### Run a Python script to print the
+
+original and transformed data
+
+You can use S3 Object Lambda with your existing applications. To do so, update your
+application configuration to use the new S3 Object Lambda Access Point ARN that you created in [Step 6](#ol-upper-step6 "#ol-upper-step6") to retrieve data from
+S3.
+
+The following example Python script prints both the original data from the S3
+bucket and the transformed data from the S3 Object Lambda Access Point.
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose
+   **Object Lambda Access Points**.
+3. On the **Object Lambda Access Points** page, choose the radio button to
+   the left of the S3 Object Lambda Access Point that you created in [Step 6](#ol-upper-step6 "#ol-upper-step6") (for example,
+   `tutorial-object-lambda-accesspoint`).
+4. Choose **Copy ARN**.
+5. Save the ARN for use later.
+6. Write a Python script on your local machine to print both the original
+   data (for example, `tutorial.txt`) from your S3 Bucket
+   and the transformed data (for example, `tutorial.txt`)
+   from your S3 Object Lambda Access Point). You can use the following example script.
+
+```
+import boto3
+from botocore.config import Config
+
+s3 = boto3.client('s3', config=Config(signature_version='s3v4'))
+
+def getObject(bucket, key):
+    objectBody = s3.get_object(Bucket = bucket, Key = key)
+    print(objectBody["Body"].read().decode("utf-8"))
+    print("\n")
+
+print('Original object from the S3 bucket:')
+# Replace the two input parameters of getObject() below with
+# the S3 bucket name that you created in Step 1 and
+# the name of the file that you uploaded to the S3 bucket in Step 2
+getObject("`tutorial-bucket`",
+          "`tutorial.txt`")
+
+print('Object transformed by S3 Object Lambda:')
+# Replace the two input parameters of getObject() below with
+# the ARN of your S3 Object Lambda Access Point that you saved earlier and
+# the name of the file with the transformed data (which in this case is
+# the same as the name of the file that you uploaded to the S3 bucket
+# in Step 2)
+getObject("`arn:aws:s3-object-lambda:us-west-2:111122223333:accesspoint/tutorial-object-lambda-accesspoint`",
+          "`tutorial.txt`")
+```
+
+7. Save your Python script with a custom name (for example,
+   `tutorial_print.py` ) in the folder (for example,
+   `object-lambda`) that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") on your local machine.
+8. In your local terminal, run the following command from the root of the
+   directory (for example, `object-lambda`) that you created
+   in [Step 4](#ol-upper-step4 "#ol-upper-step4").
+
+```
+`python3 tutorial_print.py`
+```
+
+You should see both the original data and the transformed data (all text
+as uppercase) through the terminal. For example, you should see something
+like the following text.
+
+```
+Original object from the S3 bucket:
+Amazon S3 Object Lambda Tutorial:
+You can add your own code to process data retrieved from S3 before
+returning it to an application.
+
+Object transformed by S3 Object Lambda:
+AMAZON S3 OBJECT LAMBDA TUTORIAL:
+YOU CAN ADD YOUR OWN CODE TO PROCESS DATA RETRIEVED FROM S3 BEFORE
+RETURNING IT TO AN APPLICATION.
+```
+
+## Step 8: Clean up
+
+If you transformed your data through S3 Object Lambda only as a learning exercise, delete the
+AWS resources that you allocated so that you no longer accrue charges.
+
+###### Substeps
+
+- [Delete the Object Lambda Access Point](#ol-upper-step8-delete-olap "#ol-upper-step8-delete-olap")
+- [Delete the S3 access point](#ol-upper-step8-delete-ap "#ol-upper-step8-delete-ap")
+- [Delete the execution role for
+  your Lambda function](#ol-upper-step8-delete-lambda-role "#ol-upper-step8-delete-lambda-role")
+- [Delete the Lambda
+  function](#ol-upper-step8-delete-lambda-function "#ol-upper-step8-delete-lambda-function")
+- [Delete the CloudWatch log group](#ol-upper-step8-delete-cloudwatch "#ol-upper-step8-delete-cloudwatch")
+- [Delete the original file in the S3
+  source bucket](#ol-upper-step8-delete-file "#ol-upper-step8-delete-file")
+- [Delete the S3 source bucket](#ol-upper-step8-delete-bucket "#ol-upper-step8-delete-bucket")
+- [Delete the IAM user](#ol-upper-step8-delete-user "#ol-upper-step8-delete-user")
+
+### Delete the Object Lambda Access Point
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose
+   **Object Lambda Access Points**.
+3. On the **Object Lambda Access Points** page, choose the radio button to
+   the left of the S3 Object Lambda Access Point that you created in [Step 6](#ol-upper-step6 "#ol-upper-step6") (for example,
+   `tutorial-object-lambda-accesspoint`).
+4. Choose **Delete**.
+5. Confirm that you want to delete your Object Lambda Access Point by entering its name in the
+   text field that appears, and then choose **Delete**.
+
+### Delete the S3 access point
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Access
+   Points**.
+3. Navigate to the access point that you created in [Step 3](#ol-upper-step3 "#ol-upper-step3") (for example,
+   `tutorial-access-point`), and choose the radio
+   button next to the name of the access point.
+4. Choose **Delete**.
+5. Confirm that you want to delete your access point by entering its name in the text
+   field that appears, and then choose **Delete**.
+
+### Delete the execution role for
+
+your Lambda function
+
+1. Sign in to the AWS Management Console and open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+2. In the left navigation pane, choose **Functions**.
+3. Choose the function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example,
+   `tutorial-object-lambda-function`).
+4. On your Lambda function's details page, choose the
+   **Configuration** tab, and then choose
+   **Permissions** in the left navigation pane.
+5. Under **Execution role**, choose the link of the
+   **Role name**. The IAM console opens.
+6. On the IAM console's **Summary** page of your Lambda
+   function's execution role, choose **Delete role**.
+7. In the **Delete role** dialog box, choose **Yes,
+   delete**.
+
+### Delete the Lambda
+
+function
+
+1. In the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"), choose
+   **Functions** in the left navigation pane.
+2. Select the check box to the left of the name of the function that you
+   created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example,
+   `tutorial-object-lambda-function`).
+3. Choose **Actions**, and then choose
+   **Delete**.
+4. In the **Delete function** dialog box, choose
+   **Delete**.
+
+### Delete the CloudWatch log group
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the left navigation pane, choose **Log
+   groups**.
+3. Find the log group whose name ends with the Lambda function that you
+   created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example,
+   `tutorial-object-lambda-function`).
+4. Select the check box to the left of the name of the log group.
+5. Choose **Actions**, and then choose **Delete log
+   group(s)**.
+6. In the **Delete log group(s)** dialog box, choose
+   **Delete**.
+
+### Delete the original file in the S3
+
+source bucket
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Buckets**.
+3. In the **Bucket name** list, choose the name of the
+   bucket that you uploaded the original file to in [Step 2](#ol-upper-step2 "#ol-upper-step2") (for example,
+   `tutorial-bucket`).
+4. Select the check box to the left of the name of the object that you want
+   to delete (for example, `tutorial.txt`).
+5. Choose **Delete**.
+6. On the **Delete objects** page, in the
+   **Permanently delete objects?** section, confirm that
+   you want to delete this object by entering `permanently
+delete` in the text box.
+7. Choose **Delete objects**.
+
+### Delete the S3 source bucket
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Buckets**.
+3. In the **Buckets** list, choose the radio button next to
+   the name of the bucket that you created in [Step 1](#ol-upper-step1 "#ol-upper-step1") (for example,
+   `tutorial-bucket`).
+4. Choose **Delete**.
+5. On the **Delete bucket** page, confirm that you want to
+   delete the bucket by entering the bucket name in the text field, and then
+   choose **Delete bucket**.
+
+### Delete the IAM user
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the left navigation pane, choose **Users**, and then
+   select the check box next to the user name that you want to delete.
+3. At the top of the page, choose **Delete**.
+4. In the **Delete `user name`?**
+   dialog box, enter the user name in the text input field to confirm the
+   deletion of the user. Choose **Delete**.
+
+## Next steps
+
+After completing this tutorial, you can customize the Lambda function for your use case
+to modify the data returned by standard S3 GET requests.
+
+The following is a list of common use cases for S3 Object Lambda:
+
+- Masking sensitive data for security and compliance.
+
+For more information, see [Tutorial:
+Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md").
+
+- Filtering certain rows of data to deliver specific information.
+- Augmenting data with information from other services or databases.
+- Converting across data formats, such as converting XML to JSON for application
+  compatibility.
+- Compressing or decompressing files as they are being downloaded.
+- Resizing and watermarking images.
+
+For more information, see [Tutorial: Using S3 Object Lambda to dynamically watermark images as they are
+retrieved](https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/tutorial-s3-object-lambda-uppercase.html "https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/tutorial-s3-object-lambda-uppercase.html").
+
+- Implementing custom authorization rules to access data.
+
+For more information about S3 Object Lambda, see [Transforming objects with S3 Object Lambda](transforming-objects.md "transforming-objects.md").

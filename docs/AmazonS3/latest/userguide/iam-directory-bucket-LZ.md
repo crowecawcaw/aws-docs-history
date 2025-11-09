@@ -42,6 +42,133 @@ see [Policy actions for directory buckets](s3-express-security-iam.md#s3-express
 
 The following condition key only applies to Local Zones and isn't supported in Availability Zones and AWS Regions.
 
-| API operations                                                           | Policy actions            | Description                                                                                                                                                                                             | Condition key                                   | Description                                                                                                                                                                                    | Type     |
-| ------------------------------------------------------------------------ | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Zonal endpoint API operations](s3-express-APIs.md "s3-express-APIs.md") | `s3express:CreateSession` | Grants permission to create a session token, which is used for granting access to all Zonal endpoint API operations, such as `CreateSession`, `HeadBucket`, `CopyObject`, `PutObject`, and `GetObject`. | `s3express:AllAccessRestrictedToLocalZoneGroup` | Filters all access to the bucket unless the request originates from the AWS Local Zone network border groups provided in this condition key. **Values:** Local Zone network border group value | `String` | ## Example policies To restrict object access to requests from within a data residency boundary that you define (specifically, a Local Zone Group which is a set of Local Zones parented to the same AWS Region), you can set any of the following policies: <br>• The service control policy (SCP). For information about SCPs, see [Service control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the _AWS Organizations User Guide_. <br>• The IAM identity-based policy for the IAM role. <br>• The VPC endpoint policy. For more information about the VPC endpoint policies, see [Control access to VPC endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _AWS PrivateLink Guide_. <br>• The S3 bucket policy. ###### Note The condition key `s3express:AllAccessRestrictedToLocalZoneGroup` doesn't support access from an on-premises environment. To support the access from an on-premises environment, you must add the source IP to the policies. For more information, see [aws:SourceIp](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceip "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceip") in the IAM User Guide. ###### Example – SCP policy ``{ "Version": "2012-10-17", "Statement": [ { "Sid": "Access-to-specific-LocalZones-only", "Effect": "Deny", "Action": [ "s3express:*", ], "Resource": "*", "Condition": { "StringNotEqualsIfExists": { "s3express:AllAccessRestrictedToLocalZoneGroup": [ "`local-zone-network-border-group-value`" ] } } } ] }`` ###### Example – IAM identity-based policy (attached to IAM role) JSON `` `{ "Version":"2012-10-17", "Statement": { "Effect": "Deny", "Action": "s3express:CreateSession", "Resource": "*", "Condition": { "StringNotEqualsIfExists": { "s3express:AllAccessRestrictedToLocalZoneGroup": [ "`local-zone-network-border-group-value`" ] } } } }` `` ###### Example – VPC endpoint policy JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "Access-to-specific-LocalZones-only", "Principal": "*", "Action": "s3express:CreateSession", "Effect": "Deny", "Resource": "*", "Condition": { "StringNotEqualsIfExists": { "s3express:AllAccessRestrictedToLocalZoneGroup": [ "`local-zone-network-border-group-value`" ] } } } ] }` `` ###### Example – bucket policy JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "Access-to-specific-LocalZones-only", "Principal": "*", "Action": "s3express:CreateSession", "Effect": "Deny", "Resource": "*", "Condition": { "StringNotEqualsIfExists": { "s3express:AllAccessRestrictedToLocalZoneGroup": [ "`local-zone-network-border-group-value`" ] } } } ] }` `` |
+| API operations                                                              | Policy actions            | Description                                                                                                                                                                                                         | Condition key                                   | Description                                                                                                                                                                                             | Type     |
+| --------------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| [Zonal<br>endpoint API operations](s3-express-APIs.md "s3-express-APIs.md") | `s3express:CreateSession` | Grants permission to create a session token, which is used for<br>granting access to all Zonal endpoint API operations, such as<br>`CreateSession`, `HeadBucket`,<br>`CopyObject`, `PutObject`, and<br>`GetObject`. | `s3express:AllAccessRestrictedToLocalZoneGroup` | Filters all access to the bucket unless the request originates from the AWS Local Zone network<br>border groups provided in this condition key.<br>**Values:**<br>Local Zone network border group value | `String` |
+
+## Example policies
+
+To
+restrict object access to requests from within a data residency boundary that you define
+(specifically, a Local Zone Group which is a set of Local Zones parented to the same
+AWS Region), you can set any of the following policies:
+
+- The service control policy (SCP). For information about SCPs, see [Service
+  control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the
+  _AWS Organizations User Guide_.
+- The IAM identity-based policy for the IAM role.
+- The VPC endpoint policy. For more information about the VPC endpoint policies,
+  see [Control access to VPC
+  endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the
+  _AWS PrivateLink Guide_.
+- The S3 bucket policy.
+
+###### Note
+
+The condition key `s3express:AllAccessRestrictedToLocalZoneGroup` doesn't support access from an on-premises environment.
+To support the access from an on-premises environment, you must add
+the source IP to the policies. For more information, see [aws:SourceIp](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceip "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceip") in the IAM User Guide.
+
+###### Example – SCP policy
+
+```
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Access-to-specific-LocalZones-only",
+            "Effect": "Deny",
+            "Action": [
+                "s3express:*",
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEqualsIfExists": {
+                    "s3express:AllAccessRestrictedToLocalZoneGroup": [
+                        "`local-zone-network-border-group-value`"
+                    ]
+                }
+            }
+        }
+    ]
+}
+
+```
+
+###### Example – IAM identity-based policy (attached to IAM role)
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Effect": "Deny",
+ "Action": "s3express:CreateSession",
+ "Resource": "*",
+ "Condition": {
+ "StringNotEqualsIfExists": {
+ "s3express:AllAccessRestrictedToLocalZoneGroup": [
+ "`local-zone-network-border-group-value`"
+ ]
+ }
+ }
+ }
+}`
+
+```
+
+###### Example – VPC endpoint policy
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Access-to-specific-LocalZones-only",
+ "Principal": "*",
+ "Action": "s3express:CreateSession",
+ "Effect": "Deny",
+ "Resource": "*",
+ "Condition": {
+ "StringNotEqualsIfExists": {
+ "s3express:AllAccessRestrictedToLocalZoneGroup": [
+ "`local-zone-network-border-group-value`"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+###### Example – bucket policy
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Access-to-specific-LocalZones-only",
+ "Principal": "*",
+ "Action": "s3express:CreateSession",
+ "Effect": "Deny",
+ "Resource": "*",
+ "Condition": {
+ "StringNotEqualsIfExists": {
+ "s3express:AllAccessRestrictedToLocalZoneGroup": [
+ "`local-zone-network-border-group-value`"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```

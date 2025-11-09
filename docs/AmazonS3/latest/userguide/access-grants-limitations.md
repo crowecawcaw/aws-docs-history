@@ -39,6 +39,7 @@ S3 Access Grants is currently available in the following AWS Regions:
 | `ap-southeast-2` | Asia Pacific (Sydney)     |
 | `ap-southeast-3` | Asia Pacific (Jakarta)    |
 | `ap-southeast-4` | Asia Pacific (Melbourne)  |
+| `ap-southeast-7` | Asia Pacific (Thailand)   |
 | `ca-central-1`   | Canada (Central)          |
 | `ca-west-1`      | Canada West (Calgary)     |
 | `eu-central-1`   | Europe (Frankfurt)        |
@@ -52,6 +53,7 @@ S3 Access Grants is currently available in the following AWS Regions:
 | `il-central-1`   | Israel (Tel Aviv)         |
 | `me-central-1`   | Middle East (UAE)         |
 | `me-south-1`     | Middle East (Bahrain)     |
+| `mx-central-1`   | Mexico (Central)          |
 | `sa-east-1`      | South America (São Paulo) |
 | `us-gov-east-1`  | AWS GovCloud (US-East)    |
 | `us-gov-west-1`  | AWS GovCloud (US-West)    |

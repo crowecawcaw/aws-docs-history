@@ -22,7 +22,7 @@ _FSx for OpenZFS User Guide_.
 | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------------- |
 | `AbortMultipartUpload`                     | Supported                             | Supported                                                      |
 | `CompleteMultipartUpload`                  | Supported                             | Supported                                                      |
-| `CopyObject` (same-Region copies only)     | Supported                             | Supported, if source and destination are the same access point |
+| `CopyObject`<br>(same-Region copies only)  | Supported                             | Supported, if source and destination are the same access point |
 | `CreateMultipartUpload`                    | Supported                             | Supported                                                      |
 | `DeleteObject`                             | Supported                             | Supported                                                      |
 | `DeleteObjects`                            | Supported                             | Supported                                                      |

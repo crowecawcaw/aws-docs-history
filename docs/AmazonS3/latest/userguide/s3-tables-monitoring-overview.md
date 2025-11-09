@@ -27,4 +27,3 @@ the request, when it was made, and additional details. For more information, see
 ###### Topics
 
 - [Logging with AWS CloudTrail for S3 Tables](s3-tables-logging.md "s3-tables-logging.md")
-- [Monitoring metrics with Amazon CloudWatch](s3-tables-cloudwatch-metrics.md "s3-tables-cloudwatch-metrics.md")

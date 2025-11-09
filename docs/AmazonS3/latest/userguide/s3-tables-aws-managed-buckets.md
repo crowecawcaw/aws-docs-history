@@ -13,12 +13,143 @@ your account's resources in that Region.
 
 The following table compares AWS managed table buckets with customer-managed table buckets.
 
-| **Feature**           | **AWS managed table buckets**                                                                                                                                    | **Customer-managed table buckets**                                |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Creation**          | Automatically created by AWS services                                                                                                                            | You create these manually                                         |
-| **Naming**            | Use a standard naming convention (`aws-s3`)                                                                                                                      | You define your own names                                         |
-| **Table creation**    | Only AWS services can create tables                                                                                                                              | You can create tables                                             |
-| **Namespace control** | You can't create or delete namespaces (all tables belong to a fixed namespace)                                                                                   | You can create and delete namespaces                              |
-| **Access**            | Read-only access                                                                                                                                                 | Full access                                                       |
-| **Encryption**        | You can change the default encryption (SSE-S3) settings only if you encrypted the initial table with a customer managed AWS Key Management Service (AWS KMS) key | You can set bucket-level default encryption and modify it anytime |
-| **Maintenance**       | Managed by AWS services                                                                                                                                          | You can customize automated maintenance at the bucket level       | ## Permissions to work with AWS managed table buckets and to query tables To work with AWS managed table buckets, you need permissions to create AWS managed table buckets and tables and to specify encryption settings for AWS managed tables. You also need permissions to query the tables in your AWS managed table buckets. The following example policy allows you to create an AWS managed table bucket through an S3 Metadata configuration: ``{ "Version":"2012-10-17", "Statement":[ { "Sid":"PermissionsToWorkWithMetadataTables", "Effect":"Allow", "Action":[ "s3:CreateBucketMetadataTableConfiguration", "s3tables:CreateTableBucket", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:GetTable", "s3tables:PutTablePolicy" "s3tables:PutTableEncryption", "kms:DescribeKey" ], "Resource":[ "arn:aws:s3:::bucket/`amzn-s3-demo-source-bucket`", "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3", "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3/table/*", "arn:aws:kms:`us-east-1`:`111122223333`:key/`01234567-89ab-cdef-0123-456789abcdef`" ] } ] }`` The following example policy allows you to query tables in AWS managed table buckets: ``{ "Version":"2012-10-17", "Statement":[ { "Sid":"PermissionsToQueryMetadataTables", "Effect":"Allow", "Action":[ "s3tables:GetTable", "s3tables:GetTableData", "s3tables:GetTableMetadataLocation", "kms:Decrypt" ], "Resource":[ "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3", "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3/table/*", "arn:aws:kms:`us-east-1`:`111122223333`:key/`01234567-89ab-cdef-0123-456789abcdef`" ] } ] }`` ## Querying tables in AWS managed table buckets You can query AWS managed tables in AWS managed table buckets using access methods and engines supported by S3 Tables. The following are some example queries. Using standard SQL The following example shows how to query AWS managed tables using standard SQL syntax: `SELECT * FROM "s3tablescatalog/aws-s3"."b_``amzn-s3-demo-source-bucket``"."inventory" LIMIT 10;` The following example shows how to join AWS managed tables with your own tables: ```SELECT * FROM "s3tablescatalog/aws-s3"."b_``amzn-s3-demo-source-bucket``"."inventory" `a` JOIN "s3tablescatalog/`amzn-s3-demo-table-bucket`"."`my_namespace`"."`my_table`" `b` ON `a`.key = `b`.key LIMIT 10;``` Using Spark The following example shows how to query your table with Spark: ``spark.sql(""" SELECT * FROM ice_catalog.inventory `a` JOIN ice_catalog.`my_table` `b` ON `a`.key = `b`.key """).show(10, true)`` The following example shows how to joining your AWS managed table with another table: ``SELECT * FROM inventory `a` JOIN my_table `b` ON `a`.key = `b`.key LIMIT 10;`` ## Encryption for AWS managed table buckets By default, AWS managed table buckets are encrypted with server-side encryption using Amazon S3 managed keys (SSE-S3). After your AWS managed table bucket is created, you can use [PutTableBucketEncryption](../API/API_s3Buckets_PutTableBucketEncryption.md "../API/API_s3Buckets_PutTableBucketEncryption.md") to set the bucket's default encryption setting to use server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS). During creation of your AWS managed tables, you can choose to encrypt them with SSE-KMS. If you choose to use SSE-KMS, you must provide a customer managed KMS key in the same Region as your AWS managed table bucket. You can set the encryption type for your AWS managed tables only during table creation. After an AWS managed table is created, you can't change its encryption setting. If you want the AWS managed table bucket and the tables stored in it to use the same KMS key, make sure to use the same KMS key that you used to encrypt your tables to encrypt your table bucket after it's been created. After you've changed the default encryption settings for your table bucket to use SSE-KMS, those encryption settings are used for any future tables that are created in the bucket. |
+| **Feature**           | **AWS managed table buckets**                                                                                                                                       | **Customer-managed table buckets**                                |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| **Creation**          | Automatically created by AWS services                                                                                                                               | You create these manually                                         |
+| **Naming**            | Use a standard naming convention (`aws-s3`)                                                                                                                         | You define your own names                                         |
+| **Table creation**    | Only AWS services can create tables                                                                                                                                 | You can create tables                                             |
+| **Namespace control** | You can't create or delete namespaces (all tables belong to a fixed<br>namespace)                                                                                   | You can create and delete namespaces                              |
+| **Access**            | Read-only access                                                                                                                                                    | Full access                                                       |
+| **Encryption**        | You can change the default encryption (SSE-S3) settings only if you encrypted<br>the initial table with a customer managed AWS Key Management Service (AWS KMS) key | You can set bucket-level default encryption and modify it anytime |
+| **Maintenance**       | Managed by AWS services                                                                                                                                             | You can customize automated maintenance at the bucket level       |
+
+## Permissions to work with AWS managed table buckets and to query
+
+tables
+
+To work with AWS managed table buckets, you need permissions to create AWS managed table buckets and
+tables and to specify encryption settings for AWS managed tables. You also need permissions to query
+the tables in your AWS managed table buckets.
+
+The following example policy allows you to create an AWS managed table bucket through an S3
+Metadata configuration:
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid":"PermissionsToWorkWithMetadataTables",
+         "Effect":"Allow",
+         "Action":[
+             "s3:CreateBucketMetadataTableConfiguration",
+             "s3tables:CreateTableBucket",
+             "s3tables:CreateNamespace",
+             "s3tables:CreateTable",
+             "s3tables:GetTable",
+             "s3tables:PutTablePolicy"
+             "s3tables:PutTableEncryption",
+             "kms:DescribeKey"
+         ],
+         "Resource":[
+            "arn:aws:s3:::bucket/`amzn-s3-demo-source-bucket`",
+            "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3",
+            "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3/table/*",
+            "arn:aws:kms:`us-east-1`:`111122223333`:key/`01234567-89ab-cdef-0123-456789abcdef`"
+         ]
+       }
+    ]
+}
+```
+
+The following example policy allows you to query tables in AWS managed table buckets:
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid":"PermissionsToQueryMetadataTables",
+         "Effect":"Allow",
+         "Action":[
+             "s3tables:GetTable",
+             "s3tables:GetTableData",
+             "s3tables:GetTableMetadataLocation",
+             "kms:Decrypt"
+         ],
+         "Resource":[
+            "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3",
+            "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3/table/*",
+            "arn:aws:kms:`us-east-1`:`111122223333`:key/`01234567-89ab-cdef-0123-456789abcdef`"
+         ]
+       }
+    ]
+}
+```
+
+## Querying tables in AWS managed table buckets
+
+You can query AWS managed tables in AWS managed table buckets using access methods and engines supported by
+S3 Tables. The following are some example queries.
+
+Using standard SQL
+The following example shows how to query AWS managed tables using standard SQL
+syntax:
+
+```
+SELECT *
+FROM "s3tablescatalog/aws-s3"."b_``amzn-s3-demo-source-bucket``"."inventory"
+LIMIT 10;
+```
+
+The following example shows how to join AWS managed tables with your own
+tables:
+
+```
+SELECT *
+FROM "s3tablescatalog/aws-s3"."b_``amzn-s3-demo-source-bucket``"."inventory" `a`
+JOIN "s3tablescatalog/`amzn-s3-demo-table-bucket`"."`my_namespace`"."`my_table`" `b`
+ON `a`.key = `b`.key
+LIMIT 10;
+```
+
+Using Spark
+The following example shows how to query your table with
+Spark:
+
+```
+spark.sql("""
+    SELECT *
+    FROM ice_catalog.inventory `a`
+    JOIN ice_catalog.`my_table` `b`
+    ON `a`.key = `b`.key
+""").show(10, true)
+```
+
+The following example shows how to joining your AWS managed table with another
+table:
+
+```
+SELECT *
+FROM inventory `a`
+JOIN my_table `b`
+ON `a`.key = `b`.key
+LIMIT 10;
+```
+
+## Encryption for AWS managed table buckets
+
+By default, AWS managed table buckets are encrypted with server-side encryption using Amazon S3
+managed keys (SSE-S3). After your AWS managed table bucket is created, you can use [PutTableBucketEncryption](../API/API_s3Buckets_PutTableBucketEncryption.md "../API/API_s3Buckets_PutTableBucketEncryption.md") to set the bucket's default encryption setting to
+use server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS).
+
+During creation of your AWS managed tables, you can choose to encrypt them with SSE-KMS.
+If you choose to use SSE-KMS, you must provide a customer managed KMS key in the same Region as your
+AWS managed table bucket. You can set the encryption type for your AWS managed tables only during
+table creation. After an AWS managed table is created, you can't change its encryption setting.
+
+If you want the AWS managed table bucket and the tables stored in it to use the same
+KMS key, make sure to use the same KMS key that you used to encrypt your tables to encrypt your
+table bucket after it's been created. After you've changed the default encryption settings for your
+table bucket to use SSE-KMS, those encryption settings are used for any future tables that are created
+in the bucket.

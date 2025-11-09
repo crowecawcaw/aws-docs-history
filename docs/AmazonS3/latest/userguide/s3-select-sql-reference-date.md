@@ -171,36 +171,95 @@ _`time_format_pattern`_
 
 A string that has the following special character interpretations:
 
-| Format           | Example         | Description                                                                                           |
-| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `yy`             | `69`            | 2-digit year                                                                                          |
-| `y`              | `1969`          | 4-digit year                                                                                          |
-| `yyyy`           | `1969`          | Zero-padded 4-digit year                                                                              |
-| `M`              | `1`             | Month of year                                                                                         |
-| `MM`             | `01`            | Zero-padded month of year                                                                             |
-| `MMM`            | `Jan`           | Abbreviated month year name                                                                           |
-| `MMMM`           | `January`       | Full month of year name                                                                               |
-| `MMMMM`          | `J`             | Month of year first letter (NOTE: This format is not valid for use with the `TO_TIMESTAMP` function.) |
-| `d`              | `2`             | Day of month (1-31)                                                                                   |
-| `dd`             | `02`            | Zero-padded day of month (01-31)                                                                      |
-| `a`              | `AM`            | AM or PM of day                                                                                       |
-| `h`              | `3`             | Hour of day (1-12)                                                                                    |
-| `hh`             | `03`            | Zero-padded hour of day (01-12)                                                                       |
-| `H`              | `3`             | Hour of day (0-23)                                                                                    |
-| `HH`             | `03`            | Zero-padded hour of day (00-23)                                                                       |
-| `m`              | `4`             | Minute of hour (0-59)                                                                                 |
-| `mm`             | `04`            | Zero-padded minute of hour (00-59)                                                                    |
-| `s`              | `5`             | Second of minute (0-59)                                                                               |
-| `ss`             | `05`            | Zero-padded second of minute (00-59)                                                                  |
-| `S`              | `0`             | Fraction of a second (precision: 0.1, range: 0.0-0.9)                                                 |
-| `SS`             | `6`             | Fraction of a second (precision: 0.01, range: 0.0-0.99)                                               |
-| `SSS`            | `60`            | Fraction of a second (precision: 0.001, range: 0.0-0.999)                                             |
-| `…`              | `…`             | …                                                                                                     |
-| `SSSSSSSSS`      | `60000000`      | Fraction of a second (maximum precision: 1 nanosecond, range: 0.0-0.999999999)                        |
-| `n`              | `60000000`      | Nano of a second                                                                                      |
-| `X`              | `+07` or `Z`    | Offset in hours, or `Z` if the offset is 0                                                            |
-| `XX` or `XXXX`   | `+0700` or `Z`  | Offset in hours and minutes, or `Z` if the offset is 0                                                |
-| `XXX` or `XXXXX` | `+07:00` or `Z` | Offset in hours and minutes, or `Z` if the offset is 0                                                |
-| `x`              | `7`             | Offset in hours                                                                                       |
-| `xx` or `xxxx`   | `700`           | Offset in hours and minutes                                                                           |
-| `xxx` or `xxxxx` | `+07:00`        | Offset in hours and minutes                                                                           | ### Examples ``TO_STRING(`1969-07-20T20:18Z`,  'MMMM d, y')                    -- "July 20, 1969" TO_STRING(`1969-07-20T20:18Z`, 'MMM d, yyyy')                   -- "Jul 20, 1969" TO_STRING(`1969-07-20T20:18Z`, 'M-d-yy')                        -- "7-20-69" TO_STRING(`1969-07-20T20:18Z`, 'MM-d-y')                        -- "07-20-1969" TO_STRING(`1969-07-20T20:18Z`, 'MMMM d, y h:m a')               -- "July 20, 1969 8:18 PM" TO_STRING(`1969-07-20T20:18Z`, 'y-MM-dd''T''H:m:ssX')           -- "1969-07-20T20:18:00Z" TO_STRING(`1969-07-20T20:18+08:00Z`, 'y-MM-dd''T''H:m:ssX')     -- "1969-07-20T20:18:00Z" TO_STRING(`1969-07-20T20:18+08:00`, 'y-MM-dd''T''H:m:ssXXXX')   -- "1969-07-20T20:18:00+0800" TO_STRING(`1969-07-20T20:18+08:00`, 'y-MM-dd''T''H:m:ssXXXXX')  -- "1969-07-20T20:18:00+08:00"`` ## TO_TIMESTAMP Given a string, `TO_TIMESTAMP` converts it to a timestamp. `TO_TIMESTAMP` is the inverse operation of `TO_STRING`. ### Syntax ``TO_TIMESTAMP ( `string` )`` ### Parameters _`string`_ The target string that the function operates on. ### Examples `` TO_TIMESTAMP('2007T')                         -- `2007T` TO_TIMESTAMP('2007-02-23T12:14:33.079-08:00') -- `2007-02-23T12:14:33.079-08:00` `` ## UTCNOW `UTCNOW` returns the current time in UTC as a timestamp. ### Syntax `UTCNOW()` ### Parameters `UTCNOW` takes no parameters. ### Examples `UTCNOW() -- 2017-10-13T16:02:11.123Z` |
+| Format           | Example         | Description                                                                                              |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------- |
+| `yy`             | `69`            | 2-digit year                                                                                             |
+| `y`              | `1969`          | 4-digit year                                                                                             |
+| `yyyy`           | `1969`          | Zero-padded 4-digit year                                                                                 |
+| `M`              | `1`             | Month of year                                                                                            |
+| `MM`             | `01`            | Zero-padded month of<br>year                                                                             |
+| `MMM`            | `Jan`           | Abbreviated month year<br>name                                                                           |
+| `MMMM`           | `January`       | Full month of year name                                                                                  |
+| `MMMMM`          | `J`             | Month of year first letter (NOTE: This format is not valid for use with the<br>`TO_TIMESTAMP` function.) |
+| `d`              | `2`             | Day of month (1-31)                                                                                      |
+| `dd`             | `02`            | Zero-padded day of month<br>(01-31)                                                                      |
+| `a`              | `AM`            | AM or PM of day                                                                                          |
+| `h`              | `3`             | Hour of day (1-12)                                                                                       |
+| `hh`             | `03`            | Zero-padded hour of day<br>(01-12)                                                                       |
+| `H`              | `3`             | Hour of day (0-23)                                                                                       |
+| `HH`             | `03`            | Zero-padded hour of day<br>(00-23)                                                                       |
+| `m`              | `4`             | Minute of hour (0-59)                                                                                    |
+| `mm`             | `04`            | Zero-padded minute of hour<br>(00-59)                                                                    |
+| `s`              | `5`             | Second of minute (0-59)                                                                                  |
+| `ss`             | `05`            | Zero-padded second of minute<br>(00-59)                                                                  |
+| `S`              | `0`             | Fraction of a second (precision: 0.1, range: 0.0-0.9)                                                    |
+| `SS`             | `6`             | Fraction of a second (precision: 0.01, range: 0.0-0.99)                                                  |
+| `SSS`            | `60`            | Fraction of a second (precision: 0.001, range: 0.0-0.999)                                                |
+| `…`              | `…`             | …                                                                                                        |
+| `SSSSSSSSS`      | `60000000`      | Fraction of a second (maximum precision: 1 nanosecond, range: 0.0-0.999999999)                           |
+| `n`              | `60000000`      | Nano of a second                                                                                         |
+| `X`              | `+07` or `Z`    | Offset in hours, or `Z` if the offset is 0                                                               |
+| `XX` or `XXXX`   | `+0700` or `Z`  | Offset in hours and minutes, or `Z` if the offset is 0                                                   |
+| `XXX` or `XXXXX` | `+07:00` or `Z` | Offset in hours and minutes, or `Z` if the offset is 0                                                   |
+| `x`              | `7`             | Offset in hours                                                                                          |
+| `xx` or `xxxx`   | `700`           | Offset in hours and<br>minutes                                                                           |
+| `xxx` or `xxxxx` | `+07:00`        | Offset in hours and<br>minutes                                                                           |
+
+### Examples
+
+```
+TO_STRING(`1969-07-20T20:18Z`,  'MMMM d, y')                    -- "July 20, 1969"
+TO_STRING(`1969-07-20T20:18Z`, 'MMM d, yyyy')                   -- "Jul 20, 1969"
+TO_STRING(`1969-07-20T20:18Z`, 'M-d-yy')                        -- "7-20-69"
+TO_STRING(`1969-07-20T20:18Z`, 'MM-d-y')                        -- "07-20-1969"
+TO_STRING(`1969-07-20T20:18Z`, 'MMMM d, y h:m a')               -- "July 20, 1969 8:18 PM"
+TO_STRING(`1969-07-20T20:18Z`, 'y-MM-dd''T''H:m:ssX')           -- "1969-07-20T20:18:00Z"
+TO_STRING(`1969-07-20T20:18+08:00Z`, 'y-MM-dd''T''H:m:ssX')     -- "1969-07-20T20:18:00Z"
+TO_STRING(`1969-07-20T20:18+08:00`, 'y-MM-dd''T''H:m:ssXXXX')   -- "1969-07-20T20:18:00+0800"
+TO_STRING(`1969-07-20T20:18+08:00`, 'y-MM-dd''T''H:m:ssXXXXX')  -- "1969-07-20T20:18:00+08:00"
+```
+
+## TO_TIMESTAMP
+
+Given a string, `TO_TIMESTAMP` converts it to a timestamp.
+`TO_TIMESTAMP` is the inverse operation of
+`TO_STRING`.
+
+### Syntax
+
+```
+TO_TIMESTAMP ( `string` )
+```
+
+### Parameters
+
+_`string`_
+
+The target string that the function operates on.
+
+### Examples
+
+```
+TO_TIMESTAMP('2007T')                         -- `2007T`
+TO_TIMESTAMP('2007-02-23T12:14:33.079-08:00') -- `2007-02-23T12:14:33.079-08:00`
+```
+
+## UTCNOW
+
+`UTCNOW` returns the current time in UTC as a timestamp.
+
+### Syntax
+
+```
+UTCNOW()
+```
+
+### Parameters
+
+`UTCNOW` takes no parameters.
+
+### Examples
+
+```
+UTCNOW() -- 2017-10-13T16:02:11.123Z
+```

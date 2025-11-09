@@ -183,9 +183,9 @@ S3 RTC replicates 99.99 percent of new objects stored in Amazon S3 within 15 min
 service-level agreement, or SLA). For more information, see [Meeting compliance requirements with
 S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
 
-| Workload requirement                                                                               | S3 RTC (15-minute SLA) | Cross-Region Replication (CRR) | Same-Region Replication (SRR) |
-| -------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------------ | ----------------------------- |
-| Replicate objects between different AWS accounts                                                   | Yes                    | Yes                            | Yes                           |
-| Replicate objects within the same AWS Region within 24-48 hours (not SLA backed)                   | No                     | No                             | Yes                           |
-| Replicate objects between different AWS Regions within 24-48 hours (not SLA backed)                | No                     | Yes                            | No                            |
-| Predictable replication time: Backed by SLA to replicate 99.9 percent of objects within 15 minutes | Yes                    | No                             | No                            |
+| Workload requirement                                                                                  | S3 RTC (15-minute SLA) | Cross-Region Replication (CRR) | Same-Region Replication (SRR) |
+| ----------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------------ | ----------------------------- |
+| Replicate objects between different AWS accounts                                                      | Yes                    | Yes                            | Yes                           |
+| Replicate objects within the same AWS Region within 24-48 hours (not SLA<br>backed)                   | No                     | No                             | Yes                           |
+| Replicate objects between different AWS Regions within 24-48 hours (not SLA<br>backed)                | No                     | Yes                            | No                            |
+| Predictable replication time: Backed by SLA to replicate 99.9 percent of objects<br>within 15 minutes | Yes                    | No                             | No                            |

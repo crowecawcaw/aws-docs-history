@@ -25,12 +25,13 @@ Before you delete an object, consider the following best practices:
 
 - Enable [bucket
   versioning](manage-versioning-examples.md "manage-versioning-examples.md"). [S3 Versioning](Versioning.md "Versioning.md") adds
-  protection against simple `DeleteObject` requests to prevent accidental deletions.
-  For versioned buckets, if you delete the current version of an object or when a
-  delete request doesn’t specify a specific version Id, Amazon S3 doesn’t
-  permanently delete the object. Instead, S3 adds a delete marker, issuing
-  a soft delete of the object. The delete marker then becomes the current (or
-  newest) version of the object with a new version ID. For more information, see [Deleting object
+  protection against simple `DeleteObject` requests to prevent
+  accidental deletions. For versioned buckets, if you delete the current version
+  of an object or when a delete request doesn’t specify a specific version Id,
+  Amazon S3 doesn’t permanently delete the object. Instead, S3 adds a delete marker,
+  issuing a soft delete of the object. The delete marker then becomes the current
+  (or newest) version of the object with a new version ID. For more information,
+  see [Deleting object
   versions from a versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
 - If you want to delete a large number of objects, or for programmatically
   deleting objects based on object creation date, [set a S3 Lifecycle configuration on your bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md"). To monitor these
@@ -66,6 +67,9 @@ object sizes when creating the Lifecycle rules.
   create multiple copies of your data and to replicate them to multiple locations
   at once. You can choose as many destination buckets as needed. Additionally, if
   an object is unintentionally deleted, you'll still have a copy of the data.
+- Avoid sending object version IDs to unversioned buckets. Also, make sure to
+  properly set both the `s3:DeleteObject` and `s3:DeleteObjectVersion` permissions on all
+  buckets (including unversioned buckets).
 
 ## Deleting objects from a
 
@@ -106,6 +110,10 @@ If your bucket is unversioned, you can specify the object's key in the
 `Delete` API operations and Amazon S3 will permanently delete the object. To
 prevent permanent deletion of an object, [enable bucket
 versioning](manage-versioning-examples.md "manage-versioning-examples.md").
+
+For unversioned buckets, if the `s3:DeleteObject` or `s3:DeleteObjectVersion` permissions are
+explicitly denied in your bucket policy, then any `DeleteObject`, `DeleteObjects`, or `DeleteObjectVersion`
+requests result in a `403 Access Denied` error.
 
 ## Deleting objects from an
 

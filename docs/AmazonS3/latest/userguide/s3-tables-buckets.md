@@ -45,3 +45,4 @@ There are several types of Amazon S3 buckets. Before creating a bucket, make sur
   bucket](s3-tables-buckets-details.md "s3-tables-buckets-details.md")
 - [Managing table bucket policies](s3-tables-bucket-policy.md "s3-tables-bucket-policy.md")
 - [Working with AWS managed table buckets](s3-tables-aws-managed-buckets.md "s3-tables-aws-managed-buckets.md")
+- [Using tags with S3 table buckets](table-bucket-tagging.md "table-bucket-tagging.md")

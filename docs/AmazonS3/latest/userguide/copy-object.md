@@ -247,7 +247,319 @@ method to copy a single object within Amazon S3. It also demonstrates how to mak
 multiple copies of an object by using a batch of calls to
 `CopyObject` with the `getcommand()` method.
 
-Copying objects| 1 | Create an instance of an Amazon S3 client by using the
-`Aws\S3\S3Client` class constructor. |
-| 2 | To make multiple copies of an object, you run a batch of calls to the Amazon S3 client [getCommand()](../../../aws-sdk-php/v3/api/class-Aws.md#_getCommand "../../../aws-sdk-php/v3/api/class-Aws.md#_getCommand") method, which is inherited from the [Aws\CommandInterface](../../../aws-sdk-php/v3/api/class-Aws.md "../../../aws-sdk-php/v3/api/class-Aws.md") class. You provide the `CopyObject` command as the first argument and an array containing the source bucket, source key name, target bucket, and target key name as the second argument. | `require 'vendor/autoload.php'; use Aws\CommandPool; use Aws\Exception\AwsException; use Aws\ResultInterface; use Aws\S3\S3Client; $sourceBucket = '*** Your Source Bucket Name ***'; $sourceKeyname = '*** Your Source Object Key ***'; $targetBucket = '*** Your Target Bucket Name ***'; $s3 = new S3Client([ 'version' => 'latest', 'region' => 'us-east-1' ]); // Copy an object. $s3->copyObject([ 'Bucket' => $targetBucket, 'Key' => "$sourceKeyname-copy", 'CopySource' => "$sourceBucket/$sourceKeyname", ]); // Perform a batch of CopyObject operations. $batch = array(); for ($i = 1; $i <= 3; $i++) { $batch[] = $s3->getCommand('CopyObject', [ 'Bucket' => $targetBucket, 'Key' => "{targetKeyname}-$i", 'CopySource' => "$sourceBucket/$sourceKeyname", ]); } try { $results = CommandPool::batch($s3, $batch); foreach ($results as $result) { if ($result instanceof ResultInterface) { // Result handling here } if ($result instanceof AwsException) { // AwsException handling here } } } catch (Exception $e) { // General error handling here }` Python `class ObjectWrapper: """Encapsulates S3 object actions.""" def __init__(self, s3_object): """ :param s3_object: A Boto3 Object resource. This is a high-level resource in Boto3 that wraps object actions in a class-like structure. """ self.object = s3_object self.key = self.object.key` `def copy(self, dest_object): """ Copies the object to another bucket. :param dest_object: The destination object initialized with a bucket and key. This is a Boto3 Object resource. """ try: dest_object.copy_from( CopySource={"Bucket": self.object.bucket_name, "Key": self.object.key} ) dest_object.wait_until_exists() logger.info( "Copied object from %s:%s to %s:%s.", self.object.bucket_name, self.object.key, dest_object.bucket_name, dest_object.key, ) except ClientError: logger.exception( "Couldn't copy object from %s/%s to %s/%s.", self.object.bucket_name, self.object.key, dest_object.bucket_name, dest_object.key, ) raise` Ruby The following tasks guide you through using the Ruby classes to copy an object in Amazon S3 from one bucket to another or within the same bucket. Copying objects| 1 | Use the Amazon S3 modularized gem for version 3 of the AWS SDK for Ruby, require `aws-sdk-s3`, and provide your AWS credentials. For more information about how to provide your credentials, see [Making requests using AWS account or IAM user credentials](../API/AuthUsingAcctOrUserCredentials.md "../API/AuthUsingAcctOrUserCredentials.md") in the _Amazon S3 API Reference_. |
-| 2 | Provide the request information, such as the source bucket name, source key name, destination bucket name, and destination key. | The following Ruby code example demonstrates the preceding tasks by using the `#copy_object` method to copy an object from one bucket to another. `require 'aws-sdk-s3' # Wraps Amazon S3 object actions. class ObjectCopyWrapper attr_reader :source_object # @param source_object [Aws::S3::Object] An existing Amazon S3 object. This is used as the source object for #                                        copy actions. def initialize(source_object) @source_object = source_object end # Copy the source object to the specified target bucket and rename it with the target key. # # @param target_bucket [Aws::S3::Bucket] An existing Amazon S3 bucket where the object is copied. # @param target_object_key [String] The key to give the copy of the object. # @return [Aws::S3::Object, nil] The copied object when successful; otherwise, nil. def copy_object(target_bucket, target_object_key) @source_object.copy_to(bucket: target_bucket.name, key: target_object_key) target_bucket.object(target_object_key) rescue Aws::Errors::ServiceError => e puts "Couldn't copy #{@source_object.key} to #{target_object_key}. Here's why: #{e.message}" end end # Example usage: def run_demo source_bucket_name = "amzn-s3-demo-bucket1" source_key = "my-source-file.txt" target_bucket_name = "amzn-s3-demo-bucket2" target_key = "my-target-file.txt" source_bucket = Aws::S3::Bucket.new(source_bucket_name) wrapper = ObjectCopyWrapper.new(source_bucket.object(source_key)) target_bucket = Aws::S3::Bucket.new(target_bucket_name) target_object = wrapper.copy_object(target_bucket, target_key) return unless target_object puts "Copied #{source_key} from #{source_bucket_name} to #{target_object.bucket_name}:#{target_object.key}." end run_demo if $PROGRAM_NAME == __FILE__` This example describes how to copy an object by using the Amazon S3 REST API. For more information about the REST API, see [CopyObject](../API/RESTObjectCOPY.md "../API/RESTObjectCOPY.md"). This example copies the `flotsam` object from the `amzn-s3-demo-bucket1` bucket to the `jetsam` object of the `amzn-s3-demo-bucket2` bucket, preserving its metadata. ``PUT /jetsam HTTP/1.1 Host: `amzn-s3-demo-bucket2`.s3.amazonaws.com x-amz-copy-source: /`amzn-s3-demo-bucket1`/flotsam Authorization: AWS AKIAIOSFODNN7EXAMPLE:ENoSbxYByFA0UGLZUqJN5EUnLDg= Date: Wed, 20 Feb 2008 22:12:21 +0000`` The signature was generated from the following information. ``PUT\r\n \r\n \r\n Wed, 20 Feb 2008 22:12:21 +0000\r\n x-amz-copy-source:/`amzn-s3-demo-bucket1`/flotsam\r\n /`amzn-s3-demo-bucket2`/jetsam`` Amazon S3 returns the following response that specifies the ETag of the object and when it was last modified. `HTTP/1.1 200 OK x-amz-id-2: Vyaxt7qEbzv34BnSu5hctyyNSlHTYZFMWK4FtzO+iX8JQNyaLdTshL0KxatbaOZt x-amz-request-id: 6B13C3C5B34AF333 Date: Wed, 20 Feb 2008 22:13:01 +0000 Content-Type: application/xml Transfer-Encoding: chunked Connection: close Server: AmazonS3 <?xml version="1.0" encoding="UTF-8"?> <CopyObjectResult> <LastModified>2008-02-20T22:13:01</LastModified> <ETag>"7e9c608af58950deeb370c98608ed097"</ETag> </CopyObjectResult>` You can also use the AWS Command Line Interface (AWS CLI) to copy an S3 object. For more information, see [copy-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html") in the _AWS CLI Command Reference_. For information about the AWS CLI, see [What is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_. ## To move an object To move an object, use the following methods. ###### Note <br>• You can move an object if your object is less than 5 GB. If your object is greater than 5 GB, you must use the [AWS CLI](mpu-upload-object.md#UsingCLImpUpload "mpu-upload-object.md#UsingCLImpUpload") or [AWS SDKs](CopyingObjectsMPUapi.md "CopyingObjectsMPUapi.md") to move an object. <br>• For a list of additional permissions required to move objects, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md"). For example policies that grant this permission, see [Identity-based policy examples for Amazon S3](example-policies-s3.md "example-policies-s3.md"). <br>• Objects encrypted with customer-provided encryption keys (SSE-C) can't be moved by using the Amazon S3 console. To move objects encrypted with SSE-C, use the AWS CLI, AWS SDKs, or the Amazon S3 REST API. <br>• When moving folders, wait for the **Move** operation to finish before making additional changes in the folders. <br>• You can't use S3 access point aliases as the source or destination for **Move** operations in the Amazon S3 console. ###### To move an object 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the left navigation pane, choose **Buckets**. Navigate to the Amazon S3 bucket or folder that contains the objects that you want to move. 3. Select the check box for the objects that you want to move. 4. On the **Actions** menu, choose **Move**. 5. To specify the destination path, choose **Browse S3**, navigate to the destination, and select the destination check box. Choose **Choose destination**. Alternatively, enter the destination path. 6. If you do _not_ have bucket versioning enabled, you will see a warning recommending you enable Bucket Versioning to help protect against unintentionally overwriting or deleting objects. If you want to keep all versions of objects in this bucket, select **Enable Bucket Versioning**. You can also view the default encryption and Object Lock properties in **Destination details**. 7. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums. 8. Choose **Move** in the bottom-right corner. Amazon S3 moves your objects to the destination. You can also use the AWS Command Line Interface (AWS CLI) to move an S3 object. For more information, see [mv](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html") in the _AWS CLI Command Reference_. For information about the AWS CLI, see [What is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_. ## To rename an object To rename an object, use the following procedure. ###### Note <br>• You can rename an object if your object is less than 5 GB. To rename objects greater than 5 GB, you must use the [AWS CLI](mpu-upload-object.md#UsingCLImpUpload "mpu-upload-object.md#UsingCLImpUpload") or [AWS SDKs](CopyingObjectsMPUapi.md "CopyingObjectsMPUapi.md") to copy your object with a new name and then delete the original object. <br>• For a list of additional permissions required to copy objects, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md"). For example policies that grant this permission, see [Identity-based policy examples for Amazon S3](example-policies-s3.md "example-policies-s3.md"). <br>• Renaming an object creates a copy of the object with a new last-modified date, and then adds a delete marker to the original object. <br>• Bucket settings for default encryption are automatically applied to any specified object that's unencrypted. <br>• You can't use the Amazon S3 console to rename objects with customer-provided encryption keys (SSE-C). To rename objects encrypted with SSE-C, use the AWS CLI, AWS SDKs, or the Amazon S3 REST API to copy those objects with new names. <br>• If this bucket uses the bucket owner enforced setting for S3 Object Ownership, object access control lists (ACLs) won't be copied. ###### To rename an object 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. In the navigation pane, choose **Buckets**, and then choose the **General purpose buckets** tab. Navigate to the Amazon S3 bucket or folder that contains the object that you want to rename. 3. Select the check box for the object that you want to rename. 4. On the **Actions** menu, choose **Rename object**. 5. In the **New object name** box, enter the new name for the object. 6. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums. 7. Choose **Save changes**. Amazon S3 renames your object.
+Copying objects| 1 | Create an instance of an Amazon S3 client by using the<br>`Aws\S3\S3Client` class constructor. |
+| 2 | To make multiple copies of an object, you run a batch of<br>calls to the Amazon S3 client [getCommand()](../../../aws-sdk-php/v3/api/class-Aws.md#_getCommand "../../../aws-sdk-php/v3/api/class-Aws.md#_getCommand") method, which<br>is inherited from the [Aws\CommandInterface](../../../aws-sdk-php/v3/api/class-Aws.md "../../../aws-sdk-php/v3/api/class-Aws.md") class.<br>You provide the `CopyObject` command as the first<br>argument and an array containing the source bucket, source<br>key name, target bucket, and target key name as the second<br>argument. |
+
+```
+ require 'vendor/autoload.php';
+
+use Aws\CommandPool;
+use Aws\Exception\AwsException;
+use Aws\ResultInterface;
+use Aws\S3\S3Client;
+
+$sourceBucket = '*** Your Source Bucket Name ***';
+$sourceKeyname = '*** Your Source Object Key ***';
+$targetBucket = '*** Your Target Bucket Name ***';
+
+$s3 = new S3Client([
+    'version' => 'latest',
+    'region' => 'us-east-1'
+]);
+
+// Copy an object.
+$s3->copyObject([
+    'Bucket' => $targetBucket,
+    'Key' => "$sourceKeyname-copy",
+    'CopySource' => "$sourceBucket/$sourceKeyname",
+]);
+
+// Perform a batch of CopyObject operations.
+$batch = array();
+for ($i = 1; $i <= 3; $i++) {
+    $batch[] = $s3->getCommand('CopyObject', [
+        'Bucket' => $targetBucket,
+        'Key' => "{targetKeyname}-$i",
+        'CopySource' => "$sourceBucket/$sourceKeyname",
+    ]);
+}
+try {
+    $results = CommandPool::batch($s3, $batch);
+    foreach ($results as $result) {
+        if ($result instanceof ResultInterface) {
+            // Result handling here
+        }
+        if ($result instanceof AwsException) {
+            // AwsException handling here
+        }
+    }
+} catch (Exception $e) {
+    // General error handling here
+}
+
+
+```
+
+Python
+
+```
+class ObjectWrapper:
+    """Encapsulates S3 object actions."""
+
+    def __init__(self, s3_object):
+        """
+        :param s3_object: A Boto3 Object resource. This is a high-level resource in Boto3
+                          that wraps object actions in a class-like structure.
+        """
+        self.object = s3_object
+        self.key = self.object.key
+
+
+```
+
+```
+    def copy(self, dest_object):
+        """
+        Copies the object to another bucket.
+
+        :param dest_object: The destination object initialized with a bucket and key.
+                            This is a Boto3 Object resource.
+        """
+        try:
+            dest_object.copy_from(
+                CopySource={"Bucket": self.object.bucket_name, "Key": self.object.key}
+            )
+            dest_object.wait_until_exists()
+            logger.info(
+                "Copied object from %s:%s to %s:%s.",
+                self.object.bucket_name,
+                self.object.key,
+                dest_object.bucket_name,
+                dest_object.key,
+            )
+        except ClientError:
+            logger.exception(
+                "Couldn't copy object from %s/%s to %s/%s.",
+                self.object.bucket_name,
+                self.object.key,
+                dest_object.bucket_name,
+                dest_object.key,
+            )
+            raise
+
+
+```
+
+Ruby
+The following tasks guide you through using the Ruby classes to
+copy an object in Amazon S3 from one bucket to another or within the same bucket.
+
+Copying objects| 1 | Use the Amazon S3 modularized gem for version 3 of the<br>AWS SDK for Ruby, require `aws-sdk-s3`, and provide<br>your AWS credentials. For more information about how to<br>provide your credentials, see [Making requests using AWS account or IAM user credentials](../API/AuthUsingAcctOrUserCredentials.md "../API/AuthUsingAcctOrUserCredentials.md") in the _Amazon S3 API Reference_. |
+| 2 | Provide the request information, such as the source bucket<br>name, source key name, destination bucket name, and<br>destination key. |
+
+The following Ruby code example demonstrates the preceding
+tasks by using the `#copy_object` method to copy an object from one
+bucket to another.
+
+```
+require 'aws-sdk-s3'
+
+# Wraps Amazon S3 object actions.
+class ObjectCopyWrapper
+  attr_reader :source_object
+
+  # @param source_object [Aws::S3::Object] An existing Amazon S3 object. This is used as the source object for
+  #                                        copy actions.
+  def initialize(source_object)
+    @source_object = source_object
+  end
+
+  # Copy the source object to the specified target bucket and rename it with the target key.
+  #
+  # @param target_bucket [Aws::S3::Bucket] An existing Amazon S3 bucket where the object is copied.
+  # @param target_object_key [String] The key to give the copy of the object.
+  # @return [Aws::S3::Object, nil] The copied object when successful; otherwise, nil.
+  def copy_object(target_bucket, target_object_key)
+    @source_object.copy_to(bucket: target_bucket.name, key: target_object_key)
+    target_bucket.object(target_object_key)
+  rescue Aws::Errors::ServiceError => e
+    puts "Couldn't copy #{@source_object.key} to #{target_object_key}. Here's why: #{e.message}"
+  end
+end
+
+# Example usage:
+def run_demo
+  source_bucket_name = "amzn-s3-demo-bucket1"
+  source_key = "my-source-file.txt"
+  target_bucket_name = "amzn-s3-demo-bucket2"
+  target_key = "my-target-file.txt"
+
+  source_bucket = Aws::S3::Bucket.new(source_bucket_name)
+  wrapper = ObjectCopyWrapper.new(source_bucket.object(source_key))
+  target_bucket = Aws::S3::Bucket.new(target_bucket_name)
+  target_object = wrapper.copy_object(target_bucket, target_key)
+  return unless target_object
+
+  puts "Copied #{source_key} from #{source_bucket_name} to #{target_object.bucket_name}:#{target_object.key}."
+end
+
+run_demo if $PROGRAM_NAME == __FILE__
+
+```
+
+This example describes how to copy an object by using the Amazon S3 REST API. For more
+information about the REST API, see [CopyObject](../API/RESTObjectCOPY.md "../API/RESTObjectCOPY.md").
+
+This example copies the `flotsam` object from the `amzn-s3-demo-bucket1`
+bucket to the `jetsam` object of the `amzn-s3-demo-bucket2` bucket, preserving
+its metadata.
+
+```
+PUT /jetsam HTTP/1.1
+Host: `amzn-s3-demo-bucket2`.s3.amazonaws.com
+x-amz-copy-source: /`amzn-s3-demo-bucket1`/flotsam
+Authorization: AWS AKIAIOSFODNN7EXAMPLE:ENoSbxYByFA0UGLZUqJN5EUnLDg=
+Date: Wed, 20 Feb 2008 22:12:21 +0000
+```
+
+The signature was generated from the following information.
+
+```
+PUT\r\n
+\r\n
+\r\n
+Wed, 20 Feb 2008 22:12:21 +0000\r\n
+
+x-amz-copy-source:/`amzn-s3-demo-bucket1`/flotsam\r\n
+/`amzn-s3-demo-bucket2`/jetsam
+```
+
+Amazon S3 returns the following response that specifies the ETag of the object and when
+it was last modified.
+
+```
+HTTP/1.1 200 OK
+x-amz-id-2: Vyaxt7qEbzv34BnSu5hctyyNSlHTYZFMWK4FtzO+iX8JQNyaLdTshL0KxatbaOZt
+x-amz-request-id: 6B13C3C5B34AF333
+Date: Wed, 20 Feb 2008 22:13:01 +0000
+
+Content-Type: application/xml
+Transfer-Encoding: chunked
+Connection: close
+Server: AmazonS3
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CopyObjectResult>
+   <LastModified>2008-02-20T22:13:01</LastModified>
+   <ETag>"7e9c608af58950deeb370c98608ed097"</ETag>
+</CopyObjectResult>
+```
+
+You can also use the AWS Command Line Interface (AWS CLI) to copy an S3 object. For more
+information, see [copy-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html") in the _AWS CLI Command Reference_.
+
+For information about the AWS CLI, see [What
+is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_.
+
+## To move an object
+
+To move an object, use the following methods.
+
+###### Note
+
+- You can move an object if your object is less than 5 GB. If your
+  object is greater than 5 GB, you must use the [AWS CLI](mpu-upload-object.md#UsingCLImpUpload "mpu-upload-object.md#UsingCLImpUpload") or [AWS SDKs](CopyingObjectsMPUapi.md "CopyingObjectsMPUapi.md") to move an
+  object.
+- For a list of additional permissions required to move objects, see
+  [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md"). For example
+  policies that grant this permission, see [Identity-based policy examples for Amazon S3](example-policies-s3.md "example-policies-s3.md").
+- Objects encrypted with customer-provided encryption keys (SSE-C)
+  can't be moved by using the Amazon S3 console. To move objects encrypted
+  with SSE-C, use the AWS CLI, AWS SDKs, or the Amazon S3 REST API.
+- When moving folders, wait for the **Move** operation to finish before making additional
+  changes in the folders.
+- You can't use S3 access point aliases as the source or destination
+  for **Move** operations in the Amazon
+  S3 console.
+
+###### To move an object
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Buckets**. Navigate to
+   the Amazon S3 bucket or folder that contains the objects that you want to
+   move.
+3. Select the check box for the objects that you want to move.
+4. On the **Actions** menu, choose
+   **Move**.
+5. To specify the destination path, choose **Browse
+   S3**, navigate to the destination, and select the destination
+   check box. Choose **Choose destination**.
+
+Alternatively, enter the destination path. 6. If you do _not_ have bucket versioning enabled, you
+will see a warning recommending you enable Bucket Versioning to help
+protect against unintentionally overwriting or deleting objects. If you
+want to keep all versions of objects in this bucket, select
+**Enable Bucket Versioning**. You can also view the
+default encryption and Object Lock properties in **Destination
+details**. 7. Under **Additional copy settings**, choose whether
+you want to **Copy source settings**, **Don’t
+specify settings**, or **Specify
+settings**. **Copy source settings** is
+the default option. If you only want to copy the object without the
+source settings attributes, choose **Don’t specify
+settings**. Choose **Specify settings** to
+specify settings for storage class, ACLs, object tags, metadata,
+server-side encryption, and additional checksums. 8. Choose **Move** in the bottom-right corner. Amazon S3
+moves your objects to the destination.
+You can also use the AWS Command Line Interface (AWS CLI) to move an S3 object. For more
+information, see [mv](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html") in the _AWS CLI Command Reference_.
+
+For information about the AWS CLI, see [What
+is the AWS Command Line Interface?](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS Command Line Interface User Guide_.
+
+## To rename an object
+
+To rename an object, use the following procedure.
+
+###### Note
+
+- You can rename an object if your object is less than 5 GB. To rename
+  objects greater than 5 GB, you must use the [AWS CLI](mpu-upload-object.md#UsingCLImpUpload "mpu-upload-object.md#UsingCLImpUpload") or [AWS SDKs](CopyingObjectsMPUapi.md "CopyingObjectsMPUapi.md")
+  to copy your object with a new name and then delete the original
+  object.
+- For a list of additional permissions required to copy objects, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md"). For example policies that
+  grant this permission, see [Identity-based policy examples for Amazon S3](example-policies-s3.md "example-policies-s3.md").
+- Renaming an object creates a copy of the object with a new last-modified
+  date, and then adds a delete marker to the original object.
+- Bucket settings for default encryption are automatically applied to any
+  specified object that's unencrypted.
+- You can't use the Amazon S3 console to rename objects with customer-provided
+  encryption keys (SSE-C). To rename objects encrypted with SSE-C, use the
+  AWS CLI, AWS SDKs, or the Amazon S3 REST API to copy those objects with new
+  names.
+- If this bucket uses the bucket owner enforced setting for
+  S3 Object Ownership, object access control lists (ACLs) won't be
+  copied.
+
+###### To rename an object
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the navigation pane, choose **Buckets**, and then choose
+   the **General purpose buckets** tab. Navigate to the Amazon S3
+   bucket or folder that contains the object that you want to rename.
+3. Select the check box for the object that you want to rename.
+4. On the **Actions** menu, choose **Rename
+   object**.
+5. In the **New object name** box, enter the new name for the
+   object.
+6. Under **Additional copy settings**, choose whether you want
+   to **Copy source settings**, **Don’t specify
+   settings**, or **Specify settings**.
+   **Copy source settings** is the default option. If you only
+   want to copy the object without the source settings attributes, choose
+   **Don’t specify settings**. Choose **Specify
+   settings** to specify settings for storage class, ACLs, object
+   tags, metadata, server-side encryption, and additional checksums.
+7. Choose **Save changes**. Amazon S3 renames your object.

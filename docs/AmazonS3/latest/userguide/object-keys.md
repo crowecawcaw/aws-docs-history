@@ -70,7 +70,184 @@ parsers, and other APIs.
 
 The following character sets are generally safe for use in key names:
 
-|                         |                                                                                                                                                                                                                   |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Alphanumeric characters | <br>• 0-9 <br>• a-z <br>• A-Z                                                                                                                                                                                     |
-| Special characters      | <br>• Exclamation point (`!`) <br>• Hyphen (`-`) <br>• Underscore (`_`) <br>• Period (`.`) <br>• Asterisk (`*`) <br>• Single quotation mark (`'`) <br>• Opening parenthesis (`(`) <br>• Closing parenthesis (`)`) | The following are examples of valid object key names: <br>• `4my-organization` <br>• `my.great_photos-2014/jan/myvacation.jpg` <br>• `videos/2014/birthday/video1.wmv` ###### Note If you use the Amazon S3 console to download objects that have key names that end with periods (`.`), the periods are removed from the ends of the key names of the downloaded objects. To retain periods at the ends of key names in downloaded objects, you must use the AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3 REST API. In addition, be aware of the following prefix limitations: <br>• Objects with a prefix of `./` must be uploaded or downloaded with the AWS CLI, AWS SDKs, or REST API. You can't use the Amazon S3 console to upload these objects. <br>• Object keys that contain relative path elements (for example, `../`) are valid if, when parsed left-to-right, the cumulative count of relative path segments never exceeds the number of non-relative path elements encountered. This rule applies to all requests made by using the Amazon S3 console, Amazon S3 REST API, AWS CLI, and AWS SDKs. For example: + `videos/2014/../../video1.wmv` is valid. + `videos/../../video1.wmv` isn't valid. + `videos/../../2014/video1.wmv` isn't valid. ### Period-only path segments Object keys containing period-only path segments (`.` or `..`) can cause unexpected behavior when processed by applications, SDKs, or tools that interpret these as relative path references. The following patterns can cause issues: <br>• `folder/./file.txt` - Contains current directory reference <br>• `folder/../file.txt` - Contains parent directory reference <br>• `./file.txt` - Starts with current directory reference <br>• `../file.txt` - Starts with parent directory reference The following patterns work normally: <br>• `folder/.hidden/file.txt` - Period is part of filename, not standalone <br>• `folder/..backup/file.txt` - Periods are part of filename, not standalone When applications process object keys with period-only segments, the following behavioral impacts can occur: <br>• _Path normalization_ - Many systems automatically resolve `.` and `..` references, potentially changing the effective path (for example, `folder/./file.txt` becomes `folder/file.txt`) <br>• _Access issues_ - Applications might fail to locate objects due to path resolution differences <br>• _Inconsistent behavior_ - Different tools and SDKs might handle these patterns differently ###### Important To avoid these issues, we recommend avoiding period-only path segments in object key names. Use alternative naming conventions for organizational purposes. ### Characters that might require special handling The following characters in a key name might require additional code handling and most likely must be URL encoded or referenced as HEX. Some of these characters are non-printable characters that your browser might not handle, which also require special handling: <br>• Ampersand (`&`) <br>• Dollar sign (`$`) <br>• ASCII character ranges 00–1F hex (0–31 decimal) and 7F (127 decimal) <br>• At symbol (`@`) <br>• Equal sign (`=`) <br>• Semicolon (`;`) <br>• Forward slash (`/`) <br>• Colon (`:`) <br>• Plus sign (`+`) <br>• Space – Significant sequences of spaces might be lost in some cases (especially multiple spaces) <br>• Comma (`,`) <br>• Question mark (`?`) ### Characters to avoid We recommend not using the following characters in a key name because of significant special character handling, which isn't consistent across all applications: <br>• Backslash (`\`) <br>• Left brace (`{`) <br>• Non-printable ASCII characters (128–255 decimal characters) <br>• Caret or circumflex (`^`) <br>• Right brace (`}`) <br>• Percent character (`%`) <br>• Grave accent or backtick (```) <br>• Right bracket (`]`) <br>• Quotation mark (`"`) <br>• Greater than sign (`>`) <br>• Left bracket (`[`) <br>• Tilde (`~`) <br>• Less than sign (`<`) <br>• Pound sign (`#`) <br>• Vertical bar or pipe (` | `) ### XML-related object key constraints As specified by the [XML standard on end-of-line handling](https://www.w3.org/TR/REC-xml/#sec-line-ends "https://www.w3.org/TR/REC-xml/#sec-line-ends"), all XML text is normalized such that single carriage returns (ASCII code 13) and carriage returns immediately followed by a line feed (ASCII code 10), also known as newline characters, are replaced by a single line feed character. To ensure the correct parsing of object keys in XML requests, carriage returns and [other special characters must be replaced with their equivalent XML entity code](https://www.w3.org/TR/xml/#syntax "https://www.w3.org/TR/xml/#syntax") when they're inserted within XML tags. The following is a list of such special characters and their equivalent XML entity codes: <br>• Apostrophe (`'`) must be replaced with `&apos;` <br>• Quotation mark (`"`) must be replaced with `&quot;` <br>• Ampersand (`&`) must be replaced with `&amp;` <br>• Less than sign (`<`) must be replaced with `&lt;` <br>• Greater than sign (`>`) must be replaced with `&gt;` <br>• Carriage return (`\r`) must be replaced with `&#13;`or`&#x0D;` <br>• Newline (`\n`) must be replaced with `&#10;`or`&#x0A;`The following example illustrates the use of an XML entity code as a substitution for a carriage return. This`DeleteObjects`request deletes an object with the`key`parameter`/some/prefix/objectwith\rcarriagereturn`(where the`\r`is the carriage return). ``` <Delete xmlns="http://s3.amazonaws.com/doc/2006-03-01/"> <Object> <Key>/some/prefix/objectwith&#13;carriagereturn</Key> </Object> </Delete> ``` ## Object key sort order Amazon S3 sorts object keys, including prefixes, lexicographically by their UTF-8 encoded byte values. ASCII characters sort in the following order: <br>• Special characters (for example,`!`, `/`) <br>• Uppercase letters (A–Z) <br>• Lowercase letters (a–z) Non-ASCII characters (for example, é, 中 文) are encoded as multi-byte UTF-8 sequences and typically sort after ASCII characters because of their higher byte values (for example, `0xC3`for é,`0xE4`for 中). For example, prefixes such as`apple/`, `Apple/`, `éclair/`, `中 文/`would sort as: 1.`Apple/`(starts with`0x41`) 2. `apple/`(starts with`0x61`) 3. `éclair/`(starts with`0xC3 0xA9`) 4. `中 文/`(starts with`0xE4 0xB8 0xAD` `0xE6 0x96 0x87`) |
+|                         |                                                                                                                                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Alphanumeric characters | • 0-9<br>• a-z<br>• A-Z                                                                                                                                                                                |
+| Special characters      | • Exclamation point (`!`)<br>• Hyphen (`-`)<br>• Underscore (`_`)<br>• Period (`.`)<br>• Asterisk (`*`)<br>• Single quotation mark (`'`)<br>• Opening parenthesis (`(`)<br>• Closing parenthesis (`)`) |
+
+The following are examples of valid object key names:
+
+- `4my-organization`
+- `my.great_photos-2014/jan/myvacation.jpg`
+- `videos/2014/birthday/video1.wmv`
+
+###### Note
+
+If you use the Amazon S3 console to download objects that have key names that end with periods
+(`.`), the periods are removed from the ends of the key names of
+the downloaded objects. To retain periods at the ends of key names in downloaded
+objects, you must use the AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3 REST
+API.
+
+In addition, be aware of the following prefix limitations:
+
+- Objects with a prefix of `./` must be uploaded or
+  downloaded with the AWS CLI, AWS SDKs, or REST API. You can't use the
+  Amazon S3 console to upload these objects.
+- Object keys that contain relative path elements (for example,
+  `../`) are valid if, when parsed left-to-right, the
+  cumulative count of relative path segments never exceeds the number of
+  non-relative path elements encountered. This rule applies to all
+  requests made by using the Amazon S3 console, Amazon S3 REST API, AWS CLI, and AWS
+  SDKs.
+
+For example:
+
+    + `videos/2014/../../video1.wmv` is valid.
+    + `videos/../../video1.wmv` isn't valid.
+    + `videos/../../2014/video1.wmv` isn't valid.
+
+### Period-only path segments
+
+Object keys containing period-only path segments (`.` or `..`)
+can cause unexpected behavior when processed by applications, SDKs, or tools that interpret
+these as relative path references.
+
+The following patterns can cause issues:
+
+- `folder/./file.txt` - Contains current directory reference
+- `folder/../file.txt` - Contains parent directory reference
+- `./file.txt` - Starts with current directory reference
+- `../file.txt` - Starts with parent directory reference
+
+The following patterns work normally:
+
+- `folder/.hidden/file.txt` - Period is part of filename, not standalone
+- `folder/..backup/file.txt` - Periods are part of filename, not standalone
+
+When applications process object keys with period-only segments, the following
+behavioral impacts can occur:
+
+- _Path normalization_ - Many systems automatically resolve
+  `.` and `..` references, potentially changing the effective
+  path (for example, `folder/./file.txt` becomes `folder/file.txt`)
+- _Access issues_ - Applications might fail to locate objects
+  due to path resolution differences
+- _Inconsistent behavior_ - Different tools and SDKs might
+  handle these patterns differently
+
+###### Important
+
+To avoid these issues, we recommend avoiding period-only path segments in
+object key names. Use alternative naming conventions for organizational purposes.
+
+### Characters that might require
+
+special handling
+
+The following characters in a key name might require additional code handling
+and most likely must be URL encoded or referenced as HEX. Some of these characters
+are non-printable characters that your browser might not handle, which also require
+special handling:
+
+- Ampersand (`&`)
+- Dollar sign (`$`)
+- ASCII character ranges 00–1F hex (0–31 decimal) and 7F (127 decimal)
+- At symbol (`@`)
+- Equal sign (`=`)
+- Semicolon (`;`)
+- Forward slash (`/`)
+- Colon (`:`)
+- Plus sign (`+`)
+- Space – Significant sequences of spaces might be lost in some
+  cases (especially multiple spaces)
+- Comma (`,`)
+- Question mark (`?`)
+
+### Characters to avoid
+
+We recommend not using the following characters in a key name because of
+significant special character handling, which isn't consistent across all
+applications:
+
+- Backslash (`\`)
+- Left brace (`{`)
+- Non-printable ASCII characters (128–255 decimal characters)
+- Caret or circumflex (`^`)
+- Right brace (`}`)
+- Percent character (`%`)
+- Grave accent or backtick (```)
+- Right bracket (`]`)
+- Quotation mark (`"`)
+- Greater than sign (`>`)
+- Left bracket (`[`)
+- Tilde (`~`)
+- Less than sign (`<`)
+- Pound sign (`#`)
+- Vertical bar or pipe (`|`)
+
+### XML-related object key
+
+constraints
+
+As specified by the [XML standard on end-of-line handling](https://www.w3.org/TR/REC-xml/#sec-line-ends "https://www.w3.org/TR/REC-xml/#sec-line-ends"), all XML text is normalized such
+that single carriage returns (ASCII code 13) and carriage returns immediately
+followed by a line feed (ASCII code 10), also known as newline characters, are
+replaced by a single line feed character. To ensure the correct parsing of object
+keys in XML requests, carriage returns and [other special characters must be
+replaced with their equivalent XML entity code](https://www.w3.org/TR/xml/#syntax "https://www.w3.org/TR/xml/#syntax") when they're inserted
+within XML tags.
+
+The following is a list of such special characters and their equivalent XML entity
+codes:
+
+- Apostrophe (`'`) must be replaced with `&apos;`
+- Quotation mark (`"`) must be replaced with `&quot;`
+- Ampersand (`&`) must be replaced with `&amp;`
+- Less than sign (`<`) must be replaced with `&lt;`
+- Greater than sign (`>`) must be replaced with `&gt;`
+- Carriage return (`\r`) must be replaced with `&#13;` or
+  `&#x0D;`
+- Newline (`\n`) must be replaced with `&#10;` or
+  `&#x0A;`
+
+The following example illustrates the use of an XML entity code as a
+substitution for a carriage return. This `DeleteObjects` request
+deletes an object with the `key` parameter
+`/some/prefix/objectwith\rcarriagereturn` (where the
+`\r` is the carriage return).
+
+```
+<Delete xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Object>
+    <Key>/some/prefix/objectwith&#13;carriagereturn</Key>
+  </Object>
+</Delete>
+```
+
+## Object key sort order
+
+Amazon S3 sorts object keys, including prefixes, lexicographically by their UTF-8 encoded byte
+values.
+
+ASCII characters sort in the following order:
+
+- Special characters (for example, `!`, `/`)
+- Uppercase letters (A–Z)
+- Lowercase letters (a–z)
+
+Non-ASCII characters (for example, é, 中 文) are encoded as multi-byte UTF-8
+sequences and typically sort after ASCII characters because of their higher byte values (for example,
+`0xC3` for é, `0xE4` for 中).
+
+For example, prefixes such as `apple/`, `Apple/`, `éclair/`,
+`中 文/` would sort as:
+
+1. `Apple/` (starts with `0x41`)
+
+2. `apple/` (starts with `0x61`)
+
+3. `éclair/` (starts with `0xC3 0xA9`)
+
+4. `中 文/` (starts with `0xE4 0xB8 0xAD`
+   `0xE6 0x96 0x87`)

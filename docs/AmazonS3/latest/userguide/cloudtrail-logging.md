@@ -86,11 +86,23 @@ either the REST API or the AWS SDKs.
 The following table shows Amazon S3 SOAP actions tracked by CloudTrail logging.
 
 | SOAP API name                                                                                                           | API event name used in CloudTrail log |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | [ListAllMyBuckets](../API/SOAPListAllMyBuckets.md "../API/SOAPListAllMyBuckets.md")                                     | `ListBuckets`                         |
 | [CreateBucket](../API/SOAPCreateBucket.md "../API/SOAPCreateBucket.md")                                                 | `CreateBucket`                        |
 | [DeleteBucket](../API/SOAPDeleteBucket.md "../API/SOAPDeleteBucket.md")                                                 | `DeleteBucket`                        |
 | [GetBucketAccessControlPolicy](../API/SOAPGetBucketAccessControlPolicy.md "../API/SOAPGetBucketAccessControlPolicy.md") | `GetBucketAcl`                        |
 | [SetBucketAccessControlPolicy](../API/SOAPSetBucketAccessControlPolicy.md "../API/SOAPSetBucketAccessControlPolicy.md") | `PutBucketAcl`                        |
 | [GetBucketLoggingStatus](../API/SOAPGetBucketLoggingStatus.md "../API/SOAPGetBucketLoggingStatus.md")                   | `GetBucketLogging`                    |
-| [SetBucketLoggingStatus](../API/SOAPSetBucketLoggingStatus.md "../API/SOAPSetBucketLoggingStatus.md")                   | `PutBucketLogging`                    | For more information about CloudTrail and Amazon S3, see the following topics: ###### Topics <br>• [Amazon S3 CloudTrail events](cloudtrail-logging-s3-info.md "cloudtrail-logging-s3-info.md") <br>• [CloudTrail log file entries for Amazon S3 and S3 on Outposts](cloudtrail-logging-understanding-s3-entries.md "cloudtrail-logging-understanding-s3-entries.md") <br>• [Enabling CloudTrail event logging for S3 buckets and objects](enable-cloudtrail-logging-for-s3.md "enable-cloudtrail-logging-for-s3.md") <br>• [Identifying Amazon S3 requests using CloudTrail](cloudtrail-request-identification.md "cloudtrail-request-identification.md") |
+| [SetBucketLoggingStatus](../API/SOAPSetBucketLoggingStatus.md "../API/SOAPSetBucketLoggingStatus.md")                   | `PutBucketLogging`                    |
+
+For more information about CloudTrail and Amazon S3, see the following topics:
+
+###### Topics
+
+- [Amazon S3 CloudTrail events](cloudtrail-logging-s3-info.md "cloudtrail-logging-s3-info.md")
+- [CloudTrail log file entries
+  for Amazon S3 and S3 on Outposts](cloudtrail-logging-understanding-s3-entries.md "cloudtrail-logging-understanding-s3-entries.md")
+- [Enabling CloudTrail event logging for
+  S3 buckets and objects](enable-cloudtrail-logging-for-s3.md "enable-cloudtrail-logging-for-s3.md")
+- [Identifying Amazon S3 requests using
+  CloudTrail](cloudtrail-request-identification.md "cloudtrail-request-identification.md")

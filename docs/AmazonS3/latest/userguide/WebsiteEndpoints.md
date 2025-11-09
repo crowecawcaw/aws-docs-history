@@ -137,11 +137,14 @@ An Amazon S3 website endpoint is optimized for access from a web browser. The fo
 table summarizes the key differences between a REST API endpoint and a website
 endpoint.
 
-| Key difference                                                 | REST API endpoint                               | Website endpoint                                                          |
-| -------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Access control                                                 | Supports both public and private content        | Supports only publicly readable content                                   |
-| Error message handling                                         | Returns an XML-formatted error response         | Returns an HTML document                                                  |
-| Redirection support                                            | Not applicable                                  | Supports both object-level and bucket-level redirects                     |
-| Requests supported                                             | Supports all bucket and object operations       | Supports only `GET` and `HEAD` requests on objects                        |
-| Responses to `GET` and `HEAD` requests at the root of a bucket | Returns a list of the object keys in the bucket | Returns the index document that is specified in the website configuration |
-| Secure Sockets Layer (SSL) support                             | Supports SSL connections                        | Does not support SSL connections                                          | For a complete list of Amazon S3 endpoints, see [Amazon S3 endpoints and quotas](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md") in the _AWS General Reference_. |
+| Key difference                                                    | REST API endpoint                               | Website endpoint                                                             |
+| ----------------------------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------- |
+| Access control                                                    | Supports both public and private content        | Supports only publicly readable content                                      |
+| Error message handling                                            | Returns an XML-formatted error response         | Returns an HTML document                                                     |
+| Redirection support                                               | Not applicable                                  | Supports both object-level and bucket-level redirects                        |
+| Requests supported                                                | Supports all bucket and object operations       | Supports only `GET` and `HEAD` requests on objects                           |
+| Responses to `GET` and `HEAD` requests at the root of a<br>bucket | Returns a list of the object keys in the bucket | Returns the index document that is specified in the website<br>configuration |
+| Secure Sockets Layer (SSL) support                                | Supports SSL connections                        | Does not support SSL connections                                             |
+
+For a complete list of Amazon S3 endpoints, see [Amazon S3 endpoints and quotas](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md") in the
+_AWS General Reference_.

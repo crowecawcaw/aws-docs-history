@@ -986,44 +986,41 @@ includes the optional `ObjectAccessControlList` or `ObjectOwner`
 metadata fields. The user `Ana` can still create an
 inventory configuration with other optional metadata fields.
 
-JSON
-
 ```
-`{
-"Id": "InventoryConfigSomeFields",
-"Version":"2012-10-17",
-"Statement": [{
-"Sid": "AllowInventoryCreation",
-"Effect": "Allow",
-"Principal": {
-"AWS": "arn:aws:iam::`111122223333`:user/`Ana`"
-},
-"Action": "s3:PutInventoryConfiguration",
-"Resource":
-"arn:aws:s3:::`amzn-s3-demo-source-bucket`"
-
-},
 {
-"Sid": "DenyCertainInventoryFieldCreation",
-"Effect": "Deny",
-"Principal": {
-"AWS": "arn:aws:iam::`111122223333`:user/`Ana`"
-},
-"Action": "s3:PutInventoryConfiguration",
-"Resource":
-"arn:aws:s3:::`amzn-s3-demo-source-bucket`",
-"Condition": {
-"ForAnyValue:StringEquals": {
-"s3:InventoryAccessibleOptionalFields": [
-"ObjectOwner",
-"ObjectAccessControlList"
-]
-}
-}
-}
-]
-}`
+	"Id": "InventoryConfigSomeFields",
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Sid": "AllowInventoryCreation",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::`111122223333`:user/`Ana`"
+			},
+			"Action": "s3:PutInventoryConfiguration",
+			"Resource":
+				"arn:aws:s3:::``amzn-s3-demo-source-bucket``",
 
+		},
+		{
+			"Sid": "DenyCertainInventoryFieldCreation",
+			"Effect": "Deny",
+			"Principal": {
+				"AWS": "arn:aws:iam::`111122223333`:user/`Ana`"
+			},
+			"Action": "s3:PutInventoryConfiguration",
+			"Resource":
+			  "arn:aws:s3:::``amzn-s3-demo-source-bucket``",
+			"Condition": {
+				"ForAnyValue:StringEquals": {
+					"s3:InventoryAccessibleOptionalFields": [
+					   "ObjectOwner",
+					   "ObjectAccessControlList"
+					   ]
+				  }
+				}
+			}
+	]
+}
 ```
 
 ###### Note

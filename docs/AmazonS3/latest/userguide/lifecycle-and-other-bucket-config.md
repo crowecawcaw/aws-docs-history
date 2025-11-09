@@ -54,14 +54,19 @@ information, see [Logging requests with server access logging](ServerLogs.md "Se
 If you have logging enabled on your bucket, Amazon S3 server access logs report the
 results of the following operations.
 
-| Operation log              | Description                                                                                               |
-| -------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `S3.EXPIRE.OBJECT`         | Amazon S3 permanently deletes the object because of the lifecycle `Expiration` action.                    |
-| `S3.CREATE.DELETEMARKER`   | Amazon S3 logically deletes the current version by adding a delete marker in a versioning-enabled bucket. |
-| `S3.TRANSITION_SIA.OBJECT` | Amazon S3 transitions the object to the S3 Standard-IA storage class.                                     |
-| `S3.TRANSITION_ZIA.OBJECT` | Amazon S3 transitions the object to the S3 One Zone-IA storage class.                                     |
-| `S3.TRANSITION_INT.OBJECT` | Amazon S3 transitions the object to the S3 Intelligent-Tiering storage class.                             |
-| `S3.TRANSITION_GIR.OBJECT` | Amazon S3 initiates the transition of the object to the S3 Glacier Instant Retrieval storage class.       |
-| `S3.TRANSITION.OBJECT`     | Amazon S3 initiates the transition of the object to the S3 Glacier Flexible Retrieval storage class.      |
-| `S3.TRANSITION_GDA.OBJECT` | Amazon S3 initiates the transition of the object to the S3 Glacier Deep Archive storage class.            |
-| `S3.DELETE.UPLOAD`         | Amazon S3 aborts an incomplete multipart upload.                                                          | ###### Note Amazon S3 server access log records are delivered on a best-effort basis and can't be used for a complete accounting of all Amazon S3 requests. |
+| Operation log              | Description                                                                                                  |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `S3.EXPIRE.OBJECT`         | Amazon S3 permanently deletes the object because of the lifecycle<br>`Expiration` action.                    |
+| `S3.CREATE.DELETEMARKER`   | Amazon S3 logically deletes the current version by adding a delete<br>marker in a versioning-enabled bucket. |
+| `S3.TRANSITION_SIA.OBJECT` | Amazon S3 transitions the object to the S3 Standard-IA storage<br>class.                                     |
+| `S3.TRANSITION_ZIA.OBJECT` | Amazon S3 transitions the object to the S3 One Zone-IA storage<br>class.                                     |
+| `S3.TRANSITION_INT.OBJECT` | Amazon S3 transitions the object to the S3 Intelligent-Tiering<br>storage class.                             |
+| `S3.TRANSITION_GIR.OBJECT` | Amazon S3 initiates the transition of the object to the S3 Glacier Instant Retrieval<br>storage class.       |
+| `S3.TRANSITION.OBJECT`     | Amazon S3 initiates the transition of the object to the<br>S3 Glacier Flexible Retrieval storage class.      |
+| `S3.TRANSITION_GDA.OBJECT` | Amazon S3 initiates the transition of the object to the<br>S3 Glacier Deep Archive storage class.            |
+| `S3.DELETE.UPLOAD`         | Amazon S3 aborts an incomplete multipart upload.                                                             |
+
+###### Note
+
+Amazon S3 server access log records are delivered on a best-effort basis and can't
+be used for a complete accounting of all Amazon S3 requests.

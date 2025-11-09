@@ -69,6 +69,11 @@ Amazon Simple Storage Service API Reference.
   ETag does not matches the one provided.
 - `x-amz-copy-source-if-unmodified-since` — Copies the source object only
   if it has not been modified since the time specified.
+- `If-Match` — Copies the object only if its ETag matches the
+  one provided. `If-Match` expects the ETag value as a string.
+- `If-None-Match` — Copies the object only if its ETag does
+  not match the one provided. `If-None-Match` expects the '\*' (asterisk)
+  character.
 
 For more information about these headers, errors returned, and the order S3 handles
 multiple conditional headers in a single request, see [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") in the

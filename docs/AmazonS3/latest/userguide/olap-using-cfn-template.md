@@ -4,7 +4,7 @@ template
 
 ###### Note
 
-Starting on November 7th, 2025, S3 Object Lambda will be available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. If you would like to use the service, please sign up prior to November 7th, 2025. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](amazons3-ol-change.md "amazons3-ol-change.md").
+As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](amazons3-ol-change.md "amazons3-ol-change.md").
 
 You can use an AWS CloudFormation template to quickly create an Amazon S3 Object Lambda Access Point. The CloudFormation
 template automatically creates relevant resources, configures AWS Identity and Access Management (IAM) roles, and

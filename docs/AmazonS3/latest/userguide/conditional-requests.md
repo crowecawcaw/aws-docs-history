@@ -15,7 +15,7 @@ Conditional writes can ensure there is no existing object with the same key name
 bucket during `PUT` operations. This prevents overwriting of existing objects
 with identical key names. Similarly, you can use conditional writes to check if an object's ETag is
 unchanged before updating the object. This prevents unintentional overwrites on an object without
-knowing the state of its content. You can use conditional writes for [PutObject](../API/API_PutObject.md "../API/API_PutObject.md") or [CompleteMultipartUpload](../API/API_CompleteMultipartUpload.md "../API/API_CompleteMultipartUpload.md") requests. For more information about key names, see
+knowing the state of its content. You can use conditional writes for [PutObject](../API/API_PutObject.md "../API/API_PutObject.md"), [CompleteMultipartUpload](../API/API_CompleteMultipartUpload.md "../API/API_CompleteMultipartUpload.md"), or [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") requests. For more information about key names, see
 [Naming Amazon S3 objects](object-keys.md "object-keys.md").
 
 Conditional deletes evaluate if your object exists or is unchanged before deleting it.

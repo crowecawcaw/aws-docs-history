@@ -4,7 +4,7 @@ partNumber headers
 
 ###### Note
 
-Starting on November 7th, 2025, S3 Object Lambda will be available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. If you would like to use the service, please sign up prior to November 7th, 2025. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](amazons3-ol-change.md "amazons3-ol-change.md").
+As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](amazons3-ol-change.md "amazons3-ol-change.md").
 
 When working with large objects in Amazon S3 Object Lambda, you can use the `Range` HTTP
 header to download a specified byte range from an object. To fetch different byte ranges
@@ -45,8 +45,95 @@ parameter is included in the event context. The location of the parameter in the
 context depends on which parameter was used and how it was included in the original
 request to the Object Lambda Access Point, as explained in the following table.
 
-| Parameter                 | Event context location                           |
-| ------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Range` (header)          | `userRequest.headers.Range`                      |
-| `Range` (query parameter) | `userRequest.url` (query parameter `Range`)      |
-| `partNumber`              | `userRequest.url` (query parameter `partNumber`) | ###### Important The provided presigned URL for your Object Lambda Access Point doesn't contain the `Range` or `partNumber` parameter from the original request. See the following options on how to handle these parameters in your AWS Lambda function. After you extract the `Range` or `partNumber` value, you can take one of the following approaches, based on your application's needs: 1. **Map the requested `Range` or `partNumber` to the transformed object (recommended).** The most reliable way to handle `Range` or `partNumber` requests is to do the following: <br>• Retrieve the full object from Amazon S3. <br>• Transform the object. <br>• Apply the requested `Range` or `partNumber` parameters to the transformed object. To do this, use the provided presigned URL to fetch the entire object from Amazon S3 and then process the object as needed. For an example Lambda function that processes a `Range` parameter in this way, see [this sample](https://github.com/aws-samples/amazon-s3-object-lambda-default-configuration/blob/main/function/nodejs_20_x/src/response/range_mapper.ts "https://github.com/aws-samples/amazon-s3-object-lambda-default-configuration/blob/main/function/nodejs_20_x/src/response/range_mapper.ts") in the AWS Samples GitHub repository. 2. **Map the requested `Range` to the presigned URL.** In some cases, your Lambda function can map the requested `Range` directly to the presigned URL to retrieve only part of the object from Amazon S3. This approach is appropriate only if your transformation meets both of the following criteria: 1. Your transformation function can be applied to partial object ranges. 2. Applying the `Range` parameter before or after the transformation function results in the same transformed object. For example, a transformation function that converts all characters in an ASCII-encoded object to uppercase meets both of the preceding criteria. The transformation can be applied to part of an object, and applying the `Range` parameter before the transformation achieves the same result as applying it after the transformation. By contrast, a function that reverses the characters in an ASCII-encoded object doesn't meet these criteria. Such a function meets criterion 1, because it can be applied to partial object ranges. However, it doesn't meet criterion 2, because applying the `Range` parameter before the transformation achieves different results than applying the parameter after the transformation. Consider a request to apply the function to the first three characters of an object with the contents `abcdefg`. Applying the `Range` parameter before the transformation retrieves only `abc` and then reverses the data, returning `cba`. But if the parameter is applied after the transformation, the function retrieves the entire object, reverses it, and then applies the `Range` parameter, returning `gfe`. Because these results are different, this function should not apply the `Range` parameter when retrieving the object from Amazon S3. Instead, it should retrieve the entire object, perform the transformation, and only then apply the `Range` parameter. ###### Warning In many cases, applying the `Range` parameter to the presigned URL will result in unexpected behavior by the Lambda function or the requesting client. Unless you are sure that your application will work properly when retrieving only a partial object from Amazon S3, we recommend that you retrieve and transform full objects as described earlier in approach A. If your application meets the criteria described earlier in approach B, you can simplify your AWS Lambda function by fetching only the requested object range and then running your transformation on that range. The following Java code example demonstrates how to do the following: <br>• Retrieve the `Range` header from the `GetObject` request. <br>• Add the `Range` header to the presigned URL that Lambda can use to retrieve the requested range from Amazon S3. `private HttpRequest.Builder applyRangeHeader(ObjectLambdaEvent event, HttpRequest.Builder presignedRequest) { var header = event.getUserRequest().getHeaders().entrySet().stream() .filter(e -> e.getKey().toLowerCase(Locale.ROOT).equals("range")) .findFirst(); // Add check in the query string itself. header.ifPresent(entry -> presignedRequest.header(entry.getKey(), entry.getValue())); return presignedRequest; }` |
+| Parameter                 | Event context location                              |
+| ------------------------- | --------------------------------------------------- |
+| `Range` (header)          | `userRequest.headers.Range`                         |
+| `Range` (query parameter) | `userRequest.url` (query parameter<br>`Range`)      |
+| `partNumber`              | `userRequest.url` (query parameter<br>`partNumber`) |
+
+###### Important
+
+The provided presigned URL for your Object Lambda Access Point doesn't contain the `Range` or
+`partNumber` parameter from the original request. See the following options on how to handle these parameters in your AWS Lambda function.
+
+After you extract the `Range` or `partNumber` value, you can take
+one of the following approaches, based on your application's needs:
+
+1. **Map the requested `Range` or
+   `partNumber` to the transformed object (recommended).**
+
+The most reliable way to handle `Range` or `partNumber`
+requests is to do the following:
+
+    * Retrieve the full object from Amazon S3.
+    * Transform the object.
+    * Apply the requested `Range` or `partNumber`
+     parameters to the transformed object.
+
+To do this, use the provided presigned URL to fetch the entire object from Amazon S3
+and then process the object as needed. For an example Lambda function that processes
+a `Range` parameter in this way, see [this sample](https://github.com/aws-samples/amazon-s3-object-lambda-default-configuration/blob/main/function/nodejs_20_x/src/response/range_mapper.ts "https://github.com/aws-samples/amazon-s3-object-lambda-default-configuration/blob/main/function/nodejs_20_x/src/response/range_mapper.ts") in the AWS Samples GitHub repository. 2. **Map the requested `Range` to the presigned URL.**
+
+In some cases, your Lambda function can map the requested `Range` directly to the presigned URL to retrieve only part of
+the object from Amazon S3. This approach is appropriate only if your transformation meets
+both of the following criteria:
+
+    1. Your transformation function can be applied to partial object
+     ranges.
+    2. Applying the `Range` parameter before or after the transformation function results in the same transformed
+     object.
+
+For example, a transformation function that converts all characters in an
+ASCII-encoded object to uppercase meets both of the preceding criteria. The
+transformation can be applied to part of an object, and applying the
+`Range` parameter before the
+transformation achieves the same result as applying it after the
+transformation.
+
+By contrast, a function that reverses the characters in an ASCII-encoded
+object doesn't meet these criteria. Such a function meets criterion 1, because
+it can be applied to partial object ranges. However, it doesn't meet criterion
+2, because applying the `Range` parameter before the transformation
+achieves different results than applying the parameter after the transformation.
+
+Consider a request to apply the function to the first three
+characters of an object with the contents `abcdefg`. Applying the
+`Range` parameter before the transformation retrieves only
+`abc` and then reverses the data, returning `cba`. But
+if the parameter is applied after the transformation, the function retrieves the
+entire object, reverses it, and then applies the `Range` parameter,
+returning `gfe`. Because these results are different, this function
+should not apply the `Range` parameter when retrieving the object
+from Amazon S3. Instead, it should retrieve the entire object, perform the
+transformation, and only then apply the `Range` parameter.
+
+###### Warning
+
+In many cases, applying the `Range` parameter to the presigned URL will result in unexpected behavior by the
+Lambda function or the requesting client. Unless you are sure that your
+application will work properly when retrieving only a partial object from
+Amazon S3, we recommend that you retrieve and transform full objects as described
+earlier in approach A.
+
+If your application meets the criteria described earlier in approach B, you can
+simplify your AWS Lambda function by fetching only
+the requested object range and then running your transformation on that range.
+
+The following Java code example demonstrates how to do the following:
+
+    * Retrieve the `Range` header from the `GetObject`
+     request.
+    * Add the `Range` header to the presigned URL that Lambda can use
+     to retrieve the requested range from Amazon S3.
+
+```
+private HttpRequest.Builder applyRangeHeader(ObjectLambdaEvent event, HttpRequest.Builder presignedRequest) {
+    var header = event.getUserRequest().getHeaders().entrySet().stream()
+            .filter(e -> e.getKey().toLowerCase(Locale.ROOT).equals("range"))
+            .findFirst();
+
+    // Add check in the query string itself.
+    header.ifPresent(entry -> presignedRequest.header(entry.getKey(), entry.getValue()));
+    return presignedRequest;
+}
+```

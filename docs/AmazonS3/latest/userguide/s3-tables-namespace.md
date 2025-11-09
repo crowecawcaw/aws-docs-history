@@ -21,8 +21,13 @@ The following rules apply to table namespaces:
   Table namespaces are referred to as databases in various AWS services and query engines. The following table maps the terminology used for S3 Tables namespaces to some common engines and services.
 
 | **Service or Engine** | **Terminology** |
-| --------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | --------------- |
 | AWS Lake Formation    | Database        |
 | AWS Glue Data Catalog | Database        |
 | Athena                | Database        |
-| Spark                 | Namespace       | ###### Topics <br>• [Creating a namespace](s3-tables-namespace-create.md "s3-tables-namespace-create.md") <br>• [Delete a namespace](s3-tables-namespace-delete.md "s3-tables-namespace-delete.md") |
+| Spark                 | Namespace       |
+
+###### Topics
+
+- [Creating a namespace](s3-tables-namespace-create.md "s3-tables-namespace-create.md")
+- [Delete a namespace](s3-tables-namespace-delete.md "s3-tables-namespace-delete.md")

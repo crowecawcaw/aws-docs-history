@@ -33,11 +33,13 @@ Zones.
 | Region name           | Region code      | Availability Zone ID |
 | --------------------- | ---------------- | -------------------- |
 | US East (N. Virginia) | `us-east-1`      | `use1-az4`           |
-| `use1-az5`            |                  | `use1-az6`           |
+| `use1-az5`            |
+| `use1-az6`            |
 | US East (Ohio)        | `us-east-2`      | `use2-az1`           |
 | `use2-az2`            |
 | US West (Oregon)      | `us-west-2`      | `usw2-az1`           |
-| `usw2-az3`            |                  | `usw2-az4`           |
+| `usw2-az3`            |
+| `usw2-az4`            |
 | Asia Pacific (Mumbai) | `ap-south-1`     | `aps1-az1`           |
 | `aps1-az3`            |
 | Asia Pacific (Tokyo)  | `ap-northeast-1` | `apne1-az1`          |
@@ -45,4 +47,5 @@ Zones.
 | Europe (Ireland)      | `eu-west-1`      | `euw1-az1`           |
 | `euw1-az3`            |
 | Europe (Stockholm)    | `eu-north-1`     | `eun1-az1`           |
-| `eun1-az2`            |                  | `eun1-az3`           |
+| `eun1-az2`            |
+| `eun1-az3`            |
