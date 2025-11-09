@@ -479,9 +479,24 @@ see [Supported image resolutions](image-gen-access.md#image-gen-resolutions "ima
 
 - `numberOfImages` (Optional) – The number of images to generate.
 
+| Minimum | Maximum | Default |
+| ------- | ------- | ------- |
+| 1       | 5       | 1       |
+
+- `seed` (Optional) – Determines the initial noise setting for the generation
+  process. Changing the seed value while leaving all other parameters the same will produce a
+  totally new image that still adheres to your prompt, dimensions, and other settings. It is
+  common to experiment with a variety of seed values to find the perfect image.
+
 | Minimum | Maximum       | Default |
-| ------- | ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1       | 5             | 1       | <br>• `seed` (Optional) – Determines the initial noise setting for the generation process. Changing the seed value while leaving all other parameters the same will produce a totally new image that still adheres to your prompt, dimensions, and other settings. It is common to experiment with a variety of seed values to find the perfect image.                                                                                                                   |
-| Minimum | Maximum       | Default |
-| ---     | ---           | ---     |
-| 0       | 2,147,483,646 | 12      | ###### Important Resolution (`width` and `height`), `numberOfImages`, and `quality` all have an impact on the time it takes for generation to complete. The AWS SDK has a default `read_timeout` of 60 seconds which can easily be exceeded when using higher values for these parameters. Therefore, it is recommended that you increase the `read_timeout` of your invocation calls to at least 5 minutes (300 seconds). The code examples demonstrate how to do this. |
+| ------- | ------------- | ------- |
+| 0       | 2,147,483,646 | 12      |
+
+###### Important
+
+Resolution (`width` and `height`), `numberOfImages`, and
+`quality` all have an impact on the time it takes for generation to complete. The
+AWS SDK has a default `read_timeout` of 60 seconds which can easily be exceeded
+when using higher values for these parameters. Therefore, it is recommended that you increase
+the `read_timeout` of your invocation calls to at least 5 minutes (300 seconds).
+The code examples demonstrate how to do this.

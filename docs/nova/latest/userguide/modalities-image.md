@@ -23,5 +23,10 @@ still maintaining the aspect ratio. What follows are some examples of sample ima
 dimensions and approximate token calculations.
 
 | image_resolution (HxW or WxH) | 900 x 450 | 900 x 900 | 1400 x 900 | 1.8K x 900 | 1.3Kx1.3K |
-| ----------------------------- | --------- | --------- | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Estimated token count         | ~800      | ~1300     | ~1800      | ~2400      | ~2600     | So for example, consider an example image that is 800x400 in size, and you want to estimate the token count for this image. Based on the dimensions, to maintain an aspect ratio of 1:2, the closest resolution is 900x450. Therefore, the approximate token count for this image is about 800 tokens. |
+| ----------------------------- | --------- | --------- | ---------- | ---------- | --------- |
+| Estimated token count         | ~800      | ~1300     | ~1800      | ~2400      | ~2600     |
+
+So for example, consider an example image that is 800x400 in size, and you want to
+estimate the token count for this image. Based on the dimensions, to maintain an aspect
+ratio of 1:2, the closest resolution is 900x450. Therefore, the approximate token count
+for this image is about 800 tokens.

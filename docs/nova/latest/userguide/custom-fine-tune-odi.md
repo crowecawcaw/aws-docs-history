@@ -26,7 +26,13 @@ To use OD inference with a model trained after July 16, 2025, complete the follo
 The following requests per minute (RPM) and tokens per minute (TPM) limits apply to on-demand inference requests:
 
 | Base Model for Custom Model | RPM per Custom Model Deployment | TPM per Custom Model Deployment |
-| --------------------------- | ------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Nova Micro           | 200                             | 400,000                         |
-| Amazon Nova Lite            | 200                             | 400,000                         |
-| Amazon Nova Pro             | 20                              | 80,000                          | To learn more about the quotas available for Amazon Nova, see [Quotas for Amazon Nova](quotas.md "quotas.md"). ## Latency You can expect an end-to-end latency difference (that is, Time To First Token (TTFT)) of 20-55% between the base model invocation and the adapter. The exact latency value varies by model size and is in line with industry standards. |
+| --------------------------- | ------------------------------- | ------------------------------- |
+| Amazon Nova Micro           | 2,000                           | 4,000,000                       |
+| Amazon Nova Lite            | 2,000                           | 4,000,000                       |
+| Amazon Nova Pro             | 200                             | 800,000                         |
+
+To learn more about the quotas available for Amazon Nova, see [Quotas for Amazon Nova](quotas.md "quotas.md").
+
+## Latency
+
+You can expect an end-to-end latency difference (that is, Time To First Token (TTFT)) of 20-55% between the base model invocation and the adapter. The exact latency value varies by model size and is in line with industry standards.

@@ -148,10 +148,21 @@ The following example is for custom fine tuning over text and video.
 
 Amazon Nova applies the following constraints on model customizations for Understanding models.
 
-| Model                         | Minimum Samples | Maximum Samples | Context Length          |
-| ----------------------------- | --------------- | --------------- | ----------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------- |
-| Amazon Nova Micro             | 8               | 20k             | 32k                     |
-| Amazon Nova Lite              | 8               | 20k             | 32k                     |
-| Amazon Nova Pro               | 8               | 20k             | 32k                     | Image and video constraints | Maximum images                                                                                                      | 10/sample |
-| Maximum image file size       | 10 MB           |                 | Maximum videos          | 1/sample                    |
-| Maximum video length/duration | 90 seconds      |                 | Maximum video file size | 50 MB                       | ###### Supported media formats <br>• Image - `png`, `jpeg`, `gif`, `webp` <br>• Video - `mov`, `mkv`, `mp4`, `webm` |
+| Model             | Minimum Samples | Maximum Samples | Context Length |
+| ----------------- | --------------- | --------------- | -------------- |
+| Amazon Nova Micro | 8               | 20k             | 32k            |
+| Amazon Nova Lite  | 8               | 20k             | 32k            |
+| Amazon Nova Pro   | 8               | 20k             | 32k            |
+
+Image and video constraints| Maximum images | 10/sample |
+| Maximum image file size | 10 MB |
+| Maximum videos | 1/sample |
+| Maximum video length/duration | 90 seconds |
+| Maximum video file size | 50 MB |
+
+###### Supported media formats
+
+- Image - `png`, `jpeg`, `gif`,
+  `webp`
+- Video - `mov`, `mkv`, `mp4`,
+  `webm`

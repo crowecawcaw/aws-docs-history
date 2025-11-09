@@ -193,7 +193,11 @@ specifying a particular goal or role.
     response is returned up until that point.
 
 | Parameter     | Default value | Range     |
-| ------------- | ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ------------- | --------- |
 | `temperature` | 0.7           | 0.00001-1 |
 | `topP`        | 0.9           | 0-1       |
-| `topK`        | Not used      | 0-128     | <br>• `toolConfig` – (Optional) JSON object following [ToolConfig schema](../../../bedrock/latest/APIReference/API_runtime_ToolConfiguration.md "../../../bedrock/latest/APIReference/API_runtime_ToolConfiguration.md"), containing the tool specification and tool choice. This schema is the same followed [by the Converse API](../../../bedrock/latest/userguide/tool-use.md "../../../bedrock/latest/userguide/tool-use.md") |
+| `topK`        | Not used      | 0-128     |
+
+- `toolConfig` – (Optional) JSON object following [ToolConfig schema](../../../bedrock/latest/APIReference/API_runtime_ToolConfiguration.md "../../../bedrock/latest/APIReference/API_runtime_ToolConfiguration.md"), containing the tool specification and tool choice. This
+  schema is the same followed [by the
+  Converse API](../../../bedrock/latest/userguide/tool-use.md "../../../bedrock/latest/userguide/tool-use.md")

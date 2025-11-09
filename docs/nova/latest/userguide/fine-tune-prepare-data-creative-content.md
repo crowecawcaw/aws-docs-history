@@ -44,14 +44,22 @@ The following are dataset constraints for fine-tuning Amazon Nova Canvas. Amazon
 
 **Size requirements for training and validation datasets**
 
-|                                                      | Minimum | Maximum    |
-| ---------------------------------------------------- | ------- | ---------- | ------------------------------------------------ |
-| Records in a training dataset                        | 5       | 10k        |
-| Text prompt length in training sample, in characters | 3       | 1,024      | **Input image size constraints**                 |
-|                                                      | Minimum | Maximum    |
-| ---                                                  | ---     | ---        |
-| Input image size                                     | 0       | 50 MB      |
-| Input image height in pixels                         | 512     | 4,096      |
-| Input image width in pixels                          | 512     | 4,096      |
-| Input image total pixels                             | 0       | 12,582,912 |
-| Input image aspect ratio                             | 1:4     | 4:1        | **Supported media formats** <br>• PNG <br>• JPEG |
+|                                                      | Minimum | Maximum |
+| ---------------------------------------------------- | ------- | ------- |
+| Records in a training dataset                        | 5       | 10k     |
+| Text prompt length in training sample, in characters | 3       | 1,024   |
+
+**Input image size constraints**
+
+|                              | Minimum | Maximum    |
+| ---------------------------- | ------- | ---------- |
+| Input image size             | 0       | 50 MB      |
+| Input image height in pixels | 512     | 4,096      |
+| Input image width in pixels  | 512     | 4,096      |
+| Input image total pixels     | 0       | 12,582,912 |
+| Input image aspect ratio     | 1:4     | 4:1        |
+
+**Supported media formats**
+
+- PNG
+- JPEG
