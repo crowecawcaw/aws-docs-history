@@ -44,4 +44,103 @@ WorkSpace.
 Type: String
 
 Valid values: VALUE | STANDARD | PERFORMANCE | POWER | GRAPHICS | POWERPRO
-| GRAPHICSPRO Description: (Optional) The compute type for your WorkSpace. <br>• DirectoryId Type: String Description: (Required) The ID of the directory to add your WorkSpace to. <br>• RootVolumeEncryptionEnabled Type: Boolean Valid values: true | false Default: false Description: (Optional) Determines whether the root volume of the WorkSpace is encrypted. <br>• RootVolumeSizeGib Type: Integer Description: (Required) The size of the root volume for the WorkSpace. <br>• RunningMode Type: String Valid values: ALWAYS_ON | AUTO_STOP Description: (Required) The running mode of the WorkSpace. <br>• RunningModeAutoStopTimeoutInMinutes Type: Integer Description: (Optional) The time after a user logs off when the WorkSpaces stops. Specify a value in 60-minute intervals. <br>• Tags Type: String Description: (Optional) Tags that you want to apply to the WorkSpace. <br>• UserName Type: String Description: (Required) The user name to associate with the WorkSpace. <br>• UserVolumeEncryptionEnabled Type: Boolean Valid values: true | false Default: false Description: (Optional) Determines whether the user volume of the WorkSpace is encrypted. <br>• UserVolumeSizeGib Type: Integer Description: (Required) The size of the user volume for the WorkSpace. <br>• VolumeEncryptionKey Type: String Description: (Optional) The symmetric AWS Key Management Service key that you want to use to encrypt data stored on your WorkSpace. **Required IAM permissions** The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully. <br>• `workspaces:CreateWorkspaces` <br>• `workspaces:DescribeWorkspaces` **Document Steps** <br>• `aws:executeScript` - Creates a WorkSpace based on the values that you specify for the input parameters. <br>• `aws:waitForAwsResourceProperty` - Verifies the state of the WorkSpace is `AVAILABLE`. **Outputs** `CreateWorkspace.WorkspaceId`
+| GRAPHICSPRO
+
+Description: (Optional) The compute type for your WorkSpace.
+
+- DirectoryId
+
+Type: String
+
+Description: (Required) The ID of the directory to add your WorkSpace
+to.
+
+- RootVolumeEncryptionEnabled
+
+Type: Boolean
+
+Valid values: true | false
+
+Default: false
+
+Description: (Optional) Determines whether the root volume of the
+WorkSpace is encrypted.
+
+- RootVolumeSizeGib
+
+Type: Integer
+
+Description: (Required) The size of the root volume for the
+WorkSpace.
+
+- RunningMode
+
+Type: String
+
+Valid values: ALWAYS_ON | AUTO_STOP
+
+Description: (Required) The running mode of the WorkSpace.
+
+- RunningModeAutoStopTimeoutInMinutes
+
+Type: Integer
+
+Description: (Optional) The time after a user logs off when the WorkSpaces
+stops. Specify a value in 60-minute intervals.
+
+- Tags
+
+Type: String
+
+Description: (Optional) Tags that you want to apply to the
+WorkSpace.
+
+- UserName
+
+Type: String
+
+Description: (Required) The user name to associate with the
+WorkSpace.
+
+- UserVolumeEncryptionEnabled
+
+Type: Boolean
+
+Valid values: true | false
+
+Default: false
+
+Description: (Optional) Determines whether the user volume of the
+WorkSpace is encrypted.
+
+- UserVolumeSizeGib
+
+Type: Integer
+
+Description: (Required) The size of the user volume for the
+WorkSpace.
+
+- VolumeEncryptionKey
+
+Type: String
+
+Description: (Optional) The symmetric AWS Key Management Service key that you want to use
+to encrypt data stored on your WorkSpace.
+**Required IAM permissions**
+
+The `AutomationAssumeRole` parameter requires the following actions to
+use the runbook successfully.
+
+- `workspaces:CreateWorkspaces`
+- `workspaces:DescribeWorkspaces`
+
+**Document Steps**
+
+- `aws:executeScript` - Creates a WorkSpace based on the values
+  that you specify for the input parameters.
+- `aws:waitForAwsResourceProperty` - Verifies the state of the
+  WorkSpace is `AVAILABLE`.
+
+**Outputs**
+
+`CreateWorkspace.WorkspaceId`

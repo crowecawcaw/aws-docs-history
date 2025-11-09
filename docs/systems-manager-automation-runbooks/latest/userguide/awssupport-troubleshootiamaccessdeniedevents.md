@@ -163,7 +163,7 @@ Follow these steps to configure the automation:
      - Description: (Required) The ARN of the IAM user or role for
        which you want to investigate the access permissions on a specific
        AWS resource.
-     - Type: String
+     - Type: `String`
      - Allow Pattern:
        `^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::[0-9]{12}:(role|user)\\/[\\w+\\/=,.@-]+$`
 
@@ -172,21 +172,21 @@ Follow these steps to configure the automation:
        the access denied is evaluated. The AWS target resource should
        exist in the same region where the automation runbook is
        executed.
-     - Type: String
+     - Type: `String`
      - Allow Pattern:
        `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):([a-zA-Z0-9\\-]{1,63}):([a-z0-9\\-]{0,63})?:(\\d{12})?:([a-zA-Z0-9\\-_/:.]{1,1024})$`
 
    - **EventSource (Required):**
      - Description: (Required) The Amazon API endpoint where the CloudTrail
        event originated. For example: `s3.amazonaws.com`.
-     - Type: String
+     - Type: `String`
      - Allow Pattern:
        `^([a-zA-Z0-9.-]+)\\.amazonaws\\.com$`
 
    - **EventName (Optional):**
      - Description: (Optional) The Amazon API action name associated with
        the CloudTrail event. For example: `s3:CreateBucket`.
-     - Type: String
+     - Type: `String`
      - Allow Pattern: `^$|^[a-z0-9]+:[A-Za-z0-9]+$`
 
    - **LookBackHours (Optional):**

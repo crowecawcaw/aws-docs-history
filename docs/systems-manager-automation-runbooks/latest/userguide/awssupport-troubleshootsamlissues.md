@@ -8,7 +8,7 @@ SAML response files stored in Amazon Simple Storage Service (Amazon S3). It perf
 including schema verification, signature validation, audience restriction checking, and
 expiration time verification. The runbook decodes and extracts key SAML elements including
 issuer, assertions, subject, conditions, signatures, and attributes from the SAML response.
-For environments where SAML is used to access AWS resources (such as Amazon Connect or Amazon AppStream 2.0)
+For environments where SAML is used to access AWS resources (such as Amazon Connect or Amazon WorkSpaces Applications)
 through an IAM Identity Provider, it verifies whether the certificates in the SAML
 response signatures match the certificates configured in the IAM Identity Provider.
 

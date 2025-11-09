@@ -90,4 +90,14 @@ Description: (Optional) The subcategory of the incident.
 
 Valid values: None | Antivirus | Email | Internal Application | Operating
 System | CPU | Disk | Keyboard | Hardware | Memory | Monitor | Mouse | DHCP
-| DNS | IP Address | VPN | Wireless | DB2 | MS SQL Server | Oracle Default Value: None **Document Steps** Push_incident – Pushes the incident information to ServiceNow. **Outputs** Push_incident.incidentID – The created incident ID.
+| DNS | IP Address | VPN | Wireless | DB2 | MS SQL Server | Oracle
+
+Default Value: None
+
+**Document Steps**
+
+Push_incident – Pushes the incident information to ServiceNow.
+
+**Outputs**
+
+Push_incident.incidentID – The created incident ID.

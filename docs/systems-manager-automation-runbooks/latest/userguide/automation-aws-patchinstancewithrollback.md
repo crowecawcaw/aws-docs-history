@@ -54,7 +54,7 @@ generated during process.
 **Document Steps**
 
 | Step number | Step name                    | Automation action          |
-| ----------- | ---------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ---------------------------- | -------------------------- |
 | 1           | createDocumentStack          | `aws:createStack`          |
 | 2           | IdentifyRootVolume           | `aws:invokeLambdaFunction` |
 | 3           | PrePatchSnapshot             | `aws:executeAutomation`    |
@@ -65,4 +65,16 @@ generated during process.
 | 8           | ReportSuccessOrFailure       | `aws:invokeLambdaFunction` |
 | 9           | RestoreFromSnapshot          | `aws:invokeLambdaFunction` |
 | 10          | DeleteSnapshot               | `aws:invokeLambdaFunction` |
-| 11          | deleteCloudFormationTemplate | `aws:deleteStack`          | **Outputs** IdentifyRootVolume.Payload PrePatchSnapshot.Output SaveComplianceReportToS3.Payload RestoreFromSnapshot.Payload CheckCompliance.Payload |
+| 11          | deleteCloudFormationTemplate | `aws:deleteStack`          |
+
+**Outputs**
+
+IdentifyRootVolume.Payload
+
+PrePatchSnapshot.Output
+
+SaveComplianceReportToS3.Payload
+
+RestoreFromSnapshot.Payload
+
+CheckCompliance.Payload

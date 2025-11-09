@@ -8,4 +8,5 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 
 - [AWS-ConfigureCloudWatchOnEC2Instance](automation-aws-configurecloudwatchonec2instance.md "automation-aws-configurecloudwatchonec2instance.md")
 - [AWS-EnableCWAlarm](enable-cw-alarm.md "enable-cw-alarm.md")
+- [AWSSupport-TroubleshootCloudWatchAgent](automation-aws-troubleshootcloudwatchagent.md "automation-aws-troubleshootcloudwatchagent.md")
 - [AWSSupport-TroubleshootCloudWatchAlarm](automation-awssupport-troubleshoot-cloudwatchalarm.md "automation-awssupport-troubleshoot-cloudwatchalarm.md")

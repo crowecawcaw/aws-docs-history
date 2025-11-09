@@ -223,11 +223,75 @@ Follow these steps to configure the automation:
 
    A report of the provided Amazon CloudWatch (CloudWatch) metric Alarm.
 
-````
+```
 
                 ------------------------------------------------------------------------------------------
-|                     AWS CloudWatch Alarm Troubleshooting Results                       | ------------------------------------------------------------------------------------------
-|     Alarm Name                        -               Demo-Alarm                       |
-|     Timestamp                         -               2025-03-04T06:31:00Z             | ------------------------------------------------------------------------------------------
-|     ✅ No Issue(s) Found                                                               | ------------------------------------------------------------------------------------------ ========================================================================================== 1. Validating SSM Document input parameters: ========================================================================================== ✅ [PASSED]: Found a metric alarm with name Demo-Alarm ========================================================================================== 2. Checking alarm's data state: ========================================================================================== ✅ [PASSED]: The alarm is not in INSUFFICIENT_DATA state, alarm's state is: ALARM ========================================================================================== 3. Checking if the alarm experienced metric mismatches: ========================================================================================== ✅ [PASSED]: Metric matches with the configured metric for Alarm. ========================================================================================== 4. Checking if the alarm's metric(s) experienced missing datapoint(s): ========================================================================================== ✅ [PASSED]: Metric has datapoints ========================================================================================== 5. Retrieving alarm's history for timestamp 2025-03-04T06:31:00Z: ========================================================================================== ✅ [PASSED]: Found most recent alarm history item for the provided timestamp: '2025-03-04T06:31:00Z' ========================================================================================== 6. Checking if the alarm experienced metric delays or the alarm's datapoint(s) did not meet the configured threshold: ========================================================================================== ✅ [PASSED]: CloudWatch alarm did not experience any delayed metric ========================================================================================== 7. Checking if the alarm has actions enabled and if action(s) were delivered: ========================================================================================== ✅ [PASSED]: Successfully executed action arn:aws:sns:us-east-1:12345678910:Demo_Alarms_Topic ------------------------------------------------------------------------------------------ ✅ All the checks have passed for CloudWatch alarm, Demo-Alarm, the alarm's configuration is correct. ``` **References** Systems Manager Automation <br>• [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootCloudWatchAlarm/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootCloudWatchAlarm/description") <br>• [Run an automation](../../../systems-manager/latest/userguide/automation-working-executing.md "../../../systems-manager/latest/userguide/automation-working-executing.md") <br>• [Setting up an Automation](../../../systems-manager/latest/userguide/automation-setup.md "../../../systems-manager/latest/userguide/automation-setup.md") <br>• [Support Automation Workflows landing page](https://aws.amazon.com/premiumsupport/technology/saw/ "https://aws.amazon.com/premiumsupport/technology/saw/")
-````
+                |                     AWS CloudWatch Alarm Troubleshooting Results                       |
+                ------------------------------------------------------------------------------------------
+                |     Alarm Name                        -               Demo-Alarm                       |
+                |     Timestamp                         -               2025-03-04T06:31:00Z             |
+                ------------------------------------------------------------------------------------------
+                |     ✅ No Issue(s) Found                                                               |
+                ------------------------------------------------------------------------------------------
+
+
+
+                ==========================================================================================
+                1. Validating SSM Document input parameters:
+                ==========================================================================================
+                ✅ [PASSED]: Found a metric alarm with name Demo-Alarm
+
+
+                ==========================================================================================
+                2. Checking alarm's data state:
+                ==========================================================================================
+                ✅ [PASSED]: The alarm is not in INSUFFICIENT_DATA state, alarm's state is: ALARM
+
+
+                ==========================================================================================
+                3. Checking if the alarm experienced metric mismatches:
+                ==========================================================================================
+                ✅ [PASSED]: Metric matches with the configured metric for Alarm.
+
+
+                ==========================================================================================
+                4. Checking if the alarm's metric(s) experienced missing datapoint(s):
+                ==========================================================================================
+                ✅ [PASSED]: Metric has datapoints
+
+
+                ==========================================================================================
+                5. Retrieving alarm's history for timestamp 2025-03-04T06:31:00Z:
+                ==========================================================================================
+                ✅ [PASSED]: Found most recent alarm history item for the provided timestamp: '2025-03-04T06:31:00Z'
+
+
+                ==========================================================================================
+                6. Checking if the alarm experienced metric delays or the alarm's datapoint(s) did not meet the configured threshold:
+                ==========================================================================================
+                ✅ [PASSED]: CloudWatch alarm did not experience any delayed metric
+
+
+                ==========================================================================================
+                7. Checking if the alarm has actions enabled and if action(s) were delivered:
+                ==========================================================================================
+                ✅ [PASSED]: Successfully executed action arn:aws:sns:us-east-1:12345678910:Demo_Alarms_Topic
+
+
+                ------------------------------------------------------------------------------------------
+
+                ✅ All the checks have passed for CloudWatch alarm, Demo-Alarm, the alarm's configuration is correct.
+
+```
+
+**References**
+
+Systems Manager Automation
+
+- [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootCloudWatchAlarm/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootCloudWatchAlarm/description")
+- [Run an
+  automation](../../../systems-manager/latest/userguide/automation-working-executing.md "../../../systems-manager/latest/userguide/automation-working-executing.md")
+- [Setting up an
+  Automation](../../../systems-manager/latest/userguide/automation-setup.md "../../../systems-manager/latest/userguide/automation-setup.md")
+- [Support Automation
+  Workflows landing page](https://aws.amazon.com/premiumsupport/technology/saw/ "https://aws.amazon.com/premiumsupport/technology/saw/")

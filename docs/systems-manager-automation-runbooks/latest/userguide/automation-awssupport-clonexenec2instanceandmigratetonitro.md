@@ -140,7 +140,7 @@ Follow these steps to configure the automation:
      - Type: `String`
      - Allowed Pattern:
        `^(m5a?z?d?n?|c5a?d?n?|r5a?d?n?b?|(c|m|r)6(a|i)?d?)\\.(2|4|8|12|16|24|32)?xlarge$|^t3a?\\.((x|2x)?large|nano|micro|small|medium)$`
-     - Default: m5.xlarge
+     - Default: `m5.xlarge`
 
    - **SNSTopicArn (Required):**
      - Description: (Required) Provide the ARN of the Amazon SNS Topic for approval notification. This Amazon SNS topic is used to send approval notifications during the automation execution.
