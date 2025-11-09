@@ -43,7 +43,236 @@ If you specify your account ID, do not include any hyphens ('-') in the ID.
 
 This operation uses the following request parameters.
 
-| Name     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Required |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `limit`  | The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit. Type: String Constraints: Minimum integer value of 1. Maximum integer value of 10.                                                                                                                                                                                                                                | No       |
-| `marker` | A string used for pagination. `marker` specifies the vault ARN after which the listing of vaults should begin. (The vault specified by `marker` is not included in the returned list.) Get the `marker` value from a previous List Vaults response. You need to include the `marker` only if you are continuing the pagination of results started in a previous List Vaults request. Specifying an empty value ("") for the marker returns a list of vaults starting from the first vault. Type: String Constraints: None | No       | ### Request Headers This operation uses only request headers that are common to all operations. For information about common request headers, see [Common Request Headers](api-common-request-headers.md "api-common-request-headers.md"). ### Request Body This operation does not have a request body. ## Responses ### Syntax `HTTP/1.1 200 OK x-amzn-RequestId: **x-amzn-RequestId** Date: **Date** Content-Type: application/json Content-Length: ***Length*** { "Marker": ***String*** "VaultList": [ { "CreationDate": ***String***, "LastInventoryDate": ***String***, "NumberOfArchives": ***Number***, "SizeInBytes": ***Number***, "VaultARN": ***String***, "VaultName": ***String*** }, ... ] }` ### Response Headers This operation uses only response headers that are common to most responses. For information about common response headers, see [Common Response Headers](api-common-response-headers.md "api-common-response-headers.md"). ### Response Body The response body contains the following JSON fields. **CreationDate** The date the vault was created, in Coordinated Universal Time (UTC). _Type_: String. A string representation in the ISO 8601 date format, for example `2013-03-20T17:03:43.221Z`. **LastInventoryDate** The date of the last vault inventory, in Coordinated Universal Time (UTC). This field can be null if an inventory has not yet run on the vault, for example, if you just created the vault. For information about initiating an inventory for a vault, see [Initiate Job (POST jobs)](api-initiate-job-post.md "api-initiate-job-post.md"). _Type_: A string representation in the ISO 8601 date format, for example `2013-03-20T17:03:43.221Z`. **Marker** The `vaultARN` that represents where to continue pagination of the results. You use the `marker` in another List Vaults request to obtain more vaults in the list. If there are no more vaults, this value is `null`. _Type_: String **NumberOfArchives** The number of archives in the vault as of the last inventory date. _Type_: Number **SizeInBytes** The total size, in bytes, of all the archives in the vault including any per-archive overhead, as of the last inventory date. _Type_: Number **VaultARN** The Amazon Resource Name (ARN) of the vault. _Type_: String **VaultList** An array of objects, with each object providing a description of a vault. _Type_: Array **VaultName** The vault name. _Type_: String ### Errors For information about Amazon Glacier exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md"). ## Examples ### Example: List All Vaults The following example lists vaults. Because the `marker` and `limit` parameters are not specified in the request, up to 10 vaults are returned. #### Example Request `GET /-/vaults HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z x-amz-glacier-version: 2012-06-01 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2` #### Example Response The `Marker` is `null` indicating there are no more vaults to list. `HTTP/1.1 200 OK x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:02:00 GMT Content-Type: application/json Content-Length: 497 { "Marker": null, "VaultList": [ { "CreationDate": "2012-03-16T22:22:47.214Z", "LastInventoryDate": "2012-03-21T22:06:51.218Z", "NumberOfArchives": 2, "SizeInBytes": 12334, "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault1", "VaultName": "examplevault1" }, { "CreationDate": "2012-03-19T22:06:51.218Z", "LastInventoryDate": "2012-03-21T22:06:51.218Z", "NumberOfArchives": 0, "SizeInBytes": 0, "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault2", "VaultName": "examplevault2" }, { "CreationDate": "2012-03-19T22:06:51.218Z", "LastInventoryDate": "2012-03-25T12:14:31.121Z", "NumberOfArchives": 0, "SizeInBytes": 0, "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault3", "VaultName": "examplevault3" } ] }` ### Example: Partial List of Vaults The following example returns two vaults starting at the vault specified by the `marker`. #### Example Request `GET /-/vaults?limit=2&marker=arn:aws:glacier:us-west-2:012345678901:vaults/examplevault1 HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z x-amz-glacier-version: 2012-06-01 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2` #### Example Response Two vaults are returned in the list. The `Marker` contains the vault ARN to continue pagination in another List Vaults request. `HTTP/1.1 200 OK x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:02:00 GMT Content-Type: application/json Content-Length: 497 { "Marker": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault3", "VaultList": [ { "CreationDate": "2012-03-16T22:22:47.214Z", "LastInventoryDate": "2012-03-21T22:06:51.218Z", "NumberOfArchives": 2, "SizeInBytes": 12334, "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault1", "VaultName": "examplevault1" }, { "CreationDate": "2012-03-19T22:06:51.218Z", "LastInventoryDate": "2012-03-21T22:06:51.218Z", "NumberOfArchives": 0, "SizeInBytes": 0, "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault2", "VaultName": "examplevault2" } ] }` ## Related Sections <br>• [Create Vault (PUT vault)](api-vault-put.md "api-vault-put.md") <br>• [Delete Vault (DELETE vault)](api-vault-delete.md "api-vault-delete.md") <br>• [Initiate Job (POST jobs)](api-initiate-job-post.md "api-initiate-job-post.md") <br>• [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md") ## See Also For more information about using this API in one of the language-specific Amazon SDKs, see the following: <br>• [AWS Command Line Interface](../../../cli/latest/reference/glacier/list-vaults.md "../../../cli/latest/reference/glacier/list-vaults.md") |
+| Name     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Required |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `limit`  | The maximum number of vaults to be returned. The default limit is 10. The number of<br>vaults returned might be fewer than the specified limit, but the<br>number of returned vaults never exceeds the limit.<br>Type: String<br>Constraints: Minimum integer value of 1. Maximum integer value of 10.                                                                                                                                                                                                                                                     | No       |
+| `marker` | A string used for pagination. `marker` specifies the vault ARN after which<br>the listing of vaults should begin. (The vault specified by<br>`marker` is not included in the returned<br>list.) Get the `marker` value from a previous<br>List Vaults response. You need to include the<br>`marker` only if you are continuing the<br>pagination of results started in a previous List Vaults<br>request. Specifying an empty value ("") for the marker<br>returns a list of vaults starting from the first<br>vault.<br>Type: String<br>Constraints: None | No       |
+
+### Request Headers
+
+This operation uses only request headers that are common to all operations. For information about common request headers, see
+[Common Request Headers](api-common-request-headers.md "api-common-request-headers.md").
+
+### Request Body
+
+This operation does not have a request body.
+
+## Responses
+
+### Syntax
+
+```
+HTTP/1.1 200 OK
+x-amzn-RequestId: **x-amzn-RequestId**
+Date: **Date**
+Content-Type: application/json
+Content-Length: ***Length***
+
+{
+  "Marker": ***String***
+  "VaultList": [
+   {
+    "CreationDate": ***String***,
+    "LastInventoryDate": ***String***,
+    "NumberOfArchives": ***Number***,
+    "SizeInBytes": ***Number***,
+    "VaultARN": ***String***,
+    "VaultName": ***String***
+   },
+   ...
+  ]
+}
+```
+
+### Response Headers
+
+This operation uses only response headers that are common to most responses. For information about common response headers, see
+[Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
+
+### Response Body
+
+The response body contains the following JSON fields.
+
+**CreationDate**
+
+The date the vault was created, in Coordinated Universal Time (UTC).
+
+_Type_: String. A string representation in the ISO 8601 date format, for example `2013-03-20T17:03:43.221Z`.
+
+**LastInventoryDate**
+
+The date of the last vault inventory, in Coordinated Universal Time (UTC). This field
+can be null if an inventory has not yet run on the vault, for
+example, if you just created the vault. For information about
+initiating an inventory for a vault, see [Initiate Job (POST jobs)](api-initiate-job-post.md "api-initiate-job-post.md").
+
+_Type_: A string representation in the ISO 8601 date format, for example `2013-03-20T17:03:43.221Z`.
+
+**Marker**
+
+The `vaultARN` that represents where to continue pagination of the results.
+You use the `marker` in another List Vaults request to
+obtain more vaults in the list. If there are no more vaults, this
+value is `null`.
+
+_Type_: String
+
+**NumberOfArchives**
+
+The number of archives in the vault as of the last inventory date.
+
+_Type_: Number
+
+**SizeInBytes**
+
+The total size, in bytes, of all the archives in the vault including any per-archive
+overhead, as of the last inventory date.
+
+_Type_: Number
+
+**VaultARN**
+
+The Amazon Resource Name (ARN) of the vault.
+
+_Type_: String
+
+**VaultList**
+
+An array of objects, with each object providing a description of a vault.
+
+_Type_: Array
+
+**VaultName**
+
+The vault name.
+
+_Type_: String
+
+### Errors
+
+For information about Amazon Glacier
+exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md").
+
+## Examples
+
+### Example: List All Vaults
+
+The following example lists vaults. Because the `marker` and `limit`
+parameters are not specified in the request, up to 10 vaults are returned.
+
+#### Example Request
+
+```
+GET /-/vaults HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+x-amz-glacier-version: 2012-06-01
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+```
+
+#### Example Response
+
+The `Marker` is `null` indicating there are no more vaults to
+list.
+
+```
+HTTP/1.1 200 OK
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:02:00 GMT
+Content-Type: application/json
+Content-Length: 497
+
+{
+  "Marker": null,
+  "VaultList": [
+   {
+    "CreationDate": "2012-03-16T22:22:47.214Z",
+    "LastInventoryDate": "2012-03-21T22:06:51.218Z",
+    "NumberOfArchives": 2,
+    "SizeInBytes": 12334,
+    "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault1",
+    "VaultName": "examplevault1"
+   },
+   {
+    "CreationDate": "2012-03-19T22:06:51.218Z",
+    "LastInventoryDate": "2012-03-21T22:06:51.218Z",
+    "NumberOfArchives": 0,
+    "SizeInBytes": 0,
+    "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault2",
+    "VaultName": "examplevault2"
+   },
+   {
+    "CreationDate": "2012-03-19T22:06:51.218Z",
+    "LastInventoryDate": "2012-03-25T12:14:31.121Z",
+    "NumberOfArchives": 0,
+    "SizeInBytes": 0,
+    "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault3",
+    "VaultName": "examplevault3"
+   }
+  ]
+}
+```
+
+### Example: Partial List of Vaults
+
+The following example returns two vaults starting at the vault specified by the
+`marker`.
+
+#### Example Request
+
+```
+GET /-/vaults?limit=2&marker=arn:aws:glacier:us-west-2:012345678901:vaults/examplevault1 HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+x-amz-glacier-version: 2012-06-01
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+```
+
+#### Example Response
+
+Two vaults are returned in the list. The `Marker` contains the
+vault ARN to continue pagination in another List Vaults request.
+
+```
+HTTP/1.1 200 OK
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:02:00 GMT
+Content-Type: application/json
+Content-Length: 497
+
+{
+  "Marker": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault3",
+  "VaultList": [
+   {
+    "CreationDate": "2012-03-16T22:22:47.214Z",
+    "LastInventoryDate": "2012-03-21T22:06:51.218Z",
+    "NumberOfArchives": 2,
+    "SizeInBytes": 12334,
+    "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault1",
+    "VaultName": "examplevault1"
+   },
+   {
+    "CreationDate": "2012-03-19T22:06:51.218Z",
+    "LastInventoryDate": "2012-03-21T22:06:51.218Z",
+    "NumberOfArchives": 0,
+    "SizeInBytes": 0,
+    "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault2",
+    "VaultName": "examplevault2"
+   }
+  ]
+}
+```
+
+## Related Sections
+
+- [Create Vault (PUT vault)](api-vault-put.md "api-vault-put.md")
+- [Delete Vault (DELETE vault)](api-vault-delete.md "api-vault-delete.md")
+- [Initiate Job (POST jobs)](api-initiate-job-post.md "api-initiate-job-post.md")
+- [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md")
+
+## See Also
+
+For more information about using this API in one of the language-specific Amazon SDKs,
+see the following:
+
+- [AWS Command Line Interface](../../../cli/latest/reference/glacier/list-vaults.md "../../../cli/latest/reference/glacier/list-vaults.md")

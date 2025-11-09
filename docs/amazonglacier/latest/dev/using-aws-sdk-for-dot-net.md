@@ -101,8 +101,28 @@ more information, go to [Amazon SDK for .NET](http://aws.amazon.com/sdkfornet/ "
 The following procedure outlines steps for you to test the code examples provided
 in this guide.
 
-General Process of Creating .NET Code Examples (Using Visual Studio)| 1 | Create a credentials profile for your AWS credentials as described in the Amazon SDK for .NET topic
-[Configuring AWS credentials](../../../sdk-for-net/v4/developer-guide/creds-assign.md "../../../sdk-for-net/v4/developer-guide/creds-assign.md"). |
-| 2 | Create a new Visual Studio project using the _AWS Empty Project_ template. |
-| 3 | Replace the code in the project file, `Program.cs`, with the code in the section you are reading. |
-| 4 | Run the code. Verify that the object is created using the AWS Management Console. For more information about AWS Management Console, go to [http://aws.amazon.com/console/](http://aws.amazon.com/console/ "http://aws.amazon.com/console/"). | ## Setting the Endpoint By default, the AWS SDK for .NET sets the endpoint to the US West (Oregon) Region (`https://glacier.us-west-2.amazonaws.com`). You can set the endpoint to other AWS Regions as shown in the following C# snippets. The following snippet shows how to set the endpoint to the US West (Oregon) Region (`us-west-2`) in the low-level API. `AmazonGlacierClient client = new AmazonGlacierClient(Amazon.RegionEndpoint.USWest2);` The following snippet shows how to set the endpoint to the US West (Oregon) Region in the high-level API. `var manager = new ArchiveTransferManager(Amazon.RegionEndpoint.USWest2);` For a current list of supported AWS Regions and endpoints, see [Accessing Amazon Glacier](amazon-glacier-accessing.md "amazon-glacier-accessing.md").
+General Process of Creating .NET Code Examples (Using Visual Studio)| 1 | Create a credentials profile for your AWS credentials as described in the Amazon SDK for .NET topic<br>[Configuring AWS credentials](../../../sdk-for-net/v4/developer-guide/creds-assign.md "../../../sdk-for-net/v4/developer-guide/creds-assign.md"). |
+| 2 | Create a new Visual Studio project using the _AWS Empty Project_<br>template. |
+| 3 | Replace the code in the project file, `Program.cs`, with the code in the<br>section you are reading. |
+| 4 | Run the code. Verify that the object is created using the AWS Management Console.<br>For more information about AWS Management Console, go to [http://aws.amazon.com/console/](http://aws.amazon.com/console/ "http://aws.amazon.com/console/"). |
+
+## Setting the Endpoint
+
+By default, the AWS SDK for .NET sets the endpoint to the US West (Oregon) Region (`https://glacier.us-west-2.amazonaws.com`). You can set the
+endpoint to other AWS Regions as shown in the following C# snippets.
+
+The following snippet shows how to set the endpoint to the US West (Oregon) Region
+(`us-west-2`) in the low-level API.
+
+```
+AmazonGlacierClient client = new AmazonGlacierClient(Amazon.RegionEndpoint.USWest2);
+```
+
+The following snippet shows how to set the endpoint to the US West (Oregon) Region in
+the high-level API.
+
+```
+var manager = new ArchiveTransferManager(Amazon.RegionEndpoint.USWest2);
+```
+
+For a current list of supported AWS Regions and endpoints, see [Accessing Amazon Glacier](amazon-glacier-accessing.md "amazon-glacier-accessing.md").

@@ -100,5 +100,83 @@ The following table summarizes the archive retrieval options. For information ab
 pricing, see [Amazon Glacier pricing](https://aws.amazon.com/s3/glacier/pricing/ "https://aws.amazon.com/s3/glacier/pricing/").
 
 | Service        | Expedited   | Standard  | Bulk       |
-| -------------- | ----------- | --------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Glacier | 1–5 minutes | 3–5 hours | 5–12 hours | To make an `Expedited`, `Standard`, or `Bulk` retrieval, set the `Tier` request element in the [RestoreObject](../../../AmazonS3/latest/API/RESTObjectPOSTrestore.md "../../../AmazonS3/latest/API/RESTObjectPOSTrestore.md") REST API operation request to the option that you want, or the equivalent in the AWS Command Line Interface (AWS CLI) or AWS SDKs. If you purchased provisioned capacity, all Expedited retrievals are automatically served through your provisioned capacity. ### Provisioned Capacity Provisioned capacity helps ensure that your retrieval capacity for Expedited retrievals is available when you need it. Each unit of capacity provides that at least three Expedited retrievals can be performed every 5 minutes and provides up to 150 megabytes per second (MBps) of retrieval throughput. If your workload requires highly reliable and predictable access to a subset of your data in minutes, we recommend that you purchase provisioned retrieval capacity. Without provisioned capacity, Expedited retrievals are typically accepted, except for rare situations of unusually high demand. However, if you require access to Expedited retrievals under all circumstances, you must purchase provisioned retrieval capacity. #### Purchasing Provisioned Capacity You can purchase provisioned capacity units by using the Amazon Glacier console, the [Purchase Provisioned Capacity (POST provisioned-capacity)](api-PurchaseProvisionedCapacity.md "api-PurchaseProvisionedCapacity.md") REST API operation, the AWS SDKs, or the AWS CLI. For provisioned capacity pricing information, see [Amazon Glacier Pricing](https://aws.amazon.com/s3/glacier/pricing/ "https://aws.amazon.com/s3/glacier/pricing/"). A provisioned capacity unit lasts for one month, starting at the date and time of purchase. If the start date is on the 31st day of a month, the expiration date is the last day of the next month. For example, if the start date is August 31, the expiration date is September 30. If the start date is January 31, the expiration date is February 28. ###### To purchase provisioned capacity by using the Amazon Glacier console 1. Sign in to the AWS Management Console and open the Amazon Glacier console at [https://console.aws.amazon.com/glacier/home](https://console.aws.amazon.com/glacier/home "https://console.aws.amazon.com/glacier/home"). 2. In the left navigation pane, choose **Data retrieval settings**. 3. Under **Provisioned capacity units (PCUs)**, choose **Purchase PCU**. The **Purchase PCU** dialog box appears. 4. If you want to purchase provisioned capacity, enter `confirm` in the **To confirm purchase** box. 5. Choose **Purchase PCU**. ## Ranged Archive Retrievals When you retrieve an archive from Amazon Glacier, you can optionally specify a range, or portion, of the archive to retrieve. The default is to retrieve the whole archive. Specifying a range of bytes can be helpful when you want to do the following: <br>• Manage your data downloads – Amazon Glacier allows retrieved data to be downloaded for 24 hours after the retrieval request is completed. Therefore, you might want to retrieve only portions of the archive so that you can manage the schedule of downloads within the given download window. <br>• Retrieve a targeted part of a large archive – For example, suppose you have previously aggregated many files and uploaded them as a single archive, and now you want to retrieve a few of the files. In this case, you can specify a range of the archive that contains the files that you are interested in by using one retrieval request. Or, you can initiate multiple retrieval requests, each with a range for one or more files. When initiating a retrieval job using range retrievals, you must provide a range that is megabyte aligned. In other words, the byte range can start at zero (the beginning of your archive), or at any 1-MB interval thereafter (1 MB, 2 MB, 3 MB, and so on). The end of the range can either be the end of your archive or any 1 MB interval greater than the beginning of your range. Furthermore, if you want to get checksum values when you download the data (after the retrieval job is completed), the range that you request in the job initiation must also be tree-hash aligned. You can use checksums to help ensure that your data was not corrupted during transmission. For more information about megabyte alignment and tree-hash alignment, see [Receiving Checksums When Downloading Data](checksum-calculations-range.md "checksum-calculations-range.md"). |
+| -------------- | ----------- | --------- | ---------- |
+| Amazon Glacier | 1–5 minutes | 3–5 hours | 5–12 hours |
+
+To make an `Expedited`, `Standard`, or `Bulk`
+retrieval, set the `Tier` request element in the [RestoreObject](../../../AmazonS3/latest/API/RESTObjectPOSTrestore.md "../../../AmazonS3/latest/API/RESTObjectPOSTrestore.md")
+REST API operation request to the option that you want, or the equivalent in the
+AWS Command Line Interface (AWS CLI) or AWS SDKs. If you purchased provisioned capacity, all Expedited
+retrievals are automatically served through your provisioned capacity.
+
+### Provisioned Capacity
+
+Provisioned capacity helps ensure that your retrieval capacity for Expedited retrievals is
+available when you need it. Each unit of capacity provides that at least three
+Expedited retrievals can be performed every 5 minutes and provides up to 150
+megabytes per second (MBps) of retrieval throughput.
+
+If your workload requires highly reliable and predictable access to a subset of your data
+in minutes, we recommend that you purchase provisioned retrieval capacity.
+Without provisioned capacity, Expedited retrievals are typically accepted,
+except for rare situations of unusually high demand. However, if you require
+access to Expedited retrievals under all circumstances, you must purchase
+provisioned retrieval capacity.
+
+#### Purchasing Provisioned Capacity
+
+You can purchase provisioned capacity units by using the Amazon Glacier console, the [Purchase Provisioned Capacity (POST
+provisioned-capacity)](api-PurchaseProvisionedCapacity.md "api-PurchaseProvisionedCapacity.md") REST API operation,
+the AWS SDKs, or the AWS CLI. For provisioned capacity pricing information,
+see [Amazon Glacier
+Pricing](https://aws.amazon.com/s3/glacier/pricing/ "https://aws.amazon.com/s3/glacier/pricing/").
+
+A provisioned capacity unit lasts for one month, starting at the date and time of
+purchase.
+
+If the start date is on the 31st day of a month, the expiration date is
+the last day of the next month. For example, if the start date is August 31,
+the expiration date is September 30. If the start date is January 31, the
+expiration date is February 28.
+
+###### To purchase provisioned capacity by using the Amazon Glacier console
+
+1. Sign in to the AWS Management Console and open the Amazon Glacier console at [https://console.aws.amazon.com/glacier/home](https://console.aws.amazon.com/glacier/home "https://console.aws.amazon.com/glacier/home").
+2. In the left navigation pane, choose **Data retrieval settings**.
+3. Under **Provisioned capacity units (PCUs)**, choose **Purchase
+   PCU**. The **Purchase PCU** dialog box
+   appears.
+4. If you want to purchase provisioned capacity, enter `confirm` in
+   the **To confirm purchase** box.
+5. Choose **Purchase PCU**.
+
+## Ranged Archive Retrievals
+
+When you retrieve an archive from Amazon Glacier, you can optionally specify a range,
+or portion, of the archive to retrieve. The default is to retrieve the whole
+archive. Specifying a range of bytes can be helpful when you want to do the
+following:
+
+- Manage your data downloads – Amazon Glacier allows
+  retrieved data to be downloaded for 24 hours after the retrieval request is
+  completed. Therefore, you might want to retrieve only portions of the
+  archive so that you can manage the schedule of downloads within the given
+  download window.
+- Retrieve a targeted part of a large archive – For
+  example, suppose you have previously aggregated many files and uploaded them
+  as a single archive, and now you want to retrieve a few of the files. In
+  this case, you can specify a range of the archive that contains the files
+  that you are interested in by using one retrieval request. Or, you can
+  initiate multiple retrieval requests, each with a range for one or more
+  files.
+
+When initiating a retrieval job using range retrievals, you must provide a range that is
+megabyte aligned. In other words, the byte range can start at zero (the beginning of
+your archive), or at any 1-MB interval thereafter (1 MB, 2 MB, 3 MB, and so on).
+
+The end of the range can either be the end of your archive or any 1 MB interval greater
+than the beginning of your range. Furthermore, if you want to get checksum values
+when you download the data (after the retrieval job is completed), the range that
+you request in the job initiation must also be tree-hash aligned. You can use
+checksums to help ensure that your data was not corrupted during transmission. For
+more information about megabyte alignment and tree-hash alignment, see [Receiving Checksums When Downloading Data](checksum-calculations-range.md "checksum-calculations-range.md").

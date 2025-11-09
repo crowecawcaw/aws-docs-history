@@ -103,10 +103,39 @@ latest AWS Toolkit for Eclipse. For information on installing or updating to the
 following tasks guide you through the creation and testing of the Java code examples
 provided in this section.
 
-General Process of Creating Java Code Examples| 1 | Create a default credentials profile for your AWS credentials as described in the AWS SDK for Java topic
-[Providing AWS Credentials in the Amazon SDK for Java](../../../sdk-for-java/v1/developer-guide/credentials.md "../../../sdk-for-java/v1/developer-guide/credentials.md").
-|
+General Process of Creating Java Code Examples| 1 | Create a default credentials profile for your AWS credentials as described in the AWS SDK for Java topic<br>[Providing AWS Credentials in the Amazon SDK for Java](../../../sdk-for-java/v1/developer-guide/credentials.md "../../../sdk-for-java/v1/developer-guide/credentials.md"). |
 | 2 | Create a new AWS Java project in Eclipse. The project is pre-configured with the AWS SDK for Java. |
 | 3 | Copy the code from the section you are reading to your project. |
-| 4 | Update the code by providing any required data. For example, if uploading a file, provide the file path and the bucket name. |
-| 5 | Run the code. Verify that the object is created by using the AWS Management Console. For more information about the AWS Management Console, go to [http://aws.amazon.com/console/](http://aws.amazon.com/console/ "http://aws.amazon.com/console/"). | ## Setting the Endpoint By default, the AWS SDK for Java uses the endpoint `https://glacier.us-east-1.amazonaws.com`. You can set the endpoint explicitly as shown in the following Java code snippets. The following snippet shows how to set the endpoint to the US West (Oregon) Region (`us-west-2`) in the low-level API. `client = new AmazonGlacierClient(credentials); client.setEndpoint("glacier.us-west-2.amazonaws.com");` The following snippet shows how to set the endpoint to the US West (Oregon) Region in the high-level API. `glacierClient = new AmazonGlacierClient(credentials); sqsClient = new AmazonSQSClient(credentials); snsClient = new AmazonSNSClient(credentials); glacierClient.setEndpoint("glacier.us-west-2.amazonaws.com"); sqsClient.setEndpoint("sqs.us-west-2.amazonaws.com"); snsClient.setEndpoint("sns.us-west-2.amazonaws.com"); ArchiveTransferManager atm = new ArchiveTransferManager(glacierClient, sqsClient, snsClient);` For a list of supported AWS Regions and endpoints, see [Accessing Amazon Glacier](amazon-glacier-accessing.md "amazon-glacier-accessing.md").
+| 4 | Update the code by providing any required data. For example, if uploading a file,<br>provide the file path and the bucket name. |
+| 5 | Run the code. Verify that the object is created by using the AWS Management Console. For more<br>information about the AWS Management Console, go to [http://aws.amazon.com/console/](http://aws.amazon.com/console/ "http://aws.amazon.com/console/"). |
+
+## Setting the Endpoint
+
+By default, the AWS SDK for Java uses the endpoint
+`https://glacier.us-east-1.amazonaws.com`. You can set the endpoint
+explicitly as shown in the following Java code snippets.
+
+The following snippet shows how to set the endpoint to the US West (Oregon) Region
+(`us-west-2`) in the low-level API.
+
+```
+client = new AmazonGlacierClient(credentials);
+client.setEndpoint("glacier.us-west-2.amazonaws.com");
+```
+
+The following snippet shows how to set the endpoint to the US West (Oregon) Region in
+the high-level API.
+
+```
+glacierClient = new AmazonGlacierClient(credentials);
+sqsClient = new AmazonSQSClient(credentials);
+snsClient = new AmazonSNSClient(credentials);
+
+glacierClient.setEndpoint("glacier.us-west-2.amazonaws.com");
+sqsClient.setEndpoint("sqs.us-west-2.amazonaws.com");
+snsClient.setEndpoint("sns.us-west-2.amazonaws.com");
+
+ArchiveTransferManager atm = new ArchiveTransferManager(glacierClient, sqsClient, snsClient);
+```
+
+For a list of supported AWS Regions and endpoints, see [Accessing Amazon Glacier](amazon-glacier-accessing.md "amazon-glacier-accessing.md").

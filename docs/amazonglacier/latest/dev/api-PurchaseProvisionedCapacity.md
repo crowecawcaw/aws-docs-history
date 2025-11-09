@@ -88,9 +88,61 @@ Headers
 A successful response includes the following response headers, in addition to the response headers that are common to all operations. For more information about common response headers, see
 [Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
 
-| Name                     | Description                                                                                   |
-| ------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `x-amz-capacity-id`      | The ID that identifies the provisioned capacity unit. Type: String                            | ### Response Body This operation does not return a response body. ### Errors This operation includes the following error or errors, in addition to the possible errors common to all Amazon Glacier operations. For information about Amazon Glacier errors and a list of error codes, see [Error Responses](api-error-responses.md "api-error-responses.md"). |
-| Code                     | Description                                                                                   | HTTP Status Code                                                                                                                                                                                                                                                                                                                                               | Type   |
-| ---                      | ---                                                                                           | ---                                                                                                                                                                                                                                                                                                                                                            | ---    |
-| `LimitExceededException` | Returned if the given request would exceed the account's limit of provisioned capacity units. | `400 Bad Request`                                                                                                                                                                                                                                                                                                                                              | Client | ## Examples The following example purchases provisioned capacity for an account. ### Example Request The following example sends an HTTP POST request to purchase a provisioned capacity unit. ``POST /123456789012/provisioned-capacity HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2 Content-Length: `length` x-amz-glacier-version: 2012-06-01`` ### Example Response If the request was successful, Amazon Glacier (Amazon Glacier) returns an `HTTP 201 Created` response, as shown in the following example. `HTTP/1.1 201 Created x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:02:00 GMT x-amz-capacity-id: zSaq7NzHFQDANTfQkDen4V7z` ## Related Sections <br>• [List Provisioned Capacity (GET provisioned-capacity)](api-ListProvisionedCapacity.md "api-ListProvisionedCapacity.md") |
+| Name                | Description                                                           |
+| ------------------- | --------------------------------------------------------------------- |
+| `x-amz-capacity-id` | The ID that identifies the provisioned capacity unit.<br>Type: String |
+
+### Response
+
+Body
+
+This operation does not return a response body.
+
+### Errors
+
+This operation includes the following error or errors, in addition to the possible errors common to all Amazon Glacier operations. For information about Amazon Glacier
+errors and a list of error codes, see [Error Responses](api-error-responses.md "api-error-responses.md").
+
+| Code                     | Description                                                                                      | HTTP Status Code  | Type   |
+| ------------------------ | ------------------------------------------------------------------------------------------------ | ----------------- | ------ |
+| `LimitExceededException` | Returned if the given request would exceed the account's limit of<br>provisioned capacity units. | `400 Bad Request` | Client |
+
+## Examples
+
+The following example purchases provisioned capacity for an account.
+
+### Example
+
+Request
+
+The following example sends an HTTP POST request to purchase a provisioned capacity
+unit.
+
+```
+POST /123456789012/provisioned-capacity HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+Content-Length: `length`
+x-amz-glacier-version: 2012-06-01
+
+```
+
+### Example
+
+Response
+
+If the request was successful, Amazon Glacier (Amazon Glacier) returns an `HTTP 201 Created`
+response, as shown in the following example.
+
+```
+HTTP/1.1 201 Created
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:02:00 GMT
+x-amz-capacity-id: zSaq7NzHFQDANTfQkDen4V7z
+```
+
+## Related Sections
+
+- [List Provisioned Capacity (GET
+  provisioned-capacity)](api-ListProvisionedCapacity.md "api-ListProvisionedCapacity.md")

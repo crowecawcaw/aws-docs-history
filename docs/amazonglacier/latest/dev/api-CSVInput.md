@@ -39,4 +39,35 @@ A value that describes what to do with the first line of the input.
 _Type_: String
 
 _Valid Values_: `Use` | `Ignore`
-| `None` _Required_: no **QuoteCharacter** A single character used as an escape character where the field delimiter is part of the value. _Type_: String _Required_: no **QuoteEscapeCharacter** A single character used for escaping the quotation-mark character inside an already escaped value. _Type_: String _Required_: no **RecordDelimiter** A single character used to separate individual records from each other. _Type_: String _Required_: no ## More Info <br>• [Initiate Job (POST jobs)](api-initiate-job-post.md "api-initiate-job-post.md")
+| `None`
+
+_Required_: no
+
+**QuoteCharacter**
+
+A single character used as an escape character where the field delimiter is part of the
+value.
+
+_Type_: String
+
+_Required_: no
+
+**QuoteEscapeCharacter**
+
+A single character used for escaping the quotation-mark character inside an already escaped value.
+
+_Type_: String
+
+_Required_: no
+
+**RecordDelimiter**
+
+A single character used to separate individual records from each other.
+
+_Type_: String
+
+_Required_: no
+
+## More Info
+
+- [Initiate Job (POST jobs)](api-initiate-job-post.md "api-initiate-job-post.md")

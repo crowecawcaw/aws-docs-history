@@ -297,11 +297,169 @@ x-amz-job-output-path: `jobOutputPath`
 
 ### Response Headers
 
-| Header                          | Description                                                                                                                                                                                                             |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Location`                      | The relative URI path of the job. You can use this URI path to find the job status. For more information, see [Describe Job (GET JobID)](api-describe-job-get.md "api-describe-job-get.md"). Type: String Default: None |
-| `x-amz-job-id`                  | The ID of the job. This value is also included as part of the `Location` header. Type: String Default: None                                                                                                             |
-| `x-amz-job-output-path`         | The path to the location of where the select results are stored. Type: String Default: None                                                                                                                             | ### Response Body This operation does not return a response body. ### Errors This operation includes the following error or errors, in addition to the possible errors common to all Amazon Glacier operations. For information about Amazon Glacier errors and a list of error codes, see [Error Responses](api-error-responses.md "api-error-responses.md"). |
-| Code                            | Description                                                                                                                                                                                                             | HTTP Status Code                                                                                                                                                                                                                                                                                                                                               | Type   |
-| ---                             | ---                                                                                                                                                                                                                     | ---                                                                                                                                                                                                                                                                                                                                                            | ---    |
-| `InsufficientCapacityException` | Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.                                                   | `503 Service Unavailable`                                                                                                                                                                                                                                                                                                                                      | Server | ## Examples ### Example Request: Initiate an archive retrieval job `POST /-/vaults/examplevault/jobs HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z x-amz-glacier-version: 2012-06-01 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2 { "Type": "archive-retrieval", "ArchiveId": "NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId", "Description": "My archive description", "SNSTopic": "arn:aws:sns:us-west-2:111111111111:Glacier-ArchiveRetrieval-topic-Example", "Tier" : "Bulk" }` The following is an example of the body of a request that specifies a range of the archive to retrieve using the `RetrievalByteRange` field. `{ "Type": "archive-retrieval", "ArchiveId": "NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId", "Description": "My archive description", "RetrievalByteRange": "2097152-4194303", "SNSTopic": "arn:aws:sns:us-west-2:111111111111:Glacier-ArchiveRetrieval-topic-Example", "Tier" : "Bulk" }` ### Example Response `HTTP/1.1 202 Accepted x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:00:00 GMT Location: /111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID x-amz-job-id: HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID` ### Example Request: Initiate an inventory retrieval job The following request initiates an inventory retrieval job to get a list of archives from the `examplevault` vault. The `Format` set to `CSV` in the body of the request indicates that the inventory is returned in CSV format. `POST /-/vaults/examplevault/jobs HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z Content-Type: application/x-www-form-urlencoded x-amz-glacier-version: 2012-06-01 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2 { "Type": "inventory-retrieval", "Description": "My inventory job", "Format": "CSV", "SNSTopic": "arn:aws:sns:us-west-2:111111111111:Glacier-InventoryRetrieval-topic-Example" }` ### Example Response `HTTP/1.1 202 Accepted x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:00:00 GMT Location: /111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID x-amz-job-id: HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID` ### Example Requests: Initiate an inventory retrieval job by using date filtering with a set limit, and a subsequent request to retrieve the next page of inventory items. The following request initiates a vault inventory retrieval job by using date filtering and setting a limit. `{ "ArchiveId": null, "Description": null, "Format": "CSV", "RetrievalByteRange": null, "SNSTopic": null, "Type": "inventory-retrieval", "InventoryRetrievalParameters": { "StartDate": "2013-12-04T21:25:42Z", "EndDate": "2013-12-05T21:25:42Z", "Limit" : "10000" }, }` The following request is an example of a subsequent request to retrieve the next page of inventory items using a marker obtained from [Describe Job (GET JobID)](api-describe-job-get.md "api-describe-job-get.md"). `{ "ArchiveId": null, "Description": null, "Format": "CSV", "RetrievalByteRange": null, "SNSTopic": null, "Type": "inventory-retrieval", "InventoryRetrievalParameters": { "StartDate": "2013-12-04T21:25:42Z", "EndDate": "2013-12-05T21:25:42Z", "Limit": "10000", "Marker": "vyS0t2jHQe5qbcDggIeD50chS1SXwYMrkVKo0KHiTUjEYxBGCqRLKaiySzdN7QXGVVV5XZpNVG67pCZ_uykQXFMLaxOSu2hO_-5C0AtWMDrfo7LgVOyfnveDRuOSecUo3Ueq7K0" }, }` ### Example Response `HTTP/1.1 202 Accepted x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:00:00 GMT Location: /111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID x-amz-job-id: HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID x-amz-job-output-path: test/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID/` ## Related Sections <br>• [Describe Job (GET JobID)](api-describe-job-get.md "api-describe-job-get.md") <br>• [Get Job Output (GET output)](api-job-output-get.md "api-job-output-get.md") <br>• [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md") |
+| Header                  | Description                                                                                                                                                                                                                      |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Location`              | The relative URI path of the job. You can use this URI path to<br>find the job status. For more information, see [Describe Job (GET JobID)](api-describe-job-get.md "api-describe-job-get.md").<br>Type: String<br>Default: None |
+| `x-amz-job-id`          | The ID of the job. This value is also included as part of the<br>`Location` header.<br>Type: String<br>Default: None                                                                                                             |
+| `x-amz-job-output-path` | The path to the location of where<br>the select results are stored.<br>Type: String<br>Default: None                                                                                                                             |
+
+### Response Body
+
+This operation does not return a response body.
+
+### Errors
+
+This operation includes the following error or errors, in addition to the possible errors common to all Amazon Glacier operations. For information about Amazon Glacier
+errors and a list of error codes, see [Error Responses](api-error-responses.md "api-error-responses.md").
+
+| Code                            | Description                                                                                                                                                                 | HTTP Status Code          | Type   |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------ |
+| `InsufficientCapacityException` | Returned if there is insufficient capacity to process this<br>expedited request. This error only applies to expedited retrievals<br>and not to standard or bulk retrievals. | `503 Service Unavailable` | Server |
+
+## Examples
+
+### Example Request: Initiate an
+
+archive retrieval job
+
+```
+POST /-/vaults/examplevault/jobs HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+x-amz-glacier-version: 2012-06-01
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+
+{
+  "Type": "archive-retrieval",
+  "ArchiveId": "NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId",
+  "Description": "My archive description",
+  "SNSTopic": "arn:aws:sns:us-west-2:111111111111:Glacier-ArchiveRetrieval-topic-Example",
+  "Tier" : "Bulk"
+}
+```
+
+The following is an example of the body of a request that specifies a range of the
+archive to retrieve using the `RetrievalByteRange` field.
+
+```
+{
+  "Type": "archive-retrieval",
+  "ArchiveId": "NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId",
+  "Description": "My archive description",
+  "RetrievalByteRange": "2097152-4194303",
+  "SNSTopic": "arn:aws:sns:us-west-2:111111111111:Glacier-ArchiveRetrieval-topic-Example",
+  "Tier" : "Bulk"
+}
+```
+
+### Example Response
+
+```
+HTTP/1.1 202 Accepted
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:00:00 GMT
+Location: /111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID
+x-amz-job-id: HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID
+```
+
+### Example
+
+Request: Initiate an inventory retrieval job
+
+The following request initiates an inventory retrieval job to get a list of
+archives from the `examplevault` vault. The `Format` set to
+`CSV` in the body of the request indicates that the inventory is
+returned in CSV format.
+
+```
+POST /-/vaults/examplevault/jobs HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+Content-Type: application/x-www-form-urlencoded
+x-amz-glacier-version: 2012-06-01
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+
+{
+  "Type": "inventory-retrieval",
+  "Description": "My inventory job",
+  "Format": "CSV",
+  "SNSTopic": "arn:aws:sns:us-west-2:111111111111:Glacier-InventoryRetrieval-topic-Example"
+}
+```
+
+### Example
+
+Response
+
+```
+HTTP/1.1 202 Accepted
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:00:00 GMT
+Location: /111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID
+x-amz-job-id: HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID
+```
+
+### Example
+
+Requests: Initiate an inventory retrieval job by using date filtering with a set
+limit, and a subsequent request to retrieve the next page of inventory
+items.
+
+The following request initiates a vault inventory retrieval job by using date
+filtering and setting a limit.
+
+```
+
+{
+    "ArchiveId": null,
+    "Description": null,
+    "Format": "CSV",
+    "RetrievalByteRange": null,
+    "SNSTopic": null,
+    "Type": "inventory-retrieval",
+    "InventoryRetrievalParameters": {
+        "StartDate": "2013-12-04T21:25:42Z",
+        "EndDate": "2013-12-05T21:25:42Z",
+        "Limit" : "10000"
+    },
+}
+```
+
+The following request is an example of a subsequent request to retrieve the next
+page of inventory items using a marker obtained from [Describe Job (GET JobID)](api-describe-job-get.md "api-describe-job-get.md").
+
+```
+{
+    "ArchiveId": null,
+    "Description": null,
+    "Format": "CSV",
+    "RetrievalByteRange": null,
+    "SNSTopic": null,
+    "Type": "inventory-retrieval",
+    "InventoryRetrievalParameters": {
+        "StartDate": "2013-12-04T21:25:42Z",
+        "EndDate": "2013-12-05T21:25:42Z",
+        "Limit": "10000",
+        "Marker": "vyS0t2jHQe5qbcDggIeD50chS1SXwYMrkVKo0KHiTUjEYxBGCqRLKaiySzdN7QXGVVV5XZpNVG67pCZ_uykQXFMLaxOSu2hO_-5C0AtWMDrfo7LgVOyfnveDRuOSecUo3Ueq7K0"
+    },
+}
+```
+
+### Example
+
+Response
+
+```
+HTTP/1.1 202 Accepted
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:00:00 GMT
+Location: /111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID
+x-amz-job-id: HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID
+x-amz-job-output-path: test/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID/
+```
+
+## Related Sections
+
+- [Describe Job (GET JobID)](api-describe-job-get.md "api-describe-job-get.md")
+- [Get Job Output (GET output)](api-job-output-get.md "api-job-output-get.md")
+- [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md")

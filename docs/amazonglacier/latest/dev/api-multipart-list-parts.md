@@ -52,7 +52,236 @@ The `AccountId` value is the AWS account ID of the account that owns the vault. 
 
 ### Request Parameters
 
-| Name     | Description                                                                                                                                                                                                                                                                                                                                           | Required |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `limit`  | The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit. Type: String Constraints: Minimum integer value of `1`. Maximum integer value of `50`.                                                           | No       |
-| `marker` | An opaque string used for pagination. `marker` specifies the part at which the listing of parts should begin. Get the `marker` value from the response of a previous List Parts response. You need only include the `marker` if you are continuing the pagination of results started in a previous List Parts request. Type: String Constraints: None | No       | ### Request Headers This operation uses only response headers that are common to most responses. For information about common response headers, see [Common Response Headers](api-common-response-headers.md "api-common-response-headers.md"). ### Request Body This operation does not have a request body. ## Responses ### Syntax `HTTP/1.1 200 OK x-amzn-RequestId: **x-amzn-RequestId** Date: **Date** Content-Type: application/json Content-Length: ***Length*** { "ArchiveDescription" : ***String***, "CreationDate" : ***String***, "Marker": ***String***, "MultipartUploadId" : ***String***, "PartSizeInBytes" : ***Number***, "Parts" : [ { "RangeInBytes" : ***String***, "SHA256TreeHash" : ***String*** }, ... ], "VaultARN" : ***String*** }` ### Response Headers This operation uses only response headers that are common to most responses. For information about common response headers, see [Common Response Headers](api-common-response-headers.md "api-common-response-headers.md"). ### Response Body The response body contains the following JSON fields. **ArchiveDescription** The description of the archive that was specified in the Initiate Multipart Upload request. This field is `null` if no archive description was specified in the Initiate Multipart Upload operation. _Type_: String **CreationDate** The UTC time that the multipart upload was initiated. _Type_: String. A string representation in the ISO 8601 date format, for example `2013-03-20T17:03:43.221Z`. **Marker** An opaque string that represents where to continue pagination of the results. You use the `marker` in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is `null`. _Type_: String **MultipartUploadId** The ID of the upload to which the parts are associated. _Type_: String **PartSizeInBytes** The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request. _Type_: Number **Parts** A list of the part sizes of the multipart upload. Each object in the array contains a `RangeBytes` and `sha256-tree-hash` name/value pair. _Type_: Array **RangeInBytes** The byte range of a part, inclusive of the upper value of the range. _Type_: String **SHA256TreeHash** The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is never `null`. _Type_: String **VaultARN** The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated. _Type_: String ### Errors For information about Amazon Glacier exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md"). ## Examples ### Example: List Parts of a Multipart Upload The following example lists all the parts of an upload. The example sends an HTTP `GET` request to the URI of the specific multipart upload ID of an in-progress multipart upload and returns up to 1,000 parts. #### Example Request `GET /-/vaults/examplevault/multipart-uploads/OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z x-amz-glacier-version: 2012-06-01 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2` #### Example Response In the response, Amazon Glacier returns a list of uploaded parts associated with the specified multipart upload ID. In this example, there are only two parts. The returned `Marker` field is `null` indicating that there are no more parts of the multipart upload. `HTTP/1.1 200 OK x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:00:00 GMT Content-Type: application/json Content-Length: 412 { "ArchiveDescription" : "archive description", "CreationDate" : "2012-03-20T17:03:43.221Z", "Marker": null, "MultipartUploadId" : "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE", "PartSizeInBytes" : 4194304, "Parts" : [ { "RangeInBytes" : "0-4194303", "SHA256TreeHash" : "01d34dabf7be316472c93b1ef80721f5d4" }, { "RangeInBytes" : "4194304-8388607", "SHA256TreeHash" : "0195875365afda349fc21c84c099987164" }], "VaultARN" : "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault" }` ### Example: List Parts of a Multipart Upload (Specify the Marker and the Limit Request Parameters) The following example demonstrates how to use pagination to get a limited number of results. The example sends an HTTP `GET` request to the URI of the specific multipart upload ID of an in-progress multipart upload to return one part. A starting `marker` parameter specifies at which part to start the part list. You can get the `marker` value from the response of a previous request for a part list. Furthermore, in this example, the `limit` parameter is set to 1 and returns one part. Note that the `Marker` field is not `null`, indicating that there is at least one more part to obtain. #### Example Request `GET /-/vaults/examplevault/multipart-uploads/OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE?marker=1001&limit=1 HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z x-amz-glacier-version: 2012-06-01 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2` #### Example Response In the response, Amazon Glacier returns a list of uploaded parts that are associated with the specified in-progress multipart upload ID. `HTTP/1.1 200 OK x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:00:00 GMT Content-Type: text/json Content-Length: 412 { "ArchiveDescription" : "archive description 1", "CreationDate" : "2012-03-20T17:03:43.221Z", "Marker": "MfgsKHVjbQ6EldVl72bn3_n5h2TaGZQUO-Qb3B9j3TITf7WajQ", "MultipartUploadId" : "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE", "PartSizeInBytes" : 4194304, "Parts" : [ { "RangeInBytes" : "4194304-8388607", "SHA256TreeHash" : "01d34dabf7be316472c93b1ef80721f5d4" }], "VaultARN" : "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault" }` ## Related Sections <br>• [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") <br>• [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md") <br>• [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md "api-multipart-complete-upload.md") <br>• [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md "api-multipart-abort-upload.md") <br>• [List Multipart Uploads (GET multipart-uploads)](api-multipart-list-uploads.md "api-multipart-list-uploads.md") <br>• [Uploading Large Archives in Parts (Multipart Upload)](uploading-archive-mpu.md "uploading-archive-mpu.md") <br>• [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md") |
+| Name     | Description                                                                                                                                                                                                                                                                                                                                                                | Required |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `limit`  | The maximum number of parts to be returned. The default limit is 50. The number of<br>parts returned might be fewer than the specified limit, but the<br>number of returned parts never exceeds the limit.<br>Type: String<br>Constraints: Minimum integer value of `1`. Maximum integer value of<br>`50`.                                                                 | No       |
+| `marker` | An opaque string used for pagination. `marker` specifies the part at which<br>the listing of parts should begin. Get the `marker`<br>value from the response of a previous List Parts response. You<br>need only include the `marker` if you are continuing<br>the pagination of results started in a previous List Parts<br>request.<br>Type: String<br>Constraints: None | No       |
+
+### Request Headers
+
+This operation uses only response headers that are common to most responses. For information about common response headers, see
+[Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
+
+### Request Body
+
+This operation does not have a request body.
+
+## Responses
+
+### Syntax
+
+```
+HTTP/1.1 200 OK
+x-amzn-RequestId: **x-amzn-RequestId**
+Date: **Date**
+Content-Type: application/json
+Content-Length: ***Length***
+
+{
+    "ArchiveDescription" : ***String***,
+    "CreationDate" : ***String***,
+    "Marker": ***String***,
+    "MultipartUploadId" : ***String***,
+    "PartSizeInBytes" : ***Number***,
+    "Parts" :
+    [ {
+      "RangeInBytes" : ***String***,
+      "SHA256TreeHash" : ***String***
+      },
+      ...
+     ],
+    "VaultARN" : ***String***
+}
+```
+
+### Response Headers
+
+This operation uses only response headers that are common to most responses. For information about common response headers, see
+[Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
+
+### Response Body
+
+The response body contains the following JSON fields.
+
+**ArchiveDescription**
+
+The description of the archive that was specified in the Initiate Multipart Upload
+request. This field is `null` if no archive description was
+specified in the Initiate Multipart Upload operation.
+
+_Type_: String
+
+**CreationDate**
+
+The UTC time that the multipart upload was initiated.
+
+_Type_: String. A string representation in the ISO 8601 date format, for example `2013-03-20T17:03:43.221Z`.
+
+**Marker**
+
+An opaque string that represents where to continue pagination of the results. You use
+the `marker` in a new List Parts request to obtain more jobs
+in the list. If there are no more parts, this value is
+`null`.
+
+_Type_: String
+
+**MultipartUploadId**
+
+The ID of the upload to which the parts are associated.
+
+_Type_: String
+
+**PartSizeInBytes**
+
+The part size in bytes. This is the same value that you specified in
+the Initiate Multipart Upload request.
+
+_Type_: Number
+
+**Parts**
+
+A list of the part sizes of the multipart upload. Each object in the array contains a
+`RangeBytes` and `sha256-tree-hash` name/value
+pair.
+
+_Type_: Array
+
+**RangeInBytes**
+
+The byte range of a part, inclusive of the upper value of the range.
+
+_Type_: String
+
+**SHA256TreeHash**
+
+The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is never
+`null`.
+
+_Type_: String
+
+**VaultARN**
+
+The Amazon Resource Name (ARN) of the vault to which the multipart
+upload was initiated.
+
+_Type_: String
+
+### Errors
+
+For information about Amazon Glacier
+exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md").
+
+## Examples
+
+### Example: List Parts of a Multipart
+
+Upload
+
+The following example lists all the parts of an upload. The example sends an HTTP
+`GET` request to the URI of the specific multipart upload ID of an
+in-progress multipart upload and returns up to 1,000 parts.
+
+#### Example Request
+
+```
+GET /-/vaults/examplevault/multipart-uploads/OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+x-amz-glacier-version: 2012-06-01
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+```
+
+#### Example Response
+
+In the response, Amazon Glacier returns a list of uploaded parts associated with the specified
+multipart upload ID. In this example, there are only two parts. The returned
+`Marker` field is `null` indicating that there are no
+more parts of the multipart upload.
+
+```
+HTTP/1.1 200 OK
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:00:00 GMT
+Content-Type: application/json
+Content-Length: 412
+
+{
+    "ArchiveDescription" : "archive description",
+    "CreationDate" : "2012-03-20T17:03:43.221Z",
+    "Marker": null,
+    "MultipartUploadId" : "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
+    "PartSizeInBytes" : 4194304,
+    "Parts" :
+    [ {
+      "RangeInBytes" : "0-4194303",
+      "SHA256TreeHash" : "01d34dabf7be316472c93b1ef80721f5d4"
+      },
+      {
+      "RangeInBytes" : "4194304-8388607",
+      "SHA256TreeHash" : "0195875365afda349fc21c84c099987164"
+      }],
+    "VaultARN" : "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault"
+}
+```
+
+### Example: List Parts of a Multipart
+
+Upload (Specify the Marker and the Limit Request Parameters)
+
+The following example demonstrates how to use pagination to get a limited number of
+results. The example sends an HTTP `GET` request to the URI of the
+specific multipart upload ID of an in-progress multipart upload to return one part.
+A starting `marker` parameter specifies at which part to start the part
+list. You can get the `marker` value from the response of a previous
+request for a part list. Furthermore, in this example, the `limit`
+parameter is set to 1 and returns one part. Note that the `Marker` field
+is not `null`, indicating that there is at least one more part to obtain.
+
+#### Example Request
+
+```
+GET /-/vaults/examplevault/multipart-uploads/OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE?marker=1001&limit=1 HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+x-amz-glacier-version: 2012-06-01
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+```
+
+#### Example Response
+
+In the response, Amazon Glacier returns a list of uploaded parts that are associated with the
+specified in-progress multipart upload ID.
+
+```
+HTTP/1.1 200 OK
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:00:00 GMT
+Content-Type: text/json
+Content-Length: 412
+
+{
+    "ArchiveDescription" : "archive description 1",
+    "CreationDate" : "2012-03-20T17:03:43.221Z",
+    "Marker": "MfgsKHVjbQ6EldVl72bn3_n5h2TaGZQUO-Qb3B9j3TITf7WajQ",
+    "MultipartUploadId" : "OW2fM5iVylEpFEMM9_HpKowRapC3vn5sSL39_396UW9zLFUWVrnRHaPjUJddQ5OxSHVXjYtrN47NBZ-khxOjyEXAMPLE",
+    "PartSizeInBytes" : 4194304,
+    "Parts" :
+    [ {
+      "RangeInBytes" : "4194304-8388607",
+      "SHA256TreeHash" : "01d34dabf7be316472c93b1ef80721f5d4"
+      }],
+    "VaultARN" : "arn:aws:glacier:us-west-2:012345678901:vaults/demo1-vault"
+}
+```
+
+## Related Sections
+
+- [Initiate Multipart Upload (POST
+  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
+- [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md")
+- [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md "api-multipart-complete-upload.md")
+- [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md "api-multipart-abort-upload.md")
+- [List Multipart Uploads (GET multipart-uploads)](api-multipart-list-uploads.md "api-multipart-list-uploads.md")
+- [Uploading Large Archives in Parts (Multipart Upload)](uploading-archive-mpu.md "uploading-archive-mpu.md")
+- [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md")

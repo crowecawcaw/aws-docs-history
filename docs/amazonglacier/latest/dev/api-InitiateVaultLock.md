@@ -104,6 +104,62 @@ x-amz-lock-id: lockId
 A successful response includes the following response headers, in addition to the response headers that are common to all operations. For more information about common response headers, see
 [Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
 
-| Name            | Description                                                                    |
-| --------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `x-amz-lock-id` | The lock ID, which is used to complete the vault locking process. Type: String | ### Response Body This operation does not return a response body. ### Errors For information about Amazon Glacier exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md"). ## Examples ### Example Request The following example sends an HTTP `PUT` request to the URI of the vault's `lock-policy` subresource. The `Policy` JSON string uses "\" as an escape character. `PUT /-/vaults/examplevault/lock-policy HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2 Content-Length: length x-amz-glacier-version: 2012-06-01 {"Policy":"{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":\"Define-vault-lock\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\",\"Condition\":{\"NumericLessThanEquals\":{\"glacier:ArchiveAgeinDays\":\"365\"}}}]}"}` ### Example Response If the request was successful, Amazon Glacier returns an `HTTP 201 Created` response, as shown in the following example. `HTTP/1.1 201 Created x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:02:00 GMT x-amz-lock-id: AE863rKkWZU53SLW5be4DUcW` ## Related Sections <br>• [Abort Vault Lock (DELETE lock-policy)](api-AbortVaultLock.md "api-AbortVaultLock.md") <br>• [Complete Vault Lock (POST lockId)](api-CompleteVaultLock.md "api-CompleteVaultLock.md") <br>• [Get Vault Lock (GET lock-policy)](api-GetVaultLock.md "api-GetVaultLock.md") ## See Also For more information about using this API in one of the language-specific Amazon SDKs, see the following: <br>• [AWS Command Line Interface](../../../cli/latest/reference/glacier/initiate-vault-lock.md "../../../cli/latest/reference/glacier/initiate-vault-lock.md") |
+| Name            | Description                                                                       |
+| --------------- | --------------------------------------------------------------------------------- |
+| `x-amz-lock-id` | The lock ID, which is used to complete the vault locking process.<br>Type: String |
+
+### Response Body
+
+This operation does not return a response body.
+
+### Errors
+
+For information about Amazon Glacier
+exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md").
+
+## Examples
+
+### Example Request
+
+The following example sends an HTTP `PUT` request to the URI of the
+vault's `lock-policy` subresource. The `Policy` JSON string
+uses "\" as an escape character.
+
+```
+PUT /-/vaults/examplevault/lock-policy HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+Content-Length: length
+x-amz-glacier-version: 2012-06-01
+
+{"Policy":"{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":\"Define-vault-lock\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\",\"Condition\":{\"NumericLessThanEquals\":{\"glacier:ArchiveAgeinDays\":\"365\"}}}]}"}
+
+```
+
+### Example Response
+
+If the request was successful, Amazon Glacier returns an `HTTP 201 Created` response, as
+shown in the following example.
+
+```
+HTTP/1.1 201 Created
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:02:00 GMT
+x-amz-lock-id: AE863rKkWZU53SLW5be4DUcW
+```
+
+## Related Sections
+
+- [Abort Vault Lock (DELETE lock-policy)](api-AbortVaultLock.md "api-AbortVaultLock.md")
+
+- [Complete Vault Lock (POST lockId)](api-CompleteVaultLock.md "api-CompleteVaultLock.md")
+
+- [Get Vault Lock (GET lock-policy)](api-GetVaultLock.md "api-GetVaultLock.md")
+
+## See Also
+
+For more information about using this API in one of the language-specific Amazon SDKs,
+see the following:
+
+- [AWS Command Line Interface](../../../cli/latest/reference/glacier/initiate-vault-lock.md "../../../cli/latest/reference/glacier/initiate-vault-lock.md")

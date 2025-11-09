@@ -72,6 +72,58 @@ Location: ***Location***
 A successful response includes the following response headers, in addition to the response headers that are common to all operations. For more information about common response headers, see
 [Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
 
-| Name       | Description                                                       |
-| ---------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Location` | The relative URI path of the vault that was created. Type: String | ### Response Body This operation does not return a response body. ### Errors For information about Amazon Glacier exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md"). ## Examples ### Example Request The following example sends an HTTP PUT request to create a vault named `examplevault`. `PUT /-/vaults/examplevault HTTP/1.1 Host: glacier.us-west-2.amazonaws.com x-amz-Date: 20170210T120000Z x-amz-glacier-version: 2012-06-01 Content-Length: 0 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2` ### Example Response Amazon Glacier creates the vault and returns the relative URI path of the vault in the `Location` header. The account ID is always displayed in the `Location` header regardless of whether the account ID or a hyphen ('`-`') was specified in the request. `HTTP/1.1 201 Created x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q Date: Wed, 10 Feb 2017 12:02:00 GMT Location: /111122223333/vaults/examplevault` ## Related Sections <br>• [List Vaults (GET vaults)](api-vaults-get.md "api-vaults-get.md") <br>• [Delete Vault (DELETE vault)](api-vault-delete.md "api-vault-delete.md") <br>• [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md") ## See Also For more information about using this API in one of the language-specific Amazon SDKs, see the following: <br>• [AWS Command Line Interface](../../../cli/latest/reference/glacier/create-vault.md "../../../cli/latest/reference/glacier/create-vault.md") |
+| Name       | Description                                                          |
+| ---------- | -------------------------------------------------------------------- |
+| `Location` | The relative URI path of the vault that was created.<br>Type: String |
+
+### Response Body
+
+This operation does not return a response body.
+
+### Errors
+
+For information about Amazon Glacier
+exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md").
+
+## Examples
+
+### Example Request
+
+The following example sends an HTTP PUT request to create a vault named
+`examplevault`.
+
+```
+PUT /-/vaults/examplevault HTTP/1.1
+Host: glacier.us-west-2.amazonaws.com
+x-amz-Date: 20170210T120000Z
+x-amz-glacier-version: 2012-06-01
+Content-Length: 0
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+```
+
+### Example Response
+
+Amazon Glacier creates the vault and returns the relative URI path of the vault in the
+`Location` header. The account ID is always displayed in the
+`Location` header regardless of whether the account ID or a hyphen
+('`-`') was specified in the request.
+
+```
+HTTP/1.1 201 Created
+x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+Date: Wed, 10 Feb 2017 12:02:00 GMT
+Location: /111122223333/vaults/examplevault
+```
+
+## Related Sections
+
+- [List Vaults (GET vaults)](api-vaults-get.md "api-vaults-get.md")
+- [Delete Vault (DELETE vault)](api-vault-delete.md "api-vault-delete.md")
+- [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md")
+
+## See Also
+
+For more information about using this API in one of the language-specific Amazon SDKs,
+see the following:
+
+- [AWS Command Line Interface](../../../cli/latest/reference/glacier/create-vault.md "../../../cli/latest/reference/glacier/create-vault.md")
