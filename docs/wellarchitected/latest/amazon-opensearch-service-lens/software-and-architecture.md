@@ -1,5 +1,20 @@
 # Software and architecture
 
 | AOSSUS02: How do you use instance families in OpenSearch Service to support your organization's sustainability goals? |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                                       | Use OpenSearch instance families that align with sustainability objectives. Certain OpenSearch instance families are designed to be more energy-efficient than others. Choosing energy-efficient instances contributes to the overall reduction in power consumption and carbon footprint, helping lower the environmental impact of your infrastructure. Remember that sustainability is not only about energy efficiency but also about optimizing resource usage. Choosing appropriate instance families helps in resource optimization, which helps you use computing resources efficiently without unnecessary waste. This can lead to cost savings as well. ###### Best practices <br>• [AOSSUS02-BP01 Evaluate instances in alignment to sustainability goals](aossus02-bp01.md "aossus02-bp01.md") <br>• [AOSSUS02-BP02 Use the minimum number of instances necessary to meet your workload requirements](aossus02-bp02.md "aossus02-bp02.md") |
+| --------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                       |
+
+Use OpenSearch instance families that align with sustainability objectives. Certain OpenSearch instance families are designed to be more energy-efficient than others. Choosing energy-efficient instances contributes to the overall reduction in power consumption and carbon footprint, helping lower the environmental impact of your infrastructure.
+
+Remember that sustainability is not only about energy efficiency but
+also about optimizing resource usage. Choosing appropriate instance
+families helps in resource optimization, which helps you use
+computing resources efficiently without unnecessary waste. This can
+lead to cost savings as well.
+
+###### Best practices
+
+- [AOSSUS02-BP01 Evaluate instances in alignment to sustainability
+  goals](aossus02-bp01.md "aossus02-bp01.md")
+- [AOSSUS02-BP02 Use the minimum number of instances necessary to
+  meet your workload requirements](aossus02-bp02.md "aossus02-bp02.md")
