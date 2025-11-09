@@ -58,20 +58,184 @@ Amazon Q Developer in chat applications custom notifications must use the follow
 
 ### Parameter details
 
-| Parameter             | Required | Description                                                                                                                                                                                                                                                                                                     |
-| --------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `version`             | Yes      | Must be `1.0`.                                                                                                                                                                                                                                                                                                  |
-| `source`              | Yes      | Must be `custom`.                                                                                                                                                                                                                                                                                               |
-| `id`                  | No       | Unique event identifier.                                                                                                                                                                                                                                                                                        |
-| `textType`            | No       | Only `client-markdown` textType is currently supported. When `textType=client-markdown`, Amazon Q Developer in chat applications renders notifications in the target chat platform's markdown. For example, "Example text _123_" in Slack notification content would be formatted using Slack's markdown style. |
-| `title`               | No       | Supports markdown content, including emojis and Slack @mentions using user IDs, for example @userID. Maximum length is 250 characters.                                                                                                                                                                          |
-| `description`         | Yes      | Makes up the message content of your notification. Supports markdown content, including emojis and Slack @mentions using user IDs, for example @userID. Maximum length is 8,000 characters.                                                                                                                     |
-| `nextSteps`           | No       | Used to communicate next step recommendations. Rendered as a bulleted list and supports markdown. Each individual step in the `nextSteps` list has a maximum length of 350 characters.                                                                                                                          |
-| `keywords`            | No       | Used to communicate event tags and categories. Rendered as an inline list of tags. Each individual keyword in the `keywords` list has a maximum length of 75 characters.                                                                                                                                        |
-| `metadata`            | No       | Additional metadata about the event.                                                                                                                                                                                                                                                                            |
-| `threadId`            | No       | Used to thread messages in Slack and Microsoft Teams. Custom notifications with the same threadId value are grouped together.                                                                                                                                                                                   |
-| `summary`             | No       | Displays a summary on the top-level message when notifications are threaded.                                                                                                                                                                                                                                    |
-| `eventType`           | No       | Specifies the type of event for the custom notification (future release).                                                                                                                                                                                                                                       |
-| `relatedResources`    | No       | An array of strings describing resources related to the custom notification (future release).                                                                                                                                                                                                                   |
-| `additionalContext`   | No       | A String-to-String dictionary used to provide additional information about your custom notification.                                                                                                                                                                                                            |
-| `enableCustomActions` | No       | If set to false, custom action buttons aren't added to the notification.                                                                                                                                                                                                                                        | ###### Note <br>• `eventType` and `relatedResources` will be available in a future release. <br>• @mentions for Microsoft Teams aren't currently supported. ## Custom notification content guidelines Content created for custom notifications should utilize chat client specific syntax. For example, if you want text in your custom notification in Slack to be bold, use Slack markdown. For more information on Slack and Microsoft Teams markdown, see [Format your messages](https://slack.com/help/articles/202288908-Format-your-messages "https://slack.com/help/articles/202288908-Format-your-messages") and [Use Markdown formatting in Microsoft Teams](https://support.microsoft.com/en-au/office/use-markdown-formatting-in-microsoft-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772 "https://support.microsoft.com/en-au/office/use-markdown-formatting-in-microsoft-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772") respectively. You can add chat platform compatible emojis in your custom notifications. You can also tag team members using @mentions in your custom notifications for Slack. Tagged team members are notified when the custom notification is delivered to the chat channel. To tag a team member in Slack, use their user ID. For example, `<@userID>`. Tagging team members in Microsoft Teams isn't currently supported. We attempt to group messages with the same `threadId` into a thread based on your threading time window preferences. To indicate new messages in a thread, we add a **Latest Update** message to the thread's parent message. If a `metadata.summary` is supplied, it's used as the value of the **Update Summary**. Otherwise, we generate a short message from the new message's content. ###### Note All custom notifications contain the footer “📬 Custom notification delivered by Amazon Q Developer in chat applications.” to differentiate them from default notifications. ## Sample custom notifications ### Minimalist custom notification The following custom notification example creates a simple notification that contains only mandatory schema parameters when published to an Amazon SNS topic. `{ "version": "1.0", "source": "custom", "content": { "description": ":warning: EC2 auto scaling refresh failed for ASG *OrderProcessorServiceASG*! \ncc: @SRE-Team" } }` ### Complex custom notification The following custom notification example creates a complex notification when published to an Amazon SNS topic. ``` { "version": "1.0", "source": "custom", "id": "c-weihfjdsf", "content": { "textType": "client-markdown", "title": ":warning: Banana Order processing is down!", "description": "Banana Order processor application is no longer processing orders. OnCall team has been paged.", "nextSteps": [ "Refer to <http://www.example.com | _diagnosis_ runbook>", "@googlie: Page Jane if error persists over 30 minutes", "Check if instance i-04d231f25c18592ea needs to receive an AMI rehydration" ], "keywords": [ "BananaOrderIntake", "Critical", "SRE" ] }, "metadata": { "threadId": "OrderProcessing-1", "summary": "Order Processing Update", "eventType": "BananaOrderAppEvent", "relatedResources": [ "i-04d231f25c18592ea", "i-0c8c31affab6078fb" ], "additionalContext": { "priority": "critical" }, "enableCustomActions": true } } `## OpenAPI schema If you use OpenAPI, you can use the following OpenAPI schema to generate custom notification resources for use in source code.` openapi: 3.0.0 info: title: Custom Notifications Payload Schema version: 1.0.0 components: schemas: CustomNotifications: type: object required: <br>• version <br>• source <br>• content properties: version: type: string description: Must be "1.0" enum: <br>• "1.0" source: type: string description: Must be "custom" enum: <br>• "custom" id: type: string description: Unique event identifier content: type: object required: <br>• description properties: textType: type: string description: Only "client-markdown" textType is currently supported. When textType=client-markdown, AWS Chatbot renders notifications in the target chat platform's markdown. For example, "Example text 123" in Slack notification content would be formatted using Slack's markdown style. enum: <br>• "client-markdown" title: type: string description: Supports markdown content, including emojis and @mentions. description: type: string description: Makes up the message content of your notification. Supports markdown content, including emojis and @mentions. nextSteps: type: array description: Used to communicate next step recommendations. Rendered as a bulleted list and supports markdown. items: type: string keywords: type: array description: Used to communicate event tags and categories. Rendered as an inline list of tags. items: type: string metadata: type: object properties: threadId: type: string description: Used for threading messages for chat clients that support it. Custom notifications with the same threadId value will be grouped together. summary: type: string description: Used for displaying a summary on the top-level message when notifications are threaded. eventType: type: string description: Specifies the type of event for the custom notification. (Future release) relatedResources: type: array description: An array of strings describing resources related to the custom notification. (Future release) items: type: string additionalContext: type: object description: A String-to-String dictionary customers can use to provide additional information about their custom notification. additionalProperties: type: string enableCustomActions: type: boolean description: Determines if custom action buttons are enabled on this notification. ``` |
+| Parameter             | Required | Description                                                                                                                                                                                                                                                                                                           |
+| --------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `version`             | Yes      | Must be `1.0`.                                                                                                                                                                                                                                                                                                        |
+| `source`              | Yes      | Must be `custom`.                                                                                                                                                                                                                                                                                                     |
+| `id`                  | No       | Unique event identifier.                                                                                                                                                                                                                                                                                              |
+| `textType`            | No       | Only `client-markdown` textType is currently supported. When `textType=client-markdown`,<br>Amazon Q Developer in chat applications renders notifications in the target chat platform's markdown. For example, "Example text _123_"<br>in Slack notification content would be formatted using Slack's markdown style. |
+| `title`               | No       | Supports markdown content, including emojis and Slack @mentions using user IDs, for example @userID.<br>Maximum length is 250 characters.                                                                                                                                                                             |
+| `description`         | Yes      | Makes up the message content of your notification. Supports markdown content, including emojis and Slack @mentions using user IDs, for example @userID.<br>Maximum length is 8,000 characters.                                                                                                                        |
+| `nextSteps`           | No       | Used to communicate next step recommendations. Rendered as a bulleted list and supports markdown.<br>Each individual step in the `nextSteps` list has a maximum length of 350 characters.                                                                                                                             |
+| `keywords`            | No       | Used to communicate event tags and categories. Rendered as an inline list of tags.<br>Each individual keyword in the `keywords` list has a maximum length of 75 characters.                                                                                                                                           |
+| `metadata`            | No       | Additional metadata about the event.                                                                                                                                                                                                                                                                                  |
+| `threadId`            | No       | Used to thread messages in Slack and Microsoft Teams. Custom notifications with the same threadId value are grouped together.                                                                                                                                                                                         |
+| `summary`             | No       | Displays a summary on the top-level message when notifications are threaded.                                                                                                                                                                                                                                          |
+| `eventType`           | No       | Specifies the type of event for the custom notification (future release).                                                                                                                                                                                                                                             |
+| `relatedResources`    | No       | An array of strings describing resources related to the custom notification (future release).                                                                                                                                                                                                                         |
+| `additionalContext`   | No       | A String-to-String dictionary used to provide additional information about your custom notification.                                                                                                                                                                                                                  |
+| `enableCustomActions` | No       | If set to false, custom action buttons aren't added to the notification.                                                                                                                                                                                                                                              |
+
+###### Note
+
+- `eventType` and `relatedResources` will be available in a future release.
+- @mentions for Microsoft Teams aren't currently supported.
+
+## Custom notification content guidelines
+
+Content created for custom notifications should utilize chat client specific syntax. For example, if you want text in your custom notification in Slack to be bold, use Slack markdown.
+For more information on Slack and Microsoft Teams markdown, see [Format your messages](https://slack.com/help/articles/202288908-Format-your-messages "https://slack.com/help/articles/202288908-Format-your-messages")
+and [Use Markdown formatting in Microsoft Teams](https://support.microsoft.com/en-au/office/use-markdown-formatting-in-microsoft-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772 "https://support.microsoft.com/en-au/office/use-markdown-formatting-in-microsoft-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772") respectively.
+
+You can add chat platform compatible emojis in your custom notifications. You can also tag team members using @mentions in your custom notifications for Slack.
+Tagged team members are notified when the custom notification is delivered to the chat channel. To tag a team member in Slack, use their user ID. For example, `<@userID>`.
+Tagging team members in Microsoft Teams isn't currently supported.
+
+We attempt to group messages with the same `threadId` into a thread based on your threading time window preferences.
+To indicate new messages in a thread, we add a **Latest Update** message to the thread's parent message. If a `metadata.summary`
+is supplied, it's used as the value of the **Update Summary**. Otherwise, we generate a short message from the new message's content.
+
+###### Note
+
+All custom notifications contain the footer “📬 Custom notification delivered by Amazon Q Developer in chat applications.” to differentiate them from default notifications.
+
+## Sample custom notifications
+
+### Minimalist custom notification
+
+The following custom notification example creates a simple notification that contains only mandatory schema parameters when published to an Amazon SNS topic.
+
+```
+{
+    "version": "1.0",
+    "source": "custom",
+    "content": {
+        "description": ":warning: EC2 auto scaling refresh failed for ASG *OrderProcessorServiceASG*! \ncc: @SRE-Team"
+    }
+}
+```
+
+### Complex custom notification
+
+The following custom notification example creates a complex notification when published to an Amazon SNS topic.
+
+```
+  {
+    "version": "1.0",
+    "source": "custom",
+    "id": "c-weihfjdsf",
+    "content": {
+      "textType": "client-markdown",
+      "title": ":warning: Banana Order processing is down!",
+      "description": "Banana Order processor application is no longer processing orders. OnCall team has been paged.",
+      "nextSteps": [
+        "Refer to <http://www.example.com|*diagnosis* runbook>",
+        "@googlie: Page Jane if error persists over 30 minutes",
+        "Check if instance i-04d231f25c18592ea needs to receive an AMI rehydration"
+      ],
+      "keywords": [
+        "BananaOrderIntake",
+        "Critical",
+        "SRE"
+      ]
+    },
+    "metadata": {
+      "threadId": "OrderProcessing-1",
+      "summary": "Order Processing Update",
+      "eventType": "BananaOrderAppEvent",
+      "relatedResources": [
+        "i-04d231f25c18592ea",
+        "i-0c8c31affab6078fb"
+      ],
+      "additionalContext": {
+        "priority": "critical"
+      },
+      "enableCustomActions": true
+    }
+  }
+```
+
+## OpenAPI schema
+
+If you use OpenAPI, you can use the following OpenAPI schema to generate custom notification resources for use in source code.
+
+```
+openapi: 3.0.0
+info:
+  title: Custom Notifications Payload Schema
+  version: 1.0.0
+
+components:
+  schemas:
+    CustomNotifications:
+      type: object
+      required:
+        - version
+        - source
+        - content
+      properties:
+        version:
+          type: string
+          description: Must be "1.0"
+          enum:
+            - "1.0"
+        source:
+          type: string
+          description: Must be "custom"
+          enum:
+            - "custom"
+        id:
+          type: string
+          description: Unique event identifier
+        content:
+          type: object
+          required:
+            - description
+          properties:
+            textType:
+              type: string
+              description: Only "client-markdown" textType is currently supported. When textType=client-markdown, AWS Chatbot renders notifications in the target chat platform's markdown. For example, "Example text 123" in Slack notification content would be formatted using Slack's markdown style.
+              enum:
+                - "client-markdown"
+            title:
+              type: string
+              description: Supports markdown content, including emojis and @mentions.
+            description:
+              type: string
+              description: Makes up the message content of your notification. Supports markdown content, including emojis and @mentions.
+            nextSteps:
+              type: array
+              description: Used to communicate next step recommendations. Rendered as a bulleted list and supports markdown.
+              items:
+                type: string
+            keywords:
+              type: array
+              description: Used to communicate event tags and categories. Rendered as an inline list of tags.
+              items:
+                type: string
+        metadata:
+          type: object
+          properties:
+            threadId:
+              type: string
+              description: Used for threading messages for chat clients that support it. Custom notifications with the same threadId value will be grouped together.
+            summary:
+              type: string
+              description: Used for displaying a summary on the top-level message when notifications are threaded.
+            eventType:
+              type: string
+              description: Specifies the type of event for the custom notification. (Future release)
+            relatedResources:
+              type: array
+              description: An array of strings describing resources related to the custom notification. (Future release)
+              items:
+                type: string
+            additionalContext:
+              type: object
+              description: A String-to-String dictionary customers can use to provide additional information about their custom notification.
+              additionalProperties:
+                type: string
+            enableCustomActions:
+              type: boolean
+              description: Determines if custom action buttons are enabled on this notification.
+```
