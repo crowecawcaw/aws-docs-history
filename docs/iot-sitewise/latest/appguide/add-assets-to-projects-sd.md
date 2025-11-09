@@ -24,10 +24,10 @@ assets.
 ![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png) 2. (Optional) Choose a project in the projects drop-down list to show only assets from a
 specific project.
 
-![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
+![The "Assets" page, with the projects drop-down list called out.](/images/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
 **Add asset to project**.
 
-![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)
+![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](/images/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)
 
 ###### Note
 
@@ -58,7 +58,7 @@ specific project.
 ![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
 **Add asset to project**.
 
-![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)
+![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](/images/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)
 
 ###### Note
 
@@ -84,6 +84,6 @@ projects if you no longer need them.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project to remove assets
 from.
 
-![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. Choose **Remove all assets from project**.
+![The "Projects" page with "Wind Farm 3" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png) 3. Choose **Remove all assets from project**.
 
 ![The "Projects" page with "Remove all assets from project" button highlighted.](images/project-remove-all-assets-console.png) 4. In the dialog box, confirm that you want to remove the assets.

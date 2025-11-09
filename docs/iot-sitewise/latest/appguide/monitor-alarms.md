@@ -51,10 +51,18 @@ After you enable the alarms feature for your portals, members of your organizati
   changes.
   You can perform the following alarm-related tasks.
 
-| Task                                                                                            | Required role                                           | Description                                                                                   |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Create alarm definitions](create-alarms.md "create-alarms.md")                                 | Portal administrator                                    | Create alarm definitions on models to monitor properties associated with the models.          |
-| [View alarm details in AWS IoT SiteWise Monitor](view-alarm-details.md "view-alarm-details.md") | Portal administrator, project owner, and project viewer | View details about the alarms that you can access.                                            |
-| [Respond to alarms in AWS IoT SiteWise](respond-to-alarms.md "respond-to-alarms.md")            | Portal administrator, project owner, project viewer     | Acknowledge or snooze the alarms that you can access.                                         |
-| [Configure alarms for AWS IoT SiteWise](configure-alarms.md "configure-alarms.md")              | Portal administrator, project owner                     | Customize the threshold and notification settings for the alarms that you can access.         |
-| [Visualize alarms in dashboards](visualize-alarms.md "visualize-alarms.md")                     | Portal administrator, project owner                     | Add alarms to dashboards to visualize alarm state or alarms as thresholds in your dashboards. | ###### Topics <br>• [Create alarm definitions](create-alarms.md "create-alarms.md") <br>• [View alarm details in AWS IoT SiteWise Monitor](view-alarm-details.md "view-alarm-details.md") <br>• [Respond to alarms in AWS IoT SiteWise](respond-to-alarms.md "respond-to-alarms.md") <br>• [Configure alarms for AWS IoT SiteWise](configure-alarms.md "configure-alarms.md") <br>• [Visualize alarms in dashboards](visualize-alarms.md "visualize-alarms.md") |
+| Task                                                                                            | Required role                                           | Description                                                                                      |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [Create alarm definitions](create-alarms.md "create-alarms.md")                                 | Portal administrator                                    | Create alarm definitions on models to monitor properties associated with the models.             |
+| [View alarm details in AWS IoT SiteWise Monitor](view-alarm-details.md "view-alarm-details.md") | Portal administrator, project owner, and project viewer | View details about the alarms that you can access.                                               |
+| [Respond to alarms in AWS IoT SiteWise](respond-to-alarms.md "respond-to-alarms.md")            | Portal administrator, project owner, project viewer     | Acknowledge or snooze the alarms that you can access.                                            |
+| [Configure alarms for AWS IoT SiteWise](configure-alarms.md "configure-alarms.md")              | Portal administrator, project owner                     | Customize the threshold and notification settings for the alarms that you can<br>access.         |
+| [Visualize alarms in dashboards](visualize-alarms.md "visualize-alarms.md")                     | Portal administrator, project owner                     | Add alarms to dashboards to visualize alarm state or alarms as thresholds in your<br>dashboards. |
+
+###### Topics
+
+- [Create alarm definitions](create-alarms.md "create-alarms.md")
+- [View alarm details in AWS IoT SiteWise Monitor](view-alarm-details.md "view-alarm-details.md")
+- [Respond to alarms in AWS IoT SiteWise](respond-to-alarms.md "respond-to-alarms.md")
+- [Configure alarms for AWS IoT SiteWise](configure-alarms.md "configure-alarms.md")
+- [Visualize alarms in dashboards](visualize-alarms.md "visualize-alarms.md")

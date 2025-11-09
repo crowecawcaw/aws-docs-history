@@ -98,8 +98,8 @@ appears.
 
 See the following areas of the page.
 
-| Callout | Description                                                                                                      |
-| ------- | ---------------------------------------------------------------------------------------------------------------- |
-| A       | Browse the asset hierarchy to find assets to view.                                                               |
-| B       | Select the time range for the data shown for the properties of the selected assets.                              |
-| C       | View the values for the properties of the selected asset. View and respond to the alarms for the selected asset. |
+| Callout | Description                                                                                                         |
+| ------- | ------------------------------------------------------------------------------------------------------------------- |
+| A       | Browse the asset hierarchy to find assets to view.                                                                  |
+| B       | Select the time range for the data shown for the properties of the<br>selected assets.                              |
+| C       | View the values for the properties of the selected asset. View and respond<br>to the alarms for the selected asset. |
