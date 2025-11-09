@@ -11,13 +11,13 @@ rounded to double precision before function application.
 
 Examples: `cosh(2.3)` = 5.037220649268761
 
-| Argument type | Result                                                                                                                                                                                                |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the hyperbolic cosine of the argument. Imaginary results are returned as `Undefined`.                                                                              |
-| `Decimal`     | `Decimal` (with double precision), the hyperbolic cosine of the argument. Imaginary results are returned as `Undefined`.                                                                              |
-| `Boolean`     | `Undefined`.                                                                                                                                                                                          |
-| `String`      | `Decimal` (with double precision), the hyperbolic cosine of the argument. If the string cannot be converted to a `Decimal`, the result is `Undefined`. Imaginary results are returned as `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                                                          |
-| Object        | `Undefined`.                                                                                                                                                                                          |
-| Null          | `Undefined`.                                                                                                                                                                                          |
-| Undefined     | `Undefined`.                                                                                                                                                                                          |
+| Argument type | Result                                                                                                                                                                                                      |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Int`         | `Decimal` (with double precision), the hyperbolic cosine of the argument.<br>Imaginary results are returned as `Undefined`.                                                                                 |
+| `Decimal`     | `Decimal` (with double precision), the hyperbolic cosine of the argument.<br>Imaginary results are returned as `Undefined`.                                                                                 |
+| `Boolean`     | `Undefined`.                                                                                                                                                                                                |
+| `String`      | `Decimal` (with double precision), the hyperbolic cosine of the argument.<br>If the string cannot be converted to a `Decimal`, the result is<br>`Undefined`. Imaginary results are returned as `Undefined`. |
+| Array         | `Undefined`.                                                                                                                                                                                                |
+| Object        | `Undefined`.                                                                                                                                                                                                |
+| Null          | `Undefined`.                                                                                                                                                                                                |
+| Undefined     | `Undefined`.                                                                                                                                                                                                |

@@ -11,13 +11,13 @@ rounded to double precision before function application.
 
 Examples: `acos(0)` = 1.5707963267948966
 
-| Argument type | Result                                                                                                                                                                             |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the inverse cosine of the argument. Imaginary results are returned as `Undefined`.                                                              |
-| `Decimal`     | `Decimal` (with double precision), the inverse cosine of the argument. Imaginary results are returned as `Undefined`.                                                              |
-| `Boolean`     | `Undefined`.                                                                                                                                                                       |
-| `String`      | `Decimal` (with double precision) the inverse cosine of the argument. If the string cannot be converted, the result is `Undefined`. Imaginary results are returned as `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                                       |
-| Object        | `Undefined`.                                                                                                                                                                       |
-| Null          | `Undefined`.                                                                                                                                                                       |
-| Undefined     | `Undefined`.                                                                                                                                                                       |
+| Argument type | Result                                                                                                                                                                                   |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Int`         | `Decimal` (with double precision), the inverse cosine of the argument.<br>Imaginary results are returned as `Undefined`.                                                                 |
+| `Decimal`     | `Decimal` (with double precision), the inverse cosine of the argument.<br>Imaginary results are returned as `Undefined`.                                                                 |
+| `Boolean`     | `Undefined`.                                                                                                                                                                             |
+| `String`      | `Decimal` (with double precision) the inverse cosine of the argument. If<br>the string cannot be converted, the result is `Undefined`. Imaginary results<br>are returned as `Undefined`. |
+| Array         | `Undefined`.                                                                                                                                                                             |
+| Object        | `Undefined`.                                                                                                                                                                             |
+| Null          | `Undefined`.                                                                                                                                                                             |
+| Undefined     | `Undefined`.                                                                                                                                                                             |

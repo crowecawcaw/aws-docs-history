@@ -11,9 +11,9 @@ can also use `%` as an infix operator for the same modulo functionality.
 
 Examples: `mod(8, 3)` = 2
 
-| Left operand                 | Right operand                | Output                                                                                                                     |
-| ---------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `Int`                        | `Int`                        | `Int`, the first argument modulo of the second argument.                                                                   |
-| `Int` / `Decimal`            | `Int` / `Decimal`            | `Decimal`, the first argument modulo of the second argument.                                                               |
-| `String` / `Int` / `Decimal` | `String` / `Int` / `Decimal` | If all strings convert to `Decimals`, the result if the first argument modulo the second argument. Otherwise, `Undefined`. |
-| Other Value                  | Other Value                  | `Undefined`.                                                                                                               |
+| Left operand                 | Right operand                | Output                                                                                                                        |
+| ---------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `Int`                        | `Int`                        | `Int`, the first argument modulo of the second argument.                                                                      |
+| `Int` / `Decimal`            | `Int` / `Decimal`            | `Decimal`, the first argument modulo of the second argument.                                                                  |
+| `String` / `Int` / `Decimal` | `String` / `Int` / `Decimal` | If all strings convert to `Decimals`, the result if the first argument<br>modulo the second argument. Otherwise, `Undefined`. |
+| Other Value                  | Other Value                  | `Undefined`.                                                                                                                  |

@@ -4,14 +4,44 @@ be able to access the AWS IoT Analytics console, or AWS IoT Analytics resources.
 For more information, see
 [AWS IoT Analytics end of support](iotanalytics-end-of-support.md "iotanalytics-end-of-support.md").
 
-# Pipeline activities
+# RemoveAttributes activity
 
-The simplest functional pipeline connects a channel to a data store, which makes it a
-pipeline with two activities: a `channel` activity and a `datastore`
-activity. You can achieve more powerful message processing by adding additional activities to your
-pipeline.
+A `removeAttributes` activity removes attributes from a message. For example,
+given the message that was the result of the `addAttributes` activity.
 
-You can use the [RunPipelineActivity](../APIReference/API_RunPipelineActivity.md "../APIReference/API_RunPipelineActivity.md") operation to simulate the results of running a pipeline activity on
-a message payload you provide. You might find this helpful when you are developing and debugging
-your pipeline activities. [RunPipelineActivity example](run-pipeline-activity.md "run-pipeline-activity.md")
-demonstrates how it is used.
+```
+{
+    "device": {
+        "id": "device-123",
+        "coord": [ 47.6, -122.3 ]
+    },
+    "id": "device-123",
+    "lat": 47.6,
+    "lon": -122.3
+}
+```
+
+To normalize that message so that it includes only the required data at the root level, use
+the following `removeAttributes` activity.
+
+```
+{
+    "removeAttributes": {
+        "name": "MyRemoveAttributesActivity",
+        "attributes": [
+            "device"
+        ],
+        "next": "MyDatastoreActivity"
+    }
+}
+```
+
+This results in the following message flowing along the pipeline.
+
+```
+{
+    "id": "device-123",
+    "lat": 47.6,
+    "lon": -122.3
+}
+```

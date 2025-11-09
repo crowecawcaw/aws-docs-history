@@ -18,9 +18,9 @@ Examples:
 
 `sign(13)` = 1
 
-| Argument type | Result                                                                                                                                                                                                                |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Int`, the sign of the `Int` value.                                                                                                                                                                                   |
-| `Decimal`     | `Int`, the sign of the `Decimal` value.                                                                                                                                                                               |
-| `String`      | `Int`, the sign of the `Decimal` value. The string if converted to a `Decimal` value, and the sign of the `Decimal` value is returned. If the `String` cannot be converted to a `Decimal`, the result is `Undefined`. |
-| Other Value   | `Undefined`.                                                                                                                                                                                                          |
+| Argument type | Result                                                                                                                                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Int`         | `Int`, the sign of the `Int` value.                                                                                                                                                                                            |
+| `Decimal`     | `Int`, the sign of the `Decimal` value.                                                                                                                                                                                        |
+| `String`      | `Int`, the sign of the `Decimal` value. The string if converted<br>to a `Decimal` value, and the sign of the `Decimal` value is<br>returned. If the `String` cannot be converted to a `Decimal`, the<br>result is `Undefined`. |
+| Other Value   | `Undefined`.                                                                                                                                                                                                                   |

@@ -22,9 +22,9 @@ Examples:
 
 `Round(-1.5)` = -2
 
-| Argument type | Result                                                                                                                       |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | The argument                                                                                                                 |
-| `Decimal`     | `Decimal` is rounded down to the nearest `Int`.                                                                              |
-| `String`      | `Decimal` is rounded down to the nearest `Int`. If the string cannot be converted to a `Decimal`, the result is `Undefined`. |
-| Other Value   | `Undefined`.                                                                                                                 |
+| Argument type | Result                                                                                                                             |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `Int`         | The argument                                                                                                                       |
+| `Decimal`     | `Decimal` is rounded down to the nearest `Int`.                                                                                    |
+| `String`      | `Decimal` is rounded down to the nearest `Int`. If the string<br>cannot be converted to a `Decimal`, the result is<br>`Undefined`. |
+| Other Value   | `Undefined`.                                                                                                                       |

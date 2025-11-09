@@ -63,5 +63,12 @@ SELECT COUNT(*) FROM my_iotsitewise_datastore.asset_metadata
 ```
 
 | Count |
-| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 97    | Similarly, you can verify that your `asset_hierarchy_metadata` and `raw` tables aren't empty. ## Next Step [Data exploration](tutorial-step2.md "tutorial-step2.md") |
+| ----- |
+| 97    |
+
+Similarly, you can verify that your `asset_hierarchy_metadata` and
+`raw` tables aren't empty.
+
+## Next Step
+
+[Data exploration](tutorial-step2.md "tutorial-step2.md")

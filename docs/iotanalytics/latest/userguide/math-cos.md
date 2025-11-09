@@ -11,13 +11,13 @@ double precision before function application.
 
 Examples: `cos(0)` = 1
 
-| Argument type | Result                                                                                                                                                                                     |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Int`         | `Decimal` (with double precision), the cosine of the argument. Imaginary results are returned as `Undefined`.                                                                              |
-| `Decimal`     | `Decimal` (with double precision), the cosine of the argument. Imaginary results are returned as `Undefined`.                                                                              |
-| `Boolean`     | `Undefined`.                                                                                                                                                                               |
-| `String`      | `Decimal` (with double precision), the cosine of the argument. If the string cannot be converted to a `Decimal`, the result is `Undefined`. Imaginary results are returned as `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                                               |
-| Object        | `Undefined`.                                                                                                                                                                               |
-| Null          | `Undefined`.                                                                                                                                                                               |
-| Undefined     | `Undefined`.                                                                                                                                                                               |
+| Argument type | Result                                                                                                                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Int`         | `Decimal` (with double precision), the cosine of the argument. Imaginary<br>results are returned as `Undefined`.                                                                                 |
+| `Decimal`     | `Decimal` (with double precision), the cosine of the argument. Imaginary<br>results are returned as `Undefined`.                                                                                 |
+| `Boolean`     | `Undefined`.                                                                                                                                                                                     |
+| `String`      | `Decimal` (with double precision), the cosine of the argument. If the<br>string cannot be converted to a `Decimal`, the result is<br>`Undefined`. Imaginary results are returned as `Undefined`. |
+| Array         | `Undefined`.                                                                                                                                                                                     |
+| Object        | `Undefined`.                                                                                                                                                                                     |
+| Null          | `Undefined`.                                                                                                                                                                                     |
+| Undefined     | `Undefined`.                                                                                                                                                                                     |

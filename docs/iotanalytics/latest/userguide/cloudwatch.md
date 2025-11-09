@@ -171,22 +171,24 @@ Retrieves the current settings of the AWS IoT Analytics logging options. For mor
 
 AWS IoT Analytics puts the following metrics into the Amazon CloudWatch repository:
 
-| Namespace                        |
-| -------------------------------- | --------------------------------------------------------------------- |
-| AWS/IoTAnalytics                 |
+| Namespace        |
+| ---------------- |
+| AWS/IoTAnalytics |
+
 | Metric                           | Description                                                           |
-| ---                              | ---                                                                   |
-| ActionExecution                  | The number of actions executed.                                       |
+| -------------------------------- | --------------------------------------------------------------------- |
+| ActionExecution                  | The number of actions<br>executed.                                    |
 | ActionExecutionThrottled         | The number of actions that are throttled.                             |
 | ActivityExecutionError           | The number of errors generated while executing the pipeline activity. |
 | IncomingMessages                 | The number of messages coming into the channel.                       |
 | PipelineConcurrentExecutionCount | The number of pipeline activities, which have executed concurrently.  |
-| Dimension                        | Description                                                           |
-| ---                              | ---                                                                   |
-| ActionType                       | The type of action that is being monitored.                           |
-| ChannelName                      | The name of the channel that is being monitored.                      |
-| DatasetName                      | The name of the dataset that is being monitored.                      |
-| DatastoreName                    | The name of the data store that is being monitored.                   |
-| PipelineActivityName             | The name of the pipeline activity that is being monitored.            |
-| PipelineActivityType             | The type of the pipeline activity that is being monitored.            |
-| PipelineName                     | The name of the pipeline that is being monitored.                     |
+
+| Dimension            | Description                                                |
+| -------------------- | ---------------------------------------------------------- |
+| ActionType           | The type of action that is being monitored.                |
+| ChannelName          | The name of the channel that is being monitored.           |
+| DatasetName          | The name of the dataset that is being monitored.           |
+| DatastoreName        | The name of the data store that is being monitored.        |
+| PipelineActivityName | The name of the pipeline activity that is being monitored. |
+| PipelineActivityType | The type of the pipeline activity that is being monitored. |
+| PipelineName         | The name of the pipeline that is being monitored.          |

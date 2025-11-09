@@ -11,13 +11,13 @@ precision before function application.
 
 Examples: `sqrt(9)` = 3.0
 
-| Argument type | Result                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------- |
-| `Int`         | The square root of the argument.                                                                              |
-| `Decimal`     | The square root of the argument.                                                                              |
-| `Boolean`     | `Undefined`.                                                                                                  |
-| `String`      | The square root of the argument. If the string cannot be converted to a `Decimal`, the result is `Undefined`. |
-| `Array`       | `Undefined`.                                                                                                  |
-| `Object`      | `Undefined`.                                                                                                  |
-| `Null`        | `Undefined`.                                                                                                  |
-| `Undefined`   | `Undefined`.                                                                                                  |
+| Argument type | Result                                                                                                           |
+| ------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `Int`         | The square root of the argument.                                                                                 |
+| `Decimal`     | The square root of the argument.                                                                                 |
+| `Boolean`     | `Undefined`.                                                                                                     |
+| `String`      | The square root of the argument. If the string cannot be converted to a<br>`Decimal`, the result is `Undefined`. |
+| `Array`       | `Undefined`.                                                                                                     |
+| `Object`      | `Undefined`.                                                                                                     |
+| `Null`        | `Undefined`.                                                                                                     |
+| `Undefined`   | `Undefined`.                                                                                                     |
