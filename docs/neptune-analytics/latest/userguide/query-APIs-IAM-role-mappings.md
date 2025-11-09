@@ -8,10 +8,12 @@ Most IAM actions have the same name as the API methods that they correspond to, 
 have different names, because some are shared by more than one method. The table below lists data methods and their
 corresponding IAM actions.
 
-| Data API operation name | IAM correspondences                                                           |
-| ----------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ListQueries             | Action: ListQueries                                                           |
-| GetQuery                | Action: GetQueryStatus                                                        |
-| Cancel Query            | Action: CancelQuery                                                           |
-| GetGraphSummary         | Action: GetGraphSummary                                                       |
-| ExecuteQuery            | Action: ReadDataViaQuery Action: WriteDataViaQuery Action: DeleteDataViaQuery | For more information, see [Actions, resources and condition keys for Neptune Analytics](../../../service-authorization/latest/reference/list_amazonneptuneanalytics.md "../../../service-authorization/latest/reference/list_amazonneptuneanalytics.md"). |
+| Data API operation name | IAM correspondences                                                                 |
+| ----------------------- | ----------------------------------------------------------------------------------- |
+| ListQueries             | Action: ListQueries                                                                 |
+| GetQuery                | Action: GetQueryStatus                                                              |
+| Cancel Query            | Action: CancelQuery                                                                 |
+| GetGraphSummary         | Action: GetGraphSummary                                                             |
+| ExecuteQuery            | Action: ReadDataViaQuery<br>Action: WriteDataViaQuery<br>Action: DeleteDataViaQuery |
+
+For more information, see [Actions, resources and condition keys for Neptune Analytics](../../../service-authorization/latest/reference/list_amazonneptuneanalytics.md "../../../service-authorization/latest/reference/list_amazonneptuneanalytics.md").

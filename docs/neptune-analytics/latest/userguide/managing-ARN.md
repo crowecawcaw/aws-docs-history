@@ -12,6 +12,14 @@ To get an ARN from the AWS CLI for a particular Neptune Analytics graph resource
 resource. The following table shows each AWS CLI command, and the ARN property used with the command to get an ARN.
 
 | Resource      | AWS CLI command                                                                                                                                             | ARN property |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | Graph         | [get-graph](../../../cli/latest/reference/neptune-graph/get-graph.md "../../../cli/latest/reference/neptune-graph/get-graph.md")                            | arn          |
-| GraphSnapshot | [get-graph-snapshot](../../../cli/latest/reference/neptune-graph/get-graph-snapshot.md "../../../cli/latest/reference/neptune-graph/get-graph-snapshot.md") | arn          | As an example, running the following command: `aws neptune-graph get-graph --graph-id g-vgebxfyat7 --query "arn"` would return `"arn:aws:neptune-graph:us-east-1:123456789012:graph/g-vgebxfyat7"`. |
+| GraphSnapshot | [get-graph-snapshot](../../../cli/latest/reference/neptune-graph/get-graph-snapshot.md "../../../cli/latest/reference/neptune-graph/get-graph-snapshot.md") | arn          |
+
+As an example, running the following command:
+
+```
+aws neptune-graph get-graph --graph-id g-vgebxfyat7 --query "arn"
+```
+
+would return `"arn:aws:neptune-graph:us-east-1:123456789012:graph/g-vgebxfyat7"`.
