@@ -10,5 +10,13 @@ using the **ams-default-backup-plan** AWS Backup plan, you must apply the follow
 to your supported resources:
 
 | Key                        | Value |
-| -------------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ams:rt:backup-orchestrator | true  | ###### Note During onboarding, AMS Accelerate tags all resources with **ams:rt:backup-orchestrator-onboarding** with value **true** for short interval, short retention snapshots. This is managed by the **ams-onboarding-backup-plan** backup plan. For more information about AMS Accelerate-managed AWS Backup plans, see [Select an AMS backup plan](acc-backup-select-plan.md "acc-backup-select-plan.md"). |
+| -------------------------- | ----- |
+| ams:rt:backup-orchestrator | true  |
+
+###### Note
+
+During onboarding, AMS Accelerate tags all resources with
+**ams:rt:backup-orchestrator-onboarding** with value
+**true** for short interval, short retention snapshots. This is managed
+by the **ams-onboarding-backup-plan** backup plan. For more information about
+AMS Accelerate-managed AWS Backup plans, see [Select an AMS backup plan](acc-backup-select-plan.md "acc-backup-select-plan.md").

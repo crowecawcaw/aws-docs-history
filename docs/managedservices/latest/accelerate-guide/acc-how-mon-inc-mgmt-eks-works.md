@@ -31,22 +31,22 @@ ollowing table provides an overview of the responsibilities of customer and AMS 
 - **C** stands for consulted; the party whose opinions are sought, typically as subject matter experts; and with whom there is bilateral communication.
 - **I** stands for informed; the party which is informed on progress, often only on completion of the task or deliverable.
 
-| Activity                                                                                                                               | Customer | AMS |
-| -------------------------------------------------------------------------------------------------------------------------------------- | -------- | --- |
-| Discovery for AMS requirements                                                                                                         | I        | R   |
-| Enable AMS permissions (RBAC) for cluster access                                                                                       | R        | C   |
-| Install Amazon EC2 Systems Manager Agent on worker nodes if it isn't already present                                                   | R        | C   |
-| Deploy AMS on-cluster components, such as Prometheus, Prometheus Node Exporter, and kube-state-metrics in an AMS namespace, as needed. | C        | R   |
-| Provision Amazon Managed Service for Prometheus in the AMS control plane                                                               | I        | R   |
-| Configure Prometheus alert manager in the AMS control plane                                                                            | I        | R   |
-| Provide Amazon Managed Grafana template and assist with configuration                                                                  | C        | R   |
-| Enable GuardDuty EKS Audit Log Monitoring                                                                                              | C        | R   |
-| Enable Amazon EKS control plane logging                                                                                                | I        | R   |
-| Monitor the health and performance of the Amazon EKS control plane                                                                     | I        | R   |
-| Monitor the health and performance of your Amazon EKS cluster (cluster, node, workload, pod, API Server and CoreDNS)                   | I        | R   |
-| Triage alerts and provide incident response for Amazon EKS                                                                             | I        | R   |
-| Run diagnostic commands during incidents                                                                                               | I        | R   |
-| Analyze logs during incidents (control plane and pod logs)                                                                             | I        | R   |
-| Incident response for AWS network issues                                                                                               | I        | R   |
-| Respond to GuardDuty EKS Audit Log Monitoring findings                                                                                 | I        | R   |
-| Provide customer guidance on actions to remediate incidents when possible                                                              | I        | R   |
+| Activity                                                                                                                                  | Customer | AMS |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | -------- | --- |
+| Discovery for AMS requirements                                                                                                            | I        | R   |
+| Enable AMS permissions (RBAC) for cluster access                                                                                          | R        | C   |
+| Install Amazon EC2 Systems Manager Agent on worker nodes if it isn't already present                                                      | R        | C   |
+| Deploy AMS on-cluster components, such as Prometheus, Prometheus Node Exporter, and<br>kube-state-metrics in an AMS namespace, as needed. | C        | R   |
+| Provision Amazon Managed Service for Prometheus in the AMS control plane                                                                  | I        | R   |
+| Configure Prometheus alert manager in the AMS control plane                                                                               | I        | R   |
+| Provide Amazon Managed Grafana template and assist with configuration                                                                     | C        | R   |
+| Enable GuardDuty EKS Audit Log Monitoring                                                                                                 | C        | R   |
+| Enable Amazon EKS control plane logging                                                                                                   | I        | R   |
+| Monitor the health and performance of the Amazon EKS control plane                                                                        | I        | R   |
+| Monitor the health and performance of your Amazon EKS cluster (cluster, node, workload, pod, API Server and CoreDNS)                      | I        | R   |
+| Triage alerts and provide incident response for Amazon EKS                                                                                | I        | R   |
+| Run diagnostic commands during incidents                                                                                                  | I        | R   |
+| Analyze logs during incidents (control plane and pod logs)                                                                                | I        | R   |
+| Incident response for AWS network issues                                                                                                  | I        | R   |
+| Respond to GuardDuty EKS Audit Log Monitoring findings                                                                                    | I        | R   |
+| Provide customer guidance on actions to remediate incidents when possible                                                                 | I        | R   |

@@ -11,29 +11,32 @@ This report only shows the configurations that you have changed, and excludes th
 
 ## Latest Response Configurations Report
 
-| **Field**                  | **Description**                                                                 |
-| -------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Date                       | Date in which the report was generated                                          |
-| Customer name              | Customer name                                                                   |
-| AWS account ID             | The AWS account ID associated with the configuration                            |
-| Account Name               | AWS account name of account level resource group                                |
-| Finding Type               | Type of finding identified. In this case, AWS Config                            |
-| Source Identifier          | AWS Config Rule Unique Source Identifier                                        |
-| Resource Group ID          | The Resource Group ID associated with the response configuration                |
-| Response Action Configured | Action type triggered by AMS                                                    |
-| SSM Runbook Associated     | The Remediation Runbook that will be run, if any                                |
-| Resource Group Type        | This can be Account or Tag                                                      | ## Resources with Custom Default Response of Config Rules |
-| **Field Name**             | **Definition**                                                                  |
-| ---                        | ---                                                                             |
-| Customer Name              | Customer name                                                                   |
-| Date                       | Date in which the report was generated                                          |
-| AWS Account Name           | AWS account name                                                                |
-| Account ID                 | Associated AWS account ID                                                       |
-| AMS Config Rule            | AMS config rule that's targeting the resource and applying with a configuration |
-| Resource ID                | The resource ID in the customer account targeted by the AMS config rule         |
-| Resource Region            | The AWS Region that the configuration is applied in                             |
-| Resource Type              | AWS resource type                                                               |
-| Resource Group ID          | The Resource group ID associated with the response configuration                |
-| Resource AMS Flag          | If the AWS resource is deployed by AMS, then this field is set to `True`        |
-| Trigger Type               | The type of response configured for the resource                                |
-| Compliance Flag            | AMS config rule compliance state                                                |
+| **Field**                  | **Description**                                                  |
+| -------------------------- | ---------------------------------------------------------------- |
+| Date                       | Date in which the report was generated                           |
+| Customer name              | Customer name                                                    |
+| AWS account ID             | The AWS account ID associated with the configuration             |
+| Account Name               | AWS account name of account level resource group                 |
+| Finding Type               | Type of finding identified. In this case, AWS Config             |
+| Source Identifier          | AWS Config Rule Unique Source Identifier                         |
+| Resource Group ID          | The Resource Group ID associated with the response configuration |
+| Response Action Configured | Action type triggered by AMS                                     |
+| SSM Runbook Associated     | The Remediation Runbook that will be run, if any                 |
+| Resource Group Type        | This can be Account or Tag                                       |
+
+## Resources with Custom Default Response of Config Rules
+
+| **Field Name**    | **Definition**                                                                  |
+| ----------------- | ------------------------------------------------------------------------------- |
+| Customer Name     | Customer name                                                                   |
+| Date              | Date in which the report was generated                                          |
+| AWS Account Name  | AWS account name                                                                |
+| Account ID        | Associated AWS account ID                                                       |
+| AMS Config Rule   | AMS config rule that's targeting the resource and applying with a configuration |
+| Resource ID       | The resource ID in the customer account targeted by the AMS config rule         |
+| Resource Region   | The AWS Region that the configuration is applied in                             |
+| Resource Type     | AWS resource type                                                               |
+| Resource Group ID | The Resource group ID associated with the response configuration                |
+| Resource AMS Flag | If the AWS resource is deployed by AMS, then this field is set to `True`        |
+| Trigger Type      | The type of response configured for the resource                                |
+| Compliance Flag   | AMS config rule compliance state                                                |

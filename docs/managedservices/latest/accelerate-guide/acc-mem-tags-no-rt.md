@@ -13,9 +13,11 @@ After the Resource Tagger has been set to read-only mode, and the configuration 
 tagging method to apply tags to your resources according to the following guidelines:
 
 | Resource type                                     | Tag key                               | Tag value                 |
-| ------------------------------------------------- | ------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------- |
+| ------------------------------------------------- | ------------------------------------- | ------------------------- |
 | All supported resources (described in this table) | ams:rt:ams-monitoring-policy          | ams-monitored             |
 | EC2 instances (Linux)                             | ams:rt:ams-monitoring-policy-platform | ams-monitored-linux       |
 | EC2 instances (Windows)                           | ams:rt:ams-monitoring-policy-platform | ams-monitored-windows     |
 | OpenSearch Domain with KMS                        | ams:rt:ams-monitoring-with-kms        | ams-monitored-with-kms    |
-| OpenSearch Domain with Dedicated Master Node      | ams:rt:ams-monitoring-with-master     | ams-monitored-with-master | Resources that have these tag keys and values are managed by the AMS Accelerate Alarm Manager. |
+| OpenSearch Domain with Dedicated Master Node      | ams:rt:ams-monitoring-with-master     | ams-monitored-with-master |
+
+Resources that have these tag keys and values are managed by the AMS Accelerate Alarm Manager.
