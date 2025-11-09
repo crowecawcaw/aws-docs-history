@@ -1,4 +1,4 @@
-AWS Application Discovery Service will discontinue onboarding new customers starting November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
+AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
 
 # What is AWS Application Discovery Service?
 
@@ -111,35 +111,52 @@ Discovery Agent
 The following table provides a quick comparison of the data collection methods that
 Application Discovery Service supports.
 
-|                                                              | Agentless Collector                   | Discovery Agent             | Migration Hub template                                 | RVTools export              |
-| ------------------------------------------------------------ | ------------------------------------- | --------------------------- | ------------------------------------------------------ | --------------------------- | --------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                              | Agentless Collector                                    | Discovery Agent             | Migration Hub template      | RVTools export                                                        |
+| ------------------------------------------------------------ | ------------------------------------------------------ | --------------------------- | --------------------------- | --------------------------------------------------------------------- |
 | **Supported server types**                                   |
-| VMware virtual machine                                       | Yes                                   | Yes                         | Yes                                                    | Yes                         |
-| Physical server                                              | No                                    | Yes                         | Yes                                                    | Yes                         |
+| VMware virtual machine                                       | Yes                                                    | Yes                         | Yes                         | Yes                                                                   |
+| Physical server                                              | No                                                     | Yes                         | Yes                         | Yes                                                                   |
 | **Deployment**                                               |
-| Per server                                                   | No                                    | Yes                         | N/A                                                    | No                          |
-| Per vCenter                                                  | Yes                                   | No                          | N/A                                                    | Yes                         |
-| Per data center on the same network                          | No                                    | No                          | N/A                                                    | No                          |
+| Per server                                                   | No                                                     | Yes                         | N/A                         | No                                                                    |
+| Per vCenter                                                  | Yes                                                    | No                          | N/A                         | Yes                                                                   |
+| Per data center on the same network                          | No                                                     | No                          | N/A                         | No                                                                    |
 | **Collected data**                                           |
-| Server profile (static configuration) data                   | Yes                                   | Yes                         | Yes                                                    | Yes                         |
-| Server utilization metrics from Hypervisor (CPU, RAM, etc.)  | Yes                                   | Yes                         | Yes                                                    | No                          |
-| Server utilization metrics from server (CPU, RAM, etc.)      | Yes                                   | Yes                         | Yes                                                    | No                          |
-| Server network connections (TCP only)                        | Yes                                   | Yes                         | No                                                     | No                          |
-| Running processes                                            | No                                    | Yes                         | No                                                     | No                          |
-| Collection interval                                          | -60 minutes                           | -15 seconds                 | Single snapshot                                        | Single snapshot             |
+| Server profile (static configuration) data                   | Yes                                                    | Yes                         | Yes                         | Yes                                                                   |
+| Server utilization metrics from Hypervisor (CPU, RAM, etc.)  | Yes                                                    | Yes                         | Yes                         | No                                                                    |
+| Server utilization metrics from server (CPU, RAM, etc.)      | Yes                                                    | Yes                         | Yes                         | No                                                                    |
+| Server network connections (TCP only)                        | Yes                                                    | Yes                         | No                          | No                                                                    |
+| Running processes                                            | No                                                     | Yes                         | No                          | No                                                                    |
+| Collection interval                                          | -60 minutes                                            | -15 seconds                 | Single<br>snapshot          | Single<br>snapshot                                                    |
 | **Server data use cases**                                    |
-| View server data in Migration Hub                            | Yes                                   | Yes                         | Profile only                                           | No                          |
-| Generate Amazon EC2 recommendation based on server profile   | Yes                                   | Yes                         | Yes                                                    | Yes                         |
-| Generate Amazon EC2 recommendation based on utilization data | Yes                                   | Yes                         | Yes                                                    | No                          |
-| Export of latest utilization snapshot data                   | Yes                                   | Yes                         | Yes                                                    | No                          |
-| Export of time series utilization data                       | No                                    | Yes                         | No                                                     | No                          |
+| View server data in Migration Hub                            | Yes                                                    | Yes                         | Profile only                | No                                                                    |
+| Generate Amazon EC2 recommendation based on server profile   | Yes                                                    | Yes                         | Yes                         | Yes                                                                   |
+| Generate Amazon EC2 recommendation based on utilization data | Yes                                                    | Yes                         | Yes                         | No                                                                    |
+| Export of latest utilization snapshot data                   | Yes                                                    | Yes                         | Yes                         | No                                                                    |
+| Export of time series utilization data                       | No                                                     | Yes                         | No                          | No                                                                    |
 | **Network data use cases**                                   |
-| Visualization in Migration Hub                               | Yes                                   | Yes                         | No                                                     | No                          |
-| Export to Amazon Athena for further exploration              | No                                    | Yes                         | No                                                     | No                          |
-| Export to CSV file                                           | No                                    | Yes                         | No                                                     | No                          |
+| Visualization in Migration Hub                               | Yes                                                    | Yes                         | No                          | No                                                                    |
+| Export to Amazon Athena for further exploration              | No                                                     | Yes                         | No                          | No                                                                    |
+| Export to CSV file                                           | No                                                     | Yes                         | No                          | No                                                                    |
 | **Database use cases**                                       |
-| Database server profile (static configuration) data          | Yes                                   | No                          | No                                                     | No                          |
-| Supported database engines                                   | Oracle, SQL Server, MySQL, PostgreSQL | None                        | None                                                   | None                        |
-| Database schema complexity and duplicates                    | Yes                                   | No                          | No                                                     | No                          |
-| Database schema objects                                      | Yes                                   | No                          | No                                                     | No                          |
-| **Platform support**                                         |                                       | Supported operating systems | Any OS running in VMware center v5.5 or newer versions | Any Linux or Windows server | Any Linux or Windows server | Any Linux server, Windows server, or VMware v5.5 or newer versions | ## Assumptions To use Application Discovery Service, the following is assumed: <br>• You have signed up for AWS. For more information, see [Setting up Application Discovery Service](setting-up.md "setting-up.md"). <br>• You have selected a Migration Hub home Region. For more information, see [the documentation regarding home Regions](../../../migrationhub/latest/ug/home-region.md "../../../migrationhub/latest/ug/home-region.md"). Here's what to expect: <br>• The Migration Hub home Region is the only Region where Application Discovery Service stores your discovery and planning data. <br>• Discovery agents, connectors, and imports can be used in your selected Migration Hub home Region only. <br>• For a list of AWS Regions where you can use Application Discovery Service, see the [Amazon Web Services General Reference](../../../general/latest/gr/rande.md#migrationhub-region "../../../general/latest/gr/rande.md#migrationhub-region"). |
+| Database server profile (static configuration) data          | Yes                                                    | No                          | No                          | No                                                                    |
+| Supported database engines                                   | Oracle, SQL Server, MySQL, PostgreSQL                  | None                        | None                        | None                                                                  |
+| Database schema complexity and duplicates                    | Yes                                                    | No                          | No                          | No                                                                    |
+| Database schema objects                                      | Yes                                                    | No                          | No                          | No                                                                    |
+| **Platform support**                                         |
+| Supported operating systems                                  | Any OS running in VMware center v5.5 or newer versions | Any Linux or Windows server | Any Linux or Windows server | Any Linux server, Windows server, or VMware v5.5 or newer<br>versions |
+
+## Assumptions
+
+To use Application Discovery Service, the following is assumed:
+
+- You have signed up for AWS. For more information, see [Setting up Application Discovery Service](setting-up.md "setting-up.md").
+- You have selected a Migration Hub home Region. For more information, see [the
+  documentation regarding home Regions](../../../migrationhub/latest/ug/home-region.md "../../../migrationhub/latest/ug/home-region.md").
+
+Here's what to expect:
+
+- The Migration Hub home Region is the only Region where Application Discovery Service stores your
+  discovery and planning data.
+- Discovery agents, connectors, and imports can be used in your selected Migration Hub
+  home Region only.
+- For a list of AWS Regions where you can use Application Discovery Service, see the [Amazon Web Services General Reference](../../../general/latest/gr/rande.md#migrationhub-region "../../../general/latest/gr/rande.md#migrationhub-region").
