@@ -18,7 +18,28 @@ are returned in JSON format, ordered by ascending (oldest to latest).
 GET https://dicom-medical-imaging.`region`.amazonaws.com/datastore/`datastoreId`/studies/`StudyInstanceUID`/series/`SeriesInstanceUID`/instances[?query]
 ```
 
-| Instance elements for `SearchDICOMInstances` | DICOM element tag  | DICOM element name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Instance elements for `SearchDICOMInstances` | DICOM element tag  | DICOM element name |
+| -------------------------------------------- | ------------------ | ------------------ |
 | `(0008,0016)`                                | `SOP Class UID`    |
-| `(0008,0018)`                                | `SOP Instance UID` | 4. Prepare and send your request. `SearchDICOMInstances` uses a HTTP GET request with [AWS Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") signing protocol. The following example uses the `curl` command line tool to search for information about DICOM instances. curl ``curl --request GET \ "https://dicom-medical-imaging.us-east-1.amazonaws.com/datastore/`datastoreId`/studies/`StudyInstanceUID`/series/`SeriesInstanceUID`/instances[?query]" --aws-sigv4 'aws:amz:us-east-1:medical-imaging' \ --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \ --header "x-amz-security-token:$AWS_SESSION_TOKEN" \ --header 'Accept: application/dicom+json' \ --output results.json`` Instance search results are returned in JSON format, ordered by `Instance Number (0020,0013)` in ascending order (oldest to latest) |
+| `(0008,0018)`                                | `SOP Instance UID` |
+
+4. Prepare and send your request. `SearchDICOMInstances` uses a HTTP GET request
+   with [AWS Signature
+   Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") signing protocol. The following example uses the `curl` command
+   line tool to search for information about DICOM instances.
+
+curl
+
+```
+curl --request GET \
+  "https://dicom-medical-imaging.us-east-1.amazonaws.com/datastore/`datastoreId`/studies/`StudyInstanceUID`/series/`SeriesInstanceUID`/instances[?query]"
+  --aws-sigv4 'aws:amz:us-east-1:medical-imaging' \
+  --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
+  --header "x-amz-security-token:$AWS_SESSION_TOKEN" \
+  --header 'Accept: application/dicom+json' \
+  --output results.json
+
+```
+
+Instance search results are returned in JSON format, ordered by `Instance Number
+ (0020,0013)` in ascending order (oldest to latest)

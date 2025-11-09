@@ -14,8 +14,8 @@ case**.
 The following table lists throttling limits for both [native HealthImaging actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") and
 [representations of DICOMweb services](using-dicomweb.md "using-dicomweb.md").
 
-| AWS HealthImaging throttling limits | Action    | Throttle rate | Throttle burst                         |
-| ----------------------------------- | --------- | ------------- | -------------------------------------- |
+| AWS HealthImaging throttling limits | Action    | Throttle rate | Throttle burst |
+| ----------------------------------- | --------- | ------------- | -------------- |
 | CreateDatastore                     | 0.085 tps | 1 tps         |
 | GetDatastore                        | 10 tps    | 20 tps        |
 | ListDatastores                      | 5 tps     | 10 tps        |
@@ -37,4 +37,6 @@ The following table lists throttling limits for both [native HealthImaging actio
 | GetDICOMInstance\*                  | 50 tps    | 100 tps       |
 | GetDICOMInstanceMetadata\*          | 50 tps    | 100 tps       |
 | GetDICOMInstanceFrames\*            | 50 tps    | 100 tps       |
-| GetDICOMSeriesMetadata              | 50 tps    | 100 tps       | \*Representation of a DICOMweb service |
+| GetDICOMSeriesMetadata              | 50 tps    | 100 tps       |
+
+\*Representation of a DICOMweb service

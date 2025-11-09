@@ -68,7 +68,6 @@ C++
   \param outputBucketName: The name of the S3 bucket for the output.
   \param outputDirectory: The directory in the S3 bucket to store the output.
   \param roleArn: The ARN of the IAM role with permissions for the import.
-  \param importConfigJson: The import configuration JSON string (optional).
   \param importJobId: A string to receive the import job ID.
   \param clientConfig: Aws client configuration.
   \return bool: Function succeeded.
@@ -77,7 +76,6 @@ bool AwsDoc::Medical_Imaging::startDICOMImportJob(
         const Aws::String &dataStoreID, const Aws::String &inputBucketName,
         const Aws::String &inputDirectory, const Aws::String &outputBucketName,
         const Aws::String &outputDirectory, const Aws::String &roleArn,
-        const Aws::String &importConfigJson,
         Aws::String &importJobId,
         const Aws::Client::ClientConfiguration &clientConfig) {
     Aws::MedicalImaging::MedicalImagingClient medicalImagingClient(clientConfig);
@@ -89,20 +87,8 @@ bool AwsDoc::Medical_Imaging::startDICOMImportJob(
     startDICOMImportJobRequest.SetInputS3Uri(inputURI);
     startDICOMImportJobRequest.SetOutputS3Uri(outputURI);
 
-    if (!importConfigJson.empty()) {
-        Aws::Utils::Json::JsonValue jsonValue(importConfigJson);
-        if (jsonValue.WasParseSuccessful()) {
-            startDICOMImportJobRequest.SetImportConfiguration(
-                Aws::MedicalImaging::Model::ImportConfiguration(jsonValue));
-        }
-        else {
-            std::cerr << "Failed to parse import configuration JSON" << std::endl;
-            return false;
-        }
-    }
-
-    Aws::MedicalImaging::Model::StartDICOMImportJobOutcome startDICOMImportJobOutcome =
-        medicalImagingClient.StartDICOMImportJob(startDICOMImportJobRequest);
+    Aws::MedicalImaging::Model::StartDICOMImportJobOutcome startDICOMImportJobOutcome = medicalImagingClient.StartDICOMImportJob(
+            startDICOMImportJobRequest);
 
     if (startDICOMImportJobOutcome.IsSuccess()) {
         importJobId = startDICOMImportJobOutcome.GetResult().GetJobId();
@@ -168,54 +154,29 @@ Java
 
 ```
     public static String startDicomImportJob(MedicalImagingClient medicalImagingClient,
-                String jobName,
-                String datastoreId,
-                String dataAccessRoleArn,
-                String inputS3Uri,
-                String outputS3Uri,
-                String importConfigJson) {
+            String jobName,
+            String datastoreId,
+            String dataAccessRoleArn,
+            String inputS3Uri,
+            String outputS3Uri) {
 
-            try {
-                software.amazon.awssdk.utils.json.JsonNode jsonNode =
-                    software.amazon.awssdk.utils.json.JsonFactory.jsonParser().parse(importConfigJson);
-
-                ImportConfiguration importConfiguration = ImportConfiguration.builder()
-                    .digitalPathologyImportConfiguration(
-                        DigitalPathologyImportConfiguration.builder()
-                            .qualityFactor(jsonNode.get("digitalPathologyImportConfiguration")
-                                .get("qualityFactor").asInt())
-                            .fileMetadataMappings(
-                                jsonNode.get("digitalPathologyImportConfiguration")
-                                    .get("fileMetadataMappings")
-                                    .elements()
-                                    .map(mapping -> FileMetadataMapping.builder()
-                                        .imageFilePath(mapping.get("imageFilePath").asString())
-                                        .metadataFilePath(mapping.get("metadataFilePath").asString())
-                                        .build())
-                                    .collect(java.util.stream.Collectors.toList())
-                            )
-                            .build()
-                    )
+        try {
+            StartDicomImportJobRequest startDicomImportJobRequest = StartDicomImportJobRequest.builder()
+                    .jobName(jobName)
+                    .datastoreId(datastoreId)
+                    .dataAccessRoleArn(dataAccessRoleArn)
+                    .inputS3Uri(inputS3Uri)
+                    .outputS3Uri(outputS3Uri)
                     .build();
-
-                StartDicomImportJobRequest startDicomImportJobRequest = StartDicomImportJobRequest.builder()
-                        .jobName(jobName)
-                        .datastoreId(datastoreId)
-                        .dataAccessRoleArn(dataAccessRoleArn)
-                        .inputS3Uri(inputS3Uri)
-                        .outputS3Uri(outputS3Uri)
-                        .importConfiguration(importConfiguration)
-                        .build();
-
-                StartDicomImportJobResponse response = medicalImagingClient.startDICOMImportJob(startDicomImportJobRequest);
-                return response.jobId();
-            } catch (MedicalImagingException e) {
-                System.err.println(e.awsErrorDetails().errorMessage());
-                System.exit(1);
-            }
-
-            return "";
+            StartDicomImportJobResponse response = medicalImagingClient.startDICOMImportJob(startDicomImportJobRequest);
+            return response.jobId();
+        } catch (MedicalImagingException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
         }
+
+        return "";
+    }
 
 
 ```
@@ -244,7 +205,6 @@ import { medicalImagingClient } from "../libs/medicalImagingClient.js";
  * @param {string} dataAccessRoleArn - The Amazon Resource Name (ARN) of the role that grants permission.
  * @param {string} inputS3Uri - The URI of the S3 bucket containing the input files.
  * @param {string} outputS3Uri - The URI of the S3 bucket where the output files are stored.
- * @param {Object} importConfiguration - The configuration for digital pathology import.
  */
 export const startDicomImportJob = async (
   jobName = "test-1",
@@ -252,17 +212,6 @@ export const startDicomImportJob = async (
   dataAccessRoleArn = "arn:aws:iam::xxxxxxxxxxxx:role/ImportJobDataAccessRole",
   inputS3Uri = "s3://medical-imaging-dicom-input/dicom_input/",
   outputS3Uri = "s3://medical-imaging-output/job_output/",
-  importConfiguration = {
-    digitalPathologyImportConfiguration: {
-      qualityFactor: 85,
-      fileMetadataMappings: [
-        {
-          imageFilePath: "image.svs",
-          metadataFilePath: "metadata.json",
-        },
-      ],
-    },
-  },
 ) => {
   const response = await medicalImagingClient.send(
     new StartDICOMImportJobCommand({
@@ -271,7 +220,6 @@ export const startDicomImportJob = async (
       dataAccessRoleArn: dataAccessRoleArn,
       inputS3Uri: inputS3Uri,
       outputS3Uri: outputS3Uri,
-      importConfiguration: importConfiguration,
     }),
   );
   console.log(response);
@@ -316,8 +264,8 @@ class MedicalImagingWrapper:
 
 
     def start_dicom_import_job(
-            self, job_name, datastore_id, role_arn, input_s3_uri, output_s3_uri, import_configuration
-        ):
+        self, job_name, datastore_id, role_arn, input_s3_uri, output_s3_uri
+    ):
         """
         Start a DICOM import job.
 
@@ -326,7 +274,6 @@ class MedicalImagingWrapper:
         :param role_arn: The Amazon Resource Name (ARN) of the role to use for the job.
         :param input_s3_uri: The S3 bucket input prefix path containing the DICOM files.
         :param output_s3_uri: The S3 bucket output prefix path for the result.
-        :param importConfiguration: The configuration for digital pathology import.
         :return: The job ID.
         """
         try:
@@ -336,7 +283,6 @@ class MedicalImagingWrapper:
                 dataAccessRoleArn=role_arn,
                 inputS3Uri=input_s3_uri,
                 outputS3Uri=output_s3_uri,
-                importConfiguration=import_configuration
             )
         except ClientError as err:
             logger.error(
@@ -347,6 +293,7 @@ class MedicalImagingWrapper:
             raise
         else:
             return job["jobId"]
+
 
 
 ```
