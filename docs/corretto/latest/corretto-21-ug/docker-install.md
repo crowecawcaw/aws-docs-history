@@ -16,8 +16,8 @@ Output:
 
 ```
 openjdk version "21.0.9" 2025-10-21 LTS
-OpenJDK Runtime Environment Corretto-21.0.9.10.1 (build 21.0.9+10-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.9.10.1 (build 21.0.9+10-LTS, mixed mode, sharing)
+OpenJDK Runtime Environment Corretto-21.0.9.11.1 (build 21.0.9+11-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.9.11.1 (build 21.0.9+11-LTS, mixed mode, sharing)
 ```
 
 ## Using the Corretto ECR Instance
