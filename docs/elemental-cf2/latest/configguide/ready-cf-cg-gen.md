@@ -19,6 +19,8 @@ The AWS Elemental Conductor File cluster can be set up in a redundant or non-red
   This table summarizes the available cluster options for AWS Elemental Conductor File:
 
 | Workers       | Conductor                               |
-| ------------- | --------------------------------------- | --------------------------------------------------------------- |
+| ------------- | --------------------------------------- |
 | Non-redundant | Non-redundant (only one Conductor node) |
-| Non-redundant | Redundant (two Conductor nodes)         | This guide describes how to set-up all of these configurations. |
+| Non-redundant | Redundant (two Conductor nodes)         |
+
+This guide describes how to set-up all of these configurations.
