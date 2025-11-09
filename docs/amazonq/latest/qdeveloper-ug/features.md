@@ -169,7 +169,6 @@ tests, and improve code, including debugging or refactoring.
 After you explain, in natural language, the feature that you want to develop, Amazon Q can
 use the context of your current project to generate an implementation plan and the
 accompanying code. Amazon Q can help you build AWS projects or your own applications.
-.
 
 ### Getting inline code suggestions
 
@@ -210,20 +209,6 @@ and quality of your applications throughout development. For more information, s
 Amazon Q can perform automated language and operating system (OS)-level upgrades for
 your applications. For more information, see [Transforming code in the IDE with Amazon Q Developer](transform-in-IDE.md "transform-in-IDE.md")
 .
-
-### Generating unit tests
-
-Amazon Q Developer provides an AI-powered unit test generation feature to help development
-teams improve code coverage throughout their software development lifecycle. The
-Amazon Q Developer agent for unit test generation is available in the following environments:
-
-- The Amazon Q IDE extension.
-- GitLab, as part of GitLab Duo. For more information, see [GitLab quick actions](gitlab-concepts.md#gitlab-concepts-quick-actions "gitlab-concepts.md#gitlab-concepts-quick-actions")
-  .
-
-###### Note
-
-The unit test generation capability is available in all [Amazon Q Developer supported regions](regions.md "regions.md").
 
 ### Developing software in Amazon CodeCatalyst
 
@@ -340,8 +325,7 @@ For more information, see [GitLab Duo with Amazon Q](gitlab-with-amazon-q.md "gi
 
 You can leverage Amazon Q Developer capabilities for your software development workflows.
 With specialized development agents, you can implement new ideas, review code for
-quality issues, address vulnerabilities with unit tests, and modernize legacy Java
-applications.
+quality issues, and address vulnerabilities with unit tests.
 
 For more information, see [Amazon Q Developer for GitHub (Preview)](amazon-q-for-github.md "amazon-q-for-github.md")
 .

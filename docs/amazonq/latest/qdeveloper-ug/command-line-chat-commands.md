@@ -20,10 +20,10 @@ commands start with a forward slash (`/`).
 | `/clear`               | Clears the chat history from the current session                                                   |
 | `/tools`               | Manages tools and permissions for tools that Amazon Q can use                                      |
 | `/mcp`                 | Manages authentication and connection to remote MCP servers                                        |
-| `/acceptall`           | Deprecated. Disables confirmation prompts when Amazon Q performs actions on your system            |
+| `/acceptall`           | Deprecated. Disables confirmation prompts when Amazon Q performs<br>actions on your system         |
 | `/profile`             | Deprecated. Manages Q profiles for Q Developer commands. Use `/agent` instead                      |
 | `/context`             | Manages the context information available to Amazon Q                                              |
-| `/compact`             | Compacts the conversation history and shows the output of the compacted conversation history       |
+| `/compact`             | Compacts the conversation history and shows the output of the<br>compacted conversation history    |
 | `/agent list`          | Shows all available agents in your environment                                                     |
 | `/agent schema`        | Displays the JSON schema for creating agent configuration files                                    |
 | `/agent create [name]` | Creates a new agent with the specified name                                                        |

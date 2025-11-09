@@ -31,9 +31,9 @@ following quotas:
 - **Jobs per month** – The
   maximum number of transformation jobs you can run in one month.
 
-| Resource                | Quotas                                  |
-| ----------------------- | --------------------------------------- |
-| Lines of code per job   | Free tier: 1000 lines of code           |
-| Lines of code per month | Free tier: 2000 lines of code           |
-| Concurrent jobs         | 1 job per user 25 jobs per AWS account  |
-| Jobs per month          | Pro tier: 1000 jobs Free tier: 100 jobs |
+| Resource                | Quotas                                     |
+| ----------------------- | ------------------------------------------ |
+| Lines of code per job   | Free tier: 1000 lines of code              |
+| Lines of code per month | Free tier: 2000 lines of code              |
+| Concurrent jobs         | 1 job per user<br>25 jobs per AWS account  |
+| Jobs per month          | Pro tier: 1000 jobs<br>Free tier: 100 jobs |

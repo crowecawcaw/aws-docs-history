@@ -53,7 +53,7 @@ Amazon Q performs four keys tasks to port .NET applications to Linux:
   transformation jobs you can run at the same time. This quota applies to all
   transformations in the IDE, including [Java transformations](transform-java.md "transform-java.md").
 
-| Resource              | Quotas                                |
-| --------------------- | ------------------------------------- |
-| Lines of code per job | 100,000 lines of code                 |
-| Concurrent jobs       | 1 job per user 2 jobs per AWS account |
+| Resource              | Quotas                                   |
+| --------------------- | ---------------------------------------- |
+| Lines of code per job | 100,000 lines of code                    |
+| Concurrent jobs       | 1 job per user<br>2 jobs per AWS account |

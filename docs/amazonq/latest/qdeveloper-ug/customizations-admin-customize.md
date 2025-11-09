@@ -114,17 +114,13 @@ In that case, remove a repository from your data source and try again.
 - You may receive the error: `Insufficient data to create a customization. Add more
 files from supported languages and retry.`
 
-In order for code written in a particular language to be used to create a
-
-customization, there must be at least 10 files containing code in that
-language in your
+In order for code written in a particular language to be used to create a 
+customization, there must be at least 10 files containing code in that  language in your
 data source. Your data source must contain at least 2 MB, while it is recommended to have
 close to 20MB, and at most 20 GB, of source code files from supported languages.
 
-Some files, even if they are in the relevant language, will not count
-toward the 2 MB.
-For example, duplicate files and files in an unsupported
-format will not be
+Some files, even if they are in the relevant language, will not count  toward the 2 MB.
+For example, duplicate files and files in an unsupported  format will not be
 counted.
 
 If you receive this error, add more files containing the programming language that is

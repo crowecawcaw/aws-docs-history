@@ -43,8 +43,7 @@ performance issues, and so forth.
 To prepare your data source, follow these guidelines:
 
 - Your data source must contain at least 2 MB, and at most 20 GB, of source code
-  files
-  from supported languages. Any file in your data source that's larger than
+  files  from supported languages. Any file in your data source that's larger than
   10 MB will be ignored.
 - There is no limit on the number of files in your data source, but you must
   include at least 10 files for each language that you want your customization to
@@ -52,10 +51,8 @@ To prepare your data source, follow these guidelines:
 - File names and individual directory names must not exceed 255 characters.
   (Cumulatively, they can exceed 255 characters.) Exceeding these limits causes
   the customization creation to fail.
-- In the Amazon S3 data
-  source, all source code must be placed within a directory
-  and not at the root
-  level. Any files at the root level will be ignored.
+- In the Amazon S3 data  source, all source code must be placed within a directory
+  and not at the root  level. Any files at the root level will be ignored.
 
 ###### Note
 

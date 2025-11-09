@@ -17,8 +17,8 @@ be obtained.
 The following table outlines how severity is determined based on the level of access and
 level of effort required for a bad actor to successfully attack a system.
 
-| Severity determination matrix        | Level of access                    | Level of effort | Severity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------ | ---------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Severity determination matrix        | Level of access                    | Level of effort | Severity |
+| ------------------------------------ | ---------------------------------- | --------------- | -------- |
 | Full control of system or its output | Requires access to system          | High            |
 | Full control of system or its output | Internet with high level of effort | Critical        |
 | Full control of system or its output | Over internet                      | Critical        |
@@ -32,4 +32,43 @@ level of effort required for a bad actor to successfully attack a system.
 | Provides additional security         | Requires access to system          | Info            |
 | Provides additional security         | Internet with high level of effort | Low             |
 | Provides additional security         | Over internet                      | Low             |
-| Best practice                        | Not exploitable                    | Info            | ## Severity definitions The severity levels are defined as follows. **Critical – The code issue should be addressed immediately to avoid it escalating.** Critical code issues suggest that an attacker can gain control of the system or modify its behavior with moderate effort. It is recommended that you treat critical findings with the utmost urgency. You also should consider the criticality of the resource. **High – The code issue must be addressed as a near-term priority.** High severity code issues suggest that an attacker can gain control of the system or modify its behavior with high effort. It is recommended that you treat a high severity finding as a near-term priority and that you take immediate remediation steps. You also should consider the criticality of the resource. **Medium – The code issue should be addressed as a midterm priority.** Medium severity findings can lead to crash, unresponsiveness, or unavailability of the system. It is recommended that you investigate the implicated code at your earliest convenience. You also should consider the criticality of the resource. **Low – The code issue does not require action on its own.** Low severity findings suggest programming errors or anti-patterns. You do not need to take immediate action on low severity findings, but they can provide context when you correlate them with other issues. **Informational – No recommended action.** Informational findings include suggestions for quality or readability improvements, or alternative API operations. No immediate action is necessary. |
+| Best practice                        | Not exploitable                    | Info            |
+
+## Severity definitions
+
+The severity levels are defined as follows.
+
+**Critical – The code issue should be addressed
+immediately to avoid it escalating.**
+
+Critical code issues suggest that an attacker can gain control of the system or modify its
+behavior with moderate effort. It is recommended that you treat critical findings
+with the utmost urgency. You also should consider the criticality of the resource.
+
+**High – The code issue must be addressed as a near-term
+priority.**
+
+High severity code issues suggest that an attacker can gain control of the system or modify
+its behavior with high effort. It is recommended that you treat a high severity
+finding as a near-term priority and that you take immediate remediation steps. You also should
+consider the criticality of the resource.
+
+**Medium – The code issue should be addressed as a
+midterm priority.**
+
+Medium severity findings can lead to crash, unresponsiveness, or unavailability of the
+system. It is recommended that you investigate the implicated code at your earliest
+convenience. You also should consider the criticality of the resource.
+
+**Low – The code issue does not require action on its
+own.**
+
+Low severity findings suggest programming errors or anti-patterns. You do not need to take
+immediate action on low severity findings, but they can provide context when you correlate them
+with other issues.
+
+**Informational – No recommended
+action.**
+
+Informational findings include suggestions for quality or readability improvements, or
+alternative API operations. No immediate action is necessary.

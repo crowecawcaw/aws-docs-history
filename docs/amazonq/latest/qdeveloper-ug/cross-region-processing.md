@@ -35,8 +35,38 @@ where data is stored when you use Amazon Q Developer, see
 The following table describes what Regions your requests may be routed to
 depending on the geography where the request originated.
 
-| **Supported Amazon Q Developer geography** | **Inference regions**                                                                                                                                                                           |
-| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| United States                              | US East (N. Virginia) (us-east-1) US West (Oregon) (us-west-2) US East (Ohio) (us-east-2)                                                                                                       |
-| Europe                                     | Europe (Frankfurt) (eu-central-1) Europe (Ireland) (eu-west-1) Europe (Paris) (eu-west-3) Europe (Stockholm) (eu-north-1)                                                                       |
-| Asia Pacific\*                             | Asia Pacific (Mumbai) (ap-south-1) Asia Pacific (Seoul) (ap-northeast-2) Asia Pacific (Singapore) (ap-southeast-1) Asia Pacific (Sydney) (ap-southeast-2) Asia Pacific (Tokyo) (ap-northeast-1) | \*Cross-region inferencing in the Asia Pacific Regions is only supported when you use Amazon Q generative SQL in the Asia Pacific (Seoul) Region. For a complete list of Regions where you can use Amazon Q Developer, see [Supported Regions for Amazon Q Developer](regions.md "regions.md"). ## Cross-region calls Certain requests that you make to Amazon Q Developer may require cross-region calls. Cross-region calls are API calls made by Amazon Q from one AWS Region to another AWS Region. Amazon Q makes cross-region calls when your request requires it to retrieve information from a Region different from your current Region. For example, when you ask Amazon Q questions about your AWS resources that are located in different Regions, it will make a cross-region call to access your resources and retrieve the relevant data to respond to your question. In addition, if a response from Amazon Q requires information from a global AWS service endpoint, Amazon Q may make calls outside of the Region where your data is stored. For more information on global services, see [Global services](../../../whitepapers/latest/aws-fault-isolation-boundaries/global-services.md "../../../whitepapers/latest/aws-fault-isolation-boundaries/global-services.md") in the _AWS Fault Isolation Boundaries AWS Whitepaper_. If you’d like to disable cross-region calls made by Amazon Q Developer, you can create a policy that prevents Amazon Q from making API calls on your behalf. By doing so, you won’t have access to features that require Amazon Q to make API calls on your behalf, even if Amazon Q is making calls within your current Region. For an IAM policy that prevents Amazon Q from making API calls on your behalf, including cross-region calls, see [Deny Amazon Q permission to perform actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-deny-actions "id-based-policy-examples-users.md#id-based-policy-examples-deny-actions"). |
+| **Supported Amazon Q Developer<br>geography** | **Inference regions**                                                                                                                                                                                       |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| United States                                 | US East (N. Virginia) (us-east-1)<br>US West (Oregon) (us-west-2)<br>US East (Ohio) (us-east-2)                                                                                                             |
+| Europe                                        | Europe (Frankfurt) (eu-central-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3)<br>Europe (Stockholm) (eu-north-1)                                                                          |
+| Asia Pacific\*                                | Asia Pacific (Mumbai) (ap-south-1)<br>Asia Pacific (Seoul) (ap-northeast-2)<br>Asia Pacific (Singapore) (ap-southeast-1)<br>Asia Pacific (Sydney) (ap-southeast-2)<br>Asia Pacific (Tokyo) (ap-northeast-1) |
+
+\*Cross-region inferencing in the Asia Pacific Regions is only supported when you use Amazon Q
+generative SQL in the Asia Pacific (Seoul) Region.
+
+For a complete list of Regions where you can use Amazon Q Developer, see
+[Supported Regions for Amazon Q Developer](regions.md "regions.md").
+
+## Cross-region calls
+
+Certain requests that you make to Amazon Q Developer may require cross-region calls.
+Cross-region calls are API calls made by Amazon Q from one AWS Region to another
+AWS Region. Amazon Q makes cross-region calls when your request requires it to retrieve
+information from a Region different from your current Region. For example, when you ask
+Amazon Q questions about your AWS resources that are located in different Regions, it
+will make a cross-region call to access your resources and retrieve the relevant data to
+respond to your question. In addition, if a response from Amazon Q requires information
+from a global AWS service endpoint, Amazon Q may make calls outside of the Region where
+your data is stored. For more information on global services, see
+[Global
+services](../../../whitepapers/latest/aws-fault-isolation-boundaries/global-services.md "../../../whitepapers/latest/aws-fault-isolation-boundaries/global-services.md") in the
+_AWS Fault Isolation Boundaries AWS Whitepaper_.
+
+If you’d like to disable cross-region calls made by Amazon Q Developer, you can create
+a policy that prevents Amazon Q from making API calls on your behalf. By doing so, you
+won’t have access to features that require Amazon Q to make API calls on your behalf,
+even if Amazon Q is making calls within your current Region. For an IAM policy that
+prevents Amazon Q from making API calls on your behalf, including cross-region calls,
+see
+[Deny Amazon Q permission to perform
+actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-deny-actions "id-based-policy-examples-users.md#id-based-policy-examples-deny-actions").

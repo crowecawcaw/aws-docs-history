@@ -48,7 +48,214 @@ The Amazon Q CLI automatically generates comprehensive logs for all operations, 
 Amazon Q CLI logs are automatically stored in the following locations:
 
 | Operating System | Log Location                                                |
-| ---------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------- | ----------------------------------------------------------- |
 | macOS            | `$TMPDIR/qlog/` (typically `/var/folders/.../qlog/`)        |
 | Linux/WSL        | `$XDG_RUNTIME_DIR/qlog/` or `$TMPDIR/qlog/` or `/tmp/qlog/` |
-| Windows          | `%TEMP%\qlog\`                                              | The Amazon Q CLI creates multiple specialized log files automatically: `chat.log` - **Main Amazon Q CLI wrapper logs** including: <br>• Amazon Q CLI initialization and startup operations <br>• AWS SDK calls (Cognito Identity, authentication flows) <br>• Network operations (HTTP/TLS connections, certificate handling) <br>• Low-level system operations (telemetry, socket connections) <br>• AWS service endpoint resolution and connection pooling <br>• Detailed debugging information for infrastructure components `qchat.log` - **Chat application-specific logs** including: <br>• Chat application errors and state processing issues <br>• MCP (Model Context Protocol) server management and connection errors <br>• Application-level migration issues <br>• User interaction interruptions and chat processing failures <br>• Higher-level application logic errors `mcp.log` - Model Context Protocol server logs (populated when using MCP servers) `translate.log` - Natural language to shell translation logs (populated when using translate feature) #### Key differences between log files **Scope and detail differences:** <br>• `chat.log`: Comprehensive system-level logging covering the entire Q CLI infrastructure <br>• `qchat.log`: Focused application-level logging specific to chat functionality **Content focus differences:** <br>• `chat.log`: AWS SDK internals, networking protocols, authentication flows, system operations <br>• `qchat.log`: Chat logic, MCP server lifecycle, user experience issues, application errors ###### Note Log files are stored only on your local machine and are not sent to AWS. All log files are created automatically when you first use the CLI, even without verbose flags. ### Amazon Q CLI troubleshooting workflow Follow this approach to gather diagnostic information from the logs. 1. Identify the log directory for your system: On Linux/WSL: `echo $XDG_RUNTIME_DIR/qlog/` On macOS: `echo $TMPDIR/qlog/` On Windows: `echo %TEMP%\qlog\` 2. Run the Amazon Q CLI command with maximum verbosity to see detailed output in your terminal: `q -vvv chat` 3. Reproduce the issue you're experiencing 4. Exit the Amazon Q CLI and examine the relevant log files. For most issues, check both main log files: On macOS/Linux: `less -r $XDG_RUNTIME_DIR/qlog/qchat.log less -r $XDG_RUNTIME_DIR/qlog/chat.log` Alternative on macOS: `less -r $TMPDIR/qlog/qchat.log less -r $TMPDIR/qlog/chat.log` On Windows: `type %TEMP%\qlog\qchat.log type %TEMP%\qlog\chat.log` 5. For real-time log monitoring during troubleshooting, use: Monitor all log files simultaneously: `tail -f $XDG_RUNTIME_DIR/qlog/*.log` Monitor specific files: `tail -f $XDG_RUNTIME_DIR/qlog/qchat.log` `tail -f $XDG_RUNTIME_DIR/qlog/chat.log` ### Analyzing Amazon Q CLI logs Amazon Q CLI logs use standard logging levels to categorize information by importance: ERROR Critical issues that prevent normal operation - start here when troubleshooting WARN Potential problems that don't stop functionality but should be noted INFO General operational messages about what the application is doing DEBUG Detailed technical information useful for deeper investigation When examining Amazon Q CLI logs, focus on these key areas in the different log files: `qchat.log` analysis - Application-level issues including: <br>• **ERROR chat_cli::cli::chat** - Chat processing and state management errors <br>• **ERROR chat_cli::cli::agent** - Migration and agent-related problems <br>• **ERROR chat_cli::telemetry** - Telemetry validation and transmission failures `chat.log` analysis - Runtime operational details including: <br>• **DEBUG q_cli::cli** - Amazon Q CLI command execution and initialization <br>• **DEBUG aws_sdk\_\*** - AWS SDK operations and service calls <br>• **DEBUG rustls::\*** - TLS/SSL connection establishment and certificate handling <br>• **DEBUG hyper\_\*** - HTTP connection management and network operations <br>• **ERROR fig_telemetry** - System telemetry and socket connection issues General analysis tips: <br>• **Timestamps** - Correlate log entries with when issues occurred <br>• **Error patterns** - Look for repeated errors or error cascades <br>• **Request IDs** - Track specific API calls and their outcomes <br>• **Connection states** - Monitor network connectivity and authentication status ###### Tip Use tools like **grep**, **awk**, or text editors with search functionality to filter logs for specific error messages or patterns. For example: **grep -i error $XDG_RUNTIME_DIR/qlog/\*.log** ## Common log patterns and solutions Here are some common issues you might find in logs and their typical solutions: MCP server connection errors **Log pattern (in qchat.log):** "Background listening thread for client [server-name]: RecvError(Closed)" or "All senders dropped for transport layer" **Solution:** MCP server processes have stopped running. This is typically expected behavior when exiting the Amazon Q CLI or when servers shut down normally. Chat processing interruptions **Log pattern (in qchat.log):** "An error occurred processing the current state err=Interrupted { tool_uses: None }" **Solution:** This occurs when chat operations are cancelled by the user (e.g., Ctrl+C) and is expected behavior. Telemetry validation errors **Log pattern (in qchat.log):** "Failed to send cw telemetry event err=ValidationError [ValidationException]: Improperly formed request" **Solution:** These are typically non-critical telemetry transmission issues that don't affect core functionality. Migration warnings **Log pattern (in qchat.log):** "Migration did not happen for the following reason: Aborting migration" **Solution:** This is typically a non-critical warning related to configuration migration and can usually be ignored. Authentication failures **Log pattern (in chat.log):** Authentication-related errors in AWS SDK operations **Solution:** Run **q login** to re-authenticate or check your AWS credentials Network connectivity issues **Log pattern (in chat.log):** "Connection timeout", "Network unreachable", or failed HTTP connections **Solution:** Check your internet connection and firewall settings AWS SDK operation failures **Log pattern (in chat.log):** Failed Cognito Identity operations or credential retrieval errors **Solution:** Check your AWS credentials and network connectivity. May require re-authentication ## Getting help with log analysis If you need assistance analyzing logs or resolving issues: <br>• When contacting support, include relevant log excerpts (with sensitive information removed) <br>• Provide context about when the issue occurs and steps to reproduce it |
+| Windows          | `%TEMP%\qlog\`                                              |
+
+The Amazon Q CLI creates multiple specialized log files automatically:
+
+`chat.log` - **Main Amazon Q CLI wrapper logs** including:
+
+- Amazon Q CLI initialization and startup operations
+- AWS SDK calls (Cognito Identity, authentication flows)
+- Network operations (HTTP/TLS connections, certificate handling)
+- Low-level system operations (telemetry, socket connections)
+- AWS service endpoint resolution and connection pooling
+- Detailed debugging information for infrastructure components
+
+`qchat.log` - **Chat application-specific logs** including:
+
+- Chat application errors and state processing issues
+- MCP (Model Context Protocol) server management and connection errors
+- Application-level migration issues
+- User interaction interruptions and chat processing failures
+- Higher-level application logic errors
+
+`mcp.log` - Model Context Protocol server logs (populated when using MCP servers)
+
+`translate.log` - Natural language to shell translation logs (populated when using translate feature)
+
+#### Key differences between log files
+
+**Scope and detail differences:**
+
+- `chat.log`: Comprehensive system-level logging covering the entire Q CLI infrastructure
+- `qchat.log`: Focused application-level logging specific to chat functionality
+
+**Content focus differences:**
+
+- `chat.log`: AWS SDK internals, networking protocols, authentication flows, system operations
+- `qchat.log`: Chat logic, MCP server lifecycle, user experience issues, application errors
+
+###### Note
+
+Log files are stored only on your local machine and are not sent to AWS. All log files are created automatically when you first use the CLI, even without verbose flags.
+
+### Amazon Q CLI troubleshooting workflow
+
+Follow this approach to gather diagnostic information from the logs.
+
+1. Identify the log directory for your system:
+
+On Linux/WSL:
+
+```
+echo $XDG_RUNTIME_DIR/qlog/
+```
+
+On macOS:
+
+```
+echo $TMPDIR/qlog/
+```
+
+On Windows:
+
+```
+echo %TEMP%\qlog\
+```
+
+2. Run the Amazon Q CLI command with maximum verbosity to see detailed output in your terminal:
+
+```
+q -vvv chat
+```
+
+3. Reproduce the issue you're experiencing
+4. Exit the Amazon Q CLI and examine the relevant log files. For most issues, check both main log files:
+
+On macOS/Linux:
+
+```
+less -r $XDG_RUNTIME_DIR/qlog/qchat.log
+less -r $XDG_RUNTIME_DIR/qlog/chat.log
+```
+
+Alternative on macOS:
+
+```
+less -r $TMPDIR/qlog/qchat.log
+less -r $TMPDIR/qlog/chat.log
+```
+
+On Windows:
+
+```
+type %TEMP%\qlog\qchat.log
+type %TEMP%\qlog\chat.log
+```
+
+5. For real-time log monitoring during troubleshooting, use:
+
+Monitor all log files simultaneously:
+
+```
+tail -f $XDG_RUNTIME_DIR/qlog/*.log
+```
+
+Monitor specific files:
+
+```
+tail -f $XDG_RUNTIME_DIR/qlog/qchat.log
+```
+
+```
+tail -f $XDG_RUNTIME_DIR/qlog/chat.log
+```
+
+### Analyzing Amazon Q CLI logs
+
+Amazon Q CLI logs use standard logging levels to categorize information by importance:
+
+ERROR
+Critical issues that prevent normal operation - start here when troubleshooting
+
+WARN
+Potential problems that don't stop functionality but should be noted
+
+INFO
+General operational messages about what the application is doing
+
+DEBUG
+Detailed technical information useful for deeper investigation
+
+When examining Amazon Q CLI logs, focus on these key areas in the different log files:
+
+`qchat.log` analysis - Application-level issues including:
+
+- **ERROR chat_cli::cli::chat** - Chat processing and state management errors
+- **ERROR chat_cli::cli::agent** - Migration and agent-related problems
+- **ERROR chat_cli::telemetry** - Telemetry validation and transmission failures
+
+`chat.log` analysis - Runtime operational details including:
+
+- **DEBUG q_cli::cli** - Amazon Q CLI command execution and initialization
+- **DEBUG aws_sdk\_\*** - AWS SDK operations and service calls
+- **DEBUG rustls::\*** - TLS/SSL connection establishment and certificate handling
+- **DEBUG hyper\_\*** - HTTP connection management and network operations
+- **ERROR fig_telemetry** - System telemetry and socket connection issues
+
+General analysis tips:
+
+- **Timestamps** - Correlate log entries with when issues occurred
+- **Error patterns** - Look for repeated errors or error cascades
+- **Request IDs** - Track specific API calls and their outcomes
+- **Connection states** - Monitor network connectivity and authentication status
+
+###### Tip
+
+Use tools like **grep**, **awk**, or text editors with search functionality to filter logs for specific error messages or patterns. For example: **grep -i error $XDG_RUNTIME_DIR/qlog/\*.log**
+
+## Common log patterns and solutions
+
+Here are some common issues you might find in logs and their typical solutions:
+
+MCP server connection errors
+
+**Log pattern (in qchat.log):** "Background listening thread for client [server-name]: RecvError(Closed)" or "All senders dropped for transport layer"
+
+**Solution:** MCP server processes have stopped running. This is typically expected behavior when exiting the Amazon Q CLI or when servers shut down normally.
+
+Chat processing interruptions
+
+**Log pattern (in qchat.log):** "An error occurred processing the current state err=Interrupted { tool_uses: None }"
+
+**Solution:** This occurs when chat operations are cancelled by the user (e.g., Ctrl+C) and is expected behavior.
+
+Telemetry validation errors
+
+**Log pattern (in qchat.log):** "Failed to send cw telemetry event err=ValidationError [ValidationException]: Improperly formed request"
+
+**Solution:** These are typically non-critical telemetry transmission issues that don't affect core functionality.
+
+Migration warnings
+
+**Log pattern (in qchat.log):** "Migration did not happen for the following reason: Aborting migration"
+
+**Solution:** This is typically a non-critical warning related to configuration migration and can usually be ignored.
+
+Authentication failures
+
+**Log pattern (in chat.log):** Authentication-related errors in AWS SDK operations
+
+**Solution:** Run **q login** to re-authenticate or check your AWS credentials
+
+Network connectivity issues
+
+**Log pattern (in chat.log):** "Connection timeout", "Network unreachable", or failed HTTP connections
+
+**Solution:** Check your internet connection and firewall settings
+
+AWS SDK operation failures
+
+**Log pattern (in chat.log):** Failed Cognito Identity operations or credential retrieval errors
+
+**Solution:** Check your AWS credentials and network connectivity. May require re-authentication
+
+## Getting help with log analysis
+
+If you need assistance analyzing logs or resolving issues:
+
+- When contacting support, include relevant log excerpts (with sensitive information removed)
+- Provide context about when the issue occurs and steps to reproduce it

@@ -45,8 +45,43 @@ For detailed information about custom agent configuration options, see [Configur
 
 Amazon Q Developer CLI provides several commands for managing custom agents. These commands are available during a chat session and start with `/agent`.
 
-| Custom agent commands         | Command                                                                           | Description  | Availability                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------------------------- | --------------------------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Custom agent commands         | Command                                                                           | Description  | Availability |
+| ----------------------------- | --------------------------------------------------------------------------------- | ------------ | ------------ |
 | `/agent list`                 | Shows all available custom agents in your environment                             | Chat session |
 | `/agent schema`               | Displays the JSON schema for creating custom agent configuration files            | Chat session |
-| `/agent create --name [name]` | Creates a new custom agent configuration file and opens it in your default editor | Chat session | **Note:** Some custom agent management operations require manual file editing rather than interactive commands. Custom agent changes take effect when you start a new chat session. ## Migration from legacy profiles When you update to a version of Amazon Q Developer CLI that supports agents and sign in, you may be prompted to migrate your legacy profiles to agents if: <br>• You have existing legacy profile configurations <br>• You're running in interactive mode (migration is skipped with `--no-interactive`) <br>• You haven't previously completed the migration process The migration process: <br>• Converts existing profile configurations to the new agent format <br>• Preserves your existing tool permissions and context settings <br>• Creates agent configuration files in your home directory <br>• Maintains backward compatibility with your existing workflows The migration is optional and can be declined. If you choose not to migrate, you can continue using the default agent or create new agents manually. To control migration behavior, use the `--no-interactive` flag to skip migration prompts entirely. ## Using the default agent vs custom agents Amazon Q Developer CLI includes a built-in default agent that provides access to all tools with minimal pre-approved permissions. This default agent: <br>• Includes all available tools (built-in and MCP) <br>• Pre-approves only the `fs_read` tool for security <br>• Automatically includes common project files like `README.md` and `AmazonQ.md` <br>• Uses legacy MCP configuration if available Custom agents allow you to: <br>• Limit tool access to only what you need <br>• Pre-approve additional tools to reduce interruptions <br>• Include specific project documentation and context files <br>• Configure tool behavior for your specific use case |
+| `/agent create --name [name]` | Creates a new custom agent configuration file and opens it in your default editor | Chat session |
+
+**Note:** Some custom agent management operations require manual file editing rather than interactive commands. Custom agent changes take effect when you start a new chat session.
+
+## Migration from legacy profiles
+
+When you update to a version of Amazon Q Developer CLI that supports agents and sign in, you may be prompted to migrate your legacy profiles to agents if:
+
+- You have existing legacy profile configurations
+- You're running in interactive mode (migration is skipped with `--no-interactive`)
+- You haven't previously completed the migration process
+
+The migration process:
+
+- Converts existing profile configurations to the new agent format
+- Preserves your existing tool permissions and context settings
+- Creates agent configuration files in your home directory
+- Maintains backward compatibility with your existing workflows
+
+The migration is optional and can be declined. If you choose not to migrate, you can continue using the default agent or create new agents manually. To control migration behavior, use the `--no-interactive` flag to skip migration prompts entirely.
+
+## Using the default agent vs custom agents
+
+Amazon Q Developer CLI includes a built-in default agent that provides access to all tools with minimal pre-approved permissions. This default agent:
+
+- Includes all available tools (built-in and MCP)
+- Pre-approves only the `fs_read` tool for security
+- Automatically includes common project files like `README.md` and `AmazonQ.md`
+- Uses legacy MCP configuration if available
+
+Custom agents allow you to:
+
+- Limit tool access to only what you need
+- Pre-approve additional tools to reduce interruptions
+- Include specific project documentation and context files
+- Configure tool behavior for your specific use case

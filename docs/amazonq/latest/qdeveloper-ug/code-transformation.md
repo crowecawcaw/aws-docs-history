@@ -28,9 +28,269 @@ Amazon Q currently supports the following Java source code versions and target v
 for transformations. Transforming code to the same Java version includes upgrading
 libraries and other dependencies in the source code version.
 
-| Supported Java upgrades | Source code version | Supported target versions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Supported Java upgrades | Source code version | Supported target versions |
+| ----------------------- | ------------------- | ------------------------- |
 | Java 8                  | Java 17 and Java 21 |
 | Java 11                 | Java 17 and Java 21 |
 | Java 17                 | Java 17 and Java 21 |
-| Java 21                 | Java 21             | Amazon Q supports Java upgrades in the following IDEs: <br>• Modules in JetBrains IDEs <br>• Projects and workspaces in Visual Studio Code ## Step 1: Prerequisites Before you continue, make sure you’ve completed the steps in [Set up Amazon Q in your IDE](q-in-IDE-setup.md "q-in-IDE-setup.md"). Make sure that the following prerequisites are met before you begin a Code Transformation job: <br>• Your project is written in a [supported Java version](#supported-languages-IDEs "#supported-languages-IDEs") and is built on Maven. <br>• Your project successfully builds with Maven in your IDE. Maven 3.8 or later is currently supported. <br>• Your project source JDK is available locally and is the version of your source code. For example, if you are transforming Java 8 code, your local JDK installation should be JDK 8. <br>• Your project builds in 55 minutes or less. <br>• Your project is configured correctly, and the correct JDK version is specified. For more information, see [Step 2: Configure your project](#configure-project "#configure-project"). <br>• Your project doesn't require access to resources on your private network, including a virtual private cloud (VPC) or on-premise network. For example, if your project contains unit tests that connect to a database in your network, the transformation will fail. <br>• Your project doesn't use plugins that package languages other than Java in your Java project. For example, if your project uses the [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin "https://github.com/eirslett/frontend-maven-plugin") for executing front-end JavaScript code in addition to your Java source code, the transformation will fail. <br>• Your local network allows uploads to Amazon S3 buckets that Amazon Q uses to transform your code. For more information, see [Allow access to Amazon S3 buckets in data perimeters](firewall.md#data-perimeters "firewall.md#data-perimeters"). <br>• Your application only uses UTF-8 characters. If your application uses non-UTF-8 characters, Amazon Q will still attempt to transform your code. ## Step 2: Configure your project To configure your project, use the following information for the IDE you're using. ### Configure a project in JetBrains To configure your project in JetBrains, you might need to specify the following project and module settings. If your modules use the same JDK and language level as your project, you don't need to update module settings. <br>• Project SDK – The JDK used to compile your project. <br>• Project language level – The Java version used in your project. <br>• Module SDK – The JDK used to compile your module. <br>• Module language level – The Java version used in your module. <br>• Maven Runner JRE – The JDK you build your module with. ###### Update project and module settings To update your SDK and language level settings for your project or module, complete the following steps: 1. From your JetBrains IDE, choose **File** and then **Project Structure**. 2. The Project Structure window opens. Under **Project Settings**, choose **Project**. 1. To update your project JDK, choose from the dropdown list next to **SDK**. 2. To update your project language, choose from the dropdown next to **Language level**. 3. Under **Project Settings**, choose **Modules**. 1. To update your module JDK, choose from the dropdown list next to **SDK**. 2. To update your module language, choose from the dropdown next to **Language level**. For more information, see [Project structure settings](https://www.jetbrains.com/help/idea/project-settings-and-structure.html "https://www.jetbrains.com/help/idea/project-settings-and-structure.html") and [Module structure settings](https://www.jetbrains.com/help/idea/configure-modules.html "https://www.jetbrains.com/help/idea/configure-modules.html") in the JetBrains documentation. ###### Update Maven settings To update your Maven Runner JRE, complete the following steps: 1. From your JetBrains IDE, choose the gear icon, and then choose **Settings** in the menu that appears. 2. In the **Settings** window, choose **Build, Execution, Deployment**, then **Build Tools**, then **Maven**, and then **Runner**. 3. In the JRE field, choose the JDK used to build the module you're transforming. ### Configure a project in VS Code To configure your project in VS Code, your project must contain the following: <br>• A `pom.xml` file in the project root folder <br>• A `.java` file in the project directory If your project contains a Maven wrapper executable (`mvnw` for macOS or `mvnw.cmd` for Windows), make sure it’s at the root of your project. Amazon Q will use the wrapper, and no other Maven configuration is necessary. If you aren’t using a Maven wrapper, install Maven. For more information, see [Installing Apache Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html") in the Apache Maven documentation. After installing Maven, add it to your `PATH` variable. For more information, see [How do I add Maven to my PATH?](troubleshooting-code-transformation.md#add-maven-to-path "troubleshooting-code-transformation.md#add-maven-to-path") Your Java `runtime` variable should also be pointing to a JDK and not to a JRE. To confirm your configuration is correct, run `mvn -v`. The output should show your Maven version and the `runtime` variable pointing to the path to your JDK. ## Step 3: Create a dependency upgrade file (optional) You can provide Amazon Q with a _dependency upgrade file_, a YAML file that lists your project's dependencies and which versions to upgrade to during a transformation. By providing a dependency upgrade file, you can specify third and first party dependencies that Amazon Q might not otherwise know to upgrade. First party dependencies refer to the libraries, plugins, and frameworks that your organization maintains and are only available locally or on your organization’s private network. Amazon Q is able to access your first party dependencies when it performs builds in your local environment. For more information, see [Building code in your local environment](how-CT-works.md#java-local-builds "how-CT-works.md#java-local-builds"). Third party dependencies are publicly available or open source dependencies that aren’t unique to your organization. You can specify first party dependencies you want to upgrade in a YAML file, and Amazon Q upgrades them during the JDK upgrade (for example, Java 8 to 17). You can initiate a separate transformation (17 to 17 or 21 to 21) after the initial JDK upgrade to upgrade third-party dependencies. Once Amazon Q performs a minimum JDK upgrade, you can initiate a separate transformation to upgrade all third party dependencies. Alternatively, you can specify third party dependencies and their versions in a YAML file to only upgrade those dependencies during the library upgrade transformation. Amazon Q will prompt you to provide a dependency upgrade file during the transformation. If you want to provide one, first make sure you've configured the file properly. The following fields are required in the YAML file: <br>• name - The name of the dependency upgrade file. <br>• description (optional) - A description of the dependency upgrade file, and for which transformation. <br>• dependencyManagement - Contains the list of dependencies and plugins to upgrade. <br>• dependencies - Contains the name and version of the libraries to upgrade. <br>• plugins - Contains the names and versions of the plugins to upgrade. <br>• identifier - The name of the library, plugin, or other dependency. <br>• targetVersion - The version of the dependency to upgrade to. <br>• versionProperty (optional) - The version of the dependency you're defining, as set with the `properties` tag in your application's `pom.xml` file. <br>• originType - Whether the dependency is first or third party, specified by either FIRST_PARTY or THIRD_PARTY. Following is an example of a dependency upgrade YAML file, and the required configuration for Amazon Q to parse: `name: dependency-upgrade description: "Custom dependency version management for Java migration from JDK 8/11/17 to JDK 17/21" dependencyManagement: dependencies: <br>• identifier: "com.example:library1" targetVersion: "2.1.0" versionProperty: "library1.version"  # Optional originType: "FIRST_PARTY" <br>• identifier: "com.example:library2" targetVersion: "3.0.0" originType: "THIRD_PARTY" plugins: <br>• identifier: "com.example.plugin" targetVersion: "1.2.0" versionProperty: "plugin.version"  # Optional originType: "THIRD_PARTY"` ## Step 4: Transform your code Before you transform your own code, you might want to test that your IDE is setup correctly by transforming a sample project. Following is a sample GitHub project that is eligible for code transformation: [https://github.com/aws-samples/aws-appconfig-java-sample](https://github.com/aws-samples/aws-appconfig-java-sample "https://github.com/aws-samples/aws-appconfig-java-sample"). To test your IDE setup, download and unzip the sample project, and complete the following steps for your IDE. If you are able to view the proposed changes and transformation summary, you are ready to transform your own code project. If the transformation fails, your IDE is not configured correctly. To address configuration issues, review [Step 2: Configure your project](#configure-project "#configure-project") and [Troubleshooting](troubleshooting-code-transformation.md "troubleshooting-code-transformation.md"). ###### Note Do not turn off, close, or put your local machine to sleep during the code transformation. The initial and validation builds use the client-side environment, which requires a stable network connection. To upgrade the language version of your code project or module, complete the following steps for your IDE. JetBrains 1. Open the module that you want to upgrade in JetBrains. Make sure you’ve successfully built your project in the IDE. 2. Choose the Amazon Q logo, and ask Amazon Q to transform your application in the chat panel that opens. 3. A **Transform your application** pop-up appears. Choose the project that you want to upgrade from the dropdown list, and then choose **Transform**. 4. Amazon Q prompts you to provide an upgrade dependency file. If you have configured a YAML with the dependencies and version to upgrade to, add your file. Amazon Q will validate the file to ensure it's configured correctly. If you get an error, review the format and required fields described in [Step 3: Create a dependency upgrade file (optional)](#create-dependency-upgrade-file "#create-dependency-upgrade-file"). 5. Amazon Q begins the transformation. You can view progress on the **Transformation details** tab. 6. After the transformation is complete, you can verify the upgraded code before updating your project. To view the new code, go to the **Transformation details** tab and then choose **View diff**. In the **Apply patch** window that appears, choose a file to open a diff view with your source code and upgraded code. 7. To accept the changes that Amazon Q made, choose **View diff** to open the **Apply patch** window. Select all the updated files, and choose **OK** to update your project in place. 8. To get details about how your code was upgraded and suggested next steps, on the **Transformation details** tab, choose **View transformation summary**. Visual Studio Code 1. Open the project or workspace that you want to upgrade in VS Code. Make sure that you’ve successfully built your project in the IDE. 2. Choose the Amazon Q logo, and ask Amazon Q to transform your application in the chat panel that opens. 3. Choose the project that you want to upgrade from the search bar at the top of the IDE. 4. If Amazon Q can’t find the version of your source code, it prompts you to choose your code version. Choose the version that your source code is written in, and then choose **Transform** in the pop-up to proceed. 5. If prompted, enter the `JAVA_HOME` path to your JDK. For more information, see [Configure your VS Code project](#configure-vsc "#configure-vsc"). 6. Amazon Q prompts you to provide an upgrade dependency file. If you have configured a YAML with the dependencies and version to upgrade to, add your file. Amazon Q will validate the file to ensure it's configured correctly. If you get an error, review the format and required fields described in [Step 3: Create a dependency upgrade file (optional)](#create-dependency-upgrade-file "#create-dependency-upgrade-file"). 7. Amazon Q begins the transformation. You can view progress on the **Transformation Hub** tab. 8. After the transformation is complete, the **Proposed Changes** tab opens. To verify the upgraded code before updating your project, choose **Download proposed changes**. Choose a file to open a diff view with your source code and upgraded code. 9. To accept the changes Amazon Q made, go to the **Proposed Changes** tab and choose **Accept**. 10. To get details about how your code was upgraded and suggested next steps, on the **Transformation Hub**, choose the **Views and More Actions** ellipsis button, and then choose **Show Transformation Summary**. |
+| Java 21                 | Java 21             |
+
+Amazon Q supports Java upgrades in the following IDEs:
+
+- Modules in JetBrains IDEs
+- Projects and workspaces in Visual Studio Code
+
+## Step 1: Prerequisites
+
+Before you continue, make sure you’ve completed the steps in [Set up Amazon Q in your IDE](q-in-IDE-setup.md "q-in-IDE-setup.md").
+
+Make sure that the following prerequisites are met before you begin a Code
+Transformation job:
+
+- Your project is written in a [supported
+  Java version](#supported-languages-IDEs "#supported-languages-IDEs") and is built on Maven.
+- Your project successfully builds with Maven in your IDE. Maven 3.8 or later is currently supported.
+- Your project source JDK is available locally and is the version of your source
+  code. For example, if you are transforming Java 8 code, your local JDK installation should be
+  JDK 8.
+- Your project builds in 55 minutes or less.
+- Your project is configured correctly, and the correct JDK version is specified.
+  For more information, see [Step 2: Configure your project](#configure-project "#configure-project").
+- Your project doesn't require access to resources on your private network,
+  including a virtual private cloud (VPC) or on-premise network. For example, if your
+  project contains unit tests that connect to a database in your network, the
+  transformation will fail.
+- Your project doesn't use plugins that package languages other than Java in your Java
+  project. For example, if your project uses the
+  [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin "https://github.com/eirslett/frontend-maven-plugin") for executing
+  front-end JavaScript code in addition to your Java source code, the transformation will fail.
+- Your local network allows uploads to Amazon S3 buckets that Amazon Q uses to transform
+  your code. For more information, see [Allow access to Amazon S3 buckets in data perimeters](firewall.md#data-perimeters "firewall.md#data-perimeters").
+- Your application only uses UTF-8 characters. If your application uses non-UTF-8
+  characters, Amazon Q will still attempt to transform your code.
+
+## Step 2: Configure your project
+
+To configure your project, use the following information for the IDE you're
+using.
+
+### Configure a project in JetBrains
+
+To configure your project in JetBrains, you might need to specify the following project and module settings.
+
+If your modules use the same JDK and language level as your project, you don't need
+to update module settings.
+
+- Project SDK – The JDK used to compile your project.
+- Project language level – The Java version used in your project.
+- Module SDK – The JDK used to compile your module.
+- Module language level – The Java version used in your module.
+- Maven Runner JRE – The JDK you build your module with.
+
+###### Update project and module settings
+
+To update your SDK and language level settings for your project or module, complete
+the following steps:
+
+1. From your JetBrains IDE, choose **File** and then **Project Structure**.
+2. The Project Structure window opens. Under **Project Settings**,
+   choose **Project**.
+   1. To update your project JDK, choose from the dropdown list next to **SDK**.
+   2. To update your project language, choose from the dropdown next to **Language level**.
+
+3. Under **Project Settings**, choose
+   **Modules**.
+   1. To update your module JDK, choose from the dropdown list next to **SDK**.
+   2. To update your module language, choose from the
+      dropdown next to **Language level**.
+
+For more information, see
+[Project structure settings](https://www.jetbrains.com/help/idea/project-settings-and-structure.html "https://www.jetbrains.com/help/idea/project-settings-and-structure.html") and
+[Module structure
+settings](https://www.jetbrains.com/help/idea/configure-modules.html "https://www.jetbrains.com/help/idea/configure-modules.html") in the JetBrains documentation.
+
+###### Update Maven settings
+
+To update your Maven Runner JRE, complete the following steps:
+
+1. From your JetBrains IDE, choose the gear icon, and then choose **Settings** in the menu that appears.
+2. In the **Settings** window, choose **Build, Execution, Deployment**, then
+   **Build Tools**, then **Maven**, and then **Runner**.
+3. In the JRE field, choose the JDK used to build the module you're transforming.
+
+### Configure a project in VS Code
+
+To configure your project in VS Code, your project must
+contain the following:
+
+- A `pom.xml` file in the project root folder
+- A `.java` file in the project directory
+
+If your project contains a Maven wrapper executable (`mvnw` for
+macOS or `mvnw.cmd` for Windows), make sure
+it’s at the root of your project. Amazon Q will use the wrapper, and no other Maven
+configuration is necessary.
+
+If you aren’t using a Maven wrapper, install Maven. For more information, see
+[Installing Apache
+Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html") in the Apache Maven documentation.
+
+After installing Maven, add it to your `PATH` variable. For more
+information, see [How do I add Maven to my PATH?](troubleshooting-code-transformation.md#add-maven-to-path "troubleshooting-code-transformation.md#add-maven-to-path")
+Your Java `runtime` variable should also be pointing to a JDK and not to a
+JRE. To confirm your configuration is correct, run `mvn -v`. The output
+should show your Maven version and the `runtime` variable pointing to the
+path to your JDK.
+
+## Step 3: Create a dependency upgrade file (optional)
+
+You can provide Amazon Q with a _dependency upgrade file_, a YAML
+file that lists your project's dependencies and which versions to upgrade to during
+a transformation. By providing a dependency upgrade file, you can specify third and
+first party dependencies that Amazon Q might not otherwise know to upgrade.
+
+First party dependencies refer to the libraries, plugins, and frameworks that your
+organization maintains and are only available locally or on your organization’s
+private network. Amazon Q is able to access your first party dependencies when it
+performs builds in your local environment. For more information, see [Building code in your local environment](how-CT-works.md#java-local-builds "how-CT-works.md#java-local-builds"). Third party dependencies are publicly available
+or open source dependencies that aren’t unique to your organization.
+
+You can specify first party dependencies you want to upgrade in a YAML file, and Amazon Q
+upgrades them during the JDK upgrade (for example, Java 8 to 17). You can initiate a
+separate transformation (17 to 17 or 21 to 21) after the initial JDK upgrade to upgrade
+third-party dependencies.
+
+Once Amazon Q performs a minimum JDK upgrade, you can initiate a separate transformation
+to upgrade all third party dependencies. Alternatively, you can specify third party
+dependencies and their versions in a YAML file to only upgrade those dependencies during
+the library upgrade transformation.
+
+Amazon Q will prompt you to provide a dependency upgrade file during the
+transformation. If you want to provide one, first make sure you've configured the
+file properly. The following fields are required in the YAML file:
+
+- name - The name of the dependency upgrade file.
+- description (optional) - A description of the dependency upgrade file, and for which transformation.
+- dependencyManagement - Contains the list of dependencies and plugins to upgrade.
+- dependencies - Contains the name and version of the libraries to upgrade.
+- plugins - Contains the names and versions of the plugins to upgrade.
+- identifier - The name of the library, plugin, or other dependency.
+- targetVersion - The version of the dependency to upgrade to.
+- versionProperty (optional) - The version of the dependency you're
+  defining, as set with the `properties` tag in your application's `pom.xml`
+  file.
+- originType - Whether the dependency is first or third party, specified by either FIRST_PARTY or THIRD_PARTY.
+
+Following is an example of a dependency upgrade YAML file, and the required configuration for Amazon Q to parse:
+
+```
+name: dependency-upgrade
+
+description: "Custom dependency version management for Java migration from JDK 8/11/17 to JDK 17/21"
+
+
+dependencyManagement:
+
+  dependencies:
+
+    - identifier: "com.example:library1"
+
+      targetVersion: "2.1.0"
+
+      versionProperty: "library1.version"  # Optional
+
+      originType: "FIRST_PARTY"
+
+    - identifier: "com.example:library2"
+
+      targetVersion: "3.0.0"
+
+      originType: "THIRD_PARTY"
+
+  plugins:
+
+    - identifier: "com.example.plugin"
+
+      targetVersion: "1.2.0"
+
+      versionProperty: "plugin.version"  # Optional
+
+      originType: "THIRD_PARTY"
+```
+
+## Step 4: Transform your code
+
+To test your IDE setup, download and unzip the sample
+project, and complete the following steps for your IDE. If you are able to view the
+proposed changes and transformation summary, you are ready to transform your own code
+project. If the transformation fails, your IDE is not configured correctly. To address
+configuration issues, review [Step 2: Configure your project](#configure-project "#configure-project") and [Troubleshooting](troubleshooting-code-transformation.md "troubleshooting-code-transformation.md").
+
+###### Note
+
+Do not turn off, close, or put your local machine to sleep during the code
+transformation. The initial and validation builds use the client-side environment, which
+requires a stable network connection.
+
+To upgrade the language version of your code project or module, complete the following
+steps for your IDE.
+
+JetBrains
+
+1. Open the module that you want to upgrade in JetBrains. Make sure you’ve
+   successfully built your project in the IDE.
+2. Choose the Amazon Q logo, and ask Amazon Q to transform your application
+   in the chat panel that opens.
+3. A **Transform your application** pop-up appears. Choose
+   the project that you want to upgrade from the dropdown list, and then choose
+   **Transform**.
+4. Amazon Q prompts you to provide an upgrade dependency file. If you have
+   configured a YAML with the dependencies and version to upgrade to, add your
+   file. Amazon Q will validate the file to ensure it's configured correctly. If
+   you get an error, review the format and required fields described in [Step 3: Create a dependency upgrade file (optional)](#create-dependency-upgrade-file "#create-dependency-upgrade-file").
+5. Amazon Q begins the transformation. You can view progress on the
+   **Transformation details** tab.
+6. After the transformation is complete, you can verify the upgraded code
+   before updating your project. To view the new code, go to the
+   **Transformation details** tab and then choose
+   **View diff**. In the **Apply patch**
+   window that appears, choose a file to open a diff view with your source code
+   and upgraded code.
+7. To accept the changes that Amazon Q made, choose **View
+   diff** to open the **Apply patch** window.
+   Select all the updated files, and choose **OK** to update
+   your project in place.
+8. To get details about how your code was upgraded and suggested next steps,
+   on the **Transformation details** tab, choose
+   **View transformation summary**.
+
+Visual Studio Code
+
+1. Open the project or workspace that you want to upgrade in VS Code.
+   Make sure that you’ve successfully built your project in the IDE.
+2. Choose the Amazon Q logo, and ask Amazon Q to transform your application in the chat panel that
+   opens.
+3. Choose the project that you want to upgrade from the search bar at the
+   top of the IDE.
+4. If Amazon Q can’t find the version of your source code, it prompts you to
+   choose your code version. Choose the version that your source code is
+   written in, and then choose **Transform** in the pop-up to
+   proceed.
+5. If prompted, enter the `JAVA_HOME` path to your JDK. For more
+   information, see [Configure your VS Code project](#configure-vsc "#configure-vsc").
+6. Amazon Q prompts you to provide an upgrade dependency file. If you have
+   configured a YAML with the dependencies and version to upgrade to, add your
+   file. Amazon Q will validate the file to ensure it's configured correctly. If
+   you get an error, review the format and required fields described in [Step 3: Create a dependency upgrade file (optional)](#create-dependency-upgrade-file "#create-dependency-upgrade-file").
+7. Amazon Q begins the transformation. You can view progress on the
+   **Transformation Hub** tab.
+8. After the transformation is complete, the **Proposed
+   Changes** tab opens. To verify the upgraded code before updating
+   your project, choose **Download proposed changes**. Choose
+   a file to open a diff view with your source code and upgraded code.
+9. To accept the changes Amazon Q made, go to the **Proposed
+   Changes** tab and choose **Accept**.
+10. To get details about how your code was upgraded and suggested next steps,
+    on the **Transformation Hub**, choose the **Views
+    and More Actions** ellipsis button, and then choose
+    **Show Transformation Summary**.

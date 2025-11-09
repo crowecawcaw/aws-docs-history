@@ -148,12 +148,57 @@ MCP follows a client-server architecture where:
 
 ###### Example MCP Communication Flow
 
-````
+```
 
   User
-| v +------------------+     +-----------------+     +------------------+
+   |
+   v
++------------------+     +-----------------+     +------------------+
 |                  |     |                 |     |                  |
 | Amazon Q Dev     | --> | MCP Client API  | --> | MCP Server       |
-|                  |     |                 |     |                  | +------------------+     +-----------------+     +------------------+
-| v +------------------+ |                  | | External Service | |                  | +------------------+ ``` Communication flow between user, Amazon Q Developer CLI, and external services through MCP ## Core MCP concepts ### Tools Tools are executable functions that MCP servers expose to clients. They allow Amazon Q to: <br>• Perform actions in external systems <br>• Process data in specialized ways <br>• Interact with APIs and services <br>• Execute commands on your behalf Tools are defined with a unique name, a description, an input schema (using JSON Schema), and optional annotations about the tool's behavior. ### Prompts Prompts are predefined templates that help guide Amazon Q in specific tasks. They can: <br>• Accept dynamic arguments <br>• Include context from resources <br>• Chain multiple interactions <br>• Guide specific workflows <br>• Surface as UI elements (like slash commands) ### Resources Resources represent data that MCP servers can provide to Amazon Q, such as: <br>• File contents <br>• Database records <br>• API responses <br>• Documentation <br>• Configuration data
-````
+|                  |     |                 |     |                  |
++------------------+     +-----------------+     +------------------+
+                                                        |
+                                                        v
+                                                 +------------------+
+                                                 |                  |
+                                                 | External Service |
+                                                 |                  |
+                                                 +------------------+
+
+```
+
+Communication flow between user, Amazon Q Developer CLI, and external services through MCP
+
+## Core MCP concepts
+
+### Tools
+
+Tools are executable functions that MCP servers expose to clients. They allow Amazon Q to:
+
+- Perform actions in external systems
+- Process data in specialized ways
+- Interact with APIs and services
+- Execute commands on your behalf
+
+Tools are defined with a unique name, a description, an input schema (using JSON Schema), and optional annotations about the tool's behavior.
+
+### Prompts
+
+Prompts are predefined templates that help guide Amazon Q in specific tasks. They can:
+
+- Accept dynamic arguments
+- Include context from resources
+- Chain multiple interactions
+- Guide specific workflows
+- Surface as UI elements (like slash commands)
+
+### Resources
+
+Resources represent data that MCP servers can provide to Amazon Q, such as:
+
+- File contents
+- Database records
+- API responses
+- Documentation
+- Configuration data

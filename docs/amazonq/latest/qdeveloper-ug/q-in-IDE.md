@@ -27,18 +27,17 @@ features in each IDE.
 If no language support is specified, the IDE supports languages listed in the
 [Supported languages](q-language-ide-support.md "q-language-ide-support.md") topic.
 
-| Feature                                                                                       | VSCode | JetBrains | Eclipse | Visual Studio |
-| --------------------------------------------------------------------------------------------- | ------ | --------- | ------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Chat](q-in-IDE-chat.md "q-in-IDE-chat.md")                                                   | Yes    | Yes       | Yes     | Yes           |
-| [Agentic coding](q-in-IDE-chat.md#agentic-coding "q-in-IDE-chat.md#agentic-coding")           | Yes    | Yes       | Yes     | Yes           |
-| [MCP servers](mcp-ide.md "mcp-ide.md")                                                        | Yes    | Yes       | Yes     | Yes           |
-| [Context in chat](ide-chat-context.md "ide-chat-context.md")                                  | Yes    | Yes       | Yes     | Yes           |
-| [Inline chat](q-in-IDE-inline-chat.md "q-in-IDE-inline-chat.md")                              | Yes    | Yes       | Yes     | No            |
-| [Workspace context in chat](workspace-context.md "workspace-context.md")                      | Yes    | Yes       | Yes     | Yes           |
-| [Inline suggestions](inline-suggestions.md "inline-suggestions.md")                           | Yes    | Yes       | Yes     | Yes           |
-| [Transformations](transform-java.md "transform-java.md")                                      | Yes    | Yes       | No      | Yes           |
-| [Feature development](q-in-IDE-chat.md#develop-code "q-in-IDE-chat.md#develop-code")          | Yes    | Yes       | No      | No            |
-| [Unit test generation](q-in-IDE-chat.md#unit-tests "q-in-IDE-chat.md#unit-tests")             | Yes    | Yes       | No      | No            |
-| [Code reviews](code-reviews.md "code-reviews.md")                                             | Yes    | Yes       | No      | Yes (C# only) |
-| [Documentation generation](q-in-IDE-chat.md#doc-generation "q-in-IDE-chat.md#doc-generation") | Yes    | Yes       | No      | No            |
-| [Customizations](customizations.md "customizations.md")                                       | Yes    | Yes       | Yes     | No            | You can also generate inline suggestions in AWS coding environments. For more information, see [Generating inline suggestions in AWS coding environments](setting-up-AWS-coding-env.md "setting-up-AWS-coding-env.md") . |
+| Feature                                                                             | VSCode | JetBrains | Eclipse | Visual Studio |
+| ----------------------------------------------------------------------------------- | ------ | --------- | ------- | ------------- |
+| [Chat](q-in-IDE-chat.md "q-in-IDE-chat.md")                                         | Yes    | Yes       | Yes     | Yes           |
+| [Agentic coding](q-in-IDE-chat.md#agentic-coding "q-in-IDE-chat.md#agentic-coding") | Yes    | Yes       | Yes     | Yes           |
+| [MCP servers](mcp-ide.md "mcp-ide.md")                                              | Yes    | Yes       | Yes     | Yes           |
+| [Context in chat](ide-chat-context.md "ide-chat-context.md")                        | Yes    | Yes       | Yes     | Yes           |
+| [Inline chat](q-in-IDE-inline-chat.md "q-in-IDE-inline-chat.md")                    | Yes    | Yes       | Yes     | No            |
+| [Workspace context in chat](workspace-context.md "workspace-context.md")            | Yes    | Yes       | Yes     | Yes           |
+| [Inline suggestions](inline-suggestions.md "inline-suggestions.md")                 | Yes    | Yes       | Yes     | Yes           |
+| [Transformations](transform-java.md "transform-java.md")                            | Yes    | Yes       | No      | Yes           |
+| [Customizations](customizations.md "customizations.md")                             | Yes    | Yes       | Yes     | No            |
+
+You can also generate inline suggestions in AWS coding environments. For more information, see [Generating inline suggestions in AWS coding environments](setting-up-AWS-coding-env.md "setting-up-AWS-coding-env.md")
+.
