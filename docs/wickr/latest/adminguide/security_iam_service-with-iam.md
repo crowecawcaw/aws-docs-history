@@ -7,16 +7,34 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 Before you use IAM to manage access to Wickr, learn what IAM features are
 available to use with Wickr.
 
-| IAM features you can use with AWS Wickr                                                                                                                      | IAM feature | Wickr support                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| IAM features you can use with AWS Wickr                                                                                                                      | IAM feature | Wickr support |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ------------- |
 | [Identity-based policies](security_iam_service-with-iam-id-based-policies.md "security_iam_service-with-iam-id-based-policies.md")                           | Yes         |
 | [Resource-based policies](security_iam_service-with-iam-resource-based-policies.md "security_iam_service-with-iam-resource-based-policies.md")               | No          |
 | [Policy actions](security_iam_service-with-iam-id-based-policies-actions.md "security_iam_service-with-iam-id-based-policies-actions.md")                    | Yes         |
 | [Policy resources](security_iam_service-with-iam-id-based-policies-resources.md "security_iam_service-with-iam-id-based-policies-resources.md")              | No          |
 | [Policy condition keys](security_iam_service-with-iam-id-based-policies-conditionkeys.md "security_iam_service-with-iam-id-based-policies-conditionkeys.md") | No          |
 | [ACLs](security_iam_service-with-iam-acls.md "security_iam_service-with-iam-acls.md")                                                                        | No          |
-| [ABAC (tags in policies)](security_iam_service-with-iam-tags.md "security_iam_service-with-iam-tags.md")                                                     | No          |
-| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                     | No          |
+| [ABAC (tags in<br>policies)](security_iam_service-with-iam-tags.md "security_iam_service-with-iam-tags.md")                                                  | No          |
+| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                  | No          |
 | [Principal permissions](security_iam_service-with-iam-principal-permissions.md "security_iam_service-with-iam-principal-permissions.md")                     | No          |
-| [Service roles](security_iam_service-with-iam-roles-service.md "security_iam_service-with-iam-roles-service.md")                                             | No          |
-| [Service-linked roles](security_iam_service-with-iam-roles-service-linked.md "security_iam_service-with-iam-roles-service-linked.md")                        | No          | To get a high-level view of how Wickr and other AWS services work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_. ## Using temporary credentials with Wickr **Supports temporary credentials:** No Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you dynamically generate temporary credentials instead of using long-term access keys. For more information, see [Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_. |
+| [Service<br>roles](security_iam_service-with-iam-roles-service.md "security_iam_service-with-iam-roles-service.md")                                          | No          |
+| [Service-linked roles](security_iam_service-with-iam-roles-service-linked.md "security_iam_service-with-iam-roles-service-linked.md")                        | No          |
+
+To get a high-level view of how Wickr and other AWS services work with most IAM
+features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
+_IAM User Guide_.
+
+## Using temporary
+
+credentials with Wickr
+
+**Supports temporary credentials:**
+
+No
+
+Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you
+dynamically generate temporary credentials instead of using long-term access keys. For
+more information, see [Temporary
+security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
+that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
