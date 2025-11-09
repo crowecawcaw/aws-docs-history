@@ -61,7 +61,165 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Data event type (console) | resources.type value               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                          |
-| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **AwsApiCall**            | `AWS::ServiceDiscovery::Namespace` | <br>• [DiscoverInstances](../api/API_DiscoverInstances.md "../api/API_DiscoverInstances.md") <br>• [DiscoverInstancesRevision](../api/API_DiscoverInstancesRevision.md "../api/API_DiscoverInstancesRevision.md")                                                                                                       |
-| **AwsApiCall**            | `AWS::ServiceDiscovery::Service`   | <br>• [DiscoverInstances](../api/API_DiscoverInstances.md "../api/API_DiscoverInstances.md") <br>• [DiscoverInstancesRevision](../api/API_DiscoverInstancesRevision.md "../api/API_DiscoverInstancesRevision.md") <br>• [GetServiceAttributes](../api/API_GetServiceAttributes.md "../api/API_GetServiceAttributes.md") | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. The following example shows how to configure advanced event selectors to log all AWS Cloud Map data events. `"AdvancedEventSelectors": [ { "Name": "Log all AWS Cloud Map data events", "FieldSelectors": [ { "Field": "eventCategory", "Equals": ["Data"] }, { "Field": "resources.type", "Equals": ["AWS::ServiceDiscovery::Namespace"] } ] } ]` ## AWS Cloud Map management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. AWS Cloud Map logs all AWS Cloud Map control plane operations as management events. For a list of the AWS Cloud Map control plane operations that AWS Cloud Map logs to CloudTrail, see the [AWS Cloud Map API Reference](../api/Welcome.md "../api/Welcome.md"). ## AWS Cloud Map event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail management event that demonstrates the `CreateHTTPNamespace` operation. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AIDACKCEVSQ6C2EXAMPLE:alejandro_rosalez", "arn": "arn:aws:sts::111122223333:assumed-role/users/alejandro_rosalez", "accountId": "111122223333", "accessKeyId": "AIDACKCEVSQ6C2EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROA123456789EXAMPLE", "arn": "arn:aws:iam::111122223333:role/readonly-role", "accountId": "111122223333", "userName": "alejandro_rosalez" }, "attributes": { "creationDate": "2024-03-19T16:15:37Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-03-19T19:23:13Z", "eventSource": "servicediscovery.amazonaws.com", "eventName": "CreateHttpNamespace", "awsRegion": "eu-west-3", "sourceIPAddress": "192.0.2.0", "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36", "requestParameters": { "name": "example-namespace", "creatorRequestId": "eda8b524-ca14-4f68-a176-dc4dfd165c26", "tags": [] }, "responseElements": { "operationId": "7xm4i7ghhkaalma666nrg6itf2eylcbp-gwipo38o" }, "requestID": "641274d0-dbbe-4e64-9b53-685769a086c7", "eventID": "4a1ab076-ef1b-4bcf-aa95-cec5fb64f2bd", "readOnly": false, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management", "tlsDetails": { "tlsVersion": "TLSv1.3", "cipherSuite": "TLS_AES_128_GCM_SHA256", "clientProvidedHostHeader": "servicediscovery.eu-west-3.amazonaws.com" }, "sessionCredentialFromConsole": "true" }` The following example shows a CloudTrail data event that demonstrates the `DiscoverInstances` operation. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AIDACKCEVSQ6C2EXAMPLE:alejandro_rosalez", "arn": "arn:aws:sts::111122223333:assumed-role/role/Admin", "accountId": "111122223333", "accessKeyId": "AIDACKCEVSQ6C2EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROA123456789EXAMPLE", "arn": "arn:aws:iam::"111122223333":role/Admin", "accountId": "111122223333", "userName": "Admin" }, "attributes": { "creationDate": "2024-03-19T16:15:37Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-03-19T21:19:12Z", "eventSource": "servicediscovery.amazonaws.com", "eventName": "DiscoverInstances", "awsRegion": "eu-west-3", "sourceIPAddress": "13.38.34.79", "userAgent": "Boto3/1.20.34 md/Botocore#1.34.60 ua/2.0 os/linux#6.5.0-1014-aws md/arch#x86_64 lang/python#3.10.12 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.60", "requestParameters": { "namespaceName": "example-namespace", "serviceName": "example-service", "queryParameters": {"example-key": "example-value"} }, "responseElements": null, "requestID": "e5ee36f1-edb0-4814-a4ba-2e8c97621c79", "eventID": "503cedb6-9906-4ee5-83e0-a64dde27bab0", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::ServiceDiscovery::Namespace", "ARN": "arn:aws:servicediscovery:eu-west-3:111122223333:namespace/ns-vh4nbmhEXAMPLE" }, { "accountId": "111122223333", "type": "AWS::ServiceDiscovery::Service", "ARN": "arn:aws:servicediscovery:eu-west-3:111122223333:service/srv-h46op6ylEXAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "111122223333", "eventCategory": "Data", "tlsDetails": { "tlsVersion": "TLSv1.3", "cipherSuite": "TLS_AES_128_GCM_SHA256", "clientProvidedHostHeader": "data-servicediscovery.eu-west-3.amazonaws.com" }, "sessionCredentialFromConsole": "true" }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type (console) | resources.type value               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                    |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AwsApiCall**            | `AWS::ServiceDiscovery::Namespace` | • [DiscoverInstances](../api/API_DiscoverInstances.md "../api/API_DiscoverInstances.md")<br>• [DiscoverInstancesRevision](../api/API_DiscoverInstancesRevision.md "../api/API_DiscoverInstancesRevision.md")                                                                                                      |
+| **AwsApiCall**            | `AWS::ServiceDiscovery::Service`   | • [DiscoverInstances](../api/API_DiscoverInstances.md "../api/API_DiscoverInstances.md")<br>• [DiscoverInstancesRevision](../api/API_DiscoverInstancesRevision.md "../api/API_DiscoverInstancesRevision.md")<br>• [GetServiceAttributes](../api/API_GetServiceAttributes.md "../api/API_GetServiceAttributes.md") |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+The following example shows how to configure advanced event selectors to log all AWS Cloud Map
+data events.
+
+```
+"AdvancedEventSelectors":
+[
+    {
+        "Name": "Log all AWS Cloud Map data events",
+        "FieldSelectors": [
+            { "Field": "eventCategory", "Equals": ["Data"] },
+            { "Field": "resources.type", "Equals": ["AWS::ServiceDiscovery::Namespace"] }
+        ]
+    }
+]
+```
+
+## AWS Cloud Map management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+AWS Cloud Map logs all AWS Cloud Map control plane operations as management events. For a list
+of the AWS Cloud Map control plane operations that AWS Cloud Map logs to CloudTrail, see the
+[AWS Cloud Map API Reference](../api/Welcome.md "../api/Welcome.md").
+
+## AWS Cloud Map event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail management event that demonstrates the
+`CreateHTTPNamespace` operation.
+
+```
+{
+    "eventVersion": "1.09",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE:alejandro_rosalez",
+        "arn": "arn:aws:sts::111122223333:assumed-role/users/alejandro_rosalez",
+        "accountId": "111122223333",
+        "accessKeyId": "AIDACKCEVSQ6C2EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROA123456789EXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/readonly-role",
+                "accountId": "111122223333",
+                "userName": "alejandro_rosalez"
+            },
+            "attributes": {
+                "creationDate": "2024-03-19T16:15:37Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2024-03-19T19:23:13Z",
+    "eventSource": "servicediscovery.amazonaws.com",
+    "eventName": "CreateHttpNamespace",
+    "awsRegion": "eu-west-3",
+    "sourceIPAddress": "192.0.2.0",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "requestParameters": {
+        "name": "example-namespace",
+        "creatorRequestId": "eda8b524-ca14-4f68-a176-dc4dfd165c26",
+        "tags": []
+    },
+    "responseElements": {
+        "operationId": "7xm4i7ghhkaalma666nrg6itf2eylcbp-gwipo38o"
+    },
+    "requestID": "641274d0-dbbe-4e64-9b53-685769a086c7",
+    "eventID": "4a1ab076-ef1b-4bcf-aa95-cec5fb64f2bd",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "servicediscovery.eu-west-3.amazonaws.com"
+    },
+    "sessionCredentialFromConsole": "true"
+}
+```
+
+The following example shows a CloudTrail data event that demonstrates the
+`DiscoverInstances` operation.
+
+```
+{
+            "eventVersion": "1.09",
+            "userIdentity": {
+                "type": "AssumedRole",
+                "principalId": "AIDACKCEVSQ6C2EXAMPLE:alejandro_rosalez",
+                "arn": "arn:aws:sts::111122223333:assumed-role/role/Admin",
+                "accountId": "111122223333",
+                "accessKeyId": "AIDACKCEVSQ6C2EXAMPLE",
+                "sessionContext": {
+                    "sessionIssuer": {
+                        "type": "Role",
+                        "principalId": "AROA123456789EXAMPLE",
+                        "arn": "arn:aws:iam::"111122223333":role/Admin",
+                        "accountId": "111122223333",
+                        "userName": "Admin"
+                    },
+                    "attributes": {
+                        "creationDate": "2024-03-19T16:15:37Z",
+                        "mfaAuthenticated": "false"
+                    }
+                }
+            },
+            "eventTime": "2024-03-19T21:19:12Z",
+            "eventSource": "servicediscovery.amazonaws.com",
+            "eventName": "DiscoverInstances",
+            "awsRegion": "eu-west-3",
+            "sourceIPAddress": "13.38.34.79",
+            "userAgent": "Boto3/1.20.34 md/Botocore#1.34.60 ua/2.0 os/linux#6.5.0-1014-aws md/arch#x86_64 lang/python#3.10.12 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.60",
+            "requestParameters": {
+                "namespaceName": "example-namespace",
+                "serviceName": "example-service",
+                "queryParameters": {"example-key": "example-value"}
+            },
+            "responseElements": null,
+            "requestID": "e5ee36f1-edb0-4814-a4ba-2e8c97621c79",
+            "eventID": "503cedb6-9906-4ee5-83e0-a64dde27bab0",
+            "readOnly": true,
+            "resources": [
+                {
+                    "accountId": "111122223333",
+                    "type": "AWS::ServiceDiscovery::Namespace",
+                    "ARN": "arn:aws:servicediscovery:eu-west-3:111122223333:namespace/ns-vh4nbmhEXAMPLE"
+                },
+                {
+                    "accountId": "111122223333",
+                    "type": "AWS::ServiceDiscovery::Service",
+                    "ARN": "arn:aws:servicediscovery:eu-west-3:111122223333:service/srv-h46op6ylEXAMPLE"
+                }
+            ],
+            "eventType": "AwsApiCall",
+            "managementEvent": false,
+            "recipientAccountId": "111122223333",
+            "eventCategory": "Data",
+            "tlsDetails": {
+                "tlsVersion": "TLSv1.3",
+                "cipherSuite": "TLS_AES_128_GCM_SHA256",
+                "clientProvidedHostHeader": "data-servicediscovery.eu-west-3.amazonaws.com"
+            },
+            "sessionCredentialFromConsole": "true"
+        }
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
