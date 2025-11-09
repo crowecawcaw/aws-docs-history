@@ -343,25 +343,138 @@ cfn-guard test --rules-file api_gateway_private.guard --test-data api_gateway_pr
 
 Here is the output from that run.
 
-````
+```
 Test Case #1
 Name: "MyTest4"
   PASS Rules:
     check_rest_api_is_private: Expected = PASS, Evaluated = PASS
 Rule(check_rest_api_is_private, PASS)
-|  Message: DEFAULT MESSAGE(PASS) Condition(check_rest_api_is_private, PASS)
-|  Message: DEFAULT MESSAGE(PASS) Clause(Clause(Location[file:api_gateway_private.guard, line:20, column:37], Check: %api_gws NOT EMPTY ), PASS)
-|  From: Map((Path("/Resources/apiGw"), MapValue { keys: [String((Path("/Resources/apiGw/Type"), "Type")), String((Path("/Resources/apiGw/Properties"), "Properties"))], values: {"Type": String((Path("/Resources/apiGw/Type"), "AWS::ApiGateway::RestApi")), "Properties": Map((Path("/Resources/apiGw/Properties"), MapValue { keys: [String((Path("/Resources/apiGw/Properties/EndpointConfiguration"), "EndpointConfiguration"))], values: {"EndpointConfiguration": Map((Path("/Resources/apiGw/Properties/EndpointConfiguration"), MapValue { keys: [String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types"), "Types"))], values: {"Types": String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types"), "PRIVATE"))} }))} }))} }))
-|  Message: (DEFAULT: NO_MESSAGE) Conjunction(cfn_guard::rules::exprs::GuardClause, PASS)
-|  Message: DEFAULT MESSAGE(PASS) Clause(Clause(Location[file:api_gateway_private.guard, line:22, column:5], Check: Properties.EndpointConfiguration.Types[*]  EQUALS String("PRIVATE")), PASS)
-|  Message: (DEFAULT: NO_MESSAGE) ``` The key observation from the output is the line `Clause(Location[file:api_gateway_private.guard, line:22, column:5], Check: Properties.EndpointConfiguration.Types[*] EQUALS String("PRIVATE")), PASS)`, which states that the check passed. The example also showed the case where `Types` was expected to be an array, but a single value was given. In that case, Guard continued to evaluate and provided a correct result. 9. Add a test case like the fourth test case to your unit testing file for an `AWS::ApiGateway::RestApi` resource with the `EndpointConfiguration` property specified. The test case will fail instead of pass. The following is the updated unit testing file. ``` --- #- name: MyTest1 #  input: {} #  expectations: #    rules: #      check_rest_api_is_private_and_has_access: SKIP #- name: MyTest2 #  input: #     Resources: {} #  expectations: #    rules: #      check_rest_api_is_private_and_has_access: SKIP #- name: MyTest3 #  input: #    Resources: #      apiGw: #        Type: AWS::ApiGateway::RestApi #  expectations: #    rules: #      check_rest_api_is_private_and_has_access: FAIL #- name: MyTest4 #  input: #    Resources: #      apiGw: #        Type: AWS::ApiGateway::RestApi #        Properties: #          EndpointConfiguration: #            Types: "PRIVATE" #  expectations: #    rules: #      check_rest_api_is_private: PASS **- name: MyTest5 input: Resources: apiGw: Type: AWS::ApiGateway::RestApi Properties: EndpointConfiguration: Types: [PRIVATE, REGIONAL] expectations: rules: check\_rest\_api\_is\_private: FAIL** ``` 10. Run the `test` command with the updated unit testing file using the `--verbose` flag. ``` cfn-guard test --rules-file api_gateway_private.guard --test-data api_gateway_private_tests.yaml \ --verbose ``` The outcome is `FAIL` as expected because `REGIONAL` is specified for `EndpointConfiguration` but is not expected. ``` Test Case #1 Name: "MyTest5" PASS Rules: check_rest_api_is_private: Expected = FAIL, Evaluated = FAIL Rule(check_rest_api_is_private, FAIL)
-|  Message: DEFAULT MESSAGE(FAIL) Condition(check_rest_api_is_private, PASS)
-|  Message: DEFAULT MESSAGE(PASS) Clause(Clause(Location[file:api_gateway_private.guard, line:20, column:37], Check: %api_gws NOT EMPTY ), PASS)
-|  From: Map((Path("/Resources/apiGw"), MapValue { keys: [String((Path("/Resources/apiGw/Type"), "Type")), String((Path("/Resources/apiGw/Properties"), "Properties"))], values: {"Type": String((Path("/Resources/apiGw/Type"), "AWS::ApiGateway::RestApi")), "Properties": Map((Path("/Resources/apiGw/Properties"), MapValue { keys: [String((Path("/Resources/apiGw/Properties/EndpointConfiguration"), "EndpointConfiguration"))], values: {"EndpointConfiguration": Map((Path("/Resources/apiGw/Properties/EndpointConfiguration"), MapValue { keys: [String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types"), "Types"))], values: {"Types": List((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types"), [String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types/0"), "PRIVATE")), String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types/1"), "REGIONAL"))]))} }))} }))} }))
-|  Message: DEFAULT MESSAGE(PASS) BlockClause(Block[Location[file:api_gateway_private.guard, line:21, column:3]], FAIL)
-|  Message: DEFAULT MESSAGE(FAIL) Conjunction(cfn_guard::rules::exprs::GuardClause, FAIL)
-|  Message: DEFAULT MESSAGE(FAIL) Clause(Clause(Location[file:api_gateway_private.guard, line:22, column:5], Check: Properties.EndpointConfiguration.Types[*]  EQUALS String("PRIVATE")), FAIL)
-|  From: String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types/1"), "REGIONAL"))
-|  To: String((Path("api_gateway_private.guard/22/5/Clause/"), "PRIVATE"))
-|  Message: (DEFAULT: NO_MESSAGE) ``` The verbose output of the `test` command follows the structure of the rules file. Every block in the rules file is a block in the verbose output. The top-most block is each rule. If there are `when` conditions against the rule, they appear in a sibling condition block. In the following example, the condition `%api_gws !empty` is tested and it passes. ``` rule check_rest_api_is_private when %api_gws !empty { ``` Once the condition passes, we test the rule clauses. ``` %api_gws { Properties.EndpointConfiguration.Types[*] == "PRIVATE" } ``` `%api_gws` is a block rule that corresponds to the `BlockClause` level in the output (line:21). The rule clauseis a set of conjunction (AND) clauses, where each conjunction clause is a set of disjunctions (`OR`s). The conjunction has a single clause, `Properties.EndpointConfiguration.Types[*] == "PRIVATE"`. Therefore, the verbose output shows a single clause. The path `/Resources/apiGw/Properties/EndpointConfiguration/Types/1` shows which values in the input are compared, which in this case is the element for `Types` indexed at 1. In [Validating input data against Guard rules](validating-rules.md "validating-rules.md"), you can use the examples in this section to use the `validate` command to evaluate input data against rules.
-````
+    |  Message: DEFAULT MESSAGE(PASS)
+    Condition(check_rest_api_is_private, PASS)
+        |  Message: DEFAULT MESSAGE(PASS)
+        Clause(Clause(Location[file:api_gateway_private.guard, line:20, column:37], Check: %api_gws NOT EMPTY ), PASS)
+            |  From: Map((Path("/Resources/apiGw"), MapValue { keys: [String((Path("/Resources/apiGw/Type"), "Type")), String((Path("/Resources/apiGw/Properties"), "Properties"))], values: {"Type": String((Path("/Resources/apiGw/Type"), "AWS::ApiGateway::RestApi")), "Properties": Map((Path("/Resources/apiGw/Properties"), MapValue { keys: [String((Path("/Resources/apiGw/Properties/EndpointConfiguration"), "EndpointConfiguration"))], values: {"EndpointConfiguration": Map((Path("/Resources/apiGw/Properties/EndpointConfiguration"), MapValue { keys: [String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types"), "Types"))], values: {"Types": String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types"), "PRIVATE"))} }))} }))} }))
+            |  Message: (DEFAULT: NO_MESSAGE)
+    Conjunction(cfn_guard::rules::exprs::GuardClause, PASS)
+        |  Message: DEFAULT MESSAGE(PASS)
+        Clause(Clause(Location[file:api_gateway_private.guard, line:22, column:5], Check: Properties.EndpointConfiguration.Types[*]  EQUALS String("PRIVATE")), PASS)
+            |  Message: (DEFAULT: NO_MESSAGE)
+```
+
+The key observation from the output is the line
+`Clause(Location[file:api_gateway_private.guard, line:22, column:5], Check:
+ Properties.EndpointConfiguration.Types[*] EQUALS String("PRIVATE")), PASS)`, which
+states that the check passed. The example also showed the case where `Types`
+was expected to be an array, but a single value was given. In that case, Guard
+continued to evaluate and provided a correct result. 9. Add a test case like the fourth test case to your unit testing file for an
+`AWS::ApiGateway::RestApi` resource with the
+`EndpointConfiguration` property specified. The test case will fail instead
+of pass. The following is the updated unit testing file.
+
+```
+---
+#- name: MyTest1
+#  input: {}
+#  expectations:
+#    rules:
+#      check_rest_api_is_private_and_has_access: SKIP
+#- name: MyTest2
+#  input:
+#     Resources: {}
+#  expectations:
+#    rules:
+#      check_rest_api_is_private_and_has_access: SKIP
+#- name: MyTest3
+#  input:
+#    Resources:
+#      apiGw:
+#        Type: AWS::ApiGateway::RestApi
+#  expectations:
+#    rules:
+#      check_rest_api_is_private_and_has_access: FAIL
+#- name: MyTest4
+#  input:
+#    Resources:
+#      apiGw:
+#        Type: AWS::ApiGateway::RestApi
+#        Properties:
+#          EndpointConfiguration:
+#            Types: "PRIVATE"
+#  expectations:
+#    rules:
+#      check_rest_api_is_private: PASS
+**- name: MyTest5
+ input:
+ Resources:
+ apiGw:
+ Type: AWS::ApiGateway::RestApi
+ Properties:
+ EndpointConfiguration:
+ Types: [PRIVATE, REGIONAL]
+ expectations:
+ rules:
+ check\_rest\_api\_is\_private: FAIL**
+```
+
+10. Run the `test` command with the updated unit testing file using the
+    `--verbose` flag.
+
+```
+cfn-guard test --rules-file api_gateway_private.guard --test-data api_gateway_private_tests.yaml \
+ --verbose
+```
+
+The outcome is `FAIL` as expected because `REGIONAL` is specified for `EndpointConfiguration` but is not expected.
+
+```
+Test Case #1
+Name: "MyTest5"
+  PASS Rules:
+    check_rest_api_is_private: Expected = FAIL, Evaluated = FAIL
+Rule(check_rest_api_is_private, FAIL)
+    |  Message: DEFAULT MESSAGE(FAIL)
+    Condition(check_rest_api_is_private, PASS)
+        |  Message: DEFAULT MESSAGE(PASS)
+        Clause(Clause(Location[file:api_gateway_private.guard, line:20, column:37], Check: %api_gws NOT EMPTY ), PASS)
+            |  From: Map((Path("/Resources/apiGw"), MapValue { keys: [String((Path("/Resources/apiGw/Type"), "Type")), String((Path("/Resources/apiGw/Properties"), "Properties"))], values: {"Type": String((Path("/Resources/apiGw/Type"), "AWS::ApiGateway::RestApi")), "Properties": Map((Path("/Resources/apiGw/Properties"), MapValue { keys: [String((Path("/Resources/apiGw/Properties/EndpointConfiguration"), "EndpointConfiguration"))], values: {"EndpointConfiguration": Map((Path("/Resources/apiGw/Properties/EndpointConfiguration"), MapValue { keys: [String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types"), "Types"))], values: {"Types": List((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types"), [String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types/0"), "PRIVATE")), String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types/1"), "REGIONAL"))]))} }))} }))} }))
+            |  Message: DEFAULT MESSAGE(PASS)
+    BlockClause(Block[Location[file:api_gateway_private.guard, line:21, column:3]], FAIL)
+        |  Message: DEFAULT MESSAGE(FAIL)
+        Conjunction(cfn_guard::rules::exprs::GuardClause, FAIL)
+            |  Message: DEFAULT MESSAGE(FAIL)
+            Clause(Clause(Location[file:api_gateway_private.guard, line:22, column:5], Check: Properties.EndpointConfiguration.Types[*]  EQUALS String("PRIVATE")), FAIL)
+                |  From: String((Path("/Resources/apiGw/Properties/EndpointConfiguration/Types/1"), "REGIONAL"))
+                |  To: String((Path("api_gateway_private.guard/22/5/Clause/"), "PRIVATE"))
+                |  Message: (DEFAULT: NO_MESSAGE)
+```
+
+The verbose output of the `test` command follows the structure of the rules
+file. Every block in the rules file is a block in the verbose output. The top-most block
+is each rule. If there are `when` conditions against the rule, they appear in a
+sibling condition block. In the following example, the condition `%api_gws
+ !empty` is tested and it passes.
+
+```
+rule check_rest_api_is_private when %api_gws !empty {
+```
+
+Once the condition passes, we test the rule clauses.
+
+```
+%api_gws {
+    Properties.EndpointConfiguration.Types[*] == "PRIVATE"
+}
+```
+
+`%api_gws` is a block rule that corresponds to the `BlockClause`
+level in the output (line:21). The rule clauseis a set of conjunction (AND) clauses, where
+each conjunction clause is a set of disjunctions (`OR`s). The conjunction has a
+single clause, `Properties.EndpointConfiguration.Types[*] == "PRIVATE"`.
+Therefore, the verbose output shows a single clause. The path
+`/Resources/apiGw/Properties/EndpointConfiguration/Types/1` shows which
+values in the input are compared, which in this case is the element for `Types`
+indexed at 1.
+
+In [Validating input data against Guard rules](validating-rules.md "validating-rules.md"), you can use
+the examples in this section to use the `validate` command to evaluate input data
+against rules.
