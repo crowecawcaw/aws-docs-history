@@ -109,6 +109,14 @@ connectivity](choose-xks-connectivity.md#xks-vpc-connectivity "choose-xks-connec
 the VPC or use the VPC endpoint service to communicate securely with
 your external key store proxy.
 
+**VPC endpoint service owner ID**
+
+The ID of the Amazon VPC endpoint service that supports your external key
+store. This value appears only when the external key store uses [VPC endpoint service
+connectivity](choose-xks-connectivity.md#xks-vpc-connectivity "choose-xks-connectivity.md#xks-vpc-connectivity"). You can locate your external key store proxy in
+the VPC or use the VPC endpoint service to communicate securely with
+your external key store proxy.
+
 ## View your external key store properties
 
 You can view your external key store and its associated properties in the AWS KMS console or by using the [DescribeCustomKeyStores](../APIReference/API_DescribeCustomKeyStores.md "../APIReference/API_DescribeCustomKeyStores.md")

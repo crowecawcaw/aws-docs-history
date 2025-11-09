@@ -1,6 +1,4 @@
-# Control access to your external key
-
-store
+# Control access to your external key store
 
 All AWS KMS access control features — [key
 policies](key-policies.md "key-policies.md"), [IAM policies](iam-policies.md "iam-policies.md"), and [grants](grants.md "grants.md") — that you use with standard KMS keys, work the same
@@ -8,8 +6,8 @@ way for KMS keys in an external key store. You can use IAM policies to control a
 the API operations that create and manage external key stores. You use IAM policies and
 key policies to control access to the AWS KMS keys in your external key store. You can
 also use [service control
-policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") for your AWS organization and [VPC endpoint
-policies](../../../vpc/latest/privatelink/interface-endpoints.md#edit-vpc-endpoint-policy "../../../vpc/latest/privatelink/interface-endpoints.md#edit-vpc-endpoint-policy") to control access to KMS keys in your external key store.
+policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") for your AWS organization and [VPC
+endpoint policies](../../../vpc/latest/privatelink/interface-endpoints.md#edit-vpc-endpoint-policy "../../../vpc/latest/privatelink/interface-endpoints.md#edit-vpc-endpoint-policy") to control access to KMS keys in your external key store.
 
 We recommend that you provide users and roles only the permissions that they require for
 the tasks that they are likely to perform.
@@ -19,8 +17,8 @@ the tasks that they are likely to perform.
 - [Authorizing external key store managers](#authorize-xks-managers "#authorize-xks-managers")
 - [Authorizing users of KMS keys in external key
   stores](#authorize-xks-users "#authorize-xks-users")
-- [Authorizing AWS KMS to communicate with your external key
-  store proxy](#allowlist-kms-xks "#allowlist-kms-xks")
+- [Authorizing AWS KMS to communicate with your external
+  key store proxy](#allowlist-kms-xks "#allowlist-kms-xks")
 - [External key store proxy authorization
   (optional)](#xks-proxy-authorization "#xks-proxy-authorization")
 - [mTLS authentication (optional)](#xks-mtls "#xks-mtls")
@@ -39,6 +37,12 @@ AWS accounts.
 - `kms:DisconnectCustomKeyStore`
 - `kms:UpdateCustomKeyStore`
 - `kms:DeleteCustomKeyStore`
+
+To create an external key store with [Amazon VPC
+endpoint service connectivity](choose-xks-connectivity.md#xks-vpc-connectivity "choose-xks-connectivity.md#xks-vpc-connectivity") and the VPC endpoint service is owned by a
+different AWS account, you'll also need the following permission:
+
+- `ec2:DescribeVPCEndpointServices`
 
 Principals who create an external key store need permission to create and configure
 the external key store components. Principals can create external key stores only in
@@ -103,9 +107,9 @@ account.
 }
 ```
 
-## Authorizing AWS KMS to communicate with your external key
+## Authorizing AWS KMS to communicate with your external
 
-store proxy
+key store proxy
 
 AWS KMS communicates with your external key manager only through the [external key store proxy](keystore-external.md#concept-xks-proxy "keystore-external.md#concept-xks-proxy") that you provide. AWS KMS
 authenticates to your proxy by signing its requests using the [Signature Version 4 (SigV4)
@@ -123,15 +127,55 @@ To allow AWS KMS to create an interface endpoint, use the [Amazon VPC console](.
 following principal:
 `cks.kms.`<region>`.amazonaws.com`.
 
-For example, the following AWS CLI command allows AWS KMS to connect to the specified VPC
-endpoint service in the US West (Oregon) (us-west-2) Region. Before using this
-command, replace the Amazon VPC service ID and AWS Region with valid values for your
+If your Amazon VPC endpoint service is owned by a different AWS account other than the AWS account owning the external key store (XKS), you’ll also need to allow XKS access to the VPC endpoint service.
+To do so, [allowlist the XKS AWS account ID as a principal](../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions "../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions") for the Amazon VPC endpoint
+
+service.
+
+Same AWS account
+When your VPC endpoint service is owned by the same AWS account as your
+external key store, you must add AWS KMS to the **Allow
+principals** list for your VPC endpoint service.
+
+The following example uses the [`modify-vpc-endpoint-service-permissions`](../../../cli/latest/reference/ec2/modify-vpc-endpoint-service-permissions.md "../../../cli/latest/reference/ec2/modify-vpc-endpoint-service-permissions.md") AWS CLI
+command to allow AWS KMS to connect to the specified VPC endpoint service in
+the US West (Oregon) (us-west-2) Region. Before using this command,
+replace the Amazon VPC service ID and AWS Region with valid values for your
 configuration.
 
 ```
 modify-vpc-endpoint-service-permissions
 --service-id `vpce-svc-12abc34567def0987`
 --add-allowed-principals '["cks.kms.`us-west-2`.amazonaws.com"]'
+```
+
+To remove this permission, use the [Amazon VPC console](../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions "../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions") or the [ModifyVpcEndpointServicePermissions](../../../AWSEC2/latest/APIReference/API_ModifyVpcEndpointServicePermissions.md "../../../AWSEC2/latest/APIReference/API_ModifyVpcEndpointServicePermissions.md") with the
+`RemoveAllowedPrincipals` parameter.
+
+Cross AWS account
+When your VPC endpoint service is owned by the another AWS account, you must add both AWS KMS and your external key store
+to the **Allow principals** list for your VPC endpoint
+service.
+
+The following example uses the [`modify-vpc-endpoint-service-permissions`](../../../cli/latest/reference/ec2/modify-vpc-endpoint-service-permissions.md "../../../cli/latest/reference/ec2/modify-vpc-endpoint-service-permissions.md") AWS CLI
+command to allow both AWS KMS and your external key store (XKS) to connect to
+the specified VPC endpoint service in the US West (Oregon) (us-west-2)
+Region. Before using this command, replace the Amazon VPC service ID,
+AWS Region, and IAM principal ARN with valid values for your
+configuration. The IAM principal should be replaced with a principal in
+the XKS owner AWS account.
+
+In this example,
+`arn:aws:iam::`123456789012`:role/`cks_role``  is the IAM principal in the XKS owner account, which will be used to
+ create, update, or connect the XKS to your VPC endpoint service. If you
+ would like to allow all principals in the XKS owner account to access your
+ VPC endpoint service, you can specify
+ `arn:aws:iam::`123456789012`:root`.
+
+```
+modify-vpc-endpoint-service-permissions
+--service-id `vpce-svc-12abc34567def0987`
+--add-allowed-principals '["cks.kms.`us-west-2`.amazonaws.com", "arn:aws:iam::`123456789012`:role/`cks_role`"]'
 ```
 
 To remove this permission, use the [Amazon VPC console](../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions "../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions") or the [ModifyVpcEndpointServicePermissions](../../../AWSEC2/latest/APIReference/API_ModifyVpcEndpointServicePermissions.md "../../../AWSEC2/latest/APIReference/API_ModifyVpcEndpointServicePermissions.md") with the

@@ -1,7 +1,7 @@
 # AWS Key Management Service
 
 AWS Key Management Service (AWS KMS) is an AWS managed service that makes it easy for you to create and
-control the encryption keys that are used to encrypt your data. The AWS KMS keys that you
+control the keys used to encrypt and sign your data. The AWS KMS keys that you
 create in AWS KMS are protected by [FIPS 140-3 Security Level 3
 validated hardware security modules (HSM)](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884 "https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884"). They never leave AWS KMS unencrypted. To use
 or manage your KMS keys, you interact with AWS KMS.
@@ -19,7 +19,7 @@ AWS KMS protects your root keys. KMS keys are created, managed, used, and delete
 entirely within AWS KMS. They never leave the service unencrypted. To use or manage your
 KMS keys, you call AWS KMS.
 
-![AWS KMS protects your root keys](images/key-hierarchy-kms-key.png)
+![AWS KMS protects your root keys](/images/kms/latest/developerguide/images/key-hierarchy-kms-key.png)
 
 Additionally, you can create and manage [key
 policies](key-policies.md "key-policies.md") in AWS KMS, ensuring that only trusted users have access to

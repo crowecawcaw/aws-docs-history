@@ -58,7 +58,7 @@ AWS KMS supports the following asymmetric ciphers.
   2048, 3072, and 4096 for different security requirements.
 - **Elliptic Curve (ECC)** – Used for signing and
   verification or deriving shared secrets, but not both. Supports ECC curves: NIST P256,
-  P384, P521, SECP 256k1.
+  P384, P521, SECP 256k1, Ed25519.
 - **ML-DSA** – Used for signing and verification.
   Supported ML-DSA key specs are: ML_DSA_44, ML_DSA_65, and ML_DSA_87.
 - **SM2 (China Regions only)** – Used for
@@ -164,18 +164,25 @@ The following table lists the AWS KMS cryptographic operations. It also shows th
 and [key usage](create-keys.md#key-usage "create-keys.md#key-usage") requirements for KMS keys used in the
 operation.
 
-| Operation                                                                                                                                                      | Key type                                                     | Key usage             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md")                                                                                     | Symmetric or asymmetric                                      | `ENCRYPT_DECRYPT`     |
-| [DeriveSharedSecret](../APIReference/API_DeriveSharedSecret.md "../APIReference/API_DeriveSharedSecret.md")                                                    | Asymmetric                                                   | `KEY_AGREEMENT`       |
-| [Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md")                                                                                     | Symmetric or asymmetric                                      | `ENCRYPT_DECRYPT`     |
-| [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md")                                                             | Symmetric                                                    | `ENCRYPT_DECRYPT`     |
-| [GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md")                                                 | Symmetric [1]Not supported on KMS keys in custom key stores. | `ENCRYPT_DECRYPT`     |
-| [GenerateDataKeyPairWithoutPlaintext](../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md "../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md") | Symmetric [1]Not supported on KMS keys in custom key stores. | `ENCRYPT_DECRYPT`     |
-| [GenerateDataKeyWithoutPlaintext](../APIReference/API_GenerateDataKeyWithoutPlaintext.md "../APIReference/API_GenerateDataKeyWithoutPlaintext.md")             | Symmetric                                                    | `ENCRYPT_DECRYPT`     |
-| [GenerateMac](../APIReference/API_GenerateMac.md "../APIReference/API_GenerateMac.md")                                                                         | HMAC                                                         | `GENERATE_VERIFY_MAC` |
-| [GenerateRandom](../APIReference/API_GenerateRandom.md "../APIReference/API_GenerateRandom.md")                                                                | N/A. This operation doesn't use a KMS key.                   | N/A                   |
-| [ReEncrypt](../APIReference/API_ReEncrypt.md "../APIReference/API_ReEncrypt.md")                                                                               | Symmetric or asymmetric                                      | `ENCRYPT_DECRYPT`     |
-| [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md")                                                                                              | Asymmetric                                                   | `SIGN_VERIFY`         |
-| [Verify](../APIReference/API_Verify.md "../APIReference/API_Verify.md")                                                                                        | Asymmetric                                                   | `SIGN_VERIFY`         |
-| [VerifyMac](../APIReference/API_VerifyMac.md "../APIReference/API_VerifyMac.md")                                                                               | HMAC                                                         | `GENERATE_VERIFY_MAC` | [1] Generates an asymmetric data key pair that is protected by a symmetric encryption KMS key. For information about the permissions for cryptographic operations, see the [AWS KMS permissions](kms-api-permissions-reference.md "kms-api-permissions-reference.md"). To make AWS KMS responsive and highly functional for all users, AWS KMS establishes quotas on number of cryptographic operations called in each second. For details, see [Shared quotas for cryptographic operations](requests-per-second.md#rps-shared-limit "requests-per-second.md#rps-shared-limit"). |
+| Operation                                                                                                                                                      | Key type                                                        | Key usage             |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | --------------------- |
+| [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md")                                                                                     | Symmetric or asymmetric                                         | `ENCRYPT_DECRYPT`     |
+| [DeriveSharedSecret](../APIReference/API_DeriveSharedSecret.md "../APIReference/API_DeriveSharedSecret.md")                                                    | Asymmetric                                                      | `KEY_AGREEMENT`       |
+| [Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md")                                                                                     | Symmetric or asymmetric                                         | `ENCRYPT_DECRYPT`     |
+| [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md")                                                             | Symmetric                                                       | `ENCRYPT_DECRYPT`     |
+| [GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md")                                                 | Symmetric [1]Not supported on KMS keys in custom key<br>stores. | `ENCRYPT_DECRYPT`     |
+| [GenerateDataKeyPairWithoutPlaintext](../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md "../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md") | Symmetric [1]Not supported on KMS keys in custom key<br>stores. | `ENCRYPT_DECRYPT`     |
+| [GenerateDataKeyWithoutPlaintext](../APIReference/API_GenerateDataKeyWithoutPlaintext.md "../APIReference/API_GenerateDataKeyWithoutPlaintext.md")             | Symmetric                                                       | `ENCRYPT_DECRYPT`     |
+| [GenerateMac](../APIReference/API_GenerateMac.md "../APIReference/API_GenerateMac.md")                                                                         | HMAC                                                            | `GENERATE_VERIFY_MAC` |
+| [GenerateRandom](../APIReference/API_GenerateRandom.md "../APIReference/API_GenerateRandom.md")                                                                | N/A. This operation doesn't use a KMS key.                      | N/A                   |
+| [ReEncrypt](../APIReference/API_ReEncrypt.md "../APIReference/API_ReEncrypt.md")                                                                               | Symmetric or asymmetric                                         | `ENCRYPT_DECRYPT`     |
+| [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md")                                                                                              | Asymmetric                                                      | `SIGN_VERIFY`         |
+| [Verify](../APIReference/API_Verify.md "../APIReference/API_Verify.md")                                                                                        | Asymmetric                                                      | `SIGN_VERIFY`         |
+| [VerifyMac](../APIReference/API_VerifyMac.md "../APIReference/API_VerifyMac.md")                                                                               | HMAC                                                            | `GENERATE_VERIFY_MAC` |
+
+[1] Generates an asymmetric data key pair that is protected by a symmetric encryption KMS key.
+
+For information about the permissions for cryptographic operations, see the [AWS KMS permissions](kms-api-permissions-reference.md "kms-api-permissions-reference.md").
+
+To make AWS KMS responsive and highly functional for all users, AWS KMS establishes quotas
+on number of cryptographic operations called in each second. For details, see [Shared quotas for cryptographic operations](requests-per-second.md#rps-shared-limit "requests-per-second.md#rps-shared-limit").

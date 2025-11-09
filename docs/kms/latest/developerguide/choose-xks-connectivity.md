@@ -9,22 +9,24 @@ you choose determines the remainder of the planning process.
 If you are creating an external key store, you need to determine how AWS KMS communicates
 with your [external key store proxy](keystore-external.md#concept-xks-proxy "keystore-external.md#concept-xks-proxy"). This choice
 will determine which components you need and how you configure them. AWS KMS supports the
-following connectivity options. Choose the option that meets your performance and security
-goals.
+following connectivity options.
+
+- [Public endpoint connectivity](#xks-connectivity-public-endpoint "#xks-connectivity-public-endpoint")
+- [VPC endpoint service connectivity](#xks-vpc-connectivity "#xks-vpc-connectivity")
+  Choose the option that meets your performance and security goals.
 
 Before you begin, [confirm that you need an external key
 store](keystore-external.md#do-i-need-xks "keystore-external.md#do-i-need-xks"). Most customer can use KMS keys backed by AWS KMS key material.
 
-###### Note
+###### Considerations
 
-If your external key store proxy is built into your external key manager, your
-connectivity might be predetermined. For guidance, consult the documentation for your
-external key manager or external key store proxy.
-
-You can [change your external key store proxy
-connectivity option](update-xks-keystore.md "update-xks-keystore.md") even on an operating external key store. However, the process
-must be carefully planned and executed to minimize disruption, avoid errors, and ensure
-continued access to the cryptographic keys that encrypt your data.
+- If your external key store proxy is built into your external key manager, your
+  connectivity might be predetermined. For guidance, consult the documentation for
+  your external key manager or external key store proxy.
+- You can [change your external key store proxy
+  connectivity option](update-xks-keystore.md "update-xks-keystore.md") even on an operating external key store. However, the
+  process must be carefully planned and executed to minimize disruption, avoid errors,
+  and ensure continued access to the cryptographic keys that encrypt your data.
 
 ## Public endpoint connectivity
 
@@ -60,8 +62,8 @@ external key store proxy. For example, if the public endpoint is
 certificate must be `myproxy.xks.example.com` or `*.xks.example.com`.
 
 - Ensure that any firewalls between AWS KMS and the external key store proxy allow
-  traffic to and from port 443 on the proxy. AWS KMS communicates on port 443 over IPv4. This
-  value is not configurable.
+  traffic to and from port 443 on the proxy. AWS KMS communicates on port 443 over
+  IPv4. This value is not configurable.
 
 For all requirements for an external key store, see the [Assemble the prerequisites](create-xks-keystore.md#xks-requirements "create-xks-keystore.md#xks-requirements").
 
@@ -83,10 +85,14 @@ You can locate your external key store proxy in your Amazon VPC.
 
 ![VPC endpoint service connectivity - XKS proxy in your VPC](images/xks-proxy-in-vpc-60.png)
 
-Or, locate your external key store proxy outside of AWS and use your Amazon VPC endpoint
-service only for secure communication with AWS KMS.
+Alternatively, you can locate your external key store proxy outside of AWS Cloud and
+use your Amazon VPC endpoint service only for secure communication with AWS KMS.
 
 ![VPC endpoint service connectivity - XKS proxy outside of AWS](images/xks-proxy-via-vpc-60.png)
+
+You can also connect an external key store to an Amazon VPC endpoint service owned by
+another AWS account. Both AWS accounts need the [necessary permissions](authorize-xks-key-store.md#authorize-xks-managers "authorize-xks-key-store.md#authorize-xks-managers") to allow
+communications between AWS KMS and the VPC endpoint service
 
 **Learn more**:
 

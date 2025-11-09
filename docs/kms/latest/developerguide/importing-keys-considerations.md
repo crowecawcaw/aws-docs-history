@@ -37,9 +37,10 @@ material.
 **You can perform on-demand rotation on single-Region, symmetric encryption keys**
 
 Single-Region symmetric encryption keys with imported key material support on-demand
-rotation. You can [import multiple key materials](importing-keys-import-key-material.md#import-new-key-material "importing-keys-import-key-material.md#import-new-key-material") into these keys and use [on-demand rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md")
-to update the current key material. The current key material is used for both encryption
-and decryption but other (non-current) key materials can only be used for decryption.
+rotation. You can [import multiple key materials](importing-keys-import-key-material.md#import-new-key-material "importing-keys-import-key-material.md#import-new-key-material") into these keys and use [on-demand
+rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md") to update the current key material. The current key material is used
+for both encryption and decryption but other (non-current) key materials can only be
+used for decryption.
 
 **You cannot change the key material origin**
 
@@ -61,8 +62,8 @@ expires.
 Multi-Region with imported key material have the features of KMS keys with
 imported key material, and can interoperate between AWS Regions. To create a
 multi-Region key with imported key material, you must import the same key material into
-the primary KMS key and into each replica key. Multi-Region symmetric encryption keys do
-not support on-demand rotation.
+the primary KMS key and into each replica key. Multi-Region symmetric encryption keys
+do not support on-demand rotation.
 
 **Asymmetric keys and HMAC keys are portable and interoperable**
 
@@ -96,6 +97,14 @@ outside of AWS to perform the following operations.
 If you import the same key material into different KMS keys in the same
 AWS Region, those keys are also interoperable. To create interoperable KMS keys in
 different AWS Regions, create a multi-Region key with imported key material.
+
+###### RSA private keys
+
+- AWS KMS requires imported RSA private keys to have prime factors that conform to
+  the test described in [FIPS 186-5,
+  Section A. 1.3](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf"). Other software or devices may use different algorithms for
+  validating these prime factors of RSA private keys. In rare instances, keys
+  validated using other algorithms may not be accepted by AWS KMS.
 
 **Symmetric encryption keys are not portable or interoperable**
 

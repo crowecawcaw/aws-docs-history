@@ -183,13 +183,14 @@ material.
     - ECC_NIST_P384 (secp384r1)
     - ECC_NIST_P521 (secp521r1)
     - ECC_SECG_P256K1 (secp256k1)
+    - ECC_NIST_EDWARDS25519 (ed25519)
 
   - **Requirements:**
     - The ECC asymmetric private key that you import must be part of
       a key pair that conforms to [RFC
       5915](https://datatracker.ietf.org/doc/html/rfc5915/ "https://datatracker.ietf.org/doc/html/rfc5915/").
     - **Curve:** NIST P-256, NIST
-      P-384, NIST P-521, or Secp256k1.
+      P-384, NIST P-521, Secp256k1, NIST Ed25519.
     - **Parameters:** Named curves only
       (ECC keys with explicit parameters are rejected).
     - **Public point coordinates:** May

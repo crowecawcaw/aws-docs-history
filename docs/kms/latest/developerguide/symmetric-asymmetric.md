@@ -14,7 +14,14 @@ data that you store or manage in an AWS service, use a symmetric encryption KMS 
 [AWS services that
 are integrated with AWS KMS](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration") use only symmetric encryption KMS keys to encrypt your data. These services do not support encryption with asymmetric KMS keys.
 
-AWS KMS supports three types of asymmetric KMS keys.
+When signing messages larger than 4 KB with AWS KMS, you must hash the message outside of AWS KMS before signing.
+AWS KMS provides three `MessageType` options for handling message input: `RAW` for plaintext messages
+(where AWS KMS performs the hashing), `DIGEST` for pre-hashed messages (where AWS KMS skips the hashing step), and
+`EXTERNAL_MU` specifically for ML-DSA KMS key specs where the input is a 64-byte representative μ value. For
+large messages exceeding the 4 KB limit, hash the message externally and use [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType")
+(or [`MessageType:EXTERNAL_MU`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType") for ML-DSA KMS keys) when calling AWS KMS [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md") and AWS KMS [Verify](../APIReference/API_Verify.md "../APIReference/API_Verify.md") operations.
+
+AWS KMS supports several types of asymmetric KMS keys.
 
 **RSA KMS keys**
 

@@ -38,14 +38,27 @@ filters](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../Am
 Follow the instructions in [Create a metric filter for a log group](../../../AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.md "../../../AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.md") using the following required values.
 For other fields, accept the default values and provide names as requested.
 
-| Field                  | Value                                                                  |
-| ---------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Filter pattern         | `{ $.eventSource = kms* && $.errorMessage = "* is pending deletion."}` |
-| Metric value           | 1                                                                      | 2. Create a CloudWatch alarm based on the metric filter that you created in Step 1. Follow the instructions in [Create a CloudWatch alarm based on a log group-metric filter](../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.md "../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.md") using the following required values. For other fields, accept the default values and provide names as requested.                                           |
-| Field                  | Value                                                                  |
-| ---                    | ---                                                                    |
-| Metric filter          | The name of the metric filter that you created in Step 1.              |
-| Threshold type         | Static                                                                 |
-| Conditions             | **Whenever** `metric-name` is **Greater/Equal** than `1`               |
-| Data points to alarm   | `1` out of `1`                                                         |
-| Missing data treatment | **Treat missing data as good (not breaching threshold)**               | After you complete this procedure, you will receive a notification each time your new CloudWatch alarm enters the `ALARM` state. If you receive a notification for this alarm, it might mean that a KMS key that is scheduled for deletion is still needed to encrypt or decrypt data. In that case, [cancel deletion of the KMS key](deleting-keys-scheduling-key-deletion.md "deleting-keys-scheduling-key-deletion.md") and reconsider your decision to delete it. |
+| Field          | Value                                                                             |
+| -------------- | --------------------------------------------------------------------------------- |
+| Filter pattern | `{ $.eventSource = kms<br>• && $.errorMessage = "<br>• is pending<br>deletion."}` |
+| Metric value   | 1                                                                                 |
+
+2. Create a CloudWatch alarm based on the metric filter that you created in Step 1.
+
+Follow the instructions in [Create a CloudWatch alarm
+based on a log group-metric filter](../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.md "../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.md") using the following required values.
+For other fields, accept the default values and provide names as requested.
+
+| Field                  | Value                                                               |
+| ---------------------- | ------------------------------------------------------------------- |
+| Metric filter          | The name of the metric filter that you created in Step 1.           |
+| Threshold type         | Static                                                              |
+| Conditions             | **Whenever**<br>`metric-name` is \*_Greater/Equal_<br>• than<br>`1` |
+| Data points to alarm   | `1` out of `1`                                                      |
+| Missing data treatment | **Treat missing data as good (not breaching<br>threshold)**         |
+
+After you complete this procedure, you will receive a notification each time your new CloudWatch
+alarm enters the `ALARM` state. If you receive a notification for this alarm, it
+might mean that a KMS key that is scheduled for deletion is still needed to encrypt or decrypt
+data. In that case, [cancel deletion of the
+KMS key](deleting-keys-scheduling-key-deletion.md "deleting-keys-scheduling-key-deletion.md") and reconsider your decision to delete it.

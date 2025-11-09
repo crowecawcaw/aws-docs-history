@@ -63,9 +63,7 @@ key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key
   approaching its expiration time, see [Create a CloudWatch alarm for expiration of
   imported key material](imported-key-material-expiration-alarm.md "imported-key-material-expiration-alarm.md").
 - To reimport key material into a KMS key, see [Reimport key material](importing-keys-import-key-material.md#reimport-key-material "importing-keys-import-key-material.md#reimport-key-material").
-- To import new key material into a KMS key for on-demand rotation, see
-  [Import new key material](importing-keys-import-key-material.md#import-new-key-material "importing-keys-import-key-material.md#import-new-key-material") and
-  [Perform on-demand key
+- To import new key material into a KMS key for on-demand rotation, see [Import new key material](importing-keys-import-key-material.md#import-new-key-material "importing-keys-import-key-material.md#import-new-key-material") and [Perform on-demand key
   rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md").
 - To identify and view KMS keys with imported key material, see [Identify KMS keys with imported key
   material](identify-key-types.md#identify-imported-keys "identify-key-types.md#identify-imported-keys").

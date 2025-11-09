@@ -201,7 +201,7 @@ share the public key.
 
 **Derive shared secrets**
 
-To derive shared secrets, use a KMS key with [NIST-recommended elliptic curve](symm-asymm-choose-key-spec.md#key-spec-ecc "symm-asymm-choose-key-spec.md#key-spec-ecc") or [SM2](symm-asymm-choose-key-spec.md#key-spec-sm "symm-asymm-choose-key-spec.md#key-spec-sm")
+To derive shared secrets, use a KMS key with [NIST-standard elliptic curve](symm-asymm-choose-key-spec.md#key-spec-ecc "symm-asymm-choose-key-spec.md#key-spec-ecc") or [SM2](symm-asymm-choose-key-spec.md#key-spec-sm "symm-asymm-choose-key-spec.md#key-spec-sm")
 (China Regions only) key material. AWS KMS uses the [Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60 "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60") (ECDH) to
 establish a key agreement between two peers by deriving a shared secret from their
 elliptic curve public-private key pairs. You can use the raw shared secret that the

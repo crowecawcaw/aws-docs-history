@@ -138,8 +138,9 @@ The `iam:CreateServiceLinkedRole` permission allows AWS KMS to create the
 [shared properties](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties") of related
 multi-Region keys.
 
-For example, this IAM policy allows a principal to create any type of
-KMS key.
+For example, this IAM policy allows a principal to create multi-Region keys,
+attach policies for those keys, and service linked roles for multi-Region
+keys.
 
 JSON
 

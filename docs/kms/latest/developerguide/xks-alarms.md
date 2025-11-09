@@ -39,31 +39,91 @@ Follow the instructions in [Create a
 CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required
 values. For other fields, accept the default values and provide names as requested.
 
-| Field          | Value                                                                                                                                                                                                              |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Select metric  | Choose **KMS**, then choose **XKS Proxy Certificate Metrics**. Select the check box next to the `XksProxyCertificateName` that you want to monitor. Then choose **Select metric**.                                 |
-| Statistic      | Minimum                                                                                                                                                                                                            |
-| Period         | 5 minutes                                                                                                                                                                                                          |
-| Threshold type | Static                                                                                                                                                                                                             |
-| Whenever ...   | Whenever **XksProxyCertificateDaysToExpire** is `Lower` than `10`.                                                                                                                                                 | ## Create an alarm for response timeout This alarm uses the [XksProxyLatency](monitoring-cloudwatch.md#metric-xks-proxy-latency "monitoring-cloudwatch.md#metric-xks-proxy-latency") metric that AWS KMS publishes to CloudWatch to record the number of milliseconds it takes for an external key store proxy to respond to an AWS KMS request. You cannot create a single alarm for all external key stores in your account or an alarm for external key stores that you might create in the future. AWS KMS expects the external key store proxy to respond to each request within 250 milliseconds. We recommend setting an alarm to alert you when your external key store proxy takes longer than 200 milliseconds to respond, but you should set the threshold that best fits your needs. **Create the alarm** Follow the instructions in [Create a CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required values. For other fields, accept the default values and provide names as requested. |
-| Field          | Value                                                                                                                                                                                                              |
-| ---            | ---                                                                                                                                                                                                                |
-| Select metric  | Choose **KMS**, then choose **XKS Proxy Latency Metrics**. Select the check box next to the `KmsOperation` that you want to monitor. Then choose **Select metric**.                                                |
-| Statistic      | Average                                                                                                                                                                                                            |
-| Period         | 5 minutes                                                                                                                                                                                                          |
-| Threshold type | Static                                                                                                                                                                                                             |
-| Whenever ...   | Whenever **XksProxyLatency** is `Greater` than `200`.                                                                                                                                                              | ## Create an alarm for retryable errors This alarm uses the [XksProxyErrors](monitoring-cloudwatch.md#metric-xks-proxy-errors "monitoring-cloudwatch.md#metric-xks-proxy-errors") metric that AWS KMS publishes to CloudWatch to record the number of exceptions related to AWS KMS requests to your external key store proxy. You cannot create a single alarm for all external key stores in your account or an alarm for external key stores that you might create in the future. Retryable errors will lower your reliability percentage and can indicate networking errors. We recommend setting an alarm to alert you when more than five retryable errors are recorded in a one minute period, but you should set the threshold that best fits your needs. Follow the instructions in [Create a CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required values. For other fields, accept the default values and provide names as requested.                                                     |
-| Field          | Value                                                                                                                                                                                                              |
-| ---            | ---                                                                                                                                                                                                                |
-| Select metric  | Choose the **Query** tab. Choose `AWS/KMS` for **Namespace**. Enter `SUM(XksProxyErrors)` for **Metric name**. Enter `ErrorType = Retryable` for **Filter by**. Choose **Run**. Then choose **Select metric**.     |
-| Label          | `Retryable errors`                                                                                                                                                                                                 |
-| Period         | 1 minute                                                                                                                                                                                                           |
-| Threshold type | Static                                                                                                                                                                                                             |
-| Whenever ...   | Whenever **q1** is `Greater` than `5`.                                                                                                                                                                             | ## Create an alarm for non-retryable errors This alarm uses the [XksProxyErrors](monitoring-cloudwatch.md#metric-xks-proxy-errors "monitoring-cloudwatch.md#metric-xks-proxy-errors") metric that AWS KMS publishes to CloudWatch to record the number of exceptions related to AWS KMS requests to your external key store proxy. You cannot create a single alarm for all external key stores in your account or an alarm for external key stores that you might create in the future. Non-retryable errors can indicate a problem with the configuration of your external key store. We recommend setting an alarm to alert you when more than five non-retryable errors are recorded in a one minute period, but you should set the threshold that best fits your needs. Follow the instructions in [Create a CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required values. For other fields, accept the default values and provide names as requested.                                          |
-| Field          | Value                                                                                                                                                                                                              |
-| ---            | ---                                                                                                                                                                                                                |
-| Select metric  | Choose the **Query** tab. Choose `AWS/KMS` for **Namespace**. Enter `SUM(XksProxyErrors)` for **Metric name**. Enter `ErrorType = Non-retryable` for **Filter by**. Choose **Run**. Then choose **Select metric**. |
-| Label          | `Non-retryable errors`                                                                                                                                                                                             |
-| Period         | 1 minute                                                                                                                                                                                                           |
-| Threshold type | Static                                                                                                                                                                                                             |
-| Whenever ...   | Whenever **q1** is `Greater` than `5`.                                                                                                                                                                             |
+| Field          | Value                                                                                                                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Select metric  | Choose **KMS**, then choose **XKS<br>Proxy Certificate Metrics**.<br>Select the check box next to the<br>`XksProxyCertificateName` that you want to<br>monitor.<br>Then choose **Select metric**. |
+| Statistic      | Minimum                                                                                                                                                                                           |
+| Period         | 5 minutes                                                                                                                                                                                         |
+| Threshold type | Static                                                                                                                                                                                            |
+| Whenever ...   | Whenever \*_XksProxyCertificateDaysToExpire_<br>• is<br>`Lower` than `10`.                                                                                                                        |
+
+## Create an alarm for response
+
+timeout
+
+This alarm uses the [XksProxyLatency](monitoring-cloudwatch.md#metric-xks-proxy-latency "monitoring-cloudwatch.md#metric-xks-proxy-latency") metric that AWS KMS publishes to CloudWatch
+to record the number of milliseconds it takes for an external key store proxy to
+respond to an AWS KMS request. You cannot create a single alarm for all external key
+stores in your account or an alarm for external key stores that you might create in
+the future.
+
+AWS KMS expects the external key store proxy to respond to each request within 250
+milliseconds. We recommend setting an alarm to alert you when your external key
+store proxy takes longer than 200 milliseconds to respond, but you should set the
+threshold that best fits your needs.
+
+**Create the alarm**
+
+Follow the instructions in [Create a
+CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required
+values. For other fields, accept the default values and provide names as requested.
+
+| Field          | Value                                                                                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Select metric  | Choose **KMS**, then choose **XKS<br>Proxy Latency Metrics**.<br>Select the check box next to the `KmsOperation`<br>that you want to monitor.<br>Then choose **Select metric**. |
+| Statistic      | Average                                                                                                                                                                         |
+| Period         | 5 minutes                                                                                                                                                                       |
+| Threshold type | Static                                                                                                                                                                          |
+| Whenever ...   | Whenever \*_XksProxyLatency_<br>• is<br>`Greater` than `200`.                                                                                                                   |
+
+## Create an alarm for retryable
+
+errors
+
+This alarm uses the [XksProxyErrors](monitoring-cloudwatch.md#metric-xks-proxy-errors "monitoring-cloudwatch.md#metric-xks-proxy-errors") metric that AWS KMS publishes to CloudWatch to
+record the number of exceptions related to AWS KMS requests to your external key store
+proxy. You cannot create a single alarm for all external key stores in your account
+or an alarm for external key stores that you might create in the future.
+
+Retryable errors will lower your reliability percentage and can indicate
+networking errors. We recommend setting an alarm to alert you when more than five
+retryable errors are recorded in a one minute period, but you should set the
+threshold that best fits your needs.
+
+Follow the instructions in [Create a
+CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required
+values. For other fields, accept the default values and provide names as requested.
+
+| Field          | Value                                                                                                                                                                                                                                         |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Select metric  | Choose the **Query\*<br>• tab.<br>Choose `AWS/KMS` for<br>**Namespace**.<br>Enter `SUM(XksProxyErrors)` for **Metric<br>name**.<br>Enter `ErrorType = Retryable` for **Filter<br>by**.<br>Choose **Run**. Then choose **Select<br>metric\*\*. |
+| Label          | `Retryable errors`                                                                                                                                                                                                                            |
+| Period         | 1 minute                                                                                                                                                                                                                                      |
+| Threshold type | Static                                                                                                                                                                                                                                        |
+| Whenever ...   | Whenever \*_q1_<br>• is `Greater` than<br>`5`.                                                                                                                                                                                                |
+
+## Create an alarm for
+
+non-retryable errors
+
+This alarm uses the [XksProxyErrors](monitoring-cloudwatch.md#metric-xks-proxy-errors "monitoring-cloudwatch.md#metric-xks-proxy-errors") metric that AWS KMS publishes to CloudWatch to
+record the number of exceptions related to AWS KMS requests to your external key store
+proxy. You cannot create a single alarm for all external key stores in your account
+or an alarm for external key stores that you might create in the future.
+
+Non-retryable errors can indicate a problem with the configuration of your
+external key store. We recommend setting an alarm to alert you when more than five
+non-retryable errors are recorded in a one minute period, but you should set the
+threshold that best fits your needs.
+
+Follow the instructions in [Create a
+CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required
+values. For other fields, accept the default values and provide names as requested.
+
+| Field          | Value                                                                                                                                                                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Select metric  | Choose the **Query\*<br>• tab.<br>Choose `AWS/KMS` for<br>**Namespace**.<br>Enter `SUM(XksProxyErrors)` for **Metric<br>name**.<br>Enter `ErrorType = Non-retryable` for<br>**Filter by**.<br>Choose **Run**. Then choose **Select<br>metric\*\*. |
+| Label          | `Non-retryable errors`                                                                                                                                                                                                                            |
+| Period         | 1 minute                                                                                                                                                                                                                                          |
+| Threshold type | Static                                                                                                                                                                                                                                            |
+| Whenever ...   | Whenever \*_q1_<br>• is `Greater` than<br>`5`.                                                                                                                                                                                                    |
