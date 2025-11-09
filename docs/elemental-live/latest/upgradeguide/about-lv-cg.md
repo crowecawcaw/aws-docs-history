@@ -24,10 +24,30 @@ It applies to the following _upgrade_ scenarios:
 The Elemental Live node might be running in stand-alone, or it might be a member of an AWS Elemental Conductor Live
 cluster. The following table identifies the guide to read for your deployment.
 
-| Deployment type                                   | Description                                                                                                                                  | Guide                                                                                                                                       |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Stand-alone deployments                           | Elemental Live nodes are not in a cluster controlled by AWS Elemental Conductor Live.                                                        | This guide.                                                                                                                                 |
-| Single Conductor cluster, no worker redundancy    | Elemental Live nodes _without_ backup worker nodes in a cluster controlled by one AWS Elemental Conductor Live node.                         | [AWS Elemental Conductor Live Upgrade Guide](../../../elemental-cl3/latest/upgradeguide.md "../../../elemental-cl3/latest/upgradeguide.md") |
-| Single Conductor cluster with worker redundancy   | Elemental Live nodes _with_ one or more backup worker nodes in a cluster controlled by one AWS Elemental Conductor Live node.                | [AWS Elemental Conductor Live Upgrade Guide](../../../elemental-cl3/latest/upgradeguide.md "../../../elemental-cl3/latest/upgradeguide.md") |
-| High-availability cluster, no worker redundancy   | Elemental Live nodes _without_ backup worker nodes in a cluster controlled by two AWS Elemental Conductor Live nodes.                        | [AWS Elemental Conductor Live Upgrade Guide](../../../elemental-cl3/latest/upgradeguide.md "../../../elemental-cl3/latest/upgradeguide.md") |
-| High-availability cluster, with worker redundancy | Elemental Live nodes _with_ backup worker nodes, in a cluster controlled by two AWS Elemental Conductor Live nodes (a primary and a backup). | [AWS Elemental Conductor Live Upgrade Guide](../../../elemental-cl3/latest/upgradeguide.md "../../../elemental-cl3/latest/upgradeguide.md") | **Prerequisite knowledge** We assume that you know how to: <br>• Connect to the Elemental Live web interface using your web browser. <br>• Log in to a remote terminal (Linux) session in order to work via the command line interface. ###### Note For assistance with your AWS Elemental appliances and software products, see the [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter"). **Sending commands** <br>• Unless otherwise stated, enter all Linux shell commands from the home directory (/home/elemental). <br>• To ensure that the commands are executed regardless of your user permissions, use `sudo` to run the command as a superuser. |
+| Deployment type                                   | Description                                                                                                                                             | Guide                                                                                                                                       |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stand-alone deployments                           | Elemental Live nodes are not in a cluster controlled by AWS Elemental Conductor Live.                                                                   | This guide.                                                                                                                                 |
+| Single Conductor cluster, no worker redundancy    | Elemental Live nodes \*without<br>• backup worker nodes in a<br>cluster controlled by one AWS Elemental Conductor Live node.                            | [AWS Elemental Conductor Live Upgrade Guide](../../../elemental-cl3/latest/upgradeguide.md "../../../elemental-cl3/latest/upgradeguide.md") |
+| Single Conductor cluster with worker redundancy   | Elemental Live nodes \*with<br>• one or more backup worker nodes<br>in a cluster controlled by one AWS Elemental Conductor Live node.                   | [AWS Elemental Conductor Live Upgrade Guide](../../../elemental-cl3/latest/upgradeguide.md "../../../elemental-cl3/latest/upgradeguide.md") |
+| High-availability cluster, no worker redundancy   | Elemental Live nodes \*without<br>• backup worker nodes in a<br>cluster controlled by two AWS Elemental Conductor Live nodes.                           | [AWS Elemental Conductor Live Upgrade Guide](../../../elemental-cl3/latest/upgradeguide.md "../../../elemental-cl3/latest/upgradeguide.md") |
+| High-availability cluster, with worker redundancy | Elemental Live nodes \*with<br>• backup worker nodes, in a<br>cluster controlled by two AWS Elemental Conductor Live nodes (a primary and a<br>backup). | [AWS Elemental Conductor Live Upgrade Guide](../../../elemental-cl3/latest/upgradeguide.md "../../../elemental-cl3/latest/upgradeguide.md") |
+
+**Prerequisite knowledge**
+
+We assume that you know how to:
+
+- Connect to the Elemental Live web interface using your web browser.
+- Log in to a remote terminal (Linux) session in order to work via the command line
+  interface.
+
+###### Note
+
+For assistance with your AWS Elemental appliances and software products, see the
+[AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter").
+
+**Sending commands**
+
+- Unless otherwise stated, enter all Linux shell commands from the home directory
+  (/home/elemental).
+- To ensure that the commands are executed regardless of your user permissions, use
+  `sudo` to run the command as a superuser.
