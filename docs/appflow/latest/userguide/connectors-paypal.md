@@ -135,13 +135,21 @@ When you create a flow that uses PayPal as the data source, you can transfer any
 following data objects to supported destinations:
 
 | **Object**                     | **Field**    | **Data type** | **Supported filters** |
-| ------------------------------ | ------------ | ------------- | --------------------- | -------------------- | ------ | -------- |
+| ------------------------------ | ------------ | ------------- | --------------------- |
 | Transaction                    | Auction Info | Struct        |                       |
-| Balance Affecting Records Only | String       | EQUAL_TO      |                       | Cart Info            | Struct |          |
-| Date Range                     | DateTime     | BETWEEN       |                       | Incentive Info       | Struct |          |
-| Last Refreshed Date Time       | String       |               |                       | Payer Info           | Struct |          |
-| Payment Instrument Type        | String       | EQUAL_TO      |                       | Shipping Info        | Struct |          |
-| Store ID                       | String       | EQUAL_TO      |                       | Store Info           | Struct |          |
-| Terminal ID                    | String       | EQUAL_TO      |                       | Transaction Currency | String | EQUAL_TO |
-| Transaction ID                 | String       | EQUAL_TO      |                       | Transaction Info     | Struct |          |
-| Transaction Status             | String       | EQUAL_TO      |                       | Transaction Type     | String | EQUAL_TO |
+| Balance Affecting Records Only | String       | EQUAL_TO      |
+| Cart Info                      | Struct       |               |
+| Date Range                     | DateTime     | BETWEEN       |
+| Incentive Info                 | Struct       |               |
+| Last Refreshed Date Time       | String       |               |
+| Payer Info                     | Struct       |               |
+| Payment Instrument Type        | String       | EQUAL_TO      |
+| Shipping Info                  | Struct       |               |
+| Store ID                       | String       | EQUAL_TO      |
+| Store Info                     | Struct       |               |
+| Terminal ID                    | String       | EQUAL_TO      |
+| Transaction Currency           | String       | EQUAL_TO      |
+| Transaction ID                 | String       | EQUAL_TO      |
+| Transaction Info               | Struct       |               |
+| Transaction Status             | String       | EQUAL_TO      |
+| Transaction Type               | String       | EQUAL_TO      |

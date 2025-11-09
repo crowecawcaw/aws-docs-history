@@ -156,81 +156,136 @@ When you create a flow that uses HubSpot as the data source, you can set the des
 When you create a flow that uses HubSpot as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| HubSpot API v3              | **Object**                | **Field** | **Data type**  | **Supported filters**        |
-| --------------------------- | ------------------------- | --------- | -------------- | ---------------------------- | --------- | ------------- | --------------------- |
-| Call                        |                           |           |                |
-| Company                     |                           |           |                |
-| Contact                     |                           |           |                |
-| Custom Object               |                           |           |                |
-| Deal                        |                           |           |                |
-| Email                       |                           |           |                |
-| Meeting                     |                           |           |                |
-| Note                        |                           |           |                |
-| Owner                       | Archived                  | Boolean   |                |
-| Created At                  | DateTime                  |           |                | Email                        | String    |               |
-| Firstname                   | String                    |           |                | Id                           | String    |               |
-| Lastname                    | String                    |           |                | Teams                        | List      |               |
-| Updated At                  | DateTime                  |           |                | User Id                      | Integer   |               |
-| Postal Mail                 |                           |           |                |
-| Product                     |                           |           |                |
-| Task                        |                           |           |                |
-| Ticket                      |                           |           |                |
-| WorkFlow                    | Contact List Id's         | Struct    |                |
-| Enabled                     | Boolean                   |           |                | Id                           | Integer   |               |
-| Inserted At                 | Integer                   |           |                | Name                         | String    |               |
-| Persona Tag Id's            | List                      |           |                | Type                         | String    |               |
-| Updated At                  | Integer                   |           | HubSpot API v2 | **Object**                   | **Field** | **Data type** | **Supported filters** |
-| ---                         | ---                       | ---       | ---            |
-| Form                        | Always Create New Company | Boolean   |                |
-| Business Unit Id            | Integer                   |           |                | Captcha Enabled              | Boolean   |               |
-| Cloneable                   | Boolean                   |           |                | Create Marketable Contact    | Boolean   |               |
-| Created At                  | Long                      |           |                | Css Class                    | String    |               |
-| Custom Uid                  | String                    |           |                | Deletable                    | Boolean   |               |
-| DeletedAt                   | Integer                   |           |                | Edit Version                 | Integer   |               |
-| Editable                    | Boolean                   |           |                | FormFieldGroups              | List      |               |
-| Guid                        | String                    |           |                | Ignore Current Values        | Boolean   |               |
-| Inline Message              | String                    |           |                | Internal Updated At          | Long      |               |
-| Is Published                | Boolean                   |           |                | Kickback Emails Json         | Integer   |               |
-| Kickback email work flow Id | String                    |           |                | Method                       | String    |               |
-| Name                        | String                    |           |                | Notify Recipients            | String    |               |
-| Parent Id                   | Integer                   |           |                | Payment Session Template Ids | List      |               |
-| Portable Key                | String                    |           |                | Portal Id                    | Integer   |               |
-| Publish At                  | Integer                   |           |                | Published At                 | Integer   |               |
-| Redirect                    | String                    |           |                | Selected External Options    | List      |               |
-| Style                       | Struct                    |           |                | Submit Text                  | String    |               |
-| Thank You Message Json      | String                    |           |                | Theme Color                  | String    |               |
-| Theme Name                  | String                    |           |                | Unpublish At                 | Integer   |               |
-| Updated At                  | Long                      |           | HubSpot API v1 | **Object**                   | **Field** | **Data type** | **Supported filters** |
-| ---                         | ---                       | ---       | ---            |
-| CRM_Pipeline                | Active                    | Boolean   |                |
-| Created At                  | Long                      |           |                | Default                      | Boolean   |               |
-| Display Order               | Integer                   |           |                | Label                        | String    |               |
-| Object Type                 | String                    |           |                | ObjectTypeId                 | List      |               |
-| Pipeline Id                 | String                    |           |                | Stages                       | List      |               |
-| Updated At                  | Long                      |           |
-| Campaign                    | App Id                    | Integer   |                |
-| App Name                    | String                    |           |                | Id                           | String    |               |
-| Last Updated Time           | String                    |           |
-| Contact_List                | Archived                  | Boolean   |                |
-| Author Id                   | String                    |           |                | Created At                   | Long      |               |
-| Dynamic                     | Boolean                   |           |                | Filters                      | List      |               |
-| Ils Filter Branch           | String                    |           |                | Internal                     | Boolean   |               |
-| Limit Exempt                | Boolean                   |           |                | List Id                      | Integer   |               |
-| List Type                   | String                    |           |                | Meta Data                    | Struct    |               |
-| Name                        | String                    |           |                | Parent Id                    | Integer   |               |
-| Portal Id                   | Integer                   |           |                | Read Only                    | Boolean   |               |
-| Team Ids                    | List                      |           |                | Updated At                   | Long      |               |
-| Email_Event                 | App Id                    | Integer   |                |
-| App Name                    | String                    |           |                | Attempt                      | Integer   |               |
-| Browser                     | Struct                    |           |                | Created                      | Integer   |               |
-| Device Type                 | String                    |           |                | Drop Message                 | String    |               |
-| Drop Reason                 | String                    |           |                | Email Campaign Id            | Long      |               |
-| Filtered Event              | Boolean                   |           |                | From                         | String    |               |
-| Id                          | String                    |           |                | Location                     | Struct    |               |
-| Portal Id                   | Integer                   |           |                | Recipient                    | String    |               |
-| Reply To                    | List                      |           |                | Response                     | String    |               |
-| Sent By                     | Struct                    |           |                | Smtp Id                      | String    |               |
-| Subject                     | String                    |           |                | Suppressed Message           | String    |               |
-| Suppressed Reason           | String                    |           |                | Type                         | String    |               |
-| User Agent                  | Struct                    |           |                | bcc                          | List      |               |
-| cc                          | List                      |           |                | duration                     | Integer   |               |
+| HubSpot API v3   | **Object**        | **Field** | **Data type** | **Supported filters** |
+| ---------------- | ----------------- | --------- | ------------- | --------------------- |
+| Call             |                   |           |               |
+| Company          |                   |           |               |
+| Contact          |                   |           |               |
+| Custom Object    |                   |           |               |
+| Deal             |                   |           |               |
+| Email            |                   |           |               |
+| Meeting          |                   |           |               |
+| Note             |                   |           |               |
+| Owner            | Archived          | Boolean   |               |
+| Created At       | DateTime          |           |
+| Email            | String            |           |
+| Firstname        | String            |           |
+| Id               | String            |           |
+| Lastname         | String            |           |
+| Teams            | List              |           |
+| Updated At       | DateTime          |           |
+| User Id          | Integer           |           |
+| Postal Mail      |                   |           |               |
+| Product          |                   |           |               |
+| Task             |                   |           |               |
+| Ticket           |                   |           |               |
+| WorkFlow         | Contact List Id's | Struct    |               |
+| Enabled          | Boolean           |           |
+| Id               | Integer           |           |
+| Inserted At      | Integer           |           |
+| Name             | String            |           |
+| Persona Tag Id's | List              |           |
+| Type             | String            |           |
+| Updated At       | Integer           |           |
+
+| HubSpot API v2               | **Object**                | **Field** | **Data type** | **Supported filters** |
+| ---------------------------- | ------------------------- | --------- | ------------- | --------------------- |
+| Form                         | Always Create New Company | Boolean   |               |
+| Business Unit Id             | Integer                   |           |
+| Captcha Enabled              | Boolean                   |           |
+| Cloneable                    | Boolean                   |           |
+| Create Marketable Contact    | Boolean                   |           |
+| Created At                   | Long                      |           |
+| Css Class                    | String                    |           |
+| Custom Uid                   | String                    |           |
+| Deletable                    | Boolean                   |           |
+| DeletedAt                    | Integer                   |           |
+| Edit Version                 | Integer                   |           |
+| Editable                     | Boolean                   |           |
+| FormFieldGroups              | List                      |           |
+| Guid                         | String                    |           |
+| Ignore Current Values        | Boolean                   |           |
+| Inline Message               | String                    |           |
+| Internal Updated At          | Long                      |           |
+| Is Published                 | Boolean                   |           |
+| Kickback Emails Json         | Integer                   |           |
+| Kickback email work flow Id  | String                    |           |
+| Method                       | String                    |           |
+| Name                         | String                    |           |
+| Notify Recipients            | String                    |           |
+| Parent Id                    | Integer                   |           |
+| Payment Session Template Ids | List                      |           |
+| Portable Key                 | String                    |           |
+| Portal Id                    | Integer                   |           |
+| Publish At                   | Integer                   |           |
+| Published At                 | Integer                   |           |
+| Redirect                     | String                    |           |
+| Selected External Options    | List                      |           |
+| Style                        | Struct                    |           |
+| Submit Text                  | String                    |           |
+| Thank You Message Json       | String                    |           |
+| Theme Color                  | String                    |           |
+| Theme Name                   | String                    |           |
+| Unpublish At                 | Integer                   |           |
+| Updated At                   | Long                      |           |
+
+| HubSpot API v1     | **Object** | **Field** | **Data type** | **Supported filters** |
+| ------------------ | ---------- | --------- | ------------- | --------------------- |
+| CRM_Pipeline       | Active     | Boolean   |               |
+| Created At         | Long       |           |
+| Default            | Boolean    |           |
+| Display Order      | Integer    |           |
+| Label              | String     |           |
+| Object Type        | String     |           |
+| ObjectTypeId       | List       |           |
+| Pipeline Id        | String     |           |
+| Stages             | List       |           |
+| Updated At         | Long       |           |
+| Campaign           | App Id     | Integer   |               |
+| App Name           | String     |           |
+| Id                 | String     |           |
+| Last Updated Time  | String     |           |
+| Contact_List       | Archived   | Boolean   |               |
+| Author Id          | String     |           |
+| Created At         | Long       |           |
+| Dynamic            | Boolean    |           |
+| Filters            | List       |           |
+| Ils Filter Branch  | String     |           |
+| Internal           | Boolean    |           |
+| Limit Exempt       | Boolean    |           |
+| List Id            | Integer    |           |
+| List Type          | String     |           |
+| Meta Data          | Struct     |           |
+| Name               | String     |           |
+| Parent Id          | Integer    |           |
+| Portal Id          | Integer    |           |
+| Read Only          | Boolean    |           |
+| Team Ids           | List       |           |
+| Updated At         | Long       |           |
+| Email_Event        | App Id     | Integer   |               |
+| App Name           | String     |           |
+| Attempt            | Integer    |           |
+| Browser            | Struct     |           |
+| Created            | Integer    |           |
+| Device Type        | String     |           |
+| Drop Message       | String     |           |
+| Drop Reason        | String     |           |
+| Email Campaign Id  | Long       |           |
+| Filtered Event     | Boolean    |           |
+| From               | String     |           |
+| Id                 | String     |           |
+| Location           | Struct     |           |
+| Portal Id          | Integer    |           |
+| Recipient          | String     |           |
+| Reply To           | List       |           |
+| Response           | String     |           |
+| Sent By            | Struct     |           |
+| Smtp Id            | String     |           |
+| Subject            | String     |           |
+| Suppressed Message | String     |           |
+| Suppressed Reason  | String     |           |
+| Type               | String     |           |
+| User Agent         | Struct     |           |
+| bcc                | List       |           |
+| cc                 | List       |           |
+| duration           | Integer    |           |

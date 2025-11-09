@@ -260,44 +260,65 @@ The following table lists the metadata fields that Amazon AppFlow supports.
 For each transferred document, Amazon AppFlow writes only those fields that
 apply to the document type.
 
-| **Metadata field**
-| **Data type**
-| **Supported filters**
-|
-| --- | --- | --- |
-| Audio | Struct | |
-| Bundle | Struct | |
-| Created DateTime | DateTime | |
-| CreatedBy | Struct | |
-| Deleted | Struct | |
-| Description | String | |
-| Entity Content Tag | String | |
-| Entity Tag | String | |
-| File | Struct | |
-| File System Info | Struct | |
-| File Type | String | EQUAL_TO |
-| Id | String | |
-| Image | Struct | |
-| Last Modified By | Struct | |
-| Last Modified DateTime | DateTime | GREATER_THAN |
-| Location | Struct | |
-| Malware | Struct | |
-| Name | String | |
-| Package | Struct | |
-| Parent Reference | Struct | |
-| Pending Operations | Struct | |
-| Photo | Struct | |
-| Publication | Struct | |
-| Remote Item | Struct | |
-| Root | Struct | |
-| Search Result | Struct | |
-| SharePoint Ids | Struct | |
-| Shared | Struct | |
-| Size | Integer | |
-| Special Folder | Struct | |
-| Video | Struct | |
-| Web Dav Url | String | |
-| Web Url | String | | ## Quotas and limitations for the Microsoft SharePoint Online connector The following table lists the quotas that apply to flows that transfer from SharePoint.
-| Resource | Quota | | --- | --- |
-| The maximum number of SharePoint document library folders transferred by a flow | 17 | | The maximum size of any file transferred by a flow | 250 GB |
-| The maximum number of files transferred by a flow run | 10,000 | | The maximum total data size transferred by a flow run | 250 GB | The following limitations also apply to flows that transfer from SharePoint: <br>• For scheduled flows, if a flow remains running when the next flow run is scheduled to start, then Amazon AppFlow skips the next flow run. Amazon AppFlow does this to allow the first flow run enough time to complete. <br>• Amazon AppFlow doesn't provide the option to catalog your output in the AWS Glue Data Catalog. Amazon AppFlow typically provides that option for flows that transfer to Amazon S3, but the option is available only for structured source data. The documents that you transfer from your SharePoint document libraries are unstructured data. <br>• Amazon AppFlow doesn't provide the data partitioning options that it typically provides for flows that transfer to Amazon S3. Amazon AppFlow partitions all SharePoint output only into folders that are named after the execution ID of the flow run.
+| **Metadata field**     | **Data type** | **Supported filters** |
+| ---------------------- | ------------- | --------------------- |
+| Audio                  | Struct        |                       |
+| Bundle                 | Struct        |                       |
+| Created DateTime       | DateTime      |                       |
+| CreatedBy              | Struct        |                       |
+| Deleted                | Struct        |                       |
+| Description            | String        |                       |
+| Entity Content Tag     | String        |                       |
+| Entity Tag             | String        |                       |
+| File                   | Struct        |                       |
+| File System Info       | Struct        |                       |
+| File Type              | String        | EQUAL_TO              |
+| Id                     | String        |                       |
+| Image                  | Struct        |                       |
+| Last Modified By       | Struct        |                       |
+| Last Modified DateTime | DateTime      | GREATER_THAN          |
+| Location               | Struct        |                       |
+| Malware                | Struct        |                       |
+| Name                   | String        |                       |
+| Package                | Struct        |                       |
+| Parent Reference       | Struct        |                       |
+| Pending Operations     | Struct        |                       |
+| Photo                  | Struct        |                       |
+| Publication            | Struct        |                       |
+| Remote Item            | Struct        |                       |
+| Root                   | Struct        |                       |
+| Search Result          | Struct        |                       |
+| SharePoint Ids         | Struct        |                       |
+| Shared                 | Struct        |                       |
+| Size                   | Integer       |                       |
+| Special Folder         | Struct        |                       |
+| Video                  | Struct        |                       |
+| Web Dav Url            | String        |                       |
+| Web Url                | String        |                       |
+
+## Quotas and limitations for the Microsoft SharePoint Online
+
+connector
+
+The following table lists the quotas that apply to flows that transfer from
+SharePoint.
+
+| Resource                                                                        | Quota  |
+| ------------------------------------------------------------------------------- | ------ |
+| The maximum number of SharePoint document library folders transferred by a flow | 17     |
+| The maximum size of any file transferred by a flow                              | 250 GB |
+| The maximum number of files transferred by a flow run                           | 10,000 |
+| The maximum total data size transferred by a flow run                           | 250 GB |
+
+The following limitations also apply to flows that transfer from SharePoint:
+
+- For scheduled flows, if a flow remains running when the next flow run is scheduled to
+  start, then Amazon AppFlow skips the next flow run. Amazon AppFlow does this to allow the first flow run enough
+  time to complete.
+- Amazon AppFlow doesn't provide the option to catalog your output in the AWS Glue Data Catalog. Amazon AppFlow
+  typically provides that option for flows that transfer to Amazon S3, but the option is available
+  only for structured source data. The documents that you transfer from your SharePoint document
+  libraries are unstructured data.
+- Amazon AppFlow doesn't provide the data partitioning options that it typically provides for flows
+  that transfer to Amazon S3. Amazon AppFlow partitions all SharePoint output only into folders that are named
+  after the execution ID of the flow run.

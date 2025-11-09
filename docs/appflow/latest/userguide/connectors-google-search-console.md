@@ -141,18 +141,27 @@ When you create a flow that uses Google Search Console as the data source, you c
 following data objects to supported destinations:
 
 | **Object**      | **Field**       | **Data type**      | **Supported filters** |
-| --------------- | --------------- | ------------------ | --------------------- | -------------- | -------- | -------- |
+| --------------- | --------------- | ------------------ | --------------------- |
 | Search Analytic | clicks          | Double             |                       |
-| country         | String          | EQUAL_TO           |                       | ctr            | Double   |          |
-| device          | String          | EQUAL_TO           |                       | dimension      | String   | EQUAL_TO |
-| impressions     | Double          |                    |                       | keys           | List     |          |
-| page            | String          | EQUAL_TO, CONTAINS |                       | position       | Double   |          |
-| query           | String          | EQUAL_TO, CONTAINS |                       | search_type    | String   | EQUAL_TO |
+| country         | String          | EQUAL_TO           |
+| ctr             | Double          |                    |
+| device          | String          | EQUAL_TO           |
+| dimension       | String          | EQUAL_TO           |
+| impressions     | Double          |                    |
+| keys            | List            |                    |
+| page            | String          | EQUAL_TO, CONTAINS |
+| position        | Double          |                    |
+| query           | String          | EQUAL_TO, CONTAINS |
+| search_type     | String          | EQUAL_TO           |
 | start_end_date  | DateTime        | BETWEEN            |
 | Site            | permissionLevel | String             |                       |
 | siteUrl         | String          |                    |
 | Sitemap         | contents        | List               |                       |
-| errors          | Long            |                    |                       | isPending      | Boolean  |          |
-| isSitemapsIndex | Boolean         |                    |                       | lastDownloaded | DateTime |          |
-| lastSubmitted   | DateTime        |                    |                       | path           | String   |          |
-| type            | String          |                    |                       | warnings       | Long     |          |
+| errors          | Long            |                    |
+| isPending       | Boolean         |                    |
+| isSitemapsIndex | Boolean         |                    |
+| lastDownloaded  | DateTime        |                    |
+| lastSubmitted   | DateTime        |                    |
+| path            | String          |                    |
+| type            | String          |                    |
+| warnings        | Long            |                    |

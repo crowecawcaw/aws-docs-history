@@ -124,21 +124,33 @@ When you create a flow that uses LinkedIn Pages as the data source, you can set 
 When you create a flow that uses LinkedIn Pages as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                   | **Field**                           | **Data type**     | **Supported filters** |
-| ---------------------------- | ----------------------------------- | ----------------- | --------------------- | ------------------------------------ | ------ | -------- |
-| Follower Statistics          | Follower Counts By Association Type | List              |                       |
-| Follower Counts By Country   | List                                |                   |                       | Follower Counts By Function          | List   |          |
-| Follower Counts By Industry  | List                                |                   |                       | Follower Counts By Region            | List   |          |
-| Follower Counts By Seniority | List                                |                   |                       | Follower Counts By Staff Count Range | List   |          |
-| Follower Gain                | Struct                              |                   |                       | Organizational Entity                | String |          |
-| Start                        | DateTime                            | EQUAL_TO, BETWEEN |                       | Time Granularity Type                | String | EQUAL_TO |
-| Time Range                   | Struct                              |                   |
-| Page Statistics              | Organization                        | String            |                       |
-| Page Statistics By Country   | List                                |                   |                       | Page Statistics By Function          | List   |          |
-| Page Statistics By Industry  | List                                |                   |                       | Page Statistics By Region            | List   |          |
-| Page Statistics By Seniority | List                                |                   |                       | Page Statistics By Staff Count Range | List   |          |
-| Start                        | DateTime                            | EQUAL_TO, BETWEEN |                       | Time Granularity Type                | String | EQUAL_TO |
-| Time Range                   | Struct                              |                   |                       | Total Page Statistics                | Struct |          |
-| Share Statistics             | Organizational Entity               | String            |                       |
-| Start                        | DateTime                            | EQUAL_TO, BETWEEN |                       | Time Granularity Type                | String | EQUAL_TO |
-| Time Range                   | Struct                              |                   |                       | Total Share Statistics               | Struct |          |
+| **Object**                           | **Field**                           | **Data type**     | **Supported filters** |
+| ------------------------------------ | ----------------------------------- | ----------------- | --------------------- |
+| Follower Statistics                  | Follower Counts By Association Type | List              |                       |
+| Follower Counts By Country           | List                                |                   |
+| Follower Counts By Function          | List                                |                   |
+| Follower Counts By Industry          | List                                |                   |
+| Follower Counts By Region            | List                                |                   |
+| Follower Counts By Seniority         | List                                |                   |
+| Follower Counts By Staff Count Range | List                                |                   |
+| Follower Gain                        | Struct                              |                   |
+| Organizational Entity                | String                              |                   |
+| Start                                | DateTime                            | EQUAL_TO, BETWEEN |
+| Time Granularity Type                | String                              | EQUAL_TO          |
+| Time Range                           | Struct                              |                   |
+| Page Statistics                      | Organization                        | String            |                       |
+| Page Statistics By Country           | List                                |                   |
+| Page Statistics By Function          | List                                |                   |
+| Page Statistics By Industry          | List                                |                   |
+| Page Statistics By Region            | List                                |                   |
+| Page Statistics By Seniority         | List                                |                   |
+| Page Statistics By Staff Count Range | List                                |                   |
+| Start                                | DateTime                            | EQUAL_TO, BETWEEN |
+| Time Granularity Type                | String                              | EQUAL_TO          |
+| Time Range                           | Struct                              |                   |
+| Total Page Statistics                | Struct                              |                   |
+| Share Statistics                     | Organizational Entity               | String            |                       |
+| Start                                | DateTime                            | EQUAL_TO, BETWEEN |
+| Time Granularity Type                | String                              | EQUAL_TO          |
+| Time Range                           | Struct                              |                   |
+| Total Share Statistics               | Struct                              |                   |

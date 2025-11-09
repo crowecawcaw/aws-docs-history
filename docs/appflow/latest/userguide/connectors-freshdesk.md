@@ -104,130 +104,226 @@ When you create a flow that uses Freshdesk as the data source, you can transfer 
 following data objects to supported destinations:
 
 | **Object**          | **Field**          | **Data type**                                             | **Supported filters** |
-| ------------------- | ------------------ | --------------------------------------------------------- | --------------------- | ------------------- | -------- | --------------------------------------------------------- |
+| ------------------- | ------------------ | --------------------------------------------------------- | --------------------- |
 | Agent               | Available          | Boolean                                                   |                       |
-| Available Since     | DateTime           |                                                           |                       | Contact             | Map      |                                                           |
-| Created At          | DateTime           |                                                           |                       | Email               | String   | EQUAL_TO                                                  |
-| ID                  | Long               |                                                           |                       | Mobile              | Long     | EQUAL_TO                                                  |
-| Occasional          | Boolean            |                                                           |                       | Phone               | Long     | EQUAL_TO                                                  |
-| Signature           | String             |                                                           |                       | Ticket Scope        | Long     |                                                           |
-| Type                | String             |                                                           |                       | Updated At          | DateTime |                                                           |
+| Available Since     | DateTime           |                                                           |
+| Contact             | Map                |                                                           |
+| Created At          | DateTime           |                                                           |
+| Email               | String             | EQUAL_TO                                                  |
+| ID                  | Long               |                                                           |
+| Mobile              | Long               | EQUAL_TO                                                  |
+| Occasional          | Boolean            |                                                           |
+| Phone               | Long               | EQUAL_TO                                                  |
+| Signature           | String             |                                                           |
+| Ticket Scope        | Long               |                                                           |
+| Type                | String             |                                                           |
+| Updated At          | DateTime           |                                                           |
 | Business Hour       | Business Hour      | Map                                                       |                       |
-| Created At          | DateTime           |                                                           |                       | Description         | String   |                                                           |
-| ID                  | Long               |                                                           |                       | Is Default          | Boolean  |                                                           |
-| Name                | String             |                                                           |                       | Time Zone           | String   |                                                           |
+| Created At          | DateTime           |                                                           |
+| Description         | String             |                                                           |
+| ID                  | Long               |                                                           |
+| Is Default          | Boolean            |                                                           |
+| Name                | String             |                                                           |
+| Time Zone           | String             |                                                           |
 | Updated At          | DateTime           |                                                           |
 | Comment             | Answer             | Boolean                                                   |                       |
-| Body                | String             |                                                           |                       | Body Text           | String   |                                                           |
-| Created At          | DateTime           |                                                           |                       | Forum ID            | Long     |                                                           |
-| ID                  | Long               |                                                           |                       | Published           | Boolean  |                                                           |
-| Spam                | Boolean            |                                                           |                       | Topic ID            | Long     |                                                           |
-| Trash               | Boolean            |                                                           |                       | Updated At          | DateTime |                                                           |
+| Body                | String             |                                                           |
+| Body Text           | String             |                                                           |
+| Created At          | DateTime           |                                                           |
+| Forum ID            | Long               |                                                           |
+| ID                  | Long               |                                                           |
+| Published           | Boolean            |                                                           |
+| Spam                | Boolean            |                                                           |
+| Topic ID            | Long               |                                                           |
+| Trash               | Boolean            |                                                           |
+| Updated At          | DateTime           |                                                           |
 | User ID             | Long               |                                                           |
 | Company             | Account Tier       | String                                                    |                       |
-| Created At          | DateTime           | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |                       | Custom Field        | Map      |                                                           |
-| Description         | String             |                                                           |                       | Domain              | List     |                                                           |
-| Domain              | String             | EQUAL_TO                                                  |                       | Health Score        | String   |                                                           |
-| ID                  | Long               |                                                           |                       | Industry            | String   |                                                           |
-| Name                | String             |                                                           |                       | Note                | String   |                                                           |
-| Renewal Date        | Date               |                                                           |                       | Updated At          | DateTime | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
+| Created At          | DateTime           | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
+| Custom Field        | Map                |                                                           |
+| Description         | String             |                                                           |
+| Domain              | List               |                                                           |
+| Domain              | String             | EQUAL_TO                                                  |
+| Health Score        | String             |                                                           |
+| ID                  | Long               |                                                           |
+| Industry            | String             |                                                           |
+| Name                | String             |                                                           |
+| Note                | String             |                                                           |
+| Renewal Date        | Date               |                                                           |
+| Updated At          | DateTime           | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
 | Contact             | Active             | Boolean                                                   | EQUAL_TO              |
-| Address             | String             |                                                           |                       | Company ID          | Long     | EQUAL_TO                                                  |
-| Created At          | DateTime           | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, EQUAL_TO |                       | Custom Fields       | Map      |                                                           |
-| Description         | String             |                                                           |                       | Email               | String   | EQUAL_TO                                                  |
-| ID                  | Long               |                                                           |                       | Job Title           | String   |                                                           |
-| Language            | String             | EQUAL_TO                                                  |                       | Mobile              | String   | EQUAL_TO                                                  |
-| Name                | String             |                                                           |                       | Other Companies     | List     |                                                           |
-| Phone               | String             | EQUAL_TO                                                  |                       | Tag                 | String   | EQUAL_TO                                                  |
-| Time Zone           | String             | EQUAL_TO                                                  |                       | Twitter Id          | String   | EQUAL_TO                                                  |
+| Address             | String             |                                                           |
+| Company ID          | Long               | EQUAL_TO                                                  |
+| Created At          | DateTime           | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, EQUAL_TO |
+| Custom Fields       | Map                |                                                           |
+| Description         | String             |                                                           |
+| Email               | String             | EQUAL_TO                                                  |
+| ID                  | Long               |                                                           |
+| Job Title           | String             |                                                           |
+| Language            | String             | EQUAL_TO                                                  |
+| Mobile              | String             | EQUAL_TO                                                  |
+| Name                | String             |                                                           |
+| Other Companies     | List               |                                                           |
+| Phone               | String             | EQUAL_TO                                                  |
+| Tag                 | String             | EQUAL_TO                                                  |
+| Time Zone           | String             | EQUAL_TO                                                  |
+| Twitter Id          | String             | EQUAL_TO                                                  |
 | Updated At          | DateTime           | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO           |
 | Conversation        | Attachment         | List                                                      |                       |
-| Bcc Email           | List               |                                                           |                       | Body                | String   |                                                           |
-| Body Text           | String             |                                                           |                       | Cc Email            | List     |                                                           |
-| Created At          | DateTime           |                                                           |                       | From Email          | String   |                                                           |
-| ID                  | Long               |                                                           |                       | Incoming            | Boolean  |                                                           |
-| Last Edited At      | DateTime           |                                                           |                       | Last Edited User ID | Long     |                                                           |
-| Private             | Boolean            |                                                           |                       | Source              | Long     |                                                           |
-| Support Email       | String             |                                                           |                       | Ticket ID           | Long     |                                                           |
-| To Email            | String             |                                                           |                       | Updated At          | DateTime |                                                           |
+| Bcc Email           | List               |                                                           |
+| Body                | String             |                                                           |
+| Body Text           | String             |                                                           |
+| Cc Email            | List               |                                                           |
+| Created At          | DateTime           |                                                           |
+| From Email          | String             |                                                           |
+| ID                  | Long               |                                                           |
+| Incoming            | Boolean            |                                                           |
+| Last Edited At      | DateTime           |                                                           |
+| Last Edited User ID | Long               |                                                           |
+| Private             | Boolean            |                                                           |
+| Source              | Long               |                                                           |
+| Support Email       | String             |                                                           |
+| Ticket ID           | Long               |                                                           |
+| To Email            | String             |                                                           |
+| Updated At          | DateTime           |                                                           |
 | User ID             | Long               |                                                           |
 | Email Config        | Active             | Boolean                                                   |                       |
-| Created At          | DateTime           |                                                           |                       | Group ID            | Long     |                                                           |
-| ID                  | Long               |                                                           |                       | Name                | String   |                                                           |
-| Primary Role        | Boolean            |                                                           |                       | Product Id          | Long     |                                                           |
-| Reply Email         | String             |                                                           |                       | To Email            | String   |                                                           |
+| Created At          | DateTime           |                                                           |
+| Group ID            | Long               |                                                           |
+| ID                  | Long               |                                                           |
+| Name                | String             |                                                           |
+| Primary Role        | Boolean            |                                                           |
+| Product Id          | Long               |                                                           |
+| Reply Email         | String             |                                                           |
+| To Email            | String             |                                                           |
 | Updated At          | DateTime           |                                                           |
 | Email Inbox         | Active             | Boolean                                                   | EQUAL_TO              |
-| Created At          | DateTime           |                                                           |                       | Custom Mailbox      | Map      |                                                           |
-| Default Reply Email | Boolean            |                                                           |                       | Forward Email       | String   | EQUAL_TO                                                  |
-| Freshdesk Mailbox   | Map                |                                                           |                       | Group ID            | Long     | EQUAL_TO                                                  |
-| Mailbox Type        | String             |                                                           |                       | Name                | String   |                                                           |
-| Product ID          | Long               | EQUAL_TO                                                  |                       | Support_Email       | String   | EQUAL_TO                                                  |
-| Updated At          | DateTime           |                                                           |                       | id                  | Long     |                                                           |
+| Created At          | DateTime           |                                                           |
+| Custom Mailbox      | Map                |                                                           |
+| Default Reply Email | Boolean            |                                                           |
+| Forward Email       | String             | EQUAL_TO                                                  |
+| Freshdesk Mailbox   | Map                |                                                           |
+| Group ID            | Long               | EQUAL_TO                                                  |
+| Mailbox Type        | String             |                                                           |
+| Name                | String             |                                                           |
+| Product ID          | Long               | EQUAL_TO                                                  |
+| Support_Email       | String             | EQUAL_TO                                                  |
+| Updated At          | DateTime           |                                                           |
+| id                  | Long               |                                                           |
 | Forum               | Description        | String                                                    |                       |
-| Forum Category ID   | Long               |                                                           |                       | Forum Type          | Long     |                                                           |
-| Forum Visibility    | Long               |                                                           |                       | ID                  | Long     |                                                           |
-| Name                | String             |                                                           |                       | Position            | Long     |                                                           |
-| Posts Count         | Long               |                                                           |                       | Topics Count        | Long     |                                                           |
+| Forum Category ID   | Long               |                                                           |
+| Forum Type          | Long               |                                                           |
+| Forum Visibility    | Long               |                                                           |
+| ID                  | Long               |                                                           |
+| Name                | String             |                                                           |
+| Position            | Long               |                                                           |
+| Posts Count         | Long               |                                                           |
+| Topics Count        | Long               |                                                           |
 | Forum Category      | Created At         | DateTime                                                  |                       |
-| Description         | String             |                                                           |                       | ID                  | Long     |                                                           |
-| Name                | String             |                                                           |                       | Updated At          | DateTime |                                                           |
+| Description         | String             |                                                           |
+| ID                  | Long               |                                                           |
+| Name                | String             |                                                           |
+| Updated At          | DateTime           |                                                           |
 | Group               | Auto Ticket Assign | Long                                                      |                       |
-| Business Hour Id    | Long               |                                                           |                       | Created At          | DateTime |                                                           |
-| Description         | String             |                                                           |                       | Escalate To         | Long     |                                                           |
-| ID                  | Long               |                                                           |                       | Name                | String   |                                                           |
-| Unassigned For      | String             |                                                           |                       | Updated At          | DateTime |                                                           |
+| Business Hour Id    | Long               |                                                           |
+| Created At          | DateTime           |                                                           |
+| Description         | String             |                                                           |
+| Escalate To         | Long               |                                                           |
+| ID                  | Long               |                                                           |
+| Name                | String             |                                                           |
+| Unassigned For      | String             |                                                           |
+| Updated At          | DateTime           |                                                           |
 | Product             | Created At         | DateTime                                                  |                       |
-| Description         | String             |                                                           |                       | ID                  | Long     |                                                           |
-| Name                | String             |                                                           |                       | Updated At          | DateTime |                                                           |
+| Description         | String             |                                                           |
+| ID                  | Long               |                                                           |
+| Name                | String             |                                                           |
+| Updated At          | DateTime           |                                                           |
 | Role                | Created At         | DateTime                                                  |                       |
-| Default             | Boolean            |                                                           |                       | Description         | String   |                                                           |
-| ID                  | Long               |                                                           |                       | Name                | String   |                                                           |
+| Default             | Boolean            |                                                           |
+| Description         | String             |                                                           |
+| ID                  | Long               |                                                           |
+| Name                | String             |                                                           |
 | Updated At          | DateTime           |                                                           |
 | Satisfaction Rating | Agent ID           | Long                                                      |                       |
-| Created At          | DateTime           |                                                           |                       | Created_Since       | DateTime | EQUAL_TO                                                  |
-| Feedback            | String             |                                                           |                       | Group ID            | Long     |                                                           |
-| ID                  | Long               |                                                           |                       | Rating              | Map      |                                                           |
-| Survey ID           | Long               |                                                           |                       | Ticket ID           | Long     |                                                           |
-| Updated_At          | DateTime           |                                                           |                       | User ID             | Long     | EQUAL_TO                                                  |
+| Created At          | DateTime           |                                                           |
+| Created_Since       | DateTime           | EQUAL_TO                                                  |
+| Feedback            | String             |                                                           |
+| Group ID            | Long               |                                                           |
+| ID                  | Long               |                                                           |
+| Rating              | Map                |                                                           |
+| Survey ID           | Long               |                                                           |
+| Ticket ID           | Long               |                                                           |
+| Updated_At          | DateTime           |                                                           |
+| User ID             | Long               | EQUAL_TO                                                  |
 | Skill               | Agent              | List                                                      |                       |
-| Condtion            | List               |                                                           |                       | Created At          | DateTime |                                                           |
-| ID                  | Long               |                                                           |                       | Match Type          | String   |                                                           |
-| Name                | String             |                                                           |                       | Rank                | String   |                                                           |
+| Condtion            | List               |                                                           |
+| Created At          | DateTime           |                                                           |
+| ID                  | Long               |                                                           |
+| Match Type          | String             |                                                           |
+| Name                | String             |                                                           |
+| Rank                | String             |                                                           |
 | Updated At          | DateTime           |                                                           |
 | Solution            | Created At         | DateTime                                                  |                       |
-| Description         | String             |                                                           |                       | ID                  | Long     |                                                           |
-| Name                | String             |                                                           |                       | Term                | String   | CONTAINS                                                  |
+| Description         | String             |                                                           |
+| ID                  | Long               |                                                           |
+| Name                | String             |                                                           |
+| Term                | String             | CONTAINS                                                  |
 | Updated At          | DateTime           |                                                           |
 | Survey              | ID                 | Long                                                      |                       |
-| Question            | List               |                                                           |                       | Title               | String   |                                                           |
+| Question            | List               |                                                           |
+| Title               | String             |                                                           |
 | Ticket              | Agent ID           | Integer                                                   | EQUAL_TO              |
-| Cc Email            | List               |                                                           |                       | Created At          | DateTime | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, EQUAL_TO |
-| Custom Field        | Map                |                                                           |                       | Due By              | DateTime | EQUAL_TO                                                  |
-| Email Config Id     | Long               |                                                           |                       | Fr Due By           | DateTime | EQUAL_TO                                                  |
-| Fr Escalated        | Boolean            |                                                           |                       | Fwd Email           | List     |                                                           |
-| Group ID            | Long               | EQUAL_TO                                                  |                       | ID                  | Long     |                                                           |
-| Is Escalated        | Boolean            |                                                           |                       | Priority            | Long     | EQUAL_TO                                                  |
-| Product ID          | Long               |                                                           |                       | Reply Cc Email      | List     |                                                           |
-| Requester ID        | Long               |                                                           |                       | Responder ID        | Long     |                                                           |
-| Source              | Long               |                                                           |                       | Spam                | Boolean  |                                                           |
-| Status              | Long               | EQUAL_TO                                                  |                       | Subject             | String   |                                                           |
-| Tag                 | String             | EQUAL_TO                                                  |                       | To email            | List     |                                                           |
-| Type                | String             | EQUAL_TO                                                  |                       | Updated At          | DateTime | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO           |
+| Cc Email            | List               |                                                           |
+| Created At          | DateTime           | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, EQUAL_TO |
+| Custom Field        | Map                |                                                           |
+| Due By              | DateTime           | EQUAL_TO                                                  |
+| Email Config Id     | Long               |                                                           |
+| Fr Due By           | DateTime           | EQUAL_TO                                                  |
+| Fr Escalated        | Boolean            |                                                           |
+| Fwd Email           | List               |                                                           |
+| Group ID            | Long               | EQUAL_TO                                                  |
+| ID                  | Long               |                                                           |
+| Is Escalated        | Boolean            |                                                           |
+| Priority            | Long               | EQUAL_TO                                                  |
+| Product ID          | Long               |                                                           |
+| Reply Cc Email      | List               |                                                           |
+| Requester ID        | Long               |                                                           |
+| Responder ID        | Long               |                                                           |
+| Source              | Long               |                                                           |
+| Spam                | Boolean            |                                                           |
+| Status              | Long               | EQUAL_TO                                                  |
+| Subject             | String             |                                                           |
+| Tag                 | String             | EQUAL_TO                                                  |
+| To email            | List               |                                                           |
+| Type                | String             | EQUAL_TO                                                  |
+| Updated At          | DateTime           | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO           |
 | Time Entry          | Agent ID           | Long                                                      | EQUAL_TO              |
-| Billable            | Boolean            | EQUAL_TO                                                  |                       | Company ID          | Long     | EQUAL_TO                                                  |
-| Created At          | DateTime           |                                                           |                       | Executed After      | DateTime | EQUAL_TO                                                  |
-| Executed At         | DateTime           |                                                           |                       | Executed Before     | DateTime | EQUAL_TO                                                  |
-| ID                  | Long               |                                                           |                       | Note                | String   |                                                           |
-| Start Time          | DateTime           |                                                           |                       | Ticket ID           | Long     |                                                           |
-| Time Spent          | String             |                                                           |                       | Timer Running       | Boolean  |                                                           |
+| Billable            | Boolean            | EQUAL_TO                                                  |
+| Company ID          | Long               | EQUAL_TO                                                  |
+| Created At          | DateTime           |                                                           |
+| Executed After      | DateTime           | EQUAL_TO                                                  |
+| Executed At         | DateTime           |                                                           |
+| Executed Before     | DateTime           | EQUAL_TO                                                  |
+| ID                  | Long               |                                                           |
+| Note                | String             |                                                           |
+| Start Time          | DateTime           |                                                           |
+| Ticket ID           | Long               |                                                           |
+| Time Spent          | String             |                                                           |
+| Timer Running       | Boolean            |                                                           |
 | Updated At          | DateTime           |                                                           |
 | Topic               | Created At         | DateTime                                                  |                       |
-| Forum ID            | Long               |                                                           |                       | Hit                 | Long     |                                                           |
-| ID                  | Long               |                                                           |                       | Locked              | Boolean  |                                                           |
-| Merged Topic ID     | Long               |                                                           |                       | Post Count          | Long     |                                                           |
-| Published           | String             |                                                           |                       | Replied At          | DateTime |                                                           |
-| Replied By          | DateTime           |                                                           |                       | Stamp Type          | Long     |                                                           |
-| Sticky              | Boolean            |                                                           |                       | Title               | String   |                                                           |
-| Updated At          | DateTime           |                                                           |                       | User ID             | Long     |                                                           |
+| Forum ID            | Long               |                                                           |
+| Hit                 | Long               |                                                           |
+| ID                  | Long               |                                                           |
+| Locked              | Boolean            |                                                           |
+| Merged Topic ID     | Long               |                                                           |
+| Post Count          | Long               |                                                           |
+| Published           | String             |                                                           |
+| Replied At          | DateTime           |                                                           |
+| Replied By          | DateTime           |                                                           |
+| Stamp Type          | Long               |                                                           |
+| Sticky              | Boolean            |                                                           |
+| Title               | String             |                                                           |
+| Updated At          | DateTime           |                                                           |
+| User ID             | Long               |                                                           |
 | User Vote           | Long               |                                                           |

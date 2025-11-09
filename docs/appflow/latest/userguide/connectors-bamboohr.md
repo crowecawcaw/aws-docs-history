@@ -106,45 +106,78 @@ When you create a flow that uses BambooHR as the data source, you can transfer a
 following data objects to supported destinations:
 
 | **Object**                 | **Field**              | **Data type**            | **Supported filters** |
-| -------------------------- | ---------------------- | ------------------------ | --------------------- | ----------------------- | -------- | -------- |
+| -------------------------- | ---------------------- | ------------------------ | --------------------- |
 | Company Files              | Company Name           | String                   |                       |
-| Id                         | Integer                |                          |                       | can Upload Files        | String   |          |
+| Id                         | Integer                |                          |
+| can Upload Files           | String                 |                          |
 | files                      | List                   |                          |
 | Deduction types            | Additional Description | String                   |                       |
-| Allowable Benefit Types    | List                   |                          |                       | Can BeCollected By Trax | Boolean  |          |
-| Deduction Note             | String                 |                          |                       | Deduction Note Link     | String   |          |
-| Deduction Note Link Text   | String                 |                          |                       | Deduction Type Name     | String   |          |
-| Default Deduction Code     | String                 |                          |                       | Hide Annual Max         | Boolean  |          |
-| Id                         | String                 |                          |                       | Managed Deduction Type  | String   |          |
-| Non Benefit Deduction Type | Boolean                |                          |                       | Sub Type Text           | String   |          |
+| Allowable Benefit Types    | List                   |                          |
+| Can BeCollected By Trax    | Boolean                |                          |
+| Deduction Note             | String                 |                          |
+| Deduction Note Link        | String                 |                          |
+| Deduction Note Link Text   | String                 |                          |
+| Deduction Type Name        | String                 |                          |
+| Default Deduction Code     | String                 |                          |
+| Hide Annual Max            | Boolean                |                          |
+| Id                         | String                 |                          |
+| Managed Deduction Type     | String                 |                          |
+| Non Benefit Deduction Type | Boolean                |                          |
+| Sub Type Text              | String                 |                          |
 | Sub Types                  | List                   |                          |
 | Employee Dependents        | Address Line 1         | String                   |                       |
-| Address Line 2             | String                 |                          |                       | City                    | String   |          |
-| Country                    | String                 |                          |                       | Date Of Birth           | Date     |          |
-| Employee Id                | String                 |                          |                       | First Name              | String   |          |
-| Gender                     | String                 |                          |                       | Home Phone              | String   |          |
-| Id                         | String                 |                          |                       | Is Student              | String   |          |
-| Is Us Citizen              | String                 |                          |                       | Last Name               | String   |          |
-| Masked SIN                 | String                 |                          |                       | Masked SSN              | String   |          |
-| Middle Name                | String                 |                          |                       | Relationship            | String   |          |
-| State                      | String                 |                          |                       | Zip Code                | String   |          |
+| Address Line 2             | String                 |                          |
+| City                       | String                 |                          |
+| Country                    | String                 |                          |
+| Date Of Birth              | Date                   |                          |
+| Employee Id                | String                 |                          |
+| First Name                 | String                 |                          |
+| Gender                     | String                 |                          |
+| Home Phone                 | String                 |                          |
+| Id                         | String                 |                          |
+| Is Student                 | String                 |                          |
+| Is Us Citizen              | String                 |                          |
+| Last Name                  | String                 |                          |
+| Masked SIN                 | String                 |                          |
+| Masked SSN                 | String                 |                          |
+| Middle Name                | String                 |                          |
+| Relationship               | String                 |                          |
+| State                      | String                 |                          |
+| Zip Code                   | String                 |                          |
 | Employees                  | Can Upload Photo       | Boolean                  |                       |
-| Department                 | List                   |                          |                       | Display Name            | String   |          |
-| Division                   | List                   |                          |                       | Employee photo url      | String   |          |
-| First Name                 | String                 |                          |                       | ID                      | String   | EQUAL_TO |
-| Instagram                  | String                 |                          |                       | Job Title               | List     |          |
-| Last Changed               | DateTime               | GREATER_THAN_OR_EQUAL_TO |                       | Last Name               | String   |          |
-| LinkedIn                   | String                 |                          |                       | Location                | List     |          |
-| Manager                    | String                 |                          |                       | Mobile Phone            | String   |          |
-| Photo Uploaded             | Boolean                |                          |                       | Preferred Name          | String   |          |
-| Pronouns                   | List                   |                          |                       | Work Email              | String   |          |
-| Work Phone                 | String                 |                          |                       | Work Phone Extension    | String   |          |
+| Department                 | List                   |                          |
+| Display Name               | String                 |                          |
+| Division                   | List                   |                          |
+| Employee photo url         | String                 |                          |
+| First Name                 | String                 |                          |
+| ID                         | String                 | EQUAL_TO                 |
+| Instagram                  | String                 |                          |
+| Job Title                  | List                   |                          |
+| Last Changed               | DateTime               | GREATER_THAN_OR_EQUAL_TO |
+| Last Name                  | String                 |                          |
+| LinkedIn                   | String                 |                          |
+| Location                   | List                   |                          |
+| Manager                    | String                 |                          |
+| Mobile Phone               | String                 |                          |
+| Photo Uploaded             | Boolean                |                          |
+| Preferred Name             | String                 |                          |
+| Pronouns                   | List                   |                          |
+| Work Email                 | String                 |                          |
+| Work Phone                 | String                 |                          |
+| Work Phone Extension       | String                 |                          |
 | Training Type              | Category               | Struct                   |                       |
-| Description                | String                 |                          |                       | Due From Hire Date      | List     |          |
-| Frequency                  | String                 |                          |                       | Id                      | String   |          |
-| Link Url                   | String                 |                          |                       | Renewable               | Boolean  |          |
-| Required                   | Boolean                |                          |                       | Training Type           | String   |          |
+| Description                | String                 |                          |
+| Due From Hire Date         | List                   |                          |
+| Frequency                  | String                 |                          |
+| Id                         | String                 |                          |
+| Link Url                   | String                 |                          |
+| Renewable                  | Boolean                |                          |
+| Required                   | Boolean                |                          |
+| Training Type              | String                 |                          |
 | Users                      | Email                  | String                   |                       |
-| Employee Id                | Integer                |                          |                       | First Name              | String   |          |
-| Id                         | Integer                |                          |                       | Last Login              | DateTime |          |
-| Last Name                  | String                 |                          |                       | Status                  | String   |          |
+| Employee Id                | Integer                |                          |
+| First Name                 | String                 |                          |
+| Id                         | Integer                |                          |
+| Last Login                 | DateTime               |                          |
+| Last Name                  | String                 |                          |
+| Status                     | String                 |                          |

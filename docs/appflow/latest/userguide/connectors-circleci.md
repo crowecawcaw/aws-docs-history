@@ -97,69 +97,111 @@ When you create a flow that uses CircleCI as the data source, you can set the de
 When you create a flow that uses CircleCI as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                  | **Field**          | **Data type**     | **Supported filters** |
-| --------------------------- | ------------------ | ----------------- | --------------------- | ---------------------------- | -------- | ----------------- |
-| Context                     | Created At         | String            |                       |
-| ID                          | String             |                   |                       | Name                         | String   |                   |
-| Owner Type                  | String             | EQUAL_TO          |
-| Organization Summary Metric | All Projects       | List              |                       |
-| Org Data                    | Struct             |                   |                       | Org Project Data             | List     |                   |
-| Project Names               | String             | EQUAL_TO          |                       | Reporting Window             | String   | EQUAL_TO          |
-| Pipeline                    | Branch             | String            | EQUAL_TO              |
-| Created At                  | String             |                   |                       | Errors                       | List     |                   |
-| ID                          | String             |                   |                       | Number                       | Integer  |                   |
-| Project Slug                | String             |                   |                       | State                        | String   |                   |
-| Trigger                     | Struct             |                   |                       | Trigger Parameters           | Struct   |                   |
-| Updated At                  | String             |                   |                       | VCS                          | Struct   |                   |
-| Pipeline Workflow           | Canceled By        | String            |                       |
-| Created At                  | String             |                   |                       | Errored By                   | String   |                   |
-| ID                          | String             |                   |                       | Name                         | String   |                   |
-| Pipeline ID                 | String             |                   |                       | Pipeline Number              | Integer  |                   |
-| Project Slug                | String             |                   |                       | Started By                   | String   |                   |
-| Status                      | String             |                   |                       | Stopped At                   | String   |                   |
-| Tag                         | String             |                   |
-| Project Branch              | Branches           | List              |                       |
-| Org ID                      | String             |                   |                       | Project ID                   | String   |                   |
-| Workflow Name               | String             | EQUAL_TO          |
-| Project Flaky Test          | Classname          | String            |                       |
-| File                        | String             |                   |                       | Job Name                     | String   |                   |
-| Job Number                  | Integer            |                   |                       | Pipeline Number              | Integer  |                   |
-| Source                      | String             |                   |                       | Test Name                    | String   |                   |
-| Time Wasted                 | Integer            |                   |                       | Times Flaked                 | Integer  |                   |
-| Workflow Created At         | String             |                   |                       | Workflow ID                  | String   |                   |
-| Workflow Name               | String             |                   |
-| Project Summary Metric      | All Branches       | List              |                       |
-| All Workflows               | List               |                   |                       | Branches                     | String   | EQUAL_TO          |
-| Organization ID             | String             |                   |                       | Project Data                 | Struct   |                   |
-| Project ID                  | String             |                   |                       | Project Workflow Branch Data | List     |                   |
-| Project Workflow Data       | List               |                   |                       | Reporting Window             | String   | EQUAL_TO          |
-| Workflow Names              | String             | EQUAL_TO          |
-| Schedule                    | Actor              | Struct            |                       |
-| Created At                  | String             |                   |                       | Description                  | String   |                   |
-| ID                          | String             |                   |                       | Name                         | String   |                   |
-| Parameters                  | Struct             |                   |                       | Project Slug                 | String   |                   |
-| Timetable                   | Struct             |                   |                       | Updated At                   | String   |                   |
-| Workflow Job Timeseries     | Branch             | String            | EQUAL_TO              |
-| Granularity                 | String             | EQUAL_TO          |                       | Max Ended At                 | String   |                   |
-| Metrics                     | Struct             |                   |                       | Min Started At               | String   |                   |
-| Name                        | String             |                   |                       | Start End Date               | DateTime | EQUAL_TO, BETWEEN |
-| Timestamp                   | String             |                   |
-| Workflow Metric and Trend   | All Branches       | Boolean           | EQUAL_TO              |
-| Branches                    | String             | EQUAL_TO          |                       | Metrics                      | Struct   |                   |
-| Trends                      | Struct             |                   |                       | Workflow Names               | List     |                   |
-| Workflow Recent Run         | All Branches       | Boolean           | EQUAL_TO              |
-| Branch                      | String             | EQUAL_TO          |                       | Created At                   | String   |                   |
-| Credits Used                | Integer            |                   |                       | Duration                     | Integer  |                   |
-| ID                          | String             |                   |                       | Is Approval                  | Boolean  |                   |
-| Start End Date              | DateTime           | EQUAL_TO, BETWEEN |                       | Status                       | String   |                   |
-| Stopped At                  | String             |                   |
-| Workflow Summary Metric     | All Branches       | Boolean           | EQUAL_TO              |
-| Branch                      | String             | EQUAL_TO          |                       | Metrics                      | Struct   |                   |
-| Name                        | String             |                   |                       | Project ID                   | String   |                   |
-| Reporting Window            | String             | EQUAL_TO          |                       | Window End                   | String   |                   |
-| Window Start                | String             |                   |
-| Workflow Test Metric        | Average Test Count | Integer           |                       |
-| Branch                      | String             | EQUAL_TO          |                       | Most Failed Tests            | List     |                   |
-| Most Failed Tests Extra     | Integer            |                   |                       | Slowest Tests                | List     |                   |
-| Slowest Tests Extra         | Integer            |                   |                       | Test Runs                    | List     |                   |
-| Total Test Runs             | Integer            |                   |
+| **Object**                   | **Field**          | **Data type**     | **Supported filters** |
+| ---------------------------- | ------------------ | ----------------- | --------------------- |
+| Context                      | Created At         | String            |                       |
+| ID                           | String             |                   |
+| Name                         | String             |                   |
+| Owner Type                   | String             | EQUAL_TO          |
+| Organization Summary Metric  | All Projects       | List              |                       |
+| Org Data                     | Struct             |                   |
+| Org Project Data             | List               |                   |
+| Project Names                | String             | EQUAL_TO          |
+| Reporting Window             | String             | EQUAL_TO          |
+| Pipeline                     | Branch             | String            | EQUAL_TO              |
+| Created At                   | String             |                   |
+| Errors                       | List               |                   |
+| ID                           | String             |                   |
+| Number                       | Integer            |                   |
+| Project Slug                 | String             |                   |
+| State                        | String             |                   |
+| Trigger                      | Struct             |                   |
+| Trigger Parameters           | Struct             |                   |
+| Updated At                   | String             |                   |
+| VCS                          | Struct             |                   |
+| Pipeline Workflow            | Canceled By        | String            |                       |
+| Created At                   | String             |                   |
+| Errored By                   | String             |                   |
+| ID                           | String             |                   |
+| Name                         | String             |                   |
+| Pipeline ID                  | String             |                   |
+| Pipeline Number              | Integer            |                   |
+| Project Slug                 | String             |                   |
+| Started By                   | String             |                   |
+| Status                       | String             |                   |
+| Stopped At                   | String             |                   |
+| Tag                          | String             |                   |
+| Project Branch               | Branches           | List              |                       |
+| Org ID                       | String             |                   |
+| Project ID                   | String             |                   |
+| Workflow Name                | String             | EQUAL_TO          |
+| Project Flaky Test           | Classname          | String            |                       |
+| File                         | String             |                   |
+| Job Name                     | String             |                   |
+| Job Number                   | Integer            |                   |
+| Pipeline Number              | Integer            |                   |
+| Source                       | String             |                   |
+| Test Name                    | String             |                   |
+| Time Wasted                  | Integer            |                   |
+| Times Flaked                 | Integer            |                   |
+| Workflow Created At          | String             |                   |
+| Workflow ID                  | String             |                   |
+| Workflow Name                | String             |                   |
+| Project Summary Metric       | All Branches       | List              |                       |
+| All Workflows                | List               |                   |
+| Branches                     | String             | EQUAL_TO          |
+| Organization ID              | String             |                   |
+| Project Data                 | Struct             |                   |
+| Project ID                   | String             |                   |
+| Project Workflow Branch Data | List               |                   |
+| Project Workflow Data        | List               |                   |
+| Reporting Window             | String             | EQUAL_TO          |
+| Workflow Names               | String             | EQUAL_TO          |
+| Schedule                     | Actor              | Struct            |                       |
+| Created At                   | String             |                   |
+| Description                  | String             |                   |
+| ID                           | String             |                   |
+| Name                         | String             |                   |
+| Parameters                   | Struct             |                   |
+| Project Slug                 | String             |                   |
+| Timetable                    | Struct             |                   |
+| Updated At                   | String             |                   |
+| Workflow Job Timeseries      | Branch             | String            | EQUAL_TO              |
+| Granularity                  | String             | EQUAL_TO          |
+| Max Ended At                 | String             |                   |
+| Metrics                      | Struct             |                   |
+| Min Started At               | String             |                   |
+| Name                         | String             |                   |
+| Start End Date               | DateTime           | EQUAL_TO, BETWEEN |
+| Timestamp                    | String             |                   |
+| Workflow Metric and Trend    | All Branches       | Boolean           | EQUAL_TO              |
+| Branches                     | String             | EQUAL_TO          |
+| Metrics                      | Struct             |                   |
+| Trends                       | Struct             |                   |
+| Workflow Names               | List               |                   |
+| Workflow Recent Run          | All Branches       | Boolean           | EQUAL_TO              |
+| Branch                       | String             | EQUAL_TO          |
+| Created At                   | String             |                   |
+| Credits Used                 | Integer            |                   |
+| Duration                     | Integer            |                   |
+| ID                           | String             |                   |
+| Is Approval                  | Boolean            |                   |
+| Start End Date               | DateTime           | EQUAL_TO, BETWEEN |
+| Status                       | String             |                   |
+| Stopped At                   | String             |                   |
+| Workflow Summary Metric      | All Branches       | Boolean           | EQUAL_TO              |
+| Branch                       | String             | EQUAL_TO          |
+| Metrics                      | Struct             |                   |
+| Name                         | String             |                   |
+| Project ID                   | String             |                   |
+| Reporting Window             | String             | EQUAL_TO          |
+| Window End                   | String             |                   |
+| Window Start                 | String             |                   |
+| Workflow Test Metric         | Average Test Count | Integer           |                       |
+| Branch                       | String             | EQUAL_TO          |
+| Most Failed Tests            | List               |                   |
+| Most Failed Tests Extra      | Integer            |                   |
+| Slowest Tests                | List               |                   |
+| Slowest Tests Extra          | Integer            |                   |
+| Test Runs                    | List               |                   |
+| Total Test Runs              | Integer            |                   |

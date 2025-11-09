@@ -106,13 +106,20 @@ When you create a flow that uses Domo as the data source, you can transfer any o
 following data objects to supported destinations:
 
 | **Object**             | **Field** | **Data type** | **Supported filters** |
-| ---------------------- | --------- | ------------- | --------------------- | ------------- | ------- | --- |
+| ---------------------- | --------- | ------------- | --------------------- |
 | Data Permission Policy | Filters   | List          |                       |
-| Groups                 | List      |               |                       | Id            | String  |     |
-| Name                   | String    |               |                       | Type          | String  |     |
-| Users                  | List      |               |                       | Virtual Users | List    |     |
+| Groups                 | List      |               |
+| Id                     | String    |               |
+| Name                   | String    |               |
+| Type                   | String    |               |
+| Users                  | List      |               |
+| Virtual Users          | List      |               |
 | Dataset                | Columns   | Integer       |                       |
-| CreatedAt              | String    |               |                       | Description   | String  |     |
-| Id                     | String    |               |                       | Name          | String  |     |
-| Owner                  | Struct    |               |                       | PDP Enabled   | Boolean |     |
-| Rows                   | Integer   |               |                       | UpdatedAt     | String  |     |
+| CreatedAt              | String    |               |
+| Description            | String    |               |
+| Id                     | String    |               |
+| Name                   | String    |               |
+| Owner                  | Struct    |               |
+| PDP Enabled            | Boolean   |               |
+| Rows                   | Integer   |               |
+| UpdatedAt              | String    |               |

@@ -152,14 +152,85 @@ The following table represents an example dataset of account records from a Sale
 database. The dataset is the source data for a flow that transfers from Salesforce to
 Amazon S3.
 
-| `Account Name` | `Account Type`       | `Billing State/Province` | `Account Rating` | `Industry`       |
-| -------------- | -------------------- | ------------------------ | ---------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Example1`     | `Customer - Direct`  | `Anywhere`               | `Hot`            | `Apparel`        |
-| `Example2`     | `Customer - Channel` | `Anywhere`               | `Warm`           | `Biotechnology`  |
-| `Example3`     |                      | `Anywhere`               | `Cold`           | `Construction`   |
-| `Example4`     | `Customer - Direct`  | `Anywhere`               |                  | `Consulting`     |
-| `Example5`     | `Customer - Channel` | `Anywhere`               | `Hot`            | `Education`      |
-| `Example6`     | `Customer- Channel`  | `Anywhere`               | `Warm`           | `Electronics`    |
-| `Example7`     |                      | `Anywhere`               | `Cold`           | `Energy`         |
-| `Example8`     |                      | `Anywhere`               |                  | `Hospitality`    |
-| `Example9`     | `Customer - Direct`  | `Anywhere`               | `Hot`            | `Transportation` | ### Example flow configuration The flow that transfers the example dataset has the following configuration under **AWS Glue Data Catalog settings** in the console: <br>• **User role** is set to `appflow-data-catalog-user-role`. This is an example name for a role that grants the required permissions to Amazon AppFlow. <br>• **Database** is set to `example-database`. <br>• **Table name prefix** is set to `example-prefix`. ![Example configuration of the AWS Glue Data Catalog settings on the Configure flow page.](images/flow-example-gdc-config.png) #### Example Data Catalog table When the flow runs, Amazon AppFlow creates tables in the database named example-database. One of these tables is named example-prefix_appflow_exampleflow_1668036146_latest.Amazon AppFlow updates this table every time the flow runs. You can view the tables that Amazon AppFlow creates for your flows in the Data Catalog console. ![Example database details page in the Data Catalog console.](images/glue-example-database.png) The Data Catalog console provides details pages for each table. Each page shows the metadata that a table stores, such as the columns and data types in the data schema. For more information, see [Working with tables on the AWS Glue console](../../../glue/latest/dg/console-tables.md "../../../glue/latest/dg/console-tables.md") in the _AWS Glue Developer Guide_. ![Schema information on the table details page in the Data Catalog console.](images/glue-example-table-schema.png) While you're on a table details page, you can also view any business metadata that Amazon AppFlow discovered in your source data. To view this data, open the table properties by choosing **Actions** and then **View properties**. The table properties JSON gives the business metadata as the values of the `AppFlowLabel` and `AppFlowDescription` attributes. ###### Example Data Catalog table properties with business metadata from Amazon AppFlow `. . . "StorageDescriptor": { "Columns": [ { "Name": "id", "Type": "string", "Parameters": { "AppFlowLabel": "Account ID", "AppFlowDescription": "A unique identifier for the customer account." } }, . . .` You can search the cataloged dataset with data query tools and many AWS services. One way that you can query the data is to choose the **Table data** link on the database page in the Data Catalog console. That link opens Amazon Athena. This is an AWS service that runs SQL queries to help you analyze data in Amazon S3. In Amazon Athena, the following SQL query retrieves the data that Amazon AppFlow catalogs in the example table: `SELECT * FROM "AwsDataCatalog"."example-database" ."example-prefix_appflow_exampleflow_1668036146_latest" limit 10;` The Amazon Athena console shows the data that the query retrieves. ![Results from an Amazon Athena query. This query retrieves the data that Amazon AppFlow cataloged in the Data Catalog.](images/glue-athena-query.png) |
+| `Account Name` | `Account Type`          | `Billing State/Province` | `Account Rating` | `Industry`       |
+| -------------- | ----------------------- | ------------------------ | ---------------- | ---------------- |
+| `Example1`     | `Customer<br>• Direct`  | `Anywhere`               | `Hot`            | `Apparel`        |
+| `Example2`     | `Customer<br>• Channel` | `Anywhere`               | `Warm`           | `Biotechnology`  |
+| `Example3`     |                         | `Anywhere`               | `Cold`           | `Construction`   |
+| `Example4`     | `Customer<br>• Direct`  | `Anywhere`               |                  | `Consulting`     |
+| `Example5`     | `Customer<br>• Channel` | `Anywhere`               | `Hot`            | `Education`      |
+| `Example6`     | `Customer<br>• Channel` | `Anywhere`               | `Warm`           | `Electronics`    |
+| `Example7`     |                         | `Anywhere`               | `Cold`           | `Energy`         |
+| `Example8`     |                         | `Anywhere`               |                  | `Hospitality`    |
+| `Example9`     | `Customer<br>• Direct`  | `Anywhere`               | `Hot`            | `Transportation` |
+
+### Example flow configuration
+
+The flow that transfers the example dataset has the following configuration under
+**AWS Glue Data Catalog settings** in the console:
+
+- **User role** is set to
+  `appflow-data-catalog-user-role`. This is an example name for a role
+  that grants the required permissions to Amazon AppFlow.
+- **Database** is set to `example-database`.
+- **Table name prefix** is set to
+  `example-prefix`.
+
+![Example configuration of the AWS Glue Data Catalog settings on the Configure flow page.](images/flow-example-gdc-config.png)
+
+#### Example Data Catalog table
+
+When the flow runs, Amazon AppFlow creates tables in the database named example-database. One of
+these tables is named example-prefix_appflow_exampleflow_1668036146_latest.Amazon AppFlow updates this
+table every time the flow runs. You can view the tables that Amazon AppFlow creates for your flows in
+the Data Catalog console.
+
+![Example database details page in the Data Catalog console.](images/glue-example-database.png)
+
+The Data Catalog console provides details pages for each table. Each page shows the metadata
+that a table stores, such as the columns and data types in the data schema. For more
+information, see [Working
+with tables on the AWS Glue console](../../../glue/latest/dg/console-tables.md "../../../glue/latest/dg/console-tables.md") in the _AWS Glue Developer Guide_.
+
+![Schema information on the table details page in the Data Catalog console.](images/glue-example-table-schema.png)
+
+While you're on a table details page, you can also view any business metadata that Amazon AppFlow
+discovered in your source data. To view this data, open the table properties by choosing
+**Actions** and then **View properties**. The table
+properties JSON gives the business metadata as the values of the `AppFlowLabel` and
+`AppFlowDescription` attributes.
+
+###### Example Data Catalog table properties with business metadata from Amazon AppFlow
+
+```
+. . .
+  "StorageDescriptor": {
+    "Columns": [
+      {
+        "Name": "id",
+        "Type": "string",
+        "Parameters": {
+          "AppFlowLabel": "Account ID",
+          "AppFlowDescription": "A unique identifier for the customer account."
+        }
+      },
+. . .
+```
+
+You can search the cataloged dataset with data query tools and many AWS services. One
+way that you can query the data is to choose the **Table data** link on the
+database page in the Data Catalog console. That link opens Amazon Athena. This is an AWS service that
+runs SQL queries to help you analyze data in Amazon S3.
+
+In Amazon Athena, the following SQL query retrieves the data that Amazon AppFlow catalogs in the
+example table:
+
+```
+
+SELECT * FROM "AwsDataCatalog"."example-database"
+    ."example-prefix_appflow_exampleflow_1668036146_latest" limit 10;
+```
+
+The Amazon Athena console shows the data that the query retrieves.
+
+![Results from an Amazon Athena query. This query retrieves the data that Amazon AppFlow cataloged in the Data Catalog.](images/glue-athena-query.png)

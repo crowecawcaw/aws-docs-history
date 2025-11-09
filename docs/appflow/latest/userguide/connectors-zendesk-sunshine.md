@@ -125,19 +125,26 @@ When you create a flow that uses Zendesk Sunshine as the data source, you can tr
 following data objects to supported destinations:
 
 | **Object**                          | **Field**  | **Data type**                                | **Supported filters** |
-| ----------------------------------- | ---------- | -------------------------------------------- | --------------------- | ----------------- | ------ | --- |
+| ----------------------------------- | ---------- | -------------------------------------------- | --------------------- |
 | Custom Object Type Permission       | Data       | Struct                                       |                       |
 | Custom Relationship Type Permission | Data       | Struct                                       |                       |
 | Object Record                       | Attributes | Struct                                       |                       |
-| Created At                          | DateTime   | GREATER_THAN_OR_EQUAL_TO, BETWEEN, LESS_THAN |                       | External Id       | String |     |
-| Id                                  | String     |                                              |                       | Type              | String |     |
+| Created At                          | DateTime   | GREATER_THAN_OR_EQUAL_TO, BETWEEN, LESS_THAN |
+| External Id                         | String     |                                              |
+| Id                                  | String     |                                              |
+| Type                                | String     |                                              |
 | Updated At                          | DateTime   | GREATER_THAN_OR_EQUAL_TO, BETWEEN, LESS_THAN |
 | Object Type                         | Created At | String                                       |                       |
-| Key                                 | String     |                                              |                       | Schema            | Struct |     |
+| Key                                 | String     |                                              |
+| Schema                              | Struct     |                                              |
 | Updated At                          | String     |                                              |
 | Relationship Type                   | Created At | String                                       |                       |
-| Key                                 | String     |                                              |                       | Source            | String |     |
-| Target                              | Struct     |                                              |                       | Updated At        | String |     |
+| Key                                 | String     |                                              |
+| Source                              | String     |                                              |
+| Target                              | Struct     |                                              |
+| Updated At                          | String     |                                              |
 | Relationship Type Record            | Created At | String                                       |                       |
-| Id                                  | String     |                                              |                       | Relationship Type | String |     |
-| Source                              | String     |                                              |                       | Target            | String |     |
+| Id                                  | String     |                                              |
+| Relationship Type                   | String     |                                              |
+| Source                              | String     |                                              |
+| Target                              | String     |                                              |

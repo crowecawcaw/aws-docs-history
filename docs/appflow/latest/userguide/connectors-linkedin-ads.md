@@ -128,82 +128,151 @@ When you create a flow that uses LinkedIn Ads as the data source, you can set th
 When you create a flow that uses LinkedIn Ads as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                                  | **Field**             | **Data type**     | **Supported filters** |
-| ------------------------------------------- | --------------------- | ----------------- | --------------------- | -------------------------------------------- | ---------- | -------- |
-| Ad Account                                  | Change Audit Stamp    | Struct            |                       |
-| Currency                                    | String                |                   |                       | Field                                        | String     | EQUAL_TO |
-| ID                                          | Long                  | EQUAL_TO          |                       | Name                                         | String     | EQUAL_TO |
-| Notified On Campaign Optimization           | Boolean               |                   |                       | Notified On Creative Approval                | Boolean    |          |
-| Notified On Creative Rejection              | Boolean               |                   |                       | Notified On End Of Campaign                  | Boolean    |          |
-| Notified On New Features Enabled            | Boolean               |                   |                       | Order                                        | String     | EQUAL_TO |
-| Reference                                   | String                | EQUAL_TO          |                       | Serving Status                               | List       |          |
-| Status                                      | String                | EQUAL_TO          |                       | Test                                         | Boolean    | EQUAL_TO |
-| Type                                        | String                | EQUAL_TO          |                       | Version                                      | Struct     |          |
-| Ad Analytics                                | Action Click          | Long              |                       |
-| Ad Unit Click                               | Long                  |                   |                       | Approximate Unique Impression                | Long       |          |
-| Card Click                                  | Long                  |                   |                       | Card Impression                              | Long       |          |
-| Click                                       | Long                  |                   |                       | Comment                                      | Long       |          |
-| Comment Like                                | Long                  |                   |                       | Company Page Click                           | Long       |          |
-| Conversion Value In Local Currency          | BigDecimal            |                   |                       | Cost In Local Currency                       | BigDecimal |          |
-| Cost In USD                                 | BigDecimal            |                   |                       | Date Range                                   | Struct     | EQUAL_TO |
-| External Website Conversion                 | Long                  |                   |                       | External Website Post Click Conversion       | Long       |          |
-| External Website Post View Conversion       | Long                  |                   |                       | Follow                                       | Long       |          |
-| Full Screen Play                            | Long                  |                   |                       | Impression                                   | Long       |          |
-| Landing Page Click                          | Long                  |                   |                       | Lead Generation Mail Contact Info Share      | Long       |          |
-| Lead Generation Mail Interested Click       | Long                  |                   |                       | Like                                         | Long       |          |
-| One Click Lead                              | Long                  |                   |                       | One Click Lead Form Open                     | Long       |          |
-| Open                                        | Long                  |                   |                       | Other Engagement                             | Long       |          |
-| Pivot                                       | String                |                   |                       | Pivot Value                                  | String     |          |
-| Pivot Value List                            | List                  |                   |                       | Reaction                                     | Long       |          |
-| Send                                        | Long                  |                   |                       | Share                                        | Long       |          |
-| Start                                       | DateTime              | EQUAL_TO, BETWEEN |                       | Text URL Click                               | Long       |          |
-| Total Engagement                            | Long                  |                   |                       | Video Completion                             | Long       |          |
-| Video First Quartile Completion             | Long                  |                   |                       | Video Midpoint Completion                    | Long       |          |
-| Video Start                                 | Long                  |                   |                       | Video Third Quartile Completion              | Long       |          |
-| Video View                                  | Long                  |                   |                       | Viral Card Click                             | Long       |          |
-| Viral Click                                 | Long                  |                   |                       | Viral Comment                                | Long       |          |
-| Viral Comment Like                          | Long                  |                   |                       | Viral Company Page Click                     | Long       |          |
-| Viral External Website Conversion           | Long                  |                   |                       | Viral External Website Post Click Conversion | Long       |          |
-| Viral External Website Post View Conversion | Long                  |                   |                       | Viral Follow                                 | Long       |          |
-| Viral Full Screen Play                      | Long                  |                   |                       | Viral Impression                             | Long       |          |
-| Viral Job Application                       | BigDecimal            |                   |                       | Viral Landing Page Click                     | Long       |          |
-| Viral Like                                  | Long                  |                   |                       | Viral One Click Lead                         | Long       |          |
-| Viral One Click Lead Form Open              | Long                  |                   |                       | Viral Other Engagement                       | Long       |          |
-| Viral Reaction                              | Long                  |                   |                       | Viral Share                                  | Long       |          |
-| Viral Total Engagement                      | Long                  |                   |                       | Viral Video Completion                       | Long       |          |
-| Viral Video First Quartile Completion       | Long                  |                   |                       | Viral Video Midpoint Completion              | Long       |          |
-| Viral Video Start                           | Long                  |                   |                       | Viral Video Third Quartile Completion        | Long       |          |
-| Viral Video View                            | Long                  |                   |                       | viral Card Impression                        | Long       |          |
-| Ad Creative                                 | Campaign              | String            | EQUAL_TO              |
-| Change Audit Stamp                          | Struct                |                   |                       | Field                                        | String     | EQUAL_TO |
-| ID                                          | Long                  | EQUAL_TO          |                       | Order                                        | String     | EQUAL_TO |
-| Reference                                   | String                | EQUAL_TO          |                       | Review                                       | List       |          |
-| Serving Status                              | List                  |                   |                       | Sort                                         | String     | EQUAL_TO |
-| Status                                      | String                | EQUAL_TO          |                       | Test                                         | Boolean    | EQUAL_TO |
-| Type                                        | String                | EQUAL_TO          |                       | Variable                                     | Struct     |          |
-| Version                                     | Struct                |                   |
-| Campaign                                    | Account               | String            | EQUAL_TO              |
-| Associated Entity                           | String                | EQUAL_TO          |                       | Audience Expansion Enabled                   | Boolean    |          |
-| Campaign Group                              | String                | EQUAL_TO          |                       | Change Audit Stamp                           | Struct     |          |
-| Cost Type                                   | String                |                   |                       | Creative Selection                           | String     |          |
-| Daily Budget                                | Struct                |                   |                       | Field                                        | String     | EQUAL_TO |
-| Format                                      | String                |                   |                       | ID                                           | Long       | EQUAL_TO |
-| Locale                                      | Struct                |                   |                       | Name                                         | String     | EQUAL_TO |
-| Objective Type                              | String                |                   |                       | Offsite Delivery Enabled                     | Boolean    |          |
-| Offsite Preferences                         | Struct                |                   |                       | Optimization Target Type                     | String     |          |
-| Order                                       | String                | EQUAL_TO          |                       | Pacing Strategy                              | String     |          |
-| Run Schedule                                | Struct                |                   |                       | Serving Status                               | List       |          |
-| Status                                      | String                | EQUAL_TO          |                       | Story Delivery Enabled                       | Boolean    |          |
-| Targeting Criteria                          | Struct                |                   |                       | Test                                         | Boolean    | EQUAL_TO |
-| Total Budget                                | Struct                |                   |                       | Type                                         | String     | EQUAL_TO |
-| Unit Cost                                   | Struct                |                   |                       | Version                                      | Struct     |          |
-| Campaign Group                              | Account               | String            | EQUAL_TO              |
-| Allowed Campaign Type                       | List                  |                   |                       | Backfilled                                   | Boolean    |          |
-| Change Audit Stamp                          | Struct                |                   |                       | Field                                        | String     | EQUAL_TO |
-| ID                                          | Long                  | EQUAL_TO          |                       | Name                                         | String     | EQUAL_TO |
-| Order                                       | String                | EQUAL_TO          |                       | Run Schedule                                 | Long       |          |
-| Serving Status                              | List                  |                   |                       | Status                                       | String     | EQUAL_TO |
-| Test                                        | Boolean               | EQUAL_TO          |                       | Total Budget                                 | Struct     |          |
-| Share Statistic                             | Organizational Entity | String            |                       |
-| Start                                       | DateTime              | EQUAL_TO, BETWEEN |                       | Time Range                                   | Struct     |          |
-| Total Share Statistic                       | Struct                |                   |
+| **Object**                                   | **Field**             | **Data type**     | **Supported filters** |
+| -------------------------------------------- | --------------------- | ----------------- | --------------------- |
+| Ad Account                                   | Change Audit Stamp    | Struct            |                       |
+| Currency                                     | String                |                   |
+| Field                                        | String                | EQUAL_TO          |
+| ID                                           | Long                  | EQUAL_TO          |
+| Name                                         | String                | EQUAL_TO          |
+| Notified On Campaign Optimization            | Boolean               |                   |
+| Notified On Creative Approval                | Boolean               |                   |
+| Notified On Creative Rejection               | Boolean               |                   |
+| Notified On End Of Campaign                  | Boolean               |                   |
+| Notified On New Features Enabled             | Boolean               |                   |
+| Order                                        | String                | EQUAL_TO          |
+| Reference                                    | String                | EQUAL_TO          |
+| Serving Status                               | List                  |                   |
+| Status                                       | String                | EQUAL_TO          |
+| Test                                         | Boolean               | EQUAL_TO          |
+| Type                                         | String                | EQUAL_TO          |
+| Version                                      | Struct                |                   |
+| Ad Analytics                                 | Action Click          | Long              |                       |
+| Ad Unit Click                                | Long                  |                   |
+| Approximate Unique Impression                | Long                  |                   |
+| Card Click                                   | Long                  |                   |
+| Card Impression                              | Long                  |                   |
+| Click                                        | Long                  |                   |
+| Comment                                      | Long                  |                   |
+| Comment Like                                 | Long                  |                   |
+| Company Page Click                           | Long                  |                   |
+| Conversion Value In Local Currency           | BigDecimal            |                   |
+| Cost In Local Currency                       | BigDecimal            |                   |
+| Cost In USD                                  | BigDecimal            |                   |
+| Date Range                                   | Struct                | EQUAL_TO          |
+| External Website Conversion                  | Long                  |                   |
+| External Website Post Click Conversion       | Long                  |                   |
+| External Website Post View Conversion        | Long                  |                   |
+| Follow                                       | Long                  |                   |
+| Full Screen Play                             | Long                  |                   |
+| Impression                                   | Long                  |                   |
+| Landing Page Click                           | Long                  |                   |
+| Lead Generation Mail Contact Info Share      | Long                  |                   |
+| Lead Generation Mail Interested Click        | Long                  |                   |
+| Like                                         | Long                  |                   |
+| One Click Lead                               | Long                  |                   |
+| One Click Lead Form Open                     | Long                  |                   |
+| Open                                         | Long                  |                   |
+| Other Engagement                             | Long                  |                   |
+| Pivot                                        | String                |                   |
+| Pivot Value                                  | String                |                   |
+| Pivot Value List                             | List                  |                   |
+| Reaction                                     | Long                  |                   |
+| Send                                         | Long                  |                   |
+| Share                                        | Long                  |                   |
+| Start                                        | DateTime              | EQUAL_TO, BETWEEN |
+| Text URL Click                               | Long                  |                   |
+| Total Engagement                             | Long                  |                   |
+| Video Completion                             | Long                  |                   |
+| Video First Quartile Completion              | Long                  |                   |
+| Video Midpoint Completion                    | Long                  |                   |
+| Video Start                                  | Long                  |                   |
+| Video Third Quartile Completion              | Long                  |                   |
+| Video View                                   | Long                  |                   |
+| Viral Card Click                             | Long                  |                   |
+| Viral Click                                  | Long                  |                   |
+| Viral Comment                                | Long                  |                   |
+| Viral Comment Like                           | Long                  |                   |
+| Viral Company Page Click                     | Long                  |                   |
+| Viral External Website Conversion            | Long                  |                   |
+| Viral External Website Post Click Conversion | Long                  |                   |
+| Viral External Website Post View Conversion  | Long                  |                   |
+| Viral Follow                                 | Long                  |                   |
+| Viral Full Screen Play                       | Long                  |                   |
+| Viral Impression                             | Long                  |                   |
+| Viral Job Application                        | BigDecimal            |                   |
+| Viral Landing Page Click                     | Long                  |                   |
+| Viral Like                                   | Long                  |                   |
+| Viral One Click Lead                         | Long                  |                   |
+| Viral One Click Lead Form Open               | Long                  |                   |
+| Viral Other Engagement                       | Long                  |                   |
+| Viral Reaction                               | Long                  |                   |
+| Viral Share                                  | Long                  |                   |
+| Viral Total Engagement                       | Long                  |                   |
+| Viral Video Completion                       | Long                  |                   |
+| Viral Video First Quartile Completion        | Long                  |                   |
+| Viral Video Midpoint Completion              | Long                  |                   |
+| Viral Video Start                            | Long                  |                   |
+| Viral Video Third Quartile Completion        | Long                  |                   |
+| Viral Video View                             | Long                  |                   |
+| viral Card Impression                        | Long                  |                   |
+| Ad Creative                                  | Campaign              | String            | EQUAL_TO              |
+| Change Audit Stamp                           | Struct                |                   |
+| Field                                        | String                | EQUAL_TO          |
+| ID                                           | Long                  | EQUAL_TO          |
+| Order                                        | String                | EQUAL_TO          |
+| Reference                                    | String                | EQUAL_TO          |
+| Review                                       | List                  |                   |
+| Serving Status                               | List                  |                   |
+| Sort                                         | String                | EQUAL_TO          |
+| Status                                       | String                | EQUAL_TO          |
+| Test                                         | Boolean               | EQUAL_TO          |
+| Type                                         | String                | EQUAL_TO          |
+| Variable                                     | Struct                |                   |
+| Version                                      | Struct                |                   |
+| Campaign                                     | Account               | String            | EQUAL_TO              |
+| Associated Entity                            | String                | EQUAL_TO          |
+| Audience Expansion Enabled                   | Boolean               |                   |
+| Campaign Group                               | String                | EQUAL_TO          |
+| Change Audit Stamp                           | Struct                |                   |
+| Cost Type                                    | String                |                   |
+| Creative Selection                           | String                |                   |
+| Daily Budget                                 | Struct                |                   |
+| Field                                        | String                | EQUAL_TO          |
+| Format                                       | String                |                   |
+| ID                                           | Long                  | EQUAL_TO          |
+| Locale                                       | Struct                |                   |
+| Name                                         | String                | EQUAL_TO          |
+| Objective Type                               | String                |                   |
+| Offsite Delivery Enabled                     | Boolean               |                   |
+| Offsite Preferences                          | Struct                |                   |
+| Optimization Target Type                     | String                |                   |
+| Order                                        | String                | EQUAL_TO          |
+| Pacing Strategy                              | String                |                   |
+| Run Schedule                                 | Struct                |                   |
+| Serving Status                               | List                  |                   |
+| Status                                       | String                | EQUAL_TO          |
+| Story Delivery Enabled                       | Boolean               |                   |
+| Targeting Criteria                           | Struct                |                   |
+| Test                                         | Boolean               | EQUAL_TO          |
+| Total Budget                                 | Struct                |                   |
+| Type                                         | String                | EQUAL_TO          |
+| Unit Cost                                    | Struct                |                   |
+| Version                                      | Struct                |                   |
+| Campaign Group                               | Account               | String            | EQUAL_TO              |
+| Allowed Campaign Type                        | List                  |                   |
+| Backfilled                                   | Boolean               |                   |
+| Change Audit Stamp                           | Struct                |                   |
+| Field                                        | String                | EQUAL_TO          |
+| ID                                           | Long                  | EQUAL_TO          |
+| Name                                         | String                | EQUAL_TO          |
+| Order                                        | String                | EQUAL_TO          |
+| Run Schedule                                 | Long                  |                   |
+| Serving Status                               | List                  |                   |
+| Status                                       | String                | EQUAL_TO          |
+| Test                                         | Boolean               | EQUAL_TO          |
+| Total Budget                                 | Struct                |                   |
+| Share Statistic                              | Organizational Entity | String            |                       |
+| Start                                        | DateTime              | EQUAL_TO, BETWEEN |
+| Time Range                                   | Struct                |                   |
+| Total Share Statistic                        | Struct                |                   |

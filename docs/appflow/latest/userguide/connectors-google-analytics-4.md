@@ -145,15 +145,23 @@ When you create a flow that uses Google Analytics 4 as the data source, you can 
 following data objects to supported destinations:
 
 | **Object**                  | **Field**            | **Data type**      | **Supported filters** |
-| --------------------------- | -------------------- | ------------------ | --------------------- | ---------------------- | ------ | ------------------ |
+| --------------------------- | -------------------- | ------------------ | --------------------- |
 | Core Report                 |                      |                    |                       |
 | Real-Time Report            | Dimension:appVersion | String             | CONTAINS, EQUAL_TO    |
-| Dimension:audienceId        | String               | CONTAINS, EQUAL_TO |                       | Dimension:audienceName | String | CONTAINS, EQUAL_TO |
-| Dimension:city              | String               | CONTAINS, EQUAL_TO |                       | Dimension:cityId       | String | CONTAINS, EQUAL_TO |
-| Dimension:country           | String               | CONTAINS, EQUAL_TO |                       | Dimension:countryId    | String | CONTAINS, EQUAL_TO |
-| Dimension:deviceCategory    | String               | CONTAINS, EQUAL_TO |                       | Dimension:eventName    | String | CONTAINS, EQUAL_TO |
-| Dimension:minutesAgo        | String               | CONTAINS, EQUAL_TO |                       | Dimension:platform     | String | CONTAINS, EQUAL_TO |
-| Dimension:streamId          | String               | CONTAINS, EQUAL_TO |                       | Dimension:streamName   | String | CONTAINS, EQUAL_TO |
-| Dimension:unifiedScreenName | String               | CONTAINS, EQUAL_TO |                       | Metrics:activeUsers    | String |                    |
-| Metrics:conversions         | String               |                    |                       | Metrics:eventCount     | String |                    |
+| Dimension:audienceId        | String               | CONTAINS, EQUAL_TO |
+| Dimension:audienceName      | String               | CONTAINS, EQUAL_TO |
+| Dimension:city              | String               | CONTAINS, EQUAL_TO |
+| Dimension:cityId            | String               | CONTAINS, EQUAL_TO |
+| Dimension:country           | String               | CONTAINS, EQUAL_TO |
+| Dimension:countryId         | String               | CONTAINS, EQUAL_TO |
+| Dimension:deviceCategory    | String               | CONTAINS, EQUAL_TO |
+| Dimension:eventName         | String               | CONTAINS, EQUAL_TO |
+| Dimension:minutesAgo        | String               | CONTAINS, EQUAL_TO |
+| Dimension:platform          | String               | CONTAINS, EQUAL_TO |
+| Dimension:streamId          | String               | CONTAINS, EQUAL_TO |
+| Dimension:streamName        | String               | CONTAINS, EQUAL_TO |
+| Dimension:unifiedScreenName | String               | CONTAINS, EQUAL_TO |
+| Metrics:activeUsers         | String               |                    |
+| Metrics:conversions         | String               |                    |
+| Metrics:eventCount          | String               |                    |
 | Metrics:screenPageViews     | String               |                    |

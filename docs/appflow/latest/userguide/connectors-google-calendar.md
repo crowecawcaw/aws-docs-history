@@ -140,56 +140,102 @@ When you create a flow that uses Google Calendar as the data source, you can tra
 following data objects to supported destinations:
 
 | **Object**               | **Field**        | **Data type**          | **Supported filters** |
-| ------------------------ | ---------------- | ---------------------- | --------------------- | ----------------------- | -------- | ---------------------- |
+| ------------------------ | ---------------- | ---------------------- | --------------------- |
 | Access Control List Rule | etag             | String                 |                       |
-| id                       | String           |                        |                       | kind                    | String   |                        |
-| role                     | String           |                        |                       | scope                   | Struct   |                        |
+| id                       | String           |                        |
+| kind                     | String           |                        |
+| role                     | String           |                        |
+| scope                    | Struct           |                        |
 | showDeleted              | Boolean          | EQUAL_TO, NOT_EQUAL_TO |
 | Calendar                 | accessRole       | String                 |                       |
-| backgroundColor          | String           |                        |                       | colorId                 | String   |                        |
-| conferenceProperties     | Struct           |                        |                       | defaultReminders        | List     |                        |
-| deleted                  | Boolean          |                        |                       | description             | String   |                        |
-| etag                     | String           |                        |                       | foregroundColor         | String   |                        |
-| hidden                   | Boolean          |                        |                       | id                      | String   |                        |
-| kind                     | String           |                        |                       | location                | String   |                        |
-| minAccessRole            | String           | EQUAL_TO               |                       | notificationSettings    | Struct   |                        |
-| primary                  | Boolean          |                        |                       | selected                | Boolean  |                        |
-| showDeleted              | Boolean          | EQUAL_TO, NOT_EQUAL_TO |                       | showHidden              | Boolean  | EQUAL_TO, NOT_EQUAL_TO |
-| summary                  | String           |                        |                       | summaryOverride         | String   |                        |
+| backgroundColor          | String           |                        |
+| colorId                  | String           |                        |
+| conferenceProperties     | Struct           |                        |
+| defaultReminders         | List             |                        |
+| deleted                  | Boolean          |                        |
+| description              | String           |                        |
+| etag                     | String           |                        |
+| foregroundColor          | String           |                        |
+| hidden                   | Boolean          |                        |
+| id                       | String           |                        |
+| kind                     | String           |                        |
+| location                 | String           |                        |
+| minAccessRole            | String           | EQUAL_TO               |
+| notificationSettings     | Struct           |                        |
+| primary                  | Boolean          |                        |
+| selected                 | Boolean          |                        |
+| showDeleted              | Boolean          | EQUAL_TO, NOT_EQUAL_TO |
+| showHidden               | Boolean          | EQUAL_TO, NOT_EQUAL_TO |
+| summary                  | String           |                        |
+| summaryOverride          | String           |                        |
 | timeZone                 | String           |                        |
 | Event                    | anyoneCanAddSelf | Boolean                |                       |
-| attachments              | List             |                        |                       | attendees               | List     |                        |
-| attendeesOmitted         | Boolean          |                        |                       | colorId                 | String   |                        |
-| conferenceData           | Struct           |                        |                       | created                 | DateTime |                        |
-| creator                  | Struct           |                        |                       | description             | String   |                        |
-| end                      | Struct           |                        |                       | endTimeUnspecified      | Boolean  |                        |
-| etag                     | String           |                        |                       | eventType               | String   |                        |
-| extendedProperties       | Struct           |                        |                       | gadget                  | Struct   |                        |
-| guestsCanInviteOthers    | Boolean          |                        |                       | guestsCanModify         | Boolean  |                        |
-| guestsCanSeeOtherGuests  | Boolean          |                        |                       | hangoutLink             | String   |                        |
-| htmlLink                 | String           |                        |                       | iCalUID                 | String   | EQUAL_TO               |
-| id                       | String           |                        |                       | kind                    | String   |                        |
-| location                 | String           |                        |                       | locked                  | Boolean  |                        |
-| maxAttendees             | Integer          | EQUAL_TO               |                       | orderBy                 | String   | EQUAL_TO               |
-| organizer                | Struct           |                        |                       | originalStartTime       | Struct   |                        |
-| privateCopy              | Boolean          |                        |                       | privateExtendedProperty | String   | EQUAL_TO               |
-| q                        | String           | EQUAL_TO               |                       | recurrence              | List     |                        |
-| recurringEventId         | String           |                        |                       | reminders               | Struct   |                        |
-| sequence                 | Integer          |                        |                       | sharedExtendedProperty  | String   | EQUAL_TO               |
-| showDeleted              | Boolean          | EQUAL_TO, NOT_EQUAL_TO |                       | singleEvents            | Boolean  | EQUAL_TO, NOT_EQUAL_TO |
-| source                   | Struct           |                        |                       | start                   | Struct   |                        |
-| status                   | String           |                        |                       | summary                 | String   |                        |
-| timeMax                  | DateTime         | EQUAL_TO               |                       | timeMin                 | DateTime | EQUAL_TO               |
-| transparency             | String           |                        |                       | updated                 | DateTime |                        |
-| updatedMin               | DateTime         | EQUAL_TO               |                       | visibility              | String   |                        |
+| attachments              | List             |                        |
+| attendees                | List             |                        |
+| attendeesOmitted         | Boolean          |                        |
+| colorId                  | String           |                        |
+| conferenceData           | Struct           |                        |
+| created                  | DateTime         |                        |
+| creator                  | Struct           |                        |
+| description              | String           |                        |
+| end                      | Struct           |                        |
+| endTimeUnspecified       | Boolean          |                        |
+| etag                     | String           |                        |
+| eventType                | String           |                        |
+| extendedProperties       | Struct           |                        |
+| gadget                   | Struct           |                        |
+| guestsCanInviteOthers    | Boolean          |                        |
+| guestsCanModify          | Boolean          |                        |
+| guestsCanSeeOtherGuests  | Boolean          |                        |
+| hangoutLink              | String           |                        |
+| htmlLink                 | String           |                        |
+| iCalUID                  | String           | EQUAL_TO               |
+| id                       | String           |                        |
+| kind                     | String           |                        |
+| location                 | String           |                        |
+| locked                   | Boolean          |                        |
+| maxAttendees             | Integer          | EQUAL_TO               |
+| orderBy                  | String           | EQUAL_TO               |
+| organizer                | Struct           |                        |
+| originalStartTime        | Struct           |                        |
+| privateCopy              | Boolean          |                        |
+| privateExtendedProperty  | String           | EQUAL_TO               |
+| q                        | String           | EQUAL_TO               |
+| recurrence               | List             |                        |
+| recurringEventId         | String           |                        |
+| reminders                | Struct           |                        |
+| sequence                 | Integer          |                        |
+| sharedExtendedProperty   | String           | EQUAL_TO               |
+| showDeleted              | Boolean          | EQUAL_TO, NOT_EQUAL_TO |
+| singleEvents             | Boolean          | EQUAL_TO, NOT_EQUAL_TO |
+| source                   | Struct           |                        |
+| start                    | Struct           |                        |
+| status                   | String           |                        |
+| summary                  | String           |                        |
+| timeMax                  | DateTime         | EQUAL_TO               |
+| timeMin                  | DateTime         | EQUAL_TO               |
+| transparency             | String           |                        |
+| updated                  | DateTime         |                        |
+| updatedMin               | DateTime         | EQUAL_TO               |
+| visibility               | String           |                        |
 | My Calendar              | accessRole       | String                 |                       |
-| backgroundColor          | String           |                        |                       | colorId                 | String   |                        |
-| conferenceProperties     | Struct           |                        |                       | defaultReminders        | List     |                        |
-| deleted                  | Boolean          |                        |                       | description             | String   |                        |
-| etag                     | String           |                        |                       | foregroundColor         | String   |                        |
-| hidden                   | Boolean          |                        |                       | id                      | String   |                        |
-| kind                     | String           |                        |                       | location                | String   |                        |
-| notificationSettings     | Struct           |                        |                       | primary                 | Boolean  |                        |
-| selected                 | Boolean          |                        |                       | showDeleted             | Boolean  | EQUAL_TO, NOT_EQUAL_TO |
-| showHidden               | Boolean          | EQUAL_TO, NOT_EQUAL_TO |                       | summary                 | String   |                        |
-| summaryOverride          | String           |                        |                       | timeZone                | String   |                        |
+| backgroundColor          | String           |                        |
+| colorId                  | String           |                        |
+| conferenceProperties     | Struct           |                        |
+| defaultReminders         | List             |                        |
+| deleted                  | Boolean          |                        |
+| description              | String           |                        |
+| etag                     | String           |                        |
+| foregroundColor          | String           |                        |
+| hidden                   | Boolean          |                        |
+| id                       | String           |                        |
+| kind                     | String           |                        |
+| location                 | String           |                        |
+| notificationSettings     | Struct           |                        |
+| primary                  | Boolean          |                        |
+| selected                 | Boolean          |                        |
+| showDeleted              | Boolean          | EQUAL_TO, NOT_EQUAL_TO |
+| showHidden               | Boolean          | EQUAL_TO, NOT_EQUAL_TO |
+| summary                  | String           |                        |
+| summaryOverride          | String           |                        |
+| timeZone                 | String           |                        |

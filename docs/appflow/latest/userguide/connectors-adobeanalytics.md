@@ -123,147 +123,262 @@ When you create a flow that uses Adobe Analytics as the data source, you can tra
 following data objects to supported destinations:
 
 | **Object**                         | **Field**                | **Data type** | **Supported filters** |
-| ---------------------------------- | ------------------------ | ------------- | --------------------- | ------------------------ | -------- | -------- |
+| ---------------------------------- | ------------------------ | ------------- | --------------------- |
 | Annotation                         | Apply To All Reports     | Boolean       |                       |
-| Approved                           | Boolean                  |               |                       | Color                    | String   |          |
-| Company Id                         | Integer                  |               |                       | Created Date             | DateTime |          |
-| Date Range                         | String                   |               |                       | Description              | String   |          |
-| Favorite                           | Boolean                  |               |                       | Filter By Date Range     | String   | EQUAL_TO |
-| Filter By Ids                      | String                   | EQUAL_TO      |                       | Filter By Modified After | DateTime | EQUAL_TO |
-| Id                                 | String                   |               |                       | Include Type             | String   | EQUAL_TO |
-| Locale                             | String                   | EQUAL_TO      |                       | Modified By Id           | String   |          |
-| Modified Date                      | DateTime                 |               |                       | Name                     | String   |          |
-| Owner                              | Struct                   |               |                       | Owner FullName           | String   |          |
-| Report Suite Name                  | String                   |               |                       | Rsid                     | String   |          |
-| Scope                              | Struct                   |               |                       | Shares                   | List     |          |
-| Sort Property                      | String                   | EQUAL_TO      |                       | System User Owned        | Boolean  |          |
-| Tags                               | List                     |               |                       | Usage Summary            | Struct   |          |
+| Approved                           | Boolean                  |               |
+| Color                              | String                   |               |
+| Company Id                         | Integer                  |               |
+| Created Date                       | DateTime                 |               |
+| Date Range                         | String                   |               |
+| Description                        | String                   |               |
+| Favorite                           | Boolean                  |               |
+| Filter By Date Range               | String                   | EQUAL_TO      |
+| Filter By Ids                      | String                   | EQUAL_TO      |
+| Filter By Modified After           | DateTime                 | EQUAL_TO      |
+| Id                                 | String                   |               |
+| Include Type                       | String                   | EQUAL_TO      |
+| Locale                             | String                   | EQUAL_TO      |
+| Modified By Id                     | String                   |               |
+| Modified Date                      | DateTime                 |               |
+| Name                               | String                   |               |
+| Owner                              | Struct                   |               |
+| Owner FullName                     | String                   |               |
+| Report Suite Name                  | String                   |               |
+| Rsid                               | String                   |               |
+| Scope                              | Struct                   |               |
+| Shares                             | List                     |               |
+| Sort Property                      | String                   | EQUAL_TO      |
+| System User Owned                  | Boolean                  |               |
+| Tags                               | List                     |               |
+| Usage Summary                      | Struct                   |               |
 | Usage Summary With Relevancy Score | String                   |               |
 | Calculated Metric                  | Approved                 | Boolean       | EQUAL_TO              |
-| Categories                         | List                     |               |                       | Compatibility            | Struct   |          |
-| Created                            | DateTime                 |               |                       | Definition               | Struct   |          |
-| Description                        | String                   |               |                       | Favorite                 | Boolean  | EQUAL_TO |
-| Filter By Ids                      | String                   | EQUAL_TO      |                       | Id                       | String   |          |
-| Include Type                       | String                   | EQUAL_TO      |                       | Locale                   | String   | EQUAL_TO |
-| Modified                           | DateTime                 |               |                       | Name                     | String   | EQUAL_TO |
-| Owner                              | Struct                   |               |                       | Owner Full Name          | String   |          |
-| Owner Id                           | Integer                  | EQUAL_TO      |                       | Polarity                 | String   |          |
-| Precision                          | Integer                  |               |                       | Report Suite Name        | String   |          |
-| Rsid                               | String                   |               |                       | Rsids                    | String   | EQUAL_TO |
-| Site Title                         | String                   |               |                       | Sort Direction           | String   | EQUAL_TO |
-| Sort Property                      | String                   | EQUAL_TO      |                       | Tag Names                | String   | EQUAL_TO |
-| Tags                               | List                     |               |                       | To Be Used In Rs Id      | String   | EQUAL_TO |
+| Categories                         | List                     |               |
+| Compatibility                      | Struct                   |               |
+| Created                            | DateTime                 |               |
+| Definition                         | Struct                   |               |
+| Description                        | String                   |               |
+| Favorite                           | Boolean                  | EQUAL_TO      |
+| Filter By Ids                      | String                   | EQUAL_TO      |
+| Id                                 | String                   |               |
+| Include Type                       | String                   | EQUAL_TO      |
+| Locale                             | String                   | EQUAL_TO      |
+| Modified                           | DateTime                 |               |
+| Name                               | String                   | EQUAL_TO      |
+| Owner                              | Struct                   |               |
+| Owner Full Name                    | String                   |               |
+| Owner Id                           | Integer                  | EQUAL_TO      |
+| Polarity                           | String                   |               |
+| Precision                          | Integer                  |               |
+| Report Suite Name                  | String                   |               |
+| Rsid                               | String                   |               |
+| Rsids                              | String                   | EQUAL_TO      |
+| Site Title                         | String                   |               |
+| Sort Direction                     | String                   | EQUAL_TO      |
+| Sort Property                      | String                   | EQUAL_TO      |
+| Tag Names                          | String                   | EQUAL_TO      |
+| Tags                               | List                     |               |
+| To Be Used In Rs Id                | String                   | EQUAL_TO      |
 | Type                               | String                   |               |
 | Calculated Metric Function         | Category                 | String        |                       |
-| Definition                         | Struct                   |               |                       | Description              | String   |          |
-| Example                            | String                   |               |                       | Example Key              | String   |          |
-| Id                                 | String                   |               |                       | Locale                   | String   | EQUAL_TO |
-| Name                               | String                   |               |                       | Namespace                | String   |          |
+| Definition                         | Struct                   |               |
+| Description                        | String                   |               |
+| Example                            | String                   |               |
+| Example Key                        | String                   |               |
+| Id                                 | String                   |               |
+| Locale                             | String                   | EQUAL_TO      |
+| Name                               | String                   |               |
+| Namespace                          | String                   |               |
 | Persistable                        | Boolean                  |               |
 | Component Metadata Share           | Access Level             | String        |                       |
-| Component Id                       | String                   |               |                       | Component Type           | String   |          |
-| Ims Org Id                         | String                   |               |                       | Include Type             | String   | EQUAL_TO |
-| Share From Ims Id                  | String                   |               |                       | Share Id                 | String   |          |
-| Share To Id                        | Integer                  |               |                       | Share To Ims Id          | String   |          |
-| Share To Login                     | String                   |               |                       | Share To Type            | String   |          |
-| shareToDisplayName                 | String                   |               |                       | user Id                  | Integer  | EQUAL_TO |
+| Component Id                       | String                   |               |
+| Component Type                     | String                   |               |
+| Ims Org Id                         | String                   |               |
+| Include Type                       | String                   | EQUAL_TO      |
+| Share From Ims Id                  | String                   |               |
+| Share Id                           | String                   |               |
+| Share To Id                        | Integer                  |               |
+| Share To Ims Id                    | String                   |               |
+| Share To Login                     | String                   |               |
+| Share To Type                      | String                   |               |
+| shareToDisplayName                 | String                   |               |
+| user Id                            | Integer                  | EQUAL_TO      |
 | Component Metadata Tag             | Components               | List          |                       |
-| Description                        | String                   |               |                       | Id                       | String   |          |
+| Description                        | String                   |               |
+| Id                                 | String                   |               |
 | Name                               | String                   |               |
 | Date Range                         | Alternate Variable Names | Struct        |                       |
-| Approved                           | Boolean                  |               |                       | Company ID               | Integer  |          |
-| Create Date                        | DateTime                 |               |                       | Curated Item             | Boolean  |          |
-| Curated RSID                       | String                   | EQUAL_TO      |                       | Definition               | String   |          |
-| Description                        | String                   |               |                       | Disabled Date            | DateTime |          |
-| Favorite                           | Boolean                  |               |                       | Filter By IDs            | String   | EQUAL_TO |
-| Filter By Modified After           | DateTime                 | EQUAL_TO      |                       | ID                       | String   |          |
-| IMS Org ID                         | String                   |               |                       | Include Type             | String   | EQUAL_TO |
-| Locale                             | String                   | EQUAL_TO      |                       | Modified                 | DateTime |          |
-| Name                               | String                   |               |                       | New Definition           | Boolean  | EQUAL_TO |
-| Owner                              | Struct                   |               |                       | Owner Full Name          | String   |          |
-| Shares                             | List                     |               |                       | Shares Full Name         | String   |          |
-| System User Owned                  | Boolean                  |               |                       | Tags                     | List     |          |
-| Template                           | Boolean                  |               |                       | Usage Summary            | Struct   |          |
+| Approved                           | Boolean                  |               |
+| Company ID                         | Integer                  |               |
+| Create Date                        | DateTime                 |               |
+| Curated Item                       | Boolean                  |               |
+| Curated RSID                       | String                   | EQUAL_TO      |
+| Definition                         | String                   |               |
+| Description                        | String                   |               |
+| Disabled Date                      | DateTime                 |               |
+| Favorite                           | Boolean                  |               |
+| Filter By IDs                      | String                   | EQUAL_TO      |
+| Filter By Modified After           | DateTime                 | EQUAL_TO      |
+| ID                                 | String                   |               |
+| IMS Org ID                         | String                   |               |
+| Include Type                       | String                   | EQUAL_TO      |
+| Locale                             | String                   | EQUAL_TO      |
+| Modified                           | DateTime                 |               |
+| Name                               | String                   |               |
+| New Definition                     | Boolean                  | EQUAL_TO      |
+| Owner                              | Struct                   |               |
+| Owner Full Name                    | String                   |               |
+| Shares                             | List                     |               |
+| Shares Full Name                   | String                   |               |
+| System User Owned                  | Boolean                  |               |
+| Tags                               | List                     |               |
+| Template                           | Boolean                  |               |
+| Usage Summary                      | Struct                   |               |
 | Usage Summary With Relevancy Score | String                   |               |
 | Dimension                          | Allowed For Reporting    | Boolean       |                       |
-| Categories                         | List                     |               |                       | Category                 | String   |          |
-| Classifiable                       | Boolean                  | EQUAL_TO      |                       | Description              | String   |          |
-| Extra Title Info                   | String                   |               |                       | Filter Reportable        | Boolean  | EQUAL_TO |
-| ID                                 | String                   |               |                       | Locale                   | String   | EQUAL_TO |
-| Multi Valued                       | Boolean                  |               |                       | Name                     | String   |          |
-| None Settings                      | Struct                   |               |                       | Parent                   | String   |          |
-| Pathable                           | Boolean                  |               |                       | Reportable               | List     |          |
-| Segmentable                        | Boolean                  | EQUAL_TO      |                       | Standard Component       | Boolean  |          |
-| Support                            | List                     |               |                       | Supports Data Governance | Boolean  |          |
-| Tags                               | List                     |               |                       | Title                    | String   |          |
+| Categories                         | List                     |               |
+| Category                           | String                   |               |
+| Classifiable                       | Boolean                  | EQUAL_TO      |
+| Description                        | String                   |               |
+| Extra Title Info                   | String                   |               |
+| Filter Reportable                  | Boolean                  | EQUAL_TO      |
+| ID                                 | String                   |               |
+| Locale                             | String                   | EQUAL_TO      |
+| Multi Valued                       | Boolean                  |               |
+| Name                               | String                   |               |
+| None Settings                      | Struct                   |               |
+| Parent                             | String                   |               |
+| Pathable                           | Boolean                  |               |
+| Reportable                         | List                     |               |
+| Segmentable                        | Boolean                  | EQUAL_TO      |
+| Standard Component                 | Boolean                  |               |
+| Support                            | List                     |               |
+| Supports Data Governance           | Boolean                  |               |
+| Tags                               | List                     |               |
+| Title                              | String                   |               |
 | Type                               | String                   |               |
 | Discovery                          | Companies                | List          |                       |
 | IMS Org Id                         | String                   |               |
 | Metric                             | Allocation               | Boolean       |                       |
-| Allowed For Reporting              | Boolean                  |               |                       | Categories               | List     |          |
-| Category                           | String                   |               |                       | Description              | String   |          |
-| Extra Title Info                   | String                   |               |                       | Help Link                | String   |          |
-| Id                                 | String                   |               |                       | Locale                   | String   | EQUAL_TO |
-| Name                               | String                   |               |                       | Polarity                 | String   |          |
-| Precision                          | Integer                  |               |                       | Segmentable              | Boolean  | EQUAL_TO |
-| Standard Component                 | Boolean                  |               |                       | Support                  | List     |          |
-| Supports Data Governance           | Boolean                  |               |                       | Tags                     | List     |          |
-| Title                              | String                   |               |                       | Type                     | String   |          |
+| Allowed For Reporting              | Boolean                  |               |
+| Categories                         | List                     |               |
+| Category                           | String                   |               |
+| Description                        | String                   |               |
+| Extra Title Info                   | String                   |               |
+| Help Link                          | String                   |               |
+| Id                                 | String                   |               |
+| Locale                             | String                   | EQUAL_TO      |
+| Name                               | String                   |               |
+| Polarity                           | String                   |               |
+| Precision                          | Integer                  |               |
+| Segmentable                        | Boolean                  | EQUAL_TO      |
+| Standard Component                 | Boolean                  |               |
+| Support                            | List                     |               |
+| Supports Data Governance           | Boolean                  |               |
+| Tags                               | List                     |               |
+| Title                              | String                   |               |
+| Type                               | String                   |               |
 | calculated                         | Boolean                  |               |
 | Project                            | Access Level             | String        |                       |
-| Approved                           | Boolean                  |               |                       | Company Template         | Boolean  |          |
-| Complexity                         | Struct                   |               |                       | Created                  | DateTime |          |
-| Definition                         | Struct                   |               |                       | Description              | String   |          |
-| External References                | Struct                   |               |                       | Favorite                 | Boolean  |          |
-| Filter By IDs                      | String                   | EQUAL_TO      |                       | Id                       | String   |          |
-| Include Type                       | String                   | EQUAL_TO      |                       | Locale                   | String   | EQUAL_TO |
-| Migrated IDs                       | List                     |               |                       | Modified                 | DateTime |          |
-| Name                               | String                   |               |                       | Owner                    | Struct   |          |
-| Owner ID                           | String                   | EQUAL_TO      |                       | Report Suite Name        | String   |          |
-| Rsid                               | String                   |               |                       | Shares                   | List     |          |
-| Site Title                         | String                   |               |                       | Tags                     | List     |          |
-| Template                           | Boolean                  |               |                       | Type                     | String   |          |
-| Usage Summary                      | Struct                   |               |                       | versionNotes             | String   |          |
+| Approved                           | Boolean                  |               |
+| Company Template                   | Boolean                  |               |
+| Complexity                         | Struct                   |               |
+| Created                            | DateTime                 |               |
+| Definition                         | Struct                   |               |
+| Description                        | String                   |               |
+| External References                | Struct                   |               |
+| Favorite                           | Boolean                  |               |
+| Filter By IDs                      | String                   | EQUAL_TO      |
+| Id                                 | String                   |               |
+| Include Type                       | String                   | EQUAL_TO      |
+| Locale                             | String                   | EQUAL_TO      |
+| Migrated IDs                       | List                     |               |
+| Modified                           | DateTime                 |               |
+| Name                               | String                   |               |
+| Owner                              | Struct                   |               |
+| Owner ID                           | String                   | EQUAL_TO      |
+| Report Suite Name                  | String                   |               |
+| Rsid                               | String                   |               |
+| Shares                             | List                     |               |
+| Site Title                         | String                   |               |
+| Tags                               | List                     |               |
+| Template                           | Boolean                  |               |
+| Type                               | String                   |               |
+| Usage Summary                      | Struct                   |               |
+| versionNotes                       | String                   |               |
 | Report Suite                       | Calendar Type            | Struct        |                       |
-| Collection Item Type               | String                   |               |                       | Currency                 | String   |          |
-| Id                                 | String                   |               |                       | Name                     | String   |          |
-| RS Id Contains                     | String                   | EQUAL_TO      |                       | RS Ids                   | String   |          |
-| Rsid                               | String                   |               |                       | Timezone Zone Info       | String   |          |
+| Collection Item Type               | String                   |               |
+| Currency                           | String                   |               |
+| Id                                 | String                   |               |
+| Name                               | String                   |               |
+| RS Id Contains                     | String                   | EQUAL_TO      |
+| RS Ids                             | String                   |               |
+| Rsid                               | String                   |               |
+| Timezone Zone Info                 | String                   |               |
 | Report Top Item                    | Date Range               | String        | EQUAL_TO              |
-| End Date                           | DateTime                 | EQUAL_TO      |                       | Item Id                  | String   |          |
-| Locale                             | String                   |               |                       | Lookup None Values       | Boolean  | EQUAL_TO |
-| Search And                         | String                   | EQUAL_TO      |                       | Search Not               | String   | EQUAL_TO |
-| Search Or                          | String                   | EQUAL_TO      |                       | Search Phrase            | String   | EQUAL_TO |
-| Start Date                         | DateTime                 | EQUAL_TO      |                       | Value                    | String   |          |
+| End Date                           | DateTime                 | EQUAL_TO      |
+| Item Id                            | String                   |               |
+| Locale                             | String                   |               |
+| Lookup None Values                 | Boolean                  | EQUAL_TO      |
+| Search And                         | String                   | EQUAL_TO      |
+| Search Not                         | String                   | EQUAL_TO      |
+| Search Or                          | String                   | EQUAL_TO      |
+| Search Phrase                      | String                   | EQUAL_TO      |
+| Start Date                         | DateTime                 | EQUAL_TO      |
+| Value                              | String                   |               |
 | search-clause                      | String                   |               |
 | Segment                            | Categories               | List          |                       |
-| Created                            | DateTime                 |               |                       | Definition               | Struct   |          |
-| Definition Last Modified           | DateTime                 |               |                       | Description              | String   |          |
-| Filter By Published Segments       | String                   | EQUAL_TO      |                       | Id                       | String   |          |
-| Include Type                       | String                   | EQUAL_TO      |                       | Locale                   | String   | EQUAL_TO |
-| Modified                           | DateTime                 |               |                       | Modified By ID           | String   |          |
-| Name                               | String                   | EQUAL_TO      |                       | Owner                    | Struct   |          |
-| Owner Full Name                    | String                   |               |                       | Publishing Status        | Struct   |          |
-| RSIDs                              | String                   | EQUAL_TO      |                       | Report Suite Name        | String   |          |
-| Rsid                               | String                   | EQUAL_TO      |                       | Segment Filter           | String   | EQUAL_TO |
-| Site Title                         | String                   |               |                       | Sort Direction           | String   | EQUAL_TO |
-| Sort Property                      | String                   | EQUAL_TO      |                       | Tag Names                | String   | EQUAL_TO |
-| Tags                               | List                     |               |                       | compatibility            | Struct   |          |
+| Created                            | DateTime                 |               |
+| Definition                         | Struct                   |               |
+| Definition Last Modified           | DateTime                 |               |
+| Description                        | String                   |               |
+| Filter By Published Segments       | String                   | EQUAL_TO      |
+| Id                                 | String                   |               |
+| Include Type                       | String                   | EQUAL_TO      |
+| Locale                             | String                   | EQUAL_TO      |
+| Modified                           | DateTime                 |               |
+| Modified By ID                     | String                   |               |
+| Name                               | String                   | EQUAL_TO      |
+| Owner                              | Struct                   |               |
+| Owner Full Name                    | String                   |               |
+| Publishing Status                  | Struct                   |               |
+| RSIDs                              | String                   | EQUAL_TO      |
+| Report Suite Name                  | String                   |               |
+| Rsid                               | String                   | EQUAL_TO      |
+| Segment Filter                     | String                   | EQUAL_TO      |
+| Site Title                         | String                   |               |
+| Sort Direction                     | String                   | EQUAL_TO      |
+| Sort Property                      | String                   | EQUAL_TO      |
+| Tag Names                          | String                   | EQUAL_TO      |
+| Tags                               | List                     |               |
+| compatibility                      | Struct                   |               |
 | Timezone                           | Current Timezone Offset  | Float         |                       |
-| Name                               | String                   |               |                       | Timezone Id              | Integer  |          |
+| Name                               | String                   |               |
+| Timezone Id                        | Integer                  |               |
 | Timezone Zoneinfo                  | String                   |               |
 | Usage Log                          | Date Created             | DateTime      |                       |
-| End Date                           | DateTime                 | EQUAL_TO      |                       | Event                    | String   | EQUAL_TO |
-| Event Description                  | String                   |               |                       | Event Type               | String   | EQUAL_TO |
-| IP                                 | String                   | EQUAL_TO      |                       | IP Address               | String   |          |
-| Login                              | String                   | EQUAL_TO      |                       | Rsid                     | String   | EQUAL_TO |
+| End Date                           | DateTime                 | EQUAL_TO      |
+| Event                              | String                   | EQUAL_TO      |
+| Event Description                  | String                   |               |
+| Event Type                         | String                   | EQUAL_TO      |
+| IP                                 | String                   | EQUAL_TO      |
+| IP Address                         | String                   |               |
+| Login                              | String                   | EQUAL_TO      |
+| Rsid                               | String                   | EQUAL_TO      |
 | Start Date                         | DateTime                 | EQUAL_TO      |
 | User                               | Admin                    | Boolean       |                       |
-| Change Password                    | Boolean                  |               |                       | Company ID               | Integer  |          |
-| Disabled                           | Boolean                  |               |                       | Email                    | String   |          |
-| First Name                         | String                   |               |                       | Full Name                | String   |          |
-| IMS User ID                        | String                   |               |                       | Last Access              | DateTime |          |
-| Last Name                          | String                   |               |                       | Login                    | String   |          |
-| Login ID                           | Integer                  |               |                       | Phone Number             | String   |          |
-| Title                              | String                   |               |                       | createDate               | DateTime |          |
+| Change Password                    | Boolean                  |               |
+| Company ID                         | Integer                  |               |
+| Disabled                           | Boolean                  |               |
+| Email                              | String                   |               |
+| First Name                         | String                   |               |
+| Full Name                          | String                   |               |
+| IMS User ID                        | String                   |               |
+| Last Access                        | DateTime                 |               |
+| Last Name                          | String                   |               |
+| Login                              | String                   |               |
+| Login ID                           | Integer                  |               |
+| Phone Number                       | String                   |               |
+| Title                              | String                   |               |
+| createDate                         | DateTime                 |               |
 | tempLoginEnd                       | DateTime                 |               |

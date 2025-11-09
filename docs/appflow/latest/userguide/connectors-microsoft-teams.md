@@ -187,99 +187,177 @@ When you create a flow that uses Microsoft Teams as the data source, you can set
 When you create a flow that uses Microsoft Teams as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                     | **Field**                | **Data type**                                             | **Supported filters**  |
-| ------------------------------ | ------------------------ | --------------------------------------------------------- | ---------------------- | -------------------------------- | -------- | -------------------------------- |
-| Calendar Event                 | Allow New Time Proposals | Boolean                                                   |                        |
-| Attendees                      | List                     |                                                           |                        | Body                             | Struct   |                                  |
-| Body Preview                   | String                   |                                                           |                        | Categories                       | List     |                                  |
-| Change Key                     | String                   |                                                           |                        | Created DateTime                 | DateTime |                                  |
-| End                            | Struct                   |                                                           |                        | Has Attachments                  | Boolean  |                                  |
-| Hide Attendees                 | Boolean                  |                                                           |                        | ICalUId                          | String   | NOT_EQUAL_TO, EQUAL_TO           |
-| Id                             | String                   |                                                           |                        | Importance                       | String   | NOT_EQUAL_TO, EQUAL_TO           |
-| Is AllDay                      | Boolean                  |                                                           |                        | Is Cancelled                     | Boolean  |                                  |
-| Is Draft                       | Boolean                  |                                                           |                        | Is Online Meeting                | Boolean  |                                  |
-| Is Organizer                   | Boolean                  |                                                           |                        | Is Reminder On                   | Boolean  |                                  |
-| Last Modified DateTime         | DateTime                 |                                                           |                        | Location                         | Struct   |                                  |
-| Locations                      | List                     |                                                           |                        | Occurrence Id                    | String   |                                  |
-| Online Meeting                 | Struct                   |                                                           |                        | Online Meeting Provider          | String   |                                  |
-| Online Meeting Url             | String                   |                                                           |                        | Organizer                        | Struct   |                                  |
-| Original End Time Zone         | String                   |                                                           |                        | Original Start Time Zone         | String   |                                  |
-| Recurrence                     | Struct                   |                                                           |                        | Reminder Minutes Before Start    | Integer  |                                  |
-| Response Requested             | Boolean                  |                                                           |                        | Response Status                  | Struct   |                                  |
-| Sensitivity                    | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |                        | Series Master Id                 | String   |                                  |
-| Show As                        | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |                        | Start                            | Struct   |                                  |
-| Subject                        | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |                        | Transaction Id                   | String   |                                  |
-| Type                           | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |                        | WebLink                          | String   |                                  |
-| Channel                        | Created DateTime         | DateTime                                                  |                        |
-| Description                    | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |                        | Display Name                     | String   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS |
-| Email                          | String                   |                                                           |                        | Id                               | String   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS |
-| Is Favorite By Default         | Boolean                  |                                                           |                        | Membership Type                  | String   |                                  |
-| WebUrl                         | String                   |                                                           |
-| Channel Message                | Attachments              | List                                                      |                        |
-| Body                           | Struct                   |                                                           |                        | Channel Identity                 | Struct   |                                  |
-| Chat Id                        | String                   |                                                           |                        | Created DateTime                 | DateTime |                                  |
-| Deleted DateTime               | DateTime                 |                                                           |                        | Etag                             | String   |                                  |
-| Event Detail                   | Struct                   |                                                           |                        | From                             | Struct   |                                  |
-| Id                             | String                   |                                                           |                        | Importance                       | String   |                                  |
-| Last Edited DateTime           | DateTime                 |                                                           |                        | Last Modified DateTime           | DateTime |                                  |
-| Locale                         | String                   |                                                           |                        | Mentions                         | List     |                                  |
-| Message Type                   | String                   |                                                           |                        | Policy Violation                 | Struct   |                                  |
-| Reactions                      | List                     |                                                           |                        | Reply To Id                      | String   |                                  |
-| Subject                        | String                   |                                                           |                        | Summary                          | String   |                                  |
-| WebUrl                         | String                   |                                                           |
-| Channel Message Reply          | Attachments              | List                                                      |                        |
-| Body                           | Struct                   |                                                           |                        | Channel Identity                 | Struct   |                                  |
-| Chat Id                        | String                   |                                                           |                        | Created DateTime                 | DateTime |                                  |
-| Etag                           | String                   |                                                           |                        | Event Detail                     | Struct   |                                  |
-| From                           | Struct                   |                                                           |                        | Id                               | String   |                                  |
-| Importance                     | String                   |                                                           |                        | Last Edited DateTime             | DateTime |                                  |
-| Last Modified DateTime         | DateTime                 |                                                           |                        | Locale                           | String   |                                  |
-| Mentions                       | List                     |                                                           |                        | Message Type                     | String   |                                  |
-| Policy Violation               | Struct                   |                                                           |                        | Reactions                        | List     |                                  |
-| Reply To Id                    | String                   |                                                           |                        | Subject                          | String   |                                  |
-| Summary                        | String                   |                                                           |                        | WebUrl                           | String   |                                  |
-| dDeleted DateTime              | DateTime                 |                                                           |
-| Channel Tab                    | Configuration            | Struct                                                    |                        |
-| Display Name                   | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |                        | Id                               | String   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS |
-| WebUrl                         | String                   |                                                           |
-| Chat                           | Chat Type                | String                                                    | NOT_EQUAL_TO, EQUAL_TO |
-| Created DateTime               | DateTime                 |                                                           |                        | Id                               | String   | NOT_EQUAL_TO, EQUAL_TO           |
-| Last Updated DateTime          | DateTime                 |                                                           |                        | Online Meeting Info              | Struct   |                                  |
-| Tenant Id                      | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |                        | Topic                            | String   | NOT_EQUAL_TO, EQUAL_TO           |
-| WebUrl                         | String                   |                                                           |
-| Group                          | Classification           | String                                                    |                        |
-| Created DateTime               | DateTime                 |                                                           |                        | Creation Options                 | List     |                                  |
-| Deleted DateTime               | DateTime                 |                                                           |                        | Description                      | String   |                                  |
-| Display Name                   | String                   | EQUAL_TO                                                  |                        | Expiration DateTime              | DateTime |                                  |
-| Group Types                    | List                     |                                                           |                        | Id                               | String   | EQUAL_TO                         |
-| Is Assignable To Role          | Boolean                  |                                                           |                        | Mail                             | String   | EQUAL_TO                         |
-| Mail Enabled                   | Boolean                  | EQUAL_TO                                                  |                        | Mail Nickname                    | String   | EQUAL_TO                         |
-| Membership Rule                | String                   | EQUAL_TO                                                  |                        | Membership Rule Processing State | String   | EQUAL_TO                         |
-| On Premises Domain Name        | String                   |                                                           |                        | On Premises Last Sync DateTime   | DateTime |                                  |
-| On Premises Net Bios Name      | String                   |                                                           |                        | On Premises Provisioning Errors  | List     |                                  |
-| On Premises Sam Account Name   | String                   |                                                           |                        | On Premises Sync Enabled         | Boolean  |                                  |
-| OnPremises Security Identifier | String                   |                                                           |                        | Preferred Data Location          | String   |                                  |
-| Preferred Language             | String                   |                                                           |                        | Proxy Addresses                  | List     |                                  |
-| Renewed DateTime               | DateTime                 | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |                        | Resource Behavior Options        | List     |                                  |
-| Resource Provisioning Options  | List                     |                                                           |                        | Security Enabled                 | Boolean  | EQUAL_TO                         |
-| Security Identifier            | String                   |                                                           |                        | Theme                            | String   |                                  |
-| Visibility                     | String                   |                                                           |
-| Group Member                   | Business Phones          | List                                                      |                        |
-| Display Name                   | String                   |                                                           |                        | Given Name                       | String   |                                  |
-| Id                             | String                   | EQUAL_TO                                                  |                        | Job Title                        | String   |                                  |
-| Mail                           | String                   |                                                           |                        | Mobile Phone                     | String   |                                  |
-| Office Location                | String                   |                                                           |                        | Preferred Language               | String   |                                  |
-| Surname                        | String                   |                                                           |                        | User Principal Name              | String   |                                  |
-| Team                           | Classification           | String                                                    |                        |
-| Created DateTime               | DateTime                 |                                                           |                        | Description                      | String   |                                  |
-| Discovery Settings             | Struct                   |                                                           |                        | Display Name                     | String   |                                  |
-| Fun Settings                   | Struct                   |                                                           |                        | Guest Settings                   | Struct   |                                  |
-| Id                             | String                   |                                                           |                        | Internal Id                      | String   |                                  |
-| Is Archived                    | Boolean                  |                                                           |                        | Is Membership Limited To Owners  | Boolean  |                                  |
-| Member Settings                | Struct                   |                                                           |                        | Messaging Settings               | Struct   |                                  |
-| Specialization                 | String                   |                                                           |                        | Summary                          | String   |                                  |
-| Visibility                     | Struct                   |                                                           |                        | WebUrl                           | String   |                                  |
-| Team Member                    | Display Name             | String                                                    | NOT_EQUAL_TO, EQUAL_TO |
-| Email                          | String                   |                                                           |                        | Id                               | String   |                                  |
-| Roles                          | List                     |                                                           |                        | Tenant Id                        | String   |                                  |
-| User Id                        | String                   |                                                           |                        | Visible History Start DateTime   | DateTime |                                  |
+| **Object**                       | **Field**                | **Data type**                                             | **Supported filters**  |
+| -------------------------------- | ------------------------ | --------------------------------------------------------- | ---------------------- |
+| Calendar Event                   | Allow New Time Proposals | Boolean                                                   |                        |
+| Attendees                        | List                     |                                                           |
+| Body                             | Struct                   |                                                           |
+| Body Preview                     | String                   |                                                           |
+| Categories                       | List                     |                                                           |
+| Change Key                       | String                   |                                                           |
+| Created DateTime                 | DateTime                 |                                                           |
+| End                              | Struct                   |                                                           |
+| Has Attachments                  | Boolean                  |                                                           |
+| Hide Attendees                   | Boolean                  |                                                           |
+| ICalUId                          | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |
+| Id                               | String                   |                                                           |
+| Importance                       | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |
+| Is AllDay                        | Boolean                  |                                                           |
+| Is Cancelled                     | Boolean                  |                                                           |
+| Is Draft                         | Boolean                  |                                                           |
+| Is Online Meeting                | Boolean                  |                                                           |
+| Is Organizer                     | Boolean                  |                                                           |
+| Is Reminder On                   | Boolean                  |                                                           |
+| Last Modified DateTime           | DateTime                 |                                                           |
+| Location                         | Struct                   |                                                           |
+| Locations                        | List                     |                                                           |
+| Occurrence Id                    | String                   |                                                           |
+| Online Meeting                   | Struct                   |                                                           |
+| Online Meeting Provider          | String                   |                                                           |
+| Online Meeting Url               | String                   |                                                           |
+| Organizer                        | Struct                   |                                                           |
+| Original End Time Zone           | String                   |                                                           |
+| Original Start Time Zone         | String                   |                                                           |
+| Recurrence                       | Struct                   |                                                           |
+| Reminder Minutes Before Start    | Integer                  |                                                           |
+| Response Requested               | Boolean                  |                                                           |
+| Response Status                  | Struct                   |                                                           |
+| Sensitivity                      | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |
+| Series Master Id                 | String                   |                                                           |
+| Show As                          | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |
+| Start                            | Struct                   |                                                           |
+| Subject                          | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |
+| Transaction Id                   | String                   |                                                           |
+| Type                             | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |
+| WebLink                          | String                   |                                                           |
+| Channel                          | Created DateTime         | DateTime                                                  |                        |
+| Description                      | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |
+| Display Name                     | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |
+| Email                            | String                   |                                                           |
+| Id                               | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |
+| Is Favorite By Default           | Boolean                  |                                                           |
+| Membership Type                  | String                   |                                                           |
+| WebUrl                           | String                   |                                                           |
+| Channel Message                  | Attachments              | List                                                      |                        |
+| Body                             | Struct                   |                                                           |
+| Channel Identity                 | Struct                   |                                                           |
+| Chat Id                          | String                   |                                                           |
+| Created DateTime                 | DateTime                 |                                                           |
+| Deleted DateTime                 | DateTime                 |                                                           |
+| Etag                             | String                   |                                                           |
+| Event Detail                     | Struct                   |                                                           |
+| From                             | Struct                   |                                                           |
+| Id                               | String                   |                                                           |
+| Importance                       | String                   |                                                           |
+| Last Edited DateTime             | DateTime                 |                                                           |
+| Last Modified DateTime           | DateTime                 |                                                           |
+| Locale                           | String                   |                                                           |
+| Mentions                         | List                     |                                                           |
+| Message Type                     | String                   |                                                           |
+| Policy Violation                 | Struct                   |                                                           |
+| Reactions                        | List                     |                                                           |
+| Reply To Id                      | String                   |                                                           |
+| Subject                          | String                   |                                                           |
+| Summary                          | String                   |                                                           |
+| WebUrl                           | String                   |                                                           |
+| Channel Message Reply            | Attachments              | List                                                      |                        |
+| Body                             | Struct                   |                                                           |
+| Channel Identity                 | Struct                   |                                                           |
+| Chat Id                          | String                   |                                                           |
+| Created DateTime                 | DateTime                 |                                                           |
+| Etag                             | String                   |                                                           |
+| Event Detail                     | Struct                   |                                                           |
+| From                             | Struct                   |                                                           |
+| Id                               | String                   |                                                           |
+| Importance                       | String                   |                                                           |
+| Last Edited DateTime             | DateTime                 |                                                           |
+| Last Modified DateTime           | DateTime                 |                                                           |
+| Locale                           | String                   |                                                           |
+| Mentions                         | List                     |                                                           |
+| Message Type                     | String                   |                                                           |
+| Policy Violation                 | Struct                   |                                                           |
+| Reactions                        | List                     |                                                           |
+| Reply To Id                      | String                   |                                                           |
+| Subject                          | String                   |                                                           |
+| Summary                          | String                   |                                                           |
+| WebUrl                           | String                   |                                                           |
+| dDeleted DateTime                | DateTime                 |                                                           |
+| Channel Tab                      | Configuration            | Struct                                                    |                        |
+| Display Name                     | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |
+| Id                               | String                   | NOT_EQUAL_TO, EQUAL_TO, CONTAINS                          |
+| WebUrl                           | String                   |                                                           |
+| Chat                             | Chat Type                | String                                                    | NOT_EQUAL_TO, EQUAL_TO |
+| Created DateTime                 | DateTime                 |                                                           |
+| Id                               | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |
+| Last Updated DateTime            | DateTime                 |                                                           |
+| Online Meeting Info              | Struct                   |                                                           |
+| Tenant Id                        | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |
+| Topic                            | String                   | NOT_EQUAL_TO, EQUAL_TO                                    |
+| WebUrl                           | String                   |                                                           |
+| Group                            | Classification           | String                                                    |                        |
+| Created DateTime                 | DateTime                 |                                                           |
+| Creation Options                 | List                     |                                                           |
+| Deleted DateTime                 | DateTime                 |                                                           |
+| Description                      | String                   |                                                           |
+| Display Name                     | String                   | EQUAL_TO                                                  |
+| Expiration DateTime              | DateTime                 |                                                           |
+| Group Types                      | List                     |                                                           |
+| Id                               | String                   | EQUAL_TO                                                  |
+| Is Assignable To Role            | Boolean                  |                                                           |
+| Mail                             | String                   | EQUAL_TO                                                  |
+| Mail Enabled                     | Boolean                  | EQUAL_TO                                                  |
+| Mail Nickname                    | String                   | EQUAL_TO                                                  |
+| Membership Rule                  | String                   | EQUAL_TO                                                  |
+| Membership Rule Processing State | String                   | EQUAL_TO                                                  |
+| On Premises Domain Name          | String                   |                                                           |
+| On Premises Last Sync DateTime   | DateTime                 |                                                           |
+| On Premises Net Bios Name        | String                   |                                                           |
+| On Premises Provisioning Errors  | List                     |                                                           |
+| On Premises Sam Account Name     | String                   |                                                           |
+| On Premises Sync Enabled         | Boolean                  |                                                           |
+| OnPremises Security Identifier   | String                   |                                                           |
+| Preferred Data Location          | String                   |                                                           |
+| Preferred Language               | String                   |                                                           |
+| Proxy Addresses                  | List                     |                                                           |
+| Renewed DateTime                 | DateTime                 | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
+| Resource Behavior Options        | List                     |                                                           |
+| Resource Provisioning Options    | List                     |                                                           |
+| Security Enabled                 | Boolean                  | EQUAL_TO                                                  |
+| Security Identifier              | String                   |                                                           |
+| Theme                            | String                   |                                                           |
+| Visibility                       | String                   |                                                           |
+| Group Member                     | Business Phones          | List                                                      |                        |
+| Display Name                     | String                   |                                                           |
+| Given Name                       | String                   |                                                           |
+| Id                               | String                   | EQUAL_TO                                                  |
+| Job Title                        | String                   |                                                           |
+| Mail                             | String                   |                                                           |
+| Mobile Phone                     | String                   |                                                           |
+| Office Location                  | String                   |                                                           |
+| Preferred Language               | String                   |                                                           |
+| Surname                          | String                   |                                                           |
+| User Principal Name              | String                   |                                                           |
+| Team                             | Classification           | String                                                    |                        |
+| Created DateTime                 | DateTime                 |                                                           |
+| Description                      | String                   |                                                           |
+| Discovery Settings               | Struct                   |                                                           |
+| Display Name                     | String                   |                                                           |
+| Fun Settings                     | Struct                   |                                                           |
+| Guest Settings                   | Struct                   |                                                           |
+| Id                               | String                   |                                                           |
+| Internal Id                      | String                   |                                                           |
+| Is Archived                      | Boolean                  |                                                           |
+| Is Membership Limited To Owners  | Boolean                  |                                                           |
+| Member Settings                  | Struct                   |                                                           |
+| Messaging Settings               | Struct                   |                                                           |
+| Specialization                   | String                   |                                                           |
+| Summary                          | String                   |                                                           |
+| Visibility                       | Struct                   |                                                           |
+| WebUrl                           | String                   |                                                           |
+| Team Member                      | Display Name             | String                                                    | NOT_EQUAL_TO, EQUAL_TO |
+| Email                            | String                   |                                                           |
+| Id                               | String                   |                                                           |
+| Roles                            | List                     |                                                           |
+| Tenant Id                        | String                   |                                                           |
+| User Id                          | String                   |                                                           |
+| Visible History Start DateTime   | DateTime                 |                                                           |

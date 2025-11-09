@@ -155,329 +155,608 @@ When you create a flow that uses GitHub as the data source, you can transfer any
 following data objects to supported destinations:
 
 | **Object**                        | **Field**          | **Data type** | **Supported filters** |
-| --------------------------------- | ------------------ | ------------- | --------------------- | ---------------------------- | -------- | -------- |
+| --------------------------------- | ------------------ | ------------- | --------------------- |
 | Branch                            | Commit             | Struct        |                       |
-| Name                              | String             |               |                       | Protected                    | Boolean  | EQUAL_TO |
-| Protection                        | Struct             |               |                       | Protection URL               | String   |          |
+| Name                              | String             |               |
+| Protected                         | Boolean            | EQUAL_TO      |
+| Protection                        | Struct             |               |
+| Protection URL                    | String             |               |
 | Card (aka Project Card)           | Archived           | Boolean       |                       |
-| Archived State                    | String             | EQUAL_TO      |                       | Column URL                   | String   |          |
-| Content URL                       | String             |               |                       | Created at                   | DateTime |          |
-| Creator                           | Struct             |               |                       | Node ID                      | String   |          |
-| Note                              | String             |               |                       | Project URL                  | String   |          |
-| URL                               | String             |               |                       | Updated at                   | DateTime |          |
+| Archived State                    | String             | EQUAL_TO      |
+| Column URL                        | String             |               |
+| Content URL                       | String             |               |
+| Created at                        | DateTime           |               |
+| Creator                           | Struct             |               |
+| Node ID                           | String             |               |
+| Note                              | String             |               |
+| Project URL                       | String             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           |               |
 | id                                | Long               |               |
 | Commit                            | Author             | Struct        |                       |
-| Comments URL                      | String             |               |                       | Commit                       | Struct   |          |
-| Commit Author Name                | String             | EQUAL_TO      |                       | Committer                    | Struct   |          |
-| HTML URL                          | String             |               |                       | Node ID                      | String   |          |
-| Parents                           | List               |               |                       | SHA                          | String   | EQUAL_TO |
-| URL                               | String             |               |                       | Updated since                | DateTime | EQUAL_TO |
+| Comments URL                      | String             |               |
+| Commit                            | Struct             |               |
+| Commit Author Name                | String             | EQUAL_TO      |
+| Committer                         | Struct             |               |
+| HTML URL                          | String             |               |
+| Node ID                           | String             |               |
+| Parents                           | List               |               |
+| SHA                               | String             | EQUAL_TO      |
+| URL                               | String             |               |
+| Updated since                     | DateTime           | EQUAL_TO      |
 | Commit Comment                    | Author Association | String        |                       |
-| Body                              | String             |               |                       | Commit ID                    | String   |          |
-| Created at                        | DateTime           |               |                       | HTML URL                     | String   |          |
-| Line                              | Long               |               |                       | Node ID                      | String   |          |
-| Path                              | String             |               |                       | Position                     | Long     |          |
-| Reactions                         | Struct             |               |                       | URL                          | String   |          |
-| Updated at                        | DateTime           |               |                       | User                         | Struct   |          |
+| Body                              | String             |               |
+| Commit ID                         | String             |               |
+| Created at                        | DateTime           |               |
+| HTML URL                          | String             |               |
+| Line                              | Long               |               |
+| Node ID                           | String             |               |
+| Path                              | String             |               |
+| Position                          | Long               |               |
+| Reactions                         | Struct             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           |               |
+| User                              | Struct             |               |
 | id                                | Long               |               |
 | Commit Pull Request               | Active Lock Reason | String        |                       |
-| Assignee                          | Struct             |               |                       | Assignees                    | List     |          |
-| Author Association                | String             |               |                       | Auto Merge                   | Struct   |          |
-| Base                              | Struct             |               |                       | Body                         | String   |          |
-| Closed at                         | DateTime           |               |                       | Comments URL                 | String   |          |
-| Commits URL                       | String             |               |                       | Created at                   | DateTime |          |
-| Diff URL                          | String             |               |                       | Draft                        | Boolean  |          |
-| HTML URL                          | String             |               |                       | Head                         | Struct   |          |
-| ID                                | Long               |               |                       | Issue URL                    | String   |          |
-| Labels                            | List               |               |                       | Locked                       | Boolean  |          |
-| Merge Commit SHA                  | String             |               |                       | Merged at                    | DateTime |          |
-| Milestone                         | Struct             |               |                       | Node ID                      | String   |          |
-| Number                            | Long               |               |                       | Patch URL                    | String   |          |
-| Requested Reviewers               | List               |               |                       | Requested Teams              | List     |          |
-| Review Comment URL                | String             |               |                       | Review Comments URL          | String   |          |
-| State                             | String             |               |                       | Statuses URL                 | String   |          |
-| Title                             | String             |               |                       | URL                          | String   |          |
-| Updated at                        | DateTime           |               |                       | User                         | Struct   |          |
+| Assignee                          | Struct             |               |
+| Assignees                         | List               |               |
+| Author Association                | String             |               |
+| Auto Merge                        | Struct             |               |
+| Base                              | Struct             |               |
+| Body                              | String             |               |
+| Closed at                         | DateTime           |               |
+| Comments URL                      | String             |               |
+| Commits URL                       | String             |               |
+| Created at                        | DateTime           |               |
+| Diff URL                          | String             |               |
+| Draft                             | Boolean            |               |
+| HTML URL                          | String             |               |
+| Head                              | Struct             |               |
+| ID                                | Long               |               |
+| Issue URL                         | String             |               |
+| Labels                            | List               |               |
+| Locked                            | Boolean            |               |
+| Merge Commit SHA                  | String             |               |
+| Merged at                         | DateTime           |               |
+| Milestone                         | Struct             |               |
+| Node ID                           | String             |               |
+| Number                            | Long               |               |
+| Patch URL                         | String             |               |
+| Requested Reviewers               | List               |               |
+| Requested Teams                   | List               |               |
+| Review Comment URL                | String             |               |
+| Review Comments URL               | String             |               |
+| State                             | String             |               |
+| Statuses URL                      | String             |               |
+| Title                             | String             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           |               |
+| User                              | Struct             |               |
 | \_links                           | Struct             |               |
 | Deployment                        | Created at         | DateTime      |                       |
-| Creator                           | Struct             |               |                       | Description                  | String   |          |
-| Environment                       | String             | EQUAL_TO      |                       | ID                           | Long     |          |
-| Node ID                           | String             |               |                       | Original Environment         | String   |          |
-| Payload                           | Struct             |               |                       | Performed via GitHub app     | Struct   |          |
-| Production Environment            | Boolean            |               |                       | Repository URL               | String   |          |
-| SHA                               | String             | EQUAL_TO      |                       | Statuses URL                 | String   |          |
-| Task                              | String             | EQUAL_TO      |                       | Transient Environment        | Boolean  |          |
-| URL                               | String             |               |                       | Updated at                   | DateTime |          |
+| Creator                           | Struct             |               |
+| Description                       | String             |               |
+| Environment                       | String             | EQUAL_TO      |
+| ID                                | Long               |               |
+| Node ID                           | String             |               |
+| Original Environment              | String             |               |
+| Payload                           | Struct             |               |
+| Performed via GitHub app          | Struct             |               |
+| Production Environment            | Boolean            |               |
+| Repository URL                    | String             |               |
+| SHA                               | String             | EQUAL_TO      |
+| Statuses URL                      | String             |               |
+| Task                              | String             | EQUAL_TO      |
+| Transient Environment             | Boolean            |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           |               |
 | ref                               | String             | EQUAL_TO      |
 | Deployment Status                 | Created at         | DateTime      |                       |
-| Creator                           | Struct             |               |                       | Deployment URL               | String   |          |
-| Description                       | String             |               |                       | Environment                  | String   |          |
-| Environment URL                   | String             |               |                       | ID                           | Long     |          |
-| Log URL                           | String             |               |                       | Node ID                      | String   |          |
-| Performed via GitHub app          | Struct             |               |                       | Repository URL               | String   |          |
-| State                             | String             |               |                       | Target URL                   | String   |          |
-| URL                               | String             |               |                       | Updated at                   | DateTime |          |
+| Creator                           | Struct             |               |
+| Deployment URL                    | String             |               |
+| Description                       | String             |               |
+| Environment                       | String             |               |
+| Environment URL                   | String             |               |
+| ID                                | Long               |               |
+| Log URL                           | String             |               |
+| Node ID                           | String             |               |
+| Performed via GitHub app          | Struct             |               |
+| Repository URL                    | String             |               |
+| State                             | String             |               |
+| Target URL                        | String             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           |               |
 | Fork                              | Allow Forking      | Boolean       |                       |
-| Archive URL                       | String             |               |                       | Archived                     | Boolean  |          |
-| Assignees URL                     | String             |               |                       | Blobs URL                    | String   |          |
-| Branches URL                      | String             |               |                       | Clone URL                    | String   |          |
-| Collaborators URL                 | String             |               |                       | Comments URL                 | String   |          |
-| Commits URL                       | String             |               |                       | Compare URL                  | String   |          |
-| Contents URL                      | String             |               |                       | Contributors URL             | String   |          |
-| Created at                        | DateTime           |               |                       | Default Branch               | String   |          |
-| Deployments URL                   | String             |               |                       | Description                  | String   |          |
-| Disabled                          | Boolean            |               |                       | Downloads URL                | String   |          |
-| Events URL                        | String             |               |                       | Fork                         | Boolean  |          |
-| Forks                             | Long               |               |                       | Forks Count                  | Long     |          |
-| Forks URL                         | String             |               |                       | Full Name                    | String   |          |
-| Git Commits URL                   | String             |               |                       | Git Refs URL                 | String   |          |
-| Git Tags URL                      | String             |               |                       | Git URL                      | String   |          |
-| HTML URL                          | String             |               |                       | Has Downloads                | Boolean  |          |
-| Has Issues                        | Boolean            |               |                       | Has Pages                    | Boolean  |          |
-| Has Projects                      | Boolean            |               |                       | Has Wiki                     | Boolean  |          |
-| Homepage                          | String             |               |                       | Hooks URL                    | String   |          |
-| ID                                | Long               |               |                       | Is Template                  | Boolean  |          |
-| Issue Comment URL                 | String             |               |                       | Issue Events URL             | String   |          |
-| Issues URL                        | String             |               |                       | Keys URL                     | String   |          |
-| Labels URL                        | String             |               |                       | Language                     | String   |          |
-| Languages URL                     | String             |               |                       | License                      | Struct   |          |
-| Merges URL                        | String             |               |                       | Milestones URL               | String   |          |
-| Mirror URL                        | String             |               |                       | Name                         | String   |          |
-| Node ID                           | String             |               |                       | Notifications URL            | String   |          |
-| Open Issues                       | Long               |               |                       | Open Issues Count            | Long     |          |
-| Owner                             | Struct             |               |                       | Permissions                  | Struct   |          |
-| Private                           | Boolean            |               |                       | Pulls URL                    | String   |          |
-| Pushed at                         | DateTime           |               |                       | Releases URL                 | String   |          |
-| SSH URL                           | String             |               |                       | SVN URL                      | String   |          |
-| Size                              | Long               |               |                       | Stargazers Count             | Long     |          |
-| Stargazers URL                    | String             |               |                       | Statuses URL                 | String   |          |
-| Subscribers URL                   | String             |               |                       | Subscription URL             | String   |          |
-| Tags URL                          | String             |               |                       | Teams URL                    | String   |          |
-| Topics                            | List               |               |                       | Trees URL                    | String   |          |
-| URL                               | String             |               |                       | Updated at                   | DateTime |          |
-| Visibility                        | String             |               |                       | Watchers                     | Long     |          |
+| Archive URL                       | String             |               |
+| Archived                          | Boolean            |               |
+| Assignees URL                     | String             |               |
+| Blobs URL                         | String             |               |
+| Branches URL                      | String             |               |
+| Clone URL                         | String             |               |
+| Collaborators URL                 | String             |               |
+| Comments URL                      | String             |               |
+| Commits URL                       | String             |               |
+| Compare URL                       | String             |               |
+| Contents URL                      | String             |               |
+| Contributors URL                  | String             |               |
+| Created at                        | DateTime           |               |
+| Default Branch                    | String             |               |
+| Deployments URL                   | String             |               |
+| Description                       | String             |               |
+| Disabled                          | Boolean            |               |
+| Downloads URL                     | String             |               |
+| Events URL                        | String             |               |
+| Fork                              | Boolean            |               |
+| Forks                             | Long               |               |
+| Forks Count                       | Long               |               |
+| Forks URL                         | String             |               |
+| Full Name                         | String             |               |
+| Git Commits URL                   | String             |               |
+| Git Refs URL                      | String             |               |
+| Git Tags URL                      | String             |               |
+| Git URL                           | String             |               |
+| HTML URL                          | String             |               |
+| Has Downloads                     | Boolean            |               |
+| Has Issues                        | Boolean            |               |
+| Has Pages                         | Boolean            |               |
+| Has Projects                      | Boolean            |               |
+| Has Wiki                          | Boolean            |               |
+| Homepage                          | String             |               |
+| Hooks URL                         | String             |               |
+| ID                                | Long               |               |
+| Is Template                       | Boolean            |               |
+| Issue Comment URL                 | String             |               |
+| Issue Events URL                  | String             |               |
+| Issues URL                        | String             |               |
+| Keys URL                          | String             |               |
+| Labels URL                        | String             |               |
+| Language                          | String             |               |
+| Languages URL                     | String             |               |
+| License                           | Struct             |               |
+| Merges URL                        | String             |               |
+| Milestones URL                    | String             |               |
+| Mirror URL                        | String             |               |
+| Name                              | String             |               |
+| Node ID                           | String             |               |
+| Notifications URL                 | String             |               |
+| Open Issues                       | Long               |               |
+| Open Issues Count                 | Long               |               |
+| Owner                             | Struct             |               |
+| Permissions                       | Struct             |               |
+| Private                           | Boolean            |               |
+| Pulls URL                         | String             |               |
+| Pushed at                         | DateTime           |               |
+| Releases URL                      | String             |               |
+| SSH URL                           | String             |               |
+| SVN URL                           | String             |               |
+| Size                              | Long               |               |
+| Stargazers Count                  | Long               |               |
+| Stargazers URL                    | String             |               |
+| Statuses URL                      | String             |               |
+| Subscribers URL                   | String             |               |
+| Subscription URL                  | String             |               |
+| Tags URL                          | String             |               |
+| Teams URL                         | String             |               |
+| Topics                            | List               |               |
+| Trees URL                         | String             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           |               |
+| Visibility                        | String             |               |
+| Watchers                          | Long               |               |
 | Watchers Count                    | Long               |               |
 | Issue                             | Active Lock Reason | String        |                       |
-| Assignee                          | Struct             |               |                       | Assignees                    | List     |          |
-| Author Association                | String             |               |                       | Body                         | String   |          |
-| Closed at                         | DateTime           |               |                       | Closed by                    | Struct   |          |
-| Comments                          | Long               |               |                       | Comments URL                 | String   |          |
-| Created at                        | DateTime           |               |                       | Events URL                   | String   |          |
-| Filter                            | String             | EQUAL_TO      |                       | HTML URL                     | String   |          |
-| ID                                | Long               |               |                       | Issue Labels Name            | String   | EQUAL_TO |
-| Labels                            | List               |               |                       | Labels URL                   | String   |          |
-| Locked                            | Boolean            |               |                       | Milestone                    | Struct   |          |
-| Node ID                           | String             |               |                       | Number                       | Long     |          |
-| Performed via GitHub App          | Struct             |               |                       | Reactions                    | Struct   |          |
-| Repository URL                    | String             |               |                       | State                        | String   | EQUAL_TO |
-| Timeline URL                      | String             |               |                       | Title                        | String   |          |
-| URL                               | String             |               |                       | Updated at                   | DateTime | EQUAL_TO |
+| Assignee                          | Struct             |               |
+| Assignees                         | List               |               |
+| Author Association                | String             |               |
+| Body                              | String             |               |
+| Closed at                         | DateTime           |               |
+| Closed by                         | Struct             |               |
+| Comments                          | Long               |               |
+| Comments URL                      | String             |               |
+| Created at                        | DateTime           |               |
+| Events URL                        | String             |               |
+| Filter                            | String             | EQUAL_TO      |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Issue Labels Name                 | String             | EQUAL_TO      |
+| Labels                            | List               |               |
+| Labels URL                        | String             |               |
+| Locked                            | Boolean            |               |
+| Milestone                         | Struct             |               |
+| Node ID                           | String             |               |
+| Number                            | Long               |               |
+| Performed via GitHub App          | Struct             |               |
+| Reactions                         | Struct             |               |
+| Repository URL                    | String             |               |
+| State                             | String             | EQUAL_TO      |
+| Timeline URL                      | String             |               |
+| Title                             | String             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           | EQUAL_TO      |
 | User                              | Struct             |               |
 | Issue Assignee                    | Avatar URL         | String        |                       |
-| Events URL                        | String             |               |                       | Followers URL                | String   |          |
-| Following URL                     | String             |               |                       | Gists URL                    | String   |          |
-| Gravatar ID                       | String             |               |                       | HTML URL                     | String   |          |
-| ID                                | Long               |               |                       | Login                        | String   |          |
-| Node ID                           | String             |               |                       | Organizations URL            | String   |          |
-| Received Events URL               | String             |               |                       | Repos URL                    | String   |          |
-| Site Admin                        | Boolean            |               |                       | Starred URL                  | String   |          |
-| Subscriptions URL                 | String             |               |                       | Type                         | String   |          |
+| Events URL                        | String             |               |
+| Followers URL                     | String             |               |
+| Following URL                     | String             |               |
+| Gists URL                         | String             |               |
+| Gravatar ID                       | String             |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Login                             | String             |               |
+| Node ID                           | String             |               |
+| Organizations URL                 | String             |               |
+| Received Events URL               | String             |               |
+| Repos URL                         | String             |               |
+| Site Admin                        | Boolean            |               |
+| Starred URL                       | String             |               |
+| Subscriptions URL                 | String             |               |
+| Type                              | String             |               |
 | URL                               | String             |               |
 | Issue Comment                     | Author Association | String        |                       |
-| Body                              | String             |               |                       | Created at                   | DateTime |          |
-| HTML URL                          | String             |               |                       | ID                           | Long     |          |
-| Issue URL                         | String             |               |                       | Node ID                      | String   |          |
-| Performed via GitHub app          | Struct             |               |                       | Reactions                    | Struct   |          |
-| URL                               | String             |               |                       | Updated at                   | DateTime | EQUAL_TO |
+| Body                              | String             |               |
+| Created at                        | DateTime           |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Issue URL                         | String             |               |
+| Node ID                           | String             |               |
+| Performed via GitHub app          | Struct             |               |
+| Reactions                         | Struct             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           | EQUAL_TO      |
 | User                              | Struct             |               |
 | Issue Event                       | Actor              | Struct        |                       |
-| Assignee                          | Struct             |               |                       | Assigner                     | Struct   |          |
-| Commit ID                         | String             |               |                       | Commit URL                   | String   |          |
-| Created at                        | DateTime           |               |                       | Event                        | String   |          |
-| ID                                | Long               |               |                       | Node ID                      | String   |          |
-| Performed via GitHub app          | Struct             |               |                       | URL                          | String   |          |
+| Assignee                          | Struct             |               |
+| Assigner                          | Struct             |               |
+| Commit ID                         | String             |               |
+| Commit URL                        | String             |               |
+| Created at                        | DateTime           |               |
+| Event                             | String             |               |
+| ID                                | Long               |               |
+| Node ID                           | String             |               |
+| Performed via GitHub app          | Struct             |               |
+| URL                               | String             |               |
 | Label                             | Color              | String        |                       |
-| Default                           | Boolean            |               |                       | Description                  | String   |          |
-| ID                                | Long               |               |                       | Name                         | String   |          |
-| Node ID                           | String             |               |                       | URL                          | String   |          |
+| Default                           | Boolean            |               |
+| Description                       | String             |               |
+| ID                                | Long               |               |
+| Name                              | String             |               |
+| Node ID                           | String             |               |
+| URL                               | String             |               |
 | Milestone                         | Closed Issues      | Long          |                       |
-| Closed at                         | DateTime           |               |                       | Created at                   | DateTime |          |
-| Creator                           | Struct             |               |                       | Description                  | String   |          |
-| Due on                            | DateTime           |               |                       | HTML URL                     | String   |          |
-| ID                                | Long               |               |                       | Labels URL                   | String   |          |
-| Node ID                           | String             |               |                       | Number                       | Long     |          |
-| Open Issues                       | Long               |               |                       | State                        | String   | EQUAL_TO |
-| Title                             | String             |               |                       | URL                          | String   |          |
+| Closed at                         | DateTime           |               |
+| Created at                        | DateTime           |               |
+| Creator                           | Struct             |               |
+| Description                       | String             |               |
+| Due on                            | DateTime           |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Labels URL                        | String             |               |
+| Node ID                           | String             |               |
+| Number                            | Long               |               |
+| Open Issues                       | Long               |               |
+| State                             | String             | EQUAL_TO      |
+| Title                             | String             |               |
+| URL                               | String             |               |
 | Updated at                        | DateTime           |               |
 | Organization                      | Avatar URL         | String        |                       |
-| Description                       | String             |               |                       | Events URL                   | String   |          |
-| Hooks URL                         | String             |               |                       | ID                           | Long     |          |
-| Issues URL                        | String             |               |                       | Login                        | String   |          |
-| Members URL                       | String             |               |                       | Node ID                      | String   |          |
-| Public Members URL                | String             |               |                       | Repos URL                    | String   |          |
+| Description                       | String             |               |
+| Events URL                        | String             |               |
+| Hooks URL                         | String             |               |
+| ID                                | Long               |               |
+| Issues URL                        | String             |               |
+| Login                             | String             |               |
+| Members URL                       | String             |               |
+| Node ID                           | String             |               |
+| Public Members URL                | String             |               |
+| Repos URL                         | String             |               |
 | URL                               | String             |               |
 | Project                           | Body               | String        |                       |
-| Created at                        | DateTime           |               |                       | Creator                      | Struct   |          |
-| ID                                | Long               |               |                       | Name                         | String   |          |
-| Node ID                           | String             |               |                       | Number                       | Long     |          |
-| Organization Permission           | String             |               |                       | Private                      | Boolean  |          |
-| State                             | String             | EQUAL_TO      |                       | Updated at                   | DateTime |          |
+| Created at                        | DateTime           |               |
+| Creator                           | Struct             |               |
+| ID                                | Long               |               |
+| Name                              | String             |               |
+| Node ID                           | String             |               |
+| Number                            | Long               |               |
+| Organization Permission           | String             |               |
+| Private                           | Boolean            |               |
+| State                             | String             | EQUAL_TO      |
+| Updated at                        | DateTime           |               |
 | Project Column                    | Created at         | DateTime      |                       |
-| ID                                | Long               |               |                       | Name                         | String   |          |
-| Node ID                           | String             |               |                       | Updated at                   | DateTime |          |
+| ID                                | Long               |               |
+| Name                              | String             |               |
+| Node ID                           | String             |               |
+| Updated at                        | DateTime           |               |
 | Pull Request                      | Active Lock Reason | String        |                       |
-| Assignee                          | Struct             |               |                       | Assignees                    | List     |          |
-| Author Association                | String             |               |                       | Auto Merge                   | Struct   |          |
-| Base                              | Struct             |               |                       | Body                         | String   |          |
-| Closed at                         | DateTime           |               |                       | Comments URL                 | String   |          |
-| Commits URL                       | String             |               |                       | Created at                   | DateTime |          |
-| Diff URL                          | String             |               |                       | Draft                        | Boolean  |          |
-| HTML URL                          | String             |               |                       | Head                         | Struct   |          |
-| ID                                | Long               |               |                       | Issue URL                    | String   |          |
-| Labels                            | List               |               |                       | Locked                       | Boolean  |          |
-| Merge Commit SHA                  | String             |               |                       | Merged at                    | DateTime |          |
-| Milestone                         | Struct             |               |                       | Node ID                      | String   |          |
-| Number                            | Long               |               |                       | Patch URL                    | String   |          |
-| Pull Request Base                 | String             | EQUAL_TO      |                       | Pull Request Head Label      | String   | EQUAL_TO |
-| Requested Reviewers               | List               |               |                       | Requested Teams              | List     |          |
-| Review Comment URL                | String             |               |                       | Review Comments URL          | String   |          |
-| State                             | String             | EQUAL_TO      |                       | Statuses URL                 | String   |          |
-| Title                             | String             |               |                       | URL                          | String   |          |
-| Updated at                        | DateTime           |               |                       | User                         | Struct   |          |
+| Assignee                          | Struct             |               |
+| Assignees                         | List               |               |
+| Author Association                | String             |               |
+| Auto Merge                        | Struct             |               |
+| Base                              | Struct             |               |
+| Body                              | String             |               |
+| Closed at                         | DateTime           |               |
+| Comments URL                      | String             |               |
+| Commits URL                       | String             |               |
+| Created at                        | DateTime           |               |
+| Diff URL                          | String             |               |
+| Draft                             | Boolean            |               |
+| HTML URL                          | String             |               |
+| Head                              | Struct             |               |
+| ID                                | Long               |               |
+| Issue URL                         | String             |               |
+| Labels                            | List               |               |
+| Locked                            | Boolean            |               |
+| Merge Commit SHA                  | String             |               |
+| Merged at                         | DateTime           |               |
+| Milestone                         | Struct             |               |
+| Node ID                           | String             |               |
+| Number                            | Long               |               |
+| Patch URL                         | String             |               |
+| Pull Request Base                 | String             | EQUAL_TO      |
+| Pull Request Head Label           | String             | EQUAL_TO      |
+| Requested Reviewers               | List               |               |
+| Requested Teams                   | List               |               |
+| Review Comment URL                | String             |               |
+| Review Comments URL               | String             |               |
+| State                             | String             | EQUAL_TO      |
+| Statuses URL                      | String             |               |
+| Title                             | String             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           |               |
+| User                              | Struct             |               |
 | \_links                           | Struct             |               |
 | Pull Request Commit               | Author             | Struct        |                       |
-| Comments URL                      | String             |               |                       | Commit                       | Struct   |          |
-| Committer                         | Struct             |               |                       | HTML URL                     | String   |          |
-| Node ID                           | String             |               |                       | Parents                      | List     |          |
-| SHA                               | String             |               |                       | URL                          | String   |          |
+| Comments URL                      | String             |               |
+| Commit                            | Struct             |               |
+| Committer                         | Struct             |               |
+| HTML URL                          | String             |               |
+| Node ID                           | String             |               |
+| Parents                           | List               |               |
+| SHA                               | String             |               |
+| URL                               | String             |               |
 | Pull Request Review               | Author Association | String        |                       |
-| Body                              | String             |               |                       | Commit ID                    | String   |          |
-| HTML URL                          | String             |               |                       | ID                           | Long     |          |
-| Node ID                           | String             |               |                       | Pull Request URL             | String   |          |
-| State                             | String             |               |                       | Submitted at                 | DateTime |          |
-| User                              | Struct             |               |                       | \_links                      | Struct   |          |
+| Body                              | String             |               |
+| Commit ID                         | String             |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Node ID                           | String             |               |
+| Pull Request URL                  | String             |               |
+| State                             | String             |               |
+| Submitted at                      | DateTime           |               |
+| User                              | Struct             |               |
+| \_links                           | Struct             |               |
 | Release                           | Assets             | List          |                       |
-| Assets URL                        | String             |               |                       | Author                       | Struct   |          |
-| Body                              | String             |               |                       | Created at                   | DateTime |          |
-| Draft                             | Boolean            |               |                       | HTML URL                     | String   |          |
-| ID                                | Long               |               |                       | Name                         | String   |          |
-| Node ID                           | String             |               |                       | Prerelease                   | Boolean  |          |
-| Published at                      | DateTime           |               |                       | Tag Name                     | String   |          |
-| Tarball URL                       | String             |               |                       | Target Commitish             | String   |          |
-| URL                               | String             |               |                       | Upload URL                   | String   |          |
+| Assets URL                        | String             |               |
+| Author                            | Struct             |               |
+| Body                              | String             |               |
+| Created at                        | DateTime           |               |
+| Draft                             | Boolean            |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Name                              | String             |               |
+| Node ID                           | String             |               |
+| Prerelease                        | Boolean            |               |
+| Published at                      | DateTime           |               |
+| Tag Name                          | String             |               |
+| Tarball URL                       | String             |               |
+| Target Commitish                  | String             |               |
+| URL                               | String             |               |
+| Upload URL                        | String             |               |
 | Zipball URL                       | String             |               |
 | Repository                        | Allow Auto Merge   | Boolean       |                       |
-| Allow Forking                     | Boolean            |               |                       | Allow Merge Commit           | Boolean  |          |
-| Allow Rebase Merge                | Boolean            |               |                       | Allow Squash Merge           | Boolean  |          |
-| Allow Update Branch               | Boolean            |               |                       | Archive URL                  | String   |          |
-| Archived                          | Boolean            |               |                       | Assignees URL                | String   |          |
-| Blobs URL                         | String             |               |                       | Branches URL                 | String   |          |
-| Clone URL                         | String             |               |                       | Collaborators URL            | String   |          |
-| Comments URL                      | String             |               |                       | Commits URL                  | String   |          |
-| Compare URL                       | String             |               |                       | Contents URL                 | String   |          |
-| Contributors URL                  | String             |               |                       | Created at                   | DateTime |          |
-| Default Branch                    | String             |               |                       | Delete Branch on Merge       | Boolean  |          |
-| Deployments URL                   | String             |               |                       | Description                  | String   |          |
-| Disabled                          | Boolean            |               |                       | Downloads URL                | String   |          |
-| Events URL                        | String             |               |                       | Fork                         | Boolean  |          |
-| Forks                             | Long               |               |                       | Forks Count                  | Long     |          |
-| Forks URL                         | String             |               |                       | Full Name                    | String   |          |
-| Git Commits URL                   | String             |               |                       | Git Refs URL                 | String   |          |
-| Git Tags URL                      | String             |               |                       | Git URL                      | String   |          |
-| HTML URL                          | String             |               |                       | Has Downloads                | Boolean  |          |
-| Has Issues                        | Boolean            |               |                       | Has Pages                    | Boolean  |          |
-| Has Projects                      | Boolean            |               |                       | Has Wiki                     | Boolean  |          |
-| Homepage                          | String             |               |                       | Hooks URL                    | String   |          |
-| ID                                | Long               |               |                       | Is Template                  | Boolean  |          |
-| Issue Comment URL                 | String             |               |                       | Issue Events URL             | String   |          |
-| Issues URL                        | String             |               |                       | Keys URL                     | String   |          |
-| Labels URL                        | String             |               |                       | Language                     | String   |          |
-| Languages URL                     | String             |               |                       | License                      | Struct   |          |
-| Merges URL                        | String             |               |                       | Milestones URL               | String   |          |
-| Mirror URL                        | String             |               |                       | Name                         | String   |          |
-| Network Count                     | Long               |               |                       | Node ID                      | String   |          |
-| Notifications URL                 | String             |               |                       | Open Issues                  | Long     |          |
-| Open Issues Count                 | Long               |               |                       | Owner                        | Struct   |          |
-| Permissions                       | Struct             |               |                       | Private                      | Boolean  |          |
-| Pulls URL                         | String             |               |                       | Pushed at                    | DateTime |          |
-| Releases URL                      | String             |               |                       | SSH URL                      | String   |          |
-| SVN URL                           | String             |               |                       | Size                         | Long     |          |
-| Stargazers Count                  | Long               |               |                       | Stargazers URL               | String   |          |
-| Statuses URL                      | String             |               |                       | Subscribers Count            | Long     |          |
-| Subscribers URL                   | String             |               |                       | Subscription URL             | String   |          |
-| Tags URL                          | String             |               |                       | Teams URL                    | String   |          |
-| Temp Clone Token                  | String             |               |                       | Topics                       | List     |          |
-| Trees URL                         | String             |               |                       | Type                         | String   | EQUAL_TO |
-| URL                               | String             |               |                       | Updated at                   | DateTime |          |
-| Visibility                        | String             |               |                       | Watchers                     | Long     |          |
+| Allow Forking                     | Boolean            |               |
+| Allow Merge Commit                | Boolean            |               |
+| Allow Rebase Merge                | Boolean            |               |
+| Allow Squash Merge                | Boolean            |               |
+| Allow Update Branch               | Boolean            |               |
+| Archive URL                       | String             |               |
+| Archived                          | Boolean            |               |
+| Assignees URL                     | String             |               |
+| Blobs URL                         | String             |               |
+| Branches URL                      | String             |               |
+| Clone URL                         | String             |               |
+| Collaborators URL                 | String             |               |
+| Comments URL                      | String             |               |
+| Commits URL                       | String             |               |
+| Compare URL                       | String             |               |
+| Contents URL                      | String             |               |
+| Contributors URL                  | String             |               |
+| Created at                        | DateTime           |               |
+| Default Branch                    | String             |               |
+| Delete Branch on Merge            | Boolean            |               |
+| Deployments URL                   | String             |               |
+| Description                       | String             |               |
+| Disabled                          | Boolean            |               |
+| Downloads URL                     | String             |               |
+| Events URL                        | String             |               |
+| Fork                              | Boolean            |               |
+| Forks                             | Long               |               |
+| Forks Count                       | Long               |               |
+| Forks URL                         | String             |               |
+| Full Name                         | String             |               |
+| Git Commits URL                   | String             |               |
+| Git Refs URL                      | String             |               |
+| Git Tags URL                      | String             |               |
+| Git URL                           | String             |               |
+| HTML URL                          | String             |               |
+| Has Downloads                     | Boolean            |               |
+| Has Issues                        | Boolean            |               |
+| Has Pages                         | Boolean            |               |
+| Has Projects                      | Boolean            |               |
+| Has Wiki                          | Boolean            |               |
+| Homepage                          | String             |               |
+| Hooks URL                         | String             |               |
+| ID                                | Long               |               |
+| Is Template                       | Boolean            |               |
+| Issue Comment URL                 | String             |               |
+| Issue Events URL                  | String             |               |
+| Issues URL                        | String             |               |
+| Keys URL                          | String             |               |
+| Labels URL                        | String             |               |
+| Language                          | String             |               |
+| Languages URL                     | String             |               |
+| License                           | Struct             |               |
+| Merges URL                        | String             |               |
+| Milestones URL                    | String             |               |
+| Mirror URL                        | String             |               |
+| Name                              | String             |               |
+| Network Count                     | Long               |               |
+| Node ID                           | String             |               |
+| Notifications URL                 | String             |               |
+| Open Issues                       | Long               |               |
+| Open Issues Count                 | Long               |               |
+| Owner                             | Struct             |               |
+| Permissions                       | Struct             |               |
+| Private                           | Boolean            |               |
+| Pulls URL                         | String             |               |
+| Pushed at                         | DateTime           |               |
+| Releases URL                      | String             |               |
+| SSH URL                           | String             |               |
+| SVN URL                           | String             |               |
+| Size                              | Long               |               |
+| Stargazers Count                  | Long               |               |
+| Stargazers URL                    | String             |               |
+| Statuses URL                      | String             |               |
+| Subscribers Count                 | Long               |               |
+| Subscribers URL                   | String             |               |
+| Subscription URL                  | String             |               |
+| Tags URL                          | String             |               |
+| Teams URL                         | String             |               |
+| Temp Clone Token                  | String             |               |
+| Topics                            | List               |               |
+| Trees URL                         | String             |               |
+| Type                              | String             | EQUAL_TO      |
+| URL                               | String             |               |
+| Updated at                        | DateTime           |               |
+| Visibility                        | String             |               |
+| Watchers                          | Long               |               |
 | Watchers Count                    | Long               |               |
 | Repository Issue                  | Active Lock Reason | String        |                       |
-| Assignee                          | Struct             |               |                       | Assignees                    | List     |          |
-| Author Association                | String             |               |                       | Body                         | String   |          |
-| Closed at                         | DateTime           |               |                       | Closed by                    | Struct   |          |
-| Comments                          | Long               |               |                       | Comments URL                 | String   |          |
-| Created at                        | DateTime           |               |                       | Creator                      | String   | EQUAL_TO |
-| Events URL                        | String             |               |                       | HTML URL                     | String   |          |
-| ID                                | Long               |               |                       | Labels                       | List     |          |
-| Labels URL                        | String             |               |                       | Locked                       | Boolean  |          |
-| Mentioned                         | String             | EQUAL_TO      |                       | Milestone                    | Struct   |          |
-| Node ID                           | String             |               |                       | Number                       | Long     |          |
-| Performed via GitHub App          | Struct             |               |                       | Reactions                    | Struct   |          |
-| Repository Issue Assignee Login   | String             | EQUAL_TO      |                       | Repository Issue Labels Name | String   | EQUAL_TO |
-| Repository Issue Milestone Number | String             | EQUAL_TO      |                       | Repository URL               | String   |          |
-| State                             | String             | EQUAL_TO      |                       | Timeline URL                 | String   |          |
-| Title                             | String             |               |                       | URL                          | String   |          |
-| Updated at                        | DateTime           | EQUAL_TO      |                       | User                         | Struct   |          |
+| Assignee                          | Struct             |               |
+| Assignees                         | List               |               |
+| Author Association                | String             |               |
+| Body                              | String             |               |
+| Closed at                         | DateTime           |               |
+| Closed by                         | Struct             |               |
+| Comments                          | Long               |               |
+| Comments URL                      | String             |               |
+| Created at                        | DateTime           |               |
+| Creator                           | String             | EQUAL_TO      |
+| Events URL                        | String             |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Labels                            | List               |               |
+| Labels URL                        | String             |               |
+| Locked                            | Boolean            |               |
+| Mentioned                         | String             | EQUAL_TO      |
+| Milestone                         | Struct             |               |
+| Node ID                           | String             |               |
+| Number                            | Long               |               |
+| Performed via GitHub App          | Struct             |               |
+| Reactions                         | Struct             |               |
+| Repository Issue Assignee Login   | String             | EQUAL_TO      |
+| Repository Issue Labels Name      | String             | EQUAL_TO      |
+| Repository Issue Milestone Number | String             | EQUAL_TO      |
+| Repository URL                    | String             |               |
+| State                             | String             | EQUAL_TO      |
+| Timeline URL                      | String             |               |
+| Title                             | String             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           | EQUAL_TO      |
+| User                              | Struct             |               |
 | Repository Project                | Body               | String        |                       |
-| Created at                        | DateTime           |               |                       | Creator                      | Struct   |          |
-| ID                                | Long               |               |                       | Name                         | String   |          |
-| Node ID                           | String             |               |                       | Number                       | Long     |          |
-| Organization Permission           | String             |               |                       | Private                      | Boolean  |          |
-| State                             | String             | EQUAL_TO      |                       | Updated at                   | DateTime |          |
+| Created at                        | DateTime           |               |
+| Creator                           | Struct             |               |
+| ID                                | Long               |               |
+| Name                              | String             |               |
+| Node ID                           | String             |               |
+| Number                            | Long               |               |
+| Organization Permission           | String             |               |
+| Private                           | Boolean            |               |
+| State                             | String             | EQUAL_TO      |
+| Updated at                        | DateTime           |               |
 | Review Comment                    | Author Association | String        |                       |
-| Body                              | Struct             |               |                       | Commit ID                    | String   |          |
-| Created at                        | DateTime           |               |                       | Diff Hunk                    | String   |          |
-| HTML URL                          | String             |               |                       | ID                           | Long     |          |
-| In Reply to ID                    | Long               |               |                       | Node id                      | String   |          |
-| Original Commit ID                | String             |               |                       | Original Position            | Long     |          |
-| Path                              | String             |               |                       | Position                     | Long     |          |
-| Pull Request Review ID            | Long               |               |                       | Pull Request URL             | String   |          |
-| URL                               | String             |               |                       | Updated at                   | DateTime | EQUAL_TO |
-| User                              | Struct             |               |                       | \_links                      | Struct   |          |
+| Body                              | Struct             |               |
+| Commit ID                         | String             |               |
+| Created at                        | DateTime           |               |
+| Diff Hunk                         | String             |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| In Reply to ID                    | Long               |               |
+| Node id                           | String             |               |
+| Original Commit ID                | String             |               |
+| Original Position                 | Long               |               |
+| Path                              | String             |               |
+| Position                          | Long               |               |
+| Pull Request Review ID            | Long               |               |
+| Pull Request URL                  | String             |               |
+| URL                               | String             |               |
+| Updated at                        | DateTime           | EQUAL_TO      |
+| User                              | Struct             |               |
+| \_links                           | Struct             |               |
 | Stargazer                         | Avatar URL         | String        |                       |
-| Events URL                        | String             |               |                       | Followers URL                | String   |          |
-| Following URL                     | String             |               |                       | Gists URL                    | String   |          |
-| Gravatar ID                       | String             |               |                       | HTML URL                     | String   |          |
-| ID                                | Long               |               |                       | Login                        | String   |          |
-| Node ID                           | String             |               |                       | Organizations URL            | String   |          |
-| Received Events URL               | String             |               |                       | Repos URL                    | String   |          |
-| Site Admin                        | String             |               |                       | Starred URL                  | String   |          |
-| Subscriptions URL                 | String             |               |                       | Type                         | String   |          |
+| Events URL                        | String             |               |
+| Followers URL                     | String             |               |
+| Following URL                     | String             |               |
+| Gists URL                         | String             |               |
+| Gravatar ID                       | String             |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Login                             | String             |               |
+| Node ID                           | String             |               |
+| Organizations URL                 | String             |               |
+| Received Events URL               | String             |               |
+| Repos URL                         | String             |               |
+| Site Admin                        | String             |               |
+| Starred URL                       | String             |               |
+| Subscriptions URL                 | String             |               |
+| Type                              | String             |               |
 | URL                               | String             |               |
 | Team                              | Description        | String        |                       |
-| HTML URL                          | String             |               |                       | ID                           | Long     |          |
-| Members URL                       | String             |               |                       | Name                         | String   |          |
-| Node ID                           | String             |               |                       | Parent                       | Struct   |          |
-| Permission                        | String             |               |                       | Privacy                      | String   |          |
-| Repositories URL                  | String             |               |                       | Slug                         | String   |          |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Members URL                       | String             |               |
+| Name                              | String             |               |
+| Node ID                           | String             |               |
+| Parent                            | Struct             |               |
+| Permission                        | String             |               |
+| Privacy                           | String             |               |
+| Repositories URL                  | String             |               |
+| Slug                              | String             |               |
 | URL                               | String             |               |
 | Team Member                       | Avatar URL         | String        |                       |
-| Events URL                        | String             |               |                       | Followers URL                | String   |          |
-| Following URL                     | String             |               |                       | Gists URL                    | String   |          |
-| Gravatar ID                       | String             |               |                       | HTML URL                     | String   |          |
-| ID                                | Long               |               |                       | Login                        | String   |          |
-| Node ID                           | String             |               |                       | Organizations URL            | String   |          |
-| Received Events URL               | String             |               |                       | Repos URL                    | String   |          |
-| Site Admin                        | Boolean            |               |                       | Starred URL                  | String   |          |
-| Subscriptions URL                 | String             |               |                       | Type                         | String   |          |
+| Events URL                        | String             |               |
+| Followers URL                     | String             |               |
+| Following URL                     | String             |               |
+| Gists URL                         | String             |               |
+| Gravatar ID                       | String             |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Login                             | String             |               |
+| Node ID                           | String             |               |
+| Organizations URL                 | String             |               |
+| Received Events URL               | String             |               |
+| Repos URL                         | String             |               |
+| Site Admin                        | Boolean            |               |
+| Starred URL                       | String             |               |
+| Subscriptions URL                 | String             |               |
+| Type                              | String             |               |
 | URL                               | String             |               |
 | Watcher                           | Avatar URL         | String        |                       |
-| Events URL                        | String             |               |                       | Followers URL                | String   |          |
-| Following URL                     | String             |               |                       | Gists URL                    | String   |          |
-| Gravatar ID                       | String             |               |                       | HTML URL                     | String   |          |
-| ID                                | Long               |               |                       | Login                        | String   |          |
-| Node ID                           | String             |               |                       | Organizations URL            | String   |          |
-| Received Events URL               | String             |               |                       | Repos URL                    | String   |          |
-| Site Admin                        | Boolean            |               |                       | Starred URL                  | String   |          |
-| Subscriptions URL                 | String             |               |                       | Type                         | String   |          |
+| Events URL                        | String             |               |
+| Followers URL                     | String             |               |
+| Following URL                     | String             |               |
+| Gists URL                         | String             |               |
+| Gravatar ID                       | String             |               |
+| HTML URL                          | String             |               |
+| ID                                | Long               |               |
+| Login                             | String             |               |
+| Node ID                           | String             |               |
+| Organizations URL                 | String             |               |
+| Received Events URL               | String             |               |
+| Repos URL                         | String             |               |
+| Site Admin                        | Boolean            |               |
+| Starred URL                       | String             |               |
+| Subscriptions URL                 | String             |               |
+| Type                              | String             |               |
 | URL                               | String             |               |

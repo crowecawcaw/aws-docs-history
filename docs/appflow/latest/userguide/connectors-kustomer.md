@@ -107,362 +107,644 @@ When you create a flow that uses Kustomer as the data source, you can set the de
 When you create a flow that uses Kustomer as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                     | **Field**         | **Data type** | **Supported filters** |
-| ------------------------------ | ----------------- | ------------- | --------------------- | ------------------------------------- | -------- | --- |
-| Apps                           | ID                | String        |                       |
-| actions                        | Struct            |               |                       | autoUpdate                            | Boolean  |     |
-| cards                          | Struct            |               |                       | commands                              | Struct   |     |
-| createdAt                      | DateTime          |               |                       | current                               | String   |     |
-| dataSubscriptions              | List              |               |                       | disabled                              | Boolean  |     |
-| events                         | Struct            |               |                       | hooks                                 | Struct   |     |
-| inboundHookUris                | List              |               |                       | klasses                               | Struct   |     |
-| kviews                         | Struct            |               |                       | meta                                  | Struct   |     |
-| modifiedAt                     | DateTime          |               |                       | name                                  | String   |     |
-| outboundWebhooks               | Struct            |               |                       | roles                                 | List     |     |
-| settings                       | Struct            |               |                       | settingsPageConfig                    | String   |     |
-| shortcuts                      | Struct            |               |                       | status                                | String   |     |
-| statusAt                       | DateTime          |               |                       | templates                             | Struct   |     |
-| triggers                       | Struct            |               |                       | updatedAt                             | DateTime |     |
-| version                        | String            |               |                       | widgets                               | List     |     |
-| workflows                      | Struct            |               |
-| Audit Logs                     | ID                | String        |                       |
-| changes                        | Struct            |               |                       | client                                | String   |     |
-| createdAt                      | DateTime          | BETWEEN       |                       | eventName                             | String   |     |
-| eventVerb                      | String            |               |                       | expiresAt                             | DateTime |     |
-| ip                             | String            |               |                       | objectId                              | String   |     |
-| objectType                     | String            |               |                       | org                                   | String   |     |
-| publishedAt                    | DateTime          |               |                       | userId                                | String   |     |
-| userType                       | String            |               |
-| Auth Customer Settings         | ID                | String        |                       |
-| corsWhitelist                  | List              |               |                       | createdAt                             | DateTime |     |
-| secret                         | String            |               |                       | updatedAt                             | DateTime |     |
-| Auth Roles                     | ID                | String        |                       |
-| Auth Tokens                    | CreatedAt         | DateTime      |                       |
-| ID                             | String            |               |                       | UpdatedAt                             | DateTime |     |
-| cidr                           | List              |               |                       | expireAt                              | DateTime |     |
-| ipAddress                      | String            |               |                       | lastAccessedAt                        | DateTime |     |
-| lastTokenChars                 | String            |               |                       | name                                  | String   |     |
-| roles                          | List              |               |
-| Brands                         | CreatedAt         | DateTime      |                       |
-| ID                             | String            |               |                       | UpdatedAt                             | DateTime |     |
-| default                        | Boolean           |               |                       | iconUrl                               | String   |     |
-| modifiedAt                     | DateTime          |               |                       | name                                  | String   |     |
-| Cards                          | CreatedAt         | DateTime      |                       |
-| ID                             | String            |               |                       | UpdatedAt                             | DateTime |     |
-| contexts                       | List              |               |                       | description                           | String   |     |
-| modifiedAt                     | DateTime          |               |                       | name                                  | String   |     |
-| url                            | String            |               |
-| Categories                     | CreatedAt         | DateTime      |                       |
-| ID                             | String            |               |                       | UpdatedAt                             | DateTime |     |
-| categoryPositions              | List              |               |                       | hash                                  | String   |     |
-| langs                          | Struct            |               |                       | modifiedAt                            | DateTime |     |
-| positions                      | List              |               |                       | published                             | Boolean  |     |
-| root                           | Boolean           |               |
-| Chat Settings                  | autoreply         | String        |                       |
-| closableChat                   | Boolean           |               |                       | colors                                | Struct   |     |
-| default                        | Boolean           |               |                       | disableAttachments                    | Boolean  |     |
-| embedIconColor                 | String            |               |                       | embedIconUrl                          | String   |     |
-| enabled                        | Boolean           |               |                       | fallbackEmailIntroduction             | String   |     |
-| fallbackEmailSubject           | String            |               |                       | greeting                              | String   |     |
-| id                             | String            |               |                       | modifiedAt                            | DateTime |     |
-| noHistory                      | Boolean           |               |                       | offhoursImageUrl                      | String   |     |
-| offhoursMessage                | String            |               |                       | outboundChatEnabled                   | Boolean  |     |
-| pushSettings                   | Struct            |               |                       | settingsVersion                       | Integer  |     |
-| showBrandingIdentifier         | Boolean           |               |                       | showEmailInputBanner                  | Boolean  |     |
-| showTypingIndicatorCustomerWeb | Boolean           |               |                       | showTypingIndicatorWeb                | Boolean  |     |
-| singleSessionChat              | Boolean           |               |                       | suppressConversationReopen            | Boolean  |     |
-| teamName                       | String            |               |                       | updatedAt                             | DateTime |     |
-| version                        | Integer           |               |                       | volumeControl                         | Struct   |     |
-| widgetType                     | String            |               |
-| Companies                      | CreatedAt         | DateTime      |                       |
-| Domains                        | List              |               |                       | Emails                                | List     |     |
-| Id                             | String            |               |                       | Locations                             | List     |     |
-| ModifiedAt                     | DateTime          |               |                       | Name                                  | String   |     |
-| Phones                         | List              |               |                       | Rev                                   | Integer  |     |
-| RoleGroupVersions              | List              |               |                       | Socials                               | List     |     |
-| Tags                           | List              |               |                       | UpdatedAt                             | DateTime |     |
-| Urls                           | List              |               |                       | Whatsapps                             | List     |     |
-| Conversation                   | accessOverride    | List          |                       |
-| assignedTeams                  | List              |               |                       | assignedUsers                         | List     |     |
-| assistant                      | Struct            |               |                       | channels                              | List     |     |
-| createdAt                      | DateTime          |               |                       | direction                             | String   |     |
-| ended                          | Boolean           |               |                       | endedAt                               | DateTime |     |
-| endedByType                    | String            |               |                       | endedReason                           | String   |     |
-| firstDone                      | Struct            |               |                       | firstMessageIn                        | Struct   |     |
-| firstMessageOut                | Struct            |               |                       | firstResponse                         | Struct   |     |
-| firstResponseSinceLastDone     | Struct            |               |                       | id                                    | String   |     |
-| importedAt                     | String            |               |                       | inboundMessageCount                   | Integer  |     |
-| lastActivityAt                 | DateTime          |               |                       | lastDone                              | Struct   |     |
-| lastMessageAt                  | DateTime          |               |                       | lastMessageDirection                  | String   |     |
-| lastMessageIn                  | Struct            |               |                       | lastMessageOut                        | Struct   |     |
-| lastMessageUnrespondedTo       | Struct            |               |                       | lastMessageUnrespondedToSinceLastDone | Struct   |     |
-| lastResponse                   | Struct            |               |                       | matchedTimeBasedRules                 | List     |     |
-| messageCount                   | Integer           |               |                       | modifiedAt                            | DateTime |     |
-| name                           | String            |               |                       | noteCount                             | Integer  |     |
-| outboundMessageCount           | Integer           |               |                       | phase                                 | String   |     |
-| predictions                    | List              |               |                       | preview                               | String   |     |
-| priority                       | Integer           |               |                       | rev                                   | Integer  |     |
-| roleGroupVersions              | List              |               |                       | satisfaction                          | Integer  |     |
-| satisfactionLevel              | Struct            |               |                       | sentiment                             | String   |     |
-| skills                         | List              |               |                       | spam                                  | Boolean  |     |
-| status                         | String            |               |                       | suggestedShortcuts                    | List     |     |
-| suggestedTags                  | List              |               |                       | tags                                  | List     |     |
-| updatedAt                      | DateTime          |               |
-| Customers                      | Display Color     | String        |                       |
-| Display Icon                   | String            |               |                       | Display Name                          | String   |     |
-| ExternalId                     | String            |               |                       | ExternalIds                           | List     |     |
-| Locale                         | String            |               |                       | Name                                  | String   |     |
-| accessOverride                 | List              |               |                       | activeUsers                           | List     |     |
-| companyName                    | String            |               |                       | conversationCounts                    | Struct   |     |
-| createdAt                      | DateTime          |               |                       | defaultLang                           | String   |     |
-| deleted                        | Boolean           |               |                       | emails                                | List     |     |
-| facebookIds                    | List              |               |                       | firstName                             | String   |     |
-| gender                         | String            |               |                       | id                                    | String   |     |
-| instagramIds                   | List              |               |                       | lastActivityAt                        | DateTime |     |
-| lastConversation               | Struct            |               |                       | lastName                              | String   |     |
-| locations                      | List              |               |                       | modifiedAt                            | DateTime |     |
-| phones                         | List              |               |                       | preview                               | Struct   |     |
-| progressiveStatus              | String            |               |                       | recentItems                           | List     |     |
-| recentLocation                 | Struct            |               |                       | rev                                   | Integer  |     |
-| roleGroupVersions              | List              |               |                       | satisfactionLevel                     | Struct   |     |
-| sharedEmails                   | List              |               |                       | sharedExternalIds                     | List     |     |
-| sharedPhones                   | List              |               |                       | sharedSocials                         | List     |     |
-| socials                        | List              |               |                       | tags                                  | List     |     |
-| timeZone                       | String            |               |                       | updatedAt                             | DateTime |     |
-| urls                           | List              |               |                       | verified                              | Boolean  |     |
-| watchers                       | List              |               |                       | whatsapps                             | List     |     |
-| Customers Searches             | accessTeams       | List          |                       |
-| accessUsers                    | List              |               |                       | badgeColor                            | String   |     |
-| cacheable                      | Boolean           |               |                       | createdAt                             | DateTime |     |
-| data                           | Struct            |               |                       | dataHash                              | String   |     |
-| defaultVisibility              | String            |               |                       | icon                                  | String   |     |
-| id                             | String            |               |                       | modifiedAt                            | DateTime |     |
-| name                           | String            |               |                       | position                              | Integer  |     |
-| private                        | Boolean           |               |                       | showBadge                             | Boolean  |     |
-| teamVisibilities               | List              |               |                       | updatedAt                             | DateTime |     |
-| userVisibilities               | List              |               |
-| Customers Searches Pinned      | ID                | String        |                       |
-| createdAt                      | DateTime          |               |                       | search                                | String   |     |
-| Customers Searches Positions   | children          | List          |                       |
-| createdAt                      | DateTime          |               |                       | id                                    | String   |     |
-| modifiedAt                     | DateTime          |               |                       | positions                             | List     |     |
-| rev                            | Integer           |               |                       | updatedAt                             | DateTime |     |
-| Hooks Email                    | createdAt         | DateTime      |                       |
-| debug                          | Boolean           |               |                       | description                           | String   |     |
-| email                          | String            |               |                       | eventName                             | String   |     |
-| hash                           | String            |               |                       | id                                    | String   |     |
-| key                            | String            |               |                       | modifiedAt                            | DateTime |     |
-| title                          | String            |               |                       | updatedAt                             | DateTime |     |
-| Hooks Web                      | createdAt         | DateTime      |                       |
-| debug                          | Boolean           |               |                       | description                           | String   |     |
-| eventName                      | String            |               |                       | hash                                  | String   |     |
-| id                             | String            |               |                       | modifiedAt                            | DateTime |     |
-| title                          | String            |               |                       | updatedAt                             | DateTime |     |
-| url                            | String            |               |                       | version                               | Integer  |     |
-| KB Articles                    | ID                | String        |                       |
-| categories                     | List              |               |                       | createdAt                             | DateTime |     |
-| deleted                        | Boolean           |               |                       | deletedAt                             | DateTime |     |
-| hash                           | String            |               |                       | knowledgeBases                        | List     |     |
-| langVersions                   | Struct            |               |                       | latestLangs                           | Struct   |     |
-| metaDescription                | String            |               |                       | metaKeywords                          | List     |     |
-| metaTitle                      | String            |               |                       | modifiedAt                            | DateTime |     |
-| publishedAt                    | DateTime          |               |                       | scope                                 | String   |     |
-| source                         | String            |               |                       | status                                | String   |     |
-| tags                           | List              |               |                       | title                                 | String   |     |
-| updatedAt                      | DateTime          |               |
-| KB Forms                       | advanced          | Boolean       |                       |
-| body                           | String            |               |                       | channel                               | String   |     |
-| componentsV2                   | Struct            |               |                       | conditions                            | Struct   |     |
-| createdAt                      | DateTime          |               |                       | deflection                            | Boolean  |     |
-| formHookEnabled                | Boolean           |               |                       | hash                                  | String   |     |
-| id                             | String            |               |                       | klass                                 | String   |     |
-| layout                         | List              |               |                       | layoutV2                              | List     |     |
-| modifiedAt                     | String            |               |                       | name                                  | String   |     |
-| published                      | Boolean           |               |                       | publishedAt                           | DateTime |     |
-| recaptcha                      | Boolean           |               |                       | replyFrom                             | String   |     |
-| slug                           | String            |               |                       | snippets                              | List     |     |
-| updatedAt                      | DateTime          |               |                       | wcag                                  | Boolean  |     |
-| KB Routes                      | ID                | String        |                       |
-| createdAt                      | DateTime          |               |                       | modifiedAt                            | DateTime |     |
-| routableId                     | String            |               |                       | routableType                          | String   |     |
-| updatedAt                      | DateTime          |               |                       | url                                   | String   |     |
-| KB Tags                        | ID                | String        |                       |
-| createdAt                      | DateTime          |               |                       | modifiedAt                            | DateTime |     |
-| name                           | String            |               |                       | updatedAt                             | DateTime |     |
-| KB Templates                   | ID                | String        |                       |
-| beta                           | Boolean           |               |                       | createdAt                             | DateTime |     |
-| description                    | String            |               |                       | images                                | List     |     |
-| jsxSnippets                    | List              |               |                       | manifest                              | Struct   |     |
-| title                          | String            |               |                       | updatedAt                             | DateTime |     |
-| version                        | String            |               |
-| KB Themes                      | ID                | String        |                       |
-| active                         | Boolean           |               |                       | configSnippets                        | List     |     |
-| createdAt                      | DateTime          |               |                       | custom                                | Boolean  |     |
-| default                        | Boolean           |               |                       | jsxSnippets                           | List     |     |
-| lastFileUpdatedAt              | DateTime          |               |                       | manifest                              | Struct   |     |
-| modifiedAt                     | DateTime          |               |                       | name                                  | String   |     |
-| rev                            | Integer           |               |                       | status                                | String   |     |
-| templateTitle                  | String            |               |                       | templateVersion                       | String   |     |
-| templateVersionId              | String            |               |                       | updatedAt                             | DateTime |     |
-| Kviews                         | advanced          | Boolean       |                       |
-| appDisabled                    | Boolean           |               |                       | components                            | Struct   |     |
-| conditions                     | Struct            |               |                       | context                               | String   |     |
-| createdAt                      | DateTime          |               |                       | enabled                               | Boolean  |     |
-| id                             | String            |               |                       | layout                                | List     |     |
-| meta                           | Struct            |               |                       | modifiedAt                            | DateTime |     |
-| resource                       | String            |               |                       | rev                                   | Integer  |     |
-| template                       | String            |               |                       | updatedAt                             | DateTime |     |
-| Messages                       | app               | String        |                       |
-| assignedTeams                  | List              |               |                       | assignedUsers                         | List     |     |
-| auto                           | Boolean           |               |                       | channel                               | String   |     |
-| createdAt                      | DateTime          |               |                       | createdByTeams                        | List     |     |
-| direction                      | String            |               |                       | directionType                         | String   |     |
-| errorAt                        | DateTime          |               |                       | externalId                            | String   |     |
-| id                             | String            |               |                       | intentDetections                      | List     |     |
-| meta                           | Struct            |               |                       | modifiedAt                            | DateTime |     |
-| preview                        | String            |               |                       | reactions                             | List     |     |
-| redacted                       | Boolean           |               |                       | rev                                   | Integer  |     |
-| sentAt                         | DateTime          |               |                       | size                                  | Integer  |     |
-| status                         | String            |               |                       | subject                               | String   |     |
-| updatedAt                      | DateTime          |               |
-| Notes                          | body              | String        | CONTAINS              |
-| createdAt                      | DateTime          |               |                       | createdByTeams                        | List     |     |
-| id                             | String            |               |                       | modifiedAt                            | DateTime |     |
-| updatedAt                      | DateTime          |               |
-| Notifications                  | createdAt         | DateTime      |                       |
-| event                          | Struct            |               |                       | id                                    | String   |     |
-| name                           | String            |               |                       | status                                | String   |     |
-| updatedAt                      | DateTime          |               |
-| Outbound Accounts              | account           | String        |                       |
-| aliasUsername                  | Boolean           |               |                       | app                                   | String   |     |
-| channel                        | String            |               |                       | name                                  | String   |     |
-| Outbound Webhooks              | appDisabled       | Boolean       |                       |
-| consecutiveErrorsCount         | Integer           |               |                       | createdAt                             | DateTime |     |
-| enabled                        | Boolean           |               |                       | events                                | List     |     |
-| headers                        | List              |               |                       | id                                    | String   |     |
-| isError                        | Boolean           |               |                       | name                                  | String   |     |
-| token                          | String            |               |                       | updatedAt                             | DateTime |     |
-| url                            | String            |               |
-| Outbound Webhooks Events       | events            | List          |                       |
-| Outbound Webhooks Transactions | ID                | String        |                       |
-| eventName                      | String            |               |                       | nextRetry                             | String   |     |
-| sentAt                         | Long              |               |                       | status                                | String   |     |
-| webhookId                      | String            |               |
-| Routing Queue Rules            | ID                | String        |                       |
-| createdAt                      | String            |               |                       | criteria                              | Struct   |     |
-| description                    | String            |               |                       | enabled                               | Boolean  |     |
-| modifiedAt                     | String            |               |                       | name                                  | String   |     |
-| updatedAt                      | String            |               |
-| Routing Queues                 | ID                | String        |                       |
-| createdAt                      | DateTime          |               |                       | deleted                               | Boolean  |     |
-| description                    | String            |               |                       | displayName                           | String   |     |
-| itemSize                       | Integer           |               |                       | modifiedAt                            | DateTime |     |
-| name                           | String            |               |                       | priority                              | Integer  |     |
-| restrictTransfersByUsers       | Boolean           |               |                       | settings                              | Struct   |     |
-| system                         | Boolean           |               |                       | updatedAt                             | DateTime |     |
-| Routing Settings               | capacity          | Struct        |                       |
-| createdAt                      | DateTime          |               |                       | enabled                               | Boolean  |     |
-| externalQueues                 | List              |               |                       | id                                    | String   |     |
-| modifiedAt                     | DateTime          |               |                       | updatedAt                             | DateTime |     |
-| workItemCapacity               | Integer           |               |
-| Routing Statuses               | ID                | String        |                       |
-| createdAt                      | DateTime          |               |                       | description                           | String   |     |
-| enabled                        | Boolean           |               |                       | name                                  | String   |     |
-| routable                       | Boolean           |               |                       | selectable                            | Boolean  |     |
-| statusType                     | String            |               |                       | system                                | Boolean  |     |
-| updatedAt                      | DateTime          |               |
-| Routing Work Items             | channel           | String        |                       |
-| completedAt                    | DateTime          |               |                       | createdAt                             | DateTime |     |
-| firstEnterQueueAt              | DateTime          |               |                       | handle                                | Struct   |     |
-| hasSkills                      | Boolean           |               |                       | id                                    | String   |     |
-| itemSize                       | Integer           |               |                       | ivr                                   | Struct   |     |
-| lastRevision                   | Struct            |               |                       | modifiedAt                            | DateTime |     |
-| paused                         | Boolean           |               |                       | priority                              | Integer  |     |
-| queuedCount                    | Integer           |               |                       | resource                              | Struct   |     |
-| resourceCreatedAt              | DateTime          |               |                       | resourceDirection                     | String   |     |
-| resourceFirstQueueTime         | Integer           |               |                       | resourceRev                           | Integer  |     |
-| resourceType                   | String            |               |                       | rev                                   | Integer  |     |
-| skills                         | List              |               |                       | status                                | String   |     |
-| updatedAt                      | DateTime          |               |                       | workItemNumber                        | Integer  |     |
-| Routing Work Sessions          | capacity          | List          |                       |
-| capacityRemaining              | Integer           |               |                       | capacityStatus                        | String   |     |
-| createdAt                      | DateTime          |               |                       | handledConversationCount              | Integer  |     |
-| handledItemCount               | Integer           |               |                       | hasPendingItem                        | Boolean  |     |
-| hasSkills                      | Boolean           |               |                       | id                                    | String   |     |
-| idleSince                      | DateTime          |               |                       | lastRevision                          | Struct   |     |
-| modifiedAt                     | DateTime          |               |                       | pausedWorkItemCount                   | Integer  |     |
-| rev                            | Integer           |               |                       | routable                              | Boolean  |     |
-| signedInAt                     | DateTime          |               |                       | signedOutAt                           | DateTime |     |
-| skills                         | List              |               |                       | statusType                            | String   |     |
-| totalAvailable                 | Struct            |               |                       | totalAvailableAtCapacity              | Struct   |     |
-| totalAvailableIdleCapacity     | String            |               |                       | totalCapacity                         | Integer  |     |
-| totalTimeByStatus              | Struct            |               |                       | totalUnavailable                      | Struct   |     |
-| totalUnavailableAtCapacity     | Struct            |               |                       | updatedAt                             | DateTime |     |
-| workItemCount                  | Integer           |               |
-| Satisfaction                   | ID                | String        |                       |
-| allQuestions                   | List              |               |                       | channel                               | String   |     |
-| createdAt                      | DateTime          |               |                       | criteria                              | Struct   |     |
-| delayTime                      | Double            |               |                       | description                           | String   |     |
-| enabled                        | Boolean           |               |                       | followUpType                          | String   |     |
-| formType                       | String            |               |                       | from                                  | Struct   |     |
-| introduction                   | String            |               |                       | metaDescription                       | String   |     |
-| metaTitle                      | String            |               |                       | modifiedAt                            | DateTime |     |
-| name                           | String            |               |                       | negativeQuestions                     | List     |     |
-| positiveQuestions              | List              |               |                       | questions                             | List     |     |
-| ratingPrompt                   | String            |               |                       | scale                                 | Struct   |     |
-| updatedAt                      | DateTime          |               |
-| Schedules                      | CreatedAt         | DateTime      |                       |
-| ID                             | String            |               |                       | UpdatedAt                             | DateTime |     |
-| default                        | Boolean           |               |                       | hours                                 | Struct   |     |
-| modifiedAt                     | DateTime          |               |                       | name                                  | String   |     |
-| timezone                       | String            |               |
-| Settings                       | ID                | String        |                       |
-| app                            | String            |               |                       | category                              | String   |     |
-| createdAt                      | DateTime          |               |                       | modifiedAt                            | DateTime |     |
-| name                           | String            |               |                       | type                                  | String   |     |
-| value                          | String            |               |
-| Shortcuts                      | appDisabled       | Boolean       |                       |
-| conversation                   | Struct            |               |                       | createdAt                             | DateTime |     |
-| deleted                        | Boolean           |               |                       | draft                                 | Struct   |     |
-| id                             | String            |               |                       | isPrivate                             | Boolean  |     |
-| modifiedAt                     | DateTime          |               |                       | name                                  | String   |     |
-| payload                        | Struct            |               |                       | rev                                   | Integer  |     |
-| updatedAt                      | DateTime          |               |
-| Shortcuts Categories           | categoryPositions | List          |                       |
-| createdAt                      | DateTime          |               |                       | id                                    | String   |     |
-| modifiedAt                     | DateTime          |               |                       | name                                  | String   |     |
-| root                           | Boolean           |               |                       | shortcutPositions                     | List     |     |
-| updatedAt                      | DateTime          |               |
-| Snippets                       | app               | String        |                       |
-| createdAt                      | DateTime          |               |                       | description                           | String   |     |
-| id                             | String            |               |                       | key                                   | String   |     |
-| langs                          | Struct            |               |                       | name                                  | String   |     |
-| source                         | String            |               |
-| Snoozes                        | createdAt         | DateTime      |                       |
-| enabled                        | Boolean           |               |                       | id                                    | String   |     |
-| modifiedAt                     | DateTime          |               |                       | name                                  | String   |     |
-| type                           | String            |               |                       | updatedAt                             | DateTime |     |
-| value                          | String            |               |
-| Spam Senders                   | channel           | String        |                       |
-| createdAt                      | DateTime          |               |                       | id                                    | String   |     |
-| list                           | String            |               |                       | modifiedAt                            | DateTime |     |
-| sender                         | String            |               |                       | updatedAt                             | DateTime |     |
-| Teams                          | createdAt         | DateTime      |                       |
-| deleted                        | Boolean           |               |                       | displayName                           | String   |     |
-| icon                           | String            |               |                       | id                                    | String   |     |
-| members                        | List              |               |                       | modifiedAt                            | DateTime |     |
-| name                           | String            |               |                       | roleGroups                            | List     |     |
-| updatedAt                      | DateTime          |               |
-| Users                          | CreatedAt         | DateTime      |                       |
-| DisplayName                    | String            |               |                       | Email                                 | String   |     |
-| EmailVerifiedAt                | DateTime          |               |                       | FirstEmailVerifiedAt                  | DateTime |     |
-| Id                             | String            |               |                       | ModifiedAt                            | DateTime |     |
-| Name                           | String            |               |                       | Password                              | Struct   |     |
-| RoleGroups                     | List              |               |                       | Roles                                 | List     |     |
-| UpdatedAt                      | DateTime          |               |                       | UserType                              | String   |     |
-| firstLoginAt                   | DateTime          |               |                       | isEmailValid                          | Boolean  |     |
-| klasses                        | appDisabled       | Boolean       |                       |
-| color                          | String            |               |                       | createdAt                             | DateTime |     |
-| icon                           | String            |               |                       | id                                    | String   |     |
-| name                           | String            |               |                       | s3DataUrl                             | String   |     |
-| status                         | String            |               |                       | updatedAt                             | DateTime |     |
+| **Object**                            | **Field**         | **Data type** | **Supported filters** |
+| ------------------------------------- | ----------------- | ------------- | --------------------- |
+| Apps                                  | ID                | String        |                       |
+| actions                               | Struct            |               |
+| autoUpdate                            | Boolean           |               |
+| cards                                 | Struct            |               |
+| commands                              | Struct            |               |
+| createdAt                             | DateTime          |               |
+| current                               | String            |               |
+| dataSubscriptions                     | List              |               |
+| disabled                              | Boolean           |               |
+| events                                | Struct            |               |
+| hooks                                 | Struct            |               |
+| inboundHookUris                       | List              |               |
+| klasses                               | Struct            |               |
+| kviews                                | Struct            |               |
+| meta                                  | Struct            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| outboundWebhooks                      | Struct            |               |
+| roles                                 | List              |               |
+| settings                              | Struct            |               |
+| settingsPageConfig                    | String            |               |
+| shortcuts                             | Struct            |               |
+| status                                | String            |               |
+| statusAt                              | DateTime          |               |
+| templates                             | Struct            |               |
+| triggers                              | Struct            |               |
+| updatedAt                             | DateTime          |               |
+| version                               | String            |               |
+| widgets                               | List              |               |
+| workflows                             | Struct            |               |
+| Audit Logs                            | ID                | String        |                       |
+| changes                               | Struct            |               |
+| client                                | String            |               |
+| createdAt                             | DateTime          | BETWEEN       |
+| eventName                             | String            |               |
+| eventVerb                             | String            |               |
+| expiresAt                             | DateTime          |               |
+| ip                                    | String            |               |
+| objectId                              | String            |               |
+| objectType                            | String            |               |
+| org                                   | String            |               |
+| publishedAt                           | DateTime          |               |
+| userId                                | String            |               |
+| userType                              | String            |               |
+| Auth Customer Settings                | ID                | String        |                       |
+| corsWhitelist                         | List              |               |
+| createdAt                             | DateTime          |               |
+| secret                                | String            |               |
+| updatedAt                             | DateTime          |               |
+| Auth Roles                            | ID                | String        |                       |
+| Auth Tokens                           | CreatedAt         | DateTime      |                       |
+| ID                                    | String            |               |
+| UpdatedAt                             | DateTime          |               |
+| cidr                                  | List              |               |
+| expireAt                              | DateTime          |               |
+| ipAddress                             | String            |               |
+| lastAccessedAt                        | DateTime          |               |
+| lastTokenChars                        | String            |               |
+| name                                  | String            |               |
+| roles                                 | List              |               |
+| Brands                                | CreatedAt         | DateTime      |                       |
+| ID                                    | String            |               |
+| UpdatedAt                             | DateTime          |               |
+| default                               | Boolean           |               |
+| iconUrl                               | String            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| Cards                                 | CreatedAt         | DateTime      |                       |
+| ID                                    | String            |               |
+| UpdatedAt                             | DateTime          |               |
+| contexts                              | List              |               |
+| description                           | String            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| url                                   | String            |               |
+| Categories                            | CreatedAt         | DateTime      |                       |
+| ID                                    | String            |               |
+| UpdatedAt                             | DateTime          |               |
+| categoryPositions                     | List              |               |
+| hash                                  | String            |               |
+| langs                                 | Struct            |               |
+| modifiedAt                            | DateTime          |               |
+| positions                             | List              |               |
+| published                             | Boolean           |               |
+| root                                  | Boolean           |               |
+| Chat Settings                         | autoreply         | String        |                       |
+| closableChat                          | Boolean           |               |
+| colors                                | Struct            |               |
+| default                               | Boolean           |               |
+| disableAttachments                    | Boolean           |               |
+| embedIconColor                        | String            |               |
+| embedIconUrl                          | String            |               |
+| enabled                               | Boolean           |               |
+| fallbackEmailIntroduction             | String            |               |
+| fallbackEmailSubject                  | String            |               |
+| greeting                              | String            |               |
+| id                                    | String            |               |
+| modifiedAt                            | DateTime          |               |
+| noHistory                             | Boolean           |               |
+| offhoursImageUrl                      | String            |               |
+| offhoursMessage                       | String            |               |
+| outboundChatEnabled                   | Boolean           |               |
+| pushSettings                          | Struct            |               |
+| settingsVersion                       | Integer           |               |
+| showBrandingIdentifier                | Boolean           |               |
+| showEmailInputBanner                  | Boolean           |               |
+| showTypingIndicatorCustomerWeb        | Boolean           |               |
+| showTypingIndicatorWeb                | Boolean           |               |
+| singleSessionChat                     | Boolean           |               |
+| suppressConversationReopen            | Boolean           |               |
+| teamName                              | String            |               |
+| updatedAt                             | DateTime          |               |
+| version                               | Integer           |               |
+| volumeControl                         | Struct            |               |
+| widgetType                            | String            |               |
+| Companies                             | CreatedAt         | DateTime      |                       |
+| Domains                               | List              |               |
+| Emails                                | List              |               |
+| Id                                    | String            |               |
+| Locations                             | List              |               |
+| ModifiedAt                            | DateTime          |               |
+| Name                                  | String            |               |
+| Phones                                | List              |               |
+| Rev                                   | Integer           |               |
+| RoleGroupVersions                     | List              |               |
+| Socials                               | List              |               |
+| Tags                                  | List              |               |
+| UpdatedAt                             | DateTime          |               |
+| Urls                                  | List              |               |
+| Whatsapps                             | List              |               |
+| Conversation                          | accessOverride    | List          |                       |
+| assignedTeams                         | List              |               |
+| assignedUsers                         | List              |               |
+| assistant                             | Struct            |               |
+| channels                              | List              |               |
+| createdAt                             | DateTime          |               |
+| direction                             | String            |               |
+| ended                                 | Boolean           |               |
+| endedAt                               | DateTime          |               |
+| endedByType                           | String            |               |
+| endedReason                           | String            |               |
+| firstDone                             | Struct            |               |
+| firstMessageIn                        | Struct            |               |
+| firstMessageOut                       | Struct            |               |
+| firstResponse                         | Struct            |               |
+| firstResponseSinceLastDone            | Struct            |               |
+| id                                    | String            |               |
+| importedAt                            | String            |               |
+| inboundMessageCount                   | Integer           |               |
+| lastActivityAt                        | DateTime          |               |
+| lastDone                              | Struct            |               |
+| lastMessageAt                         | DateTime          |               |
+| lastMessageDirection                  | String            |               |
+| lastMessageIn                         | Struct            |               |
+| lastMessageOut                        | Struct            |               |
+| lastMessageUnrespondedTo              | Struct            |               |
+| lastMessageUnrespondedToSinceLastDone | Struct            |               |
+| lastResponse                          | Struct            |               |
+| matchedTimeBasedRules                 | List              |               |
+| messageCount                          | Integer           |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| noteCount                             | Integer           |               |
+| outboundMessageCount                  | Integer           |               |
+| phase                                 | String            |               |
+| predictions                           | List              |               |
+| preview                               | String            |               |
+| priority                              | Integer           |               |
+| rev                                   | Integer           |               |
+| roleGroupVersions                     | List              |               |
+| satisfaction                          | Integer           |               |
+| satisfactionLevel                     | Struct            |               |
+| sentiment                             | String            |               |
+| skills                                | List              |               |
+| spam                                  | Boolean           |               |
+| status                                | String            |               |
+| suggestedShortcuts                    | List              |               |
+| suggestedTags                         | List              |               |
+| tags                                  | List              |               |
+| updatedAt                             | DateTime          |               |
+| Customers                             | Display Color     | String        |                       |
+| Display Icon                          | String            |               |
+| Display Name                          | String            |               |
+| ExternalId                            | String            |               |
+| ExternalIds                           | List              |               |
+| Locale                                | String            |               |
+| Name                                  | String            |               |
+| accessOverride                        | List              |               |
+| activeUsers                           | List              |               |
+| companyName                           | String            |               |
+| conversationCounts                    | Struct            |               |
+| createdAt                             | DateTime          |               |
+| defaultLang                           | String            |               |
+| deleted                               | Boolean           |               |
+| emails                                | List              |               |
+| facebookIds                           | List              |               |
+| firstName                             | String            |               |
+| gender                                | String            |               |
+| id                                    | String            |               |
+| instagramIds                          | List              |               |
+| lastActivityAt                        | DateTime          |               |
+| lastConversation                      | Struct            |               |
+| lastName                              | String            |               |
+| locations                             | List              |               |
+| modifiedAt                            | DateTime          |               |
+| phones                                | List              |               |
+| preview                               | Struct            |               |
+| progressiveStatus                     | String            |               |
+| recentItems                           | List              |               |
+| recentLocation                        | Struct            |               |
+| rev                                   | Integer           |               |
+| roleGroupVersions                     | List              |               |
+| satisfactionLevel                     | Struct            |               |
+| sharedEmails                          | List              |               |
+| sharedExternalIds                     | List              |               |
+| sharedPhones                          | List              |               |
+| sharedSocials                         | List              |               |
+| socials                               | List              |               |
+| tags                                  | List              |               |
+| timeZone                              | String            |               |
+| updatedAt                             | DateTime          |               |
+| urls                                  | List              |               |
+| verified                              | Boolean           |               |
+| watchers                              | List              |               |
+| whatsapps                             | List              |               |
+| Customers Searches                    | accessTeams       | List          |                       |
+| accessUsers                           | List              |               |
+| badgeColor                            | String            |               |
+| cacheable                             | Boolean           |               |
+| createdAt                             | DateTime          |               |
+| data                                  | Struct            |               |
+| dataHash                              | String            |               |
+| defaultVisibility                     | String            |               |
+| icon                                  | String            |               |
+| id                                    | String            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| position                              | Integer           |               |
+| private                               | Boolean           |               |
+| showBadge                             | Boolean           |               |
+| teamVisibilities                      | List              |               |
+| updatedAt                             | DateTime          |               |
+| userVisibilities                      | List              |               |
+| Customers Searches Pinned             | ID                | String        |                       |
+| createdAt                             | DateTime          |               |
+| search                                | String            |               |
+| Customers Searches Positions          | children          | List          |                       |
+| createdAt                             | DateTime          |               |
+| id                                    | String            |               |
+| modifiedAt                            | DateTime          |               |
+| positions                             | List              |               |
+| rev                                   | Integer           |               |
+| updatedAt                             | DateTime          |               |
+| Hooks Email                           | createdAt         | DateTime      |                       |
+| debug                                 | Boolean           |               |
+| description                           | String            |               |
+| email                                 | String            |               |
+| eventName                             | String            |               |
+| hash                                  | String            |               |
+| id                                    | String            |               |
+| key                                   | String            |               |
+| modifiedAt                            | DateTime          |               |
+| title                                 | String            |               |
+| updatedAt                             | DateTime          |               |
+| Hooks Web                             | createdAt         | DateTime      |                       |
+| debug                                 | Boolean           |               |
+| description                           | String            |               |
+| eventName                             | String            |               |
+| hash                                  | String            |               |
+| id                                    | String            |               |
+| modifiedAt                            | DateTime          |               |
+| title                                 | String            |               |
+| updatedAt                             | DateTime          |               |
+| url                                   | String            |               |
+| version                               | Integer           |               |
+| KB Articles                           | ID                | String        |                       |
+| categories                            | List              |               |
+| createdAt                             | DateTime          |               |
+| deleted                               | Boolean           |               |
+| deletedAt                             | DateTime          |               |
+| hash                                  | String            |               |
+| knowledgeBases                        | List              |               |
+| langVersions                          | Struct            |               |
+| latestLangs                           | Struct            |               |
+| metaDescription                       | String            |               |
+| metaKeywords                          | List              |               |
+| metaTitle                             | String            |               |
+| modifiedAt                            | DateTime          |               |
+| publishedAt                           | DateTime          |               |
+| scope                                 | String            |               |
+| source                                | String            |               |
+| status                                | String            |               |
+| tags                                  | List              |               |
+| title                                 | String            |               |
+| updatedAt                             | DateTime          |               |
+| KB Forms                              | advanced          | Boolean       |                       |
+| body                                  | String            |               |
+| channel                               | String            |               |
+| componentsV2                          | Struct            |               |
+| conditions                            | Struct            |               |
+| createdAt                             | DateTime          |               |
+| deflection                            | Boolean           |               |
+| formHookEnabled                       | Boolean           |               |
+| hash                                  | String            |               |
+| id                                    | String            |               |
+| klass                                 | String            |               |
+| layout                                | List              |               |
+| layoutV2                              | List              |               |
+| modifiedAt                            | String            |               |
+| name                                  | String            |               |
+| published                             | Boolean           |               |
+| publishedAt                           | DateTime          |               |
+| recaptcha                             | Boolean           |               |
+| replyFrom                             | String            |               |
+| slug                                  | String            |               |
+| snippets                              | List              |               |
+| updatedAt                             | DateTime          |               |
+| wcag                                  | Boolean           |               |
+| KB Routes                             | ID                | String        |                       |
+| createdAt                             | DateTime          |               |
+| modifiedAt                            | DateTime          |               |
+| routableId                            | String            |               |
+| routableType                          | String            |               |
+| updatedAt                             | DateTime          |               |
+| url                                   | String            |               |
+| KB Tags                               | ID                | String        |                       |
+| createdAt                             | DateTime          |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| updatedAt                             | DateTime          |               |
+| KB Templates                          | ID                | String        |                       |
+| beta                                  | Boolean           |               |
+| createdAt                             | DateTime          |               |
+| description                           | String            |               |
+| images                                | List              |               |
+| jsxSnippets                           | List              |               |
+| manifest                              | Struct            |               |
+| title                                 | String            |               |
+| updatedAt                             | DateTime          |               |
+| version                               | String            |               |
+| KB Themes                             | ID                | String        |                       |
+| active                                | Boolean           |               |
+| configSnippets                        | List              |               |
+| createdAt                             | DateTime          |               |
+| custom                                | Boolean           |               |
+| default                               | Boolean           |               |
+| jsxSnippets                           | List              |               |
+| lastFileUpdatedAt                     | DateTime          |               |
+| manifest                              | Struct            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| rev                                   | Integer           |               |
+| status                                | String            |               |
+| templateTitle                         | String            |               |
+| templateVersion                       | String            |               |
+| templateVersionId                     | String            |               |
+| updatedAt                             | DateTime          |               |
+| Kviews                                | advanced          | Boolean       |                       |
+| appDisabled                           | Boolean           |               |
+| components                            | Struct            |               |
+| conditions                            | Struct            |               |
+| context                               | String            |               |
+| createdAt                             | DateTime          |               |
+| enabled                               | Boolean           |               |
+| id                                    | String            |               |
+| layout                                | List              |               |
+| meta                                  | Struct            |               |
+| modifiedAt                            | DateTime          |               |
+| resource                              | String            |               |
+| rev                                   | Integer           |               |
+| template                              | String            |               |
+| updatedAt                             | DateTime          |               |
+| Messages                              | app               | String        |                       |
+| assignedTeams                         | List              |               |
+| assignedUsers                         | List              |               |
+| auto                                  | Boolean           |               |
+| channel                               | String            |               |
+| createdAt                             | DateTime          |               |
+| createdByTeams                        | List              |               |
+| direction                             | String            |               |
+| directionType                         | String            |               |
+| errorAt                               | DateTime          |               |
+| externalId                            | String            |               |
+| id                                    | String            |               |
+| intentDetections                      | List              |               |
+| meta                                  | Struct            |               |
+| modifiedAt                            | DateTime          |               |
+| preview                               | String            |               |
+| reactions                             | List              |               |
+| redacted                              | Boolean           |               |
+| rev                                   | Integer           |               |
+| sentAt                                | DateTime          |               |
+| size                                  | Integer           |               |
+| status                                | String            |               |
+| subject                               | String            |               |
+| updatedAt                             | DateTime          |               |
+| Notes                                 | body              | String        | CONTAINS              |
+| createdAt                             | DateTime          |               |
+| createdByTeams                        | List              |               |
+| id                                    | String            |               |
+| modifiedAt                            | DateTime          |               |
+| updatedAt                             | DateTime          |               |
+| Notifications                         | createdAt         | DateTime      |                       |
+| event                                 | Struct            |               |
+| id                                    | String            |               |
+| name                                  | String            |               |
+| status                                | String            |               |
+| updatedAt                             | DateTime          |               |
+| Outbound Accounts                     | account           | String        |                       |
+| aliasUsername                         | Boolean           |               |
+| app                                   | String            |               |
+| channel                               | String            |               |
+| name                                  | String            |               |
+| Outbound Webhooks                     | appDisabled       | Boolean       |                       |
+| consecutiveErrorsCount                | Integer           |               |
+| createdAt                             | DateTime          |               |
+| enabled                               | Boolean           |               |
+| events                                | List              |               |
+| headers                               | List              |               |
+| id                                    | String            |               |
+| isError                               | Boolean           |               |
+| name                                  | String            |               |
+| token                                 | String            |               |
+| updatedAt                             | DateTime          |               |
+| url                                   | String            |               |
+| Outbound Webhooks Events              | events            | List          |                       |
+| Outbound Webhooks Transactions        | ID                | String        |                       |
+| eventName                             | String            |               |
+| nextRetry                             | String            |               |
+| sentAt                                | Long              |               |
+| status                                | String            |               |
+| webhookId                             | String            |               |
+| Routing Queue Rules                   | ID                | String        |                       |
+| createdAt                             | String            |               |
+| criteria                              | Struct            |               |
+| description                           | String            |               |
+| enabled                               | Boolean           |               |
+| modifiedAt                            | String            |               |
+| name                                  | String            |               |
+| updatedAt                             | String            |               |
+| Routing Queues                        | ID                | String        |                       |
+| createdAt                             | DateTime          |               |
+| deleted                               | Boolean           |               |
+| description                           | String            |               |
+| displayName                           | String            |               |
+| itemSize                              | Integer           |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| priority                              | Integer           |               |
+| restrictTransfersByUsers              | Boolean           |               |
+| settings                              | Struct            |               |
+| system                                | Boolean           |               |
+| updatedAt                             | DateTime          |               |
+| Routing Settings                      | capacity          | Struct        |                       |
+| createdAt                             | DateTime          |               |
+| enabled                               | Boolean           |               |
+| externalQueues                        | List              |               |
+| id                                    | String            |               |
+| modifiedAt                            | DateTime          |               |
+| updatedAt                             | DateTime          |               |
+| workItemCapacity                      | Integer           |               |
+| Routing Statuses                      | ID                | String        |                       |
+| createdAt                             | DateTime          |               |
+| description                           | String            |               |
+| enabled                               | Boolean           |               |
+| name                                  | String            |               |
+| routable                              | Boolean           |               |
+| selectable                            | Boolean           |               |
+| statusType                            | String            |               |
+| system                                | Boolean           |               |
+| updatedAt                             | DateTime          |               |
+| Routing Work Items                    | channel           | String        |                       |
+| completedAt                           | DateTime          |               |
+| createdAt                             | DateTime          |               |
+| firstEnterQueueAt                     | DateTime          |               |
+| handle                                | Struct            |               |
+| hasSkills                             | Boolean           |               |
+| id                                    | String            |               |
+| itemSize                              | Integer           |               |
+| ivr                                   | Struct            |               |
+| lastRevision                          | Struct            |               |
+| modifiedAt                            | DateTime          |               |
+| paused                                | Boolean           |               |
+| priority                              | Integer           |               |
+| queuedCount                           | Integer           |               |
+| resource                              | Struct            |               |
+| resourceCreatedAt                     | DateTime          |               |
+| resourceDirection                     | String            |               |
+| resourceFirstQueueTime                | Integer           |               |
+| resourceRev                           | Integer           |               |
+| resourceType                          | String            |               |
+| rev                                   | Integer           |               |
+| skills                                | List              |               |
+| status                                | String            |               |
+| updatedAt                             | DateTime          |               |
+| workItemNumber                        | Integer           |               |
+| Routing Work Sessions                 | capacity          | List          |                       |
+| capacityRemaining                     | Integer           |               |
+| capacityStatus                        | String            |               |
+| createdAt                             | DateTime          |               |
+| handledConversationCount              | Integer           |               |
+| handledItemCount                      | Integer           |               |
+| hasPendingItem                        | Boolean           |               |
+| hasSkills                             | Boolean           |               |
+| id                                    | String            |               |
+| idleSince                             | DateTime          |               |
+| lastRevision                          | Struct            |               |
+| modifiedAt                            | DateTime          |               |
+| pausedWorkItemCount                   | Integer           |               |
+| rev                                   | Integer           |               |
+| routable                              | Boolean           |               |
+| signedInAt                            | DateTime          |               |
+| signedOutAt                           | DateTime          |               |
+| skills                                | List              |               |
+| statusType                            | String            |               |
+| totalAvailable                        | Struct            |               |
+| totalAvailableAtCapacity              | Struct            |               |
+| totalAvailableIdleCapacity            | String            |               |
+| totalCapacity                         | Integer           |               |
+| totalTimeByStatus                     | Struct            |               |
+| totalUnavailable                      | Struct            |               |
+| totalUnavailableAtCapacity            | Struct            |               |
+| updatedAt                             | DateTime          |               |
+| workItemCount                         | Integer           |               |
+| Satisfaction                          | ID                | String        |                       |
+| allQuestions                          | List              |               |
+| channel                               | String            |               |
+| createdAt                             | DateTime          |               |
+| criteria                              | Struct            |               |
+| delayTime                             | Double            |               |
+| description                           | String            |               |
+| enabled                               | Boolean           |               |
+| followUpType                          | String            |               |
+| formType                              | String            |               |
+| from                                  | Struct            |               |
+| introduction                          | String            |               |
+| metaDescription                       | String            |               |
+| metaTitle                             | String            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| negativeQuestions                     | List              |               |
+| positiveQuestions                     | List              |               |
+| questions                             | List              |               |
+| ratingPrompt                          | String            |               |
+| scale                                 | Struct            |               |
+| updatedAt                             | DateTime          |               |
+| Schedules                             | CreatedAt         | DateTime      |                       |
+| ID                                    | String            |               |
+| UpdatedAt                             | DateTime          |               |
+| default                               | Boolean           |               |
+| hours                                 | Struct            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| timezone                              | String            |               |
+| Settings                              | ID                | String        |                       |
+| app                                   | String            |               |
+| category                              | String            |               |
+| createdAt                             | DateTime          |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| type                                  | String            |               |
+| value                                 | String            |               |
+| Shortcuts                             | appDisabled       | Boolean       |                       |
+| conversation                          | Struct            |               |
+| createdAt                             | DateTime          |               |
+| deleted                               | Boolean           |               |
+| draft                                 | Struct            |               |
+| id                                    | String            |               |
+| isPrivate                             | Boolean           |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| payload                               | Struct            |               |
+| rev                                   | Integer           |               |
+| updatedAt                             | DateTime          |               |
+| Shortcuts Categories                  | categoryPositions | List          |                       |
+| createdAt                             | DateTime          |               |
+| id                                    | String            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| root                                  | Boolean           |               |
+| shortcutPositions                     | List              |               |
+| updatedAt                             | DateTime          |               |
+| Snippets                              | app               | String        |                       |
+| createdAt                             | DateTime          |               |
+| description                           | String            |               |
+| id                                    | String            |               |
+| key                                   | String            |               |
+| langs                                 | Struct            |               |
+| name                                  | String            |               |
+| source                                | String            |               |
+| Snoozes                               | createdAt         | DateTime      |                       |
+| enabled                               | Boolean           |               |
+| id                                    | String            |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| type                                  | String            |               |
+| updatedAt                             | DateTime          |               |
+| value                                 | String            |               |
+| Spam Senders                          | channel           | String        |                       |
+| createdAt                             | DateTime          |               |
+| id                                    | String            |               |
+| list                                  | String            |               |
+| modifiedAt                            | DateTime          |               |
+| sender                                | String            |               |
+| updatedAt                             | DateTime          |               |
+| Teams                                 | createdAt         | DateTime      |                       |
+| deleted                               | Boolean           |               |
+| displayName                           | String            |               |
+| icon                                  | String            |               |
+| id                                    | String            |               |
+| members                               | List              |               |
+| modifiedAt                            | DateTime          |               |
+| name                                  | String            |               |
+| roleGroups                            | List              |               |
+| updatedAt                             | DateTime          |               |
+| Users                                 | CreatedAt         | DateTime      |                       |
+| DisplayName                           | String            |               |
+| Email                                 | String            |               |
+| EmailVerifiedAt                       | DateTime          |               |
+| FirstEmailVerifiedAt                  | DateTime          |               |
+| Id                                    | String            |               |
+| ModifiedAt                            | DateTime          |               |
+| Name                                  | String            |               |
+| Password                              | Struct            |               |
+| RoleGroups                            | List              |               |
+| Roles                                 | List              |               |
+| UpdatedAt                             | DateTime          |               |
+| UserType                              | String            |               |
+| firstLoginAt                          | DateTime          |               |
+| isEmailValid                          | Boolean           |               |
+| klasses                               | appDisabled       | Boolean       |                       |
+| color                                 | String            |               |
+| createdAt                             | DateTime          |               |
+| icon                                  | String            |               |
+| id                                    | String            |               |
+| name                                  | String            |               |
+| s3DataUrl                             | String            |               |
+| status                                | String            |               |
+| updatedAt                             | DateTime          |               |

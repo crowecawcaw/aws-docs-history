@@ -115,43 +115,78 @@ When you create a flow that uses AfterShip as the data source, you can transfer 
 following data objects to supported destinations:
 
 | **Object**                     | **Field** | **Data type** | **Supported filters** |
-| ------------------------------ | --------- | ------------- | --------------------- | ----------------------------- | -------- | --- |
+| ------------------------------ | --------- | ------------- | --------------------- |
 | Couriers                       | Name      | String        |                       |
-| Phone                          | String    |               |                       | Slug                          | String   |     |
-| defaultLanguage                | String    |               |                       | optionalFields                | List     |     |
-| otherName                      | String    |               |                       | requiredFields                | List     |     |
-| serviceFromCountryIso3         | List      |               |                       | supportLanguages              | List     |     |
+| Phone                          | String    |               |
+| Slug                           | String    |               |
+| defaultLanguage                | String    |               |
+| optionalFields                 | List      |               |
+| otherName                      | String    |               |
+| requiredFields                 | List      |               |
+| serviceFromCountryIso3         | List      |               |
+| supportLanguages               | List      |               |
 | webUrl                         | String    |               |
 | Trackings                      | Active    | Boolean       |                       |
-| AftershipEstimatedDeliveryDate | String    |               |                       | Android                       | List     |     |
-| Checkpoints                    | List      |               |                       | CourierDestinationCountryIso3 | String   |     |
-| CourierRedirectLink            | String    |               |                       | CourierTrackingLink           | String   |     |
-| CreatedAt                      | DateTime  |               |                       | CustomFields                  | List     |     |
-| CustomerName                   | String    |               |                       | DeliveryTime                  | Integer  |     |
-| DeliveryType                   | String    |               |                       | DestinationCountryIso3        | String   |     |
-| DestinationRawLocation         | String    |               |                       | Emails                        | List     |     |
-| ExpectedDelivery               | String    |               |                       | FirstAttemptedAt              | DateTime |     |
-| IOs                            | List      |               |                       | Id                            | String   |     |
-| Language                       | String    |               |                       | LastMileTrackingSupported     | Boolean  |     |
-| LastUpdatedAt                  | DateTime  |               |                       | LatestEstimatedDelivery       | String   |     |
-| Note                           | String    |               |                       | OnTimeDifference              | Integer  |     |
-| OnTimeStatus                   | String    |               |                       | OrderDate                     | DateTime |     |
-| OrderId                        | String    |               |                       | OrderIdPath                   | String   |     |
-| OrderNumber                    | String    |               |                       | OrderPromisedDeliveryDate     | String   |     |
-| OrderTags                      | List      |               |                       | OriginCountryIso3             | String   |     |
-| PickupLocation                 | String    |               |                       | PickupNote                    | String   |     |
-| ReturnToSender                 | Boolean   |               |                       | ShipmentDeliveryDate          | DateTime |     |
-| ShipmentPackageCount           | Integer   |               |                       | ShipmentPickupDate            | DateTime |     |
-| ShipmentType                   | String    |               |                       | ShipmentWeight                | Float    |     |
-| ShipmentWeightUnit             | String    |               |                       | SignedBy                      | String   |     |
-| Slug                           | String    |               |                       | Smses                         | List     |     |
-| Source                         | String    |               |                       | SubscribedEmails              | List     |     |
-| SubscribedSmses                | List      |               |                       | Subtag                        | String   |     |
-| SubtagMessage                  | String    |               |                       | Tag                           | String   |     |
-| Title                          | String    |               |                       | TrackedCount                  | Integer  |     |
-| TrackingAccountNumber          | String    |               |                       | TrackingDestinationCountry    | String   |     |
-| TrackingKey                    | String    |               |                       | TrackingNumber                | String   |     |
-| TrackingOriginCountry          | String    |               |                       | TrackingPostalCode            | String   |     |
-| TrackingShipDate               | String    |               |                       | TrackingState                 | String   |     |
-| UniqueToken                    | String    |               |                       | UpdatedAt                     | DateTime |     |
+| AftershipEstimatedDeliveryDate | String    |               |
+| Android                        | List      |               |
+| Checkpoints                    | List      |               |
+| CourierDestinationCountryIso3  | String    |               |
+| CourierRedirectLink            | String    |               |
+| CourierTrackingLink            | String    |               |
+| CreatedAt                      | DateTime  |               |
+| CustomFields                   | List      |               |
+| CustomerName                   | String    |               |
+| DeliveryTime                   | Integer   |               |
+| DeliveryType                   | String    |               |
+| DestinationCountryIso3         | String    |               |
+| DestinationRawLocation         | String    |               |
+| Emails                         | List      |               |
+| ExpectedDelivery               | String    |               |
+| FirstAttemptedAt               | DateTime  |               |
+| IOs                            | List      |               |
+| Id                             | String    |               |
+| Language                       | String    |               |
+| LastMileTrackingSupported      | Boolean   |               |
+| LastUpdatedAt                  | DateTime  |               |
+| LatestEstimatedDelivery        | String    |               |
+| Note                           | String    |               |
+| OnTimeDifference               | Integer   |               |
+| OnTimeStatus                   | String    |               |
+| OrderDate                      | DateTime  |               |
+| OrderId                        | String    |               |
+| OrderIdPath                    | String    |               |
+| OrderNumber                    | String    |               |
+| OrderPromisedDeliveryDate      | String    |               |
+| OrderTags                      | List      |               |
+| OriginCountryIso3              | String    |               |
+| PickupLocation                 | String    |               |
+| PickupNote                     | String    |               |
+| ReturnToSender                 | Boolean   |               |
+| ShipmentDeliveryDate           | DateTime  |               |
+| ShipmentPackageCount           | Integer   |               |
+| ShipmentPickupDate             | DateTime  |               |
+| ShipmentType                   | String    |               |
+| ShipmentWeight                 | Float     |               |
+| ShipmentWeightUnit             | String    |               |
+| SignedBy                       | String    |               |
+| Slug                           | String    |               |
+| Smses                          | List      |               |
+| Source                         | String    |               |
+| SubscribedEmails               | List      |               |
+| SubscribedSmses                | List      |               |
+| Subtag                         | String    |               |
+| SubtagMessage                  | String    |               |
+| Tag                            | String    |               |
+| Title                          | String    |               |
+| TrackedCount                   | Integer   |               |
+| TrackingAccountNumber          | String    |               |
+| TrackingDestinationCountry     | String    |               |
+| TrackingKey                    | String    |               |
+| TrackingNumber                 | String    |               |
+| TrackingOriginCountry          | String    |               |
+| TrackingPostalCode             | String    |               |
+| TrackingShipDate               | String    |               |
+| TrackingState                  | String    |               |
+| UniqueToken                    | String    |               |
+| UpdatedAt                      | DateTime  |               |
 | shipmentTags                   | List      |               |

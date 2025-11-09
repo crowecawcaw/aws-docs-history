@@ -119,199 +119,373 @@ When you create a flow that uses QuickBooks Online as the data source, you can t
 following data objects to supported destinations:
 
 | **Object**                    | **Field**             | **Data type** | **Supported filters** |
-| ----------------------------- | --------------------- | ------------- | --------------------- | ----------------------- | ---------- | -------- |
+| ----------------------------- | --------------------- | ------------- | --------------------- |
 | Account                       | AccountAlias          | String        |                       |
-| AccountSubType                | String                |               |                       | AccountType             | Struct     |          |
-| AcctNum                       | String                |               |                       | Active                  | Boolean    | EQUAL_TO |
-| Classification                | String                |               |                       | CreateTime              | DateTime   |          |
-| CurrencyRef                   | Struct                |               |                       | CurrentBalance          | BigDecimal |          |
-| CurrentBalanceWithSubAccounts | BigDecimal            |               |                       | Description             | String     |          |
-| FullyQualifiedName            | String                |               |                       | Id                      | String     |          |
-| LastUpdatedTime               | DateTime              |               |                       | Name                    | String     |          |
-| ParentRef                     | Struct                |               |                       | SubAccount              | Boolean    | EQUAL_TO |
-| SyncToken                     | String                |               |                       | TaxCodeRef              | Struct     |          |
+| AccountSubType                | String                |               |
+| AccountType                   | Struct                |               |
+| AcctNum                       | String                |               |
+| Active                        | Boolean               | EQUAL_TO      |
+| Classification                | String                |               |
+| CreateTime                    | DateTime              |               |
+| CurrencyRef                   | Struct                |               |
+| CurrentBalance                | BigDecimal            |               |
+| CurrentBalanceWithSubAccounts | BigDecimal            |               |
+| Description                   | String                |               |
+| FullyQualifiedName            | String                |               |
+| Id                            | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| Name                          | String                |               |
+| ParentRef                     | Struct                |               |
+| SubAccount                    | Boolean               | EQUAL_TO      |
+| SyncToken                     | String                |               |
+| TaxCodeRef                    | Struct                |               |
 | TxnLocationType               | String                |               |
 | Bill                          | APAccountRef          | Struct        |                       |
-| Balance                       | BigDecimal            |               |                       | CreateTime              | DateTime   |          |
-| CurrencyRef                   | Struct                |               |                       | DepartmentRef           | Struct     |          |
-| DocNumber                     | String                |               |                       | DueDate                 | Date       |          |
-| ExchangeRate                  | BigDecimal            |               |                       | GlobalTaxCalculation    | Struct     |          |
-| HomeBalance                   | BigDecimal            |               |                       | Id                      | String     |          |
-| IncludeInAnnualTPAR           | Boolean               |               |                       | LastUpdatedTime         | DateTime   |          |
-| Line                          | Struct                |               |                       | LinkedTxn               | Struct     |          |
-| MetaData                      | Struct                |               |                       | PrivateNote             | String     |          |
-| RecurDataRef                  | Struct                |               |                       | SalesTermRef            | Struct     |          |
-| SyncToken                     | String                |               |                       | TotalAmt                | BigDecimal |          |
-| TransactionLocationType       | String                |               |                       | TxnDate                 | Date       |          |
-| TxnTaxDetail                  | Struct                |               |                       | VendorRef               | Struct     |          |
+| Balance                       | BigDecimal            |               |
+| CreateTime                    | DateTime              |               |
+| CurrencyRef                   | Struct                |               |
+| DepartmentRef                 | Struct                |               |
+| DocNumber                     | String                |               |
+| DueDate                       | Date                  |               |
+| ExchangeRate                  | BigDecimal            |               |
+| GlobalTaxCalculation          | Struct                |               |
+| HomeBalance                   | BigDecimal            |               |
+| Id                            | String                |               |
+| IncludeInAnnualTPAR           | Boolean               |               |
+| LastUpdatedTime               | DateTime              |               |
+| Line                          | Struct                |               |
+| LinkedTxn                     | Struct                |               |
+| MetaData                      | Struct                |               |
+| PrivateNote                   | String                |               |
+| RecurDataRef                  | Struct                |               |
+| SalesTermRef                  | Struct                |               |
+| SyncToken                     | String                |               |
+| TotalAmt                      | BigDecimal            |               |
+| TransactionLocationType       | String                |               |
+| TxnDate                       | Date                  |               |
+| TxnTaxDetail                  | Struct                |               |
+| VendorRef                     | Struct                |               |
 | Company Info                  | CompanyAddr           | Struct        |                       |
-| CompanyName                   | String                |               |                       | CompanyStartDate        | DateTime   |          |
-| Country                       | String                |               |                       | CreateTime              | DateTime   |          |
-| CustomerCommunicationAddr     | Struct                |               |                       | Email                   | Struct     |          |
-| FiscalYearStartMonth          | Struct                |               |                       | Id                      | String     |          |
-| LastUpdatedTime               | DateTime              |               |                       | LegalAddr               | Struct     |          |
-| LegalName                     | String                |               |                       | MetaData                | Struct     |          |
-| NameValue                     | Struct                |               |                       | PrimaryPhone            | Struct     |          |
-| SupportedLanguages            | String                |               |                       | SyncToken               | String     |          |
+| CompanyName                   | String                |               |
+| CompanyStartDate              | DateTime              |               |
+| Country                       | String                |               |
+| CreateTime                    | DateTime              |               |
+| CustomerCommunicationAddr     | Struct                |               |
+| Email                         | Struct                |               |
+| FiscalYearStartMonth          | Struct                |               |
+| Id                            | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| LegalAddr                     | Struct                |               |
+| LegalName                     | String                |               |
+| MetaData                      | Struct                |               |
+| NameValue                     | Struct                |               |
+| PrimaryPhone                  | Struct                |               |
+| SupportedLanguages            | String                |               |
+| SyncToken                     | String                |               |
 | WebAddr                       | Struct                |               |
 | Customer                      | ARAccountRef          | Struct        |                       |
-| Active                        | Boolean               | EQUAL_TO      |                       | AlternatePhone          | Struct     |          |
-| Balance                       | BigDecimal            |               |                       | BalanceWithJobs         | BigDecimal |          |
-| BillAddr                      | Struct                |               |                       | BillWithParent          | Boolean    |          |
-| BusinessNumber                | String                |               |                       | CompanyName             | String     |          |
-| CreateTime                    | DateTime              |               |                       | CurrencyRef             | Struct     |          |
-| CustomerTypeRef               | String                |               |                       | DefaultTaxCodeRef       | Struct     |          |
-| DisplayName                   | String                |               |                       | FamilyName              | String     |          |
-| Fax                           | Struct                |               |                       | FullyQualifiedName      | String     |          |
-| GSTIN                         | String                |               |                       | GSTRegistrationType     | String     |          |
-| GivenName                     | String                |               |                       | Id                      | String     |          |
-| IsProject                     | Boolean               |               |                       | Job                     | Boolean    |          |
-| LastUpdatedTime               | DateTime              |               |                       | Level                   | BigInteger |          |
-| MetaData                      | Struct                |               |                       | MiddleName              | String     |          |
-| Mobile                        | Struct                |               |                       | Notes                   | String     |          |
-| OpenBalanceDate               | Date                  |               |                       | ParentRef               | Struct     |          |
-| PaymentMethodRef              | Struct                |               |                       | PreferredDeliveryMethod | String     |          |
-| PrimaryEmailAddr              | Struct                |               |                       | PrimaryPhone            | Struct     |          |
-| PrimaryTaxIdentifier          | String                |               |                       | PrintOnCheckName        | String     |          |
-| ResaleNum                     | String                |               |                       | SalesTermRef            | Struct     |          |
-| SecondaryTaxIdentifier        | String                |               |                       | ShipAddr                | Struct     |          |
-| Source                        | String                |               |                       | Suffix                  | String     |          |
-| SyncToken                     | String                |               |                       | TaxExemptionReasonId    | BigInteger |          |
-| Taxable                       | Boolean               |               |                       | Title                   | String     |          |
+| Active                        | Boolean               | EQUAL_TO      |
+| AlternatePhone                | Struct                |               |
+| Balance                       | BigDecimal            |               |
+| BalanceWithJobs               | BigDecimal            |               |
+| BillAddr                      | Struct                |               |
+| BillWithParent                | Boolean               |               |
+| BusinessNumber                | String                |               |
+| CompanyName                   | String                |               |
+| CreateTime                    | DateTime              |               |
+| CurrencyRef                   | Struct                |               |
+| CustomerTypeRef               | String                |               |
+| DefaultTaxCodeRef             | Struct                |               |
+| DisplayName                   | String                |               |
+| FamilyName                    | String                |               |
+| Fax                           | Struct                |               |
+| FullyQualifiedName            | String                |               |
+| GSTIN                         | String                |               |
+| GSTRegistrationType           | String                |               |
+| GivenName                     | String                |               |
+| Id                            | String                |               |
+| IsProject                     | Boolean               |               |
+| Job                           | Boolean               |               |
+| LastUpdatedTime               | DateTime              |               |
+| Level                         | BigInteger            |               |
+| MetaData                      | Struct                |               |
+| MiddleName                    | String                |               |
+| Mobile                        | Struct                |               |
+| Notes                         | String                |               |
+| OpenBalanceDate               | Date                  |               |
+| ParentRef                     | Struct                |               |
+| PaymentMethodRef              | Struct                |               |
+| PreferredDeliveryMethod       | String                |               |
+| PrimaryEmailAddr              | Struct                |               |
+| PrimaryPhone                  | Struct                |               |
+| PrimaryTaxIdentifier          | String                |               |
+| PrintOnCheckName              | String                |               |
+| ResaleNum                     | String                |               |
+| SalesTermRef                  | Struct                |               |
+| SecondaryTaxIdentifier        | String                |               |
+| ShipAddr                      | Struct                |               |
+| Source                        | String                |               |
+| Suffix                        | String                |               |
+| SyncToken                     | String                |               |
+| TaxExemptionReasonId          | BigInteger            |               |
+| Taxable                       | Boolean               |               |
+| Title                         | String                |               |
 | WebAddr                       | Struct                |               |
 | Employee                      | Active                | Boolean       | EQUAL_TO              |
-| BillRate                      | BigDecimal            |               |                       | BillableTime            | Boolean    |          |
-| BirthDate                     | Date                  |               |                       | CostRate                | BigDecimal |          |
-| CreateTime                    | DateTime              |               |                       | DisplayName             | String     |          |
-| EmployeeNumber                | String                |               |                       | FamilyName              | String     |          |
-| Gender                        | String                |               |                       | GivenName               | String     |          |
-| HiredDate                     | Date                  |               |                       | Id                      | String     |          |
-| LastUpdatedTime               | DateTime              |               |                       | MetaData                | Struct     |          |
-| MiddleName                    | String                |               |                       | Mobile                  | Struct     |          |
-| Organization                  | Boolean               |               |                       | PrimaryAddr             | Struct     |          |
-| PrimaryEmailAddr              | Struct                |               |                       | PrimaryPhone            | Struct     |          |
-| PrintOnCheckName              | String                |               |                       | ReleasedDate            | Date       |          |
-| SSN                           | String                |               |                       | Suffix                  | String     |          |
-| SyncToken                     | String                |               |                       | Title                   | String     |          |
+| BillRate                      | BigDecimal            |               |
+| BillableTime                  | Boolean               |               |
+| BirthDate                     | Date                  |               |
+| CostRate                      | BigDecimal            |               |
+| CreateTime                    | DateTime              |               |
+| DisplayName                   | String                |               |
+| EmployeeNumber                | String                |               |
+| FamilyName                    | String                |               |
+| Gender                        | String                |               |
+| GivenName                     | String                |               |
+| HiredDate                     | Date                  |               |
+| Id                            | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| MetaData                      | Struct                |               |
+| MiddleName                    | String                |               |
+| Mobile                        | Struct                |               |
+| Organization                  | Boolean               |               |
+| PrimaryAddr                   | Struct                |               |
+| PrimaryEmailAddr              | Struct                |               |
+| PrimaryPhone                  | Struct                |               |
+| PrintOnCheckName              | String                |               |
+| ReleasedDate                  | Date                  |               |
+| SSN                           | String                |               |
+| Suffix                        | String                |               |
+| SyncToken                     | String                |               |
+| Title                         | String                |               |
 | V4IDPseudonym                 | String                |               |
 | Estimate                      | AcceptedBy            | String        |                       |
-| AcceptedDate                  | Date                  |               |                       | ApplyTaxAfterDiscount   | Boolean    |          |
-| BillAddr                      | Struct                |               |                       | BillEmail               | Struct     |          |
-| ClassRef                      | Struct                |               |                       | CreateTime              | DateTime   |          |
-| CurrencyRef                   | Struct                |               |                       | CustomField             | Struct     |          |
-| CustomerMemo                  | Struct                |               |                       | CustomerRef             | Struct     |          |
-| DepartmentRef                 | Struct                |               |                       | DocNumber               | String     |          |
-| DueDate                       | Date                  |               |                       | EmailStatus             | String     |          |
-| ExchangeRate                  | BigDecimal            |               |                       | ExpirationDate          | Date       |          |
-| FreeFormAddress               | Boolean               |               |                       | GlobalTaxCalculation    | Struct     |          |
-| HomeTotalAmt                  | BigDecimal            |               |                       | Id                      | String     |          |
-| LastUpdatedTime               | DateTime              |               |                       | Line                    | Struct     |          |
-| LinkedTxn                     | Struct                |               |                       | MetaData                | Struct     |          |
-| PrintStatus                   | String                |               |                       | PrivateNote             | String     |          |
-| RecurDataRef                  | Struct                |               |                       | SalesTermRef            | Struct     |          |
-| ShipAddr                      | Struct                |               |                       | ShipDate                | Date       |          |
-| ShipFromAddr                  | Struct                |               |                       | ShipMethodRef           | Struct     |          |
-| SyncToken                     | String                |               |                       | TaxExemptionRef         | Struct     |          |
-| TotalAmt                      | BigDecimal            |               |                       | TransactionLocationType | String     |          |
-| TxnDate                       | Date                  |               |                       | TxnStatus               | String     |          |
+| AcceptedDate                  | Date                  |               |
+| ApplyTaxAfterDiscount         | Boolean               |               |
+| BillAddr                      | Struct                |               |
+| BillEmail                     | Struct                |               |
+| ClassRef                      | Struct                |               |
+| CreateTime                    | DateTime              |               |
+| CurrencyRef                   | Struct                |               |
+| CustomField                   | Struct                |               |
+| CustomerMemo                  | Struct                |               |
+| CustomerRef                   | Struct                |               |
+| DepartmentRef                 | Struct                |               |
+| DocNumber                     | String                |               |
+| DueDate                       | Date                  |               |
+| EmailStatus                   | String                |               |
+| ExchangeRate                  | BigDecimal            |               |
+| ExpirationDate                | Date                  |               |
+| FreeFormAddress               | Boolean               |               |
+| GlobalTaxCalculation          | Struct                |               |
+| HomeTotalAmt                  | BigDecimal            |               |
+| Id                            | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| Line                          | Struct                |               |
+| LinkedTxn                     | Struct                |               |
+| MetaData                      | Struct                |               |
+| PrintStatus                   | String                |               |
+| PrivateNote                   | String                |               |
+| RecurDataRef                  | Struct                |               |
+| SalesTermRef                  | Struct                |               |
+| ShipAddr                      | Struct                |               |
+| ShipDate                      | Date                  |               |
+| ShipFromAddr                  | Struct                |               |
+| ShipMethodRef                 | Struct                |               |
+| SyncToken                     | String                |               |
+| TaxExemptionRef               | Struct                |               |
+| TotalAmt                      | BigDecimal            |               |
+| TransactionLocationType       | String                |               |
+| TxnDate                       | Date                  |               |
+| TxnStatus                     | String                |               |
 | TxnTaxDetail                  | Struct                |               |
 | Invoice                       | AllowOnlineACHPayment | Boolean       |                       |
-| AllowOnlineCreditCardPayment  | Boolean               |               |                       | ApplyTaxAfterDiscount   | Boolean    |          |
-| Balance                       | BigDecimal            |               |                       | BillAddr                | Struct     |          |
-| BillEmail                     | Struct                |               |                       | BillEmailBcc            | Struct     |          |
-| BillEmailCc                   | Struct                |               |                       | ClassRef                | Struct     |          |
-| CreateTime                    | DateTime              |               |                       | CurrencyRef             | Struct     |          |
-| CustomField                   | Struct                |               |                       | CustomerMemo            | Struct     |          |
-| CustomerRef                   | Struct                |               |                       | DeliveryInfo            | Struct     |          |
-| DepartmentRef                 | Struct                |               |                       | Deposit                 | BigDecimal |          |
-| DepositToAccountRef           | Struct                |               |                       | DocNumber               | String     |          |
-| DueDate                       | Date                  |               |                       | EmailStatus             | String     |          |
-| ExchangeRate                  | BigDecimal            |               |                       | FreeFormAddress         | Boolean    |          |
-| GlobalTaxCalculation          | Struct                |               |                       | HomeBalance             | BigDecimal |          |
-| HomeTotalAmt                  | BigDecimal            |               |                       | Id                      | String     |          |
-| InvoiceLink                   | String                |               |                       | LastUpdatedTime         | DateTime   |          |
-| Line                          | Struct                |               |                       | LinkedTxn               | Struct     |          |
-| MetaData                      | Struct                |               |                       | PrintStatus             | String     |          |
-| PrivateNote                   | String                |               |                       | RecurDataRef            | Struct     |          |
-| SalesTermRef                  | Struct                |               |                       | ShipAddr                | Struct     |          |
-| ShipDate                      | Date                  |               |                       | ShipFromAddr            | Struct     |          |
-| ShipMethodRef                 | Struct                |               |                       | SyncToken               | String     |          |
-| TaxExemptionRef               | Struct                |               |                       | TotalAmt                | BigDecimal |          |
-| TrackingNum                   | String                |               |                       | TransactionLocationType | String     |          |
-| TxnDate                       | Date                  |               |                       | TxnSource               | String     |          |
+| AllowOnlineCreditCardPayment  | Boolean               |               |
+| ApplyTaxAfterDiscount         | Boolean               |               |
+| Balance                       | BigDecimal            |               |
+| BillAddr                      | Struct                |               |
+| BillEmail                     | Struct                |               |
+| BillEmailBcc                  | Struct                |               |
+| BillEmailCc                   | Struct                |               |
+| ClassRef                      | Struct                |               |
+| CreateTime                    | DateTime              |               |
+| CurrencyRef                   | Struct                |               |
+| CustomField                   | Struct                |               |
+| CustomerMemo                  | Struct                |               |
+| CustomerRef                   | Struct                |               |
+| DeliveryInfo                  | Struct                |               |
+| DepartmentRef                 | Struct                |               |
+| Deposit                       | BigDecimal            |               |
+| DepositToAccountRef           | Struct                |               |
+| DocNumber                     | String                |               |
+| DueDate                       | Date                  |               |
+| EmailStatus                   | String                |               |
+| ExchangeRate                  | BigDecimal            |               |
+| FreeFormAddress               | Boolean               |               |
+| GlobalTaxCalculation          | Struct                |               |
+| HomeBalance                   | BigDecimal            |               |
+| HomeTotalAmt                  | BigDecimal            |               |
+| Id                            | String                |               |
+| InvoiceLink                   | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| Line                          | Struct                |               |
+| LinkedTxn                     | Struct                |               |
+| MetaData                      | Struct                |               |
+| PrintStatus                   | String                |               |
+| PrivateNote                   | String                |               |
+| RecurDataRef                  | Struct                |               |
+| SalesTermRef                  | Struct                |               |
+| ShipAddr                      | Struct                |               |
+| ShipDate                      | Date                  |               |
+| ShipFromAddr                  | Struct                |               |
+| ShipMethodRef                 | Struct                |               |
+| SyncToken                     | String                |               |
+| TaxExemptionRef               | Struct                |               |
+| TotalAmt                      | BigDecimal            |               |
+| TrackingNum                   | String                |               |
+| TransactionLocationType       | String                |               |
+| TxnDate                       | Date                  |               |
+| TxnSource                     | String                |               |
 | TxnTaxDetail                  | Struct                |               |
 | Item                          | AbatementRate         | BigDecimal    |                       |
-| Active                        | Boolean               | EQUAL_TO      |                       | AssetAccountRef         | Struct     |          |
-| ClassRef                      | Struct                |               |                       | CreateTime              | DateTime   |          |
-| Description                   | String                |               |                       | ExpenseAccountRef       | Struct     |          |
-| FullyQualifiedName            | String                |               |                       | Id                      | String     |          |
-| IncomeAccountRef              | Struct                |               |                       | InvStartDate            | Date       |          |
-| ItemCategoryType              | String                |               |                       | LastUpdatedTime         | DateTime   |          |
-| Level                         | Integer               |               |                       | MetaData                | Struct     |          |
-| Name                          | String                |               |                       | ParentRef               | Struct     |          |
-| PrefVendorRef                 | Struct                |               |                       | PurchaseCost            | BigDecimal |          |
-| PurchaseDesc                  | String                |               |                       | PurchaseTaxCodeRef      | Struct     |          |
-| PurchaseTaxIncluded           | Boolean               |               |                       | QtyOnHand               | BigDecimal |          |
-| ReorderPoint                  | BigDecimal            |               |                       | ReverseChargeRate       | BigDecimal |          |
-| SalesTaxCodeRef               | Struct                |               |                       | SalesTaxIncluded        | Boolean    |          |
-| ServiceType                   | String                |               |                       | Sku                     | String     |          |
-| Source                        | String                |               |                       | SubItem                 | Boolean    |          |
-| SyncToken                     | String                |               |                       | TaxClassificationRef    | Struct     |          |
-| Taxable                       | Boolean               |               |                       | TrackQtyOnHand          | Boolean    |          |
-| Type                          | String                |               |                       | UQCDisplayText          | String     |          |
-| UQCId                         | String                |               |                       | UnitPrice               | BigDecimal |          |
+| Active                        | Boolean               | EQUAL_TO      |
+| AssetAccountRef               | Struct                |               |
+| ClassRef                      | Struct                |               |
+| CreateTime                    | DateTime              |               |
+| Description                   | String                |               |
+| ExpenseAccountRef             | Struct                |               |
+| FullyQualifiedName            | String                |               |
+| Id                            | String                |               |
+| IncomeAccountRef              | Struct                |               |
+| InvStartDate                  | Date                  |               |
+| ItemCategoryType              | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| Level                         | Integer               |               |
+| MetaData                      | Struct                |               |
+| Name                          | String                |               |
+| ParentRef                     | Struct                |               |
+| PrefVendorRef                 | Struct                |               |
+| PurchaseCost                  | BigDecimal            |               |
+| PurchaseDesc                  | String                |               |
+| PurchaseTaxCodeRef            | Struct                |               |
+| PurchaseTaxIncluded           | Boolean               |               |
+| QtyOnHand                     | BigDecimal            |               |
+| ReorderPoint                  | BigDecimal            |               |
+| ReverseChargeRate             | BigDecimal            |               |
+| SalesTaxCodeRef               | Struct                |               |
+| SalesTaxIncluded              | Boolean               |               |
+| ServiceType                   | String                |               |
+| Sku                           | String                |               |
+| Source                        | String                |               |
+| SubItem                       | Boolean               |               |
+| SyncToken                     | String                |               |
+| TaxClassificationRef          | Struct                |               |
+| Taxable                       | Boolean               |               |
+| TrackQtyOnHand                | Boolean               |               |
+| Type                          | String                |               |
+| UQCDisplayText                | String                |               |
+| UQCId                         | String                |               |
+| UnitPrice                     | BigDecimal            |               |
 | Payment                       | ARAccountRef          | Struct        |                       |
-| CreateTime                    | DateTime              |               |                       | CreditCardPayment       | Struct     |          |
-| CurrencyRef                   | Struct                |               |                       | CustomerRef             | Struct     |          |
-| DepositToAccountRef           | Struct                |               |                       | ExchangeRate            | BigDecimal |          |
-| Id                            | String                |               |                       | LastUpdatedTime         | DateTime   |          |
-| Line                          | Struct                |               |                       | MetaData                | Struct     |          |
-| PaymentMethodRef              | Struct                |               |                       | PaymentRefNum           | String     |          |
-| PrivateNote                   | String                |               |                       | SyncToken               | String     |          |
-| TaxExemptionRef               | Struct                |               |                       | TotalAmt                | BigDecimal |          |
-| TransactionLocationType       | String                |               |                       | TxnDate                 | Date       |          |
-| TxnSource                     | String                |               |                       | UnappliedAmt            | BigDecimal |          |
+| CreateTime                    | DateTime              |               |
+| CreditCardPayment             | Struct                |               |
+| CurrencyRef                   | Struct                |               |
+| CustomerRef                   | Struct                |               |
+| DepositToAccountRef           | Struct                |               |
+| ExchangeRate                  | BigDecimal            |               |
+| Id                            | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| Line                          | Struct                |               |
+| MetaData                      | Struct                |               |
+| PaymentMethodRef              | Struct                |               |
+| PaymentRefNum                 | String                |               |
+| PrivateNote                   | String                |               |
+| SyncToken                     | String                |               |
+| TaxExemptionRef               | Struct                |               |
+| TotalAmt                      | BigDecimal            |               |
+| TransactionLocationType       | String                |               |
+| TxnDate                       | Date                  |               |
+| TxnSource                     | String                |               |
+| UnappliedAmt                  | BigDecimal            |               |
 | Preference                    | AccountingInfoPrefs   | Struct        |                       |
-| CreateTime                    | DateTime              |               |                       | CurrencyPrefs           | Struct     |          |
-| EmailMessagesPrefs            | Struct                |               |                       | Id                      | String     |          |
-| LastUpdatedTime               | DateTime              |               |                       | MetaData                | Struct     |          |
-| OtherPrefs                    | Struct                |               |                       | ProductAndServicesPrefs | Struct     |          |
-| ReportPrefs                   | Struct                |               |                       | SalesFormsPrefs         | Struct     |          |
-| SyncToken                     | String                |               |                       | TaxPrefs                | Struct     |          |
-| TimeTrackingPrefs             | Struct                |               |                       | VendorAndPurchasesPrefs | Struct     |          |
+| CreateTime                    | DateTime              |               |
+| CurrencyPrefs                 | Struct                |               |
+| EmailMessagesPrefs            | Struct                |               |
+| Id                            | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| MetaData                      | Struct                |               |
+| OtherPrefs                    | Struct                |               |
+| ProductAndServicesPrefs       | Struct                |               |
+| ReportPrefs                   | Struct                |               |
+| SalesFormsPrefs               | Struct                |               |
+| SyncToken                     | String                |               |
+| TaxPrefs                      | Struct                |               |
+| TimeTrackingPrefs             | Struct                |               |
+| VendorAndPurchasesPrefs       | Struct                |               |
 | Profit And Loss               | Accounting Method     | String        | EQUAL_TO              |
-| Adjusted Gain Loss            | String                | EQUAL_TO      |                       | Class                   | String     | EQUAL_TO |
-| Columns                       | Struct                |               |                       | Customer                | String     | EQUAL_TO |
-| Date Macro                    | String                | EQUAL_TO      |                       | Department              | String     | EQUAL_TO |
-| End Date                      | Date                  | EQUAL_TO      |                       | Header                  | Struct     |          |
-| Item                          | String                | EQUAL_TO      |                       | Rows                    | Struct     |          |
-| Sort Order                    | String                | EQUAL_TO      |                       | Start Date              | Date       | EQUAL_TO |
-| Summarize Column By           | String                | EQUAL_TO      |                       | Vendor                  | String     | EQUAL_TO |
+| Adjusted Gain Loss            | String                | EQUAL_TO      |
+| Class                         | String                | EQUAL_TO      |
+| Columns                       | Struct                |               |
+| Customer                      | String                | EQUAL_TO      |
+| Date Macro                    | String                | EQUAL_TO      |
+| Department                    | String                | EQUAL_TO      |
+| End Date                      | Date                  | EQUAL_TO      |
+| Header                        | Struct                |               |
+| Item                          | String                | EQUAL_TO      |
+| Rows                          | Struct                |               |
+| Sort Order                    | String                | EQUAL_TO      |
+| Start Date                    | Date                  | EQUAL_TO      |
+| Summarize Column By           | String                | EQUAL_TO      |
+| Vendor                        | String                | EQUAL_TO      |
 | qzurl                         | String                | EQUAL_TO      |
 | Tax Agency                    | CreateTime            | DateTime      |                       |
-| DisplayName                   | String                |               |                       | Id                      | String     |          |
-| LastFileDate                  | Date                  |               |                       | LastUpdatedTime         | DateTime   |          |
-| MetaData                      | Struct                |               |                       | SyncToken               | String     |          |
-| TaxAgencyConfig               | String                |               |                       | TaxRegistrationNumber   | String     |          |
-| TaxTrackedOnPurchases         | Boolean               |               |                       | TaxTrackedOnSales       | Boolean    |          |
+| DisplayName                   | String                |               |
+| Id                            | String                |               |
+| LastFileDate                  | Date                  |               |
+| LastUpdatedTime               | DateTime              |               |
+| MetaData                      | Struct                |               |
+| SyncToken                     | String                |               |
+| TaxAgencyConfig               | String                |               |
+| TaxRegistrationNumber         | String                |               |
+| TaxTrackedOnPurchases         | Boolean               |               |
+| TaxTrackedOnSales             | Boolean               |               |
 | Vendor                        | APAccountRef          | Struct        |                       |
-| AcctNum                       | String                |               |                       | Active                  | Boolean    | EQUAL_TO |
-| AlternatePhone                | Struct                |               |                       | Balance                 | BigDecimal |          |
-| BillAddr                      | Struct                |               |                       | BillRate                | BigDecimal |          |
-| BusinessNumber                | String                |               |                       | CompanyName             | String     |          |
-| CostRate                      | BigDecimal            |               |                       | CreateTime              | DateTime   |          |
-| CurrencyRef                   | Struct                |               |                       | DisplayName             | String     |          |
-| FamilyName                    | String                |               |                       | Fax                     | Struct     |          |
-| GSTIN                         | String                |               |                       | GSTRegistrationType     | String     |          |
-| GivenName                     | String                |               |                       | HasTPAR                 | Boolean    |          |
-| Id                            | String                |               |                       | LastUpdatedTime         | DateTime   |          |
-| MetaData                      | Struct                |               |                       | MiddleName              | String     |          |
-| Mobile                        | Struct                |               |                       | OtherContactInfo        | Struct     |          |
-| PrimaryEmailAddr              | Struct                |               |                       | PrimaryPhone            | Struct     |          |
-| PrintOnCheckName              | String                |               |                       | Source                  | String     |          |
-| Suffix                        | String                |               |                       | SyncToken               | String     |          |
-| T4AEligible                   | Boolean               |               |                       | T5018Eligible           | Boolean    |          |
-| TaxIdentifier                 | String                |               |                       | TaxReportingBasis       | String     |          |
-| TermRef                       | Struct                |               |                       | Title                   | String     |          |
-| Vendor1099                    | Boolean               |               |                       | VendorPaymentBankDetail | Struct     |          |
+| AcctNum                       | String                |               |
+| Active                        | Boolean               | EQUAL_TO      |
+| AlternatePhone                | Struct                |               |
+| Balance                       | BigDecimal            |               |
+| BillAddr                      | Struct                |               |
+| BillRate                      | BigDecimal            |               |
+| BusinessNumber                | String                |               |
+| CompanyName                   | String                |               |
+| CostRate                      | BigDecimal            |               |
+| CreateTime                    | DateTime              |               |
+| CurrencyRef                   | Struct                |               |
+| DisplayName                   | String                |               |
+| FamilyName                    | String                |               |
+| Fax                           | Struct                |               |
+| GSTIN                         | String                |               |
+| GSTRegistrationType           | String                |               |
+| GivenName                     | String                |               |
+| HasTPAR                       | Boolean               |               |
+| Id                            | String                |               |
+| LastUpdatedTime               | DateTime              |               |
+| MetaData                      | Struct                |               |
+| MiddleName                    | String                |               |
+| Mobile                        | Struct                |               |
+| OtherContactInfo              | Struct                |               |
+| PrimaryEmailAddr              | Struct                |               |
+| PrimaryPhone                  | Struct                |               |
+| PrintOnCheckName              | String                |               |
+| Source                        | String                |               |
+| Suffix                        | String                |               |
+| SyncToken                     | String                |               |
+| T4AEligible                   | Boolean               |               |
+| T5018Eligible                 | Boolean               |               |
+| TaxIdentifier                 | String                |               |
+| TaxReportingBasis             | String                |               |
+| TermRef                       | Struct                |               |
+| Title                         | String                |               |
+| Vendor1099                    | Boolean               |               |
+| VendorPaymentBankDetail       | Struct                |               |
 | WebAddr                       | Struct                |               |

@@ -124,85 +124,154 @@ When you create a flow that uses Snapchat Ads as the data source, you can transf
 following data objects to supported destinations:
 
 | **Object**                      | **Field**             | **Data type** | **Supported filters** |
-| ------------------------------- | --------------------- | ------------- | --------------------- | -------------------------- | -------- | -------- |
+| ------------------------------- | --------------------- | ------------- | --------------------- |
 | Ad Account                      | Advertiser            | String        |                       |
-| Advertiser Organization Id      | String                |               |                       | Agency Representing Client | Boolean  |          |
-| Billing Center Id               | String                |               |                       | Billing Type               | String   |          |
-| Client Paying Invoices          | Boolean               |               |                       | Created At                 | DateTime |          |
-| Currency                        | String                |               |                       | Funding Source Ids         | List     |          |
-| Id                              | String                |               |                       | Lifetime Spend Cap Micro   | Long     |          |
-| Name                            | String                |               |                       | Organization Id            | String   |          |
-| Status                          | String                |               |                       | Timezone                   | String   |          |
-| Type                            | String                |               |                       | Update At                  | DateTime |          |
+| Advertiser Organization Id      | String                |               |
+| Agency Representing Client      | Boolean               |               |
+| Billing Center Id               | String                |               |
+| Billing Type                    | String                |               |
+| Client Paying Invoices          | Boolean               |               |
+| Created At                      | DateTime              |               |
+| Currency                        | String                |               |
+| Funding Source Ids              | List                  |               |
+| Id                              | String                |               |
+| Lifetime Spend Cap Micro        | Long                  |               |
+| Name                            | String                |               |
+| Organization Id                 | String                |               |
+| Status                          | String                |               |
+| Timezone                        | String                |               |
+| Type                            | String                |               |
+| Update At                       | DateTime              |               |
 | Ad Squad                        | Auto Bid              | Boolean       |                       |
-| Bid Micro                       | Long                  |               |                       | Bid Strategy               | String   |          |
-| Billing Event                   | String                |               |                       | Campaign Id                | String   |          |
-| Created At                      | DateTime              |               |                       | Creation State             | String   |          |
-| Daily Budget Micro              | Long                  |               |                       | Deleted                    | Boolean  |          |
-| Delivery Constraint             | String                |               |                       | Delivery Status            | List     |          |
-| Id                              | String                |               |                       | Name                       | String   |          |
-| Optimization Goal               | String                |               |                       | Pacing Type                | String   |          |
-| Placement V2                    | Struct                |               |                       | Read Deleted Entities      | Boolean  | EQUAL_TO |
-| Skadnetwork Properties          | Struct                |               |                       | Start Time                 | DateTime |          |
-| Status                          | String                |               |                       | Target Bid                 | Boolean  |          |
-| Targeting                       | Struct                |               |                       | Targeting Reach Status     | String   |          |
-| Type                            | String                |               |                       | Update At                  | DateTime |          |
+| Bid Micro                       | Long                  |               |
+| Bid Strategy                    | String                |               |
+| Billing Event                   | String                |               |
+| Campaign Id                     | String                |               |
+| Created At                      | DateTime              |               |
+| Creation State                  | String                |               |
+| Daily Budget Micro              | Long                  |               |
+| Deleted                         | Boolean               |               |
+| Delivery Constraint             | String                |               |
+| Delivery Status                 | List                  |               |
+| Id                              | String                |               |
+| Name                            | String                |               |
+| Optimization Goal               | String                |               |
+| Pacing Type                     | String                |               |
+| Placement V2                    | Struct                |               |
+| Read Deleted Entities           | Boolean               | EQUAL_TO      |
+| Skadnetwork Properties          | Struct                |               |
+| Start Time                      | DateTime              |               |
+| Status                          | String                |               |
+| Target Bid                      | Boolean               |               |
+| Targeting                       | Struct                |               |
+| Targeting Reach Status          | String                |               |
+| Type                            | String                |               |
+| Update At                       | DateTime              |               |
 | Ad Under Ad Account             | Ad Squad Id           | String        |                       |
-| Created At                      | DateTime              |               |                       | Creative Id                | String   |          |
-| Deleted                         | Boolean               |               |                       | Delivery Status            | List     |          |
-| Id                              | String                |               |                       | Name                       | String   |          |
-| Read Deleted Entities           | Boolean               | EQUAL_TO      |                       | Render Type                | String   |          |
-| Review Status                   | String                |               |                       | Review Status Reasons      | List     |          |
-| Status                          | String                |               |                       | Type                       | String   |          |
+| Created At                      | DateTime              |               |
+| Creative Id                     | String                |               |
+| Deleted                         | Boolean               |               |
+| Delivery Status                 | List                  |               |
+| Id                              | String                |               |
+| Name                            | String                |               |
+| Read Deleted Entities           | Boolean               | EQUAL_TO      |
+| Render Type                     | String                |               |
+| Review Status                   | String                |               |
+| Review Status Reasons           | List                  |               |
+| Status                          | String                |               |
+| Type                            | String                |               |
 | Update At                       | DateTime              |               |
 | Ad Under Campaign               | Ad Squad Id           | String        |                       |
-| Approval Type                   | String                |               |                       | Created At                 | DateTime |          |
-| Creative Id                     | String                |               |                       | Delivery Status            | List     |          |
-| Id                              | String                |               |                       | Name                       | String   |          |
-| Render Type                     | String                |               |                       | Review Status              | String   |          |
-| Review Status Reasons           | List                  |               |                       | Status                     | String   |          |
-| Type                            | String                |               |                       | Update At                  | DateTime |          |
+| Approval Type                   | String                |               |
+| Created At                      | DateTime              |               |
+| Creative Id                     | String                |               |
+| Delivery Status                 | List                  |               |
+| Id                              | String                |               |
+| Name                            | String                |               |
+| Render Type                     | String                |               |
+| Review Status                   | String                |               |
+| Review Status Reasons           | List                  |               |
+| Status                          | String                |               |
+| Type                            | String                |               |
+| Update At                       | DateTime              |               |
 | Campaign                        | Ad Account Id         | String        |                       |
-| Created At                      | DateTime              |               |                       | Daily Budget Micro         | Long     |          |
-| Deleted                         | Boolean               |               |                       | Delivery Status            | List     |          |
-| End Time                        | DateTime              |               |                       | Id                         | String   |          |
-| Name                            | String                |               |                       | Objective                  | String   |          |
-| Read Deleted Entities           | Boolean               | EQUAL_TO      |                       | Start Time                 | DateTime |          |
-| Status                          | String                |               |                       | Update At                  | DateTime |          |
+| Created At                      | DateTime              |               |
+| Daily Budget Micro              | Long                  |               |
+| Deleted                         | Boolean               |               |
+| Delivery Status                 | List                  |               |
+| End Time                        | DateTime              |               |
+| Id                              | String                |               |
+| Name                            | String                |               |
+| Objective                       | String                |               |
+| Read Deleted Entities           | Boolean               | EQUAL_TO      |
+| Start Time                      | DateTime              |               |
+| Status                          | String                |               |
+| Update At                       | DateTime              |               |
 | Creative                        | Ad Account Id         | String        |                       |
-| Ad Product                      | String                |               |                       | Brand Name                 | String   |          |
-| Call To Action                  | String                |               |                       | Created At                 | DateTime |          |
-| Headline                        | String                |               |                       | Id                         | String   |          |
-| Longform Video Properties       | Struct                |               |                       | Name                       | String   |          |
-| Packaging Status                | String                |               |                       | Render Type                | String   |          |
-| Review Status                   | String                |               |                       | Shareable                  | Boolean  |          |
-| Top Snap Crop Position          | String                |               |                       | Top Snap Media Id          | String   |          |
-| Type                            | String                |               |                       | Update At                  | DateTime |          |
+| Ad Product                      | String                |               |
+| Brand Name                      | String                |               |
+| Call To Action                  | String                |               |
+| Created At                      | DateTime              |               |
+| Headline                        | String                |               |
+| Id                              | String                |               |
+| Longform Video Properties       | Struct                |               |
+| Name                            | String                |               |
+| Packaging Status                | String                |               |
+| Render Type                     | String                |               |
+| Review Status                   | String                |               |
+| Shareable                       | Boolean               |               |
+| Top Snap Crop Position          | String                |               |
+| Top Snap Media Id               | String                |               |
+| Type                            | String                |               |
+| Update At                       | DateTime              |               |
 | Media                           | Ad Account Id         | String        |                       |
-| Created At                      | DateTime              |               |                       | File Name                  | String   |          |
-| Id                              | String                |               |                       | Is Demo Media              | Boolean  |          |
-| Media Status                    | String                |               |                       | Name                       | String   |          |
-| Type                            | String                |               |                       | Update At                  | DateTime |          |
+| Created At                      | DateTime              |               |
+| File Name                       | String                |               |
+| Id                              | String                |               |
+| Is Demo Media                   | Boolean               |               |
+| Media Status                    | String                |               |
+| Name                            | String                |               |
+| Type                            | String                |               |
+| Update At                       | DateTime              |               |
 | Visibility                      | String                |               |
 | Organization                    | Accepted Term Version | String        |                       |
-| Ad Accounts                     | List                  |               |                       | Address Line 1             | String   |          |
-| Administrative District Level 1 | String                |               |                       | Business Type              | String   |          |
-| Configuration Settings          | Struct                |               |                       | Contact Email              | String   |          |
-| Contact Name                    | String                |               |                       | Contact Phone              | String   |          |
-| Contact Phone Optin             | Boolean               |               |                       | Country                    | String   |          |
-| Created At                      | DateTime              |               |                       | Id                         | String   |          |
-| Is Agency                       | Boolean               |               |                       | Locality                   | String   |          |
-| Marketing Optin                 | Boolean               |               |                       | My Display Name            | String   |          |
-| My Invited Email                | String                |               |                       | My Member Id               | String   |          |
-| Name                            | String                |               |                       | Postal Code                | String   |          |
-| Roles                           | List                  |               |                       | State                      | String   |          |
-| Tax Type                        | String                |               |                       | Type                       | String   |          |
-| Update At                       | DateTime              |               |                       | created By Caller          | Boolean  |          |
+| Ad Accounts                     | List                  |               |
+| Address Line 1                  | String                |               |
+| Administrative District Level 1 | String                |               |
+| Business Type                   | String                |               |
+| Configuration Settings          | Struct                |               |
+| Contact Email                   | String                |               |
+| Contact Name                    | String                |               |
+| Contact Phone                   | String                |               |
+| Contact Phone Optin             | Boolean               |               |
+| Country                         | String                |               |
+| Created At                      | DateTime              |               |
+| Id                              | String                |               |
+| Is Agency                       | Boolean               |               |
+| Locality                        | String                |               |
+| Marketing Optin                 | Boolean               |               |
+| My Display Name                 | String                |               |
+| My Invited Email                | String                |               |
+| My Member Id                    | String                |               |
+| Name                            | String                |               |
+| Postal Code                     | String                |               |
+| Roles                           | List                  |               |
+| State                           | String                |               |
+| Tax Type                        | String                |               |
+| Type                            | String                |               |
+| Update At                       | DateTime              |               |
+| created By Caller               | Boolean               |               |
 | Segment                         | Ad Account Id         | String        |                       |
-| Approximate Number Users        | Integer               |               |                       | Created At                 | DateTime |          |
-| Description                     | String                |               |                       | Id                         | String   |          |
-| Name                            | String                |               |                       | Retention In Days          | Integer  |          |
-| Source Type                     | String                |               |                       | Status                     | String   |          |
-| Targetable Status               | String                |               |                       | Update At                  | DateTime |          |
-| Upload Status                   | String                |               |                       | Visible To                 | List     |          |
+| Approximate Number Users        | Integer               |               |
+| Created At                      | DateTime              |               |
+| Description                     | String                |               |
+| Id                              | String                |               |
+| Name                            | String                |               |
+| Retention In Days               | Integer               |               |
+| Source Type                     | String                |               |
+| Status                          | String                |               |
+| Targetable Status               | String                |               |
+| Update At                       | DateTime              |               |
+| Upload Status                   | String                |               |
+| Visible To                      | List                  |               |
 | organization Id                 | String                |               |

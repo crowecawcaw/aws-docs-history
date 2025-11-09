@@ -148,61 +148,111 @@ When you create a flow that uses Instagram ads as the data source, you can trans
 following data objects to supported destinations:
 
 | **Object**                              | **Field**        | **Data type** | **Supported filters** |
-| --------------------------------------- | ---------------- | ------------- | --------------------- | ----------------------------------- | -------- | --- |
+| --------------------------------------- | ---------------- | ------------- | --------------------- |
 | Ad                                      |                  |               |                       |
 | Ad Creative                             |                  |               |                       |
 | Ad Image                                | Account ID       | String        |                       |
-| Created Time                            | DateTime         |               |                       | Creative                            | List     |     |
-| Hash                                    | String           | EQUAL_TO      |                       | Height                              | Integer  |     |
-| ID                                      | String           |               |                       | Is Associated Creatives In Adgroup  | Boolean  |     |
-| Name                                    | String           |               |                       | Original Height                     | Integer  |     |
-| Original Width                          | Integer          |               |                       | Permalink URL                       | String   |     |
-| Status                                  | String           |               |                       | URL                                 | String   |     |
-| URL 128                                 | String           |               |                       | Updated Time                        | DateTime |     |
+| Created Time                            | DateTime         |               |
+| Creative                                | List             |               |
+| Hash                                    | String           | EQUAL_TO      |
+| Height                                  | Integer          |               |
+| ID                                      | String           |               |
+| Is Associated Creatives In Adgroup      | Boolean          |               |
+| Name                                    | String           |               |
+| Original Height                         | Integer          |               |
+| Original Width                          | Integer          |               |
+| Permalink URL                           | String           |               |
+| Status                                  | String           |               |
+| URL                                     | String           |               |
+| URL 128                                 | String           |               |
+| Updated Time                            | DateTime         |               |
 | Width                                   | Integer          |               |
 | Ad Insight                              | Account Currency | String        |                       |
-| Account ID                              | String           |               |                       | Account Name                        | String   |     |
-| Action                                  | List             |               |                       | Action Value                        | List     |     |
-| Ad Click Action                         | List             |               |                       | Ad ID                               | String   |     |
-| Ad Impression Action                    | List             |               |                       | Ad Name                             | String   |     |
-| Adset ID                                | String           |               |                       | Adset Name                          | String   |     |
-| Age Targeting                           | String           |               |                       | Attribution Setting                 | String   |     |
-| Auction Bid                             | String           |               |                       | Auction Competitiveness             | String   |     |
-| Auction Max Competitor Bid              | String           |               |                       | Buying Type                         | String   |     |
-| CPC                                     | String           |               |                       | CPM                                 | String   |     |
-| CTR                                     | String           |               |                       | Campaign ID                         | String   |     |
-| Campaign Name                           | String           |               |                       | Canvas Avg View Percent             | String   |     |
-| Canvas Avg View Time                    | String           |               |                       | Catalog Segment Action              | List     |     |
-| Catalog Segment Value                   | List             |               |                       | Catalog Segment Value Mobile        | List     |     |
-| Catalog Segment Value Omni              | List             |               |                       | Catalog Segment Value Website       | List     |     |
-| Click                                   | String           |               |                       | Conversion                          | List     |     |
-| Conversion Rate Ranking                 | String           |               |                       | Conversion Value                    | List     |     |
-| Converted Product Quantity              | List             |               |                       | Converted Product Value             | List     |     |
-| Cost Per 15sec Video View               | List             |               |                       | Cost Per Action Type                | List     |     |
-| Cost Per Ad Click                       | List             |               |                       | Cost Per Conversion                 | List     |     |
-| Cost Per DDA Count                      | String           |               |                       | Cost Per Inline Link Click          | String   |     |
-| Cost Per Inline Post Engagement         | String           |               |                       | Cost Per One Thousand Ad Impression | List     |     |
-| Cost Per Outbound Click                 | List             |               |                       | Cost Per Thruplay                   | List     |     |
-| Cost Per Unique Action Type             | List             |               |                       | Cost Per Unique Click               | String   |     |
-| Cost Per Unique Inline Link Click       | String           |               |                       | Cost Per Unique Outbound Click      | List     |     |
-| Cost per 2sec Video View                | List             |               |                       | DDA Count                           | String   |     |
-| DDA Result                              | List             |               |                       | Engagement Rate Ranking             | String   |     |
-| Frequency                               | String           |               |                       | Full View Impression                | String   |     |
-| Full View Reach                         | String           |               |                       | Impression                          | String   |     |
-| Inline Link Click                       | String           |               |                       | Inline Link Click CTR               | String   |     |
-| Inline Post Engagement                  | String           |               |                       | Instant Experience Clicks To Open   | String   |     |
-| Instant Experience Clicks To Start      | String           |               |                       | Instant Experience Outbound Click   | List     |     |
-| Mobile App Purchase Roas                | List             |               |                       | Objective                           | String   |     |
-| Optimization Goal                       | String           |               |                       | Outbound Click                      | List     |     |
-| Outbound Clicks CTR                     | List             |               |                       | Purchase Roas                       | List     |     |
-| Qualifying Question Qualify Answer Rate | String           |               |                       | Quality Ranking                     | String   |     |
-| Reach                                   | String           |               |                       | Social Spend                        | String   |     |
-| Spend                                   | String           |               |                       | Start Date                          | String   |     |
-| Stop Date                               | String           |               |                       | Unique Click                        | String   |     |
-| Video 30sec Watched Action              | List             |               |                       | Video Avg Time Watched Action       | List     |     |
-| Video P100 Watched Action               | List             |               |                       | Video P25 Watched Action            | List     |     |
-| Video P50 Watched Action                | List             |               |                       | Video P95 Watched Action            | List     |     |
-| Video Play Action                       | List             |               |                       | Video Play Curve Action             | List     |     |
-| Website CTR                             | List             |               |                       | Website Purchase Roas               | List     |     |
+| Account ID                              | String           |               |
+| Account Name                            | String           |               |
+| Action                                  | List             |               |
+| Action Value                            | List             |               |
+| Ad Click Action                         | List             |               |
+| Ad ID                                   | String           |               |
+| Ad Impression Action                    | List             |               |
+| Ad Name                                 | String           |               |
+| Adset ID                                | String           |               |
+| Adset Name                              | String           |               |
+| Age Targeting                           | String           |               |
+| Attribution Setting                     | String           |               |
+| Auction Bid                             | String           |               |
+| Auction Competitiveness                 | String           |               |
+| Auction Max Competitor Bid              | String           |               |
+| Buying Type                             | String           |               |
+| CPC                                     | String           |               |
+| CPM                                     | String           |               |
+| CTR                                     | String           |               |
+| Campaign ID                             | String           |               |
+| Campaign Name                           | String           |               |
+| Canvas Avg View Percent                 | String           |               |
+| Canvas Avg View Time                    | String           |               |
+| Catalog Segment Action                  | List             |               |
+| Catalog Segment Value                   | List             |               |
+| Catalog Segment Value Mobile            | List             |               |
+| Catalog Segment Value Omni              | List             |               |
+| Catalog Segment Value Website           | List             |               |
+| Click                                   | String           |               |
+| Conversion                              | List             |               |
+| Conversion Rate Ranking                 | String           |               |
+| Conversion Value                        | List             |               |
+| Converted Product Quantity              | List             |               |
+| Converted Product Value                 | List             |               |
+| Cost Per 15sec Video View               | List             |               |
+| Cost Per Action Type                    | List             |               |
+| Cost Per Ad Click                       | List             |               |
+| Cost Per Conversion                     | List             |               |
+| Cost Per DDA Count                      | String           |               |
+| Cost Per Inline Link Click              | String           |               |
+| Cost Per Inline Post Engagement         | String           |               |
+| Cost Per One Thousand Ad Impression     | List             |               |
+| Cost Per Outbound Click                 | List             |               |
+| Cost Per Thruplay                       | List             |               |
+| Cost Per Unique Action Type             | List             |               |
+| Cost Per Unique Click                   | String           |               |
+| Cost Per Unique Inline Link Click       | String           |               |
+| Cost Per Unique Outbound Click          | List             |               |
+| Cost per 2sec Video View                | List             |               |
+| DDA Count                               | String           |               |
+| DDA Result                              | List             |               |
+| Engagement Rate Ranking                 | String           |               |
+| Frequency                               | String           |               |
+| Full View Impression                    | String           |               |
+| Full View Reach                         | String           |               |
+| Impression                              | String           |               |
+| Inline Link Click                       | String           |               |
+| Inline Link Click CTR                   | String           |               |
+| Inline Post Engagement                  | String           |               |
+| Instant Experience Clicks To Open       | String           |               |
+| Instant Experience Clicks To Start      | String           |               |
+| Instant Experience Outbound Click       | List             |               |
+| Mobile App Purchase Roas                | List             |               |
+| Objective                               | String           |               |
+| Optimization Goal                       | String           |               |
+| Outbound Click                          | List             |               |
+| Outbound Clicks CTR                     | List             |               |
+| Purchase Roas                           | List             |               |
+| Qualifying Question Qualify Answer Rate | String           |               |
+| Quality Ranking                         | String           |               |
+| Reach                                   | String           |               |
+| Social Spend                            | String           |               |
+| Spend                                   | String           |               |
+| Start Date                              | String           |               |
+| Stop Date                               | String           |               |
+| Unique Click                            | String           |               |
+| Video 30sec Watched Action              | List             |               |
+| Video Avg Time Watched Action           | List             |               |
+| Video P100 Watched Action               | List             |               |
+| Video P25 Watched Action                | List             |               |
+| Video P50 Watched Action                | List             |               |
+| Video P95 Watched Action                | List             |               |
+| Video Play Action                       | List             |               |
+| Video Play Curve Action                 | List             |               |
+| Website CTR                             | List             |               |
+| Website Purchase Roas                   | List             |               |
 | Ad Set                                  |                  |               |                       |
 | Campaign                                |                  |               |                       |

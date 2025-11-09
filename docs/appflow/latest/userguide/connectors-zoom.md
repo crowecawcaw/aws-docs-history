@@ -159,34 +159,52 @@ When you create a flow that uses Zoom as the data source, you can transfer any o
 following data objects to supported destinations:
 
 | **Object**          | **Field**       | **Data type** | **Supported filters** |
-| ------------------- | --------------- | ------------- | --------------------- | ------------------- | --------- | -------- |
+| ------------------- | --------------- | ------------- | --------------------- |
 | Daily Report        | Date            | String        |                       |
-| Meeting Minutes     | Integer         |               |                       | Meetings            | Integer   |          |
-| Month Year          | Date            | EQUAL_TO      |                       | New Users           | Integer   |          |
+| Meeting Minutes     | Integer         |               |
+| Meetings            | Integer         |               |
+| Month Year          | Date            | EQUAL_TO      |
+| New Users           | Integer         |               |
 | Participants        | Integer         |               |
 | Group               | Id              | String        |                       |
-| Name                | String          |               |                       | Total Members       | Integer   |          |
+| Name                | String          |               |
+| Total Members       | Integer         |               |
 | Group Admin         | Email           | String        |                       |
 | Name                | String          |               |
 | Group Member        | Email           | String        |                       |
-| First Name          | String          |               |                       | Id                  | String    |          |
-| Last Name           | String          |               |                       | Type                | Integer   |          |
+| First Name          | String          |               |
+| Id                  | String          |               |
+| Last Name           | String          |               |
+| Type                | Integer         |               |
 | Role                | Description     | String        |                       |
-| Id                  | String          |               |                       | Name                | String    |          |
+| Id                  | String          |               |
+| Name                | String          |               |
 | Total Members       | Integer         |               |
 | User                | Created At      | String        |                       |
-| Custom Attributes   | List            |               |                       | Department          | String    |          |
-| Email               | String          |               |                       | Employee Unique Id  | String    |          |
-| First Name          | String          |               |                       | Group Ids           | ByteArray |          |
-| Host Key            | String          |               |                       | IM Group Ids        | ByteArray |          |
-| Id                  | String          |               |                       | Last Client Version | String    |          |
-| Last Login Time     | String          |               |                       | Last Name           | String    |          |
-| Personal Meeting ID | Integer         |               |                       | Plan United Type    | String    |          |
-| Role Id             | String          | EQUAL_TO      |                       | Status              | String    | EQUAL_TO |
-| Timezone            | String          |               |                       | Type                | Integer   |          |
+| Custom Attributes   | List            |               |
+| Department          | String          |               |
+| Email               | String          |               |
+| Employee Unique Id  | String          |               |
+| First Name          | String          |               |
+| Group Ids           | ByteArray       |               |
+| Host Key            | String          |               |
+| IM Group Ids        | ByteArray       |               |
+| Id                  | String          |               |
+| Last Client Version | String          |               |
+| Last Login Time     | String          |               |
+| Last Name           | String          |               |
+| Personal Meeting ID | Integer         |               |
+| Plan United Type    | String          |               |
+| Role Id             | String          | EQUAL_TO      |
+| Status              | String          | EQUAL_TO      |
+| Timezone            | String          |               |
+| Type                | Integer         |               |
 | Verified            | Integer         |               |
 | Zoom Room           | Activation Code | String        |                       |
-| Id                  | String          |               |                       | Location Id         | String    | EQUAL_TO |
-| Name                | String          |               |                       | Room Id             | String    |          |
-| Status              | String          | EQUAL_TO      |                       | Type                | String    | EQUAL_TO |
+| Id                  | String          |               |
+| Location Id         | String          | EQUAL_TO      |
+| Name                | String          |               |
+| Room Id             | String          |               |
+| Status              | String          | EQUAL_TO      |
+| Type                | String          | EQUAL_TO      |
 | Unassigned Rooms    | Boolean         | EQUAL_TO      |

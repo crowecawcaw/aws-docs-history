@@ -153,66 +153,109 @@ When you create a flow that uses Facebook Page Insights as the data source, you 
 following data objects to supported destinations:
 
 | **Object**             | **Field**    | **Data type** | **Supported filters** |
-| ---------------------- | ------------ | ------------- | --------------------- | ------- | -------- | -------- |
+| ---------------------- | ------------ | ------------- | --------------------- |
 | Feed                   | Created Time | String        |                       |
-| ID                     | String       |               |                       | Message | String   |          |
-| Since                  | DateTime     | EQUAL_TO      |                       | Story   | String   |          |
+| ID                     | String       |               |
+| Message                | String       |               |
+| Since                  | DateTime     | EQUAL_TO      |
+| Story                  | String       |               |
 | Page                   | Category     | String        |                       |
-| Category List          | List         |               |                       | ID      | String   |          |
-| Name                   | String       |               |                       | Task    | List     |          |
+| Category List          | List         |               |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Task                   | List         |               |
 | Page CTA Click         | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page Content           | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page Engagement        | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page Impression        | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page Post              | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page Post Engagement   | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       |               |                       | Title   | String   |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       |               |
+| Title                  | String       |               |
 | Value                  | List         |               |
 | Page Post Impression   | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       |               |                       | Title   | String   |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       |               |
+| Title                  | String       |               |
 | Value                  | List         |               |
 | Page Post Reaction     | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       |               |                       | Title   | String   |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       |               |
+| Title                  | String       |               |
 | Value                  | List         |               |
 | Page Reaction          | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page User Demographics | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page Video Post        | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page Video View        | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Page View              | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |
 | Story                  | Description  | String        |                       |
-| ID                     | String       |               |                       | Name    | String   |          |
-| Period                 | String       | EQUAL_TO      |                       | Since   | DateTime | EQUAL_TO |
-| Title                  | String       |               |                       | Value   | List     |          |
+| ID                     | String       |               |
+| Name                   | String       |               |
+| Period                 | String       | EQUAL_TO      |
+| Since                  | DateTime     | EQUAL_TO      |
+| Title                  | String       |               |
+| Value                  | List         |               |

@@ -142,19 +142,30 @@ When you create a flow that uses Typeform as the data source, you can transfer a
 following data objects to supported destinations:
 
 | **Object**      | **Field** | **Data type**      | **Supported filters** |
-| --------------- | --------- | ------------------ | --------------------- | ------------ | -------- | ------------------ |
+| --------------- | --------- | ------------------ | --------------------- |
 | Form            | \_links   | Struct             |                       |
-| created_at      | String    |                    |                       | id           | String   |                    |
-| last_updated_at | String    |                    |                       | search       | String   | EQUAL_TO, CONTAINS |
-| self            | Struct    |                    |                       | settings     | Struct   |                    |
-| theme           | Struct    |                    |                       | title        | String   |                    |
-| type            | String    |                    |                       | workspace_id | String   | EQUAL_TO           |
+| created_at      | String    |                    |
+| id              | String    |                    |
+| last_updated_at | String    |                    |
+| search          | String    | EQUAL_TO, CONTAINS |
+| self            | Struct    |                    |
+| settings        | Struct    |                    |
+| theme           | Struct    |                    |
+| title           | String    |                    |
+| type            | String    |                    |
+| workspace_id    | String    | EQUAL_TO           |
 | Form Insight    | fields    | List               |                       |
 | form            | Struct    |                    |
 | Response        | answers   | List               |                       |
-| calculated      | Struct    |                    |                       | completed    | Boolean  | EQUAL_TO           |
-| hidden          | Struct    |                    |                       | landed_at    | String   |                    |
-| landing_id      | String    |                    |                       | metadata     | Struct   |                    |
-| query           | String    | EQUAL_TO, CONTAINS |                       | response_id  | String   |                    |
-| since           | DateTime  | EQUAL_TO           |                       | submitted_at | String   |                    |
-| token           | String    |                    |                       | until        | DateTime | EQUAL_TO           |
+| calculated      | Struct    |                    |
+| completed       | Boolean   | EQUAL_TO           |
+| hidden          | Struct    |                    |
+| landed_at       | String    |                    |
+| landing_id      | String    |                    |
+| metadata        | Struct    |                    |
+| query           | String    | EQUAL_TO, CONTAINS |
+| response_id     | String    |                    |
+| since           | DateTime  | EQUAL_TO           |
+| submitted_at    | String    |                    |
+| token           | String    |                    |
+| until           | DateTime  | EQUAL_TO           |

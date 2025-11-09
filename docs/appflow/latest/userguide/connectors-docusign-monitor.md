@@ -123,25 +123,44 @@ When you create a flow that uses Docusign Monitor as the data source, you can tr
 following data objects to supported destinations:
 
 | **Object**                     | **Field** | **Data type**                    | **Supported filters**            |
-| ------------------------------ | --------- | -------------------------------- | -------------------------------- | -------------------- | ------- | -------------------------------- |
+| ------------------------------ | --------- | -------------------------------- | -------------------------------- |
 | Monitoring Data                | accountId | String                           | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
-| action                         | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |                                  | affectedUserId       | String  | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
-| affectedUserIsMemberOfDomain   | Boolean   | EQUAL_TO, NOT_EQUAL_TO           |                                  | application          | String  |                                  |
-| begin_end_time                 | DateTime  | BETWEEN                          |                                  | browser              | String  | CONTAINS                         |
-| city                           | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |                                  | country              | String  | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
-| customerVisible                | String    |                                  |                                  | data                 | Struct  |                                  |
-| device                         | String    | CONTAINS                         |                                  | environment          | String  |                                  |
-| eventId                        | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |                                  | field                | String  | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
-| integratorKey                  | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |                                  | ipAddress            | String  | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
-| ipAddressLocation              | Struct    |                                  |                                  | isUserMemberOfDomain | Boolean | EQUAL_TO, NOT_EQUAL_TO           |
-| latitude                       | Double    | EQUAL_TO, NOT_EQUAL_TO           |                                  | longitude            | Double  | EQUAL_TO, NOT_EQUAL_TO           |
-| object                         | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |                                  | organizationId       | String  | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
-| os                             | String    | CONTAINS                         |                                  | property             | String  | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
-| proxyLevel                     | String    |                                  |                                  | proxyStatus          | String  |                                  |
-| proxyType                      | String    |                                  |                                  | referencedUserId     | String  |                                  |
-| referencedUserIsMemberOfDomain | Boolean   |                                  |                                  | result               | String  | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
-| site                           | String    |                                  |                                  | source               | String  |                                  |
-| state                          | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |                                  | timestamp            | String  |                                  |
-| traceToken                     | String    |                                  |                                  | userAgent            | String  | CONTAINS                         |
-| userAgentClientInfo            | Struct    |                                  |                                  | userId               | String  | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| action                         | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| affectedUserId                 | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| affectedUserIsMemberOfDomain   | Boolean   | EQUAL_TO, NOT_EQUAL_TO           |
+| application                    | String    |                                  |
+| begin_end_time                 | DateTime  | BETWEEN                          |
+| browser                        | String    | CONTAINS                         |
+| city                           | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| country                        | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| customerVisible                | String    |                                  |
+| data                           | Struct    |                                  |
+| device                         | String    | CONTAINS                         |
+| environment                    | String    |                                  |
+| eventId                        | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| field                          | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| integratorKey                  | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| ipAddress                      | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| ipAddressLocation              | Struct    |                                  |
+| isUserMemberOfDomain           | Boolean   | EQUAL_TO, NOT_EQUAL_TO           |
+| latitude                       | Double    | EQUAL_TO, NOT_EQUAL_TO           |
+| longitude                      | Double    | EQUAL_TO, NOT_EQUAL_TO           |
+| object                         | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| organizationId                 | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| os                             | String    | CONTAINS                         |
+| property                       | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| proxyLevel                     | String    |                                  |
+| proxyStatus                    | String    |                                  |
+| proxyType                      | String    |                                  |
+| referencedUserId               | String    |                                  |
+| referencedUserIsMemberOfDomain | Boolean   |                                  |
+| result                         | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| site                           | String    |                                  |
+| source                         | String    |                                  |
+| state                          | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
+| timestamp                      | String    |                                  |
+| traceToken                     | String    |                                  |
+| userAgent                      | String    | CONTAINS                         |
+| userAgentClientInfo            | Struct    |                                  |
+| userId                         | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO |
 | version                        | String    |                                  |

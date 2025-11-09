@@ -92,26 +92,40 @@ When you create a flow that uses Productboard as the data source, you can transf
 following data objects to supported destinations:
 
 | **Object**              | **Field** | **Data type** | **Supported filters** |
-| ----------------------- | --------- | ------------- | --------------------- | ----------- | ------ | -------- |
+| ----------------------- | --------- | ------------- | --------------------- |
 | Component               | CreatedAt | String        |                       |
-| Description             | String    |               |                       | Id          | String |          |
-| Links                   | Struct    |               |                       | Name        | String |          |
-| Owner                   | Struct    |               |                       | Parent      | Struct |          |
+| Description             | String    |               |
+| Id                      | String    |               |
+| Links                   | Struct    |               |
+| Name                    | String    |               |
+| Owner                   | Struct    |               |
+| Parent                  | Struct    |               |
 | UpdatedAt               | String    |               |
 | Custom Field Definition |           |               |                       |
 | Custom Field Value      |           |               |                       |
 | Feature                 | Archived  | Boolean       | EQUAL_TO              |
-| CreatedAt               | String    |               |                       | Description | String |          |
-| Id                      | String    |               |                       | Links       | Struct |          |
-| Name                    | String    |               |                       | Owner       | Struct |          |
-| Owner Email             | String    | EQUAL_TO      |                       | Parent      | Struct |          |
-| Parent Id               | String    | EQUAL_TO      |                       | Status      | Struct |          |
-| Status Id               | String    | EQUAL_TO      |                       | Status Name | String | EQUAL_TO |
-| Time Frame              | Struct    |               |                       | Type        | String |          |
+| CreatedAt               | String    |               |
+| Description             | String    |               |
+| Id                      | String    |               |
+| Links                   | Struct    |               |
+| Name                    | String    |               |
+| Owner                   | Struct    |               |
+| Owner Email             | String    | EQUAL_TO      |
+| Parent                  | Struct    |               |
+| Parent Id               | String    | EQUAL_TO      |
+| Status                  | Struct    |               |
+| Status Id               | String    | EQUAL_TO      |
+| Status Name             | String    | EQUAL_TO      |
+| Time Frame              | Struct    |               |
+| Type                    | String    |               |
 | UpdatedAt               | String    |               |
 | Feature status          | Completed | Boolean       |                       |
-| Id                      | String    |               |                       | Name        | String |          |
+| Id                      | String    |               |
+| Name                    | String    |               |
 | Product                 | CreatedAt | String        |                       |
-| Description             | String    |               |                       | Id          | String |          |
-| Links                   | Struct    |               |                       | Name        | String |          |
-| Owner                   | Struct    |               |                       | UpdatedAt   | String |          |
+| Description             | String    |               |
+| Id                      | String    |               |
+| Links                   | Struct    |               |
+| Name                    | String    |               |
+| Owner                   | Struct    |               |
+| UpdatedAt               | String    |               |

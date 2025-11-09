@@ -143,7 +143,7 @@ the following example. The dataset contains customer account records from a Sale
 Each record has fields called `Account Rating` and `Industry`.
 
 | `Account Name` | `Account Rating` | `Industry`       |
-| -------------- | ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ---------------- | ---------------- |
 | `Example1`     | `Hot`            | `Apparel`        |
 | `Example2`     | `Warm`           | `Biotechnology`  |
 | `Example3`     | `Cold`           | `Construction`   |
@@ -152,4 +152,41 @@ Each record has fields called `Account Rating` and `Industry`.
 | `Example6`     | `Warm`           | `Electronics`    |
 | `Example7`     | `Cold`           | `Energy`         |
 | `Example8`     |                  | `Hospitality`    |
-| `Example9`     | `Hot`            | `Transportation` | ###### Example flow configurations The example file paths include two folders for schema version. After the flow is initially defined and run, Amazon AppFlow creates the folder `schemaVersion_1/`. The initial flow configuration includes the following partition settings: <br>• The **Execution ID** partition key is turned on. <br>• The **Destination fields** partition key is turned on, and the field **Account Rating** is used as a key. ![Example configuration for the partition and aggregation settings. This configuration produces the example file paths under the schemaVersion_1/ folder.](images/flow-example-partition-settings-sv1.png) With this configuration, Amazon AppFlow organizes the output into datasets that contain records with matching field-value pairs for the `Account Rating` field. Amazon AppFlow stores each of these datasets in the corresponding folders, such as the folder `Account Rating=Warm/`. After the partition settings in the flow are edited and the flow is run again, Amazon AppFlow creates the folder `schemaVersion_2/`. That revision set the following partition settings: <br>• The **Date and time** partition key is turned on, and the granularity is set to **Daily**. <br>• The **Destination fields** partition key is turned on, and the field **Industry** is used as a key. ![Example configuration for the partition and aggregation settings. This configuration produces the example file paths under the schemaVersion_2 folder.](images/flow-example-partition-settings-sv2.png) With this configuration, Amazon AppFlow organizes the output into filepaths for the year, month, and day that the flow runs: `2022/11/10`. Within that path, Amazon AppFlow organizes the output into datasets that contain records with matching field-value pairs for the `Industry` field. Amazon AppFlow stores each of these datasets in the corresponding folders, such as the folder `Industry=Apparel/`. |
+| `Example9`     | `Hot`            | `Transportation` |
+
+###### Example flow configurations
+
+The example file paths include two folders for schema version.
+After
+the flow is initially defined and run, Amazon AppFlow
+creates
+the folder `schemaVersion_1/`. The initial flow configuration includes the
+following partition settings:
+
+- The **Execution ID** partition key is turned on.
+- The **Destination fields** partition key is turned on, and the field
+  **Account Rating** is used as a key.
+
+![Example configuration for the partition and aggregation settings. This configuration produces the example file paths under the schemaVersion_1/ folder.](images/flow-example-partition-settings-sv1.png)
+With this configuration, Amazon AppFlow organizes the output into datasets that contain records with
+matching field-value pairs for the `Account Rating` field. Amazon AppFlow stores each of these
+datasets in the corresponding folders, such as the folder `Account
+ Rating=Warm/`.
+
+After the partition settings in the flow
+are
+edited and the flow is run again, Amazon AppFlow creates the folder
+`schemaVersion_2/`. That revision set the following partition
+settings:
+
+- The **Date and time** partition key is turned on, and the granularity is
+  set to **Daily**.
+- The **Destination fields** partition key is turned on, and the field
+  **Industry** is used as a key.
+
+![Example configuration for the partition and aggregation settings. This configuration produces the example file paths under the schemaVersion_2 folder.](images/flow-example-partition-settings-sv2.png)
+With this configuration, Amazon AppFlow organizes the output into filepaths for the year, month, and
+day that the flow runs: `2022/11/10`. Within that path, Amazon AppFlow organizes the
+output into datasets that contain records with matching field-value pairs for the
+`Industry` field. Amazon AppFlow stores each of these datasets in the corresponding folders,
+such as the folder `Industry=Apparel/`.

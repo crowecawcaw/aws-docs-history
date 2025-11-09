@@ -139,48 +139,85 @@ When you create a flow that uses Smartsheet as the data source, you can set the 
 When you create a flow that uses SmartSheet as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**               | **Field**         | **Data type** | **Supported filters** |
-| ------------------------ | ----------------- | ------------- | --------------------- | --------------------------- | -------- | ------------------------ |
-| Event                    | Access Token Name | Integer       |                       |
-| Action                   | String            |               |                       | Additional Details          | Struct   |                          |
-| Event Id                 | String            |               |                       | Event Timestamp             | DateTime |                          |
-| Object Id                | String            |               |                       | Object Type                 | String   |                          |
-| Request User Id          | Integer           |               |                       | Since                       | DateTime | GREATER_THAN_OR_EQUAL_TO |
-| Source                   | String            |               |                       | User Id                     | Integer  |                          |
-| List Sheet               | Access Level      | String        |                       |
-| Created At               | DateTime          |               |                       | Id                          | Integer  |                          |
-| Modified At              | DateTime          |               |                       | Modified Since              | DateTime | GREATER_THAN_OR_EQUAL_TO |
-| Name                     | String            |               |                       | Permalink                   | String   |                          |
-| Source                   | Struct            |               |                       | Version                     | Integer  |                          |
-| Row Metadata             | Access Level      | String        |                       |
-| Attachment               | List              |               |                       | Column                      | List     |                          |
-| Conditional Format       | String            |               |                       | Created At                  | DateTime |                          |
-| Created By               | Struct            |               |                       | Discussion                  | List     |                          |
-| Expanded                 | Boolean           |               |                       | Filter Id                   | String   | EQUAL_TO                 |
-| Filtered Out             | Boolean           |               |                       | Format                      | String   |                          |
-| Id                       | Integer           |               |                       | In Critical Path            | Boolean  |                          |
-| Locked                   | Boolean           |               |                       | Locked For User             | Boolean  |                          |
-| Modified At              | DateTime          |               |                       | Modified By                 | Struct   |                          |
-| Permalink                | String            |               |                       | Proofs                      | Struct   |                          |
-| Row Number               | Integer           |               |                       | Rows Modified Since         | DateTime | GREATER_THAN             |
-| Sheet Id                 | Integer           |               |                       | Sibling Id                  | Integer  |                          |
-| Total Row Count          | Integer           |               |                       | Version                     | Integer  |                          |
-| Sheet Data               |                   |               |                       |
-| Sheet Metadata           | Access Level      | String        |                       |
-| Attachment               | List              |               |                       | Cell Image Upload Enabled   | Boolean  |                          |
-| Column                   | List              |               |                       | Created At                  | DateTime |                          |
-| Cross Sheet Reference    | List              |               |                       | Dependencies Enabled        | Boolean  |                          |
-| Discussion               | List              |               |                       | Effective Attachment Option | List     |                          |
-| Favorite                 | Boolean           |               |                       | Filter                      | List     |                          |
-| From Id                  | Integer           |               |                       | Gantt Config                | Struct   |                          |
-| Gantt Enabled            | Boolean           |               |                       | Has Summary Field           | Boolean  |                          |
-| Id                       | Integer           |               |                       | Is Multi Picklist Enabled   | Boolean  |                          |
-| Modified At              | DateTime          |               |                       | Name                        | String   |                          |
-| Owner                    | String            |               |                       | Owner Id                    | Integer  |                          |
-| Permalink                | String            |               |                       | Project Setting             | Struct   |                          |
-| Read Only                | Boolean           |               |                       | Resource Management Enabled | Boolean  |                          |
-| Resource Management Type | String            |               |                       | Show Parent Rows For Filter | Boolean  |                          |
-| Source                   | Struct            |               |                       | Summary                     | Struct   |                          |
-| Total Row Count          | Integer           |               |                       | User Permission             | Struct   |                          |
-| User Setting             | Struct            |               |                       | Version                     | Integer  |                          |
-| Workspace                | Struct            |               |
+| **Object**                  | **Field**         | **Data type**            | **Supported filters** |
+| --------------------------- | ----------------- | ------------------------ | --------------------- |
+| Event                       | Access Token Name | Integer                  |                       |
+| Action                      | String            |                          |
+| Additional Details          | Struct            |                          |
+| Event Id                    | String            |                          |
+| Event Timestamp             | DateTime          |                          |
+| Object Id                   | String            |                          |
+| Object Type                 | String            |                          |
+| Request User Id             | Integer           |                          |
+| Since                       | DateTime          | GREATER_THAN_OR_EQUAL_TO |
+| Source                      | String            |                          |
+| User Id                     | Integer           |                          |
+| List Sheet                  | Access Level      | String                   |                       |
+| Created At                  | DateTime          |                          |
+| Id                          | Integer           |                          |
+| Modified At                 | DateTime          |                          |
+| Modified Since              | DateTime          | GREATER_THAN_OR_EQUAL_TO |
+| Name                        | String            |                          |
+| Permalink                   | String            |                          |
+| Source                      | Struct            |                          |
+| Version                     | Integer           |                          |
+| Row Metadata                | Access Level      | String                   |                       |
+| Attachment                  | List              |                          |
+| Column                      | List              |                          |
+| Conditional Format          | String            |                          |
+| Created At                  | DateTime          |                          |
+| Created By                  | Struct            |                          |
+| Discussion                  | List              |                          |
+| Expanded                    | Boolean           |                          |
+| Filter Id                   | String            | EQUAL_TO                 |
+| Filtered Out                | Boolean           |                          |
+| Format                      | String            |                          |
+| Id                          | Integer           |                          |
+| In Critical Path            | Boolean           |                          |
+| Locked                      | Boolean           |                          |
+| Locked For User             | Boolean           |                          |
+| Modified At                 | DateTime          |                          |
+| Modified By                 | Struct            |                          |
+| Permalink                   | String            |                          |
+| Proofs                      | Struct            |                          |
+| Row Number                  | Integer           |                          |
+| Rows Modified Since         | DateTime          | GREATER_THAN             |
+| Sheet Id                    | Integer           |                          |
+| Sibling Id                  | Integer           |                          |
+| Total Row Count             | Integer           |                          |
+| Version                     | Integer           |                          |
+| Sheet Data                  |                   |                          |                       |
+| Sheet Metadata              | Access Level      | String                   |                       |
+| Attachment                  | List              |                          |
+| Cell Image Upload Enabled   | Boolean           |                          |
+| Column                      | List              |                          |
+| Created At                  | DateTime          |                          |
+| Cross Sheet Reference       | List              |                          |
+| Dependencies Enabled        | Boolean           |                          |
+| Discussion                  | List              |                          |
+| Effective Attachment Option | List              |                          |
+| Favorite                    | Boolean           |                          |
+| Filter                      | List              |                          |
+| From Id                     | Integer           |                          |
+| Gantt Config                | Struct            |                          |
+| Gantt Enabled               | Boolean           |                          |
+| Has Summary Field           | Boolean           |                          |
+| Id                          | Integer           |                          |
+| Is Multi Picklist Enabled   | Boolean           |                          |
+| Modified At                 | DateTime          |                          |
+| Name                        | String            |                          |
+| Owner                       | String            |                          |
+| Owner Id                    | Integer           |                          |
+| Permalink                   | String            |                          |
+| Project Setting             | Struct            |                          |
+| Read Only                   | Boolean           |                          |
+| Resource Management Enabled | Boolean           |                          |
+| Resource Management Type    | String            |                          |
+| Show Parent Rows For Filter | Boolean           |                          |
+| Source                      | Struct            |                          |
+| Summary                     | Struct            |                          |
+| Total Row Count             | Integer           |                          |
+| User Permission             | Struct            |                          |
+| User Setting                | Struct            |                          |
+| Version                     | Integer           |                          |
+| Workspace                   | Struct            |                          |

@@ -98,146 +98,273 @@ When you create a flow that uses Recharge as the data source, you can set the de
 When you create a flow that uses Recharge as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                     | **Field**         | **Data type** | **Supported filters** |
-| ------------------------------ | ----------------- | ------------- | --------------------- | --------------------------------------- | -------- | -------- |
-| Address                        | Address1          | String        |                       |
-| Address2                       | String            |               |                       | City                                    | String   |          |
-| Company                        | String            |               |                       | Country Code                            | String   |          |
-| Created At                     | DateTime          |               |                       | Created At Max                          | DateTime | EQUAL_TO |
-| Created At Min                 | DateTime          | EQUAL_TO      |                       | Customer ID                             | Integer  | EQUAL_TO |
-| Discount Code                  | String            | EQUAL_TO      |                       | Discount Id                             | String   | EQUAL_TO |
-| Discounts                      | List              |               |                       | First Name                              | String   |          |
-| Id                             | Integer           |               |                       | Is Active                               | Boolean  | EQUAL_TO |
-| Last Name                      | String            |               |                       | Order Note                              | String   |          |
-| Payment Method ID              | Integer           |               |                       | Phone                                   | String   |          |
-| Presentment Currency           | String            |               |                       | Province                                | String   |          |
-| Shipping Lines Conserved       | List              |               |                       | Shipping Lines Override                 | List     |          |
-| Updated At                     | DateTime          |               |                       | Updated At Max                          | DateTime | EQUAL_TO |
-| Updated At Min                 | DateTime          | EQUAL_TO      |                       | Zip                                     | String   |          |
-| Charge                         | Address ID        | Integer       | EQUAL_TO              |
-| Analytics Data                 | Struct            |               |                       | Billing Address                         | Struct   |          |
-| Charge Attempts                | Integer           |               |                       | Client Details                          | Struct   |          |
-| Created At                     | DateTime          |               |                       | Created At Max                          | DateTime | EQUAL_TO |
-| Created At Min                 | DateTime          | EQUAL_TO      |                       | Currency                                | String   |          |
-| Customer                       | Struct            |               |                       | Customer Id                             | String   | EQUAL_TO |
-| Discount Code                  | String            | EQUAL_TO      |                       | Discount Id                             | String   | EQUAL_TO |
-| Discounts                      | List              |               |                       | Error                                   | String   |          |
-| Error Type                     | String            |               |                       | External Order ID                       | Struct   |          |
-| External Order ID E-Commerce   | String            | EQUAL_TO      |                       | External Transaction ID                 | Struct   |          |
-| External Variant Id not found  | Boolean           |               |                       | Has Uncommitted Changes                 | Boolean  |          |
-| Id                             | Integer           |               |                       | Include                                 | Struct   |          |
-| Line Items                     | List              |               |                       | Note                                    | String   |          |
-| Order Attributes               | List              |               |                       | Orders Count                            | Integer  |          |
-| Payment Processor              | String            |               |                       | Processed At                            | DateTime |          |
-| Processed At Max               | DateTime          | EQUAL_TO      |                       | Processed At Min                        | DateTime | EQUAL_TO |
-| Purchase Item Id               | String            | EQUAL_TO      |                       | Retry Date                              | Date     |          |
-| Scheduled At                   | Date              | EQUAL_TO      |                       | Scheduled At Max                        | DateTime | EQUAL_TO |
-| Scheduled At Min               | DateTime          | EQUAL_TO      |                       | Shipping Address                        | Struct   |          |
-| Shipping Lines                 | List              |               |                       | Sort By                                 | String   | EQUAL_TO |
-| Status                         | String            | EQUAL_TO      |                       | Subtotal Price                          | String   |          |
-| Tags                           | String            |               |                       | Tax Lines                               | List     |          |
-| Taxable                        | Boolean           |               |                       | Total Discounts                         | String   |          |
-| Total Duties                   | String            |               |                       | Total Line Items Price                  | String   |          |
-| Total Price                    | String            |               |                       | Total Refunds                           | String   |          |
-| Total Tax                      | String            |               |                       | Total Weight Grams                      | Integer  |          |
-| Type                           | String            |               |                       | Updated At                              | DateTime |          |
-| Updated At Max                 | DateTime          | EQUAL_TO      |                       | Updated At Min                          | DateTime | EQUAL_TO |
-| Collection                     | Created At        | DateTime      |                       |
-| Description                    | String            |               |                       | Id                                      | Integer  |          |
-| Sort Order                     | String            |               |                       | Title                                   | String   | EQUAL_TO |
-| Type                           | String            | EQUAL_TO      |                       | Updated At                              | DateTime |          |
-| Customer                       | Analytics Data    | Struct        |                       |
-| Created At                     | DateTime          |               |                       | Created At Max                          | DateTime | EQUAL_TO |
-| Created At Min                 | DateTime          | EQUAL_TO      |                       | Email                                   | String   | EQUAL_TO |
-| External Customer Id           | Struct            |               |                       | External Customer Id E-Commerce         | String   | EQUAL_TO |
-| First Charge Processed At      | DateTime          |               |                       | First Name                              | String   |          |
-| Has Payment Method In Dunning  | Boolean           |               |                       | Has Valid Payment Method                | Boolean  |          |
-| Hash                           | String            | EQUAL_TO      |                       | Id                                      | Integer  |          |
-| Include                        | Struct            |               |                       | Last Name                               | String   |          |
-| Phone                          | String            |               |                       | Subscriptions Active Count              | Integer  |          |
-| Subscriptions Total Count      | Integer           |               |                       | Tax Exempt                              | Boolean  |          |
-| Updated At                     | DateTime          |               |                       | Updated At Max                          | DateTime | EQUAL_TO |
-| Updated At Min                 | DateTime          | EQUAL_TO      |
-| Discount                       | Applies To        | Struct        |                       |
-| Channel Settings               | Struct            |               |                       | Code                                    | String   |          |
-| Created At                     | DateTime          |               |                       | Created At Max                          | DateTime | EQUAL_TO |
-| Created At Min                 | DateTime          | EQUAL_TO      |                       | Discount Code                           | String   | EQUAL_TO |
-| Discount Type                  | String            | EQUAL_TO      |                       | Ends At                                 | DateTime |          |
-| External Discount Id           | Struct            |               |                       | External Discount Source                | String   |          |
-| Id                             | Integer           |               |                       | Prerequisite Subtotal Min               | Integer  |          |
-| Starts At                      | DateTime          |               |                       | Status                                  | String   | EQUAL_TO |
-| Updated At                     | DateTime          |               |                       | Updated At Max                          | DateTime | EQUAL_TO |
-| Updated At Min                 | DateTime          | EQUAL_TO      |                       | Usage Limits                            | Struct   |          |
-| Value                          | String            |               |                       | Value Type                              | String   |          |
-| Metafield                      | Created At        | DateTime      |                       |
-| Description                    | String            |               |                       | Id                                      | Integer  |          |
-| Key                            | String            |               |                       | Namespace                               | String   | EQUAL_TO |
-| Owner Id                       | Integer           | EQUAL_TO      |                       | Owner Resource                          | String   | EQUAL_TO |
-| Updated At                     | DateTime          |               |                       | Value                                   | String   |          |
-| Value Type                     | String            |               |
-| Onetime                        | Address Id        | Integer       | EQUAL_TO              |
-| Created At                     | DateTime          |               |                       | Created At Max                          | DateTime | EQUAL_TO |
-| Created At Min                 | DateTime          | EQUAL_TO      |                       | Customer Id                             | Integer  | EQUAL_TO |
-| External Product Id            | Struct            |               |                       | External Variant ID                     | Struct   |          |
-| External Variant ID E-Commerce | String            | EQUAL_TO      |                       | Id                                      | Integer  |          |
-| Include Cancelled              | Boolean           | EQUAL_TO      |                       | Is Cancelled                            | Boolean  |          |
-| Next Charge Scheduled At       | DateTime          |               |                       | Presentment Currency                    | String   |          |
-| Price                          | Integer           |               |                       | Product Title                           | String   |          |
-| Properties                     | List              |               |                       | Quantity                                | Integer  |          |
-| SKU                            | String            |               |                       | SKU Override                            | Boolean  |          |
-| Updated At                     | DateTime          |               |                       | Updated At Max                          | DateTime | EQUAL_TO |
-| Updated At Min                 | DateTime          | EQUAL_TO      |                       | Variant Title                           | String   |          |
-| Order                          | Address ID        | Integer       | EQUAL_TO              |
-| Billing Address                | Struct            |               |                       | Charge                                  | Struct   |          |
-| Charge Id                      | String            | EQUAL_TO      |                       | Client Details                          | Struct   |          |
-| Created At                     | DateTime          |               |                       | Created At Max                          | DateTime | EQUAL_TO |
-| Created At Min                 | DateTime          | EQUAL_TO      |                       | Currency                                | String   |          |
-| Customer                       | Struct            |               |                       | Customer Id                             | String   | EQUAL_TO |
-| Discounts                      | List              |               |                       | Error                                   | String   |          |
-| External Cart Token            | String            |               |                       | External Customer Id                    | String   | EQUAL_TO |
-| External Order ID              | Struct            |               |                       | External Order ID E-Commerce            | String   | EQUAL_TO |
-| External Order Name            | Struct            |               |                       | External Order Number                   | Struct   |          |
-| Has External Order             | Boolean           | EQUAL_TO      |                       | Id                                      | Integer  |          |
-| Include                        | Struct            |               |                       | Is Prepaid                              | Boolean  |          |
-| Line Items                     | List              |               |                       | Note                                    | String   |          |
-| Order Attributes               | List              |               |                       | Processed At                            | DateTime |          |
-| Purchase Item Id               | String            | EQUAL_TO      |                       | Scheduled At                            | DateTime |          |
-| Scheduled At Max               | DateTime          | EQUAL_TO      |                       | Scheduled At Min                        | DateTime | EQUAL_TO |
-| Shipping Address               | Struct            |               |                       | Shipping Lines                          | List     |          |
-| Status                         | String            | EQUAL_TO      |                       | Subtotal Price                          | String   |          |
-| Tags                           | String            |               |                       | Tax Lines                               | List     |          |
-| Taxable                        | Boolean           |               |                       | Total Discounts                         | String   |          |
-| Total Duties                   | String            |               |                       | Total Line Items Price                  | String   |          |
-| Total Price                    | String            |               |                       | Total Refunds                           | String   |          |
-| Total Tax                      | String            |               |                       | Total Weight Grams                      | Integer  |          |
-| Type                           | String            | EQUAL_TO      |                       | Updated At                              | DateTime |          |
-| Updated At Max                 | DateTime          | EQUAL_TO      |                       | Updated At Min                          | DateTime | EQUAL_TO |
-| Store                          | Checkout Logo Url | String        |                       |
-| Checkout Platform              | String            |               |                       | Created At                              | DateTime |          |
-| Currency                       | String            |               |                       | Customer Portal Base Url                | String   |          |
-| Default Api Version            | String            |               |                       | Email                                   | String   |          |
-| External Platform              | String            |               |                       | Id                                      | Integer  |          |
-| Identifier                     | String            |               |                       | Merchant Portal Base Url                | String   |          |
-| Name                           | String            |               |                       | Phone                                   | String   |          |
-| Timezone                       | Struct            |               |                       | Updated At                              | DateTime |          |
-| Weight Unit                    | String            |               |
-| Subscription                   | Address Id        | Integer       | EQUAL_TO              |
-| Analytics Data                 | Struct            |               |                       | Cancellation Reason                     | String   |          |
-| Cancellation Reason Comments   | String            |               |                       | Cancelled At                            | DateTime |          |
-| Charge Interval Frequency      | Integer           |               |                       | Created At                              | DateTime |          |
-| Created At Max                 | DateTime          | EQUAL_TO      |                       | Created At Min                          | DateTime | EQUAL_TO |
-| Customer Id                    | Integer           | EQUAL_TO      |                       | Expire After Specific Number Of Charges | Integer  |          |
-| External Product Id            | Struct            |               |                       | External Variant ID E-Commerce          | String   | EQUAL_TO |
-| External Variant Id            | Struct            |               |                       | Has Queued Charges                      | Boolean  |          |
-| Id                             | Integer           |               |                       | Include                                 | Struct   |          |
-| Is Prepaid                     | Boolean           |               |                       | Is Skippable                            | Boolean  |          |
-| Is Swappable                   | Boolean           |               |                       | Max Retries Reached                     | Boolean  |          |
-| Next Charge Scheduled At       | Date              |               |                       | Order Day Of Month                      | Integer  |          |
-| Order Day Of Week              | Integer           |               |                       | Order Interval Frequency                | Integer  |          |
-| Order Interval Unit            | String            |               |                       | Presentment Currency                    | String   |          |
-| Price                          | String            |               |                       | Product Title                           | String   |          |
-| Properties                     | List              |               |                       | Quantity                                | Integer  |          |
-| SKU                            | String            |               |                       | SKU Override                            | Boolean  |          |
-| Status                         | String            | EQUAL_TO      |                       | Updated At                              | DateTime |          |
-| Updated At Max                 | DateTime          | EQUAL_TO      |                       | Updated At Min                          | DateTime | EQUAL_TO |
-| Variant Title                  | String            |               |
+| **Object**                              | **Field**         | **Data type** | **Supported filters** |
+| --------------------------------------- | ----------------- | ------------- | --------------------- |
+| Address                                 | Address1          | String        |                       |
+| Address2                                | String            |               |
+| City                                    | String            |               |
+| Company                                 | String            |               |
+| Country Code                            | String            |               |
+| Created At                              | DateTime          |               |
+| Created At Max                          | DateTime          | EQUAL_TO      |
+| Created At Min                          | DateTime          | EQUAL_TO      |
+| Customer ID                             | Integer           | EQUAL_TO      |
+| Discount Code                           | String            | EQUAL_TO      |
+| Discount Id                             | String            | EQUAL_TO      |
+| Discounts                               | List              |               |
+| First Name                              | String            |               |
+| Id                                      | Integer           |               |
+| Is Active                               | Boolean           | EQUAL_TO      |
+| Last Name                               | String            |               |
+| Order Note                              | String            |               |
+| Payment Method ID                       | Integer           |               |
+| Phone                                   | String            |               |
+| Presentment Currency                    | String            |               |
+| Province                                | String            |               |
+| Shipping Lines Conserved                | List              |               |
+| Shipping Lines Override                 | List              |               |
+| Updated At                              | DateTime          |               |
+| Updated At Max                          | DateTime          | EQUAL_TO      |
+| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Zip                                     | String            |               |
+| Charge                                  | Address ID        | Integer       | EQUAL_TO              |
+| Analytics Data                          | Struct            |               |
+| Billing Address                         | Struct            |               |
+| Charge Attempts                         | Integer           |               |
+| Client Details                          | Struct            |               |
+| Created At                              | DateTime          |               |
+| Created At Max                          | DateTime          | EQUAL_TO      |
+| Created At Min                          | DateTime          | EQUAL_TO      |
+| Currency                                | String            |               |
+| Customer                                | Struct            |               |
+| Customer Id                             | String            | EQUAL_TO      |
+| Discount Code                           | String            | EQUAL_TO      |
+| Discount Id                             | String            | EQUAL_TO      |
+| Discounts                               | List              |               |
+| Error                                   | String            |               |
+| Error Type                              | String            |               |
+| External Order ID                       | Struct            |               |
+| External Order ID E-Commerce            | String            | EQUAL_TO      |
+| External Transaction ID                 | Struct            |               |
+| External Variant Id not found           | Boolean           |               |
+| Has Uncommitted Changes                 | Boolean           |               |
+| Id                                      | Integer           |               |
+| Include                                 | Struct            |               |
+| Line Items                              | List              |               |
+| Note                                    | String            |               |
+| Order Attributes                        | List              |               |
+| Orders Count                            | Integer           |               |
+| Payment Processor                       | String            |               |
+| Processed At                            | DateTime          |               |
+| Processed At Max                        | DateTime          | EQUAL_TO      |
+| Processed At Min                        | DateTime          | EQUAL_TO      |
+| Purchase Item Id                        | String            | EQUAL_TO      |
+| Retry Date                              | Date              |               |
+| Scheduled At                            | Date              | EQUAL_TO      |
+| Scheduled At Max                        | DateTime          | EQUAL_TO      |
+| Scheduled At Min                        | DateTime          | EQUAL_TO      |
+| Shipping Address                        | Struct            |               |
+| Shipping Lines                          | List              |               |
+| Sort By                                 | String            | EQUAL_TO      |
+| Status                                  | String            | EQUAL_TO      |
+| Subtotal Price                          | String            |               |
+| Tags                                    | String            |               |
+| Tax Lines                               | List              |               |
+| Taxable                                 | Boolean           |               |
+| Total Discounts                         | String            |               |
+| Total Duties                            | String            |               |
+| Total Line Items Price                  | String            |               |
+| Total Price                             | String            |               |
+| Total Refunds                           | String            |               |
+| Total Tax                               | String            |               |
+| Total Weight Grams                      | Integer           |               |
+| Type                                    | String            |               |
+| Updated At                              | DateTime          |               |
+| Updated At Max                          | DateTime          | EQUAL_TO      |
+| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Collection                              | Created At        | DateTime      |                       |
+| Description                             | String            |               |
+| Id                                      | Integer           |               |
+| Sort Order                              | String            |               |
+| Title                                   | String            | EQUAL_TO      |
+| Type                                    | String            | EQUAL_TO      |
+| Updated At                              | DateTime          |               |
+| Customer                                | Analytics Data    | Struct        |                       |
+| Created At                              | DateTime          |               |
+| Created At Max                          | DateTime          | EQUAL_TO      |
+| Created At Min                          | DateTime          | EQUAL_TO      |
+| Email                                   | String            | EQUAL_TO      |
+| External Customer Id                    | Struct            |               |
+| External Customer Id E-Commerce         | String            | EQUAL_TO      |
+| First Charge Processed At               | DateTime          |               |
+| First Name                              | String            |               |
+| Has Payment Method In Dunning           | Boolean           |               |
+| Has Valid Payment Method                | Boolean           |               |
+| Hash                                    | String            | EQUAL_TO      |
+| Id                                      | Integer           |               |
+| Include                                 | Struct            |               |
+| Last Name                               | String            |               |
+| Phone                                   | String            |               |
+| Subscriptions Active Count              | Integer           |               |
+| Subscriptions Total Count               | Integer           |               |
+| Tax Exempt                              | Boolean           |               |
+| Updated At                              | DateTime          |               |
+| Updated At Max                          | DateTime          | EQUAL_TO      |
+| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Discount                                | Applies To        | Struct        |                       |
+| Channel Settings                        | Struct            |               |
+| Code                                    | String            |               |
+| Created At                              | DateTime          |               |
+| Created At Max                          | DateTime          | EQUAL_TO      |
+| Created At Min                          | DateTime          | EQUAL_TO      |
+| Discount Code                           | String            | EQUAL_TO      |
+| Discount Type                           | String            | EQUAL_TO      |
+| Ends At                                 | DateTime          |               |
+| External Discount Id                    | Struct            |               |
+| External Discount Source                | String            |               |
+| Id                                      | Integer           |               |
+| Prerequisite Subtotal Min               | Integer           |               |
+| Starts At                               | DateTime          |               |
+| Status                                  | String            | EQUAL_TO      |
+| Updated At                              | DateTime          |               |
+| Updated At Max                          | DateTime          | EQUAL_TO      |
+| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Usage Limits                            | Struct            |               |
+| Value                                   | String            |               |
+| Value Type                              | String            |               |
+| Metafield                               | Created At        | DateTime      |                       |
+| Description                             | String            |               |
+| Id                                      | Integer           |               |
+| Key                                     | String            |               |
+| Namespace                               | String            | EQUAL_TO      |
+| Owner Id                                | Integer           | EQUAL_TO      |
+| Owner Resource                          | String            | EQUAL_TO      |
+| Updated At                              | DateTime          |               |
+| Value                                   | String            |               |
+| Value Type                              | String            |               |
+| Onetime                                 | Address Id        | Integer       | EQUAL_TO              |
+| Created At                              | DateTime          |               |
+| Created At Max                          | DateTime          | EQUAL_TO      |
+| Created At Min                          | DateTime          | EQUAL_TO      |
+| Customer Id                             | Integer           | EQUAL_TO      |
+| External Product Id                     | Struct            |               |
+| External Variant ID                     | Struct            |               |
+| External Variant ID E-Commerce          | String            | EQUAL_TO      |
+| Id                                      | Integer           |               |
+| Include Cancelled                       | Boolean           | EQUAL_TO      |
+| Is Cancelled                            | Boolean           |               |
+| Next Charge Scheduled At                | DateTime          |               |
+| Presentment Currency                    | String            |               |
+| Price                                   | Integer           |               |
+| Product Title                           | String            |               |
+| Properties                              | List              |               |
+| Quantity                                | Integer           |               |
+| SKU                                     | String            |               |
+| SKU Override                            | Boolean           |               |
+| Updated At                              | DateTime          |               |
+| Updated At Max                          | DateTime          | EQUAL_TO      |
+| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Variant Title                           | String            |               |
+| Order                                   | Address ID        | Integer       | EQUAL_TO              |
+| Billing Address                         | Struct            |               |
+| Charge                                  | Struct            |               |
+| Charge Id                               | String            | EQUAL_TO      |
+| Client Details                          | Struct            |               |
+| Created At                              | DateTime          |               |
+| Created At Max                          | DateTime          | EQUAL_TO      |
+| Created At Min                          | DateTime          | EQUAL_TO      |
+| Currency                                | String            |               |
+| Customer                                | Struct            |               |
+| Customer Id                             | String            | EQUAL_TO      |
+| Discounts                               | List              |               |
+| Error                                   | String            |               |
+| External Cart Token                     | String            |               |
+| External Customer Id                    | String            | EQUAL_TO      |
+| External Order ID                       | Struct            |               |
+| External Order ID E-Commerce            | String            | EQUAL_TO      |
+| External Order Name                     | Struct            |               |
+| External Order Number                   | Struct            |               |
+| Has External Order                      | Boolean           | EQUAL_TO      |
+| Id                                      | Integer           |               |
+| Include                                 | Struct            |               |
+| Is Prepaid                              | Boolean           |               |
+| Line Items                              | List              |               |
+| Note                                    | String            |               |
+| Order Attributes                        | List              |               |
+| Processed At                            | DateTime          |               |
+| Purchase Item Id                        | String            | EQUAL_TO      |
+| Scheduled At                            | DateTime          |               |
+| Scheduled At Max                        | DateTime          | EQUAL_TO      |
+| Scheduled At Min                        | DateTime          | EQUAL_TO      |
+| Shipping Address                        | Struct            |               |
+| Shipping Lines                          | List              |               |
+| Status                                  | String            | EQUAL_TO      |
+| Subtotal Price                          | String            |               |
+| Tags                                    | String            |               |
+| Tax Lines                               | List              |               |
+| Taxable                                 | Boolean           |               |
+| Total Discounts                         | String            |               |
+| Total Duties                            | String            |               |
+| Total Line Items Price                  | String            |               |
+| Total Price                             | String            |               |
+| Total Refunds                           | String            |               |
+| Total Tax                               | String            |               |
+| Total Weight Grams                      | Integer           |               |
+| Type                                    | String            | EQUAL_TO      |
+| Updated At                              | DateTime          |               |
+| Updated At Max                          | DateTime          | EQUAL_TO      |
+| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Store                                   | Checkout Logo Url | String        |                       |
+| Checkout Platform                       | String            |               |
+| Created At                              | DateTime          |               |
+| Currency                                | String            |               |
+| Customer Portal Base Url                | String            |               |
+| Default Api Version                     | String            |               |
+| Email                                   | String            |               |
+| External Platform                       | String            |               |
+| Id                                      | Integer           |               |
+| Identifier                              | String            |               |
+| Merchant Portal Base Url                | String            |               |
+| Name                                    | String            |               |
+| Phone                                   | String            |               |
+| Timezone                                | Struct            |               |
+| Updated At                              | DateTime          |               |
+| Weight Unit                             | String            |               |
+| Subscription                            | Address Id        | Integer       | EQUAL_TO              |
+| Analytics Data                          | Struct            |               |
+| Cancellation Reason                     | String            |               |
+| Cancellation Reason Comments            | String            |               |
+| Cancelled At                            | DateTime          |               |
+| Charge Interval Frequency               | Integer           |               |
+| Created At                              | DateTime          |               |
+| Created At Max                          | DateTime          | EQUAL_TO      |
+| Created At Min                          | DateTime          | EQUAL_TO      |
+| Customer Id                             | Integer           | EQUAL_TO      |
+| Expire After Specific Number Of Charges | Integer           |               |
+| External Product Id                     | Struct            |               |
+| External Variant ID E-Commerce          | String            | EQUAL_TO      |
+| External Variant Id                     | Struct            |               |
+| Has Queued Charges                      | Boolean           |               |
+| Id                                      | Integer           |               |
+| Include                                 | Struct            |               |
+| Is Prepaid                              | Boolean           |               |
+| Is Skippable                            | Boolean           |               |
+| Is Swappable                            | Boolean           |               |
+| Max Retries Reached                     | Boolean           |               |
+| Next Charge Scheduled At                | Date              |               |
+| Order Day Of Month                      | Integer           |               |
+| Order Day Of Week                       | Integer           |               |
+| Order Interval Frequency                | Integer           |               |
+| Order Interval Unit                     | String            |               |
+| Presentment Currency                    | String            |               |
+| Price                                   | String            |               |
+| Product Title                           | String            |               |
+| Properties                              | List              |               |
+| Quantity                                | Integer           |               |
+| SKU                                     | String            |               |
+| SKU Override                            | Boolean           |               |
+| Status                                  | String            | EQUAL_TO      |
+| Updated At                              | DateTime          |               |
+| Updated At Max                          | DateTime          | EQUAL_TO      |
+| Updated At Min                          | DateTime          | EQUAL_TO      |
+| Variant Title                           | String            |               |

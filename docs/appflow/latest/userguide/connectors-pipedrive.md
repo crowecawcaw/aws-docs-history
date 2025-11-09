@@ -138,74 +138,121 @@ When you create a flow that uses Pipedrive as the data source, you can set the d
 When you create a flow that uses Pipedrive as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**            | **Field**   | **Data type** | **Supported filters** |
-| --------------------- | ----------- | ------------- | --------------------- | ------------------------- | -------- | --- |
-| Activities            |             |               |                       |
-| Activity Types        | Active      | Boolean       |                       |
-| Add Time              | DateTime    |               |                       | Color                     | String   |     |
-| Custom Flag           | Boolean     |               |                       | ID                        | Long     |     |
-| Icon                  | String      |               |                       | Key                       | String   |     |
-| Name                  | String      |               |                       | Order Number              | Long     |     |
-| Update Time           | DateTime    |               |
-| CallLogs              | Activity Id | Long          |                       |
-| Company Id            | Long        |               |                       | Deal Id                   | Integer  |     |
-| Duration              | String      |               |                       | End Time                  | DateTime |     |
-| From Phone Number     | String      |               |                       | Has Recording             | Boolean  |     |
-| ID                    | String      |               |                       | Note                      | String   |     |
-| Organization Id       | Integer     |               |                       | Outcome                   | String   |     |
-| Person Id             | Integer     |               |                       | Start Time                | DateTime |     |
-| To Phone Number       | String      |               |                       | User Id                   | Long     |     |
-| Currencies            | Active Flag | Boolean       |                       |
-| Code                  | String      |               |                       | Decimal Points            | Integer  |     |
-| ID                    | Integer     |               |                       | Is Custom Flag            | Boolean  |     |
-| Name                  | String      |               |                       | Symbol                    | String   |     |
-| Deals                 |             |               |                       |
-| Lead Labels           | Add Time    | DateTime      |                       |
-| Color                 | String      |               |                       | ID                        | Integer  |     |
-| Name                  | String      |               |                       | Update Time               | DateTime |     |
-| Lead Sources          | Name        | String        |                       |
-| Leads                 | Add Time    | DateTime      |                       |
-| CC Email              | String      |               |                       | Creator Id                | Long     |     |
-| Expected Close Date   | String      |               |                       | ID                        | String   |     |
-| Is Archived           | Boolean     |               |                       | Label Ids                 | String   |     |
-| Next Activity Id      | Long        |               |                       | Organization Id           | Integer  |     |
-| Owner Id              | Long        |               |                       | Person Id                 | Long     |     |
-| Source Name           | String      |               |                       | Title                     | String   |     |
-| Update Time           | DateTime    |               |                       | Value                     | Struct   |     |
-| Visible To            | String      |               |                       | Was Seen                  | Boolean  |     |
-| Notes                 |             |               |                       |
-| Organization          |             |               |                       |
-| Permission Sets       | App         | String        |                       |
-| Assignment Count      | Integer     |               |                       | Description               | String   |     |
-| ID                    | Integer     |               |                       | Name                      | String   |     |
-| Type                  | String      |               |
-| Persons               |             |               |                       |
-| Pipelines             | Active      | Boolean       |                       |
-| Add Time              | DateTime    |               |                       | Deal Probability          | Boolean  |     |
-| ID                    | Integer     |               |                       | Name                      | String   |     |
-| Order Number          | Integer     |               |                       | Selected                  | Boolean  |     |
-| URL Title             | String      |               |                       | Update Time               | DateTime |     |
-| Products              |             |               |                       |
-| Roles                 | Active Flag | Boolean       |                       |
-| Assignment Count      | Integer     |               |                       | Description               | String   |     |
-| ID                    | Integer     |               |                       | Level                     | Integer  |     |
-| Name                  | String      |               |                       | Parent Role Id            | Integer  |     |
-| Sub Role Count        | Integer     |               |
-| Stages                | Active Flag | Boolean       |                       |
-| Add Time              | DateTime    |               |                       | Deal Probability          | Integer  |     |
-| ID                    | Integer     |               |                       | Name                      | String   |     |
-| Order Number          | Integer     |               |                       | Pipeline Deal Probability | Boolean  |     |
-| Pipeline Id           | Integer     |               |                       | Pipeline Name             | String   |     |
-| Rotten Days           | String      |               |                       | Rotten Flag               | Boolean  |     |
-| Update Time           | DateTime    |               |
-| Users                 | Access      | List          |                       |
-| Active Flag           | Boolean     |               |                       | Created                   | DateTime |     |
-| Default Currency      | String      |               |                       | Email                     | String   |     |
-| Has Created Company   | Boolean     |               |                       | ID                        | String   |     |
-| Icon URL              | String      |               |                       | Is Admin                  | Integer  |     |
-| Is You                | Boolean     |               |                       | Language                  | Integer  |     |
-| Last Login            | DateTime    |               |                       | Locate                    | String   |     |
-| Modified              | DateTime    |               |                       | Name                      | String   |     |
-| Phone                 | String      |               |                       | Role Id                   | Integer  |     |
-| Signup Flow Variation | String      |               |                       | Timezone                  | String   |     |
-| Timezone Offset       | String      |               |
+| **Object**                | **Field**   | **Data type** | **Supported filters** |
+| ------------------------- | ----------- | ------------- | --------------------- |
+| Activities                |             |               |                       |
+| Activity Types            | Active      | Boolean       |                       |
+| Add Time                  | DateTime    |               |
+| Color                     | String      |               |
+| Custom Flag               | Boolean     |               |
+| ID                        | Long        |               |
+| Icon                      | String      |               |
+| Key                       | String      |               |
+| Name                      | String      |               |
+| Order Number              | Long        |               |
+| Update Time               | DateTime    |               |
+| CallLogs                  | Activity Id | Long          |                       |
+| Company Id                | Long        |               |
+| Deal Id                   | Integer     |               |
+| Duration                  | String      |               |
+| End Time                  | DateTime    |               |
+| From Phone Number         | String      |               |
+| Has Recording             | Boolean     |               |
+| ID                        | String      |               |
+| Note                      | String      |               |
+| Organization Id           | Integer     |               |
+| Outcome                   | String      |               |
+| Person Id                 | Integer     |               |
+| Start Time                | DateTime    |               |
+| To Phone Number           | String      |               |
+| User Id                   | Long        |               |
+| Currencies                | Active Flag | Boolean       |                       |
+| Code                      | String      |               |
+| Decimal Points            | Integer     |               |
+| ID                        | Integer     |               |
+| Is Custom Flag            | Boolean     |               |
+| Name                      | String      |               |
+| Symbol                    | String      |               |
+| Deals                     |             |               |                       |
+| Lead Labels               | Add Time    | DateTime      |                       |
+| Color                     | String      |               |
+| ID                        | Integer     |               |
+| Name                      | String      |               |
+| Update Time               | DateTime    |               |
+| Lead Sources              | Name        | String        |                       |
+| Leads                     | Add Time    | DateTime      |                       |
+| CC Email                  | String      |               |
+| Creator Id                | Long        |               |
+| Expected Close Date       | String      |               |
+| ID                        | String      |               |
+| Is Archived               | Boolean     |               |
+| Label Ids                 | String      |               |
+| Next Activity Id          | Long        |               |
+| Organization Id           | Integer     |               |
+| Owner Id                  | Long        |               |
+| Person Id                 | Long        |               |
+| Source Name               | String      |               |
+| Title                     | String      |               |
+| Update Time               | DateTime    |               |
+| Value                     | Struct      |               |
+| Visible To                | String      |               |
+| Was Seen                  | Boolean     |               |
+| Notes                     |             |               |                       |
+| Organization              |             |               |                       |
+| Permission Sets           | App         | String        |                       |
+| Assignment Count          | Integer     |               |
+| Description               | String      |               |
+| ID                        | Integer     |               |
+| Name                      | String      |               |
+| Type                      | String      |               |
+| Persons                   |             |               |                       |
+| Pipelines                 | Active      | Boolean       |                       |
+| Add Time                  | DateTime    |               |
+| Deal Probability          | Boolean     |               |
+| ID                        | Integer     |               |
+| Name                      | String      |               |
+| Order Number              | Integer     |               |
+| Selected                  | Boolean     |               |
+| URL Title                 | String      |               |
+| Update Time               | DateTime    |               |
+| Products                  |             |               |                       |
+| Roles                     | Active Flag | Boolean       |                       |
+| Assignment Count          | Integer     |               |
+| Description               | String      |               |
+| ID                        | Integer     |               |
+| Level                     | Integer     |               |
+| Name                      | String      |               |
+| Parent Role Id            | Integer     |               |
+| Sub Role Count            | Integer     |               |
+| Stages                    | Active Flag | Boolean       |                       |
+| Add Time                  | DateTime    |               |
+| Deal Probability          | Integer     |               |
+| ID                        | Integer     |               |
+| Name                      | String      |               |
+| Order Number              | Integer     |               |
+| Pipeline Deal Probability | Boolean     |               |
+| Pipeline Id               | Integer     |               |
+| Pipeline Name             | String      |               |
+| Rotten Days               | String      |               |
+| Rotten Flag               | Boolean     |               |
+| Update Time               | DateTime    |               |
+| Users                     | Access      | List          |                       |
+| Active Flag               | Boolean     |               |
+| Created                   | DateTime    |               |
+| Default Currency          | String      |               |
+| Email                     | String      |               |
+| Has Created Company       | Boolean     |               |
+| ID                        | String      |               |
+| Icon URL                  | String      |               |
+| Is Admin                  | Integer     |               |
+| Is You                    | Boolean     |               |
+| Language                  | Integer     |               |
+| Last Login                | DateTime    |               |
+| Locate                    | String      |               |
+| Modified                  | DateTime    |               |
+| Name                      | String      |               |
+| Phone                     | String      |               |
+| Role Id                   | Integer     |               |
+| Signup Flow Variation     | String      |               |
+| Timezone                  | String      |               |
+| Timezone Offset           | String      |               |

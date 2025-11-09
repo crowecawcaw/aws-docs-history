@@ -100,47 +100,75 @@ When you create a flow that uses SendGrid as the data source, you can set the de
 When you create a flow that uses SendGrid as the data source, you can transfer any of the
 following data objects to supported destinations:
 
-| **Object**                           | **Field**      | **Data type** | **Supported filters** |
-| ------------------------------------ | -------------- | ------------- | --------------------- | ------------------ | -------- | ----------------- |
-| Category                             | Category       | String        |                       |
-| Contact                              | Address Line 1 | String        |                       |
-| Address Line 2                       | String         |               |                       | Alternate Email    | List     |                   |
-| City                                 | String         |               |                       | Country            | String   |                   |
-| Created At                           | String         |               |                       | Custom Field       | Struct   |                   |
-| Email                                | String         |               |                       | Event Timestamp    | DateTime | BETWEEN           |
-| Facebook                             | String         |               |                       | First Name         | String   |                   |
-| ID                                   | String         |               |                       | Last Name          | String   |                   |
-| Line                                 | String         |               |                       | List Id            | List     |                   |
-| Metadata                             | Struct         |               |                       | Phone Number       | String   |                   |
-| Postal Code                          | String         |               |                       | Segment Id         | List     |                   |
-| State Province Region                | String         |               |                       | Unique Name        | String   |                   |
-| Updated At                           | String         |               |                       | Whatsapp           | String   |                   |
-| List                                 | Contact Count  | Integer       |                       |
-| ID                                   | String         |               |                       | Metadata           | Struct   |                   |
-| Name                                 | String         |               |
-| Marketing Campaign Stats Automation  | Aggregation    | String        |                       |
-| Automation ID                        | List           | EQUAL_TO      |                       | ID                 | String   |                   |
-| Stats                                | Struct         |               |                       | Step ID            | String   |                   |
-| Marketing Campaign Stats Single Send | Ab Phase       | String        |                       |
-| Ab Variation                         | String         |               |                       | Aggregation        | String   |                   |
-| ID                                   | String         |               |                       | Single Send ID     | List     | EQUAL_TO          |
-| Stats                                | Struct         |               |
-| Segment                              | Contact Count  | Integer       |                       |
-| Created At                           | String         |               |                       | ID                 | String   |                   |
-| Name                                 | String         |               |                       | Next Sample Update | String   |                   |
-| No Parent List ID                    | Boolean        | EQUAL_TO      |                       | Parent List ID     | String   |                   |
-| Parent List ID                       | String         | EQUAL_TO      |                       | Query Version      | String   |                   |
-| Sample Updated At                    | String         |               |                       | Status             | Struct   |                   |
-| Updated At                           | String         |               |
-| Single Send                          | Abtest         | Struct        |                       |
-| Category                             | List           | EQUAL_TO      |                       | Created At         | String   |                   |
-| ID                                   | String         |               |                       | Is Abtest          | Boolean  |                   |
-| Name                                 | String         | EQUAL_TO      |                       | Send At            | String   |                   |
-| Status                               | String         | EQUAL_TO      |                       | Updated At         | String   |                   |
-| Stats                                | Aggregated By  | String        | EQUAL_TO              |
-| Date                                 | String         |               |                       | StartDate          | DateTime | BETWEEN, EQUAL_TO |
-| Stats                                | List           |               |
-| Unsubscribe Group                    | Description    | String        |                       |
-| ID                                   | Integer        | EQUAL_TO      |                       | Is Default         | Boolean  |                   |
-| Last Email Sent At                   | Integer        |               |                       | Name               | String   |                   |
-| Unsubscribe                          | Integer        |               |
+| **Object**                           | **Field**      | **Data type**     | **Supported filters** |
+| ------------------------------------ | -------------- | ----------------- | --------------------- |
+| Category                             | Category       | String            |                       |
+| Contact                              | Address Line 1 | String            |                       |
+| Address Line 2                       | String         |                   |
+| Alternate Email                      | List           |                   |
+| City                                 | String         |                   |
+| Country                              | String         |                   |
+| Created At                           | String         |                   |
+| Custom Field                         | Struct         |                   |
+| Email                                | String         |                   |
+| Event Timestamp                      | DateTime       | BETWEEN           |
+| Facebook                             | String         |                   |
+| First Name                           | String         |                   |
+| ID                                   | String         |                   |
+| Last Name                            | String         |                   |
+| Line                                 | String         |                   |
+| List Id                              | List           |                   |
+| Metadata                             | Struct         |                   |
+| Phone Number                         | String         |                   |
+| Postal Code                          | String         |                   |
+| Segment Id                           | List           |                   |
+| State Province Region                | String         |                   |
+| Unique Name                          | String         |                   |
+| Updated At                           | String         |                   |
+| Whatsapp                             | String         |                   |
+| List                                 | Contact Count  | Integer           |                       |
+| ID                                   | String         |                   |
+| Metadata                             | Struct         |                   |
+| Name                                 | String         |                   |
+| Marketing Campaign Stats Automation  | Aggregation    | String            |                       |
+| Automation ID                        | List           | EQUAL_TO          |
+| ID                                   | String         |                   |
+| Stats                                | Struct         |                   |
+| Step ID                              | String         |                   |
+| Marketing Campaign Stats Single Send | Ab Phase       | String            |                       |
+| Ab Variation                         | String         |                   |
+| Aggregation                          | String         |                   |
+| ID                                   | String         |                   |
+| Single Send ID                       | List           | EQUAL_TO          |
+| Stats                                | Struct         |                   |
+| Segment                              | Contact Count  | Integer           |                       |
+| Created At                           | String         |                   |
+| ID                                   | String         |                   |
+| Name                                 | String         |                   |
+| Next Sample Update                   | String         |                   |
+| No Parent List ID                    | Boolean        | EQUAL_TO          |
+| Parent List ID                       | String         |                   |
+| Parent List ID                       | String         | EQUAL_TO          |
+| Query Version                        | String         |                   |
+| Sample Updated At                    | String         |                   |
+| Status                               | Struct         |                   |
+| Updated At                           | String         |                   |
+| Single Send                          | Abtest         | Struct            |                       |
+| Category                             | List           | EQUAL_TO          |
+| Created At                           | String         |                   |
+| ID                                   | String         |                   |
+| Is Abtest                            | Boolean        |                   |
+| Name                                 | String         | EQUAL_TO          |
+| Send At                              | String         |                   |
+| Status                               | String         | EQUAL_TO          |
+| Updated At                           | String         |                   |
+| Stats                                | Aggregated By  | String            | EQUAL_TO              |
+| Date                                 | String         |                   |
+| StartDate                            | DateTime       | BETWEEN, EQUAL_TO |
+| Stats                                | List           |                   |
+| Unsubscribe Group                    | Description    | String            |                       |
+| ID                                   | Integer        | EQUAL_TO          |
+| Is Default                           | Boolean        |                   |
+| Last Email Sent At                   | Integer        |                   |
+| Name                                 | String         |                   |
+| Unsubscribe                          | Integer        |                   |

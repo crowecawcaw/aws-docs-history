@@ -134,87 +134,156 @@ When you create a flow that uses Asana as the data source, you can transfer any 
 following data objects to supported destinations:
 
 | **Object**               | **Field**             | **Data type**                                             | **Supported filters** |
-| ------------------------ | --------------------- | --------------------------------------------------------- | --------------------- | --------------------- | -------- | ----------------------------------------------- |
+| ------------------------ | --------------------- | --------------------------------------------------------- | --------------------- |
 | Audit Log Event          | actor                 | Struct                                                    |                       |
-| actor_type               | String                | EQUAL_TO                                                  |                       | context               | Struct   |                                                 |
-| created_at               | DateTime              |                                                           |                       | details               | Struct   |                                                 |
-| event_category           | String                |                                                           |                       | event_type            | String   | EQUAL_TO                                        |
-| gid                      | String                |                                                           |                       | resource              | Struct   |                                                 |
+| actor_type               | String                | EQUAL_TO                                                  |
+| context                  | Struct                |                                                           |
+| created_at               | DateTime              |                                                           |
+| details                  | Struct                |                                                           |
+| event_category           | String                |                                                           |
+| event_type               | String                | EQUAL_TO                                                  |
+| gid                      | String                |                                                           |
+| resource                 | Struct                |                                                           |
 | start_end_at             | DateTime              | GREATER_THAN_OR_EQUAL_TO, LESS_THAN_OR_EQUAL_TO           |
 | Goal                     | current_status_update | Struct                                                    |                       |
-| due_on                   | Date                  |                                                           |                       | followers             | List     |                                                 |
-| gid                      | String                |                                                           |                       | html_notes            | String   |                                                 |
-| is_workspace_level       | Boolean               | EQUAL_TO                                                  |                       | liked                 | Boolean  |                                                 |
-| likes                    | List                  |                                                           |                       | metric                | Struct   |                                                 |
-| name                     | String                |                                                           |                       | notes                 | String   |                                                 |
-| num_likes                | Integer               |                                                           |                       | owner                 | Struct   |                                                 |
-| resource_type            | String                |                                                           |                       | start_on              | Date     |                                                 |
-| status                   | String                |                                                           |                       | team                  | Struct   |                                                 |
-| time_period              | Struct                |                                                           |                       | workspace             | Struct   |                                                 |
+| due_on                   | Date                  |                                                           |
+| followers                | List                  |                                                           |
+| gid                      | String                |                                                           |
+| html_notes               | String                |                                                           |
+| is_workspace_level       | Boolean               | EQUAL_TO                                                  |
+| liked                    | Boolean               |                                                           |
+| likes                    | List                  |                                                           |
+| metric                   | Struct                |                                                           |
+| name                     | String                |                                                           |
+| notes                    | String                |                                                           |
+| num_likes                | Integer               |                                                           |
+| owner                    | Struct                |                                                           |
+| resource_type            | String                |                                                           |
+| start_on                 | Date                  |                                                           |
+| status                   | String                |                                                           |
+| team                     | Struct                |                                                           |
+| time_period              | Struct                |                                                           |
+| workspace                | Struct                |                                                           |
 | Portfolio                | color                 | String                                                    |                       |
-| created_at               | DateTime              |                                                           |                       | created_by            | Struct   |                                                 |
-| current_status_update    | Struct                |                                                           |                       | custom_field_settings | List     |                                                 |
-| due_on                   | Date                  |                                                           |                       | gid                   | String   |                                                 |
-| members                  | List                  |                                                           |                       | name                  | String   |                                                 |
-| owner                    | Struct                |                                                           |                       | permalink_url         | String   |                                                 |
-| public                   | Boolean               |                                                           |                       | resource_type         | String   |                                                 |
-| start_on                 | Date                  |                                                           |                       | workspace             | Struct   |                                                 |
+| created_at               | DateTime              |                                                           |
+| created_by               | Struct                |                                                           |
+| current_status_update    | Struct                |                                                           |
+| custom_field_settings    | List                  |                                                           |
+| due_on                   | Date                  |                                                           |
+| gid                      | String                |                                                           |
+| members                  | List                  |                                                           |
+| name                     | String                |                                                           |
+| owner                    | Struct                |                                                           |
+| permalink_url            | String                |                                                           |
+| public                   | Boolean               |                                                           |
+| resource_type            | String                |                                                           |
+| start_on                 | Date                  |                                                           |
+| workspace                | Struct                |                                                           |
 | Project                  | archived              | Boolean                                                   | EQUAL_TO              |
-| color                    | String                |                                                           |                       | completed             | Boolean  |                                                 |
-| completed_at             | DateTime              |                                                           |                       | completed_by          | Struct   |                                                 |
-| created_at               | DateTime              |                                                           |                       | created_from_template | Struct   |                                                 |
-| current_status           | Struct                |                                                           |                       | current_status_update | Struct   |                                                 |
-| custom_field_settings    | List                  |                                                           |                       | custom_fields         | List     |                                                 |
-| default_view             | String                |                                                           |                       | due_date              | Date     |                                                 |
-| due_on                   | Date                  |                                                           |                       | followers             | List     |                                                 |
-| gid                      | String                |                                                           |                       | html_notes            | String   |                                                 |
-| icon                     | String                |                                                           |                       | is_template           | Boolean  |                                                 |
-| members                  | List                  |                                                           |                       | modified_at           | DateTime |                                                 |
-| name                     | String                |                                                           |                       | notes                 | String   |                                                 |
-| owner                    | Struct                |                                                           |                       | permalink_url         | String   |                                                 |
-| public                   | Boolean               |                                                           |                       | resource_type         | String   |                                                 |
-| start_on                 | Date                  |                                                           |                       | team                  | Struct   |                                                 |
+| color                    | String                |                                                           |
+| completed                | Boolean               |                                                           |
+| completed_at             | DateTime              |                                                           |
+| completed_by             | Struct                |                                                           |
+| created_at               | DateTime              |                                                           |
+| created_from_template    | Struct                |                                                           |
+| current_status           | Struct                |                                                           |
+| current_status_update    | Struct                |                                                           |
+| custom_field_settings    | List                  |                                                           |
+| custom_fields            | List                  |                                                           |
+| default_view             | String                |                                                           |
+| due_date                 | Date                  |                                                           |
+| due_on                   | Date                  |                                                           |
+| followers                | List                  |                                                           |
+| gid                      | String                |                                                           |
+| html_notes               | String                |                                                           |
+| icon                     | String                |                                                           |
+| is_template              | Boolean               |                                                           |
+| members                  | List                  |                                                           |
+| modified_at              | DateTime              |                                                           |
+| name                     | String                |                                                           |
+| notes                    | String                |                                                           |
+| owner                    | Struct                |                                                           |
+| permalink_url            | String                |                                                           |
+| public                   | Boolean               |                                                           |
+| resource_type            | String                |                                                           |
+| start_on                 | Date                  |                                                           |
+| team                     | Struct                |                                                           |
 | workspace                | Struct                |                                                           |
 | Section                  | created_at            | DateTime                                                  |                       |
-| gid                      | String                |                                                           |                       | name                  | String   |                                                 |
-| project                  | Struct                |                                                           |                       | resource_type         | String   |                                                 |
+| gid                      | String                |                                                           |
+| name                     | String                |                                                           |
+| project                  | Struct                |                                                           |
+| resource_type            | String                |                                                           |
 | Tag                      | color                 | String                                                    |                       |
-| created_at               | DateTime              |                                                           |                       | followers             | List     |                                                 |
-| gid                      | String                |                                                           |                       | name                  | String   |                                                 |
-| notes                    | String                |                                                           |                       | permalink_url         | String   |                                                 |
-| resource_type            | String                |                                                           |                       | workspace             | Struct   |                                                 |
+| created_at               | DateTime              |                                                           |
+| followers                | List                  |                                                           |
+| gid                      | String                |                                                           |
+| name                     | String                |                                                           |
+| notes                    | String                |                                                           |
+| permalink_url            | String                |                                                           |
+| resource_type            | String                |                                                           |
+| workspace                | Struct                |                                                           |
 | Task                     | approval_status       | String                                                    |                       |
-| assignee                 | Struct                |                                                           |                       | assignee_section      | Struct   |                                                 |
-| assignee_status          | String                |                                                           |                       | completed             | Boolean  | EQUAL_TO                                        |
-| completed_at             | DateTime              | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO           |                       | completed_by          | Struct   |                                                 |
-| completed_on             | Date                  | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |                       | created_at            | DateTime | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
-| custom_fields            | List                  |                                                           |                       | dependencies          | List     |                                                 |
-| dependents               | List                  |                                                           |                       | due_at                | DateTime | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
-| due_on                   | Date                  | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |                       | external              | Struct   |                                                 |
-| followers                | List                  |                                                           |                       | gid                   | String   |                                                 |
-| has_attachment           | Boolean               | EQUAL_TO                                                  |                       | hearted               | Boolean  |                                                 |
-| hearts                   | List                  |                                                           |                       | html_notes            | String   |                                                 |
-| is_blocked               | Boolean               | EQUAL_TO                                                  |                       | is_blocking           | Boolean  | EQUAL_TO                                        |
-| is_rendered_as_separator | Boolean               |                                                           |                       | is_subtask            | Boolean  | EQUAL_TO                                        |
-| liked                    | Boolean               |                                                           |                       | likes                 | List     |                                                 |
-| memberships              | List                  |                                                           |                       | modified_at           | DateTime | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
-| modified_on              | Date                  | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |                       | name                  | String   |                                                 |
-| notes                    | String                |                                                           |                       | num_hearts            | Integer  |                                                 |
-| num_likes                | Integer               |                                                           |                       | num_subtasks          | Integer  |                                                 |
-| parent                   | Struct                |                                                           |                       | permalink_url         | String   |                                                 |
-| projects                 | List                  |                                                           |                       | resource_subtype      | String   | EQUAL_TO                                        |
-| resource_type            | String                |                                                           |                       | start_at              | DateTime |                                                 |
-| start_on                 | Date                  | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |                       | tags                  | List     |                                                 |
-| text                     | String                | EQUAL_TO                                                  |                       | workspace             | Struct   |                                                 |
+| assignee                 | Struct                |                                                           |
+| assignee_section         | Struct                |                                                           |
+| assignee_status          | String                |                                                           |
+| completed                | Boolean               | EQUAL_TO                                                  |
+| completed_at             | DateTime              | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO           |
+| completed_by             | Struct                |                                                           |
+| completed_on             | Date                  | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
+| created_at               | DateTime              | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO           |
+| custom_fields            | List                  |                                                           |
+| dependencies             | List                  |                                                           |
+| dependents               | List                  |                                                           |
+| due_at                   | DateTime              | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO           |
+| due_on                   | Date                  | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
+| external                 | Struct                |                                                           |
+| followers                | List                  |                                                           |
+| gid                      | String                |                                                           |
+| has_attachment           | Boolean               | EQUAL_TO                                                  |
+| hearted                  | Boolean               |                                                           |
+| hearts                   | List                  |                                                           |
+| html_notes               | String                |                                                           |
+| is_blocked               | Boolean               | EQUAL_TO                                                  |
+| is_blocking              | Boolean               | EQUAL_TO                                                  |
+| is_rendered_as_separator | Boolean               |                                                           |
+| is_subtask               | Boolean               | EQUAL_TO                                                  |
+| liked                    | Boolean               |                                                           |
+| likes                    | List                  |                                                           |
+| memberships              | List                  |                                                           |
+| modified_at              | DateTime              | LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO           |
+| modified_on              | Date                  | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
+| name                     | String                |                                                           |
+| notes                    | String                |                                                           |
+| num_hearts               | Integer               |                                                           |
+| num_likes                | Integer               |                                                           |
+| num_subtasks             | Integer               |                                                           |
+| parent                   | Struct                |                                                           |
+| permalink_url            | String                |                                                           |
+| projects                 | List                  |                                                           |
+| resource_subtype         | String                | EQUAL_TO                                                  |
+| resource_type            | String                |                                                           |
+| start_at                 | DateTime              |                                                           |
+| start_on                 | Date                  | EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO |
+| tags                     | List                  |                                                           |
+| text                     | String                | EQUAL_TO                                                  |
+| workspace                | Struct                |                                                           |
 | Team                     | description           | String                                                    |                       |
-| gid                      | String                |                                                           |                       | html_description      | String   |                                                 |
-| name                     | String                |                                                           |                       | organization          | Struct   |                                                 |
-| permalink_url            | String                |                                                           |                       | resource_type         | String   |                                                 |
+| gid                      | String                |                                                           |
+| html_description         | String                |                                                           |
+| name                     | String                |                                                           |
+| organization             | Struct                |                                                           |
+| permalink_url            | String                |                                                           |
+| resource_type            | String                |                                                           |
 | visibility               | String                |                                                           |
 | User                     | email                 | String                                                    |                       |
-| gid                      | String                |                                                           |                       | name                  | String   |                                                 |
-| photo                    | Struct                |                                                           |                       | resource_type         | String   |                                                 |
+| gid                      | String                |                                                           |
+| name                     | String                |                                                           |
+| photo                    | Struct                |                                                           |
+| resource_type            | String                |                                                           |
 | workspaces               | List                  |                                                           |
 | Workspace                | email_domains         | List                                                      |                       |
-| gid                      | String                |                                                           |                       | is_organization       | Boolean  |                                                 |
-| name                     | String                |                                                           |                       | resource_type         | String   |                                                 |
+| gid                      | String                |                                                           |
+| is_organization          | Boolean               |                                                           |
+| name                     | String                |                                                           |
+| resource_type            | String                |                                                           |
