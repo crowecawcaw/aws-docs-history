@@ -71,8 +71,8 @@ For detailed electrical characteristics of the signals, refer to the Wiring inst
 ![Pin diagram showing RS485 termination with GPO, GPI, LED, D1, D0, RTN, COM, NC, NO, A, and B connections.](images/PinLayout_03.png)
 
 | Pin | Connection | Description            | Use                                         |
-| --- | ---------- | ---------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | GPO        | General purpose output | Digital output signal - Optional            |
+| --- | ---------- | ---------------------- | ------------------------------------------- |
+| 1   | GPO        | General purpose output | Digital output signal<br>• Optional         |
 | 2   | GPI        | General purpose input  | Digital input signal – Optional             |
 | 3   | LED        | Wiegand LED            | Wiegand LED – Optional                      |
 | 4   | D1         | Wiegand D1             | Wiegand data 1 – White wire                 |
@@ -83,24 +83,84 @@ For detailed electrical characteristics of the signals, refer to the Wiring inst
 | 9   | NO         | Relay normally open    | Contact relay normally open – Yellow wire   |
 | 10  | RTN        | Signal return          | OSDP return – Black wire                    |
 | 11  | A          | RS485_A/D1/Clock       | OSDP D1 – White wire                        |
-| 12  | B          | RS485_B/D0/Data        | OSDP D0 – Green wire                        | 2. When installing a wire, strip 3mm-5mm off the end of the wire. 3. Insert the stripped end of the wire into the desired terminal position. 4. Using a flathead screwdriver, turn the terminal retention screw clockwise to clamp down on the wire until it is snug. Do not over tighten. 5. After fastening, gently tug on the wire to ensure that it is seated. 6. After you make the necessary connections, insert the plug into the corresponding receptacle of your Amazon One device terminal block. 7. Insert the Cat6 Ethernet cable to RJ45 jack. 8. Position Amazon One device so the hook on the wall plate slides into the opening on the rear of the device. 9. Ensure the cables are not caught between the device and the mounting plate, and let the device pivot and seat into position. 10. Secure your Amazon One device to the mounting plate with two Torx Security M4x10 flathead screws. 11. Hand tighten the screws. Don't over tighten. ###### To wire your wall-mountable Amazon One device Install only the required wires for your application. **Wiegand connections** <br>• Insert the blue wire in Pin 3 (LED). <br>• Insert the white wire in Pin 4 (D1). <br>• Insert the green wire in Pin 5 (D0). <br>• Insert the black wire in Pin 6 (RTN). ![Systems Manager Wiegand connections diagram](images/Left_Pins_3_4_5_6_002.png)**Wiegand output wiring** |
-| Pin | Connection | Description            | Use                                         |
-| --- | ---        | ---                    | ---                                         |
-| 3   | LED        | Wiegand LED            | Wiegand LED input – Optional (5V TTL)       |
-| 4   | D1         | Wiegand D1             | Wiegand D1 output (5V TTL)                  |
-| 5   | D0         | Wiegand D0             | Wiegand D0 output (5V TTL)                  |
-| 6   | RTN        | Signal return          | Wiegand GND reference                       | Turn RS485 termination switch “ON” if the device is the last unit on the line. This switch activates 120 Ohms resistor termination on the line. **RS485 connections** <br>• Insert the black wire in Pin 10 (RTN). <br>• Insert the white wire in Pin 11 (A). <br>• Insert the green wire in Pin 12 (B). ![Systems Manager RS485 connections diagram](images/RightPins_Pins_10_11_12_02.png)**RS485 wiring**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Pin | Connection | Description            | Use                                         |
-| --- | ---        | ---                    | ---                                         |
-| 10  | RTN        | Signal return          | Ground                                      |
-| 11  | A          | RS485_A/D1/Clock       | RS485 non-inverting signal                  |
-| 12  | B          | RS485_B/D0/Data        | RS485 inverting signal                      | **Relay connections** <br>• Insert the white wire in Pin 7 (COM). <br>• Insert the orange wire in Pin 8 (NC). <br>• Insert the yellow wire in Pin 9 (NO). ![Systems Manager Relay connections diagram](images/RightPins_Pins_7_8_9_04.png)**Relay wiring**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Pin | Connection | Description            | Use                                         |
-| --- | ---        | ---                    | ---                                         |
-| 7   | COM        | Relay common           | Contact relay Common – White wire           |
-| 8   | NC         | Relay normally closed  | Contact relay normally closed – Orange wire |
-| 9   | NO         | Relay normally open    | Contact relay normally open – Yellow wire   | ![Systems Manager Electrical diagram](images/ElectricalConnections_02.png)The relay should be operated in accordance to the specified safety ratings 30VAC/60VDC, 60W Max. **Digital input/output connections** <br>• Insert the blue wire in Pin 1 (GPO). <br>• Insert the blue wire in Pin 2 (GPI). ![Systems Manager Digital input and output connections](images/Left_Pins_1_2_006.png)**Digital input/output wiring**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Pin | Connection | Description            | Use                                         |
-| --- | ---        | ---                    | ---                                         |
-| 1   | GPO        | General purpose output | Digital output signal (5V)                  |
-| 2   | GPI        | General purpose input  | Digital input signal (3.6V – 5V)            | <br>• The digital input/output connections should be operated as listed. After installing your Amazon One device, you are ready to activate the device.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 12  | B          | RS485_B/D0/Data        | OSDP D0 – Green wire                        |
+
+2. When installing a wire, strip 3mm-5mm off the end of the wire.
+3. Insert the stripped end of the wire into the desired terminal position.
+4. Using a flathead screwdriver, turn the terminal retention screw clockwise to clamp down on the wire until it is snug.
+   Do not over tighten.
+5. After fastening, gently tug on the wire to ensure that it is seated.
+6. After you make the necessary connections, insert the plug into the corresponding receptacle of your Amazon One device terminal block.
+7. Insert the Cat6 Ethernet cable to RJ45 jack.
+8. Position Amazon One device so the hook on the wall plate slides into the opening on the rear of the device.
+9. Ensure the cables are not caught between the device and the mounting plate, and let the device pivot and seat into position.
+10. Secure your Amazon One device to the mounting plate with two Torx Security M4x10 flathead screws.
+11. Hand tighten the screws. Don't over tighten.
+
+###### To wire your wall-mountable Amazon One device
+
+Install only the required wires for your application.
+
+**Wiegand connections**
+
+- Insert the blue wire in Pin 3 (LED).
+- Insert the white wire in Pin 4 (D1).
+- Insert the green wire in Pin 5 (D0).
+- Insert the black wire in Pin 6 (RTN).
+
+![Systems Manager Wiegand connections diagram](images/Left_Pins_3_4_5_6_002.png)**Wiegand output wiring**
+
+| Pin | Connection | Description   | Use                                   |
+| --- | ---------- | ------------- | ------------------------------------- |
+| 3   | LED        | Wiegand LED   | Wiegand LED input – Optional (5V TTL) |
+| 4   | D1         | Wiegand D1    | Wiegand D1 output (5V TTL)            |
+| 5   | D0         | Wiegand D0    | Wiegand D0 output (5V TTL)            |
+| 6   | RTN        | Signal return | Wiegand GND reference                 |
+
+Turn RS485 termination switch “ON” if the device is the last unit on the line.
+This switch activates 120 Ohms resistor termination on the line.
+
+**RS485 connections**
+
+- Insert the black wire in Pin 10 (RTN).
+- Insert the white wire in Pin 11 (A).
+- Insert the green wire in Pin 12 (B).
+
+![Systems Manager RS485 connections diagram](images/RightPins_Pins_10_11_12_02.png)**RS485 wiring**
+
+| Pin | Connection | Description      | Use                        |
+| --- | ---------- | ---------------- | -------------------------- |
+| 10  | RTN        | Signal return    | Ground                     |
+| 11  | A          | RS485_A/D1/Clock | RS485 non-inverting signal |
+| 12  | B          | RS485_B/D0/Data  | RS485 inverting signal     |
+
+**Relay connections**
+
+- Insert the white wire in Pin 7 (COM).
+- Insert the orange wire in Pin 8 (NC).
+- Insert the yellow wire in Pin 9 (NO).
+
+![Systems Manager Relay connections diagram](images/RightPins_Pins_7_8_9_04.png)**Relay wiring**
+
+| Pin | Connection | Description           | Use                                         |
+| --- | ---------- | --------------------- | ------------------------------------------- |
+| 7   | COM        | Relay common          | Contact relay Common – White wire           |
+| 8   | NC         | Relay normally closed | Contact relay normally closed – Orange wire |
+| 9   | NO         | Relay normally open   | Contact relay normally open – Yellow wire   |
+
+![Systems Manager Electrical diagram](images/ElectricalConnections_02.png)The relay should be operated in accordance to the specified safety ratings 30VAC/60VDC, 60W Max.
+
+**Digital input/output connections**
+
+- Insert the blue wire in Pin 1 (GPO).
+- Insert the blue wire in Pin 2 (GPI).
+
+![Systems Manager Digital input and output connections](images/Left_Pins_1_2_006.png)**Digital input/output wiring**
+
+| Pin | Connection | Description            | Use                              |
+| --- | ---------- | ---------------------- | -------------------------------- |
+| 1   | GPO        | General purpose output | Digital output signal (5V)       |
+| 2   | GPI        | General purpose input  | Digital input signal (3.6V – 5V) |
+
+- The digital input/output connections should be operated as listed.
+  After installing your Amazon One device, you are ready to activate the device.

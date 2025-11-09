@@ -195,23 +195,41 @@ resource-level permissions. If an Amazon One Enterprise rule action does not sup
 permissions, you can grant users permissions to use the action, but you have to specify
 a \* for the resource element of your policy statement.
 
-| API Action                        | Resources                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CreateDeviceInstance              | Device Instance arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
-| GetDeviceInstance                 | Device Instance arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
-| UpdateDeviceInstance              | Device Instance arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
-| DeleteDeviceInstance              | Device Instance arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
-| CreateDeviceActivationQrCode      | Device Instance arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
-| DeleteAssociatedDevice            | Device Instance arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
-| RebootDevice                      | Device Instance arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
-| CreateDeviceInstanceConfiguration | Device Instance Configuration arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`/configuration/`version` |
-| GetDeviceInstanceConfiguration    | Device Instance Configuration arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`/configuration/`version` |
-| CreateSite                        | Site arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
-| DeleteSite                        | Site arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
-| GetSiteAddress                    | Site arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
-| UpdateSite                        | Site arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
-| UpdateSiteAddress                 | Site arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
-| CreateDeviceConfigurationTemplate | Device Configuration Template arn:aws:one:`region:accountID`:device-configuration-template/`templateId`                 |
-| DeleteDeviceConfigurationTemplate | Device Configuration Template arn:aws:one:`region:accountID`:device-configuration-template/`templateId`                 |
-| GetDeviceConfigurationTemplate    | Device Configuration Template arn:aws:one:`region:accountID`:device-configuration-template/`templateId`                 |
-| UpdateDeviceConfigurationTemplate | Device Configuration Template arn:aws:one:`region:accountID`:device-configuration-template/`templateId`                 | For example, you want to allow read access and deny write access to specific rules to specific users. In the first policy, you allow the AWS Config rule read actions such as `GetSite` on the specified rules. In the second policy, you deny the Amazon One Enterprise rule write actions on the specific rule. With resource-level permissions, you can allow read access and deny write access to perform specific actions on Amazon One Enterprise rule API actions. ## Additional Information To learn more about creating IAM users, groups, policies, and permissions, see [Creating Your First IAM User and Administrators Group](../../../IAM/latest/UserGuide/GSGHowToCreateAdminsGroup.md "../../../IAM/latest/UserGuide/GSGHowToCreateAdminsGroup.md") and [Access Management](../../../IAM/latest/UserGuide/PermissionsAndPolicies.md "../../../IAM/latest/UserGuide/PermissionsAndPolicies.md") in the _IAM User Guide_. |
+| API Action                        | Resources                                                                                                                  |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| CreateDeviceInstance              | Device Instance<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
+| GetDeviceInstance                 | Device Instance<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
+| UpdateDeviceInstance              | Device Instance<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
+| DeleteDeviceInstance              | Device Instance<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
+| CreateDeviceActivationQrCode      | Device Instance<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
+| DeleteAssociatedDevice            | Device Instance<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
+| RebootDevice                      | Device Instance<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`                                       |
+| CreateDeviceInstanceConfiguration | Device Instance Configuration<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`/configuration/`version` |
+| GetDeviceInstanceConfiguration    | Device Instance Configuration<br>arn:aws:one:`region:accountID`:device-instance/`deviceInstanceId`/configuration/`version` |
+| CreateSite                        | Site<br>arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
+| DeleteSite                        | Site<br>arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
+| GetSiteAddress                    | Site<br>arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
+| UpdateSite                        | Site<br>arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
+| UpdateSiteAddress                 | Site<br>arn:aws:one:`region:accountID`:site/`siteId`                                                                       |
+| CreateDeviceConfigurationTemplate | Device Configuration Template<br>arn:aws:one:`region:accountID`:device-configuration-template/`templateId`                 |
+| DeleteDeviceConfigurationTemplate | Device Configuration Template<br>arn:aws:one:`region:accountID`:device-configuration-template/`templateId`                 |
+| GetDeviceConfigurationTemplate    | Device Configuration Template<br>arn:aws:one:`region:accountID`:device-configuration-template/`templateId`                 |
+| UpdateDeviceConfigurationTemplate | Device Configuration Template<br>arn:aws:one:`region:accountID`:device-configuration-template/`templateId`                 |
+
+For example, you want to allow read access and deny write access to specific rules to
+specific users.
+
+In the first policy, you allow the AWS Config rule read actions such as `GetSite` on
+the specified rules.
+
+In the second policy, you deny the Amazon One Enterprise rule write actions on the specific rule.
+
+With resource-level permissions, you can allow read access and deny write access to
+perform specific actions on Amazon One Enterprise rule API actions.
+
+## Additional Information
+
+To learn more about creating IAM users, groups, policies, and permissions, see
+[Creating Your First IAM
+User and Administrators Group](../../../IAM/latest/UserGuide/GSGHowToCreateAdminsGroup.md "../../../IAM/latest/UserGuide/GSGHowToCreateAdminsGroup.md") and [Access Management](../../../IAM/latest/UserGuide/PermissionsAndPolicies.md "../../../IAM/latest/UserGuide/PermissionsAndPolicies.md") in the
+_IAM User Guide_.

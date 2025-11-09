@@ -54,16 +54,59 @@ Optional: For DC power, refer to the install DC wiring section below.
 ![Systems Manager IO Wiegand connections diagram](images/PinNumbers_04.png)
 
 | Pin | Connection | Description            | Use                                         |
-| --- | ---------- | ---------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --- | ---------- | ---------------------- | ------------------------------------------- |
 | 1   | RTN        | Signal return          | Wiegand ground – Black wire                 |
 | 2   | D1         | Wiegand D1             | Wiegand Data 1 – White wire                 |
 | 3   | D0         | Wiegand D0             | Wiegand data 0 – Green wire                 |
 | 4   | LED        | Wiegand LED            | Wiegand LED – Optional                      |
 | 5   | GPI        | General purpose input  | Digital input signal – Optional             |
-| 6   | GPO        | General purpose output | Digital output signal - Optional            |
+| 6   | GPO        | General purpose output | Digital output signal<br>• Optional         |
 | 7   | B          | RS485_B/D0/Data        | OSDP D0 – Green wire                        |
 | 8   | A          | RS485_A/D1/Clock       | OSDP D1 – White wire                        |
 | 9   | RTN        | Signal return          | OSDP return – Black wire                    |
 | 10  | COM        | Relay Common           | Contact relay common – White wire           |
 | 11  | NC         | Relay normally closed  | Contact relay normally closed – Orange wire |
-| 12  | NO         | Relay Normally Open    | Contact relay normally open – Yellow wire   | **Wiegand connections** <br>• Insert the black wire in Pin 1 (RTN). <br>• Insert the white wire in Pin 2 (D1). <br>• Insert the green wire in Pin 3 (D0). <br>• Optional: Insert the green wire in Pin 4 (LED). ![Systems Manager IO Wiegand wires](images/IO_Wiegand_output_wiring_05.png)**Relay connections** <br>• Insert the white wire in Pin 10 (COM). <br>• Insert the orange wire in Pin 11 (NC). <br>• Insert the yellow wire in Pin 12 (NO). ![Systems Manager Relay wires](images/IO_RelayConnections_03.png)**Relay diagram** ![Systems Manager Electrical diagram](images/ElectricalConnections_03.png)The relay should be operated in accordance to the specified safety ratings 30VAC/60VDC, 60W Max. **RS485 connections** <br>• Insert the green wire in Pin 7 (B). <br>• Insert the white wire in Pin 8 (A). <br>• Insert the black wire in Pin 9 (RTN). ![Systems Manager RS485 wires](images/IO_RS485_connections_03.png)Turn RS485 termination switch “ON” if the device is the last unit on the line. This switch activates 120 Ohms resistor termination on the line. Digital input/output connections <br>• Insert the black wire in Pin 5 (GPI). <br>• Insert the white wire in Pin 6 (GPO). ![Systems Manager Digital input output wiring](images/IO_Digital_input_output_connections_06.png)\* The digital input/output connections should be operated as listed. ###### Optional: To install DC wiring 1. Strip off 3mm-5mm from the end of a red wire for positive (+) and a black wire for negative (-). 2. Insert the stripped end of the DC wire into the DC plug. ![Systems Manager DC plug](images/DC_Plug_09.png) 3. Screw the wire into position. 4. Insert the wired DC plug into the DC Input port. ![Systems Manager Two DC Input plugs](images/InsertPlugs_02.png) After installing your Amazon One device, you are ready to activate the device. |
+| 12  | NO         | Relay Normally Open    | Contact relay normally open – Yellow wire   |
+
+**Wiegand connections**
+
+- Insert the black wire in Pin 1 (RTN).
+- Insert the white wire in Pin 2 (D1).
+- Insert the green wire in Pin 3 (D0).
+- Optional: Insert the green wire in Pin 4 (LED).
+
+![Systems Manager IO Wiegand wires](images/IO_Wiegand_output_wiring_05.png)**Relay connections**
+
+- Insert the white wire in Pin 10 (COM).
+- Insert the orange wire in Pin 11 (NC).
+- Insert the yellow wire in Pin 12 (NO).
+
+![Systems Manager Relay wires](images/IO_RelayConnections_03.png)**Relay diagram**
+
+![Systems Manager Electrical diagram](images/ElectricalConnections_03.png)The relay should be operated in accordance to the specified safety ratings 30VAC/60VDC, 60W Max.
+
+**RS485 connections**
+
+- Insert the green wire in Pin 7 (B).
+- Insert the white wire in Pin 8 (A).
+- Insert the black wire in Pin 9 (RTN).
+
+![Systems Manager RS485 wires](images/IO_RS485_connections_03.png)Turn RS485 termination switch “ON” if the device is the last unit on the line.
+This switch activates 120 Ohms resistor termination on the line.
+
+Digital input/output connections
+
+- Insert the black wire in Pin 5 (GPI).
+- Insert the white wire in Pin 6 (GPO).
+
+![Systems Manager Digital input output wiring](images/IO_Digital_input_output_connections_06.png)\* The digital input/output connections should be operated as listed.
+
+###### Optional: To install DC wiring
+
+1. Strip off 3mm-5mm from the end of a red wire for positive (+) and a black wire for negative (-).
+2. Insert the stripped end of the DC wire into the DC plug.
+
+![Systems Manager DC plug](images/DC_Plug_09.png) 3. Screw the wire into position. 4. Insert the wired DC plug into the DC Input port.
+
+![Systems Manager Two DC Input plugs](images/InsertPlugs_02.png)
+After installing your Amazon One device, you are ready to activate the device.
