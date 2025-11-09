@@ -41,7 +41,7 @@ If you are communicating with your own satellites, it's your responsibility to u
 satellite operations, and how this might impact communicating with AWS Ground Station. If you are
 performing a maneuver that will impact the satellite trajectory, this may include providing
 updated custom ephemeris data. For more information on providing custom ephemeris data, see
-[Provide custom ephemeris data](providing-custom-ephemeris-data.md "providing-custom-ephemeris-data.md").
+[Understand how AWS Ground Station uses ephemerides](ephemeris.md "ephemeris.md").
 
 ## AWS Ground Station outage
 

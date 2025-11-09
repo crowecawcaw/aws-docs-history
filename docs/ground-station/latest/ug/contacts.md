@@ -1,31 +1,43 @@
-# Work with contacts
+# Understand contact lifecycle
 
-You can enter satellite data, identify antenna locations, communicate, and schedule antenna
-time for selected satellites by using the AWS Ground Station console, AWS CLI, or the AWS SDK in the language
-of your choice. You can review, cancel, and reschedule contact reservations up to 15 minutes
-before contact start\*. In addition, you can view the details of
-your reserved minutes pricing plan if you are using the AWS Ground Station reserved minutes pricing model.
+Understanding the contact lifecycle can help to determine how to configure your automation and
+during troubleshooting efforts. The following diagram shows the AWS Ground Station contact lifecycle as
+well as Event Bridge Events emitted during the lifecycle. It is important to note that the
+COMPLETED, FAILED, FAILED_TO_SCHEDULE, CANCELLED, AWS_CANCELLED, and AWS_FAILED are terminal
+states. Contacts will not transition out of a terminal state. See the
+[AWS Ground Station contact statuses](#contact-statuses "#contact-statuses")
+for details on what each status indicates.
 
-AWS Ground Station supports cross-region data delivery. The dataflow endpoint configs that are part of
-the mission profile you select determine to which region(s) the data is delivered. For more
-information about using cross-region data delivery, see
-[Use cross-region data delivery](dataflows.md "dataflows.md").
+![State diagram showing AWS Ground Station contact event flow from scheduling to completion or failure.](images/contacts.state-machine.png)
 
-To schedule contacts, your resources must be configured. If you have not configured your
-resources,
-see [Get started](getting-started.md "getting-started.md").
-When [ReserveContact](../APIReference/API_ReserveContact.md "../APIReference/API_ReserveContact.md")
-is called, AWS Ground Station takes a snapshot of the mission profile and config resources
-for use during the contact pass. Changes to these resources using the
-[UpdateMissionProfile](../APIReference/API_UpdateMissionProfile.md "../APIReference/API_UpdateMissionProfile.md")
-and [UpdateConfig](../APIReference/API_UpdateConfig.md "../APIReference/API_UpdateConfig.md")
-APIs will not be reflected in contacts reserved prior to the updates. If you need the resource changes applied to an already
-scheduled contact, you must first cancel the contact using [CancelContact](../APIReference/API_CancelContact.md "../APIReference/API_CancelContact.md"),
-and then reschedule it using [ReserveContact](../APIReference/API_ReserveContact.md "../APIReference/API_ReserveContact.md").
+## AWS Ground Station contact statuses
 
-\* Cancelled contacts may incur costs when cancelled too close to the time
-of contact. For more information on cancelled contacts see: [Ground Station FAQs](https://aws.amazon.com/ground-station/faqs/ "https://aws.amazon.com/ground-station/faqs/").
+The status of an AWS Ground Station contact provides insight into what is happening to that contact
+at a given time.
 
-###### Topics
+### Contact statuses
 
-- [Understand contact lifecycle](contacts.md "contacts.md")
+The following is the list of statuses that a contact can have:
+
+- **AVAILABLE** - The contact is available to be reserved.
+- **SCHEDULING** - The contact is in the process of
+  scheduling.
+- **SCHEDULED** - The contact was successfully scheduled.
+- **FAILED_TO_SCHEDULE** - The contact failed to schedule.
+- **PREPASS** - The contact is starting soon and resources
+  are being prepared.
+- **PASS** - The contact is currently executing and the
+  satellite is being communicated with.
+- **POSTPASS** - The communication has completed and
+  resources used are being cleaned up.
+- **COMPLETED** - The contact completed without error.
+- **FAILED** - The contact failed because of an issue with
+  your resource configuration.
+- **AWS_FAILED** - The contact failed because of a problem
+  in the AWS Ground Station service.
+- **CANCELLING** - The contact is in the process of being
+  cancelled.
+- **AWS_CANCELLED** - The contact was cancelled by
+  the AWS Ground Station service. Antenna or site maintenance, and ephemeris drift are examples of
+  when this could happen.
+- **CANCELLED** - The contact was cancelled by you.

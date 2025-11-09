@@ -15,7 +15,7 @@ The full list of ground station locations is presented below, with more coming s
 refer to the onboarding guide to add or modify site approvals for your satellites.
 
 | Ground Station Name | Ground Station Location | AWS Region Name           | AWS Region Code | Notes                                   |
-| ------------------- | ----------------------- | ------------------------- | --------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ----------------------- | ------------------------- | --------------- | --------------------------------------- |
 | Alaska 1            | Alaska, USA             | US West (Oregon)          | us-west-2       | Not physically located in an AWS region |
 | Bahrain 1           | Bahrain                 | Middle East (Bahrain)     | me-south-1      |                                         |
 | Cape Town 1         | Cape Town, South Africa | Africa (Cape Town)        | af-south-1      |                                         |
@@ -27,4 +27,15 @@ refer to the onboarding guide to add or modify site approvals for your satellite
 | Punta Arenas 1      | Punta Arenas, Chile     | South America (São Paulo) | sa-east-1       | Not physically located in an AWS region |
 | Seoul 1             | Seoul, South Korea      | Asia Pacific (Seoul)      | ap-northeast-2  |                                         |
 | Singapore 1         | Singapore               | Asia Pacific (Singapore)  | ap-southeast-1  |                                         |
-| Stockholm 1         | Stockholm, Sweden       | Europe (Stockholm)        | eu-north-1      |                                         | ## AWS Ground Station supported AWS regions You can deliver data and configure your **Contacts** via the AWS SDK or the AWS Ground Station console from supported AWS Regions. You can view the supported regions and their associated endpoints at the [AWS Ground Station endpoints and quotas](../../../general/latest/gr/gs.md "../../../general/latest/gr/gs.md"). ## Digital twin availability [Use the AWS Ground Station digital twin feature](digital-twin.md "digital-twin.md") is available in all [AWS Regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") where AWS Ground Station is available. Digital twin ground stations are exact copies of production ground stations with a modifying prefix to Ground Station Name of “Digital Twin ”. For example, "Digital Twin Ohio 1" is a digital twin ground station that is an exact copy of the "Ohio 1" production ground station. |
+| Stockholm 1         | Stockholm, Sweden       | Europe (Stockholm)        | eu-north-1      |                                         |
+
+## AWS Ground Station supported AWS regions
+
+You can deliver data and configure your **Contacts** via
+the AWS SDK or the AWS Ground Station console from supported AWS Regions. You can view the supported
+regions and their associated endpoints at the [AWS Ground Station endpoints and quotas](../../../general/latest/gr/gs.md "../../../general/latest/gr/gs.md").
+
+## Digital twin availability
+
+[Use the AWS Ground Station digital twin feature](digital-twin.md "digital-twin.md") is available in all [AWS Regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") where AWS Ground Station is available. Digital twin ground stations are
+exact copies of production ground stations with a modifying prefix to Ground Station Name of “Digital Twin ”. For example, "Digital Twin Ohio 1" is a digital twin ground station that is an exact copy of the "Ohio 1" production ground station.
