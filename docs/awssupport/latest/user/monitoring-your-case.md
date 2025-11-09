@@ -48,7 +48,7 @@ For more information, see [Choosing an initial support case severity level](case
 ###### Tip
 
 In the AWS Management Console, you can also choose the question mark icon (
-![Question mark icon representing help or information.](/images/awssupport/latest/user/images/questionmark.png)
+![Question mark icon representing help or information.](images/questionmark.png)
 ) and then choose **Support Center**. 2. Under **Open support cases**, choose the
 **Subject** of the support case. 3. Choose **Reply**. In the **Correspondence**
 section, you can also make any of the following changes:
@@ -79,7 +79,7 @@ case in Support Center.
 ###### Tip
 
 In the AWS Management Console, you can also choose the question mark icon (
-![Question mark icon representing help or information.](/images/awssupport/latest/user/images/questionmark.png)
+![Question mark icon representing help or information.](images/questionmark.png)
 ) and then choose **Support Center**. 2. Under **Open support cases**, choose the
 **Subject** of the support case that you want to
 resolve. 3. (Optional) Choose **Reply** and in the

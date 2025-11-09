@@ -395,18 +395,39 @@ CloudWatch alarms and graphs.
 
 You can use the following metrics for Trusted Advisor checks.
 
-| Metric              | Description                                                                                                                                                                                                                                                                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `RedResources`      | The number of resources that are in a red state (action recommended).                                                                                                                                                                                                                                                                |
-| `YellowResources`   | The number of resources that are in a yellow state (investigation recommended).                                                                                                                                                                                                                                                      | ### Trusted Advisor service quota-level metrics You can use the following metrics for AWS service quotas.                |
-| Metric              | Description                                                                                                                                                                                                                                                                                                                          |
-| ---                 | ---                                                                                                                                                                                                                                                                                                                                  |
-| `ServiceLimitUsage` | The percentage of resource usage against a service quota (formerly referred to as limits).                                                                                                                                                                                                                                           | ### Dimensions for check-level metrics You can use the following dimension for Trusted Advisor checks.                   |
-| Dimension           | Description                                                                                                                                                                                                                                                                                                                          |
-| ---                 | ---                                                                                                                                                                                                                                                                                                                                  |
-| `CheckName`         | The name of the Trusted Advisor check. You can find all check names in the [Trusted Advisor console](https://console.aws.amazon.com/trustedadvisor/home "https://console.aws.amazon.com/trustedadvisor/home") or the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md"). | ### Dimensions for service quota metrics You can use the following dimensions for Trusted Advisor service quota metrics. |
-| Dimension           | Description                                                                                                                                                                                                                                                                                                                          |
-| ---                 | ---                                                                                                                                                                                                                                                                                                                                  |
-| `Region`            | The AWS Region for a service quota.                                                                                                                                                                                                                                                                                                  |
-| `ServiceName`       | The name of the AWS service.                                                                                                                                                                                                                                                                                                         |
-| `ServiceLimit`      | The name of the service quota. For more information about service quotas, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") in the _AWS General Reference_.                                                                                              |
+| Metric            | Description                                                                        |
+| ----------------- | ---------------------------------------------------------------------------------- |
+| `RedResources`    | The number of resources that are in a red state (action recommended).              |
+| `YellowResources` | The number of resources that are in a yellow state (investigation<br>recommended). |
+
+### Trusted Advisor service quota-level
+
+metrics
+
+You can use the following metrics for AWS service quotas.
+
+| Metric              | Description                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| `ServiceLimitUsage` | The percentage of resource usage against a service quota (formerly referred to<br>as limits). |
+
+### Dimensions for check-level
+
+metrics
+
+You can use the following dimension for Trusted Advisor checks.
+
+| Dimension   | Description                                                                                                                                                                                                                                                                                                                             |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CheckName` | The name of the Trusted Advisor check.<br>You can find all check names in the [Trusted Advisor console](https://console.aws.amazon.com/trustedadvisor/home "https://console.aws.amazon.com/trustedadvisor/home") or the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md"). |
+
+### Dimensions for service quota
+
+metrics
+
+You can use the following dimensions for Trusted Advisor service quota metrics.
+
+| Dimension      | Description                                                                                                                                                                                                                                   |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Region`       | The AWS Region for a service quota.                                                                                                                                                                                                           |
+| `ServiceName`  | The name of the AWS service.                                                                                                                                                                                                                  |
+| `ServiceLimit` | The name of the service quota.<br>For more information about service quotas, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") in<br>the _AWS General Reference_. |

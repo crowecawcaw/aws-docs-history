@@ -98,5 +98,9 @@ deleted through the IAM console, API, or AWS Command Line Interface (AWS CLI). T
 account, because you can't inadvertently remove necessary permissions for administering
 support services.
 
+Customers onboarded to AWS Organizations and who have an Enterprise Support plan can delete the `AWSServiceRoleForSupport`
+service-linked role. Deleting this role restricts access to your resources by AWS Support engineers, limiting their ability to perform actions on your behalf. For more information, or to request to delete the `AWSServiceRoleForSupport`
+service-linked role, contact your Technical Account Manager (TAM).
+
 For more information about the `AWSServiceRoleForSupport` role or its uses, contact
 [Support](http://aws.amazon.com/support "http://aws.amazon.com/support").
