@@ -1,6 +1,88 @@
 # Failure management
 
-| SM_REL3: How does your streaming infrastructure respond to or heal from failures in origination or delivery components?  |
-| ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SM_RBP6 – Design your streaming media workflow to automatically distribute traffic to redundant origins**              |
-| **SM_RBP7 – Monitor live streaming manifests for expected segment update patterns and to alert on staleness**            | The origin component exposes content endpoints and is at the heart of the streaming media workload. Managing failure must start with an evaluation of the failure scenarios that can be introduced at the origin component. An origin can fail to serve content due to issues with upstream dependencies or due to internal service failure cases. The most effective way of managing upstream failures is to introduce component-level redundancy so that upstream failures do not impact the health of the origin. Internal service failures should be managed by routing traffic to alternate origin resources through manifest re-writes, CDN origin traffic redirection, or client-side heuristics. When managing an origin failure event during a live stream, you either introduce a discontinuity in the stream or design for seamless failover. In either case, the goal is to continue playback with minimal impact to the viewer. To achieve seamless playback, redundant packagers (encoder or origin) must serve content that is segment aligned. This means that all streams must present content that is aligned across segment boundaries, sequencing, and media properties (PTS). This is possible when redundant packagers are time synchronized. If this is not supported by your packager or you are unable to synchronize the packagers, segments won’t contain the same content and the player might need to reset the decoder to continue playback during failover. Some players can handle this gracefully without input from the user, while others require a player reset in order to continue. Failure logic implemented in the player should always strive to continue playback in the event of a discontinuity without interaction from the user. There are many ways to implement failover depending on your architecture and business requirements. One common approach, often used for video-on-demand assets and other static assets, is to use origin failover logic provided by a CDN. Origin health check implementations are transparent to the client, easy to set up, and typically work by redirecting traffic to alternate origins when requests from primary origin respond with failure codes or take too long. CDN origin failover heuristics may not be sufficient for live streaming because frequent manifest updates are made as the stream progresses and we also need to monitor and trigger failovers based on the health of these updates.  If a live stream manifest returned back from the origin does not advance in the expected real-time cadence players will re-buffer or halt playback completely, compromising playback experience. In addition to 4xx, 5xx errors, and high response latencies, you should design origin monitoring to alert on stale live manifests. The heuristics used to detect manifest staleness will depend on the configuration of your stream segment size and the client playback buffer size. For example, you might consider rerouting requests to healthy origins if the manifest remains unchanged for 2x – 5x segment size (4 – 10 seconds for a 2-second segment). When using **AWS Elemental MediaStore** as your live streaming origin, you can configure a Transient Data Policy on your container via the Object Lifecycle Policy API. This feature will remove an HLS manifest from the origin if it has not been recently updated enabling players to automatically switch from a primary origin to a backup origin. When a stale manifest is detected, use client-side or edge logic to introduce origin failover. Many players allow for the configuration of alternate playback sources by explicitly providing multiple endpoints or by providing a manifest with alternate renditions. Always work closely with your player provider to determine the appropriate architecture for client-side failover implementation and incorporate test cases that simulate the common failure cases. If additional logic is required to route requests dynamically in response to failures, Lambda@Edge can be used to manipulate manifest responses to the player. When failover does occur, consider the implications of sticky or non-sticky playback session handling. With sticky failover clients are pinned to the new origin endpoint during failover and only switch again if there is an additional failure. With non-sticky failover clients access content from the primary origin anytime it becomes available. You should always use a sticky design when implementing a non-seamless failover design to prevent origin switches that could adversely impact clients. |
+| SM_REL3: How does your streaming infrastructure respond to or heal from<br>failures in origination or delivery components? |
+| -------------------------------------------------------------------------------------------------------------------------- |
+| **SM_RBP6 – Design your streaming media workflow to<br>automatically distribute traffic to redundant origins**             |
+| **SM_RBP7 – Monitor live streaming manifests for expected<br>segment update patterns and to alert on staleness**           |
+
+The origin component exposes content endpoints and is at the
+heart of the streaming media workload. Managing failure must
+start with an evaluation of the failure scenarios that can be
+introduced at the origin component. An origin can fail to serve
+content due to issues with upstream dependencies or due to
+internal service failure cases. The most effective way of
+managing upstream failures is to introduce component-level
+redundancy so that upstream failures do not impact the health of
+the origin. Internal service failures should be managed by
+routing traffic to alternate origin resources through manifest
+re-writes, CDN origin traffic redirection, or client-side
+heuristics.
+
+When managing an origin failure event during a live stream, you
+either introduce a discontinuity in the stream or design for
+seamless failover. In either case, the goal is to continue
+playback with minimal impact to the viewer. To achieve seamless
+playback, redundant packagers (encoder or origin) must serve
+content that is segment aligned. This means that all streams
+must present content that is aligned across segment boundaries,
+sequencing, and media properties (PTS). This is possible when
+redundant packagers are time synchronized. If this is not
+supported by your packager or you are unable to synchronize the
+packagers, segments won’t contain the same content and the
+player might need to reset the decoder to continue playback
+during failover. Some players can handle this gracefully without
+input from the user, while others require a player reset in
+order to continue. Failure logic implemented in the player
+should always strive to continue playback in the event of a
+discontinuity without interaction from the user.
+
+There are many ways to implement failover depending on your
+architecture and business requirements. One common approach,
+often used for video-on-demand assets and other static assets,
+is to use origin failover logic provided by a CDN. Origin health
+check implementations are transparent to the client, easy to set
+up, and typically work by redirecting traffic to alternate
+origins when requests from primary origin respond with failure
+codes or take too long. 
+
+CDN origin failover heuristics may not be sufficient for live
+streaming because frequent manifest updates are made as the
+stream progresses and we also need to monitor and trigger
+failovers based on the health of these updates.  If a live
+stream manifest returned back from the origin does not advance
+in the expected real-time cadence players will re-buffer or halt
+playback completely, compromising playback experience. In
+addition to 4xx, 5xx errors, and high response latencies, you
+should design origin monitoring to alert on stale live
+manifests. The heuristics used to detect manifest staleness will
+depend on the configuration of your stream segment size and the
+client playback buffer size. For example, you might consider
+rerouting requests to healthy origins if the manifest remains
+unchanged for 2x – 5x segment size (4 – 10 seconds for a
+2-second segment). When using **AWS Elemental MediaStore** as your live streaming origin,
+you can configure a Transient Data Policy on your container via
+the Object Lifecycle Policy API. This feature will remove an HLS
+manifest from the origin if it has not been recently updated
+enabling players to automatically switch from a primary origin
+to a backup origin.
+
+When a stale manifest is detected, use client-side or edge logic
+to introduce origin failover. Many players allow for the
+configuration of alternate playback sources by explicitly
+providing multiple endpoints or by providing a manifest with
+alternate renditions. Always work closely with your player
+provider to determine the appropriate architecture for
+client-side failover implementation and incorporate test cases
+that simulate the common failure cases. If additional logic is
+required to route requests dynamically in response to failures,
+Lambda@Edge can be used to manipulate manifest responses to the
+player.
+
+When failover does occur, consider the implications of sticky or
+non-sticky playback session handling. With sticky failover
+clients are pinned to the new origin endpoint during failover
+and only switch again if there is an additional failure. With
+non-sticky failover clients access content from the primary
+origin anytime it becomes available. You should always use a
+sticky design when implementing a non-seamless failover design
+to prevent origin switches that could adversely impact clients.

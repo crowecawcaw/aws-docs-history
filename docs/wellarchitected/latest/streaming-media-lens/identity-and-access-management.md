@@ -8,7 +8,103 @@ connect with employees, streams can carry commercially sensitive
 material. A strong identity foundation protects your content,
 viewers, and confidential business information. 
 
-| SM_SEC1: How do you authorize access to content and content ingest?                                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **SM\_ SBP1 – Use an identity provider to authenticate viewers and access policies to implement least privilege access to protected content** |
-| **SM_SBP2 – Restrict content origin access to allow only authorized content distribution networks**                                           | Whether on mobile, desktop, or SmartTV, web applications serve as the box office for audiences interested in your content. Authentication and authorization systems help ensure that only authorized users can access content in the way you intend. For example, a user authenticates through sign-up/sign-in and is authorized to access only _free_ or _ad supported_ content tiers based on their current subscription plan. Identity is essential for a centralized strategy on authorizing access to resources. Access to private content should be granted only to authenticated and authorized viewers using an identity provider (IdP). On AWS, Amazon Cognito can be used as an IdP to authenticate users and authorize access to content hosted on Amazon S3, AWS Elemental MediaPackage, AWS Elemental MediaStore, or on a custom origin service built on Amazon EC2. You can also establish trust between identity providers to avoid sharing credentials and simplify the authentication flow for your media player. Amazon Cognito provides both temporary AWS credentials as AWS STS (Security Token Service) tokens, as well as JWTs (JSON Web Tokens), to access protected resources. Amazon Cognito also allows you to federate an identity pool or user pool with different identity providers, such as SAML providers like Active Directory Federation Services or Okta, OIDC providers such as Auth0, and other public identity providers such as Google, Twitter, or Facebook. In addition to leveraging an IdP, centralize resource access control based on the identity established by IdP through the application API layer. For example, Amazon API Gateway and AWS AppSync allow you to specify an Amazon Cognito User Pool as an IdP for the resources being protected, so that bearer tokens can be validated before granting access. Amazon API Gateway and AWS AppSync also allow you to create custom authorizers, so that you can perform additional application logic to allow or deny access to a resource based on claims in the access token, or if a non-supported token, such as SAML, is provided to the API. Even authenticated users can act maliciously with your workloads, so you should consider how to secure the data path of your video streams. Tokenization schemes such as signed-URLs, signed-cookies, or JWTs (JSON Web Tokens) should be used to grant only temporary access to content by approved front-end applications. Amazon CloudFront can protect access to content origin through signed URLs and signed cookies with a short duration to live, and Lambda@Edge can validate bearer tokens during viewer request. When using content distribution networks to accelerate distribution to viewers, help to protect your content origin from unauthorized origin access by validating a secret header injected by the CDN transmitted over TLS at the time of request and use a policy that prevents access from all other entities. When using AWS Elemental MediaStore as an origin, you can configure MediaStore to accept requests to your container only if the user-agent header value is set to a shared secret value with [IAM Policy Conditions](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md"). With Amazon CloudFront, your distribution can identify itself by injecting the user-agent header secret value during requests for objects within the MediaStore container. This method can also be applied to content origin services running on Amazon EC2. You can apply this secret check on the service itself and employ a web application firewall, such as AWS WAF, to perform the check on your behalf. When serving video-on-demand content from Amazon S3, configure Amazon CloudFront to use an origin access identity (OAID) and then restrict access to your Amazon S3 bucket by placing an S3 bucket policy to allow access from your Amazon CloudFront distribution only if it identifies itself with that OAID. OAID, when combined with Signed URLs and user authentication, is designed to ensure that only requests through Amazon CloudFront will return successfully and prevent any direct requests to your bucket origin, and will negate the need for direct access to your buckets. `{ "Version": "2012-10-17", "Id": "PolicyForCloudFrontPrivateContent", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity 111122223333" }, "Action": "s3:GetObject", "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*" } ] }` _Example S3 bucket policy for CloudFront origin access identity (OAID)_ |
+| SM_SEC1: How do you authorize access to content and content ingest?                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SM\_ SBP1 – Use an identity provider to authenticate<br>viewers and access policies to implement least privilege access to protected<br>content** |
+| **SM_SBP2 – Restrict content origin access to allow only<br>authorized content distribution networks**                                              |
+
+Whether on mobile, desktop, or SmartTV, web applications serve
+as the box office for audiences interested in your content.
+Authentication and authorization systems help ensure that only
+authorized users can access content in the way you intend. For
+example, a user authenticates through sign-up/sign-in and is
+authorized to access only _free_ or
+_ad supported_ content tiers based on their
+current subscription plan. Identity is essential for a
+centralized strategy on authorizing access to resources.
+
+Access to private content should be granted only to
+authenticated and authorized viewers using an identity provider
+(IdP). On AWS, Amazon Cognito can be used as an IdP to
+authenticate users and authorize access to content hosted on
+Amazon S3, AWS Elemental MediaPackage, AWS Elemental MediaStore,
+or on a custom origin service built on Amazon EC2. You can also
+establish trust between identity providers to avoid sharing
+credentials and simplify the authentication flow for your media
+player. Amazon Cognito provides both temporary AWS credentials
+as AWS STS (Security Token Service) tokens, as well as JWTs
+(JSON Web Tokens), to access protected resources. Amazon Cognito
+also allows you to federate an identity pool or user pool with
+different identity providers, such as SAML providers like Active
+Directory Federation Services or Okta, OIDC providers such as
+Auth0, and other public identity providers such as Google,
+Twitter, or Facebook.
+
+In addition to leveraging an IdP, centralize resource access
+control based on the identity established by IdP through the
+application API layer. For example, Amazon API Gateway and AWS AppSync allow you to specify an Amazon Cognito User Pool as an
+IdP for the resources being protected, so that bearer tokens can
+be validated before granting access. Amazon API Gateway and AWS AppSync also allow you to create custom authorizers, so that you
+can perform additional application logic to allow or deny access
+to a resource based on claims in the access token, or if a
+non-supported token, such as SAML, is provided to the API.
+
+Even authenticated users can act maliciously with your
+workloads, so you should consider how to secure the data path of
+your video streams. Tokenization schemes such as signed-URLs,
+signed-cookies, or JWTs (JSON Web Tokens) should be used to
+grant only temporary access to content by approved front-end
+applications. Amazon CloudFront can protect access to content
+origin through signed URLs and signed cookies with a short
+duration to live, and Lambda@Edge can validate bearer tokens
+during viewer request.
+
+When using content distribution networks to accelerate
+distribution to viewers, help to protect your content origin
+from unauthorized origin access by validating a secret header
+injected by the CDN transmitted over TLS at the time of request
+and use a policy that prevents access from all other entities.
+
+When using AWS Elemental MediaStore as an origin, you can
+configure MediaStore to accept requests to your container only
+if the user-agent header value is set to a shared secret value
+with
+[IAM
+Policy Conditions](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md"). With Amazon CloudFront, your
+distribution can identify itself by injecting the user-agent
+header secret value during requests for objects within the
+MediaStore container. This method can also be applied to content
+origin services running on Amazon EC2. You can apply this secret
+check on the service itself and employ a web application
+firewall, such as AWS WAF, to perform the check on your behalf.
+
+When serving video-on-demand content from Amazon S3, configure
+Amazon CloudFront to use an origin access identity (OAID) and
+then restrict access to your Amazon S3 bucket by placing an S3
+bucket policy to allow access from your Amazon CloudFront
+distribution only if it identifies itself with that OAID. OAID,
+when combined with Signed URLs and user authentication, is
+designed to ensure that only requests through Amazon CloudFront
+will return successfully and prevent any direct requests to your
+bucket origin, and will negate the need for direct access to
+your buckets.
+
+```
+{
+    "Version": "2012-10-17",
+    "Id": "PolicyForCloudFrontPrivateContent",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity 111122223333"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*"
+        }
+    ]
+}
+```
+
+_Example S3 bucket policy for CloudFront origin access
+identity (OAID)_

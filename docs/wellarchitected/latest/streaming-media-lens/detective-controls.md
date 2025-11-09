@@ -11,8 +11,67 @@ combination of client and infrastructure logging can be used to
 baseline expected content access behaviors and alert upon
 deviations.
 
-| SM_SEC2: How do you monitor access to your media distribution workload?        |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SM_SBP3 – Monitor for fraudulent access attempts**                           |
-| **SM_SEC3 – How do you monitor unauthorized re-distribution of your content?** |
-| **SM_SBP4 – Implement content or sessions forensics**                          | For example, content requests through Amazon CloudFront can be logged and aggregated into Amazon S3. Amazon Athena can then query this access data for abnormalities like: <br>• **Request location** — Are requests only coming from geographic Regions where you would expect? Is the user location obfuscated by a downstream provider? <br>• **Request IP** —Is a specific IP address requesting content in a pattern that reflects normal viewing habits? <br>• **User Agent** —Is the user-agent string from the device one that is known and valid? Monitor activities such as sign-in attempts from new locations and devices, assign a risk score based on the activity, and decide to either prompt users for additional verification or block the sign-in request. You can notify users of suspicious sign-in attempts and prompt them to secure their accounts. You can also view a history of sign-in attempts and their risk scores. The advanced security features in Amazon Cognito can also help you identify password sharing, reuse, or theft. While monitoring can help to protect from unauthorized platform access, you should implement controls that can help you when valued content is distributed without consent. It is unlikely that you can completely prevent a viewer from copying content, but forensic controls can greatly improve incident response when improper distribution is detected. As a simple example, you might have seen content on an inflight entertainment system that had the name of the airline embedded on the content. This overlay might appear periodically or throughout the entire piece of content and is used by content owners to determine if leaked content originated from an airline. Video encoders like AWS Elemental MediaConvert can burn in these visible watermarks into your content as an identifiable image overlay. While simple and effective for a few unique watermarks, this method requires a unique piece of content for each watermark and is therefore limited by the cost of storing multiple versions of the same content. For large-scale per-viewer, implement a content identification strategy that allows you to trace back to specific clients, such as per-user session-based watermarking. With this approach, media is conditioned during transcoding and the origin serves a uniquely identifiable pattern of media segments to the end user. A session to a user-mapping service receives encrypted user ID information in the header or cookies of the request context and uses this information to determine the uniquely identifiable pattern of media segments to serve to the viewer. This approach requires multiple distinctly watermarked copies of content to be transcoded, with a minimum of two sets of content for A/B watermarking. Forensic watermarking also requires YUV decompression, so encoding time for 4K feature length content can take upwards of 20 hours. DRM service providers in the AWS Partner Network (APN) are available to aid in the deployment of per-viewer content forensics. |
+| SM_SEC2: How do you monitor access to your media distribution workload?           |
+| --------------------------------------------------------------------------------- |
+| **SM_SBP3 – Monitor for fraudulent access<br>attempts**                           |
+| **SM_SEC3 – How do you monitor unauthorized re-distribution<br>of your content?** |
+| **SM_SBP4 – Implement content or sessions<br>forensics**                          |
+
+For example, content requests through Amazon CloudFront can be
+logged and aggregated into Amazon S3. Amazon Athena can then
+query this access data for abnormalities like: 
+
+- **Request location** — Are
+  requests only coming from geographic Regions where you would
+  expect? Is the user location obfuscated by a downstream
+  provider?
+- **Request IP** —Is a specific
+  IP address requesting content in a pattern that reflects
+  normal viewing habits?
+- **User Agent** —Is the
+  user-agent string from the device one that is known and
+  valid?
+
+Monitor activities such as sign-in attempts from new locations
+and devices, assign a risk score based on the activity, and
+decide to either prompt users for additional verification or
+block the sign-in request. You can notify users of suspicious
+sign-in attempts and prompt them to secure their accounts. You
+can also view a history of sign-in attempts and their risk
+scores. The advanced security features in Amazon Cognito can
+also help you identify password sharing, reuse, or theft. 
+
+While monitoring can help to protect from unauthorized platform
+access, you should implement controls that can help you when
+valued content is distributed without consent. It is unlikely
+that you can completely prevent a viewer from copying content,
+but forensic controls can greatly improve incident response when
+improper distribution is detected.
+
+As a simple example, you might have seen content on an inflight
+entertainment system that had the name of the airline embedded
+on the content. This overlay might appear periodically or
+throughout the entire piece of content and is used by content
+owners to determine if leaked content originated from
+an airline. Video encoders like AWS Elemental MediaConvert can
+burn in these visible watermarks into your content as an
+identifiable image overlay. While simple and effective for a few
+unique watermarks, this method requires a unique piece of
+content for each watermark and is therefore limited by the cost
+of storing multiple versions of the same content. 
+
+For large-scale per-viewer, implement a content identification
+strategy that allows you to trace back to specific clients, such
+as per-user session-based watermarking. With this approach,
+media is conditioned during transcoding and the origin serves a
+uniquely identifiable pattern of media segments to the end user.
+A session to a user-mapping service receives encrypted user ID
+information in the header or cookies of the request context and
+uses this information to determine the uniquely identifiable
+pattern of media segments to serve to the viewer. This approach
+requires multiple distinctly watermarked copies of content to be
+transcoded, with a minimum of two sets of content for A/B
+watermarking. Forensic watermarking also requires YUV
+decompression, so encoding time for 4K feature length content
+can take upwards of 20 hours. DRM service providers in the AWS Partner Network (APN) are available to aid in the deployment of
+per-viewer content forensics.

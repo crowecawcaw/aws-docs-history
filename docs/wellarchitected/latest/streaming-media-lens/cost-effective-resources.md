@@ -7,10 +7,98 @@ applications. As media assets can easily reach hundreds of
 gigabytes in size, you should develop a storage strategy that
 takes into account the access patterns of the content.
 
-| SM_COST1: What is your strategy for optimizing object storage and data transfer costs?                |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SM_CBP2 –Trace and limit data transfer between services, Availability Zones, Regions, and clients** | We recommend that you prioritize a strategy for storage lifecycle and data transfer, as these often have the largest savings potential when compared to requests, management functions, and object replication. With media archive or batch transcoding workloads, you should analyze and define access patterns. Once understood, represent these patterns in **Amazon S3 Lifecycle Policies**, which automate the continual movement of assets to the most effective storage. This achieves the lowest storage costs, while meeting the business accessibility requirements. For applications with non-deterministic access patterns, such as video recordings, user-generated-content, or a large back-catalog, it's a challenge to design lifecycle policies or select outright the most cost-effective **Amazon S3** storage tier for your content. To optimize storage costs, asset access patterns need to be actively monitored and managed. This can be done manually through content management solutions or with features like **Amazon S3** Analytics Storage Class Analysis and S3 Intelligent-Tiering. Real-time media streams are measured in megabytes per second and source files can easily reach into the hundreds of gigabytes per file. To control data transfer and outbound costs, be aware of the data transfer costs associated with transmitting the data throughout the cloud and to users. To control costs associated with inter-AZ or inter-Region transfer, you should ingest content into the Region and Availability Zone in which it will be processed. For outbound data cost control between the origin and client, consider the use **Amazon CloudFront** to reduce costs while improving performance for viewers. When content does need to span Availability Zones, Regions, or incur outbound costs, use the most efficient compression possible to minimize cost.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| SM_COST2: What is your strategy for optimizing content processing costs?                              |
-| ---                                                                                                   |
-| **SM_CBP3 – Baseline resources and throughput for media processing tasks**                            |
-| **SM_CBP4 – Run media processing tasks in parallel**                                                  | Consumer demand for more content choices at higher quality (resolution, color-depth, frame rate) puts pressure on processing components. As media processing needs increase for tasks like quality control (QC), transcoding, and packaging, so do the costs associated with these tasks. To manage costs, baseline the time and infrastructure resources necessary for your most common processing tasks. One way to understand processing speed and resource density is to calculate the real-time factor (RTF) by taking task execution time divided by source duration. An RTF lower than one indicates that content is processing faster than real-time, greater than one is slower than real time. For example, a video transcoding task that takes an EC2 instance 45 minutes to process a one-hour video has an RTF of 0.75. RTF and the resources required can be used to understand and communicate how changes to the task or infrastructure will impact business priorities. One way to reduce RTF while accessing cost effective resources is to split jobs into smaller subtasks and run them in parallel. With video content, you can split tasks on I-frame boundaries, process those segments, and then stitch them together when all subtasks are complete. Split-and-stitch and parallelization techniques create granular tasks that can easily be placed across a processing fleet, leading to more efficient use of compute resource. Splitting processor intensive tasks also reduces dependency on vertical scaling and enables access the most cost effective compute resource available through heterogeneous **Amazon EC2 Spot** clusters. When using **AWS Elemental Media Services**, many pricing options are available to make workloads more cost effective. For example, for live streaming workloads where redundancy is not required, **AWS Elemental MediaLive** offers channels that run in _single-pipeline_ mode for a significant discount over the standard channel rates. Similarly, for long-running and 24x7 channels, channel reservations offer significant discounts in exchange for term commitments. For file-based workloads, **AWS Elemental MediaConvert** offers _basic tier_ functionality where lower rates are available in exchange for avoiding certain computationally intensive or licensed features. When a large volume of steady-state file-based transcoding is required, reserved transcoding slots can also be purchased to provide steady-state transcoding capacity for a fixed monthly cost rather than the standard billing model of per output minute. |
+| SM_COST1: What is your strategy for optimizing object storage and data transfer<br>costs?                |
+| -------------------------------------------------------------------------------------------------------- |
+| **SM_CBP2 –Trace and limit data transfer between services,<br>Availability Zones, Regions, and clients** |
+
+We recommend that you prioritize a strategy for storage
+lifecycle and data transfer, as these often have the largest
+savings potential when compared to requests, management
+functions, and object replication.
+
+With media archive or batch transcoding workloads, you should
+analyze and define access patterns. Once understood, represent
+these patterns in **Amazon S3 Lifecycle
+Policies**, which automate the continual movement of
+assets to the most effective storage. This achieves the lowest
+storage costs, while meeting the business accessibility
+requirements.
+
+For applications with non-deterministic access patterns, such as
+video recordings, user-generated-content, or a large
+back-catalog, it's a challenge to design lifecycle policies or
+select outright the most cost-effective
+**Amazon S3** storage tier for
+your content. To optimize storage costs, asset access patterns
+need to be actively monitored and managed. This can be done
+manually through content management solutions or with features
+like **Amazon S3** Analytics
+Storage Class Analysis and S3 Intelligent-Tiering. 
+
+Real-time media streams are measured in megabytes per second and
+source files can easily reach into the hundreds of gigabytes per
+file. To control data transfer and outbound costs, be aware of
+the data transfer costs associated with transmitting the data
+throughout the cloud and to users. To control costs associated
+with inter-AZ or inter-Region transfer, you should ingest
+content into the Region and Availability Zone in which it will
+be processed. For outbound data cost control between the origin
+and client, consider the use **Amazon CloudFront** to reduce costs while improving
+performance for viewers. When content does need to span
+Availability Zones, Regions, or incur outbound costs, use the
+most efficient compression possible to minimize cost.
+
+| SM_COST2: What is your strategy for optimizing content processing<br>costs?   |
+| ----------------------------------------------------------------------------- |
+| **SM_CBP3 – Baseline resources and throughput for media<br>processing tasks** |
+| **SM_CBP4 – Run media processing tasks in parallel**                          |
+
+Consumer demand for more content choices at higher quality
+(resolution, color-depth, frame rate) puts pressure on
+processing components. As media processing needs increase for
+tasks like quality control (QC), transcoding, and packaging, so
+do the costs associated with these tasks. 
+
+To manage costs, baseline the time and infrastructure resources
+necessary for your most common processing tasks. One way to
+understand processing speed and resource density is to calculate
+the real-time factor (RTF) by taking task execution time divided
+by source duration. An RTF lower than one indicates that content
+is processing faster than real-time, greater than one is slower
+than real time. For example, a video transcoding task that takes
+an EC2 instance 45 minutes to process a one-hour video has an
+RTF of 0.75. RTF and the resources required can be used to
+understand and communicate how changes to the task or
+infrastructure will impact business priorities.
+
+One way to reduce RTF while accessing cost effective resources
+is to split jobs into smaller subtasks and run them in parallel.
+With video content, you can split tasks on I-frame boundaries,
+process those segments, and then stitch them together when all
+subtasks are complete. Split-and-stitch and parallelization
+techniques create granular tasks that can easily be placed
+across a processing fleet, leading to more efficient use of
+compute resource. Splitting processor intensive tasks also
+reduces dependency on vertical scaling and enables access the
+most cost effective compute resource available through
+heterogeneous **Amazon EC2 Spot**
+clusters.
+
+When using **AWS Elemental Media
+Services**, many pricing options are available to make
+workloads more cost effective. For example, for live streaming
+workloads where redundancy is not required,
+**AWS Elemental MediaLive**
+offers channels that run in _single-pipeline_
+mode for a significant discount over the standard channel rates.
+Similarly, for long-running and 24x7 channels, channel
+reservations offer significant discounts in exchange for term
+commitments. For file-based workloads,
+**AWS Elemental MediaConvert**
+offers _basic tier_ functionality where lower
+rates are available in exchange for avoiding certain
+computationally intensive or licensed features. When a large
+volume of steady-state file-based transcoding is required,
+reserved transcoding slots can also be purchased to provide
+steady-state transcoding capacity for a fixed monthly cost
+rather than the standard billing model of per output minute.
