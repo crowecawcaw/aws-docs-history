@@ -132,6 +132,10 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 
 - Service launch in the Israel (Tel Aviv) region.
 
+## July 2023
+
+- You can use AWS Application Migration Service with workloads that require FedRAMP Moderate categorization level in the AWS US East/West regions.
+
 ## June 2023
 
 - Service launch in the following regions: Europe (Zurich), Europe (Spain), Asia Pacific (Hyderabad), Asia Pacific (Melbourne).
