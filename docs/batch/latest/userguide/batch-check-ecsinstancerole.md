@@ -1,4 +1,4 @@
-# Tutorial: Check your account's Amazon ECS instance role
+# Check your account's Amazon ECS instance role
 
 The Amazon ECS instance role and instance profile are automatically created for you in the
 console first-run experience. However, you can follow these steps to check if your account

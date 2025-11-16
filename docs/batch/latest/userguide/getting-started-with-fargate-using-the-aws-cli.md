@@ -39,18 +39,19 @@ First, create a trust policy that allows the Amazon ECS tasks service to assume 
 
 ```
 cat > batch-execution-role-trust-policy.json << EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "ecs-tasks.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "ecs-tasks.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
 EOF
 ```
 
@@ -62,32 +63,6 @@ The following command creates an IAM role named `BatchEcsTaskExecutionRoleTutori
 aws iam create-role \
     --role-name BatchEcsTaskExecutionRoleTutorial \
     --assume-role-policy-document file://batch-execution-role-trust-policy.json
-```
-
-The following shows how the output looks when the command runs successfully.
-
-```
-{
-    "Role": {
-        "Path": "/",
-        "RoleName": "BatchEcsTaskExecutionRoleTutorial",
-        "RoleId": "AROAUVBFO26T7xmpl3RGYTVO",
-        "Arn": "arn:aws:iam::123456789012:role/BatchEcsTaskExecutionRoleTutorial",
-        "CreateDate": "2025-01-13T17:34:28+00:00",
-        "AssumeRolePolicyDocument": {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ecs-tasks.amazonaws.com"
-                    },
-                    "Action": "sts:AssumeRole"
-                }
-            ]
-        }
-    }
-}
 ```
 
 **Attach the required policy**

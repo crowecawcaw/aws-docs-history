@@ -1,4 +1,4 @@
-# Tutorial: Create Amazon EC2 spot fleet roles in the
+# Create Amazon EC2 spot fleet roles in the
 
 AWS Management Console
 

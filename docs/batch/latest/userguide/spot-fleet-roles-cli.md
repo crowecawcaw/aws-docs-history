@@ -1,4 +1,4 @@
-# Tutorial: Create Amazon EC2 spot fleet roles with the AWS CLI
+# Create Amazon EC2 spot fleet roles with the AWS CLI
 
 ###### To create the **AmazonEC2SpotFleetTaggingRole** IAM role for your Spot Fleet compute
 
@@ -8,19 +8,19 @@ environments
 
 ```
 `$` `aws iam create-role --role-name AmazonEC2SpotFleetTaggingRole \
- --assume-role-policy-document '{
- "Version": "2012-10-17",
- "Statement":[
+ --assume-role-policy-document` '`{
+ "Version":"2012-10-17",
+ "Statement": [
  {
- "Sid":"",
- "Effect":"Allow",
+ "Sid": "",
+ "Effect": "Allow",
  "Principal": {
- "Service":"spotfleet.amazonaws.com"
+ "Service": "spotfleet.amazonaws.com"
  },
- "Action":"sts:AssumeRole"
+ "Action": "sts:AssumeRole"
  }
  ]
- }'`
+}`'
 ```
 
 2. To attach the **AmazonEC2SpotFleetTaggingRole** managed IAM policy to

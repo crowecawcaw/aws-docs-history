@@ -8,10 +8,7 @@ Amazon Linux AMIs](../../../eks/latest/userguide/eks-optimized-ami.md "../../../
 
 ###### Important
 
-Starting end of October 2025 Amazon EKS optimized Amazon Linux 2023 AMIs will be the
-default on AWS Batch for EKS versions prior to 1.33. Starting from Kubernetes version 1.33,
-EKS optimized Amazon Linux 2023 AMIs will be the default when it becomes supported on
-AWS Batch.
+Amazon Linux 2023 AMIs are the default on AWS Batch for Amazon EKS.
 
 AWS will end support for Amazon EKS AL2-optimized and AL2-accelerated AMIs, starting
 11/26/25. You can continue using AWS Batch-provided Amazon EKS optimized Amazon Linux 2 AMIs on

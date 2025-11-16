@@ -11,4 +11,4 @@ provided by Amazon. For more information, see Amazon ECS instance role in the _A
 
 ###### Topics
 
-- [Tutorial: Check your account's Amazon ECS instance role](batch-check-ecsinstancerole.md "batch-check-ecsinstancerole.md")
+- [Check your account's Amazon ECS instance role](batch-check-ecsinstancerole.md "batch-check-ecsinstancerole.md")
