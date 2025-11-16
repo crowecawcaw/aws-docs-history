@@ -69,3 +69,23 @@ For DASH manifests on CMAF endpoints, these are the options:
 - **Binary** - inserts EventStream
   elements with the `urn:scte:scte35:2014:xml+bin`
   scheme
+
+\***\*SCTE in segments\*\***
+
+Choose whether to include SCTE-35 messages in the segment files of MediaPackage
+outputs. This setting works independently of the **SCTE
+filtering** and **Ad markers** settings.
+Choose from the following options:
+
+- **None** – SCTE-35 messages are not included in segment output. This is the default setting.
+- **All** – All SCTE-35 messages are embedded in the segment data, allowing downstream players and ad insertion systems to access the messages directly from segments without parsing manifest files.
+
+When you enable SCTE in segments:
+
+- For TS segments, SCTE-35 messages are embedded directly in the transport stream.
+- For CMAF segments, SCTE-35 messages are embedded in the segment data.
+- For DASH manifests, MediaPackage adds an `InbandEventStream` element with `schemeIdUri="urn:scte:scte35:2013:bin"` to signal the presence of SCTE-35 messages in the segment data.
+
+###### Important
+
+Your downstream components or players must be implemented to consume SCTE-35 messages from segments to take advantage of this feature. If your players cannot handle SCTE-35 messages in segments, playback may fail when this setting is enabled.

@@ -103,27 +103,38 @@ see [Cross-Region failover](cross-region-failover.md "cross-region-failover.md")
 
 The segment settings fields hold general information about the segment.
 
-1. For **Segment name**, enter a name that describes the segment. The name is the base name of the segment used in
-   all content manifests inside of the endpoint. Supported characters are **A-Z**, **a-z**, **0-9**, **\_** (underscore), and **-** (hyphen) with a
-   length of 1 to 256 characters. You can't use spaces in the name.
-2. For **Segment duration (sec.)**, enter the duration (in seconds) of each segment. Enter a value equal to,
-   or a multiple of, the input segment duration. The maximum segment duration is 30 seconds. If the value that you enter is
-   different from the input segment duration, MediaPackage
-   rounds segments to the nearest multiple of the input segment duration.
-3. Select **Include IFrame-only stream** to include an additional I-frame only stream along with the
-   other tracks in the manifest. MediaPackage generates an I-frame only stream from the first rendition in the manifest.
-   The service inserts `EXT-I-FRAMES-ONLY` tags in the output manifest, and then generates and includes an I-frames only playlist
-   in the stream. This playlist enables player functionality like fast forward and rewind.
-4. For TS containers only, select **Use audio rendition group** to group all
-   audio tracks into a single rendition group. All other tracks in the stream
-   can be used with any audio rendition from the group. For more information
-   about rendition groups, see [AWS Elemental MediaPackage rendition groups reference](rendition-groups.md "rendition-groups.md").
-5. For TS containers only, select **Include DVB subtitles** to pass through
-   digital video broadcasting (DVB) subtitles into the output. By default,
-   MediaPackage excludes all DVB subtitles from the output.
-6. Select **Enable SCTE support** to include SCTE configuration options. If you select this,
-   you can further define your SCTE configuration in additional fields.
-7. For **SCTE filtering**, choose the SCTE-35 message types that will be ad markers in the output. If you don't make a selection here, by default, MediaPackage inserts all ad markers in the output manifest.
+1. For **Segment name**, enter a name that describes the
+   segment. The name is the base name of the segment used in all content
+   manifests inside of the endpoint. Supported characters are **A-Z**, **a-z**,
+   **0-9**, **\_**
+   (underscore), and **-** (hyphen) with a length
+   of 1 to 256 characters. You can't use spaces in the name.
+2. For **Segment duration (sec.)**, enter the duration (in
+   seconds) of each segment. Enter a value equal to, or a multiple of, the
+   input segment duration. The maximum segment duration is 30 seconds. If the
+   value that you enter is different from the input segment duration, MediaPackage
+   rounds segments to the nearest multiple of the input segment
+   duration.
+3. Select **Include IFrame-only stream** to include an
+   additional I-frame only stream along with the other tracks in the manifest.
+   MediaPackage generates an I-frame only stream from the first rendition in the
+   manifest. The service inserts `EXT-I-FRAMES-ONLY` tags in the
+   output manifest, and then generates and includes an I-frames only playlist
+   in the stream. This playlist enables player functionality like fast forward
+   and rewind.
+4. For TS containers only, select **Use audio rendition
+   group** to group all audio tracks into a single rendition
+   group. All other tracks in the stream can be used with any audio rendition
+   from the group. For more information about rendition groups, see [AWS Elemental MediaPackage rendition groups reference](rendition-groups.md "rendition-groups.md").
+5. For TS containers only, select **Include DVB subtitles**
+   to pass through digital video broadcasting (DVB) subtitles into the output.
+   By default, MediaPackage excludes all DVB subtitles from the output.
+6. Select **Enable SCTE support** to include SCTE
+   configuration options. If you select this, you can further define your SCTE
+   configuration in additional fields.
+7. For **SCTE filtering**, choose the SCTE-35 message types
+   that will be ad markers in the output. If you don't make a selection here,
+   by default, MediaPackage inserts all ad markers in the output manifest.
    - Splice insert
    - Break
    - Provider advertisement
@@ -133,6 +144,16 @@ The segment settings fields hold general information about the segment.
    - Provider overlay placement opportunity
    - Distributor overlay placement opportunity
    - Program
+
+8. For **SCTE in segments**, choose whether to include
+   SCTE-35 messages in the segment files. Choose from the following
+   options:
+   - **None** – SCTE-35 messages are not included in
+     segment output. This is the default setting.
+   - **All** – All SCTE-35 messages are included in
+     the segment data. For DASH manifests, an
+     `InbandEventStream` tag is added to signal the
+     presence of SCTE messages.
 
 ## Encryption fields
 

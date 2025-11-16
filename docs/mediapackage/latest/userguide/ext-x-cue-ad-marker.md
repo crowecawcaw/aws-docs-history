@@ -42,7 +42,8 @@ API and SDK
 To learn how to enable CUE tag ad markers for TS and CMAF origin
 endpoints via the MediaPackage live API or AWS SDK, see the following:
 
-- [MediaPackage Live API reference](../APIReference/API_ScteHls.md "../APIReference/API_ScteHls.md")
+- [MediaPackage
+  Live API reference](../APIReference/API_ScteHls.md "../APIReference/API_ScteHls.md")
 - [AWS
   SDK](https://aws.amazon.com/getting-started/tools-sdks/ "https://aws.amazon.com/getting-started/tools-sdks/")
 
