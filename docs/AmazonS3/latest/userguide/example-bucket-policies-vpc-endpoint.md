@@ -54,6 +54,8 @@ VPC endpoints for Amazon S3 provide two ways to control access to your Amazon S3
   access to a specific VPC endpoint](#example-bucket-policies-restrict-accesss-vpc-endpoint "#example-bucket-policies-restrict-accesss-vpc-endpoint")
 - [Restricting access to a
   specific VPC](#example-bucket-policies-restrict-access-vpc "#example-bucket-policies-restrict-access-vpc")
+- [Restricting
+  access to an IPv6 VPC endpoint](#example-bucket-policies-ipv6-vpc-endpoint "#example-bucket-policies-ipv6-vpc-endpoint")
 
 ###### Important
 
@@ -183,6 +185,37 @@ JSON
  }
  ]
 }`
+
+```
+
+## Restricting
+
+access to an IPv6 VPC endpoint
+
+The following example policy denies all Amazon S3 (`s3:`) actions on the `amzn-s3-demo-bucket` bucket and its objects, unless the request originates from the specified VPC endpoint (`vpce-0a1b2c3d4e5f6g`) and the source IP address matches the provided IPv6 CIDR block.
+
+```
+{
+   "Version": "2012-10-17",
+   "Id": "Policy1415115909154",
+   "Statement": [
+     {
+       "Sid": "AccessSpecificIPv6VPCEOnly",
+       "Action": "s3:*",
+       "Effect": "Deny",
+       "Resource": ["arn:aws:s3:::``amzn-s3-demo-bucket``",
+                    "arn:aws:s3:::``amzn-s3-demo-bucket``/*"],
+       "Condition": {
+         "StringNotEquals": {
+           "aws:SourceVpc": "`vpc-0a1b2c3d4e5f6g4h2`"
+         },
+        "NotIpAddress": {
+          "aws:VpcSourceIp": "2001:db8::/32"
+        }
+       }
+     }
+   ]
+}
 
 ```
 

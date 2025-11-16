@@ -2,10 +2,7 @@
 
 VPC
 
-You can use a gateway endpoint to access directory buckets in AWS Local Zones (Local Zones) from
-your virtual private cloud (VPC), without requiring an internet gateway or NAT device for your VPC, and at
-no additional cost. The following topic describes configuring gateway VPC endpoints
-between your VPC and directory buckets in Local Zones.
+To reduce the amount of time your packets spend on the network, configure your virtual private cloud (VPC) with a gateway endpoint to access directory buckets in Availability Zones while keeping traffic within the AWS network, and at no additional cost.
 
 ###### To configure a gateway VPC endpoint
 
@@ -20,16 +17,19 @@ between your VPC and directory buckets in Local Zones.
    **com.amazonaws.`region`.s3express**.
 7. For **VPC**, choose the VPC in which to create the
    endpoint.
-8. For **Route tables**, select the route table on your Local Zone to be
-   used by the endpoint. After the endpoint is created, a route record will be added to
-   the route table that you select in this step.
+8. For **Route tables**, choose the route table on your Local Zone to be used by the endpoint. After the endpoint is created, a route record will be added to the route table that you select in this step.
 9. For **Policy**, choose **Full access** to allow
    all operations by all principals on all resources over the VPC endpoint.
    Otherwise, choose **Custom** to attach a VPC endpoint policy that
    controls the principals' permissions to perform actions on resources over the VPC endpoint.
-10. (Optional) To add a tag, choose **Add new tag**, and enter the
+10. For **IP address type**, choose from the following options:
+    - **IPv4** – Assign IPv4 addresses to the endpoint network interfaces. This option is supported only if all selected subnets have IPv4 address ranges and the service accepts IPv4 requests.
+    - **IPv6** – Assign IPv6 addresses to the endpoint network interfaces. This option is supported only if all selected subnets are IPv6 only subnets and the service accepts IPv6 requests.
+    - **Dualstack** – Assign both IPv4 and IPv6 addresses to the endpoint network interfaces. This option is supported only if all selected subnets have both IPv4 and IPv6 address ranges and the service accepts both IPv4 and IPv6 requests.
+
+11. (Optional) To add a tag, choose **Add new tag**, and enter the
     tag key and the tag value.
-11. Choose **Create endpoint**.
+12. Choose **Create endpoint**.
     To learn more about gateway VPC endpoints, see [Gateway endpoints](../../../vpc/latest/privatelink/gateway-endpoints.md "../../../vpc/latest/privatelink/gateway-endpoints.md") in the _AWS PrivateLink Guide_.
     For the data
     residency use cases, we recommend enabling access to your buckets only from your VPC using

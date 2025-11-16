@@ -20,6 +20,8 @@ For general information about interface endpoints, see [Interface VPC endpoints
 - [Creating a VPC endpoint](#s3-creating-vpc "#s3-creating-vpc")
 - [Accessing Amazon S3 interface
   endpoints](#accessing-s3-interface-endpoints "#accessing-s3-interface-endpoints")
+- [IP Address types for VPC endpoints](#privatelink-ip-address-types "#privatelink-ip-address-types")
+- [DNS record IP types for VPC endpoints](#privatelink-dns-record-types "#privatelink-dns-record-types")
 - [Private DNS](#private-dns "#private-dns")
 - [Accessing buckets, access points,
   and Amazon S3 Control API operations from S3 interface endpoints](#accessing-bucket-and-aps-from-interface-endpoints "#accessing-bucket-and-aps-from-interface-endpoints")
@@ -50,7 +52,7 @@ endpoint in the VPC, you can use both types of endpoints in the same VPC.
 | Do not allow access from another AWS Region                     | Allow access from a VPC in another AWS Region by using VPC peering or<br>AWS Transit Gateway                                                                                               |
 | Not billed                                                      | Billed                                                                                                                                                                                     |
 
-For more information about gateway endpoints, see [Gateway VPC endpoints](../../../vpc/latest/privatelink/vpce-gateway.md "../../../vpc/latest/privatelink/vpce-gateway.md") in the
+For more information, see [Gateway endpoints](../../../vpc/latest/privatelink/gateway-endpoints.md "../../../vpc/latest/privatelink/gateway-endpoints.md") and [interface VPC endpoints](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the
 _AWS PrivateLink Guide_.
 
 ## Restrictions and limitations of AWS PrivateLink for Amazon S3
@@ -60,14 +62,13 @@ endpoint considerations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-
 _AWS PrivateLink Guide_. In addition, the following restrictions
 apply.
 
-AWS PrivateLink for Amazon S3 does not support the following:
+Interface endpoints for Amazon S3 does not support the following:
 
 - [Federal Information Processing Standard
   (FIPS) endpoints](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/")
 - [Website endpoints](WebsiteEndpoints.md "WebsiteEndpoints.md")
 - [Legacy global endpoints](VirtualHosting.md#deprecated-global-endpoint "VirtualHosting.md#deprecated-global-endpoint")
 - [S3 dash Region endpoints](VirtualHosting.md "VirtualHosting.md")
-- [Dual-stack endpoints](../API/dual-stack-endpoints.md "../API/dual-stack-endpoints.md")
 - Using [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") or [UploadPartCopy](../API/API_UploadPartCopy.md "../API/API_UploadPartCopy.md")
   between buckets in different AWS Regions
 - Transport Layer Security (TLS) 1.0
@@ -77,7 +78,7 @@ AWS PrivateLink for Amazon S3 does not support the following:
 ## Creating a VPC endpoint
 
 To create a VPC interface endpoint, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _AWS PrivateLink
-Guide_.
+Guide_. To create a VPC gateway endpoint, see [Create a gateway endpoint](../../../vpc/latest/privatelink/vpc-endpoints-s3.md#create-gateway-endpoint-s3 "../../../vpc/latest/privatelink/vpc-endpoints-s3.md#create-gateway-endpoint-s3") in the _AWS PrivateLink Guide_.
 
 ## Accessing Amazon S3 interface
 
@@ -98,6 +99,60 @@ DNS names: _Regional_ and _zonal_.
 
 Endpoint-specific S3 DNS names can be resolved from the S3 public DNS domain.
 
+VPC endpoints for Amazon S3 support different types of IP addressing, including: IPv4, IPv6, and Dualstack. See [IP Address types for VPC endpoints](#privatelink-ip-address-types "#privatelink-ip-address-types") and [DNS record IP types for VPC endpoints](#privatelink-dns-record-types "#privatelink-dns-record-types").
+
+## IP Address types for VPC endpoints
+
+VPC endpoints for Amazon S3 support different types of IP addressing, including:
+
+- **IPv4**
+
+VPC endpoints can be configured to use only IPv4 addresses for connectivity.
+
+- **IPv6**
+
+VPC endpoints can be configured to use only IPv6 addresses for connectivity.
+
+- **Dual-stack**
+
+VPC endpoints can be configured in dual-stack mode, supporting both IPv4 and IPv6 addresses simultaneously. This provides flexibility to access Amazon S3 over either IPv4 or IPv6 networks.
+
+The IP address type you choose for your VPC endpoint will depend on the networking requirements of your applications and infrastructure. Considerations may include the IP addressing schemes used in your VPC, on-premises networks, and across the internet connectivity to Amazon S3. For more information, see IP address types for [interface endpoints](../../../vpc/latest/privatelink/privatelink-access-aws-services.md#aws-service-ip-address-type "../../../vpc/latest/privatelink/privatelink-access-aws-services.md#aws-service-ip-address-type") and [gateway endpoints](../../../vpc/latest/privatelink/gateway-endpoints.md#gateway-endpoint-ip-address-type "../../../vpc/latest/privatelink/gateway-endpoints.md#gateway-endpoint-ip-address-type") in the _Amazon Virtual Private Cloud_ guide.
+
+## DNS record IP types for VPC endpoints
+
+Depending on your IP address type, when you call a VPC endpoint, the AWS service can return `A` records, `AAAA` records, or both `A` and `AAAA` records. You can customize which record types your AWS service returns by modifying the DNS record IP type. The following table shows the supported DNS record IP types and the IP address types:
+
+| Supported IP address types | DNS record IP types                    |
+| -------------------------- | -------------------------------------- |
+| IPv4                       | IPv4                                   |
+| IPv6                       | IPv6                                   |
+| Dualstack                  | Dualstack, IPv4, IPv6, Service-defined |
+
+### Configuring the service-defined DNS record IP type for Amazon S3
+
+If you create a gateway endpoint for Amazon S3 and configure the DNS record IP type as service-defined and use the regional service endpoint,(such as `s3.us-east-2.amazonaws.com`), Amazon S3 returns `A` records to your clients. In contrast, if you create a gateway endpoint and are using a dual-stack service endpoint, (such as `s3.dualstack.us-east-2.amazonaws.com`) and select the DNS record IP type as `service-defined`, Amazon S3 returns both `A` and `AAAA` records to your clients.
+
+Similarly, if you create an interface endpoint with Private DNS enabled and choose service-defined as the DNS record type, for the regional service endpoint, (such as, `s3.us-east-2.amazonaws.com`), Amazon S3 returns `A` records to your client. Whereas, for a dualstack service endpoint, (such as, `s3.dualstack.us-east-2.amazonaws.com`), Amazon S3 returns both `A` and `AAAA` records. For more information, see DNS record IP type for [interface endpoints](../../../vpc/latest/privatelink/privatelink-access-aws-services.md#aws-services-dns-record-ip-type "../../../vpc/latest/privatelink/privatelink-access-aws-services.md#aws-services-dns-record-ip-type") and [gateway endpoints](../../../vpc/latest/privatelink/gateway-endpoints.md#gateway-endpoint-dns-record-ip-type "../../../vpc/latest/privatelink/gateway-endpoints.md#gateway-endpoint-dns-record-ip-type") in the _VPC User Guide_.
+
+The following table shows the supported DNS record IP types for gateway and interface endpoints:
+
+| IP address type | Supported DNS record IP types for S3 Gateway endpoints | Supported DNS record IP types for S3 Interface endpoints |
+| --------------- | ------------------------------------------------------ | -------------------------------------------------------- |
+| IPv4            | IPv4, service-defined\*                                | IPv4                                                     |
+| IPv6            | IPv6, service-defined\*                                | IPv6                                                     |
+| Dualstack       | IPv4, IPv6, Dualstack, service-defined\*               | Dualstack\*, IPv4, IPv6, service-defined                 |
+
+\* Represents the default DNS record IP type.
+
+To enable IPv6 connectivity on an existing S3 gateway or interface endpoint, update the IP address type for the endpoint to `Dualstack`. When updated, Amazon S3 automatically updates the routing tables with IPv6 addresses for gateway endpoints. Then you can use the dualstack service endpoint, such as `s3.dualstack.us-east-2.amazonaws.com`, and Amazon S3 will return both `A` and `AAAA` records for dualstack S3 DNS queries. If you want to use IPV6 with the regional service endpoint, such as `s3.us-east-2.amazonaws.com`, modify the IP address type for the endpoint to `Dualstack`; and the DNS record IP type to `Dualstack`. Then Amazon S3 will return both `A` and `AAAA` records for the regional S3 DNS queries.
+
+###### Considerations
+
+- If your gateway endpoint has the default configuration of IP address type as `IPv4` and DNS record IP type as `service-defined`, then the dualstack service endpoint (such as `s3.dualstack.us-east-2.amazonaws.com`), traffic that uses `AAAA` records won't be routed through the gateway endpoint. Instead, this traffic will be dropped or routed over an IPv6-compatible path if one is present. For example, if your virtual private cloud (VPC) has an internet gateway, your IPv6 traffic will be routed over the internet gateway in your VPC in this scenario. If you want to ensure your traffic is always routed over a VPC endpoint, you can use an Amazon S3 bucket policy that restricts access to a specific bucket if a specified VPC endpoint is not used. For more information, see [Restricting access to a specific VPC endpoint](example-bucket-policies-vpc-endpoint.md#example-bucket-policies-restrict-accesss-vpc-endpoint "example-bucket-policies-vpc-endpoint.md#example-bucket-policies-restrict-accesss-vpc-endpoint").
+- If your interface endpoint has the default configuration of IP address type, which is IPv4, and DNS record IP type as IPv4, dualstack service endpoints, such as `ass3.dualstack.us-east-2.amazonaws.com`, are not supported. Traffic that uses the `A` or `AAAA` records of the dualstack service endpoints won't be routed through the interface endpoint. Instead, this traffic will be dropped or routed over another compatible path if one is present.
+- Creating or modifying a gateway endpoint with a DNS record IP type other than service-defined requires both the `enableDnsSupport` and `enableDnsHostnames` VPC attributes to be set to true.
+
 ## Private DNS
 
 Private DNS options for VPC interface endpoints simplify routing S3 traffic over VPC
@@ -113,8 +168,6 @@ to the private IP addresses of AWS PrivateLink for the following endpoints:
   `s3-control.us-east-1.amazonaws.com`)
 - Access point endpoints (for example,
   `s3-accesspoint.us-east-1.amazonaws.com`)
-
-AWS PrivateLink for Amazon S3 does not support [Using Amazon S3 dual-stack endpoints](../API/dual-stack-endpoints.md "../API/dual-stack-endpoints.md"). If you use an S3 dual-stack DNS name as a private DNS name, your IPv6 traffic will either be dropped or, if your virtual private cloud (VPC) has an internet gateway, your IPv6 traffic will be routed over the internet gateway in your VPC.
 
 If you have a gateway endpoint in your VPC, you can automatically route in-VPC
 requests over your existing S3 gateway endpoint and on-premises requests over your interface
@@ -143,6 +196,8 @@ endpoint. For more information about gateway endpoints and managing private DNS 
 [Gateway VPC
 endpoints](../../../vpc/latest/privatelink/vpce-gateway.md "../../../vpc/latest/privatelink/vpce-gateway.md") and [Manage DNS names](../../../vpc/latest/privatelink/manage-dns-names.md "../../../vpc/latest/privatelink/manage-dns-names.md") respectively
 in the _AWS PrivateLink Guide_.
+
+When enabling **Private DNS for inbound resolver only**, the `dnsRecordIpType` of the gateway endpoint must either match that of interface endpoint or be **service defined**.
 
 The **Enable private DNS only for inbound endpoints** option is available
 only for services that support gateway endpoints.
@@ -663,9 +718,6 @@ these resources.
 ### Example: Restricting
 
 access to a specific VPC endpoint in the S3 bucket policy
-
-**Example: Restricting access to a specific VPC endpoint in the S3
-bucket policy**
 
 The following Amazon S3 bucket policy allows access to a specific bucket,
 `amzn-s3-demo-bucket2`, from only the VPC endpoint
