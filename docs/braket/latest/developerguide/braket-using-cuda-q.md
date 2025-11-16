@@ -3,9 +3,32 @@
 NVIDIA's CUDA-Q is a software library designed for programming hybrid quantum algorithms that combine
 CPUs, GPUs, and Quantum processing units (QPUs). It provides a unified programming model, allowing developers to express
 both classical and quantum instructions within a single program, streamlining workflows. CUDA-Q accelerates quantum
-program simulation and runtime with its built-in CPU and GPU simulators.
+program simulation and runtime with its built-in CPU and GPU simulators. CUDA-Q is available with native Braket
+notebook instances (NBIs) and Amazon Braket Hybrid Jobs.
 
-Using CUDA-Q on Amazon Braket Hybrid Jobs offers a flexible, on-demand computing environment. Computational
+###### In this section:
+
+- [CUDA-Q in NBIs](#braket-cuda-q-nbis "#braket-cuda-q-nbis")
+- [CUDA-Q in Hybrid Jobs](#braket-cuda-q-hybrid-jobs "#braket-cuda-q-hybrid-jobs")
+
+## CUDA-Q in NBIs
+
+CUDA-Q is installed by default in the Braket NBI environment. You can open a CUDA-Q example notebook
+by going to the Jupyter launcher page and selecting the CUDA-Q and Braket tile. This opens the example notebook
+`0_hello_cudaq_jobs.ipynb` in the main window. For more CUDA-Q examples, see the left panel in the
+`nvidia_cuda_q/` directory.
+
+You can also verify the version of CUDA-Q or any other third-party package installed in your NBI. For example,
+you can run the following command in a notebook code cell to verify the versions of CUDA-Q, Qiskit, PennyLane,
+and Braket packages that are installed in the environment.
+
+```
+%pip freeze | grep -i -e cudaq -e qiskit -e pennylane -e braket
+```
+
+## CUDA-Q in Hybrid Jobs
+
+Using CUDA-Q on [Amazon Braket Hybrid Jobs](braket-jobs.md "braket-jobs.md") offers a flexible, on-demand computing environment. Computational
 instances run only for the duration of your workload, ensuring you pay only for what you use. Amazon Braket Hybrid Jobs also
 provides a scalable experience. Users can start with smaller instances for prototyping and testing, then scale up to larger
 instances capable of handling greater workloads for full experiments.
@@ -48,14 +71,13 @@ def hello_quantum():
 
 The above example simulates a Bell circuit on a CPU simulator. This example runs locally on your laptop or Braket Jupyter notebook.
 Because of the `local=True` setting, when you run this script, a container will start in your local environment to run the CUDA-Q program
-for testing and debugging. After you finish testing, you can remove the `local=True` flag and run your job AWS. To learn more, see
-[Getting started with Amazon Braket Hybrid Jobs](braket-build-jobs.md "braket-build-jobs.md").
+for testing and debugging. After you finish testing, you can remove the `local=True` flag and run your job on AWS. To learn more, see
+[Working with Amazon Braket Hybrid Jobs](braket-jobs.md "braket-jobs.md").
 
 If your workloads have a high qubit count, a large number of circuits or a large number of iterations, you can use more
 powerful CPU computing resources by specifying the `instance_config` setting. The following code snippet shows how to configure
 the `instance_config` setting in the `hybrid_job` decorator. For more information about supported instance types, see
-[Configure the hybrid job instance
-to run your script](braket-jobs-configure-job-instance-for-script.md "braket-jobs-configure-job-instance-for-script.md"). For a list of instance types, see [Amazon EC2 Instance types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+[Configure your hybrid job instance](braket-jobs-configure-job-instance-for-script.md "braket-jobs-configure-job-instance-for-script.md"). For a list of instance types, see [Amazon EC2 Instance types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
 
 ```
 @hybrid_job(
@@ -81,7 +103,7 @@ def my_job_script():
     ...
 ```
 
-Amazon Braket Hybrid Jobs supports parallel GPU simulations with CUDA-Q. You can parallelize the evaluation of multiple observables
+Amazon Braket Hybrid Jobs and NBIs support parallel GPU simulations with CUDA-Q. You can parallelize the evaluation of multiple observables
 or multiple circuits to boost the performance of your workload. To parallelize multiple observables, make the following changes to your algorithm script.
 
 Set the `mgpu` option of the `nvidia` backend. This is required to parallelize the observables.
@@ -114,17 +136,17 @@ The [parallel simulations notebook](https://github.com/amazon-braket/amazon-brak
 in the Amazon Braket examples Github provide end-to-end examples that demonstrate how to run quantum program simulations on GPU backends and perform parallel simulations
 of observables and circuit batches.
 
-## Running your workloads on quantum computers
+### Running your workloads on quantum computers
 
 After completing simulator testing, you can transition to running experiments on QPUs. Just switch
 the target to an Amazon Braket QPU, such as the IQM, IonQ, or Rigetti devices. The following
 code snippet illustrates how to set the target to the IQM Garnet device. For a list of available QPUs, see the
-[Amazon Braket Console](https://us-west-1.console.aws.amazon.com/braket/home?region=us-west-1#/dashboard "https://us-west-1.console.aws.amazon.com/braket/home?region=us-west-1#/dashboard").
+[Amazon Braket console](https://console.aws.amazon.com/braket/home "https://console.aws.amazon.com/braket/home").
 
 ```
 device_arn = "arn:aws:braket:eu-north-1::device/qpu/iqm/Garnet"
 cudaq.set_target("braket", machine=device_arn)
 ```
 
-For more information about Amazon Braket Hybrid Jobs, see [Working with Amazon Braket Hybrid Jobs](braket-test-jobs.md "braket-test-jobs.md")
-in the developer guide. To learn more about CUDA-Q, see the [CUDA-Q documentation](https://nvidia.github.io/cuda-quantum/latest/index.html "https://nvidia.github.io/cuda-quantum/latest/index.html").
+For more information about Hybrid Jobs, see [Working with Amazon Braket Hybrid Jobs](braket-jobs.md "braket-jobs.md")
+in the developer guide. To learn more about CUDA-Q, see the [NVIDIA CUDA-Q documentation](https://nvidia.github.io/cuda-quantum/latest/index.html "https://nvidia.github.io/cuda-quantum/latest/index.html").
