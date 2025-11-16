@@ -61,7 +61,8 @@ Region per month on dedicated hardware.
   management interface is connected to a secure WorkSpaces management network used for
   interactive streaming. This allows WorkSpaces to manage your WorkSpaces. For more
   information, see [Network interfaces](workspaces-port-requirements.md#network-interfaces "workspaces-port-requirements.md#network-interfaces"). You must reserve a /16 netmask from at
-  least one of the following IP address ranges for this purpose:
+  least one of the following IP address ranges for this purpose and ensure that your
+  chosen IP address range does not conflict in your network:
   - 10.0.0.0/8
   - 100.64.0.0/10
   - 172.16.0.0/12
@@ -76,10 +77,48 @@ Region per month on dedicated hardware.
     + In addition to the /16 CIDR block that you select, the 54.239.224.0/20 IP
      address range is used for management interface traffic in all AWS Regions.
 
-- Before importing a BYOL customized virtual machine image, [validate your image](#windows_images_run_byol_checker_script "#windows_images_run_byol_checker_script").
+#### S3 Access
 
-WorkSpaces only supports images with UEFI boot mode enabled. For more information on how EC2 Image Builder detects the boot mode,
-see [Volume types and file systems supported by VM Import/Export](../../../vm-import/latest/userguide/prerequisites.md#vmimport-volume-types:~:text=Linux/Unix-,Windows,-GUID%20Partition%20Table "../../../vm-import/latest/userguide/prerequisites.md#vmimport-volume-types:~:text=Linux/Unix-,Windows,-GUID%20Partition%20Table") in the _VM Import/Export User Guide_.
+If you use data perimeters to control access to Amazon S3 in your environment,
+you might need to explicitly allow access to Amazon S3 buckets that store components
+managed by EC2 Image Builder. You can use the bucket ARN or bucket URL
+to allowlist these buckets, depending on how you control access to Amazon S3.
+
+Required access for Amazon EC2 Image Builder Component management bootstrapping scripts:
+
+- **S3 bucket ARN:**
+  `arn:`<AWS partition>`:s3:::ec2imagebuilder-managed-resources-`<AWS Region>`-prod`
+- **S3 bucket URL:**
+  `https://ec2imagebuilder-managed-resources-`<AWS Region>`.s3.`<AWS Region>`.`<AWS partition-specific domain name>``
+
+Required access for Amazon EC2 Image Builder Managed components:
+
+- **S3 bucket ARN:**
+  `arn:`<AWS partition>`:s3:::ec2imagebuilder-toe-`<AWS Region>`-prod`
+- **S3 bucket URL:**
+  `https://ec2imagebuilder-toe-`<AWS Region>`.s3.`<AWS Region>`.`<AWS partition-specific domain name>``
+
+#### Network Connectivity
+
+If you use a proxy to filter outbound communication (such as AWS Network Firewall) from
+your AWS account that you are importing a BYOL image, ensure that the following HTTPS endpoints are accessible:
+
+Required access for Amazon EC2 Image Builder component:
+
+- `ssm.`<region>`.amazonaws.com`
+- `ssmmessages.`<region>`.amazonaws.com`
+- `ec2messages.`<region>`.amazonaws.com`
+- `imagebuilder.`<region>`.amazonaws.com`
+- `ec2.`<region>`.amazonaws.com`
+- `s3.`<region>`.amazonaws.com`
+- `s3.us-east-1.amazonaws.com`
+- `tools.amazonworkspaces.com`
+- `go.microsoft.com`
+- `definitionupdates.microsoft.com`
+- `time.windows.com`
+
+The above list is not exhaustive, and it is recommended to use a VPC that has public internet access.
+The image import process does not support VPCs that use AWS PrivateLink.
 
 #### Windows versions supported for BYOL
 
@@ -92,9 +131,21 @@ Your VM must run one of the following Windows versions:
 - Windows 11 Enterprise 22H2 (October 2022 release)
 - Windows 11 Enterprise 24H2 (October 2024 release)
 
-All supported OS versions support all of the compute types available in the AWS Region
-where you're using WorkSpaces. Versions of Windows that are no longer supported by
-Microsoft are not guaranteed to work and are not supported by AWS Support.
+You will need a Windows virtual machine image or Windows ISO image file that uses a supported Windows OS version:
+
+- Download an Enterprise edition ISO image by signing into the [Microsoft 365 admin center](https://admin.microsoft.com/adminportal/home#/subscriptions/vlnew "https://admin.microsoft.com/adminportal/home#/subscriptions/vlnew").
+  Sign in to your subscription on the [Visual Studio Subscriptions portal](https://my.visualstudio.com/downloads "https://my.visualstudio.com/downloads") for available downloads.
+  Do not use an ISO file downloaded from the [public Windows 11 download website](https://www.microsoft.com/en-us/software-download/windows11 "https://www.microsoft.com/en-us/software-download/windows11") which does not provide an Enterprise edition ISO.
+- To use a customized virtual machine image, [validate your image](#windows_images_run_byol_checker_script "#windows_images_run_byol_checker_script") before import.
+- Encrypted AMIs are not supported in the importing process.
+  Encryption can be enabled after the final WorkSpaces is provisioned.
+- Default EBS encryption is not supported. Prior to importing an image,
+  [disable default encryption in EC2 console](../../../ebs/latest/userguide/encryption-by-default.md "../../../ebs/latest/userguide/encryption-by-default.md").
+- For Windows 11 images, WorkSpaces requires UEFI boot mode be enabled. For more information on how EC2 Image Builder detects the boot mode,
+  see [Volume types and file systems supported by VM Import/Export](../../../vm-import/latest/userguide/prerequisites.md#vmimport-volume-types:~:text=Linux/Unix-,Windows,-GUID%20Partition%20Table "../../../vm-import/latest/userguide/prerequisites.md#vmimport-volume-types:~:text=Linux/Unix-,Windows,-GUID%20Partition%20Table") in the _VM Import/Export User Guide_.
+- All supported OS versions support all of the compute types available in the AWS Region
+  where you're using WorkSpaces. Versions of Windows that are no longer supported by
+  Microsoft are not guaranteed to work and are not supported by AWS Support.
 
 ###### Note
 

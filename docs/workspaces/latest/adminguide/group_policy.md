@@ -89,8 +89,8 @@ DCV](#gp_audio_in_wsp "#gp_audio_in_wsp").
   ticket](group_policy.md#gp_kerberos_ticket "group_policy.md#gp_kerberos_ticket")
 - [Configure device proxy server settings for internet
   access](group_policy.md#gp_device_proxy "group_policy.md#gp_device_proxy")
-  - [Proxying desktop traffic](group_policy.md#w24aac11c29c11c27c15 "group_policy.md#w24aac11c29c11c27c15")
-  - [Recommendation on the use of proxy servers](group_policy.md#w24aac11c29c11c27c17 "group_policy.md#w24aac11c29c11c27c17")
+  - [Proxying desktop traffic](group_policy.md#w25aac11c29c11c27c15 "group_policy.md#w25aac11c29c11c27c15")
+  - [Recommendation on the use of proxy servers](group_policy.md#w25aac11c29c11c27c17 "group_policy.md#w25aac11c29c11c27c17")
 
 - [Enable Zoom Meeting Media Plugin support](group_policy.md#zoom-integration "group_policy.md#zoom-integration")
   - [Enable Zoom Meeting Media Plugin for DCV](group_policy.md#zoom-wsp "group_policy.md#zoom-wsp")

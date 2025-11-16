@@ -24,7 +24,7 @@ secondary WorkSpace.
 
 - [Prerequisites](#multi-region-resilience-prerequisites "#multi-region-resilience-prerequisites")
 - [Limitations](#multi-region-resilience-limitations "#multi-region-resilience-limitations")
-- [Configure your Multi-Region Resilience standby WorkSpace](#w24aac11c35c19c15 "#w24aac11c35c19c15")
+- [Configure your Multi-Region Resilience standby WorkSpace](#w25aac11c35c19c15 "#w25aac11c35c19c15")
 - [Create a standby WorkSpace](#create-standby-workspace "#create-standby-workspace")
 - [Manage a standby WorkSpace](#manage-standby-workspace "#manage-standby-workspace")
 - [Delete a standby WorkSpace](#delete-standby-workspace "#delete-standby-workspace")
