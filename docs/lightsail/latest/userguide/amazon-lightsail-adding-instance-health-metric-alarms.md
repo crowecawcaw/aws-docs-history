@@ -62,7 +62,7 @@ representing the threshold appears on the graph as shown in the following exampl
 line labeled as 1 represents the threshold for Alarm 1, and the alarm line labeled as 2
 represents the threshold for Alarm 2.
 
-![Instance NetworkOut example, with alarm line.](images/amazon-lightsail-networkout-graph-example-alarmed.png)
+![Instance NetworkOut example, with alarm line.](/images/lightsail/latest/userguide/images/amazon-lightsail-networkout-graph-example-alarmed.png)
 
 ## Default alarm settings
 

@@ -66,7 +66,7 @@ weeks. In the following instance outgoing network traffic (`NetworkOut`) metric
 graph example, the low-levels are 0-10 KB per hour, the mid-levels are between 10-20 KB per
 hour, and the high-levels are between 20-80 KB per hour.
 
-![Instance NetworkOut example.](images/amazon-lightsail-networkout-graph-example.png)
+![Instance NetworkOut example.](/images/lightsail/latest/userguide/images/amazon-lightsail-networkout-graph-example.png)
 
 If you configure the alarm threshold to be **greater than or equal to**
 somewhere in the low-level range (e.g., 5 KB per hour), then you will get more frequent, and

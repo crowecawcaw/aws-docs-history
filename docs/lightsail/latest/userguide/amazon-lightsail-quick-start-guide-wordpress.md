@@ -151,7 +151,7 @@ window. You can either put your cursor at the CloudShell prompt and press Ctrl+V
 or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
 to sign in to the administration dashboard of your WordPress website.
 
-![Viewing WordPress admin password in Lightsail.](/images/lightsail/latest/userguide/images/amazon-wordpress-viewing-admin-password-01.png)
+![Viewing WordPress admin password in Lightsail.](images/amazon-wordpress-viewing-admin-password-01.png)
 
 ## Step 4: Sign in to your WordPress
 

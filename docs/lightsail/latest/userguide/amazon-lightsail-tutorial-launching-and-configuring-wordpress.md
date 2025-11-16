@@ -232,7 +232,7 @@ website.
 
 http://`public-ipv4-address`./wp-admin 4. For **Username or Email Address**, enter `user`. 5. For **Password**, enter the password obtained in the previous step. 6. Choose **Log in**.
 
-![Launching and configuring WordPress in Lightsail.](/images/lightsail/latest/userguide/images/amazon-wordpress-tutorial-07.png)
+![Launching and configuring WordPress in Lightsail.](images/amazon-wordpress-tutorial-07.png)
 
 You are now signed in to the administration dashboard of your WordPress website where
 you can perform administrative actions. For more information about administering your
