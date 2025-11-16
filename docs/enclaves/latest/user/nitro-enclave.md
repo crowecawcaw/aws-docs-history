@@ -174,7 +174,6 @@ Nitro Enclaves has the following requirements:
   | Gr6f            | All instance types.                          |
   | Inf1            | All instance types.                          |
   | Inf2            | All instance types.                          |
-  | P3dn            | All instance types.                          |
   | P4d             | All instance types.                          |
   | P4de            | All instance types.                          |
   | P5              | All instance types.                          |
