@@ -142,11 +142,11 @@ the overall maximum queries per second per IP address for an inbound endpoint ca
 
 query logs
 
-| Entity                                                                                                                                             | Quota                                                                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Query log configurations per AWS Region                                                                                                            | 20                                                                                                                                                                                                                                   |
-| Query log configuration VPC associations per AWS<br>Region                                                                                         | 100 **\***<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas"). |
-| Query log configuration VPC associations per account per<br>AWS Region (shared using RAM) for the account that the<br>configuration was shared to. | 100                                                                                                                                                                                                                                  |
+| Entity                                                                                                                                                                                | Quota                                                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Query log configurations per AWS Region                                                                                                                                               | 20<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas").         |
+| Query log configuration VPC associations per AWS<br>Region                                                                                                                            | 100 **\***<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas"). |
+| Query log configuration VPC associations per account per<br>AWS Region (including query long confgurations shared using RAM) for the account that the<br>configuration was shared to. | 100<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas").        |
 
 **\*** This is a Regional limit that applies cumulatively
 across all Resolver query log configurations within a single Region. Creating
@@ -272,13 +272,14 @@ delegation sets
 
 Route 53 Profiles
 
-| Entity                                                  | Quota                                                                                        |
-| ------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Number of Route 53 Profiles per AWS account in a Region | 5<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure").     |
-| Number of VPCs that can be associated to a Profile      | 1000<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure").  |
-| Number of DNS Firewall rule groups per Profile          | 5                                                                                            |
-| Number of Resolver rules per Profile                    | 1000<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure").  |
-| Number of private hosted zones per a Profile            | 1,000<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure"). |
+| Entity                                                         | Quota                                                                                        |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Number of Route 53 Profiles per AWS account in a Region        | 5<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").     |
+| Number of VPCs that can be associated to a Profile             | 1000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").  |
+| Number of DNS Firewall rule groups per Profile                 | 5                                                                                            |
+| Number of Resolver rules per Profile                           | 1000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").  |
+| Number of private hosted zones per a Profile                   | 1,000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure"). |
+| Number of Resolver query logging configurations per<br>Profile | 2                                                                                            |
 
 ## Maximums on API requests
 

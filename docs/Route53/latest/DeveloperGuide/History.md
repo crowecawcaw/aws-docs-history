@@ -47,7 +47,8 @@ AmazonRoute53FullAccess](security-iam-awsmanpol-route53.md#security-iam-awsmanpo
 
 **April 28, 2025**
 You can now associate interface VPC endpoints to Route 53 Profiles.
-For more information, see [Associate interface VPC endpoints to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md").
+For more information, see [Associate interface VPC endpoints
+to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md").
 
 **April 28, 2025**
 You can now add an alias record to a CloudFront distribution tenant.

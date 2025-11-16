@@ -6,10 +6,15 @@ To implement Amazon Route 53 Profiles in your Amazon Virtual Private Cloud VPCs,
     The first step is to create an empty Profile to which you can associate DNS resources.
     For more information, see [Creating Route 53 Profiles](profile-create.md "profile-create.md").
 2.  **Associate DNS resources to the Profile** – The
-    resources you can currently associate to a Profile are private hosted zones, Route 53 Resolver rules, both
-    forwarding and system, DNS Firewall rule groups, and interface VPC endpoints. For more information, see
-    [Associate DNS Firewall rule groups to a Route 53 Profile](profile-associate-dns-firewall.md "profile-associate-dns-firewall.md"), [Associate private hosted zones to a Route 53 Profile](profile-associate-private-hz.md "profile-associate-private-hz.md"), [Associate Resolver rules to a Route 53 Profile](profile-associate-resolver-rules.md "profile-associate-resolver-rules.md"), and
-    [Associate interface VPC endpoints to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md").
+    resources you can currently associate to a Profile are private hosted zones,
+    Route 53 Resolver rules, both forwarding and system, DNS Firewall rule groups, Resolver query
+    logging configurations, and interface VPC endpoints. For more information, see
+    [Associate DNS Firewall rule groups to a
+    Route 53 Profile](profile-associate-dns-firewall.md "profile-associate-dns-firewall.md"), [Associate private hosted zones to a
+    Route 53 Profile](profile-associate-private-hz.md "profile-associate-private-hz.md"), [Associate Resolver rules to a
+    Route 53 Profile](profile-associate-resolver-rules.md "profile-associate-resolver-rules.md"), [Associate Resolver query logging
+    configurations to a Route 53 Profile](profile-associate-query-logging.md "profile-associate-query-logging.md"), and [Associate interface VPC endpoints
+    to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md").
 3.  **Configure some of the VPC settings for the Profile**
     – Some of the DNS settings, like hosted zones associated to the Profile,
     are applied to the VPCs immediately. For DNSSEC validation, Resolver reverse DNS

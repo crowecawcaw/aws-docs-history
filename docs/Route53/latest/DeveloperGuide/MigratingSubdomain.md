@@ -27,7 +27,8 @@ for the parent domain by adding name server records for the subdomain](#UpdateOl
 The procedures in this topic explain how to perform an uncommon operation. If you're already using Route 53 as the DNS service
 for your domain and you just want to route traffic for a subdomain, such as www.example.com, to your resources, such as
 a web server running on an EC2 instance, see
-[Routing traffic for subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
+[Routing traffic for
+subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
 
 Use this procedure _only_ if you're using another DNS service for a domain, such as example.com, and
 you want to start using Route 53 as the DNS service for an existing subdomain of that domain, such as www.example.com.

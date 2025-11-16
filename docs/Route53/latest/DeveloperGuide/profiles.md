@@ -7,15 +7,17 @@ to all the VPCs associated to the Profile. You can also share a Profile with AWS
 the same Regions by using AWS RAM. The currently Route 53 supported resources you can associate
 to a Profile are:
 
-- Private hosted zones and the settings specified in them. For more information about
-  working with private hosted zones, see [Working with private hosted zones](hosted-zones-private.md "hosted-zones-private.md").
-- Route 53 Resolver rules, both forwarding and system. For more information about Resolver rules,
-  see [Managing forwarding rules](resolver-rules-managing.md "resolver-rules-managing.md").
-- DNS Firewall rule groups. For more information about DNS Firewall rule groups, see
-  [DNS Firewall rule groups and
+- Private hosted zones and the settings specified in them. For more information
+  about working with private hosted zones, see [Working with private hosted zones](hosted-zones-private.md "hosted-zones-private.md").
+- Route 53 Resolver rules, both forwarding and system. For more information about Resolver
+  rules, see [Managing forwarding rules](resolver-rules-managing.md "resolver-rules-managing.md").
+- DNS Firewall rule groups. For more information about DNS Firewall rule groups, see [DNS Firewall rule groups and
   rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 - Interface VPC endpoints. For more information about interface VPC endpoints, see
-  [interface VPC endpoints](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon VPC User Guide_.
+  [interface VPC
+  endpoints](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon VPC User Guide_.
+- Resolver query logging configurations. For more information about Resolver query
+  logging, see [Resolver query logging](resolver-query-logs.md "resolver-query-logs.md").
   Some of the VPC configurations are directly managed on the Profile. The configurations
   are:
 

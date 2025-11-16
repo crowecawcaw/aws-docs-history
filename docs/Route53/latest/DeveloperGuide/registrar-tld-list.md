@@ -171,7 +171,7 @@ TLD indicates any restrictions.
 
 **WXYZ**
 
-[.watch](watch.md "watch.md"), [.website](website.md "website.md"), [.wedding](wedding.md "wedding.md"), [.wiki](wiki.md "wiki.md"), [.wine](wine.md "wine.md"), [.work](work.md "work.md"), [.works](works.md "works.md"), [.world](world.md "world.md"), [.wtf](wtf.md "wtf.md"),
+[.watch](watch.md "watch.md"), [.website](website.md "website.md"), [.wedding](wedding.md "wedding.md"), [.wiki](wiki.md "wiki.md"), [.wine](wine.md "wine.md"), [.work](work.md "work.md"), [.works](works.md "works.md"), [.world](world.md "world.md"), [.wtf](wtf.md "wtf.md"), [.xxx](xxx.md "xxx.md"),
 [.xyz](xyz.md "xyz.md"), [.zone](zone.md "zone.md")
 
 ### Geographic top-level

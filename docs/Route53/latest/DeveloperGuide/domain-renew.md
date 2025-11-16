@@ -33,10 +33,10 @@ We send an email to the registrant contact that tells you that automatic renewal
 gives instructions about how to disable it. Keep your registrant contact email address current so you don't miss this email.
 
 **35 or 30 days before expiration**
-For all domains except .com.ar, .com.br, and .jp domains, we renew domain registration 35 days before the
+For all domains except .com.ar and .com.br domains, we renew domain registration 35 days before the
 expiration date so we have time to resolve any issues with your renewal before the domain name expires.
 
-The registries for .com.ar, .com.br, and .jp domains require that we renew the domains no more than 30 days before expiration.
+The registries for .com.ar and .com.br domains require that we renew the domains no more than 30 days before expiration.
 You'll get a renewal email from Gandi, our registrar associate, 30 days before expiration, which is the same day that we
 renew your domain if you have automatic renewal enabled.
 

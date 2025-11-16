@@ -1,4 +1,6 @@
-# Viewing and updating Route 53 resources associated to an Amazon Route 53 Profile
+# Viewing and updating Route 53 resources
+
+associated to an Amazon Route 53 Profile
 
 Choose the console tab to view the Route 53 Profile resource associations, and optionally edit the
 DNS Firewall rule group priority. Choose the CLI tab to use AWS CLI to list the resource

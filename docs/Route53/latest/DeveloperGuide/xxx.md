@@ -1,7 +1,6 @@
-# .net
+# .xxx
 
-Used for all types of websites. The .net extension is an abbreviation of
-network.
+Used for websites that host adults-only content.
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
@@ -9,9 +8,10 @@ network.
 
 One to ten years.
 
-**Privacy protection**
+**Privacy protection (applies to all contact types: person, company,
+association, and public body)**
 
-All information is hidden.
+All information is hidden except organization name.
 
 **Domain locking to prevent unauthorized transfers**
 

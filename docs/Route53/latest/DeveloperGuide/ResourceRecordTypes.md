@@ -491,7 +491,8 @@ An NS record identifies the name servers for the hosted zone. Note the following
   internet traffic for the subdomain and its subdomains (subdomain.acme.example.com). You set up this configuration,
   known as "delegating responsibility for a subdomain to a hosted zone" by creating another NS record in the hosted zone
   for the root domain (example.com). For more information, see
-  [Routing traffic for subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
+  [Routing traffic for
+  subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
 - You also use NS records to configure white-label name servers. For more information, see
   [Configuring white-label name servers](white-label-name-servers.md "white-label-name-servers.md").
 - Another use for an NS record is for private hosted zones when you create a delegate rule to delegate the authority for a subdomain

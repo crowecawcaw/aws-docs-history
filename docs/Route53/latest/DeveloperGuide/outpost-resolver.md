@@ -16,10 +16,31 @@ Route 53 on Outposts offers two capabilities:
 Additionally, Route 53 on Outposts reduces network latency by allowing queries to be resolved within
 the Outpost instead of making the round-trip to the nearest AWS Region.
 
+- A Resolver that caches all DNS queries that originate from the AWS Outposts.
+- Hybrid connectivity between an Outpost and an on-premises DNS resolver when you
+  deploy inbound and outbound endpoints.
+  For more information, see [What is Amazon Route 53 Resolver?](resolver.md "resolver.md").
+
+Additionally, Route 53 on Outposts reduces network latency by allowing queries to be resolved within
+the Outpost instead of making the round-trip to the nearest AWS Region.
+
 ###### Note
 
 If you have a version of AWS Outposts racks that aren't compatible with Route 53 on Outposts, an AWS
 account team is notified and will contact you to help you upgrade AWS Outposts.
+
+## Architecture overview
+
+Route 53 on Outposts implements a distributed DNS architecture:
+
+- **DNS records and hosted zones** remain managed
+  in Amazon Route 53 in the AWS Region
+- **Resolver functionality** extends to your AWS Outposts
+  rack for local query processing
+
+This design optimizes query performance and availability while maintaining centralized
+DNS record management. DNS records continue to be stored in the AWS Region, not
+locally on the AWS Outposts rack.
 
 ## Amazon Route 53 on Outposts features
 

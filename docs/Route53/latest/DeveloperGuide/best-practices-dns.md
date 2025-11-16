@@ -107,7 +107,8 @@ dept.example.com zone, not from the
 example.com zone. Delegations from a
 _grandparent_ to a _child_ zone
 might not work at all or work only inconsistently. For more information, see
-[Routing traffic for subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
+[Routing traffic for
+subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
 
 **Size of DNS response**
 Avoid creating large single responses. If responses are larger than 512 bytes, many DNS

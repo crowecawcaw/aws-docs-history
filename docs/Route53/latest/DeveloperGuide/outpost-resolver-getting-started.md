@@ -6,6 +6,12 @@ After you have ordered your AWS Outposts racks and they have been delivered, as 
 here: [Create an AWS Outposts](../../../outposts/latest/userguide/order-outpost-capacity.md "../../../outposts/latest/userguide/order-outpost-capacity.md")
 in the _AWS Outposts guide_, you can set up Resolver on Outpost.
 
+###### Important
+
+Resolver on Outpost can only be created by the AWS account that owns the AWS Outposts rack. If the
+AWS Outposts rack is shared with other accounts, those accounts cannot create Resolver on Outpost on
+the shared rack.
+
 You can also use APIs to manage Route 53 on Outposts. For more information, see [Resolver on Outpost actions](../APIReference/API-actions-by-function.md#actions-by-function-outpost-resolver "../APIReference/API-actions-by-function.md#actions-by-function-outpost-resolver").
 
 ###### Important
