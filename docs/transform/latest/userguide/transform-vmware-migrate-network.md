@@ -73,11 +73,24 @@ code from your migrated network configuration. These are available to you in the
 **Migrate Network** task, after you **Generate VPC
 configuration** and **Review generated VPC
 configuration**. When you choose the **Deploy on my
-own** option AWS Transform for VMware gives you the option to generate Infrastructure-as-Code (IaC) templates in three formats:
+own** option AWS Transform for VMware gives you the option to generate Infrastructure-as-Code (IaC) templates in four formats:
 
-- **AWS CloudFormation** templates
+- **AWS CloudFormation** templates that you can use to provision your network
+  resources.
 - **CDK project** - AWS Cloud Development Kit (AWS CDK) templates generated in TypeScript for programmatic infrastructure deployment
 - **HashiCorp Terraform** - Infrastructure as Code (IaC) templates generated in HashiCorp Configuration Language (HCL) for managing network resources
+- **Landing Zone Accelerator by AWS** - A
+  `network-config.yaml` file that works with LZA network
+  configuration. Learn more about the Landing Zone Accelerator solution
+  and how to deploy the network configuration YAML in [Using configuration files](../../../solutions/latest/landing-zone-accelerator-on-aws/using-configuration-files.md "../../../solutions/latest/landing-zone-accelerator-on-aws/using-configuration-files.md") in the _Landing Zone
+  Accelerator on AWS Implementation Guide_.
+
+###### Note
+
+When deploying this network configuration via the Landing Zone Accelerator (LZA) pipeline,
+ensure that your AWS Transform account and LZA installation are in the same AWS Organization. Deployment will fail if there is a mismatch between the Organizations IDs
+used in AWS Transform and LZA. To learn how to set up your LZA installation
+using Organizations see [AWS Organizations based installation (without AWS Control Tower)](../../../solutions/latest/landing-zone-accelerator-on-aws/prerequisites.md#for-aws-organizations-based-installation-without-aws-control-tower "../../../solutions/latest/landing-zone-accelerator-on-aws/prerequisites.md#for-aws-organizations-based-installation-without-aws-control-tower").
 
 After you select a network configuration format, use the link provided on the
 **Download and deploy networks** -

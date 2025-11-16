@@ -10,7 +10,7 @@ If you want to try out AWS Transform as a proof-of-concept or for test environme
 
 ## Getting started with AWS Organizations
 
-If you're using AWS Organizations, follow these steps to set up AWS Transform:
+Follow these steps to set up AWS Transform:
 
 1. Sign in to your AWS Organizations management account.
 2. Navigate to the AWS Transform service.
@@ -18,7 +18,14 @@ If you're using AWS Organizations, follow these steps to set up AWS Transform:
 4. Configure the necessary permissions for organizational member accounts.
 5. Access the AWS Transform web experience from your member accounts.
 
-Now you're ready to set up your workspace.
+###### Note
+
+To use the Landing Zone Accelerator (LZA) on AWS solution to build your landing zone together with
+AWS Transform for migration capabilities, your AWS Transform account and LZA installation must be in the
+same AWS Organization. Using separate Organizations IDs for LZA and AWS Transform deployments is
+not supported because this can cause inconsistencies in organizational management and resource
+deployments. To learn how to set up your LZA installation using Organizations see [Deploy a cloud foundation to support highly-regulated workloads and complex compliance requirements](../../../solutions/latest/landing-zone-accelerator-on-aws/solution-overview.md "../../../solutions/latest/landing-zone-accelerator-on-aws/solution-overview.md") in the _Landing Zone Accelerator on AWS
+Implementation Guide user guide_.
 
 ## Getting started with AWS IAM Identity Center
 
