@@ -40,7 +40,7 @@ you migrate to a current generation load balancer. For more information, see [Mi
 You can create, access, and manage your load balancers using any of the following
 interfaces:
 
-- **AWS Management Console**— Provides a web interface that
+- **AWS Management Console** — Provides a web interface that
   you can use to access Elastic Load Balancing.
 - **AWS Command Line Interface (AWS CLI)** —
   Provides commands for a broad set of AWS services, including Elastic Load Balancing. The AWS CLI is
