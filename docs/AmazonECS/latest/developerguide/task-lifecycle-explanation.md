@@ -56,10 +56,11 @@ STOPPING
 This is a transition state where Amazon ECS is waiting on the container agent to
 take further action.
 
-For Linux containers, the container agent will send the `SIGTERM`
-signal to notify the application needs to finish and shut down, and then
-send a `SIGKILL` after waiting the `StopTimeout` duration
-set in the task definition.
+For Linux containers, the container agent will send the stop signal defined
+in your container image to notify the application needs to finish and shut down
+using the `STOPSIGNAL` instruction. This is `SIGTERM` by default.
+Then it will send a `SIGKILL` after waiting the `StopTimeout`
+duration set in the task definition.
 
 DEPROVISIONING
 

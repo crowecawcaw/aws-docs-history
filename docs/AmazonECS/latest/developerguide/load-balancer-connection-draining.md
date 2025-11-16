@@ -28,8 +28,9 @@ requests, such as slow file uploads or streaming connections.
 
 ## SIGTERM responsiveness
 
-Amazon ECS first sends a SIGTERM signal to the task to notify the application needs to
-finish and shut down. Then, Amazon ECS sends a SIGKILL message. When applications ignore
+Amazon ECS first sends a stop signal to the task to notify the application needs to
+finish and shut down. This signal can be defined in your container image with the STOPSIGNAL instruction
+and will default to SIGTERM. Then, Amazon ECS sends a SIGKILL message. When applications ignore
 the SIGTERM, the Amazon ECS service must wait to send the SIGKILL signal to terminate the
 process.
 

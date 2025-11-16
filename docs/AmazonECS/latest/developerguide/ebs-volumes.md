@@ -76,8 +76,7 @@ Consider the following when using Amazon EBS volumes:
 - To use Amazon EBS volumes with Amazon ECS services, the deployment controller must be
   `ECS`. Both rolling and blue/green deployment strategies are supported when
   using this deployment controller.
-- For a container in your task to write to the mounted Amazon EBS volume, you must
-  run the container as a root user.
+- For a container in your task to write to the mounted Amazon EBS volume, the container must have appropriate file system permissions. When you specify a non-root user in your container definition, Amazon ECS automatically configures the volume with group-based permissions that allow the specified user to read and write to the volume. If no user is specified, the container runs as root and has full access to the volume.
 - Amazon ECS automatically adds the reserved tags `AmazonECSCreated` and
   `AmazonECSManaged` to the attached volume. If you remove these
   tags from the volume, Amazon ECS won't be able to manage the volume on your behalf.

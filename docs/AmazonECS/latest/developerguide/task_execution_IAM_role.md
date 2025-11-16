@@ -394,3 +394,25 @@ JSON
 }`
 
 ```
+
+### Important Security Consideration
+
+When using Amazon ECS features that integrate with Amazon S3 buckets, implement bucket ownership validation to prevent bucket takeover attacks.
+Without proper validation, if an Amazon S3 bucket is deleted and recreated by a malicious actor with the same name, your tasks may unknowingly
+load malicious configurations or send sensitive data to attacker-controlled buckets.
+
+**Recommended IAM Policy Condition:**
+
+```
+
+               "Condition": {
+                 "StringEquals": {
+                   "aws:ResourceAccount": "`TRUSTED-ACCOUNT-ID`"
+                 }
+               }
+
+```
+
+Replace `TRUSTED-ACCOUNT-ID` with the AWS account ID that owns the S3 bucket.
+
+This condition ensures your task execution role can only access Amazon S3 buckets owned by the specified trusted account.

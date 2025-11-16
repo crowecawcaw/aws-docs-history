@@ -54,6 +54,7 @@ the following actions on the specified resources:
   to modify the Auto Scaling group and its Amazon EC2 instances.
 - Action: Amazon ECS can update AWS Cloud Map service attributes for services that Amazon ECS
   manages.
+- Action: Amazon ECS can invoke Amazon EC2 provision and de-provision ENI when starting and stopping tasks.
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

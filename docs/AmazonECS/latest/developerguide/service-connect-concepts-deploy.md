@@ -257,15 +257,13 @@ other containers that don't set container limits. For more information, see
   service configuration.
 - Service Connect with TLS does not support `bridge` networking mode. Only
   `awsvpc` networking mode is supported.
-- Service Connect isn't available for services running on Amazon ECS Managed Instances.
-
-In `awsvpc` mode, the Service Connect proxy forwards traffic to
-the IPv4 localhost `127.0.0.1` for services in IPv4-only and
-dualstack configurations. For services in IPv6-only configuration, the proxy
-forwards traffic to the IPv6 localhost `::1`. We recommend
-configuring your applications to listen to both localhosts for a seamless
-experience when a service is updated from IPv4-only or dualstack configuration
-to IPv6-only. For more information, see [Amazon ECS task networking options for EC2](task-networking.md "task-networking.md") and [Amazon ECS task networking options for Fargate](fargate-task-networking.md "fargate-task-networking.md").
+- In `awsvpc` mode, the Service Connect proxy forwards traffic to
+  the IPv4 localhost `127.0.0.1` for services in IPv4-only and
+  dualstack configurations. For services in IPv6-only configuration, the proxy
+  forwards traffic to the IPv6 localhost `::1`. We recommend
+  configuring your applications to listen to both localhosts for a seamless
+  experience when a service is updated from IPv4-only or dualstack configuration
+  to IPv6-only. For more information, see [Amazon ECS task networking options for EC2](task-networking.md "task-networking.md") and [Amazon ECS task networking options for Fargate](fargate-task-networking.md "fargate-task-networking.md").
 
 ###### Service Connect doesn't support the following:
 

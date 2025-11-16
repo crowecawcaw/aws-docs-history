@@ -21,8 +21,7 @@ input for the following AWS CLI commands:
 
 ###### Note
 
-For a container in your task to write to the mounted Amazon EBS volume, you must run
-the container as a root user.
+For a container in your task to write to the mounted Amazon EBS volume, the container must have appropriate file system permissions. When you specify a non-root user in your container definition, Amazon ECS automatically configures the volume with group-based permissions that allow the specified user to read and write to the volume. If no user is specified, the container runs as root and has full access to the volume.
 
 You can also configure an Amazon EBS volume by using the AWS Management Console. For more information,
 see [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md"),

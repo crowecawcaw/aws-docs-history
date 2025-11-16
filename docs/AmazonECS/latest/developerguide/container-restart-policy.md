@@ -35,8 +35,6 @@ Consider the following before enabling a restart policy for your container:
   `1.86.0` or later of the container agent. However, we recommend
   using the latest container agent version. For information about how to check
   your agent version and update to the latest version, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md").
-- For tasks hosted on Fargate, this feature requires platform version
-  `1.4.0` or later. For information, see [Fargate platform versions for Amazon ECS](platform-fargate.md "platform-fargate.md").
 - If you're using EC2 with the `bridge`
   network mode, the `FLUENT_HOST` environment variable in your
   application container can become inaccurate after a restart of the FireLens log
