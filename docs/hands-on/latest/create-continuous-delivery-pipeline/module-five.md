@@ -135,7 +135,7 @@ you built:
 
 We have used AWS CodePipeline to add a review stage with manual approval to our continuous delivery pipeline. Now, our code changes will have to be reviewed and approved before they are deployed to AWS Elastic Beanstalk.
 
-![A diagram showing a CI/CD deployment workflow using AWS CodePipeline. The flow starts with users pushing source code to a Git repository, which triggers the CodePipeline in AWS Cloud. The pipeline includes steps for source (Git repository), build (AWS CodeBuild), manual approval (review), and deployment to AWS Elastic Beanstalk.](/images/hands-on/latest/create-continuous-delivery-pipeline/images/diagram-deployment-workflow-using-acplong.png)
+![A diagram showing a CI/CD deployment workflow using AWS CodePipeline. The flow starts with users pushing source code to a Git repository, which triggers the CodePipeline in AWS Cloud. The pipeline includes steps for source (Git repository), build (AWS CodeBuild), manual approval (review), and deployment to AWS Elastic Beanstalk.](images/diagram-deployment-workflow-using-acplong.png)
 
 ### (Optional) Delete AWS Elastic Beanstalk application
 
