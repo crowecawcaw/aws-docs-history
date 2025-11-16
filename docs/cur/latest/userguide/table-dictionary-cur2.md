@@ -13,9 +13,10 @@ Reports:
   collapsing certain columns from CUR into individual columns with key-value pairs
   of the collapsed columns. The nested keys can optionally be queried in Data Exports as
   separate columns to match the original CUR schema and data.
-- **Additional columns**: CUR 2.0 contains two
-  additional columns: **bill_payer_account_name** and
-  **line_item_usage_account_name**.
+- **Additional columns**: CUR 2.0 contains
+  additional columns: **bill_payer_account_name**, **line_item_usage_account_name**,
+  **capacity_reservation_capacity_reservation_arn**, **capacity_reservation_capacity_reservation_status**
+  and **capacity_reservation_capacity_reservation_type**.
   The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`.
 
 ## Table configurations
@@ -32,6 +33,7 @@ CUR 2.0 has the following table configurations:
 | TIME_GRANULARITY                      | This configuration changes the cost and usage line items in<br>the CUR 2.0 table to have different time granularities.<br>For example, selecting "HOURLY" will make all line items<br>represent a single hour of usage.                                                                                                                                                                                                                                                                                                                                  | HOURLY, DAILY, MONTHLY |
 | INCLUDE_RESOURCES                     | This configuration changes the cost and usage line items in<br>the CUR 2.0 table to have resource-level granularity and adds<br>the "line_item_resource_id" column to the table schema.<br>Enabling this configuration causes the CUR 2.0 table to have a line item for each<br>resource that incurred usage for a given service, instead of<br>showing combined total usage for that service.<br>Enabling this configuration can greatly increase the number of<br>rows, and also the file size of your export.                                         | TRUE, FALSE            |
 | INCLUDE_SPLIT_COST_ALLOCATION_DATA    | This configuration adds split cost allocation data and columns (split_line_item\_\*) to<br>the CUR 2.0 table. This data indicates how the usage of certain<br>AWS resources can be allocated to different business units or<br>teams.<br>Enabling this configuration can add additional rows and columns which show how an EC2<br>instance can be allocated to different containers running in<br>that instance. For more information, see [Understanding split cost allocation<br>data](split-cost-allocation-data.md "split-cost-allocation-data.md"). | TRUE, FALSE            |
+| INCLUDE_CAPACITY_RESERVATION_DATA     | \*_Note:_<br>• This configuration only adds data in the new columns starting November 1, 2025.<br>Enabling this configuration changes the cost and usage line items in<br>the CUR 2.0 table to have resource-level granularity when an instance usage is split across<br>multiple capacity reservations or used partially in a capacity reservationin an hour. This also adds<br>3 new columns to the table schema, which show how an EC2<br>instance is launched in a capacity reservation.                                                             | TRUE, FALSE            |
 | INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY | \*_Note:_<br>• This configuration only applies to AWS<br>customers who have onboarded to the Discount Automation program<br>where discounts are computed automatically.<br>This configuration changes the discounts in the CUR 2.0 table<br>to appear as when they were added "manually" to the CUR, usually<br>as separate line items, and removes two columns from the schema<br>("discount" and "total_discount").                                                                                                                                    | TRUE, FALSE            |
 
 ## AWS Organizations support
@@ -90,3 +92,5 @@ There are 125 possible columns in the CUR 2.0 table, grouped as follows:
   that apply to the line item.
 - **Split line item:** Data about split cost
   allocation for another line item.
+- **Capacity Reservation:** Data about capacity
+  reservation that applies to the line item.

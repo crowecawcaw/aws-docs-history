@@ -58,7 +58,14 @@ export.
     	 of your resources (that is, ECS tasks and Kubernetes pods). This might increase
     	 the size of your Cost and Usage Report significantly, based on your AWS
     	 usage.
-    	3. Select **Enable manual discount format** to convert your
+    	3. Select **Include Capacity reservation data** to include the Capacity
+    	 reservation columns and row-level granularity in the export.
+
+
+    	###### Note
+
+    	Including Capacity reservation data creates 3 new columns and can split the instance line items, based on your AWS usage.
+    	4. Select **Enable manual discount format** to convert your
     	 discounts so that they appear in the Cost and Usage Report in the manual discount
     	 format instead of the standard automated format.
 
@@ -67,7 +74,7 @@ export.
 
     	This option only appears if you are on the discount automation
     	 program.
-    	4. For **Time granularity**, choose between hourly, daily, or
+    	5. For **Time granularity**, choose between hourly, daily, or
     	 monthly to have the line items in the export aggregated by that time
     	 granularity.
     2. For **FOCUS 1.0 with AWS columns**, there are no
