@@ -17,6 +17,7 @@ You can filter new Amazon DocumentDB features on the [What's New with Database?]
 
 ###### Topics
 
+- [November 11, 2025](#release-notes.11-13-2025 "#release-notes.11-13-2025")
 - [October 22, 2025](#release-notes.10-22-2025 "#release-notes.10-22-2025")
 - [October 16, 2025](#release-notes.10-16-2025 "#release-notes.10-16-2025")
 - [October 13, 2025](#release-notes.10-13-2025 "#release-notes.10-13-2025")
@@ -91,6 +92,22 @@ You can filter new Amazon DocumentDB features on the [What's New with Database?]
 - [July 10, 2020](#release-notes.07-10-2020 "#release-notes.07-10-2020")
 - [June 30, 2020](#release-notes.06-30-2020 "#release-notes.06-30-2020")
 
+## November 11, 2025
+
+### New features
+
+Amazon DocumentDB now offers full wire protocol compatibility with MongoDB 8.0. Amazon DocumentDB 8.0 improves query performance enabling you to build high-performance applications at a lower cost.
+
+**Amazon DocumentDB 8.0 (Engine Patch Version 4.0.4448)**
+
+- Added support for MongoDB 8.0 API drivers.
+- Added support for Planner Version3 that extends performance improvements to aggregation stage operators, along with supporting aggregation pipeline optimizations and distinct commands.
+- Added Support for dictionary-based compression through the Zstandard compression algorithm, improving compression ration by 5x.
+- Added new capabilities: Amazon DocumentDB 8.0 supports collation and views.
+- Added support for new aggregation stages and operators: $replaceWith, $vectorSearch, $merge, $set, $unset, $bucket, and 3 new aggregation operators $pow, $rand, $dateTrunc.
+- Added support for a new version of text index: Text index v2 in Amazon DocumentDB 8.0 introduces additional tokens, enhancing text search capabilities.
+- Includes vector search improvements through parallel vector index build reducing index build time by up to 30x.
+
 ## October 22, 2025
 
 ### New features
@@ -102,7 +119,7 @@ For more information, see [Managing instance classes](db-instance-classes.md "db
 
 - Added support for longer collection name (namespace length up to 255 chars).
 - Introduced a new query planner (planner version 2.0).
-  For more information, see [Query planner](query-planner.md "query-planner.md") in this guide.
+  For more information, see [Query planner v2](query-planner.md "query-planner.md") in this guide.
 - Added new fields in `collstats` for "MVCCIDStats" and "gcRuntimeStats" that provide information into the overall health of the collection with respect to garbage collection and aging collections.
 
 **Amazon DocumentDB 4.0 (Engine Patch Version 2.0.11747)**

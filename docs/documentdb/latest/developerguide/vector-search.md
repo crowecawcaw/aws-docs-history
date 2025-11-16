@@ -17,6 +17,7 @@ Vector search is available on Amazon DocumentDB 5.0 instance-based clusters.
 - [Querying vectors](#w5aac21c11c15 "#w5aac21c11c15")
 - [Features and limitations](#vector-limitations "#vector-limitations")
 - [Best practices](#w5aac21c11c19 "#w5aac21c11c19")
+- [New Operator - $vectorSearch](#w5aac21c11c21 "#w5aac21c11c21")
 
 ## Inserting vectors
 
@@ -323,3 +324,39 @@ This section is continually updated as new best practices are identified.
 - [Vector search what's new blog post](https://aws.amazon.com/blogs/aws/vector-search-for-amazon-documentdb-with-mongodb-compatibility-is-now-generally-available "https://aws.amazon.com/blogs/aws/vector-search-for-amazon-documentdb-with-mongodb-compatibility-is-now-generally-available")
 - [Semantic search code sample](https://github.com/aws-samples/amazon-documentdb-samples/tree/master/blogs/semanticsearch-docdb "https://github.com/aws-samples/amazon-documentdb-samples/tree/master/blogs/semanticsearch-docdb")
 - [Amazon DocumentDB vector search code samples](https://github.com/aws-samples/amazon-documentdb-samples/tree/master/samples/vector-search "https://github.com/aws-samples/amazon-documentdb-samples/tree/master/samples/vector-search")
+
+## New Operator - $vectorSearch
+
+Amazon DocumentDB 8.0 supports the MongoDB compatible $vectorSearch operator. Maximum dimension size you can use with $vectorSearch is 2000.
+
+**Key Capabilities**
+
+- HNSW (Hierarchical Navigable Small Worlds): HNSW builds a multi-layered graph where the top layers have fewer nodes for fast navigation, while lower layers have more nodes for precise searches.
+  Searches start at the top layer and quickly narrow down the search space. The graph structure connects data points based on proximity, with denser connections in lower layers.
+- Improved Performance: HNSW provides better query performance, logarithmic search time scaling, robustness to data distribution, and efficient insertions for dynamic datasets.
+  HNSW is a good choice for dynamic datasets or applications needing the fastest searches and accepting higher memory usage.
+- IVFF (Inverted File with Flat Compression): IVFFlat divides the vector space into clusters using algorithms like k-means clustering.
+  It finds the closest clusters to a query vector and searches within them to find the nearest vectors.
+  IVFFlat offers faster build times and lower memory usage than HNSW, and its searches are easier to parallelize. However, its query performance might be lower for high-recall searches, as it's more sensitive to data distribution and doesn't handle incremental updates as well as HNSW. It is best suited for static datasets or scenarios prioritizing faster build times and lower memory usage
+
+**Syntax**
+
+```
+
+   db.collection.aggregate([
+  {
+    $search: {
+      "vectorSearch": {
+        "vector": query vector,
+        "path": name of the vector_field,
+        "similarity": distance metric,
+        "k": number of results,
+        "probes":number of probes [applicable for IVFFlat],
+        "efSearch":size of the dynamic list during search [applicable for HNSW]
+      }
+    }
+  }
+]);
+
+
+```

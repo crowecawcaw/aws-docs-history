@@ -86,6 +86,7 @@ The following table shows the AWS regions where Amazon DocumentDB elastic cluste
 
 Elastic clusters support the MongoDB 5.0-compatable wire protocol.
 For differences between Amazon DocumentDB 4.0 instance-based clusters and elastic clusters, see [Functional differences between Amazon DocumentDB 4.0 and elastic clusters](elastic-how-it-works.md#elastic-functional-differences "elastic-how-it-works.md#elastic-functional-differences").
+Note: Elastic Clusters are not supported on Amazon DocumentDB 8.0
 
 ## Limitations
 

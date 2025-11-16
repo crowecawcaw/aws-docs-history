@@ -24,7 +24,7 @@ Using the AWS Management Console
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Hamburger menu icon with three horizontal lines.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the **Parameter groups** pane, choose the name of the cluster parameter group that you want to see the details of. 4. The resulting page shows the following values for each parameter: the parameter's name,
 current value, allowed values, whether the parameter is modifiable, apply
 type, data type, and description.

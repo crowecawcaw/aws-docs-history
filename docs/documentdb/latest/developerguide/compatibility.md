@@ -1,13 +1,68 @@
 # Amazon DocumentDB compatibility with MongoDB
 
-Amazon DocumentDB supports MongoDB compatibility including MongoDB 4.0 and MongoDB 5.0.
+Amazon DocumentDB supports MongoDB compatibility including MongoDB 4.0, MongoDB 5.0, and MongoDB 8.0.
 MongoDB compatibility means that a vast majority of the applications, drivers, and tools you already use today with your MongoDB databases can be used with Amazon DocumentDB with little or no change.
 This section describes everything you need to know about Amazon DocumentDB compatibility with MongoDB including new capabilities and features, getting started, migrations paths, and functional differences.
 
 ###### Topics
 
+- [MongoDB 8.0 compatibility](#mongodb-80 "#mongodb-80")
 - [MongoDB 5.0 compatibility](#mongodb-50 "#mongodb-50")
 - [MongoDB 4.0 compatibility](#mongodb-40 "#mongodb-40")
+
+## MongoDB 8.0 compatibility
+
+###### Topics
+
+- [What's new in Amazon DocumentDB 8.0](#compatibility-whatsnew-8 "#compatibility-whatsnew-8")
+- [Get started with Amazon DocumentDB](#compatibility-getstarted-5 "#compatibility-getstarted-5")
+- [Upgrade or migrate to Amazon DocumentDB 5.0 or 8.0](#compatibility-upgrade-5 "#compatibility-upgrade-5")
+- [Functional differences](#compatibility-differences-5 "#compatibility-differences-5")
+
+### What's new in Amazon DocumentDB 8.0
+
+Amazon DocumentDB 8.0 improves query performance by up to 7x, and improves compression ratio by up to 5x, enabling you to build high-performance applications at a lower cost.
+Amazon DocumentDB 8.0 has full wire protocol compatibility with MongoDB 8.0.
+The summary below introduces some of major features that were introduced in Amazon DocumentDB 8.0.
+To see a full list of the new capabilities, see the [Release notes](release-notes.md "release-notes.md").
+
+- Provides compatibility with MongoDB 8.0 by adding support for MongoDB 8.0 API drivers. Also supports applications that are built using MongoDB API versions 6.0 and 7.0.
+- New query planner in Amazon DocumentDB 8.0 extends performance improvements to aggregation stage operators, along with supporting aggregation pipeline optimizations and distinct commands.
+- Amazon DocumentDB 8.0 supports collation and views.
+- Offers 6 new aggregation stages: $replaceWith, $vectorSearch, $merge, $set, $unset, $bucket, and 3 new aggregation operators $pow, $rand, $dateTrunc.
+- A new version of text index: Text index v2 in Amazon DocumentDB 8.0 introduces additional tokens, enhancing text search capabilities.
+- Through parallel vector index build, Amazon DocumentDB 8.0 reduces index build time by up to 30x.
+
+### Get started with Amazon DocumentDB 8.0
+
+To get started with Amazon DocumentDB 8.0, please see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
+You can create a new Amazon DocumentDB 8.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or AWS CloudFormation.
+When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
+
+###### Note
+
+When using the AWS SDK, AWS CLI, or AWS CloudFormation, the engine version will default to 5.0.0.
+You must explicitly specify the parameter `engineVersion = 8.0.0` to create a new Amazon DocumentDB 8.0 cluster or `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
+For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
+
+Amazon DocumentDB 5.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
+For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/").
+
+### Upgrade or migrate to Amazon DocumentDB 5.0 or 8.0
+
+You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 5.0 or Amazon DocumentDB 8.0 using the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [`mongodump`, `mongorestore`, `mongoimport`, and `mongoexport`](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
+For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.md "docdb-migration.md").
+
+### Functional differences
+
+#### Functional differences between Amazon DocumentDB 5.0 and 8.0
+
+With the release of Amazon DocumentDB 8.0, there are functional differences between Amazon DocumentDB 5.0 and Amazon DocumentDB 8.0:
+
+- Planner v1 is the default query planner in Amazon DocumentDB 5.0, whereas the more performant Planner v3 is the default in Amazon DocumentDB 8.0.
+- New features in Amazon DocumentDB 8.0 including Views, Collation and operators like $merge are compatible only with Planner v3.
+- Compression is turned ON by default in Amazon DocumentDB 8.0 and is set to use Zstandard algorithm. Furthermore, in Amazon DocumentDB 8.0 'enabled' is no longer a valid choice; you may select from Zstd, LZ4 and none.
+- Newer capabilities of Amazon DocumentDB 5.0 including Serverless and R8g instances are currently not available in Amazon DocumentDB 8.0.
 
 ## MongoDB 5.0 compatibility
 

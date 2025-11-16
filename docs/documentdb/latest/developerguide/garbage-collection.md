@@ -60,7 +60,7 @@ During high write activity, the GC process executes more frequently to manage th
 - **Recommendation** — Set an alarm when the value falls below 1.3 billion.
   This early warning allows you to take recommended steps discussed later.
 
-**`LongestRunningGCProcess`**
+**`LongestActiveGCRuntime`**
 
 - **Location** — Amazon CloudWatch
 - **Description** — Duration in seconds of the longest active garbage collection process.
@@ -166,7 +166,7 @@ Monitor these warning signs that indicate inefficient garbage collection:
 - **Excessive collection bloat** — Steadily increasing `UnusedStorageSize` metrics during heavy writes or bulk deletions, especially with large indexes
 - **Degraded query latency** — Increased query latency due to accumulated dead documents
 - **Extended GC duration** — Garbage collection operations taking longer than historical averages in `GCRuntimeStats`
-- **Elevated GC processing** — High `LongestRunningGCProcess` indicating the garbage collector cannot keep up with system demands
+- **Elevated GC processing** — High `LongestActiveGCRuntime` indicating the garbage collector cannot keep up with system demands
 
 ### Does garbage collection affect my database performance?
 
@@ -194,7 +194,7 @@ This gives you adequate time to take action before the metric reaches zero, at w
 Keep in mind that this metric may fluctuate based on your specific usage patterns.
 Some customers see it drop below 1.3 billion and then recover above 1.5 billion as garbage collection completes its work.
 
-It's also important to monitor the `LongestRunningGCProcess` metric through CloudWatch.
+It's also important to monitor the `LongestActiveGCRuntime` metric through CloudWatch.
 This metric, along with `GCRuntimeStats`, helps you understand how efficiently garbage collection is performing across your system.
 
 **For collection-level monitoring**

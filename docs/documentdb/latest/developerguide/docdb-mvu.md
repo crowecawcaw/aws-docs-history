@@ -3,9 +3,11 @@
 Amazon DocumentDB makes new versions of database engines generally available only after extensive testing.
 You can choose how and when to upgrade your Amazon DocumentDB clusters to the new version.
 
-Currently, Amazon DocumentDB supports three major versions: Amazon DocumentDB 3.6, 4.0, and 5.0.
+Currently, Amazon DocumentDB supports four major versions: Amazon DocumentDB 3.6, 4.0, 5.0, and 8.0.
 You can perform an in-place major version upgrade (MVU) of your database while keeping the same endpoints, storage, and tags of the clusters and can continue using your applications without any modifications.
 This feature is available for free in all regions where Amazon DocumentDB 5.0 is available.
+
+Note: MVU is currently not supported for Amazon DocumentDB 8.0.
 
 ###### Important
 
@@ -26,6 +28,7 @@ Once your cluster has been upgraded, you cannot downgrade the cluster to previou
 ## MVU prerequisites and limitations
 
 The following are prerequisites and limitations to in-place major version upgrade that you may need to understand and act on before performing the upgrade:
+(Note: MVU is currently not supported for Amazon DocumentDB 8.0.)
 
 - **Instance Type** — Amazon DocumentDB 4.0/5.0 does not support r4.\* instances.
   In order to proceed with an in-place major version upgrade, modify r4.\* instances to r5.\* instances.

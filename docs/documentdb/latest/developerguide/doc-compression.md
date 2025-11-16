@@ -1,13 +1,13 @@
 # Managing collection-level document compression
 
-Amazon DocumentDB collection-level document compression allows you to lower storage and IO costs by compressing the documents in your collections.
+Amazon DocumentDB 5.0 collection-level document compression allows you to lower storage and IO costs by compressing the documents in your collections.
 You can enable document compression at a collection level and view compression metrics as needed by measuring the storage gains through compression metrics such as storage size of compressed documents and compression status.
-Amazon DocumentDB uses the LZ4 compression algorithm to compress documents.
+Amazon DocumentDB 5.0 uses the LZ4 compression algorithm to compress documents.
 
 Amazon DocumentDB supports document compression starting with version 5.0.
 The following are collection-level document compression functions:
 
-- **Default behavior** — The default compression setting for new collections on a cluster is determined by the cluster parameter `default_collection_compression`.
+- **Default behavior** — The default compression setting for new collections on a 5.0 cluster is determined by the cluster parameter `default_collection_compression`.
   This parameter is set to “disabled” by default.
 - **Compressing existing collections** — The compression setting for existing collections can be changed using the `collMod` command.
 - **Changing the compression threshold** — The default compression threshold is 2KB.
@@ -26,7 +26,7 @@ Amazon DocumentDB document compression is not supported on Amazon DocumentDB ver
 
 ### Enabling document compression in a collection
 
-Enable document compression while creating a collection onAmazon DocumentDB by using `db.createCollection()` method:
+Enable document compression while creating a collection on Amazon DocumentDB 5.0 by using `db.createCollection()` method:
 
 ```
 db.createCollection( sample_collection,{

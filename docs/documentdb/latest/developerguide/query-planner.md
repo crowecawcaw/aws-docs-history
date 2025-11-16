@@ -1,4 +1,4 @@
-# Query planner
+# Query planner v2
 
 The new query planner for Amazon DocumentDB (planner version 2.0) features advanced query optimization capabilities and improved performance.
 Planner version 2.0 for Amazon DocumentDB 5.0 delivers up to 10x performance improvement over the prior version when using `find` and `update` operators with indexes.
@@ -149,7 +149,7 @@ db.foo.find({"x":2,
 "y":$in:[1,2,3,4]}).sort({x:1,y:1})
 ```
 
-It also improves the performance of queries that use multikey indexes with `$in` elements.
+It also improves the performance of queries that use multi-key indexes with `$in` elements.
 
 ```
 Sample Document: {"x": [1, 2, 3]}

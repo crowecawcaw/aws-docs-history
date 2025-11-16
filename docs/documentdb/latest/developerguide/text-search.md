@@ -1,6 +1,6 @@
 # Performing text search with Amazon DocumentDB
 
-Amazon DocumentDB's native full text search feature allows you to perform text search on large textual data sets using special purpose text indexes.
+Amazon DocumentDB's native full text search feature (Text Index v1) allows you to perform text search on large textual data sets using special purpose text indexes.
 This section describes the functionalities of the text index feature and provides steps on how to create and use text indexes in Amazon DocumentDB.
 Text search limitations are also listed.
 
@@ -10,6 +10,7 @@ Text search limitations are also listed.
 - [Using Amazon DocumentDB text index](#using-text-search "#using-text-search")
 - [Differences with MongoDB](#text-index-mongo-diff "#text-index-mongo-diff")
 - [Best practices and guidelines](#text-search-best-practice "#text-search-best-practice")
+- [Text Index V2](#text-index-v2 "#text-index-v2")
 - [Limitations](#text-search-limitations "#text-search-limitations")
 
 ## Supported functionalities
@@ -297,10 +298,43 @@ The following additional differences between Amazon DocumentDB text index and Mo
 - Text indexes require additional storage for an optimized internal copy of the indexed data.
   This has additional cost implications.
 
+## Text Index V2
+
+Amazon DocumentDB 8.0 introduces a new version of text index (V2) that changes underlying text search parser to bring more compatibility with the MongoDB.
+
+In addition to the functionalities provided by the V1 text indexes, V2 text indexes also provide the following support:
+
+- The planner moves $match stages earlier in the pipeline when possible, reducing the number of documents processed by subsequent stages.
+
+```
+
+rs0:PRIMARY> db.coll.createIndex({ "a": "text" });
+rs0:PRIMARY> db.coll.find()
+{ "_id" : 1, "a" : "jane.doe_1234@company.com" }
+{ "_id" : 2, "a" : "janedoe@company.com" }
+{ "_id" : 3, "a" : "/home/user/company/thesis.pdf" }
+{ "_id" : 4, "a" : "/home/user/path/jane.pdf" }
+{ "_id" : 5, "a" : "http://www.company.com/path" }
+{ "_id" : 6, "a" : "https://company.com/path/../home" }
+
+//Sample queries
+rs0:PRIMARY> db.coll.find({ $text: { $search: "jane" } });
+rs0:PRIMARY> db.coll.find({ $text: { $search: "doe_1234" } });
+rs0:PRIMARY> db.coll.find({ $text: { $search: "http" } });
+
+// Text Index V1 results
+None
+
+// Text Index V2 results
+{ "_id" : 1, "a" : "jane.doe_1234@company.com" }
+{ "_id" : 4, "a" : "/home/user/path/jane.pdf" }
+{ "_id" : 5, "a" : "http://www.company.com/path" }
+
+```
+
 ## Limitations
 
 Text search has the following limitations in Amazon DocumentDB:
 
-- Text search is supported on Amazon DocumentDB 5.0 instance-based clusters only.
 - Text indexes store lexemes and their position information.
   The combined size of all lexemes and their position information, within a single document, is limited to 1MB.
