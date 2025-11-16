@@ -54,10 +54,15 @@ security configuration commands.
 
 ## Batch
 
-Amazon Keyspaces supports unlogged batch commands with up to 30 commands in the batch. Only
-unconditional **INSERT**, **UPDATE**, or
-**DELETE** commands are permitted in a batch. Logged batches are not
-supported.
+Amazon Keyspaces supports the following batch commands:
+
+- **Logged batch** – supports up to 100 commands per
+  batch.
+- **Unlogged batch** – supports up to 30 commands per
+  batch.
+
+Only **INSERT**, **UPDATE**, or
+**DELETE** commands are permitted in a batch.
 
 ## Change data capture (CDC)
 

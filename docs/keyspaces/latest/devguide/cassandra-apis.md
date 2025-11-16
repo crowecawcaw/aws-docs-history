@@ -31,7 +31,7 @@ The following sections list the supported functionality.
 | `CREATE INDEX`             | No        |
 | `DROP INDEX`               | No        |
 | `UNLOGGED BATCH`           | Yes       |
-| `LOGGED BATCH`             | No        |
+| `LOGGED BATCH`             | Yes       |
 | `SELECT`                   | Yes       |
 | `INSERT`                   | Yes       |
 | `DELETE`                   | Yes       |

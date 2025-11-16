@@ -1,37 +1,37 @@
-# Read data from a table using the CQL `SELECT` statement in Amazon Keyspaces
+# Delete data from a table using the CQL `DELETE` statement
 
-In the [Inserting and loading data into
-an Amazon Keyspaces table](getting-started.dml.md "getting-started.dml.md") section, you used the
-`SELECT` statement to verify that you had successfully added data to your
-table. In this section, you refine your use of `SELECT` to display specific
-columns, and only rows that meet specific criteria.
+To delete data in your `book_awards` table, use the `DELETE`
+statement.
 
-The general form of the `SELECT` statement is as follows.
+You can delete data from a row or from a partition. Be careful when deleting data, because
+deletions are irreversible.
+
+Deleting one or all rows from a table doesn't delete the table. Thus you can
+repopulate it with data. Deleting a table deletes the table and all data in it. To use
+the table again, you must re-create it and add data to it. Deleting a keyspace deletes
+the keyspace and all tables within it. To use the keyspace and tables, you must
+re-create them, and then populate them with data. You can use Amazon Keyspaces Point-in-time (PITR) recovery to
+help restore deleted tables, to learn more see [Backup and restore data with point-in-time recovery for Amazon Keyspaces](PointInTimeRecovery.md "PointInTimeRecovery.md") .
+To learn how to restore a deleted table with PITR enabled, see [Restore a deleted table using Amazon Keyspaces PITR](restoredeleted.md "restoredeleted.md").
+
+## Delete cells
+
+Deleting a column from a row removes the data from the specified cell. When you
+display that column using a `SELECT` statement, the data is displayed as
+`null`, though a null value is not stored in that
+location.
+
+The general syntax to delete one or more specific columns is as follows.
 
 ```
-SELECT `column_list` FROM `table_name` [WHERE `condition` [ALLOW FILTERING]] ;
+DELETE column_name1[, column_name2...] FROM table_name WHERE condition ;
 ```
 
-###### Topics
+In your `book_awards` table, you can see that the title of the
+book that won the first price of the 2020 "Richard Roe" price is "Long Summer".
+Imagine that this title has been recalled, and you need to delete the data from this cell.
 
-- [Select all the data in your
-  table](#getting-started.dml.read.all "#getting-started.dml.read.all")
-- [Select a subset of
-  columns](#getting-started.dml.read.columns "#getting-started.dml.read.columns")
-- [Select a subset of rows](#getting-started.dml.read.rows "#getting-started.dml.read.rows")
-
-## Select all the data in your
-
-table
-
-The simplest form of the `SELECT` statement returns all the data in your table.
-
-###### Important
-
-In a production environment, it's typically not a best practice to run this
-command, because it returns all the data in your table.
-
-###### To select all your table's data
+###### To delete a specific cell
 
 1. Open AWS CloudShell and connect to Amazon Keyspaces using the following command. Make sure to update `us-east-1`
    with your own Region.
@@ -40,34 +40,37 @@ command, because it returns all the data in your table.
 cqlsh-expansion cassandra.`us-east-1`.amazonaws.com 9142 --ssl
 ```
 
-2. Run the following query.
+2. Run the following `DELETE` query.
 
 ```
-SELECT * FROM catalog.book_awards ;
+DELETE book_title FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
 ```
 
-Using the wild-card character ( `*` ) for the
-`column_list` selects all columns. The output of the statement looks like the following example.
+3. Verify that the delete request was made as expected.
+
+```
+SELECT * FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
+```
+
+The output of this statement looks like this.
 
 ```
  `year | award | category | rank | author | book_title | publisher
-------+------------------+-------------+------+--------------------+-----------------------+---------------
- 2020 | Wolf | Non-Fiction | 1 | Wang Xiulan | History of Ideas | AnyPublisher
- 2020 | Wolf | Non-Fiction | 2 | Ana Carolina Silva | Science Today | SomePublisher
- 2020 | Wolf | Non-Fiction | 3 | Shirley Rodriguez | The Future of Sea Ice | AnyPublisher
- 2020 | Kwesi Manu Prize | Fiction | 1 | Akua Mansa | Where did you go? | SomePublisher
- 2020 | Kwesi Manu Prize | Fiction | 2 | John Stiles | Yesterday | Example Books
- 2020 | Kwesi Manu Prize | Fiction | 3 | Nikki Wolf | Moving to the Chateau | AnyPublisher
- 2020 | Richard Roe | Fiction | 1 | Alejandro Rosalez | Long Summer | SomePublisher
- 2020 | Richard Roe | Fiction | 2 | Arnav Desai | The Key | Example Books
- 2020 | Richard Roe | Fiction | 3 | Mateo Jackson | Inside the Whale | AnyPublisher`
+------+-------------+----------+------+-------------------+------------+---------------
+ 2020 | Richard Roe | Fiction | 1 | Alejandro Rosalez | null | SomePublisher`
 ```
 
-## Select a subset of
+## Delete rows
 
-columns
+There might be a time when you need to delete an entire row, for example to meet
+a data deletion request. The general syntax for deleting a row is as
+follows.
 
-###### To query for a subset of columns
+```
+DELETE FROM table_name WHERE condition ;
+```
+
+###### To delete a row
 
 1. Open AWS CloudShell and connect to Amazon Keyspaces using the following command. Make sure to update `us-east-1`
    with your own Region.
@@ -76,127 +79,25 @@ columns
 cqlsh-expansion cassandra.`us-east-1`.amazonaws.com 9142 --ssl
 ```
 
-2. To retrieve only the `award`, `category`, and
-   `year` columns, run the following query.
+2. Run the following `DELETE` query.
 
 ```
-SELECT award, category, year FROM catalog.book_awards ;
+DELETE FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
 ```
 
-The output contains only the specified columns in the order listed in the
-`SELECT` statement.
+3. Verify that the delete was made as expected.
 
 ```
- `award | category | year
-------------------+-------------+------
- Wolf | Non-Fiction | 2020
- Wolf | Non-Fiction | 2020
- Wolf | Non-Fiction | 2020
- Kwesi Manu Prize | Fiction | 2020
- Kwesi Manu Prize | Fiction | 2020
- Kwesi Manu Prize | Fiction | 2020
- Richard Roe | Fiction | 2020
- Richard Roe | Fiction | 2020
- Richard Roe | Fiction | 2020`
+SELECT * FROM catalog.book_awards WHERE year=2020 AND award='Richard Roe' AND category='Fiction' AND rank=1;
 ```
 
-## Select a subset of rows
-
-When querying a large dataset, you might only want records that meet certain
-criteria. To do this, you can append a `WHERE` clause to the end of our
-`SELECT` statement.
-
-###### To query for a subset of rows
-
-1. Open AWS CloudShell and connect to Amazon Keyspaces using the following command. Make sure to update `us-east-1`
-   with your own Region.
-
-```
-cqlsh-expansion cassandra.`us-east-1`.amazonaws.com 9142 --ssl
-```
-
-2. To retrieve only the records for the awards of a given year, run the following query.
-
-```
-SELECT * FROM catalog.book_awards WHERE year=2020 AND award='Wolf' ;
-```
-
-The preceding `SELECT` statement returns the following output.
+The output of this statement looks like this after the row has been deleted.
 
 ```
  `year | award | category | rank | author | book_title | publisher
-------+-------+-------------+------+--------------------+-----------------------+---------------
- 2020 | Wolf | Non-Fiction | 1 | Wang Xiulan | History of Ideas | AnyPublisher
- 2020 | Wolf | Non-Fiction | 2 | Ana Carolina Silva | Science Today | SomePublisher
- 2020 | Wolf | Non-Fiction | 3 | Shirley Rodriguez | The Future of Sea Ice | AnyPublisher`
+------+-------+----------+------+--------+------------+-----------
+
+(0 rows)`
 ```
 
-### Understanding the `WHERE`
-
-clause
-
-The `WHERE` clause is used to filter the data and return only the data that
-meets the specified criteria. The specified criteria can be a simple condition or a compound
-condition.
-
-###### How to use conditions in a `WHERE` clause
-
-- A simple condition – A single column.
-
-```
-WHERE column_name=value
-```
-
-You can use a simple condition in a `WHERE` clause if any of
-the following conditions are met:
-
-    + The column is the only partition key column of the table.
-    + You add `ALLOW FILTERING` after the condition in the `WHERE`
-     clause.
-
-
-    Be aware that using `ALLOW FILTERING` can result in inconsistent performance,
-     especially with large, and multi-partitioned tables.
-
-- A compound condition – Multiple simple conditions connected by
-  `AND`.
-
-```
-WHERE column_name1=value1 AND column_name2=value2 AND column_name3=value3...
-```
-
-You can use compound conditions in a `WHERE` clause if any of
-the following conditions are met:
-
-    + The columns you can use in the `WHERE` clause need to include either all or a subset of the columns in the
-     table's partition key.
-     If you want to use only a subset of the columns in the `WHERE` clause, you must include a contiguous set of partition
-     key columns from left to right, beginning with the partition key's leading column. For example, if the partition
-     key columns are `year`, `month`, and `award` then you can use the following columns in the
-     `WHERE` clause:
-
-
-
-
-    	- `year`
-    	- `year` AND `month`
-    	- `year` AND `month` AND `award`
-    + You add `ALLOW FILTERING` after the compound condition
-     in the `WHERE` clause, as in the following example.
-
-
-
-    ```
-    SELECT * FROM my_table WHERE col1=5 AND col2='Bob' ALLOW FILTERING ;
-    ```
-
-    Be aware that using `ALLOW FILTERING` can result in inconsistent performance,
-     especially with large, and multi-partitioned tables.
-
-### Try it
-
-Create your own CQL queries to find the following from your
-`book_awards` table:
-
-- Find the winners of the 2020 Wolf awards and display the book titles and authors, ordered by rank.
-- Show the first prize winners for all awards in 2020 and display the book titles and award names.
+You can delete expired data automatically from your table using Amazon Keyspaces Time to Live, for more information, see [Expire data with Time to Live (TTL) for Amazon Keyspaces (for Apache Cassandra)](TTL.md "TTL.md").

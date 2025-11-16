@@ -9,5 +9,6 @@ complete language syntax with examples, see [DML statements (data manipulation l
 ###### Topics
 
 - [Use the IN operator with the SELECT statement in a query in Amazon Keyspaces](in.md "in.md")
+- [Use batch statements in Amazon Keyspaces](batchStatements.md "batchStatements.md")
 - [Order results with ORDER BY in Amazon Keyspaces](ordering-results.md "ordering-results.md")
 - [Paginate results in Amazon Keyspaces](paginating-results.md "paginating-results.md")

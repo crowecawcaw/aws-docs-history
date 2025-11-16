@@ -1,16 +1,5 @@
-# Configure and update Amazon Keyspaces automatic scaling policies
+# View auto scaling activity for a Amazon Keyspaces table in Amazon CloudWatch
 
-You can use the console, CQL, or the AWS Command Line Interface (AWS CLI) to configure Amazon Keyspaces automatic scaling for new and existing tables.
-You can also modify automatic scaling settings or disable automatic scaling.
-
-For more advanced features like setting scale-in and scale-out cooldown times, we recommend that you
-use CQL or the AWS CLI to manage Amazon Keyspaces scaling policies.
-
-###### Topics
-
-- [Configure permissions for Amazon Keyspaces automatic scaling](autoscaling.md "autoscaling.md")
-- [Create a new table with automatic scaling](autoscaling.md "autoscaling.md")
-- [Configure automatic scaling on an existing table](autoscaling.md "autoscaling.md")
-- [View your table's Amazon Keyspaces auto scaling configuration](autoscaling.md "autoscaling.md")
-- [Turn off Amazon Keyspaces auto scaling for a table](autoscaling.md "autoscaling.md")
-- [View auto scaling activity for a Amazon Keyspaces table in Amazon CloudWatch](autoscaling.md "autoscaling.md")
+You can monitor how Amazon Keyspaces automatic scaling uses resources by using Amazon CloudWatch,
+which generates metrics about your usage and performance. Follow the steps in the [Application Auto Scaling User Guide](../../../autoscaling/application/userguide/monitoring-cloudwatch.md "../../../autoscaling/application/userguide/monitoring-cloudwatch.md") to create a CloudWatch
+dashboard.
