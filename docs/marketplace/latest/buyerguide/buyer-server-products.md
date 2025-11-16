@@ -73,5 +73,5 @@ archival, any product version that has been restricted by a seller for longer th
 is automatically archived. Archived versions are no longer available to launch from AWS Marketplace
 for new customers, however existing users can continue to use the archived version through
 launch templates and Amazon EC2 Auto Scaling groups by specifying the AMI ID. Any archived version that has
-not been used to launch a new instances in the past 13 months is deleted. After an archived
+not been used to launch a new instances in the past 13 months is deleted. Once an archived
 version is deleted, it is no longer available to launch for new or existing users.

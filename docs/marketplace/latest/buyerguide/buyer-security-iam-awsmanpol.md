@@ -187,9 +187,17 @@ policy: AWSPrivateMarketplaceRequests
 You can attach the `AWSPrivateMarketplaceRequests` policy to your IAM
 identities.
 
-This policy grants contributor permissions that allow access to request products be
-added to your private marketplace, and to view those requests. These requests must be
-approved or denied by a private marketplace administrator.
+This policy grants contributor permissions that allow access to request products to be
+added to their Private Marketplace experience, and to view those requests. These requests must be
+approved or declined by a Private Marketplace administrator.
+
+The permissions are organized into multiple groups:
+
+1. `LegacyPrivateMarketplaceRequestsPermissions`: These permissions are used by legacy Private Marketplace which will be deprecated. For details, see [Private marketplaces in AWS Marketplace (legacy version)](private-marketplace.md "private-marketplace.md").
+2. `PrivateMarketplaceManageRequestsPermissions`: These permissions are required to create and cancel product approval requests.
+3. `PrivateMarketplaceReadRequestsPermissions` and `PrivateMarketplaceListRequestsPermissions`: These permissions are required to list and get details of the product approval requests.
+4. `PrivateMarketplaceReadChangeSetPermissions`: These permissions are required to list and get details of change sets to create and cancel requests. See [Working with change sets](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets") in the _AWS Marketplace API Reference_.
+5. `PrivateMarketplaceTaggingRequestsPermissions`: The tagging permissions are optional and allow users to tag the requests. See [Managing tags on resources](../../../marketplace-catalog/latest/api-reference/managing-tags.md "../../../marketplace-catalog/latest/api-reference/managing-tags.md") in the _AWS Marketplace API Reference_.
 
 To view the permissions for this policy, see [AWSPrivateMarketplaceRequests](../../../aws-managed-policy/latest/reference/AWSPrivateMarketplaceRequests.md "../../../aws-managed-policy/latest/reference/AWSPrivateMarketplaceRequests.md") in the _AWS
 Managed Policy Reference_.
@@ -198,9 +206,9 @@ Managed Policy Reference_.
 
 AWSServiceRoleForPrivateMarketplaceAdminPolicy
 
-You can't attach the `AWSServiceRoleForPrivateMarketplaceAdminPolicy` to your
-IAM entities. This policy is attached to a service-linked role that allows AWS Marketplace
-to perform actions on your behalf. For more information, see [Using service-linked roles for
+You can't attach the `AWSServiceRoleForPrivateMarketplaceAdminPolicy` to
+your IAM entities. This policy is attached to a service-linked role that allows
+AWS Marketplace to perform actions on your behalf. For more information, see [Using service-linked roles for
 AWS Marketplace](buyer-using-service-linked-roles.md "buyer-using-service-linked-roles.md").
 
 This policy grants contributor permissions that allow AWS Marketplace to describe and update
@@ -273,6 +281,7 @@ equal to a seller for the purposes of this guide.
 
 | Change                                                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                         | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSPrivateMarketplaceRequests](#security-iam-awsmanpol-awsprivatemarketplacerequests "#security-iam-awsmanpol-awsprivatemarketplacerequests") — updates to<br>existing policy                                                                                                                                                | AWS Marketplace added permissions to create and cancel product approval requests, list and get details of the product approval requests, and allow users to tag the requests.                                                       | November 17, 2025 |
 | [AWSPrivateMarketplaceAdminFullAccess](#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess "#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess") — updates to<br>existing policy                                                                                                                           | AWS Marketplace added service-linked role and Organizations integration permissions for Private Marketplace administrators.                                                                                                         | June 5, 2025      |
 | [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only "#security-iam-awsmanpol-awsmarketplaceread-only") and [AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions") — updates to<br>existing policies          | AWS Marketplace updated existing policies to remove policies related to the discontinued Private Image Build delivery method.                                                                                                       | May 7, 2025       |
 | [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only "#security-iam-awsmanpol-awsmarketplaceread-only") and [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions") — updates to<br>existing policies | AWS Marketplace updated existing policies to support listing agreement charges<br>and updating purchase orders in the AWS Marketplace console.                                                                                      | November 21, 2024 |

@@ -2,7 +2,7 @@
 
 Some products listed on AWS Marketplace offer free trials. The free trial enables you to try the
 software before you buy it. Free trials are limited to a certain amount of free usage, or for a
-specific amount of time. You can't pause a free trial period after it starts.
+specific amount of time. You can't pause a free trial period once it starts.
 
 ## Software and infrastructure
 
