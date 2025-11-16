@@ -99,9 +99,9 @@ Amazon Bedrock AgentCore supports JWTs from all identity providers. You can see 
 In the process of creating the JWT, you should record the following values that will be created:
 
 - **Discovery URL** – The URL from which login credentials and the token endpoint can be retrieved.
-- **Client ID** – The public identifier of a client application that requests a token.
+- **Client ID** – The public identifier of a client application that requests a token, validated against the `client_id` claim.
 - **Client secret** – The private key that authenticates access for the client application to retrieve a token.
-- **Allowed audience** – The identifier that validates the intended recipients or consumers of a token.
+- **Allowed audience** – The identifier that validates the intended recipients or consumers of a token via the `aud` claim.
 
 You'll need these values to do the following:
 

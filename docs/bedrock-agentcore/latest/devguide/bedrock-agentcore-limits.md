@@ -57,7 +57,7 @@ throttled:
 | Throttling limits                                              | Limit  | Value | Adjustable              | Notes |
 | -------------------------------------------------------------- | ------ | ----- | ----------------------- | ----- |
 | InvokeAgentRuntime API rate, per agent, per account            | 25 TPS | Yes   | Transactions per second |
-| New sessions created rate, per endpoint (container deployment) | 10 TPM | No    | Transactions per minute |
+| New sessions created rate, per endpoint (container deployment) | 10 TPM | Yes   | Transactions per minute |
 | Direct code deploy new session rate, per endpoint              | 25 TPS | Yes   | Transactions per second |
 | CreateAgentRuntime API rate                                    | 5 TPS  | Yes   | Transactions per second |
 | CreateAgentRuntimeEndpoint API rate                            | 5 TPS  | Yes   | Transactions per second |
