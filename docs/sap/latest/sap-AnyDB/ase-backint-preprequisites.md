@@ -110,8 +110,8 @@ See [Additional Parameters](ase-backint-install.md#ase-backint-additional-parame
 
 ### Data perimeter
 
-Service Control Policies (SCPs) may be used to control on an organization level which external S3 buckets may be used. The Backint Agent needs to be installed in your EC2 instance. In order to download it, you may want to access the official AWS S3 bucket where the installer binary is located from your EC2 instance. If you are using SCPs in your organization to prevent unintended access to external S3 buckets, it may be necessary to add a policy that explicitly allows access to the official AWS S3 bucket.
-The following example shows a Service Control Policy that is maintained in AWS Organizations and attached to a member account. It prevents all access to external S3 buckets and only allows specified S3 buckets.
+AWS Backint Agent must be installed on your Amazon EC2 instance. To download the installation binary, your EC2 instance needs access to the AWS-managed S3 buckets where the installer packages are hosted. If your organization uses data perimeter policies to control access to Amazon S3 in your environment, you might need to explicitly allow these service-owned buckets so that the EC2 instance can retrieve the required installer.
+The following policy shows an example Service control policy to permit access to service-owned resources through the resource perimeter, relevant service owned buckets are listed in the NotResource element of the policy.
 
 ```
 {
@@ -136,9 +136,7 @@ The following example shows a Service Control Policy that is maintained in AWS O
 }
 ```
 
-This policy denies access to all external S3 buckets that are not explicitly listed. Replace the placeholder with your Organization ID. This ID is in the form "o-<id>" where <id> is a 10 digit number.
-
-To allow S3 requests to traverse through an S3 VPC endpoint, a corresponding policy is required. Here is an example:
+The following policy shows an example VPC endpoint policy allowing access to specific service-owned resources through a VPC endpoint. Relevant service owned buckets are listed in the Resource element of the statement.
 
 ```
 {
