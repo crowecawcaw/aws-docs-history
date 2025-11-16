@@ -1,422 +1,160 @@
-# Error handling for T-SQL
+# Managing statistics for T-SQL
 
-This topic provides reference content comparing error handling approaches between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insights into the differences in error handling paradigms, syntax, and capabilities between these two database systems.
+This topic provides reference information about statistics management in Microsoft SQL Server and Amazon Aurora MySQL, which is crucial for database performance optimization. You can understand the differences and similarities in how these two database systems handle statistics creation, storage, and maintenance.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                               | Key differences                                                        |
-| ------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Error Handling](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.errorhandling "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.errorhandling") | Different paradigm and syntax requires rewrite of error handling code. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                              |
+| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------- |
+| Three star feature compatibility | No automation                      | N/A                       | Statistics contain only density information, and only for index key columns. |
 
 ## SQL Server Usage
 
-SQL Server error handling capabilities have significantly improved throughout the years. However, previous features are retained for backward compatibility.
+Statistics objects in SQL Server are designed to support cost-based query optimizer. It uses statistics to evaluate the various plan options and choose an optimal plan for optimal query performance.
 
-Before SQL Server 2008, only very basic error handling features were available. `RAISERROR` was the primary statement used for error handling.
+Statistics are stored as BLOBs in system tables and contain histograms and other statistical information about the distribution of values in one or more columns. A histogram is created for the first column only and samples the occurrence frequency of distinct values. Statistics and histograms are collected by either scanning the entire table or by sampling only a percentage of the rows.
 
-Starting from SQL Server 2008, SQL Server has added extensive .NET-like error handling capabilities including `TRY/CATCH` blocks, `THROW` statements, the `FORMATMESSAGE` function, and a set of system functions that return metadata for the current error condition.
+You can view Statistics manually using the `DBCC SHOW_STATISTICS` statement or the more recent `sys.dm_db_stats_properties` and `sys.dm_db_stats_histogram` system views.
 
-### TRY/CATCH Blocks
+SQL Server provides the capability to create filtered statistics containing a `WHERE` predicate. Filtered statistics are useful for optimizing histogram granularity by eliminating rows whose values are of less interest, for example NULLs.
 
-`TRY/CATCH` blocks implement error handling similar to Microsoft Visual C# and Microsoft Visual C++. `TRY …​ END TRY` statement blocks can contain T-SQL statements.
+SQL Server can manage the collection and refresh of statistics automatically, which is the default. Use the `AUTO_CREATE_STATISTICS` and `AUTO_UPDATE_STATISTICS` database options to change the defaults.
 
-If an error is raised by any of the statements within the `TRY …​ END TRY` block, the run stops and is moved to the nearest set of statements that are bounded by a `CATCH …​ END CATCH` block.
+When a query is submitted with `AUTO_CREATE_STATISTICS` on, and the query optimizer may benefit from a statistics that doesn’t yet exist, SQL Server creates the statistics automatically. You can use the `AUTO_UPDATE_STATISTICS_ASYNC` database property to set new statistics creation to occur immediately and causing queries to wait or to run asynchronously. When run asynchronously, the triggering run can’t benefit from optimizations the optimizer may derive from it.
 
-**Syntax**
+After creation of a new statistics object, either automatically or explicitly using the `CREATE STATISTICS` statement, the refresh of the statistics is controlled by the `AUTO_UPDATE_STATISTICS` database option. When set to `ON`, statistics are recalculated when they are stale, which happens when significant data modifications have occurred since the last refresh.
 
-```
-BEGIN TRY
-<Set of SQL Statements>
-END TRY
-BEGIN CATCH
-<Set of SQL Error Handling Statements>
-END CATCH
-```
-
-### THROW
-
-The `THROW` statement raises an exception and transfers run of the `TRY …​ END TRY` block of statements to the associated `CATCH …​ END CATCH` block of statements.
-
-Throw accepts either constant literals or variables for all parameters.
-
-**Syntax**
+### Syntax
 
 ```
-THROW [Error Number>, <Error Message>, < Error State>] [;]
+CREATE STATISTICS <Statistics Name>
+ON <Table Name> (<Column> [,...])
+[WHERE <Filter Predicate>]
+[WITH <Statistics Options>;
 ```
 
-**Examples**
+### Examples
 
-Use `TRY/CATCH` error blocks to handle key violations.
-
-```
-CREATE TABLE ErrorTest (Col1 INT NOT NULL PRIMARY KEY);
-```
+Create new statistics on multiple columns. Set to use a full scan and to not refresh.
 
 ```
-BEGIN TRY
-    BEGIN TRANSACTION
-        INSERT INTO ErrorTest(Col1) VALUES(1);
-        INSERT INTO ErrorTest(Col1) VALUES(2);
-        INSERT INTO ErrorTest(Col1) VALUES(1);
-    COMMIT TRANSACTION;
-END TRY
-BEGIN CATCH
-    THROW; -- Throw with no parameters = RETHROW
-END CATCH;
+CREATE STATISTICS MyStatistics
+ON MyTable (Col1, Col2)
+WITH FULLSCAN, NORECOMPUTE;
 ```
 
-```
-(1 row affected)
-(1 row affected)
-(0 rows affected)
-Msg 2627, Level 14, State 1, Line 7
-Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE54D8676973'.
-Cannot insert duplicate key in object 'dbo.ErrorTest'. The duplicate key value is (1).
-```
-
-###### Note
-
-Contrary to what many SQL developers believe, the values 1 and 2 are indeed inserted into `ErrorTestTable` in the preceding example. This behavior is in accordance with ANSI specifications stating that a constraint violation shouldn’t roll back an entire transaction.
-
-Use `THROW` with variables.
+Update statistics with a 50% sampling rate.
 
 ```
-BEGIN TRY
-BEGIN TRANSACTION
-INSERT INTO ErrorTest(Col1) VALUES(1);
-INSERT INTO ErrorTest(Col1) VALUES(2);
-INSERT INTO ErrorTest(Col1) VALUES(1);
-COMMIT TRANSACTION;
-END TRY
-BEGIN CATCH
-DECLARE @CustomMessage VARCHAR(1000),
-    @CustomError INT,
-    @CustomState INT;
-SET @CustomMessage = 'My Custom Text ' + ERROR_MESSAGE();
-SET @CustomError = 54321;
-SET @CustomState = 1;
-THROW @CustomError, @CustomMessage, @CustomState;
-END CATCH;
+UPDATE STATISTICS MyTable(MyStatistics)
+WITH SAMPLE 50 PERCENT;
 ```
 
-```
-(0 rows affected)
-Msg 54321, Level 16, State 1, Line 19
-My Custom Text Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE545CBDBB9A'.
-Cannot insert duplicate key in object 'dbo.ErrorTest'. The duplicate key value is (1).
-```
-
-### RAISERROR
-
-The `RAISERROR` statement is used to explicitly raise an error message, similar to `THROW`. It causes an error state for the running session and forwards run to either the calling scope or, if the error occurred within a `TRY …​ END TRY` block, to the associated `CATCH …​ END CATCH` block. `RAISERROR` can reference a user-defined message stored in the `sys.messages` system table or can be used with dynamic message text.
-
-The key differences between `THROW` and `RAISERROR` are:
-
-- Message IDs passed to `RAISERROR` must exist in the `sys.messages` system table. The error number parameter passed to `THROW` doesn’t.
-- `RAISERROR` message text may contain printf formatting styles. The message text of `THROW` may not.
-- `RAISERROR` uses the severity parameter for the error returned. For `THROW`, severity is always 16.
-
-**Syntax**
+View the statistics histogram and data.
 
 ```
-RAISERROR (<Message ID>|<Message Text> ,<Message Severity> ,<Message State>
-[WITH option [<Option List>]])
+DBCC SHOW_STATISTICS ('MyTable','MyStatistics');
 ```
 
-**Example**
-
-Raise a custom error.
+Turn off automatic statistics creation for a database.
 
 ```
-RAISERROR (N'This is a custom error message with severity 10 and state 1.', 10, 1)
+ALTER DATABASE MyDB SET AUTO_CREATE_STATS OFF;
 ```
 
-### FORMATMESSAGE
-
-`FORMATMESSAGE` returns a sting message consisting of an existing error message in the `sys.messages` system table, or from a text string, using the optional parameter list replacements. The `FORMATMESSAGE` statement is similar to the `RAISERROR` statement.
-
-**Syntax**
-
-```
-FORMATMESSAGE (<Message Number> | <Message String>, <Parameter List>)
-```
-
-### Error State Functions
-
-SQL Server provides the following error state functions:
-
-- ERROR_LINE
-- ERROR_MESSAGE
-- ERROR_NUMBER
-- ERROR_PROCEDURE
-- ERROR_SEVERITY
-- ERROR_STATE
-- @@ERROR
-
-**Examples**
-
-Use error state functions within a `CATCH` block.
-
-```
-CREATE TABLE ErrorTest (Col1 INT NOT NULL PRIMARY KEY);
-```
-
-```
-BEGIN TRY;
-    BEGIN TRANSACTION;
-        INSERT INTO ErrorTest(Col1) VALUES(1);
-        INSERT INTO ErrorTest(Col1) VALUES(2);
-        INSERT INTO ErrorTest(Col1) VALUES(1);
-    COMMIT TRANSACTION;
-END TRY
-BEGIN CATCH
-    SELECT ERROR_LINE(),
-        ERROR_MESSAGE(),
-        ERROR_NUMBER(),
-        ERROR_PROCEDURE(),
-        ERROR_SEVERITY(),
-        ERROR_STATE(),
-        @@Error;
-THROW;
-END CATCH;
-```
-
-```
-6
-Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE543C8912D8'.
-Cannot insert duplicate key in object 'dbo.ErrorTest'.
-The duplicate key value is (1).
-2627
-NULL
-14
-1
-2627
-```
-
-```
-(1 row affected)
-(1 row affected)
-(0 rows affected)
-(1 row affected)
-Msg 2627, Level 14, State 1, Line 25
-Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE543C8912D8'.
-Cannot insert duplicate key in object 'dbo.ErrorTest'.
-The duplicate key value is (1).
-```
-
-For more information, see [RAISERROR (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-ver15"), [TRY…​CATCH (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver15"), and [THROW (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15"), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15"), and [DBCC SHOW_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) offers a rich error handling framework with a different paradigm than SQL Server. The Aurora MySQL terminology is:
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports two modes of statistics management: persistent optimizer statistics and non-persistent optimizer statistics. As the name suggests, persistent statistics are written to disk and survive service restart. Non-persistent statistics are kept in memory only and need to be recreated after service restart. It is recommended to use persistent optimizer statistics (the default for Aurora MySQL) for improved plan stability.
 
-- `CONDITION` — The equivalent of an `ERROR` in SQL Server.
-- `HANDLER` — An object that can handle conditions and perform actions.
-- `DIAGNOSTICS` — The metadata about the `CONDITION`.
-- `SIGNAL` and `RESIGNAL` — Statements similar to `THROW` and `RAISERROR` in SQL Server.
+Statistics in Aurora MySQL are created for indexes only. Aurora MySQL doesn’t support independent statistics objects on columns that aren’t part of an index.
 
-Errors in Aurora MySQL are identified by the follow items:
+Typically, administrators change the statistics management mode by setting the global parameter `innodb_stats_persistent = ON`. This option isn’t supported for Aurora MySQL because it requires server `SUPER` privileges. Therefore, control the statistics management mode by changing the behavior for individual tables using the table option `STATS_PERSISTENT = 1`. There are no column-level or statistics-level options for setting parameter values.
 
-- A numeric error code specific to MySQL and, therefore, is not compatible with other database systems.
-- A five character `SQLSTATE` value that uses the ANSI SQL and ODBC standard error conditions.
+To view statistics metadata, use the `INFORMATION_SCHEMA.STATISTICS` standard view. To view detailed persistent optimizer statistics, use the `innodb_table_stats` and `innodb_index_stats` tables.
 
-###### Note
+The following image shows an example of `mysql.innodb_table_stats` content.
 
-Not every MySQL error number has a corresponding `SQLSTATE` value. For errors that don’t have a corresponding `SQLSTATE`, the general `HY000` error is used.
+![Example of mysql innodb table stats](images/pb-sql-server-aurora-mysql-managing-statistics.png)
 
-- A textual message string that describes the nature of the error.
+The following image shows an example of `mysql.innodb_index_stats` content.
 
-### DECLARE …​ CONDITION
+![Example of mysql statistics](images/pb-sql-server-aurora-mysql-index-statistics.png)
 
-The `DECLARE …​ CONDITION` statement declares a named error condition and associates the name with a condition that requires handling. You can reference this declared name in subsequent `DECLARE …​ HANDLER` statements.
+Automatic refresh of statistics is controlled by the global parameter `innodb_stats_auto_recalc`, which is set to `ON` in Aurora MySQL. You can set it individually for each table using the `STATS_AUTO_RECALC=1` option.
 
-**Syntax**
+To explicitly force refresh of table statistics, use the `ANALYZE TABLE` statement. It is not possible to refresh individual statistics or columns.
 
-```
-DECLARE <Condition Name> CONDITION
-FOR <Condition Value>
-```
+Use the `NO_WRITE_TO_BINLOG` or its clearer alias `LOCAL` to avoid replication to replication replicas.
 
-```
-<Condition Value> = <MySQL Error Code> | <SQLSTATE [VALUE] <SQLState Value>
-```
-
-**Examples**
-
-Declare a condition for MySQL error 1051 (Unknown table error).
-
-```
-DECLARE TableDoesNotExist CONDITION FOR 1051;
-```
-
-Declare a condition for SQL State 42S02 (Base table or view not found) .
+Use `ALTER TABLE …​ ANALYZE PARTITION` to analyze one or more individual partitions. For more information, see [Storage](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
 
 ###### Note
 
-This SQLState error corresponds to the MySQL Error 1051.
+Amazon Relational Database Service (Amazon RDS) for MySQL 8 adds new `INFORMATION_SCHEMA.INNODB_CACHED_INDEXES` table which reports the number of index pages cached in the InnoDB buffer pool for each index.
+
+### Syntax
 
 ```
-DECLARE TableDoesNotExist CONDITION FOR SQLSTATE VALUE '42S02';
+ANALYZE [NO_WRITE_TO_BINLOG | LOCAL] TABLE <Table Name> [,...];
 ```
 
-### DECLARE …​ HANDLER
-
-A `HANDLER` object defines the actions or statements to be ran when a `CONDITION` arises. The handler object may be used to `CONTINUE` or `EXIT` the run.
-
-The condition may be a previously defined condition using the `DECLARE …​ CONDITION` statement or an explicit condition for one of the following items:
-
-- An explicit Aurora MySQL error code. For example 1051, which represents an **Unknown Table Error**.
-- An explicit `SQLSTATE` value. For example `42S02`.
-- Any `SQLWARNING` event representing any `SQLSTATE` with a `01` prefix.
-- Any `NOTFOUND` event representing any `SQLSTATE` with a `02` prefix. This condition is relevant for cursors. For more information, see [Cursors](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
-- Any `SQLEXCEPTION` event, representing any `SQLSTATE` without a `00`, `01`, or `02` prefix. These conditions are considered exception errors.
-
-###### Note
-
-`SQLSTATE` events with a `00` prefix aren’t errors; they are used to represent successful runs of statements.
-
-**Syntax**
-
 ```
-DECLARE {CONTINUE | EXIT | UNDO}
-HANDLER FOR
-<MySQL Error Code> |
-<SQLSTATE [VALUE] <SQLState Value> |
-<Condition Name> |
-SQLWARNING |
-NOT FOUND |
-SQLEXCEPTION
-<Statement Block>
-```
-
-**Examples**
-
-Declare a handler to ignore warning messages and continue run by assigning an empty statement block.
-
-```
-DECLARE CONTINUE HANDLER
-FOR SQLWARNING BEGIN END
-```
-
-Declare a handler to `EXIT` upon duplicate key violation and log a message to a table.
-
-```
-DECLARE EXIT HANDLER
-FOR SQLSTATE '23000'
-BEGIN
-    INSERT INTO MyErrorLogTable
-        VALUES(NOW(), CURRENT_USER(), 'Error 23000')
-END
-```
-
-### GET DIAGNOSTICS
-
-Each run of an SQL statement produces diagnostic information that is stored in the diagnostics area. The `GET DIAGNOSTICS` statement enables users to retrieve and inspect this information.
-
-###### Note
-
-Aurora MySQL also supports the SHOW WARNINGS and SHOW ERRORS statements to retrieve conditions and errors.
-
-The `GET DIAGNOSTICS` statement is typically used in the handler code within a stored routine. `GET CURRENT DIAGNOSTICS` is permitted outside the context of a handler to check the run result of an SQL statement.
-
-The `CURRENT` keyword causes retrieval of the current diagnostics area. The `STACKED` keyword causes retrieval of the information from the second diagnostics area. The second diagnostic area is only available if the current context is within a code block of a condition handler. The default is `CURRENT`.
-
-**Syntax**
-
-```
-GET [CURRENT | STACKED] DIAGNOSTICS
-<@Parameter = NUMBER | ROW_COUNT>
-|
-CONDITION <Condition Number> <@Parameter = CLASS_ORIGIN | SUBCLASS_ORIGIN | RETURNED_
-SQLSTATE | MESSAGE_TEXT | MYSQL_ERRNO | CONSTRAINT_CATALOG | CONSTRAINT_SCHEMA |
-CONSTRAINT_NAME | CATALOG_NAME | SCHEMA_NAME | TABLE_NAME | COLUMN_NAME | CURSOR_NAME>
-```
-
-**Example**
-
-Retrieve `SQLSTATE` and `MESSAGE_TEXT` from the diagnostic area for the last statement that you ran.
-
-```
-GET DIAGNOSTICS CONDITION 1 @p1 = RETURNED_SQLSTATE, @p2 = MESSAGE_TEXT
-```
-
-### SIGNAL/RESIGNAL
-
-The `SIGNAL` statement is used to raise an explicit condition or error. It can be used to provide full error information to a handle, to an outer scope of run, or to the SQL client. The SIGNAL statement enables explicitly defining the error’s properties such as error number, `SQLSTATE` value, message, and so on.
-
-The difference between `SIGNAL` and `RESIGNAL` is that `RESIGNAL` is used to pass on the error condition information available during the run of a condition handler within a compound statement inside a stored routine or an event. `RESIGNAL` can be used to change none, some, or all the related condition information before passing it for processing in the next calling scope of the stack.
-
-###### Note
-
-It is not possible to issue `SIGNAL` statements using variables.
-
-**Syntax**
-
-```
-SIGNAL | RESIGNAL <SQLSTATE [VALUE] sqlstate_value | <Condition Name>
-[SET <Condition Information Item Name> = <Value> [,...n]]
-<Condition Information Item Name> = CLASS_ORIGIN | SUBCLASS_ORIGIN | RETURNED_SQLSTATE
-| MESSAGE_TEXT | MYSQL_ERRNO | CONSTRAINT_CATALOG | CONSTRAINT_SCHEMA | CONSTRAINT_
-NAME | CATALOG_NAME | SCHEMA_NAME | TABLE_NAME | COLUMN_NAME | CURSOR_NAME
-```
-
-**Examples**
-
-Raise an explicit error with `SQLSTATE` 55555.
-
-```
-SIGNAL SQLSTATE '55555'
-```
-
-Re-raise an error with an explicit MySQL error number.
-
-```
-RESIGNAL SET MYSQL_ERRNO = 5
+CREATE TABLE ( <Table Definition> ) | ALTER TABLE <Table Name>
+STATS_PERSISTENT = <1|0>,
+STATS_AUTO_RECALC = <1|0>,
+STATS_SAMPLE_PAGES = <Statistics Sampling Size>;
 ```
 
 ### Migration Considerations
 
-###### Note
+Unlike SQL Server, Aurora MySQL collects only density information. It doesn’t collect detailed key distribution histograms. This difference is critical for understanding run plans and troubleshooting performance issues, which aren’t affected by individual values used by query parameters.
 
-Error handling is a critical aspect of any software solution. Code migrated from one paradigm to another should be carefully evaluated and tested.
+Statistics collection is managed at the table level. You can’t manage individual statistics objects or individual columns. In most cases, that shouldn’t pose a challenge for successful migration.
 
-The basic operations of raising, processing, responding, and obtaining metadata is similar in nature for most relational database management systems. The technical aspects of rewriting the code to use different types of objects isn’t difficult.
+### Examples
 
-In SQL Server, there can only be one handler, or `CATCH` code block, that handles exceptions for a given statement. In Aurora MySQL, multiple handler objects can be declared. A condition may trigger more than one handler. Be sure the correct handlers are ran as expected, especially when there are multiple handlers. The following sections provides rules to help establish your requirements.
+Create a table with explicitly set statistics options.
 
-### Handler Scope
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL AUTO_INCREMENT,
+    Col2 VARCHAR(255),
+    DateCol DATETIME,
+    PRIMARY KEY (Col1),
+    INDEX IDX_DATE (DateCol)
+) ENGINE=InnoDB,
+STATS_PERSISTENT=1,
+STATS_AUTO_RECALC=1,
+STATS_SAMPLE_PAGES=25;
+```
 
-A handler can be specific or general. Specific handlers are handlers defined for a specific MySQL error code, `SQLSTATE`, or a condition name. Therefore, only one type of event will trigger a specific handler. General handlers are handlers defined for conditions in the `SQLWARNING`, `SQLEXCEPTION`, or `NOT FOUND` classes. More than one event may trigger the handler.
+Refresh all statistics for `MyTable1` and `MyTable2`.
 
-A handler is in scope for the block in which it is declared. It can’t be triggered by conditions occurring outside the block boundaries.
+```
+ANALYZE TABLE MyTable1, MyTable2;
+```
 
-A handler declared in a `BEGIN …​ END` block is in scope for the SQL statements that follow the handler declaration.
+Change `MyTable` to use non persistent statistics.
 
-One or more handlers may be declared in different or the same scopes using different specifications. For example, a specific MySQL error code handler may be defined in an outer code block while a more general `SQLWARNING` handler is defined within an inner code block. Specific MySQL error code handlers and a general `SQLWARNING` class handler may exist within the same code block.
-
-### Handler Choice
-
-Only one handler is triggered for a single event. Aurora MySQL decides which handler should be triggered. The decision regarding which handler should be triggered as a response to a condition depends on the handler’s scope and value. It also depends on whether or not other handlers are present that may be more appropriate to handle the event.
-
-When a condition occurs in a stored routine, the server searches for valid handlers in the current `BEGIN …​ END` block scope. If none are found, the engine searches for handlers in each successive containing `BEGIN …​ END` code block scope. When the server finds one or more applicable handlers at any given scope, the choice of which one to trigger is based on the following condition precedence:
-
-- A MySQL error code handler takes precedence over a `SQLSTATE` value handler.
-- An `SQLSTATE` value handler takes precedence over general `SQLWARNING`, `SQLEXCEPTION`, or `NOT FOUND` handlers.
-- An `SQLEXCEPTION` handler takes precedence over an `SQLWARNING` handler.
-
-Multiple applicable handlers with the same precedence may exist for a condition. For example, a statement could generate several warnings having different error codes. There may exist a specific MySQL error handler for each. In such cases, the choice is non-deterministic. Different handlers may be triggered at different times depending on the circumstances.
+```
+ALTER TABLE MyTable STATS_PERSISTENT=0;
+```
 
 ## Summary
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| SQL Server error handling feature                                                                    | Migrate to Aurora MySQL                                                           | Comments                                                                                                                                                                                                 |
-| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TRY …​ END TRY` and `CATCH …​ END CATCH` blocks.                                                    | Nested `BEGIN …​ END` code blocks with per-scope handlers.                        | `DECLARE` specific event handlers for each `BEGIN-END` code block. Note that unlike `CATCH` blocks, the handlers must be defined first, not later. Review the handler scope and handler choice sections. |
-| `THROW` and `RAISERROR`                                                                              | `SIGNAL` and `RESIGNAL`                                                           | Review the handler scope and handler choice sections.                                                                                                                                                    |
-| `THROW` with variables.                                                                              | Not supported.                                                                    |                                                                                                                                                                                                          |
-| FORMATMESSAGE                                                                                        | N/A                                                                               |                                                                                                                                                                                                          |
-| Error state functions.                                                                               | GET DIAGNOSTIC                                                                    |                                                                                                                                                                                                          |
-| Proprietary error messages in `sys.messages` system table.                                           | Proprietary MySQL error codes and `SQLSTATE` ANSI and ODBC standard.              | When rewriting error handling code, consider switching to the more standard `SQLSTATE` error codes.                                                                                                      |
-| Deterministic rules regarding condition handler run — always the next code block in statement order. | May be non-deterministic if multiple handlers have the same precedence and scope. | Review the handler scope and handler choice sections.                                                                                                                                                    |
+| Feature                     | SQL Server                                                    | Aurora MySQL                          | Comments                                                                                  |
+| --------------------------- | ------------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Column statistics           | `CREATE STATISTICS`                                           | N/A                                   |                                                                                           |
+| Index statistics            | Implicit with every index                                     | Implicit with every index             | Statistics are maintained automatically for every table index.                            |
+| Refresh / update statistics | `UPDATE STATISTICS`<br>`EXECUTE sp_updatestats`               | `ANALYZE TABLE`                       | Minimal scope in Aurora MySQL is the entire table. No control over individual statistics. |
+| Auto create statistics      | `AUTO_CREATE_STATISTICS` database option                      | N/A                                   |                                                                                           |
+| Auto update statistics      | `AUTO_UPDATE_STATISTICS` database option                      | `STATS_AUTO_RECALC` table option      |                                                                                           |
+| Statistics sampling         | Use the `SAMPLE` option of `CREATE` and `UPDATE STATISTICS`   | `STATS_SAMPLE_PAGES` table option     | Can only use page number, not percentage for `STATS_SAMPLE_PAGES`.                        |
+| Full scan refresh           | Use the `FULLSCAN` option of `CREATE` and `UPDATE STATISTICS` | N/A                                   | Using a very large `STATS_SAMPLE_PAGES` may serve the same purpose.                       |
+| Non-persistent statistics   | N/A                                                           | Use `STATS_PERSISTENT=0` table option |                                                                                           |
 
-For more information, see [The MySQL Diagnostics Area](https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html "https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html") and [Condition Handling](https://dev.mysql.com/doc/refman/5.7/en/condition-handling.html "https://dev.mysql.com/doc/refman/5.7/en/condition-handling.html") in the _MySQL documentation_.
+For more information, see [The INFORMATION_SCHEMA STATISTICS Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-statistics-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-statistics-table.html")
+[Configuring Persistent Optimizer Statistics Parameters](https://dev.mysql.com/doc/refman/5.7/en/innodb-persistent-stats.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-persistent-stats.html"), [Configuring Optimizer Statistics for InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html"), and [Configuring Optimizer Statistics for InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html") in the _MySQL documentation_.

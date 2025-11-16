@@ -1,180 +1,199 @@
-# Configuring upgrades
+# Configuring session options
 
-This topic provides reference content about upgrading database instances in Amazon Aurora MySQL. You can learn about the reasons for database upgrades, the differences between upgrading SQL Server and Aurora MySQL, and the process of performing upgrades in Aurora MySQL.
+This topic provides reference information about session options and system variables in SQL Server and Amazon Aurora MySQL. You can use this content to understand the differences and similarities between how these two database systems handle runtime settings that control server behavior.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| --------------------- | ---------------------------------- | ------------------------- | --------------- |
-| N/A                   | N/A                                | N/A                       | N/A             |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                    |
+| ------------------------------ | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
+| Two star feature compatibility | N/A                                | N/A                       | SET options are significantly different, except for transaction isolation control. |
 
 ## SQL Server Usage
 
-As a database administrator, from time to time a database upgrade is required, it can be either for security fix, bugs fixes, compliance, or new database features.
+Session options in SQL Server is a collection of run-time settings that control certain aspects of how the server handles data for individual sessions. A session is the period between a login event and a disconnect event or the `exec sp_reset_connection` command for connection pooling.
 
-The database upgrade approach can be planned to minimize the database downtime and risk. You can perform an upgrade in-place or migrate to a new installation.
+Each session may have multiple run scopes, which are all the statements before the `GO` keyword used in SQL Server management Studio scripts, or any set of commands sent as a single run batch by a client application. Each run scope may contain additional sub-scopes. For example, scripts calling stored procedures or functions.
 
-### Upgrade In-Place
+You can set the global session options, which all run scopes use by default, using the `SET` T-SQL command. Server code modules such as stored procedures and functions may have their own run context settings,
+which are saved along with the code to guarantee the validity of results.
 
-With this approach, we are retaining the current hardware and OS version by adding the new SQL Server binaries on the same server and then upgrade the SQL Server instance.
+Developers can explicitly use `SET` commands to change the default settings for any session or for an run scope within the session. Typically, client applications send explicit `SET` commands upon connection initiation.
 
-Before upgrading the database engine, review the SQL Server release notes for the intended target release version for any limitations and known issues to help you plan the upgrade.
+You can view the metadata for current sessions using the `sp_who_system` stored procedure and the `sysprocesses` system table.
 
-In general, these will be the steps to perform the upgrade:
+###### Note
 
-**Prerequisites steps**
+To change the default setting for SQL Server Management Studio, choose **Tools**, **Options**, **Query Execution**, **SQL Server**, **Advanced**.
 
-- Back up all SQL Server database files, so that it can be restored if required.
-- Run the appropriate Database Console Commands (DBCC CHECKDB) on databases to be upgraded to make sure that they are in a consistent state.
-- Ensure to allocate enough disk space for SQL Server components, in addition to user databases.
-- Disable all startup stored procedures as stored procedures processed at startup time might block the upgrade process.
-- Stop all applications, including all services that have SQL Server dependencies.
+### Syntax
 
-**Steps for upgrade**
-
-- Install new software.
-  - Fix issues raised.
-  - Set if you prefer to have automatic updates or not.
-  - Select products install to upgrade, this is the new binaries installation.
-  - Monitor the progress of downloading, extracting, and installing the Setup files.
-
-- Specify the instance of SQL Server to upgrade.
-  - On the Select Features page, the features to upgrade will be preselected. The prerequisites for the selected features are displayed on the right-hand pane. SQL Server Setup will install the prerequisite that aren’t already installed during the installation step described later in this procedure.
-
-- Review upgrade plan before the actual upgrade.
-- Monitor installation progress.
-
-**Post upgrade tasks**
-
-- Review summary log file for the installation and other important notes.
-- Register your servers.
-
-### Migrate to a New Installation
-
-This approach maintains the current environment while building a new SQL Server environment. This is usually done when migrating on a new hardware and with a new version of the operating system. In this approach migrate the system objects so that they are same as the existing environment, then migrate the user database either using backup and restore.
-
-For more information, see [Upgrade Database Engine](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/upgrade-database-engine?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/install-windows/upgrade-database-engine?view=sql-server-ver15") in the _SQL Server documentation_.
-
-## MySQL Usage
-
-After migrating your databases to Amazon Aurora MySQL-Compatible Edition (Aurora MySQL), you will still need to upgrade your database instance from time to time, for the same reasons you have done it in the past like new features, bugs and security fixes.
-
-In a managed service like Amazon Relational Database Service (Amazon RDS), the upgrade process is much easier and simpler compare to the on-prem SQL Server process.
-
-To determine the current Aurora MySQL version being used, you can use the following AWS CLI command:
+The following example includes categories and settings for the `SET` command:
 
 ```
-aws rds describe-db-engine-versions --engine aurora-mysql --query '*[].[EngineVersion]' --output text --region your-AWS-Region
+SET
+Date and time
+DATEFIRST | DATEFORMAT
+Locking
+DEADLOCK_PRIORITY | SET LOCK_TIMEOUT
+Miscellaneous
+CONCAT_NULL_YIELDS_NULL | CURSOR_CLOSE_ON_COMMIT | FIPS_FLAGGER |
+SET IDENTITY_INSERT | LANGUAGE | OFFSETS | QUOTED_IDENTIFIER
+Query Execution
+ARITHABORT | ARITHIGNORE | FMTONLY | NOCOUNT | NOEXEC |
+NUMERIC_ROUNDABORT | PARSEONLY | QUERY_GOVERNOR_COST_LIMIT |
+ROWCOUNT | TEXTSIZE | ANSI ANSI_DEFAULTS | ANSI_NULL_DFLT_OFF |
+ANSI_NULL_DFLT_ON | ANSI_NULLS | ANSI_PADDING |  ANSI_WARNINGS
+Execution Stats
+FORCEPLAN | SHOWPLAN_ALL | SHOWPLAN_TEXT | SHOWPLAN_XML | STATISTICS IO |
+STATISTICS XML | STATISTICS PROFILE | STATISTICS TIME
+Transactions
+IMPLICIT_TRANSACTIONS | REMOTE_PROC_TRANSACTIONS |
+TRANSACTION ISOLATION LEVEL | XACT_ABORT
 ```
 
-This can also be queried from the database, using the following queries:
+For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+
+### SET ROWCOUNT for DML Deprecated Setting
+
+The SET ROWCOUNT for DML statements has been deprecated as of SQL Server 2008.
+
+Up to and including SQL Server 2008 R2, you could limit the number of rows affected by `INSERT`, `UPDATE`, and `DELETE` operations using `SET ROWCOUNT`. For example, it is a common practice in SQL Server to batch large `DELETE` or `UPDATE` operations to avoid transaction logging issues. The following example loops and deletes rows having `ForDelete` set to 1, but only 5000 rows at a time in separate transactions (assuming the loop isn’t within an explicit transaction).
 
 ```
-SELECT AURORA_VERSION();
+SET ROWCOUNT 5000;
+WHILE @@ROWCOUNT > 0
+BEGIN
+    DELETE FROM MyTable
+    WHERE ForDelete = 1;
+END
 ```
 
-In an Aurora MySQL version number scheme, for example 2.08.1, the first digit represents the major version. Aurora MySQL version 1 is compatible with MySQL 5.6 and Aurora MySQL version 2 is compatible with MySQL 5.7. To find all Amazon Aurora and MySQL versions mapping, see [Database engine updates for Amazon Aurora MySQL version 2](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.md").
+Starting with SQL Server 2012, `SET ROWCOUNT` is ignored for `INSERT`, `UPDATE` and `DELETE` statements.
 
-AWS doesn’t apply major version upgrades on Amazon Aurora automatically. Major version upgrades contains new features and functionality which often involves system table and other code changes. These changes may not be backward-compatible with previous versions of the database so applications testing is highly recommended.
-
-Applying automatic minor upgrades can be set by configuring the Amazon RDS instance to allow it.
-
-You can use the following AWS CLI command (Linux) to determine the current automatic upgrade minor versions.
+You can achieve the same functionality using `TOP`, which can be converted to `LIMIT` in Aurora MySQL. For example, you can rewrite the preceding example as shown following:
 
 ```
-aws rds describe-db-engine-versions --output=table --engine mysql --engine-version minor-version --region region
+WHILE @@ROWCOUNT > 0
+BEGIN
+    DELETE TOP (5000)
+    FROM MyTable
+    WHERE ForDelete = 1;
+END
+```
+
+AWS Schema Conversion Tool (AWS SCT automatically converts this example to Aurora MySQL.
+
+### Examples
+
+Use `SET` within a stored procedure.
+
+```
+CREATE PROCEDURE <ProcedureName>
+AS
+BEGIN
+    <Some non critical transaction code>
+    SET TRANSACTION_ISOLATION_LEVEL SERIALIZABLE;
+    SET XACT_ABORT ON;
+    <Some critical transaction code>
+END
 ```
 
 ###### Note
 
-If no results returned, there is no automatic minor version upgrade available and scheduled.
+Explicit `SET` commands affect their run scope and sub scopes. After the scope terminates and the procedure code exits, the calling scope resumes its original settings used before the calling the stored procedure.
 
-When enabled, the instance will be automatically upgraded during the scheduled maintenance window.
+For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
-If you want to upgrade your cluster to a compatible cluster, you can do so by running an upgrade process on the cluster itself. This kind of upgrade is an in-place upgrade, in contrast to upgrades that you do by creating a new cluster. The upgrade is relatively fast because it doesn’t require copying all your data to a new cluster volume. In place upgrade preserves the endpoints and set of DB instances for your cluster.
+## MySQL Usage
 
-To verify application compatibility, performance and maintenance procedures for the upgraded cluster, you can perform a simulation of the upgrade by doing following
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports hundreds of Server System Variables to control server behavior and the global and session levels.
 
-- Clone a cluster.
-- Perform an in-place upgrade of the cloned cluster.
-- Test applications, performance and so on, using the cloned cluster.
-- Resolve any issues, adjust your upgrade plans to account for them.
-- Once all the testing looks good, you can perform the in-place upgrade for your production cluster.
-
-For major upgrades, this is the recommended:
-
-- Check for open XA transactions by running the `XA RECOVER` statement. Commit or Rollback the XA transactions before starting the upgrade.
-- Check for DDL statements by running a `SHOW PROCESSLIST` statement and looking for `CREATE`, `DROP`, `ALTER`, `RENAME`, and `TRUNCATE` statements in the output. Allow all DDLs to finish before starting the upgrade.
-- Check for any uncommitted rows by querying the `INFORMATION_SCHEMA.INNODB_TRX` table. The table contains one row for each transaction. Let the transaction complete or shut down applications that are submitting these changes.
-
-Aurora MySQL performs a major version upgrade in multiple steps. As each step begins, Aurora MySQL records an event. You can monitor the current status and events as they occur on the Events page in the Amazon RDS console.
-
-Amazon Aurora performs a series of checks before beginning the upgrade process. If any issues are detected during these checks, resolve the issue identified in the event details and restart the upgrade process.
-
-Aurora takes the cluster offline, performs a similar set of tests as in the previous step. If no new issues are identified, then Aurora moves with the next step. If any issues are detected during these checks, resolve the issue identified in the event details and restart the upgrade process again.
-
-Aurora backups up the MySQL cluster by creating a snapshot of the cluster volume.
-
-Aurora clones the cluster volume. If any issues are encountered during the upgrade, Aurora reverts to the original data from the cloned cluster volume and brings the cluster back online.
-
-Aurora performs a clean shutdown and it rolls back any uncommitted transactions.
-
-Aurora upgrades the engine version. It installs the binary for the new engine version and uses the writer DB instance to upgrade your data to new to MySQL compatible format. During this stage, Aurora modifies the system tables and performs other conversions that affect the data in your cluster volume.
-
-The upgrade process is completed. Aurora records a final event to indicate that the upgrade process completed successfully. Now DB cluster is running the new major version.
-
-Upgrade can be done through the AWS Console or AWS CLI.
-
-### Console
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**, and then choose the DB cluster that you want to upgrade.
-3. Choose **Modify**. The Modify DB cluster page appears.
-4. For DB engine version, choose the new version.
-5. Choose **Continue** and check the summary of modifications.
-6. To apply the changes immediately, choose **Apply immediately**. Choosing this option can cause an outage in some cases. For more information, see [Modifying an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md").
-7. On the confirmation page, review your changes. If they are correct, choose **Modify cluster** to save your changes. Choose **Back** to edit your changes or Cancel to cancel your changes.
-
-### AWS CLI
-
-To upgrade the major version of an Aurora MySQL DB cluster, use the AWS CLI `modify-db-cluster` command with the following required parameters:
-
-For Linux, macOS, or Unix:
+Use the `SHOW VARIABLES` command to view a list of all variables.
 
 ```
-aws rds modify-db-cluster \
---db-cluster-identifier sample-cluster \
---engine aurora-mysql \
---engine-version 5.7.mysql_aurora.2.09.0 \
---allow-major-version-upgrade \
---apply-immediately
+SHOW SESSION VARIABLES;
+-- 532 rows returned
 ```
 
-For Windows:
+###### Note
+
+Aurora MySQL 5.7 provides additional variables that don’t exist in MySQL 5.7 standalone installations. These variables are prefixed with Amazon Aurora or AWS.
+
+You can view Aurora MySQL variables using the MySQL command line utility, Aurora database cluster parameters, Aurora database instance parameters, or SQL interface system variables.
+
+To view all sessions, use the `SHOW PROCESSLIST` command or the `information_schema PROCESSLIST` view, which displays information such as session current status, default database, host name, and application name.
+
+###### Note
+
+Unlike standalone installations of MySQL, Amazon Aurora doesn’t provide access to the configuration file containing system variable defaults. Cluster-level parameters are managed in database cluster parameter groups and instance-level parameters are managed in database parameter groups. In Aurora MySQL, some parameters from the full base set of standalone MySQL installations can’t be modified and others were removed. See Server Options for a walkthrough of creating a custom parameter group.
+
+### Converting from SQL Server 2008 SET ROWCOUNT for DML operations
+
+The use of `SET ROWCOUNT` for DML operations is deprecated as of SQL Server 2008 R2. Code that uses the `SET ROWCOUNT` syntax can’t be converted automatically. You can either rewrite to use `TOP` before running AWS SCT, or manually change it afterward.
+
+The following example runs batch `DELETE` operations in SQL Server using `TOP`:
 
 ```
-aws rds modify-db-cluster ^
---db-cluster-identifier sample-cluster ^
---engine aurora-mysql ^
---engine-version 5.7.mysql_aurora.2.09.0 ^
---allow-major-version-upgrade ^
---apply-immediately
+WHILE @@ROWCOUNT > 0
+BEGIN
+    DELETE TOP (5000)
+    FROM MyTable
+    WHERE ForDelete = 1;
+END
 ```
+
+You can rewrite the preceding example to use the `LIMIT` clause in Aurora MySQL.
+
+```
+WHILE row_count() > 0
+DO
+    DELETE
+    FROM MyTable
+    WHERE ForDelete = 1
+    LIMIT 5000;
+END WHILE;
+```
+
+### Examples
+
+View the metadata for all processes.
+
+```
+SELECT *
+FROM information_schema.PROCESSLIST;
+```
+
+```
+SHOW PROCESSLIST;
+```
+
+Use the `SET` command to change session isolation level and SQL mode.
+
+```
+SET sql_mode = 'ANSI_QUOTES';
+SET SESSION TRANSACTION ISOLATION LEVEL 'READ-COMMITTED';
+```
+
+Set isolation level using a system variable.
+
+```
+SET SESSION tx_isolation = 'READ-COMMITTED'
+```
+
+The `SET SESSION` command is the equivalent to the `SET` command in T-SQL.
+
+However, there are far more configurable parameters in Aurora MySQL than in SQL Server.
 
 ## Summary
 
-| Phase                 | SQL Server Step                                          | Aurora MySQL                                |
-| --------------------- | -------------------------------------------------------- | ------------------------------------------- |
-| Prerequisite          | Perform an instance backup                               | Run Amazon RDS instance backup              |
-| Prerequisite          | DBCC for consistent verification                         | N/A                                         |
-| Prerequisite          | Validate disk size and free space                        | N/A                                         |
-| Prerequisite          | Disable all startup stored procedures (if applicable)    | N/A                                         |
-| Prerequisite          | Stop application and connection                          | N/A                                         |
-| Prerequisite          | Install new software and fix prerequisites errors raised | Commit or rollback uncommitted transactions |
-| Prerequisite          | Select instances to upgrade                              | Select right Amazon RDS instance            |
-| Prerequisite          | Review pre-upgrade summary                               | N/A                                         |
-| Runtime               | Monitor upgrade progress                                 | Can be reviewed from the console            |
-| Post-upgrade          | Results                                                  | Can be reviewed from the console            |
-| Post-upgrade          | Register server                                          | N/A                                         |
-| Post-upgrade          | Test applications again the new upgraded database        | Same                                        |
-| Production deployment | Re-run all steps in a production environment             | Same                                        |
+The following table summarizes commonly used SQL Server session options and their corresponding Aurora MySQL system variables.
 
-For more information, see [Upgrading Amazon Aurora MySQL DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.md") in the _User Guide for Aurora_.
+| Category      | SQL Server                                                                         | Aurora MySQL                                                                                                                                                        | Comments                                                                                                                                                                                                                                                                                                               |
+| ------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date and time | `DATEFIRST`<br>`DATEFORMAT`                                                        | `default_week_format`<br>`date_format` (deprecated)                                                                                                                 | `default_week_format` operates different than `DATEFIRST`. You can use only Sunday and Monday as the start of the week. It also controls what is considered week one of the year and whether returned `WEEK` value is zero<br>• based, or one-based. There is no alternative to the deprecated `date_format` variable. |
+| Locking       | `LOCK_TIMEOUT`                                                                     | `lock_wait_timeout`                                                                                                                                                 | Set in database parameter groups.                                                                                                                                                                                                                                                                                      |
+| ANSI          | `ANSI_NULLS`<br>`ANSI_PADDING`                                                     | N/A<br>`PAD_CHAR_TO_FULL_LENGTH`                                                                                                                                    | Set with the sql_mode system variable.                                                                                                                                                                                                                                                                                 |
+| Transactions  | `IMPLICIT_TRANSACTIONS`<br>`TRANSACTION ISOLATION LEVEL`                           | `autocommit`<br>`SET SESSION TRANSACTION ISOLATION LEVEL`                                                                                                           | The default for Aurora MySQL, as in SQL server, is to commit automatically. Syntax is compatible except the addition of the `SESSION` keyword.                                                                                                                                                                         |
+| Query run     | `IDENTITY_INSERT`<br>`LANGUAGE`<br>`QUOTED_IDENTIFIER`<br>`NOCOUNT`                | See [Identity and Sequences](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md")<br>`lc_time_names`<br>`ANSI_QUOTES`<br>N/A and not needed | `lc_time_names` are set in a database parameter group. `lc_messages` isn’t supported in Aurora MySQL. `ANSI_QUOTES` is a value for the `sql_mode` parameter. Aurora MySQL doesn’t add row count information<br>to the errors collection.                                                                               |
+| Runtime stats | `SHOWPLAN_ALL`, `TEXT`, and `XML`<br>`STATISTICS IO`, `XML`, `PROFILE`, and `TIME` | See [Run Plans](chap-sql-server-aurora-mysql.tuning.md "chap-sql-server-aurora-mysql.tuning.md")                                                                    |                                                                                                                                                                                                                                                                                                                        |
+| Miscellaneous | `CONCAT_NULL_YIELDS_NULL`<br>`ROWCOUNT`                                            | N/A<br>`sql_select_limit`                                                                                                                                           | Aurora MySQL always returns NULL for any NULL concatenation operation. `sql_select_limit` only affects `SELECT` statements unlike `ROWCOUNT`, which also affects all DML.                                                                                                                                              |
+
+For more information, see [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html") in the _MySQL documentation_.
