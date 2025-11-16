@@ -19,6 +19,18 @@ Current requirements:
 
 - Video track: H.264
 - Audio track: Opus
+  Video:
+
+- Max resolution is SQFHD (1920x1920)
+- KVS WebRTC ingestion currently supports a specific set of H264 profiles:
+
+      + constrained-baseline
+      + baseline
+      + main
+      + high
+      + constrained-high
+      + progressive-high
+
   The resulting ingested video in the Kinesis video stream will have the following
   parameters: H.264 video and AAC audio.
 

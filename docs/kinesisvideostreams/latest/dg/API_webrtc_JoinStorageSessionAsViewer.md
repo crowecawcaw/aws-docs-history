@@ -2,12 +2,6 @@
 
 ###### Note
 
-WebRTC ingest with multi-viewer support (Preview) is being provided in Preview as defined in the AWS Service Terms and is subject to change. It is currently only available in us-east-1 (IAD).
-
-To participate in the preview, email us at [kvs-webrtc-multi-view-preview@amazon.com](mailto:kvs-webrtc-multi-view-preview@amazon.com "mailto:kvs-webrtc-multi-view-preview@amazon.com").
-
-###### Note
-
 Before using this API, you must call the `GetSignalingChannelEndpoint` API to
 request the WEBRTC endpoint. You then specify the endpoint and region in your
 `JoinStorageSessionAsViewer` API request.
