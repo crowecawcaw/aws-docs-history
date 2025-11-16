@@ -183,7 +183,7 @@ You will need the IP addresses of the Simple AD DNS servers. This information ca
    and **Alternate DNS server** addresses to the IP addresses of
    your Simple AD-provided DNS servers, and choose **OK**.
 
-![The Internet Protocol Version 4 (TCP/IPv4) Properties dialog box with the preferred DNS server and alternative DNS server fields highlighted.](/images/directoryservice/latest/admin-guide/images/dns_server_addresses.png) 4. Open the **System Properties** dialog box for the
+![The Internet Protocol Version 4 (TCP/IPv4) Properties dialog box with the preferred DNS server and alternative DNS server fields highlighted.](images/dns_server_addresses.png) 4. Open the **System Properties** dialog box for the
 instance, select the **Computer Name** tab, and choose
 **Change**.
 
