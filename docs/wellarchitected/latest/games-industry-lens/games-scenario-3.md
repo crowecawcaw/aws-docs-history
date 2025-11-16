@@ -1,42 +1,39 @@
-# Game production in the cloud (GPIC)
+# Game production in the cloud – CI/CD
 
-Game production in the cloud (GPIC) refers to the infrastructure and tools that are
-required for the game development lifecycle to build, test, and develop a game. Game
-development is collaborative between users and the infrastructure requirements frequently
-change throughout the stages of development. Many game developers are embracing globally
-distributed and remote development teams, which requires technology that supports this type
-of development. Game developers can host all or part of these environments in AWS and use
-the global availability of AWS Regions to place resources closer to users, and manage
-their development environments more cost effectively by scaling compute and storage as
-needed.
+You must have CI/CD infrastructure when developing games. A game development CI/CD
+pipeline is typically comprised of highly available source control servers and storage,
+compute resources to run your builds, and software to perform automated testing, along
+with the proper network connectivity from your development machines. The following
+reference architecture demonstrates how to offload game builds from remote or on-premises
+game development environments to the AWS Cloud to aid developers in migrating or
+building new build farms.
 
-The environments can vary depending on game developer needs, but they typically include
-developer workstations for artists, designers, engineers, QA testers, contractors, and other
-personnel to perform their work. These environments also typically include a build farm
-comprised of source code repositories for users to check-in their changes and the CI/CD
-infrastructure for building, packaging, and testing the developed artifacts.
+![Reference architecture diagram showing how to offload game builds to the cloud.](images/game-production-in-the-cloud-cicd.png)
+_Offload game builds to the cloud_
 
-These game production architectures have the following characteristics:
-
-- Users should be able to access a virtual workstation through a web browser or local
-  desktop client, such as [NICE DCV](https://aws.amazon.com/hpc/dcv/ "https://aws.amazon.com/hpc/dcv/"), that
-  provides them with a low latency streaming session to access the same software and tools
-  that they would have access to if they were working on a machine in an office or
-  development studio. These virtual workstations, typically a cloud-based server, should
-  allow a user to collaborate and work on their projects entirely in a cloud environment
-  over a LAN or WAN. When users are not actively using the machines, their work should be
-  backed up to durable cloud storage, for example a source control repository or file
-  system such as [Amazon Elastic File System
-  (EFS)](https://aws.amazon.com/efs/ "https://aws.amazon.com/efs/") and [Amazon FSx](https://aws.amazon.com/fsx/ "https://aws.amazon.com/fsx/"), and their
-  machine should be shut down to reduce costs.
-- Source control repositories, such as Perforce, should be designed with high availability using replication between Availability Zones or between on-premises environments with backups stored in cloud storage such as
-  [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"). For example, a cloud-based Perforce server should include a primary commit server hosted in one Availability Zone with replication to a standby server hosted in another Availability Zone in the same Region.
-- Game development build farm resources should be designed with automatic scaling so
-  that compute resources are provisioned as they are required, and [EC2 Spot Instances](https://aws.amazon.com/ec2/spot/ "https://aws.amazon.com/ec2/spot/") should be used to reduce the costs incurred
-  when scaling out the number of servers required for builds.
-
-###### Topics
-
-- [Game production in the cloud – CI/CD](games-scenario-3.md "games-scenario-3.md")
-- [Game production in the cloud –
-  Workstations](games-scenario-3.md "games-scenario-3.md")
+1. **AWS Direct Connect** provides a low latency,
+   private dedicated connected to AWS for in-office developers. Remote developers use
+   **AWS Client VPN**.
+2. **AWS Transit Gateway** simplifies network management for
+   connectivity between VPCs and from on-premises networks.
+3. Perforce manages source and version control (CI) backed by **Amazon EBS** storage for quickly accessed, persistent data. Perforce Helix
+   Core (P4D) is available in the **AWS
+   Marketplace**.
+4. Commits start a build (CD) in Jenkins when developers push changes to Perforce
+   tied to a branch. Perforce triggers POST a JSON payload to Jenkins. The Jenkins
+   controller calls engine “headless” CLI commands to run and parallelize the build
+   process across ephemeral, Docker nodes (such as **Amazon EC2 Spot
+   Instances**), or **Amazon EC2 On-Demand
+   Instances**. Developers can increase availability by using two Jenkins
+   controllers, one in each Availability Zone, behind a load balancer. For some engines,
+   developers might need additional licensing infrastructure configured in additional
+   subnets to vend licenses for the build context each time a concurrent build is
+   run.
+5. The Xcode portion of iOS builds is offloaded to **Amazon EC2
+   Mac instances** to sign, build, and export the `.IPA` file,
+   splitting the process and reducing build times. **AWS Secrets
+   Manager** holds provisioning profiles, private keys, and
+   certificates.
+6. Build artifacts are delivered to **Amazon S3**, which
+   sends notifications of success or failure. **AWS Device
+   Farm** enables automated testing.
