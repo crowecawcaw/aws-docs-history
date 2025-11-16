@@ -94,7 +94,7 @@ a container instance of this image.
         	* **Port** – Enter the IP port that your web service listens to.
         3. Choose **Next**.
 
-    ![Build settings while creating an App Runner service](/images/apprunner/latest/dg/images/getting-started-create-build.png)
+    ![Build settings while creating an App Runner service](images/getting-started-create-build.png)
 
 4.  Configure your service.
 
