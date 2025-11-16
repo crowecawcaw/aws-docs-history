@@ -72,9 +72,6 @@ Dates with only a month and a year are approximate, and will be updated with an 
 | 15.8                            | 08 August 2024         | 30 September 2024   | March 2026                          |
 | 15.7                            | 09 May 2024            | 08 August 2024      | November 2025                       |
 | 15.6                            | 08 February 2024       | 29 April 2024       | November 2025                       |
-| 15.5                            | 09 November 2023       | 14 December 2023    | September 2025                      |
-| 15.4                            | 10 August 2023         | 7 September 2023    | September 2025                      |
-| 15.3                            | 11 May 2023            | 21 June 2023        | September 2025                      |
 | **14**                          |
 | 14.18                           | 8 May 2025             | 30 June 2025        | December 2026                       |
 | 14.17                           | 20 February 2025       | April 8 2025        | November 2026                       |
@@ -82,9 +79,6 @@ Dates with only a month and a year are approximate, and will be updated with an 
 | 14.13                           | 08 August 2024         | 30 September 2024   | March 2026                          |
 | 14.12                           | 09 May 2024            | 08 August 2024      | November 2025                       |
 | 14.11                           | 08 February 2024       | 29 April 2024       | November 2025                       |
-| 14.10                           | 09 November 2023       | 14 December 2023    | September 2025                      |
-| 14.9                            | 10 August 2023         | 7 September 2023    | September 2025                      |
-| 14.8                            | 11 May 2023            | 21 June 2023        | September 2025                      |
 | 14.6 (LTS)                      | 10 November 2022       | 23 January 2023     | 28 February 2027                    |
 | **13**                          |
 | 13.21                           | 8 May 2025             | 30 June 2025        | 28 February 2026                    |
@@ -93,9 +87,6 @@ Dates with only a month and a year are approximate, and will be updated with an 
 | 13.16                           | 08 August 2024         | 30 September 2024   | 28 February 2026                    |
 | 13.15                           | 09 May 2024            | 08 August 2024      | November 2025                       |
 | 13.14                           | 08 February 2024       | 29 April 2024       | November 2025                       |
-| 13.13                           | 09 November 2023       | 14 December 2023    | September 2025                      |
-| 13.12                           | 10 August 2023         | 7 September 2023    | September 2025                      |
-| 13.11                           | 11 May 2023            | 21 June 2023        | September 2025                      |
 | 13.9 (LTS)                      | 10 November 2022       | 23 January 2023     | 28 February 2026                    |
 | **12**                          |
 | 12.22\*                         | 21 November 2024       | 13 December 2024    | 28 February 2025                    |
