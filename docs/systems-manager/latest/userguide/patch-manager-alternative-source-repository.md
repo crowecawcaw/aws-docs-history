@@ -68,6 +68,17 @@ alternative repositories
 Keep in mind the following points as you plan your patching strategy using
 alternative patch repositories.
 
+###### Enforce repo update verifications (YUM and DNF)
+
+A default configuration for a package manager on a Linux distribution
+might be set to skip an unreachable package repository if connection to the
+repository cannot be established. To enforce repository update verification,
+add `skip_if_unavailable=False` to the repository
+configuration.
+
+For more information about the `skip_if_available` option, see
+[Connectivity to the patch source](patch-manager-prerequisites.md#source-connectivity "patch-manager-prerequisites.md#source-connectivity").
+
 ###### Only specified repositories are used for patching
 
 Specifying alternative repositories doesn't mean specifying _additional_ repositories. You can choose to

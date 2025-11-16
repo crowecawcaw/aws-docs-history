@@ -3,19 +3,6 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 # What is AWS Systems Manager?
 
-###### Change Manager availability change
-
-AWS Systems Manager Change Manager will no longer be open to new customers
-starting November 7, 2025. If you would like to use Change Manager, sign up prior to that
-date. Existing customers can continue to use the service as normal. For more
-information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
-###### Incident Manager availability change
-
-AWS Systems Manager Incident Manager will no longer be open to new customers starting November 7, 2025. If
-you would like to use Incident Manager, sign up prior to that date. Existing customers can
-continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](../../../incident-manager/latest/userguide/incident-manager-availability-change.md "../../../incident-manager/latest/userguide/incident-manager-availability-change.md").
-
 AWS Systems Manager helps you centrally view, manage, and operate nodes at scale in AWS,
 on-premises, and multicloud environments. With the launch of a unified console experience,
 Systems Manager consolidates various tools to help you complete common node tasks across

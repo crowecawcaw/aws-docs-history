@@ -3,10 +3,11 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 # How patches are installed
 
-Patch Manager, a tool in AWS Systems Manager, uses the appropriate built-in mechanism for an
-operating system type to install updates on a managed node. For example, on
-Windows Server, the Windows Update API is used, and on Amazon Linux 2 the `yum` package
-manager is used.
+Patch Manager, a tool in AWS Systems Manager, uses the operating system built-in package manager
+to install updates on managed nodes. For example, it uses the Windows Update API on
+Windows Server and `DNF` on Amazon Linux 2023. Patch Manager respects existing package manager
+and repository configurations on the nodes, including settings such as repository status,
+mirror URLs, GPG verification, and options like `skip_if_unavailable`.
 
 Patch Manager doesn't install a new package that replaces an obsolete package that's
 currently installed. (Exceptions: The new package is a dependency of another package
@@ -186,6 +187,19 @@ version is applied. 7. The YUM update API (Amazon Linux 2) or the DNF update API
    (Exception: If the `RebootOption` parameter is set to `NoReboot` in
    the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after
    Patch Manager runs. For more information, see [Parameter name: RebootOption](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption "patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption").)
+
+###### Note
+
+A default configuration for a package manager on a Linux
+distribution might be set to skip an unreachable package repository
+without error. In such cases, the related patching operation
+proceeds without installing updates from the repository and
+concludes with success. To enforce repository updates, add
+`skip_if_unavailable=False` to the repository
+configuration.
+
+For more information about the `skip_if_available`
+option, see [Connectivity to the patch source](patch-manager-prerequisites.md#source-connectivity "patch-manager-prerequisites.md#source-connectivity").
 
 CentOS Stream
 On CentOS Stream managed nodes, the patch installation
@@ -504,6 +518,19 @@ operations. 8. The managed node is rebooted if any updates were installed.
 the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after
 Patch Manager runs. For more information, see [Parameter name: RebootOption](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption "patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption").)
 
+###### Note
+
+A default configuration for a package manager on a Linux
+distribution might be set to skip an unreachable package repository
+without error. In such cases, the related patching operation
+proceeds without installing updates from the repository and
+concludes with success. To enforce repository updates, add
+`skip_if_unavailable=False` to the repository
+configuration.
+
+For more information about the `skip_if_available`
+option, see [Connectivity to the patch source](patch-manager-prerequisites.md#source-connectivity "patch-manager-prerequisites.md#source-connectivity").
+
 AlmaLinux, RHEL, and Rocky Linux
 On AlmaLinux, Red Hat Enterprise Linux, and Rocky Linux managed nodes, the patch
 installation workflow is as follows:
@@ -640,6 +667,19 @@ operations. 8. The managed node is rebooted if any updates were installed.
 (Exception: If the `RebootOption` parameter is set to `NoReboot` in
 the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after
 Patch Manager runs. For more information, see [Parameter name: RebootOption](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption "patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption").)
+
+###### Note
+
+A default configuration for a package manager on a Linux
+distribution might be set to skip an unreachable package repository
+without error. In such cases, the related patching operation
+proceeds without installing updates from the repository and
+concludes with success. To enforce repository updates, add
+`skip_if_unavailable=False` to the repository
+configuration.
+
+For more information about the `skip_if_available`
+option, see [Connectivity to the patch source](patch-manager-prerequisites.md#source-connectivity "patch-manager-prerequisites.md#source-connectivity").
 
 SLES
 On SUSE Linux Enterprise Server (SLES) managed nodes, the patch installation workflow
