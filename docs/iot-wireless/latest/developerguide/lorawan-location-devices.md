@@ -192,20 +192,33 @@ the last known position of the device.
 
 API
 
+###### Note
+
+For Bluetooth Low Energy based location, AWS IoT returns location coordinates
+based on the approximate location of nearby Sidewalk Gateways that are
+connected to Amazon Sidewalk and have the Community Finding feature enabled.
+Gateway Location Data is AWS Content and is provided to you solely for
+the purpose of assisting you in locating your devices that are connected
+to Amazon Sidewalk, and you must only use the data for that purpose. You must
+only use and access location data via the interface and functionality
+that we generally make available to you, and you must not attempt to
+re-identify, reverse engineer, or re-map any Gateway location data provided
+by us to you.
+
 You can specify the position information, configure the device position, and
 activate optional geolocation using the AWS IoT Wireless API or the AWS CLI.
 
 ###### Important
 
-The API actions [UpdatePosition](../../2020-11-22/apireference/API_UpdatePosition.md "../../2020-11-22/apireference/API_UpdatePosition.md"), [GetPosition](../../2020-11-22/apireference/API_GetPosition.md "../../2020-11-22/apireference/API_GetPosition.md"), [PutPositionConfiguration](../../2020-11-22/apireference/API_PutPositionConfiguration.md "../../2020-11-22/apireference/API_PutPositionConfiguration.md"), [GetPositionConfiguration](../../2020-11-22/apireference/API_GetPositionConfiguration.md "../../2020-11-22/apireference/API_GetPositionConfiguration.md"), and [ListPositionConfigurations](../../2020-11-22/apireference/API_ListPositionConfigurations.md "../../2020-11-22/apireference/API_ListPositionConfigurations.md") are no longer supported. Calls to update
-and retrieve the position information should use the [GetResourcePosition](../../2020-11-22/apireference/API_GetResourcePosition.md "../../2020-11-22/apireference/API_GetResourcePosition.md") and [UpdateResourcePosition](../../2020-11-22/apireference/API_UpdateResourcePosition.md "../../2020-11-22/apireference/API_UpdateResourcePosition.md") API operations instead.
+The API actions [UpdatePosition](../apireference/API_UpdatePosition.md "../apireference/API_UpdatePosition.md"), [GetPosition](../apireference/API_GetPosition.md "../apireference/API_GetPosition.md"), [PutPositionConfiguration](../apireference/API_PutPositionConfiguration.md "../apireference/API_PutPositionConfiguration.md"), [GetPositionConfiguration](../apireference/API_GetPositionConfiguration.md "../apireference/API_GetPositionConfiguration.md"), and [ListPositionConfigurations](../apireference/API_ListPositionConfigurations.md "../apireference/API_ListPositionConfigurations.md") are no longer supported. Calls to update
+and retrieve the position information should use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") and [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operations instead.
 
 ### Add position information and
 
 configuration
 
 To add the position information for a given wireless device, specify the
-coordinates using the [UpdateResourcePosition](../../2020-11-22/apireference/API_UpdateResourcePosition.md "../../2020-11-22/apireference/API_UpdateResourcePosition.md") API operation or the [update-resource-position](../../../cli/latest/reference/iotwireless/update-resource-position.md "../../../cli/latest/reference/iotwireless/update-resource-position.md") CLI command. Specify
+coordinates using the [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operation or the [update-resource-position](../../../cli/latest/reference/iotwireless/update-resource-position.md "../../../cli/latest/reference/iotwireless/update-resource-position.md") CLI command. Specify
 `WirelessDevice` as the `ResourceType`, the ID of the
 wireless device to be updated as the `ResourceIdentifier`, and the
 position information.
@@ -219,8 +232,8 @@ aws iotwireless update-resource-position \
 
 The following shows the contents of the
 `deviceposition.json` file. To
-specify the FPort values for sending the geolocation data, use the [Positioning](../../2020-11-22/apireference/API_Positioning.md "../../2020-11-22/apireference/API_Positioning.md") object
-with the [CreateWirelessDevice](../../2020-11-22/apireference/API_CreateWirelessDevice.md "../../2020-11-22/apireference/API_CreateWirelessDevice.md") and [UpdateWirelessDevice](../../2020-11-22/apireference/API_UpdateWirelessDevice.md "../../2020-11-22/apireference/API_UpdateWirelessDevice.md") API operations.
+specify the FPort values for sending the geolocation data, use the [Positioning](../apireference/API_Positioning.md "../apireference/API_Positioning.md") object
+with the [CreateWirelessDevice](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") and [UpdateWirelessDevice](../apireference/API_UpdateWirelessDevice.md "../apireference/API_UpdateWirelessDevice.md") API operations.
 
 **Contents of deviceposition.json**
 
@@ -244,7 +257,7 @@ operation.
 
 configuration
 
-To get the position information for a given wireless device, use the [GetResourcePosition](../../2020-11-22/apireference/API_GetResourcePosition.md "../../2020-11-22/apireference/API_GetResourcePosition.md") API or the [get-resource-position](../../../cli/latest/reference/iotwireless/get-resource-position.md "../../../cli/latest/reference/iotwireless/get-resource-position.md") CLI command. Specify
+To get the position information for a given wireless device, use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") API or the [get-resource-position](../../../cli/latest/reference/iotwireless/get-resource-position.md "../../../cli/latest/reference/iotwireless/get-resource-position.md") CLI command. Specify
 `WirelessDevice` as the `resourceType` and provide the
 ID of the wireless device as the `resourceIdentifier`.
 

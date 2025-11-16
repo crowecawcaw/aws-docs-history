@@ -70,7 +70,7 @@ devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multica
 
 downlink (CLI)
 
-To specify the gateways for receiving the downlink messages, use the [`CreateMulticastGroup`](../../2020-11-22/apireference/API_CreateMulticastGroup.md "../../2020-11-22/apireference/API_CreateMulticastGroup.md") API operation or the [`create-multicast-group`](../../../cli/latest/reference/iotwireless/create-multicast-group.md "../../../cli/latest/reference/iotwireless/create-multicast-group.md") CLI
+To specify the gateways for receiving the downlink messages, use the [`CreateMulticastGroup`](../apireference/API_CreateMulticastGroup.md "../apireference/API_CreateMulticastGroup.md") API operation or the [`create-multicast-group`](../../../cli/latest/reference/iotwireless/create-multicast-group.md "../../../cli/latest/reference/iotwireless/create-multicast-group.md") CLI
 command.
 
 ```

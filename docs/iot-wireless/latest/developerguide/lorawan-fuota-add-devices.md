@@ -32,7 +32,7 @@ bucket.
 
 If you use the AWS CLI to start a FUOTA session, you can configure the downlink
 frequency and the `PingSlotPeriod` for Class B devices. First, you
-must run the [`StartMulticastGroupSession`](../../2020-11-22/apireference/API_StartMulticastGroupSession.md "../../2020-11-22/apireference/API_StartMulticastGroupSession.md") API command with the
+must run the [`StartMulticastGroupSession`](../apireference/API_StartMulticastGroupSession.md "../apireference/API_StartMulticastGroupSession.md") API command with the
 desired values for these parameters. Then, when you run the
 `StartFuotaTask` API, it will use the appropriate values once the
 multicast session has started. For more information, see [(Optional)
@@ -141,7 +141,7 @@ FUOTA session will use the default values for the downlink frequency and the
 To configure the downlink frequency and `PingSlotPeriod`
 parameter, you can start a multicast session by specifying the values that
 you want to use for these parameters. To start a multicast session, you can
-use the [`StartMulticastGroupSession`](../../2020-11-22/apireference/API_StartMulticastGroupSession.md "../../2020-11-22/apireference/API_StartMulticastGroupSession.md") API operation or
+use the [`StartMulticastGroupSession`](../apireference/API_StartMulticastGroupSession.md "../apireference/API_StartMulticastGroupSession.md") API operation or
 the [`start-multicast-group-session`](../../../cli/latest/reference/iotwireless/start-multicast-group-session.md "../../../cli/latest/reference/iotwireless/start-multicast-group-session.md") CLI command. For
 information about using this API, see [Schedule a downlink message by
 using the API](lorawan-multicast-schedule-downlink.md#lorawan-multicast-downlink-api "lorawan-multicast-schedule-downlink.md#lorawan-multicast-downlink-api").
@@ -172,7 +172,7 @@ multicast groups to FUOTA task
 You can associate either wireless devices or multicast groups with your
 FUOTA task.
 
-- To associate individual devices to your FUOTA task, use the [`AssociateWirelessDeviceWithFuotaTask`](../../2020-11-22/apireference/API_AssociateWirelessDeviceWithFuotaTask.md "../../2020-11-22/apireference/API_AssociateWirelessDeviceWithFuotaTask.md")
+- To associate individual devices to your FUOTA task, use the [`AssociateWirelessDeviceWithFuotaTask`](../apireference/API_AssociateWirelessDeviceWithFuotaTask.md "../apireference/API_AssociateWirelessDeviceWithFuotaTask.md")
   API operation or the [`associate-wireless-device-with-fuota-task`](../../../cli/latest/reference/iotwireless/associate-wireless-device-with-fuota-task.md "../../../cli/latest/reference/iotwireless/associate-wireless-device-with-fuota-task.md")
   CLI command, and provide the `WirelessDeviceID` as
   input.
@@ -183,7 +183,7 @@ aws iotwireless associate-wireless-device-with-fuota-task \
     --wireless-device-id `"ab0c23d3-b001-45ef-6a01-2bc3de4f5333"`
 ```
 
-- To associate multicast groups to your FUOTA task, use the [`AssociateMulticastGroupWithFuotaTask`](../../2020-11-22/apireference/API_AssociateMulticastGroupWithFuotaTask.md "../../2020-11-22/apireference/API_AssociateMulticastGroupWithFuotaTask.md")
+- To associate multicast groups to your FUOTA task, use the [`AssociateMulticastGroupWithFuotaTask`](../apireference/API_AssociateMulticastGroupWithFuotaTask.md "../apireference/API_AssociateMulticastGroupWithFuotaTask.md")
   API operation or the [`associate-multicast-group-with-fuota-task`](../../../cli/latest/reference/iotwireless/associate-multicast-group-with-fuota-task.md "../../../cli/latest/reference/iotwireless/associate-multicast-group-with-fuota-task.md")
   CLI command, and provide the `MulticastGroupID` as
   input.
@@ -198,12 +198,12 @@ After you've associated your wireless devices or multicast group to your
 FUOTA task, use the following API operations or CLI commands to list your
 devices or multicast groups or to disassociate them from your task.
 
-- [`DisassociateWirelessDeviceFromFuotaTask`](../../2020-11-22/apireference/API_DisassociateWirelessDeviceFromFuotaTask.md "../../2020-11-22/apireference/API_DisassociateWirelessDeviceFromFuotaTask.md")
+- [`DisassociateWirelessDeviceFromFuotaTask`](../apireference/API_DisassociateWirelessDeviceFromFuotaTask.md "../apireference/API_DisassociateWirelessDeviceFromFuotaTask.md")
   or [`disassociate-wireless-device-from-fuota-task`](../../../cli/latest/reference/iotwireless/disassociate-wireless-device-from-fuota-task.md "../../../cli/latest/reference/iotwireless/disassociate-wireless-device-from-fuota-task.md")
-- [`DisassociateMulticastGroupFromFuotaTask`](../../2020-11-22/apireference/API_DisassociateMulticastGroupFromFuotaTask.md "../../2020-11-22/apireference/API_DisassociateMulticastGroupFromFuotaTask.md")
+- [`DisassociateMulticastGroupFromFuotaTask`](../apireference/API_DisassociateMulticastGroupFromFuotaTask.md "../apireference/API_DisassociateMulticastGroupFromFuotaTask.md")
   or [`disassociate-multicast-group-from-fuota-task`](../../../cli/latest/reference/iotwireless/disassociate-multicast-group-from-fuota-task.md "../../../cli/latest/reference/iotwireless/disassociate-multicast-group-from-fuota-task.md")
-- [`ListWirelessDevices`](../../2020-11-22/apireference/API_ListWirelessDevices.md "../../2020-11-22/apireference/API_ListWirelessDevices.md") or [`list-wireless-devices`](../../../cli/latest/reference/iotwireless/delete-multicast-group.md "../../../cli/latest/reference/iotwireless/delete-multicast-group.md")
-- [`ListMulticastGroups`](../../2020-11-22/apireference/API_ListMulticastGroups.md "../../2020-11-22/apireference/API_ListMulticastGroups.md") or [`list-multicast-groups-by-fuota-task`](../../../cli/latest/reference/iotwireless/list-multicast-groups.md "../../../cli/latest/reference/iotwireless/list-multicast-groups.md")
+- [`ListWirelessDevices`](../apireference/API_ListWirelessDevices.md "../apireference/API_ListWirelessDevices.md") or [`list-wireless-devices`](../../../cli/latest/reference/iotwireless/delete-multicast-group.md "../../../cli/latest/reference/iotwireless/delete-multicast-group.md")
+- [`ListMulticastGroups`](../apireference/API_ListMulticastGroups.md "../apireference/API_ListMulticastGroups.md") or [`list-multicast-groups-by-fuota-task`](../../../cli/latest/reference/iotwireless/list-multicast-groups.md "../../../cli/latest/reference/iotwireless/list-multicast-groups.md")
 
 ###### Note
 
@@ -228,7 +228,7 @@ session
 After your devices or multicast groups have been successfully added to the
 FUOTA task, you can start a FUOTA session to update the device firmware. The
 start time must be 30 minutes or later from the current time. To schedule a
-FUOTA session by using the API or CLI, use the [`StartFuotaTask`](../../2020-11-22/apireference/API_StartFuotaTask.md "../../2020-11-22/apireference/API_StartFuotaTask.md") API operation or the [`start-fuota-task`](../../../cli/latest/reference/iotwireless/start-fuota-task.md "../../../cli/latest/reference/iotwireless/start-fuota-task.md") CLI
+FUOTA session by using the API or CLI, use the [`StartFuotaTask`](../apireference/API_StartFuotaTask.md "../apireference/API_StartFuotaTask.md") API operation or the [`start-fuota-task`](../../../cli/latest/reference/iotwireless/start-fuota-task.md "../../../cli/latest/reference/iotwireless/start-fuota-task.md") CLI
 command.
 
 ```
@@ -237,5 +237,5 @@ aws iotwireless start-fuota-task --id `"01a23cde-5678-4a5b-ab1d-33456808ecb2"`
 
 After you've started a FUOTA session, You can no longer add devices or
 multicast groups to the task. You can get information about the status of
-your FUOTA session by using the [`GetFuotaTask`](../../2020-11-22/apireference/API_GettFuotaTask.md "../../2020-11-22/apireference/API_GettFuotaTask.md") API operation or the [`get-fuota-task`](../../../cli/latest/reference/iotwireless/get-fuota-task.md "../../../cli/latest/reference/iotwireless/get-fuota-task.md") CLI
+your FUOTA session by using the [`GetFuotaTask`](../apireference/API_GettFuotaTask.md "../apireference/API_GettFuotaTask.md") API operation or the [`get-fuota-task`](../../../cli/latest/reference/iotwireless/get-fuota-task.md "../../../cli/latest/reference/iotwireless/get-fuota-task.md") CLI
 command.

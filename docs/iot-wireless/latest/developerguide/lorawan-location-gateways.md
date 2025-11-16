@@ -90,15 +90,15 @@ the AWS IoT Wireless API or the AWS CLI.
 
 ###### Important
 
-The API actions [UpdatePosition](../../2020-11-22/apireference/API_UpdatePosition.md "../../2020-11-22/apireference/API_UpdatePosition.md"), [GetPosition](../../2020-11-22/apireference/API_GetPosition.md "../../2020-11-22/apireference/API_GetPosition.md"), [PutPositionConfiguration](../../2020-11-22/apireference/API_PutPositionConfiguration.md "../../2020-11-22/apireference/API_PutPositionConfiguration.md"), [GetPositionConfiguration](../../2020-11-22/apireference/API_GetPositionConfiguration.md "../../2020-11-22/apireference/API_GetPositionConfiguration.md"), and [ListPositionConfigurations](../../2020-11-22/apireference/API_ListPositionConfigurations.md "../../2020-11-22/apireference/API_ListPositionConfigurations.md") are no longer supported. Calls to update
-and retrieve the position information should use the [GetResourcePosition](../../2020-11-22/apireference/API_GetResourcePosition.md "../../2020-11-22/apireference/API_GetResourcePosition.md") and [UpdateResourcePosition](../../2020-11-22/apireference/API_UpdateResourcePosition.md "../../2020-11-22/apireference/API_UpdateResourcePosition.md") API operations instead.
+The API actions [UpdatePosition](../apireference/API_UpdatePosition.md "../apireference/API_UpdatePosition.md"), [GetPosition](../apireference/API_GetPosition.md "../apireference/API_GetPosition.md"), [PutPositionConfiguration](../apireference/API_PutPositionConfiguration.md "../apireference/API_PutPositionConfiguration.md"), [GetPositionConfiguration](../apireference/API_GetPositionConfiguration.md "../apireference/API_GetPositionConfiguration.md"), and [ListPositionConfigurations](../apireference/API_ListPositionConfigurations.md "../apireference/API_ListPositionConfigurations.md") are no longer supported. Calls to update
+and retrieve the position information should use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") and [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operations instead.
 
 ### Add position
 
 information
 
 To add the static position information for a given wireless gateway, specify
-the coordinates using the [UpdateResourcePosition](../../2020-11-22/apireference/API_UpdateResourcePosition.md "../../2020-11-22/apireference/API_UpdateResourcePosition.md") API operation or the [update-resource-position](../../../cli/latest/reference/iotwireless/update-resource-position.md "../../../cli/latest/reference/iotwireless/update-resource-position.md") CLI command. Specify
+the coordinates using the [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operation or the [update-resource-position](../../../cli/latest/reference/iotwireless/update-resource-position.md "../../../cli/latest/reference/iotwireless/update-resource-position.md") CLI command. Specify
 `WirelessGateway` as the `ResourceType`, the ID of the
 wireless gateway to be updated as the `ResourceIdentifier`, and the
 position information as a GeoJSON payload.
@@ -134,7 +134,7 @@ operation.
 
 information
 
-To get the position information for a given wireless gateway, use the [GetResourcePosition](../../2020-11-22/apireference/API_GetResourcePosition.md "../../2020-11-22/apireference/API_GetResourcePosition.md") API operation or the [get-resource-position](../../../cli/latest/reference/iotwireless/get-position.md "../../../cli/latest/reference/iotwireless/get-position.md") CLI command. Specify
+To get the position information for a given wireless gateway, use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") API operation or the [get-resource-position](../../../cli/latest/reference/iotwireless/get-position.md "../../../cli/latest/reference/iotwireless/get-position.md") CLI command. Specify
 `WirelessGateway` as the `resourceType` and provide
 the ID of the wireless gateway as the `resourceIdentifier`.
 

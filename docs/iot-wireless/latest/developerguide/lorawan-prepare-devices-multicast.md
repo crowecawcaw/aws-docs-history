@@ -112,7 +112,7 @@ can't change or specify parameters when you update an existing device.
 multicast and FUOTA by using the API
 
 To use multicast groups or to perform FUOTA, configure these parameters by using
-the [`CreateWirelessDevice`](../../2020-11-22/apireference/API_CreateWirelessDevice.md "../../2020-11-22/apireference/API_CreateWirelessDevice.md") API operation or the [`create-wireless-device`](../../../cli/latest/reference/iotwireless/create-wireless-device.md "../../../cli/latest/reference/iotwireless/create-wireless-device.md") CLI command. In
+the [`CreateWirelessDevice`](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") API operation or the [`create-wireless-device`](../../../cli/latest/reference/iotwireless/create-wireless-device.md "../../../cli/latest/reference/iotwireless/create-wireless-device.md") CLI command. In
 addition to specifying the application key and FPorts parameters, make sure that the
 device profile that's linked to the device supports one or both class B or class C
 modes.
@@ -166,7 +166,7 @@ with the values for the parameters `GenAppKey` and
 `FPorts`.
 
 To get information about the values specified for these parameters, you can use
-the [`GetWirelessDevice`](../../2020-11-22/apireference/API_GetWirelessDevice.md "../../2020-11-22/apireference/API_GetWirelessDevice.md") API operation or the [`get-wireless-device`](../../../cli/latest/reference/iotwireless/get-wireless-device.md "../../../cli/latest/reference/iotwireless/get-wireless-device.md") CLI
+the [`GetWirelessDevice`](../apireference/API_GetWirelessDevice.md "../apireference/API_GetWirelessDevice.md") API operation or the [`get-wireless-device`](../../../cli/latest/reference/iotwireless/get-wireless-device.md "../../../cli/latest/reference/iotwireless/get-wireless-device.md") CLI
 command.
 
 ## Next steps

@@ -62,7 +62,7 @@ to AWS IoT Core for LoRaWAN](lorawan-getting-started.md#lorawan-console "lorawan
 
 You can onboard both LoRaWAN and
 Sidewalk
-devices by using the [AWS IoT Wireless](../../2020-11-22/apireference.md "../../2020-11-22/apireference.md") API. The
+devices by using the [AWS IoT Wireless](../apireference.md "../apireference.md") API. The
 AWS IoT Wireless API that AWS IoT Core for LoRaWAN is built on is supported by the AWS SDK. For more
 information, see [AWS SDKs and
 Toolkits](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").

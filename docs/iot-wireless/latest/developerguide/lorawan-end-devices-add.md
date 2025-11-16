@@ -80,15 +80,15 @@ with adding, updating, or deleting a service profile.
 
 ###### AWS IoT Wireless API actions for service profiles
 
-- [CreateWirelessDevice](../../2020-11-22/apireference/API_CreateWirelessDevice.md "../../2020-11-22/apireference/API_CreateWirelessDevice.md")
-- [GetWirelessDevice](../../2020-11-22/apireference/API_GetWirelessDevice.md "../../2020-11-22/apireference/API_GetWirelessDevice.md")
-- [ListWirelessDevices](../../2020-11-22/apireference/API_ListWirelessDevices.md "../../2020-11-22/apireference/API_ListWirelessDevices.md")
-- [UpdateWirelessDevice](../../2020-11-22/apireference/API_UpdateWirelessDevice.md "../../2020-11-22/apireference/API_UpdateWirelessDevice.md")
-- [DeleteWirelessDevice](../../2020-11-22/apireference/API_DeleteWirelessDevice.md "../../2020-11-22/apireference/API_DeleteWirelessDevice.md")
+- [CreateWirelessDevice](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md")
+- [GetWirelessDevice](../apireference/API_GetWirelessDevice.md "../apireference/API_GetWirelessDevice.md")
+- [ListWirelessDevices](../apireference/API_ListWirelessDevices.md "../apireference/API_ListWirelessDevices.md")
+- [UpdateWirelessDevice](../apireference/API_UpdateWirelessDevice.md "../apireference/API_UpdateWirelessDevice.md")
+- [DeleteWirelessDevice](../apireference/API_DeleteWirelessDevice.md "../apireference/API_DeleteWirelessDevice.md")
 
 For the complete list of the actions and data types available to create and
 manage AWS IoT Core for LoRaWAN resources, see the [AWS IoT Wireless API
-reference](../../2020-11-22/apireference/welcome.md "../../2020-11-22/apireference/welcome.md").
+reference](../apireference/welcome.md "../apireference/welcome.md").
 
 ###### How to use the AWS CLI to create a wireless device
 

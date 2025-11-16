@@ -20,7 +20,7 @@ registering your end device](https://docs.sidewalk.amazon/provisioning/ "https:/
 
 device
 
-Use the [`SendDataToWirelessDevice`](../../2020-11-22/apireference/API_SendDataToWirelessDevice.md "../../2020-11-22/apireference/API_SendDataToWirelessDevice.md") API operation or the [`send-data-to-wireless-device`](../../../cli/latest/reference/iotwireless/send-data-to-wireless-device.md "../../../cli/latest/reference/iotwireless/send-data-to-wireless-device.md") CLI command to send
+Use the [`SendDataToWirelessDevice`](../apireference/API_SendDataToWirelessDevice.md "../apireference/API_SendDataToWirelessDevice.md") API operation or the [`send-data-to-wireless-device`](../../../cli/latest/reference/iotwireless/send-data-to-wireless-device.md "../../../cli/latest/reference/iotwireless/send-data-to-wireless-device.md") CLI command to send
 downlink messages from AWS IoT Core for Amazon Sidewalk to your Sidewalk end device. Following
 shows an example of how to run this command. The payload data is the binary to be
 sent, encoded in base64.
@@ -100,4 +100,4 @@ message that's received from the device.
 | `Sidewalk.CmdExStatus`              | Command runtime status. Response-type messages shall include<br>the status code, `COMMAND_EXEC_STATUS_SUCCESS`.<br>However, notifications might not include the status code. | Enumeration      | No   |
 | `Seq`                               | The message sequence number.                                                                                                                                                 | Integer          | Yes  |
 | `Sidewalk.NackExStatus`             | Response nack status, which can be `RADIO_TX_ERROR`<br>or `MEMORY_ERROR`.                                                                                                    | Array of strings | No   |
-| `Timestamp`                         | The time when the Sidewalk device sent an uplink request.                                                                                                                    | Timestamp        | Yes  |
+| `Timestamp`                         | The time when the Sidewalk device sent an uplink<br>request.                                                                                                                 | Timestamp        | Yes  |

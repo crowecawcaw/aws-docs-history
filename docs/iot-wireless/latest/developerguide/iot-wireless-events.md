@@ -48,8 +48,6 @@ topics. You must also subscribe to the appropriate topic filters.
 
 The following is an example policy.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

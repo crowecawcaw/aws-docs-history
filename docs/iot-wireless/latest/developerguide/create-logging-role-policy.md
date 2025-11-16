@@ -61,8 +61,6 @@ add the following trust relationship.
 After you change the `Principal` property, the complete
 policy document should look like this example.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -98,8 +96,6 @@ you created the logging role,
 
 The following shows the role policy document.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -124,8 +120,6 @@ JSON
 
 The following shows the trust policy for logging only AWS IoT Wireless
 activity.
-
-JSON
 
 ```
 `{

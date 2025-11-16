@@ -1,6 +1,6 @@
 # What is AWS IoT Core for Amazon Sidewalk?
 
-With AWS IoT Core for Amazon Sidewalk, you can onboard yourAmazon Sidewalk end devices to AWS IoT and manage
+With AWS IoT Core for Amazon Sidewalk, you can onboard your Amazon Sidewalk end devices to AWS IoT and manage
 and monitor them. It also manages the destinations that send device data to other
 AWS services.
 
@@ -15,24 +15,15 @@ The following topics will help you learn about Amazon Sidewalk and AWS IoT Core 
 
 ## What is Amazon Sidewalk?
 
-Amazon Sidewalk is a secure community network that uses Amazon Sidewalk Bridges, such as
-compatible Amazon Echo and Ring devices, to provide cloud connectivity for IoT
-devices. Amazon Sidewalk enables low-bandwidth and long-range connectivity at home and
-beyond using Bluetooth LE for short-distance communication and LoRa and FSK radio
-protocols at 900MHz frequencies to cover longer distances.
-
-When Amazon Sidewalk is enabled, this network can support other Sidewalk end
-devices in your community, and can be used for applications such as sensing your
-environment. Amazon Sidewalk helps your devices get and stay connected.
-
 ### Features of Amazon Sidewalk
 
 The following are features of Amazon Sidewalk.
 
 - Amazon Sidewalk creates a low-bandwidth network using Sidewalk gateways
-  that include Ring and select Echo devices. Using gateways, you can share
-  a portion of your internet bandwidth, which is then used to connect your
-  end devices to the network.
+  (including Ring and select Echo devices) which share a portion of their
+  internet bandwidth. This bandwidth is used to connect your
+  Sidewalk-enabled devices to the Amazon Sidewalk network using the
+  AWS IoT Core for Amazon Sidewalk service.
 - Amazon Sidewalk offers a secure networking mechanism with multiple layers
   of encryption and security.
 - Amazon Sidewalk offers a simple mechanism to enable or disable
@@ -44,14 +35,14 @@ The following are some key concepts of Amazon Sidewalk.
 
 **Sidewalk gateways**
 
-Sidewalk gateways, or Amazon Sidewalk bridges, route data
-between your Sidewalk end devices and the cloud. Gateways are
-Amazon devices, such as the Echo device or the Ring Floodlight Cam,
-that support SubG-CSS (asynchronous, LDR), SubG-FSK (synchronous,
-HDR), or Bluetooth LE for Sidewalk communication.
-Sidewalk gateways share a portion of your internet bandwidth
-with the Sidewalk community to provide connectivity to a
-group of Sidewalk-enabled devices.
+[Sidewalk gateways](https://docs.sidewalk.amazon/introduction/sidewalk-gateways "https://docs.sidewalk.amazon/introduction/sidewalk-gateways"), or Amazon Sidewalk bridges, route
+data between your Sidewalk end devices and the cloud.
+Gateways are Amazon devices, such as the Echo device or the Ring
+Floodlight Cam, that support SubG-CSS (asynchronous, LDR), SubG-FSK
+(synchronous, HDR), or Bluetooth LE for Sidewalk
+communication. Sidewalk gateways share a portion of your
+internet bandwidth with the Sidewalk community to provide
+connectivity to a group of Sidewalk-enabled devices.
 
 **Sidewalk end devices**
 
@@ -107,7 +98,7 @@ onboard Sidewalk end devices and connect them to the Sidewalk network.
 For information about getting started with Amazon Sidewalk and onboarding end devices to
 AWS IoT, see the following topics.
 
-- ###### [Getting started with AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md")
+- ###### [Get started using AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md")
 
 This topic walks through the prerequisites for onboarding your
 Sidewalk end devices, illustrates the workflow using a sensor

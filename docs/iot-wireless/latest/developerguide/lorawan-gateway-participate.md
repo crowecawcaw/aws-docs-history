@@ -17,7 +17,7 @@ receive multicast downlink messages](lorawan-multicast-choose-gateways.md "loraw
 ## How to specify the gateway list
 
 You can specify an individual gateway or the list of gateways to use when sending
-a downlink message from AWS IoT Core for LoRaWAN to your device using the [`SendDataToWirelessDevice`](../../2020-11-22/apireference/API_SendDataToWirelessDevice.md "../../2020-11-22/apireference/API_SendDataToWirelessDevice.md") API operation. When you
+a downlink message from AWS IoT Core for LoRaWAN to your device using the [`SendDataToWirelessDevice`](../apireference/API_SendDataToWirelessDevice.md "../apireference/API_SendDataToWirelessDevice.md") API operation. When you
 invoke the API operation, specify the following parameters using the
 `ParticipatingGateways` object for your gateways.
 
@@ -113,7 +113,7 @@ participating gateways
 
 You can get information about the list of gateways that are participating in
 receiving the downlink message by listing messages in the downlink queue. To list
-messages, use the [`ListQueuedMessages`](../../2020-11-22/apireference/API_ListQueuedMessages.md "../../2020-11-22/apireference/API_ListQueuedMessages.md") API.
+messages, use the [`ListQueuedMessages`](../apireference/API_ListQueuedMessages.md "../apireference/API_ListQueuedMessages.md") API.
 
 ```
 aws iotwireless list-queued-messages \

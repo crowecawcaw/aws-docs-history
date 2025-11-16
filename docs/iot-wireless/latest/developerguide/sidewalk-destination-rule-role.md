@@ -2,6 +2,9 @@
 
 for your destination
 
+Your destination can be an MQTT topic or an AWS IoT rule. In this example, you
+configure an AWS IoT rule as a destination.
+
 AWS IoT rules send device messages to other services. AWS IoT rules can also process
 the binary messages received from a Sidewalk end device for other services to
 use. AWS IoT Core for Amazon Sidewalk destinations associate a wireless device with the rule that
@@ -36,8 +39,6 @@ aws iam create-role --role-name `SidewalkRole` \
 The following shows the contents of the JSON file.
 
 **Contents of trust-policy.json**
-
-JSON
 
 ```
 `{
@@ -85,8 +86,6 @@ The following shows the contents of the JSON file.
 
 **Contents of
 lambda-trust-policy.json**
-
-JSON
 
 ```
 `{

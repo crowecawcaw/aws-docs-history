@@ -2,8 +2,8 @@
 
 AWS IoT Wireless is a managed cloud service that simplifies the process of connecting
 wireless devices to the cloud, enabling seamless data transmission and remote management. This
-service supports a wide range of wireless protocols, including LoRaWAN, Sidewalk, LTE-M, and NB-IoT,
-ensuring compatibility with diverse IoT devices and applications.
+service supports a wide range of wireless protocols, including LoRaWAN and Sidewalk, ensuring
+compatibility with diverse IoT devices and applications.
 
 AWS IoT Wireless provides the cloud services that connect your wireless devices to other devices
 and AWS Cloud services. By connecting your devices to AWS IoT Wireless, you can integrate your
@@ -50,7 +50,8 @@ AWS IoT](../../../iot/latest/developerguide/iot-thing-management.md "../../../io
 
 - ###### Use AWS IoT rules to route messages
 
-You can use the rules feature of AWS IoT to interact with other AWS services and
+You can use the rules feature of AWS IoT to route messages to over 20 AWS and
+third-party services, which enables your devices to interact with other AWS services and
 applications. Uplink messages that are sent from your devices to the cloud can be routed to
 these services and other applications. For more information, see [AWS IoT rules](../../../iot/latest/developerguide/iot-rules.md "../../../iot/latest/developerguide/iot-rules.md") in the
 _AWS IoT Core developer guide_.
@@ -70,7 +71,7 @@ It also provides resources to help you learn more.
 This section gives an overview of the Amazon Sidewalk technology and how AWS IoT Core for Amazon Sidewalk works.
 It also provides resources to help you learn more.
 
-- ###### [Getting started with AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md")
+- ###### [Get started using AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md")
 
 Read this section to learn about using AWS IoT Core for Amazon Sidewalk and how to onboard your Amazon Sidewalk
 devices.
@@ -107,8 +108,11 @@ the AWS Management Console.
 
 - ###### Using the AWS IoT Wireless API
 
-You can onboard both Sidewalk and LoRaWAN devices by using the [AWS IoT Wireless](../../2020-11-22/apireference.md "../../2020-11-22/apireference.md") API. The AWS IoT Wireless API that
-AWS IoT Core is built on is supported by the AWS SDK. For more information, see [AWS SDKs and Toolkits](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
+You can onboard both Sidewalk and LoRaWAN devices to the AWS Cloud by using
+the [AWS IoT Wireless](../apireference.md "../apireference.md") APIs which are part of the
+AWS IoT Core service. These AWS IoT Wireless APIs are also supported by the AWS SDK. For more
+information, see [AWS SDKs and
+Toolkits](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
 
 - ###### Using the AWS CLI
 

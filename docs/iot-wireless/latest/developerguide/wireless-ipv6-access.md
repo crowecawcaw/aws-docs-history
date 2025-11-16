@@ -82,8 +82,6 @@ range of allowed IPv4 addresses by using IP address condition operators. Since a
 addresses are outside the allowed range, this policy prevents communication using IPv6
 addresses.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

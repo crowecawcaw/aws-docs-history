@@ -196,7 +196,7 @@ and choose the device you've added. In the **Details**
 section of the Wireless devices details page, you'll see the date and
 time the last uplink was received.
 
-To check the connection status using the API, use the [`GetWirelessDeviceStatistics` API](../../2020-11-22/apireference/API_GetWirelessDeviceStatistics.md "../../2020-11-22/apireference/API_GetWirelessDeviceStatistics.md"). This API doesn't have a
+To check the connection status using the API, use the [`GetWirelessDeviceStatistics` API](../apireference/API_GetWirelessDeviceStatistics.md "../apireference/API_GetWirelessDeviceStatistics.md"). This API doesn't have a
 request body and only contains a response body that shows when the last uplink
 was received. The response from the API also indicates whether it's received
 from a public network or a private LoRaWAN gateway.

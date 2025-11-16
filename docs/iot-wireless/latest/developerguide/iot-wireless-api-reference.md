@@ -9,10 +9,10 @@ The following sections contain additional information about these API operations
 You can perform the following API operations for yourLoRaWAN and Sidewalk
 device profiles:
 
-- [`CreateDeviceProfile`](../../2020-11-22/apireference/API_CreateDeviceProfile.md "../../2020-11-22/apireference/API_CreateDeviceProfile.md") API or the [`create-device-profile`](../../../cli/latest/reference/iotwireless/create-device-profile.md "../../../cli/latest/reference/iotwireless/create-device-profile.md") CLI
-- [`GetDeviceProfile`](../../2020-11-22/apireference/API_GetDeviceProfile.md "../../2020-11-22/apireference/API_GetDeviceProfile.md") API or the [`get-device-profile`](../../../cli/latest/reference/iotwireless/get-device-profile.md "../../../cli/latest/reference/iotwireless/get-device-profile.md") CLI
-- [`ListDeviceProfiles`](../../2020-11-22/apireference/API_ListDeviceProfiles.md "../../2020-11-22/apireference/API_ListDeviceProfiles.md") API or the [`list-device-profiles`](../../../cli/latest/reference/iotwireless/list-device-profiles.md "../../../cli/latest/reference/iotwireless/list-device-profiles.md") CLI
-- [`DeleteDeviceProfile`](../../2020-11-22/apireference/API_DeleteDeviceProfile.md "../../2020-11-22/apireference/API_DeleteDeviceProfile.md") API or the [`delete-device-profile`](../../../cli/latest/reference/iotwireless/get-device-profile.md "../../../cli/latest/reference/iotwireless/get-device-profile.md") CLI
+- [`CreateDeviceProfile`](../apireference/API_CreateDeviceProfile.md "../apireference/API_CreateDeviceProfile.md") API or the [`create-device-profile`](../../../cli/latest/reference/iotwireless/create-device-profile.md "../../../cli/latest/reference/iotwireless/create-device-profile.md") CLI
+- [`GetDeviceProfile`](../apireference/API_GetDeviceProfile.md "../apireference/API_GetDeviceProfile.md") API or the [`get-device-profile`](../../../cli/latest/reference/iotwireless/get-device-profile.md "../../../cli/latest/reference/iotwireless/get-device-profile.md") CLI
+- [`ListDeviceProfiles`](../apireference/API_ListDeviceProfiles.md "../apireference/API_ListDeviceProfiles.md") API or the [`list-device-profiles`](../../../cli/latest/reference/iotwireless/list-device-profiles.md "../../../cli/latest/reference/iotwireless/list-device-profiles.md") CLI
+- [`DeleteDeviceProfile`](../apireference/API_DeleteDeviceProfile.md "../apireference/API_DeleteDeviceProfile.md") API or the [`delete-device-profile`](../../../cli/latest/reference/iotwireless/get-device-profile.md "../../../cli/latest/reference/iotwireless/get-device-profile.md") CLI
   The following sections show you how to list and delete profiles. For information
   about creating and retrieving device profiles, see:
 
@@ -24,7 +24,7 @@ device profiles:
 
 AWS account
 
-You can use the [`ListDeviceProfiles`](../../2020-11-22/apireference/API_ListDeviceProfiles.md "../../2020-11-22/apireference/API_ListDeviceProfiles.md") API operation to list device
+You can use the [`ListDeviceProfiles`](../apireference/API_ListDeviceProfiles.md "../apireference/API_ListDeviceProfiles.md") API operation to list device
 profiles in your AWS account that you added to AWS IoT Wireless. You can use
 this information to identify the devices that you want to associate this profile
 to.
@@ -63,7 +63,7 @@ additional details about a specific profile, use the
 
 AWS account
 
-You can delete your device profiles using the [`DeleteDeviceProfile`](../../2020-11-22/apireference/API_DeleteDeviceProfile.md "../../2020-11-22/apireference/API_DeleteDeviceProfile.md") API operation. The following
+You can delete your device profiles using the [`DeleteDeviceProfile`](../apireference/API_DeleteDeviceProfile.md "../apireference/API_DeleteDeviceProfile.md") API operation. The following
 shows an example CLI command:
 
 ###### Warning
@@ -82,15 +82,15 @@ operation to verify that the profile has been removed from your account.
 You can perform the following API operations for your LoRaWAN and
 Sidewalk devices:
 
-- [`CreateWirelessDevice`](../../2020-11-22/apireference/API_CreateWirelessDevice.md "../../2020-11-22/apireference/API_CreateWirelessDevice.md") API or the [`create-wireless-device`](../../../cli/latest/reference/create-wireless-device.md "../../../cli/latest/reference/create-wireless-device.md") CLI
-- [`GetWirelessDevice`](../../2020-11-22/apireference/API_GetWirelessDevice.md "../../2020-11-22/apireference/API_GetWirelessDevice.md") API or the [`get-wireless-device`](../../../cli/latest/reference/get-wireless-device.md "../../../cli/latest/reference/get-wireless-device.md") CLI
-- [`ListWirelessDevices`](../../2020-11-22/apireference/API_ListWirelessDevices.md "../../2020-11-22/apireference/API_ListWirelessDevices.md") API or the [`list-wireless-devices`](../../../cli/latest/reference/list-wireless-devices.md "../../../cli/latest/reference/list-wireless-devices.md") CLI
-- [`DeleteWirelessDevice`](../../2020-11-22/apireference/API_DeleteWirelessDevice.md "../../2020-11-22/apireference/API_DeleteWirelessDevice.md") API or the [`delete-wireless-device`](../../../cli/latest/reference/delete-wireless-device.md "../../../cli/latest/reference/delete-wireless-device.md") CLI
-- [`UpdateWirelessDevice`](../../2020-11-22/apireference/API_UpdateWirelessDevice.md "../../2020-11-22/apireference/API_UpdateWirelessDevice.md") API or the [`update-wireless-device`](../../../cli/latest/reference/update-wireless-device.md "../../../cli/latest/reference/update-wireless-device.md") CLI
-- [`AssociateWirelessDeviceWithThing`](../../2020-11-22/apireference/API_AssociateWirelessDeviceWithThing.md "../../2020-11-22/apireference/API_AssociateWirelessDeviceWithThing.md") API or the
+- [`CreateWirelessDevice`](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") API or the [`create-wireless-device`](../../../cli/latest/reference/create-wireless-device.md "../../../cli/latest/reference/create-wireless-device.md") CLI
+- [`GetWirelessDevice`](../apireference/API_GetWirelessDevice.md "../apireference/API_GetWirelessDevice.md") API or the [`get-wireless-device`](../../../cli/latest/reference/get-wireless-device.md "../../../cli/latest/reference/get-wireless-device.md") CLI
+- [`ListWirelessDevices`](../apireference/API_ListWirelessDevices.md "../apireference/API_ListWirelessDevices.md") API or the [`list-wireless-devices`](../../../cli/latest/reference/list-wireless-devices.md "../../../cli/latest/reference/list-wireless-devices.md") CLI
+- [`DeleteWirelessDevice`](../apireference/API_DeleteWirelessDevice.md "../apireference/API_DeleteWirelessDevice.md") API or the [`delete-wireless-device`](../../../cli/latest/reference/delete-wireless-device.md "../../../cli/latest/reference/delete-wireless-device.md") CLI
+- [`UpdateWirelessDevice`](../apireference/API_UpdateWirelessDevice.md "../apireference/API_UpdateWirelessDevice.md") API or the [`update-wireless-device`](../../../cli/latest/reference/update-wireless-device.md "../../../cli/latest/reference/update-wireless-device.md") CLI
+- [`AssociateWirelessDeviceWithThing`](../apireference/API_AssociateWirelessDeviceWithThing.md "../apireference/API_AssociateWirelessDeviceWithThing.md") API or the
   [`associate-wireless-device-with-thing`](../../../cli/latest/reference/associate-wireless-device-with-thing.md "../../../cli/latest/reference/associate-wireless-device-with-thing.md")
   CLI
-- [`DisassociateWirelessDeviceFromThing`](../../2020-11-22/apireference/API_DisassociateWirelessDeviceFromThing.md "../../2020-11-22/apireference/API_DisassociateWirelessDeviceFromThing.md") API or the
+- [`DisassociateWirelessDeviceFromThing`](../apireference/API_DisassociateWirelessDeviceFromThing.md "../apireference/API_DisassociateWirelessDeviceFromThing.md") API or the
   [`disassociate-wireless-device-from-thing`](../../../cli/latest/reference/disassociate-wireless-device-from-thing.md "../../../cli/latest/reference/disassociate-wireless-device-from-thing.md")
   CLI
   The following sections show you how to list and delete devices. For information
@@ -110,7 +110,7 @@ use the `AssociateWirelessDeviceWithThing` API operation.
 
 Things in AWS IoT make it easier to search and manage your devices. Associating
 a thing with your device lets the device access other AWS IoT Core features. For
-more information about using this API, see [`AssociateWirelessDeviceWithThing`](../../2020-11-22/apireference/API_AssociateWirelessDeviceWithThing.md "../../2020-11-22/apireference/API_AssociateWirelessDeviceWithThing.md").
+more information about using this API, see [`AssociateWirelessDeviceWithThing`](../apireference/API_AssociateWirelessDeviceWithThing.md "../apireference/API_AssociateWirelessDeviceWithThing.md").
 
 The following shows an example of running this command. Running this command
 doesn't produce any output.
@@ -121,7 +121,7 @@ aws iotwireless associate-wireless-device-with-thing \
     --thing-arn "arn:aws:iot:`us-east-1:123456789012:`thing/`MySidewalkThing`"
 ```
 
-To disassociate your wireless device from an AWS IoT thing, use the [`DisassociateWirelessDeviceFromThing`](../../2020-11-22/apireference/API_DisassociateWirelessDeviceFromThing.md "../../2020-11-22/apireference/API_DisassociateWirelessDeviceFromThing.md") API operation,
+To disassociate your wireless device from an AWS IoT thing, use the [`DisassociateWirelessDeviceFromThing`](../apireference/API_DisassociateWirelessDeviceFromThing.md "../apireference/API_DisassociateWirelessDeviceFromThing.md") API operation,
 as shown in the following example.
 
 ```
@@ -134,7 +134,7 @@ aws iotwireless disassociate-wireless-device-from-thing \
 AWS account
 
 To list wireless devices in your AWS account that you added to
-AWS IoT Wireless, use the [`ListWirelessDevices`](../../2020-11-22/apireference/API_ListWirelessDevices.md "../../2020-11-22/apireference/API_ListWirelessDevices.md") API operation. To filter the
+AWS IoT Wireless, use the [`ListWirelessDevices`](../apireference/API_ListWirelessDevices.md "../apireference/API_ListWirelessDevices.md") API operation. To filter the
 list to return only LoRaWAN or Sidewalk devices, set the
 `WirelessDeviceType`.
 
@@ -146,7 +146,7 @@ aws iotwireless list-wireless-devices --wireless-device-type Sidewalk
 
 Running this command returns a list of devices that you added, including their
 profile identifier and the Amazon Resource Name (ARN). To retrieve additional
-details about a specific device, use the [`GetWirelessDevice`](../../2020-11-22/apireference/API_GetWirelessDevice.md "../../2020-11-22/apireference/API_GetWirelessDevice.md") API operation.
+details about a specific device, use the [`GetWirelessDevice`](../apireference/API_GetWirelessDevice.md "../apireference/API_GetWirelessDevice.md") API operation.
 
 ```
 {
@@ -156,8 +156,48 @@ details about a specific device, use the [`GetWirelessDevice`](../../2020-11-22/
             "DestinationName": "`SidewalkDestination`",
             "Id": "1ffd32c8-8130-4194-96df-622f072a315f",
             "Type": "Sidewalk",
+            "LastUplinkReceivedAt": "`null`",
+            "LoRaWAN": "`null`",
+            "Positioning": "`Enabled`",
             "Sidewalk": {
+                "AmazonId": "`null`",
                 "SidewalkId": "`1234567890123456`"
+                "DeviceCertificates": [
+                    {"SigningAlg": "Ed25519",
+                    "Value": "`WUqB/E50VP7oZpHtYoBgpzJXYvhv51y/DBIfzNhrleo4UzOWCs
+ IzbaJwft+IPBSUQthDifJDYik0DuU1jLvuR8cpK7YyI7cUD/oZG+4Pro/s3n
+ AIhyXmhUlepmbveVxM8boiTiaUlL4iB9DoKrB41pWdHeg7hR8BDrE1m4sf5Q
+ 9ZUwDy5BqMafeW0RUKZMVunpChji0dwC5VoSSb8IT7V+bKTJXXdZ8lP11jsi
+ uJfwF64Eq1NCe2qKb7gql5u+qBE7vatDOSonwN56I6Ah8HWYRSyJTk7DSJKk
+ nSY7KGyLjs0qMI8L8AeJ++UIO/jOsGnhC6Ku1ba62bEPmIBr+889NhOngiIt
+ 1+1DrSOO59a1PLYqfVa5ejKq0tzzbyNG/m/oW72kkGGHRuec2zOXEO86kf4X
+ 0qzFfTKoo/6lt67XfXIQkO4wApCgJ8AHwHa3xz+dh+W6mFwYFRqrQQT8s0Sj
+ SuDtLCaqZhnch47MZk7E/itqP4JnJ7RsJHWxXsG2gTNlRghfG+zhpKzVVdvV
+ VZeZ22f2WZ2QoGlzXxrW0/b7mqpO2l+8fzRYYdqAp1AAADGz+gFBeX/ZNN8V
+ JwnsNfgzj4me1HgVJdUo4W9kvx9cr2jHWkC3Oj/bdBTh1+yBjOC53yHlQK/l1
+ GHrEWiWPPnE434LRxnWkwr8EHD4oieJxC8fkIxkQfj+gHh`"
+                    },
+                    {"SigningAlg": "P256r1",
+                    "Value": "`WUqB/E50VP7oZpHtYoBgpzJXYvhv51y/DBIfzNhrleojbsxI2iz
+ y1YBsbQTzVPwYflEknYVQ1IIqMxPaRo4jSOuHX0+ixpFdnQb00YfKKmZ/Sj
+ 3aT4r8H6cdftGnWJlHzAcERDrJIOz8sjz11Rdp1sF+6BIeU84jQxKMXCvKGv
+ vJrI+qR4nke3fsN9NmgS/c2w/22599di3tf2tFBUXh+FhTAPJq64Xr8Rd4J
+ Z5heZYc7OPTrIi8IcSrQfq0aqnyFlogb9K2C0252s1V3ClmiRq/lWxwZTxu
+ UYX4XpNnFJhTNPmC+gZMHABJhBX8wX9xMd3mDJ/00F1EQKfYw8KWXuBEH4G
+ G0JM1k/Ve75Ql0hAmzf1wedNhSwBzwkVaat0OXcNsC++/AHhqubQ9HrC/LH
+ EmQ4vFCO/K0yBNY+fVOYA+pZPgAnQI9i3H4MmBNd/fONRht1TceFzFOgmUJ
+ ya9F1+WmWkvl9IYbfuglfkb30Yzr57Ks+/wl8wRGwVeCbqn1NaNYTPWRNTq
+ 7Re/8DaxVEa7MQEUhSI9rIPLuwK2rZK9mGLjThdj7wJ7AHy0vcqSgNN/nxV
+ JRmROMRSCdZzctV3wrfCHHUZbrfHMIp0bd9h01LijLxWj395AsS5pC7QTpj
+ BtAbLN9SdXOT9w4H1x8Nkp0ujLxWRN37IEy0V9DrPK2w1g74uqWPfUPnSBj
+ tvM55JnQpmm23WQNvHa1Vr6zmWDjzjHpcNirPbzXyBlKEhkX4xylaSMnm4U
+ rVXtAMaAJ/csC4HPTKr3dazdvEkhwGAAAIFByCjSp/5WHc4Ahsy`"
+                    }
+                ],
+                "DeviceProfileId": "`12345678-1234-1234-1234-123456789012`",
+                "Positioning": {
+                    "DestinationName": "`LocationDestinationName`"
+                }
             },
             "Arn": "arn:aws:iotwireless:`us-east-1`:`123456789012`:WirelessDevice/1ffd32c8-8130-4194-96df-622f072a315f"
         }
@@ -170,7 +210,7 @@ details about a specific device, use the [`GetWirelessDevice`](../../2020-11-22/
 AWS account
 
 To delete your wireless devices, pass the `WirelessDeviceID` of the
-devices you want to delete to the [`DeleteWirelessDevice`](../../2020-11-22/apireference/API_DeleteWirelessDevice.md "../../2020-11-22/apireference/API_DeleteWirelessDevice.md") API operation.
+devices you want to delete to the [`DeleteWirelessDevice`](../apireference/API_DeleteWirelessDevice.md "../apireference/API_DeleteWirelessDevice.md") API operation.
 
 The following shows an example command:
 
@@ -186,11 +226,11 @@ account.
 You can perform the following API operations for destinations for your LoRaWAN
 and Sidewalk devices:
 
-- [`CreateDestination`](../../2020-11-22/apireference/API_CreateDestination.md "../../2020-11-22/apireference/API_CreateDestination.md") API or the [`create-destination`](../../../cli/latest/reference/create-destination.md "../../../cli/latest/reference/create-destination.md") CLI
-- [`GetDestination`](../../2020-11-22/apireference/API_GetDestination.md "../../2020-11-22/apireference/API_GetDestination.md") API or the [`get-destination`](../../../cli/latest/reference/get-destination.md "../../../cli/latest/reference/get-destination.md") CLI
-- [`UpdateDestination`](../../2020-11-22/apireference/API_UpdateDestination.md "../../2020-11-22/apireference/API_UpdateDestination.md") API or the [`update-destination`](../../../cli/latest/reference/update-destination.md "../../../cli/latest/reference/update-destination.md") CLI
-- [`ListDestinations`](../../2020-11-22/apireference/API_ListDestinations.md "../../2020-11-22/apireference/API_ListDestinations.md") API or the [`list-destinations`](../../../cli/latest/reference/list-destinations.md "../../../cli/latest/reference/list-destinations.md") CLI
-- [`DeleteDestination`](../../2020-11-22/apireference/API_DeleteDestination.md "../../2020-11-22/apireference/API_DeleteDestination.md") API or the [`delete-destination`](../../../cli/latest/reference/delete-destination.md "../../../cli/latest/reference/delete-destination.md") CLI
+- [`CreateDestination`](../apireference/API_CreateDestination.md "../apireference/API_CreateDestination.md") API or the [`create-destination`](../../../cli/latest/reference/create-destination.md "../../../cli/latest/reference/create-destination.md") CLI
+- [`GetDestination`](../apireference/API_GetDestination.md "../apireference/API_GetDestination.md") API or the [`get-destination`](../../../cli/latest/reference/get-destination.md "../../../cli/latest/reference/get-destination.md") CLI
+- [`UpdateDestination`](../apireference/API_UpdateDestination.md "../apireference/API_UpdateDestination.md") API or the [`update-destination`](../../../cli/latest/reference/update-destination.md "../../../cli/latest/reference/update-destination.md") CLI
+- [`ListDestinations`](../apireference/API_ListDestinations.md "../apireference/API_ListDestinations.md") API or the [`list-destinations`](../../../cli/latest/reference/list-destinations.md "../../../cli/latest/reference/list-destinations.md") CLI
+- [`DeleteDestination`](../apireference/API_DeleteDestination.md "../apireference/API_DeleteDestination.md") API or the [`delete-destination`](../../../cli/latest/reference/delete-destination.md "../../../cli/latest/reference/delete-destination.md") CLI
   The following sections show you how to get, list, update, and delete destinations.
   For information about creating destinations, see [Add a destination for your
   Sidewalk end device](iot-sidewalk-qsg-destination.md "iot-sidewalk-qsg-destination.md").
@@ -199,7 +239,7 @@ and Sidewalk devices:
 
 destination
 
-You can use the [`GetDestination`](../../2020-11-22/apireference/API_GetDestination.md "../../2020-11-22/apireference/API_GetDestination.md") API operation to get information
+You can use the [`GetDestination`](../apireference/API_GetDestination.md "../apireference/API_GetDestination.md") API operation to get information
 about the destination that you added to your account for AWS IoT Wireless.
 Provide the destination name as input to the API. The API will return
 information about the destination matching the specified identifier.
@@ -226,7 +266,7 @@ Running this command returns the parameters of your destination.
 
 destination
 
-Use the [`UpdateDestination`](../../2020-11-22/apireference/API_UpdateDestination.md "../../2020-11-22/apireference/API_UpdateDestination.md") API operation to update
+Use the [`UpdateDestination`](../apireference/API_UpdateDestination.md "../apireference/API_UpdateDestination.md") API operation to update
 properties of your destination that you added to your account for
 AWS IoT Wireless. The following shows an example CLI command that updates the
 description property:
@@ -240,7 +280,7 @@ aws iotwireless update-destination --name `SidewalkDestination` \
 
 AWS account
 
-Use the [`ListDestinations`](../../2020-11-22/apireference/API_ListDestinations.md "../../2020-11-22/apireference/API_ListDestinations.md") API operation to list
+Use the [`ListDestinations`](../apireference/API_ListDestinations.md "../apireference/API_ListDestinations.md") API operation to list
 destinations in your AWS account that you added to AWS IoT Wireless. To
 filter the list to return only destinations for LoRaWAN and Sidewalk
 end devices, use the `WirelessDeviceType` parameter.
@@ -280,7 +320,7 @@ specific destination, use the `GetDestination` API.
 AWS account
 
 To delete your destination, pass the name of the destination to be deleted as
-input to the [`DeleteDestination`](../../2020-11-22/apireference/API_DeleteDestination.md "../../2020-11-22/apireference/API_DeleteDestination.md") API operation. The following
+input to the [`DeleteDestination`](../apireference/API_DeleteDestination.md "../apireference/API_DeleteDestination.md") API operation. The following
 shows an example CLI command:
 
 ###### Warning
@@ -300,20 +340,20 @@ account.
 You can perform the following API operations for bulk provisioning your
 Sidewalk end devices:
 
-- [`StartWirelessDeviceImportTask`](../../2020-11-22/apireference/API_StartWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_StartWirelessDeviceImportTask.md") API or the
+- [`StartWirelessDeviceImportTask`](../apireference/API_StartWirelessDeviceImportTask.md "../apireference/API_StartWirelessDeviceImportTask.md") API or the
   [`start-wireless-device-import-task`](../../../cli/latest/reference/start-wireless-device-import-task.md "../../../cli/latest/reference/start-wireless-device-import-task.md") CLI
-- [`StartSingleWirelessDeviceImportTask`](../../2020-11-22/apireference/API_StartSingleWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_StartSingleWirelessDeviceImportTask.md") API or the
+- [`StartSingleWirelessDeviceImportTask`](../apireference/API_StartSingleWirelessDeviceImportTask.md "../apireference/API_StartSingleWirelessDeviceImportTask.md") API or the
   [`start-single-wireless-device-import-task`](../../../cli/latest/reference/start-single-wireless-device-import-task.md "../../../cli/latest/reference/start-single-wireless-device-import-task.md")
   CLI
-- [`ListWirelessDeviceImportTasks`](../../2020-11-22/apireference/API_ListWirelessDeviceImportTasks.md "../../2020-11-22/apireference/API_ListWirelessDeviceImportTasks.md") API or the
+- [`ListWirelessDeviceImportTasks`](../apireference/API_ListWirelessDeviceImportTasks.md "../apireference/API_ListWirelessDeviceImportTasks.md") API or the
   [`list-wireless-device-import-tasks`](../../../cli/latest/reference/list-wireless-device-import-tasks.md "../../../cli/latest/reference/list-wireless-device-import-tasks.md") CLI
-- [`ListDevicesForWirelessDeviceImportTask`](../../2020-11-22/apireference/API_ListDevicesForWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_ListDevicesForWirelessDeviceImportTask.md") API or
+- [`ListDevicesForWirelessDeviceImportTask`](../apireference/API_ListDevicesForWirelessDeviceImportTask.md "../apireference/API_ListDevicesForWirelessDeviceImportTask.md") API or
   the [`list-devices-for-wireless-device-import-task`](../../../cli/latest/reference/list-devices-for-wireless-device-import-task.md "../../../cli/latest/reference/list-devices-for-wireless-device-import-task.md")
   CLI
-- [`GetWirelessDeviceImportTask`](../../2020-11-22/apireference/API_GetWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_GetWirelessDeviceImportTask.md") API or the [`get-wireless-device-import-task`](../../../cli/latest/reference/get-wireless-device-import-task.md "../../../cli/latest/reference/get-wireless-device-import-task.md") CLI
-- [`UpdateWirelessDeviceImportTask`](../../2020-11-22/apireference/API_UpdateWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_UpdateWirelessDeviceImportTask.md") API or the
+- [`GetWirelessDeviceImportTask`](../apireference/API_GetWirelessDeviceImportTask.md "../apireference/API_GetWirelessDeviceImportTask.md") API or the [`get-wireless-device-import-task`](../../../cli/latest/reference/get-wireless-device-import-task.md "../../../cli/latest/reference/get-wireless-device-import-task.md") CLI
+- [`UpdateWirelessDeviceImportTask`](../apireference/API_UpdateWirelessDeviceImportTask.md "../apireference/API_UpdateWirelessDeviceImportTask.md") API or the
   [`update-wireless-device-import-task`](../../../cli/latest/reference/update-wireless-device-import-task.md "../../../cli/latest/reference/update-wireless-device-import-task.md") CLI
-- [`DeleteWirelessDeviceImportTask`](../../2020-11-22/apireference/API_DeleteWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_DeleteWirelessDeviceImportTask.md") API or the
+- [`DeleteWirelessDeviceImportTask`](../apireference/API_DeleteWirelessDeviceImportTask.md "../apireference/API_DeleteWirelessDeviceImportTask.md") API or the
   [`delete-wireless-device-import-task`](../../../cli/latest/reference/delete-wireless-device-import-task.md "../../../cli/latest/reference/delete-wireless-device-import-task.md") CLI
   The following sections show you how to get, list, update, and delete import tasks.
   For information about creating import tasks, see [Provisioning Sidewalk devices
@@ -323,7 +363,7 @@ Sidewalk end devices:
 
 task
 
-You can use the [`ListDevicesForWirelessDeviceImportTask`](../../2020-11-22/apireference/API_ListDevicesForWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_ListDevicesForWirelessDeviceImportTask.md") API
+You can use the [`ListDevicesForWirelessDeviceImportTask`](../apireference/API_ListDevicesForWirelessDeviceImportTask.md "../apireference/API_ListDevicesForWirelessDeviceImportTask.md") API
 operation to retrieve information about a particular import task and the
 onboarding status of devices in that task. As input to the API operation,
 specify the import task ID that you obtained from either the
@@ -346,18 +386,31 @@ onboarding status.
    "DestinationName": "`SidewalkDestination`",
    "ImportedWirelessDeviceList": [
       {
+         "LoRaWAN": "null",
          "Sidewalk": {
             "OnboardingStatus": "`ONBOARDED`",
+            "OnboardingStatusReason":"`null`",
             "LastUpdateTime": "`2023-02021T06:11:09.151Z`",
             "SidewalkManufacturingSn": "`82B83C8B35E856F43CE9C3D59B418CC96B996071016DB1C3BE5901F0F3071A4A`"
-         },
+         }
+      },
+      {
+         "LoRaWAN": "null",
          "Sidewalk": {
              "OnboardingStatus": "`PENDING`",
+             "OnboardingStatusReason":"`null`",
              "LastUpdateTime": "`2023-02021T06:22:12.061Z`",
              "SidewalkManufacturingSn": "`12345ABCDE6789FABDESBDEF123456789012345FEABC0123679AFEBC01234EF`"
-         },
+         }
       }
-   ]
+   ],
+   "NextToken": "`null`",
+   "Positioning": "`Enabled`",
+   "Sidewalk": {
+        Positioning": {
+            "DestinationName": "`SidewalkLocationDestination`"
+        }
+   }
 }
 ```
 
@@ -366,7 +419,7 @@ onboarding status.
 summary
 
 To get a count of summary information of the onboarding status of devices that
-you added to a particular import task, use the [`GetWirelessDeviceImportTask`](../../2020-11-22/apireference/API_GetWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_GetWirelessDeviceImportTask.md") API operation. The
+you added to a particular import task, use the [`GetWirelessDeviceImportTask`](../apireference/API_GetWirelessDeviceImportTask.md "../apireference/API_GetWirelessDeviceImportTask.md") API operation. The
 following shows an example CLI command.
 
 ```
@@ -377,9 +430,27 @@ The following code shows a sample response from the command.
 
 ```
 {
-   "NumberOfFailedImportedDevices": 2,
-   "NumberOfOnboardedImportedDevices": 4,
-   "NumberOfPendingImportedDevices": 1
+
+                "Arn": "arn:aws:iotwireless:us-east-1:123456789012:ImportTask
+                    /`12345678-1234-5678-1234-123456789012`",
+                "CreationTime": "`2025-09-17T22:13:57.306Z`",
+                "DestinationName": "`DestinationTest`",
+                "FailedImportedDeviceCount": "`1`",
+                "Id": "`12345678-1234-5678-1234-123456789012`",
+                "InitializedImportedDeviceCount": "`0`",
+                "LoRaWAN": null,
+                "OnboardedImportedDeviceCount": "`0`",
+                "PendingImportedDeviceCount": "`0`",
+                "Positioning": "`null`",
+                "Sidewalk": {
+                    "DeviceCreationFileList": "`[]`",
+                    "Positioning": {
+                        "DestinationName": "`null`"
+                    },
+                    "Role": "`null`"
+                },
+                "Status": "`INITIALIZED`",
+                "StatusReason": "`null`"
 }
 ```
 
@@ -441,24 +512,28 @@ task ID, and summary information of the device onboarding status.
 
 ```
 {
-   "ImportWirelessDeviceTaskList": [
+   "WirelessDeviceImportTaskList": [
       {
-         "FileForCreateDevices": "s3://`import_task_bucket`/`import_file1`",
-         "ImportTaskId": "`e2a5995e-743b-41f2-a1e4-3ca6a5c5249f`",
-         "NumberOfFailedImportedDevices": 1,
-         "NumberOfOnboardedImportedDevices": 3,
-         "NumberOfPendingImportedDevices": 2,
-         "Role": "arn:aws:iam::`123456789012`:role/`service-role`/`ACF1zBEI`",
-         "TimeStamp": "1012202218:23:55"
-      },
-      {
-         "FileForCreateDevices": "s3://`import_task_bucket`/`import_file2`",
-         "ImportTaskId": "`a1b234c5-67ef-21a2-a1b2-3cd4e5f6789a`",
-         "NumberOfFailedImportedDevices": 2,
-         "NumberOfOnboardedImportedDevices": 4,
-         "NumberOfPendingImportedDevices": 1,
-         "Role": "arn:aws:iam::`123456789012`:role/`service-role`/`CDEFaBC1`",
-         "TimeStamp": "1201202210:12:20"
+         "Arn": "arn:aws:iotwireless:us-east-1:123456789012:ImportTask
+                /`12345678-1234-5678-1234-123456789012`",
+         "Id": "`12345678-1234-5678-1234-123456789012`",
+         "DestinationName": "`DestinationName`",
+         "InitializedImportedDeviceCount": "`0`",
+         "LoRaWAN": null,
+         "FailedImportedDeviceCount": "`1`",
+         "OnboardedImportedDeviceCount": "`2`",
+         "PendingImportedDeviceCount": "`3`",
+         "Positioning": "`Enabled`",
+         "Sidewalk": {
+                    "DeviceCreationFileList": ["s3://`import_task_bucket`/`import_file1`"],
+                    "Positioning": {
+                        "DestinationName": "`SidewalkLocationDestination`",
+                    },
+                    "Role": "arn:aws:iam::`123456789012`:role/`service-role`/`ACF1zBEI`",
+                    }
+         "Status": "`INITIALIZED`",
+         "StatusReason": "`null`",
+         "CreationTime": "`1012202218:23:55`",
       }
    ]
 }

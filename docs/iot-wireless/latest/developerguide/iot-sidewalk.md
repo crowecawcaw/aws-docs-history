@@ -1,12 +1,17 @@
 # AWS IoT Core for Amazon Sidewalk
 
 AWS IoT Core for Amazon Sidewalk provides the cloud services that you can use to connect your
-Sidewalk end devices to the AWS Cloud and use other AWS services.
+Sidewalk-enabled devices to the AWS Cloud and use other AWS services.
 
-Amazon Sidewalk is a secure, shared network that enables devices in your community to get
-connected and stay connected. Amazon Sidewalk transfers data between Sidewalk end devices
-and Sidewalk gateways, and between Sidewalk gateways and the Sidewalk
-cloud.
+Amazon Sidewalk is a secure community network that uses Amazon Sidewalk Gateways (also
+called Sidewalk Bridges), such as compatible Amazon Echo and Ring devices,
+to provide cloud connectivity for IoT; endpoint devices. Amazon Sidewalk enables
+low-bandwidth and long-range connectivity at home and beyond using Bluetooth Low
+Energy for short-distance communication and LoRa and FSK radio protocols at 900MHz
+frequencies to cover longer distances.
+
+AWS IoT Core for AWS IoT Core for Amazon Sidewalk acts as a bridge to move data between your Sidewalk
+-enabled devices and AWS Cloud services.
 
 ###### Topics
 
@@ -16,7 +21,7 @@ cloud.
   endpoints](#sidewalk-regions-endpoints "#sidewalk-regions-endpoints")
 - [AWS IoT Core for Amazon Sidewalk pricing](#iot-sidewalk-pricing "#iot-sidewalk-pricing")
 - [What is AWS IoT Core for Amazon Sidewalk?](what-is-iot-sidewalk.md "what-is-iot-sidewalk.md")
-- [Getting started with AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md")
+- [Get started using AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md")
 - [Connecting to AWS IoT Core for Amazon Sidewalk](iot-sidewalk-onboard.md "iot-sidewalk-onboard.md")
 - [Bulk provisioning devices with
   AWS IoT Core for Amazon Sidewalk](sidewalk-bulk-provisioning.md "sidewalk-bulk-provisioning.md")
@@ -29,7 +34,8 @@ Using AWS IoT Core for Amazon Sidewalk, you can:
   AWS IoT Core for Amazon Sidewalk API operations, or AWS CLI commands.
 - Leverage the capabilities offered by the AWS Cloud.
 - Create a destination that uses AWS IoT rules to process incoming payload
-  messages and to interact with other AWS services.
+  messages and to route the messages to over 20 AWS services and third-party
+  applications.
 - Enable event notifications to receive messages about events such as when your
   Sidewalk end device has been provisioned or registered, or whether a
   downlink message has been successfully delivered to your device.
@@ -39,6 +45,9 @@ Using AWS IoT Core for Amazon Sidewalk, you can:
   you store a representation of your device on the cloud. Things in AWS IoT make it
   easier to search and manage your features, and access other AWS IoT Core
   features.
+- Enable "Position" to resolve the location data of your Amazon Sidewalk enabled devices
+  in the cloud. For more information, see [Introduction to onboarding your Sidewalk
+  devices](sidewalk-getting-started.md#sidewalk-gs-workflow "sidewalk-getting-started.md#sidewalk-gs-workflow")..
 
 ## Accessing AWS IoT Core for Amazon Sidewalk
 
@@ -56,10 +65,10 @@ this page of the IoT console.
 
 ###### Using the API or CLI
 
-You can onboard both Sidewalk and LoRaWAN devices by using the [AWS IoT Wireless API operations](../../2020-11-22/apireference.md "../../2020-11-22/apireference.md"). The
-AWS IoT Wireless API that AWS IoT Core is built on is supported by the AWS SDK. For
-more information, see [AWS SDKs and
-Toolkits](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
+You can onboard both Sidewalk and LoRaWAN devices by using the [AWS IoT Wireless API operations](../apireference.md "../apireference.md"). The
+AWS IoT Wireless APIs are part of the AWS IoT Core and are supported by the AWS
+SDK. For more information, see [AWS
+SDKs and Toolkits](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
 
 You can use the AWS CLI to run commands for onboarding and managing your Sidewalk end
 devices. For more information, see [AWS IoT Wireless CLI

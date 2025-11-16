@@ -46,10 +46,38 @@ the device information and their serial numbers.
     	3. A **Destination** that describes the
     	 IoT rule to route messages from the device to other
     	 AWS services.
+    	4. (Optional) A **Location Destination** where you want to
+    	 send the device location data, after you enable location data when
+    	 you create your Sidewalk end device with AWS IoT Core for Amazon
+    	 Sidewalk. For more information on AWS IoT's location resolution
+    	 capabilities, see [AWS IoT Core
+    	 Device Location](../../../iot/latest/developerguide/device-location.md "../../../iot/latest/developerguide/device-location.md")
+    	 AWS services.###### Note
+
+    For Bluetooth Low Energy based location, AWS IoT returns location coordinates
+     based on the approximate location of nearby Sidewalk Gateways that are
+     connected to Amazon Sidewalk and have the Community Finding feature enabled.
+     Gateway Location Data is AWS Content and is provided to you solely for
+     the purpose of assisting you in locating your devices that are connected
+     to Amazon Sidewalk, and you must only use the data for that purpose. You must
+     only use and access location data via the interface and functionality
+     that we generally make available to you, and you must not attempt to
+     re-identify, reverse engineer, or re-map any Gateway location data provided
+     by us to you.
+
+
+    ###### Note
+
+    You must enable positioning to use the device
+     location feature.
+
+    If you enable device location for the Sidewalk-enabled
+     device, your raw uplink payload won't be propagated to the
+     destination.
     2. If you chose **Use S3 bucket**:
 
 
-    	1. Provide the **S3 Bucket destination**
+    	1. Provide the **S3 Bucket**
     	 information, which consists of the S3 URL information.
     	 To provide your CSV file, choose **Browse
     	 S3**, and then choose the CSV file you
@@ -73,7 +101,35 @@ the device information and their serial numbers.
     	 generate a random name automatically.
     	3. Provide a **Destination** that
     	 describes the IoT rule to route messages from the device
-    	 to other AWS servicess.
+    	 to other AWS services.
+    	4. (Optional) A **Location Destination** where you want to
+    	 send the device location data, after you enable location data when
+    	 you create your Sidewalk end device with AWS IoT Core for Amazon
+    	 Sidewalk. For more information on AWS IoT's location resolution
+    	 capabilities, see [AWS IoT Core
+    	 Device Location](../../../iot/latest/developerguide/device-location.md "../../../iot/latest/developerguide/device-location.md")
+    	 AWS services.###### Note
+
+    For Bluetooth Low Energy based location, AWS IoT returns location coordinates
+     based on the approximate location of nearby Sidewalk Gateways that are
+     connected to Amazon Sidewalk and have the Community Finding feature enabled.
+     Gateway Location Data is AWS Content and is provided to you solely for
+     the purpose of assisting you in locating your devices that are connected
+     to Amazon Sidewalk, and you must only use the data for that purpose. You must
+     only use and access location data via the interface and functionality
+     that we generally make available to you, and you must not attempt to
+     re-identify, reverse engineer, or re-map any Gateway location data provided
+     by us to you.
+
+
+    ###### Note
+
+    You must enable positioning to use the device
+     location feature.
+
+    If you enable device location for the Sidewalk-enabled
+     device, your raw uplink payload won't be propagated to the
+     destination.
 
 3. Start import task
 
@@ -93,7 +149,7 @@ bucket.
 - ###### Upload devices in bulk using an S3 CSV file
 
 To upload devices in bulk by providing the CSV file in an S3
-bucket, use the [`StartWirelessDeviceImportTask`](../../2020-11-22/apireference/API_StartWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_StartWirelessDeviceImportTask.md") API
+bucket, use the [`StartWirelessDeviceImportTask`](../apireference/API_StartWirelessDeviceImportTask.md "../apireference/API_StartWirelessDeviceImportTask.md") API
 operation, or the [`start-wireless-device-import-task`](../../../cli/latest/reference/iotwireless/start-wireless-device-import-task.md "../../../cli/latest/reference/iotwireless/start-wireless-device-import-task.md")
 AWS CLI command. When creating the task, specify the path to the CSV
 file in the Amazon S3 bucket and the IAM role that grants
@@ -121,9 +177,13 @@ The following shows the contents of the file
 ```
 {
     "DestinationName": `"Sidewalk_Destination"`,
+    "Positioning": `"Enabled"`
     "Sidewalk": {
         "DeviceCreationFile": "s3://`import_task_bucket`/`import_file1`",
-        "Role": "arn:aws:iam::`123456789012`:role/`service-role`/`ACF1zBEI`"
+        "Role": "arn:aws:iam::`123456789012`:role/`service-role`/`ACF1zBEI`",
+        "Positioning": {
+            DestinationName": `"Sidewalk_Location_Destination"`
+        }
     }
 }
 ```
@@ -139,7 +199,7 @@ Running this command returns an ID and ARN for the import task.
 
 - ###### Provision devices individually using their SMSN
 
-To provision devices individually using their SMSN, use the [`StartSingleWirelessDeviceImportTask`](../../2020-11-22/apireference/API_StartSingleWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_StartSingleWirelessDeviceImportTask.md")
+To provision devices individually using their SMSN, use the [`StartSingleWirelessDeviceImportTask`](../apireference/API_StartSingleWirelessDeviceImportTask.md "../apireference/API_StartSingleWirelessDeviceImportTask.md")
 API operation, or the [`start-single-wireless-device-import-task`](../../../cli/latest/reference/iotwireless/start-single-wireless-device-import-task.md "../../../cli/latest/reference/iotwireless/start-single-wireless-device-import-task.md")
 AWS CLI command. When creating the task, specify the Sidewalk
 destination and the serial number of the device that you want to
@@ -155,7 +215,14 @@ task:
 ```
 aws iotwireless start-single-wireless-device-import-task \
     --destination-name `sidewalk_destination` \
-    --sidewalk '{"SidewalkManufacturingSn": `"82B83C8B35E856F43CE9C3D59B418CC96B996071016DB1C3BE5901F0F3071A4A"`}'
+    --positioning `Enabled` \
+    --sidewalk '{
+        "SidewalkManufacturingSn": `"82B83C8B35E856F43CE9C3D59B418CC96B996071016DB1C3BE5901F
+ 0F3071A4A"`}',
+        "Positioning":{
+            DestinationName": `sidewalk_location_destination`
+        }
+    }'
 ```
 
 Running this command returns an ID and ARN for the import task.
@@ -209,7 +276,7 @@ tasks using the AWS IoT console.
 Use the following AWS IoT Wireless API operations or CLI
 commands to update or delete your import task.
 
-    + ###### [`UpdateWirelessDeviceImportTask`](../../2020-11-22/apireference/API_UpdateWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_UpdateWirelessDeviceImportTask.md")
+    + ###### [`UpdateWirelessDeviceImportTask`](../apireference/API_UpdateWirelessDeviceImportTask.md "../apireference/API_UpdateWirelessDeviceImportTask.md")
      API or [`update-wireless-device-import-task`](../../../cli/latest/reference/update-wireless-device-import-task.md "../../../cli/latest/reference/update-wireless-device-import-task.md")
      CLI
 
@@ -218,7 +285,7 @@ commands to update or delete your import task.
      file to an existing import task. You can only add serial
      numbers of devices that were not previously included in the
      task.
-    + ###### [`DeleteWirelessDeviceImportTask`](../../2020-11-22/apireference/API_DeleteWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_DeleteWirelessDeviceImportTask.md")
+    + ###### [`DeleteWirelessDeviceImportTask`](../apireference/API_DeleteWirelessDeviceImportTask.md "../apireference/API_DeleteWirelessDeviceImportTask.md")
      API or [`delete-wireless-device-import-task`](../../../cli/latest/reference/delete-wireless-device-import-task.md "../../../cli/latest/reference/delete-wireless-device-import-task.md")
      CLI
 

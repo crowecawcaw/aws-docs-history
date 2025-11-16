@@ -12,8 +12,6 @@ your IAM role
 To use the WebSocket protocol to call network analyzer, attach the following
 policy to the AWS Identity and Access Management (IAM) role that makes this request.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

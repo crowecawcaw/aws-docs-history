@@ -87,7 +87,7 @@ operations.
 
 profile
 
-To create a device profile in your AWS account, use the [`CreateDeviceProfile`](../../2020-11-22/apireference/API_CreateDeviceProfile.md "../../2020-11-22/apireference/API_CreateDeviceProfile.md") API operation or the
+To create a device profile in your AWS account, use the [`CreateDeviceProfile`](../apireference/API_CreateDeviceProfile.md "../apireference/API_CreateDeviceProfile.md") API operation or the
 [`create-device-profile`](../../../cli/latest/reference/create-device-profile.md "../../../cli/latest/reference/create-device-profile.md") CLI command. When
 creating your device profile, specify the name and provide any optional tags
 as name-value pairs.
@@ -115,7 +115,7 @@ the device profile as output.
 Sidewalk device
 
 To add your Sidewalk device to your account for AWS IoT Core for Amazon Sidewalk, use
-the [`CreateWirelessDevice`](../../2020-11-22/apireference/API_CreateWirelessDevice.md "../../2020-11-22/apireference/API_CreateWirelessDevice.md") API operation or the
+the [`CreateWirelessDevice`](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") API operation or the
 [`create-wireless-device`](../../../cli/latest/reference/create-wireless-device.md "../../../cli/latest/reference/create-wireless-device.md") CLI command. When
 creating your device, specify the following parameters, in addition to an
 optional name and description for your Sidewalk device.
@@ -123,9 +123,9 @@ optional name and description for your Sidewalk device.
 ###### Note
 
 If you want to associate your Sidewalk device with an AWS IoT
-thing, use the [`AssociateWirelessDeviceWithThing`](../../2020-11-22/apireference/API_AssociateWirelessDeviceWithThing.md "../../2020-11-22/apireference/API_AssociateWirelessDeviceWithThing.md") API
+thing, use the [`AssociateWirelessDeviceWithThing`](../apireference/API_AssociateWirelessDeviceWithThing.md "../apireference/API_AssociateWirelessDeviceWithThing.md") API
 operation or the [`associate-wireless-device-with-thing`](../../../cli/latest/reference/associate-wireless-device-with-thing.md "../../../cli/latest/reference/associate-wireless-device-with-thing.md") CLI
-command..
+command.
 
 The following command shows an example of creating a Sidewalk
 device:
@@ -160,3 +160,44 @@ as output.
     "Id": `"23456789-abcd-0123-bcde-fabc012345678"`
 }
 ```
+
+#### (Optional) Create
+
+your Sidewalk end device and get the Sidewalk device
+location
+
+If you want to enable location data when you create your
+Sidewalk end device with AWS IoT Core for Amazon Sidewalk, enable positioning.
+Replace `LocationDestination` with the
+destination name to which you want to send the device location data
+to.
+
+###### Note
+
+You must enable positioning to use the device location feature. If
+you enable device location for the Sidewalk-enabled device,
+your raw uplink payload won't be propagated to the destination.
+
+```
+// Add your Sidewalk device by using the device profile ID.
+aws iotwireless create-wireless-device
+  --type "Sidewalk"
+  --name `"sidewalk_device"` \
+  --description `"My Sidewalk Device Description"` \
+  --destination-name `"UplinkDestination"` \
+  --positioning `"Enabled"` \
+  --sidewalk DeviceProfileId=`"12345678-234a-45bc-67de-e8901234f0a1"`,Positioning={DestinationName=`"LocationDestination"`}
+```
+
+###### Note
+
+For Bluetooth Low Energy based location, AWS IoT returns location coordinates
+based on the approximate location of nearby Sidewalk Gateways that are
+connected to Amazon Sidewalk and have the Community Finding feature enabled.
+Gateway Location Data is AWS Content and is provided to you solely for
+the purpose of assisting you in locating your devices that are connected
+to Amazon Sidewalk, and you must only use the data for that purpose. You must
+only use and access location data via the interface and functionality
+that we generally make available to you, and you must not attempt to
+re-identify, reverse engineer, or re-map any Gateway location data provided
+by us to you.

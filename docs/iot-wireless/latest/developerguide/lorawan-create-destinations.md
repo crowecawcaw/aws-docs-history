@@ -94,15 +94,15 @@ with adding, updating, or deleting a destination.
 
 ###### AWS IoT Wireless API actions for destinations
 
-- [CreateDestination](../../2020-11-22/apireference/API_CreateDestination.md "../../2020-11-22/apireference/API_CreateDestination.md")
-- [GetDestination](../../2020-11-22/apireference/API_GetDestination.md "../../2020-11-22/apireference/API_GetDestination.md")
-- [ListDestinations](../../2020-11-22/apireference/API_ListDestinations.md "../../2020-11-22/apireference/API_ListDestinations.md")
-- [UpdateDestination](../../2020-11-22/apireference/API_UpdateDestination.md "../../2020-11-22/apireference/API_UpdateDestination.md")
-- [DeleteDestination](../../2020-11-22/apireference/API_DeleteDestination.md "../../2020-11-22/apireference/API_DeleteDestination.md")
+- [CreateDestination](../apireference/API_CreateDestination.md "../apireference/API_CreateDestination.md")
+- [GetDestination](../apireference/API_GetDestination.md "../apireference/API_GetDestination.md")
+- [ListDestinations](../apireference/API_ListDestinations.md "../apireference/API_ListDestinations.md")
+- [UpdateDestination](../apireference/API_UpdateDestination.md "../apireference/API_UpdateDestination.md")
+- [DeleteDestination](../apireference/API_DeleteDestination.md "../apireference/API_DeleteDestination.md")
 
 For the complete list of the actions and data types available to create and
 manage AWS IoT Core for LoRaWAN resources, see the [AWS IoT Wireless API
-reference](../../2020-11-22/apireference/welcome.md "../../2020-11-22/apireference/welcome.md").
+reference](../apireference/welcome.md "../apireference/welcome.md").
 
 ###### How
 
@@ -153,8 +153,6 @@ destination.
    **JSON** tab.
 3. In the editor, delete any content from the editor and paste this
    policy document.
-
-JSON
 
 ```
 `{
@@ -213,8 +211,6 @@ if you want. 5. Choose **Create policy**.
 
 After you change the `Principal` property, the complete
 policy document should look like this example.
-
-JSON
 
 ```
 `{

@@ -25,7 +25,7 @@ these parameters.
 
 Specify the following parameters when creating a service profile for your
 device. Specify these parameters when adding a service profile from the [Profiles](https://console.aws.amazon.com/iot/home#/wireless/profiles "https://console.aws.amazon.com/iot/home#/wireless/profiles") hub of the
-AWS IoT console, or using the AWS IoT Wireless API operation, [`CreateServiceProfile`](../../2020-11-22/apireference/API_CreateServiceProfile.md "../../2020-11-22/apireference/API_CreateServiceProfile.md"), or the AWS CLI command, [`create-service-profile`](../../../cli/latest/reference/iotwireless/create-service-profile.md "../../../cli/latest/reference/iotwireless/create-service-profile.md").
+AWS IoT console, or using the AWS IoT Wireless API operation, [`CreateServiceProfile`](../apireference/API_CreateServiceProfile.md "../apireference/API_CreateServiceProfile.md"), or the AWS CLI command, [`create-service-profile`](../../../cli/latest/reference/iotwireless/create-service-profile.md "../../../cli/latest/reference/iotwireless/create-service-profile.md").
 
 ###### Note
 
@@ -77,7 +77,7 @@ greater than 2s.
 
 
     To enable roaming when creating a service profile, use the
-     [CreateServiceProfile](../../2020-11-22/apireference/API_CreateServiceProfile.md "../../2020-11-22/apireference/API_CreateServiceProfile.md") API operation or the
+     [CreateServiceProfile](../apireference/API_CreateServiceProfile.md "../apireference/API_CreateServiceProfile.md") API operation or the
      [`create-service-profile`](../../../cli/latest/reference/iotwireless/create-service-profile.md "../../../cli/latest/reference/iotwireless/create-service-profile.md") CLI
      command, as shown in example below.
 
@@ -123,7 +123,7 @@ below.
 
 
     To view the roaming parameters that you enabled, use the
-     [GetServiceProfile](../../2020-11-22/apireference/API_GetServiceProfile.md "../../2020-11-22/apireference/API_GetServiceProfile.md") API operation or the [`get-service-profile`](../../../cli/latest/reference/iotwireless/get-service-profile.md "../../../cli/latest/reference/iotwireless/get-service-profile.md") CLI
+     [GetServiceProfile](../apireference/API_GetServiceProfile.md "../apireference/API_GetServiceProfile.md") API operation or the [`get-service-profile`](../../../cli/latest/reference/iotwireless/get-service-profile.md "../../../cli/latest/reference/iotwireless/get-service-profile.md") CLI
      command, as shown in example below.
 
 

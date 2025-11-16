@@ -138,7 +138,7 @@ API:
 
 1. ###### Create a multicast group
 
-To create your multicast group, use the [`CreateMulticastGroup`](../../2020-11-22/apireference/API_CreateMulticastGroup.md "../../2020-11-22/apireference/API_CreateMulticastGroup.md") API operation or the
+To create your multicast group, use the [`CreateMulticastGroup`](../apireference/API_CreateMulticastGroup.md "../apireference/API_CreateMulticastGroup.md") API operation or the
 [`create-multicast-group`](../../../cli/latest/reference/iotwireless/create-multicast-group.md "../../../cli/latest/reference/iotwireless/create-multicast-group.md") CLI
 command. You can provide an `input.json` file as input to the
 `create-multicast-group` command.
@@ -175,17 +175,17 @@ After you create your multicast group, you can use the following API
 operations or CLI commands to update, delete, or get information about
 your multicast groups.
 
-    * [`UpdateMulticastGroup`](../../2020-11-22/apireference/API_UpdateMulticastGroup.md "../../2020-11-22/apireference/API_UpdateMulticastGroup.md") or [`update-multicast-group`](../../../cli/latest/reference/iotwireless/update-multicast-group.md "../../../cli/latest/reference/iotwireless/update-multicast-group.md")
-    * [`GetMulticastGroup`](../../2020-11-22/apireference/API_UpdateMulticastGroup.md "../../2020-11-22/apireference/API_UpdateMulticastGroup.md") or [`get-multicast-group`](../../../cli/latest/reference/iotwireless/get-multicast-group.md "../../../cli/latest/reference/iotwireless/get-multicast-group.md")
-    * [`ListMulticastGroups`](../../2020-11-22/apireference/API_ListMulticastGroups.md "../../2020-11-22/apireference/API_ListMulticastGroups.md") or [`list-multicast-groups`](../../../cli/latest/reference/iotwireless/list-multicast-groups.md "../../../cli/latest/reference/iotwireless/list-multicast-groups.md")
-    * [`DeleteMulticastGroup`](../../2020-11-22/apireference/API_DeleteMulticastGroup.md "../../2020-11-22/apireference/API_DeleteMulticastGroup.md") or [`delete-multicast-group`](../../../cli/latest/reference/iotwireless/delete-multicast-group.md "../../../cli/latest/reference/iotwireless/delete-multicast-group.md")
+    * [`UpdateMulticastGroup`](../apireference/API_UpdateMulticastGroup.md "../apireference/API_UpdateMulticastGroup.md") or [`update-multicast-group`](../../../cli/latest/reference/iotwireless/update-multicast-group.md "../../../cli/latest/reference/iotwireless/update-multicast-group.md")
+    * [`GetMulticastGroup`](../apireference/API_UpdateMulticastGroup.md "../apireference/API_UpdateMulticastGroup.md") or [`get-multicast-group`](../../../cli/latest/reference/iotwireless/get-multicast-group.md "../../../cli/latest/reference/iotwireless/get-multicast-group.md")
+    * [`ListMulticastGroups`](../apireference/API_ListMulticastGroups.md "../apireference/API_ListMulticastGroups.md") or [`list-multicast-groups`](../../../cli/latest/reference/iotwireless/list-multicast-groups.md "../../../cli/latest/reference/iotwireless/list-multicast-groups.md")
+    * [`DeleteMulticastGroup`](../apireference/API_DeleteMulticastGroup.md "../apireference/API_DeleteMulticastGroup.md") or [`delete-multicast-group`](../../../cli/latest/reference/iotwireless/delete-multicast-group.md "../../../cli/latest/reference/iotwireless/delete-multicast-group.md")
 
 2. ###### Add devices to a multicast group
 
 You can add devices to your multicast group individually or in
 bulk.
 
-    * To add devices in bulk to your multicast group, use the [`StartBulkAssociateWirelessDeviceWithMulticastGroup`](../../2020-11-22/apireference/API_StartBulkAssociateWirelessDeviceWithMulticastGroup.md "../../2020-11-22/apireference/API_StartBulkAssociateWirelessDeviceWithMulticastGroup.md")
+    * To add devices in bulk to your multicast group, use the [`StartBulkAssociateWirelessDeviceWithMulticastGroup`](../apireference/API_StartBulkAssociateWirelessDeviceWithMulticastGroup.md "../apireference/API_StartBulkAssociateWirelessDeviceWithMulticastGroup.md")
      API operation or the [`start-bulk-associate-wireless-device-with-multicast-group`](../../../cli/latest/reference/iotwireless/start-bulk-associate-wireless-device-with-multicast-group.md "../../../cli/latest/reference/iotwireless/start-bulk-associate-wireless-device-with-multicast-group.md")
      CLI command. To filter the devices you want to associate in bulk
      to your multicast group, provide a query string. The following
@@ -224,7 +224,7 @@ bulk.
      is the URL that's used to associate devices with the
      group.
     * To add devices individually to your multicast group, use the
-     [`AssociateWirelessDeviceWithMulticastGroup`](../../2020-11-22/apireference/API_AssociateWirelessDeviceWithMulticastGroup.md "../../2020-11-22/apireference/API_AssociateWirelessDeviceWithMulticastGroup.md")
+     [`AssociateWirelessDeviceWithMulticastGroup`](../apireference/API_AssociateWirelessDeviceWithMulticastGroup.md "../apireference/API_AssociateWirelessDeviceWithMulticastGroup.md")
      API operation or the [`associate-wireless-device-with-multicast-group`](../../../cli/latest/reference/iotwireless/associate-wireless-device-with-multicast-group.md "../../../cli/latest/reference/iotwireless/associate-wireless-device-with-multicast-group.md")
      CLI. Provide the wireless device ID for each device you want to
      add to your group.
@@ -241,11 +241,11 @@ After you create your multicast group, you can use the following API
 operations or CLI commands to get information about your multicast group
 or to disassociate devices.
 
-    * [`DisassociateWirelessDeviceFromMulticastGroup`](../../2020-11-22/apireference/API_DisassociateWirelessDeviceFromMulticastGroup.md "../../2020-11-22/apireference/API_DisassociateWirelessDeviceFromMulticastGroup.md")
+    * [`DisassociateWirelessDeviceFromMulticastGroup`](../apireference/API_DisassociateWirelessDeviceFromMulticastGroup.md "../apireference/API_DisassociateWirelessDeviceFromMulticastGroup.md")
      or [`disassociate-wireless-device-from-multicast-group`](../../../cli/latest/reference/iotwireless/disassociate-wireless-device-from-multicast-group.md "../../../cli/latest/reference/iotwireless/disassociate-wireless-device-from-multicast-group.md")
-    * [`StartBulkDisassociateWirelessDeviceFromMulticastGroup`](../../2020-11-22/apireference/API_StartBulkDisassociateWirelessDeviceFromMulticastGroup.md "../../2020-11-22/apireference/API_StartBulkDisassociateWirelessDeviceFromMulticastGroup.md")
+    * [`StartBulkDisassociateWirelessDeviceFromMulticastGroup`](../apireference/API_StartBulkDisassociateWirelessDeviceFromMulticastGroup.md "../apireference/API_StartBulkDisassociateWirelessDeviceFromMulticastGroup.md")
      or [`start-bulk-disassociate-wireless-device-from-multicast-group`](../../../cli/latest/reference/iotwireless/start-bulk-disassociate-wireless-device-from-multicast-group.md "../../../cli/latest/reference/iotwireless/start-bulk-disassociate-wireless-device-from-multicast-group.md")
-    * [`ListWirelessDevices`](../../2020-11-22/apireference/API_ListWirelessDevices.md "../../2020-11-22/apireference/API_ListWirelessDevices.md") or [`list-wireless-devices`](../../../cli/latest/reference/iotwireless/list-wireless-devices.md "../../../cli/latest/reference/iotwireless/list-wireless-devices.md")
+    * [`ListWirelessDevices`](../apireference/API_ListWirelessDevices.md "../apireference/API_ListWirelessDevices.md") or [`list-wireless-devices`](../../../cli/latest/reference/iotwireless/list-wireless-devices.md "../../../cli/latest/reference/iotwireless/list-wireless-devices.md")
 
 
 

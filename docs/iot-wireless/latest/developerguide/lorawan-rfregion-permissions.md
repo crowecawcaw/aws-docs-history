@@ -85,8 +85,6 @@ relationship**. 11. In **Policy Document**, change the
 After you change the `Principal` property, the complete
 policy document should look like this example.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

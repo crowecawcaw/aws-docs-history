@@ -42,7 +42,7 @@ To view the device onboarding status, use any of the following
 AWS IoT Wireless API operations or the corresponding AWS CLI command.
 .
 
-    + ###### [`ListWirelessDeviceImportTasks`](../../2020-11-22/apireference/API_ListWirelessDeviceImportTasks.md "../../2020-11-22/apireference/API_ListWirelessDeviceImportTasks.md") API
+    + ###### [`ListWirelessDeviceImportTasks`](../apireference/API_ListWirelessDeviceImportTasks.md "../apireference/API_ListWirelessDeviceImportTasks.md") API
      or [`list-wireless-device-import-tasks`](../../../cli/latest/reference/list-wireless-device-import-tasks.md "../../../cli/latest/reference/list-wireless-device-import-tasks.md")
      CLI
 
@@ -52,7 +52,7 @@ AWS IoT Wireless API operations or the corresponding AWS CLI command.
      AWS IoT Wireless and their status. It also returns a count of
      the summary of onboarding status of Sidewalk devices in
      these tasks.
-    + ###### [`ListDevicesForWirelessDeviceImportTask`](../../2020-11-22/apireference/API_ListDevicesForWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_ListDevicesForWirelessDeviceImportTask.md")
+    + ###### [`ListDevicesForWirelessDeviceImportTask`](../apireference/API_ListDevicesForWirelessDeviceImportTask.md "../apireference/API_ListDevicesForWirelessDeviceImportTask.md")
      API or [`list-devices-for-wireless-device-import-task`](../../../cli/latest/reference/list-devices-for-wireless-device-import-task.md "../../../cli/latest/reference/list-devices-for-wireless-device-import-task.md")
      CLI
 
@@ -61,7 +61,7 @@ AWS IoT Wireless API operations or the corresponding AWS CLI command.
      import task and its status, and information about all
      Sidewalk devices that have been added to the import task
      and their onboarding status information.
-    + ###### [`GetWirelessDeviceImportTask`](../../2020-11-22/apireference/API_GetWirelessDeviceImportTask.md "../../2020-11-22/apireference/API_GetWirelessDeviceImportTask.md") API or
+    + ###### [`GetWirelessDeviceImportTask`](../apireference/API_GetWirelessDeviceImportTask.md "../apireference/API_GetWirelessDeviceImportTask.md") API or
      [`get-wireless-device-import-task`](../../../cli/latest/reference/get-wireless-device-import-task.md "../../../cli/latest/reference/get-wireless-device-import-task.md")
      CLI
 

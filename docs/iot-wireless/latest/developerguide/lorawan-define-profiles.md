@@ -48,14 +48,14 @@ associated with adding, updating, or deleting a service profile.
 
 ###### AWS IoT Wireless API actions for service profiles
 
-- [CreateDeviceProfile](../../2020-11-22/apireference/API_CreateDeviceProfile.md "../../2020-11-22/apireference/API_CreateDeviceProfile.md")
-- [GetDeviceProfile](../../2020-11-22/apireference/API_GetDeviceProfile.md "../../2020-11-22/apireference/API_GetDeviceProfile.md")
-- [ListDeviceProfiles](../../2020-11-22/apireference/API_ListDeviceProfiles.md "../../2020-11-22/apireference/API_ListDeviceProfiles.md")
-- [DeleteDeviceProfile](../../2020-11-22/apireference/API_DeleteDeviceProfile.md "../../2020-11-22/apireference/API_DeleteDeviceProfile.md")
+- [CreateDeviceProfile](../apireference/API_CreateDeviceProfile.md "../apireference/API_CreateDeviceProfile.md")
+- [GetDeviceProfile](../apireference/API_GetDeviceProfile.md "../apireference/API_GetDeviceProfile.md")
+- [ListDeviceProfiles](../apireference/API_ListDeviceProfiles.md "../apireference/API_ListDeviceProfiles.md")
+- [DeleteDeviceProfile](../apireference/API_DeleteDeviceProfile.md "../apireference/API_DeleteDeviceProfile.md")
 
 For the complete list of the actions and data types available to create
 and manage AWS IoT Core for LoRaWAN resources, see the [AWS IoT Wireless API
-reference](../../2020-11-22/apireference/welcome.md "../../2020-11-22/apireference/welcome.md").
+reference](../apireference/welcome.md "../apireference/welcome.md").
 
 ###### How to use the AWS CLI to create a device profile
 
@@ -118,14 +118,14 @@ associated with adding, updating, or deleting a service profile.
 
 ###### AWS IoT Wireless API actions for service profiles
 
-- [CreateServiceProfile](../../2020-11-22/apireference/API_CreateServiceProfile.md "../../2020-11-22/apireference/API_CreateServiceProfile.md")
-- [GetServiceProfile](../../2020-11-22/apireference/API_GetServiceProfile.md "../../2020-11-22/apireference/API_GetServiceProfile.md")
-- [ListServiceProfiles](../../2020-11-22/apireference/API_ListServiceProfiles.md "../../2020-11-22/apireference/API_ListServiceProfiles.md")
-- [DeleteServiceProfile](../../2020-11-22/apireference/API_DeleteServiceProfile.md "../../2020-11-22/apireference/API_DeleteServiceProfile.md")
+- [CreateServiceProfile](../apireference/API_CreateServiceProfile.md "../apireference/API_CreateServiceProfile.md")
+- [GetServiceProfile](../apireference/API_GetServiceProfile.md "../apireference/API_GetServiceProfile.md")
+- [ListServiceProfiles](../apireference/API_ListServiceProfiles.md "../apireference/API_ListServiceProfiles.md")
+- [DeleteServiceProfile](../apireference/API_DeleteServiceProfile.md "../apireference/API_DeleteServiceProfile.md")
 
 For the complete list of the actions and data types available to create
 and manage AWS IoT Core for LoRaWAN resources, see the [AWS IoT Wireless API
-reference](../../2020-11-22/apireference/welcome.md "../../2020-11-22/apireference/welcome.md").
+reference](../apireference/welcome.md "../apireference/welcome.md").
 
 ###### How to use the AWS CLI to create a service profile
 

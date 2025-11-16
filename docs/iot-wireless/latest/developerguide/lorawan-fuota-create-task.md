@@ -217,7 +217,7 @@ task**.
 image by using the API
 
 To create a FUOTA task and specify your firmware image file by using the API,
-use the [`CreateFuotaTask`](../../2020-11-22/apireference/API_CreateFuotaTask.md "../../2020-11-22/apireference/API_CreateFuotaTask.md") API operation or the [`create-fuota-task`](../../../cli/latest/reference/iotwireless/create-fuota-task.md "../../../cli/latest/reference/iotwireless/create-fuota-task.md") CLI command. You
+use the [`CreateFuotaTask`](../apireference/API_CreateFuotaTask.md "../apireference/API_CreateFuotaTask.md") API operation or the [`create-fuota-task`](../../../cli/latest/reference/iotwireless/create-fuota-task.md "../../../cli/latest/reference/iotwireless/create-fuota-task.md") CLI command. You
 can provide an `input.json` file as input to the
 `create-fuota-task` command.
 
@@ -257,10 +257,10 @@ where:
 After you create your FUOTA task, you can use the following API operations or
 CLI commands to update, delete, or get information about your FUOTA task.
 
-- [`UpdateFuotaTask`](../../2020-11-22/apireference/API_UpdateFuotaTask.md "../../2020-11-22/apireference/API_UpdateFuotaTask.md") or [`update-fuota-task`](../../../cli/latest/reference/iotwireless/update-fuota-task.md "../../../cli/latest/reference/iotwireless/update-fuota-task.md")
-- [`GetFuotaTask`](../../2020-11-22/apireference/API_GetFuotaTask.md "../../2020-11-22/apireference/API_GetFuotaTask.md") or [`get-fuota-task`](../../../cli/latest/reference/iotwireless/get-fuota-task.md "../../../cli/latest/reference/iotwireless/get-fuota-task.md")
-- [`ListFuotaTasks`](../../2020-11-22/apireference/API_ListFuotaTasks.md "../../2020-11-22/apireference/API_ListFuotaTasks.md") or [`list-fuota-tasks`](../../../cli/latest/reference/iotwireless/list-fuota-tasks.md "../../../cli/latest/reference/iotwireless/list-fuota-tasks.md")
-- [`DeleteFuotaTask`](../../2020-11-22/apireference/API_DeleteFuotaTask.md "../../2020-11-22/apireference/API_DeleteFuotaTask.md") or [`delete-fuota-task`](../../../cli/latest/reference/iotwireless/delete-fuota-task.md "../../../cli/latest/reference/iotwireless/delete-fuota-task.md")
+- [`UpdateFuotaTask`](../apireference/API_UpdateFuotaTask.md "../apireference/API_UpdateFuotaTask.md") or [`update-fuota-task`](../../../cli/latest/reference/iotwireless/update-fuota-task.md "../../../cli/latest/reference/iotwireless/update-fuota-task.md")
+- [`GetFuotaTask`](../apireference/API_GetFuotaTask.md "../apireference/API_GetFuotaTask.md") or [`get-fuota-task`](../../../cli/latest/reference/iotwireless/get-fuota-task.md "../../../cli/latest/reference/iotwireless/get-fuota-task.md")
+- [`ListFuotaTasks`](../apireference/API_ListFuotaTasks.md "../apireference/API_ListFuotaTasks.md") or [`list-fuota-tasks`](../../../cli/latest/reference/iotwireless/list-fuota-tasks.md "../../../cli/latest/reference/iotwireless/list-fuota-tasks.md")
+- [`DeleteFuotaTask`](../apireference/API_DeleteFuotaTask.md "../apireference/API_DeleteFuotaTask.md") or [`delete-fuota-task`](../../../cli/latest/reference/iotwireless/delete-fuota-task.md "../../../cli/latest/reference/iotwireless/delete-fuota-task.md")
 
 ## Next steps
 

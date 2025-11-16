@@ -124,12 +124,12 @@ you want to receive for them.
 
 configuration using the API
 
-To create a network analyzer configuration using the API, use the [CreateNetworkAnalyzerConfiguration](../../2020-11-22/apireference/API_CreateNetworkAnalyzerConfiguration.md "../../2020-11-22/apireference/API_CreateNetworkAnalyzerConfiguration.md") API operation or the [create-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/create-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/create-network-analyzer-configuration.md") CLI command.
+To create a network analyzer configuration using the API, use the [CreateNetworkAnalyzerConfiguration](../apireference/API_CreateNetworkAnalyzerConfiguration.md "../apireference/API_CreateNetworkAnalyzerConfiguration.md") API operation or the [create-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/create-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/create-network-analyzer-configuration.md") CLI command.
 
 When you create your configuration, you only need to specify a configuration
 name. You can also use this API operation to specify the configuration settings
 and add resources when creating the configuration. Alternatively, you can
-specify them later by using the [UpdateNetworkAnalyzerConfiguration](../../2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.md "../../2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.md") API operation or the [update-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md") CLI.
+specify them later by using the [UpdateNetworkAnalyzerConfiguration](../apireference/API_UpdateNetworkAnalyzerConfiguration.md "../apireference/API_UpdateNetworkAnalyzerConfiguration.md") API operation or the [update-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md") CLI.
 
 - ###### Create a configuration
 
@@ -189,7 +189,7 @@ The following example shows the output of running the command:
 You can create multiple network analyzer configurations depending on the
 resources that you want to monitor and the level of detail of trace
 messaging information that you want to receive for the resources. After you
-create these configurations, you can use the [ListNetworkAnalyzerConfigurations](../../2020-11-22/apireference/API_ListNetworkAnalyzerConfigurations.md "../../2020-11-22/apireference/API_ListNetworkAnalyzerConfigurations.md") API operation or the [list-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/list-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/list-network-analyzer-configuration.md") CLI command to get a list
+create these configurations, you can use the [ListNetworkAnalyzerConfigurations](../apireference/API_ListNetworkAnalyzerConfigurations.md "../apireference/API_ListNetworkAnalyzerConfigurations.md") API operation or the [list-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/list-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/list-network-analyzer-configuration.md") CLI command to get a list
 of these configurations.
 
 ```
@@ -218,7 +218,7 @@ output of running this command.
 
 ###### Delete your network analyzer configuration
 
-You can delete a configuration that you're no longer using with the [DeleteNetworkAnalyzerConfiguration](../../2020-11-22/apireference/API_DeleteNetworkAnalyzerConfiguration.md "../../2020-11-22/apireference/API_DeleteNetworkAnalyzerConfiguration.md") API operation or the [delete-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/delete-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/delete-network-analyzer-configuration.md") CLI command.
+You can delete a configuration that you're no longer using with the [DeleteNetworkAnalyzerConfiguration](../apireference/API_DeleteNetworkAnalyzerConfiguration.md "../apireference/API_DeleteNetworkAnalyzerConfiguration.md") API operation or the [delete-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/delete-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/delete-network-analyzer-configuration.md") CLI command.
 
 ```
 aws iotwireless delete-network-analyzer-configuration \

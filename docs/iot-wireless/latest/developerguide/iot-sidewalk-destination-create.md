@@ -89,7 +89,7 @@ permissions on your behalf.
 
 (CLI)
 
-To create a destination, use the [`CreateDestination`](../../2020-11-22/apireference/API_CreateDestination.md "../../2020-11-22/apireference/API_CreateDestination.md") API operation or the [`create-destination`](../../../cli/latest/reference/iotwireless/create-destination.md "../../../cli/latest/reference/iotwireless/create-destination.md") CLI command. For example, the
+To create a destination, use the [`CreateDestination`](../apireference/API_CreateDestination.md "../apireference/API_CreateDestination.md") API operation or the [`create-destination`](../../../cli/latest/reference/iotwireless/create-destination.md "../../../cli/latest/reference/iotwireless/create-destination.md") CLI command. For example, the
 following command creates a destination for your Sidewalk end
 device:
 

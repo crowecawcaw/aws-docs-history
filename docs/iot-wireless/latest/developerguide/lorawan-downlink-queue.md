@@ -132,7 +132,7 @@ individual messages, or the entire queue, as needed.
 
 ###### Queue downlink messages
 
-To create a downlink message queue, use the [`SendDataToWirelessDevice`](../../2020-11-22/apireference/API_SendDataToWirelessDevice.md "../../2020-11-22/apireference/API_SendDataToWirelessDevice.md") API operation or the
+To create a downlink message queue, use the [`SendDataToWirelessDevice`](../apireference/API_SendDataToWirelessDevice.md "../apireference/API_SendDataToWirelessDevice.md") API operation or the
 [`send-data-to-wireless-device`](cli/latest/reference/iotwireless/send-data-to-wireless-device.md "cli/latest/reference/iotwireless/send-data-to-wireless-device.md") CLI
 command.
 
@@ -158,7 +158,7 @@ message queue errors](#lorawan-downlink-queue-troubleshoot "#lorawan-downlink-qu
 
 ###### List downlink messages in the queue
 
-To list all downlink messages in the queue, use the [`ListQueuedMessages`](../../2020-11-22/apireference/API_ListQueuedMessages.md "../../2020-11-22/apireference/API_ListQueuedMessages.md") API operation or the [`list-queued-messages`](../../../cli/latest/reference/iotwireless/list-queued-messages.md "../../../cli/latest/reference/iotwireless/list-queued-messages.md") CLI
+To list all downlink messages in the queue, use the [`ListQueuedMessages`](../apireference/API_ListQueuedMessages.md "../apireference/API_ListQueuedMessages.md") API operation or the [`list-queued-messages`](../../../cli/latest/reference/iotwireless/list-queued-messages.md "../../../cli/latest/reference/iotwireless/list-queued-messages.md") CLI
 command.
 
 ```
@@ -171,7 +171,7 @@ command.
 ###### Remove individual downlink messages or clear entire queue
 
 To remove individual messages from the queue or to clear the entire queue,
-use the [`DeleteQueuedMessages`](../../2020-11-22/apireference/API_DeleteQueuedMessages.md "../../2020-11-22/apireference/API_DeleteQueuedMessages.md") API operation or the
+use the [`DeleteQueuedMessages`](../apireference/API_DeleteQueuedMessages.md "../apireference/API_DeleteQueuedMessages.md") API operation or the
 [`delete-queued-messages`](../../../cli/latest/reference/iotwireless/delete-queued-messages.md "../../../cli/latest/reference/iotwireless/delete-queued-messages.md") CLI
 command.
 

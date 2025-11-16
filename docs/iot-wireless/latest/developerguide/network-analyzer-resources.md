@@ -125,12 +125,12 @@ details page of your network analyzer configuration.
 the network analyzer configuration by using the API
 
 You can use the [AWS IoT Wireless API
-operations](../../2020-11-22/apireference.md "../../2020-11-22/apireference.md") or the [AWS IoT Wireless CLI
+operations](../apireference.md "../apireference.md") or the [AWS IoT Wireless CLI
 commands](../../../cli/latest/reference/iotwireless/index.md "../../../cli/latest/reference/iotwireless/index.md") to add resources and update the configuration settings for
 your network analyzer configuration.
 
 - To add resources and update your network analyzer configuration, use
-  the [UpdateNetworkAnalyzerConfiguration](../../2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.md "../../2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.md") API or the [update-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md") CLI.
+  the [UpdateNetworkAnalyzerConfiguration](../apireference/API_UpdateNetworkAnalyzerConfiguration.md "../apireference/API_UpdateNetworkAnalyzerConfiguration.md") API or the [update-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md") CLI.
   - ###### Add resources
 
   For the wireless devices you want to add, use
@@ -164,7 +164,7 @@ your network analyzer configuration.
 ```
 
 - To get information about the configuration and the resources that
-  you've added, use the [GetNetworkAnalyzerConfiguration](../../2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.md "../../2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.md") API operation or the [get-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/get-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/get-network-analyzer-configuration.md") command. Provide the
+  you've added, use the [GetNetworkAnalyzerConfiguration](../apireference/API_UpdateNetworkAnalyzerConfiguration.md "../apireference/API_UpdateNetworkAnalyzerConfiguration.md") API operation or the [get-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/get-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/get-network-analyzer-configuration.md") command. Provide the
   name of the network analyzer configuration,
   `NetworkAnalyzerConfig_Default`, as input.
 

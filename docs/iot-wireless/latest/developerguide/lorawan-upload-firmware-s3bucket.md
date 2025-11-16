@@ -103,8 +103,6 @@ the IAM console](https://console.aws.amazon.com/iam/home#/policies "https://cons
    bucket and the firmware update file, `fwstation`, stored
    inside an object.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -174,8 +172,6 @@ add the following trust relationship.
 
 After you change the `Principal` property, the complete
 policy document should look like this example.
-
-JSON
 
 ```
 `{

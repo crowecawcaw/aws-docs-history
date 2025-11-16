@@ -122,7 +122,7 @@ page.
 
 use filtering and subbands using the API
 
-You can use the [CreateWirelessGateway](../../2020-11-22/apireference/API_CreateWirelessGateway.md "../../2020-11-22/apireference/API_CreateWirelessGateway.md") API that you use to create a gateway to configure
+You can use the [CreateWirelessGateway](../apireference/API_CreateWirelessGateway.md "../apireference/API_CreateWirelessGateway.md") API that you use to create a gateway to configure
 the subbands you want to use and enable the filtering capability. Using the
 `CreateWirelessGateway` API, you can specify the subbands and filters
 as part of the gateway configuration information that you provide using the
@@ -153,8 +153,8 @@ Content-type: application/json
 }
 ```
 
-You can also use the [UpdateWirelessGateway](../../2020-11-22/apireference/API_UpdateWirelessGateway.md "../../2020-11-22/apireference/API_UpdateWirelessGateway.md") API to update the filters but not the subbands.
+You can also use the [UpdateWirelessGateway](../apireference/API_UpdateWirelessGateway.md "../apireference/API_UpdateWirelessGateway.md") API to update the filters but not the subbands.
 If the `JoinEuiFilters` and `NetIdfilters` values are null, it
 means there is no update for the fields. If the values aren't null and empty lists
 are included, then the update is applied. To get the values of the fields that you
-specified, use the [GetWirelessGateway](../../2020-11-22/apireference/API_GetWirelessGateway.md "../../2020-11-22/apireference/API_GetWirelessGateway.md") API.
+specified, use the [GetWirelessGateway](../apireference/API_GetWirelessGateway.md "../apireference/API_GetWirelessGateway.md") API.

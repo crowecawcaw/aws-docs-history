@@ -93,7 +93,7 @@ profile.
 To obtain the `ApId`, after you retrieve information about the
 device profile that you created, contact the Amazon Sidewalk Support team. You can
 obtain the device profile information from the AWS IoT console, or using the
-[`GetDeviceProfile`](../../2020-11-22/apireference/API_GetDeviceProfile.md "../../2020-11-22/apireference/API_GetDeviceProfile.md") API operation, or the [`get-device-profile`](../../../cli/latest/reference/get-device-profile.md "../../../cli/latest/reference/get-device-profile.md") CLI command.
+[`GetDeviceProfile`](../apireference/API_GetDeviceProfile.md "../apireference/API_GetDeviceProfile.md") API operation, or the [`get-device-profile`](../../../cli/latest/reference/get-device-profile.md "../../../cli/latest/reference/get-device-profile.md") CLI command.
 
 ## How bulk provisioning works
 

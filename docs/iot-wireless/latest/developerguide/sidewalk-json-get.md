@@ -78,7 +78,7 @@ The following shows how to retrieve the JSON files.
 
 information as JSON file
 
-Use the [`GetDeviceProfile`](../../2020-11-22/apireference/API_GetDeviceProfile.md "../../2020-11-22/apireference/API_GetDeviceProfile.md") API operation or the [`get-device-profile`](../../../cli/latest/reference/get-device-profile.md "../../../cli/latest/reference/get-device-profile.md") CLI command to get
+Use the [`GetDeviceProfile`](../apireference/API_GetDeviceProfile.md "../apireference/API_GetDeviceProfile.md") API operation or the [`get-device-profile`](../../../cli/latest/reference/get-device-profile.md "../../../cli/latest/reference/get-device-profile.md") CLI command to get
 information about your device profile that you added to your account for
 AWS IoT Core for Amazon Sidewalk. To retrieve information about your device profile, specify
 the profile ID.
@@ -99,7 +99,7 @@ Running this command returns the parameters of your device profile, the
 application server public key, and the `DeviceTypeID`. The
 following shows a JSON file that contains a sample response information from
 the API. For more information about the parameters in the API response, see
-[`GetDeviceProfile`](../../2020-11-22/apireference/API_GetDeviceProfile.md "../../2020-11-22/apireference/API_GetDeviceProfile.md").
+[`GetDeviceProfile`](../apireference/API_GetDeviceProfile.md "../apireference/API_GetDeviceProfile.md").
 
 **`GetDeviceProfile` API response (Contents
 of
@@ -131,7 +131,7 @@ of
 
 information as JSON file
 
-Use the [`GetWirelessDevice`](../../2020-11-22/apireference/API_GetWirelessDevice.md "../../2020-11-22/apireference/API_GetWirelessDevice.md") API operation or the [`get-wireless-device`](../../../cli/latest/reference/get-wireless-device.md "../../../cli/latest/reference/get-wireless-device.md") CLI command to get
+Use the [`GetWirelessDevice`](../apireference/API_GetWirelessDevice.md "../apireference/API_GetWirelessDevice.md") API operation or the [`get-wireless-device`](../../../cli/latest/reference/get-wireless-device.md "../../../cli/latest/reference/get-wireless-device.md") CLI command to get
 information about your Sidewalk device that you added to your account
 for AWS IoT Core for Amazon Sidewalk. To get information about your end device, provide the
 identifier of the wireless device that you obtained when adding your device.
@@ -152,7 +152,7 @@ aws iotwireless get-wireless-device --identifier-type WirelessDeviceId \
 Running this command returns the device details, device certificates,
 private keys, and the Sidewalk manufacturing serial number (SMSN).
 The following shows an example output of running this command. For more
-information about the parameters in the API response, see [`GetWirelessDevice`](../../2020-11-22/apireference/API_GetWirelessDevice.md "../../2020-11-22/apireference/API_GetWirelessDevice.md").
+information about the parameters in the API response, see [`GetWirelessDevice`](../apireference/API_GetWirelessDevice.md "../apireference/API_GetWirelessDevice.md").
 
 **`GetWirelessDevice` API response
 (Contents of
@@ -161,35 +161,67 @@ information about the parameters in the API response, see [`GetWirelessDevice`](
 ```
 {
     "Arn": "arn:aws:iotwireless:`us-east-1`:`123456789012`:WirelessDevice/`23456789-abcd-0123-bcde-fabc012345678`",
-    "Id": "`23456789-abcd-0123-bcde-fabc012345678`",
+    "Description": "`test-description`",
     "DestinationName": `"SidewalkDestination"`,
-    "Type": "Sidewalk",
+    "Id": "`23456789-abcd-0123-bcde-fabc012345678`",
+    "LoRaWAN": "null",
+    "Name" : "`test-name`",
+    "Positioning": "`Enabled`"
     "Sidewalk": {
         "CertificateId": `"4C7438772D50524F544F54595045"`,
         "DeviceCertificates": [
             {
                 "SigningAlg": "Ed25519",
-                "Value": `"hDdkJw9L2uMCORjImjMHqzNR6nYYh6QKncSl5GthQNl7NKe4ounb5UMQtLjnm7zOUPYOqghCeVOLCBUiQe2ZiMBEW18JDUXIhffPobqZgohK91+LKFJ10X/F+GeltcafZcFKhS+O5NPcVNR/fHYaf/cn5iUbRwlz/T+ODXvGdwkBkgDyFgoUJgn7JdzFjaneE5qzTWXUbL79i1sXToGGjP8hiD9jJhidPWhIswleydAWgO1OZGA4CjzIaSGVM1VtaLB0VDphAkEpjMkZrtVDH3S8U1vDZTVi6YSbnkYZgfWv/uMMBfgAeL8Tdv5LkFIPIB3ZX9zt8zzmAuFRzI4MuNjWfIDnOF6AKu37WWU6/QYhZoQrW9D/wndiCcsRGl+ANn367r/HE02Re4DOiCfs9f2rjc4LT1LKt7g/KW2ii+W+9HYvvY0bBAI+AHx6Cx4j+djabTsvrgW2k6NU2zUSM7bdDP3z2a2+Z4WzBji/jYwt/OP8rpsy5Ee4ywXUfCsfQ0rKOr0zay6yh27p3I3MZle2oCO4JIlqK0VbIQqsXzSSyp6XXS0lhmuGugZ1AAADGz+gFBeX/ZNN8VJwnsNfgzj4me1HgVJdUo4W9kvx9cr2jHWkC3Oj/bdBTh1+yBjOC53yHlQK/l1GHrEWiWPPnE434LRxnWkwr8EHD4oieJxC8fkIxkQfj+gHhU79Z+oAAYAAAzsnf9SDIZPoDXF0TdC9POqTgld0oXDl2XPaVD4CvvLearrOSlFv+lsNbC4rgZn23MtIBM/7YQmJwmQ+FXRup6Tkubg1hpz04J/09dxg8UiZmntHiUr1GfkTOFMYqRB+Aw=="`
+                "Value": "`WUqB/E50VP7oZpHtYoBgpzJXYvhv51y/DBIfzNhrleo4UzOWCsIzbaJwft
+ +IPBSUQthDifJDYik0DuU1jLvuR8cpK7YyI7cUD/oZG+4Pro/s3nAIhy
+ XmhUlepmbveVxM8boiTiaUlL4iB9DoKrB41pWdHeg7hR8BDrE1m4sf5Q
+ 9ZUwDy5BqMafeW0RUKZMVunpChji0dwC5VoSSb8IT7V+bKTJXXdZ8lP1
+ 1jsiuJfwF64Eq1NCe2qKb7gql5u+qBE7vatDOSonwN56I6Ah8HWYRSyJ
+ Tk7DSJKknSY7KGyLjs0qMI8L8AeJ++UIO/jOsGnhC6Ku1ba62bEPmIBr
+ +889NhOngiIt1+1DrSOO59a1PLYqfVa5ejKq0tzzbyNG/m/oW72kkGGH
+ Ruec2zOXEO86kf4X0qzFfTKoo/6lt67XfXIQkO4wApCgJ8AHwHa3xz+d
+ h+W6mFwYFRqrQQT8s0SjSuDtLCaqZhnch47MZk7E/itqP4JnJ7RsJHWx
+ XsG2gTNlRghfG+zhpKzVVdvVVZeZ22f2WZ2QoGlzXxrW0/b7mqpO2l+8
+ fzRYYdqAp1AAADGz+gFBeX/ZNN8VJwnsNfgzj4me1HgVJdUo4W9kvx9c
+ r2jHWkC3Oj/bdBTh1+yBjOC53yHlQK/l1GHrEWiWPPnE434LRxnWkwr8
+ EHD4oieJxC8fkIxkQfj+gHh`"
             },
             {
                 "SigningAlg": "P256r1",
-                "Value": `"hDdkJw9L2uMCORjImjMHqzNR6nYYh6QKncSl5GthQNmHmGU8a+SOqDXWwDNt3VSntpbTTQl7cMIusqweQo+JPXXWElbGh7eaxPGz4ZeF5yM2cqVNUrQr1lX/6lZ+OLuycrFrLzzB9APi0NIMLqV/Rt7XJssHQs2RPcT1ul/2XVpa6ztULJeQi2JwhTb/k48wbh/EvafG/ibrIBIx9v7/dwGRAPKHq7Uwb9hHnhpa8qNOUtjeUdIwJNh9vCBFX9s22t4PdortoFxbXo9C149PDDD4wqUHJGYlCsVX/Sqqjf7Aug3h5dwdYN6cDgsuuiOm0+aBcXBGpkh7OxVxlwXkIP+11dt23TkrSUKd0B01sc9Mc/0yEBCzx5RutKBwsefzyOl4vQX3AHgV7oD/XV73THMgGiDxQ55CPaaxN/pm791VkQ76BSZaBeF+Su6tg0k/eQneklt8Du5uqkyBHVxy8MvxsBIMZ73vIFwUrLHjDeq3+nOOyQqSBMnrHKU2mAwN3zb2LolwjPkKNOh1+NNnv99L2pBcNCnhnoBULWmWAZNXJpMx9QrcSwI9AHylcgUbGQJgf9Ryun+BgewzYNdWrXyKkp4O3ZDa4f+5SVWvbY5eyDDXcohvz/OcCtuRjAkzKBCvIjBDnCv1McjVdCO3+utizGntfhAo1RZstnOoRkgVF2WuMT9IrUmzYximuTXUmWtjyFSTqgNBZwHWUTlMmjlpLCVzZQWM4zOisXUAAALPsP34BS6EzJO5AsS5pC7QTpjBtAbLN9SdXOT9w4H1x8Nkp0ujLxWRN37IEy0V9DrPK2w1g74uqWPfUPnSBjtvM55JnQpmm23WQNvHa1Vr6zmWDjzjHpcNirPbzXyBlKEhkX4xylaSMnm4UrVXtAMaAJ/csC4HPTKr3dazdvEkhwGAAAIFByCjSp/5WHc4AhsyjMvKCsZQiKgiI8ECwjfXBaSZdY4zYsRlO3FC428H1atrFChFCZT0Bqt5LPXD38bMSB+vAUJiP8XqiEdXeqf2mYMJ5ykoDpwkve/cUQfPpjzFQlQfvwjBwiJDANKkOKoNT3bUGz+/f/pyTE+xMRdIUBZ1Bw=="`
+                "Value": "`hDdkJw9L2uMCORjImjMHqzNR6nYYh6QKncSl5GthQNmHmGU8a+SOqDXWwDNt3
+ VSntpbTTQl7cMIusqweQo+JPXXWElbGh7eaxPGz4ZeF5yM2cqVNUrQr1l
+ X/6lZ+OLuycrFrLzzB9APi0NIMLqV/Rt7XJssHQs2RPcT1ul/2XVpa6zt
+ ULJeQi2JwhTb/k48wbh/EvafG/ibrIp4O3ZDa4f+5SVWvbY5eyDDXcohv
+ z/OcCtuRjAkzKBCvIjBDnCv1McjVdCO3+utizGntfhAo1RZstnOoRkgVF
+ 2WuMT9IrUmzYximuTXUmWtjyFSTqgNBZwHWUTlMmjlpLCVzZQWM4zOisX
+ UAAALPsP34BS6EzJO5AsS5pC7QTpjBtAbLN9SdXOT9w4H1x8Nkp0ujLxW
+ RN37IEy0V9DrPK2w1g74uqWPfUPnSBjtvM55JnQpmm23WQNvHa1Vr6zmW
+ DjzjHpcNirPbzXyBlKEhkX4xylaSMnm4UrVXtAMaAJ/csC4HPTKr3dazd
+ vEkhwGAAAIFByCjSp/5WHc4AhsyjMvKCsZQiKgiI8ECwjfXBaSZdY4zYs
+ RlO3FC428H1atrFChFCZT0Bqt5LPXD38bMSB+vAUJiP8XqiEdXeqf2mYM
+ J5ykoDpwkve/cUQfPpjzFQlQfvwjBwiJDANKkOKoNT3bUGz+/f/pyTE+x
+ MRdIUBZ1Bw==`"
             }
         ],
-        "DeviceProfileId": `"0ff5b0c6-f149-4498-af34-21993acd52a7"`,
+        "DeviceProfileId":"`0ff5b0c6-f149-4498-af34-21993acd52a7`",
+        "Positioning": {
+                        "DestinationName": `"SidewalkLocationDestination"`,
+                        },
         "PrivateKeys": [
             {
                 "SigningAlg": "Ed25519",
-                "Value": `"2c24d4572327f23b9bef38097137c29224a9e979081b3d90124ac9dfa477934e"`
+                "Value": "`2c24d4572327f23b9bef38097137c29224a9e979081b3d90124ac9dfa477934e`"
             },
             {
                 "SigningAlg": "P256r1",
-                "Value": `"38d526f29cfaf142f596deca187bd809ef71bc13435eedc885b63bb825d63def"`
+                "Value": "`38d526f29cfaf142f596deca187bd809ef71bc13435eedc885b63bb825d63def`"
             }
         ],
-        "SidewalkManufacturingSn": `"843764270F4BDAE3023918C89A3307AB3351EA761887A40A9DC4A5E46B6140D9"`,
-        "Status": "PROVISIONED"
+        "SidewalkManufacturingSn": "`843764270F4BDAE3023918C89A3307AB3351EA761887A40A9DC
+ 4A5E46B6140D9`",
+        "Status": "`PROVISIONED`"
     },
+    "Type": "Sidewalk",
 
     ...
 

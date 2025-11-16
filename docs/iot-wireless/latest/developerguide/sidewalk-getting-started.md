@@ -1,4 +1,4 @@
-# Getting started with AWS IoT Core for Amazon Sidewalk
+# Get started using AWS IoT Core for Amazon Sidewalk
 
 This section shows you how to get started with connecting your Sidewalk end devices
 to AWS IoT Core for Amazon Sidewalk. It explains how you can connect an end device to Amazon Sidewalk and pass
@@ -47,7 +47,7 @@ devices using the AWS IoT console, see [Connecting to AWS IoT Core for Amazon Si
 
 ###### Important
 
-To perform the entire onboarding workflow, you also provision and register your
+To perform the entire onboarding workflow, you must provision and register your
 end device, and connect your hardware development kit (HDK). For more information,
 see [Provisioning and
 registering your end device](https://docs.sidewalk.amazon/provisioning/ "https://docs.sidewalk.amazon/provisioning/") in the _Amazon Sidewalk
@@ -55,16 +55,81 @@ documentation_.
 
 ###### Topics
 
-- [Step 1: Add your Sidewalk device to
-  AWS IoT Core for Amazon Sidewalk](#iot-sidewalk-qsg-step1 "#iot-sidewalk-qsg-step1")
-- [Step 2: Create a destination for your
+- [Step 1: Create a destination for your
   Sidewalk end device](#iot-sidewalk-qsg-step2 "#iot-sidewalk-qsg-step2")
+- [Step 2: Add your Sidewalk device to
+  AWS IoT Core for Amazon Sidewalk](#iot-sidewalk-qsg-step1 "#iot-sidewalk-qsg-step1")
 - [Step 3: Provision and register the end
   device](#iot-sidewalk-qsg-step2 "#iot-sidewalk-qsg-step2")
 - [Step 4: Connect to Sidewalk end
   device and exchange messages](#iot-sidewalk-qsg-step4 "#iot-sidewalk-qsg-step4")
 
-### Step 1: Add your Sidewalk device to
+### Step 1: Create a destination for your
+
+Sidewalk end device
+
+Here's an overview of the steps that you'll perform to add your destination to
+AWS IoT Core for Amazon Sidewalk. Using the AWS Management Console, or the AWS IoT Wireless API operations, or
+the AWS CLI, you run the following steps to create a destination which can be an AWS IoT
+rule or an MQTT topic. You can then connect to the hardware platform, and view and
+exchange messages. For a sample IAM role and AWS IoT rule used for the AWS CLI
+examples in this section, see [Create an IAM role and IoT rule
+for your destination](sidewalk-destination-rule-role.md "sidewalk-destination-rule-role.md").
+
+Store the destination name you create in this step. You'll use this information
+when you create a wireless device.
+
+1. ###### Create IAM role
+
+Create an IAM role that grants AWS IoT Core for Amazon Sidewalk permission to send data to
+the AWS IoT rule. To create the role, use the [`CreateRole`](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md")
+API operation or [`create-role`](../../../cli/latest/reference/iam/create-role.md "../../../cli/latest/reference/iam/create-role.md") CLI command. You can name the role as
+`SidewalkRole`.
+
+```
+aws iam create-role --role-name lambda-ex \
+    --assume-role-policy-document `file://lambda-trust-policy.json`
+```
+
+2. ###### Create an AWS IoT rule for the destination
+
+Create an AWS IoT rule that will process the device's data and specify the
+topic to which messages are published. You'll observe messages on this topic
+after connecting to the hardware platform. Use the AWS IoT Core API operation,
+[`CreateTopicRule`](../../../iot/latest/apireference/API_CreateTopicRule.md "../../../iot/latest/apireference/API_CreateTopicRule.md"), or the AWS CLI command, [`create-topic-rule`](../../../cli/latest/reference/iot/create-topic-rule.md "../../../cli/latest/reference/iot/create-topic-rule.md"), to create a rule for the
+destination.
+
+###### Note
+
+You can also use an MQTT topic as a destination. For more information
+about how to create an MQTT topic, see [MQTT topics](../../../iot/latest/developerguide/topics.md "../../../iot/latest/developerguide/topics.md").
+
+```
+aws iot create-topic-rule --rule-name `Sidewalkrule` \
+    --topic-rule-payload `file://myrule.json`
+```
+
+3. ###### Create a destination
+
+Create a destination that associates your Sidewalk device with the
+IoT rule (or MQTT topic) that processes it for use with other
+AWS services. You can add a destination using the [Destinations hub](https://console.aws.amazon.com/iot/home#/wireless/destinations "https://console.aws.amazon.com/iot/home#/wireless/destinations") of the
+AWS IoT console, or the [`CreateDestination`](../apireference/API_CreateDestination.md "../apireference/API_CreateDestination.md") API operation or the [`create-destination`](../../../cli/latest/reference/create-destination.md "../../../cli/latest/reference/create-destination.md") CLI command. You'll send
+your Sidewalk end device's uplink data and location data to these
+destinations.
+
+```
+aws iotwireless create-destination --name `SidewalkDestination` \
+    --expression-type RuleName --expression `SidewalkRule` \
+    --role-arn arn:aws:iam::`123456789012`:role/`SidewalkRole`
+```
+
+Alternatively, if you want to provide an MQTT topic as the destination,
+replace the `expression-type` option with `MqttTopic`
+instead of `RuleName`. Replace
+`SidewalkRule` with the topic name.
+
+### Step 2: Add your Sidewalk device to
 
 AWS IoT Core for Amazon Sidewalk
 
@@ -78,9 +143,10 @@ provision and register the end device. For more information about these steps, s
 
 Create a device profile that contains the shared configurations for your
 Sidewalk devices. When creating the profile, specify a
-`name` for the profile as an
-alphanumeric string. To create a profile, either go to the [Sidewalk tab of the Profiles hub](https://console.aws.amazon.com/iot/home#/wireless/profiles?tab=sidewalk "https://console.aws.amazon.com/iot/home#/wireless/profiles?tab=sidewalk") in the AWS IoT console
-and choose **Create profile**, or use the [`CreateDeviceProfile`](../../2020-11-22/apireference/API_CreateDeviceProfile.md "../../2020-11-22/apireference/API_CreateDeviceProfile.md") API operation or the
+`name` for the profile as an alphanumeric
+string. To create a profile, either go to the [Sidewalk tab of
+the Profiles hub](https://console.aws.amazon.com/iot/home#/wireless/profiles?tab=sidewalk "https://console.aws.amazon.com/iot/home#/wireless/profiles?tab=sidewalk") in the AWS IoT console and choose
+**Create profile**, or use the [`CreateDeviceProfile`](../apireference/API_CreateDeviceProfile.md "../apireference/API_CreateDeviceProfile.md") API operation or the
 [`create-device-profile`](../../../cli/latest/reference/create-device-profile.md "../../../cli/latest/reference/create-device-profile.md") CLI command as shown in
 this example.
 
@@ -89,30 +155,106 @@ this example.
 aws iotwireless create-device-profile --name `sidewalk_profile` --sidewalk {}
 ```
 
-2. ###### Create your Sidewalk end device
+2. ###### Create your Sidewalk end device and optionally get the device
 
-Create your Sidewalk end device with AWS IoT Core for Amazon Sidewalk. Specify a
-destination name and the ID of the device profile obtained from the previous
-step. To add a device, either go to the [Sidewalk tab of the
-Devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk "https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk") in the AWS IoT console and choose **Provision
-device**, or use the [`CreateWirelessDevice`](../../2020-11-22/apireference/API_CreateWirelessDevice.md "../../2020-11-22/apireference/API_CreateWirelessDevice.md") API operation or the
-[`create-wireless-device`](../../../cli/latest/reference/create-wireless-device.md "../../../cli/latest/reference/create-wireless-device.md") CLI command as shown in
-this example.
+   location
+   1. ###### Create your Sidewalk end device
+
+   Create your Sidewalk end device with AWS IoT Core for Amazon Sidewalk.
+   Specify a destination name and the ID of the device profile obtained
+   from the previous step. To add a device, either go to the [Sidewalk tab of the Devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk "https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk") in the AWS IoT
+   console and choose **Provision device**, or use
+   the [`CreateWirelessDevice`](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") API operation or
+   the [`create-wireless-device`](../../../cli/latest/reference/create-wireless-device.md "../../../cli/latest/reference/create-wireless-device.md") CLI command as
+   shown in this example.
+
+   ###### Note
+
+   Specify a name for your destination that's unique to your
+   AWS account and AWS Region. You'll use the same destination
+   name when you add your destination to AWS IoT Core for Amazon Sidewalk.
+
+   ```
+   // Add your Sidewalk device by using the device profile ID.
+   aws iotwireless create-wireless-device
+       --type "Sidewalk"
+       --name `"sidewalk_device"` \
+       --destination-name `"SidewalkDestination"` \
+       --sidewalk DeviceProfileId=`"12345678-234a-45bc-67de-e8901234f0a1"`
+   ```
+
+   2. ###### (Optional) Create your Sidewalk end device and get the
+      Sidewalk device location
+
+   If you want to enable location data when you create your
+   Sidewalk end device with AWS IoT Core for Amazon Sidewalk, enable positioning.
+   Replace `LocationDestination` with the
+   destination to which you want to send the device location data to.
+   The destination can either be an AWS AWS IoT rule or an MQTT topic.
+   You can use the destination you created in Step 1 above as your
+   UplinkDestination. Alternatively, you can specify a different
+   destination as LocationDestination.
+
+   AWS IoT Core for Amazon Sidewalk resolves the location of your Sidewalk end
+   device using Bluetooth Low Energy (BLE), Wi-Fi, or GNSS uplink
+   messages published by your Sidewalk end device. For more
+   information on AWS IoT's location resolution capabilities, see [AWS IoT Core
+   Device Location](../../../iot/latest/developerguide/device-location.md "../../../iot/latest/developerguide/device-location.md").
+
+   ###### Note
+
+   You must enable positioning to use the device
+   location feature.
+
+   If you enable device location for the Sidewalk-enabled
+   device, your raw uplink payload won't be propagated to the
+   destination.
+
+   ```
+   // Add your Sidewalk device by using the device profile ID.
+   aws iotwireless create-wireless-device  --type "Sidewalk" --name `""sidewalk_device"` \
+     --description `"My Sidewalk Device Description"` \
+     --positioning `"Enabled"` \
+     --destination-name `"UplinkDestination"` \
+     --sidewalk DeviceProfileId=`"12345678-234a-45bc-67de-e8901234f0a1"`,Positioning={DestinationName=`"LocationDestination"`}
+   ```
+
+   ###### Note
+
+   For Bluetooth Low Energy based location, AWS IoT returns location coordinates
+   based on the approximate location of nearby Sidewalk Gateways that are
+   connected to Amazon Sidewalk and have the Community Finding feature enabled.
+   Gateway Location Data is AWS Content and is provided to you solely for
+   the purpose of assisting you in locating your devices that are connected
+   to Amazon Sidewalk, and you must only use the data for that purpose. You must
+   only use and access location data via the interface and functionality
+   that we generally make available to you, and you must not attempt to
+   re-identify, reverse engineer, or re-map any Gateway location data provided
+   by us to you.
+
+3. ###### (Optional)
+   Update your existing Sidewalk end device
+   and get the device's location data
+
+If you've already provisioned a Sidewalk end device in
+AWS IoT Wireless, you can update the device to get the device
+location data.
 
 ###### Note
 
-Specify a name for your destination that's unique to your
-AWS account and AWS Region. You'll use the same destination name
-when you add your destination to AWS IoT Core for Amazon Sidewalk.
+You must enable positioning to use the device location feature.
+
+Replace `LocationDestination` with the
+destination name from the destination to which you want to send the device
+location data to.
 
 ```
-// Add your Sidewalk device by using the device profile ID.
-aws iotwireless create-wireless-device --type "Sidewalk" --name `sidewalk_device` \
-    --destination-name `SidewalkDestination` \
-    --sidewalk DeviceProfileId=`"12345678-234a-45bc-67de-e8901234f0a1"`
+aws iotwireless update-wireless-device  --id `wireless-device-id` \
+  --positioning `"Enabled"` \
+  --sidewalk Positioning={DestinationName=`"LocationDestination"`}
 ```
 
-3. ###### Get device profile and wireless device information
+4. ###### Get device profile and wireless device information
 
 Get the device profile and wireless device information as a JSON. The JSON
 will contain information about the device details, device certificates,
@@ -122,7 +264,7 @@ manufacturing serial number (SMSN).
     * If you're using the AWS IoT console, you can use the [Sidewalk tab of the Devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk "https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk") to download a
      combined JSON file for your Sidewalk end device.
     * If you're using the API operations, store the responses obtained
-     from the API operations [`GetDeviceProfile`](../../2020-11-22/apireference/API_GetDeviceProfile.md "../../2020-11-22/apireference/API_GetDeviceProfile.md") and [`GetWirelessDevice`](../../2020-11-22/apireference/API_CreateWirelessDevice.md "../../2020-11-22/apireference/API_CreateWirelessDevice.md") as separate JSON
+     from the API operations [`GetDeviceProfile`](../apireference/API_GetDeviceProfile.md "../apireference/API_GetDeviceProfile.md") and [`GetWirelessDevice`](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") as separate JSON
      files, such as
      ``device_profile.json`` and
      ``wireless_device.json``.
@@ -138,56 +280,6 @@ manufacturing serial number (SMSN).
     aws iotwireless get-wireless-device --identifier-type WirelessDeviceId \
         --identifier `"23456789-abcd-0123-bcde-fabc012345678"` > `wireless_device.json`
     ```
-
-### Step 2: Create a destination for your
-
-Sidewalk end device
-
-Here's an overview of the steps that you'll perform to add your destination to
-AWS IoT Core for Amazon Sidewalk. Using the AWS Management Console, or the AWS IoT Wireless API operations, or
-the AWS CLI, you run the following steps to create an AWS IoT rule and destination. You
-can then connect to the hardware platform, and view and exchange messages. For a
-sample IAM role and AWS IoT rule used for the AWS CLI examples in this section, see
-[Create an IAM role and IoT rule
-for your destination](sidewalk-destination-rule-role.md "sidewalk-destination-rule-role.md").
-
-1. ###### Create IAM role
-
-Create an IAM role that grants AWS IoT Core for Amazon Sidewalk permission to send data to
-the AWS IoT rule. To create the role, use the [`CreateRole`](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md")
-API operation or [`create-role`](../../../cli/latest/reference/iam/create-role.md "../../../cli/latest/reference/iam/create-role.md") CLI command. You can name the role as
-`SidewalkRole`.
-
-```
-aws iam create-role --role-name lambda-ex \
-    --assume-role-policy-document `file://lambda-trust-policy.json`
-```
-
-2. ###### Create a rule for the destination
-
-Create an AWS IoT rule that will process the device's data and specify the
-topic to which messages are published. You'll observe messages on this topic
-after connecting to the hardware platform. Use the AWS IoT Core API operation,
-[`CreateTopicRule`](../../../iot/latest/apireference/API_CreateTopicRule.md "../../../iot/latest/apireference/API_CreateTopicRule.md"), or the AWS CLI command, [`create-topic-rule`](../../../cli/latest/reference/iot/create-topic-rule.md "../../../cli/latest/reference/iot/create-topic-rule.md"), to create a rule for the
-destination.
-
-```
-aws iot create-topic-rule --rule-name `Sidewalkrule` \
-    --topic-rule-payload `file://myrule.json`
-```
-
-3. ###### Create a destination
-
-Create a destination that associates your Sidewalk device with the
-IoT rule that processes it for use with other AWS services. You can add a
-destination using the [Destinations hub](https://console.aws.amazon.com/iot/home#/wireless/destinations "https://console.aws.amazon.com/iot/home#/wireless/destinations") of the
-AWS IoT console, or the [`CreateDestination`](../../2020-11-22/apireference/API_CreateDestination.md "../../2020-11-22/apireference/API_CreateDestination.md") API operation or the [`create-destination`](../../../cli/latest/reference/create-destination.md "../../../cli/latest/reference/create-destination.md") CLI command.
-
-```
-aws iotwireless create-destination --name `SidewalkDestination` \
-    --expression-type RuleName --expression `SidewalkRule` \
-    --role-arn arn:aws:iam::`123456789012`:role/`SidewalkRole`
-```
 
 ### Step 3: Provision and register the end
 
@@ -220,7 +312,7 @@ the vendor documentation to connect to your HDK. For more information, see
 registering your end device](https://docs.sidewalk.amazon/provisioning/ "https://docs.sidewalk.amazon/provisioning/") in the _Amazon Sidewalk documentation_. 2. ###### View and exchange messages
 
 Use the MQTT client to subscribe to the topic specified in the rule and
-view the message received. You can also use the [`SendDataToWirelessDevice`](../../2020-11-22/apireference/API_SendDataToWirelessDevice.md "../../2020-11-22/apireference/API_SendDataToWirelessDevice.md") API operation or the
+view the message received. You can also use the [`SendDataToWirelessDevice`](../apireference/API_SendDataToWirelessDevice.md "../apireference/API_SendDataToWirelessDevice.md") API operation or the
 [`send-data-to-wireless-device`](../../../cli/latest/reference/iotwireless/send-data-to-wireless-device.md "../../../cli/latest/reference/iotwireless/send-data-to-wireless-device.md") CLI command to
 send a downlink message to your device and verify the connectivity
 status.

@@ -40,7 +40,7 @@ of data rates, that is, the minimum and maximum limits for the data rates.
 By default, AWS IoT Core for LoRaWAN will perform ADR when you set the ADR bit in the frame
 header of your LoRaWAN device. You can control the minimum and maximum limits for
 the data rate when creating a service profile for your LoRaWAN devices using the
-AWS IoT Wireless API operation [`CreateServiceProfile`](../../2020-11-22/apireference/API_CreateServiceProfile.md "../../2020-11-22/apireference/API_CreateServiceProfile.md"), or the AWS CLI command, [`create-service-profile`](../../../cli/latest/reference/iotwireless/create-service-profile.md "../../../cli/latest/reference/iotwireless/create-service-profile.md").
+AWS IoT Wireless API operation [`CreateServiceProfile`](../apireference/API_CreateServiceProfile.md "../apireference/API_CreateServiceProfile.md"), or the AWS CLI command, [`create-service-profile`](../../../cli/latest/reference/iotwireless/create-service-profile.md "../../../cli/latest/reference/iotwireless/create-service-profile.md").
 
 To specify the minimum and maximum limits for the data rate, use the
 `DrMin` and `DrMax` parameters with the
@@ -84,7 +84,7 @@ service profile.
 ```
 
 You can get the values of the parameters specified using the AWS IoT Wireless
-API operation [`GetServiceProfile`](../../2020-11-22/apireference/API_GetServiceProfile.md "../../2020-11-22/apireference/API_GetServiceProfile.md"), or the AWS CLI command, [`get-service-profile`](../../../cli/latest/reference/iotwireless/get-service-profile.md "../../../cli/latest/reference/iotwireless/get-service-profile.md").
+API operation [`GetServiceProfile`](../apireference/API_GetServiceProfile.md "../apireference/API_GetServiceProfile.md"), or the AWS CLI command, [`get-service-profile`](../../../cli/latest/reference/iotwireless/get-service-profile.md "../../../cli/latest/reference/iotwireless/get-service-profile.md").
 
 ```
 aws iotwireless get-service-profile --id `"12345678-a1b2-3c45-67d8-e90fa1b2c34d"`
@@ -111,7 +111,7 @@ parameters.
 }
 ```
 
-If you've created multiple profiles, you can use the API operation, [`ListServiceProfiles`](../../2020-11-22/apireference/API_ListServiceProfiles.md "../../2020-11-22/apireference/API_ListServiceProfiles.md"), or the AWS CLI command, [`list-service-profiles`](../../../cli/latest/reference/iotwireless/list-service-profiles.md "../../../cli/latest/reference/iotwireless/list-service-profiles.md") to list the service profiles in
+If you've created multiple profiles, you can use the API operation, [`ListServiceProfiles`](../apireference/API_ListServiceProfiles.md "../apireference/API_ListServiceProfiles.md"), or the AWS CLI command, [`list-service-profiles`](../../../cli/latest/reference/iotwireless/list-service-profiles.md "../../../cli/latest/reference/iotwireless/list-service-profiles.md") to list the service profiles in
 your AWS account, and then use the `GetServiceProfile` API or the
 `get-service-profile` CLI command to retrieve the service profile for
 which you customized the data rate limits.

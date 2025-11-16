@@ -38,25 +38,25 @@ You can also use the API or CLI, and associate tags with wireless devices, gatew
 profiles, and destinations when you create then by using the `Tags` field in
 the following commands:
 
-- [AssociateAwsAccountWithPartnerAccount](../../2020-11-22/apireference/API_AssociateAwsAccountWithPartnerAccount.md "../../2020-11-22/apireference/API_AssociateAwsAccountWithPartnerAccount.md")
-- [CreateDestination](../../2020-11-22/apireference/API_CreateDestination.md "../../2020-11-22/apireference/API_CreateDestination.md")
-- [CreateDeviceProfile](../../2020-11-22/apireference/API_CreateDeviceProfile.md "../../2020-11-22/apireference/API_CreateDeviceProfile.md")
-- [CreateFuotaTask](../../2020-11-22/apireference/API_CreateFuotaTask.md "../../2020-11-22/apireference/API_CreateFuotaTask.md")
-- [CreateMulticastGroup](../../2020-11-22/apireference/API_CreateMulticastGroup.md "../../2020-11-22/apireference/API_CreateMulticastGroup.md")
-- [CreateServiceProfile](../../2020-11-22/apireference/API_CreateServiceProfile.md "../../2020-11-22/apireference/API_CreateServiceProfile.md")
-- [CreateWirelessGateway](../../2020-11-22/apireference/API_CreateWirelessGateway.md "../../2020-11-22/apireference/API_CreateWirelessGateway.md")
-- [CreateWirelessGatewayTaskDefinition](../../2020-11-22/apireference/API_CreateWirelessGatewayTaskDefinition.md "../../2020-11-22/apireference/API_CreateWirelessGatewayTaskDefinition.md")
-- [CreateWirelessDevice](../../2020-11-22/apireference/API_CreateWirelessDevice.md "../../2020-11-22/apireference/API_CreateWirelessDevice.md")
-- [StartBulkAssociateWirelessDeviceWithMulticastGroup](../../2020-11-22/apireference/API_StartBulkAssociateWirelessDeviceWithMulticastGroup.md "../../2020-11-22/apireference/API_StartBulkAssociateWirelessDeviceWithMulticastGroup.md")
+- [AssociateAwsAccountWithPartnerAccount](../apireference/API_AssociateAwsAccountWithPartnerAccount.md "../apireference/API_AssociateAwsAccountWithPartnerAccount.md")
+- [CreateDestination](../apireference/API_CreateDestination.md "../apireference/API_CreateDestination.md")
+- [CreateDeviceProfile](../apireference/API_CreateDeviceProfile.md "../apireference/API_CreateDeviceProfile.md")
+- [CreateFuotaTask](../apireference/API_CreateFuotaTask.md "../apireference/API_CreateFuotaTask.md")
+- [CreateMulticastGroup](../apireference/API_CreateMulticastGroup.md "../apireference/API_CreateMulticastGroup.md")
+- [CreateServiceProfile](../apireference/API_CreateServiceProfile.md "../apireference/API_CreateServiceProfile.md")
+- [CreateWirelessGateway](../apireference/API_CreateWirelessGateway.md "../apireference/API_CreateWirelessGateway.md")
+- [CreateWirelessGatewayTaskDefinition](../apireference/API_CreateWirelessGatewayTaskDefinition.md "../apireference/API_CreateWirelessGatewayTaskDefinition.md")
+- [CreateWirelessDevice](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md")
+- [StartBulkAssociateWirelessDeviceWithMulticastGroup](../apireference/API_StartBulkAssociateWirelessDeviceWithMulticastGroup.md "../apireference/API_StartBulkAssociateWirelessDeviceWithMulticastGroup.md")
 
 ## Update tags or list tags for resources
 
 You can add, modify, or delete tags for existing resources that support tagging by using
 the following commands:
 
-- [TagResource](../../2020-11-22/apireference/API_TagResource.md "../../2020-11-22/apireference/API_TagResource.md")
-- [ListTagsForResource](../../2020-11-22/apireference/API_ListTagsForResource.md "../../2020-11-22/apireference/API_ListTagsForResource.md")
-- [UntagResource](../../2020-11-22/apireference/API_UntagResource.md "../../2020-11-22/apireference/API_UntagResource.md")
+- [TagResource](../apireference/API_TagResource.md "../apireference/API_TagResource.md")
+- [ListTagsForResource](../apireference/API_ListTagsForResource.md "../apireference/API_ListTagsForResource.md")
+- [UntagResource](../apireference/API_UntagResource.md "../apireference/API_UntagResource.md")
 
 You can edit tag keys and values, and you can remove tags from a resource at any time. You
 can set the value of a tag to an empty string, but you can't set the value of a tag to null.
@@ -104,7 +104,7 @@ keys and values in an IAM policy.
 
 The condition context keys and values in an IAM policy apply only to those AWS IoT actions
 where an identifier for a resource capable of being tagged is a required parameter. For
-example, the use of [DescribeEndpoint](../../../https:/docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_DescribeEndpoint.md "../../../https:/docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_DescribeEndpoint.md") is not
+example, the use of [DescribeEndpoint](../../../https:/docs.aws.amazon.com/iot-wireless/latest/apireference/API_DescribeEndpoint.md "../../../https:/docs.aws.amazon.com/iot-wireless/latest/apireference/API_DescribeEndpoint.md") is not
 allowed or denied on the basis of condition context keys and values because no taggable
 resource is referenced in this request.
 
@@ -120,8 +120,6 @@ restricted by this policy:
   `"aws:RequestTag/env" : "prod"`).
 - Can't modify or access a resource that has an existing tag "env=prod" (in the
   example, see the line `"aws:ResourceTag/env" : "prod"`).
-
-JSON
 
 ```
 `{

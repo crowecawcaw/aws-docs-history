@@ -86,7 +86,7 @@ information.
 First, obtain the unique identifier of the gateway for which
 you want to retrieve the current firmware version. If you've
 already provisioned a gateway, you can get information about the
-gateway using the [`GetWirelessGateway`](../../2020-11-22/apireference/API_GetWirelessGateway.md "../../2020-11-22/apireference/API_GetWirelessGateway.md") API operation
+gateway using the [`GetWirelessGateway`](../apireference/API_GetWirelessGateway.md "../apireference/API_GetWirelessGateway.md") API operation
 or the [`get-wireless-gateway`](../../../cli/latest/reference/iotwireless/get-wireless-gateway.md "../../../cli/latest/reference/iotwireless/get-wireless-gateway.md") CLI
 command.
 

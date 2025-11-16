@@ -129,8 +129,6 @@ creating and managing devices. However, permission is granted only if the thing 
 `Owner` has the value of that user's user name. This policy also grants
 the permissions necessary to complete this action on the console.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

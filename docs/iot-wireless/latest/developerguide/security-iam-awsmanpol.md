@@ -36,8 +36,6 @@ This policy includes the following permissions.
 
 - `iotwireless` – Retrieve AWS IoT Wireless data.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -67,8 +65,6 @@ This policy includes the following permissions.
 
 - `iotwireless` – Retrieve AWS IoT Wireless data and perform
   all AWS IoT Wireless operations.
-
-JSON
 
 ```
 `{
@@ -101,8 +97,6 @@ This policy includes the following permissions.
 - `iot` – Perform operations that gets the endpoint URL
   and publishes to AWS IoT rules engine.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -134,8 +128,6 @@ This policy includes the following permissions.
 
 - `logs` – Retrieve CloudWatch logs. Also allows creation of CloudWatch Logs
   groups and stream logs to the groups.
-
-JSON
 
 ```
 `{
@@ -171,8 +163,6 @@ This policy includes the following permissions.
 - `logs` – Perform AWS IoT Wireless `List` and `Get`
   API operations.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -204,8 +194,6 @@ This policy includes the following permissions.
 
 - `iot` – Perform actions that create, describe, and list
   certificates.
-
-JSON
 
 ```
 `{

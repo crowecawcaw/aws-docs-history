@@ -162,7 +162,7 @@ such as to update an existing gateway.
 
 ### How to add your gateway
 
-You can use the AWS CLI to create a wireless gateway by using the [CreateWirelessGateway](../../2020-11-22/apireference/API_CreateWirelessGateway.md "../../2020-11-22/apireference/API_CreateWirelessGateway.md") API operation or the [create-wireless-gateway](../../../cli/latest/reference/iotwireless/create-wireless-gateway.md "../../../cli/latest/reference/iotwireless/create-wireless-gateway.md") CLI command to add your wireless
+You can use the AWS CLI to create a wireless gateway by using the [CreateWirelessGateway](../apireference/API_CreateWirelessGateway.md "../apireference/API_CreateWirelessGateway.md") API operation or the [create-wireless-gateway](../../../cli/latest/reference/iotwireless/create-wireless-gateway.md "../../../cli/latest/reference/iotwireless/create-wireless-gateway.md") CLI command to add your wireless
 gateway.
 
 ###### Note
@@ -269,7 +269,7 @@ another certificate.
 trust certificate and CUPS endpoint
 
 Now that you've generated the certificate and private key, use the
-[GetServiceEndpoint](../../2020-11-22/apireference/API_GetServiceEndpoint.md "../../2020-11-22/apireference/API_GetServiceEndpoint.md") API action or the [`get-service-endpoint`](../../../cli/latest/reference/iotwireless/get-service-endpoint.md "../../../cli/latest/reference/iotwireless/get-service-endpoint.md") CLI command to obtain
+[GetServiceEndpoint](../apireference/API_GetServiceEndpoint.md "../apireference/API_GetServiceEndpoint.md") API action or the [`get-service-endpoint`](../../../cli/latest/reference/iotwireless/get-service-endpoint.md "../../../cli/latest/reference/iotwireless/get-service-endpoint.md") CLI command to obtain
 the server trust certificate, `cups.trust` and the endpoint
 URI, `cups.uri`.
 
@@ -309,7 +309,7 @@ the gateway that you added. AWS IoT Core for LoRaWAN will use this information t
 identify the certificate that the gateway will use to connect to the
 CUPS endpoint.
 
-To associate the certificate with your gateway, use the [AssociateWirelessGatewaywithCertificate](../../2020-11-22/apireference/API_AssociateWirelessGatewaywithCertificate.md "../../2020-11-22/apireference/API_AssociateWirelessGatewaywithCertificate.md") API action or the
+To associate the certificate with your gateway, use the [AssociateWirelessGatewaywithCertificate](../apireference/API_AssociateWirelessGatewaywithCertificate.md "../apireference/API_AssociateWirelessGatewaywithCertificate.md") API action or the
 [`associate-wireless-gateway-with-certificate`](../../../cli/latest/reference/iotwireless/associate-wireless-gateway-with-certificate.md "../../../cli/latest/reference/iotwireless/associate-wireless-gateway-with-certificate.md")
 CLI command.
 
@@ -341,13 +341,13 @@ adding, updating, or deleting a LoRaWAN gateway.
 
 ###### AWS IoT Wireless API actions for AWS IoT Core for LoRaWAN gateways
 
-- [GetWirelessGateway](../../2020-11-22/apireference/API_GetWirelessGateway.md "../../2020-11-22/apireference/API_GetWirelessGateway.md")
-- [ListWirelessGateways](../../2020-11-22/apireference/API_ListWirelessGateways.md "../../2020-11-22/apireference/API_ListWirelessGateways.md")
-- [UpdateWirelessGateway](../../2020-11-22/apireference/API_UpdateWirelessGateway.md "../../2020-11-22/apireference/API_UpdateWirelessGateway.md")
-- [DeleteWirelessGateway](../../2020-11-22/apireference/API_DeleteWirelessGateway.md "../../2020-11-22/apireference/API_DeleteWirelessGateway.md")
+- [GetWirelessGateway](../apireference/API_GetWirelessGateway.md "../apireference/API_GetWirelessGateway.md")
+- [ListWirelessGateways](../apireference/API_ListWirelessGateways.md "../apireference/API_ListWirelessGateways.md")
+- [UpdateWirelessGateway](../apireference/API_UpdateWirelessGateway.md "../apireference/API_UpdateWirelessGateway.md")
+- [DeleteWirelessGateway](../apireference/API_DeleteWirelessGateway.md "../apireference/API_DeleteWirelessGateway.md")
 
 For the complete list of the actions and data types available to create
 and manage AWS IoT Core for LoRaWAN resources, see the [AWS IoT Wireless API
-reference](../../2020-11-22/apireference/welcome.md "../../2020-11-22/apireference/welcome.md").
+reference](../apireference/welcome.md "../apireference/welcome.md").
 
 For information about the CLIs that you can use, see [AWS CLI reference](../../../cli/latest/reference/iotwireless/index.md "../../../cli/latest/reference/iotwireless/index.md").

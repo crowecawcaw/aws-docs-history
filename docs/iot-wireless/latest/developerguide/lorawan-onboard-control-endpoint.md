@@ -3,7 +3,7 @@
 API endpoint
 
 You can use AWS IoT Core for LoRaWAN control plane API endpoints to interact with the
-AWS IoT Wireless APIs. For example, you can use this endpoint to run the [SendDataToWirelessDevice](../../2020-11-22/apireference/API_SendDataToWirelessDevice.md "../../2020-11-22/apireference/API_SendDataToWirelessDevice.md") API to send data from AWS IoT to your LoRaWAN
+AWS IoT Wireless APIs. For example, you can use this endpoint to run the [SendDataToWirelessDevice](../apireference/API_SendDataToWirelessDevice.md "../apireference/API_SendDataToWirelessDevice.md") API to send data from AWS IoT to your LoRaWAN
 device. For more information, see [AWS IoT Core for LoRaWAN Control Plane API Endpoints](../../../general/latest/gr/iot-core.md#iot-core.html#iot-wireless-control-plane-endpoints "../../../general/latest/gr/iot-core.md#iot-core.html#iot-wireless-control-plane-endpoints").
 
 You can use the client hosted in your Amazon VPC to access the control plane endpoints that

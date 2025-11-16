@@ -17,7 +17,7 @@ AWS IoT Wireless, AWS IoT Wireless performs a `create` operation
 and adds your Sidewalk device to your AWS account. Your device then enters the
 provisioned state and the `eventType` becomes
 `provisioned`. For more information about onboarding your device,
-see [Getting started with AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md").
+see [Get started using AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md").
 
 After the device has been `provisioned`, Amazon Sidewalk performs a
 `register` operation to register your Sidewalk device with
@@ -29,7 +29,7 @@ ready to use.
 After the device has been `registered`, Sidewalk can send a request
 to `deregister` your device. AWS IoT Wireless then fulfills the
 request and changes the device state back to `provisioned`. For more
-information about the device states, see [DeviceState](../../2020-11-22/apireference/API_SidewalkDeviceMetadata.md#iotwireless-Type-SidewalkDeviceMetadata-DeviceState "../../2020-11-22/apireference/API_SidewalkDeviceMetadata.md#iotwireless-Type-SidewalkDeviceMetadata-DeviceState").
+information about the device states, see [DeviceState](../apireference/API_SidewalkDeviceMetadata.md#iotwireless-Type-SidewalkDeviceMetadata-DeviceState "../apireference/API_SidewalkDeviceMetadata.md#iotwireless-Type-SidewalkDeviceMetadata-DeviceState").
 
 ## Enable notifications for
 

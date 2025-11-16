@@ -3,7 +3,7 @@
 analyzer
 
 When you use network analyzer, you must grant a user permission to use the API
-operations [UpdateNetworkAnalyzerConfiguration](../../2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.md "../../2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.md") and [GetNetworkAnalyzerConfiguration](../../2020-11-22/apireference/API_GetNetworkAnalyzerConfiguration.md "../../2020-11-22/apireference/API_GetNetworkAnalyzerConfiguration.md") to access network analyzer resources. The
+operations [UpdateNetworkAnalyzerConfiguration](../apireference/API_UpdateNetworkAnalyzerConfiguration.md "../apireference/API_UpdateNetworkAnalyzerConfiguration.md") and [GetNetworkAnalyzerConfiguration](../apireference/API_GetNetworkAnalyzerConfiguration.md "../apireference/API_GetNetworkAnalyzerConfiguration.md") to access network analyzer resources. The
 following shows the IAM policies that you use to grant permissions.
 
 ## IAM policies for network
@@ -40,8 +40,6 @@ The following shows the policy
 **IoTWirelessNetworkAnalyzerPolicy** that you created.
 For more information about creating a policy, see [Create IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md").
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -68,8 +66,6 @@ policy uses the wildcard ARN to grant access to all gateways and devices. You
 can control access to specific gateways and devices by using the
 `WirelessGatewayId` and `WirelessDeviceId`.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -95,8 +91,6 @@ JSON
 To grant a user permission to use network analyzer but not to use any wireless
 gateways or devices, use the following policy. Unless specified, permissions to use
 the resources are implicitly denied.
-
-JSON
 
 ```
 `{

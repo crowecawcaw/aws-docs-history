@@ -74,7 +74,7 @@ devices so that they can start sending uplink data.
 ### Activate summary metrics (CLI)
 
 To activate summary metrics and see data flowing through the dashboard, use the
-[`UpdateMetricConfiguration`](../../2020-11-22/apireference/API_UpdateMetricConfiguration.md "../../2020-11-22/apireference/API_UpdateMetricConfiguration.md") API operation or the [`update-metric-configuration`](../../../cli/latest/reference/iotwireless/update-metric-configuration.md "../../../cli/latest/reference/iotwireless/update-metric-configuration.md") CLI command. The following
+[`UpdateMetricConfiguration`](../apireference/API_UpdateMetricConfiguration.md "../apireference/API_UpdateMetricConfiguration.md") API operation or the [`update-metric-configuration`](../../../cli/latest/reference/iotwireless/update-metric-configuration.md "../../../cli/latest/reference/iotwireless/update-metric-configuration.md") CLI command. The following
 code shows a sample request body.
 
 ```
@@ -98,7 +98,7 @@ code shows a sample request body.
 }
 ```
 
-After you've activated summary metrics, you can use the [`GetMetrics`](../../2020-11-22/apireference/API_GetMetrics.md "../../2020-11-22/apireference/API_GetMetrics.md")
+After you've activated summary metrics, you can use the [`GetMetrics`](../apireference/API_GetMetrics.md "../apireference/API_GetMetrics.md")
 API operation or the [`get-metrics`](../../../cli/latest/reference/iotwireless/get-metrics.md "../../../cli/latest/reference/iotwireless/get-metrics.md") CLI
 command.
 
@@ -110,7 +110,7 @@ command.
 }
 ```
 
-You can then use the [`GetMetricConfiguration`](../../2020-11-22/apireference/API_GetMetricConfiguration.md "../../2020-11-22/apireference/API_GetMetricConfiguration.md") API operation or the [`get-metric-configuration`](../../../cli/latest/reference/iotwireless/get-metric-configuration.md "../../../cli/latest/reference/iotwireless/get-metric-configuration.md") CLI command to view the
+You can then use the [`GetMetricConfiguration`](../apireference/API_GetMetricConfiguration.md "../apireference/API_GetMetricConfiguration.md") API operation or the [`get-metric-configuration`](../../../cli/latest/reference/iotwireless/get-metric-configuration.md "../../../cli/latest/reference/iotwireless/get-metric-configuration.md") CLI command to view the
 metric configuration status. The following shows a sample response.
 
 ```

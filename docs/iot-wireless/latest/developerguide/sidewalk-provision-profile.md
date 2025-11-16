@@ -70,12 +70,13 @@ the profile to view its details. You'll see information about:
 
 ## Create a profile (CLI)
 
-To create a device profile, use the [`CreateDeviceProfile`](../../2020-11-22/apireference/API_CreateDeviceProfile.md "../../2020-11-22/apireference/API_CreateDeviceProfile.md") API operation or the [`create-device-profile`](../../../cli/latest/reference/create-device-profile.md "../../../cli/latest/reference/create-device-profile.md") CLI command. For example, the
+To create a device profile, use the [`CreateDeviceProfile`](../apireference/API_CreateDeviceProfile.md "../apireference/API_CreateDeviceProfile.md") API operation or the [`create-device-profile`](../../../cli/latest/reference/create-device-profile.md "../../../cli/latest/reference/create-device-profile.md") CLI command. For example, the
 following command creates a profile for your Sidewalk end device.
 
 ```
 aws iotwireless create-device-profile \
-    --name `sidewalk_device_profile` --sidewalk {}
+                --name `"sidewalk_device_profile"`
+                --sidewalk {}
 ```
 
 Running this command returns the profile details, which include the Amazon
@@ -90,7 +91,7 @@ Resource Name (ARN) and the ID of the profile.
 
 ###### View profile information and qualify profiles
 
-Use the [`GetDeviceProfile`](../../2020-11-22/apireference/API_GetDeviceProfile.md "../../2020-11-22/apireference/API_GetDeviceProfile.md") API operation or the [`get-device-profile`](../../../cli/latest/reference/get-device-profile.md "../../../cli/latest/reference/get-device-profile.md") CLI command to get information
+Use the [`GetDeviceProfile`](../apireference/API_GetDeviceProfile.md "../apireference/API_GetDeviceProfile.md") API operation or the [`get-device-profile`](../../../cli/latest/reference/get-device-profile.md "../../../cli/latest/reference/get-device-profile.md") CLI command to get information
 about your device profile that you added to your account for AWS IoT Core for Amazon Sidewalk. To
 retrieve information about your device profile, specify the profile ID. The API
 will then return information about the device profile matching the specified
@@ -140,7 +141,7 @@ APID and a factory-supported DAK, as shown in the following example.
 
 The `MaxAllowedSignature` of `-1` indicates that the DAK
 doesn't have any device limit. For information about the DAK parameters, see
-[DAKCertificateMetadata](../../2020-11-22/apireference/API_DAKCertificateMetadata.md "../../2020-11-22/apireference/API_DAKCertificateMetadata.md").
+[DAKCertificateMetadata](../apireference/API_DAKCertificateMetadata.md "../apireference/API_DAKCertificateMetadata.md").
 
 ```
 {

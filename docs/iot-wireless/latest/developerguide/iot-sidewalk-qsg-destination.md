@@ -2,9 +2,22 @@
 
 Sidewalk end device
 
-AWS IoT Core for Amazon Sidewalk destinations describe the AWS IoT rule that processes a device's data for
-use by other AWS services and applications. Use AWS IoT rules to process the data and
-device messages and route it to other services.
+###### Note
+
+For Bluetooth Low Energy based location, AWS IoT returns location coordinates
+based on the approximate location of nearby Sidewalk Gateways that are
+connected to Amazon Sidewalk and have the Community Finding feature enabled.
+Gateway Location Data is AWS Content and is provided to you solely for
+the purpose of assisting you in locating your devices that are connected
+to Amazon Sidewalk, and you must only use the data for that purpose. You must
+only use and access location data via the interface and functionality
+that we generally make available to you, and you must not attempt to
+re-identify, reverse engineer, or re-map any Gateway location data provided
+by us to you.
+
+AWS IoT Core for Amazon Sidewalk destinations describe the AWS IoT rule or MQTT topic that processes a
+device's data for use by other AWS services and applications. Use AWS IoT rules or MQTT
+topics to process the data and device messages and route it to other services.
 
 Because most Sidewalk devices don't send data to AWS IoT Core for Amazon Sidewalk in a format that can
 be used by AWS services, an AWS IoT rule must process it first. The AWS IoT rule contains

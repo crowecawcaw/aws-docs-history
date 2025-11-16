@@ -103,18 +103,18 @@ To schedule your downlink message, choose
 
 using the API
 
-To schedule a downlink message by using the API, use the [`StartMulticastGroupSession`](../../2020-11-22/apireference/API_StartMulticastGroupSession.md "../../2020-11-22/apireference/API_StartMulticastGroupSession.md") API operation or the
+To schedule a downlink message by using the API, use the [`StartMulticastGroupSession`](../apireference/API_StartMulticastGroupSession.md "../apireference/API_StartMulticastGroupSession.md") API operation or the
 [`start-multicast-group-session`](../../../cli/latest/reference/iotwireless/start-multicast-group-session.md "../../../cli/latest/reference/iotwireless/start-multicast-group-session.md") CLI
 command.
 
 You can use the following API operations or CLI commands to get information
 about a multicast group and to delete a multicast group.
 
-- [`GetMulticastGroupSession`](../../2020-11-22/apireference/API_GetMulticastGroupSession.md "../../2020-11-22/apireference/API_GetMulticastGroupSession.md") or [`get-multicast-group-session`](../../../cli/latest/reference/iotwireless/get-multicast-group-session.md "../../../cli/latest/reference/iotwireless/get-multicast-group-session.md")
-- [`DeleteMulticastGroupSession`](../../2020-11-22/apireference/API_DeleteMulticastGroupSession.md "../../2020-11-22/apireference/API_DeleteMulticastGroupSession.md") or [`delete-multicast-group-session`](../../../cli/latest/reference/iotwireless/delete-multicast-group-session.md "../../../cli/latest/reference/iotwireless/delete-multicast-group-session.md")
+- [`GetMulticastGroupSession`](../apireference/API_GetMulticastGroupSession.md "../apireference/API_GetMulticastGroupSession.md") or [`get-multicast-group-session`](../../../cli/latest/reference/iotwireless/get-multicast-group-session.md "../../../cli/latest/reference/iotwireless/get-multicast-group-session.md")
+- [`DeleteMulticastGroupSession`](../apireference/API_DeleteMulticastGroupSession.md "../apireference/API_DeleteMulticastGroupSession.md") or [`delete-multicast-group-session`](../../../cli/latest/reference/iotwireless/delete-multicast-group-session.md "../../../cli/latest/reference/iotwireless/delete-multicast-group-session.md")
 
 To send data to a multicast group after the session has been started, use the
-[`SendDataToMulticastGroup`](../../2020-11-22/apireference/API_SendDataToMulticastGroup.md "../../2020-11-22/apireference/API_SendDataToMulticastGroup.md") API operation or the
+[`SendDataToMulticastGroup`](../apireference/API_SendDataToMulticastGroup.md "../apireference/API_SendDataToMulticastGroup.md") API operation or the
 [`send-data-to-multicast-group`](../../../cli/latest/reference/iotwireless/send-data-to-multicast-group.md "../../../cli/latest/reference/iotwireless/send-data-to-multicast-group.md") CLI
 command.
 
@@ -146,7 +146,7 @@ devices in your multicast group:
       message.
 
 - To configure additional downlink messages using the API or CLI,
-  call the [`SendDataToMulticastGroup`](../../2020-11-22/apireference/API_SendDataToMulticastGroup.md "../../2020-11-22/apireference/API_SendDataToMulticastGroup.md") API operation
+  call the [`SendDataToMulticastGroup`](../apireference/API_SendDataToMulticastGroup.md "../apireference/API_SendDataToMulticastGroup.md") API operation
   or the [`send-data-to-multicast-group`](../../../cli/latest/reference/iotwireless/send-data-to-multicast-group.md "../../../cli/latest/reference/iotwireless/send-data-to-multicast-group.md") CLI command
   for each additional downlink message.
 
@@ -175,6 +175,6 @@ battery.
       timeout**, similar to how you specified these
       parameters for your first downlink message.
 
-- To update the session schedule from the API or CLI, use the [`StartMulticastGroupSession`](../../2020-11-22/apireference/API_StartMulticastGroupSession.md "../../2020-11-22/apireference/API_StartMulticastGroupSession.md") API
+- To update the session schedule from the API or CLI, use the [`StartMulticastGroupSession`](../apireference/API_StartMulticastGroupSession.md "../apireference/API_StartMulticastGroupSession.md") API
   operation or the [`start-multicast-group-session`](../../../cli/latest/reference/iotwireless/start-multicast-group-session.md "../../../cli/latest/reference/iotwireless/start-multicast-group-session.md") CLI
   command.
