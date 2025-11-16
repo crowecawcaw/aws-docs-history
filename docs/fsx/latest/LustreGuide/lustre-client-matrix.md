@@ -30,7 +30,8 @@ with the Linux kernel versions of your client instances.
 | Operating system        | OS version | Architecture | Minimum kernel version | Maximum kernel version | Lustre client version | Lustre file system version |
 | ----------------------- | ---------- | ------------ | ---------------------- | ---------------------- | --------------------- | -------------------------- | -------- | -------- |
 |                         |            |              |                        |                        |                       | **2.10**                   | **2.12** | **2.15** |
-| RHEL/Rocky Linux        | 9.6        | Arm + x86    | 5.14.0-570.12.1        | 5.14.0-570\*           | 2.15                  | no                         | yes      | yes      |
+| RHEL/Rocky Linux        | 9.7        | Arm + x86    | 5.14.0-611.5.1         | 5.14.0-611\*           | 2.15                  | no                         | yes      | yes      |
+|                         | 9.6        | Arm + x86    | 5.14.0-570.12.1        | 5.14.0-570\*           | 2.15                  | no                         | yes      | yes      |
 |                         | 9.5        | Arm + x86    | 5.14.0-503.19.1        | 5.14.0-503\*           | 2.15                  | no                         | yes      | yes      |
 |                         | 9.4        | Arm + x86    | 5.14.0-427.13.1        | 5.14.0-427\*           | 2.15                  | no                         | yes      | yes      |
 |                         | 9.3        | Arm + x86    | 5.14.0-362.18.1        | 5.14.0-362.18.1        | 2.15                  | no                         | yes      | yes      |

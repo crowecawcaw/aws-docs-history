@@ -157,8 +157,10 @@ to edit the repository configuration, and how to edit the configuration file.
 ```
 
 2. Do one of the following:
-   - If the command returns `5.14.0-570*`, you don't need to modify the
+   - If the command returns `5.14.0-611*`, you don't need to modify the
      repository configuration. Continue to the **To install the Lustre client** procedure.
+   - If the command returns `5.14.0-570*`, you must edit the repository configuration
+     so that it points to the Lustre client for the Rocky Linux and RHEL 9.6 release.
    - If the command returns `5.14.0-503*`, you must edit the repository configuration
      so that it points to the Lustre client for the Rocky Linux and RHEL 9.5 release.
    - If the command returns `5.14.0-427*`, you must edit the repository configuration
@@ -175,12 +177,12 @@ to edit the repository configuration, and how to edit the configuration file.
 sudo sed -i 's#9#`specific_RHEL_version`#' /etc/yum.repos.d/aws-fsx.repo
 ```
 
-For example, to point to release 9.5, substitute
-`specific_RHEL_version` with `9.5` in the
+For example, to point to release 9.6, substitute
+`specific_RHEL_version` with `9.6` in the
 command, as in the following example.
 
 ```
-sudo sed -i 's#9#9.5#' /etc/yum.repos.d/aws-fsx.repo
+sudo sed -i 's#9#9.6#' /etc/yum.repos.d/aws-fsx.repo
 ```
 
 4. Use the following command to clear the yum cache.
