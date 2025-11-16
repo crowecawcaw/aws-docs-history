@@ -1,35 +1,47 @@
-# `pcluster update-compute-fleet`
+# `pcluster create-cluster`
 
-Updates the status of the cluster compute fleet.
+Creates an AWS ParallelCluster cluster.
 
 ```
-pcluster update-compute-fleet [-h]
+pcluster create-cluster [-h]
+                 --cluster-configuration `CLUSTER_CONFIGURATION`
                  --cluster-name `CLUSTER_NAME`
-                 --status {`START_REQUESTED`,`STOP_REQUESTED`,`ENABLED`,`DISABLED`}
                 [--debug]
+                [--dryrun `DRYRUN`]
                 [--query `QUERY`]
                 [--region `REGION`]
+                [--rollback-on-failure `ROLLBACK_ON_FAILURE`]
+                [--suppress-validators `SUPPRESS_VALIDATORS` [`SUPPRESS_VALIDATORS` ...]]
+                [--validation-failure-level {`INFO`,`WARNING`,`ERROR`}]
 ```
 
 ## Named arguments
 
 `-h, --help`
 
-Shows the help text for `pcluster update-compute-fleet`.
+Shows the help text for `pcluster create-cluster`.
+
+`--cluster-configuration, -c `CLUSTER_CONFIGURATION``
+
+Specifies the YAML cluster configuration file.
 
 `--cluster-name, -n `CLUSTER_NAME``
 
-Specifies the name of the cluster.
+Specifies the name of the cluster to be created.
 
-`--status {START_REQUESTED,STOP_REQUESTED,ENABLED,DISABLED}`
+The name must start with an alphabetical character. The name can have up to 60 characters.
+If Slurm accounting is enabled, the name can have up to 40 characters.
 
-Specifies the status applied to the cluster compute fleet. The statuses `START_REQUESTED` and
-`STOP_REQUESTED` correspond to the Slurm scheduler while the statuses `ENABLED` and
-`DISABLED` correspond to the AWS Batch scheduler.
+Valid characters: a-z, A-Z, 0-9, and - (hyphen).
 
 `--debug`
 
 Enables debug logging.
+
+`--dryrun `DRYRUN``
+
+When `true`, the command performs validation without creating any resources. You can use this to
+validate the cluster configuration. (Defaults to `false`.)
 
 `--query `QUERY``
 
@@ -37,15 +49,40 @@ Specifies the JMESPath query to perform on the output.
 
 `--region, -r `REGION``
 
-Specifies the AWS Region to use. The AWS Region must be specified, using the `AWS_DEFAULT_REGION`
+Specifies the AWS Region to use. The AWS Region must be specified, using the [Region](cluster-configuration-file-v3.md#yaml-Region "cluster-configuration-file-v3.md#yaml-Region") setting in the cluster configuration file, the `AWS_DEFAULT_REGION`
 environment variable, the `region` setting in the `[default]` section of the
 `~/.aws/config` file, or the `--region` parameter.
+
+`--rollback-on-failure
+ `ROLLBACK_ON_FAILURE``
+
+When `true`, automatically initiates a cluster stack rollback on failures. (Defaults to
+`true`.)
+
+`--suppress-validators `SUPPRESS_VALIDATORS`
+ [`SUPPRESS_VALIDATORS` ...]`
+
+Identifies one or more config validators to suppress.
+
+Format: (`ALL`|type:`[A-Za-z0-9]+`)
+
+`--validation-failure-level
+ {`INFO`,`WARNING`,`ERROR`}`
+
+Specifies the minimum validation level that will cause the creation to fail. (Defaults to
+`ERROR`.)
 
 **Example using AWS ParallelCluster version 3.1.4:**
 
 ````
-`$` `pcluster update-compute-fleet -n `cluster-v3` --status `STOP_REQUESTED```{
- "status": "STOP_REQUESTED",
- "lastStatusUpdatedTime": "2022-07-12T20:19:47.653Z"
+`$` `pcluster create-cluster -c `cluster-config.yaml` -n `cluster-v3```{
+ "cluster": {
+ "clusterName": "cluster-v3",
+ "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+ "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
+ "region": "us-east-1",
+ "version": "3.1.4",
+ "clusterStatus": "CREATE_IN_PROGRESS"
+ }
 }`
 ````
