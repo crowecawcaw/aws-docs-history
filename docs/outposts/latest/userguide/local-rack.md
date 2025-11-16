@@ -108,7 +108,7 @@ device, commonly known as Virtual Routing and Forwarding instances (VRF). The de
 exists at the port of the Outpost network devices. AWS manages any infrastructure on the AWS
 side of the connection, and you manage any infrastructure on your side of the line.
 
-![Virtual LANs.](images/two-isolated-networks.png)
+![Virtual LANs.](/images/outposts/latest/userguide/images/two-isolated-networks.png)
 
 To integrate your Outpost with your on-premises network during the installation and on-going
 operation, you must allocate the VLANs used between the Outpost network devices and the customer
