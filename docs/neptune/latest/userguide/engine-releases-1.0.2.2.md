@@ -1,25 +1,46 @@
-# Amazon Neptune Engine Version 1.0.2.2.R6 (2021-02-19)
+# Amazon Neptune Engine Version 1.0.2.2.R5 (2020-10-12)
 
-As of 2021-02-19, engine version 1.0.2.2.R6 is being generally deployed. Please note
+As of 2020-10-12, engine version 1.0.2.2.R5 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
+
+## Improvements in This Engine Release
+
+- Improved performance for the Gremlin `properties()` step.
+- Added details about `BindOp` and `MultiplexerOp`
+  in explain and profile reports.
+- For SPARQL query responses, added `charset` to the Content-Type header,
+  enabling HTTP clients to recognize the charset being used automatically.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where `InternalFailureException`
-  was set as the response code in certain circumstances when a
-  `ConcurrentModificationException` occurred.
-- Fixed a Gremlin bug where under certain conditions updating
-  edges or vertices could cause a transient `InternalFailureException`.
+- Fixed a SPARQL bug where `CancellationException` was not handled.
+- Fixed a SPARQL bug where queries containing nested optionals did not work correctly.
+- Fixed a SPARQL bug in LOAD where a `ConcurrentModificationException`
+  could cause a query to hang.
+- Fixed a SPARQL bug that prevented query responses from being gzip-compressed.
+- Fixed a Gremlin bug in the `groupBy()` step.
+- Fixed a Gremlin bug related to the use of an `aggregate()` step
+  inside a `local()` step.
+- Fixed a Gremlin bug related to using `bothE()` followed by a predicate
+  that uses aggregate values.
+- Fixed a Gremlin bug related to using the `bothE()` step with the `repeat()` step.
+- Fixed a potential Gremlin memory leak related to the `both()` step.
+- Fixed a bug where request metrics were missing because an endpoint ending
+  in '/' was not being handled correctly.
+- Fixed a bug that could raise a `ThrottlingException` even when
+  the request queue is not full.
+- Fixed a bug in fetching load status when a load fails for a reason such as
+  `LOAD_DATA_FAILED_DUE_TO_FEED_MODIFIED_OR_DELETE`.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.2.R6, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.2.R5, make sure that your project is compatible
 with these query-language versions:
 
-- _Gremlin version:_ `3.4.8`
+- _Gremlin version:_ `3.4.3`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.2.R6
+## Upgrade Paths to Engine Release 1.0.2.2.R5
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.0.2.2`.
@@ -28,7 +49,7 @@ You can manually upgrade any previous Neptune engine release to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.2.R6 is now generally available.
+Amazon Neptune 1.0.2.2.R5 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

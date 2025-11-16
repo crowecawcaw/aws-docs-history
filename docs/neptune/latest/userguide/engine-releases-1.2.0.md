@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.0.1 (2022-10-26)
+# Amazon Neptune Engine Version 1.2.0.2 (2022-11-20)
 
-As of 2022-10-26, engine version 1.2.0.1 is being generally deployed. Please note
+As of 2022-11-20, engine version 1.2.0.2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -41,52 +41,45 @@ a support case may help you explore additional strategies for bringing it down.
 
 ## Subsequent Patch Releases for This Release
 
-- [Maintenance Release: 1.2.0.1.R2 (2022-12-13)](engine-releases-1.2.0.1.md "engine-releases-1.2.0.1.md")
-- [Maintenance Release: 1.2.0.1.R3 (2023-09-27)](engine-releases-1.2.0.1.md "engine-releases-1.2.0.1.md")
+- [Release: 1.2.0.2.R2 (2022-12-15)](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md")
+- [Release: 1.2.0.2.R3 (2023-03-27)](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md")
+- [Release: 1.2.0.2.R4 (2023-05-08)](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md")
+- [Release: 1.2.0.2.R5 (2023-08-16)](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md")
+- [Release: 1.2.0.2.R6 (2023-09-12)](engine-releases-1.2.0.2.md "engine-releases-1.2.0.2.md")
 
 ## New Features in This Engine Release
 
-- Introduced [Amazon Neptune Serverless](neptune-serverless.md "neptune-serverless.md"),
-  an on-demand autoscaling configuration that scales your DB cluster up to meet increases in
-  processing demand and then down again when the demand decreases.
+- Introduced [real-time
+  inductive inference](machine-learning-overview-evolving-data.md#inductive-vs-transductive-inference "machine-learning-overview-evolving-data.md#inductive-vs-transductive-inference") for Gremlin in Neptune ML.
+- Introduced an openCypher extension that supports specifying [custom ID values for entities](access-graph-opencypher-extensions.md#opencypher-compliance-custom-ids "access-graph-opencypher-extensions.md#opencypher-compliance-custom-ids")
+  instead of the UUIDs that Neptune otherwise generates. The ability to assign
+  custom IDs makes it easier to migrate to Neptune from Neo4j.
+
+###### Warning
+
+This extension to the openCypher specification is not backward
+compatible, because `~id` is now considered a reserved property name.
+If you are already using `~id` as a property in your data and queries,
+you must [migrate the
+~id property to a new property key](access-graph-opencypher-extensions.md#opencypher-compliance-custom-ids-migrating "access-graph-opencypher-extensions.md#opencypher-compliance-custom-ids-migrating") before upgrading to this
+release.
+
+- Added [several new
+  SPARQL DESCRIBE modes](sparql-query-hints-for-describe.md "sparql-query-hints-for-describe.md") along with query hints to configure
+  them.
 
 ## Improvements in This Engine Release
 
-- Improved performance of Gremlin `order-by` queries. Gremlin
-  queries with an `order-by` at the end of a `NeptuneGraphQueryStep`
-  now use a larger chunk size for better performance. This does not apply to
-  `order-by` on an internal (non-root) node of the query plan.
-- Improved performance of Gremlin update queries. Vertices and edges
-  must now be locked against deletion while adding edges or properties. This change
-  eliminates duplicate locks within a transaction, which improves performance.
-- Improved performance of Gremlin queries that use `dedup()`
-  inside of a `repeat()` subquery by pushing the `dedup` down
-  to the native execution layer.
-- Added user-friendly error messages for IAM authentication errors. These
-  messages now show the your IAM user or role ARN, the resource ARN, and a list of
-  unauthorized actions for the request. The list of unauthorized actions helps you
-  see what might be missing or explicitly denied in the IAM policy that you're using.
+- Improved openCypher performance, particularly for VLP queries.
+- Improved DFE performance for Gremlin queries with non-terminal limits, such as:
 
-## Defects Fixed in This Engine Release
-
-- Fixed a Gremlin bug where using `PartitionStrategy` after
-  upgrading to TinkerPop 3.5 incorrectly resulted an error with the message,
-  "PartitionStrategy does not work with anonymous Traversals," which prevented
-  the traversal from being executed.
-- Fixed a Gremlin correctness bug involving `WherePredicateStep`
-  translation, where Neptune's query engine was producing incorrect results for queries
-  using `where(P.neq('x'))` and variations of that.
-- Fixed an openCypher bug in the `MERGE` clause that in some
-  cases caused duplicate node and edge creation.
-- Fixed a SPARQL bug in the handling of queries that contain
-  `(NOT) EXISTS` within an `OPTIONAL` clause, where
-  in some cases query results were missing.
-- Fixed a bulk loader bug that caused performance regressions under heavy
-  insertion loads.
+```
+g.withSideEffect('Neptune#useDFE',true).V().hasLabel('Student').limit(5).out('takesCourse')
+```
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.0.1, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.0.2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
@@ -94,11 +87,11 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.0.1
+## Upgrade Paths to Engine Release 1.2.0.2
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.0.1 is now generally available.
+Amazon Neptune 1.2.0.2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
@@ -110,7 +103,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.2.0.1 \
+    --engine-version 1.2.0.2 \
     --apply-immediately
 ```
 
@@ -119,7 +112,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.2.0.1 ^
+    --engine-version 1.2.0.2 ^
     --apply-immediately
 ```
 
