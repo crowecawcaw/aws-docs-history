@@ -1,4 +1,4 @@
-# .vectors.topKByEmbedding algorithm
+# .vectors.topKByEmbedding algorithm (deprecated)
 
 The `.vectors.topKByEmbedding` algorithm finds the `topK`
 nearest neighbors of an embedding based on the distance of their vector embeddings.

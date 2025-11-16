@@ -8,7 +8,7 @@ component ID of each node in the node list to a new property of that node.
 
 ###### Note
 
-- Louvain is only allowed to run globally.
+- There can only be one Louvain algorithm call running at a time.
 - Louvain is expected to run a long time, hence please set the query timeout to be large number to avoid query timeout.
   See [query-timeout-milliseconds](query-APIs-execute-query.md#query-APIs-execute-query-input "query-APIs-execute-query.md#query-APIs-execute-query-input") for more information on setting upper bounds on query run time.
 
@@ -18,6 +18,7 @@ component ID of each node in the node list to a new property of that node.
 CALL neptune.algo.louvain.mutate(
   {
     writeProperty: `property name to store community IDs (require)`,
+    vertexLabels: [`list of vertex labels for filtering (optional)`],
     edgeLabels: [`list of edge labels for filtering (optional)`],
     edgeWeightProperty: `a numeric edge property to use as weight (optional)`,
     edgeWeightType: `numeric type of the specified edgeWeightProperty (optional)`,
@@ -42,6 +43,13 @@ Inputs for `.louvain.mutate` are passed in a configuration object that contains:
 A name for the new node property that will contain the computed community ID of the nodes.
 
 - ###### a configuration object that contains:
+  - **vertexLabels**   _(optional)_   –  
+    _type:_ `a list of vertex label strings; example ["airport", ...]`;  
+    _default: no vertex filtering_.
+
+  Node labels for node filtering. To filter on one or more vertex labels, provide a list of node labels. Vertices
+  matching any label in the vertexLabels list are the only vertices that are passed to the algorithm computation.
+  If no vertexLabels field is provided then all vertices are passed to the Louvain algorithm.
   - **edgeLabels**   _(optional)_   –  
     _type:_ a list of edge label strings;   _example:_
     `["route", `...`]`;   _default:_ no edge filtering.
@@ -114,6 +122,7 @@ Unweighted:
 CALL neptune.algo.louvain.mutate(
   {
     writeProperty: "louvainCommId",
+    vertexLabels: ["airport"],
     edgeLabels: ["route"],
     maxLevels: 3,
     maxIterations: 10
@@ -129,6 +138,7 @@ Weighted:
 CALL neptune.algo.louvain.mutate(
   {
     writeProperty: "louvainCommId",
+    vertexLabels: ["airport"],
     edgeLabels: ["route"],
     maxLevels: 3,
     maxIterations: 10,

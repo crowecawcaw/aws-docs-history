@@ -28,6 +28,10 @@ Neptune Analytics supports three centrality algorithms along with their mutate v
   The degree centrality mutate algorithm measures the number of incident edges
   of each vertex it traverses and writes that calculated degree value as a
   property of the vertex.
+- [degreeDistribution](degreeDistribution.md "degreeDistribution.md")   –  
+  The Degree Distribution algorithm is a tool for analyzing and visualizing the structural characteristics
+  of a graph. It calculates the frequency distribution of vertex degrees across the entire network and provides
+  basic statistics of the distribution.
 - [pageRank](page-rank.md "page-rank.md")   –  
   This is an iterative algorithm that measures a nodes's centrality by the number
   and quality of incident edges and adjacent vertices. The centrality of a node

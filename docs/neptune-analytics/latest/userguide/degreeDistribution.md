@@ -1,46 +1,37 @@
-# Degree centrality algorithm
+# .degreeDistribution centrality algorithm
 
-The `.degree` centrality algorithm counts the number of incident edges
-at each node that it traverses. This measure of how connected the node is can
-in turn indicate the node's importance and level of influence in the network.
+The `.degreeDistribution` algorithm is a tool for analyzing and
+visualizing the structural characteristics of a graph. It calculates the
+frequency distribution of vertex degrees across the entire network and provides
+basic statistics of the distribution.
 
-The `.degree` algorithm is used in social networks to identify popular
-individuals with many connections, in transportation networks to locate central hubs
-with numerous roads leading to and from them, and in web analysis to find influential
-web pages with many incoming links.
+`.degreeDistribution` provides insight into the topology and connectivity
+patterns of the network, such as identifying the hubs (i.e., super nodes
+or high-degree nodes) and distinguishing different network types (e.g.,
+tree vs. scale-free), which can help making informed decisions on selecting
+appropriate algorithms for analysis.
 
-The time complexity of `.degree` is `O(|E|)`, where `|E|`
-is the number of edges in the graph. The space complexity is `O(|V|)`, where
-`|V|` is the number of vertices in the graph.
+The `%degreeDistribution` magic command in the notebook provides an interactive
+visualization of the output, please see the [notebook magics](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-degree-distribution "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-degree-distribution")
+documentation for details.
 
-## `.degree`   syntax
+## `.degreeDistribution`   syntax
 
 ```
-CALL neptune.algo.degree(
-  [`node list (required)`],
+CALL neptune.algo.degreeDistribution(
   {
     edgeLabels: [`a list of edge labels for filtering (optional)`],
-    vertexLabels: [a list of vertex labels for filtering (optional)],
-    vertexLabel: "a node label for filtering (optional) [deprecated],
-    traversalDirection: `traversal direction (optional)`,
+    vertexLabel: "`a list of vertex labels for filtering (optional)`",
+    binWidth: `a positive integer that specifies the size of each bin in the degree distribution (optional, default: 1)`,
+    traversalDirection: `the direction of edge used for degree computation (optional, default: "both"`,
     concurrency: `number of threads to use (optional)`
   }
 )
-YIELD node, degree
-RETURN node, degree
+YIELD output
+RETURN output
 ```
 
-## Inputs for the `.degree` algorithm
-
-- **a node list**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
-
-The node or nodes for which to return the edge count (degree). If an
-empty list is provided, the query result is also empty.
-
-If the algorithm is called following a `MATCH` clause (query
-integration), the result returned by the `MATCH` clause is taken
-as the node list.
+## Inputs for the `.degreeDistribution` algorithm
 
 - ###### a configuration object that contains:
   - **edgeLabels**   _(optional)_   –  
@@ -49,12 +40,17 @@ as the node list.
 
   To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is
   provided then all edge labels are processed during traversal.
-  - **vertexLabels** _(optional)_   –  
-    _type:_ `a list of vertex label strings`;   _default: none_.
+  - **vertexLabel** _(optional)_   –  
+    _type:_ `a list of vertex label strings`;   _default: no vertex filtering_.
 
-  Node labels for node filtering. To filter on one or more vertex labels, provide a list of node labels. Vertices matching any label in the vertexLabels list are the only vertices that are processed for degree computation. If no vertexLabels field is provided then all vertices are processed for degree computation.
+  To filter on one or more vertex labels, provide a list of the ones to filter on. If no vertexLabels field is
+  provided then all vertex labels are considered for degree computation.
+  - **binWidth** _(optional)_   –  
+    _type:_ `integer`;   _default: 1_.
+
+  To specify the size of each bin in the degree distribution, provide an integer value.
   - **traversalDirection** _(optional)_   –  
-    _type:_ `string`;   _default:_ `"outbound"`.
+    _type:_ `string`;   _default:_ `"both"`.
 
   The direction of edge to follow. Must be one of: `"inbound"`,
   `"outbound"`, or `"both"`.
@@ -67,24 +63,13 @@ as the node list.
   invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation
   of many algorithms concurrently.
 
-## `.degree`   outputs
-
-- **node**   –  
-  A list of the requested nodes. If `vertexLabels` or `vertexLabel` is present, only
-  the requested nodes that match in `vertexLabels` or `vertexLabel` value are included.
-- **degree**   –  
-  A list of corresponding degree values for the nodes with respect to edges with
-  a label specified in `edgeLabels`.
-
-If the input vertex list is empty, the output is empty.
-
-## Query examples for `.degree`
+## Query examples for `.degreeDistribution`
 
 This is a standalone example, where the source node list is explicitly specified
 in the query:
 
 ```
-CALL neptune.algo.degree(["101"], {edgeLabels: ["route"]})
+CALL neptune.algo.degree(["101"], {edgeLabel: "route"})
 ```
 
 This is a more complicated standalone query submitted using the AWS CLI:
@@ -96,7 +81,7 @@ aws neptune-graph execute-query \
         ["101", "102", "103"],
         {
           edgeLabels: ["route"],
-          vertexLabel: ["airport"],
+          vertexLabel: "airport",
           traversalDirection: "inbound",
           concurrency: 2
         }
@@ -126,7 +111,7 @@ CALL neptune.algo.degree(
   ["108"],
   {
     edgeLabels: ["route"],
-    vertexLabel: ["airport"]
+    vertexLabel: "airport"
   }
 )
 YIELD node
@@ -134,7 +119,7 @@ CALL neptune.algo.degree(
   node,
   {
     edgeLabels: ["route"],
-    vertexLabel: ["airport"]
+    vertexLabel: "airport"
   }
 )
 YIELD node AS node2 WITH id(node2) AS id
@@ -149,7 +134,7 @@ clause invokes the algorithm once, which can result a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 
-## Sample   `.degree`   output
+## Sample   `.degreeDistribution`   output
 
 Here is an example of the output returned by .degree when run against the
 [sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv"), and

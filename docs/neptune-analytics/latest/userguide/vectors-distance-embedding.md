@@ -1,4 +1,4 @@
-# The  `.vectors.distanceByEmbedding`  algorithm
+# The  `.vectors.distanceByEmbedding`  algorithm (deprecated)
 
 The `.vectors.distanceByEmbedding` algorithm computes the distance between an embedding vector and the
 embedding of an input node. The default distance is the squared L2 norm of the input (source) embedding vector and

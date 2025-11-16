@@ -32,7 +32,7 @@ The Louvain algorithm is particularly useful in these cases because it:
 
 ###### Note
 
-- Louvain is only allowed to run globally.
+- There can only be one Louvain algorithm call running at a time.
 - Louvain is expected to run a long time, hence please set the query timeout to be large number to avoid query timeout.
   See [query-timeout-milliseconds](query-APIs-execute-query.md#query-APIs-execute-query-input "query-APIs-execute-query.md#query-APIs-execute-query-input") for more information on setting upper bounds on query run time.
 
@@ -42,6 +42,7 @@ The Louvain algorithm is particularly useful in these cases because it:
 CALL neptune.algo.louvain(
   [`node list (required)`],
   {
+    vertexLabels: [`list of vertex labels for filtering (optional)`],
     edgeLabels: [`list of edge labels for filtering (optional)`],
     edgeWeightProperty: `a numeric edge property to use as weight (optional)`,
     edgeWeightType: `numeric type of the specified edgeWeightProperty (optional)`,
@@ -65,6 +66,13 @@ The node or nodes for which the algorithm will return the computed community ids
 a MATCH clause (query algo integration), the node query list is the result returned by the MATCH clause.
 
 - ###### a configuration object that contains:
+  - **vertexLabels**   _(optional)_   –  
+    _type:_ `a list of vertex label strings; example ["airport", ...]`;  
+    _default: no vertex filtering_.
+
+  Node labels for node filtering. To filter on one or more vertex labels, provide a list of node labels. Vertices
+  matching any label in the vertexLabels list are the only vertices that are passed to the algorithm computation.
+  If no vertexLabels field is provided then all vertices are passed to the Louvain algorithm.
   - **edgeLabels**   _(optional)_   –  
     _type:_ a list of edge label strings;   _example:_
     `["route", `...`]`;   _default:_ no edge filtering.
@@ -141,6 +149,7 @@ Unweighted example:
 CALL neptune.algo.louvain(
   ["101"],
   {
+    vertexLabels: ["airport"],
     edgeLabels: ["route"],
     maxLevels: 3,
     maxIterations: 10
@@ -160,6 +169,7 @@ based on passenger traffic
 CALL neptune.algo.louvain(
   ["101"],
   {
+    vertexLabels: ["airport"],
     edgeLabels: ["route"],
     maxLevels: 3,
     maxIterations: 10,
@@ -179,6 +189,7 @@ Match (n)
 CALL neptune.algo.louvain(
   n,
   {
+    vertexLabels: ["airport"],
     edgeLabels: ["route"],
     maxLevels: 1,
     maxIterations: 10,
