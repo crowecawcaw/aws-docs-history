@@ -24,15 +24,15 @@ policies must be updated to allow you to perform the action.
 The following example error occurs when the `mateojackson` IAM user
 tries to use the console to view details about a fictional
 `my-example-widget` resource but doesn't
-have the fictional `awsdeadlinecloud:`GetWidget`` permissions.
+have the fictional `deadline:`GetWidget`` permissions.
 
 ```
-User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: awsdeadlinecloud:GetWidget on resource: my-example-widget
+User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: deadline:GetWidget on resource: my-example-widget
 ```
 
 In this case, the policy for the `mateojackson` user must be updated to allow access to the
 `my-example-widget` resource by using the
-`awsdeadlinecloud:`GetWidget`` action.
+`deadline:`GetWidget`` action.
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 

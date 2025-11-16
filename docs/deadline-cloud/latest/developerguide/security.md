@@ -36,4 +36,5 @@ _in_ the cloud:
   prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Access AWS Deadline Cloud using an interface endpoint
   (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Restricted network environments](network-connectivity.md "network-connectivity.md")
 - [Security best practices for Deadline Cloud](security-best-practices.md "security-best-practices.md")

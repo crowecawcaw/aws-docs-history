@@ -14,6 +14,7 @@ use with no additional charge.
 - [Identity-based policy examples for
   Deadline Cloud](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [AWS managed policies for Deadline Cloud](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [Service roles](security-iam-service-roles.md "security-iam-service-roles.md")
 - [Troubleshooting AWS Deadline Cloud identity and
   access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 

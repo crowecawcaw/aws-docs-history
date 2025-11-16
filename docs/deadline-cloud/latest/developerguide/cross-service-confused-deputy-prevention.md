@@ -24,7 +24,7 @@ Name (ARN) of the resource. If you don't know the full ARN of the resource or if
 specifying multiple resources, use the `aws:SourceArn` global context condition
 key with wildcard characters (`*`) for the unknown portions of the ARN. For
 example,
-`arn:aws:awsdeadlinecloud:*:`123456789012`:*`.
+`arn:aws:deadline:*:`123456789012`:*`.
 
 If the `aws:SourceArn` value does not contain the account ID, such as an Amazon S3
 bucket ARN, you must use both global condition context keys to limit permissions.

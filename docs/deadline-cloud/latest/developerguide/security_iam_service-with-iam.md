@@ -79,21 +79,21 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 The `Action` element of a JSON policy describes the
 actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-To see a list of Deadline Cloud actions, see [Actions defined by AWS Deadline Cloud](../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-actions-as-permissions "../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-actions-as-permissions") in the
+To see a list of Deadline Cloud actions, see [Actions defined by AWS Deadline Cloud](../../../service-authorization/latest/reference/list_deadline.md#deadline-actions-as-permissions "../../../service-authorization/latest/reference/list_deadline.md#deadline-actions-as-permissions") in the
 _Service Authorization Reference_.
 
 Policy actions in Deadline Cloud use the following prefix before the action:
 
 ```
-awsdeadlinecloud
+deadline
 ```
 
 To specify multiple actions in a single statement, separate them with commas.
 
 ```
 "Action": [
-      "awsdeadlinecloud:`action1`",
-      "awsdeadlinecloud:`action2`"
+      "deadline:`action1`",
+      "deadline:`action2`"
          ]
 ```
 
@@ -117,9 +117,9 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To see a list of Deadline Cloud resource types and their ARNs, see [Resources defined by AWS Deadline Cloud](../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-resources-for-iam-policies")
+To see a list of Deadline Cloud resource types and their ARNs, see [Resources defined by AWS Deadline Cloud](../../../service-authorization/latest/reference/list_deadline.md#deadline-resources-for-iam-policies "../../../service-authorization/latest/reference/list_deadline.md#deadline-resources-for-iam-policies")
 in the _Service Authorization Reference_. To learn with which actions you can
-specify the ARN of each resource, see [Actions defined by AWS Deadline Cloud](../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-actions-as-permissions "../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-actions-as-permissions").
+specify the ARN of each resource, see [Actions defined by AWS Deadline Cloud](../../../service-authorization/latest/reference/list_deadline.md#deadline-actions-as-permissions "../../../service-authorization/latest/reference/list_deadline.md#deadline-actions-as-permissions").
 
 To view examples of Deadline Cloud identity-based policies, see [Identity-based policy examples for
 Deadline Cloud](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
@@ -141,9 +141,9 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-To see a list of Deadline Cloud condition keys, see [Condition keys for AWS Deadline Cloud](../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-policy-keys "../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-policy-keys") in the
+To see a list of Deadline Cloud condition keys, see [Condition keys for AWS Deadline Cloud](../../../service-authorization/latest/reference/list_deadline.md#deadline-policy-keys "../../../service-authorization/latest/reference/list_deadline.md#deadline-policy-keys") in the
 _Service Authorization Reference_. To learn with which actions and resources you
-can use a condition key, see [Actions defined by AWS Deadline Cloud](../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-actions-as-permissions "../../../service-authorization/latest/reference/list_awsdeadlinecloud.md#awsdeadlinecloud-actions-as-permissions").
+can use a condition key, see [Actions defined by AWS Deadline Cloud](../../../service-authorization/latest/reference/list_deadline.md#deadline-actions-as-permissions "../../../service-authorization/latest/reference/list_deadline.md#deadline-actions-as-permissions").
 
 To view examples of Deadline Cloud identity-based policies, see [Identity-based policy examples for
 Deadline Cloud](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
