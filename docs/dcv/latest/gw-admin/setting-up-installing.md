@@ -38,71 +38,71 @@ with `aarch64`, and for Ubuntu, replace `amd64` with
    - Amazon Linux 2 (64-bit x86)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway-2024.0.848-1.el7.x86_64.rpm
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.870.el7.x86_64.rpm
    ```
 
    - Amazon Linux 2 (64-bit x86 ARM)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway-2024.0.848-1.el7.aarch64.rpm
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.870.el7.aarch64.rpm
    ```
 
    - Amazon Linux 2023 (64-bit x86)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway-2024.0.848-1.amzn2023.x86_64.rpm
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.870.amzn2023.x86_64.rpm
    ```
 
    - Amazon Linux 2023 (64-bit x86 ARM)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway-2024.0.848-1.amzn2023.aarch64.rpm
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.870.amzn2023.aarch64.rpm
    ```
 
    - RHEL 8.x, and Rocky Linux 8.x (64-bit x86)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway-2024.0.848-1.el8.x86_64.rpm
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.870.el8.x86_64.rpm
    ```
 
    - RHEL 8.x, and Rocky Linux 8.x (64-bit x86 ARM)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway-2024.0.848-1.el8.aarch64.rpm
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.870.el8.aarch64.rpm
    ```
 
    - RHEL 9.x, CentOS 9, and Rocky Linux 8.x (64-bit x86)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway-2024.0.848-1.el9.x86_64.rpm
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.870.el9.x86_64.rpm
    ```
 
    - RHEL 9.x, CentOS 9, and Rocky Linux 8.x (64-bit x86 ARM)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway-2024.0.848-1.el9.aarch64.rpm
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.870.el9.aarch64.rpm
    ```
 
    - Ubuntu 22.04 (64-bit x86)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway_2024.0.848-1_amd64.ubuntu2204.deb
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway_2025.0.870_amd64.ubuntu2204.deb
    ```
 
    - Ubuntu 22.04 (64-bit ARM)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway_2024.0.848-1_arm64.ubuntu2204.deb
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway_2025.0.870_arm64.ubuntu2204.deb
    ```
 
    - Ubuntu 24.04 (64-bit x86)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway_2024.0.848-1_amd64.ubuntu2404.deb
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway_2025.0.870_amd64.ubuntu2404.deb
    ```
 
    - Ubuntu 24.04 (64-bit ARM)
 
    ```
-   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2024.0/Gateway/nice-dcv-connection-gateway_2024.0.848-1_arm64.ubuntu2404.deb
+   `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway_2025.0.870_arm64.ubuntu2404.deb
    ```
