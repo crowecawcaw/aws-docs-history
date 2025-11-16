@@ -1,4 +1,4 @@
-# Trusted Identity Propagation for interactive workloads with EMR Serverless
+# Trusted Identity Propagation for interactive workloads
 
 The steps to propagate identity to interactive workloads through an Apache Livy endpoint depend on whether your users interact with AWS
 managed development environment like Amazon SageMaker AI or your own self-hosted Notebook environment as client-facing application.

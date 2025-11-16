@@ -1,4 +1,4 @@
-# Getting started with Trusted-Identity Propagation for EMR Serverless
+# Getting started with Trusted-Identity Propagation
 
 This section helps you configure EMR-Serverless application with Apache Livy Endpoint to integrate with AWS IAM Identity Center and
 enable [Trusted identity propagation](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md").
@@ -11,7 +11,7 @@ enable [Trusted identity propagation](../../../singlesignon/latest/userguide/tru
 - Enable Trusted identity propagation for downstream services like Lake Formation or S3 Access Grants or Amazon Redshift cluster with which interactive workload interacts
   to access data.
 
-## Required permissions to create trusted-identity propagation
+## Permissions to create trusted-identity propagation
 
 enabled EMR Serverless Application
 

@@ -31,7 +31,7 @@ _in_ the cloud:
 - [Data protection](data-protection.md "data-protection.md")
 - [Identity and Access Management (IAM) in
   Amazon EMR Serverless](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Trusted Identity Propagation with Amazon EMR Serverless](security-iam-service-trusted-prop.md "security-iam-service-trusted-prop.md")
+- [Trusted Identity Propagation](security-iam-service-trusted-prop.md "security-iam-service-trusted-prop.md")
 - [Using Lake Formation with EMR Serverless](lake-formation-section.md "lake-formation-section.md")
 - [Inter-worker encryption](interworker-encryption.md "interworker-encryption.md")
 - [Secrets Manager for data protection with EMR Serverless](secrets-manager.md "secrets-manager.md")

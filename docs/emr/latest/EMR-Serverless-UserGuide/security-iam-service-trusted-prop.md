@@ -1,4 +1,4 @@
-# Trusted Identity Propagation with Amazon EMR Serverless
+# Trusted Identity Propagation
 
 With Amazon EMR releases 7.8.0 and higher, you can propagate user-identities from AWS IAM Identity Center to interactive workloads with EMR Serverless
 through Apache Livy Endpoint. Apache Livy interactive workloads will further propagate supplied identity to downstream services like Amazon S3, Lake Formation and Amazon Redshift, enabling

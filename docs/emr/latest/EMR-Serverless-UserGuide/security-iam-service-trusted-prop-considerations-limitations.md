@@ -1,14 +1,14 @@
-# Considerations and limitations for EMR Serverless Trusted-Identity-Propagation
+# Considerations for EMR Serverless Trusted-Identity-Propagation
 
 integration
 
-Consider the following points when you use IAM Identity Center Trusted-Identity-Propagation with EMR Serverelss Application:
+Consider the following when you use IAM Identity Center Trusted-Identity-Propagation with EMR Serverelss Application:
 
 - Trusted Identity Propagation through Identity Center is supported on Amazon EMR 7.8.0 and higher, and only with Apache Spark.
 - Trusted Identity Propagation can only be used for [interactive workloads
   with EMR Serverless through an Apache Livy endpoint](interactive-workloads-livy-endpoints.md "interactive-workloads-livy-endpoints.md"). Interactive workloads through EMR Studio doesn't
   support Trusted Identity Propagation
-- Batch jobs and streaming jobs doesn't support trusted-identity-propagation
+- Batch jobs and streaming workloads do not support Trusted identity propagation
 - Fine-grained access controls using AWS Lake Formation that use Trusted Identity Propagation are available
   for [interactive workloads with EMR Serverless through
   an Apache Livy endpoint](interactive-workloads-livy-endpoints.md "interactive-workloads-livy-endpoints.md").
