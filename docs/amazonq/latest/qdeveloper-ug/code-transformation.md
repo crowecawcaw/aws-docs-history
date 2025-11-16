@@ -220,6 +220,11 @@ dependencyManagement:
 
 ## Step 4: Transform your code
 
+Before you transform your own code, you might want to test that your IDE is setup
+correctly by transforming a sample project. Following is a sample GitHub project that is
+eligible for code transformation:
+[https://github.com/aws-samples/aws-appconfig-java-sample](https://github.com/aws-samples/aws-appconfig-java-sample "https://github.com/aws-samples/aws-appconfig-java-sample").
+
 To test your IDE setup, download and unzip the sample
 project, and complete the following steps for your IDE. If you are able to view the
 proposed changes and transformation summary, you are ready to transform your own code

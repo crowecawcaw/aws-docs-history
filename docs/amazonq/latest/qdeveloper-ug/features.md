@@ -325,7 +325,8 @@ For more information, see [GitLab Duo with Amazon Q](gitlab-with-amazon-q.md "gi
 
 You can leverage Amazon Q Developer capabilities for your software development workflows.
 With specialized development agents, you can implement new ideas, review code for
-quality issues, and address vulnerabilities with unit tests.
+quality issues, address vulnerabilities with unit tests, and modernize legacy Java
+applications.
 
 For more information, see [Amazon Q Developer for GitHub (Preview)](amazon-q-for-github.md "amazon-q-for-github.md")
 .

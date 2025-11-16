@@ -7,7 +7,7 @@ Amazon Q Developer for GitHub is in preview release and is subject to change.
 After you create an Amazon Q Developer profile and register the app installation in GitHub, you can
 do the following from the Amazon Q Developer console:
 
-- Enable or disable the use of code reviews. Feature development
+- Enable or disable the use of code reviews. Feature development and code transformation
   configuration cannot currently be modified.
 - Find links to browser extensions that provide a way to add Amazon Q Developer feature labels
   in the GitHub issues.
@@ -40,7 +40,7 @@ longer take place in new pull requests if the feature is disabled.
 ## Installing browser extensions
 
 You can install the Amazon Q Developer extension in one of the supported browsers. The extension
-enables you to quickly assign feature development tasks to Amazon Q Developer
+enables you to quickly assign feature development or code transformation tasks to Amazon Q Developer
 in GitHub issues without having to search through label menus.
 
 The Amazon Q Developer extension is available for the following browsers:

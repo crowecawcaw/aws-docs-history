@@ -8,11 +8,12 @@ Amazon Q Developer for GitHub is in preview release and is subject to change.
 
 You can use Amazon Q Developer agents in GitHub for free without the need to set up an AWS account
 to get started. You're provided with limited invocations per month for the feature development
-and code review capabilities. You can increase your free usage at any time by registering your Amazon Q Developer app
+and code review capabilities, as well as specified number of lines for code transformation per
+month. You can increase your free usage at any time by registering your Amazon Q Developer app
 installation with your AWS account.
 
-By default, the **Code reviews** and **Feature
-development** features are enabled in
+By default, the **Code reviews**, **Feature
+development**, and **Code transformation** features are enabled in
 GitHub when you install the app. You can disable any of these features when you register.
 Registering requires an Amazon Q Developer profile to manage the features from the console. The
 profile stores your settings and code recommendation
@@ -59,7 +60,8 @@ If you previously created a profile when getting started with Amazon Q Developer
       organization associated with the app installation.
    3. (Optional) Under **Features**, configure the **Code
       reviews** feature by choosing the toggle to enable or disable the feature.
-      **Feature development** configuration cannot be
+      **Feature development** and **Code
+      transformation** configuration cannot be
       modified.
       The features are enabled by default.
    4. (Optional) Under **Tags - optional**, choose **Add new

@@ -21,10 +21,11 @@ in Amazon Q Developer console](github-register-app-install.md "github-register-a
 ###### Important
 
 The Amazon Q Developer app attempts to automatically create the **Amazon Q development
-agent** label in GitHub
-repositories you authorize access to. If the label is not automatically created, or if
-it's unintentionally deleted, you can manually create it in GitHub. The label must be
-named as **Amazon Q development agent** in order for it to be recognized and processed as a Amazon Q Developer label.
+agent** and the **Amazon Q transform agent** labels in GitHub
+repositories you authorize access to. If the labels are not automatically created, or if
+they're unintentionally deleted, you can manually create them in GitHub. The labels must be
+named as **Amazon Q development agent** and **Amazon Q transform
+agent** in order for them to be recognized and processed as Amazon Q Developer labels.
 For more information, see [Creating a label](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label "https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label") in the _GitHub documentation_.
 
 ###### To use Amazon Q Developer for feature development
