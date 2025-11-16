@@ -35,7 +35,7 @@ service can run on EC2 instances or ECS/EKS/Fargate containers, or as Lambda fun
 an account or a virtual private cloud (VPC). A VPC Lattice service has the following components:
 target groups, listeners, and rules.
 
-![A service with a listener and two target groups.](/images/vpc-lattice/latest/ug/images/service.png)
+![A service with a listener and two target groups.](images/service.png)
 
 Target group
 
