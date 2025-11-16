@@ -317,7 +317,7 @@ flagged as anomalies.
 # Detect temperature anomalies in real-time
 influxdb3 create trigger \
   --database sensors \
-  --plugin-filename "gh:influxdata/mad_check/mad_check_plugin.py" \
+  --plugin-filename "mad_check/mad_check_plugin.py" \
   --trigger-spec "all_tables" \
   --trigger-arguments 'measurement=temperature_sensors,mad_thresholds="temp:2.5:20:5@humidity:3:30:2m",senders=slack,slack_webhook_url="YOUR_WEBHOOK"' \
   temp_anomaly_detector
@@ -359,7 +359,7 @@ complex data pipelines.
 # Transform temperature data from Celsius to Fahrenheit with field name standardization
 influxdb3 create trigger \
   --database weather \
-  --plugin-filename "gh:influxdata/basic_transformation/basic_transformation.py" \
+  --plugin-filename "basic_transformation/basic_transformation.py" \
   --trigger-spec "every:30m" \
   --trigger-arguments 'measurement=raw_weather,window=1h,target_measurement=weather_fahrenheit,names_transformations="Temperature Reading":"snake",values_transformations=temperature_reading:"convert_degC_to_degF"' \
   temp_converter
@@ -367,7 +367,7 @@ influxdb3 create trigger \
 # Real-time field name cleaning for incoming sensor data
 influxdb3 create trigger \
   --database iot \
-  --plugin-filename "gh:influxdata/basic_transformation/basic_transformation.py" \
+  --plugin-filename "basic_transformation/basic_transformation.py" \
   --trigger-spec "all_tables" \
   --trigger-arguments 'measurement=raw_sensors,target_measurement=clean_sensors,names_transformations=.*:"snake alnum_underscore_only collapse_underscore"' \
   sensor_cleaner
@@ -403,7 +403,7 @@ and the time range covered.
 # Downsample CPU metrics from 10-second to hourly resolution
 influxdb3 create trigger \
   --database metrics \
-  --plugin-filename "gh:influxdata/downsampler/downsampler.py" \
+  --plugin-filename "downsampler/downsampler.py" \
   --trigger-spec "every:1h" \
   --trigger-arguments 'source_measurement=cpu_detailed,target_measurement=cpu_hourly,interval=1h,window=6h,calculations="usage:avg.max_usage:max.total_processes:sum",specific_fields=usage.max_usage.total_processes' \
   cpu_downsampler
@@ -453,7 +453,7 @@ stability checks to prevent alerts from noisy signals.
 # Monitor equipment status changes
 influxdb3 create trigger \
   --database factory \
-  --plugin-filename "gh:influxdata/state_change/state_change_check_plugin.py" \
+  --plugin-filename "state_change/state_change_check_plugin.py" \
   --trigger-spec "every:5m" \
   --trigger-arguments 'measurement=equipment,field_change_count="status:3.temperature:10",window=15m,state_change_window=5,senders=slack,notification_text="Equipment $field changed $changes times in $window"' \
   equipment_monitor
@@ -461,7 +461,7 @@ influxdb3 create trigger \
 # Real-time monitoring for specific state conditions
 influxdb3 create trigger \
   --database systems \
-  --plugin-filename "gh:influxdata/state_change/state_change_check_plugin.py" \
+  --plugin-filename "state_change/state_change_check_plugin.py" \
   --trigger-spec "all_tables" \
   --trigger-arguments 'measurement=service_health,field_thresholds="status:down:5@health_score:0:10",senders=pagerduty' \
   service_monitor
@@ -498,7 +498,7 @@ independently.
 # Collect all system metrics every 30 seconds
 influxdb3 create trigger \
   --database monitoring \
-  --plugin-filename "gh:influxdata/system_metrics/system_metrics.py" \
+  --plugin-filename "system_metrics/system_metrics.py" \
   --trigger-spec "every:30s" \
   --trigger-arguments 'hostname=db-server-01,include_cpu=true,include_memory=true,include_disk=true,include_network=true' \
   system_monitor
@@ -506,7 +506,7 @@ influxdb3 create trigger \
 # Focus on CPU and memory for application servers
 influxdb3 create trigger \
   --database app_monitoring \
-  --plugin-filename "gh:influxdata/system_metrics/system_metrics.py" \
+  --plugin-filename "system_metrics/system_metrics.py" \
   --trigger-spec "every:1m" \
   --trigger-arguments 'hostname=app-server-01,include_cpu=true,include_memory=true,include_disk=false,include_network=false' \
   app_metrics
@@ -545,14 +545,14 @@ changepoints. Supports model persistence for consistent predictions.
 # Train and forecast temperature data
 influxdb3 create trigger \
   --database weather \
-  --plugin-filename "gh:influxdata/prophet_forecasting/prophet_forecasting.py" \
+  --plugin-filename "prophet_forecasting/prophet_forecasting.py" \
   --trigger-spec "every:1d" \
   --trigger-arguments 'measurement=temperature,field=value,window=90d,forecast_horizont=7d,tag_values="location:seattle",target_measurement=temperature_forecast,model_mode=train,unique_suffix=seattle_v1,seasonality_mode=additive' \
   temp_forecast
 # Validate temperature predictions with MAE
 influxdb3 create trigger \
   --database weather \
-  --plugin-filename "gh:influxdata/forecast_error_evaluator/forecast_error_evaluator.py" \
+  --plugin-filename "forecast_error_evaluator/forecast_error_evaluator.py" \
   --trigger-spec "every:1h" \
   --trigger-arguments 'forecast_measurement=temp_forecast,actual_measurement=temp_actual,forecast_field=predicted,actual_field=temperature,error_metric=mae,error_thresholds=WARN-"2.0":ERROR-"5.0",window=6h,rounding_freq=5min,senders=discord' \
   temp_forecast_check
@@ -587,7 +587,7 @@ notification_text = "Anomaly detected in $field: value=$value at $timestamp"
 # Use TOML configuration
 PLUGIN_DIR=~/.plugins influxdb3 create trigger \
   --database monitoring \
-  --plugin-filename "gh:influxdata/adtk_anomaly/adtk_anomaly_detection_plugin.py" \
+  --plugin-filename "adtk_anomaly/adtk_anomaly_detection_plugin.py" \
   --trigger-spec "every:10m" \
   --trigger-arguments "config_file_path=anomaly_config.toml" \
   cpu_anomaly_detector
@@ -602,7 +602,7 @@ Create data processing pipelines by chaining multiple plugins:
 # Step 1: Transform raw data
 influxdb3 create trigger \
   --database pipeline \
-  --plugin-filename "gh:influxdata/basic_transformation/basic_transformation.py" \
+  --plugin-filename "basic_transformation/basic_transformation.py" \
   --trigger-spec "all_tables" \
   --trigger-arguments 'measurement=raw_sensors,target_measurement=clean_sensors,names_transformations=.*:"snake"' \
   step1_transform
@@ -610,7 +610,7 @@ influxdb3 create trigger \
 # Step 2: Downsample transformed data
 influxdb3 create trigger \
   --database pipeline \
-  --plugin-filename "gh:influxdata/downsampler/downsampler.py" \
+  --plugin-filename "downsampler/downsampler.py" \
   --trigger-spec "every:1h" \
   --trigger-arguments 'source_measurement=clean_sensors,target_measurement=sensors_hourly,interval=1h,window=6h,calculations=avg' \
   step2_downsample
@@ -618,7 +618,7 @@ influxdb3 create trigger \
 # Step 3: Detect anomalies in downsampled data
 influxdb3 create trigger \
   --database pipeline \
-  --plugin-filename "gh:influxdata/mad_check/mad_check_plugin.py" \
+  --plugin-filename "mad_check/mad_check_plugin.py" \
   --trigger-spec "all_tables" \
   --trigger-arguments 'measurement=sensors_hourly,mad_thresholds="value:3:20:5",senders=slack' \
   step3_anomaly

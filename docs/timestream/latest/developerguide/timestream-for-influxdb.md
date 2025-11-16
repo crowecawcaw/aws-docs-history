@@ -175,7 +175,7 @@ Each write request contains 5000 lines.
 | ~1MM            | ~200,000                  | ~25                        | db.influx.4xlarge  | Influx IO Included 3K  |
 | <5MM            | ~250,000                  | ~35                        | db.influx.4xlarge  | Influx IO Included 12K |
 | <10MM           | ~500,000                  | ~50                        | db.influx.8xlarge  | Influx IO Included 12K |
-| ~10MM           | <750,000                  | <5100                      | db.influx.12xlarge | Influx IO Included 12K |
+| ~10MM           | <750,000                  | <100                       | db.influx.12xlarge | Influx IO Included 12K |
 
 ## AWS Regions and Availability Zones
 

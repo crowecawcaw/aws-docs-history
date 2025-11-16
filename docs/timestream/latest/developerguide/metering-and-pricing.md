@@ -1,22 +1,22 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Cost optimization
+# Metering and cost optimization
 
-To optimize the cost of writes, storage, and queries, use the following best practices with Amazon Timestream for LiveAnalytics:
+With Amazon Timestream for LiveAnalytics, you pay only for what you use.
+Timestream for LiveAnalytics meters separately for writes, data stored, and data scanned by queries.
+The price of each metering dimension is specified on the [pricing page](https://aws.amazon.com/timestream/pricing/ "https://aws.amazon.com/timestream/pricing/").
+You can estimate your monthly bill using the
+[Amazon Timestream for LiveAnalytics Pricing Calculator](samples/Amazon_Timestream_Pricing_Calculator.md "samples/Amazon_Timestream_Pricing_Calculator.md").
 
-- Batch multiple time series events per write to reduce the number of write requests.
-- Consider using Multi-measure records, which allows you to write multiple time-series measures in a single write request and stores your data in a more
-  compact manner. This reduces the number of write requests as well as data storage cost and query cost.
-- Use common attributes with batching to batch more time series events per write to further reduce the number of write requests.
-- Set the data retention of the memory store to match your application's requirements for processing late-arriving data.
-  Late-arriving data is incoming data with a timestamp earlier than the current time and outside the memory store retention period.
-- Set the data retention of the magnetic store to match your long term data storage requirements.
-- While writing queries, include only the measure and dimension names essential to query.
-  Adding extraneous columns will increase data scans and therefore will also increase the query cost. We recommend that you review [query insights](using-query-insights.md "using-query-insights.md") to assess the pruning efficiency of the included dimensions and measures.
-- Where possible, include a time range in the WHERE clause of your query.
-  For example, if you only need the last one hour of data in your dataset,
-  include a time predicate such as `time > ago(1h)`.
-- When a query accesses a subset of measures in a table, always include the measure names in the WHERE clause of the query.
-- If you've started running a query and realize that the query will not return the results you're looking for,
-  cancel the query to save on cost.
+This section describes how metering works for writes, storage and queries in Timestream for LiveAnalytics.
+Example scenarios and calculations are also provided. In addition, a list of best practices for cost optimization is included.
+You can select a topic below:
+
+###### Topics
+
+- [Writes](metering-and-pricing.md "metering-and-pricing.md")
+- [Storage](metering-and-pricing.md "metering-and-pricing.md")
+- [Queries](metering-and-pricing.md "metering-and-pricing.md")
+- [Cost optimization](metering-and-pricing.md "metering-and-pricing.md")
+- [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")

@@ -1,20 +1,21 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Update scheduled query
+# Execute scheduled query
 
-You can use the following code snippets to update a scheduled query.
+You can use the following code snippets to run a scheduled query.
 
 Java
 
 ```
-public void updateScheduledQueries(String scheduledQueryArn) {
-    System.out.println("Updating Scheduled Query");
+public void executeScheduledQueries(String scheduledQueryArn, Date invocationTime) {
+    System.out.println("Executing Scheduled Query");
     try {
-        queryClient.updateScheduledQuery(new UpdateScheduledQueryRequest()
+        ExecuteScheduledQueryResult executeScheduledQueryResult = queryClient.executeScheduledQuery(new ExecuteScheduledQueryRequest()
                 .withScheduledQueryArn(scheduledQueryArn)
-                .withState(ScheduledQueryState.DISABLED));
-        System.out.println("Successfully update scheduled query state");
+                .withInvocationTime(invocationTime)
+        );
+
     }
     catch (ResourceNotFoundException e) {
         System.out.println("Scheduled Query doesn't exist");
@@ -25,19 +26,24 @@ public void updateScheduledQueries(String scheduledQueryArn) {
         throw e;
     }
 }
+
+
 ```
 
 Java v2
 
 ```
-public void updateScheduledQuery(String scheduledQueryArn, ScheduledQueryState state) {
-    System.out.println("Updating Scheduled Query");
+public void executeScheduledQuery(String scheduledQueryArn) {
+    System.out.println("Executing Scheduled Query");
     try {
-        queryClient.updateScheduledQuery(UpdateScheduledQueryRequest.builder()
+        ExecuteScheduledQueryResponse executeScheduledQueryResult = queryClient.executeScheduledQuery(ExecuteScheduledQueryRequest.builder()
                 .scheduledQueryArn(scheduledQueryArn)
-                .state(state)
-                .build());
-        System.out.println("Successfully update scheduled query state");
+                .invocationTime(Instant.now())
+                .build()
+        );
+
+        System.out.println("Execute ScheduledQuery response code: " + executeScheduledQueryResult.sdkHttpResponse().statusCode());
+
     }
     catch (ResourceNotFoundException e) {
         System.out.println("Scheduled Query doesn't exist");
@@ -53,13 +59,13 @@ public void updateScheduledQuery(String scheduledQueryArn, ScheduledQueryState s
 Go
 
 ```
-func (timestreamBuilder TimestreamBuilder) UpdateScheduledQuery(scheduledQueryArn string) error {
+func (timestreamBuilder TimestreamBuilder) ExecuteScheduledQuery(scheduledQueryArn string, invocationTime time.Time) error {
 
-     updateScheduledQueryInput := &timestreamquery.UpdateScheduledQueryInput{
+     executeScheduledQueryInput := &timestreamquery.ExecuteScheduledQueryInput{
          ScheduledQueryArn: aws.String(scheduledQueryArn),
-         State:             aws.String(timestreamquery.ScheduledQueryStateDisabled),
+         InvocationTime:    aws.Time(invocationTime),
      }
-     _, err := timestreamBuilder.QuerySvc.UpdateScheduledQuery(updateScheduledQueryInput)
+     executeScheduledQueryOutput, err := timestreamBuilder.QuerySvc.ExecuteScheduledQuery(executeScheduledQueryInput)
 
      if err != nil {
          if aerr, ok := err.(awserr.Error); ok {
@@ -74,7 +80,8 @@ func (timestreamBuilder TimestreamBuilder) UpdateScheduledQuery(scheduledQueryAr
          }
          return err
      } else {
-         fmt.Println("UpdateScheduledQuery is successful")
+         fmt.Println("ExecuteScheduledQuery is successful, below is the output:")
+         fmt.Println(executeScheduledQueryOutput.GoString())
          return nil
      }
  }
@@ -83,17 +90,16 @@ func (timestreamBuilder TimestreamBuilder) UpdateScheduledQuery(scheduledQueryAr
 Python
 
 ```
-def update_scheduled_query(self, scheduled_query_arn, state):
-    print("\nUpdating Scheduled Query")
+def execute_scheduled_query(self, scheduled_query_arn, invocation_time):
+    print("\nExecuting Scheduled Query")
     try:
-        self.query_client.update_scheduled_query(ScheduledQueryArn=scheduled_query_arn,
-                                                 State=state)
-        print("Successfully update scheduled query state to", state)
+        self.query_client.execute_scheduled_query(ScheduledQueryArn=scheduled_query_arn, InvocationTime=invocation_time)
+        print("Successfully started executing scheduled query")
     except self.query_client.exceptions.ResourceNotFoundException as err:
         print("Scheduled Query doesn't exist")
         raise err
     except Exception as err:
-        print("Scheduled Query deletion failed:", err)
+        print("Scheduled Query execution failed:", err)
         raise err
 ```
 
@@ -101,17 +107,16 @@ Node.js
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
 
 ```
-async function updateScheduledQueries(scheduledQueryArn) {
-     console.log("Updating Scheduled Query");
+async function executeScheduledQuery(scheduledQueryArn, invocationTime) {
+     console.log("Executing Scheduled Query");
      var params = {
          ScheduledQueryArn: scheduledQueryArn,
-         State: "DISABLED"
+         InvocationTime: invocationTime
      }
      try {
-         await queryClient.updateScheduledQuery(params).promise();
-         console.log("Successfully update scheduled query state");
+         await queryClient.executeScheduledQuery(params).promise();
      } catch (err) {
-         console.log("Update Scheduled Query failed: ", err);
+         console.log("Execute Scheduled Query failed: ", err);
          throw err;
      }
  }
@@ -120,17 +125,17 @@ async function updateScheduledQueries(scheduledQueryArn) {
 .NET
 
 ```
-private async Task UpdateScheduledQuery(string scheduledQueryArn, ScheduledQueryState state)
+private async Task ExecuteScheduledQuery(string scheduledQueryArn, DateTime invocationTime)
  {
      try
      {
-         Console.WriteLine("Updating Scheduled Query");
-         await _amazonTimestreamQuery.UpdateScheduledQueryAsync(new UpdateScheduledQueryRequest()
+         Console.WriteLine("Running Scheduled Query");
+         await _amazonTimestreamQuery.ExecuteScheduledQueryAsync(new ExecuteScheduledQueryRequest()
          {
              ScheduledQueryArn = scheduledQueryArn,
-             State = state
+             InvocationTime = invocationTime
          });
-         Console.WriteLine("Successfully update scheduled query state");
+         Console.WriteLine("Successfully started manual run of scheduled query");
      }
      catch (ResourceNotFoundException e)
      {
@@ -139,7 +144,7 @@ private async Task UpdateScheduledQuery(string scheduledQueryArn, ScheduledQuery
      }
      catch (Exception e)
      {
-         Console.WriteLine($"Update Scheduled Query failed: {e}");
+         Console.WriteLine($"Execute Scheduled Query failed: {e}");
          throw;
      }
  }

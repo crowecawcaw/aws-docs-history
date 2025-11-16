@@ -1,12 +1,12 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# greatest()
+# Comparison functions
 
-The **greatest()** function returns the largest of the provided values. It
-returns `NULL` if any of the provided values are `NULL`. The syntax is as
-follows.
+Timestream for LiveAnalytics supports the following comparison functions.
 
-```
-greatest(value1, value2, ..., valueN)
-```
+###### Topics
+
+- [greatest()](comparison-functions.md "comparison-functions.md")
+- [least()](comparison-functions.md "comparison-functions.md")
+- [ALL(), ANY() and SOME()](comparison-functions.md "comparison-functions.md")
