@@ -2,14 +2,12 @@
 
 ###### Note
 
-The SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 . If you would like to use SiteWise Monitor,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see
 [SiteWise Monitor availability change](../appguide/iotsitewise-monitor-availability-change.md "../appguide/iotsitewise-monitor-availability-change.md").
 
 ###### Note
 
-End of support notice: On May 20, 2026, AWS
-will end support for AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS IoT Events console or AWS IoT Events resources. For more information, see [AWS IoT Events end of support](../../../iotevents/latest/developerguide/iotevents-end-of-support.md "../../../iotevents/latest/developerguide/iotevents-end-of-support.md").
+End of support notice: AWS ended support for AWS IoT Events. For more information, see [AWS IoT Events end of support](../../../iotevents/latest/developerguide/iotevents-end-of-support.md "../../../iotevents/latest/developerguide/iotevents-end-of-support.md").
 
 You can enable the alarms feature supported by AWS IoT Events for your portals
 so that portal administrators can create, edit, and delete AWS IoT Events alarm models in your SiteWise Monitor portals.

@@ -2,8 +2,7 @@
 
 ###### Note
 
-The SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 . If you would like to use SiteWise Monitor,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see
 [SiteWise Monitor availability change](../appguide/iotsitewise-monitor-availability-change.md "../appguide/iotsitewise-monitor-availability-change.md").
 
 The AWS IoT SiteWise Assistant is a generative AI-powered assistant. It allows users like plant managers, quality engineers, and maintenance technicians to gain insights,

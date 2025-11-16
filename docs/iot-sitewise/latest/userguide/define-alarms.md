@@ -35,8 +35,7 @@ The type of the alarm. Specify one of the following:
 
 ###### Note
 
-End of support notice: On May 20, 2026, AWS
-will end support for AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS IoT Events console or AWS IoT Events resources. For more information, see [AWS IoT Events end of support](../../../iotevents/latest/developerguide/iotevents-end-of-support.md "../../../iotevents/latest/developerguide/iotevents-end-of-support.md").
+End of support notice: AWS ended support for AWS IoT Events. For more information, see [AWS IoT Events end of support](../../../iotevents/latest/developerguide/iotevents-end-of-support.md "../../../iotevents/latest/developerguide/iotevents-end-of-support.md").
 
 - `EXTERNAL` – An external alarm. You ingest the state of the
   alarm as a measurement.

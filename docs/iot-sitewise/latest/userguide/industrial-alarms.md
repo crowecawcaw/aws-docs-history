@@ -26,8 +26,7 @@ external processes. AWS IoT SiteWise supports the following types of alarms:
 
 ###### Note
 
-End of support notice: On May 20, 2026, AWS
-will end support for AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS IoT Events console or AWS IoT Events resources. For more information, see [AWS IoT Events end of support](../../../iotevents/latest/developerguide/iotevents-end-of-support.md "../../../iotevents/latest/developerguide/iotevents-end-of-support.md").
+End of support notice: AWS ended support for AWS IoT Events. For more information, see [AWS IoT Events end of support](../../../iotevents/latest/developerguide/iotevents-end-of-support.md "../../../iotevents/latest/developerguide/iotevents-end-of-support.md").
 
 AWS IoT Events alarms are alarms that detect in AWS IoT Events. AWS IoT SiteWise sends asset property values to an
 alarm model in AWS IoT Events. Then, AWS IoT Events sends the alarm state to AWS IoT SiteWise. You can configure

@@ -4,8 +4,7 @@ AWS IoT SiteWise Edge
 
 ###### Note
 
-The data processing pack (DPP) feature will no longer be open to new customers starting November 7, 2025 . If you would like to use DPP,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+The data processing pack (DPP) feature is no longer availabke to new customers. Existing customers can continue to use the service as normal. For more information, see
 [Data processing pack availability change](../appguide/iotsitewise-dpp-availability-change.md "../appguide/iotsitewise-dpp-availability-change.md").
 
 You can use AWS IoT SiteWise Edge to collect and temporarily store data so that you can

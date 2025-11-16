@@ -11,8 +11,7 @@ configure the protocols and settings that the alarm uses to send notifications.
 
 ###### Note
 
-End of support notice: On May 20, 2026, AWS
-will end support for AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS IoT Events console or AWS IoT Events resources. For more information, see [AWS IoT Events end of support](../../../iotevents/latest/developerguide/iotevents-end-of-support.md "../../../iotevents/latest/developerguide/iotevents-end-of-support.md").
+End of support notice: AWS ended support for AWS IoT Events. For more information, see [AWS IoT Events end of support](../../../iotevents/latest/developerguide/iotevents-end-of-support.md "../../../iotevents/latest/developerguide/iotevents-end-of-support.md").
 
 AWS IoT Events provides an AWS CloudFormation stack template that you can use to create this Lambda
 function in your account. For more information, see [Alarm notification
