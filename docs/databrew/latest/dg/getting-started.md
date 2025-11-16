@@ -1,52 +1,52 @@
-# Step 5: Create a data profile
+# Step 2: Summarize the data
 
-When you work with on a project, DataBrew displays statistics such as the number of rows
-in the sample and the distribution of unique values in each column. These statistics,
-and many more, represent a _profile_ of the
-sample.
+In this step, you build a DataBrew recipe—a set of transformations that can be
+applied to this dataset and others like it. When the recipe is complete, you publish it
+so that it's available for use.
 
-To request a data profile, create and run a profile job.
+In the game of chess, players can be rated based on how well they perform against
+other players. (For more information, see [https://en.wikipedia.org/wiki/Chess_rating_system](https://en.wikipedia.org/wiki/Chess_rating_system "https://en.wikipedia.org/wiki/Chess_rating_system")). For this tutorial, you
+focus on only the games where both players were Class A, meaning that their ratings were
+1800 or more.
 
-###### To profile a dataset
+###### To summarize the data
 
-1. On the navigation pane, choose **Jobs**.
-2. On the **Profile jobs** tab, choose **Create
-   job**.
-3. For **Job name**, enter
-   `chess-data-profile`.
-4. For **Job type**, choose **Create a profile
-   job**.
-5. On the **Job input** pane, do the following:
-   - For **Run on**, choose
-     **Dataset**.
-   - Choose **Select a dataset** to view a list of
-     available datasets, and choose `chess-games`.
+1.  On the transformation toolbar, choose **Filter**,
+    **By Condition**, **Greater than or equal
+    to**.
+2.  Set these options as follows:
 
-6. On the **Job output settings** pane, do the following:
-   - For **File type**, choose **JSON**
-     (JavaScript Object Notation).
-   - Choose **S3 location** to view a list of available
-     Amazon S3 buckets, and choose the bucket to use. Then choose
-     **Browse**. In the list of folders, choose
-     `databrew-output`, and chose
-     **Select**.
+        * **Source column** - `white_rating`
+        * **Filter condition** – Greater than or equal
+         to 1800
 
-7. On the **Access permissions** pane, choose
-   `AwsGlueDataBrewDataAccessRole`. This is a service linked role that
-   lets DataBrew access your Amazon S3 buckets on your behalf.
-8. Choose **Create and run job**. DataBrew creates a job with your
-   settings, and then runs it.
-9. On the **Job run history** pane, wait for the job status to
-   change from `Running` to `Succeeded`.
-10. To view the profile, choose **VIEW
-    PROFILE**:
+    To see how the transform works, choose **Preview changes**.
+    Then choose **Apply**.
 
-![Icon of a person silhouette with "VIEW PROFILE" text underneath.](images/view-profile-button.png)
+3.  Repeat the previous step, but this time set **Source column**
+    to `black_rating`. After you apply your changes, the sample data
+    contains only those games where the players on each side (black and white) were
+    Class A or above.
+4.  Summarize the data to determine how many games were won by each side. To do
+    this, on the transformation toolbar, choose **Group**.
+5.  For the **Group** properties, do the following:
+    1. In the first row, choose `winner` for **Column
+       name**. Leave **Aggregate** set to
+       **Group by**.
+    2. In the second row, choose `victory_status` for the
+       **Column name**. Leave
+       **Aggregate** set to **Group
+       by**.
+    3. Choose **Add another column**.
+    4. In the third row, choose `winner` for **Column
+       name**. Set **Aggregate** to
+       **Count**.
+    5. For **Group type**, choose **Group as new
+       table**. The preview pane shows you what the result will
+       look like.
+    6. Choose **Finish**.
 
-The **DATASETS** window is shown. Take some time
-to explore the following tabs:
-
-    * Dataset preview
-    * Profile overview
-    * Column statistics
-    * Data lineage statistics
+6.  Choose **Publish** to save your work, at right on the recipe
+    pane.
+7.  For **Version Description**, enter **First version of
+    my recipe**. Then choose **Publish**.
