@@ -81,3 +81,10 @@ for Planview Viz integration with Amazon Q Business.
 ###### Note
 
 Planview data accessor is only available in the `us-west-2` region.
+
+Amplience
+For Amplience, the Tenant ID is the Hub ID. You can use the following instructions to retrieve the Amplience Tenant ID.
+
+1. Within Amplience Dynamic Content, switch into the Hub you wish to connect.
+2. Select the settings icon in the top right corner and select the **Properties** menu item.
+3. The Hub ID will be displayed with a copy to clipboard option.

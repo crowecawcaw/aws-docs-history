@@ -16,3 +16,4 @@ The following are the _verified_ independent software vendors
 - **Karini AI** — [Data accessor configuration registration page](https://karini-ai.gitbook.io/karini-ai-documentation/amazon-q-data-accessor-integration "https://karini-ai.gitbook.io/karini-ai-documentation/amazon-q-data-accessor-integration")
 - **Revinova**
 - **Planview** (available in `us-west-2` only) — [Data accessor configuration registration page](https://success.planview.com/Planview_Viz/FAQs/General/Planview_Amazon_Q_Business_Integration_FAQ "https://success.planview.com/Planview_Viz/FAQs/General/Planview_Amazon_Q_Business_Integration_FAQ")
+- **Amplience** — [Data accessor configuration registration page](https://amplience.com/developers/docs/workforce-studio/integrations/amazon-q-index/ "https://amplience.com/developers/docs/workforce-studio/integrations/amazon-q-index/")
