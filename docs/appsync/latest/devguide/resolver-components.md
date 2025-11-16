@@ -55,7 +55,7 @@ When implementing pipeline resolvers, there is a general structure they follow:
   you to perform some final operations on the final function's response before passing it to the
   GraphQL response.
 
-![GraphQL request flow diagram showing interactions between request, data sources, and response components.](/images/appsync/latest/devguide/images/appsync-js-resolver-logic.png)
+![GraphQL request flow diagram showing interactions between request, data sources, and response components.](images/appsync-js-resolver-logic.png)
 
 ## Resolver handler structure
 
