@@ -94,6 +94,7 @@ Neural voices are supported in the following regions:
 - Europe (London): eu-west-2
 - Europe (Paris): eu-west-3
 - Europe (Spain): eu-south-2
+- Europe (Zurich): eu-central-2
 - AWS GovCloud (US-West): us-gov-west-1
 
 Endpoints and protocols for these Regions are identical to those used for standard
