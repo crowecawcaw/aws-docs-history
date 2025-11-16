@@ -35,6 +35,7 @@ configuration.
     --conf spark.openlineage.transport.domainId={DOMAIN_ID}
     --conf spark.glue.accountId={ACCOUNT_ID}
     --conf spark.openlineage.facets.custom_environment_variables=[AWS_DEFAULT_REGION;GLUE_VERSION;GLUE_COMMAND_CRITERIA;GLUE_PYTHON_VERSION;]
+    --conf spark.openlineage.columnLineage.datasetLineageEnabled={True|False}
     --conf spark.glue.JOB_NAME={JOB_NAME}"
 }
 

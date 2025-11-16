@@ -61,7 +61,7 @@ its next response. 10. Choose **Reset** to start a new chat with the model. 11. 
 
 
 
-    ![Inference parameters in Amazon Bedrock in SageMaker Unified Studio chat playground.](/images/sagemaker-unified-studio/latest/userguide/images/bedrock/bedrock-ide-chat-playground-inference.png)
+    ![Inference parameters in Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-chat-playground-inference.png)
     3. Influence the model response by making [inference parameters](explore-prompts.md#inference-parameters "explore-prompts.md#inference-parameters") changes.
     4. (Optional) In **System instructions**, enter any overarching system instructions that you want the model to apply for future interactions.
     5. Run the prompt again and compare the response with the previous response.
