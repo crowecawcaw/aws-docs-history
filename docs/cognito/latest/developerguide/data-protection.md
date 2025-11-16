@@ -34,6 +34,23 @@ transit.
 
 Data within Amazon Cognito is encrypted at rest in accordance with industry standards.
 
+Amazon Cognito supports the confidentiality, integrity, and availability of personally
+identifiable information in user attribute searches with [searchable
+encryption](../../../database-encryption-sdk/latest/devguide/searchable-encryption.md "../../../database-encryption-sdk/latest/devguide/searchable-encryption.md"). These Hash-based Message Authentication Code (HMAC) functions,
+performance-optimized for user pool datasets, map between the plaintext and encrypted values
+of user attributes. Amazon Cognito calculates HMAC values with the KMS key that encrypts
+your user pool. This protection applies to the following attributes:
+
+- sub
+- email
+- phone_number
+- given_name
+- family_name
+- name
+- username
+- preferred_username
+- cognito:user_status
+
 **Encryption in transit**
 
 As a managed service, Amazon Cognito is protected by AWS global network security. For

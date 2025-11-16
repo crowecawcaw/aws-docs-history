@@ -230,27 +230,21 @@ specific VPC.
 
 ```
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Principal": "*",
-            "Effect": "Deny",
-            "Action": [
-                "cognito-idp:*"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringNotEqualsIfExists": {
-                    "aws:SourceVpc": [
-                        "`vpc-0123456789abcdef0`"
-                    ]
-                },
-                "Bool": {
-                    "aws:PrincipalIsAWSService": "false"
-                }
-            }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyCognitoAccessOutsideVPC",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "cognito-idp:*",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:SourceVpc": "vpc-02d6770f46ef1653b"
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
