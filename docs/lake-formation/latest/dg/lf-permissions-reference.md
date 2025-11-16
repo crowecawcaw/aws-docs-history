@@ -678,7 +678,7 @@ You can have the `Super` permission to be automatically granted to
 `IAMAllowedPrincipals` for new catalog resources by taking advantage of options
 on the **Settings** page of the Lake Formation console.
 
-![The Data catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](/images/lake-formation/latest/dg/images/settings-page.png)
+![The Data catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](images/settings-page.png)
 
 - To grant `Super` to `IAMAllowedPrincipals` for all new
   databases, select **Use only IAM access control for new
