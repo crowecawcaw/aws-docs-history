@@ -35,6 +35,7 @@ This policy includes the following permissions.
   `AllowOrganizationalBasedAccessToOrganizationApis` allows the policy holder to retrieve information, specifically resource-level ARNs, about an organizational unit.
   `AllowAccountsBasedAccessToOrganizationApis` allows the policy holder to retrieve information, specifically resource-level ARNs, about an AWS account.
   `AllowAccessToOrganizationApis` allows the policy holder to view AWS services integrated with an organization and organization information.
+  The policy allows listing Inspector organizational policies with filtering by Inspector policy types, viewing delegation resource policies established by management accounts, and viewing the effective Inspector policies applied to accounts.
 
 ###### Note
 
@@ -43,94 +44,17 @@ AWS will discontinue support for CodeGuru on November 20, 2025.
 For more information, see [End of support for CodeGuru Security](../../../codeguru/latest/security-ug/end-of-support.md "../../../codeguru/latest/security-ug/end-of-support.md").
 Amazon Inspector now uses Amazon Q to perform Lambda scans and does not require the permissions described in this section.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement" : [
- {
- "Sid" : "AllowFullAccessToInspectorApis",
- "Effect" : "Allow",
- "Action" : "inspector2:*",
- "Resource" : "*"
- },
- {
- "Sid" : "AllowAccessToCodeGuruApis",
- "Effect" : "Allow",
- "Action" : [
- "codeguru-security:BatchGetFindings",
- "codeguru-security:GetAccountConfiguration"
- ],
- "Resource" : "*"
- },
- {
- "Sid" : "AllowAccessToCreateSlr",
- "Effect" : "Allow",
- "Action" : "iam:CreateServiceLinkedRole",
- "Resource" : "*",
- "Condition" : {
- "StringEquals" : {
- "iam:AWSServiceName" : [
- "agentless.inspector2.amazonaws.com",
- "inspector2.amazonaws.com"
- ]
- }
- }
- },
- {
- "Sid" : "AllowServicePrincipalBasedAccessToOrganizationApis",
- "Effect" : "Allow",
- "Action" : [
- "organizations:EnableAWSServiceAccess",
- "organizations:RegisterDelegatedAdministrator",
- "organizations:ListDelegatedAdministrators"
- ],
- "Resource" : "*",
- "Condition": {
- "StringEquals": {
- "organizations:ServicePrincipal": [
- "inspector2.amazonaws.com",
- "agentless.inspector2.amazonaws.com"
- ]
- }
- }
- },
- {
- "Sid" : "AllowOrganizationalBasedAccessToOrganizationApis",
- "Effect" : "Allow",
- "Action" : [
- "organizations:DescribeOrganizationalUnit"
- ],
- "Resource" : "arn:*:organizations::*:ou/o-*/ou-*"
- },
- {
- "Sid" : "AllowAccountsBasedAccessToOrganizationApis",
- "Effect" : "Allow",
- "Action" : [
- "organizations:DescribeAccount"
- ],
- "Resource" : "arn:*:organizations::*:account/o-*/*"
- },
- {
- "Sid" : "AllowAccessToOrganizationApis",
- "Effect" : "Allow",
- "Action" : [
- "organizations:ListAWSServiceAccessForOrganization",
- "organizations:DescribeOrganization"
- ],
- "Resource" : "*"
- }
- ]
-}`
-
-```
+To review the permissions for this policy, see [AmazonInspector2FullAccess_v2](../../../aws-managed-policy/latest/reference/AmazonInspector2FullAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonInspector2FullAccess_v2.md") in the _AWS Managed Policy Reference Guide_.
 
 ## AWS managed policy: AmazonInspector2FullAccess
 
 You can attach the `AmazonInspector2FullAccess` policy to your IAM identities.
 
 This policy grants administrative permissions that allow full access to Amazon Inspector.
+
+###### Important
+
+For enhanced security and restrictive permissions to Inspector 2 service principals, we recommend that you use [AmazonInspector2FullAccess_v2](../../../aws-managed-policy/latest/reference/AmazonInspector2FullAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonInspector2FullAccess_v2.md").
 
 **Permissions details**
 
@@ -148,59 +72,7 @@ This policy includes the following permissions.
 - `codeguru-security` – Allows administrators to use Amazon Inspector to retrieve information code snippets and change encryption settings for code that CodeGuru Security stores.
   For more information, see [Encryption at rest for code in your findings](encryption-rest.md#encryption-code-snippets "encryption-rest.md#encryption-code-snippets").
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowFullAccessToInspectorApis",
- "Effect": "Allow",
- "Action": "inspector2:*",
- "Resource": "*"
- },
- {
- "Sid": "AllowAccessToCodeGuruApis",
- "Effect": "Allow",
- "Action": [
- "codeguru-security:BatchGetFindings",
- "codeguru-security:GetAccountConfiguration"
- ],
- "Resource": "*"
- },
- {
- "Sid": "AllowAccessToCreateSlr",
- "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "iam:AWSServiceName": [
- "agentless.inspector2.amazonaws.com",
- "inspector2.amazonaws.com"
- ]
- }
- }
- },
- {
- "Sid": "AllowAccessToOrganizationApis",
- "Effect": "Allow",
- "Action": [
- "organizations:EnableAWSServiceAccess",
- "organizations:RegisterDelegatedAdministrator",
- "organizations:ListDelegatedAdministrators",
- "organizations:ListAWSServiceAccessForOrganization",
- "organizations:DescribeOrganizationalUnit",
- "organizations:DescribeAccount",
- "organizations:DescribeOrganization"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+To review the permissions for this policy, see [AmazonInspector2FullAccess](../../../aws-managed-policy/latest/reference/AmazonInspector2FullAccess.md "../../../aws-managed-policy/latest/reference/AmazonInspector2FullAccess.md") in the _AWS Managed Policy Reference Guide_.
 
 ## AWS managed policy: AmazonInspector2ReadOnlyAccess
 
@@ -215,37 +87,10 @@ This policy includes the following permissions.
 - `inspector2` – Allows read-only access to Amazon Inspector
   functionality.
 - `organizations` – Allows details about Amazon Inspector coverage
-  for an organization in AWS Organizations to be viewed.
+  for an organization in AWS Organizations to be viewed. Additionally allows viewing of Inspector organizational policies through `ListPolicies` with filtering by Inspector policy types, viewing delegation resource policies through `DescribeResourcePolicy`, and viewing effective Inspector policies applied to accounts through `DescribeEffectivePolicy`. This allows users to understand centralized inspector enablement established through organizational policies without the ability to modify them.
 - `codeguru-security` – Allows code snippets to be retrieved from CodeGuru Security. Also allows encryption settings for your code stored in CodeGuru Security to be viewed.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "organizations:ListDelegatedAdministrators",
- "organizations:ListAWSServiceAccessForOrganization",
- "organizations:DescribeOrganizationalUnit",
- "organizations:DescribeAccount",
- "organizations:DescribeOrganization",
- "inspector2:BatchGet*",
- "inspector2:List*",
- "inspector2:Describe*",
- "inspector2:Get*",
- "inspector2:Search*",
- "codeguru-security:BatchGetFindings",
- "codeguru-security:GetAccountConfiguration"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+To review the permissions for this policy, see [AmazonInspector2ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonInspector2ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonInspector2ReadOnlyAccess.md") in the _AWS Managed Policy Reference Guide_.
 
 ## AWS managed policy: AmazonInspector2ManagedCisPolicy
 
@@ -264,26 +109,7 @@ This policy includes the following permissions.
 
 - `inspector2` – Allows access to actions used to run CIS scans.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "inspector2:StartCisSession",
- "inspector2:StopCisSession",
- "inspector2:SendCisSessionTelemetry",
- "inspector2:SendCisSessionHealth"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+To review the permissions for this policy, see [AmazonInspector2ManagedCisPolicy](../../../aws-managed-policy/latest/reference/AmazonInspector2ManagedCisPolicy.md "../../../aws-managed-policy/latest/reference/AmazonInspector2ManagedCisPolicy.md") in the _AWS Managed Policy Reference Guide_.
 
 ## AWS managed policy: AmazonInspector2ServiceRolePolicy
 
@@ -306,33 +132,35 @@ began tracking these changes. For automatic alerts about changes to this page, s
 to the RSS feed on the Amazon Inspector [Document history](doc-history.md "doc-history.md")
 page.
 
-| Change                                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                            | Date               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| [AmazonInspector2FullAccess_v2](#security-iam-awsmanpol-AmazonInspector2FullAccessV2 "#security-iam-awsmanpol-AmazonInspector2FullAccessV2") – New policy                                                                                       | Amazon Inspector has added a new managed policy that provides full access to Amazon Inspector and access to other related services.                                                                                                                                                                                                                                                    | July 03, 2025      |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") – Updates to an existing policy    | Amazon Inspector has added a new permission that allows Amazon Inspector to describe IP addresses and internet gateways.                                                                                                                                                                                                                                                               | April 29, 2025     |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") – Updates to an existing policy    | Amazon Inspector has added new permissions that allow read-only access to Amazon ECS and Amazon EKS actions.                                                                                                                                                                                                                                                                           | March 25, 2025     |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") – Updates to an existing policy    | Amazon Inspector has added new permissions that allow Amazon Inspector to return function tags in AWS Lambda.                                                                                                                                                                                                                                                                          | July 31, 2024      |
-| [AmazonInspector2FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2FullAccess") – Updates to an existing policy                         | Amazon Inspector has added permissions that allow Amazon Inspector to create the service-linked role `AWSServiceRoleForAmazonInspector2Agentless`<br>This allows users to perform [agent-based scanning](scanning-ec2.md#agent-based "scanning-ec2.md#agent-based") and [agentless scanning](scanning-ec2.md#agentless "scanning-ec2.md#agentless") when they enable Amazon Inspector. | April 24, 2024     |
-| [AmazonInspector2ManagedCisPolicy](#security-iam-awsmanpol-AmazonInspector2ManagedCisPolicy "#security-iam-awsmanpol-AmazonInspector2ManagedCisPolicy") –<br>New policy                                                                         | Amazon Inspector has added a new managed policy that you can use as part of an instance profile to allow CIS scans on an instance.                                                                                                                                                                                                                                                     | January 23, 2024   |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added new permissions that allow Amazon Inspector to start CIS scans on target instances.                                                                                                                                                                                                                                                                         | January 23, 2024   |
-| [AmazonInspector2AgentlessServiceRolePolicy](using-service-linked-roles.md "using-service-linked-roles.md") –<br>New policy                                                                                                                     | Amazon Inspector has added a new service-linked role policy to allow agentless scanning of EC2 instance.                                                                                                                                                                                                                                                                               | November 27, 2023  |
-| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>Updates to an existing policy                                                            | Amazon Inspector has added new permissions that allow read-only users to retrieve vulnerability intelligence details for package vulnerability findings.                                                                                                                                                                                                                               | September 22, 2023 |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added new permissions that allow Amazon Inspector to scan network configurations of Amazon EC2 instances that are part of Elastic Load Balancing target groups.                                                                                                                                                                                                   | August 31, 2023    |
-| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>Updates to an existing policy                                                            | Amazon Inspector has added new permissions that allow read-only users to export Software Bill of Materials (SBOM) for their resources.                                                                                                                                                                                                                                                 | June 29, 2023      |
-| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>Updates to an existing policy                                                            | Amazon Inspector has added new permissions that allow read-only users to retrieve details of encryption settings for Lambda code scanning findings for their account.                                                                                                                                                                                                                  | June 13, 2023      |
-| [AmazonInspector2FullAccess](#security-iam-awsmanpol-AmazonInspector2FullAccess "#security-iam-awsmanpol-AmazonInspector2FullAccess") –<br>Updates to an existing policy                                                                        | Amazon Inspector has added new permissions that allow users configure a customer managed KMS key to encrypt code in findings from Lambda code scanning.                                                                                                                                                                                                                                | June 13, 2023      |
-| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>Updates to an existing policy                                                            | Amazon Inspector has added new permissions that allow read-only users to retrieve details of Lambda code scanning status and findings for their account.                                                                                                                                                                                                                               | May 02, 2023       |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added new permissions that allow Amazon Inspector to create AWS CloudTrail service-linked channels in your account when you activate Lambda scanning. This allows Amazon Inspector to monitor CloudTrail events in your account.                                                                                                                                  | April 30, 2023     |
-| [AmazonInspector2FullAccess](#security-iam-awsmanpol-AmazonInspector2FullAccess "#security-iam-awsmanpol-AmazonInspector2FullAccess") –<br>Updates to an existing policy                                                                        | Amazon Inspector has added new permissions that allow users to retrieve details of code vulnerability findings from Lambda code scanning.                                                                                                                                                                                                                                              | April 21, 2023     |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added new permissions that allow Amazon Inspector to send information to Amazon EC2 Systems Manager about the custom paths a customer has defined for Amazon EC2 deep inspection.                                                                                                                                                                                 | April 17, 2023     |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added new permissions that allow Amazon Inspector to create AWS CloudTrail service-linked channels in your account when you activate Lambda scanning. This allows Amazon Inspector to monitor CloudTrail events in your account.                                                                                                                                  | April 30, 2023     |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added new permissions that allow Amazon Inspector to request<br>scans of the developer code in AWS Lambda functions, and receive scan<br>data from Amazon CodeGuru Security. Additionally, Amazon Inspector has added<br>permissions to review IAM policies. Amazon Inspector uses this<br>information to scan Lambda functions for code vulnerabilities.         | February 28, 2023  |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added a new statement that allows Amazon Inspector to<br>retrieve information from CloudWatch about when an AWS Lambda function was last invoked.<br>Amazon Inspector uses this information to focus scans on the Lambda<br>functions in your environment that have been active in the last 90<br>days.                                                           | February 20, 2023  |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added a new statement that allows Amazon Inspector to<br>retrieve information about AWS Lambda functions, including each layer<br>version that is associated with each function. Amazon Inspector uses this<br>information to scan Lambda functions for security<br>vulnerabilities.                                                                              | November 28, 2022  |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has added a new action to allow Amazon Inspector to describe SSM<br>association executions. Additionally, Amazon Inspector has added additional<br>resource scoping to allow Amazon Inspector to create, update, delete, and<br>start SSM associations with `AmazonInspector2` owned<br>SSM documents.                                                                | August 31, 2022    |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy")<br>Updates to an existing policy   | Amazon Inspector has updated the resource scoping of the policy to allow Amazon Inspector to collect software inventory in other AWS partitions.                                                                                                                                                                                                                                       | August 12, 2022    |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy | Amazon Inspector has restructured the resource scoping of the actions<br>allowing Amazon Inspector to create, delete, and update SSM<br>associations.                                                                                                                                                                                                                                  | August 10, 2022    |
-| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>New policy                                                                               | Amazon Inspector added a new policy to allow read-only access to Amazon Inspector functionality.                                                                                                                                                                                                                                                                                       | January 21, 2022   |
-| [AmazonInspector2FullAccess](#security-iam-awsmanpol-AmazonInspector2FullAccess "#security-iam-awsmanpol-AmazonInspector2FullAccess") –<br>New policy                                                                                           | Amazon Inspector added a new policy to allow full access to Amazon Inspector functionality.                                                                                                                                                                                                                                                                                            | November 29, 2021  |
-| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>New policy                    | Amazon Inspector added a new policy to allow Amazon Inspector to perform actions in other services on your behalf.                                                                                                                                                                                                                                                                     | November 29, 2021  |
-| Amazon Inspector started tracking changes                                                                                                                                                                                                       | Amazon Inspector started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                                                                                                | November 29, 2021  |
+| Change                                                                                                                                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                            | Date               |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AmazonInspector2FullAccess_v2](#security-iam-awsmanpol-AmazonInspector2FullAccessV2 "#security-iam-awsmanpol-AmazonInspector2FullAccessV2") and [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") – Updates to existing policies | Amazon Inspector has added new permissions allowing the policy holders to view Inspector organizational policies and delegation configurations. This supports centralized management and visibility of Inspector enablement through AWS Organizations policies.                                                                                                                        | November 14, 2025  |
+| [AmazonInspector2ServiceRolePolicy](slr-permissions.md "slr-permissions.md") – Updates to an existing policy                                                                                                                                                                                                                      | Amazon Inspector has added new permissions allowing the Amazon Inspector AWS Organizations policy to enforce the enablement and disablement of Amazon Inspector.                                                                                                                                                                                                                       | November 10, 2025  |
+| [AmazonInspector2FullAccess_v2](#security-iam-awsmanpol-AmazonInspector2FullAccessV2 "#security-iam-awsmanpol-AmazonInspector2FullAccessV2") – New policy                                                                                                                                                                         | Amazon Inspector has added a new managed policy that provides full access to Amazon Inspector and access to other related services.                                                                                                                                                                                                                                                    | July 03, 2025      |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") – Updates to an existing policy                                                                                      | Amazon Inspector has added a new permission that allows Amazon Inspector to describe IP addresses and internet gateways.                                                                                                                                                                                                                                                               | April 29, 2025     |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") – Updates to an existing policy                                                                                      | Amazon Inspector has added new permissions that allow read-only access to Amazon ECS and Amazon EKS actions.                                                                                                                                                                                                                                                                           | March 25, 2025     |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") – Updates to an existing policy                                                                                      | Amazon Inspector has added new permissions that allow Amazon Inspector to return function tags in AWS Lambda.                                                                                                                                                                                                                                                                          | July 31, 2024      |
+| [AmazonInspector2FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2FullAccess") – Updates to an existing policy                                                                                                           | Amazon Inspector has added permissions that allow Amazon Inspector to create the service-linked role `AWSServiceRoleForAmazonInspector2Agentless`<br>This allows users to perform [agent-based scanning](scanning-ec2.md#agent-based "scanning-ec2.md#agent-based") and [agentless scanning](scanning-ec2.md#agentless "scanning-ec2.md#agentless") when they enable Amazon Inspector. | April 24, 2024     |
+| [AmazonInspector2ManagedCisPolicy](#security-iam-awsmanpol-AmazonInspector2ManagedCisPolicy "#security-iam-awsmanpol-AmazonInspector2ManagedCisPolicy") –<br>New policy                                                                                                                                                           | Amazon Inspector has added a new managed policy that you can use as part of an instance profile to allow CIS scans on an instance.                                                                                                                                                                                                                                                     | January 23, 2024   |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added new permissions that allow Amazon Inspector to start CIS scans on target instances.                                                                                                                                                                                                                                                                         | January 23, 2024   |
+| [AmazonInspector2AgentlessServiceRolePolicy](using-service-linked-roles.md "using-service-linked-roles.md") –<br>New policy                                                                                                                                                                                                       | Amazon Inspector has added a new service-linked role policy to allow agentless scanning of EC2 instance.                                                                                                                                                                                                                                                                               | November 27, 2023  |
+| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>Updates to an existing policy                                                                                                                                              | Amazon Inspector has added new permissions that allow read-only users to retrieve vulnerability intelligence details for package vulnerability findings.                                                                                                                                                                                                                               | September 22, 2023 |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added new permissions that allow Amazon Inspector to scan network configurations of Amazon EC2 instances that are part of Elastic Load Balancing target groups.                                                                                                                                                                                                   | August 31, 2023    |
+| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>Updates to an existing policy                                                                                                                                              | Amazon Inspector has added new permissions that allow read-only users to export Software Bill of Materials (SBOM) for their resources.                                                                                                                                                                                                                                                 | June 29, 2023      |
+| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>Updates to an existing policy                                                                                                                                              | Amazon Inspector has added new permissions that allow read-only users to retrieve details of encryption settings for Lambda code scanning findings for their account.                                                                                                                                                                                                                  | June 13, 2023      |
+| [AmazonInspector2FullAccess](#security-iam-awsmanpol-AmazonInspector2FullAccess "#security-iam-awsmanpol-AmazonInspector2FullAccess") –<br>Updates to an existing policy                                                                                                                                                          | Amazon Inspector has added new permissions that allow users configure a customer managed KMS key to encrypt code in findings from Lambda code scanning.                                                                                                                                                                                                                                | June 13, 2023      |
+| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>Updates to an existing policy                                                                                                                                              | Amazon Inspector has added new permissions that allow read-only users to retrieve details of Lambda code scanning status and findings for their account.                                                                                                                                                                                                                               | May 02, 2023       |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added new permissions that allow Amazon Inspector to create AWS CloudTrail service-linked channels in your account when you activate Lambda scanning. This allows Amazon Inspector to monitor CloudTrail events in your account.                                                                                                                                  | April 30, 2023     |
+| [AmazonInspector2FullAccess](#security-iam-awsmanpol-AmazonInspector2FullAccess "#security-iam-awsmanpol-AmazonInspector2FullAccess") –<br>Updates to an existing policy                                                                                                                                                          | Amazon Inspector has added new permissions that allow users to retrieve details of code vulnerability findings from Lambda code scanning.                                                                                                                                                                                                                                              | April 21, 2023     |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added new permissions that allow Amazon Inspector to send information to Amazon EC2 Systems Manager about the custom paths a customer has defined for Amazon EC2 deep inspection.                                                                                                                                                                                 | April 17, 2023     |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added new permissions that allow Amazon Inspector to create AWS CloudTrail service-linked channels in your account when you activate Lambda scanning. This allows Amazon Inspector to monitor CloudTrail events in your account.                                                                                                                                  | April 30, 2023     |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added new permissions that allow Amazon Inspector to request<br>scans of the developer code in AWS Lambda functions, and receive scan<br>data from Amazon CodeGuru Security. Additionally, Amazon Inspector has added<br>permissions to review IAM policies. Amazon Inspector uses this<br>information to scan Lambda functions for code vulnerabilities.         | February 28, 2023  |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added a new statement that allows Amazon Inspector to<br>retrieve information from CloudWatch about when an AWS Lambda function was last invoked.<br>Amazon Inspector uses this information to focus scans on the Lambda<br>functions in your environment that have been active in the last 90<br>days.                                                           | February 20, 2023  |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added a new statement that allows Amazon Inspector to<br>retrieve information about AWS Lambda functions, including each layer<br>version that is associated with each function. Amazon Inspector uses this<br>information to scan Lambda functions for security<br>vulnerabilities.                                                                              | November 28, 2022  |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has added a new action to allow Amazon Inspector to describe SSM<br>association executions. Additionally, Amazon Inspector has added additional<br>resource scoping to allow Amazon Inspector to create, update, delete, and<br>start SSM associations with `AmazonInspector2` owned<br>SSM documents.                                                                | August 31, 2022    |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy")<br>Updates to an existing policy                                                                                     | Amazon Inspector has updated the resource scoping of the policy to allow Amazon Inspector to collect software inventory in other AWS partitions.                                                                                                                                                                                                                                       | August 12, 2022    |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>Updates to an existing policy                                                                                   | Amazon Inspector has restructured the resource scoping of the actions<br>allowing Amazon Inspector to create, delete, and update SSM<br>associations.                                                                                                                                                                                                                                  | August 10, 2022    |
+| [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") –<br>New policy                                                                                                                                                                 | Amazon Inspector added a new policy to allow read-only access to Amazon Inspector functionality.                                                                                                                                                                                                                                                                                       | January 21, 2022   |
+| [AmazonInspector2FullAccess](#security-iam-awsmanpol-AmazonInspector2FullAccess "#security-iam-awsmanpol-AmazonInspector2FullAccess") –<br>New policy                                                                                                                                                                             | Amazon Inspector added a new policy to allow full access to Amazon Inspector functionality.                                                                                                                                                                                                                                                                                            | November 29, 2021  |
+| [AmazonInspector2ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2ServiceRolePolicy") –<br>New policy                                                                                                      | Amazon Inspector added a new policy to allow Amazon Inspector to perform actions in other services on your behalf.                                                                                                                                                                                                                                                                     | November 29, 2021  |
+| Amazon Inspector started tracking changes                                                                                                                                                                                                                                                                                         | Amazon Inspector started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                                                                                                | November 29, 2021  |

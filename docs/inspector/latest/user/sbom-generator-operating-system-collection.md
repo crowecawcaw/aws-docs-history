@@ -27,6 +27,7 @@ The Amazon Inspector SBOM Generator supports the following operating system arti
 | Rocky Linux  | N/A    | Yes    | Yes    |
 | SLES         | N/A    | Yes    | N/A    |
 | Ubuntu       | Yes    | Yes    | N/A    |
+| Windows      | N/A    | N/A    | N/A    |
 
 ## APK-based OS package collection
 
@@ -166,6 +167,33 @@ The following is an example of an RPM database file snippet.
 /var/lib/rpm/Packages.db
 
 ```
+
+## Windows OS version collection
+
+Unlike Linux-based operating systems, Windows does not use a package management system for the operating system itself. The Amazon Inspector SBOM Generator collects only the Windows OS version information.
+For Windows application scanning, use the windows-apps scanner instead. The windows-apps scanner collects information about installed applications on Windows systems.
+For more information, See [Windows applicaitons ecosystem collection](sbom-generator-ecosystem-collection.md#windows-app-ecosystem-collection "sbom-generator-ecosystem-collection.md#windows-app-ecosystem-collection").
+
+### Key features
+
+- **OS version collection** – Extracts the Windows OS version from the Windows Registry. The extracted OS version is used for vulnerability detection for Windows OS.
+
+### Registry keys and values
+
+The following Windows Registry keys and values are used to collect OS name and version information.
+
+- **Registry Key**
+
+```
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion
+```
+
+- **Registry Value**
+  - ProductName – OS name and edition (e.g., "Windows Server 2025 Datacenter")
+  - CurrentMajorVersionNumber – the major version of OS
+  - CurrentMinorVersionNumber – The minor version of OS
+  - CurrentBuild – The build number of OS
+  - UBR – The revision number of OS
 
 ## Chainguard image package collection
 

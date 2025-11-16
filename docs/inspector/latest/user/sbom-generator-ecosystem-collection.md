@@ -10,18 +10,19 @@ The ecosystem collection extends SBOM generation beyond packages installed throu
 This is done through the collection of applications deployed in alternative methods, such as manual installation.
 The Amazon Inspector SBOM Generator supports scanning for the following ecosystems:
 
-| Ecosystems | Applications                  |
-| ---------- | ----------------------------- |
-| Apache     | Apache httpd<br>Apache tomcat |
-| Google     | Chrome                        |
-| Java       | JDK<br>JRE<br>Amazon Corretto |
-| Nginx      | Nginx                         |
-| Node       | Node                          |
-| OpenSSH    | OpenSSH (versions 9 and 10)   |
-| OpenSSL    | OpenSSL                       |
-| Oracle     | Oracle Database Server        |
-| WordPress  | core<br>plugin<br>theme       |
-| Node.JS    | node                          |
+| Ecosystems           | Applications                                                                                                                                                                                                                                                                                 |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Apache               | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                                                |
+| Google               | Chrome                                                                                                                                                                                                                                                                                       |
+| Java                 | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                                                |
+| Nginx                | Nginx                                                                                                                                                                                                                                                                                        |
+| Node                 | Node                                                                                                                                                                                                                                                                                         |
+| OpenSSH              | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                                                  |
+| OpenSSL              | OpenSSL                                                                                                                                                                                                                                                                                      |
+| Oracle               | Oracle Database Server                                                                                                                                                                                                                                                                       |
+| WordPress            | core<br>plugin<br>theme                                                                                                                                                                                                                                                                      |
+| Node.JS              | node                                                                                                                                                                                                                                                                                         |
+| Windows applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Runtime<br>ASP.NET Core Runtime<br>Outlook for Windows<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
 
 ## Apache ecosystem collection
 
@@ -351,32 +352,52 @@ Sample PURL: pkg:generic/nginx/nginx@1.27.5
 
 - node runtime binary for Node.JS
 
-###### Supported artifacts
+###### Supported platforms
 
-- macOS and Linux – `node` binary detection through binary details installed with `asdf`, `fnm`, `nvm`, `volta`, or official Node.JS containers.
+The following are supported platforms. (\* is an arbitrary version)
 
-###### Example macOS and Linux paths
+###### Linux
 
-The following is an example of paths for macOS and Linux.
+- /usr/local/bin/node
+- /usr/bin/node
+- /nodejs/bin/node
+- ~/.nvm/versions/node/\*/bin/node
+- ~/.local/share/fnm/node-versions/\*/installation/bin/node
+- ~/.asdf/installs/nodejs/\*/bin/node
+- ~/.local/share/mise/installs/node/\*/bin/node
+- ~/.volta/tools/image/node/\*/bin/node
+
+###### Windows
+
+- C:\Program Files\nodejs\node.exe
+- C:\Program Files (x86)\nodejs\node.exe
+- ~\AppData\Roaming\fnm\node-versions\\\*\installation\node.exe
+
+###### macOS
+
+- /opt/homebrew/Cellar/node/\*/bin/node
+
+###### Key features
+
+This collection examines binaries to extract embedded version information.
+It searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `.rdata` section (for PE binaries on Windows), or `__ctring` section (for MachO binaries).
+
+###### Example version string
+
+The following is an example of a version string embedded in an Node.JS runtime binary.
 
 ```
-
-NVM:   ~/.nvm/, /usr/local/nvm
-FNM:   ~/.local/share/fnm/
-ASDF:  ~/.asdf/
-MISE:  ~/.local/share/mise/
-VOLTA: ~/.volta/
-
+node.js/v24.11.1
 ```
+
+Version `24.11.1` is extracted to identify the Node.JS runtime version.
 
 ###### Example PURL
 
 The following is an example package URL for Node.JS.
 
 ```
-
-Sample PURL: pkg:generic/nodejs/node@20.18.0
-
+Sample PURL: pkg:generic/nodejs/node@24.11.1
 ```
 
 ## OpenSSH ecosystem collection
@@ -612,4 +633,158 @@ The following is an example package URL for a WordPress theme.
 
 Sample PURL: pkg:generic/wordpress/theme/avada@1.0.0
 
+```
+
+## Windows applicaitons ecosystem collection
+
+###### Supported Windows Applications
+
+- PowerShell
+- NuGet CLI
+- Visual Studio Code
+- Microsoft Edge
+- SharePoint Server
+- Microsoft Defender
+- Exchange Server
+- Visual Studio
+- .NET Runtime
+- ASP.NET Core Runtime
+- Outlook for Windows
+- Microsoft Teams
+- Outlook for Windows
+- Microsoft Office
+- Microsoft 365
+
+###### Key features
+
+- PowerShell – Examines the `pwsh.exe` file to extract the embedded version information.
+- NuGet CLI – Examines the `nuget.exe` file to extract the embedded version information.
+- Visual Studio Code – Examines the `Code.exe` file to extract the embedded version information.
+- Microsoft Edge – Examines the `msedge.exe` file to extract the embedded version information.
+- SharePoint Server – Examines the `Microsoft.SharePoint.dll` file to extract the embedded version information.
+- Microsoft Defender – Examines the `MsMpEng.exe` file to extract the embedded version information.
+- Exhange Server – Examines the `Exsetup.exe` file to extract the embedded version information.
+- Visual Studio – Parses the `state.json` file to retrieve the version string from the `catalogInfo.productDisplayVersion` field.
+- .NET Runtime – Searches for `Microsoft.NETCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
+
+```
+Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
+```
+
+- ASP.NET Runtime – Searches for `Microsoft.AspNetCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
+
+```
+Microsoft.AspNetCore.App/<VERSION>/Microsoft.AspNetCore.App.deps.json
+```
+
+- Outlook for Windows – Parses Windows Registry, and extracts version from the following registry key.
+
+```
+HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\Microsoft.OutlookForWindows_<VERSION>_<ARCH>__8wekyb3d8bbwe
+```
+
+- Microsoft Teams – Parses Windows Registry, and extracts version from the following registry key.
+
+```
+HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\MSTeams_<VERSION>_<ARCH>__8wekyb3d8bbwee
+```
+
+- Microsoft Office 365 / Microsoft 365 – Parses Windows Registry, and extracts version from the following registry key and value.
+  - Registry Key
+
+  ```
+  KEY_LOCAL_MACHINES\SOFTWARE\Microsoft\Office\ClickToRun\Configuration
+  ```
+
+  - Registry Value
+    - VersionToReport – Microsoft Office Version
+    - ProductReleaseIds – List of product IDs. This is used to identify installed Office products. For more information about product IDs, see [product IDs](https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run "https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run") on the Microsoft website.
+
+- Microsoft Office Suite – Collects installed each Office applications by examining the following executable files:
+  - `EXCEL.EXE` – Microsoft Excel
+  - `WINWORD.EXE` – Microsoft Word
+  - `POWERPNT.EXE` – Microsoft PowerPoint
+  - `OUTLOOK.EXE` – Microsoft Outlook
+    Version number in the Windows Registry is used as authoritative version number for each installed Office applications.
+
+###### Example `state.json` file
+
+The following is an example of a `state.json` file to use to collect installed Visual Studio version.
+
+```
+{
+    "icon": {
+        "mimeType": "image/svg+xml",
+        "fileName": "product.svg"
+    },
+    "updateDate": "2025-11-06T05:05:35.6517471Z",
+    "installDate": "2025-11-06T05:05:35.6527436Z",
+    "enginePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service",
+    "installationName": "VisualStudio/17.14.19+36623.8",
+    "catalogInfo": {
+        "id": "VisualStudio/17.14.19+36623.8",
+        "buildBranch": "d17.14",
+        "buildVersion": "17.14.36623.8",
+        "localBuild": "build-lab",
+        "manifestName": "VisualStudio",
+        "manifestType": "installer",
+        "productDisplayVersion": "17.14.19",
+// truncated
+```
+
+Example PURL
+
+The following is an example package URL for each Windows applications.
+
+```
+// PowerShell
+Sample PURL: pkg:generic/microsoft/powershell@7.5.3
+
+// NuGet CLI
+Sample PURL: pkg:generic/microsoft/nuget@6.14.0
+
+// Visual Studio Code
+Sample PURL: pkg:generic/microsoft/visualstudiocode@1.104.2
+
+// Microsoft Edge
+Sample PURL: pkg:generic/microsoft/edge@140.0.3485.94
+
+// SharePoint Server
+Sample PURL: pkg:generic/microsoft/sharepoint@23.38.219.1
+
+// Microsoft Defender
+Sample PURL: pkg:generic/microsoft/defender@4.18.23110.3
+
+// Exchange Server
+Sample PURL: pkg:generic/microsoft/exchangeserver@15.2.2562.17
+
+// Visual Studio
+Sample PURL: pkg:generic/microsoft/visualstudio@17.14.19
+
+// .NET Runtime
+Sample PURL: pkg:generic/microsoft/dotnet@8.0.18
+
+// ASP.NET Core Runtime
+Sample PURL: pkg:generic/microsoft/aspdotnet@8.0.18
+
+// Microsoft Teams
+Sample PURL: pkg:generic/microsoft/teams@25241.203.3947.4411
+
+// Outlook for Windows
+Sample PURL: pkg:generic/microsoft/outlookforwindows@1.2025.916.400
+
+// Microsoft 365 / Office 365
+Sample PURL: pkg:generic/microsoft/office@16.0.19127.20264?product_ids=O365HomePremRetail
+
+// Microsoft Word
+Sample PURL: pkg:generic/microsoft/word@16.0.19127.20264
+
+// Microsoft Excel
+Sample PURL: pkg:generic/microsoft/excel@16.0.19127.20264
+
+// Microsoft PowerPoint
+Sample PURL: pkg:generic/microsoft/powerpoint@16.0.19127.20264
+
+// Microsoft Outlook
+Sample PURL: pkg:generic/microsoft/outlook@16.0.19127.20264
 ```
