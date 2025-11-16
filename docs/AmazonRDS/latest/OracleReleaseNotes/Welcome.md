@@ -18,7 +18,7 @@ newly created DB instances, use the [describe-db-engine-versions](../../../cli/l
 Oracle databases, run the [describe-db-major-engine-versions](../../../cli/latest/reference/rds/describe-db-major-engine-versions.md "../../../cli/latest/reference/rds/describe-db-major-engine-versions.md") AWS CLI command or use the [DescribeDBMajorEngineVersions](../APIReference/API_DescribeDBMajorEngineVersions.md "../APIReference/API_DescribeDBMajorEngineVersions.md") RDS API operation.
 
 These release notes apply to RDS for Oracle. If you are looking for details about RDS Custom for Oracle,
-please see [RDS Custom](../UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.md "../UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+please see [Supported Regions and DB engines for RDS Custom](../UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.md "../UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 
 **Topics**
 
