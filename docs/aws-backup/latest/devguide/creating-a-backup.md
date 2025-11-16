@@ -94,6 +94,7 @@ regardless of the health of your source resource.
 - [Amazon Relational Database Service backups](rds-backup.md "rds-backup.md")
 - [Amazon Redshift backups](redshift-backups.md "redshift-backups.md")
 - [Amazon Redshift Serverless backups](redshift-serverless-backups.md "redshift-serverless-backups.md")
+- [Amazon EKS backups](eks-backups.md "eks-backups.md")
 - [SAP HANA backup on Amazon EC2](backup-saphana.md "backup-saphana.md")
 - [Amazon S3 backups](s3-backups.md "s3-backups.md")
 - [Amazon Timestream backups](timestream-backup.md "timestream-backup.md")

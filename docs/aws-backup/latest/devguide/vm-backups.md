@@ -57,6 +57,17 @@ your VMs:
 
 To download the Backup gateway software, follow the procedure for [Working with gateways](working-with-gateways.md "working-with-gateways.md").
 
+### Download VM software
+
+Backup gateway is distributed as an OVF (Open Virtualization Format) template that you deploy to your VMware infrastructure. The gateway software connects your VMware VMs to AWS Backup by discovering VMs, encrypting data, and efficiently transferring data to AWS Backup.
+
+To obtain the OVF template, use the AWS Backup console:
+
+1. Sign in to the AWS Management Console and open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+2. In the left navigation pane, under **External resources**, choose **Gateways**.
+3. Choose **Create gateway**.
+4. In the **Set up gateway** section, download the OVF template and deploy it to your VMware environment.
+
 For information on VPC (Virtual Private Cloud) endpoints, see
 [AWS Backup
 and AWS PrivateLink connectivity](backup-network.md#backup-privatelink "backup-network.md#backup-privatelink").

@@ -10,6 +10,17 @@ jobs at once, create more gateways and associate them with your hypervisor.
 
 ## Creating a gateway
 
+You can create a backup gateway using two approaches:
+
+- **Console method (standard)**: Creates IPv4-only gateways through the AWS Backup console with automatic activation
+- **Manual method**: Supports both IPv4 and IPv6 by obtaining activation keys and using AWS CLI commands
+
+Both methods require downloading and deploying the OVF template first (see [Download VM software](vm-backups.md#download-vm-software "vm-backups.md#download-vm-software")).
+
+### Console method (IPv4 only)
+
+Use this method for standard IPv4 gateway creation through the AWS Backup console with automatic activation.
+
 ###### To create a gateway:
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
@@ -81,6 +92,83 @@ Once the VMWare software is downloaded, complete the following steps:
    To add more than one tag, click **Add another tag**.
 4. To complete the process, click **Create gateway**, which takes you to the gateway
    detail page.
+
+### Manual gateway creation (IPv4 and IPv6)
+
+For IPv6 support, create gateways manually using activation keys. IPv6 support requires gateway appliance version 2.x+ and additional firewall configuration on [dual-stack endpoints](configure-infrastructure-bgw.md#bgw-firewall-configuration "configure-infrastructure-bgw.md#bgw-firewall-configuration").
+
+###### Important
+
+**IPv6 hypervisor requirement:** If your gateway is activated through IPv6, you **must** create a hypervisor with an IPv6 address. For example, use `2607:fda8:1001:210::252` instead of `10.0.0.252`. If you associate an IPv6 gateway with an IPv4 hypervisor, backup and restore jobs will likely fail.
+
+#### Getting an activation key
+
+To receive an activation key for your gateway, make a web request to the gateway virtual machine (VM) or use the gateway local console. The gateway VM returns a response that contains the activation key, which is then passed as one of the parameters for the `CreateGateway` API to specify the configuration of your gateway.
+
+###### Tip
+
+Gateway activation keys expire in 30 minutes if unused.
+
+**Getting an activation key using web request**
+
+The following examples show you how to get an activation key using HTTP request. You can either use a web browser or Linux curl or equivalent command using the following URLs.
+
+###### Note
+
+Replace the highlighted variables with actual values for your gateway. Acceptable values
+are as follows:
+
+- `gateway_ip_address` - The IPv4 address of your gateway,
+  for example `172.31.29.201`
+- `region_code` - The Region where you want to activate your
+  gateway. See [Regional endpoints](../../../general/latest/gr/rande.md#regional-endpoints "../../../general/latest/gr/rande.md#regional-endpoints") in
+  the _AWS General Reference Guide_. If this parameter is not
+  specified, or if the value provided is misspelled or doesn't match a valid region, the
+  command will default to the `us-east-1` region.
+
+IPv4:
+
+```
+curl "http://`gateway_ip_address`/?activationRegion=`region_code`&gatewayType=BACKUP_VM&endpointType=DUALSTACK&ipVersion=ipv4&no_redirect"
+```
+
+IPv6:
+
+```
+curl "http://`gateway_ip_address`/?activationRegion=`region_code`&gatewayType=BACKUP_VM&endpointType=DUALSTACK&ipVersion=ipv6&no_redirect"
+```
+
+###### Getting an activation key using local console
+
+The following examples show you how to get an activation key using gateway host's local console
+
+1. Log in to your virtual machine console.
+2. From the **AWS Appliance Activation - Configuration** main menu, select `0` to choose **Get activation key**
+3. Select `2` **Backup Gateway** for gateway family option
+4. Enter the AWS Region where you want to activate your gateway
+5. For network type, enter `1` for Public or `2` for VPC endpoint
+6. For endpoint type, enter `1` for standard endpoint or `2` for dual-stack endpoint
+   1. For dual-stack endpoint, select `1` for IPv4 or `2` for IPv6
+
+7. Activation key will be populated automatically
+
+#### Creating the gateway
+
+Use the AWS CLI to create the gateway after obtaining an activation key:
+
+1. Obtain activation key using curl commands or local console method
+2. Create gateway using AWS CLI, for more information, see [CreateGateway](API_BGW_CreateGateway.md "API_BGW_CreateGateway.md") in
+   the _Backup gateway API Reference_.
+
+```
+aws backup-gateway create-gateway \
+                    --region `region_code` \
+                    --activation-key `activation_key` \
+                    --gateway-display-name `gateway_name` \
+                    --gateway-type BACKUP_VM
+```
+
+3. Verify gateway appears in AWS Backup console under **External Resources** → **Gateways**
 
 ## Editing or deleting a gateway
 

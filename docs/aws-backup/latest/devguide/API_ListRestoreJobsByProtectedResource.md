@@ -79,6 +79,8 @@ Content-type: application/json
          "DeletionStatusMessage": "***string***",
          "ExpectedCompletionTimeMinutes": ***number***,
          "IamRoleArn": "***string***",
+         "IsParent": ***boolean***,
+         "ParentJobId": "***string***",
          "PercentDone": "***string***",
          "RecoveryPointArn": "***string***",
          "RecoveryPointCreationDate": ***number***,

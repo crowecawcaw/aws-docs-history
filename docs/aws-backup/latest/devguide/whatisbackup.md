@@ -205,6 +205,7 @@ restore using AWS Backup. For more information, see [AWS Backup feature availabi
 | [VMware Cloud™ on AWS Outposts](https://aws.amazon.com/vmware/aws-services/ "https://aws.amazon.com/vmware/aws-services/")                                          | VMware Cloud™ virtual machines on AWS Outposts                                                     |
 | [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md")                                  | AWS CloudFormation stacks                                                                           |
 | [SAP HANA databases](backup-saphana.md "backup-saphana.md")                                                                                                          | SAP HANA databases on Amazon EC2 instances                                                          |
+| [Amazon Elastic Kubernetes Service (Amazon EKS)](../../../eks/latest/userguide/what-is-eks.md "../../../eks/latest/userguide/what-is-eks.md")                        | Amazon EKS clusters and persistent storage backups                                                  |
 
 ## Pricing
 

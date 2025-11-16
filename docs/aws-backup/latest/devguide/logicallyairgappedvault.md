@@ -30,13 +30,6 @@ page.
 See [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") for
 resource types you can copy to a logically air-gapped vault.
 
-###### Important
-
-When copying Amazon EC2 backups to a logically air-gapped vault, AWS Backup enforces stricter
-tag character limitations than Amazon EC2 itself. Although Amazon EC2 allows any character in its tags,
-AWS Backup requires tags to consist only of valid characters (a-z, A-Z, 0-9, ., +, -, =, :, \_, @, /)
-or whitespace. For more information about Amazon EC2 tag restrictions, see [Tagging your Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions "../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions").
-
 ###### Topics
 
 - [Use case for logically air-gapped vaults](#lag-usecase "#lag-usecase")
@@ -112,6 +105,10 @@ during copy jobs, including copying into a logically air-gapped vault.
 
 Additionally, a backup vault can have additional security through a vault lock; logically air-gapped
 vaults come equipped by a vault lock in compliance mode.
+
+Similar to backup vaults, logically air-gapped vaults also support
+[restricted tags](../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions "../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions")
+for Amazon EC2 backups.
 
 | Feature                                                                                | Backup vault                                                                                                                                                                                                                                                                                                                      | Logically air-gapped vault                                                                                                                                                                                                                                                                                                                                                                   |
 | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -596,8 +593,13 @@ The `EncryptionKeyType` field can have the following values:
 - `CUSTOMER_MANAGED_KMS_KEY` - The vault is encrypted with a
   customer-managed KMS key that you control. This option provides additional control over encryption keys and access policies.
 
-**Note:** You can only select an AWS KMS encryption key during vault creation.
-Once created, all backups contained in the vault will be encrypted with that key. You cannot change or migrate your vaults to use a different encryption key.
+###### Note
+
+- AWS Backup recommends using AWS owned keys with logically air-gapped vaults. However, if your organization policy requires using a customer managed key,
+  use keys from another account in a secondary organization dedicated to recovery as a best practice. You can reference the blog
+  [Encrypt AWS Backup logically air-gapped vaults with customer-managed keys](https://aws.amazon.com/blogs/storage/encrypt-aws-backup-logically-air-gapped-vaults-with-customer-managed-keys/ "https://aws.amazon.com/blogs/storage/encrypt-aws-backup-logically-air-gapped-vaults-with-customer-managed-keys/") to gather more insights into setting up CMK based logically air-gapped vaults.
+- You can only select an AWS KMS encryption key during vault creation.
+  Once created, all backups contained in the vault will be encrypted with that key. You cannot change or migrate your vaults to use a different encryption key.
 
 ### Key policy for CMK encrypted logically air-gapped vault
 

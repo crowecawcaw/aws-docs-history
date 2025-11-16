@@ -6,7 +6,7 @@ including details about the recovery process.
 ## Request Syntax
 
 ```
-GET /restore-jobs/?accountId=`ByAccountId`&completeAfter=`ByCompleteAfter`&completeBefore=`ByCompleteBefore`&createdAfter=`ByCreatedAfter`&createdBefore=`ByCreatedBefore`&maxResults=`MaxResults`&nextToken=`NextToken`&resourceType=`ByResourceType`&restoreTestingPlanArn=`ByRestoreTestingPlanArn`&status=`ByStatus` HTTP/1.1
+GET /restore-jobs/?accountId=`ByAccountId`&completeAfter=`ByCompleteAfter`&completeBefore=`ByCompleteBefore`&createdAfter=`ByCreatedAfter`&createdBefore=`ByCreatedBefore`&maxResults=`MaxResults`&nextToken=`NextToken`&parentJobId=`ByParentJobId`&resourceType=`ByResourceType`&restoreTestingPlanArn=`ByRestoreTestingPlanArn`&status=`ByStatus` HTTP/1.1
 
 ```
 
@@ -38,6 +38,10 @@ Returns only restore jobs that were created after the specified date.
 **[ByCreatedBefore](#API_ListRestoreJobs_RequestSyntax "#API_ListRestoreJobs_RequestSyntax")**
 
 Returns only restore jobs that were created before the specified date.
+
+**[ByParentJobId](#API_ListRestoreJobs_RequestSyntax "#API_ListRestoreJobs_RequestSyntax")**
+
+This is a filter to list child (nested) restore jobs based on parent restore job ID.
 
 **[ByResourceType](#API_ListRestoreJobs_RequestSyntax "#API_ListRestoreJobs_RequestSyntax")**
 
@@ -114,6 +118,8 @@ Content-type: application/json
          "DeletionStatusMessage": "***string***",
          "ExpectedCompletionTimeMinutes": ***number***,
          "IamRoleArn": "***string***",
+         "IsParent": ***boolean***,
+         "ParentJobId": "***string***",
          "PercentDone": "***string***",
          "RecoveryPointArn": "***string***",
          "RecoveryPointCreationDate": ***number***,

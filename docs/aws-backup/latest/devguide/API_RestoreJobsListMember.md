@@ -108,6 +108,22 @@ Type: String
 
 Required: No
 
+**IsParent**
+
+This is a boolean value indicating whether the restore job is a parent (composite) restore job.
+
+Type: Boolean
+
+Required: No
+
+**ParentJobId**
+
+This is the unique identifier of the parent restore job for the selected restore job.
+
+Type: String
+
+Required: No
+
 **PercentDone**
 
 Contains an estimated percentage complete of a job at the time the job status was

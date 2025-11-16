@@ -41,8 +41,8 @@ The following data is returned in JSON format by the service.
 
 **[GlobalSettings](#API_DescribeGlobalSettings_ResponseSyntax "#API_DescribeGlobalSettings_ResponseSyntax")**
 
-The status of the flags `isCrossAccountBackupEnabled` and
-`isMpaEnabled` ('Mpa' refers to multi-party approval).
+The status of the flags `isCrossAccountBackupEnabled`,
+`isMpaEnabled` ('Mpa' refers to multi-party approval), and `isDelegatedAdministratorEnabled`.
 
 Type: String to string map
 

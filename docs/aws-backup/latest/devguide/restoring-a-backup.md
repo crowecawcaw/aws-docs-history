@@ -210,6 +210,7 @@ AWS Backup console. Restore job statuses include **pending**,
 - [Restore an Amazon EBS volume](restoring-ebs.md "restoring-ebs.md")
 - [Restore an Amazon EC2 instance](restoring-ec2.md "restoring-ec2.md")
 - [Restore an Amazon EFS file system](restoring-efs.md "restoring-efs.md")
+- [Restore an Amazon EKS cluster](restoring-eks.md "restoring-eks.md")
 - [Restore an FSx file system](restoring-fsx.md "restoring-fsx.md")
 - [Restore a Neptune cluster](restoring-nep.md "restoring-nep.md")
 - [Restore an RDS database](restoring-rds.md "restoring-rds.md")

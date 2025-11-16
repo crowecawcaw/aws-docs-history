@@ -180,9 +180,20 @@ as a delegated administrator, you must first configure the following:
 
 - [AWS Organizations must be enabled and configured](../../../organizations/latest/userguide/orgs_tutorials_basic.md "../../../organizations/latest/userguide/orgs_tutorials_basic.md") with at least one member
   account in addition to your default management account.
+- It is recommended that the Organization Management Account have the AWS Backup Backup Service-Linked Role
+  (AWS BackupServiceRoleForBackup) present to automatically sync delegated administrator permissions with
+  Organizations. This ensures delegated administrators have proper access when you enable opt-in
+  regions or change administrator assignment. If the Backup Service-Linked Role is not present or got
+  deleted, customers have a few options to create it:
+  - Enabling the Delegated Administrator feature.
+  - Access the Backup Vaults Console page.
+  - Manually create it following the documentation in
+    [Creating the Default Service Role.](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md")
+
 - In the AWS Backup console, ensure **backup policies**,
-  **cross-account monitoring**, and
-  **cross-account backup** features are turned on. These
+  **cross-account monitoring**,
+  **cross-account backup**, and
+  **delegated administrator** features are turned on. These
   are below the **Delegated administrators** pane in
   the AWS Backup console.
   - [Cross-account monitoring](manage-cross-account.md#enable-cross-account "manage-cross-account.md#enable-cross-account") allows you to monitor
@@ -193,6 +204,9 @@ as a delegated administrator, you must first configure the following:
     which allows accounts in your organization
     to copy backups to other accounts (for Backup-supported
     cross-account resources).
+  - _Optional:_ Delegated administrator, which allows AWS Backup Backup
+    to automatically create the Backup Service-Linked Role to sync delegated
+    administrator permissions with Organizations.
   - Enable [service access](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/enable-aws-service-access.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/enable-aws-service-access.html") with AWS Backup.
 
 There are two steps involved in setting up delegated administration. The first step is to delegate

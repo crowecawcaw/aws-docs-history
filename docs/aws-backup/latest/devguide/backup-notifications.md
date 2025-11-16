@@ -70,6 +70,13 @@ AWS Backup for S3 supports two additional events:
 - `S3_RESTORE_OBJECT_FAILED` notifies you of any S3 object that AWS Backup
   failed to restore during a restore job.
 
+AWS Backup for EKS supports two additional events:
+
+- `EKS_RESTORE_OBJECT_FAILED` notifies you of any EKS objects that AWS Backup
+  failed to restore during a restore job.
+- `EKS_RESTORE_OBJECT_SKIPPED` notifies you of any EKS objects that AWS Backup
+  skipped during a restore job.
+
 ### Examples of events
 
 ###### Example: Backup job completed

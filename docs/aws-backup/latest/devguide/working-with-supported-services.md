@@ -33,6 +33,7 @@ choosing which services (resource types) you want to back up.
 - [Working with AWS Organizations](#working-with-orgs "#working-with-orgs")
 - [Working with AWS CloudFormation](#working-with-cloudformation "#working-with-cloudformation")
 - [Working with AWS BackInt, AWS Systems Manager for SAP, and SAP HANA](#working-with-saphana-and-backint-and-ssm "#working-with-saphana-and-backint-and-ssm")
+- [Working with Amazon EKS](#working-with-eks "#working-with-eks")
 - [How AWS services back up their own resources](#services-backup "#services-backup")
 
 ## Working with Amazon S3 data
@@ -331,6 +332,18 @@ AWS Backup works with AWS BackInt and with SSM for SAP to support SAP HANA backu
 - [SAP HANA databases on Amazon EC2 instances backup](backup-saphana.md "backup-saphana.md")
 - [Get started with AWS Systems Manager for SAP](../../../ssm-sap/latest/userguide/get-started.md "../../../ssm-sap/latest/userguide/get-started.md")
 - [AWS Backint Agent for SAP HANA](../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md "../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md")
+
+## Working with Amazon EKS
+
+AWS Backup supports backups of Amazon EKS clusters, including Kubernetes cluster state and persistent storage attached to the EKS cluster via a persistent volume claim (EBS volumes, EFS file systems, and S3 buckets).
+
+An Amazon EKS backup will create a composite recovery point, where a child recovery point will be for each resource backed up.
+
+- How to back up resources: [Getting started with AWS Backup](getting-started.md "getting-started.md")
+- How to backup Amazon EKS clusters: [Amazon EKS backups](eks-backups.md "eks-backups.md")
+- How to restore Amazon EKS clusters: [Restore an Amazon EKS cluster](restoring-eks.md "restoring-eks.md")
+
+For detailed information about Amazon EKS, see [What is Amazon EKS?](../../../eks/latest/userguide/what-is-eks.md "../../../eks/latest/userguide/what-is-eks.md") in the _Amazon EKS User Guide_.
 
 ## How AWS services back up their own resources
 

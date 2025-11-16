@@ -11,6 +11,7 @@ The following quotas apply when working with AWS Backup.
 - [AWS Backup Audit Manager quotas](#backup-audit-manager-quotas-table "#backup-audit-manager-quotas-table")
 - [Restore testing plan quotas](#backup-restore-testing-quotas-table "#backup-restore-testing-quotas-table")
 - [AWS Backup gateway quotas](#backup-gateway-quotas-table "#backup-gateway-quotas-table")
+- [Amazon EKS quotas](#backup-eks-quotas-table "#backup-eks-quotas-table")
 - [Related quotas](#backup-related-quotas "#backup-related-quotas")
 
 ## Backup
@@ -132,6 +133,15 @@ resource types, you may request an increase in the quota limit.
 | Name                               | Default | Adjustable                                                    |
 | ---------------------------------- | ------- | ------------------------------------------------------------- |
 | Backup or restore jobs per gateway | 4       | No. Create more gateways and connect them to your hypervisor. |
+
+## Amazon EKS quotas
+
+| Name                                              | Default | Adjustable |
+| ------------------------------------------------- | ------- | ---------- |
+| Namespaces per EKS cluster backup                 | 1000    | Yes        |
+| Persistent Storage backups per EKS cluster backup | 1000    | Yes        |
+| Restore jobs per target EKS cluster               | 1       | No         |
+| EKS Restore jobs per account                      | 5       | Yes        |
 
 ## Related quotas
 

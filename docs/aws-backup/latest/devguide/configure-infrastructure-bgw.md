@@ -69,11 +69,28 @@ with Amazon Web Services. If you use a firewall or router to filter or limit net
 must configure your firewall and router to allow these service endpoints for outbound
 communication to AWS. Use of an HTTP proxy in between Backup gateway and service points is not supported.
 
+**Endpoint types**
+
+**Standard endpoints**: Support IPv4 traffic between your gateway appliance and AWS.
+
+The following service endpoints are required by all gateways for control path (`anon-cp`, `client-cp`, `proxy-app`) and data path (`dp-1`) operations.
+
 ```
-proxy-app.backup-gateway.`region`.amazonaws.com:443
-dp-1.backup-gateway.`region`.amazonaws.com:443
 anon-cp.backup-gateway.`region`.amazonaws.com:443
 client-cp.backup-gateway.`region`.amazonaws.com:443
+proxy-app.backup-gateway.`region`.amazonaws.com:443
+dp-1.backup-gateway.`region`.amazonaws.com:443
+```
+
+**Dual-stack endpoints**: Support both IPv4 and IPv6 traffic between your gateway appliance and AWS.
+
+The following dual-stack service endpoints are required by all gateways for control path (activation, controlplane, proxy) and data path (dataplane) operations.
+
+```
+activation-backup-gateway.`region`.api.aws:443
+controlplane-backup-gateway.`region`.api.aws:443
+proxy-backup-gateway.`region`.api.aws:443
+dataplane-backup-gateway.`region`.api.aws:443
 ```
 
 ## Configure your gateway for multiple NICs in VMware
@@ -156,15 +173,6 @@ To do these:
    will be connected to the cloud as the default device.
 4. All IP addresses for the gateway can be displayed in both the local
    console and on the VM summary page in VMware vSphere.
-
-## Hardware requirements
-
-You must be able to dedicate the following minimum resources on a virtual machine
-host for the Backup gateway:
-
-- 4 virtual processors
-- 8 GB of reserved RAM
-- 80 GB disk space
 
 ## VMware permissions
 

@@ -43,6 +43,8 @@ Content-type: application/json
    "DeletionStatusMessage": "***string***",
    "ExpectedCompletionTimeMinutes": ***number***,
    "IamRoleArn": "***string***",
+   "IsParent": ***boolean***,
+   "ParentJobId": "***string***",
    "PercentDone": "***string***",
    "RecoveryPointArn": "***string***",
    "RecoveryPointCreationDate": ***number***,
@@ -141,6 +143,18 @@ Type: Long
 
 Specifies the IAM role ARN used to create the target recovery point; for example,
 `arn:aws:iam::123456789012:role/S3Access`.
+
+Type: String
+
+**[IsParent](#API_DescribeRestoreJob_ResponseSyntax "#API_DescribeRestoreJob_ResponseSyntax")**
+
+This is a boolean value indicating whether the restore job is a parent (composite) restore job.
+
+Type: Boolean
+
+**[ParentJobId](#API_DescribeRestoreJob_ResponseSyntax "#API_DescribeRestoreJob_ResponseSyntax")**
+
+This is the unique identifier of the parent restore job for the selected restore job.
 
 Type: String
 
