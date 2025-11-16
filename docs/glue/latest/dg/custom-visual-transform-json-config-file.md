@@ -72,7 +72,7 @@ In AWS Glue Studio, parameters are displayed in the **Transform** tab. The examp
 user-defined parameters such as Email Address, Phone Number, Your age, Your gender and
 Your origin country.
 
-![The screenshot shows a custom visual transform selected and the Transform tab with user-defined parameters.](/images/glue/latest/dg/images/dynamic-transform-parameters.png)
+![The screenshot shows a custom visual transform selected and the Transform tab with user-defined parameters.](images/dynamic-transform-parameters.png)
 
 You can enforce some validations in AWS Glue Studio using regular expressions in the json file
 by specifying the

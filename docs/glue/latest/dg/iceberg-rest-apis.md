@@ -228,7 +228,7 @@ General information| **Operation name** | CreateTable |
 General information| Operation name | LoadTable |
 | Type | Iceberg REST Catalog API |
 | REST path | GET /iceberg/v1/catalogs/{catalog}/namespaces/{ns}/tables/{table} |
-| IAM action | glue:GeTTable |
+| IAM action | glue:GetTable |
 | Lake Formation permissions | ALL, SELECT, DESCRIBE |
 | CloudTrail event | glue:GetTable |
 | Open API definition | https://github.com/apache/iceberg/blob/apache-iceberg-1.6.1/open-api/rest-catalog-open-api.yaml#L616 |
