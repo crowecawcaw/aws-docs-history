@@ -18,16 +18,13 @@ regulations in your industry, you can set up IP address restrictions and session
   restrictions and session durations of logged in agents. An authentication profile is a
   resource that stores the authentication settings for users in your contact center.
 
-## Configure IP address ranges and session
-
-duration
+## Getting started with authentication profiles
 
 Your Amazon Connect instance includes a default authentication profile. This authentication
-profile automatically applies to **all users** in your
-contact center. You do not need to assign the authentication profile to the users for it
-to apply.
+profile applies to **all users** in your
+contact center by default and does not need to be assigned.
 
-To configure your default authentication profile, use the following AWS SDK
+Authentication profiles are currently only configurable with the AWS SDK. To configure your default authentication profile, use the following
 commands.
 
 ###### Tip
@@ -66,7 +63,7 @@ by the `list-authentication-profiles` command.
 ```
 
 2. View the configuration of the authentication profile you want to update. You
-   can call the [DescribeAuthenticationProfile](../APIReference/API_DescribeAuthenticationProfile.md "../APIReference/API_DescribeAuthenticationProfile.md") or run the or the
+   can call the [DescribeAuthenticationProfile](../APIReference/API_DescribeAuthenticationProfile.md "../APIReference/API_DescribeAuthenticationProfile.md") or run the
    `describe-authentication-profile` CLI command.
 
 Following is an example `describe-authentication-profile`
@@ -93,7 +90,9 @@ Following is an example of the information returned by the
     "LastModifiedTime": 1.719249173664E9,
     "MaxSessionDuration": 720,
     "Name": "Default Authentication Profile",
-    "PeriodicSessionDuration": 60
+    "PeriodicSessionDuration": 60,
+    "SessionInactivityDuration": 60,
+    "SessionInactivityHandlingEnabled": false
     }
 }
 ```
@@ -106,8 +105,9 @@ settings you define in the API call are changed.
 
 Following is an example `update-authentication-profile` command. It
 configures the default authentication profile that's automatically assigned to
-all users. It allows some IP addresses, blocks others, and sets the [periodic session duration](#configure-session-timeouts "#configure-session-timeouts") to 60
-minutes.
+all users. It allows some IP addresses, blocks others, enables automatic logouts
+on user inactivity, and sets the [session
+inactivity duration](#configure-session-timeouts "#configure-session-timeouts") to 60 minutes.
 
 ```
 aws connect update-authentication-profile
@@ -117,7 +117,8 @@ aws connect update-authentication-profile
     --description "A basic default Authentication Profile"
     --allowed-ips "ip-range-1" "ip-range-2" ...
     --blocked-ips "ip-range-3" "ip-range-4" ...
-    --periodic-session-duration 60
+    --session-inactivity-handling-enabled
+    --session-inactivity-duration 60
 ```
 
 ## Configure IP-based access control
@@ -161,15 +162,14 @@ fails
 **Agents**
 
 When an agent is active in the Contact Control Panel (CCP), their IP address is
-checked periodically. The frequency with which Amazon Connect checks the IP address is based
-on how you've configured the authentication profile's [periodic session duration](#configure-session-timeouts "#configure-session-timeouts").
+checked periodically.
 
 Following is what happens if the IP address fails the check:
 
 - If the agent is not on an active call, the agent is signed out if their IP
   address changes to a disallowed address.
-- If the agent is on an active call, the agent's session is invalidated,
-  however, this does end the currently active call. Here's what
+- If the agent is on an active call, the agent's session is invalidated.
+  However, this does not end the currently active call. Here's what
   happens:
   1.  The agent loses the ability to take any action, such as changing
       agent status, transferring calls, putting the call on hold, ending
@@ -247,28 +247,60 @@ your contact center only _if_ it is not empty. If it is
 empty, _any_ IP address is allowed to access your contact
 center unless explicitly blocked by the `blockedIps` list.
 
-## Configure the session duration
+## Configure user session timeouts
 
-You can fine-tune the **periodic session duration**
-according to your organization's preference and security requirements. For example, you
-can set the periodic session duration to 20 minutes so your agent's IP address and
-session duration are checked within a 20 minute time period in the CCP.
+An Amazon Connect session is defined as a continuous period of authenticated access to your
+contact center’s website. There are two session timeouts that apply to user sessions in
+your contact center:
 
-Amazon Connect uses a token-based authentication model. There are two session timeouts that
-apply to user sessions in your contact center:
+- **Maximum session duration**: This value represents the
+  maximum time period a contact center user can be logged in before being forced
+  to sign-in again. This value defaults to 12 hours and isn't configurable.
+- **Session inactivity duration:** : This value represents
+  the period before an agent is automatically signed out of the contact center
+  when they go inactive.
 
-- **Periodic session duration**: The maximum time
-  period before a contact center user is authenticated. Default = 60 minutes. This
-  option can be configured to a different value between 10 - 60.
+By default, users in your Amazon Connect instance remain signed in until the maximum
+session duration of 12 hours elapses, with no automatic logout for inactivity. However,
+organizations with stricter security and compliance requirements can leverage
+authentication profiles to enable automatic sign-out when users become inactive. Once
+enabled, this feature monitors user activity patterns and automatically ends
+sessions after the configured session inactivity duration has passed.
+
+A contact center user is considered active when performing any of the following actions:
+
+- Mouse and keyboard activity on the Contact Control Panel (CCP), Agent Workspace, or Admin Website
+- Presence of an active voice contact
+
+If the user is determined to be inactive, a pop-up will appear on the screen
+warning the user that their session is about to expire due to inactivity. A user can choose to remain logged in or log out.
+
+To opt-in to automatic logout on user inactivity, perform the following API calls on an authentication profile in your instance using the Amazon Connect SDK.
+
+```
+aws connect update-authentication-profile
+    --instance-id <your-instance-id>
+    --profile-id <profile-id>
+    --session-inactivity-handling-enabled
+    --session-inactivity-duration <minutes between 15 and 720>
+```
 
 ###### Note
 
-Although this setting defines the maximum interval of time that can pass
-before a user is authenticated, authentication may happen earlier in
-specific situations. For example, in the Amazon Connect admin website, authentication also happens
-whenever certain actions are performed, such as creating a user or changing
-a security profile.
+Customers who integrate their contact center with a third-party vendor (such as
+Salesforce Service Cloud Voice (SCV)) should refer to the vendor documentation to
+determine if this feature is supported before enabling automatic log-outs on
+inactivity.
 
-- **Maximum session duration**: The maximum time
-  period a contact center user can be logged in before being forced to sign-in
-  again. Default = 12 hours; it cannot be configured to a different value.
+###### Note
+
+Customers who leverage AmazonConnectStreams or the AmazonConnectSDK to integrate their
+existing web applications with Amazon Connect must implement activity handling as part
+of their integration before enabling automatic log-out on user inactivity. See the
+AmazonConnectStreams or AmazonConnectSDK documentation for more information.
+
+###### Note
+
+Automatic log-out on user inactivity is not supported when using Amazon Connect in a
+[Virtual
+Desktop Infrastructure (VDI) with a split CCP model](using-ccp-vdi.md#use-split-ccp "using-ccp-vdi.md#use-split-ccp").

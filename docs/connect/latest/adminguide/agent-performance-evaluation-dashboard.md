@@ -2,15 +2,12 @@
 
 dashboard
 
-You can use the **Agent performance evaluations dashboard** to view
-aggregated agent performance, and get insights across agent cohorts and over time.
-
-Use the dashboard to view your agents' performance evaluation scores and drill-down
-into evaluation scores received on different evaluation forms, sections, and questions.
-You can also use it to view agent performance metrics such as average handle time,
-occupancy, and more.
+You can use the **Agent performance evaluations dashboard** to view aggregated agent performance,
+and get insights across agent cohorts and over time.
 
 The dashboard provides a single place to view aggregated agent performance.
+Use the dashboard to view your agents' performance evaluation scores and drill-down into evaluation scores received on different evaluation forms, sections, and questions.
+You can also use it to view agent performance metrics such as average handle time, occupancy, and more.
 
 ###### Contents
 
@@ -32,22 +29,32 @@ The dashboard provides a single place to view aggregated agent performance.
 - [Average handle time breakdown
   chart](#avg-handletime-breakdown-chart "#avg-handletime-breakdown-chart")
 - [Agent performance metrics table](#agent-perf-metrics-table "#agent-perf-metrics-table")
+- [Evaluations performed by evaluator](#evaluations-performed-by-evaluator-table "#evaluations-performed-by-evaluator-table")
+- [Agent hierarchy evaluation metrics](#agent-hierarchy-evaluation-metrics-table "#agent-hierarchy-evaluation-metrics-table")
 
 ## Enable access to
 
 the dashboard
 
-Ensure users are assigned the appropriate security profile permissions:
+Managers can access the dashboard within **Analytics and Optimization > Dashboards and Reports**.
+
+Grant managers the appropriate security profile permissions:
 
 - **Access metrics - Access permission** or the
   **Dashboard - Access permission**. For information
   about the difference in behavior, see [Assign permissions to view dashboards
   and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+- **Users - View**: This permission enables you to view users,
+  such as agents receiving evaluations and managers performing evaluations.
 - **Evaluation forms - perform evaluations - View**: This
   permission enables users to view performance evaluation results.
 - **Evaluation forms - manage form definitions - View**:
   This permission enables users to view evaluation form definitions such as
   form structure, scoring weights, and more.
+- **Saved reports - Create, View, Publish [optional]**: Grants managers permissions to create custom saved dashboards and publish them to agents and other managers.
+
+You can limit team manager access to performance evaluation metrics within their own agent hierarchy. See [Apply hierarchy-based access control to
+dashboards and reports in Amazon Connect](dashboard-access-control.md "dashboard-access-control.md").
 
 ## Specify "Time range" and "Compare to"
 
@@ -285,3 +292,32 @@ The following image shows an example **Agent performance
 metrics** chart.
 
 ![The Agent performance metrics table.](images/agent-perf-metrics-table.png)
+
+## Evaluations performed by evaluator
+
+On this table, you can view the evaluations performed by evaluator to assess evaluator productivity
+and drill-down into evaluations completed for each agent.
+
+You can also compare evaluation scores across evaluators to assess evaluator consistency and accuracy.
+
+![Evaluations performed by evaluator.](images/evaluations-performed-by-evaluator-table.png)
+
+To add this widget on the agent performance evaluation dashboard or another dashboard, click
+**Add widget** and select it under **Performance evaluation**.
+
+![Performance evaluation widgets.](images/agent-performance-widgets.png)
+
+Note that you can filter any dashboard widget containing evaluation metrics by the
+**evaluator** that had submitted the evaluation:
+
+![Agent performance evaluator filter.](images/agent-performance-evaluator-filter.png)
+
+## Agent hierarchy evaluation metrics
+
+On this table, you can drill-down into avg. evaluation score and evaluations performed by agent hierarchy.
+You can configure your agent hierarchy to represent geographical locations, departments, teams, etc.
+
+![Agent hierarchy evaluation metrics table.](images/agent-hierarchy-evaluation-metrics-table.png)
+
+To add this widget on the agent performance evaluation dashboard or another dashboard, click
+**Add widget** and select it under **Performance evaluation**.

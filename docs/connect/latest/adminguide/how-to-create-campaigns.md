@@ -107,11 +107,26 @@ capacity reduces if any other campaigns start actively dialing.
 - If you disable call classification, and if your flow includes the [Check call
   progress](check-call-progress.md "check-call-progress.md") block, the contact is routed down the Error branch.
 - For preview dialing mode, a contact is enqueued only when there is a [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") set in the flow. For a list of
-  supported blocks see [Supported channels for flow blocks in
+  supported blocks, see **Chat** channel of
+  [Supported channels for flow blocks in
   Amazon Connect](block-support-by-channel.md "block-support-by-channel.md").
 - Preview dialing mode does not support [agent
   whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"), however the [outbound whisper
   flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") can play the intended whisper to the customer.
+- For preview dialing mode, please adjust contact flow to use profile id
+  as the default search key in agent workspace. For more information, see
+  [Use contact
+  attributes to autopopulate customer profiles](auto-pop-customer-profile.md "auto-pop-customer-profile.md").
+
+```
+{
+  "profileSearchKey": "_profileId",
+  "profileSearchValue": "$.Attributes.connect_customer-profile_profile-id"
+}
+```
+
+![Customer Profiles Attributes.](images/create-campaign-preview-customer-profiles-attribute.png)
+
 - Ensure **Enable wait for prompt** is selected. If it is
   not selected, the ML-powered call classifier won't listen for a voicemail prompt, and
   instead the next block in the flow will be triggered immediately.
