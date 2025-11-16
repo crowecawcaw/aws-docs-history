@@ -1,9 +1,14 @@
-# Connecting for using auto discovery
+# Configuring ElastiCache clients
 
-If your applications use Auto Discovery, you only need to know the configuration
-endpoint for the cluster, rather than the individual endpoints for each cache node. For
-more information, see [Automatically identify nodes in your cluster (Memcached)](AutoDiscovery.md "AutoDiscovery.md").
+An ElastiCache cluster is protocol-compliant with Valkey, Memcached, and Redis OSS. The code, applications, and most
+popular tools that you use today with your existing environment will work seamlessly with the service.
 
-###### Note
+This section discusses specific considerations for connecting to cache nodes in ElastiCache.
 
-At this time, Auto Discovery is only available for clusters running Memcached.
+###### Topics
+
+- [Restricted commands](ClientConfig.md "ClientConfig.md")
+- [Finding node endpoints and port numbers](ClientConfig.md "ClientConfig.md")
+- [Connecting for using auto discovery](ClientConfig.md "ClientConfig.md")
+- [Connecting to nodes in a Valkey or Redis OSS cluster](ClientConfig.md "ClientConfig.md")
+- [DNS names and underlying IP](ClientConfig.md "ClientConfig.md")

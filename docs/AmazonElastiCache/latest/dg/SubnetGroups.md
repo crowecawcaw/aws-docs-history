@@ -1,25 +1,42 @@
-# Subnets and subnet groups
+# Deleting a subnet group
 
-A _subnet group_ is a collection of subnets (typically private)
-that you can designate for your node-based clusters running in an Amazon Virtual Private Cloud (VPC) environment.
+If you decide that you no longer need your subnet group, you can delete it.
+You cannot delete a subnet group if it is currently in use by a cache.
 
-If you create a node-based cluster in an Amazon VPC, you must use a subnet group.
-ElastiCache uses that subnet group to choose a subnet and IP addresses within that
-subnet to associate with your nodes.
+The following procedures show you how to delete a subnet group.
 
-ElastiCache provides a default IPv4 subnet group or you can choose to create a new one. For IPv6, you need to create a subnet group with an IPv6 CIDR block. If you choose **dual stack**, you then must select a Discovery IP type, either IPv6 or IPv4.
+## Deleting a subnet group (Console)
 
-ElastiCache Serverless does not use a subnet group resource, and instead takes a list of subnets directly during creation.
+###### To delete a subnet group
 
-This section covers how to create and leverage subnets and subnet groups
-to manage access to your ElastiCache resources.
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. In the navigation pane, choose **Subnet groups**.
+3. In the list of subnet groups,
+   choose the one you want to delete and then choose **Delete**.
+4. When you are asked to confirm this operation, type the name of the subnet group in the text input field and choose **Delete**.
 
-For more information about subnet group usage in an Amazon VPC environment,
-see [Accessing your ElastiCache cluster or replication group](accessing-elasticache.md "accessing-elasticache.md").
+## Deleting a subnet group (AWS CLI)
 
-###### Topics
+Using the AWS CLI, call the command **delete-cache-subnet-group** with the following
+parameter:
 
-- [Creating a subnet group](SubnetGroups.md "SubnetGroups.md")
-- [Assigning a subnet group to a cache](SubnetGroups.md "SubnetGroups.md")
-- [Modifying a subnet group](SubnetGroups.md "SubnetGroups.md")
-- [Deleting a subnet group](SubnetGroups.md "SubnetGroups.md")
+- `--cache-subnet-group-name` `mysubnetgroup`
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache delete-cache-subnet-group \
+    --cache-subnet-group-name `mysubnetgroup`
+```
+
+For Windows:
+
+```
+aws elasticache delete-cache-subnet-group ^
+    --cache-subnet-group-name `mysubnetgroup`
+```
+
+This command produces no output.
+
+For more information, see the AWS CLI topic delete-cache-subnet-group.
