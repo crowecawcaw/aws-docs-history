@@ -17,6 +17,7 @@ To request a quota increase for an adjustable quota, choose **Yes** in the
 | Site-to-Site VPN connections per virtual private gateway | 10      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-B91E5754 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-B91E5754") |
 | Accelerated Site-to-Site VPN connections per Region      | 10      | Yes                                                                                                                                                                        |
 | Unassociated Site-to-Site VPN connections per Region     | 10      | Yes                                                                                                                                                                        |
+| Large Bandwidth Tunnel connections per Region            | 50      | Yes                                                                                                                                                                        |
 
 ###### Note
 

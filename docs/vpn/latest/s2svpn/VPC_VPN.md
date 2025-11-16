@@ -40,6 +40,10 @@ for high availability.
 - **Transit gateway**: A transit hub that can be
   used to interconnect multiple VPCs and on-premises networks, and as a VPN endpoint for the Amazon side of the
   Site-to-Site VPN connection.
+- **Large Bandwidth Tunnel** : A tunnel
+  configuration that supports up to 5 Gbps bandwidth per tunnel, compared to the
+  standard 1.25 Gbps. Available for VPN connections attached to Transit Gateway or
+  Cloud WAN.
 
 ## Site-to-Site VPN features
 
