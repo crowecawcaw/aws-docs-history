@@ -1,288 +1,109 @@
-# Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment
+# Deploying applications to Elastic Beanstalk environments
 
-This topic explains the types of instance logs that Elastic Beanstalk provides. It also provides detailed instructions for retreiveing and managing them.
+You can use the AWS Elastic Beanstalk console to upload an updated [source bundle](applications-sourcebundle.md "applications-sourcebundle.md") and deploy it to your Elastic Beanstalk
+environment, or redeploy a previously uploaded version.
 
-The Amazon EC2 instances in your Elastic Beanstalk environment generate logs that you can view to troubleshoot issues with your application or configuration files. Logs
-created by the web server, application server, Elastic Beanstalk platform scripts, and AWS CloudFormation are stored locally on individual instances. You can easily retrieve them by
-using the [environment management console](environments-console.md "environments-console.md") or the EB CLI. You can also configure your environment to stream logs
-to Amazon CloudWatch Logs in real time.
+Each deployment is identified by a deployment ID. Deployment IDs start at `1` and increment by one with each deployment and instance
+configuration change. If you enable [enhanced health reporting](health-enhanced.md "health-enhanced.md"), Elastic Beanstalk displays the deployment ID in both the [health console](health-enhanced-console.md "health-enhanced-console.md") and the [EB CLI](health-enhanced-ebcli.md "health-enhanced-ebcli.md") when it reports instance health
+status. The deployment ID helps you determine the state of your environment when a rolling update fails.
 
-Tail logs are the last 100 lines of the most commonly used log files—Elastic Beanstalk operational logs and logs from the web server or application server.
-When you request tail logs in the environment management console or with **eb logs**, an instance in your environment concatenates the most recent
-log entries into a single text file and uploads it to Amazon S3.
+Elastic Beanstalk provides several deployment policies and settings. For details about configuring a policy and additional settings, see [Deployment policies and settings](using-features.md "using-features.md"). The following table lists the policies and the kinds of environments that support them.
 
-Bundle logs are full logs for a wider range of log files, including logs from yum and cron and several logs from AWS CloudFormation. When you request bundle logs, an
-instance in your environment packages the full log files into a ZIP archive and uploads it to Amazon S3.
+| Supported deployment policies    | Deployment policy               | Load-balanced environments | Single-instance environments | Legacy Windows Server environments† |
+| -------------------------------- | ------------------------------- | -------------------------- | ---------------------------- | ----------------------------------- |
+| All at once                      | Yes                             | Yes                        | Yes                          |
+| Rolling                          | Yes                             | No                         | Yes                          |
+| Rolling with an additional batch | Yes                             | No                         | No                           |
+| Immutable                        | Yes                             | Yes                        | No                           |
+| Traffic splitting                | Yes (Application Load Balancer) | No                         | No                           |
 
-To upload rotated logs to Amazon S3, the instances in your environment must have an [instance profile](concepts-roles-instance.md "concepts-roles-instance.md") with permission to write to your
-Elastic Beanstalk Amazon S3 bucket. These permissions are included in the default instance profile that Elastic Beanstalk
-prompts you to create when you launch an environment in the Elastic Beanstalk console for the first
-time.
+† In this table, a _Legacy Windows Server environment_ is an environment based on a [Windows Server platform configuration](../platforms/platforms-supported.md#platforms-supported.net "../platforms/platforms-supported.md#platforms-supported.net") that uses an IIS version earlier
+than IIS 8.5.
 
-###### To retrieve instance logs
+###### Warning
+
+Some policies replace all instances during the deployment or update. This causes all accumulated [Amazon EC2 burst balances](../../../AWSEC2/latest/DeveloperGuide/burstable-performance-instances.md "../../../AWSEC2/latest/DeveloperGuide/burstable-performance-instances.md") to be lost. It happens in the following cases:
+
+- Managed platform updates with instance replacement enabled
+- Immutable updates
+- Deployments with immutable updates or traffic splitting enabled
+
+## Choosing a deployment policy
+
+Choosing the right deployment policy for your application is a tradeoff of a few considerations, and depends on your particular needs. The [Deployment policies and settings](using-features.md "using-features.md") page has more information about each policy, and a detailed description of the workings of some of
+them.
+
+The following list provides summary information about the different deployment policies and adds related considerations.
+
+- All at once – The quickest deployment method. Suitable if you can accept a short loss of service, and if
+  quick deployments are important to you. With this method, Elastic Beanstalk deploys the new application version to each instance. Then, the web proxy or
+  application server might need to restart. As a result, your application might be unavailable to users (or have low availability) for a short
+  time.
+- Rolling – Avoids downtime and minimizes reduced availability, at a cost of a longer deployment time.
+  Suitable if you can't accept any period of completely lost service. With this method, your application is deployed to your environment one batch of
+  instances at a time. Most bandwidth is retained throughout the deployment.
+- Rolling with additional batch – Avoids any reduced availability, at a cost of an even longer deployment time
+  compared to the _Rolling_ method. Suitable if you must maintain the same bandwidth throughout the deployment. With this method,
+  Elastic Beanstalk launches an extra batch of instances, then performs a rolling deployment. Launching the extra batch takes time, and ensures that the same
+  bandwidth is retained throughout the deployment.
+- Immutable – A slower deployment method, that ensures your new application version is always deployed to new
+  instances, instead of updating existing instances. It also has the additional advantage of a quick and safe rollback in case the deployment fails.
+  With this method, Elastic Beanstalk performs an [immutable update](environmentmgmt-updates-immutable.md "environmentmgmt-updates-immutable.md") to deploy your application. In an
+  immutable update, a second Auto Scaling group is launched in your environment and the new version serves traffic alongside the old version until the new
+  instances pass health checks.
+- Traffic splitting – A canary testing deployment method. Suitable if you want to test the health of your new
+  application version using a portion of incoming traffic, while keeping the rest of the traffic served by the old application version.
+
+The following table compares deployment method properties.
+
+| Deployment methods               | **Method**                                                                                         | **Impact of failed deployment**                                                                                                                                                                                                                                                                                                                                                        | **Deploy time** | **Zero downtime** | **No DNS change**                           | **Rollback process**       | **Code deployed to** |
+| -------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------- | ------------------------------------------- | -------------------------- | -------------------- |
+| All at once                      | Downtime                                                                                           | Circular icon with a clock face, indicating time-related functionality or waiting period.                                                                                                                                                                                                                                                                                              | No              | Yes               | Manual redeploy                             | Existing instances         |
+| Rolling                          | Single batch out of service; any successful batches before failure running new application version | Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>†                                                                                                                                                                                            | Yes             | Yes               | Manual redeploy                             | Existing instances         |
+| Rolling with an additional batch | Minimal if first batch fails; otherwise, similar to **Rolling**                                    | Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>†                                                                                               | Yes             | Yes               | Manual redeploy                             | New and existing instances |
+| Immutable                        | Minimal                                                                                            | Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.       | Yes             | Yes               | Terminate new instances                     | New instances              |
+| Traffic splitting                | Percentage of client traffic routed to new version temporarily impacted                            | Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>†† | Yes             | Yes               | Reroute traffic and terminate new instances | New instances              |
+| Blue/green                       | Minimal                                                                                            | Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.<br>Circular icon with a clock face, indicating time-related functionality or waiting period.       | Yes             | No                | Swap URL                                    | New instances              |
+
+† _Varies depending on batch size._
+
+†† _Varies depending on **evaluation time** option setting._
+
+## Deploying a new application version
+
+You can perform deployments from your environment's dashboard.
+
+###### To deploy a new application version to an Elastic Beanstalk environment
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
-3. In the navigation pane, choose **Logs**.
-4. Choose **Request Logs**, and then choose the type of logs to retrieve. To get tail logs, choose **Last 100
-   Lines**. To get bundle logs, choose **Full Logs**.
-5. When Elastic Beanstalk finishes retrieving your logs, choose **Download**.
-   Elastic Beanstalk stores tail and bundle logs in an Amazon S3 bucket, and generates a presigned Amazon S3 URL that you can use to access your logs. Elastic Beanstalk deletes the files
-   from Amazon S3 after a duration of 15 minutes.
+3. Choose **Upload and deploy**.
+4. Use the on-screen form to upload the application source bundle.
+5. Choose **Deploy**.
 
-###### Warning
+## Redeploying a previous version
 
-Anyone in possession of the presigned Amazon S3 URL can access the files before they are deleted. Make the URL available only to trusted parties.
+You can also deploy a previously uploaded version of your application to any of its environments from the application versions page.
 
-###### Note
+###### To deploy an existing application version to an existing environment
 
-Your user policy must have the `s3:DeleteObject` permission. Elastic Beanstalk uses your user permissions to delete the logs from Amazon S3.
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Applications**, and then choose your application's name from the list.
+3. In the navigation pane, find your application's name and choose **Application versions**.
+4. Select the application version to deploy.
+5. Choose **Actions**, and then choose **Deploy**.
+6. Select an environment, and then choose **Deploy**.
 
-To persist logs, you can configure your environment to publish logs to Amazon S3 automatically after they are rotated. To enable log rotation to Amazon S3, follow
-the procedure in [Configuring instance log viewing](environments-cfg-logging.md#environments-cfg-logging-console "environments-cfg-logging.md#environments-cfg-logging-console"). Instances in your environment will
-attempt to upload logs that have been rotated once per hour.
+## Other ways to deploy your application
 
-If your application generates logs in a location that isn't part of the default configuration for your environment's platform, you can extend the
-default configuration by using configuration files (`.ebextensions`). You can add your application's
-log files to tail logs, bundle logs, or log rotation.
+If you deploy often, consider using the [Elastic Beanstalk Command Line Interface](eb-cli3.md "eb-cli3.md") (EB CLI) to manage your environments. The EB CLI
+creates a repository alongside your source code. It can also create a source bundle, upload it to Elastic Beanstalk, and deploy it with a single command.
 
-For real-time log streaming and long-term storage, configure your environment to [stream logs to
-Amazon CloudWatch Logs](#health-logs-cloudwatchlogs "#health-logs-cloudwatchlogs").
+For deployments that depend on resource configuration changes or a new version that can't run alongside the old version, you can launch a new
+environment with the new version and perform a CNAME swap for a [blue/green deployment](using-features.md "using-features.md").
 
-###### Sections
-
-- [Log location on Amazon EC2 instances](#health-logs-instancelocation "#health-logs-instancelocation")
-- [Log location in Amazon S3](#health-logs-s3location "#health-logs-s3location")
-- [Log rotation settings on Linux](#health-logs-logrotate "#health-logs-logrotate")
-- [Extending the default log task configuration](#health-logs-extend "#health-logs-extend")
-- [Streaming log files to Amazon CloudWatch Logs](#health-logs-cloudwatchlogs "#health-logs-cloudwatchlogs")
-
-## Log location on Amazon EC2 instances
-
-Logs are stored in standard locations on the Amazon EC2 instances in your environment. Elastic Beanstalk generates the following logs.
-
-**Amazon Linux 2**
-
-- `/var/log/eb-engine.log`
-
-**Amazon Linux AMI (AL1)**
-
-###### Note
-
-On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
-Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
-
-- `/var/log/eb-activity.log`
-- `/var/log/eb-commandprocessor.log`
-
-**Windows Server**
-
-- `C:\Program Files\Amazon\ElasticBeanstalk\logs\`
-- `C:\cfn\log\cfn-init.log`
-
-These logs contain messages about deployment activities, including messages related to configuration files ([.ebextensions](ebextensions.md "ebextensions.md")).
-
-Each application and web server stores logs in its own folder:
-
-- **Apache** – `/var/log/httpd/`
-- **IIS** – `C:\inetpub\wwwroot\`
-- **Node.js** – `/var/log/nodejs/`
-- **nginx** – `/var/log/nginx/`
-- **Passenger** – `/var/app/support/logs/`
-- **Puma** – `/var/log/puma/`
-- **Python** – `/opt/python/log/`
-- **Tomcat** – `/var/log/tomcat/`
-
-## Log location in Amazon S3
-
-When you request tail or bundle logs from your environment, or when instances upload rotated logs, they're stored in your Elastic Beanstalk bucket in Amazon S3. Elastic Beanstalk
-creates a bucket named `elasticbeanstalk-`region`-`account-id`` for each AWS Region
- in which you create environments. Within this bucket, logs are stored under the path
- `resources/environments/logs/`logtype`/`environment-id`/`instance-id``.
-
-For example, logs from instance `i-0a1fd158`, in Elastic Beanstalk environment `e-mpcwnwheky` in AWS Region
-`us-west-2` in account `123456789012`, are stored in the following locations:
-
-- **Tail Logs** –
-
-`s3://elasticbeanstalk-us-west-2-123456789012/resources/environments/logs/tail/e-mpcwnwheky/i-0a1fd158`
-
-- **Bundle Logs** –
-
-`s3://elasticbeanstalk-us-west-2-123456789012/resources/environments/logs/bundle/e-mpcwnwheky/i-0a1fd158`
-
-- **Rotated Logs** –
-
-`s3://elasticbeanstalk-us-west-2-123456789012/resources/environments/logs/publish/e-mpcwnwheky/i-0a1fd158`
-
-###### Note
-
-You can find your environment ID in the environment management console.
-
-Elastic Beanstalk deletes tail and bundle logs from Amazon S3 automatically 15 minutes after they are created. Rotated logs persist until you delete them or move them
-to Amazon Glacier.
-
-## Log rotation settings on Linux
-
-On Linux platforms, Elastic Beanstalk uses `logrotate` to rotate logs periodically. If configured, after a log is rotated locally, the log rotation
-task picks it up and uploads it to Amazon S3. Logs that are rotated locally don't appear in tail or bundle logs by default.
-
-You can find Elastic Beanstalk configuration files for `logrotate` in `/etc/logrotate.elasticbeanstalk.hourly/`. These rotation
-settings are specific to the platform, and might change in future versions of the platform. For more information about the available settings and example
-configurations, run `man logrotate`.
-
-The configuration files are invoked by cron jobs in `/etc/cron.hourly/`. For more information about `cron`, run
-`man cron`.
-
-## Extending the default log task configuration
-
-Elastic Beanstalk uses files in subfolders of `/opt/elasticbeanstalk/tasks` (Linux) or `C:\Program
- Files\Amazon\ElasticBeanstalk\config` (Windows Server) on the Amazon EC2 instance to configure tasks for tail logs, bundle logs, and log
-rotation.
-
-**On Amazon Linux:**
-
-- **Tail Logs** –
-
-`/opt/elasticbeanstalk/tasks/taillogs.d/`
-
-- **Bundle Logs** –
-
-`/opt/elasticbeanstalk/tasks/bundlelogs.d/`
-
-- **Rotated Logs** –
-
-`/opt/elasticbeanstalk/tasks/publishlogs.d/`
-
-**On Windows Server:**
-
-- **Tail Logs** –
-
-`c:\Program Files\Amazon\ElasticBeanstalk\config\taillogs.d\`
-
-- **Bundle Logs** –
-
-`c:\Program Files\Amazon\ElasticBeanstalk\config\bundlelogs.d\`
-
-- **Rotated Logs** –
-
-`c:\Program Files\Amazon\ElasticBeanstalk\config\publogs.d\`
-
-For example, the `eb-activity.conf` file on Linux adds two log files to the tail logs task.
-
-**`/opt/elasticbeanstalk/tasks/taillogs.d/eb-activity.conf`**
-
-```
-/var/log/eb-commandprocessor.log
-/var/log/eb-activity.log
-```
-
-You can use environment configuration files (`.ebextensions`) to add your own
-`.conf` files to these folders. A `.conf` file lists log files specific to your application, which Elastic Beanstalk adds to
-the log file tasks.
-
-Use the `files` section to add configuration files to the tasks that you want to modify. For example,
-the following configuration text adds a log configuration file to each instance in your environment. This log configuration file,
-`cloud-init.conf`, adds `/var/log/cloud-init.log` to tail logs.
-
-```
-files:
-  "/opt/elasticbeanstalk/tasks/taillogs.d/cloud-init.conf" :
-    mode: "000755"
-    owner: root
-    group: root
-    content: |
-      /var/log/cloud-init.log
-```
-
-Add this text to a file with the `.config` file name extension to your source bundle under a folder named
-`.ebextensions`.
-
-```
-~/workspace/my-app
-|-- `.ebextensions`
-|   `-- `tail-logs.config`
-|-- index.php
-`-- styles.css
-```
-
-On Linux platforms, you can also use wildcard characters in log task configurations. This configuration file adds all files with the `.log`
-file name extension from the `log` folder in the application root to bundle logs.
-
-```
-files:
-  "/opt/elasticbeanstalk/tasks/bundlelogs.d/applogs.conf" :
-    mode: "000755"
-    owner: root
-    group: root
-    content: |
-      /var/app/current/log/*.log
-```
-
-Log task configurations don't support wildcard characters on Windows platforms.
-
-###### Note
-
-To help familiarize yourself with log customization procedures, you can deploy a sample application using the
-[EB CLI](eb-cli3.md "eb-cli3.md"). For this, the EB CLI creates a local application directory that contains an
-`.ebextentions` subdirectory with a sample configuration.
-You can also use the sample application's log files to explore the log retrieval feature described in this topic.
-
-For more information about using configuration files, see [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md").
-
-Much like extending tail logs and bundle logs, you can extend log rotation using a configuration file. Whenever Elastic Beanstalk rotates its own logs and uploads
-them to Amazon S3, it also rotates and uploads your additional logs. Log rotation extension behaves differently depending on the platform's operating system.
-The following sections describe the two cases.
-
-### Extending log rotation on Linux
-
-As explained in [Log rotation settings on Linux](#health-logs-logrotate "#health-logs-logrotate"), Elastic Beanstalk uses `logrotate` to rotate logs on
-Linux platforms. When you configure your application's log files for log rotation, the application doesn't need to create copies of log files. Elastic Beanstalk
-configures `logrotate` to create a copy of your application's log files for each rotation. Therefore, the application must keep log files
-unlocked when it isn't actively writing to them.
-
-### Extending log rotation on Windows server
-
-On Windows Server, when you configure your application's log files for log rotation, the application must rotate the log files periodically. Elastic Beanstalk
-looks for files with names starting with the pattern you configured, and picks them up for uploading to Amazon S3. In addition, periods in the file name are
-ignored, and Elastic Beanstalk considers the name up to the period to be the base log file name.
-
-Elastic Beanstalk uploads all versions of a base log file except for the newest one, because it considers that one to be the active application log file, which
-can potentially be locked. Your application can, therefore, keep the active log file locked between rotations.
-
-For example, your application writes to a log file named `my_log.log`, and you specify this name in your `.conf` file.
-The application periodically rotates the file. During the Elastic Beanstalk rotation cycle, it finds the following files in the log file's folder:
-`my_log.log`, `my_log.0800.log`, `my_log.0830.log`. Elastic Beanstalk considers all of them to be
-versions of the base name `my_log`. The file `my_log.log` has the latest modification time, so Elastic Beanstalk uploads only
-the other two files, `my_log.0800.log` and `my_log.0830.log`.
-
-## Streaming log files to Amazon CloudWatch Logs
-
-You can configure your environment to stream logs to Amazon CloudWatch Logs in the Elastic Beanstalk console or by using [configuration
-options](command-options.md "command-options.md"). With CloudWatch Logs, each instance in your environment streams logs to log groups that you can configure to be retained for weeks or years, even
-after your environment is terminated.
-
-The set of logs streamed varies per environment, but always includes `eb-engine.log` and access logs from the nginx or Apache proxy
-server that runs in front of your application.
-
-You can configure log streaming in the Elastic Beanstalk console either [during environment creation](environments-create-wizard.md#environments-create-wizard-software "environments-create-wizard.md#environments-create-wizard-software") or
-[for an existing environment](environments-cfg-logging.md#environments-cfg-logging-console "environments-cfg-logging.md#environments-cfg-logging-console"). You can set the following options from the console: enable
-/disable log streaming to CloudWatch Logs, set the number of retention days, and select from Lifecyle options. In the following example, logs are saved for up to
-seven days, even when the environment is terminated.
-
-![Screen image of CloudWatch Logs settings in the Elastic Beanstalk console.](images/log-streaming-screen.png)
-
-The following [configuration file](ebextensions.md "ebextensions.md") enables log streaming with 180 days retention, even if the environment is
-terminated.
-
-###### Example .ebextensions/log-streaming.config
-
-```
-option_settings:
-  aws:elasticbeanstalk:cloudwatch:logs:
-    StreamLogs: true
-    DeleteOnTerminate: false
-    RetentionInDays: 180
-```
+To automate your build, test, and deployment processes, you can implement continuous integration and continuous deployment (CI/CD) with your Elastic Beanstalk environment.
+For more information, see [Implementing CI/CD integration with your Elastic Beanstalk
+environment](deployments.md "deployments.md").

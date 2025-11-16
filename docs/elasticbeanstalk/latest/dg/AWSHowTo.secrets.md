@@ -1,87 +1,38 @@
-# Required IAM permissions for Elastic Beanstalk to access secrets and parameters
+# Troubleshooting secrets integration with Elastic Beanstalk environment variables
 
-You must grant the necessary permissions to your environment’s EC2 instances to fetch the secrets and parameters for AWS Secrets Manager and AWS Systems Manager Parameter
-Store. Permissions are provided to the EC2 instances via an EC2 [instance profile role.](iam-instanceprofile.md "iam-instanceprofile.md")
+###### Try Amazon Q Developer CLI for AI-assisted troubleshooting
 
-The following sections list the specific permissions that you need to add to an EC2 instance profile, depending on which service you use. Follow the
-steps provided in [Update the permissions policy for a
-role](../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md "../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md") in the _IAM User Guide_ to add these permissions.
+Amazon Q Developer CLI can help you troubleshoot environment issues quickly. The Q CLI provides
+solutions by checking environment status, reviewing events, analyzing logs, and asking clarifying questions. For
+more information and detailed walkthroughs, see [Troubleshooting Elastic Beanstalk Environments with Amazon Q Developer CLI](https://aws.amazon.com/blogs/devops/troubleshooting-elastic-beanstalk-environments-with-amazon-q-developer-cli/ "https://aws.amazon.com/blogs/devops/troubleshooting-elastic-beanstalk-environments-with-amazon-q-developer-cli/") in the AWS blogs.
 
-###### IAM permissions for the ECS managed Docker platform
+This section provides guidance for troubleshooting issues with secrets in your Elastic Beanstalk environment.
 
-The ECS managed Docker platform requires additional IAM permissions to the ones provided in this topic. For more information about all of the
-required permissions for your ECS managed Docker platform environment to support Elastic Beanstalk environment variables integration with secrets, see [Execution Role ARN format](create_deploy_docker_v2config.md#create_deploy_docker_v2config_executionRoleArn_format "create_deploy_docker_v2config.md#create_deploy_docker_v2config_executionRoleArn_format").
+**Event:**
+_Instance deployment failed to get one or more secrets_
 
-###### Topics
+This message indicates that Elastic Beanstalk was not able to fetch one or more of the secrets specified during your application deployment.
 
-- [Required IAM permissions for Secrets Manager](#AWSHowTo.secrets.IAM-permissions.secrets-manager "#AWSHowTo.secrets.IAM-permissions.secrets-manager")
-- [Required IAM permissions Systems Manager Parameter Store](#AWSHowTo.secrets.IAM-permissions.ssm-paramter-store "#AWSHowTo.secrets.IAM-permissions.ssm-paramter-store")
+- Check that the resources specified by the ARN values in your environment variable configuration exist.
+- Confirm that your Elastic Beanstalk EC2 instance profile role has the [required IAM
+  permissions](AWSHowTo.secrets.md#AWSHowTo.secrets.IAM-permissions.secrets-manager "AWSHowTo.secrets.md#AWSHowTo.secrets.IAM-permissions.secrets-manager") to access the resources.
+- If this event was triggered through the `RestartAppServer` operation, once the issue is fixed, retry the `RestartAppServer`
+  call to resolve the issue.
+- If the event was triggered through an `UpdateEnvironment` call, retry the `UpdateEnvironment` operation.
+  For examples of these commands, see [_AWS CLI
+  examples for Elastic Beanstalk_](../../../cli/latest/userguide/cli_elastic-beanstalk_code_examples.md "../../../cli/latest/userguide/cli_elastic-beanstalk_code_examples.md"). For more information about the API actions for these operations, see the
+  _[AWS Elastic Beanstalk API Reference](../api.md "../api.md")_.
 
-## Required IAM permissions for Secrets Manager
+**Event:**
+_Instance deployment detected one or more multiline environment values, which are not supported for this platform_
 
-The following permissions grant access to fetch encrypted secrets from the AWS Secrets Manager store:
+Multiline variables are not supported for Amazon Linux 2 platforms, excluding Docker and ECS managed Docker platforms. For available options to proceed, see
+[Multiline values](AWSHowTo.secrets.md#AWSHowTo.secrets.multiline "AWSHowTo.secrets.md#AWSHowTo.secrets.multiline").
 
-- secretsmanager:GetSecretValue
-- kms:Decrypt
+**Event:**
+_CreateEnvironment fails when a secret is specified_
 
-The permission to decrypt an AWS KMS key is only required if your secret uses a customer managed key instead of the default key. The addition of
-your custom key ARN adds the permission to decrypt the customer managed key.
-
-###### Example policy with Secrets Manager and KMS key permissions
-
-JSON
-
-```
-`{
- "Version": "`2012-10-17`",
- "Statement": [
- {
- "Effect": "`Allow`",
- "Action": [
- "`secretsmanager:GetSecretValue`",
- "`kms:Decrypt`"
- ],
- "Resource": [
- "`arn:aws:secretsmanager:us-east-1:`111122223333`:secret:my-secret`",
- "`arn:aws:kms:us-east-1:`111122223333`:key/my-key`"
- ]
- }
- ]
-}`
-
-```
-
-## Required IAM permissions Systems Manager Parameter Store
-
-The following permissions grant access to fetch encrypted parameters from the AWS Systems Manager Parameter Store:
-
-- ssm:GetParameter
-- kms:Decrypt
-
-The permission to decrypt an AWS KMS key is only required for `SecureString` parameter types that uses a customer managed key
-instead of a default key. The addition of your custom key ARN adds the permission to decrypt the customer managed key. The regular parameter types that
-aren't encrypted, `String` and `StringList`, don’t need an AWS KMS key.
-
-###### Example policy with Systems Manager and AWS KMS key permissions
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "`Allow`",
- "Action": [
- "`ssm:GetParameter`",
- "`kms:Decrypt`"
- ],
- "Resource": [
- "`arn:aws:ssm:us-east-1:`111122223333`:parameter/my-parameter`",
- "`arn:aws:kms:us-east-1:`111122223333`:key/my-key`"
- ]
- }
- ]
-}`
-
-```
+When `CreateEnvironment` fails and you have secrets as environment variables, you need to address the underlying issue and then use
+`UpdateEnvironment` to complete the environment setup. Do not use `RestartAppServer`, as it will not be sufficient to bring the
+environment up in this situation. For examples of these commands, see [_AWS CLI examples for Elastic Beanstalk_](../../../cli/latest/userguide/cli_elastic-beanstalk_code_examples.md "../../../cli/latest/userguide/cli_elastic-beanstalk_code_examples.md"). For more information about
+the API actions for these operations, see the _[AWS Elastic Beanstalk API Reference](../api.md "../api.md")_.

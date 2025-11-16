@@ -1,21 +1,23 @@
-# Managing accounts
+# Managing your Elastic Beanstalk application environments
 
-##
+With the AWS Toolkit for Visual Studio and the AWS Management Console, you can change the provisioning and configuration of the AWS resources used by
+your application environments. For information on how to manage your application environments using the AWS Management Console, see [Creating environments in Elastic Beanstalk](using-features.md "using-features.md"). This section discusses the specific service settings you can edit in the AWS
+Toolkit for Visual Studio as part of your application environment configuration.
 
-If you want to set up different AWS accounts to perform different tasks, such as testing,
-staging, and production, you can add, edit, and delete accounts using the AWS Toolkit for
-Visual Studio.
+## Changing environment configurations settings
 
-###### To manage multiple accounts
+When you deploy your application, Elastic Beanstalk configures a number of AWS cloud computing services. You can control how these individual services are
+configured using the AWS Toolkit for Visual Studio.
 
-1. In Visual Studio, on the **View** menu, click **AWS
-   Explorer**.
-2. Beside the **Account** list, click the **Add
-   Account** button.
+###### To edit an application's environment settings
 
-![AWS explorer tab](images/aeb-aws-explorer-tab.png)
+- Expand the Elastic Beanstalk node and your application node. Then right-click your Elastic Beanstalk environment in **AWS Explorer**. Select
+  **View Status**.
 
-The **Add Account** dialog box appears.
+You can now configure settings for the following:
 
-![Add account dialog box](images/aeb-vs-add-account.png) 3. Fill in the requested information. 4. Your account information now appears on the **AWS Explorer** tab.
-When you publish to Elastic Beanstalk, you can select which account you would like to use.
+    + Server
+    + Load balancing
+    + Autoscaling
+    + Notifications
+    + Environment properties

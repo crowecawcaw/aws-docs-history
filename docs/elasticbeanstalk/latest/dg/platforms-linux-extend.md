@@ -1,174 +1,72 @@
-# Reverse proxy configuration
+# Buildfile and Procfile
 
-All Amazon Linux 2 and Amazon Linux 2023 platform versions use nginx as their default reverse proxy server. The Tomcat, Node.js, PHP, and Python platform also
-support Apache HTTPD as an alternative. To select Apache on these platforms, set the `ProxyServer` option in the
-`aws:elasticbeanstalk:environment:proxy` namespace to `apache`. All platforms enable proxy server configuration in a uniform way,
-as described in this section.
+Some platforms allow you to customize how you build or prepare your application, and to specify the processes that run your application. Each
+individual platform topic specifically mentions _Buildfile_ and/or _Procfile_ if the platform supports them. Look
+for your specific platform under [Elastic Beanstalk platforms](concepts-all-platforms.md "concepts-all-platforms.md").
 
-###### Note
+For all supporting platforms, syntax and semantics are identical, and are as described on this page. Individual platform topics mention specific usage
+of these files for building and running applications in their respective languages.
 
-On Amazon Linux AMI platform versions (preceding Amazon Linux 2) you might have to configure proxy servers differently. You can find these legacy details under the
-[respective platform topics](concepts-all-platforms.md "concepts-all-platforms.md") in this guide.
+## Buildfile
 
-Elastic Beanstalk configures the proxy server on your environment's instances to forward web traffic to the main web application on the root URL of the
-environment; for example, `http://my-env.elasticbeanstalk.com`.
-
-By default, Elastic Beanstalk configures the proxy to forward requests coming in on port 80 to your main web application on port 5000. You can configure this port
-number by setting the `PORT` environment property using the [aws:elasticbeanstalk:application:environment](command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment "command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment") namespace in a configuration file, as shown in the following example.
+To specify a custom build and configuration command for your application, place a file named `Buildfile` in the root directory of
+your application source. The file name is case sensitive. Use the following syntax for your `Buildfile`.
 
 ```
-option_settings:
-  - namespace:  aws:elasticbeanstalk:application:environment
-    option_name:  PORT
-    value:  `<main_port_number>`
+`<process_name>`: `<command>`
 ```
 
-For more information about setting environment variables for your application, see [Option settings](ebextensions-optionsettings.md "ebextensions-optionsettings.md").
+The command in your `Buildfile` must match the following regular expression: `^[A-Za-z0-9_-]+:\s*[^\s].*$`
 
-Your application should listen on the port that is configured for it in the proxy. If you change the default port using the `PORT`
-environment property, your code can access it by reading the value of the `PORT` environment variable. For example, call
-`os.Getenv("PORT")` in Go, or `System.getenv("PORT")` in Java. If you configure your proxy to send traffic to multiple application
-processes, you can configure several environment properties, and use their values in both proxy configuration and your application code. Another option is
-to pass the port value to the process as a command argument in the `Procfile`. For more information see [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md").
+Elastic Beanstalk doesn't monitor the application that is run with a `Buildfile`. Use a `Buildfile` for commands that run
+for short periods and terminate after completing their tasks. For long-running application processes that should not exit, use a [Procfile](#platforms-linux-extend.proc "#platforms-linux-extend.proc").
 
-## Configuring nginx
+All paths in the `Buildfile` are relative to the root of the source bundle. In the following example of a
+`Buildfile`, `build.sh` is a shell script located at the root of the source bundle.
 
-Elastic Beanstalk uses nginx as the default reverse proxy to map your application to your Elastic Load Balancing load balancer. Elastic Beanstalk provides a default nginx configuration
-that you can extend or override completely with your own configuration.
-
-###### Note
-
-When you add or edit an nginx `.conf` configuration file, be sure to encode it as UTF-8.
-
-To extend the Elastic Beanstalk default nginx configuration, add `.conf` configuration files to a folder named
-`.platform/nginx/conf.d/` in your application source bundle. The Elastic Beanstalk nginx configuration includes `.conf`
-files in this folder automatically.
+###### Example Buildfile
 
 ```
-~/workspace/my-app/
-|-- .platform
-|   `-- nginx
-|       `-- conf.d
-|           `-- myconf.conf
-`-- `other source files`
+make: ./build.sh
 ```
 
-Configuration files in `.platform/nginx/conf.d/` are included in the `http` block of the nginx configuration. Use this
-location for configurations that apply globally.
+If you want to provide custom build steps, we recommend that you use `predeploy` platform hooks for anything but the simplest
+commands, instead of a `Buildfile`. Platform hooks allow richer scripts and better error handling. Platform hooks are described in
+the next section.
 
-To extend the default nginx `server` block configuration, add `.conf` configuration files to a folder named
-`.platform/nginx/conf.d/elasticbeanstalk/` in your application source bundle. The Elastic Beanstalk nginx configuration includes
-`.conf` files in this folder within the `server` block.
+## Procfile
 
-```
-~/workspace/my-app/
-|-- .platform
-|   `-- nginx
-|       `-- conf.d
-|           `-- elasticbeanstalk
-|               `-- server.conf
-`-- `other source files`
-```
-
-Use this location to add server-specific configurations, such as additional location blocks, custom error pages, or server-level directives. The
-following example adds a custom location block.
-
-###### Example .platform/nginx/conf.d/elasticbeanstalk/server.conf
+To specify custom commands to start and run your application, place a file named `Procfile` in the root directory of your
+application source. The file name is case sensitive. Use the following syntax for your `Procfile`. You can specify one or more
+commands.
 
 ```
-location /test {
-    return 200 "Hello World!";
-    add_header Content-Type text/plain;
-}
+`<process_name1>`: `<command1>`
+`<process_name2>`: `<command2>`
+...
 ```
 
-To override the Elastic Beanstalk default nginx configuration completely, include a configuration in your source bundle at
-`.platform/nginx/nginx.conf`:
+Each line in your `Procfile` must match the following regular expression: `^[A-Za-z0-9_-]+:\s*[^\s].*$`
+
+Use a `Procfile` for long-running application processes that shouldn't exit. Elastic Beanstalk expects processes run from the
+`Procfile` to run continuously. Elastic Beanstalk monitors these processes and restarts any process that terminates. For short-running
+processes, use a [Buildfile](#platforms-linux-extend.build "#platforms-linux-extend.build").
+
+All paths in the `Procfile` are relative to the root of the source bundle. The following example `Procfile`
+defines three processes. The first one, called `web` in the example, is the _main web application_.
+
+###### Example Procfile
 
 ```
-~/workspace/my-app/
-|-- .platform
-|   `-- nginx
-|       `-- nginx.conf
-`-- `other source files`
+web: `bin/myserver`
+cache: `bin/mycache`
+foo: `bin/fooapp`
 ```
 
-If you override the Elastic Beanstalk nginx configuration, add the following line to your `nginx.conf` to pull in the Elastic Beanstalk configurations
-for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md"), automatic application mappings, and static files.
+Elastic Beanstalk configures the proxy server to forward requests to your main web application on port 5000, and you can configure this port number. A common
+use for a `Procfile` is to pass this port number to your application as a command argument. For details about proxy configuration,
+see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md").
 
-```
- include conf.d/elasticbeanstalk/*.conf;
-```
-
-## Configuring Apache HTTPD
-
-The Tomcat, Node.js, PHP, and Python platforms allow you to choose the Apache HTTPD proxy server as an alternative to nginx. This isn't the default.
-The following example configures Elastic Beanstalk to use Apache HTTPD.
-
-###### Example .ebextensions/httpd-proxy.config
-
-```
-option_settings:
-  aws:elasticbeanstalk:environment:proxy:
-    ProxyServer: apache
-```
-
-You can extend the Elastic Beanstalk default Apache configuration with your additional configuration files. Alternatively, you can override the Elastic Beanstalk default
-Apache configuration completely.
-
-To extend the Elastic Beanstalk default Apache configuration, add `.conf` configuration files to a folder named
-`.platform/httpd/conf.d` in your application source bundle. The Elastic Beanstalk Apache configuration includes `.conf`
-files in this folder automatically.
-
-```
-~/workspace/my-app/
-|-- .ebextensions
-|   -- httpd-proxy.config
-|-- .platform
-|   -- httpd
-|      -- conf.d
-|         -- port5000.conf
-|         -- ssl.conf
--- index.jsp
-```
-
-For example, the following Apache 2.4 configuration adds a listener on port 5000.
-
-###### Example .platform/httpd/conf.d/port5000.conf
-
-```
-listen 5000
-<VirtualHost *:5000>
-  <Proxy *>
-    Require all granted
-  </Proxy>
-  ProxyPass / http://localhost:8080/ retry=0
-  ProxyPassReverse / http://localhost:8080/
-  ProxyPreserveHost on
-
-  ErrorLog /var/log/httpd/elasticbeanstalk-error_log
-</VirtualHost>
-```
-
-To override the Elastic Beanstalk default Apache configuration completely, include a configuration in your source bundle at
-`.platform/httpd/conf/httpd.conf`.
-
-```
-~/workspace/my-app/
-|-- .ebextensions
-|   -- httpd-proxy.config
-|-- .platform
-|   `-- httpd
-|       `-- conf
-|           `-- httpd.conf
-`-- index.jsp
-```
-
-###### Note
-
-If you override the Elastic Beanstalk Apache configuration, add the following lines to your `httpd.conf` to pull in the Elastic Beanstalk
-configurations for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md"), automatic application mappings, and static files.
-
-```
-IncludeOptional conf.d/elasticbeanstalk/*.conf
-```
+Elastic Beanstalk captures standard output and error streams from `Procfile` processes in log files. Elastic Beanstalk names the log files after the
+process and stores them in `/var/log`. For example, the `web` process in the preceding example generates logs named
+`web-1.log` and `web-1.error.log` for `stdout` and `stderr`, respectively.

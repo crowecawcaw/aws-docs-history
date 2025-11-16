@@ -1,22 +1,38 @@
-# Using Elastic Beanstalk with Amazon DynamoDB
+# Using Elastic Beanstalk with other AWS services
 
-Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. If you are a developer,
-you can use DynamoDB to create a database table that can store and retrieve any amount of data, and serve any level of request traffic. DynamoDB automatically
-spreads the data and traffic for the table over a sufficient number of servers to handle the request capacity specified by the customer and the amount of
-data stored, while maintaining consistent and fast performance. All data items are stored on solid state drives (SSDs) and are automatically replicated
-across multiple Availability Zones in an AWS Region to provide built-in high availability and data durability.
+The topics in this section describe the many ways you can use additional AWS services with your Elastic Beanstalk application. To implement your application's
+environments, Elastic Beanstalk manages resources of other AWS services or uses their functionality. In addition, Elastic Beanstalk integrates with AWS services that it doesn't
+use directly as part of your environments.
 
-If you use [periodic tasks](using-features-managing-env-tiers.md#worker-periodictasks "using-features-managing-env-tiers.md#worker-periodictasks") in a worker
-environment, Elastic Beanstalk creates a DynamoDB table and uses it to perform leader election and store
-information about the task. Each instance in the environment attempts to write to the table
-every few seconds to become leader and perform the task when scheduled.
+###### Topics
 
-You can use [configuration files](ebextensions.md "ebextensions.md") to create a DynamoDB table for your application. See [eb-node-express-sample](https://github.com/awslabs/eb-node-express-sample "https://github.com/awslabs/eb-node-express-sample") on GitHub for a sample Node.js application that creates a table
-with a configuration file and connects to it with the AWS SDK for JavaScript in Node.js. For an example walkthrough using DynamoDB with PHP, see [Example: DynamoDB, CloudWatch, and
-SNS](customize-environment-resources-dynamodb.md "customize-environment-resources-dynamodb.md"). For an example that uses the AWS SDK for Java,
-see [Manage Tomcat Session State with DynamoDB](../../../sdk-for-java/latest/developer-guide/java-dg-tomcat-session-manager.md "../../../sdk-for-java/latest/developer-guide/java-dg-tomcat-session-manager.md") in the AWS SDK for Java documentation.
+- [Architectural overview](#AWSHowTo.architecture "#AWSHowTo.architecture")
+- [Using Elastic Beanstalk with Amazon CloudFront](AWSHowTo.md "AWSHowTo.md")
+- [Logging Elastic Beanstalk API calls with AWS CloudTrail](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon CloudWatch Logs](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon EventBridge](AWSHowTo.md "AWSHowTo.md")
+- [Finding and tracking Elastic Beanstalk resources with AWS Config](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon DynamoDB](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon ElastiCache](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon Elastic File System](services-efs.md "services-efs.md")
+- [Using Elastic Beanstalk with AWS Identity and Access Management](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon S3](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with AWS Secrets Manager and AWS Systems Manager Parameter Store](AWSHowTo.md "AWSHowTo.md")
+- [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md")
 
-When you create a DynamoDB table using configuration files, the table isn't tied to your environment's lifecycle, and isn't deleted when you terminate your
-environment. To ensure that personal information isn't unnecessarily retained, delete any records that you don't need anymore, or delete the table.
+## Architectural overview
 
-For more information about DynamoDB, see the [DynamoDB Developer Guide](../../../amazondynamodb/latest/developerguide.md "../../../amazondynamodb/latest/developerguide.md").
+The following diagram illustrates an example architecture of Elastic Beanstalk across multiple Availability Zones working with other AWS products such as
+Amazon CloudFront, Amazon Simple Storage Service (Amazon S3), and Amazon Relational Database Service (Amazon RDS).
+
+![Architecture diagram of Elastic Beanstalk working with other AWS products across multiple Availability Zones.](images/aeb-architecture_crossaws2.png)
+
+To plan for fault-tolerance, it is advisable to have N+1 Amazon EC2 instances and spread your instances across multiple Availability Zones. In the unlikely
+case that one Availability Zone goes down, you will still have your other Amazon EC2 instances running in another Availability Zone. You can adjust Amazon EC2 Auto Scaling to
+allow for a minimum number of instances as well as multiple Availability Zones. For instructions on how to do this, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md"). For more information about building fault-tolerant applications, go
+to [Building Fault-Tolerant Applications on AWS](http://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf "http://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf").
+
+The following sections discuss in more detail integration with Amazon CloudFront, Amazon CloudWatch, Amazon DynamoDB Amazon ElastiCache, Amazon RDS, Amazon Route 53, Amazon Simple Storage Service, Amazon VPC , and
+IAM.
