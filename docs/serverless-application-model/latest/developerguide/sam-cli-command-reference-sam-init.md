@@ -39,10 +39,10 @@ The default option is `--no-application-insights`.
 The instruction set architecture for your application's Lambda functions. Specify
 one of `x86_64` or `arm64`.
 
-`--base-image `[ amazon/dotnet8-base | amazon/dotnet6-base |
+`--base-image `[ amazon/dotnet8-base | amazon/dotnet6-base | amazon/java25-base |
 amazon/java21-base | amazon/java17-base | amazon/java11-base |
 amazon/nodejs22.x-base | amazon/nodejs20.x-base | amazon/nodejs18.x-base
-| amazon/nodejs16.x-base | amazon/python3.13-base |
+| amazon/nodejs16.x-base | amazon/python3.14-base | amazon/python3.13-base |
 amazon/python3.12-base | amazon/python3.11-base | amazon/python3.10-base
 | amazon/python3.9-base | amazon/python3.8-base | amazon/ruby3.4-base |
 amazon/ruby3.3-base | amazon/ruby3.2-base ]``

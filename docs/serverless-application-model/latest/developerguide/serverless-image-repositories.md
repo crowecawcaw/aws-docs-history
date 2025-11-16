@@ -42,6 +42,7 @@ an earlier version of the AWS SAM CLI, we recommend that you upgrade.
 | Custom runtime (AL2023) | [public.ecr.aws/sam/build-provided.al2023](https://gallery.ecr.aws/sam/build-provided.al2023 "https://gallery.ecr.aws/sam/build-provided.al2023") |
 | Custom runtime (AL2)    | [public.ecr.aws/sam/build-provided.al2](https://gallery.ecr.aws/sam/build-provided.al2 "https://gallery.ecr.aws/sam/build-provided.al2")          |
 | Custom runtime          | [public.ecr.aws/sam/build-provided](https://gallery.ecr.aws/sam/build-provided "https://gallery.ecr.aws/sam/build-provided")                      |
+| Java 25                 | [public.ecr.aws/sam/build-java25](https://gallery.ecr.aws/sam/build-java25 "https://gallery.ecr.aws/sam/build-java25")                            |
 | Java 21                 | [public.ecr.aws/sam/build-java21](https://gallery.ecr.aws/sam/build-java21 "https://gallery.ecr.aws/sam/build-java21")                            |
 | Java 17                 | [public.ecr.aws/sam/build-java17](https://gallery.ecr.aws/sam/build-java17 "https://gallery.ecr.aws/sam/build-java17")                            |
 | Java 11                 | [public.ecr.aws/sam/build-java11](https://gallery.ecr.aws/sam/build-java11 "https://gallery.ecr.aws/sam/build-java11")                            |
@@ -54,6 +55,7 @@ an earlier version of the AWS SAM CLI, we recommend that you upgrade.
 | Node.js 20              | [public.ecr.aws/sam/build-nodejs20.x](https://gallery.ecr.aws/sam/build-nodejs20.x "https://gallery.ecr.aws/sam/build-nodejs20.x")                |
 | Node.js 18              | [public.ecr.aws/sam/build-nodejs18.x](https://gallery.ecr.aws/sam/build-nodejs18.x "https://gallery.ecr.aws/sam/build-nodejs18.x")                |
 | Node.js 16              | [public.ecr.aws/sam/build-nodejs16.x](https://gallery.ecr.aws/sam/build-nodejs16.x "https://gallery.ecr.aws/sam/build-nodejs16.x")                |
+| Python 3.14             | [public.ecr.aws/sam/build-python3.14](https://gallery.ecr.aws/sam/build-python3.14 "https://gallery.ecr.aws/sam/build-python3.14")                |
 | Python 3.13             | [public.ecr.aws/sam/build-python3.13](https://gallery.ecr.aws/sam/build-python3.13 "https://gallery.ecr.aws/sam/build-python3.13")                |
 | Python 3.12             | [public.ecr.aws/sam/build-python3.12](https://gallery.ecr.aws/sam/build-python3.12 "https://gallery.ecr.aws/sam/build-python3.12")                |
 | Python 3.11             | [public.ecr.aws/sam/build-python3.11](https://gallery.ecr.aws/sam/build-python3.11 "https://gallery.ecr.aws/sam/build-python3.11")                |
