@@ -33,16 +33,15 @@ access to.
   may be your account or an account that has delegated CA management permissions
   to you.
 - **Key algorithm** – The public key algorithm supported
-  by the CA. Possible values are **RSA_2048**, **RSA_3072**,
-  **RSA_4096**, **EC_prime256v1**, **EC_secp384r1**, and
-  **EC_secp521r1**.
+  by the CA. Possible values are **ML_DSA_44**, **ML_DSA_65**, **ML_DSA_87**,
+  **RSA_2048**, **RSA_3072**, **RSA_4096**,
+  **EC_prime256v1**, **EC_secp384r1**, and **EC_secp521r1**.
 - **Signing algorithm** – The algorithm that the CA uses
   to sign certificate requests. (Not to be confused with the
   `SigningAlgorithm` parameter used to sign certificates when they
-  are issued.) Possible values are **SHA256WITHECDSA**,
-  **SHA384WITHECDSA**, **SHA512WITHECDSA**,
-  **SHA256WITHRSA**, **SHA384WITHRSA**, and
-  **SHA512WITHRSA**.
+  are issued.) Possible values are **ML_DSA_44**, **ML_DSA_65**, **ML_DSA_87**,
+  **SHA256WITHRSA**, **SHA384WITHRSA**, **SHA512WITHRSA**,
+  **SHA256WITHECDSA**, **SHA384WITHECDSA**, and **SHA512WITHECDSA**.
 
 ###### Note
 

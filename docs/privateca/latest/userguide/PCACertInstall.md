@@ -19,14 +19,14 @@ Signing algorithm support for CA certificates depends on the signing algorithm o
 the parent CA and on the AWS Region. The following constraints apply to both
 console and AWS CLI operations.
 
-- A parent CA with the RSA signing algorithm can issue certificates with the
-  following algorithms:
+- A parent CA with the RSA key algorithm can issue certificates with the
+  following signing algorithms:
   - SHA256 RSA
   - SHA384 RSA
   - SHA512 RSA
 
-- In a legacy AWS Region, a parent CA with the EDCSA signing algorithm can
-  issue certificates with the following algorithms:
+- In a legacy AWS Region, a parent CA with the EDCSA key algorithm can
+  issue certificates with the following signing algorithms:
 
       + SHA256 ECDSA
       + SHA384 ECDSA

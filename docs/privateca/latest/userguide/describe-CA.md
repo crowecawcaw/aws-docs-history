@@ -93,15 +93,14 @@ CAs, see [Update a private CA in AWS Private Certificate Authority](PCAUpdateCA.
          **General-purpose**.
         * **Key
          algorithm** – The public key algorithm supported by
-         the CA. Possible values are **RSA 2048**, **RSA 3072**, **RSA
-         4096**, **ECDSA P256**, **ECDSA P384**, and **ECDSA P521**.
+         the CA. Possible values are **ML-DSA-44**, **ML-DSA-65**, **ML-DSA-87**, **RSA 2048**, **RSA 3072**,
+         **RSA 4096**, **ECDSA P256**, **ECDSA P384**, and **ECDSA P521**.
         * **Signing
          algorithm** – The algorithm that the CA uses to sign its own Certificate Signing Request, CRLs, and OCSP responses (Not to be confused with the
-         `SigningAlgorithm` parameter used in the IssueCertificate API.) Possible values are **SHA256
-         ECDSA**, **SHA384 ECDSA**,
-         **SHA512 ECDSA**, **SHA256 RSA**,
-         **SHA384 RSA**, and **SHA512
-         RSA**
+         `SigningAlgorithm` parameter used in the IssueCertificate API.) Possible values are
+         **ML-DSA-44**, **ML-DSA-65**, **ML-DSA-87**,
+         **SHA256 RSA**, **SHA384 RSA**, and **SHA512 RSA**,
+         **SHA256 ECDSA**, **SHA384 ECDSA**, **SHA512 ECDSA**
         * **Key storage security standard** – Level of Federal Information
          Processing Standards (FIPS) conformance. You can choose from these values: **FIPS 140-2
          level 2 or higher**, **FIPS 140-2 level 3 or higher**, and

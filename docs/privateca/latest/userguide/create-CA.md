@@ -97,9 +97,11 @@ you provide for a private CA is probably more sparse than what a public CA would
 contain. For more information about each of the values that make up a subject
 distinguished name, see [RFC
 5280](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4 "https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4"). 5. Under **Key algorithm options**, choose the key algorithm and
-the bit-size of the key. The default value is an RSA algorithm with a 2048-bit
-key length. You can choose from the following algorithms:
+the algorithm strength. The default value is RSA 2048. You can choose from the following algorithms:
 
+    * ML-DSA-44
+    * ML-DSA-65
+    * ML-DSA-87
     * RSA 2048
     * RSA 3072
     * RSA 4096

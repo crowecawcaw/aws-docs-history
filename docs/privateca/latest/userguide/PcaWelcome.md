@@ -56,9 +56,9 @@ certificate from ACM, you can install the certificate anywhere you want.
 AWS Private CA supports the following cryptographic algorithms for private key generation
 and certificate signing.
 
-| Supported algorithm                                                                                           | Private key algorithms                                                                         | Signing algorithms |
-| ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------ |
-| RSA_2048<br>RSA_3072<br>RSA_4096<br>EC_prime256v1<br>EC_secp384r1<br>EC_secp521r1<br>SM2 (China Regions only) | SHA256WITHECDSASHA384WITHECDSASHA512WITHECDSASHA256WITHRSASHA384WITHRSASHA512WITHRSASM3WITHSM2 |
+| Supported algorithm                                                                                                                                  | Private key algorithms                                                                                                            | Signing algorithms |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| ML_DSA_44<br>ML_DSA_65<br>ML_DSA_87<br>RSA_2048<br>RSA_3072<br>RSA_4096<br>EC_prime256v1<br>EC_secp384r1<br>EC_secp521r1<br>SM2 (China Regions only) | ML_DSA_44ML_DSA_65ML_DSA_87<br>SHA256WITHRSASHA384WITHRSASHA512WITHRSASHA256WITHECDSA<br>SHA384WITHECDSASHA512WITHECDSASM3WITHSM2 |
 
 This list applies only to certificates issued directly by AWS Private CA through its
 console, API, or command line. When AWS Certificate Manager issues certificates using a CA from
@@ -68,8 +68,10 @@ Certificate](../../../acm/latest/userguide/gs-acm-request-private.md "../../../a
 
 ###### Note
 
-In all cases, the specified signing algorithm family (RSA or ECDSA) must match the
-algorithm family of the CA's private key.
+For RSA or ECDSA, the specified signing algorithm family must match the key algorithm family of the CA's private key.
+
+For ML-DSA, the hash function is defined as part of the algorithm itself. There is no option to select a different hash function with ML-DSA.
+To maintain backward compatibility with the APIs, the same value is used for key algorithm and signing algorithm.
 
 ## RFC 5280 compliance in AWS Private Certificate Authority
 
