@@ -1,6 +1,6 @@
-The SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 . If you would like to use SiteWise Monitor,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[SiteWise Monitor availability change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
+The SiteWise Monitor feature is not available to new customers. Existing customers can continue to
+use the service as normal. For more information, see [SiteWise Monitor availability
+change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
 
 # Get started as an AWS IoT SiteWise Monitor project
 
@@ -40,7 +40,7 @@ The following procedure assumes that you are signed in the AWS IoT SiteWise Moni
 
 1. In the navigation bar, choose the **Projects** icon.
 
-![The "Projects" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project whose dashboards you
+![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project whose dashboards you
 want to view.
 
 ![The Projects page with "Wind Farm 3" highlighted.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section of the project details page, choose

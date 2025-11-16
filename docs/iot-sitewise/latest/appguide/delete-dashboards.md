@@ -1,6 +1,6 @@
-The SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 . If you would like to use SiteWise Monitor,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[SiteWise Monitor availability change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
+The SiteWise Monitor feature is not available to new customers. Existing customers can continue to
+use the service as normal. For more information, see [SiteWise Monitor availability
+change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
 
 # Delete dashboards in AWS IoT SiteWise Monitor
 
@@ -12,7 +12,7 @@ specific project.
 
 1. In the navigation bar, choose the **Dashboards** icon.
 
-![The "Dashboards" icon in the navigation bar.](images/portal-navigation-dashboards-console.png) 2. In the **Projects** drop-down list, choose the project whose
+![The "Dashboards" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-dashboards-console.png) 2. In the **Projects** drop-down list, choose the project whose
 dashboards you want to delete.
 
 ![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](images/dashboards-list-view-console.png)

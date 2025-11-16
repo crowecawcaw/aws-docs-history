@@ -1,6 +1,6 @@
-The SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 . If you would like to use SiteWise Monitor,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[SiteWise Monitor availability change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
+The SiteWise Monitor feature is not available to new customers. Existing customers can continue to
+use the service as normal. For more information, see [SiteWise Monitor availability
+change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
 
 # Add visualizations in AWS IoT SiteWise Monitor
 
@@ -61,7 +61,7 @@ You can drag multiple properties and alarms onto a single visualization.
 
 ![The dashboard editor with "Total average power" highlighted.](images/dashboard-add-visualization-console.png) 2. To change how your data displays, choose the visualization type.
 
-![A sample visualization with the visualization type icon highlighted.](images/dashboard-edit-visualization-type-console.png)
+![A sample visualization with the visualization type icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
 
 For more information about the available visualization types, see [Choose visualization types](choose-visualization-types.md "choose-visualization-types.md"). To
 customize details of the visualization, see [Customize visualizations](customize-visualizations.md "customize-visualizations.md"). 3. To add thresholds to your property, choose the visualization configuration icon. If you

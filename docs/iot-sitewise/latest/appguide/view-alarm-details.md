@@ -1,6 +1,6 @@
-The SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025 . If you would like to use SiteWise Monitor,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[SiteWise Monitor availability change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
+The SiteWise Monitor feature is not available to new customers. Existing customers can continue to
+use the service as normal. For more information, see [SiteWise Monitor availability
+change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
 
 # View alarm details in AWS IoT SiteWise Monitor
 
@@ -13,7 +13,7 @@ assets' alarms.
 
 1. In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png) 2. (Optional) Choose a project in the projects drop-down list to show only assets from a
+![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png) 2. (Optional) Choose a project in the projects drop-down list to show only assets from a
 specific project.
 
 ![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy.
