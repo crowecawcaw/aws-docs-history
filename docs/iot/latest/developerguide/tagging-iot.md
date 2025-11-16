@@ -34,21 +34,21 @@ the packages and versions associated with things when you create them by using t
 `Tags` field in the following commands:
 
 - [CreateBillingGroup](../apireference/API_CreateBillingGroup.md "../apireference/API_CreateBillingGroup.md")
-- [CreateDestination](../../../iot-wireless/2020-11-22/apireference/API_CreateDestination.md "../../../iot-wireless/2020-11-22/apireference/API_CreateDestination.md")
-- [CreateDeviceProfile](../../../iot-wireless/2020-11-22/apireference/API_CreateDeviceProfile.md "../../../iot-wireless/2020-11-22/apireference/API_CreateDeviceProfile.md")
+- [CreateDestination](../../../iot-wireless/latest/apireference/API_CreateDestination.md "../../../iot-wireless/latest/apireference/API_CreateDestination.md")
+- [CreateDeviceProfile](../../../iot-wireless/latest/apireference/API_CreateDeviceProfile.md "../../../iot-wireless/latest/apireference/API_CreateDeviceProfile.md")
 - [CreateDynamicThingGroup](../apireference/API_CreateDynamicThingGroup.md "../apireference/API_CreateDynamicThingGroup.md")
 - [CreateJob](../apireference/API_CreateJob.md "../apireference/API_CreateJob.md")
 - [CreateOTAUpdate](../apireference/API_CreateOTAUpdate.md "../apireference/API_CreateOTAUpdate.md")
 - [CreatePolicy](../apireference/API_CreatePolicy.md "../apireference/API_CreatePolicy.md")
 - [CreateScheduledAudit](../apireference/API_CreateScheduledAudit.md "../apireference/API_CreateScheduledAudit.md")
 - [CreateSecurityProfile](../apireference/API_CreateSecurityProfile.md "../apireference/API_CreateSecurityProfile.md")
-- [CreateServiceProfile](../../../iot-wireless/2020-11-22/apireference/API_CreateServiceProfile.md "../../../iot-wireless/2020-11-22/apireference/API_CreateServiceProfile.md")
+- [CreateServiceProfile](../../../iot-wireless/latest/apireference/API_CreateServiceProfile.md "../../../iot-wireless/latest/apireference/API_CreateServiceProfile.md")
 - [CreateStream](../apireference/API_CreateStream.md "../apireference/API_CreateStream.md")
 - [CreateThingGroup](../apireference/API_CreateThingGroup.md "../apireference/API_CreateThingGroup.md")
 - [CreateThingType](../apireference/API_CreateThingType.md "../apireference/API_CreateThingType.md")
 - [CreateTopicRule](../apireference/API_CreateTopicRule.md "../apireference/API_CreateTopicRule.md")
-- [CreateWirelessGateway](../../../iot-wireless/2020-11-22/apireference/API_CreateWirelessGateway.md "../../../iot-wireless/2020-11-22/apireference/API_CreateWirelessGateway.md")
-- [CreateWirelessDevice](../../../iot-wireless/2020-11-22/apireference/API_CreateWirelessDevice.md "../../../iot-wireless/2020-11-22/apireference/API_CreateWirelessDevice.md")
+- [CreateWirelessGateway](../../../iot-wireless/latest/apireference/API_CreateWirelessGateway.md "../../../iot-wireless/latest/apireference/API_CreateWirelessGateway.md")
+- [CreateWirelessDevice](../../../iot-wireless/latest/apireference/API_CreateWirelessDevice.md "../../../iot-wireless/latest/apireference/API_CreateWirelessDevice.md")
 
 You can add, modify, or delete tags for existing resources that support tagging by using
 the following commands:

@@ -272,8 +272,6 @@ review and edit the policy document as required. 5. The policy JSON is displayed
 your AWS Region and AWS account in each of the
 `Resource` values.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

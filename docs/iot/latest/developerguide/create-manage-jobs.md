@@ -67,8 +67,6 @@ You can specify an optional timeout for the presigned URL. For more information,
    Trust Relationship** and replace the policy document with the following
    JSON. Choose **Update Trust Policy**.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -129,8 +127,6 @@ confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-s
    **Permissions** and use the following JSON. This adds a
    policy that grants permission to download files from your Amazon S3
    bucket:
-
-JSON
 
 ```
 `{

@@ -30,8 +30,6 @@ The following example shows permissions in both the IAM policy and the IoT
 policy of an Amazon Cognito identity. The authenticated user wants to publish to a device
 specific topic (e.g. device/DEVICE_ID/status).
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -62,8 +60,6 @@ JSON
 The following example shows the permissions in an IAM policy of an Amazon Cognito
 unauthenticated role. The unauthenticated user wants to publish to non-device
 specific topics that do not require authentication.
-
-JSON
 
 ```
 `{

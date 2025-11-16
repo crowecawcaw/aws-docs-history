@@ -68,8 +68,6 @@ policy can be applied to all devices dynamically. The following is an example
 policy to show how it works. For more information, see [Associating an AWS IoT thing to an MQTT client
 connection](exclusive-thing.md "exclusive-thing.md").
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

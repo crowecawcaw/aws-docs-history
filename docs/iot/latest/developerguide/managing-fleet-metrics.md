@@ -259,8 +259,6 @@ resources](tagging-iot.md "tagging-iot.md").
 Refer to the following IAM policy example granting tagging permissions when you create
 a fleet metric:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

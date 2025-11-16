@@ -255,8 +255,6 @@ To access the package version artifacts in the Amazon S3 bucket when using the
 `CreatePackageVersion` or `UpdatePackageVersion`
 API operation, you must have the following permissions:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

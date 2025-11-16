@@ -17,8 +17,6 @@ This rule action has the following requirements:
 
 You can attach the following example trust policy to the role.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -36,8 +34,6 @@ JSON
 To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in
 the `Condition` property. The following example is a trust
 policy that specifies an asset hierarchy path.
-
-JSON
 
 ```
 `{

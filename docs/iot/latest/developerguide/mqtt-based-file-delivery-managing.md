@@ -44,8 +44,6 @@ You can follow the steps in [Create an AWS IoT
 policy](create-iot-resources.md#create-iot-policy "create-iot-resources.md#create-iot-policy") to create a device policy or use an existing device policy. Attach the policy to the
 certificates associated with your devices and add the following permissions to the device policy.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -108,8 +106,6 @@ permissions:
   tags)
 
 The policy supporting those two permissions is shown below:
-
-JSON
 
 ```
 `{

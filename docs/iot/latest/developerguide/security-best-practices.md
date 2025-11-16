@@ -61,8 +61,6 @@ enforce client ID restrictions. The following example AWS IoT policy requires a 
 thing's name to be used as the client ID for MQTT connections to the AWS IoT message
 broker:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -213,8 +211,6 @@ to run AWS IoT Device Advisor test cases. You will need to replace
 `your-device-role-arn` with the device role Amazon Resource
 Name (ARN) that you created under the [prerequisites](device-advisor-workflow.md#device-advisor-workflow-prereqs "device-advisor-workflow.md#device-advisor-workflow-prereqs").
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -310,8 +306,6 @@ wildcards (`*`) for the unknown portions of the ARN. For example,
 The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount` global condition context keys in Device Advisor to prevent
 the confused deputy problem.
-
-JSON
 
 ```
 `{

@@ -35,8 +35,6 @@ The following example shows how to prevent the confused deputy problem by using 
 keys in the AWS IoT role trust policy. For more examples, see [Detailed examples of
 confused deputy prevention](#cross-service-confused-deputy-prevention-examples "#cross-service-confused-deputy-prevention-examples").
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -97,8 +95,6 @@ The role with the following trust policy can only be assumed by the IoT principa
 (`iot.amazonaws.com`) for the provisioning template specified in the
 `SourceArn`.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -148,8 +144,6 @@ certificate, is unknown at the time of creation.
 The role with the following trust policy can only be assumed by the IoT
 principal (`iot.amazonaws.com`) for the CA certificate specified
 in the `SourceArn`.
-
-JSON
 
 ```
 `{
@@ -212,8 +206,6 @@ roleAlias specified in the `SourceArn`. If a principal attempts to
 retrieve credentials for a role alias other than what's specified in the
 `aws:SourceArn` condition, the request will be denied, even if that
 other role alias references the same IAM role.
-
-JSON
 
 ```
 `{

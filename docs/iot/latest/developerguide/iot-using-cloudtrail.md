@@ -58,7 +58,7 @@ For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
 AWS IoT actions are documented in the [AWS IoT API
-Reference](../apireference.md "../apireference.md"). AWS IoT Wireless actions are documented in the [AWS IoT Wireless API Reference](../../../iot-wireless/2020-11-22/apireference/welcome.md "../../../iot-wireless/2020-11-22/apireference/welcome.md").
+Reference](../apireference.md "../apireference.md"). AWS IoT Wireless actions are documented in the [AWS IoT Wireless API Reference](../../../iot-wireless/latest/apireference/welcome.md "../../../iot-wireless/latest/apireference/welcome.md").
 
 ## Understanding AWS IoT log file
 

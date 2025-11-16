@@ -207,8 +207,6 @@ def lambda_handler(event, context):
 The following resource-based policy example for [Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md") grants
 AWS IoT the permission to invoke the Lambda function:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

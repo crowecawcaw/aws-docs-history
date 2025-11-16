@@ -12,8 +12,6 @@ For devices registered in AWS IoT Core registry, the following policy grants per
 to devices connect to AWS IoT Core using a client ID that matches the device's thing name
 and to publish to the `my/topic/`thing-name``where`thing-name` is the device's thing name:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -45,8 +43,6 @@ For devices not registered in AWS IoT Core registry, the following policy grants
 permission to a device to use the thing name `client1` registered in your
 account's (123456789012) AWS IoT Core registry to connect to AWS IoT Core and to publish to a
 client ID-specific topic whose name is prefixed with `my/topic/`:
-
-JSON
 
 ```
 `{
@@ -81,8 +77,6 @@ AWS account with which you want to share access. Then, in the final step, attach
 policy you just created to the role. If, at a later time, you need to modify the AWS
 account ID to which you are granting access, you can use the following trust policy
 format to do so:
-
-JSON
 
 ```
 `{

@@ -219,8 +219,6 @@ see [AWS IoT rule actions - Amazon S3](s3-rule-action.md "s3-rule-action.md").
 The following is an example payload file that defines a bucket policy that
 trusts the principal of another account.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

@@ -15,8 +15,6 @@ In the AWS IoT console, you can choose or create a role to allow AWS IoT to perf
 The policy attached to the role you specify should look like the
 following example.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

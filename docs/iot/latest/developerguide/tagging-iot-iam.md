@@ -40,8 +40,6 @@ The following example policy applies two tag-based restrictions for the
 - Can't modify or access a thing group that has an existing tag "env=prod" (in the
   example, see the line `"aws:ResourceTag/env" : "prod"`).
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

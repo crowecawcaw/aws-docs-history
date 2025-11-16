@@ -66,7 +66,7 @@ API reference documentation for the APIs of the AWS IoT Core services.
 - [AWS IoT Data Plane](../apireference/welcome.md "../apireference/welcome.md")
 - [AWS IoT Jobs Data Plane](../apireference/welcome.md "../apireference/welcome.md")
 - [AWS IoT Secure Tunneling](../apireference/welcome.md "../apireference/welcome.md")
-- [AWS IoT Wireless](../../../iot-wireless/2020-11-22/apireference/welcome.md "../../../iot-wireless/2020-11-22/apireference/welcome.md")
+- [AWS IoT Wireless](../../../iot-wireless/latest/apireference/welcome.md "../../../iot-wireless/latest/apireference/welcome.md")
 
 C++
 

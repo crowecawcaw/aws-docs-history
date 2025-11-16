@@ -132,8 +132,6 @@ policy that allows viewing a thing. However, permission is granted only if the t
 `Owner` has the value of that user's user name. This policy also grants
 the permissions necessary to complete this action on the console.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -176,8 +174,6 @@ policy that allows viewing a particular suite definition. However, permission is
 only if the suite definition tag has `SuiteType` set to the value of
 `MQTT`. This policy also grants the permissions necessary to complete this
 action on the console.
-
-JSON
 
 ```
 `{

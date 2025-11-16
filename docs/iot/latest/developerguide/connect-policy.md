@@ -12,8 +12,6 @@ For registered devices, we recommend that you use [thing policy variables](thing
 `Connect` actions and attach the thing to the principal
 that's used for the connection.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -51,8 +49,6 @@ The following policy grants permission to connect to AWS IoT Core with client ID
 `client1`. This policy example is for unregistered
 devices.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -83,8 +79,6 @@ information, see [Using connectAttributes](mqtt.md#connect-attribute "mqtt.md#co
 The following policy allows connect with `PersistentConnect`
 feature:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -111,8 +105,6 @@ JSON
 The following policy disallows `PersistentConnect`, other
 features are allowed:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -138,8 +130,6 @@ JSON
 
 The above policy can also be expressed using `StringEquals`,
 any other feature including new feature is allowed:
-
-JSON
 
 ```
 `{
@@ -174,8 +164,6 @@ JSON
 The following policy allows connect by both `PersistentConnect`
 and `LastWill`, any other new feature is not allowed:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -203,8 +191,6 @@ JSON
 The following policy allows clean connect by clients with or without
 `LastWill`, no other features will be allowed:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -225,8 +211,6 @@ JSON
 ```
 
 The following policy only allows connect using default features:
-
-JSON
 
 ```
 `{
@@ -252,8 +236,6 @@ JSON
 The following policy allows connect only with
 `PersistentConnect`, any new feature is allowed as long as
 the connection uses `PersistentConnect`:
-
-JSON
 
 ```
 `{
@@ -281,8 +263,6 @@ JSON
 The following policy states the connect must have both
 `PersistentConnect` and `LastWill` usage, no new
 feature is allowed:
-
-JSON
 
 ```
 `{
@@ -351,8 +331,6 @@ JSON
 The following policy must not have `PersistentConnect` but can
 have `LastWill`, any other new feature is not allowed:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -395,8 +373,6 @@ The following policy allows connect only by clients that have a
 any feature is allowed as long as it uses the `LastWill`
 topic:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -421,8 +397,6 @@ JSON
 The following policy only allows clean connect using a specific
 `LastWillTopic`, any feature is allowed as long as it uses
 the `LastWillTopic`:
-
-JSON
 
 ```
 `{

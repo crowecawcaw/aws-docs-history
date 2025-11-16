@@ -44,8 +44,6 @@ You can also create a fleet provisioning template in the AWS IoT console.
    restricts the use of the certificate associated with this policy to
    provisioning devices.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

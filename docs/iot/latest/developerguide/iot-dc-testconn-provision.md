@@ -157,8 +157,6 @@ a response like this.
    2. Copy this JSON document and paste it into your open
       text editor.
 
-   JSON
-
    ```
    `{
     "Version":"2012-10-17",

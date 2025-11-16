@@ -27,8 +27,6 @@ following policy grants these permissions for the topic:
 `device1`. For another example that grants
 permission to connect, see [Connect and publish policy examples](connect-and-pub.md "connect-and-pub.md").
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -69,8 +67,6 @@ them.
 The following policy document grants all clients permission to connect and
 publish a Will message, identified by its topic, `will`, that
 AWS IoT Core will also retain.
-
-JSON
 
 ```
 `{
@@ -116,8 +112,6 @@ support an MQTT client by calling [`ListRetainedMessages`](../apireference/API_i
 [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md"). The
 services and applications that call these actions must be authorized by
 using a policy such as the following example.
-
-JSON
 
 ```
 `{

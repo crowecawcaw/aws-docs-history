@@ -41,8 +41,6 @@ Guide_.
 The policy attached to the role that you specify should look like the
 following example.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -73,8 +71,6 @@ JSON
 
 The policy attached to the role that you specify should look like the
 following example.
-
-JSON
 
 ```
 `{

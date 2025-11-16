@@ -12,8 +12,6 @@ an AWS IoT rule the access it requires (AWS CLI).
    assume the role, to a file named
    `iot-role-trust.json`.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -63,8 +61,6 @@ The output of this command looks like the following:
 
 2. Save the following JSON into a file named
    `my-iot-policy.json`.
-
-JSON
 
 ```
 `{

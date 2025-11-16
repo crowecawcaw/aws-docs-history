@@ -44,8 +44,6 @@ This policy includes the following permissions.
 - `iot` – Retrieve AWS IoT data and perform IoT configuration
   actions.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -229,8 +227,6 @@ This policy includes the following permissions.
 - `iot` – Perform read-only operations of IoT configuration
   actions.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -333,8 +329,6 @@ This policy includes the following permissions.
 - `iot` – Retrieve AWS IoT data and allow full access to AWS IoT messaging
   actions.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -376,8 +370,6 @@ This policy includes the following permissions.
 - `iotjobsdata` – Retrieve AWS IoT Jobs data and allow full access to
   AWS IoT Jobs data plane API operations.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -411,8 +403,6 @@ This policy includes the following permissions.
 
 - `logs` – Retrieve CloudWatch logs. Also allows creation of CloudWatch Logs groups
   and stream logs to the groups.
-
-JSON
 
 ```
 `{
@@ -454,8 +444,6 @@ This policy includes the following permissions.
 
 - `iot` – Create AWS IoT jobs and code signing jobs.
 - `signer` – Perform creation of AWS code signer jobs.
-
-JSON
 
 ```
 `{
@@ -499,8 +487,6 @@ This policy includes the following permissions.
 - `sqs` - Insert a message to add to the SQS queue.
 - `es` - Send a message to the OpenSearch Service service.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -541,8 +527,6 @@ This policy includes the following permissions.
 
 - `iot` - Perform actions for creating things and attaching policies and
   certificates when registering in bulk.
-
-JSON
 
 ```
 `{

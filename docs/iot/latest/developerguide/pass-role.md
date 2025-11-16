@@ -11,8 +11,6 @@ To verify that you have this permission, create a policy that grants the
 `iam:PassRole` permission and attach it to your IAM user. The following
 policy shows how to allow `iam:PassRole` permission for a role.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

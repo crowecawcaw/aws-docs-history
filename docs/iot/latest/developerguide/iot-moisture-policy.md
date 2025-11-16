@@ -17,8 +17,6 @@ to AWS IoT.
    and `account` with your AWS Region and
    AWS account number.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

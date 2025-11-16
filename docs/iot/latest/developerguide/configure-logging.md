@@ -82,8 +82,6 @@ your values.
 
 Role policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -114,8 +112,6 @@ JSON
 ```
 
 Trust policy to log only AWS IoT Core activity:
-
-JSON
 
 ```
 `{

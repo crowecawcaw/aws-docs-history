@@ -189,8 +189,6 @@ for use later when you create the job to run on this device.
    2. Copy this JSON document and paste it into your open text
       editor.
 
-   JSON
-
    ```
    `{
     "Version":"2012-10-17",
@@ -279,8 +277,6 @@ for use later when you create the job to run on this device.
 ```
 
 If the policy is created, the command returns a response like this.
-
-JSON
 
 ```
 `{

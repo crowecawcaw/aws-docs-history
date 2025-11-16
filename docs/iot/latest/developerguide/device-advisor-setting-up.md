@@ -120,8 +120,6 @@ Make sure that `region` matches your AWS IoT
 Region and `account-id` matches your customer account ID.
 For more information, see [Cross-service confused deputy prevention](security-best-practices.md#cross-service-confused-deputy-prevention-DA "security-best-practices.md#cross-service-confused-deputy-prevention-DA").
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

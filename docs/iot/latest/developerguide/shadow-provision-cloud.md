@@ -44,8 +44,6 @@ and then attach it to the device certificate that you'll create later.
    you're using the services, and `account` with your AWS account number.
    For more information about AWS IoT policies, see [AWS IoT Core policies](iot-policies.md "iot-policies.md").
 
-   JSON
-
    ```
    `{
     "Version":"2012-10-17",

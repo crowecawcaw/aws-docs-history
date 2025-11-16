@@ -27,8 +27,8 @@ The following commands are available:
   The AWS IoT Wireless API provides these actions to associate wireless devices and
   gateways with AWS IoT things.
 
-- [AssociateWirelessDeviceWithThing](../../../iot-wireless/2020-11-22/apireference/API_AssociateWirelessDeviceWithThing.md "../../../iot-wireless/2020-11-22/apireference/API_AssociateWirelessDeviceWithThing.md")
-- [AssociateWirelessGatewayWithThing](../../../iot-wireless/2020-11-22/apireference/API_AssociateWirelessGatewayWithThing.md "../../../iot-wireless/2020-11-22/apireference/API_AssociateWirelessGatewayWithThing.md")
+- [AssociateWirelessDeviceWithThing](../../../iot-wireless/latest/apireference/API_AssociateWirelessDeviceWithThing.md "../../../iot-wireless/latest/apireference/API_AssociateWirelessDeviceWithThing.md")
+- [AssociateWirelessGatewayWithThing](../../../iot-wireless/latest/apireference/API_AssociateWirelessGatewayWithThing.md "../../../iot-wireless/latest/apireference/API_AssociateWirelessGatewayWithThing.md")
 
 ## Viewing cost allocation and usage
 

@@ -204,8 +204,6 @@ the AWS API, AWS SDK, or the AWS Management Console.
   policy configurations are required. This can be accomplished with the
   example bucket policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

@@ -80,8 +80,6 @@ In the example, replace:
   for which you're targeting jobs, such as
   `MyIoTThing`.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -138,8 +136,6 @@ The following example shows how to allow only a specific IP address that
 can make API calls to the control plane endpoint. The
 `aws:ViaAWSService` key is set to `true`, which
 allows other services to make API calls on your behalf.
-
-JSON
 
 ```
 `{
@@ -208,8 +204,6 @@ aws iot-jobs-data describe-job-execution \
 
 The following shows a sample IAM policy that authorizes this action:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -239,8 +233,6 @@ by the principal. For more information, see [AWS: Denies access to AWS based on 
 The following example shows how to allow only a specific IP address that
 can make API calls to the data plane endpoint.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -267,8 +259,6 @@ JSON
 
 The following example shows how to restrict specific IP addresses or
 address ranges from making API calls to the data plane endpoint.
-
-JSON
 
 ```
 `{
@@ -318,8 +308,6 @@ In the example, replace:
 - `thing-name` with the name of your IoT thing
   for which you're targeting jobs, such as
   `MyIoTThing`.
-
-JSON
 
 ```
 `{
@@ -402,8 +390,6 @@ aws iot create-job
 ```
 
 For this example, you must use the following IAM policy:
-
-JSON
 
 ```
 `{

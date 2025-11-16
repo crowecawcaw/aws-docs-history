@@ -9,8 +9,6 @@ AWS Region, a colon character (:), and your 12-digit AWS account number, and
 then replace `uniqueThingName` with the name of the
 thing resource that represents the device in AWS IoT.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

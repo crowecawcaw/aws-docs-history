@@ -59,8 +59,6 @@ following steps to do this.
       Lambda function has the required permissions, the policy looks
       like the following example.
 
-   JSON
-
    ```
    `{
     "Version":"2012-10-17",

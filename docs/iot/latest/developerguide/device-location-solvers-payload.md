@@ -16,12 +16,14 @@ single, resolved location will be returned for all measurement data combined.
 - [Cellular based solver](#location-solvers-cellular "#location-solvers-cellular")
 - [IP reverse lookup solver](#location-solvers-ip "#location-solvers-ip")
 - [GNSS solver](#location-solvers-gnss "#location-solvers-gnss")
+- [BLE solver for Amazon Sidewalk enabled devices](#location-solvers-ble "#location-solvers-ble")
 
 ## Wi-Fi based solver
 
 Use the Wi-Fi based solver to resolve the location using the scan information from
 Wi-Fi access points. The solver supports the WLAN technology, and it can be used to
-compute the device location for general IoT devices and LoRaWAN wireless devices.
+compute the device location for general IoT devices connecting over TCP/IP, LoRaWAN
+wireless devices, and Amazon Sidewalk enabled devices.
 
 The LoRaWAN devices must have the LoRa Edge chipset, which can decode the incoming
 Wi-Fi scan information. LoRa Edge is an ultra-low power platform that integrates a
@@ -31,13 +33,16 @@ the device, the Wi-Fi scan data is sent to AWS IoT Core Device Location, and the
 based on the Wi-Fi scan results. The decoded information is then passed to the Wi-Fi
 based solver to retrieve the location information.
 
+To learn more about resolving location data for Amazon Sidewalk enabled devices, visit
+[AWS IoT Core for Amazon Sidewalk developer guide](../../../iot-wireless/latest/developerguide/iot-sidewalk.md "../../../iot-wireless/latest/developerguide/iot-sidewalk.md").
+
 The following code shows an example of the JSON payload from the device
 that contains the measurement data. When AWS IoT Core Device Location receives this data as
 input, it sends an HTTP request to the solver provider to resolve the
 location information. To retrieve the information, specify values for the
 MAC Address and RSS (received signal strength). To do this, either provide
 the JSON payload using this format, or use the [WiFiAccessPoints
-object](../../../iot-wireless/2020-11-22/apireference/API_WiFiAccessPoint.md "../../../iot-wireless/2020-11-22/apireference/API_WiFiAccessPoint.md") parameter of the [GetPositionEstimate](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md") API operation.
+object](../../../iot-wireless/latest/apireference/API_WiFiAccessPoint.md "../../../iot-wireless/latest/apireference/API_WiFiAccessPoint.md") parameter of the [GetPositionEstimate](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md") API operation.
 
 ```
 {
@@ -72,7 +77,7 @@ The following code shows examples of the JSON payload from the device that
 contains cellular measurement data. When AWS IoT Core Device Location receives this data as input, it
 sends an HTTP request to the solver provider to resolve the location
 information. To retrieve the information, you either provide the JSON payload
-using this format in the console, or specify values for the [CellTowers](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-CellTowers "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-CellTowers") parameter of the [GetPositionEstimate](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md") API operation. You can provide the measurement
+using this format in the console, or specify values for the [CellTowers](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-CellTowers "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-CellTowers") parameter of the [GetPositionEstimate](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md") API operation. You can provide the measurement
 data by specifying values for parameters using any or all of these cellular
 technologies.
 
@@ -81,7 +86,7 @@ as the network and country code of the mobile network, and optional
 additional parameters including information about the local ID. The
 following code shows an example of the payload format. For more
 information about these parameters, see [LTE
-object](../../../iot-wireless/2020-11-22/apireference/API_LteObj.md "../../../iot-wireless/2020-11-22/apireference/API_LteObj.md").
+object](../../../iot-wireless/latest/apireference/API_LteObj.md "../../../iot-wireless/latest/apireference/API_LteObj.md").
 
 ```
 {
@@ -121,7 +126,7 @@ as the network and country code of the mobile network, the base station
 information, and optional additional parameters. The following code
 shows an example of the payload format. For more information about these
 parameters, see [GSM
-object](../../../iot-wireless/2020-11-22/apireference/API_GsmObj.md "../../../iot-wireless/2020-11-22/apireference/API_GsmObj.md").
+object](../../../iot-wireless/latest/apireference/API_GsmObj.md "../../../iot-wireless/latest/apireference/API_GsmObj.md").
 
 ```
 {
@@ -160,7 +165,7 @@ as the signal power and identification information, the base station
 information, and optional additional parameters. The following code
 shows an example of the payload format. For more information about these
 parameters, see [CDMA
-object](../../../iot-wireless/2020-11-22/apireference/API_CdmaObj.md "../../../iot-wireless/2020-11-22/apireference/API_CdmaObj.md").
+object](../../../iot-wireless/latest/apireference/API_CdmaObj.md "../../../iot-wireless/latest/apireference/API_CdmaObj.md").
 
 ```
 {
@@ -198,7 +203,7 @@ as the network and country code, signal power and identification
 information, the base station information, and optional additional
 parameters. The following code shows an example of the payload format.
 For more information about these parameters, see [CDMA
-object](../../../iot-wireless/2020-11-22/apireference/API_CdmaObj.md "../../../iot-wireless/2020-11-22/apireference/API_CdmaObj.md").
+object](../../../iot-wireless/latest/apireference/API_CdmaObj.md "../../../iot-wireless/latest/apireference/API_CdmaObj.md").
 
 ```
 {
@@ -236,7 +241,7 @@ as the network and country code, signal power and identification
 information, the base station information, and optional additional
 parameters. The following code shows an example of the payload format.
 For more information about these parameters, see [CDMA
-object](../../../iot-wireless/2020-11-22/apireference/API_CdmaObj.md "../../../iot-wireless/2020-11-22/apireference/API_CdmaObj.md").
+object](../../../iot-wireless/latest/apireference/API_CdmaObj.md "../../../iot-wireless/latest/apireference/API_CdmaObj.md").
 
 ```
 {
@@ -289,7 +294,7 @@ that contains the measurement data. When AWS IoT Core Device Location receives t
 information in the measurement data, it looks up this information in the
 solver provider's database, which is then used to resolve the location
 information. To retrieve the information, either provide the JSON payload
-using this format, or specify values for the [Ip](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-Ip "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-Ip") parameter of the [GetPositionEstimate](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md") API operation.
+using this format, or specify values for the [Ip](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-Ip "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-Ip") parameter of the [GetPositionEstimate](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md") API operation.
 
 ###### Note
 
@@ -317,13 +322,14 @@ providing this assistance information, which includes the position, altitude, an
 the capture time and accuracy information, the solver can easily identify the
 satellites in view and compute the device location.
 
-This solver can be used with LoRaWAN devices, and other devices that have been
-provisioned with AWS IoT. For general IoT devices, if the devices support location
-estimation using GNSS, when the GNSS scan information is received from the device,
-the transceivers resolve the location information. For LoRaWAN devices, the devices
-must have the LoRa Edge chipset. When an uplink message is received from the device,
-the GNSS scan data is sent to AWS IoT Core for LoRaWAN, and the location is estimated based on
-the scan results from the transceivers.
+This solver can be used with LoRaWAN devices and Amazon Sidewalk enabled devices,
+as well as other devices that have been provisioned with AWS IoT devices that have
+been provisioned with AWS IoT. For general IoT devices, if the devices support location
+estimation using GNSS, when the GNSS scan information is received from the device, the
+transceivers resolve the location information. For LoRaWAN devices, the devices must
+have the LoRa Edge chipset. When an uplink message is received from the device, the
+GNSS scan data is sent to AWS IoT for LoRaWAN or AWS IoT for Amazon Sidewalk, and the
+location is estimated based on the scan results from the transceivers.
 
 The following code shows an example of the JSON payload from the device
 that contains the measurement data. When AWS IoT Core Device Location receives the GNSS scan
@@ -331,7 +337,7 @@ information containing the payload in the measurement data, it uses the
 transceivers and any additional assistance information included to search
 for signals and resolve the location information. To retrieve the
 information, either provide the JSON payload using this format, or specify
-values for the [Gnss](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-Gnss "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-Gnss") parameter of the [GetPositionEstimate](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md") API operation.
+values for the [Gnss](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-Gnss "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md#iotwireless-GetPositionEstimate-request-Gnss") parameter of the [GetPositionEstimate](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md") API operation.
 
 ###### Note
 
@@ -351,3 +357,21 @@ destination byte from the payload.
    }
 }
 ```
+
+## BLE solver for Amazon Sidewalk enabled devices
+
+###### Note
+
+For Bluetooth Low Energy based location, AWS IoT returns location coordinates based on the
+approximate location of nearby Sidewalk Gateways that are connected to Amazon Sidewalk and have
+the Community Finding feature enabled. Gateway Location Data is AWS Content and is provided
+to you solely for the purpose of assisting you in locating your devices that are connected to
+Amazon Sidewalk, and you must only use the data for that purpose. You must only use and access location
+data via the interface and functionality that we generally make available to you, and you must
+not attempt to re-identify, reverse engineer, or re-map any Gateway location data provided by us
+to you.
+
+Amazon Sidewalk end devices connecting over AWS IoT Core for Amazon Sidewalk can resolve their
+location data using BLE, Wi-Fi, or GNSS uplink messages published by the Amazon
+Sidewalk end device. For more information, see the [AWS IoT Core for Amazon Sidewalk
+developer guide](../../../iot-wireless/latest/developerguide/sidewalk-getting-started.md "../../../iot-wireless/latest/developerguide/sidewalk-getting-started.md").

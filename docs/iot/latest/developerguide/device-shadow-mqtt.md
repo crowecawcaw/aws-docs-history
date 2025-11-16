@@ -55,8 +55,6 @@ AWS IoT responds by publishing to either [/get/accepted](#get-accepted-pub-sub-t
 
 The following is an example of the required policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -90,8 +88,6 @@ documents](device-shadow-document.md#device-shadow-example-response-json "device
 ### Example policy
 
 The following is an example of the required policy:
-
-JSON
 
 ```
 `{
@@ -135,6 +131,11 @@ document](device-shadow-document.md#device-shadow-example-error-json "device-sha
 ### Example policy
 
 The following is an example of the required policy:
+
+```
+
+
+```
 
 ## /update
 
@@ -180,8 +181,6 @@ AWS IoT responds by publishing to either [/update/accepted](#update-accepted-pub
 ### Example policy
 
 The following is an example of the required policy:
-
-JSON
 
 ```
 `{
@@ -235,8 +234,6 @@ state document](device-shadow-document.md#device-shadow-example-response-json-de
 
 The following is an example of the required policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -279,8 +276,6 @@ response state document](device-shadow-document.md#device-shadow-example-respons
 ### Example policy
 
 The following is an example of the required policy:
-
-JSON
 
 ```
 `{
@@ -325,8 +320,6 @@ response state document](device-shadow-document.md#device-shadow-example-respons
 
 The following is an example of the required policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -369,8 +362,6 @@ document](device-shadow-document.md#device-shadow-example-error-json "device-sha
 ### Example policy
 
 The following is an example of the required policy:
-
-JSON
 
 ```
 `{
@@ -417,8 +408,6 @@ AWS IoT responds by publishing to either [/delete/accepted](#delete-accepted-pub
 
 The following is an example of the required policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -448,8 +437,6 @@ AWS IoT publishes a message to this topic when a device's shadow is deleted:
 ### Example policy
 
 The following is an example of the required policy:
-
-JSON
 
 ```
 `{
@@ -493,8 +480,6 @@ document](device-shadow-document.md#device-shadow-example-error-json "device-sha
 ### Example policy
 
 The following is an example of the required policy:
-
-JSON
 
 ```
 `{

@@ -21,12 +21,6 @@ The query syntax supports the following features:
   query. Queries that include a leading wildcard have a max
   query length of 100 characters.
 
-###### Note
-
-If you have a high limit increase granted for fleet indexing APIs, you may not be
-able to use the leading wildcard feature for those specific APIs until your limit is
-decreased.
-
 ## Unsupported features
 
 The query syntax doesn't support the following features:

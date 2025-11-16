@@ -220,8 +220,6 @@ attribute, the `iot:Certificate.Subject.Organization`
 certificate policy variables won't be populated during the policy
 evaluation.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -257,8 +255,6 @@ attributes are present.
 
 All of the certificate policy variables have String values, so all of the
 [String condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String") are supported.
-
-JSON
 
 ```
 `{

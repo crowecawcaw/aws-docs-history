@@ -28,8 +28,6 @@ policy to allow principals to make API requests only within a specific address
 range. For examples, see [Authorizing users and cloud services to use
 AWS IoT Jobs](iam-policy-users-jobs.md "iam-policy-users-jobs.md").
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -87,8 +85,6 @@ the user to subscribe to any topic that matches the topic filter
 connect. For example, this policy allows only those clients whose client ID is
 `clientid1` to connect:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -127,8 +123,6 @@ endpoints.
 
 The following policy allows devices to connect to the specified domain.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -151,8 +145,6 @@ JSON
 
 The following policy denies devices to connect to the specified
 domain.
-
-JSON
 
 ```
 `{

@@ -67,8 +67,6 @@ a security token
 1. Configure the IAM role that the credentials provider assumes on behalf
    of your device. Attach the following trust policy to the role.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -107,8 +105,6 @@ permissions to an AWS user. The `iam:GetRole` permission allows
 the user to get information about the role that you've just created. The
 `iam:PassRole` permission allows the user to pass the role to
 another AWS service.
-
-JSON
 
 ```
 `{
@@ -173,8 +169,6 @@ device certificate must grant the device permission to assume the role. You
 do this by granting permission for the
 `iot:AssumeRoleWithCertificate` action to the role alias, as
 in the following example.
-
-JSON
 
 ```
 `{

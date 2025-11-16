@@ -87,8 +87,6 @@ mutual authentication with a client certificate.
 The following is an example policy that allows a caller to retrieve a device's
 shadow:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -149,8 +147,6 @@ mutual authentication with a client certificate.
 The following is an example policy that allows a caller to update a device's
 shadow:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -204,8 +200,6 @@ mutual authentication with a client certificate.
 
 The following is an example policy that allows a caller to delete a device's
 shadow:
-
-JSON
 
 ```
 `{
@@ -278,8 +272,6 @@ or TLS mutual authentication with a client certificate.
 
 The following is an example policy that allows a caller to list a thing's named
 shadows:
-
-JSON
 
 ```
 `{

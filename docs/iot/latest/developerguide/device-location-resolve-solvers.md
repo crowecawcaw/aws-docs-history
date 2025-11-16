@@ -179,7 +179,7 @@ resolving the location](#location-resolve-troubleshoot "#location-resolve-troubl
 
 ## Resolving device location (API)
 
-To resolve the device location using the AWS IoT Wireless API, use the [GetPositionEstimate](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md") API operation or the [get-position-estimate](../../../cli/latest/reference/iotwireless/get-position-estimate.md "../../../cli/latest/reference/iotwireless/get-position-estimate.md") CLI command. Specify the payload measurement data
+To resolve the device location using the AWS IoT Wireless API, use the [GetPositionEstimate](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md") API operation or the [get-position-estimate](../../../cli/latest/reference/iotwireless/get-position-estimate.md "../../../cli/latest/reference/iotwireless/get-position-estimate.md") CLI command. Specify the payload measurement data
 as input, and run the API operation to resolve the device location.
 
 ###### Note

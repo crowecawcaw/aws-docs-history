@@ -52,8 +52,6 @@ In the example, replace:
   thing for which you're targeting jobs, such as
   `MyIoTThing`.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -121,8 +119,6 @@ thing. In your example, replace:
   such as `57EXAMPLE833`.
 - `thing-name` with the name of the IoT thing,
   such as `MyIoTthing`.
-
-JSON
 
 ```
 `{

@@ -47,12 +47,13 @@ obtaining the resolved location information using the GNSS solver. For informati
 about obtaining location information for LoRaWAN devices, see [Configuring position for LoRaWAN resources](../../../iot-wireless/latest/developerguide/lorawan-configure-location.md "../../../iot-wireless/latest/developerguide/lorawan-configure-location.md") in the
 _AWS IoT Wireless documentation_.
 
-| Measurement types and solvers                                             | Measurement type         | Third-party solvers                                | Supported devices |
-| ------------------------------------------------------------------------- | ------------------------ | -------------------------------------------------- | ----------------- |
-| Wi-Fi access points                                                       | Wi-Fi based solver       | General IoT devices, LoRaWAN, and Sidewalk devices |
-| Cellular radio towers: GSM, LTE, CDMA, SCDMA, WCMDA, and TD-SCDMA<br>data | Cellular based solver    | General IoT devices, LoRaWAN, and Sidewalk devices |
-| IP address                                                                | IP reverse lookup solver | General IoT devices and Sidewalk devices           |
-| GNSS scan data (NAV messages)                                             | GNSS solver              | General IoT devices, LoRaWAN, and devices devices  |
+| Measurement types and solvers                                             | Measurement type         | Third-party solvers                                       | Supported devices |
+| ------------------------------------------------------------------------- | ------------------------ | --------------------------------------------------------- | ----------------- |
+| Wi-Fi access points                                                       | Wi-Fi based solver       | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
+| Cellular radio towers: GSM, LTE, CDMA, SCDMA, WCMDA, and TD-SCDMA<br>data | Cellular based solver    | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
+| IP address                                                                | IP reverse lookup solver | Any IoT device that connects over TCP/IP                  |
+| GNSS scan data (NAV messages)                                             | GNSS solver              | General IoT devices, LoRaWAN, and Amazon Sidewalk devices |
+| Bluetooth Low Energy (BLE)                                                | BLE based solver         | Amazon Sidewalk devices                                   |
 
 For more information about the location solvers and examples that show the device
 payload for the various measurement types, see [Location solvers and device
@@ -105,7 +106,7 @@ payload format for various solvers, see [Location solvers and device
 payload](device-location-solvers-payload.md "device-location-solvers-payload.md"). 2. ###### Resolve location information
 
 Using the [Device
-Location](https://console.aws.amazon.com/iot/home#/device-location-test "https://console.aws.amazon.com/iot/home#/device-location-test") page in the AWS IoT console or the [GetPositionEstimate](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md") API operation, pass the payload measurement
+Location](https://console.aws.amazon.com/iot/home#/device-location-test "https://console.aws.amazon.com/iot/home#/device-location-test") page in the AWS IoT console or the [GetPositionEstimate](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md") API operation, pass the payload measurement
 data and resolve the device location. AWS IoT Core Device Location then chooses the solver with the
 highest accuracy and reports the device location. For more information, see
 [Resolving location of IoT

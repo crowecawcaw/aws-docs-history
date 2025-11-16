@@ -38,8 +38,6 @@ aws iot create-topic-rule
 
 For this example, you must use the following IAM policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

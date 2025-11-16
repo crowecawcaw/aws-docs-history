@@ -357,8 +357,6 @@ file.
 Contents of the policy document for
 `policy.json`.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -390,8 +388,6 @@ aws iot create-policy \
 ```
 
 Output:
-
-JSON
 
 ```
 `{

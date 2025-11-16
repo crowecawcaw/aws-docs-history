@@ -81,8 +81,6 @@ to create network interfaces on your behalf.
 This ARN should have a policy attached to it that looks like
 the following example.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

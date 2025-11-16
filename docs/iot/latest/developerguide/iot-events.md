@@ -25,8 +25,6 @@ subscribe to the appropriate topic filters.
 
 The following is an example of the policy required for receiving lifecycle events:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

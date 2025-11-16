@@ -157,8 +157,6 @@ archive files stored in the Amazon S3 bucket, you need a resource-based permissi
 policy. Refer to the following example for the correct resource-based
 permissions policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

@@ -7,8 +7,6 @@ name-specific MQTT topic. For a connection to be successful, the thing name must
 be registered in the AWS IoT Core registry and be authenticated using an identity
 or principal attached to the thing:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -40,3 +38,8 @@ For devices not registered as things in the AWS IoT Core registry, the following
 policy grants permission to connect to AWS IoT Core with client ID
 `client1` and restricts the device to publishing on a
 clientID-specific MQTT topic:
+
+```
+
+
+```

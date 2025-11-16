@@ -49,8 +49,6 @@ For example, if you have a software package and package version that’s named a
 
 The policy might look like the following example:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -92,8 +90,6 @@ versions. The policy must specify the destination package versions as a resource
 
 The IAM policy grants the right to create a job that includes the package and version that
 are named in the `Resource` section.
-
-JSON
 
 ```
 `{
@@ -156,8 +152,6 @@ When you use the **Create role** option, the generated role’s name begins with
 The permissions policy grants the rights to query and update the thing shadow.
 The `$package` parameter in the resource ARN targets the reserved named shadow.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -187,8 +181,6 @@ JSON
 In addition to the permissions policy, the role requires a trust relationship with AWS IoT Core
 so that the entity can assume the role and update the reserved named shadow.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -211,8 +203,6 @@ JSON
 
 Finally, you must have the permission to pass the role to AWS IoT Core when you call the
 [UpdatePackageConfiguration](../apireference/API_UpdatePackageConfiguration.md "../apireference/API_UpdatePackageConfiguration.md") API operation.
-
-JSON
 
 ```
 `{
@@ -264,27 +254,23 @@ The following policies are required to perform this update:
   relationship with the authorized principal assuming the IAM role so it can
   locate the updated software bill of materials from your versioned bucket in
   Amazon S3 and update the package version in AWS IoT Core.
-  - JSON
+  - ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Principal": {
+     "Service": "s3.amazonaws.com"
+     },
+     "Action": "sts:AssumeRole"
+     }
+     ]
+    }`
+    ```
 
-  ```
-  `{
-   "Version":"2012-10-17",
-   "Statement": [
-   {
-   "Effect": "Allow",
-   "Principal": {
-   "Service": "s3.amazonaws.com"
-   },
-   "Action": "sts:AssumeRole"
-   }
-   ]
-  }`
-
-  ```
-
-  - JSON
-
-  ```
+  ````
+  + ```
   `{
    "Version":"2012-10-17",
    "Statement": [
@@ -298,34 +284,30 @@ The following policies are required to perform this update:
    ]
   }`
 
-  ```
+  ````
 
 - **Permissions policy**: Policy to access the
   Amazon S3 versioned bucket where the software bill of materials are stored for a
   package version and update the package version in AWS IoT Core.
-  - JSON
+  - ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Action": [
+     "s3:GetObject"
+     ],
+     "Resource": [
+     "arn:aws:s3:::`awsexamplebucket1`"
+     ]
+     }
+     ]
+    }`
+    ```
 
-  ```
-  `{
-   "Version":"2012-10-17",
-   "Statement": [
-   {
-   "Effect": "Allow",
-   "Action": [
-   "s3:GetObject"
-   ],
-   "Resource": [
-   "arn:aws:s3:::`awsexamplebucket1`"
-   ]
-   }
-   ]
-  }`
-
-  ```
-
-  - JSON
-
-  ```
+  ````
+  + ```
   `{
    "Version":"2012-10-17",
    "Statement": [
@@ -341,36 +323,32 @@ The following policies are required to perform this update:
    ]
   }`
 
-  ```
+  ````
 
 - **Pass role permissions**: Policy granting
   permission to pass the IAM role to Amazon S3 and AWS IoT Core when you call the
   `UpdatePackageVersion` API
   operation.
-  - JSON
+  - ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Action": [
+     "iam:PassRole",
+     "s3:GetObject"
+     ],
+     "Resource": [
+     "arn:aws:s3:::`awsexamplebucket1`"
+     ]
+     }
+     ]
+    }`
+    ```
 
-  ```
-  `{
-   "Version":"2012-10-17",
-   "Statement": [
-   {
-   "Effect": "Allow",
-   "Action": [
-   "iam:PassRole",
-   "s3:GetObject"
-   ],
-   "Resource": [
-   "arn:aws:s3:::`awsexamplebucket1`"
-   ]
-   }
-   ]
-  }`
-
-  ```
-
-  - JSON
-
-  ```
+  ````
+  + ```
   `{
    "Version":"2012-10-17",
    "Statement": [
@@ -385,7 +363,7 @@ The following policies are required to perform this update:
    ]
   }`
 
-  ```
+  ````
 
 ###### Note
 

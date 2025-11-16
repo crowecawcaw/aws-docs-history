@@ -358,8 +358,6 @@ program. You can either edit the current policy, or choose the current policy, c
 access and attach it to your thing resource. You can later restrict the policy to only
 the actions and policies you need to run the program.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",

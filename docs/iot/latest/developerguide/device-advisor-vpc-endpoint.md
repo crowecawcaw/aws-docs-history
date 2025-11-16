@@ -116,8 +116,6 @@ name. The policy is conditional on the device connecting to a VPC endpoint with 
 particular VPC endpoint ID. This policy denies connection attempts to your public
 AWS IoT Core Device Advisor test endpoint.
 
-JSON
-
 ```
 `{
 "Version":"2012-10-17",

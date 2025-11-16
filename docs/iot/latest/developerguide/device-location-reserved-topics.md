@@ -54,8 +54,6 @@ topics.
 The following is an example of the policy required for receiving messages for the
 various topics.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -126,7 +124,7 @@ more information, see [Message
 payload](#get-position-estimate-payload "#get-position-estimate-payload").
 
 The message payload format follows a similar structure as the
-AWS IoT Wireless API operation request body, [`GetPositionEstimate`](../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md "../../../iot-wireless/2020-11-22/apireference/API_GetPositionEstimate.md"). It contains:
+AWS IoT Wireless API operation request body, [`GetPositionEstimate`](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md"). It contains:
 
 - An optional `Timestamp` string, which corresponds
   to the date and time the location was resolved. The
@@ -145,10 +143,10 @@ AWS IoT Wireless API operation request body, [`GetPositionEstimate`](../../../io
 - The measurement data from the device that contains one or more
   of the following measurement types:
 
-      + [`WiFiAccessPoint`](../../../iot-wireless/2020-11-22/apireference/API_WiFiAccessPoint.md "../../../iot-wireless/2020-11-22/apireference/API_WiFiAccessPoint.md")
-      + [`CellTowers`](../../../iot-wireless/2020-11-22/apireference/API_CellTowers.md "../../../iot-wireless/2020-11-22/apireference/API_CellTowers.md")
-      + [`IpAddress`](../../../iot-wireless/2020-11-22/apireference/API_Ip.md "../../../iot-wireless/2020-11-22/apireference/API_Ip.md")
-      + [`Gnss`](../../../iot-wireless/2020-11-22/apireference/API_Gnss.md "../../../iot-wireless/2020-11-22/apireference/API_Gnss.md")
+      + [`WiFiAccessPoint`](../../../iot-wireless/latest/apireference/API_WiFiAccessPoint.md "../../../iot-wireless/latest/apireference/API_WiFiAccessPoint.md")
+      + [`CellTowers`](../../../iot-wireless/latest/apireference/API_CellTowers.md "../../../iot-wireless/latest/apireference/API_CellTowers.md")
+      + [`IpAddress`](../../../iot-wireless/latest/apireference/API_Ip.md "../../../iot-wireless/latest/apireference/API_Ip.md")
+      + [`Gnss`](../../../iot-wireless/latest/apireference/API_Gnss.md "../../../iot-wireless/latest/apireference/API_Gnss.md")
 
   The following shows a sample message payload.
 
@@ -173,8 +171,6 @@ AWS IoT Wireless API operation request body, [`GetPositionEstimate`](../../../io
 ```
 
 The following is an example of the required policy:
-
-JSON
 
 ```
 `{
@@ -236,8 +232,6 @@ information.
 
 The following is an example of the required policy:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -294,3 +288,8 @@ will be returned in the message payload.
 ```
 
 The following is an example of the required policy:
+
+```
+
+
+```

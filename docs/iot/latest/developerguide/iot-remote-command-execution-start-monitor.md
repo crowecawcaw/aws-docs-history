@@ -382,8 +382,6 @@ IAM policy for MQTT client ID
 The following code shows a sample device policy when using MQTT client
 ID.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -436,8 +434,6 @@ IAM policy for IoT thing
 
 The following code shows a sample device policy when using an AWS IoT
 thing.
-
-JSON
 
 ```
 `{

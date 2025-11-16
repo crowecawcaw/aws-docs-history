@@ -7,8 +7,6 @@ permission to connect to AWS IoT Core with a client ID that matches a thing name
 and to publish to a topic whose name is equal to the `certificateId`
 of the certificate the device used to authenticate itself:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -37,8 +35,6 @@ grants permission to connect to AWS IoT Core with client IDs, `client1`,
 `client2`, and `client3` and to publish to a topic
 whose name is equal to the `certificateId` of the certificate the
 device used to authenticate itself:
-
-JSON
 
 ```
 `{
@@ -72,8 +68,6 @@ permission to connect to AWS IoT Core with a client ID that matches the thing na
 and to publish to a topic whose name is equal to the subject's
 `CommonName` field of the certificate the device used to
 authenticate itself:
-
-JSON
 
 ```
 `{
@@ -112,8 +106,6 @@ permission to connect to AWS IoT Core with client IDs, `client1`,
 `client2`, and `client3` and to publish to a topic
 whose name is equal to the subject's `CommonName` field of the
 certificate the device used to authenticate itself:
-
-JSON
 
 ```
 `{
@@ -158,8 +150,6 @@ the certificate used to authenticate the device has its
 `Subject.CommonName.2` field set to
 `Administrator`:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -194,8 +184,6 @@ permission to connect to AWS IoT Core with client IDs `client1`,
 whose name is prefixed with `admin/` when the certificate used to
 authenticate the device has its `Subject.CommonName.2` field set to
 `Administrator`:
-
-JSON
 
 ```
 `{
@@ -236,8 +224,6 @@ certificate used to authenticate the device has any one of its
 `Subject.CommonName` fields set to
 `Administrator`:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -272,8 +258,6 @@ permission to connect to AWS IoT Core with client IDs `client1`,
 `admin` when the certificate used to authenticate the device has
 any one of its `Subject.CommonName` fields set to
 `Administrator`:
-
-JSON
 
 ```
 `{

@@ -145,8 +145,6 @@ In this example, replace:
   under the _Resource_ section in the
   IAM policy.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -252,8 +250,6 @@ In this example, replace:
   commands under the _Resource_
   section in the IAM policy.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -345,8 +341,6 @@ In this example, replace:
   AWS account number, such as
   `123456789012`.
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -426,8 +420,6 @@ In this example, replace:
   want to retrieve more than one command, you can specify these
   commands under the _Resource_
   section in the IAM policy.
-
-JSON
 
 ```
 `{
@@ -562,8 +554,6 @@ In this example, replace:
   want to retrieve more than one command, you can specify these
   commands under the _Resource_
   section in the IAM policy.
-
-JSON
 
 ```
 `{

@@ -90,8 +90,6 @@ name of a thing in the registry. It also provides
 `Receive` permissions for the topic named
 "some_specific_topic".
 
-JSONJSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -149,8 +147,6 @@ clientId1, clientId2 or clientId3. It also provides
 `Publish`, `Subscribe` and
 `Receive` permissions for the topic named
 "some_specific_topic".
-
-JSONJSON
 
 ```
 `{
@@ -225,8 +221,6 @@ name of a thing in the registry. It also provides
 `Receive` permissions for topics prefixed with
 "topic_prefix".
 
-JSONJSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -276,8 +270,6 @@ clientId1, clientId2 or clientId3. It also provides
 `Publish`, `Subscribe` and
 `Receive` permissions for topics prefixed with
 "topic_prefix".
-
-JSONJSON
 
 ```
 `{
@@ -339,8 +331,6 @@ If the thing name in the registry is "thing1", the device will
 be able to publish to the topic "sensor/device/thing1". The
 device will also be able to subscribe to and receive from the
 topic "command/device/thing1".
-
-JSONJSON
 
 ```
 `{
@@ -404,8 +394,6 @@ connects with clientId as clientId1, it will be able to publish
 to the topic "sensor/device/clientId1". The device will also be
 able to subscribe to and receive from the topic
 `device/clientId1/command`.
-
-JSONJSON
 
 ```
 `{
@@ -483,8 +471,6 @@ name in the registry has `version=v1` and
 publish to the topic "sensor/v1", and subscribe to and receive
 from the topic "command/Seattle".
 
-JSONJSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -554,8 +540,6 @@ name of a thing in the registry. It provides permission to
 publish to all topics prefixed with "department/" but not to the
 "department/admins" subtopic.
 
-JSONJSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -603,8 +587,6 @@ following policy allows devices to connect using either
 clientId1, clientId2 or clientId3. It provides permission to
 publish to all topics prefixed with "department/" but not to the
 "department/admins" subtopic.
-
-JSONJSON
 
 ```
 `{
@@ -667,8 +649,6 @@ however, they will only receive messages from the topic
 "topic_prefix/topic1" and no messages from the topic
 "topic_prefix/restricted".
 
-JSONJSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -716,8 +696,6 @@ example, with this policy, devices can subscribe to
 However, they will only receive messages from the topic
 "topic_prefix/topic1" and no messages from the topic
 "topic_prefix/restricted".
-
-JSONJSON
 
 ```
 `{
@@ -783,8 +761,6 @@ receive messages from the topic
 subscribes to the topic "location/#", they will receive messages
 from the topic "location/Seattle" as well.
 
-JSONJSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -839,8 +815,6 @@ messages from the topic "department/engineering/employees".
 Similarly, once the device subscribes to the topic "location/#",
 they will receive messages from the topic "location/Seattle" as
 well.
-
-JSONJSON
 
 ```
 `{
@@ -926,8 +900,6 @@ To allow unauthenticated Amazon Cognito identities to publish messages over HTTP
 a topic specific to the Amazon Cognito Identity, attach the following IAM policy to the
 Amazon Cognito Identity pool role:
 
-JSON
-
 ```
 `{
  "Version":"2012-10-17",
@@ -961,8 +933,6 @@ action, that action is unauthorized.
 To allow unauthenticated Amazon Cognito identities to publish MQTT messages over
 WebSocket on a topic specific to the Amazon Cognito Identity in your account, attach the
 following IAM policy to the Amazon Cognito Identity pool role:
-
-JSON
 
 ```
 `{
