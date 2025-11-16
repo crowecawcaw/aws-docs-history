@@ -1,252 +1,285 @@
-# Connecting to Apache Oozie workflows with the AWS Schema Conversion Tool
+# Connecting to IBM DB2 for z/OS Databases with the AWS Schema Conversion Tool
 
-You can use the AWS SCT command line interface (CLI) to convert Apache Oozie workflows
-to AWS Step Functions. After you migrate your Apache Hadoop workloads to Amazon EMR, you can use a native
-service in the AWS Cloud to orchestrate your jobs. For more
-information, see [Connecting to Apache Hadoop](CHAP_Source.md "CHAP_Source.md").
+You can use AWS SCT to convert schemas, code objects, and application code from IBM Db2 for z/OS
+to the following targets.
 
-AWS SCT converts your Oozie workflows to AWS Step Functions and uses AWS Lambda to emulate features
-that AWS Step Functions doesn't support. Also, AWS SCT converts your Oozie job properties to AWS Systems Manager.
+- Amazon RDS for MySQL
+- Amazon Aurora MySQL-Compatible Edition
+- Amazon RDS for PostgreSQL
+- Amazon Aurora PostgreSQL-Compatible Edition
 
-To convert Apache Oozie workflows, make sure that you use AWS SCT version 1.0.671
-or higher. Also, familiarize yourself with the command line interface of AWS SCT. For
-more information, see [CLI Reference for AWS Schema Conversion Tool](CHAP_Reference.md "CHAP_Reference.md").
+## Prerequisites for Db2 for z/OS as a source database
 
-## Prerequisites for using Apache Oozie as
+The IBM Db2 for z/OS version 12 function level 100 database version doesn't support most new capabilities
+of IBM Db2 for z/OS version 12. This database version provides support for fallback to Db2 version 11 and
+data sharing with Db2 version 11. To avoid the conversion of unsupported features of Db2 version 11, we
+recommend that you use an IBM Db2 for z/OS database function level 500 or higher as a source for AWS SCT.
 
-a source
-
-The following prerequisites are required to connect to Apache Oozie with the AWS SCT
-CLI.
-
-- Create an Amazon S3 bucket to store the definitions of state machines. You can use
-  these definitions to configure your state machines. For more information,
-  see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
-- Create an AWS Identity and Access Management (IAM) role with the `AmazonS3FullAccess` policy.
-  AWS SCT uses this IAM role to access your Amazon S3 bucket.
-- Take a note of your AWS secret key and AWS secret access key. For more information
-  about AWS access keys, see [Managing access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_.
-- Store your AWS credentials and the information about your Amazon S3 bucket in the
-  AWS service profile in the global application settings. Then, AWS SCT uses this
-  AWS service profile to work with your AWS resources. For more information, see
-  [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
-
-To work with your source Apache Oozie workflows, AWS SCT requires the specific structure
-of your source files. Each of your application folders must include the
-`job.properties` file. This file includes key-value pairs of your job
-properties. Also, each of your application folders must include the `workflow.xml`
-file. This file describes the action nodes and control flow nodes of your workflow.
-
-## Connecting to Apache Oozie as a source
-
-Use the following procedure to connect to your Apache Oozie source files.
-
-###### To connect to Apache Oozie in the AWS SCT CLI
-
-1. Create a new AWS SCT CLI script or edit an existing scenario template. For example,
-   you can download and edit the `OozieConversionTemplate.scts` template.
-   For more information, see [Getting CLI scenarios](CHAP_Reference.md#CHAP_Reference.Scenario "CHAP_Reference.md#CHAP_Reference.Scenario").
-2. Configure the AWS SCT application settings.
-
-The following code example saves the application settings and allows to store
-passwords in your project. You can use these saved settings in other projects.
+You can use the following code example to check the version of your source IBM Db2 for z/OS database.
 
 ```
-SetGlobalSettings
-    -save: 'true'
-    -settings: '{
-        "store_password": "true"
-    }'
-/
+SELECT GETVARIABLE('SYSIBM.VERSION') as version FROM SYSIBM.SYSDUMMY1;
 ```
 
-3. Create a new AWS SCT project.
+Make sure that this code returns version `DSN12015` or higher.
 
-The following code example creates the `oozie` project in the
-`c:\sct` folder.
-
-```
-CreateProject
-    -name: 'oozie'
-    -directory: 'c:\sct'
-/
-```
-
-4. Add the folder with your source Apache Oozie files to the project using the `AddSource`
-   command. Make sure that you use the `APACHE_OOZIE` value for the `vendor` parameter.
-   Also, provide values for the following required parameters: `name` and `mappingsFolder`.
-
-The following code example adds Apache Oozie as a source in your AWS SCT project. This example creates
-a source object with the name `OOZIE`. Use this object name to add mapping rules. After you run
-this code example, AWS SCT uses the `c:\oozie` folder to load your source files
-in the project.
+You can use the following code example to check the value of the `APPLICATION COMPATIBILITY`
+special register in your source IBM Db2 for z/OS database.
 
 ```
-AddSource
-    -name: 'OOZIE'
-    -vendor: 'APACHE_OOZIE'
-    -mappingsFolder: 'c:\oozie'
-/
+SELECT CURRENT APPLICATION COMPATIBILITY as version FROM SYSIBM.SYSDUMMY1;
 ```
 
-You can use this example and the following examples in Windows. 5. Connect to your source Apache Oozie files using the `ConnectSource` command.
-Use the name of your source object that you defined in the previous step.
+Make sure that this code returns version `V12R1M500` or higher.
+
+## Privileges for Db2 for z/OS as a source database
+
+The privileges needed to connect to a Db2 for z/OS database and read system
+catalogs and tables are as follows:
+
+- SELECT ON SYSIBM.LOCATIONS
+- SELECT ON SYSIBM.SYSCHECKS
+- SELECT ON SYSIBM.SYSCOLUMNS
+- SELECT ON SYSIBM.SYSDATABASE
+- SELECT ON SYSIBM.SYSDATATYPES
+- SELECT ON SYSIBM.SYSDUMMY1
+- SELECT ON SYSIBM.SYSFOREIGNKEYS
+- SELECT ON SYSIBM.SYSINDEXES
+- SELECT ON SYSIBM.SYSKEYCOLUSE
+- SELECT ON SYSIBM.SYSKEYS
+- SELECT ON SYSIBM.SYSKEYTARGETS
+- SELECT ON SYSIBM.SYSJAROBJECTS
+- SELECT ON SYSIBM.SYSPACKAGE
+- SELECT ON SYSIBM.SYSPARMS
+- SELECT ON SYSIBM.SYSRELS
+- SELECT ON SYSIBM.SYSROUTINES
+- SELECT ON SYSIBM.SYSSEQUENCES
+- SELECT ON SYSIBM.SYSSEQUENCESDEP
+- SELECT ON SYSIBM.SYSSYNONYMS
+- SELECT ON SYSIBM.SYSTABCONST
+- SELECT ON SYSIBM.SYSTABLES
+- SELECT ON SYSIBM.SYSTABLESPACE
+- SELECT ON SYSIBM.SYSTRIGGERS
+- SELECT ON SYSIBM.SYSVARIABLES
+- SELECT ON SYSIBM.SYSVIEWS
+
+To convert Db2 for z/OS tables to PostgreSQL partitioned tables, gather statistics
+on tablespaces and tables in your database using the `RUNSTATS` utility
+as shown following.
 
 ```
-ConnectSource
-    -name: 'OOZIE'
-    -mappingsFolder: 'c:\oozie'
-/
+LISTDEF YOURLIST INCLUDE TABLESPACES DATABASE `YOURDB`
+RUNSTATS TABLESPACE
+LIST YOURLIST
+TABLE (ALL) INDEX (ALL KEYCARD)
+UPDATE ALL
+REPORT YES
+SHRLEVEL REFERENCE
 ```
 
-6. Save your CLI script. Next, add the connection information for your AWS Step Functions service.
+In the preceding example, replace the `YOURDB`
+placeholder with the name of the source database.
 
-## Permissions for using AWS Lambda functions
+## Connecting to Db2 for z/OS as a source
 
-in the extension pack
+Use the following procedure to connect to your Db2 for z/OS source database with
+AWS SCT.
 
-For the source functions that AWS Step Functions doesn't support, AWS SCT creates an extension pack. This
-extension pack includes AWS Lambda functions, which emulate your source functions.
+###### To connect to an IBM Db2 for z/OS source database
 
-To use this extension pack, create an AWS Identity and Access Management (IAM) role with the following permissions.
+1. In the AWS Schema Conversion Tool, choose **Add source**.
+2. Choose **Db2 for z/OS**, then choose **Next**.
 
-JSON
+The **Add source** dialog box appears. 3. For **Connection name**, enter a name for your database.
+AWS SCT displays this name in the tree in the left panel. 4. Use database credentials from AWS Secrets Manager or enter them manually:
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "lambda",
- "Effect": "Allow",
- "Action": [
- "lambda:InvokeFunction"
- ],
- "Resource": [
- "arn:aws:lambda:*:498160209112:function:LoadParameterInitialState:*",
- "arn:aws:lambda:*:498160209112:function:EvaluateJSPELExpressions:*"
- ]
- },
- {
- "Sid": "emr",
- "Effect": "Allow",
- "Action": [
- "elasticmapreduce:DescribeStep",
- "elasticmapreduce:AddJobFlowSteps"
- ],
- "Resource": [
- "arn:aws:elasticmapreduce:*:498160209112:cluster/*"
- ]
- },
- {
- "Sid": "s3",
- "Effect": "Allow",
- "Action": [
- "s3:GetObject"
- ],
- "Resource": [
- "arn:aws:s3:::*/*"
- ]
- }
- ]
-}`
+    * To use database credentials from Secrets Manager, use the following
+     instructions:
 
-```
 
-To apply the extension pack, AWS SCT requires an IAM role with the following permissions.
 
-JSON
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "iam:GetRole",
- "iam:ListRolePolicies",
- "iam:CreateRole",
- "iam:TagRole",
- "iam:PutRolePolicy",
- "iam:DeleteRolePolicy",
- "iam:DeleteRole",
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::`111122223333`:role/sct/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:GetRole",
- "iam:ListRolePolicies"
- ],
- "Resource": [
- "arn:aws:iam::`111122223333`:role/lambda_LoadParameterInitialStateRole",
- "arn:aws:iam::`111122223333`:role/lambda_EvaluateJSPELExpressionsRole",
- "arn:aws:iam::`111122223333`:role/stepFunctions_MigratedOozieWorkflowRole"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "lambda:GetFunction",
- "lambda:CreateFunction",
- "lambda:UpdateFunctionCode",
- "lambda:DeleteFunction"
- ],
- "Resource": [
- "arn:aws:lambda:*:`111122223333`:function:LoadParameterInitialState",
- "arn:aws:lambda:*:`111122223333`:function:EvaluateJSPELExpressions"
- ]
- }
- ]
-}`
+    	1. For **AWS Secret**, choose
+    	 the name of the secret.
+    	2. Choose **Populate** to automatically fill in
+    	 all values in the database connection dialog box from Secrets Manager.
+    For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
+    * To enter the IBM Db2 for z/OS source database connection information
+     manually, use the following instructions:
+
+
+
+
+    | Parameter | Action |
+    | --- | --- |
+    | **Server name** | Enter the Domain Name System (DNS) name or IP<br>address of your source database server. |
+    | **Server port** | Enter the port used to connect to your source database server. |
+    | **Location** | Enter the unique name of the Db2 location you want to access. |
+    | **User name*<br>• and **Password** | Enter the database credentials to connect to your source database server.<br>AWS SCT uses the password to connect to your source database only when<br>you choose to connect to your database in a project. To guard against<br>exposing the password for your source database, AWS SCT doesn't store<br>the password by default. If you close your AWS SCT project and reopen it,<br>you are prompted for the password to connect to your source database as needed. |
+    | **Use SSL** | Choose this option if you want to use Secure Sockets Layer (SSL) to connect<br>to your database. Provide the following additional information, as applicable,<br>on the **SSL*<br>• tab:<br>+ **Trust store**: The location of a trust store<br>containing certificates. For this location to appear here, make sure<br>to add it in **Global settings**. |
+    | **Store password** | AWS SCT creates a secure vault to store SSL certificates and database passwords.<br>By turning this option on, you can store the database password and connect quickly<br>to the database without having to enter the password. |
+    | **Db2 for z/OS driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").<br>If you store the driver path in the global project settings, the driver path<br>doesn't appear on the connection dialog box. For more information, see [Storing driver paths in the global settings](CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings"). |
+
+5. Choose **Test Connection** to verify that AWS SCT can connect
+   to your source database.
+6. Choose **Connect** to connect to your source database.
+
+## Privileges for MySQL as a target database
+
+The privileges required for MySQL as a target are as follows:
+
+- CREATE ON \*.\*
+- ALTER ON \*.\*
+- DROP ON \*.\*
+- INDEX ON \*.\*
+- REFERENCES ON \*.\*
+- SELECT ON \*.\*
+- CREATE VIEW ON \*.\*
+- SHOW VIEW ON \*.\*
+- TRIGGER ON \*.\*
+- CREATE ROUTINE ON \*.\*
+- ALTER ROUTINE ON \*.\*
+- EXECUTE ON \*.\*
+- SELECT ON mysql.proc
+- INSERT, UPDATE ON AWS_DB2ZOS_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS_DB2ZOS_EXT_DATA.\*
+- CREATE TEMPORARY TABLES ON AWS_DB2ZOS_EXT_DATA.\*
+
+You can use the following code example to create a database user and grant the privileges.
 
 ```
-
-## Connecting to AWS Step Functions as a target
-
-Use the following procedure to connect to AWS Step Functions as a target.
-
-###### To connect to AWS Step Functions in the AWS SCT CLI
-
-1. Open your CLI script which includes the connection information for your Apache Oozie source files.
-2. Add the information about your migration target in the AWS SCT project using the `AddTarget`
-   command. Make sure that you use the `STEP_FUNCTIONS` value for the `vendor` parameter.
-   Also, provide values for the following required parameters: `name` and `profile`.
-
-The following code example adds AWS Step Functions as a source in your AWS SCT project. This example creates
-a target object with the name `AWS_STEP_FUNCTIONS`. Use this object name when you create
-mapping rules. Also, this example uses an AWS SCT service profile that you created in the prerequisites step.
-Make sure that you replace `profile_name` with the name of your profile.
-
-```
-AddTarget
-    -name: 'AWS_STEP_FUNCTIONS'
-    -vendor: 'STEP_FUNCTIONS'
-    -profile: '`profile_name`'
-/
+CREATE USER '`user_name`' IDENTIFIED BY '`your_password`';
+GRANT CREATE ON *.* TO '`user_name`';
+GRANT ALTER ON *.* TO '`user_name`';
+GRANT DROP ON *.* TO '`user_name`';
+GRANT INDEX ON *.* TO '`user_name`';
+GRANT REFERENCES ON *.* TO '`user_name`';
+GRANT SELECT ON *.* TO '`user_name`';
+GRANT CREATE VIEW ON *.* TO '`user_name`';
+GRANT SHOW VIEW ON *.* TO '`user_name`';
+GRANT TRIGGER ON *.* TO '`user_name`';
+GRANT CREATE ROUTINE ON *.* TO '`user_name`';
+GRANT ALTER ROUTINE ON *.* TO '`user_name`';
+GRANT EXECUTE ON *.* TO '`user_name`';
+GRANT SELECT ON mysql.proc TO '`user_name`';
+GRANT INSERT, UPDATE ON AWS_DB2ZOS_EXT.* TO '`user_name`';
+GRANT INSERT, UPDATE, DELETE ON AWS_DB2ZOS_EXT_DATA.* TO '`user_name`';
+GRANT CREATE TEMPORARY TABLES ON AWS_DB2ZOS_EXT_DATA.* TO '`user_name`';
 ```
 
-If you don't use the AWS service profile, make sure that you provide values for the following
-required parameters: `accessKey`, `secretKey`, `awsRegion`,
-and `s3Path`. Use these parameters to specify your AWS secret access key, AWS secret key,
-AWS Region, and the path to your Amazon S3 bucket. 3. Connect to AWS Step Functions using the `ConnectTarget` command. Use the name of your target object
-that you defined in the previous step.
+In the preceding example, replace `user_name` with the name of your user.
+Then, replace `your_password` with a secure password.
 
-The following code example connects to the `AWS_STEP_FUNCTIONS` target object using your
-AWS service profile. Make sure that you replace `profile_name` with the
-name of your profile.
+To use Amazon RDS for MySQL as a target, set the `log_bin_trust_function_creators` parameter
+to true, and the `character_set_server` to `latin1`. To configure these parameters,
+create a new DB parameter group or modify an existing DB parameter group.
+
+To use Aurora MySQL as a target, set the `log_bin_trust_function_creators` parameter
+to true, and the `character_set_server` to `latin1`.
+Also, set the `lower_case_table_names` parameter to true. To configure these
+parameters, create a new DB parameter group or modify an existing DB parameter group.
+
+## Privileges for PostgreSQL as a target database
+
+To use PostgreSQL as a target, AWS SCT requires the `CREATE ON DATABASE` privilege.
+Make sure that you grant this privilege for each target PostgreSQL database.
+
+To use Amazon RDS for PostgreSQL as a target, AWS SCT requires the `rds_superuser` privilege.
+
+To use the converted public synonyms, change the database default search path to
+`"$user", public_synonyms, public`.
+
+You can use the following code example to create a database user and grant the privileges.
 
 ```
-ConnectTarget
-    -name: 'AWS_STEP_FUNCTIONS'
-    -profile: '`profile_name`'
-/
+CREATE ROLE `user_name` LOGIN PASSWORD '`your_password`';
+GRANT CREATE ON DATABASE `db_name` TO `user_name`;
+GRANT rds_superuser TO `user_name`;
+ALTER DATABASE `db_name` SET SEARCH_PATH = "$user", public_synonyms, public;
 ```
 
-4. Save your CLI script. Next, add mapping rules and migration commands. For more information, see
-   [Converting Oozie workflows;](big-data-oozie.md "big-data-oozie.md").
+In the preceding example, replace `user_name` with the name of your user.
+Then, replace `db_name` with the name of your target database.
+Finally, replace `your_password` with a secure password.
+
+In PostgreSQL, only the schema owner or a `superuser` can drop a schema. The owner can drop a schema
+and all objects that this schema includes even if the owner of the schema doesn't own some of its objects.
+
+When you use different users to convert and apply different schemas to your target database,
+you can get an error message when AWS SCT can't drop a schema. To avoid this error message,
+use the `superuser` role.
+
+## Db2 for z/OS to PostgreSQL conversion settings
+
+To edit Db2 for z/OS to PostgreSQL conversion settings, choose **Settings**,
+and then choose **Conversion settings**. From the upper list, choose
+**Db2 for z/OS**, and then choose **Db2 for z/OS – PostgreSQL**
+or **Db2 for z/OS – Amazon Aurora (PostgreSQL compatible)**.
+AWS SCT displays all available settings for IBM Db2 for z/OS to PostgreSQL conversion.
+
+Db2 for z/OS to PostgreSQL conversion settings in AWS SCT include options for the
+following:
+
+- To limit the number of comments with action items in the converted
+  code.
+
+For **Add comments in the converted code for the action items of selected severity and higher**,
+choose the severity of action items. AWS SCT adds comments in the converted code
+for action items of the selected severity and higher.
+
+For example, to minimize the number of comments in your converted code, choose
+**Errors only**. To include comments for all action items in your
+converted code, choose **All messages**.
+
+- To generate unique names for constraints in the target database.
+
+In PostgreSQL, all constraint names that you use must be unique. AWS SCT
+can generate unique names for constraints in the converted code by adding a
+prefix with the table name to the name of your constraint. To make sure that
+AWS SCT generates unique names for your constraints, select
+**Generate unique names for constraints**.
+
+- To keep the formatting of column names, expressions, and clauses
+  in DML statements in the converted code.
+
+AWS SCT can keep the layout of column names, expressions, and clauses
+in DML statements in the similar position and order as in the source code.
+To do so, select **Yes** for **Keep the formatting
+of column names, expressions, and clauses in DML statements**.
+
+- To exclude table partitions from the conversion scope.
+
+AWS SCT can skip all partitions of a source table during the conversion.
+To do so, select **Exclude table partitions from the conversion scope**.
+
+- To use automatic partitioning for tables that are partitioned by growth.
+
+For data migration, AWS SCT can automatically partition all tables that are
+larger than the specified size. To use this option, select
+**Enforce partition of tables larger than**, and enter the tables
+size in gigabytes. Next, enter the number of partitions. AWS SCT considers the
+direct access storage device (DASD) size of your source database when you turn on
+this option.
+
+AWS SCT can determine the number of partitions automatically. To do so, select
+**Increase the number of partitions proportionally**, and enter
+the maximum number of partitions.
+
+- To return dynamic result sets as an array of values of the refcursor data type.
+
+AWS SCT can convert source procedures that return dynamic result sets into procedures
+which have an array of open refcursors as an additional output parameter. To do so, select
+**Use an array of refcursors to return all dynamic result sets**.
+
+- To specify the standard to use for the conversion of date and time values to string
+  representations.
+
+AWS SCT can convert date and time values to string representations using one of the
+supported industry formats. To do so, select **Use string representations of
+date values** or **Use string representations of time values**.
+Next, choose one of the following standards.
+
+    + International Standards Organization (ISO)
+    + IBM European Standard (EUR)
+    + IBM USA Standard (USA)
+    + Japanese Industrial Standard Christian Era (JIS)

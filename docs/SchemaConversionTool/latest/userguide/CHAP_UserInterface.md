@@ -1,23 +1,25 @@
-# Navigating the user interface of the AWS SCT
+# Applying the converted schemas in AWS Schema Conversion Tool
 
-Use the following topics to help you work with the AWS SCT user interface. For
-information on installing AWS SCT, see [Installing and Configuring AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").
+You can apply the converted database schema to your target DB instance. After the
+schema has been applied to your target DB instance, you can update the schema based on
+the action items in the database migration assessment report.
 
-###### Topics
+###### Warning
 
-- [Viewing the Project Window in AWS SCT](CHAP_UserInterface.Overview.md "CHAP_UserInterface.Overview.md")
-- [Starting and managing Projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Using the AWS SCT Wizard](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Saving projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Adding servers to project in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Using offline mode in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Using tree filters in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Hiding schemas in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Viewing the Assessment Report in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Converting Schemas in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Applying the converted schemas in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Storing passwords in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Creating UNION ALL view in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
-- [Using Keyboard Shortcuts in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+The following procedure overwrites the existing target schema. Be careful not to
+overwrite schemas unintentionally. Be careful not to overwrite schemas in your
+target DB instance that you have already modified, or you overwrite those changes.
+
+###### To apply the converted database schema to your target database instance
+
+1. Choose **Connect to the server** at the top of the right panel
+   of your project to connect to your target database. If you're connected to your target
+   database, then skip this step.
+2. Choose the schema element in the right panel
+   of your project that displays the planned schema for your target DB instance.
+3. Open the context (right-click) menu for the schema element,
+   and then choose **Apply to database**.
+
+![Apply to database](images/write_to_database.png)
+
+The converted schema is applied to the target DB instance.

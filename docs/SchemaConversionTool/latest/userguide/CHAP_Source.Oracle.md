@@ -1,221 +1,289 @@
-# Migrating from Oracle to Amazon RDS for PostgreSQL or Amazon Aurora PostgreSQL with AWS Schema Conversion Tool
+# Migrating from Oracle Database to Amazon RDS for Oracle with AWS Schema Conversion Tool
 
-When you convert an Oracle database to RDS for PostgreSQL or Amazon Aurora PostgreSQL, be aware of the
-following.
+Some things to consider when migrating Oracle schema and code to Amazon RDS for
+Oracle:
 
-###### Topics
+- AWS SCT can add directory objects to the object tree. _Directory objects_ are logical structures that each represent a
+  physical directory on the server's file system. You can use directory objects
+  with packages such as DBMS_LOB, UTL_FILE, DBMS_FILE_TRANSFER, the DATAPUMP
+  utility, and so on.
+- AWS SCT supports converting Oracle tablespaces to an Amazon RDS for Oracle DB
+  instance. Oracle stores data logically in tablespaces and physically in data
+  files associated with the corresponding tablespace. In Oracle, you can create
+  a tablespace with data file names. Amazon RDS supports Oracle Managed Files (OMF)
+  for data files, log files, and control files only. AWS SCT creates the needed
+  data files during conversion.
+- AWS SCT can convert server-level roles and privileges. The Oracle database
+  engine uses role-based security. A role is a collection of privileges that you
+  can grant to or revoke from a user. A predefined role in Amazon RDS, called DBA,
+  normally allows all administrative privileges on an Oracle database engine. The
+  following privileges are not available for the DBA role on an Amazon RDS DB
+  instance using the Oracle engine:
 
-- [Privileges for PostgreSQL as a target database](#CHAP_Source.Oracle.ToPostgreSQL.ConfigureTarget "#CHAP_Source.Oracle.ToPostgreSQL.ConfigureTarget")
-- [Oracle to PostgreSQL conversion settings](#CHAP_Source.Oracle.ToPostgreSQL.ConversionSettings "#CHAP_Source.Oracle.ToPostgreSQL.ConversionSettings")
-- [Converting Oracle sequences](#CHAP_Source.Oracle.ToPostgreSQL.ConvertSequences "#CHAP_Source.Oracle.ToPostgreSQL.ConvertSequences")
-- [Converting Oracle ROWID](#CHAP_Source.Oracle.ToPostgreSQL.ConvertRowID "#CHAP_Source.Oracle.ToPostgreSQL.ConvertRowID")
-- [Converting Oracle dynamic SQL](#CHAP_Source.Oracle.ToPostgreSQL.DynamicSQL "#CHAP_Source.Oracle.ToPostgreSQL.DynamicSQL")
-- [Converting Oracle partitions](#CHAP_Source.Oracle.ToPostgreSQL.PG10Partitioning "#CHAP_Source.Oracle.ToPostgreSQL.PG10Partitioning")
-  When converting Oracle system objects to PostgreSQL, AWS SCT performs conversions
-  as shown in the following table.
+      + Alter database
+      + Alter system
+      + Create any directory
+      + Grant any privilege
+      + Grant any role
+      + Create external job
 
-| Oracle system<br>object | Description                                                                   | Converted PostgreSQL<br>object |
-| ----------------------- | ----------------------------------------------------------------------------- | ------------------------------ |
-| V$VERSION               | Displays version numbers of core library<br>components in the Oracle Database | aws_oracle_ext.v$version       |
-| V$INSTANCE              | A view that shows the state of the current<br>instance.                       | aws_oracle_ext.v$instance      |
+  You can grant all other privileges to an Amazon RDS for Oracle user role,
+  including advanced filtering and column privileges.
 
-You can use AWS SCT to convert Oracle SQL\*Plus files to psql, which is a
-terminal-based front-end to PostgreSQL. For more information, see [Converting application SQL using AWS SCT](CHAP_Converting.md "CHAP_Converting.md").
+- AWS SCT supports converting Oracle jobs into jobs that can run on Amazon RDS
+  for Oracle. There are a few limitations to the conversion, including the
+  following:
+  - Executable jobs are not supported.
+  - Schedule jobs that use the ANYDATA data type as an argument are not
+    supported.
 
-## Privileges for PostgreSQL as a target database
+- Oracle Real Application Clusters (RAC) One Node is an option to the Oracle
+  Database Enterprise Edition that was introduced with Oracle Database 11g Release
 
-To use PostgreSQL as a target, AWS SCT requires the `CREATE ON DATABASE` privilege.
-Make sure that you grant this privilege for each target PostgreSQL database.
+2.  Amazon RDS for Oracle doesn’t support the RAC feature. For high availability,
+    use Amazon RDS Multi-AZ.
 
-To use the converted public synonyms, change the database default search path to
-`"$user", public_synonyms, public`.
+In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a
+synchronous standby replica in a different Availability Zone. The primary DB
+instance is synchronously replicated across Availability Zones to a standby
+replica. This functionality provides data redundancy, eliminates I/O freezes,
+and minimizes latency spikes during system backups.
 
-You can use the following code example to create a database user and grant the privileges.
+- Oracle Spatial provides a SQL schema and
+  functions that facilitate the storage, retrieval, update, and query of
+  collections of spatial data in an Oracle database. Oracle Locator provides
+  capabilities that are typically required to support internet and wireless
+  service-based applications and partner-based GIS solutions.
+  Oracle Locator is a limited subset of Oracle
+  Spatial.
+
+To use Oracle Spatial and Oracle Locator features, add the SPATIAL
+option or LOCATOR option (mutually exclusive) to the option group of your DB
+instance.
+
+There are some prerequisites to using Oracle Spatial and Oracle Locator on an
+Amazon RDS for Oracle DB instance:
+
+    + The instance should use Oracle Enterprise Edition version
+     12.1.0.2.v6 or higher, or 11.2.0.4.v10 or higher.
+    + The instance should be inside a virtual private cloud (VPC).
+    + The instance should the DB instance class that can support
+     the Oracle feature. For example, Oracle Spatial is not
+     supported for the db.m1.small, db.t1.micro, db.t2.micro, or db.t2.small
+     DB instance classes. For more information, see [DB instance class support for Oracle](../../../AmazonRDS/latest/UserGuide/CHAP_Oracle.md#Oracle.Concepts.InstanceClasses "../../../AmazonRDS/latest/UserGuide/CHAP_Oracle.md#Oracle.Concepts.InstanceClasses").
+    + The instance must have the Auto Minor Version Upgrade option enabled. Amazon RDS updates your DB instance to the latest Oracle PSU if there are
+     security vulnerabilities with a CVSS score of 9+ or other announced
+     security vulnerabilities. For more information, see
+
+
+    [Settings for Oracle DB instances](../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.md#USER_ModifyInstance.Oracle.Settings "../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.md#USER_ModifyInstance.Oracle.Settings").
+    + If your DB instance is version 11.2.0.4.v10 or higher, you must
+     install the XMLDB option. For more information, see
+
+
+    [Oracle XML DB](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.md "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.md").
+    + You should have an Oracle Spatial license from Oracle. For more
+     information, see [Oracle Spatial and Graph](https://shop.oracle.com/apex/product?p1=OracleSpatialandGraph "https://shop.oracle.com/apex/product?p1=OracleSpatialandGraph") in the Oracle documentation.
+
+- Data Guard is included with Oracle Database Enterprise Edition. For high
+  availability, use Amazon RDS Multi-AZ feature.
+
+In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a
+synchronous standby replica in a different Availability Zone. The primary DB
+instance is synchronously replicated across Availability Zones to a standby
+replica. This functionality provides data redundancy, eliminates I/O freezes,
+and minimizes latency spikes during system backups.
+
+- AWS SCT supports converting Oracle DBMS_SCHEDULER objects when migrating to
+  Amazon RDS for Oracle. The AWS SCT assessment report indicates if a schedule
+  object can be converted. For more information on using schedule objects with
+  Amazon RDS, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.ModifyScheduler "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.ModifyScheduler").
+- For Oracle to Amazon RDS for Oracle conversions, DB Links is supported. A database
+  link is a schema object in one database that enables you to access objects on another
+  database. The other database doesn’t need to be an Oracle database. However, to access
+  non-Oracle databases you must use Oracle Heterogeneous Services.
+
+Once you create a database link, you can use the link in SQL statements to refer to
+tables, views, and PL/SQL objects in the other database. To use a database link, append
+`@dblink` to the table, view, or PL/SQL object name. You can
+query a table or view in the other database with the SELECT statement. For more information
+about using Oracle database links, see the
+[Oracle documentation](https://docs.oracle.com/cd/B28359_01/server.111/b28310/ds_concepts002.htm#ADMIN12083 "https://docs.oracle.com/cd/B28359_01/server.111/b28310/ds_concepts002.htm#ADMIN12083").
+
+For more information about using database links with Amazon RDS, see the
+[Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.DBLinks "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.DBLinks").
+
+- The AWS SCT assessment report provides server metrics for the
+  conversion. These metrics about your Oracle instance include the
+  following:
+  - Computation and memory capacity of the target DB instance.
+  - Unsupported Oracle features such as Real
+    Application Clusters that Amazon RDS doesn't support.
+  - Disk read-write load
+  - Average total disk throughput
+  - Server information such as server name, OS, host name, and character
+    set.
+
+## Privileges for RDS for Oracle as a target
+
+To migrate to Amazon RDS for Oracle, create a privileged database user. You can use the following code example.
 
 ```
-CREATE ROLE `user_name` LOGIN PASSWORD '`your_password`';
-GRANT CREATE ON DATABASE `db_name` TO `user_name`;
-ALTER DATABASE `db_name` SET SEARCH_PATH = "$user", public_synonyms, public;
+CREATE USER `user_name` IDENTIFIED BY `your_password`;
+
+-- System privileges
+GRANT DROP ANY CUBE BUILD PROCESS TO `user_name`;
+GRANT ALTER ANY CUBE TO `user_name`;
+GRANT CREATE ANY CUBE DIMENSION TO `user_name`;
+GRANT CREATE ANY ASSEMBLY TO `user_name`;
+GRANT ALTER ANY RULE TO `user_name`;
+GRANT SELECT ANY DICTIONARY TO `user_name`;
+GRANT ALTER ANY DIMENSION TO `user_name`;
+GRANT CREATE ANY DIMENSION TO `user_name`;
+GRANT ALTER ANY TYPE TO `user_name`;
+GRANT DROP ANY TRIGGER TO `user_name`;
+GRANT CREATE ANY VIEW TO `user_name`;
+GRANT ALTER ANY CUBE BUILD PROCESS TO `user_name`;
+GRANT CREATE ANY CREDENTIAL TO `user_name`;
+GRANT DROP ANY CUBE DIMENSION TO `user_name`;
+GRANT DROP ANY ASSEMBLY TO `user_name`;
+GRANT DROP ANY PROCEDURE TO `user_name`;
+GRANT ALTER ANY PROCEDURE TO `user_name`;
+GRANT ALTER ANY SQL TRANSLATION PROFILE TO `user_name`;
+GRANT DROP ANY MEASURE FOLDER TO `user_name`;
+GRANT CREATE ANY MEASURE FOLDER TO `user_name`;
+GRANT DROP ANY CUBE TO `user_name`;
+GRANT DROP ANY MINING MODEL TO `user_name`;
+GRANT CREATE ANY MINING MODEL TO `user_name`;
+GRANT DROP ANY EDITION TO `user_name`;
+GRANT CREATE ANY EVALUATION CONTEXT TO `user_name`;
+GRANT DROP ANY DIMENSION TO `user_name`;
+GRANT ALTER ANY INDEXTYPE TO `user_name`;
+GRANT DROP ANY TYPE TO `user_name`;
+GRANT CREATE ANY PROCEDURE TO `user_name`;
+GRANT CREATE ANY SQL TRANSLATION PROFILE TO `user_name`;
+GRANT CREATE ANY CUBE TO `user_name`;
+GRANT COMMENT ANY MINING MODEL TO `user_name`;
+GRANT ALTER ANY MINING MODEL TO `user_name`;
+GRANT DROP ANY SQL PROFILE TO `user_name`;
+GRANT CREATE ANY JOB TO `user_name`;
+GRANT DROP ANY EVALUATION CONTEXT TO `user_name`;
+GRANT ALTER ANY EVALUATION CONTEXT TO `user_name`;
+GRANT CREATE ANY INDEXTYPE TO `user_name`;
+GRANT CREATE ANY OPERATOR TO `user_name`;
+GRANT CREATE ANY TRIGGER TO `user_name`;
+GRANT DROP ANY ROLE TO `user_name`;
+GRANT DROP ANY SEQUENCE TO `user_name`;
+GRANT DROP ANY CLUSTER TO `user_name`;
+GRANT DROP ANY SQL TRANSLATION PROFILE TO `user_name`;
+GRANT ALTER ANY ASSEMBLY TO `user_name`;
+GRANT CREATE ANY RULE SET TO `user_name`;
+GRANT ALTER ANY OUTLINE TO `user_name`;
+GRANT UNDER ANY TYPE TO `user_name`;
+GRANT CREATE ANY TYPE TO `user_name`;
+GRANT DROP ANY MATERIALIZED VIEW TO `user_name`;
+GRANT ALTER ANY ROLE TO `user_name`;
+GRANT DROP ANY VIEW TO `user_name`;
+GRANT ALTER ANY INDEX TO `user_name`;
+GRANT COMMENT ANY TABLE TO `user_name`;
+GRANT CREATE ANY TABLE TO `user_name`;
+GRANT CREATE USER TO `user_name`;
+GRANT DROP ANY RULE SET TO `user_name`;
+GRANT CREATE ANY CONTEXT TO `user_name`;
+GRANT DROP ANY INDEXTYPE TO `user_name`;
+GRANT ALTER ANY OPERATOR TO `user_name`;
+GRANT CREATE ANY MATERIALIZED VIEW TO `user_name`;
+GRANT ALTER ANY SEQUENCE TO `user_name`;
+GRANT DROP ANY SYNONYM TO `user_name`;
+GRANT CREATE ANY SYNONYM TO `user_name`;
+GRANT DROP USER TO `user_name`;
+GRANT ALTER ANY MEASURE FOLDER TO `user_name`;
+GRANT ALTER ANY EDITION TO `user_name`;
+GRANT DROP ANY RULE TO `user_name`;
+GRANT CREATE ANY RULE TO `user_name`;
+GRANT ALTER ANY RULE SET TO `user_name`;
+GRANT CREATE ANY OUTLINE TO `user_name`;
+GRANT UNDER ANY TABLE TO `user_name`;
+GRANT UNDER ANY VIEW TO `user_name`;
+GRANT DROP ANY DIRECTORY TO `user_name`;
+GRANT ALTER ANY CLUSTER TO `user_name`;
+GRANT CREATE ANY CLUSTER TO `user_name`;
+GRANT ALTER ANY TABLE TO `user_name`;
+GRANT CREATE ANY CUBE BUILD PROCESS TO `user_name`;
+GRANT ALTER ANY CUBE DIMENSION TO `user_name`;
+GRANT CREATE ANY EDITION TO `user_name`;
+GRANT CREATE ANY SQL PROFILE TO `user_name`;
+GRANT ALTER ANY SQL PROFILE TO `user_name`;
+GRANT DROP ANY OUTLINE TO `user_name`;
+GRANT DROP ANY CONTEXT TO `user_name`;
+GRANT DROP ANY OPERATOR TO `user_name`;
+GRANT DROP ANY LIBRARY TO `user_name`;
+GRANT ALTER ANY LIBRARY TO `user_name`;
+GRANT CREATE ANY LIBRARY TO `user_name`;
+GRANT ALTER ANY MATERIALIZED VIEW TO `user_name`;
+GRANT ALTER ANY TRIGGER TO `user_name`;
+GRANT CREATE ANY SEQUENCE TO `user_name`;
+GRANT DROP ANY INDEX TO `user_name`;
+GRANT CREATE ANY INDEX TO `user_name`;
+GRANT DROP ANY TABLE TO `user_name`;
+GRANT SELECT_CATALOG_ROLE TO `user_name`;
+GRANT SELECT ANY SEQUENCE TO `user_name`;
+
+-- Database Links
+GRANT CREATE DATABASE LINK TO `user_name`;
+GRANT CREATE PUBLIC DATABASE LINK TO `user_name`;
+GRANT DROP PUBLIC DATABASE LINK TO `user_name`;
+
+
+-- Server Level Objects (directory)
+GRANT CREATE ANY DIRECTORY TO `user_name`;
+GRANT DROP ANY DIRECTORY TO `user_name`;
+-- (for RDS only)
+GRANT EXECUTE ON RDSADMIN.RDSADMIN_UTIL TO `user_name`;
+
+-- Server Level Objects (tablespace)
+GRANT CREATE TABLESPACE TO `user_name`;
+GRANT DROP TABLESPACE TO `user_name`;
+
+-- Server Level Objects (user roles)
+/* (grant source privileges with admin option or convert roles/privs as DBA) */
+
+-- Queues
+grant execute on DBMS_AQADM to `user_name`;
+grant aq_administrator_role to `user_name`;
+
+-- for Materialized View Logs creation
+GRANT SELECT ANY TABLE TO `user_name`;
+
+-- Roles
+GRANT RESOURCE TO `user_name`;
+GRANT CONNECT TO `user_name`;
 ```
 
 In the preceding example, replace `user_name` with the name of your user.
-Then, replace `db_name` with the name of your target database.
-Finally, replace `your_password` with a secure password.
+Then, replace `your_password` with a secure password.
 
-To use Amazon RDS for PostgreSQL as a target, AWS SCT requires the `rds_superuser` privilege.
+## Limitations when converting Oracle to Amazon RDS for Oracle
 
-In PostgreSQL, only the schema owner or a `superuser` can drop a schema. The owner can drop a schema
-and all objects that this schema includes even if the owner of the schema doesn't own some of its objects.
+Some limitations you should consider when migrating Oracle
+schema and code to Amazon RDS for
+Oracle:
 
-When you use different users to convert and apply different schemas to your target database,
-you can get an error message when AWS SCT can't drop a schema. To avoid this error message,
-use the `superuser` role.
+- A predefined role in Amazon RDS, called DBA,
+  normally allows all administrative privileges on an Oracle database engine. The
+  following privileges are not available for the DBA role on an Amazon RDS DB
+  instance using the Oracle engine:
 
-## Oracle to PostgreSQL conversion settings
+      + Alter database
+      + Alter system
+      + Create any directory
+      + Grant any privilege
+      + Grant any role
+      + Create external job
 
-To edit Oracle to PostgreSQL conversion settings, choose
-**Settings** in AWS SCT, and then choose **Conversion
-settings**. From the upper list, choose **Oracle**,
-and then choose **Oracle – PostgreSQL**. AWS SCT displays
-all available settings for Oracle to PostgreSQL conversion.
+  You can grant all other privileges to an Oracle RDS user role.
 
-Oracle to PostgreSQL conversion settings in AWS SCT include options for the
-following:
-
-- To limit the number of comments with action items in the converted
-  code.
-
-For **Add comments in the converted code for the action items of selected severity and higher**,
-choose the severity of action items. AWS SCT adds comments in the converted code
-for action items of the selected severity and higher.
-
-For example, to minimize the number of comments in your converted code, choose
-**Errors only**. To include comments for all action items in your
-converted code, choose **All messages**.
-
-- To allow AWS SCT to convert Oracle materialized views to tables or
-  materialized views on PostgreSQL. For **Materialized view conversion
-  as**, choose how to convert your source materialized
-  views.
-- To work with your source Oracle code when it includes the
-  `TO_CHAR`, `TO_DATE`, and `TO_NUMBER`
-  functions with parameters that PostgreSQL doesn't support. By default,
-  AWS SCT emulates the usage of these parameters in the converted
-  code.
-
-When your source Oracle code includes only parameters that PostgreSQL
-supports, you can use native PostgreSQL `TO_CHAR`,
-`TO_DATE`, and `TO_NUMBER` functions. In this
-case, the converted code works faster. To include only these parameters,
-select the following values:
-
-    + **Function TO\_CHAR() does not use Oracle specific formatting strings**
-    + **Function TO\_DATE() does not use Oracle specific formatting strings**
-    + **Function TO\_NUMBER() does not use Oracle specific formatting strings**
-
-- To address when your source Oracle database stores only integer values
-  in the primary or foreign key columns of the `NUMBER` data type,
-  AWS SCT can convert these columns to the `BIGINT` data type.
-  This approach improves the performance of your converted code. To take this
-  approach, select **Convert NUMBER primary / foreign key columns to
-  BIGINT ones**. Make sure that your source doesn't include
-  floating point values in these columns to avoid data loss.
-- To skip deactivated triggers and constraints in your source code. To
-  do so, choose **Ignore disabled triggers and
-  constraints**.
-- To use AWS SCT to convert string variables that are called as dynamic
-  SQL. Your database code can change the values of these string variables. To
-  make sure that AWS SCT always converts the latest value of this string
-  variable, select **Convert the dynamic SQL code that is created in
-  called routines**.
-- To address that PostgreSQL version 10 and earlier don't support
-  procedures. If you or your users aren't familiar with using procedures in
-  PostgreSQL, AWS SCT can convert Oracle procedures to PostgreSQL functions.
-  To do so, select **Convert procedures to
-  functions**.
-- To see additional information about the occurred action items. To do
-  so, you can add specific functions to the extension pack by selecting
-  **Add on exception raise block for migration issues with the
-  next severity levels**. Then choose severity levels to raise
-  user-defined exceptions.
-- To work with a source Oracle database that might include constraints
-  with the automatically generated names. If your source code uses these
-  names, make sure that you select **Convert the system generated
-  constraint names using the source original names**. If your
-  source code uses these constraints but doesn't use their names, clear this
-  option to increase the conversion speed.
-- To address whether your database and applications run in different time
-  zones. By default, AWS SCT emulates time zones in the converted code.
-  However, you don't need this emulation when your database and applications
-  use the same time zone. In this case, select **Time zone on the
-  client side matches the time zone on server**.
-- To address whether your source and target databases run in different
-  time zones. If they do, the function that emulates the `SYSDATE`
-  built-in Oracle function returns different values compared to the source
-  function. To make sure that your source and target functions return the same
-  values, choose **Set default time zone for SYSDATE
-  emulation**.
-- To use the functions from the orafce extension in your converted code.
-  To do so, for **Use orafce implementation**, select the
-  functions to use. For more information about orafce, see [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") on GitHub.
-
-## Converting Oracle sequences
-
-AWS SCT converts sequences from Oracle to PostgreSQL. If you use sequences to
-maintain integrity constraints, make sure that the new values of a migrated sequence
-don't overlap the existing values.
-
-###### To populate converted sequences with the last value from the source
-
-database
-
-1. Open your AWS SCT project with Oracle as the source.
-2. Choose **Settings**,
-   and then choose **Conversion settings**.
-3. From the upper list, choose **Oracle**,
-   and then choose **Oracle – PostgreSQL**.
-   AWS SCT displays all available settings for Oracle to PostgreSQL conversion.
-4. Choose **Populate converted sequences with the last value generated on the source
-   side**.
-5. Choose **OK** to save the settings and close the
-   **Conversion settings** dialog box.
-
-## Converting Oracle ROWID
-
-In an Oracle database, the ROWID pseudocolumn contains the address of the
-table row. The ROWID pseudocolumn is unique to Oracle, so AWS SCT converts the
-ROWID pseudocolumn to a data column on PostgreSQL. By using this conversion, you can
-keep the ROWID information.
-
-When converting the ROWID pseudocolumn, AWS SCT can create a data column
-with the `bigint` data type. If no primary key exists, AWS SCT sets the ROWID
-column as the primary key. If a primary key exists, AWS SCT sets the ROWID
-column with a unique constraint.
-
-If your source database code includes operations with ROWID, which you
-can't run using a numeric data type, AWS SCT can create a data column
-with the `character varying` data type.
-
-###### To create a data column for Oracle ROWID for a project
-
-1. Open your AWS SCT project with Oracle as the source.
-2. Choose **Settings**,
-   and then choose **Conversion settings**.
-3. From the upper list, choose **Oracle**,
-   and then choose **Oracle – PostgreSQL**.
-   AWS SCT displays all available settings for Oracle to PostgreSQL conversion.
-4. For **Generate row ID**, do one of the following:
-   - Choose **Generate as identity** to create a
-     numeric data column.
-   - Choose **Generate as character domain type** to
-     create a character data column.
-
-5. Choose **OK** to save the settings and close the
-   **Conversion settings** dialog box.
-
-## Converting Oracle dynamic SQL
-
-Oracle provides two ways to implement dynamic SQL: using an EXECUTE IMMEDIATE statement
-or calling procedures in the DBMS_SQL package. If your source Oracle database includes
-objects with dynamic SQL, use AWS SCT to convert Oracle dynamic SQL statements to PostgreSQL.
-
-###### To convert Oracle dynamic SQL to PostgreSQL
-
-1. Open your AWS SCT project with Oracle as the source.
-2. Choose a database object that uses dynamic SQL in the Oracle source tree view.
-3. Open the context (right-click) menu for the object, choose **Convert schema**,
-   and agree to replace the objects if they exist. The following screenshot shows the converted
-   procedure below the Oracle procedure with dynamic SQL.
-
-![Dynamic SQL conversion](images/dynamicsql1.png)
-
-## Converting Oracle partitions
-
-AWS SCT currently supports the following partitioning methods:
-
-- Range
-- List
-- Multicolumn range
-- Hash
-- Composite (list-list, range-list, list-range, list-hash, range-hash,
-  hash-hash)
+- Amazon RDS for Oracle supports traditional auditing, fine-grained auditing
+  using the DBMS_FGA package, and Oracle Unified Auditing.
+- Amazon RDS for Oracle doesn’t support change data capture (CDC). To do CDC
+  during and after a database migration, use AWS Database Migration Service.
