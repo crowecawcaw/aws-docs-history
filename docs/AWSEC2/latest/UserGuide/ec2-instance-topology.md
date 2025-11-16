@@ -1,8 +1,8 @@
 # Amazon EC2 topology
 
 Amazon EC2 topology provides a hierarchical view of the relative proximity of your compute
-capacity. You can then use this information to manage high performance computing (HPC),
-machine learning (ML), and generative AI compute infrastructure at scale.
+capacity. You can use this information to manage high performance computing (HPC), machine
+learning (ML), and generative AI compute infrastructure at scale.
 
 ###### Available APIs
 

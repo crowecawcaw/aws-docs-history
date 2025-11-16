@@ -14,7 +14,6 @@ on the NVIDIA website.
 
 ###### Considerations
 
-- G6f and Gr6f instances do not support GRID 19.0 or later.
 - G6f and Gr6f instances require GRID 18.4 or later.
 - G6e instances require GRID 17.4 or later.
 - G6 and Gr6 instances require GRID 17.1 or later.
@@ -596,7 +595,7 @@ driver and details about the GPUs.
    already installed.
 
 ```
-`[ec2-user ~]$` sudo apt-get install -y gcc make
+`$` sudo apt-get install -y gcc make
 ```
 
 3. (Ubuntu) Upgrade the `linux-aws` package to receive

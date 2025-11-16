@@ -23,12 +23,9 @@ Use the following [describe-instance-types](../../../cli/latest/reference/ec2/de
 
 ```
 aws ec2 describe-instance-types \
-    --filters Name=ebs-info.ebs-optimized-support,Values=default  \
-    --query 'InstanceTypes[].{InstanceType:InstanceType, \
-        "MaxBandwidth(Mb/s)":EbsInfo.EbsOptimizedInfo.MaximumBandwidthInMbps,\
-        MaxIOPS:EbsInfo.EbsOptimizedInfo.MaximumIops,\
-        "MaxThroughput(MB/s)":EbsInfo.EbsOptimizedInfo.MaximumThroughputInMBps}' \
-    --output=table
+--filters Name=ebs-info.ebs-optimized-support,Values=default  \
+--query 'InstanceTypes[].{InstanceType:InstanceType, "MaxBandwidth(Mb/s)":EbsInfo.EbsOptimizedInfo.MaximumBandwidthInMbps, MaxIOPS:EbsInfo.EbsOptimizedInfo.MaximumIops, "MaxThroughput(MB/s)":EbsInfo.EbsOptimizedInfo.MaximumThroughputInMBps}' \
+--output=table
 ```
 
 ###### To find instance types that optionally support EBS optimization
@@ -37,12 +34,9 @@ Use the following [describe-instance-types](../../../cli/latest/reference/ec2/de
 
 ```
 aws ec2 describe-instance-types \
-    --filters Name=ebs-info.ebs-optimized-support,Values=supported \
-    --query 'InstanceTypes[].{InstanceType:InstanceType, \
-        "MaxBandwidth(Mb/s)":EbsInfo.EbsOptimizedInfo.MaximumBandwidthInMbps, \
-        MaxIOPS:EbsInfo.EbsOptimizedInfo.MaximumIops, \
-        "MaxThroughput(MB/s)":EbsInfo.EbsOptimizedInfo.MaximumThroughputInMBps}' \
-    --output=table
+--filters Name=ebs-info.ebs-optimized-support,Values=supported \
+--query 'InstanceTypes[].{InstanceType:InstanceType, "MaxBandwidth(Mb/s)":EbsInfo.EbsOptimizedInfo.MaximumBandwidthInMbps, MaxIOPS:EbsInfo.EbsOptimizedInfo.MaximumIops, "MaxThroughput(MB/s)":EbsInfo.EbsOptimizedInfo.MaximumThroughputInMBps}' \
+--output=table
 ```
 
 The following is example output for `eu-west-1`.

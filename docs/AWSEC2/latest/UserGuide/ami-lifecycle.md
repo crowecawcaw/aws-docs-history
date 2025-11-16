@@ -55,7 +55,7 @@ Image Builder User Guide](../../../imagebuilder/latest/userguide/what-is-image-b
 - [Create an AMI using Windows Sysprep](ami-create-win-sysprep.md "ami-create-win-sysprep.md")
 - [Copy an AMI](CopyingAMIs.md "CopyingAMIs.md")
 - [Store and restore an AMI](ami-store-restore.md "ami-store-restore.md")
-- [Identify the source AMI](identify-source-ami-used-to-create-new-ami.md "identify-source-ami-used-to-create-new-ami.md")
+- [AMI ancestry](ami-ancestry.md "ami-ancestry.md")
 - [AMI usage](ec2-ami-usage.md "ec2-ami-usage.md")
 - [Deprecate an AMI](ami-deprecate.md "ami-deprecate.md")
 - [Disable an AMI](disable-an-ami.md "disable-an-ami.md")

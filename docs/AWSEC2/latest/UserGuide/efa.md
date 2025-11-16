@@ -354,6 +354,8 @@ Nitro v3
 | p4d.24xlarge          | Yes               | No                 |
 | p4de.24xlarge         | Yes               | No                 |
 | vt1.24xlarge          | No                | No                 |
+| Previous Generation   |
+| p3dn.24xlarge         | No                | No                 |
 
 ###### To see the available instance types that support EFAs in a specific Region
 
