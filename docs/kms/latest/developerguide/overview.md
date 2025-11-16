@@ -19,7 +19,7 @@ AWS KMS protects your root keys. KMS keys are created, managed, used, and delete
 entirely within AWS KMS. They never leave the service unencrypted. To use or manage your
 KMS keys, you call AWS KMS.
 
-![AWS KMS protects your root keys](/images/kms/latest/developerguide/images/key-hierarchy-kms-key.png)
+![AWS KMS protects your root keys](images/key-hierarchy-kms-key.png)
 
 Additionally, you can create and manage [key
 policies](key-policies.md "key-policies.md") in AWS KMS, ensuring that only trusted users have access to
