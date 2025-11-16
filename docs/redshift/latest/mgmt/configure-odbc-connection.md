@@ -17,10 +17,10 @@ systems. The 32-bit ODBC drivers are discontinued. Further updates will not be
 released, except for urgent security patches.
 
 For the latest information about ODBC driver functionality and prerequisites, see
-[Amazon Redshift ODBC driver release notes](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Release+Notes.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Release+Notes.pdf").
+[Amazon Redshift ODBC driver release notes](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Release+Notes.txt "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Release+Notes.txt").
 
 For installation and configuration information for Amazon Redshift ODBC drivers, see the
-[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
+[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
 ###### Topics
 

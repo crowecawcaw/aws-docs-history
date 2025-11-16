@@ -17,13 +17,11 @@ the driver files in the following directories:
 
 ODBC driver on macOS X
 
-1. If your macOS X system uses Intel architecture, download the [macOS X Intel driver version 1.5.20](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC-1.5.20.1024.x86_64.dmg "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC-1.5.20.1024.x86_64.dmg").
-   If your system uses ARM architecture, download the [macOS X ARM driver version 1.5.20](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC-1.5.20.1024.arm64.dmg "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC-1.5.20.1024.arm64.dmg").
-   In both cases, the name for this driver is Amazon Redshift ODBC driver.
+1. To install the Amazon Redshift ODBC driver on macOS X, download
+   the [macOS driver version 1.6.1](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/AmazonRedshiftODBC-64-bit.1.6.1.1000.universal.pkg "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/AmazonRedshiftODBC-64-bit.1.6.1.1000.universal.pkg").
 
-Then download and review the [Amazon Redshift ODBC and JDBC driver license agreement](https://s3.amazonaws.com/redshift-downloads/drivers/Amazon+Redshift+ODBC+and+JDBC+Driver+License+Agreement.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/Amazon+Redshift+ODBC+and+JDBC+Driver+License+Agreement.pdf"). 2. Double-click **AmazonRedshiftODBC.dmg** to mount
-the disk image. 3. Double-click **AmazonRedshiftODBC.pkg** to run
-the installer. 4. Follow the steps in the installer to complete the driver
+Then download and review the [Amazon Redshift ODBC and JDBC driver license agreement](https://s3.amazonaws.com/redshift-downloads/drivers/Amazon+Redshift+ODBC+and+JDBC+Driver+License+Agreement.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/Amazon+Redshift+ODBC+and+JDBC+Driver+License+Agreement.pdf"). 2. Double-click **AmazonRedshiftODBC.pkg** to run
+the installer. 3. Follow the steps in the installer to complete the driver
 installation process. To perform the installation, agree to the
 terms of the license agreement.
 

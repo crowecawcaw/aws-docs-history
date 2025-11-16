@@ -24,7 +24,7 @@ information, see [Step
 5: Configure a JDBC or ODBC connection to use IAM credentials](generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc "generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc").
 
 For information about how to create a system DSN entry, see the
-[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
+[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
 ###### To create a system DSN entry for an ODBC connection on
 

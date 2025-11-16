@@ -1220,7 +1220,7 @@ policies for GetClusterCredentials
 
 To connect to a cluster database using a JDBC or ODBC connection with IAM database
 credentials, or to programmatically call the `GetClusterCredentials` action, you
-need a minimum set of permissions. At a minimum, you need permission to call the
+need permission to call the
 `redshift:GetClusterCredentials` action with access to a `dbuser`
 resource.
 
@@ -1248,8 +1248,16 @@ You can also include the following conditions in your policy:
 - `redshift:DbName`
 - `redshift:DbUser`
 
-For more information about conditions, see [Specifying conditions in a
-policy](redshift-iam-access-control-overview.md#redshift-policy-resources.specifying-conditions "redshift-iam-access-control-overview.md#redshift-policy-resources.specifying-conditions").
+###### Important
+
+For SAML SSO integrations, you may be required to specify an IAM Policy using
+the `${redshift:DbUser}` variable. In those cases, we strongly
+recommend the use of a condition statement that ensures a caller cannot obtain
+credentials for a user which does not match their aws userid. E.g. `"StringEquals":
+ {"aws:userid":"AIDIODR4TAW7CSEXAMPLE:${redshift:DbUser}"}"`. See [Example 8: IAM policy for using
+GetClusterCredentials](#redshift-policy-examples-getclustercredentials "#redshift-policy-examples-getclustercredentials"). For more
+information about conditions, see [Specifying conditions in a
+policy](redshift-iam-access-control-overview.md#redshift-policy-resources.specifying-conditions "redshift-iam-access-control-overview.md#redshift-policy-resources.specifying-conditions")
 
 ## Customer managed policy
 
@@ -1593,7 +1601,7 @@ JSON
 
 ```
 
-## Example policy for using
+## Example 8: IAM policy for using
 
 GetClusterCredentials
 
@@ -1663,3 +1671,88 @@ JSON
 }`
 
 ```
+
+The following example shows a policy that allows the
+IAM role to call the `GetClusterCredentials`
+operation. Specifying the Amazon Redshift `dbuser`
+resource grants the role access to the database user name `temp_creds_user` on the cluster named `examplecluster`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Effect": "Allow",
+ "Action": "redshift:GetClusterCredentials",
+ "Resource": "arn:aws:redshift:us-west-2:123456789012:dbuser:examplecluster/temp_creds_user"
+ }
+}`
+
+```
+
+You can use a wildcard (\*) to replace all, or a
+portion of, the cluster name, user name, and database
+group names. The following example allows any user name
+beginning with `temp_` with any cluster in the
+specified account.
+
+###### Important
+
+The statement in the following example specifies a
+wildcard character (\*) as part of the value for the resource so that the policy
+permits any resource that begins with the specified characters. Using a wildcard
+character in your IAM policies might be overly permissive. As a best practice,
+we recommend using the most restrictive policy feasible for your business
+application.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Effect": "Allow",
+ "Action": "redshift:GetClusterCredentials",
+ "Resource": "arn:aws:redshift:us-west-2:123456789012:dbuser:*/temp_*"
+ }
+}`
+
+```
+
+The following example shows a policy that allows the
+IAM role to call the `GetClusterCredentials`
+operation with the option to automatically create a new
+user and specify groups the user joins at login. The `"Resource":
+ "*"` clause grants the role access to any resource,
+including clusters, database users, or user groups.
+
+###### Important
+
+The statement in the following example specifies a
+wildcard character (\*) as the resource for the given actions, so that the policy
+permits access to any cluster and database users, and allows creating any user. Using a wildcard
+character in your IAM policies might be overly permissive. As a best practice,
+we recommend using the most restrictive policy feasible for your business
+application.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Effect": "Allow",
+ "Action": [
+ "redshift:GetClusterCredentials",
+ "redshift:CreateClusterUser",
+ "redshift:JoinGroup"
+ ],
+ "Resource": "*"
+ }
+}`
+
+```
+
+For more information, see [Amazon
+Redshift ARN syntax](../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-redshift "../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-redshift").

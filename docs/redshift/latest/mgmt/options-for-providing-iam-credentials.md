@@ -126,7 +126,7 @@ value supplied as a SAML attribute.
 To help secure this configuration, we recommend that you use a condition in an
 IAM policy to validate the `DbUser` value with the
 `RoleSessionName`. You can find examples of how to set a
-condition using an IAM policy in [Example policy for using
+condition using an IAM policy in [Example 8: IAM policy for using
 GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials "redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials").
 
 The following table lists the options for creating database user credentials.

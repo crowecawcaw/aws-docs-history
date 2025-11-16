@@ -16,7 +16,7 @@ For more information about the supported ODBC driver managers to configure the
 Amazon Redshift ODBC drivers, see
 [Using an Amazon Redshift ODBC driver on macOS X](install-odbc-driver-mac.md "install-odbc-driver-mac.md") for macOS X operating systems.
 Also, see "Specifying ODBC Driver Managers on Non- Windows Machines" in the
-[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
+[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
 Three files are required for configuring the Amazon Redshift ODBC driver:
 `amazon.redshiftodbc.ini`, `odbc.ini`, and
@@ -66,7 +66,7 @@ of the driver installation directory. If you store these configuration files
 elsewhere, set the environment variables described following so that the driver
 manager can locate the files. For more information, see "Specifying the
 Locations of the Driver Configuration Files" in the
-[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
+[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
 ## Creating a data source name macOS
 
@@ -79,7 +79,7 @@ connection information for your data store.
 
 For information about how to configure the `odbc.ini` file, see
 "Creating a Data Source Name on a Non-Windows Machine" in the
-[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf")
+[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf")
 
 Use the following format on macOS X operating systems.
 
@@ -122,7 +122,7 @@ a DSN-less connection string in your application.
 
 For information about how to configure the `odbcinst.ini` file
 in this case, see "Configuring a DSN-less Connection on a Non-Windows
-Machine" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf"). .
+Machine" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf"). .
 
 Use the following format on macOS X operating systems.
 
@@ -158,7 +158,7 @@ environment variables
 Use the correct ODBC driver manager to load the correct driver. To do
 this, set the library path environment variable. For more information, see
 "Specifying ODBC Driver Managers on Non-Windows Machines" in the
-[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
+[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
 By default, ODBC driver managers are configured to use hidden versions of
 the `odbc.ini` and `odbcinst.ini` configuration files
@@ -193,4 +193,4 @@ setting:
   connections from timing out.
 
 For information about these connection features, see the
-[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
+[Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").

@@ -36,7 +36,7 @@ and run Amazon S3 operations.
 - [s3:PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md")
 - [s3:GetBucketLifecycleConfiguration](../../../AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.md "../../../AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.md")
 
-For more information about GetClusterCredentials, see [Resource policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources").
+For more information about GetClusterCredentials, see [IAM policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources").
 
 You also must make sure that Amazon Redshift can assume the IAM role during
 `COPY` and `UNLOAD` operations.

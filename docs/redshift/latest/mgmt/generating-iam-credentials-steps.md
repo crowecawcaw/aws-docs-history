@@ -24,7 +24,7 @@ assertions for your IdP](#configuring-saml-assertions "#configuring-saml-asserti
 rule in your IdP application that maps users or groups in your organization to
 the IAM role. Optionally, you can include attribute elements to set
 `GetClusterCredentials` parameters. 3. [Step 3:
-Create an IAM role with permissions to call GetClusterCredentials](#generating-iam-credentials-role-permissions "#generating-iam-credentials-role-permissions")
+Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials](#generating-iam-credentials-role-permissions "#generating-iam-credentials-role-permissions")
 
 Your SQL client application assumes the user when it calls the
 `GetClusterCredentials` operation. If you created an IAM role for
@@ -90,7 +90,7 @@ value supplied as a SAML attribute.
 To help secure this configuration, we recommend that you use a condition in an
 IAM policy to validate the `DbUser` value by using
 `RoleSessionName`. You can find examples of how to set a
-condition using an IAM policy in [Example policy for using
+condition using an IAM policy in [Example 8: IAM policy for using
 GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials "redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials").
 
 To configure your IdP to set the `DbUser`, `AutoCreate`, and
@@ -148,11 +148,51 @@ connecting to the Amazon Redshift database.
 
 ## Step 3:
 
-Create an IAM role with permissions to call GetClusterCredentials
+Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials
 
-Your SQL client needs authorization to call the `GetClusterCredentials`
-operation on your behalf. To provide that authorization, you create a user or role
-and attach a policy that grants the necessary permissions.
+Your SQL client needs authorization to call the the `GetClusterCredentialsWithIAM` or `GetClusterCredentials` operation on
+your behalf. To provide that authorization, you create a user or role and attach a
+policy that grants the necessary permissions. Both operations are available for obtaining the
+cluster credentials, but they differ in their authentication method. `GetClusterCredentialsWithIAM` uses an IAM role, automatically creating a database
+user that maps to the role, which is beneficial for managing permissions at the IAM role
+level, while `GetClusterCredentials` gives credentials for a given username in the database.
+
+###### To create an IAM role with permissions to call GetClusterCredentialsWithIAM
+
+1. Using the IAM service, create a user or role. You can also use an existing
+   user or role. For example, if you created an IAM role for identity provider
+   access, you can attach the necessary IAM policies to that role.
+2. Attach a permission policy with permission to call the `redshift:GetClusterCredentialsWithIAM` operation. The following policy sample shows
+   options to allow the operation for specific cluster and database, any
+   database in cluster, and any database in any cluster.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SpecificClusterAndDBName",
+            "Effect": "Allow",
+            "Action": "redshift:GetClusterCredentialsWithIAM",
+            "Resource": [
+                "arn:aws:redshift:us-east-1:123456789012:dbname:testcluster/testdatabase"
+            ]
+        },
+        {
+            "Sid": "SpecificClusterAndAnyDBName",
+            "Effect": "Allow",
+            "Action": "redshift:GetClusterCredentialsWithIAM",
+            "Resource": "arn:aws:redshift:us-east-1:123456789012:dbname:examplecluster/*",
+        },
+        {
+            "Sid": "AnyClusterAnyDatabase",
+            "Effect": "Allow",
+            "Action": "redshift:GetClusterCredentialsWithIAM",
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ###### To create an IAM role with permissions to call GetClusterCredentials
 
@@ -214,79 +254,6 @@ and attach a policy that grants the necessary permissions.
 
 For more information and examples, see [Resource
 policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources").
-
-The following example shows a policy that allows the IAM role to call the
-`GetClusterCredentials` operation. Specifying the Amazon Redshift
-`dbuser` resource grants the role access to the database user name
-`temp_creds_user` on the cluster named
-`examplecluster`.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": {
- "Effect": "Allow",
- "Action": "redshift:GetClusterCredentials",
- "Resource": "arn:aws:redshift:us-west-2:123456789012:dbuser:examplecluster/temp_creds_user"
- }
-}`
-
-```
-
-You can use a wildcard (\*) to replace all, or a portion of, the cluster name, user
-name, and database group names. The following example allows any user name beginning
-with `temp_` with any cluster in the specified account.
-
-###### Important
-
-The statement in the following example specifies a wildcard character (\*) as
-part of the value for the resource so that the policy permits any resource that
-begins with the specified characters. Using a wildcard character in your IAM
-policies might be overly permissive. As a best practice, we recommend using the
-most restrictive policy feasible for your business application.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": {
- "Effect": "Allow",
- "Action": "redshift:GetClusterCredentials",
- "Resource": "arn:aws:redshift:us-west-2:123456789012:dbuser:*/temp_*"
- }
-}`
-
-```
-
-The following example shows a policy that allows the IAM role to call the
-`GetClusterCredentials` operation with the option to automatically
-create a new user and specify groups the user joins at login. The `"Resource":
- "*"` clause grants the role access to any resource, including clusters,
-database users, or user groups.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": {
- "Effect": "Allow",
- "Action": [
- "redshift:GetClusterCredentials",
- "redshift:CreateClusterUser",
- "redshift:JoinGroup"
- ],
- "Resource": "*"
- }
-}`
-
-```
-
-For more information, see [Amazon
-Redshift ARN syntax](../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-redshift "../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-redshift").
 
 ## Step 4:
 

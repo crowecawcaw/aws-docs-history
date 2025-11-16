@@ -5,7 +5,16 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 # Amazon Redshift RSQL change log
 
-_1.0.8 (2023-06-19)_
+_1.1.0 (2025-11-11)_
+
+Bug Fixes
+
+- Resolved a memory leak issue that was causing unexpected crashes in rSQL.
+- Removed OpenSSL dependency from RSQL.
+- Fixed linking conflicts with libpq/psql installations in the same environment.
+- Improved platform compatibility for Amazon Linux 2023, Windows, and macOS.
+- Fixed an issue where output would be truncated when exceeding the current display size.
+  _1.0.8 (2023-06-19)_
 
 Bug Fixes
 

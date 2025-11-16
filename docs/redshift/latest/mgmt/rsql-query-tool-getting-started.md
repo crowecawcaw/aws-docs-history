@@ -12,9 +12,12 @@ operating system.
 
 ## Download RSQL
 
-- Linux 64-bit RPM: [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.rpm")
-- Mac OS 64-bit DMG: [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.dmg")
-- Windows 64-bit MSI: [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.msi")
+- Linux 64-bit RPM: [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm")
+  - Linux Artifact Signature Key: [Key](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0-certificate.pem "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0-certificate.pem")
+  - Linux Artifact Signed Hash: [Hash](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0-signature.bin "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0-signature.bin")
+
+- Mac OS 64-bit PKG: [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg")
+- Windows 64-bit MSI: [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi")
 
 See the change log and downloads for previous versions at [Amazon Redshift RSQL change log](rsql-query-tool-changelog.md "rsql-query-tool-changelog.md").
 
@@ -27,12 +30,11 @@ Follow the steps below to install RSQL for Linux.
 1. Install the driver manager with the following command:
 
 ```
-sudo yum install unixODBC openssl
+sudo yum install unixODBC
 ```
 
-OpenSSL is required for Linux distributions. The OpenSSL library
-is located in the [Linux OpenSSL](https://github.com/openssl/openssl "https://github.com/openssl/openssl") Github repository. For more information
-about OpenSSL, see [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/"). 2. Install the ODBC driver: [Downloading and installing the Amazon Redshift ODBC driver](odbc20-install-linux.md "odbc20-install-linux.md"). 3. Copy the ini file to your home directory:
+2. Install the ODBC driver: [Downloading and installing the Amazon Redshift ODBC driver](odbc20-install-linux.md "odbc20-install-linux.md").
+3. Copy the ini file to your home directory:
 
 ```
 cp /opt/amazon/redshiftodbcx64/odbc.ini ~/.odbc.ini
@@ -50,17 +52,17 @@ export AMAZONREDSHIFTODBCINI=/opt/amazon/redshiftodbcx64/amazon.redshiftodbc.ini
 5. You can now install RSQL by running the following command.
 
 ```
-sudo rpm -i AmazonRedshiftRsql-<version>-1.x86_64.rpm
+sudo rpm -i AmazonRedshiftRsql-<version>.rhel.x86_64.rpm
 ```
 
 ## Install RSQL for Mac
 
-Follow the steps below to install RQL for Mac OSX.
+Follow the steps below to install RSQL for Mac OSX.
 
 1. Install the driver manager with the following command:
 
 ```
-brew install unixodbc openssl@1.1 --build-from-source
+brew install unixodbc --build-from-source
 ```
 
 2. Install the ODBC driver: [Downloading and installing the Amazon Redshift ODBC driver](odbc-driver-mac-how-to-install.md "odbc-driver-mac-how-to-install.md").
@@ -86,19 +88,17 @@ export AMAZONREDSHIFTODBCINI=/opt/amazon/redshift/lib/amazon.redshiftodbc.ini
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
 ```
 
-6. Double-click the dmg file to mount the disk image.
-7. Double-click the pkg file to run the installer.
-8. Follow the steps in the installer to complete the installation.
+6. Double-click the pkg file to run the installer.
+7. Follow the steps in the installer to complete the installation.
    Agree to the terms of the license agreement.
 
 ## Install RSQL for
 
 Windows
 
-OpenSSL is required for Amazon Redshift RSQL on Windows. The Windows OpenSSL library
-is located in the [Windows
-OpenSSL](https://github.com/winlibs/openssl "https://github.com/winlibs/openssl") GitHub repository. For more information about OpenSSL,
-see [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/").
+Follow the steps below to install RSQL for Windows.
 
-Double-click the RSQL download file to run the installer, then follow the
-prompts to complete the installation.
+1. Install the ODBC driver: [Downloading and installing the Amazon Redshift ODBC
+   driver](odbc-driver-windows-how-to-install.md "odbc-driver-windows-how-to-install.md").
+2. Double-click the RSQL download file to run the installer, then follow the
+   prompts to complete the installation.

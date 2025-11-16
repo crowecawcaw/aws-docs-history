@@ -29,7 +29,7 @@ retrieve database user credentials, and connect to the database.
 
 1. Create or modify a user or role with the required permissions. For more
    information about IAM permissions, see [Step 3:
-   Create an IAM role with permissions to call GetClusterCredentials](generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions "generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions").
+   Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials](generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions "generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions").
 2. As a user or role you authorized in the previous step, run the
    get-cluster-credentials CLI command or call the
    `GetClusterCredentials` API operation and provide the

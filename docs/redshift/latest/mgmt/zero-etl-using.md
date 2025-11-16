@@ -3,209 +3,174 @@ If you would like to use Python UDFs, create the UDFs prior to that date.
 Existing Python UDFs will continue to function as normal. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configure authorization for your Amazon Redshift data
+# Querying replicated
 
-warehouse
+data in Amazon Redshift
 
-To replicate data from your integration source into your Amazon Redshift data warehouse, you
-must initially add the following two entities:
-
-- _Authorized principal_ – identifies the user or role that
-  can create zero-ETL integrations into the data warehouse.
-- _Authorized integration source_ – identifies the source
-  database that can update the data warehouse.
-  You can configure authorized principals and authorized integration sources from the
-  **Resource Policy** tab on the Amazon Redshift console or using the Amazon Redshift
-  `PutResourcePolicy` API operation.
-
-## Add authorized principals
-
-To create a zero-ETL integration into your Redshift Serverless workgroup or provisioned cluster, authorize
-access to the associated namespace or provisioned cluster.
-
-You can skip this step if both of the following conditions are true:
-
-- The AWS account that owns the Redshift Serverless workgroup or provisioned cluster also owns
-  the source database.
-- That principal is associated with an identity-based IAM policy with permissions
-  to create zero-ETL integrations into this Redshift Serverless namespace or provisioned cluster.
-
-### Add authorized principals to an Amazon Redshift Serverless
-
-namespace
-
-1. In the Amazon Redshift console, in the left navigation pane, choose
-   **Redshift Serverless**.
-2. Choose **Namespace configuration**, then choose your namespace,
-   and go to the **Resource Policy** tab.
-3. Choose **Add authorized principals**.
-4. For each authorized principal that you want to add, enter into the namespace
-   either the ARN of the AWS user or role, or the ID of the AWS account that you
-   want to grant access to create zero-ETL integrations. An account ID is stored as an
-   ARN.
-5. Choose **Save changes**.
-
-### Add authorized principals to an Amazon Redshift provisioned
-
-cluster
-
-1. In the Amazon Redshift console, in the left navigation pane, choose **Provisioned
-   clusters dashboard**.
-2. Choose **Clusters**, then choose the cluster, and go to the
-   **Resource Policy** tab.
-3. Choose **Add authorized principals**.
-4. For each authorized principal that you want to add, enter into the cluster
-   either the ARN of the AWS user or role, or the ID of the AWS account that you
-   want to grant access to create zero-ETL integrations. An account ID is stored as an
-   ARN.
-5. Choose **Save changes**.
-
-## Add authorized integration
-
-sources
-
-To allow your source to update your Amazon Redshift data warehouse, you must add it as an
-authorized integration source to the namespace.
-
-### Add an authorized integration source to an
-
-Amazon Redshift Serverless namespace
-
-1. In the Amazon Redshift console, go to **Serverless dashboard**.
-2. Choose the name of the namespace.
-3. Go to the **Resource Policy** tab.
-4. Choose **Add authorized integration source**.
-5. Specify the ARN of the source for the zero-ETL integration.
+After you add data to your source, it's replicated in near real time to the Amazon Redshift data
+warehouse, and it's ready for querying. For information about integration metrics and table
+statistics, see [Metrics for zero-ETL integrations](zero-etl-using.md "zero-etl-using.md").
 
 ###### Note
 
-Removing an authorized integration source stops data from replicating into the
-namespace. This action deactivates all zero-ETL integrations from that source into this
-namespace.
+As a database is the same as a schema in MySQL, MySQL database level maps to Amazon Redshift schema
+level. Note this mapping difference when you query data replicated from Aurora MySQL or
+RDS for MySQL.
 
-### Add an authorized integration source to an Amazon Redshift
+###### To query replicated data
 
-provisioned cluster
-
-1. In the Amazon Redshift console, go to **Provisioned clusters dashboard**.
-2. Choose the name of the provisioned cluster.
-3. Go to the **Resource Policy** tab.
-4. Choose **Add authorized integration source**.
-5. Specify the ARN of the source that's the data source for the
-   zero-ETL integration.
-
-###### Note
-
-Removing an authorized integration source stops data from replicating into the
-provisioned cluster. This action deactivates all zero-ETL integrations from that source into
-this Amazon Redshift provisioned cluster.
-
-## Configure authorization using the Amazon Redshift
-
-API
-
-You can use the Amazon Redshift API operations to configure resource policies that work with
-zero-ETL integrations.
-
-To control the source that can create an inbound integration into the namespace,
-create a resource policy and attach it to the namespace. With the resource policy, you can
-specify the source that has access to the integration. The resource policy is attached to
-the namespace of your target data warehouse to allow the source to create an inbound
-integration to replicate live data from the source into Amazon Redshift.
-
-The following is a sample resource policy.
-
-JSON
+1. Navigate to the Amazon Redshift console and choose **Query editor
+   v2**.
+2. Connect to your Amazon Redshift Serverless workgroup or Amazon Redshift provisioned cluster and choose your
+   database from the dropdown list.
+3. Use a SELECT statement to select all replicated data from the schema and table that
+   you created in the source. For case sensitivity, use double quotes (" ") for schema,
+   table, and column names. For example:
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "redshift.amazonaws.com"
- },
- "Action": "redshift:AuthorizeInboundIntegration",
- "Resource": "arn:aws:redshift:*:*:integration:*",
- "Condition": {
- "StringEquals": {
- "aws:SourceArn": "arn:aws:rds:*:111122223333:cluster:*"
- }
- }
- },
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::111122223333:root"
- },
- "Action": "redshift:CreateInboundIntegration",
- "Resource": "arn:aws:redshift:*:*:integration:*"
- }
- ]
-}`
-
+SELECT * FROM "`schema_name`"."`table_name`";
 ```
 
-The following summarizes the Amazon Redshift API operations applicable to configuring resource
-policies for integrations:
+You can also query the data using the Amazon Redshift Data API.
 
-- Use the [PutResourcePolicy](../APIReference/API_PutResourcePolicy.md "../APIReference/API_PutResourcePolicy.md") API operation to persist the resource policy. When you
-  provide another resource policy, the previous resource policy on the resource is
-  replaced. Use the previous example resource policy, which grants permissions for the
-  following actions:
-  - `CreateInboundIntegration` – Allows the source principal to
-    create an inbound integration for data to be replicated from the source into the
-    target data warehouse.
-  - `AuthorizeInboundIntegration` – Allows Amazon Redshift to continuously
-    validate that the target data warehouse can receive data replicated from the
-    source ARN.
+## Querying replicated data with materialized
 
-- Use the [GetResourcePolicy](../APIReference/API_GetResourcePolicy.md "../APIReference/API_GetResourcePolicy.md") API operation is to view existing resource
-  policies.
-- Use the [DeleteResourcePolicy](../APIReference/API_DeleteResourcePolicy.md "../APIReference/API_DeleteResourcePolicy.md") API operation to remove a resource policy from the
-  resource.
+views
 
-To update a resource policy, you can also use the [put-resource-policy](../../../cli/latest/reference/redshift/put-resource-policy.md "../../../cli/latest/reference/redshift/put-resource-policy.md")
-AWS CLI command. For example, to put a resource policy on your Amazon Redshift namespace ARN for a
-DynamoDB source, run a AWS CLI command similar to the following.
+You can create materialized views in your local Amazon Redshift database to transform data
+replicated through zero-ETL integrations.
+Connect
+to your local database and use cross-database queries to access the destination databases.
+You can use either fully qualified object names with the three-part notation
+(destination-database-name.schema-name.table-name) or create an external schema referencing
+the destination database-schema pair and use the two-part notation
+(external-schema-name.table-name). For more information on cross-database queries, see
+[Querying
+data across databases](../dg/cross-database-overview.md "../dg/cross-database-overview.md").
 
-```
-aws redshift put-resource-policy \
---policy file://rs-rp.json \
---resource-arn "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/cc4ffe56-ad2c-4fd1-a5a2-f29124a56433"
-```
-
-Where `rs-rp.json` contains:
-
-JSON
+Use the following example to create and insert sample data into the
+`sales_zetl` and `event_zetl` tables
+from the source `tickit_zetl`. The tables are replicated into the
+Amazon Redshift database `zetl_int_db`.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "redshift.amazonaws.com"
- },
- "Action": "redshift:AuthorizeInboundIntegration",
- "Resource": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/cc4ffe56-ad2c-4fd1-a5a2-f29124a56433",
- "Condition": {
- "StringEquals": {
- "aws:SourceArn": "arn:aws:dynamodb:us-east-1:123456789012:table/test_ddb"
- }
- }
- },
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::123456789012:root"
- },
- "Action": "redshift:CreateInboundIntegration",
- "Resource": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/cc4ffe56-ad2c-4fd1-a5a2-f29124a56433"
- }
- ]
-}`
+CREATE TABLE sales_zetl (
+        salesid integer NOT NULL primary key,
+        eventid integer NOT NULL,
+        pricepaid decimal(8, 2)
+);
 
+CREATE TABLE event_zetl (
+        eventid integer NOT NULL PRIMARY KEY,
+        eventname varchar(200)
+);
+
+INSERT INTO sales_zetl VALUES(1, 1, 3.33);
+INSERT INTO sales_zetl VALUES(2, 2, 4.44);
+INSERT INTO sales_zetl VALUES(3, 2, 5.55);
+
+INSERT INTO event_zetl VALUES(1, "Event 1");
+INSERT INTO event_zetl VALUES(2, "Event 2");
+```
+
+You can create a materialized view to get total sales per event using the three-part
+notation:
+
+```
+--three part notation zetl-database-name.schema-name.table-name
+CREATE MATERIALIZED VIEW mv_transformed_sales_per_event_3p
+AUTO REFRESH YES
+AS
+(SELECT eventname, sum(pricepaid) as total_price
+FROM  zetl_int_db.tickit_zetl.sales_zetl S, zetl_int_db.tickit_zetl.event_zetl E
+WHERE S.eventid = E.eventid
+GROUP BY 1);
+```
+
+You can create a materialized view to get total sales per event using the two-part
+notation:
+
+```
+--two part notation external-schema-name.table-name notation
+CREATE EXTERNAL schema ext_tickit_zetl
+FROM REDSHIFT
+DATABASE zetl_int_db
+SCHEMA tickit_zetl;
+
+CREATE MATERIALIZED VIEW mv_transformed_sales_per_event_2p
+AUTO REFRESH YES
+AS
+(
+    SELECT eventname, sum(pricepaid) as total_price
+    FROM  ext_tickit_zetl.sales_zetl S, ext_tickit_zetl.event_zetl E
+    WHERE S.eventid = E.eventid
+    GROUP BY 1
+);
+```
+
+To view the materialized views you created, use the following example.
+
+```
+`SELECT * FROM mv_transformed_sales_per_event_3p;`
+
+`+-----------+-------------+
+| eventname | total_price |
++-----------+-------------+
+| Event 1 | 3.33 |
+| Event 2 | 9.99 |
++-----------+-------------+`
+
+`SELECT * FROM mv_transformed_sales_per_event_2p;`
+
+`+-----------+-------------+
+| eventname | total_price |
++-----------+-------------+
+| Event 1 | 3.33 |
+| Event 2 | 9.99 |
++-----------+-------------+`
+```
+
+## Querying replicated data from DynamoDB
+
+When you replicate data from Amazon DynamoDB to a Amazon Redshift database, it is stored in a
+materialized view in a column of SUPER data type.
+
+For this example, the following data is stored in DynamoDB.
+
+```
+{
+    "key1": {
+        "S": "key_1"
+    },
+    "key2": {
+        "N": 0
+    },
+    "payload": {
+        "L": [
+            {
+                "S": "sale1"
+            },
+            {
+                "S": "sale2"
+            },
+        ]
+    },
+}
+```
+
+The Amazon Redshift materialized view is defined as the following.
+
+```
+CREATE MATERIALIZED VIEW mv_sales
+                    BACKUP NO
+                    AUTO REFRESH YES
+                    AS
+                    SELECT "value"."payload"."L"[0]."S"::VARCHAR AS first_payload
+                    FROM public.sales;
+```
+
+To view the data in the materialized view run an SQL command.
+
+```
+SELECT first_payload FROM mv_sales;
 ```

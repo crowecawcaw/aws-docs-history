@@ -10,7 +10,7 @@ Linux
 You install the Amazon Redshift ODBC driver on client computers accessing an Amazon Redshift
 data warehouse. Each computer where you install the driver must meet a list
 of minimum system requirements. For information about minimum system
-requirements, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
+requirements, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
 ###### Topics
 

@@ -26,6 +26,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 196](#cluster-version-196 "#cluster-version-196")
 - [Amazon Redshift patch 195](#cluster-version-195 "#cluster-version-195")
 - [Amazon Redshift patch 194](#cluster-version-194 "#cluster-version-194")
 - [Amazon Redshift patch 193](#cluster-version-193 "#cluster-version-193")
@@ -55,12 +56,27 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
 
+## Amazon Redshift patch 196
+
+Cluster versions in this patch:
+
+- 1.0.160807 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on November 13, 2025
+- 1.0.155905 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on November 10, 2025
+
+### New features and improvements in this patch
+
+- Extended the SHOW TABLE command to include collation information for every column.
+- Enhanced the LIKE operator to properly handle trailing whitespaces in patterns when using CHAR datatype.
+
 ## Amazon Redshift patch 195
 
 Cluster versions in this patch:
 
-- 1.0.148180 – Amazon Redshift now supports writing to Iceberg tables using CREATE TABLE , CREATE TABLE AS SELECT, INSERT INTO, SQL commands – Released on November 3, 2025
-- 1.0.148180 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on October 31, 2025
+- 1.0.160706 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 13, 2025
+- 1.0.151179 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 4, 2025
+- 1.0.148180 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 3, 2025
 - 1.0.142459 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on October 18, 2025
 

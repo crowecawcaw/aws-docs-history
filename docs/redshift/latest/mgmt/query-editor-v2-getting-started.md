@@ -176,13 +176,14 @@ SQL Workbench in the visual editor and IAM Policy Simulator.
 
 For a principal (a user with an IAM role assigned) to connect to an Amazon Redshift
 cluster, they need the permissions in one of the query editor v2 managed policies. They also
-need the `redshift:GetClusterCredentials` permission to the cluster. To
+need one of the `redshift:GetClusterCredentialsWithIAM` or
+`redshift:GetClusterCredentials` permission to the cluster. To
 get this permission, someone with administrative permission can attach a policy to
 the IAM roles used to connect to the cluster by using
 temporary credentials. You can scope the policy to specific clusters or be more
 general. For more information about permission to use temporary credentials, see
 [Create an IAM role
-or user with permissions to call GetClusterCredentials](generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions "generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions").
+or user with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials](generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions "generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions").
 
 For a principal (typically a user with an IAM role assigned) to turn on the
 ability in the **Account settings** page for others in the account
