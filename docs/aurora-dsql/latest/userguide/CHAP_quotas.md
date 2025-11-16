@@ -9,16 +9,16 @@ the service quotas for single-Region and multi-Region clusters within a specific
 use the [Service Quotas](https://console.aws.amazon.com/servicequotas "https://console.aws.amazon.com/servicequotas") console page. For
 other quota increases, contact AWS Support.
 
-| Description                                    | Default limit                                                    | Configurable? | Aurora DSQL error code                               | Error message                                             |
-| ---------------------------------------------- | ---------------------------------------------------------------- | ------------- | ---------------------------------------------------- | --------------------------------------------------------- |
-| Maximum single-Region clusters per AWS account | 20 clusters                                                      | Yes           | API error code `ServiceQuotaExceededException : 402` | `You have reached the cluster limit.`                     |
-| Maximum multi-Region clusters per AWS account  | 5 clusters                                                       | Yes           | API error code `ServiceQuotaExceededException : 402` | `You have reached the cluster limit.`                     |
-| Maximum storage per cluster                    | 10 TiB default limit, up to 128 TiB with approved limit increase | Yes           | `DISK_FULL(53100)`                                   | `Current cluster size exceeds cluster size limit.`        |
-| Maximum connections per cluster                | 10,000 connections                                               | Yes           | `TOO_MANY_CONNECTIONS(53300)`                        | `Unable to accept connection, too many open connections.` |
-| Maximum connection rate per cluster            | 100 connections per second                                       | No            | `CONFIGURED_LIMIT_EXCEEDED(53400)`                   | `Unable to accept connection, rate exceeded.`             |
-| Maximum connection burst capacity per cluster  | 1,000 connections                                                | No            | No error code                                        | No error message                                          |
-| Maximum concurrent restore jobs                | 4                                                                | No            | No error code                                        | No error message                                          |
-| Connection Refill Rate                         | 100 connections per second                                       | No            | No error code                                        | No error message                                          |
+| Description                                    | Default limit                                                     | Configurable? | Aurora DSQL error code                               | Error message                                             |
+| ---------------------------------------------- | ----------------------------------------------------------------- | ------------- | ---------------------------------------------------- | --------------------------------------------------------- |
+| Maximum single-Region clusters per AWS account | 20 clusters                                                       | Yes           | API error code `ServiceQuotaExceededException : 402` | `You have reached the cluster limit.`                     |
+| Maximum multi-Region clusters per AWS account  | 5 clusters                                                        | Yes           | API error code `ServiceQuotaExceededException : 402` | `You have reached the cluster limit.`                     |
+| Maximum storage per cluster                    | 10 TiB default limit, up to 128 TiB with approved limit increase. | Yes           | `DISK_FULL(53100)`                                   | `Current cluster size exceeds cluster size limit.`        |
+| Maximum connections per cluster                | 10,000 connections                                                | Yes           | `TOO_MANY_CONNECTIONS(53300)`                        | `Unable to accept connection, too many open connections.` |
+| Maximum connection rate per cluster            | 100 connections per second                                        | No            | `CONFIGURED_LIMIT_EXCEEDED(53400)`                   | `Unable to accept connection, rate exceeded.`             |
+| Maximum connection burst capacity per cluster  | 1,000 connections                                                 | No            | No error code                                        | No error message                                          |
+| Maximum concurrent restore jobs                | 4                                                                 | No            | No error code                                        | No error message                                          |
+| Connection Refill Rate                         | 100 connections per second                                        | No            | No error code                                        | No error message                                          |
 
 ## Database limits in Aurora DSQL
 
