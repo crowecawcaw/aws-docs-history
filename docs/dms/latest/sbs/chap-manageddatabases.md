@@ -1,31 +1,25 @@
-# Migrating an Oracle Database to Amazon RDS for Oracle
+# Full load SQL Server database migration options performance comparison
 
-You can use these three main approaches to migrate self-managed Oracle databases to Amazon Relational Database Service (Amazon RDS) for Oracle.
+To compare the full load migration performance for all three methods, we used a test environment. In this environment, we populated the `dms_sample` database with 410.90 GB of data. We used the same on-premise SQL Server source and RDS SQL Server target databases to load data three times. For these data loads, we used the following methods:
 
-- Using a native database tool such as Oracle Data Pump.
-- Using a managed service such as the AWS Database Migration Service (AWS DMS).
-- Using a native tool for the full load phase and AWS DMS for ongoing replication.
-  This document describes the third strategy — we call this the hybrid approach. The following diagram shows the components of the hybrid approach.
+- Backup and restore.
+- Import and export wizard.
+- Generate and publish scripts wizard and bulk copy program utility (bcp).
+  The following image represents the performance comparison of the three migration methods. We expect similar performance trends for larger datasets.
 
-![Hybrid migration approach](images/oracle2rds-migration-approach.png)
-The hybrid approach provides the following advantages.
+![performance comparison of the three migration methods](images/sql-server-rds-sql-server-performance.png)
+The elapsed time shown in the diagram is the actual migration time. It doesn’t include the time spent on implementing prerequisites.
 
-- To automate the creation of secondary database objects such as views, indexes, and constraints.
-- To use AWS DMS data validation to ensure your target data matches with the source, row by row and column by column.
-- To use some of the other capabilities that AWS DMS provides, for example data filtering or renaming tables and columns.
-  This document describes the native options for the full load. It also includes a comparison so you can evaluate the options against your migration requirements. In conclusion, you can find a brief description of how to use AWS DMS for ongoing replication.
+For the backup and restore method, we spent 4.24 hours. This time includes:
 
-###### Topics
+- 1.66 hours to backup the database.
+- 1.75 hours to copy the data from backup location to Amazon S3.
+- 0.88 hours to restore the data from the S3 bucket to Amazon RDS for SQL Server.
+  For the import and export wizard, we spent 8.58 hours.
 
-- [Summary](#_summary "#_summary")
-- [Full load Oracle database migration](chap-manageddatabases.oracle2rds.md "chap-manageddatabases.oracle2rds.md")
-- [Full load Oracle database migration options performance comparison](chap-manageddatabases.oracle2rds.md "chap-manageddatabases.oracle2rds.md")
-- [Migrate Oracle database with AWS DMS ongoing replication](chap-manageddatabases.oracle2rds.md "chap-manageddatabases.oracle2rds.md")
+For the bcp method, we spent 199 hours. This time includes:
 
-## Summary
-
-To migrate database objects and data, use either Oracle Export/Import or Oracle Data Pump. Oracle Export/Import and Oracle Data Pump automate schema object creation. Oracle Data Pump has better performance than Oracle Export/Import and it’s a newer version of Oracle Export/Import.
-
-You can still choose to work with Oracle Export/Import for relatively small data sets which are less than 10 GB because of the ease of use. To migrate table data only, choose any native full load option described in the full load and performance comparison sections.
-
-For full load and ongoing replication, use the hybrid approach. AWS DMS recommends using Oracle Data Pump for full load because it’s faster than other tools, and it automates target object creation.
+- 0.01 hours to generate scripts.
+- 0.01 hours to run the generated script on Amazon RDS for SQL Server.
+- 27.88 hours to run the bcp statements for unloading data from on-premise SQL Server.
+- 171.1 hours to run the bcp statements for loading data into Amazon RDS for SQL Server.

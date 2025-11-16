@@ -1,47 +1,64 @@
-# Step 5: Use AWS SCT to Convert the Oracle Schema to Amazon Redshift
+# Step 10: Verify That Your Data Migration Completed Successfully
 
-Before you migrate data to Amazon Redshift, you convert the Oracle schema to an Amazon Redshift schema. [This video covers all the steps of this process](https://youtu.be/ZK7J74VJT04 "https://youtu.be/ZK7J74VJT04").
+When the migration task completes, you can compare your task results with the expected results.
 
-To convert an Oracle schema to an Amazon Redshift schema using AWS Schema Conversion Tool (AWS SCT), do the following:
+1. On the navigation pane, choose **Tasks**.
+2. Choose your migration task (`migrateSHschema`).
+3. Choose the **Table statistics** tab, shown following.
 
-1. Launch AWS SCT. In AWS SCT, choose **File**, then choose **New Project**. Create a new project named `DWSchemaMigrationDemoProject`, specify the **Location** of the project folder, and then choose **OK**.
-2. Choose **Add source** to add a source Oracle database to your project, then choose **Oracle**, and choose **Next**.
-3. Enter the following information, and then choose **Test Connection**.
+![Table statistics tab](images/sbs-rdsor2redshift26.png) 4. Connect to the Amazon Redshift instance by using SQL Workbench/J, and then check whether the database tables were successfully migrated from Oracle to Amazon Redshift by running the SQL script shown following.
 
-| Parameter           | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Connection name** | Enter `Oracle DW`. AWS SCT displays this name in the tree in the left panel.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Type**            | Choose **SID**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Server name**     | Use the **OracleJDBCConnectionString\*<br>• value you used to connect to the Oracle DB instance, but remove the JDBC prefix information and the port and database name suffix. For example, a sample connection string you use with SQL Workbench/J might be `"jdbc:oracle:thin:@abc12345678.cqi87654abc.us-west-2.rds.amazonaws.com:1521:ORCL"`. For AWS SCT<br>**Server name\*\*, you remove `"jdbc:oracle:thin:@"` and `":1521:ORCL"` and use just the server name: `"abc12345678.cqi87654abc.us-west-2.rds.amazonaws.com"`. |
-| **Server port**     | Enter `1521`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Oracle SID**      | Enter `ORCL`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **User name**       | Enter `oraadmin`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Password**        | Enter `oraadmin123`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+```
+select "table", tbl_rows
+from svv_table_info
+where
+SCHEMA = 'sh'
+order by 1;
+```
 
-![Connecting to an Amazon RDS for Oracle DB instance](images/sbs-rdsor2redshift11.png) 4. Choose **OK** to close the alert box, then choose **Connect** to close the dialog box and to connect to the Oracle DB instance. 5. Choose **Add target** to add a target Amazon Redshift database to your project, then choose **Amazon Redshift**, and choose **Next**. 6. Enter the following information and then choose **Test Connection**.
+Your results should look similar to the following.
 
-| Parameter           | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Connection name** | Enter `Amazon Redshift`. AWS SCT displays this name in the tree in the right panel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Type**            | Choose **SID**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Server name**     | Use the **RedshiftJDBCConnectionString\*<br>• value you used to connect to the Amazon Redshift cluster, but remove the JDBC prefix information and the port suffix. For example, a sample connection string you use with SQL Workbench/J might be " jdbc:redshift://oracletoredshiftdwusingdms-redshiftcluster-abc123567.abc87654321.us-west-2.redshift.amazonaws.com:5439/test". For AWS SCT<br>**Server name\*\*, you remove " jdbc:redshift://" and :5439/test" to use just the server name: "oracletoredshiftdwusingdms-redshiftcluster-abc123567.abc87654321.us-west-2.redshift.amazonaws.com" |
-| **Server port**     | Enter `5439`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **User name**       | Enter `redshiftadmin`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Password**        | Enter `Redshift#123`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Use AWS Glue**    | Turn off this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+```
+table      | tbl_rows
+-----------+---------
+channels   |        5
+customers  |        8
+products   |       66
+promotions |      503
+sales      |     1106
+```
 
-7. Choose **OK** to close the alert box, then choose **Connect** to connect to the Amazon Redshift DB instance.
-8. In the tree in the left panel, select only the **SH** schema. In the tree in the right panel, select your target Amazon Redshift database. Choose **Create mapping**.
+5. To verify whether the output for tables and number of rows from the preceding query matches what is expected for RDS Oracle, compare your results with those in previous steps.
+6. Run the following query to check the relationship in tables; this query checks the departments with employees greater than 10.
 
-![Creating a mapping rule](images/sbs-rdsor2redshift12.png) 9. Choose **Main view**. 10. In the tree in the left panel, right-click the **SH** schema and choose **Collect Statistics**. AWS SCT analyzes the source data to recommend the best keys for the target Amazon Redshift database. For more information, see [Collecting or Uploading Statistics](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md#CHAP_Converting.DW.Statistics "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md#CHAP_Converting.DW.Statistics").
+```
+Select b.channel_desc,count(*) from SH.SALES a,SH.CHANNELS b where a.channel_id=b.channel_id
+group by b.channel_desc
+order by 1;
+```
 
-###### Note
+The output from this query should be similar to the following.
 
-If the **SH** schema does not appear in the list, choose **Actions**, then choose **Refresh from Database**. 11. In the tree in the left panel, right-click the **SH** schema and choose **Create report**. AWS SCT analyzes the **SH** schema and creates a database migration assessment report for the conversion to Amazon Redshift. 12. Check the report and the action items it suggests. The report discusses the type of objects that can be converted by using AWS SCT, along with potential migration issues and actions to resolve these issues. For this walkthrough, you should see something like the following:
+```
+channel_desc | count
+-------------+------
+Direct Sales |   355
+Internet     |    26
+Partners     |   172
+```
 
-![Database migration report](images/sbs-rdsor2redshift13.png) 13. Review the report summary. To save the report, choose either **Save to CSV** or **Save to PDF**. 14. Choose the **Action Items** tab. The report discusses the type of objects that can be converted by using AWS SCT, along with potential migration issues and actions to resolve these issues. 15. In the tree in the left panel, right-click the **SH** schema and choose **Convert schema**. 16. Choose **Yes** for the confirmation message. AWS SCT then converts your schema to the target database format.
+7. Verify column compression encoding.
 
-###### Note
+DMS uses an Amazon Redshift COPY operation to load data. By default, the COPY command applies automatic compression whenever loading to an empty target table. The sample data for this walkthrough is not large enough for automatic compression to be applied. When you migrate larger data sets, COPY will apply automatic compression.
 
-The choice of the Amazon Redshift sort keys and distribution keys is critical for optimal performance. You can use key management in AWS SCT to customize the choice of keys. For this walkthrough, we use the defaults recommended by AWS SCT. For more information, see [Optimizing Amazon Redshift](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.DW.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.DW.md"). 17. In the tree in the right panel, choose the converted **sh** schema, and then choose **Apply to database** to apply the schema scripts to the target Amazon Redshift instance. 18. In the tree in the right panel, choose the **sh** schema, and then choose **Refresh from Database** to refresh from the target database.
-The database schema has now been converted and imported from source to target.
+For more details about automatic compression on Amazon Redshift tables, see [Loading Tables with Automatic Compression](../../../redshift/latest/dg/c_Loading_tables_auto_compress.md "../../../redshift/latest/dg/c_Loading_tables_auto_compress.md").
+
+To view compression encodings, run the following query.
+
+```
+SELECT *
+FROM pg_table_def
+WHERE schemaname = 'sh';
+```
+
+Now you have successfully completed a database migration from an Amazon RDS for Oracle DB instance to Amazon Redshift.

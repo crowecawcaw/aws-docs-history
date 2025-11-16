@@ -1,17 +1,29 @@
-# Step-by-step Amazon Relational Database Service to Amazon Aurora MySQL-Compatible Edition migration walkthrough
+# Migration architecture for migrating from Amazon RDS for Oracle database to Amazon Aurora MySQL-Compatible Edition
 
-In the following sections, you can find step-by-step instructions for migrating an Amazon Relational Database Service (Amazon RDS) for Oracle database to Amazon Aurora MySQL-Compatible Edition. These steps assume that you have already prepared your source database as described in preceding sections.
+This walkthrough uses AWS CloudFormation to create a simple network topology for database migration that includes the source database, the replication instance, and the target database in the same VPC. For more information about AWS CloudFormation, see the [AWS CloudFormation documentation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 
-###### Topics
+We will provision the AWS resources that are required for this AWS Database Migration Service (AWS DMS) walkthrough through AWS CloudFormation. These resources include a VPC and Amazon Relational Database Service (Amazon RDS) instances for Oracle and Amazon Aurora MySQL-Compatible Edition. We provision through AWS CloudFormation because it simplifies the process, so we can concentrate on tasks related to data migration. When you create a stack from the AWS CloudFormation template, it provisions the following resources:
 
-- [Step 1: Launch the RDS Instances in a VPC by Using the AWS CloudFormation Template](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 2: Install the SQL Tools and AWS Schema Conversion Tool on Your Local Computer](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 3: Test Connectivity to the Oracle DB Instance and Create the Sample Schema](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 4: Test the Connectivity to the Aurora MySQL DB Instance](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 5: Use the AWS Schema Conversion Tool to Convert the Oracle Schema to Aurora MySQL](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 6: Validate the Schema Conversion](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 7: Create an AWS DMS Replication Instance](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 8: Create AWS DMS Source and Target Endpoints](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 9: Create and Run Your AWS DMS Migration Task](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 10: Verify That Your Data Migration Completed Successfully](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
-- [Step 11: Delete Walkthrough Resources](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md")
+- A VPC with CIDR (10.0.0.0/24) with two public subnets in your region, DBSubnet1 at the address 10.0.0.0/26 in Availability Zone 1 (AZ 1) and DBSubnet2 at the address 10.0.0.64/26, in AZ 2.
+- A DB subnet group that includes DBSubnet1 and DBSubnet2.
+- Oracle RDS Standard Edition Two with these deployment options:
+  - License Included
+  - Single-AZ setup
+  - db.m3.medium or equivalent instance class
+  - Port 1521
+  - Default option and parameter groups
+
+- Amazon Aurora MySQL DB instance with these deployment options:
+  - No replicas
+  - db.r3.large or equivalent instance class
+  - Port 3306
+  - Default option and parameter groups
+
+- A security group with ingress access from your computer or 0.0.0.0/0 (access from anywhere) based on the input parameter
+  We have designed the AWS CloudFormation template to require few inputs from the user. It provisions the necessary AWS resources with minimum recommended configurations. However, if you want to change some of the configurations and parameters, such as the VPC CIDR block and Amazon RDS instance types, feel free to update the template.
+
+We will use the [AWS Management Console](https://console.aws.amazon.com "https://console.aws.amazon.com") to provision the AWS DMS resources, such as the replication instance, endpoints, and tasks. You will install client tools such as SQL Workbench/J and the AWS Schema Conversion Tool (AWS SCT) on your local computer to connect to the Amazon RDS instances.
+
+Following is an illustration of the migration architecture for this walkthrough.
+
+![Replication instance](images/sbs-rdsor2aurora1.png)

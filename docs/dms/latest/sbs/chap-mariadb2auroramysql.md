@@ -1,11 +1,17 @@
-# Validate the MariaDB database migration
+# Test the endpoints for MariaDB database migration
 
-AWS DMS performs data validation to confirm that your data successfully migrated the source database to the target. You can check the **Table statistics** page to determine the DML changes that occurred after the AWS DMS task started. During data validation, AWS DMS compares each row in the source with its corresponding row at the target, and verifies that those rows contain the same data. To accomplish this, AWS DMS issues the appropriate queries to retrieve the data.
+1. On the navigation pane, choose **Endpoints**.
+2. Choose the source endpoint name (`maria-on-prem`) and do the following:
+   1. Choose **Test connections**.
+   2. Choose the replication instance to test (`mariadb-mysql`).
+   3. Choose **Run Test** and wait for the status to be **successful**.
 
-After your data is loaded successfully, you can select your task on the AWS DMS page and choose **Table statistics** to show statistics about your migration. The following screen shot shows the **Table statistics** page and its relevant entries.
+3. On the navigation pane, choose **Endpoints**.
+4. Choose the target endpoint name (`mysqltrg-rds`) and do the following:
+   1. Choose **Test Connections**.
+   2. Choose the replication instance to test (`mariadb-mysql`).
+   3. Choose **Run Test** and wait for the status to be **successful**.
 
-The following screenshot shows the table statics page and its relevant entries.
+###### Note
 
-![Table statistics](images/sbs-mariadb2aurmysql-validation.png)
-
-AWS DMS can validate the data between source and target engines. The **Validation state** column helps us to validate the data migration. This ensures that your data was migrated accurately from the source to the target.
+If **Run Test** returns a status other than **successful**, the reason for the failure is displayed. Make sure that you resolve the issue before proceeding further.

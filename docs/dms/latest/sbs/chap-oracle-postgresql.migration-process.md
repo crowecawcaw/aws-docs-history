@@ -1,37 +1,55 @@
-# Oracle application future state architecture design
+# Oracle database migration testing and bug fixing
 
-When you migrate an Oracle application to use a different database like PostgreSQL you must capture the architecture of the existing application to ensure that all considerations are covered, we call that the current state architecture. The current state architecture describes the part of the application that matters to the migration from an architectural point of view. The same is true for the future state architecture which takes the new database platform into account. We don’t need to describe everything, but some things, like external dependencies, are very important, and help us determine what work to do.
+Testing can be manual or automated. We recommend that you use an automated framework for testing. During migration, you will need to run the test multiple times, so having an automated testing framework helps speed up the bug fixing and optimization cycles.
 
-You may already have some favorite drawing tools for architecture diagrams such as Lucidchart, Visio or the freely available [Diagrams.net](http://diagrams.net/ "http://diagrams.net/") which are all great choices as they supports AWS infrastructure symbols along with many others to describe the current and future environment. But the tool is less important than what is captured in the diagrams.
+## Unit Testing
 
-The architecture diagrams also serve the important role of defining the context of what is inside and outside the scope of work as a team collaborates on the task.
+Unit testing at the data level after migration can range from comparing every last bit of data in source and target by comparing extracted CSV files, but more realistically, custom aggregation queries should be constructed to incorporate large amounts of the migrated data and compare the results.
 
-## Current State Architecture
+Unit tests validate individual units of your code, independent from any other components. Unit tests check the smallest unit of functionality and should have few reasons to fail.
 
-There may be existing documentation on the database application which should be examined for currency and relevance. Let us review what is important for the migration work before we decide if more documentation is needed.
+Database objects need to be validated after migrating the DDL of an Oracle database to PostgreSQL. Database objects includes packages, tables, views, sequences, triggers, primary and foreign keys, indexes, constraints.
 
-A **network diagram** is useful because It typically connects servers to each other, and servers to databases. It may also show the division into multiple availability or disaster recovery zones. This is useful because it shows potential server and network dependencies that must be addressed in the new architecture. A network diagram may also highlight important security considerations like multiple networks and internet connectivity.
+A typical way to perform unit testing on the converted database is to script out calls to stored procedures and functions and compare the returned data with external tools such as standard Linux/Unix tooling of diff.
 
-A **component diagram** is useful if the application is comprised of multiple parts using different technologies which each may present the migration with their own challenges to address.
+The application needs to be validated with new and existing test case scenarios based on documented changes on database objects such as field names, types, minimum and maximum values, length, mandatory fields, field level validations etc.
 
-A **class diagram** is useful if it shows a specific persistence layer or a query factory where the migration can focus while leaving the rest of the application untouched.
+## Functional Testing
 
-A **data flow diagram** is useful because it directly shows parts of the value chain of information flowing inside and outside the application highlighting what additional code may needs to be changed.
+Functional testing of the application is done by exercising user stories and comparing the results on the source and target system. This is typically a manual process, but third-party tools do exist to make automated regression tests of the UI (e.g. Selenium).
 
-The following image shows a simple network diagram that can help easily communicate current architecture.
+Functional testing of the database is largely done through the application, but there may be additional direct database use cases that can only be done directly on the database such as ETL for imports and extracts. In these cases, the data can be compared automatically before and after using standard Linux/Unix tooling like diff on extracted CSV files for example.
 
-![A simple network diagram](images/oracle-postgresql-current-architecture.png)
+Functional testing of reports involve visual inspection to see that all fields are correctly displayed and comparison of the semantic values between the old and the new reports.
 
-## Future State Architecture
+## Load Testing
 
-The future state architecture envisions the application using the new database, and potentially other services in the environment. It’s a new version of the current state architecture diagrams with certain parts replaced with the new components. This document will focus mainly on replacing Amazon RDS for Oracle with Amazon RDS for PostgreSQL or Aurora PostgreSQL.
+In order to stress the migrated system and test its performance you may perform load testing which is typically done on a system that is scaled the same as production and requires a means of simulating load on the system. It is sometimes limited to running specific well-known expensive operations rather than user traffic.
 
-## Transition Architecture
+## Standard Operating Procedures
 
-Depending on how involved your migration is, you may need a transition architecture by which we mean, infrastructure that is there only for migration purposes. Examples of transition architecture includes AWS DMS servers and other mediating or transformation platforms. Such infrastructure has to be provisioned, secured and removed after the migration to avoid additional vulnerability and cost.
+Standard Operating Procedures (SOP) may be affected by a migration of database application. Database management procedures change when going to PostgreSQL and some procedures may be unnecessary when going to the highly managed Aurora PostgreSQL.
 
-The following image shows a transition architecture diagram.
+In any case, all existing operational procedures need to be tested and their language updated to reflect the new environment. For more information, see [Managing Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md").
 
-![A transition architecture diagram](images/oracle-postgresql-transition-architecture.png)
+## Monitoring
 
-For more information, see [AWS Well-Architected Framework](../../../wellarchitected/latest/framework/welcome.md "../../../wellarchitected/latest/framework/welcome.md").
+Monitoring of the database will be affected by the migration and some metrics may change which could affect how SLA is monitored. The way operational staff go from detecting a problem to diving into the underlying details may be affected. For more information, see [Monitor Amazon RDS for PostgreSQL and Amazon Aurora for PostgreSQL database log errors and set up notifications using Amazon CloudWatch](https://aws.amazon.com/blogs/database/monitor-amazon-rds-for-postgresql-and-amazon-aurora-for-postgresql-database-log-errors-and-set-up-notifications-using-amazon-cloudwatch/ "https://aws.amazon.com/blogs/database/monitor-amazon-rds-for-postgresql-and-amazon-aurora-for-postgresql-database-log-errors-and-set-up-notifications-using-amazon-cloudwatch/").
+
+## Cutover
+
+Cutover procedures are the planned event where everything goes the way you want, but it still needs to be tested.
+
+## Fallback
+
+Fallback is when you have both old and new systems in sync with the new one operating as primary and you decide to switch back to the original which is still in sync.
+
+## Rolling back the Oracle database migration to PostgreSQL
+
+Rollback is usually the scenario when you don’t have an ongoing replication mechanism to keep old and new in sync, so in the event of a no-go decision during the cutover, you abandon the new system and go back to the original.
+
+## Migrate Back
+
+In some rare cases, you may decide to include the option of migrating production from the new system back to the old system after having the cutover. If you include this scenario, it must be tested.
+
+For more information, see [Testing Amazon Aurora PostgreSQL by using fault injection queries](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Managing.md"), [Automate benchmark tests for Amazon Aurora PostgreSQL](https://aws.amazon.com/blogs/database/automate-benchmark-tests-for-amazon-aurora-postgresql/ "https://aws.amazon.com/blogs/database/automate-benchmark-tests-for-amazon-aurora-postgresql/"), [Validating database objects after migration](https://aws.amazon.com/blogs/database/validating-database-objects-after-migration-using-aws-sct-and-aws-dms/ "https://aws.amazon.com/blogs/database/validating-database-objects-after-migration-using-aws-sct-and-aws-dms/"), and [Validate database objects after migrating from Oracle to Amazon Aurora PostgreSQL](../../../prescriptive-guidance/latest/patterns/validate-database-objects-after-migrating-from-oracle-to-amazon-aurora-postgresql.md "../../../prescriptive-guidance/latest/patterns/validate-database-objects-after-migrating-from-oracle-to-amazon-aurora-postgresql.md").

@@ -1,46 +1,36 @@
-# Create and run a MongoDB migration task
+# Launch an Amazon EC2 instance for MongoDB migration
 
-You are now ready to launch an AWS DMS migration task, to migrate the `zips` data from MongoDB to Amazon DocumentDB.
+For this tutorial, you launch an Amazon EC2 instance into your default VPC.
 
-1.  Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2.  In the navigation pane, choose **Database migration tasks**.
-3.  Choose **Create task** and enter the following information:
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Choose **Launch Instance**, and do the following:
+   1. On the **Choose an Amazon Machine Image (AMI)** page, at the top of the list of AMIs, go to **Amazon Linux AMI** and choose **Select**.
+   2. On the **Choose an Instance Type** page, at the top of the list of instance types, choose **t2.micro**. Then choose **Next: Configure Instance Details**.
+   3. On the **Configure Instance Details** page, for **Network**, choose your default VPC. Then choose **Next: Add Storage**.
+   4. On the **Add Storage** page, skip this step by choosing **Next: Add Tags**.
+   5. On the **Add Tags** page, skip this step by choosing **Next: Configure Security Group**.
+   6. On the **Configure Security Group** page, do the following:
+      1. Choose **Select an existing security group**.
+      2. In the list of security groups, choose **default**. Doing this chooses the default security group for your VPC. By default, the security group accepts inbound Secure Shell (SSH) connections on TPC port 22. If this isn’t the case for your VPC, add this rule; for more information, see [What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide_.
+      3. Choose **Next: Review and Launch**.
 
-        * For **Task configuration**, choose the following settings:
+   7. Review the information, and choose **Launch**.
 
+3. In the **Select an existing key pair or create a new key pair** window, do one of the following:
+   - If you don’t have an Amazon EC2 key pair, choose **Create a new key pair** and follow the instructions. You are asked to download a private key file (.pem file). You need this file later when you log in to your Amazon EC2 instance.
+   - If you already have an Amazon EC2 key pair, for **Select a key pair** choose your key pair from the list. You must already have the private key file (.pem file) available in order to log in to your Amazon EC2 instance.
 
+4. After you configure your key pair, choose **Launch Instances**.
 
+In the console navigation pane, choose **EC2 Dashboard**, and then choose the instance that you launched. In the lower pane, on the **Description** tab, find the **Public DNS** location for your instance, for example: `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`.
 
-        	+ **Task identifier** — enter a name that’s easy to remember, for example `my-dms-task`.
-        	+ **Replication instance** — choose the replication instance that you created in [Create a replication instance](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md").
-        	+ **Source database endpoint** — choose the source endpoint that you created in [Create source and target endpoints](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md").
-        	+ **Target database endpoint** — choose the target endpoint that you created in [Create source and target endpoints](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md").
-        	+ **Migration type** — choose **Migrate existing data**.
-        * For **Task settings**, choose the following settings:
+It takes a few minutes for your Amazon EC2 instance to become available. 5. Use the `ssh` command to log in to your Amazon EC2 instance, as in the following example.
 
+```
+chmod 400 my-keypair.pem
+ssh -i my-keypair.pem ec2-user@public-dns-name
+```
 
+Specify your private key file (.pem file) and the public DNS name of your EC2 instance. The login ID is `ec2-user`. No password is required.
 
-
-        	+ **Target table preparation mode** — Do nothing
-        	+ **Include LOB columns in replication** — Limited LOB mode
-        	+ **Maximum LOB size (KB)** — 32
-        	+ **Enable validation**
-        	+ **Enable CloudWatch logs**
-
-
-
-        	###### Note
-
-        	CloudWatch logs usage will be charged at standard rates. See [here](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") for more details.
-        * For **Advanced task settings**, keep all of the options at their default values.
-        * For **Premigration assessment**, keep the option at its default value.
-        * For **Start migration task** in **Migration task startup configuration**, choose **Automatically on create**.
-        * For **Tags**, keep all of the options at their default values.
-
-    When the settings are as you want them, choose **Create task**.
-
-AWS DMS now begins migrating data from MongoDB to Amazon DocumentDB. The task status changes from **Starting** to **Running**. You can monitor the progress by choosing **Tasks** in the AWS DMS console. After several minutes, the status changes to **Load complete**.
-
-###### Note
-
-After the migration is complete, you can use the mongo shell to connect to your Amazon DocumentDB cluster and view the `zips` data. For more information, see [Access your Amazon DocumentDB cluster using the mongo shell](../../../documentdb/latest/developerguide/getting-started.md "../../../documentdb/latest/developerguide/getting-started.md") in the _Amazon DocumentDB Developer Guide._
+For further details about connecting to your EC instance, see [Connecting to your Linux instance using SSH](../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md "../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md") in the _Amazon EC2 User Guide for Linux Instances_.
