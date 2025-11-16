@@ -64,7 +64,7 @@ encryption zone.
 - Create a cluster with the following command.
 
 ```
-aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \
+aws emr create-cluster --release-label `emr-7.11.0` --instance-type m5.xlarge --instance-count 2 \
 --applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
 ```
 
@@ -203,7 +203,7 @@ classifications available for Hadoop KMS:
   command:
 
 ```
-aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \
+aws emr create-cluster --release-label `emr-7.11.0` --instance-type m5.xlarge --instance-count 2 \
 --applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
 ```
 
@@ -232,7 +232,7 @@ Linux line continuation characters (\) are included for readability. They can be
   set to `false`, using the following command:
 
 ```
-aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \
+aws emr create-cluster --release-label `emr-7.11.0` --instance-type m5.xlarge --instance-count 2 \
 --applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
 ```
 
@@ -263,7 +263,7 @@ script using the CLI
   Hadoop KMS using the following command:
 
 ```
-aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \
+aws emr create-cluster --release-label `emr-7.11.0` --instance-type m5.xlarge --instance-count 2 \
 --applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
 ```
 

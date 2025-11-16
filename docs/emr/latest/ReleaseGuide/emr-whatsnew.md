@@ -3,7 +3,7 @@
 This page describes the changes and functionality available in the latest releases of
 Amazon EMR 7.x, 6.x, and 5.x.
 
-These release notes are also available on the [Amazon EMR 7.10.0](emr-7100-release.md "emr-7100-release.md"),
+These release notes are also available on the [Amazon EMR 7.11.0](emr-7110-release.md "emr-7110-release.md"),
 [Amazon EMR
 6.15.0](emr-6150-release.md "emr-6150-release.md"), and [Amazon EMR 5.36.2](emr-5362-release.md "emr-5362-release.md")
 pages, along with the application versions, component versions, and available configuration
@@ -22,54 +22,14 @@ SigV4, see [Amazon EMR and AWS Signature Version 4](#emr-sigv4 "#emr-sigv4").
 
 ## Amazon EMR
 
-7.10.0 (latest release of 7.x series)
+7.11.0 (latest release of 7.x series)
 
 New Amazon EMR releases are made available in different Regions over a period of several days, beginning with the first Region on the initial release date. The latest release version may not be available in your Region during this period.
 
-The following release notes include information for Amazon EMR release 7.10.0.
+The following release notes include information for Amazon EMR release 7.11.0.
 
-###### New features
-
-- Application upgrades – Amazon EMR 7.10.0
-  application upgrades include AWS SDK for Java 2.31.48/1.12.782, Delta 3.3.0-amzn-2, Hadoop 3.4.1-amzn-2, Hudi 0.15.0-amzn-7, Iceberg 1.8.1-amzn-0, Spark 3.5.5-amzn-1, and Zookeeper 3.9.3-amzn-2.
-- **S3A filesystem** – Starting from the EMR 7.10.0 release, the S3A filesystem has replaced EMRFS as the default EMR S3 connector. For more information,
-  see [Migration Guide: EMRFS to S3A Filesystem](emr-s3a-migrate.md "emr-s3a-migrate.md").
-
-###### Known issues
-
-- **ACCEPTED State** – YARN Application stuck In ACCEPTED State due to open-source bug [YARN-11834](https://issues.apache.org/jira/browse/YARN-11834 "https://issues.apache.org/jira/browse/YARN-11834"). Reach out to
-  the AWS support team if you encounter this issue.
-- **ConcurrentModificationException exception** – YARN restarting frequently with ConcurrentModificationException exception due to open-source
-  bug [YARN-11838](https://issues.apache.org/jira/browse/YARN-11838 "https://issues.apache.org/jira/browse/YARN-11838"). Reach out to the AWS support team if you encounter this issue.
-- **YARN application logs** – YARN application logs not visible through Resource Manager UI. In order to fix the issue, follow these steps:
-  1.  Update the `yarn.log.server.url` configuration in yarn-site.xml to the following value:
-
-  ```
-  <property>
-    <name>yarn.log.server.url</name>
-    <value>https://<private-dns-master-node>:19890/jobhistory/logs</value>
-  </property>
-  ```
-
-  2.  Restart the hadoop resource manager service: `systemctl restart hadoop-resourcemanager.service`
-
-- **Uploading step logs** – Some clusters may not be able to upload step logs to your S3 bucket due to a race condition. Reach out to the AWS support team if you encounter this issue.
-- **HBase table creation in Hive with Glue catalog** – From EMR-7.3.0 to EMR-7.10.0, there is a bug due to Hive Iceberg integration, which causes HBase
-  table creation in Hive to fail when Glue Data Catalog is used as the metastore. Please reach out to the AWS support team if you encounter this issue.
-- **Tez UI** – From EMR-7.3 to EMR-7.10, there is a bug where accessing Tez UI through YARN Resource Manager Web UI fails when
-  in-transit encryption is enabled. This occurs because YARN proxy attempts to use HTTP protocol while Tez UI requires HTTPS. Please modify the `tez.tez-ui.history-url.base` configuration
-  in `tez-site` from `http` to `https` to resolve this issue.
-
-- Release labels and supported regions.
-
-| OsReleaseLabel (Amazon Linux version) | Amazon Linux kernel version | Available date    | Supported Regions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------- | --------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2023.7.20250609.0                     | 6.1.140-154.222.amzn2023    | July 14, 2025     | Europe (Stockholm), Middle East (Bahrain), China (Beijing), Asia Pacific (Mumbai), Europe (Paris), Asia Pacific (Jakarta), US East (Ohio), Africa (Cape Town), Europe (Ireland), Middle East (UAE), Europe (Frankfurt), South America (São Paulo), Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), US East (N. Virginia), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Malaysia), Europe (London), Asia Pacific (Melbourne), Europe (Milan), Asia Pacific (Tokyo), AWS GovCloud (US-East), AWS GovCloud (US-West), US West (Oregon), US West (N. California), Asia Pacific (Singapore), Asia Pacific (Sydney), Israel (Tel Aviv), Canada (Central), Canada West (Calgary), Europe (Spain), China (Ningxia), Europe (Zurich)                                                                                                            |
-| 2023.7.20250527.1                     | 6.1.134-152.225.amzn2023    | Jun 19, 2025      | Europe (Stockholm), Middle East (Bahrain), China (Beijing), Asia Pacific (Malaysia), Asia Pacific (Mumbai), Europe (Paris), Asia Pacific (Jakarta), US East (Ohio), Africa (Cape Town), Europe (Ireland), Middle East (UAE), Europe (Frankfurt), South America (São Paulo), Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), US East (N. Virginia), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Malaysia), Europe (London), Asia Pacific (Melbourne), Europe (Milan), Asia Pacific (Tokyo), AWS GovCloud (US-East), AWS GovCloud (US-West), US West (Oregon), Mexico (Central), US West (N. California), Asia Pacific (Singapore), Asia Pacific (Sydney), Israel (Tel Aviv), Canada (Central), Canada West (Calgary), Europe (Spain), China (Ningxia), Europe (Zurich)                                                                 |
-| 2023.7.20250331.0                     | 6.1.131-143.221.amzn2023    | April 18, 2025    | US East (N. Virginia), US East (Ohio), US West (N. California),<br>US West (Oregon), Europe (Stockholm), Europe (Milan),<br>Europe (Frankfurt),<br>Europe (Ireland), Europe (London),<br>Europe (Paris), Asia Pacific (Hong Kong), Asia Pacific (Mumbai),<br>Asia Pacific (Tokyo),<br>Asia Pacific (Seoul), Asia Pacific (Osaka),<br>Asia Pacific (Singapore), Asia Pacific (Sydney),<br>Asia Pacific (Jakarta),<br>Africa (Cape Town), South America (São Paulo), Middle East (Bahrain),<br>Canada (Central),<br>AWS GovCloud (US-West), AWS GovCloud (US-East), China (Beijing), China (Ningxia),<br>Asia Pacific (Hyderabad), Middle East (UAE), Europe (Spain), Europe (Zurich),<br>Asia Pacific (Melbourne), Israel (Tel Aviv),<br>Canada West (Calgary), Asia Pacific (Malaysia), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Tokyo) |
-| 2023.6.20250303.0                     | 6.1.129-138.220.amzn2023    | March 27, 2025    | US East (N. Virginia), US East (Ohio), US West (N. California),<br>US West (Oregon), Europe (Stockholm), Europe (Milan),<br>Europe (Frankfurt),<br>Europe (Ireland), Europe (London),<br>Europe (Paris), Asia Pacific (Hong Kong), Asia Pacific (Mumbai),<br>Asia Pacific (Tokyo),<br>Asia Pacific (Seoul), Asia Pacific (Osaka),<br>Asia Pacific (Singapore), Asia Pacific (Sydney),<br>Asia Pacific (Jakarta),<br>Africa (Cape Town), South America (São Paulo), Middle East (Bahrain),<br>Canada (Central),<br>AWS GovCloud (US-West), AWS GovCloud (US-East), China (Beijing), China (Ningxia),<br>Asia Pacific (Hyderabad), Middle East (UAE), Europe (Spain), Europe (Zurich),<br>Asia Pacific (Melbourne), Israel (Tel Aviv),<br>Canada West (Calgary), Asia Pacific (Malaysia), Asia Pacific (Malaysia), Mexico (Central)                       |
-| 2023.6.20250218.2                     | 6.1.128-136.201.amzn2023    | March 08, 2025    | US East (N. Virginia), US East (Ohio), US West (N. California),<br>US West (Oregon), Europe (Stockholm), Europe (Milan),<br>Europe (Frankfurt),<br>Europe (Ireland), Europe (London),<br>Europe (Paris), Asia Pacific (Hong Kong), Asia Pacific (Mumbai),<br>Asia Pacific (Tokyo),<br>Asia Pacific (Seoul), Asia Pacific (Osaka),<br>Asia Pacific (Singapore), Asia Pacific (Sydney),<br>Asia Pacific (Jakarta),<br>Africa (Cape Town), South America (São Paulo), Middle East (Bahrain),<br>Canada (Central),<br>AWS GovCloud (US-West), AWS GovCloud (US-East), China (Beijing), China (Ningxia),<br>Asia Pacific (Hyderabad), Middle East (UAE), Europe (Spain), Europe (Zurich),<br>Asia Pacific (Melbourne), Israel (Tel Aviv),<br>Canada West (Calgary), Asia Pacific (Malaysia), Asia Pacific (Malaysia), Mexico (Central)                       |
-| 2023.6.20250211.0                     | 6.1.127-135.201.amzn2023    | February 26, 2025 | US East (N. Virginia), US East (Ohio), US West (N. California),<br>US West (Oregon), Europe (Stockholm), Europe (Milan),<br>Europe (Frankfurt),<br>Europe (Ireland), Europe (London),<br>Europe (Paris), Asia Pacific (Hong Kong), Asia Pacific (Mumbai),<br>Asia Pacific (Tokyo),<br>Asia Pacific (Seoul), Asia Pacific (Osaka),<br>Asia Pacific (Singapore), Asia Pacific (Sydney),<br>Asia Pacific (Jakarta),<br>Africa (Cape Town), South America (São Paulo), Middle East (Bahrain),<br>Canada (Central),<br>AWS GovCloud (US-West), AWS GovCloud (US-East), China (Beijing), China (Ningxia),<br>Asia Pacific (Hyderabad), Middle East (UAE), Europe (Spain), Europe (Zurich),<br>Asia Pacific (Melbourne), Israel (Tel Aviv),<br>Canada West (Calgary), Asia Pacific (Malaysia), Asia Pacific (Malaysia), Mexico (Central)                       |
+- **New features**
+  - Long-running sessions with corporate identities - Amazon SageMaker Unified Studio now supports long-running sessions with corporate identities through IAM Identity Center's Trusted Identity Propagation (TIP). Users can launch interactive notebooks and data processing sessions on Amazon EMR and AWS Glue that persist using corporate credentials, even when logged off or sessions expire. Sessions run for up to 90 days (default 7 days) while maintaining identity permissions and consistent security controls.
 
 ## Amazon EMR
 

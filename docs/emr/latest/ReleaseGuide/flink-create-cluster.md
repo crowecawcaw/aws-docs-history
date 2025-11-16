@@ -21,7 +21,7 @@ the console
 - Create the cluster with the following command:
 
 ```
-aws emr create-cluster --release-label `emr-7.10.0` \
+aws emr create-cluster --release-label `emr-7.11.0` \
 --applications Name=Flink \
 --region `us-east-1` \
 --log-uri `s3://myLogUri` \

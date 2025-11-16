@@ -31,15 +31,15 @@ console when you launch a cluster, or by explicitly specifying the
 ## Hue version information
 
 **Hue version for
-7.10.0**
+7.11.0**
 
 The following table lists the version of Hue included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Hue.
 
-For the version of components installed with Hue in this release, see [Release 7.10.0 Component Versions](emr-7100-release.md "emr-7100-release.md").
+For the version of components installed with Hue in this release, see [Release 7.11.0 Component Versions](emr-7110-release.md "emr-7110-release.md").
 
-| Hue version information for emr-7.10.0 | Amazon EMR Release Label | Hue Version                                                                                                                                                                                                                                                                            | Components Installed With Hue |
-| -------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| emr-7.10.0                             | Hue 4.11.0               | emrfs, emr-ddb, emr-goodies, emr-kinesis, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hue-server, mariadb-server, oozie-client, oozie-server |
+| Hue version information for emr-7.11.0 | Amazon EMR Release Label | Hue Version                                                                                                                                                                                                                                                                                              | Components Installed With Hue |
+| -------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| emr-7.11.0                             | Hue 4.11.0               | emrfs, emr-ddb, emr-goodies, emr-kinesis, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hue-server, mariadb-server, oozie-client, oozie-server |
 
 **Hue version for
 6.15.0**

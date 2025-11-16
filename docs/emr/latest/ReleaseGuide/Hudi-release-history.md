@@ -6,6 +6,7 @@ For component versions in each release, see the Component Version section for yo
 
 | Hudi version information | Amazon EMR Release Label | Hudi Version   | Components Installed With Hudi |
 | ------------------------ | ------------------------ | -------------- | ------------------------------ |
+| emr-7.11.0               | 1.0.2-amzn-0             | Not available. |
 | emr-7.10.0               | 0.15.0-amzn-7            | Not available. |
 | emr-7.9.0                | 0.15.0-amzn-6            | Not available. |
 | emr-7.8.0                | 0.15.0-amzn-5            | Not available. |

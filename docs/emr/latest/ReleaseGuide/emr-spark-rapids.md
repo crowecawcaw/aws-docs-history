@@ -387,7 +387,7 @@ above. Here's an example command to launch a cluster from the Amazon EMR CLI:
 
 ```
  aws emr create-cluster \
---release-label emr-7.10.0 \
+--release-label emr-7.11.0 \
 --applications Name=Hadoop Name=Spark \
 --service-role EMR_DefaultRole_V2 \
 --ec2-attributes KeyName=my-key-pair,InstanceProfile=EMR_EC2_DefaultRole \

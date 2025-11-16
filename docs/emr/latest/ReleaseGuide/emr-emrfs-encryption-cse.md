@@ -166,7 +166,7 @@ look like the following:
 
 		RunJobFlowRequest request = new RunJobFlowRequest()
 			.withName("Custom EncryptionMaterialsProvider")
-			.withReleaseLabel("`emr-7.10.0`")
+			.withReleaseLabel("`emr-7.11.0`")
 			.withApplications(myApp)
 			.withConfigurations(myEmrfsConfig)
 			.withServiceRole("EMR_DefaultRole_V2")
@@ -206,7 +206,7 @@ You may need to pass arguments directly to the provider. To do this, you can use
 Using the `create-cluster` command from the AWS CLI, you can use the `--configurations` option to specify the file as shown below:
 
 ```
-aws emr create-cluster --release-label ``emr-7.10.0`` --instance-type `m5.xlarge` --instance-count `2` --configurations file://myConfig.json --emrfs Encryption=ClientSide,CustomProviderLocation=`s3://amzn-s3-demo-bucket/myfolder/myprovider.jar`,CustomProviderClass=`classname`
+aws emr create-cluster --release-label ``emr-7.11.0`` --instance-type `m5.xlarge` --instance-count `2` --configurations file://myConfig.json --emrfs Encryption=ClientSide,CustomProviderLocation=`s3://amzn-s3-demo-bucket/myfolder/myprovider.jar`,CustomProviderClass=`classname`
 ```
 
 ## Configuring EMRFS S3EC V2 support

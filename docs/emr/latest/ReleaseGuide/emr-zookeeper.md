@@ -5,11 +5,11 @@ providing distributed synchronization, and providing group services. For more in
 
 The following table lists the version of ZooKeeper included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with ZooKeeper.
 
-For the version of components installed with ZooKeeper in this release, see [Release 7.10.0 Component Versions](emr-7100-release.md "emr-7100-release.md").
+For the version of components installed with ZooKeeper in this release, see [Release 7.11.0 Component Versions](emr-7110-release.md "emr-7110-release.md").
 
-| ZooKeeper version information for emr-7.10.0 | Amazon EMR Release Label | ZooKeeper Version                                                                                                                                                                                                                                                  | Components Installed With ZooKeeper |
-| -------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| emr-7.10.0                                   | ZooKeeper 3.9.3-amzn-2   | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, zookeeper-client, zookeeper-server |
+| ZooKeeper version information for emr-7.11.0 | Amazon EMR Release Label | ZooKeeper Version                                                                                                                                                                                                                                                                    | Components Installed With ZooKeeper |
+| -------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| emr-7.11.0                                   | ZooKeeper 3.9.3-amzn-3   | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, zookeeper-client, zookeeper-server |
 
 The following table lists the version of ZooKeeper included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with ZooKeeper.
 

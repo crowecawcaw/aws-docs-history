@@ -17,7 +17,7 @@ which logs inconsistencies and sets a fixed retry interval of 10 seconds:
 ###### Example Setting retry period to a fixed amount
 
 ```
-aws emr create-cluster --release-label `emr-7.10.0` \
+aws emr create-cluster --release-label `emr-7.11.0` \
 --instance-type `m5.xlarge` --instance-count 1 \
 --emrfs Consistent=`true`,Args=[fs.s3.consistent.throwExceptionOnInconsistency=`false`, fs.s3.consistent.retryPolicyType=`fixed`,fs.s3.consistent.retryPeriodSeconds=`10`] --ec2-attributes KeyName=`myKey`
 ```

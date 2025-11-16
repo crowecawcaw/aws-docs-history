@@ -61,7 +61,7 @@ parameter.
   name.
 
 ```
-aws emr create-cluster --name "`Test cluster`" --release-label `emr-7.10.0` \
+aws emr create-cluster --name "`Test cluster`" --release-label `emr-7.11.0` \
 --applications Name=`Hue` Name=`Hive` Name=`Pig` --use-default-roles \
 --ec2-attributes KeyName=`myKey` --instance-type `m5.xlarge` --instance-count `3` \
 --steps Type=`CUSTOM_JAR`,Name="`Custom JAR Step`",ActionOnFailure=`CONTINUE`,Jar=`pathtojarfile`,Args=["`pathtoinputdata`","`pathtooutputbucket`","`arg1`","`arg2`"]
@@ -102,7 +102,7 @@ s3://`URI_to_JAR`` in the step options
   following:
 
 ```
-aws emr create-cluster --release-label `emr-7.10.0` \
+aws emr create-cluster --release-label `emr-7.11.0` \
 --applications Name=`Hue` Name=`Hive` Name=`Pig` --use-default-roles \
 --instance-type m5.xlarge --instance-count 2  --ec2-attributes KeyName=`myKey` \
 --steps Type=`CUSTOM_JAR`,Name="`Custom JAR Step`",ActionOnFailure=`CONTINUE`,Jar=`pathtojarfile`,Args=["`pathtoinputdata`","`pathtooutputbucket`","`arg1`","`arg2`"] \

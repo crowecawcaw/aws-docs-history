@@ -24,7 +24,7 @@ The following example launches a cluster with Phoenix installed using default co
 - Create the cluster with the following command:
 
 ```
-aws emr create-cluster --name "Cluster with Phoenix" --release-label `emr-7.10.0` \
+aws emr create-cluster --name "Cluster with Phoenix" --release-label `emr-7.11.0` \
 --applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
 --instance-type m5.xlarge --instance-count 3 --use-default-roles
 ```
@@ -55,7 +55,7 @@ The contents of the JSON file saved to /amzn-s3-demo-bucket/myfolder/myconfig.js
 The `create cluster` command that references the JSON file is shown in the following example.
 
 ```
-aws emr create-cluster --release-label `emr-7.10.0` --applications Name=Phoenix \
+aws emr create-cluster --release-label `emr-7.11.0` --applications Name=Phoenix \
 Name=HBase --instance-type m5.xlarge --instance-count 2 \
 --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myconfig.json
 ```

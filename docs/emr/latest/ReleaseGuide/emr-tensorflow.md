@@ -4,11 +4,11 @@ TensorFlow is an open-source symbolic math library for machine intelligence and 
 
 The following table lists the version of TensorFlow included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with TensorFlow.
 
-For the version of components installed with TensorFlow in this release, see [Release 7.10.0 Component Versions](emr-7100-release.md "emr-7100-release.md").
+For the version of components installed with TensorFlow in this release, see [Release 7.11.0 Component Versions](emr-7110-release.md "emr-7110-release.md").
 
-| TensorFlow version information for emr-7.10.0 | Amazon EMR Release Label | TensorFlow Version                                                                                                                                                                                                                         | Components Installed With TensorFlow |
-| --------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
-| emr-7.10.0                                    | TensorFlow 2.18.0        | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, tensorflow |
+| TensorFlow version information for emr-7.11.0 | Amazon EMR Release Label | TensorFlow Version                                                                                                                                                                                                                                           | Components Installed With TensorFlow |
+| --------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
+| emr-7.11.0                                    | TensorFlow 2.19.0        | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, tensorflow |
 
 The following table lists the version of TensorFlow included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with TensorFlow.
 

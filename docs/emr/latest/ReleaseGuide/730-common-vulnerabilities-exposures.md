@@ -4,7 +4,7 @@ The following table lists all CVEs that don't impact EMR clusters that run on re
 Amazon EMR is dependent on upstream open-source for availability of fixes and will provide the latest stable version as
 part of the Core Engine components within 90 days of Amazon EMR verifying the fixes.
 
-This table was updated on October 4, 2024.
+This table was updated on October 3, 2024.
 
 | CVE ID           | Severity | CVE details URL                                                                                                                                            |
 | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |

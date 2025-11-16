@@ -15,12 +15,12 @@ PrestoSQL, the previous version of Trino, is still available for use with Amazon
 on the same cluster.
 
 The following table lists the version of Trino included in the latest release
-of Amazon EMR 7.x, along with components that Amazon EMR installs with Trino. For the version of components installed with Trino in this release, see [Release 7.10.0
-Component Versions](emr-7100-release.md "emr-7100-release.md").
+of Amazon EMR 7.x, along with components that Amazon EMR installs with Trino. For the version of components installed with Trino in this release, see [Release 7.11.0
+Component Versions](emr-7110-release.md "emr-7110-release.md").
 
-| Trino (PrestoSQL) version information for emr-7.10.0 | Amazon EMR Release Label   | Trino (PrestoSQL) Version                                                                                                                                                                                                                                                                                 | Components Installed With Trino (PrestoSQL) |
-| ---------------------------------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| emr-7.10.0                                           | trino-prestosql 470-amzn-0 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-trino, hcatalog-server, mariadb-server, trino-coordinator, trino-worker |
+| Trino (PrestoSQL) version information for emr-7.11.0 | Amazon EMR Release Label   | Trino (PrestoSQL) Version                                                                                                                                                                                                                                                                                                   | Components Installed With Trino (PrestoSQL) |
+| ---------------------------------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| emr-7.11.0                                           | trino-prestosql 475-amzn-0 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-trino, hcatalog-server, mariadb-server, trino-coordinator, trino-worker |
 
 ###### Topics
 
