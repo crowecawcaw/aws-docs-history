@@ -36,7 +36,7 @@ The following are key features of OpenSearch UI:
 - **Cross-Region and cross-account support** –
   OpenSearch UI can utilize the cross-cluster search feature to connect with
   OpenSearch domains in different accounts and different Regions for aggregated
-  analysis and visualizations.
+  analysis and visualizations
   To get started and create your first OpenSearch UI, follow the instructions in [Getting started with the OpenSearch user
   interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md").
 

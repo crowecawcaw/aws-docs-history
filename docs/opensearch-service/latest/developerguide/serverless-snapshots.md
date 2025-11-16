@@ -1,29 +1,23 @@
 # Backing up collections using snapshots
 
-Snapshots are point-in-time backups of your Amazon OpenSearch Serverless collections that provide
-disaster recovery capabilities. OpenSearch Serverless automatically creates and manages
-snapshots of your collections, ensuring business continuity and data protection. Each snapshot
-contains:
+Snapshots are point-in-time backups of your Amazon OpenSearch Serverless collections that provide disaster
+recovery capabilities. OpenSearch Serverless automatically creates and manages snapshots of your collections,
+ensuring business continuity and data protection. Each snapshot contains index metadata
+(settings and mappings for your indexes), cluster metadata (index templates and aliases), and
+index data (all documents and data stored in your indexes).
 
-- Index metadata: Settings and mappings for your indices
-- Cluster metadata: Index templates and aliases
-- Index data: All documents and data stored in your indices
-  **Key benefits**
+OpenSearch Serverless provides automatic hourly backups with no manual configuration, zero maintenance
+overhead, no additional storage costs, quick recovery from accidental data loss, and the ability
+to restore specific indexes from a snapshot.
 
-- Automatic hourly backups with no manual configuration required
-- Zero maintenance overhead
-- No additional storage costs
-- Quick recovery from accidental data loss
-- Ability to restore specific indices from a snapshot
-  **Important considerations**
-
-- Creating a snapshot isn't instantaneous and requires time to complete.
-- New documents or updates during snapshot creation might not be included in the snapshot.
-- You can restore snapshots only to their original collection and not to a new one.
-- When restored, indices receive new UUIDs that differ from their original versions.
-- You can run only one restore operation at a time.
-- You can't start multiple restore operations on the same collection at the same time. Attempting to restore indices during an active restore operation causes the operation to fail.
-- During a restore operation, your requests to the indices fail.
+Before working with snapshots, understand these important considerations. Creating a
+snapshot takes time to complete and isn't instantaneous. New documents or updates during
+snapshot creation will not be included in the snapshot. You can restore snapshots only to their
+original collection and not to a new one. When restored, indexes receive new UUIDs that differ
+from their original versions. You can run only one restore operation at a time, and you can't
+start multiple restore operations on the same collection simultaneously. Attempting to restore
+indexes during an active restore operation causes the operation to fail. During a restore
+operation, your requests to the indexes fail.
 
 ## Required permissions
 
@@ -31,11 +25,11 @@ To work with snapshots, configure the following permissions in your data access 
 For more information about data access policies, see [Data access policies versus IAM
 policies](serverless-data-access.md#serverless-data-access-vs-iam "serverless-data-access.md#serverless-data-access-vs-iam").
 
-| Data Access Policy           | APIs                                                                                                    |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------- |
-| aoss:DescribeSnapshot        | GET /\_cat/snapshotsGET<br>/\_cat/snapshots/aoss-automated/GET<br>\_snapshot/aoss-automated/`snapshot`/ |
-| aoss:RestoreSnapshot         | POST<br>/\_snapshot/aoss-automated/`snapshot`/\_restore                                                 |
-| aoss:DescribeCollectionItems | GET /\_cat/recovery                                                                                     |
+| Data Access Policy           | APIs                                                                          |
+| ---------------------------- | ----------------------------------------------------------------------------- |
+| aoss:DescribeSnapshot        | GET /\_cat/snapshots/aoss-automatedGET<br>\_snapshot/aoss-automated/snapshot/ |
+| aoss:RestoreSnapshot         | POST /\_snapshot/aoss-automated/snapshot/\_restore                            |
+| aoss:DescribeCollectionItems | GET /\_cat/recovery                                                           |
 
 You can configure policies using the following AWS CLI commands:
 
@@ -44,19 +38,20 @@ You can configure policies using the following AWS CLI commands:
 3. [get-access-policy](../../../cli/latest/reference/opensearchserverless/get-access-policy.md "../../../cli/latest/reference/opensearchserverless/get-access-policy.md")
 4. [update-access-policy](../../../cli/latest/reference/opensearchserverless/update-access-policy.md "../../../cli/latest/reference/opensearchserverless/update-access-policy.md")
 
-Here is a sample CLI command for creating an access policy:
+Here is a sample CLI command for creating an access policy. In the command, replace the
+`example` content with your specific information.
 
 ```
 aws opensearchserverless create-access-policy \
 --type data \
---name `AWSExample-data-access-policy` \
---region us-west-2 \
+--name `Example-data-access-policy` \
+--region `aws-region` \
 --policy '[
   {
     "Rules": [
       {
         "Resource": [
-          "collection/`AWSExample-collection`"
+          "collection/`Example-collection`"
         ],
         "Permission": [
           "aoss:DescribeSnapshot",
@@ -67,7 +62,7 @@ aws opensearchserverless create-access-policy \
       }
     ],
     "Principal": [
-      "arn:aws:iam::`AWSExample-account-ID`:user/`AWSExample-user`"
+      "arn:aws:iam::`111122223333`:user/`UserName`"
     ],
     "Description": "`Data policy to support snapshot operations.`"
   }
@@ -77,56 +72,95 @@ aws opensearchserverless create-access-policy \
 ## Working with snapshots
 
 By default, when you create a new collection, OpenSearch Serverless automatically creates snapshots every
-hour. No action is required on your part. Each snapshot includes all indices in the
-collection. After OpenSearch Serverless creates snapshots, you can list them and view the details of the
-snapshot using the following commands.
+hour. You don't need to take any action. Each snapshot includes all indexes in the collection.
+After OpenSearch Serverless creates snapshots, you can list them and review the details of the snapshot using
+the following procedures.
 
-**Listing snapshots**
+### List snapshots
 
-Use the following command to list all snapshots in a collection:
+Use the following procedures to list all snapshots in a collection and review their
+details.
+
+Console
+
+1. Open the Amazon OpenSearch Service console at
+   [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
+2. In the left navigation pane, choose **Serverless**, then
+   choose **Collections**.
+3. Choose the name of your collection to open its details page.
+4. Choose the **Snapshots** tab to display all generated
+   snapshots.
+5. Review the snapshot information including:
+   - **Snapshot ID** - Unique identifier for the
+     snapshot
+   - **Status** - Current state (Available, In
+     Progress)
+   - **Created time** - When the snapshot was taken
+
+AWS CLI
+
+- Use the following command to list all snapshots in a collection:
 
 ```
-GET /_cat/snapshots/aoss-automated/
+GET /_cat/snapshots/aoss-automated
 ```
 
 OpenSearch Serverless returns a response like the following:
 
 ```
 
-id                                 status  start_epoch start_time end_epoch  end_time    duration    indices successful_shards failed_shards total_shards
-snapshot-AWSExampleSnapshotID1     SUCCESS 1737964331  07:52:11   1737964382 07:53:02    50.4s       1
-snapshot-AWSExampleSnapshotID2     SUCCESS 1737967931  08:52:11   1737967979 08:52:59    47.7s       2
-snapshot-AWSExampleSnapshotID3     SUCCESS 1737971531  09:52:11   1737971581 09:53:01    49.1s       3
-snapshot-AWSExampleSnapshotID4 IN_PROGRESS 1737975131  10:52:11   -          -            4.8d       3
+id                                 status  start_epoch start_time end_epoch  end_time    duration    indexes successful_shards failed_shards total_shards
+snapshot-ExampleSnapshotID1     SUCCESS 1737964331  07:52:11   1737964382 07:53:02    50.4s       1
+snapshot-ExampleSnapshotID2     SUCCESS 1737967931  08:52:11   1737967979 08:52:59    47.7s       2
+snapshot-ExampleSnapshotID3     SUCCESS 1737971531  09:52:11   1737971581 09:53:01    49.1s       3
+snapshot-ExampleSnapshotID4 IN_PROGRESS 1737975131  10:52:11   -          -            4.8d       3
 ```
 
-**Get snapshots**
+### Get snapshot details
 
-Retrieves information about a snapshot.
+Use the following procedures to retrieve detailed information about a specific
+snapshot.
+
+Console
+
+1. Open the Amazon OpenSearch Service console at
+   [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
+2. In the left navigation pane, choose **Serverless**, then
+   choose **Collections**.
+3. Choose the name of your collection to open its details page.
+4. Choose the **Snapshots** tab.
+5. Choose the snapshot job ID to display detailed information about the snapshot,
+   including metadata, indexes included, and timing information.
+
+AWS CLI
+
+- Use the following command to retrieve information about a snapshot. In the
+  command, replace the `example` content with your specific
+  information.
 
 ```
 GET _snapshot/aoss-automated/`snapshot`/
 ```
 
-Example Request
+Example Request:
 
 ```
-GET _snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1`/
+GET _snapshot/aoss-automated/`snapshot-ExampleSnapshotID1`/
 ```
 
-Example Response
+Example Response:
 
 ```
 {
     "snapshots": [
         {
-            "snapshot": "`snapshot-AWSExampleSnapshotID1-5e01-4423-9833Example`",
-            "uuid": "`AWSExample-5e01-4423-9833-9e9eb757Example`",
+            "snapshot": "`snapshot-ExampleSnapshotID1-5e01-4423-9833Example`",
+            "uuid": "`Example-5e01-4423-9833-9e9eb757Example`",
             "version_id": 136327827,
             "version": "2.11.0",
             "remote_store_index_shallow_copy": true,
-            "indices": [
-                "`AWSExample-index-0117`"
+            "indexes": [
+                "`Example-index-0117`"
             ],
             "data_streams": [],
             "include_global_state": true,
@@ -148,40 +182,60 @@ Example Response
 }
 ```
 
-**Understanding snapshot response fields**
-
-**id**
-
-A unique identifier for the snapshot operation.
-
-**status**
-
-The current state of the snapshot operation. Possible values include:
-
-- `SUCCESS`
-- `IN_PROGRESS`
-
-**duration**
-
-The time taken to complete the snapshot operation.
-
-**indices**
-
-The number of indices included in the snapshot.
+The snapshot response includes several key fields: `id` provides a unique
+identifier for the snapshot operation, `status` returns the current state
+`SUCCESS` or `IN_PROGRESS`, `duration` indicates the time
+taken to complete the snapshot operation, and `indexes` returns the number of
+indexes included in the snapshot.
 
 ## Restoring from a snapshot
 
-Restoring from a snapshot allows you to recover data from a previously taken backup. This
-process is crucial for disaster recovery and data management in OpenSearch Serverless.
+Restoring from a snapshot recovers data from a previously taken backup. This process is
+crucial for disaster recovery and data management in OpenSearch Serverless. Before restoring, understand that
+restored indexes will have different UUIDs than their original versions, snapshots can only be
+restored to their original collection (cross-collection restoration is not supported), and
+restore operations will impact cluster performance so plan accordingly.
 
-**Important considerations**
+Use the following procedures to restore backed up indexes from a snapshot.
 
-1. Restored indices will have different UUIDs than their original versions.
-2. Snapshots can only be restored to their original collection. Cross-collection
-   restoration is not supported.
-3. Restore operations may impact cluster performance. Plan accordingly.
+Console
 
-###### To restore backed up incidices from a snapshot
+1. Open the Amazon OpenSearch Service console at
+   [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
+2. In the left navigation pane, choose **Serverless**, then choose
+   **Collections**.
+3. Choose the name of your collection to open its details page.
+4. Choose the **Snapshots** tab to display available
+   snapshots.
+5. Choose the snapshot you want to restore from, then choose **Restore from
+   snapshot**.
+6. In the **Restore from snapshot** dialog:
+   - For **Snapshot name**, verify the selected snapshot
+     ID.
+   - For **Snapshot scope**, choose either:
+     - **All indexes in collection** - Restore all indexes
+       from the snapshot
+     - **Specific indexes** - Select individual indexes to
+       restore
+
+   - For **Destination**, choose the collection to restore
+     to.
+   - (Optional) Configure **Rename settings** to rename restored
+     indexes:
+     - **Do not rename** - Keep original index names
+     - **Add prefix to restored index names** - Add a prefix
+       to avoid conflicts
+     - **Rename using regular expression** - Use advanced
+       renaming patterns
+
+   - (Optional) Configure **Notification** settings to be
+     notified when the restore completes or encounters errors.
+
+7. Choose **Save** to start the restore operation.
+8. Monitor the restore progress in the **Restore activity** tab,
+   which shows the status, start time, completion time, and affected indexes.
+
+AWS CLI
 
 1. Run the following command to identify the appropriate snapshot.
 
@@ -192,14 +246,15 @@ GET /_snapshot/aoss-automated/_all
 For a smaller list of snapshots, run the following command.
 
 ```
-GET /_cat/snapshots/aoss-automated/
+GET /_cat/snapshots/aoss-automated
 ```
 
 2. Run the following command to verify the details of the snapshot before
-   restoring.
+   restoring. In the command, replace the `example` content
+   with your specific information.
 
 ```
-GET _snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1`/
+GET _snapshot/aoss-automated/`snapshot-ExampleSnapshotID1`/
 ```
 
 3. Run the following command to restore from a specific snapshot.
@@ -212,9 +267,9 @@ You can customize the restore operation by including a request body. Here's an
 example.
 
 ```
-POST /_snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1-5e01-4423-9833Example`/_restore
+POST /_snapshot/aoss-automated/`snapshot-ExampleSnapshotID1-5e01-4423-9833Example`/_restore
 {
-  "indices": "opensearch-dashboards*,my-index*",
+  "indexes": "opensearch-dashboards*,my-index*",
   "ignore_unavailable": true,
   "include_global_state": false,
   "include_aliases": false,
@@ -231,27 +286,11 @@ GET /_cat/recovery
 
 ###### Note
 
-When restoring a snapshot with a command that includes a request body, you can use the
-following parameters to control the restore behavior:
-
-**indices**
-
-Specifies which indices to restore. This parameter supports wildcard
-patterns.
-
-**ignore_unavailable**
-
-Allows the restore operation to continue even if an index in the snapshot is
-missing.
-
-**include_global_state**
-
-Determines whether to restore the cluster state.
-
-**include_aliases**
-
-Controls whether to restore associated aliases.
-
-**rename_pattern and rename_replacement**
-
-Allows you to rename indices during the restore operation.
+When restoring a snapshot with a command that includes a request body, you can use
+several parameters to control the restore behavior. The `indexes` parameter
+specifies which indexes to restore and supports wildcard patterns. Set
+`ignore_unavailable` to continue the restore operation even if an index in the
+snapshot is missing. Use `include_global_state` to determine whether to restore
+the cluster state, and `include_aliases` to control whether to restore associated
+aliases. The `rename_pattern` and `rename_replacement` parameters
+rename indexes during the restore operation.
