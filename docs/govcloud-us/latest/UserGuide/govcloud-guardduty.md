@@ -67,7 +67,6 @@ The following list indicates the differences in the feature availability in AWS 
   - [PrivilegeEscalation:Kubernetes/AnomalousBehavior.RoleCreated](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated")
   - [Discovery:Kubernetes/AnomalousBehavior.PermissionChecked](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated")
 
-- [RDS Protection](../../../guardduty/latest/ug/rds-protection.md "../../../guardduty/latest/ug/rds-protection.md") is not supported in AWS GovCloud (US) Regions.
 - In [Malware Protection for EC2](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md"), the support for scanning instances with `productCode` as `marketplace` is not supported. GuardDuty will skip the malware scan for such instances and log the skip reason as `UNSUPPORTED_PRODUCT_CODE_TYPE`.
 - Cross-region data transfer is not supported in AWS GovCloud (US) Regions.
 - Member accounts invitation notifications through AWS Health Dashboard and email are not supported in AWS GovCloud (US) Regions.

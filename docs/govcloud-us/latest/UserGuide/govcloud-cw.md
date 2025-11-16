@@ -7,7 +7,6 @@ Use CloudWatch Events to send system events from AWS resources to AWS Lambda fun
 - Transaction Search is not available.
 - The GetMetricWidgetImage API is not available.
 - [Dashboard sharing](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.md") is not available.
-- CloudWatch real user monitoring (RUM) is not available.
 - You cannot create CloudWatch alarms for Trusted Advisor metrics in AWS GovCloud (US).
 - Amazon CloudWatch cross-account observability is not available in AWS GovCloud (US).
 
