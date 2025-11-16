@@ -11,4 +11,3 @@ SAP manages the security in AWS account managed by SAP. You can implement additi
 - [Integrating SAP Data Custodian KMS with AWS KMS](aws-kms.md "aws-kms.md")
 - [How AWS Nitro helps secure RISE with SAP?](aws-nitro.md "aws-nitro.md")
 - [Amazon WorkSpaces as remote access solution](rise-workspaces.md "rise-workspaces.md")
-- [Consuming SAP LogServ on AWS](rise-logserv.md "rise-logserv.md")
