@@ -171,7 +171,7 @@ This procedure uses the AWS CLI to create the IAM policy and role, and associate
 
 ```
 aws iam create-policy  --policy-name `rds-lambda-policy` --policy-document '{
-    "Version": "2012-10-17",
+	"Version": "2012-10-17",
     "Statement": [
         {
         "Sid": "AllowAccessToExampleFunction",

@@ -1,118 +1,98 @@
-# Example: Using
+# Example: Logical
 
-logical replication with Aurora PostgreSQL DB clusters
+replication using Aurora PostgreSQL and AWS Database Migration Service
 
-The following procedure shows you how to start logical replication between two
-Aurora PostgreSQL DB clusters. Both the publisher and the subscriber must be configured for
-logical replication as detailed in [Setting up logical
-replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").
+You can use the AWS Database Migration Service (AWS DMS) to replicate a database or a portion of a database.
+Use AWS DMS to migrate your data from an Aurora PostgreSQL database to another open source or
+commercial database. For more information about AWS DMS, see the [AWS Database Migration Service User Guide](../../../dms/latest/userguide.md "../../../dms/latest/userguide.md").
 
-The Aurora PostgreSQL DB cluster that's the designated publisher must also allow
-access to the replication slot. To do so, modify the security group associated with the
-Aurora PostgreSQL DB cluster 's virtual public cloud (VPC) based on the Amazon VPC service.
-Allow inbound access by adding the security group associated with the subscriber's
-VPC to the publisher's security group. For more information, see [Control traffic to resources using
-security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the _Amazon VPC User Guide_.
+The following example shows how to set up logical replication from an Aurora PostgreSQL
+database as the publisher and then use AWS DMS for migration. This example uses the same
+publisher and subscriber that were created in [Example: Using
+logical replication with Aurora PostgreSQL DB clusters](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").
 
-With these preliminary steps complete, you can use PostgreSQL commands `CREATE
- PUBLICATION` on the publisher and the `CREATE SUBSCRIPTION` on the
-subscriber, as detailed in the following procedure.
+To set up logical replication with AWS DMS, you need details about your publisher and
+subscriber from Amazon RDS. In particular, you need details about the publisher's writer
+DB instance and the subscriber's DB instance.
 
-###### To start the logical replication process between two Aurora PostgreSQL DB
+Get the following information for the publisher's writer DB instance:
 
-clusters
+- The virtual private cloud (VPC) identifier
+- The subnet group
+- The Availability Zone (AZ)
+- The VPC security group
+- The DB instance ID
+  Get the following information for the subscriber's DB instance:
 
-These steps assume that your Aurora PostgreSQL DB clusters have a writer instance with
-a database in which to create the example tables.
+- The DB instance ID
+- The source engine
 
-1.  On the publisher Aurora PostgreSQL DB
-    cluster
-    1. Create a table using the following SQL statement.
+###### To use AWS DMS for logical replication with Aurora PostgreSQL
 
-    ```
-    CREATE TABLE LogicalReplicationTest (a int PRIMARY KEY);
-    ```
+1. Prepare the publisher database to work with AWS DMS.
 
-    2. Insert data into the publisher database by using the following SQL
-       statement.
+To do this, PostgreSQL 10.x and later databases require that you apply AWS DMS
+wrapper functions to the publisher database. For details on this and later
+steps, see the instructions in [Using PostgreSQL version 10.x and later as a source for AWS DMS](../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.PostgreSQL.v10 "../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.PostgreSQL.v10") in
+the _AWS Database Migration Service User Guide._ 2. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2"). At top right, choose the same AWS Region in which the
+publisher and subscriber are located. 3. Create an AWS DMS replication instance.
 
-    ```
-    INSERT INTO LogicalReplicationTest VALUES (generate_series(1,10000));
-    ```
+Choose values that are the same as for your publisher's writer DB
+instance. These include the following settings:
 
-    3. Verify that data exists in the table by using the following SQL
-       statement.
+    * For **VPC**, choose the same VPC as for the writer DB
+     instance.
+    * For **Replication Subnet Group**, choose a subnet
+     group with the same values as the writer DB instance. Create a new one
+     if necessary.
+    * For **Availability zone**, choose the same zone as
+     for the writer DB instance.
+    * For **VPC Security Group**, choose the same group as
+     for the writer DB instance.
 
-    ```
-    SELECT count(*) FROM LogicalReplicationTest;
-    ```
+4. Create an AWS DMS endpoint for the source.
 
-    4. Create a publication for this table by using the `CREATE
-PUBLICATION` statement, as follows.
+Specify the publisher as the source endpoint by using the following settings:
 
-    ```
-    CREATE PUBLICATION testpub FOR TABLE LogicalReplicationTest;
-    ```
+    * For **Endpoint type**, choose **Source
+     endpoint**.
+    * Choose **Select RDS DB Instance**.
+    * For **RDS Instance**, choose the DB identifier of the
+     publisher's writer DB instance.
+    * For **Source engine**, choose
+     **postgres**.
 
-2.  On the subscriber Aurora PostgreSQL DB
-    cluster
+5. Create an AWS DMS endpoint for the target.
 
-        1. Create the same `LogicalReplicationTest` table on the
-         subscriber that you created on the publisher, as follows.
+Specify the subscriber as the target endpoint by using the following
+settings:
 
+    * For **Endpoint type**, choose **Target
+     endpoint**.
+    * Choose **Select RDS DB Instance**.
+    * For **RDS Instance**, choose the DB identifier of the
+     subscriber DB instance.
+    * Choose a value for **Source engine**. For example, if
+     the subscriber is an RDS PostgreSQL database, choose
+     **postgres**. If the subscriber is an Aurora PostgreSQL
+     database, choose **aurora-postgresql**.
 
+6. Create an AWS DMS database migration task.
 
-        ```
-        CREATE TABLE LogicalReplicationTest (a int PRIMARY KEY);
-        ```
-        2. Verify that this table is empty.
+You use a database migration task to specify what database tables to migrate,
+to map data using the target schema, and to create new tables on the target
+database. At a minimum, use the following settings for **Task
+configuration**:
 
+    * For **Replication instance**, choose the replication
+     instance that you created in an earlier step.
+    * For **Source database endpoint**, choose the
+     publisher source that you created in an earlier step.
+    * For **Target database endpoint**, choose the
+     subscriber target that you created in an earlier step.
 
-
-        ```
-        SELECT count(*) FROM LogicalReplicationTest;
-        ```
-        3. Create a subscription to get the changes from the publisher. You need
-         to use the following details about the publisher Aurora PostgreSQL DB
-         cluster.
-
-
-
-
-        	* **host** – The publisher
-        	 Aurora PostgreSQL DB cluster's writer DB instance.
-        	* **port** – The port on
-        	 which the writer DB instance is listening. The default for
-        	 PostgreSQL is 5432.
-        	* **dbname** – The name of
-        	 the database.
-
-        ```
-        CREATE SUBSCRIPTION testsub CONNECTION
-           'host=`publisher-cluster-writer-endpoint` port=5432 dbname=`db-name` user=`user` password=`password`'
-           PUBLICATION testpub;
-
-        ```
-
-        ###### Note
-
-        Specify a password other than the prompt shown here as a security
-         best practice.
-
-
-        After the subscription is created, a logical replication slot is
-         created at the publisher.
-        4. To verify for this example that the initial data is replicated on the
-         subscriber, use the following SQL statement on the subscriber
-         database.
-
-
-
-        ```
-        SELECT count(*) FROM LogicalReplicationTest;
-        ```
-
-    Any further changes on the publisher are replicated to the subscriber.
-
-Logical replication affects performance. We recommend that you turn off logical
-replication after your replication tasks are complete.
+The rest of the task details depend on your migration project. For more
+information about specifying all the details for DMS tasks, see [Working with AWS DMS tasks](../../../dms/latest/userguide/CHAP_Tasks.md "../../../dms/latest/userguide/CHAP_Tasks.md") in
+the _AWS Database Migration Service User Guide._
+After AWS DMS creates the task, it begins migrating data from the publisher to the
+subscriber.

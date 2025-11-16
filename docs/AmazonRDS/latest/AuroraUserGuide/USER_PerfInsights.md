@@ -1,101 +1,93 @@
-# Amazon CloudWatch metrics for Amazon RDS Performance Insights
+# Overview of the Performance Schema for Performance Insights on Aurora MySQL
 
-Performance Insights automatically publishes some metrics to Amazon CloudWatch. The same data can be
-queried from Performance Insights, but having the metrics in CloudWatch makes it easy to add CloudWatch
-alarms. It also makes it easy to add the metrics to existing CloudWatch Dashboards.
+The Performance Schema is an optional feature for monitoring Aurora MySQL runtime performance at a low level of detail. The Performance Schema is designed to have minimal impact on
+database performance. Performance Insights is a separate feature that you can use with or without the Performance Schema.
 
-| Metric                   | Description                                                                                                                                                                                |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| DBLoad                   | The number of active sessions for the database. Typically, you want the data for the average number of active sessions.<br>In Performance Insights, this data is queried as `db.load.avg`. |
-| DBLoadCPU                | The number of active sessions where the wait event type is CPU. In Performance Insights, this data is queried as `db.load.avg`,<br>filtered by the wait event type `CPU`.                  |
-| DBLoadNonCPU             | The number of active sessions where the wait event type is not CPU.                                                                                                                        |
-| DBLoadRelativeToNumVCPUs | The ratio of the DB load to the number of virtual CPUs for the database.                                                                                                                   |
+###### Topics
 
-###### Note
+- [Overview of the Performance Schema](#USER_PerfInsights.EnableMySQL.overview "#USER_PerfInsights.EnableMySQL.overview")
+- [Performance Insights and the Performance Schema](#USER_PerfInsights.effect-of-pfs "#USER_PerfInsights.effect-of-pfs")
+- [Automatic management of the Performance Schema by Performance
+  Insights](#USER_PerfInsights.EnableMySQL.options "#USER_PerfInsights.EnableMySQL.options")
+- [Effect of a reboot on the Performance Schema](#USER_PerfInsights.EnableMySQL.reboot "#USER_PerfInsights.EnableMySQL.reboot")
+- [Determining whether
+  Performance Insights is managing the Performance Schema](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md")
+- [Turn on the Performance Schema for Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md")
 
-These metrics are published to CloudWatch only if there is load on the DB instance.
+## Overview of the Performance Schema
 
-You can examine these metrics using the CloudWatch console, the AWS CLI, or the CloudWatch API. You can
-also examine other Performance Insights counter metrics using a special metric math
-function. For more information, see [Querying other Performance Insights counter metrics in CloudWatch](#USER_PerfInsights.Cloudwatch.ExtraMetrics "#USER_PerfInsights.Cloudwatch.ExtraMetrics").
+The Performance Schema monitors events in Aurora MySQL databases. An _event_ is a database server action that consumes time and has been instrumented
+so that timing information can be collected. Examples of events include the following:
 
-For example, you can get the statistics for the `DBLoad` metric by running the [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") command.
+- Function calls
+- Waits for the operating system
+- Stages of SQL execution
+- Groups of SQL statements
 
-```
-aws cloudwatch get-metric-statistics \
-    --region us-west-2 \
-    --namespace AWS/RDS \
-    --metric-name DBLoad  \
-    --period 60 \
-    --statistics Average \
-    --start-time 1532035185 \
-    --end-time 1532036185 \
-    --dimensions Name=DBInstanceIdentifier,Value=db-loadtest-0
-```
+The `PERFORMANCE_SCHEMA` storage engine is a mechanism for implementing the Performance Schema feature. This engine collects event
+data using instrumentation in the database source code. The engine stores events in memory-only tables in the
+`performance_schema` database. You can query `performance_schema` just as you can query any other tables. For
+more information, see [MySQL Performance Schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html") in the
+_MySQL Reference Manual_.
 
-This example generates output similar to the following.
+## Performance Insights and the Performance Schema
 
-```
-{
-		"Datapoints": [
-		{
-		"Timestamp": "2021-07-19T21:30:00Z",
-		"Unit": "None",
-		"Average": 2.1
-		},
-		{
-		"Timestamp": "2021-07-19T21:34:00Z",
-		"Unit": "None",
-		"Average": 1.7
-		},
-		{
-		"Timestamp": "2021-07-19T21:35:00Z",
-		"Unit": "None",
-		"Average": 2.8
-		},
-		{
-		"Timestamp": "2021-07-19T21:31:00Z",
-		"Unit": "None",
-		"Average": 1.5
-		},
-		{
-		"Timestamp": "2021-07-19T21:32:00Z",
-		"Unit": "None",
-		"Average": 1.8
-		},
-		{
-		"Timestamp": "2021-07-19T21:29:00Z",
-		"Unit": "None",
-		"Average": 3.0
-		},
-		{
-		"Timestamp": "2021-07-19T21:33:00Z",
-		"Unit": "None",
-		"Average": 2.4
-		}
-		],
-		"Label": "DBLoad"
-		}
+Performance Insights and the Performance Schema are separate features, but they are connected. The behavior of Performance Insights for
+Aurora MySQL depends on whether the
+Performance Schema is turned on, and if so, whether Performance Insights manages the Performance Schema automatically. The following table
+describes the behavior.
 
-```
+| Performance Schema turned on | Performance Insights management mode | Performance Insights behavior                                                                                                                                                                                                                                                         |
+| ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Yes                          | Automatic                            | • Collects detailed, low-level monitoring information<br>• Collects active session metrics every second<br>• Displays DB load categorized by detailed wait events, which you can use to identify bottlenecks                                                                          |
+| Yes                          | Manual                               | • Collects wait events and per-SQL metrics<br>• Collects active session metrics every second<br>• Reports user states such as inserting and sending, which don't help you identify bottlenecks                                                                                        |
+| No                           | N/A                                  | • Doesn't collect wait events, per-SQL metrics, or other detailed, low-level monitoring information<br>• Collects active session metrics every five seconds instead of every second<br>• Reports user states such as inserting and sending, which don't help you identify bottlenecks |
 
-For more information about CloudWatch, see [What is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md") in the _Amazon CloudWatch User Guide_.
+## Automatic management of the Performance Schema by Performance
 
-## Querying other Performance Insights counter metrics in CloudWatch
+Insights
+
+When you create an Aurora MySQL DB instance
+with Performance Insights turned on, the Performance Schema is also turned on. In this case, Performance Insights automatically manages
+your Performance Schema parameters. This is the recommended configuration.
+
+When Performance Insights manages the Performance Schema automatically, the **Source** of `performance_schema` is `System
+ default`.
 
 ###### Note
 
-If you enable the Advanced mode of Database Insights, Amazon RDS publishes Performance Insights counter metrics to Amazon CloudWatch. With Database Insights, you don't need to use the `DB_PERF_INSIGHTS` metric math function. You can use the CloudWatch Database Insights dashboard to search, query, and set alarms for Performance Insights counter metrics.
+Automatic management of the Performance Schema isn't supported for the t4g.medium instance class.
 
-You can query, alarm, and graphs on RDS Performance Insights metrics from CloudWatch.
-You can access information about your DB cluster
-by using the `DB_PERF_INSIGHTS` metric math function for CloudWatch.
-This function allows you to use the Performance Insights metrics
-that are not directly reported to CloudWatch to create a new time series.
+You can also manage the Performance Schema manually. If you choose this option, set the
+parameters according to the values in the following table.
 
-You can use the new Metric Math function by clicking on the **Add Math** drop-down menu in the **Select metric** screen in the CloudWatch console.
-You can use it to create alarms and graphs on Performance Insights metrics or on combinations of CloudWatch and Performance Insights metrics,
-including high-resolution alarms for sub-minute metrics.
-You can also use the function programmatically by including the Metric Math expression in a [`get-metric-data`](../../../cli/latest/reference/cloudwatch/get-metric-data.md "../../../cli/latest/reference/cloudwatch/get-metric-data.md") request.
-For more information, see [Metric math syntax and functions](../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md#metric-math-syntax-functions-list "../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md#metric-math-syntax-functions-list") and
-[Create an alarm on Performance Insights counter metrics from an AWS database](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.md").
+| Parameter name                                       | Parameter value                                          |
+| ---------------------------------------------------- | -------------------------------------------------------- |
+| `performance_schema`                                 | `1` (\*_Source_<br>• column has the value<br>`Modified`) |
+| `performance-schema-consumer-events-waits-current`   | `ON`                                                     |
+| `performance-schema-instrument`                      | `wait/%=ON`                                              |
+| `performance_schema_consumer_global_instrumentation` | `1`                                                      |
+| `performance_schema_consumer_thread_instrumentation` | `1`                                                      |
+
+If you change the `performance_schema` parameter value manually, and then later want to change to automatic management, see [Turn on the Performance Schema for Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
+
+###### Important
+
+When Performance Insights turns on the Performance Schema, it doesn't change the parameter group values. However, the values are changed on
+the DB instances that are running. The only way to see the changed values is to run the `SHOW GLOBAL VARIABLES`
+command.
+
+## Effect of a reboot on the Performance Schema
+
+Performance Insights and the Performance Schema differ in their requirements for DB instance reboots:
+
+**Performance Schema**
+
+To turn this feature on or off, you must reboot the DB instance.
+
+**Performance Insights**
+
+To turn this feature on or off, you don't need to reboot the DB instance.
+
+If the Performance Schema isn't currently turned on, and you turn on Performance Insights without rebooting the DB instance, the Performance
+Schema won't be turned on.

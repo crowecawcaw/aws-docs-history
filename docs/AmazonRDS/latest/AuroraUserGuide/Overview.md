@@ -1,270 +1,132 @@
-# Encrypting Amazon Aurora
+# Controlling access with security
 
-resources
+groups
 
-Amazon Aurora can encrypt your Amazon Aurora DB clusters. Data that is encrypted at rest includes the underlying
-storage for DB clusters, its automated backups, read replicas,
-and snapshots.
+VPC security groups control the access that traffic has in and out of a DB
+cluster.
+By default, network access is turned off for a DB
+cluster. You can specify rules
+in a security group that allow access from an IP address range, port, or security group.
+After ingress rules are configured, the same rules apply to all DB
+clusters
+that are associated with that security group. You can specify up to 20 rules in a
+security group.
 
-Amazon Aurora encrypted DB clusters use the
-industry standard AES-256 encryption algorithm to encrypt your data on the
-server that hosts your Amazon Aurora DB clusters. After your
-data is encrypted, Amazon Aurora handles authentication of access and
-decryption of your data transparently with a minimal impact on performance. You
-don't need to modify your database client applications to use encryption.
+## Overview of VPC security
 
-###### Note
+groups
 
-For encrypted and unencrypted DB clusters, data
-that is in transit between the source and the read replicas is encrypted,
-even when replicating across AWS Regions.
+Each VPC security group rule makes it possible for a specific source to access a
+DB
+cluster in a VPC that is associated with that VPC security group. The
+source can be a range of addresses (for example, 203.0.113.0/24), or another VPC
+security group. By specifying a VPC security group as the source, you allow incoming
+traffic from all instances (typically application servers) that use the source VPC
+security group. VPC security groups can have rules that govern both inbound and
+outbound traffic. However, the outbound traffic rules typically don't apply to DB
 
-###### Topics
+clusters. Outbound traffic rules apply only if the DB
+cluster acts as a client. You must use the [Amazon EC2
+API](../../../AWSEC2/latest/APIReference/Welcome.md "../../../AWSEC2/latest/APIReference/Welcome.md") or the **Security Group** option on the VPC console
+to create VPC security groups.
 
-- [Overview of encrypting
-  Amazon Aurora resources](#Overview.Encryption.Overview "#Overview.Encryption.Overview")
-- [Encrypting an Amazon Aurora DB
-  cluster](#Overview.Encryption.Enabling "#Overview.Encryption.Enabling")
-- [Determining whether
-  encryption is turned on for a DB cluster](#Overview.Encryption.Determining "#Overview.Encryption.Determining")
-- [Availability of Amazon Aurora encryption](#Overview.Encryption.Availability "#Overview.Encryption.Availability")
-- [Encryption in
-  transit](#Overview.Encryption.InTransit "#Overview.Encryption.InTransit")
-- [Limitations of Amazon Aurora encrypted DB clusters](#Overview.Encryption.Limitations "#Overview.Encryption.Limitations")
+When you create rules for your VPC security group that allow access to the
+clusters in your VPC, you must specify a port for each range of
+addresses that the rule allows access for. For example, if you want to turn on
+Secure Shell (SSH) access for instances in the VPC, create a rule allowing access to
+TCP port 22 for the specified range of addresses.
 
-## Overview of encrypting
+You can configure multiple VPC security groups that allow access to different
+ports for different instances in your VPC. For example, you can create a VPC
+security group that allows access to TCP port 80 for web servers in your VPC. You
+can then create another VPC security group that allows access to TCP port 3306 for
 
-Amazon Aurora resources
-
-Amazon Aurora encrypted DB clusters provide an additional layer of data
-protection by securing your data from unauthorized access to the underlying storage. You
-can use Amazon Aurora encryption to increase data protection of your applications deployed
-in the cloud, and to fulfill compliance requirements for encryption at rest. For an
-Amazon Aurora encrypted DB cluster, all DB instances, logs, backups, and snapshots are
-encrypted. For more information about the availability and limitations of encryption,
-see [Availability of Amazon Aurora encryption](#Overview.Encryption.Availability "#Overview.Encryption.Availability") and
-[Limitations of Amazon Aurora encrypted DB clusters](#Overview.Encryption.Limitations "#Overview.Encryption.Limitations").
-
-Amazon Aurora uses an AWS Key Management Service key to encrypt these resources. AWS KMS combines
-secure, highly available hardware and software to provide a key management system scaled
-for the cloud. You can use an AWS managed key, or you can create customer managed keys.
-
-When you create an encrypted DB cluster, you can choose a customer managed key or the
-AWS managed key for Amazon Aurora to encrypt your DB cluster. If you don't specify
-the key identifier for a customer managed key, Amazon Aurora uses the AWS managed key for your new
-DB cluster. Amazon Aurora creates an AWS managed key for Amazon Aurora for your AWS account.
-Your AWS account has a different AWS managed key for Amazon Aurora for each AWS
-Region.
-
-To manage the customer managed keys used for encrypting and decrypting your Amazon Aurora resources,
-you use the [AWS Key Management Service (AWS KMS)](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
-
-Using AWS KMS, you can create customer managed keys and define the policies to control the use of
-these customer managed keys. AWS KMS supports CloudTrail, so you can audit KMS key usage to verify that
-customer managed keys are being used appropriately. You can use your customer managed keys with Amazon Aurora
-and supported AWS services such as Amazon S3, Amazon EBS, and Amazon Redshift. For a list of services that
-are integrated with AWS KMS, see [AWS Service Integration](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration"). Some
-considerations about using KMS keys:
-
-- Once you have created an encrypted DB instance, you can't change the
-  KMS key used by that DB instance. Therefore, be sure to determine your
-  KMS key requirements before you create your encrypted DB instance.
-
-If you must change the encryption key for your DB cluster, create a manual snapshot
-of your cluster and enable encryption while copying the snapshot. For more
-information, see [re:Post
-Knowledge article](https://repost.aws/knowledge-center/update-encryption-key-rds "https://repost.aws/knowledge-center/update-encryption-key-rds").
-
-- If you copy an encrypted snapshot, you can use a different KMS key to
-  encrypt the target snapshot than the one that was used to encrypt the source
-  snapshot.
-- You can't share a snapshot that has been encrypted using the
-  AWS managed key of the AWS account that shared the snapshot.
-- Each DB instance in the DB cluster is encrypted using the same KMS key as
-  the DB cluster.
-- You can also encrypt a read replica of an Amazon Aurora encrypted cluster.
-
-###### Important
-
-Amazon Aurora can lose access to the KMS key for a DB cluster when you disable the
-KMS key. In these cases, the encrypted DB cluster goes into
-`inaccessible-encryption-credentials-recoverable` state. The DB cluster
-remains in this state for seven days, during which the instance is stopped. API
-calls made to the DB cluster during this time might not succeed. To recover the DB cluster,
-enable the KMS key and restart this DB cluster. Enable the KMS key from the
-AWS Management Console, AWS CLI, or RDS API. Restart the DB cluster using the AWS CLI command [start-db-cluster](../../../cli/latest/reference/rds/start-db-cluster.md "../../../cli/latest/reference/rds/start-db-cluster.md") or
-AWS Management Console.
-
-The `inaccessible-encryption-credentials-recoverable` state only
-applies to DB clusters that can stop. This recoverable state is not applicable to instances
-that can't stop, such as clusters with cross-Region
-read replicas. For more information, see [Limitations for stopping and starting Aurora DB clusters](aurora-cluster-stop-start.md#aurora-cluster-stop-limitations "aurora-cluster-stop-start.md#aurora-cluster-stop-limitations").
-
-If the DB cluster isn't recovered within seven days, it goes into the terminal
-`inaccessible-encryption-credentials` state. In this state, the DB cluster
-is not usable anymore and you can only restore the DB cluster from a backup. We strongly
-recommend that you always turn on backups for encrypted DB clusters to guard against the
-loss of encrypted data in your databases.
-
-During the creation of a DB cluster, Aurora checks if the calling principal has access
-to the KMS key and generates a grant from the KMS key that it uses for the
-entire lifetime of the DB cluster. Revoking the calling principals access to the
-KMS key does not affect a running database. When using KMS keys in cross-account
-scenarios, such as copying a snapshot to another account, the KMS key needs to be
-shared with the other account. If you create a DB cluster from the snapshot without
-specifying a different KMS key, the new cluster uses the KMS key from the source
-account. Revoking access to the key after you create the DB cluster does not affect the
-cluster. However, disabling the key impacts all DB clusters encrypted with that key. To
-prevent this, specify a different key during the snapshot copy operation.
-
-For more information about KMS keys, see [AWS KMS keys](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys") in the
-_AWS Key Management Service Developer Guide_ and [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
-
-## Encrypting an Amazon Aurora DB
-
-cluster
-
-To encrypt a new DB cluster, choose **Enable encryption**
-on the console. For information on creating a DB cluster, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
-
-If you use the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") AWS CLI command to create an encrypted DB
-cluster, set the `--storage-encrypted` parameter. If you use the
-[CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") API operation, set the
-`StorageEncrypted` parameter to true.
-
-Once you have created an encrypted DB cluster, you can't change the
-KMS key used by that DB cluster. Therefore, be sure to determine your
-KMS key requirements before you create your encrypted DB cluster.
-
-If you use the AWS CLI `create-db-cluster` command to create an
-encrypted DB cluster with a customer managed key, set the `--kms-key-id`
-parameter to any key identifier for the KMS key. If you use the Amazon RDS API
-`CreateDBInstance` operation, set the `KmsKeyId`
-parameter to any key identifier for the KMS key. To use a customer managed key in a
-different AWS account, specify the key ARN or alias ARN.
-
-## Determining whether
-
-encryption is turned on for a DB cluster
-
-You can use the AWS Management Console, AWS CLI, or RDS API to determine whether
-encryption at rest is turned on for a DB cluster.
-
-###### To determine whether encryption at rest is turned on for a DB
-
-cluster
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose
-   **Databases**.
-3. Choose the name of the DB cluster that you want to check
-   to view its details.
-4. Choose the **Configuration** tab and
-   check the **Encryption** value.
-
-It shows either **Enabled** or
-**Not enabled**.
-
-![Checking encryption at rest for a DB cluster](images/encryption-check-db-cluster.png)
-To determine whether encryption at rest is turned on for a DB
-cluster by using the AWS CLI, call the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command with the following option:
-
-- `--db-cluster-identifier` – The name of
-  the DB cluster.
-  The following example uses a query to return either
-  `TRUE` or `FALSE` regarding encryption at
-  rest for the `mydb` DB cluster.
-
-###### Example
-
-```
-aws rds describe-db-clusters --db-cluster-identifier `mydb` --query "*[].{StorageEncrypted:StorageEncrypted}" --output text
-```
-
-To determine whether encryption at rest is turned on for a DB
-cluster by using the Amazon RDS API, call the [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md") operation with the following
-parameter:
-
-- `DBClusterIdentifier` – The name of the
-  DB cluster.
-
-## Availability of Amazon Aurora encryption
-
-Amazon Aurora encryption is currently available for all database
-engines and storage types.
+Aurora MySQL DB instances in your VPC.
 
 ###### Note
 
-Amazon Aurora encryption is not available for the db.t2.micro DB instance
-class.
+In an Aurora DB cluster, the VPC security group associated with the DB cluster
+is also associated with all of the DB instances in the DB cluster. If you change
+the VPC security group for the DB cluster or for a DB instance, the change is
+applied automatically to all of the DB instances in the DB cluster.
 
-## Encryption in
+For more information on VPC security groups, see [Security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the
+_Amazon Virtual Private Cloud User Guide_.
 
-transit
+###### Note
 
-**Encryption at the physical layer**
+If your DB
+cluster is in a VPC but isn't publicly
+accessible, you can also use an AWS Site-to-Site VPN connection or an AWS Direct Connect
+connection to access it from a private network. For more information, see [Internetwork traffic privacy](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md")
+.
 
-All data flowing accross AWS Regions over the AWS global network
-is automatically encrypted at the physical layer before it leaves AWS
-secured facilities. All traffic between AZs is encrypted. Additional layers of encryption,
-including those listed in this section may provide additional protections.
+## Security group
 
-**Encryption provided by Amazon VPC peering and Transit Gateway cross-Region peering**
+scenario
 
-All cross-Region traffic that uses Amazon VPC and Transit Gateway peering is automatically bulk-encrypted
-when it exits a Region. An additional layer of encryption is automatically provided at the physical layer
-for all traffic before it leaves AWS secured facilities.
+A common use of a DB
+cluster in a VPC is to share data with an
+application server running in an Amazon EC2 instance in the same VPC, which is accessed
+by a client application outside the VPC. For this scenario, you use the RDS and VPC
+pages on the AWS Management Console or the RDS and EC2 API operations to create the necessary
+instances and security groups:
 
-**Encryption between instances**
+1. Create a VPC security group (for example, `sg-0123ec2example`)
+   and define inbound rules that use the IP addresses of the client application
+   as the source. This security group allows your client application to connect
+   to EC2 instances in a VPC that uses this security group.
+2. Create an EC2 instance for the application and add the EC2 instance to the
+   VPC security group (`sg-0123ec2example`) that you created in the
+   previous step.
+3. Create a second VPC security group (for example,
+   `sg-6789rdsexample`) and create a new rule by specifying the
+   VPC security group that you created in step 1
+   (`sg-0123ec2example`) as the source.
+4. Create a new DB
+   cluster and add the DB
+   cluster to the VPC security group
+   (`sg-6789rdsexample`) that you created in the previous step.
+   When you create the DB
+   cluster, use the
+   same port number as the one specified for the VPC security group
+   (`sg-6789rdsexample`) rule that you created in step 3.
 
-AWS provides secure and private connectivity between DB instances of all
-types. In addition, some instance types use the offload capabilities of the
-underlying Nitro System hardware to automatically encrypt in-transit traffic
-between instances. This encryption uses Authenticated Encryption with
-Associated Data (AEAD) algorithms, with 256-bit encryption. There is no
-impact on network performance. To support this additional in-transit traffic
-encryption between instances, the following requirements must be met:
+The following diagram shows this scenario.
 
-- The instances use the following instance types:
-  - **General purpose**: M6i,
-    M6id, M6in, M6idn, M7g
-  - **Memory optimized**: R6i,
-    R6id, R6in, R6idn, R7g, X2idn, X2iedn, X2iezn
+![DB cluster and EC2 instance in a VPC](images/con-VPC-sec-grp-aurora.png)
 
-- The instances are in the same AWS Region.
-- The instances are in the same VPC or peered VPCs, and the traffic
-  does not pass through a virtual network device or service, such as a
-  load balancer or a transit gateway.
+For detailed instructions about configuring a VPC for this scenario, see [Tutorial: Create a VPC for use with a
+DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
+. For more information about
+using a VPC, see [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md")
+.
 
-## Limitations of Amazon Aurora encrypted DB clusters
+## Creating a VPC security
 
-The following limitations exist for Amazon Aurora encrypted
-DB clusters:
+group
 
-- You can't turn off encryption on an encrypted DB cluster.
-- You can't create an encrypted snapshot of an unencrypted DB
-  cluster.
-- A snapshot of an encrypted DB cluster
-  must be encrypted using the same KMS key as the DB cluster.
-- You can't convert an unencrypted DB cluster to an encrypted
-  one. However, you can restore an unencrypted snapshot to an
-  encrypted Aurora DB cluster. To do this, specify a KMS key when you
-  restore from the unencrypted snapshot.
-- You can't create an encrypted Aurora Replica from an
-  unencrypted Aurora DB cluster. You can't create an unencrypted
-  Aurora Replica from an encrypted Aurora DB cluster.
-- To copy an encrypted snapshot from one AWS Region to another,
-  you must specify the KMS key in the destination AWS Region. This
-  is because KMS keys are specific to the AWS Region that they are
-  created in.
+You can create a VPC security group for a DB instance by using
+the VPC console. For information about creating a security group, see [Provide access to the DB cluster in the VPC by
+creating a security group](CHAP_SettingUp_Aurora.md#CHAP_SettingUp_Aurora.SecurityGroup "CHAP_SettingUp_Aurora.md#CHAP_SettingUp_Aurora.SecurityGroup")
+and [Security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the
+_Amazon Virtual Private Cloud User Guide_.
 
-The source snapshot remains encrypted throughout the copy process.
-Amazon Aurora uses envelope encryption
-to protect data during the copy process. For more information about
-envelope encryption, see [Envelope encryption](../../../kms/latest/developerguide/concepts.md#enveloping "../../../kms/latest/developerguide/concepts.md#enveloping") in the _AWS Key Management Service
-Developer Guide_.
+## Associating a
 
-- You can't unencrypt an encrypted DB cluster. However, you can export
-  data from an encrypted DB cluster
-  and import the data into an unencrypted DB cluster.
+security group with a DB cluster
+
+You can associate a security group with a DB cluster by using **Modify
+cluster** on the RDS console, the `ModifyDBCluster` Amazon RDS
+API, or the `modify-db-cluster` AWS CLI command.
+
+The following CLI example associates a specific VPC group and removes DB security
+groups from the DB cluster
+
+```
+aws rds modify-db-cluster --db-cluster-identifier `dbName` --vpc-security-group-ids `sg-ID`
+
+```
+
+For information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md")
+.

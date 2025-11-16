@@ -48,9 +48,7 @@ Paste this policy into the JSON editor and make the following changes:
 
 ```
 {
-
     "Version": "2012-10-17",
-
     "Statement": [
         {
             "Effect": "Allow",
@@ -77,9 +75,7 @@ for the role:
 
 ```
 {
-
   "Version": "2012-10-17",
-
   "Statement": [
     {
       "Sid": "",
@@ -111,7 +107,6 @@ aws iam put-role-policy \
   --policy-document '{
 
     "Version": "2012-10-17",
-
     "Statement": [
         {
             "Effect": "Allow",

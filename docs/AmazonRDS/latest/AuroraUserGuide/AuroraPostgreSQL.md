@@ -1,30 +1,154 @@
-# Integrating Amazon Aurora PostgreSQL with other
+# Diagnosing table and index bloat
 
-AWS services
+You can use PostgreSQL Multiversion Concurrency Control (MVCC) to help preserve data
+integrity. PostgreSQL MVCC works by saving an internal copy of updated or deleted rows (also
+called _tuples_) until a transaction is either committed or rolled back.
+This saved internal copy is invisible to users. However, table bloat can occur when those
+invisible copies aren't cleaned up regularly by the VACUUM or AUTOVACUUM utilities.
+Unchecked, table bloat can incur increased storage costs and slow your processing speed.
 
-Amazon Aurora integrates with other AWS services so that you can extend your Aurora PostgreSQL
-DB cluster to use additional capabilities in the AWS Cloud. Your Aurora PostgreSQL DB cluster
-can use AWS services to do the following:
+In many cases, the default settings for VACUUM or AUTOVACUUM on Aurora are sufficient for
+handling unwanted table bloat. However, you may want to check for bloat if your application
+is experiencing the following conditions:
 
-- Quickly collect, view, and assess performance for your Aurora PostgreSQL DB instances
-  with Amazon RDS Performance Insights. Performance Insights expands on existing Amazon RDS
-  monitoring features to illustrate your database's performance and help you analyze
-  any issues that affect it. With the Performance Insights dashboard, you can
-  visualize the database load and filter the load by waits, SQL statements, hosts, or
-  users. For more information about Performance Insights, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
-- Configure your Aurora PostgreSQL DB cluster to publish log data to Amazon CloudWatch Logs. CloudWatch Logs
-  provide highly durable storage for your log records. With CloudWatch Logs, you can perform
-  real-time analysis of the log data, and use CloudWatch to create alarms and view metrics.
-  For more information, see [Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
-- Import data from an Amazon S3 bucket to an Aurora PostgreSQL DB cluster, or export data from an
-  Aurora PostgreSQL DB cluster to an Amazon S3 bucket. For more information, see [Importing data from Amazon S3 into an Aurora PostgreSQL DB cluster](USER_PostgreSQL.md "USER_PostgreSQL.md") and [Exporting data from an Aurora PostgreSQL DB cluster to Amazon S3](postgresql-s3-export.md "postgresql-s3-export.md").
-- Add machine learning-based predictions to database applications using the SQL language.
-  Aurora machine learning uses a highly optimized integration between the Aurora database and the AWS machine learning
-  (ML) services SageMaker AI and Amazon Comprehend. For more information, see [Using Amazon Aurora machine learning with Aurora PostgreSQL](postgresql-ml.md "postgresql-ml.md").
-- Invoke AWS Lambda functions from an Aurora PostgreSQL DB cluster. To do this, use the
-  `aws_lambda` PostgreSQL extension provided with Aurora PostgreSQL. For more information,
-  see [Invoking an AWS Lambda function from an
-  Aurora PostgreSQL DB cluster](PostgreSQL-Lambda.md "PostgreSQL-Lambda.md").
-- Integrate queries from Amazon Redshift and Aurora PostgreSQL. For more information,
-  see [Getting started with using federated queries to PostgreSQL](../../../redshift/latest/dg/getting-started-federated.md "../../../redshift/latest/dg/getting-started-federated.md") in the
-  _Amazon Redshift Database Developer Guide_.
+- Processes a large number of transactions in a relatively short time between VACUUM processes.
+- Performs poorly and runs out of storage.
+  To get started, gather the most accurate information about how much space is used by dead
+  tuples and how much you can recover by cleaning up the table and index bloat. To do so, use
+  the `pgstattuple` extension to gather statistics on your Aurora cluster. For more information, see [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html "https://www.postgresql.org/docs/current/pgstattuple.html"). Privileges to use the `pgstattuple` extension are limited to the
+  `pg_stat_scan_tables` role and database superusers.
+
+To create the `pgstattuple` extension on Aurora, connect a client session to the
+cluster, for example, psql or pgAdmin, and use the following command:
+
+```
+CREATE EXTENSION pgstattuple;
+```
+
+Create the extension in each database that you want to profile. After creating the
+extension, use the command line interface (CLI) to measure how much unusable space you can
+reclaim. Before gathering statistics, modify the cluster parameter group by setting
+AUTOVACUUM to 0. A setting of 0 prevents Aurora from automatically cleaning up any dead
+tuples left behind by your application, which can impact the accuracy of the results. Enter
+the following command to create a simple table:
+
+```
+postgres=> CREATE TABLE lab AS SELECT generate_series (0,100000);
+SELECT 100001
+
+```
+
+In the following example, we run the query with AUTOVACUUM turned on for the DB cluster. The
+`dead_tuple_count` is 0, which indicates that the AUTOVACUUM has deleted the
+obsolete data or tuples from the PostgreSQL database.
+
+To use `pgstattuple` to gather information about the table, specify the name of a table or an object identifier (OID) in the query:
+
+```
+postgres=> SELECT * FROM pgstattuple('lab');
+```
+
+```
+
+    `table_len | tuple_count | tuple_len | tuple_percent | dead_tuple_count | dead_tuple_len | dead_tuple_percent | free_space | free_percent
+-----------+-------------+-----------+---------------+------------------+----------------+--------------------+------------+--------------
+3629056 | 100001 | 2800028 | 77.16 | 0 | 0 | 0 | 16616 | 0.46
+(1 row)`
+
+```
+
+In the following query, we turn off AUTOVACUUM and enter a command that deletes 25,000 rows
+from the table. As a result, the `dead_tuple_count` increases to 25000.
+
+```
+
+postgres=> DELETE FROM lab WHERE generate_series < 25000;
+`DELETE 25000`
+
+```
+
+```
+
+SELECT * FROM pgstattuple('lab');
+
+```
+
+```
+
+        `table_len | tuple_count | tuple_len | tuple_percent | dead_tuple_count | dead_tuple_len | dead_tuple_percent | free_space | free_percent
+-----------+-------------+-----------+---------------+------------------+----------------+--------------------+------------+--------------
+3629056 | 75001 | 2100028 | 57.87 | 25000 | 700000 | 19.29 | 16616 | 0.46
+(1 row)`
+
+```
+
+To reclaim those dead tuples, start a VACUUM process.
+
+## Observing bloat without interrupting your application
+
+Settings on an Aurora cluster are optimized to provide the best practices for most
+workloads. However, you might want to optimize a cluster to better suit your
+applications and use patterns. In this case, you can use the `pgstattuple`
+extension without disrupting a busy application. To do so, perform the following
+steps:
+
+1. Clone your Aurora instance.
+2. Modify the parameter file to turn off AUTOVACUUM in the clone.
+3. Perform a `pgstattuple` query while testing the clone with a sample workload or with pgbench,
+   which is a program for running benchmark tests on PostgreSQL. For more
+   information, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html").
+
+After running your applications and viewing the result, use pg_repack or VACUUM FULL
+on the restored copy and compare the differences. If you see a significant drop in the
+dead_tuple_count, dead_tuple_len, or dead_tuple_percent, then adjust the vacuum schedule
+on your production cluster to minimize the bloat.
+
+## Avoiding bloat in temporary tables
+
+If your application creates temporary tables, make sure that your application removes
+those temporary tables when they’re no longer needed. Autovacuum processes don’t locate
+temporary tables. Left unchecked, temporary tables can quickly create database bloat.
+Moreover, the bloat can extend into the system tables, which are the internal tables
+that track PostgreSQL objects and attributes, like pg_attribute and pg_depend.
+
+When a temporary table is no longer needed, you can use a TRUNCATE statement to empty the table and free up the space. Then, manually vacuum the pg_attribute and
+pg_depend tables. Vacuuming these tables ensures that creating and truncating/deleting temporary tables continually isn't adding tuples and contributing to system bloat.
+
+You can avoid this problem while creating a temporary table by including the following
+syntax that deletes the new rows when content is committed:
+
+```
+CREATE TEMP TABLE IF NOT EXISTS table_name(table_description) ON COMMIT DELETE ROWS;
+```
+
+The `ON COMMIT DELETE ROWS` clause truncates the temporary table when the transaction is committed.
+
+## Avoiding bloat in indexes
+
+When you change an indexed field in a table, the index update results in one or more
+dead tuples in that index. By default, the autovacuum process cleans up bloat in
+indexes, but that cleanup uses a significant amount of time and resources.
+To specify index cleanup preferences when you create a table, include the
+vacuum_index_cleanup clause. By default, at table creation time, the clause is set to
+AUTO, which means that the server decides if your index requires cleanup when it vacuums
+the table. You can set the clause to ON to turn on index cleanup for a specific table,
+or OFF to turn off index cleanup for that table. Remember, turning off index cleanup
+might save time, but can potentially lead to a bloated index.
+
+You can manually control index cleanup when you VACUUM a table at the command line. To
+vacuum a table and remove dead tuples from the indexes, include the INDEX_CLEANUP clause
+with a value of ON and the table name:
+
+```
+acctg=> VACUUM (INDEX_CLEANUP ON) receivables;
+        `INFO: aggressively vacuuming "public.receivables"
+VACUUM`
+```
+
+To vacuum a table without cleaning the indexes, specify a value of OFF:
+
+```
+acctg=> VACUUM (INDEX_CLEANUP OFF) receivables;
+        `INFO: aggressively vacuuming "public.receivables"
+VACUUM`
+```

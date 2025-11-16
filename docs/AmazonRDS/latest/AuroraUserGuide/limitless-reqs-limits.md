@@ -79,7 +79,6 @@ The following considerations apply to the Aurora PostgreSQL Limitless Database D
 - We recommend that you use AWS managed policies to limit permissions for your database and applications to those that customers need for
   their use cases. For more information, see [Policy best practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices "security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices").
 - When you create your Aurora PostgreSQL Limitless Database DB cluster, you only set scaling parameters for the DB shard group.
-- You can't stop or start a DB cluster that contains a DB shard group.
 - If you need to delete your DB cluster, you must delete the DB shard group first.
 - Aurora PostgreSQL Limitless Database can't be a replication source.
 

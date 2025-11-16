@@ -1,47 +1,21 @@
-# Granting permissions to publish notifications to an Amazon SNS topic
+# Working with Amazon RDS event notification
 
-To grant Amazon RDS permissions to publish notifications to an Amazon Simple Notification Service (Amazon SNS) topic, attach
-an AWS Identity and Access Management (IAM) policy to the destination topic. For more information about
-permissions, see [Example cases for Amazon Simple Notification Service access
-control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md") in the _Amazon Simple Notification Service Developer Guide_.
+Amazon RDS uses the Amazon Simple Notification Service (Amazon SNS) to provide notification when an Amazon RDS event occurs.
+These notifications can be in any notification form supported by Amazon SNS for an AWS Region, such as an email, a text message, or a call to an HTTP
+endpoint.
 
-By default, an Amazon SNS topic has a policy allowing all Amazon RDS resources within the same account to publish notifications to it.
-You can attach a custom policy to allow cross-account notifications, or to restrict access to certain resources.
+###### Topics
 
-The following is an example of an IAM policy that you attach to the destination Amazon SNS topic. It restricts the topic to DB
-instances with names that match the specified prefix. To use this policy, specify the following values:
-
-- `Resource` – The Amazon Resource Name (ARN) for your Amazon SNS
-  topic
-- `SourceARN` – Your RDS resource ARN
-- `SourceAccount` – Your AWS account ID
-  To see a list of resource types and their ARNs, see [Resources Defined by Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies") in the _Service Authorization Reference_.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "events.rds.amazonaws.com"
- },
- "Action": [
- "sns:Publish"
- ],
- "Resource": "arn:aws:sns:`us-east-1`:`123456789012`:`topic_name`",
- "Condition": {
- "ArnLike": {
- "aws:SourceArn": "arn:aws:rds:`us-east-1`:`123456789012`:db:prefix-*"
- },
- "StringEquals": {
- "aws:SourceAccount": "`123456789012`"
- }
- }
- }
- ]
-}`
-
-```
+- [Overview of Amazon RDS event notification](USER_Events.md "USER_Events.md")
+- [Granting permissions to publish notifications to an Amazon SNS topic](USER_Events.md "USER_Events.md")
+- [Subscribing to Amazon RDS event notification](USER_Events.md "USER_Events.md")
+- [Amazon RDS event notification tags and
+  attributes](USER_Events.md "USER_Events.md")
+- [Listing Amazon RDS event notification subscriptions](USER_Events.md "USER_Events.md")
+- [Modifying an Amazon RDS event notification subscription](USER_Events.md "USER_Events.md")
+- [Adding a source identifier to an Amazon RDS event notification
+  subscription](USER_Events.md "USER_Events.md")
+- [Removing a source identifier from an Amazon RDS event notification
+  subscription](USER_Events.md "USER_Events.md")
+- [Listing the Amazon RDS event notification categories](USER_Events.md "USER_Events.md")
+- [Deleting an Amazon RDS event notification subscription](USER_Events.md "USER_Events.md")

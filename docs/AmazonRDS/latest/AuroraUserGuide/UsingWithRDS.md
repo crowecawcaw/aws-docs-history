@@ -1,132 +1,148 @@
-# Security in Amazon Aurora
+# IAM database authentication
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
-data center and network architecture that are built to meet the requirements of the most
-security-sensitive organizations.
+You can authenticate to your DB
+cluster
+using AWS Identity and Access Management (IAM) database authentication. IAM database authentication works with
+Aurora MySQL,
+and Aurora PostgreSQL. With this authentication method, you don't
+need to use a password when you connect to a DB cluster.
+Instead, you use an authentication token.
 
-Security is a shared responsibility between AWS and you. The [shared responsibility
-model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security
-_in_ the cloud:
+An _authentication token_ is a unique string of characters that
+Amazon Aurora
+generates on request. Authentication tokens are generated using AWS Signature Version 4.
+Each token has a lifetime of 15 minutes. You don't need to store user credentials in
+the database, because authentication is managed externally using IAM. You can also still
+use standard database authentication. The token is only used for authentication and doesn't
+affect the session after it is established.
 
-- **Security of the cloud** – AWS is
-  responsible for protecting the infrastructure that runs AWS services in the AWS
-  Cloud. AWS also provides you with services that you can use securely. Third-party
-  auditors regularly test and verify the effectiveness of our security as part of the
-  [AWS compliance
-  programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to
-  Amazon Aurora
-  (Aurora), see [AWS services in scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
-- **Security in the cloud** – Your responsibility
-  is determined by the AWS service that you use. You are also responsible for other
-  factors including the sensitivity of your data, your organization's
-  requirements, and applicable laws and regulations.
-  This documentation helps you understand how to apply the shared responsibility model when
-  using
-  Amazon Aurora. The following topics show you how to configure
-  Amazon Aurora to
-  meet your security and compliance objectives. You also learn how to use other AWS services
-  that help you monitor and secure your
-  Amazon Aurora resources.
+IAM database authentication provides the following benefits:
 
-You can manage access to your
-Amazon Aurora resources and your databases on a DB
-cluster. The
-method you use to manage access depends on what type of task the user needs to perform with
+- Network traffic to and from the database is encrypted using Secure Socket Layer (SSL)
+  or Transport Layer Security (TLS). For more information about using SSL/TLS with
+  Amazon Aurora,
+  see [Using SSL/TLS to encrypt a connection to a DB
+  cluster](UsingWithRDS.md "UsingWithRDS.md").
+- You can use IAM to centrally manage access to your database resources, instead of
+  managing access individually on each DB cluster.
+- For applications running on Amazon EC2, you can use profile credentials specific to
+  your EC2 instance to access your database instead of a password, for greater
+  security.
+  In general, consider using IAM database authentication when your applications create fewer than 200 connections
+  per second, and you don't want to manage usernames and passwords directly in your application code.
 
-Amazon Aurora:
+The Amazon Web Services (AWS) JDBC Driver supports IAM database authentication. For more information, see
+[AWS
+IAM Authentication Plugin](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheIamAuthenticationPlugin.md "https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheIamAuthenticationPlugin.md") in the [Amazon Web Services (AWS) JDBC Driver GitHub repository](https://github.com/aws/aws-advanced-jdbc-wrapper "https://github.com/aws/aws-advanced-jdbc-wrapper").
 
-- Run your DB
-  cluster in a virtual private cloud (VPC) based on
-  the Amazon VPC service for the greatest possible network access control. For more
-  information about creating a DB
-  cluster in a VPC, see
-  [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md")
-  .
-- Use AWS Identity and Access Management (IAM) policies to assign permissions that determine who is allowed
-  to manage
-  Amazon Aurora resources. For example, you can use IAM to determine who is
-  allowed to create, describe, modify, and delete DB
-  clusters, tag resources,
-  or modify security groups.
+The Amazon Web Services (AWS) Python Driver supports IAM database authentication. For more information, see
+[AWS IAM Authentication Plugin](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheIamAuthenticationPlugin.md "https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheIamAuthenticationPlugin.md") in the [Amazon Web Services (AWS) Python Driver GitHub
+repository](https://github.com/aws/aws-advanced-python-wrapper "https://github.com/aws/aws-advanced-python-wrapper").
 
-To review IAM policy examples, see [Identity-based policy
-examples for Amazon Aurora](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-.
+Navigate through the following topics to learn the process to set IAM for DB authentication:
 
-- Use security groups to control what IP addresses or Amazon EC2 instances can connect to
-  your databases on a DB
-  cluster. When you first create a DB
-  cluster, its firewall prevents any database access except through
-  rules specified by an associated security group.
-- Use Secure Socket Layer (SSL) or Transport Layer Security (TLS) connections with
-  DB
-  clusters running the Aurora MySQL or Aurora PostgreSQL. For more information
-  on using SSL/TLS with a DB cluster, see [Using SSL/TLS to encrypt a connection to a DB
-  cluster](UsingWithRDS.md "UsingWithRDS.md")
-  .
-- Use
-  Amazon Aurora encryption to secure your
-  DB clusters and snapshots
-  at rest.
-  Amazon Aurora encryption uses the industry standard AES-256 encryption
-  algorithm to encrypt your data on the server that hosts your DB
-  cluster. For more information, see [Encrypting Amazon Aurora
-  resources](Overview.md "Overview.md")
-  .
-- Use the security features of your DB engine to control who can log in to the
-  databases on a DB
-  cluster. These features work just as if the database
-  was on your local network.
+- [Enabling and disabling IAM database
+  authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Creating and using an IAM policy for
+  IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Creating a database account using
+  IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Connecting to your DB cluster using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
 
-For information about security with Aurora MySQL, see [Security with Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md")
-. For
-information about security with Aurora PostgreSQL, see [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md")
-.
-Aurora is part of the managed database service Amazon Relational Database Service (Amazon RDS). Amazon RDS
-is a web service that makes it easier to set up, operate, and scale a relational database in
-the cloud. If you are not already familiar with Amazon RDS, see the [_Amazon RDS user
-guide_](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+## Region and version availability
 
-Aurora includes a high-performance storage subsystem. Its MySQL- and
-PostgreSQL-compatible database engines are customized to take advantage of that fast
-distributed storage. Aurora also automates and standardizes database clustering and
-replication, which are typically among the most challenging aspects of database
-configuration and administration.
+Feature availability and support varies across specific versions of each Aurora database engine, and across AWS Regions.
+For more information on version and Region availability with Aurora and IAM database authentication, see
+[Supported
+Regions and Aurora DB engines for IAM database
+authentication](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
-For both Amazon RDS and Aurora, you can access the RDS API programmatically,
-and you can use the AWS CLI to access the RDS API interactively. Some RDS API operations and
-AWS CLI commands apply to both Amazon RDS and Aurora, while others apply to either Amazon RDS or Aurora.
-For information about RDS API operations, see [Amazon RDS
-API reference](../APIReference/Welcome.md "../APIReference/Welcome.md"). For more information about the AWS CLI, see [AWS Command Line Interface reference for Amazon RDS](../../../cli/latest/reference/rds/index.md "../../../cli/latest/reference/rds/index.md").
+For Aurora MySQL, all supported DB instance classes support IAM database authentication,
+except for db.t2.small and db.t3.small. For information about the supported DB instance classes, see
+[Supported DB engines for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
-###### Note
+## CLI and SDK support
 
-You have to configure security only for your use cases. You don't have to configure
-security access for processes that Amazon Aurora manages. These include creating backups,
-automatic failover, and other processes.
+IAM database authentication is available for the [AWS CLI](../../../cli/latest/reference/rds/generate-db-auth-token.md "../../../cli/latest/reference/rds/generate-db-auth-token.md")
+and for the following language-specific AWS SDKs:
 
-For more information on managing access to
-Amazon Aurora resources and your
-databases on a DB
-cluster, see the following topics.
+- [AWS SDK for .NET](../../../sdkfornet/v3/apidocs/items/RDS/TRDSAuthTokenGenerator.md "../../../sdkfornet/v3/apidocs/items/RDS/TRDSAuthTokenGenerator.md")
+- [AWS SDK for C++](../../../sdk-for-cpp/latest/api/class_aws_1_1_r_d_s_1_1_r_d_s_client.md#ae134ffffed5d7672f6156d324e7bd392 "../../../sdk-for-cpp/latest/api/class_aws_1_1_r_d_s_1_1_r_d_s_client.md#ae134ffffed5d7672f6156d324e7bd392")
+- [AWS SDK for Go](../../../sdk-for-go/api/service/rds.md#pkg-overview "../../../sdk-for-go/api/service/rds.md#pkg-overview")
+- [AWS SDK for Java](../../../sdk-for-java/latest/reference/software/amazon/awssdk/services/rds/RdsUtilities.md "../../../sdk-for-java/latest/reference/software/amazon/awssdk/services/rds/RdsUtilities.md")
+- [AWS SDK for JavaScript](../../../AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.md "../../../AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.md")
+- [AWS SDK for PHP](../../../aws-sdk-php/v3/api/class-Aws.Rds.md "../../../aws-sdk-php/v3/api/class-Aws.Rds.md")
+- [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.generate_db_auth_token "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.generate_db_auth_token")
+- [AWS SDK for Ruby](../../../sdk-for-ruby/v3/api/Aws/RDS/AuthTokenGenerator.md "../../../sdk-for-ruby/v3/api/Aws/RDS/AuthTokenGenerator.md")
 
-###### Topics
+## Limitations for IAM database authentication
 
-- [Database authentication with Amazon Aurora](database-authentication.md "database-authentication.md")
-- [Password management with
-  Amazon Aurora
-  and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md")
-- [Data protection in Amazon RDS](DataDurability.md "DataDurability.md")
-- [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md")
-- [Logging and monitoring in Amazon Aurora](Overview.md "Overview.md")
-- [Compliance validation for Amazon Aurora](RDS-compliance.md "RDS-compliance.md")
-- [Resilience in Amazon Aurora](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in Amazon Aurora](infrastructure-security.md "infrastructure-security.md")
-- [Amazon RDS API and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
-- [Security best practices for Amazon Aurora](CHAP_BestPractices.md "CHAP_BestPractices.md")
-- [Controlling access with security
-  groups](Overview.md "Overview.md")
-- [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md")
-- [Using service-linked roles for
-  Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md")
-- [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md")
+When using IAM database authentication, the following limitations apply:
+
+- Currently, IAM database authentication doesn't support all global condition context keys.
+
+For more information about global condition context keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.
+
+- For PostgreSQL, if the IAM role (`rds_iam`) is added to a user (including
+  the RDS master user), IAM authentication takes precedence over password authentication,
+  so the user must log in as an IAM user.
+- You cannot use a custom Route 53 DNS record instead of the DB cluster endpoint to generate the authentication token.
+- CloudWatch and CloudTrail don't log IAM authentication. These services do not track `generate-db-auth-token`
+  API calls that authorize the IAM role to enable database connection.
+- IAM DB authentication requires compute resources on the database cluster. You must have between 300 and 1000 MiB
+  extra memory on your database for reliable connectivity.
+  To see the memory needed for your workload, compare the RES column for RDS processes in the Enhanced Monitoring processlist
+  before and after enabling IAM DB authentication.
+  See [Viewing OS metrics in the RDS console](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+
+If you are using a burstable class instance, avoid running out of memory by reducing
+the memory used by other parameters like buffers and cache by the same amount.
+
+- For Aurora MySQL, you can't use password based authentication
+  for a database user you configure with IAM authentication.
+- IAM DB authentication is not supported for RDS on Outposts for any engine.
+
+## Recommendations for IAM database authentication
+
+We recommend the following when using IAM database authentication:
+
+- Use IAM database authentication when your application requires fewer than
+  200 new IAM database authentication connections per second.
+
+The database engines that work with Amazon Aurora
+don't impose any limits on authentication attempts per second. However, when you use IAM database authentication,
+your application must generate an authentication token. Your application then uses that
+token to connect to the DB cluster. If you exceed the limit of maximum new
+connections per second, then the extra overhead of IAM database authentication can cause
+connection throttling.
+
+Consider using connection pooling in your applications to mitigate constant
+connection creation. This can reduce the overhead from IAM DB authentication
+and allow your applications to reuse existing connections. Alternatively,
+consider using RDS Proxy for these use cases. RDS Proxy has additional costs. See
+[RDS Proxy
+pricing](https://aws.amazon.com/rds/proxy/pricing/ "https://aws.amazon.com/rds/proxy/pricing/").
+
+- The size of an IAM database authentication token depends on many things including the number of IAM tags,
+  IAM service policies, ARN lengths, as well as other IAM and database properties. The minimum size of this token is
+  generally about 1 KB but can be larger. Since this token is used as the password in the connection string to the database
+  using IAM authentication, you should ensure that your database driver (e.g., ODBC) and/or any tools do not limit or otherwise
+  truncate this token due to its size. A truncated token will cause the authentication validation done by the database and IAM to fail.
+- If you are using temporary credentials when creating an IAM database
+  authentication token, the temporary credentials must still be valid when using
+  the IAM database authentication token to make a connection request.
+
+## Unsupported AWS global condition context keys
+
+IAM database authentication does not support the following subset of AWS global condition context keys.
+
+- `aws:Referer`
+- `aws:SourceIp`
+- `aws:SourceVpc`
+- `aws:SourceVpce`
+- `aws:UserAgent`
+- `aws:VpcSourceIp`
+
+For more information, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.

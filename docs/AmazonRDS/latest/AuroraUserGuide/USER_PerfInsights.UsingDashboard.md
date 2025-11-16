@@ -1,33 +1,33 @@
-# Setting the SQL text limit for Aurora PostgreSQL DB
+# Adding tags to a performance
 
-instances
+analysis report in Performance Insights
 
-Aurora PostgreSQL
-handles text differently. You can set the text size limit with the DB instance parameter
-`track_activity_query_size`. This parameter has the following characteristics:
+You can add a tag when you create or view a report. You can add up to 50 tags for a report.
 
-Default text size
+You need permissions to add the tags. For more information about the access policies for Performance Insights, see
+[Configuring access policies for Performance Insights](USER_PerfInsights.md "USER_PerfInsights.md")
 
-On Aurora PostgreSQL version 9.6, the default setting for the
-`track_activity_query_size` parameter is 1,024 bytes. On Aurora PostgreSQL version 10 or higher, the default is 4,096 bytes.
+To add one or more tags while creating a report, see step 6 in the procedure
+[Creating a
+performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
 
-Maximum text size
+###### To add one or more tags when viewing a report
 
-The limit for `track_activity_query_size` is 102,400 bytes for Aurora PostgreSQL version 12 and lower. The maximum is 1 MB for version 13 and higher.
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the left navigation pane, choose **Performance Insights**.
+3. Choose a DB instance.
 
-If the engine returns 1 MB to Performance Insights, the console displays only the first 4 KB. If
-you download the query, you get the full 1 MB. In this case, viewing and downloading return different
-numbers of bytes. For more information about the `track_activity_query_size` DB instance
-parameter, see [Run-time Statistics](https://www.postgresql.org/docs/current/runtime-config-statistics.html "https://www.postgresql.org/docs/current/runtime-config-statistics.html") in the PostgreSQL documentation.
+The Performance Insights dashboard appears for the DB instance. 4. Scroll down and choose **Performance analysis reports - new** tab. 5. Choose the report for which you want to add the tags.
 
-To increase the SQL text size, increase the `track_activity_query_size` limit. To modify the
-parameter, change the parameter setting in the parameter group that is associated with the Aurora PostgreSQL DB
-instance.
+The dashboard displays the report. 6. Scroll down to **Tags** and choose **Manage tags**. 7. Choose **Add new tag**. 8. Enter the **Key** and **Value - _optional_**,
+and choose **Add new tag**.
 
-###### To change the setting when the instance uses the default parameter group
+The following example provides the option to add a new tag for the selected report.
 
-1. Create a new DB instance parameter group for the appropriate DB engine and DB engine version.
-2. Set the parameter in the new parameter group.
-3. Associate the new parameter group with the DB instance.
-   For information about setting a DB instance parameter, see [Modifying parameters in a DB parameter group
-   in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+![Manage Tags window to add new tags to the report](images/PI_AddTag_ManageTags.png)
+
+A new tag is created for the report.
+
+The list of tags for the report is displayed in the **Tags** section on the dashboard.
+If you want to remove a tag from the report, choose **Remove** next to the tag.

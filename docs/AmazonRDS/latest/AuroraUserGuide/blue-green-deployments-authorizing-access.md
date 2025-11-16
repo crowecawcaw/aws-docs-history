@@ -35,3 +35,20 @@ The user who creates a blue/green deployment must have permissions to perform th
   supported attributes to control access to these resources, rather than wildcards. For more
   information, see [Actions, resources, and
   condition keys for Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md "../../../service-authorization/latest/reference/list_amazonrds.md").
+
+## Additional permissions for Aurora Global Database Blue/Green Deployments
+
+When creating blue/green deployments for Aurora Global Database clusters, in addition to the above listed permission, users need the following permissions to perform operations to manage the global cluster topology.
+
+The user who creates a blue/green deployment must have permissions to perform the following RDS operations:
+
+- `rds:CreateGlobalCluster`
+
+The user who switches over a blue/green deployment must have permissions to perform the following RDS operations:
+
+- `rds:ModifyGlobalCluster`
+- `rds:PromoteReadReplicaDBCluster`
+
+The user who deletes a blue/green deployment must have permissions to perform the following RDS operations:
+
+- `rds:DeleteGlobalCluster`

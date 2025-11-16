@@ -17,7 +17,7 @@ environment.
 ###### Note
 
 Currently, Blue/Green Deployments are supported for
-Aurora MySQL and Aurora PostgreSQL. For Amazon RDS engine availability,
+Aurora MySQL, Aurora PostgreSQL, and Aurora Global Database. For Amazon RDS engine availability,
 see [Using Amazon RDS Blue/Green
 Deployments for database updates](../UserGuide/blue-green-deployments.md "../UserGuide/blue-green-deployments.md") in the _Amazon RDS User
 Guide_.

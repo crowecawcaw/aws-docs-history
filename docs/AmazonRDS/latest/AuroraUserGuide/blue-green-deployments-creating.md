@@ -35,6 +35,7 @@ on the engine that your Aurora DB cluster is running.
   DB cluster for a blue/green deployment](#blue-green-deployments-creating-preparing-mysql "#blue-green-deployments-creating-preparing-mysql")
 - [Preparing an
   Aurora PostgreSQL DB cluster for a blue/green deployment](#blue-green-deployments-creating-preparing-postgres "#blue-green-deployments-creating-preparing-postgres")
+- [Preparing an Aurora Global Database DB cluster for a blue/green deployment](#blue-green-deployments-creating-preparing-agd "#blue-green-deployments-creating-preparing-agd")
 
 ### Preparing an Aurora MySQL
 
@@ -91,6 +92,16 @@ information, see [Rebooting a DB instance within an Aurora cluster](aurora-reboo
 - Make sure that all tables in the DB cluster have a primary key. PostgreSQL logical
   replication doesn't allow UPDATE or DELETE operations on tables that don't have a
   primary key.
+
+### Preparing an Aurora Global Database DB cluster for a blue/green deployment
+
+Before creating a blue/green deployment for your Aurora Global Database DB cluster, note the following points:
+
+- All operations must be initiated from the same Region as the writer cluster of the Global Database.
+- Parameter group configuration:
+  - The Green environment uses either a new parameter group you specify or the same parameter group as the blue cluster (default).
+  - Custom parameter groups are copied to the green environment.
+  - If a specified parameter group doesn't exist in the secondary region, the default parameter group in the secondary region is used for the green environment.
 
 ## Specifying changes when creating a
 

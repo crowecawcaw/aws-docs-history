@@ -1,77 +1,43 @@
-# Analyzing PostgreSQL logs using CloudWatch Logs Insights
+# Monitoring log events in
 
-With the PostgreSQL logs from your Aurora PostgreSQL DB cluster published as CloudWatch Logs, you
-can use CloudWatch Logs Insights to interactively search and analyze your log data in Amazon CloudWatch Logs.
-CloudWatch Logs Insights includes a query language, sample queries, and other tools
-for analyzing your log data so that you can identify potential issues and verify
-fixes. To learn more, see [Analyzing log data with
-CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") in the _Amazon CloudWatch Logs User Guide_.
+Amazon CloudWatch
 
-###### To analyze PostgreSQL logs with CloudWatch Logs Insights
+With Aurora PostgreSQL log events published and available as Amazon CloudWatch Logs, you
+can view and monitor events using Amazon CloudWatch. For more information about monitoring, see
+[View log data sent to CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData").
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, open **Logs** and choose **Log insights**.
-3. In **Select log group(s)**, select the log group for your Aurora PostgreSQL DB cluster.
-
-![Choose the Aurora PostgreSQL log group.](images/apg-cwl-insights-select-log-group.png) 4. In the query editor, delete the query that is currently shown, enter the following, and then
-choose **Run query**.
+When you turn on Log exports, a new log group is automatically created using the prefix `/aws/rds/cluster/` with the
+name of your Aurora PostgreSQL and the log type, as in the following pattern.
 
 ```
-##Autovacuum execution time in seconds per 5 minute
-fields @message
-| parse @message "elapsed: * s" as @duration_sec
-| filter @message like / automatic vacuum /
-| display @duration_sec
-| sort @timestamp
-| stats avg(@duration_sec) as avg_duration_sec,
-max(@duration_sec) as max_duration_sec
-by bin(5 min)
+/aws/rds/cluster/`your-cluster-name`/postgresql
 ```
 
-![Query in the query editor.](images/apg-cwl-insights-query.png) 5. Choose the **Visualization** tab.
+As an example, suppose that an Aurora PostgreSQL DB cluster
+named `docs-lab-apg-small` exports its log to Amazon CloudWatch Logs. Its
+log group name in Amazon CloudWatch is shown following.
 
-![The Visualization tab.](images/apg-cwl-insights-visualization.png) 6. Choose **Add to dashboard**. 7. In **Select a dashboard**, either select a dashboard or enter a name to create a new dashboard. 8. In **Widget type**, choose a widget type for your visualization.
+```
+/aws/rds/cluster/docs-lab-apg-small/postgresql
+```
 
-![The dashboard.](images/apg-cwl-insights-dashboard.png) 9. (Optional) Add more widgets based on your log query results.
+If a log group with the specified name exists, Aurora uses that log group to export log
+data for the Aurora DB cluster. Each DB instance in the Aurora PostgreSQL DB cluster uploads
+its PostgreSQL log to the log group as a distinct log stream. You can examine the log group and
+its log streams using the various graphical and analytical tools available in Amazon CloudWatch.
 
-    1. Choose **Add widget**.
-    2. Choose a widget type, such as **Line**.
+For example, you can search for information within the log events from your Aurora PostgreSQL
+DB cluster, and filter events by using the CloudWatch Logs console, the AWS CLI, or the CloudWatch Logs API.
+For more information, [Searching and
+filtering log data](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md") in the _Amazon CloudWatch Logs User Guide_.
 
+By default, new log groups are created using **Never expire** for their retention period.
+You can use the CloudWatch Logs console, the AWS CLI, or the CloudWatch Logs API to change the log retention period. To learn
+more, see [Change log data retention in
+CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/SettingLogRetention.md "../../../AmazonCloudWatch/latest/logs/SettingLogRetention.md") in the _Amazon CloudWatch Logs User Guide_.
 
+###### Tip
 
-    ![Choose a widget.](images/apg-cwl-insights-widget.png)
-    3. In the **Add to this dashboard** window, choose **Logs**.
-
-
-
-    ![Add logs to the dashboard.](images/apg-cwl-add-logs-to-dashboard.png)
-    4. In **Select log group(s)**, select the log group for your DB cluster.
-    5. In the query editor, delete the query that is currently shown, enter the following, and then
-     choose **Run query**.
-
-
-
-    ```
-    ##Autovacuum tuples statistics per 5 min
-    fields @timestamp, @message
-    | parse @message "tuples: " as @tuples_temp
-    | parse @tuples_temp "* removed," as @tuples_removed
-    | parse @tuples_temp "remain, * are dead but not yet removable, " as @tuples_not_removable
-    | filter @message like / automatic vacuum /
-    | sort @timestamp
-    | stats  avg(@tuples_removed) as avg_tuples_removed,
-    avg(@tuples_not_removable) as avg_tuples_not_removable
-    by bin(5 min)
-    ```
-
-
-    ![Query in the query editor.](images/apg-cwl-insights-query2.png)
-    6. Choose **Create widget**.
-
-
-    Your dashboard should look similar to the following image.
-
-
-
-    ![Dashboard with two graphs.](images/apg-cwl-insights-dashboard-two-graphs.png)
+You can use automated configuration, such as AWS CloudFormation,
+to create log groups with predefined log retention periods, metric filters, and
+access permissions.

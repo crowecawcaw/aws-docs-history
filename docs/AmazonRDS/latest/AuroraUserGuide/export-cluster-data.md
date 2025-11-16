@@ -1,65 +1,34 @@
-# Exporting DB cluster data to Amazon S3
+# Troubleshooting DB cluster exports
 
-You can export data from a live Amazon Aurora DB cluster to an Amazon S3 bucket. The export process runs in the background and doesn't
-affect the performance of your active DB cluster.
+Use the following sections to help troubleshoot failure messages and PostgreSQL permission errors for DB cluster export tasks to Amazon S3.
 
-By default, all data in the DB cluster is exported. However, you can choose to export specific sets of
-databases, schemas, or tables.
+## Failure messages for Amazon S3 export tasks
 
-Amazon Aurora clones the DB cluster, extracts data from the clone, and stores the data in an Amazon S3 bucket. The data is stored in an
-Apache Parquet format that is compressed and consistent. Individual Parquet files are usually 1–10 MB in size.
+The following table describes the messages that are returned when Amazon S3 export tasks fail.
 
-The faster performance that you can get with exporting snapshot data for Aurora MySQL version 2 and version 3 doesn't apply to
-exporting DB cluster data. For more information, see [Exporting DB cluster snapshot data to Amazon S3](aurora-export-snapshot.md "aurora-export-snapshot.md").
+| Failure message                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`Failed to find or access the source DB cluster: [cluster name]`**                                                                                                                | The source DB cluster can't be cloned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **`An unknown internal error occurred.`**                                                                                                                                           | The task has failed because of an unknown error, exception, or failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **`An unknown internal error occurred writing the export task's metadata to the S3 bucket<br>[bucket name].`**                                                                      | The task has failed because of an unknown error, exception, or failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **`The RDS export failed to write the export task's metadata because it can't assume the<br>IAM role [role ARN].`**                                                                 | The export task assumes your IAM role to validate whether it is allowed to write metadata to your S3<br>bucket. If the task can't assume your IAM role, it fails.                                                                                                                                                                                                                                                                                                                                                          |
+| **`The RDS export failed to write the export task's metadata to the S3 bucket [bucket name]<br>using the IAM role [role ARN] with the KMS key [key ID]. Error code: [error code]`** | One or more permissions are missing, so the export task can't access the S3 bucket. This failure<br>message is raised when receiving one of the following error codes:<br>• `AWSSecurityTokenServiceException` with the error code `AccessDenied`<br>• `AmazonS3Exception` with the error code `NoSuchBucket`,<br>`AccessDenied`, `KMS.KMSInvalidStateException`, `403<br>Forbidden`, or `KMS.DisabledException`<br>These error codes indicate that settings are misconfigured for the IAM role, S3 bucket, or<br>KMS key. |
+| **`The IAM role [role ARN] isn't authorized to call [S3 action] on the S3 bucket [bucket name].<br>Review your permissions and retry the export.`**                                 | The IAM policy is misconfigured. Permission for the specific S3 action on the S3 bucket is missing,<br>which causes the export task to fail.                                                                                                                                                                                                                                                                                                                                                                               |
+| **`KMS key check failed. Check the credentials on your KMS key and try again.`**                                                                                                    | The KMS key credential check failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **`S3 credential check failed. Check the permissions on your S3 bucket and IAM<br>policy.`**                                                                                        | The S3 credential check failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **`The S3 bucket [bucket name] isn't valid. Either it isn't located in the current<br>AWS Region or it doesn't exist. Review your S3 bucket name and retry the export.`**           | The S3 bucket is invalid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **`The S3 bucket [bucket name] isn't located in the current AWS Region. Review your S3 bucket<br>name and retry the export.`**                                                      | The S3 bucket is in the wrong AWS Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-You're charged for exporting the entire DB cluster, whether you export all or partial data. For more information, see the [Amazon Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/").
+## Troubleshooting PostgreSQL permissions errors
 
-After the data is exported, you can analyze the exported data directly through tools like Amazon Athena or Amazon Redshift Spectrum. For more
-information on using Athena to read Parquet data, see [Parquet SerDe](../../../athena/latest/ug/parquet-serde.md "../../../athena/latest/ug/parquet-serde.md") in the
-_Amazon Athena User Guide_. For more information on using Redshift Spectrum to read Parquet data, see [COPY from columnar data formats](../../../redshift/latest/dg/copy-usage_notes-copy-from-columnar.md "../../../redshift/latest/dg/copy-usage_notes-copy-from-columnar.md") in the
-_Amazon Redshift Database Developer Guide_.
+When exporting PostgreSQL databases to Amazon S3, you might see a `PERMISSIONS_DO_NOT_EXIST` error stating that certain
+tables were skipped. This error usually occurs when the superuser, which you specified when creating the DB cluster, doesn't
+have permissions to access those tables.
 
-Feature availability and support varies across specific versions of each database engine and across AWS Regions. For more
-information on version and Region availability of exporting DB cluster data to S3, see [Supported
-Regions and Aurora DB engines for exporting cluster data to
-Amazon S3](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+To fix this error, run the following command:
 
-You use the following process to export DB cluster data to an Amazon S3 bucket. For more details, see the following
-sections.
+```
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA `schema_name` TO `superuser_name`
+```
 
-###### Overview of exporting DB cluster data
-
-1. Identify the DB cluster whose data you want to export.
-2. Set up access to the Amazon S3 bucket.
-
-A _bucket_ is a container for Amazon S3 objects or files. To provide the information to
-access a bucket, take the following steps:
-
-    1. Identify the S3 bucket where the DB cluster data is to be exported. The S3 bucket must be in the same AWS
-     Region as the DB cluster. For more information, see [Identifying the Amazon S3 bucket for export](export-cluster-data.md#export-cluster-data.SetupBucket "export-cluster-data.md#export-cluster-data.SetupBucket").
-    2. Create an AWS Identity and Access Management (IAM) role that grants the DB cluster export task access to the S3 bucket. For more
-     information, see [Providing access to an Amazon S3 bucket using an IAM role](export-cluster-data.md#export-cluster-data.SetupIAMRole "export-cluster-data.md#export-cluster-data.SetupIAMRole").
-
-3. Create a symmetric encryption AWS KMS key for the server-side encryption. The KMS key is used by the cluster
-   export task to set up AWS KMS server-side encryption when writing the export data to S3.
-
-The KMS key policy must include both the `kms:CreateGrant` and `kms:DescribeKey` permissions.
-For more information on using KMS keys in Amazon Aurora, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
-
-If you have a deny statement in your KMS key policy, make sure to explicitly exclude the AWS service principal
-`export.rds.amazonaws.com`.
-
-You can use a KMS key within your AWS account, or you can use a cross-account KMS key. For more information, see
-[Using a cross-account AWS KMS key](aurora-export-snapshot.md#aurora-export-snapshot.CMK "aurora-export-snapshot.md#aurora-export-snapshot.CMK"). 4. Export the DB cluster to Amazon S3 using the console or the `start-export-task` CLI command. For more
-information, see [Creating DB cluster export tasks](export-cluster-data.md "export-cluster-data.md"). 5. To access your exported data in the Amazon S3 bucket, see [Uploading, downloading, and managing objects](../../../AmazonS3/latest/user-guide/upload-download-objects.md "../../../AmazonS3/latest/user-guide/upload-download-objects.md")
-in the _Amazon Simple Storage Service User Guide_.
-Learn to set up, export, monitor, cancel, and troubleshoot DB cluster export tasks in the following sections.
-
-###### Topics
-
-- [Considerations for DB cluster exports](export-cluster-data.md "export-cluster-data.md")
-- [Setting up access to an Amazon S3 bucket](export-cluster-data.md "export-cluster-data.md")
-- [Creating DB cluster export tasks](export-cluster-data.md "export-cluster-data.md")
-- [Monitoring DB cluster export tasks](export-cluster-data.md "export-cluster-data.md")
-- [Canceling a DB cluster export task](export-cluster-data.md "export-cluster-data.md")
-- [Troubleshooting DB cluster exports](export-cluster-data.md "export-cluster-data.md")
+For more information on superuser privileges, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").

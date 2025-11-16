@@ -20,7 +20,7 @@ such as DB cluster snapshots, Performance Insights, Enhanced Monitoring, and Aur
 
 ###### Note
 
-Blue/Green Deployments are supported for Aurora MySQL and Aurora PostgreSQL. For Amazon RDS availability,
+Blue/Green Deployments are supported for Aurora MySQL, Aurora PostgreSQL, and Aurora Global Database. For Amazon RDS availability,
 see [Overview of Amazon RDS
 Blue/Green Deployments](../UserGuide/blue-green-deployments-overview.md "../UserGuide/blue-green-deployments-overview.md") in the _Amazon RDS User Guide_.
 

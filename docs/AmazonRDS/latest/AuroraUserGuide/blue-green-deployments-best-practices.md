@@ -11,6 +11,7 @@ The following are best practices for blue/green deployments.
 - [Aurora MySQL best practices for blue/green deployments](#blue-green-deployments-best-practices-mysql "#blue-green-deployments-best-practices-mysql")
 - [Aurora PostgreSQL best
   practices for blue/green deployments](#blue-green-deployments-best-practices-postgres "#blue-green-deployments-best-practices-postgres")
+- [Aurora Global Database best practices for blue/green deployments](#blue-green-deployments-best-practices-agd "#blue-green-deployments-best-practices-agd")
 
 ## General best practices for
 
@@ -146,3 +147,18 @@ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
 
   For more information about these parameters, see [DB cluster parameter group settings for
   Babelfish](babelfish-configuration.md "babelfish-configuration.md").
+
+## Aurora Global Database best practices for blue/green deployments
+
+In addition to the above listed general and engine specific best practices, consider the following best practices for
+Aurora Global Database.
+
+- Monitor the following CloudWatch metrics to identify periods of low activity in your production environment:
+
+      + `DatabaseConnections`
+      + `ActiveTransactions`
+
+  Schedule the blue/green switchover during your planned maintenance window or during a period of low activity.
+
+- Blue/Green switchover duration varies based on your workload and the number of secondary regions. When you initiate a blue/green switchover, the service waits for replica lag to reach zero before proceeding. We recommend checking replica lag before initiating a switchover.
+- If you intend to use a DB parameter or DB Cluster parameter group other than the default one for your green environment, create the desired parameter group with the same name in all secondary regions before initiating the blue/green deployment.

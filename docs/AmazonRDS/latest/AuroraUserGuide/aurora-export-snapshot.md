@@ -1,229 +1,73 @@
-# Setting up access to an Amazon S3 bucket
+# Exporting DB cluster snapshot data to Amazon S3
 
-You identify the Amazon S3 bucket, then you give the snapshot permission to access it.
+You can export DB cluster snapshot data to an Amazon S3 bucket. The export process runs in the background and doesn't affect the performance
+of your active DB cluster.
+
+When you export a DB cluster snapshot, Amazon Aurora extracts data from the snapshot and stores it in an Amazon S3 bucket. You can export
+manual snapshots and automated system snapshots. By default, all data in the snapshot is exported. However, you can choose to export
+specific sets of databases, schemas, or tables.
+
+###### Note
+
+Exporting data from a DB cluster snapshot requires restoring the snapshot. Restore times are impacted by various factors, such as the amount of network
+traffic an AWS Region receives relative to its available bandwidth. When there's a sudden increase in traffic, you might experience longer than
+expected completion times.
+
+An alternative for decreasing S3 export times for Aurora databases is live DB cluster export to S3. DB cluster export has shorter start times than DB
+snapshot export, because there's no need to restore a snapshot. For more information, see [Exporting DB cluster data to Amazon S3](export-cluster-data.md "export-cluster-data.md").
+
+The data is stored in an Apache Parquet format that is compressed and consistent. Individual Parquet files are usually 1–10
+MB in size.
+
+After the data is exported, you can analyze the exported data directly through tools like Amazon Athena or Amazon Redshift Spectrum. For more
+information on using Athena to read Parquet data, see [Parquet SerDe](../../../athena/latest/ug/parquet-serde.md "../../../athena/latest/ug/parquet-serde.md") in the
+_Amazon Athena User Guide_. For more information on using Redshift Spectrum to read Parquet data, see [COPY from columnar data formats](../../../redshift/latest/dg/copy-usage_notes-copy-from-columnar.md "../../../redshift/latest/dg/copy-usage_notes-copy-from-columnar.md") in the
+_Amazon Redshift Database Developer Guide_.
+
+Feature availability and support varies across specific versions of each database engine
+and across AWS Regions. For more information on version and Region availability of
+exporting DB cluster snapshot data to S3, see [Supported Regions and Aurora DB engines for exporting snapshot data
+to Amazon S3](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+
+You use the following process to export DB snapshot data to an Amazon S3 bucket. For more details, see the following sections.
+
+###### Overview of exporting snapshot data
+
+1. Identify the snapshot to export.
+
+Use an existing automated or manual snapshot, or create a manual snapshot of a DB
+instance. 2. Set up access to the Amazon S3 bucket.
+
+A _bucket_ is a container for Amazon S3 objects or files. To
+provide the information to access a bucket, take the following steps:
+
+    1. Identify the S3 bucket where the snapshot is to be exported to. The S3 bucket must be in
+     the same AWS Region as the snapshot. For more information, see [Identifying the Amazon S3 bucket for export](aurora-export-snapshot.md#aurora-export-snapshot.SetupBucket "aurora-export-snapshot.md#aurora-export-snapshot.SetupBucket").
+    2. Create an AWS Identity and Access Management (IAM) role that grants the snapshot export task access to the S3
+     bucket. For more information, see [Providing access to an Amazon S3 bucket using an
+     IAM role](aurora-export-snapshot.md#aurora-export-snapshot.SetupIAMRole "aurora-export-snapshot.md#aurora-export-snapshot.SetupIAMRole").
+
+3. Create a symmetric encryption AWS KMS key for the server-side encryption. The KMS key is used by the snapshot
+   export task to set up AWS KMS server-side encryption when writing the export data to S3.
+
+The KMS key policy must include both the `kms:CreateGrant` and `kms:DescribeKey` permissions.
+For more information on using KMS keys in Amazon Aurora, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+
+If you have a deny statement in your KMS key policy, make sure to explicitly exclude the AWS service principal
+`export.rds.amazonaws.com`.
+
+You can use a KMS key within your AWS account, or you can use a cross-account KMS key.
+For more information, see [Using a cross-account AWS KMS key](aurora-export-snapshot.md#aurora-export-snapshot.CMK "aurora-export-snapshot.md#aurora-export-snapshot.CMK"). 4. Export the snapshot to Amazon S3 using the console or the `start-export-task` CLI
+command. For more information, see [Creating snapshot export tasks](aurora-export-snapshot.md "aurora-export-snapshot.md"). 5. To access your exported data in the Amazon S3 bucket, see [Uploading, downloading, and managing objects](../../../AmazonS3/latest/user-guide/upload-download-objects.md "../../../AmazonS3/latest/user-guide/upload-download-objects.md")
+in the _Amazon Simple Storage Service User Guide_.
+Learn to set up, export, monitor, cancel, and troubleshoot DB cluster snapshot export tasks in the following sections.
 
 ###### Topics
 
-- [Identifying the Amazon S3 bucket for export](#aurora-export-snapshot.SetupBucket "#aurora-export-snapshot.SetupBucket")
-- [Providing access to an Amazon S3 bucket using an
-  IAM role](#aurora-export-snapshot.SetupIAMRole "#aurora-export-snapshot.SetupIAMRole")
-- [Using a cross-account Amazon S3 bucket](#aurora-export-snapshot.Setup.XAcctBucket "#aurora-export-snapshot.Setup.XAcctBucket")
-- [Using a cross-account AWS KMS key](#aurora-export-snapshot.CMK "#aurora-export-snapshot.CMK")
-
-## Identifying the Amazon S3 bucket for export
-
-Identify the Amazon S3 bucket to export the DB snapshot to. Use an existing S3 bucket or create
-a new S3 bucket.
-
-###### Note
-
-The S3 bucket to export to must be in the same AWS Region as the snapshot.
-
-For more information about working with Amazon S3 buckets, see the following in the _Amazon Simple Storage Service User Guide_:
-
-- [How do I view the
-  properties for an S3 bucket?](../../../AmazonS3/latest/user-guide/view-bucket-properties.md "../../../AmazonS3/latest/user-guide/view-bucket-properties.md")
-- [How do I enable
-  default encryption for an Amazon S3 bucket?](../../../AmazonS3/latest/user-guide/default-bucket-encryption.md "../../../AmazonS3/latest/user-guide/default-bucket-encryption.md")
-- [How do I create an S3
-  bucket?](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md")
-
-## Providing access to an Amazon S3 bucket using an
-
-IAM role
-
-Before you export DB snapshot data to Amazon S3, give the snapshot export tasks write-access
-permission to the Amazon S3 bucket.
-
-To grant this permission, create an IAM policy that provides access to the bucket, then
-create an IAM role and attach the policy to the role. Later, you can assign the
-IAM role to your snapshot export task.
-
-###### Important
-
-If you plan to use the AWS Management Console to export your snapshot, you can choose to create the IAM policy and the role
-automatically when you export the snapshot. For instructions, see [Creating snapshot export tasks](aurora-export-snapshot.md "aurora-export-snapshot.md").
-
-###### To give DB snapshot tasks access to Amazon S3
-
-1. Create an IAM policy. This policy provides the bucket and object permissions that allow your snapshot export task to access
-   Amazon S3.
-
-In the policy, include the following required actions to allow the transfer of files from Amazon Aurora to an S3 bucket:
-
-    * `s3:PutObject*`
-    * `s3:GetObject*`
-    * `s3:ListBucket`
-    * `s3:DeleteObject*`
-    * `s3:GetBucketLocation`
-
-In the policy, include the following resources to identify the S3 bucket and objects in the bucket. The following list of
-resources shows the Amazon Resource Name (ARN) format for accessing Amazon S3.
-
-    * `arn:aws:s3:::`amzn-s3-demo-bucket``
-    * `arn:aws:s3:::`amzn-s3-demo-bucket`/*`
-
-For more information on creating an IAM policy for Amazon Aurora, see
-[Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"). See also [Tutorial:
-Create and attach your first customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the
-_IAM User Guide_.
-
-The following AWS CLI command creates an IAM policy named `ExportPolicy` with
-these options. It grants access to a bucket named
-`amzn-s3-demo-bucket`.
-
-###### Note
-
-After you create the policy, note the ARN of the policy. You need the ARN for a
-subsequent step when you attach the policy to an IAM role.
-
-```
-aws iam create-policy  --policy-name ExportPolicy --policy-document '{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "ExportPolicy",
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject*",
-                "s3:ListBucket",
-                "s3:GetObject*",
-                "s3:DeleteObject*",
-                "s3:GetBucketLocation"
-            ],
-            "Resource": [
-                "arn:aws:s3:::`amzn-s3-demo-bucket`",
-                "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
-            ]
-        }
-    ]
-}'
-```
-
-2. Create an IAM role, so that Aurora can assume this IAM role on your behalf to access
-   your Amazon S3 buckets. For more information, see [Creating a
-   role to delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the
-   _IAM User Guide_.
-
-The following example shows using the AWS CLI command to create a role named `rds-s3-export-role`.
-
-```
-aws iam create-role  --role-name rds-s3-export-role  --assume-role-policy-document '{
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-            "Service": "export.rds.amazonaws.com"
-          },
-         "Action": "sts:AssumeRole"
-       }
-     ]
-   }'
-```
-
-3. Attach the IAM policy that you created to the IAM role that you created.
-
-The following AWS CLI command attaches the policy created earlier to the role named
-`rds-s3-export-role`. Replace `your-policy-arn`
-with the policy ARN that you noted in an earlier step.
-
-```
-aws iam attach-role-policy  --policy-arn `your-policy-arn`  --role-name rds-s3-export-role
-```
-
-## Using a cross-account Amazon S3 bucket
-
-You can use Amazon S3 buckets across AWS accounts. To use a cross-account bucket, add a bucket policy to allow access to the
-IAM role that you're using for the S3 exports. For more information, see [Example 2: Bucket owner granting
-cross-account bucket permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md").
-
-- Attach a bucket policy to your bucket, as shown in the following example.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:role/Admin"
- },
- "Action": [
- "s3:PutObject*",
- "s3:ListBucket",
- "s3:GetObject*",
- "s3:DeleteObject*",
- "s3:GetBucketLocation"
- ],
- "Resource": [
- "arn:aws:s3:::`amzn-s3-demo-destination-bucket`",
- "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
- ]
- }
- ]
-}`
-
-```
-
-## Using a cross-account AWS KMS key
-
-You can use a cross-account AWS KMS key to encrypt Amazon S3 exports. First, you add a key policy to the local account, then
-you add IAM policies in the external account. For more information, see [Allowing users in other accounts to use a
-KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md").
-
-###### To use a cross-account KMS key
-
-1. Add a key policy to the local account.
-
-The following example gives `ExampleRole` and `ExampleUser` in the external account
-444455556666 permissions in the local account 123456789012.
-
-```
-{
-    "Sid": "Allow an external account to use this KMS key",
-    "Effect": "Allow",
-    "Principal": {
-        "AWS": [
-            "arn:aws:iam::444455556666:role/ExampleRole",
-            "arn:aws:iam::444455556666:user/ExampleUser"
-        ]
-    },
-    "Action": [
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:ReEncrypt*",
-        "kms:GenerateDataKey*",
-        "kms:CreateGrant",
-        "kms:DescribeKey",
-        "kms:RetireGrant"
-    ],
-    "Resource": "*"
-}
-```
-
-2. Add IAM policies to the external account.
-
-The following example IAM policy allows the principal to use the KMS key in account 123456789012 for
-cryptographic operations. To give this permission to `ExampleRole` and `ExampleUser` in
-account 444455556666, [attach the policy](../../../IAM/latest/UserGuide/access_policies_managed-using.md#attach-managed-policy-console "../../../IAM/latest/UserGuide/access_policies_managed-using.md#attach-managed-policy-console") to them in that account.
-
-```
-{
-    "Sid": "Allow use of KMS key in account 123456789012",
-    "Effect": "Allow",
-    "Action": [
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:ReEncrypt*",
-        "kms:GenerateDataKey*",
-        "kms:CreateGrant",
-        "kms:DescribeKey",
-        "kms:RetireGrant"
-    ],
-    "Resource": "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-}
-```
+- [Considerations for DB cluster snapshot exports](aurora-export-snapshot.md "aurora-export-snapshot.md")
+- [Setting up access to an Amazon S3 bucket](aurora-export-snapshot.md "aurora-export-snapshot.md")
+- [Creating snapshot export tasks](aurora-export-snapshot.md "aurora-export-snapshot.md")
+- [Monitoring snapshot exports](aurora-export-snapshot.md "aurora-export-snapshot.md")
+- [Canceling a snapshot export task](aurora-export-snapshot.md "aurora-export-snapshot.md")
+- [Export performance in Aurora MySQL](aurora-export-snapshot.md "aurora-export-snapshot.md")
+- [Troubleshooting snapshot exports](aurora-export-snapshot.md "aurora-export-snapshot.md")

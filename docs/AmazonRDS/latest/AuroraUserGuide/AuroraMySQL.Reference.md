@@ -1,242 +1,168 @@
-# Aurora MySQL wait events
+# Aurora MySQL isolation levels
 
-The following are some common wait events for Aurora MySQL.
+Learn how DB instances in an Aurora MySQL cluster implement the database property of
+isolation. This topic explains how the Aurora MySQL default behavior balances between strict
+consistency and high performance. You can use this information to help you decide when to
+change the default settings based on the traits of your workload.
+
+## Available isolation levels for writer instances
+
+You can use the isolation levels `REPEATABLE READ`, `READ COMMITTED`, `READ UNCOMMITTED`, and
+`SERIALIZABLE` on the primary instance of an Aurora MySQL DB cluster. These isolation levels work the same in
+Aurora MySQL as in RDS for MySQL.
+
+## REPEATABLE READ isolation level for reader instances
+
+By default, Aurora MySQL DB instances that are configured as read-only Aurora Replicas always use the `REPEATABLE
+ READ` isolation level. These DB instances ignore any `SET TRANSACTION ISOLATION LEVEL` statements and
+continue using the `REPEATABLE READ` isolation level.
+
+## READ COMMITTED isolation level for reader instances
+
+If your application includes a write-intensive workload on the primary instance and long-running queries on the Aurora
+Replicas, you might experience substantial purge lag. _Purge lag_ happens when internal garbage
+collection is blocked by long-running queries. The symptom that you see is a high value for `history list length` in
+the output from the `SHOW ENGINE INNODB STATUS` command. You can monitor this value using the
+`RollbackSegmentHistoryListLength` metric in CloudWatch. Substantial purge lag can reduce the effectiveness of
+secondary indexes, decrease overall query performance, and lead to wasted storage space.
+
+If you experience such issues, you can set an Aurora MySQL session-level configuration setting,
+`aurora_read_replica_read_committed`, to use the `READ COMMITTED` isolation level on Aurora Replicas.
+When you apply this setting, you can help reduce slowdowns and wasted space that can result from performing long-running queries
+at the same time as transactions that modify your tables.
+
+We recommend making sure that you understand the specific Aurora MySQL behavior of the `READ COMMITTED` isolation
+before using this setting. The Aurora Replica `READ COMMITTED` behavior complies with the ANSI SQL standard. However,
+the isolation is less strict than typical MySQL `READ COMMITTED` behavior that you might be familiar with. Therefore,
+you might see different query results under `READ COMMITTED` on an Aurora MySQL read replica than you might see for the
+same query under `READ COMMITTED` on the Aurora MySQL primary instance or on RDS for MySQL. You might consider using the
+`aurora_read_replica_read_committed` setting for such cases as a comprehensive report that scans a very large
+database. In contrast, you might avoid it for short queries with small result sets, where precision and repeatability are
+important.
+
+The `READ COMMITTED` isolation level isn't available for sessions within a secondary cluster in an Aurora
+global database that use the write forwarding feature. For information about write forwarding, see [Using write forwarding in an Amazon Aurora global database](aurora-global-database-write-forwarding.md "aurora-global-database-write-forwarding.md").
+
+### Using READ COMMITTED for readers
+
+To use the `READ COMMITTED` isolation level for Aurora Replicas, set the
+`aurora_read_replica_read_committed` configuration setting to `ON`. Use this setting at the
+session level while connected to a specific Aurora Replica. To do so, run the following SQL commands.
+
+```
+set session aurora_read_replica_read_committed = ON;
+set session transaction isolation level read committed;
+
+```
+
+You might use this configuration setting temporarily to perform interactive, one-time queries. You might also want to run
+a reporting or data analysis application that benefits from the `READ COMMITTED` isolation level, while leaving
+the default setting unchanged for other applications.
+
+When the `aurora_read_replica_read_committed` setting is turned on, use the `SET TRANSACTION ISOLATION
+ LEVEL` command to specify the isolation level for the appropriate transactions.
+
+```
+set transaction isolation level read committed;
+```
+
+### Differences in READ COMMITTED behavior on Aurora
+
+replicas
+
+The `aurora_read_replica_read_committed` setting makes the `READ COMMITTED` isolation level
+available for an Aurora Replica, with consistency behavior that is optimized for long-running transactions. The `READ
+ COMMITTED` isolation level on Aurora Replicas has less strict isolation than on Aurora primary instances. For that
+reason, enable this setting only on Aurora Replicas where you know that your queries can accept the possibility of certain
+types of inconsistent results.
+
+Your queries can experience certain kinds of read anomalies when the `aurora_read_replica_read_committed`
+setting is turned on. Two kinds of anomalies are especially important to understand and handle in your application code. A
+_non-repeatable read_ occurs when another transaction commits while your query is running. A
+long-running query can see different data at the start of the query than it sees at the end. A _phantom
+read_ occurs when other transactions cause existing rows to be reorganized while your query is running, and
+one or more rows are read twice by your query.
+
+Your queries might experience inconsistent row counts as a result of phantom reads. Your queries might also return
+incomplete or inconsistent results due to non-repeatable reads. For example, suppose that a join operation refers to tables
+that are concurrently modified by SQL statements such as `INSERT` or `DELETE`. In this case, the join
+query might read a row from one table but not the corresponding row from another table.
+
+The ANSI SQL standard allows both of these behaviors for the `READ COMMITTED` isolation level. However, those
+behaviors are different than the typical MySQL implementation of `READ COMMITTED`. Thus, before enabling the
+`aurora_read_replica_read_committed` setting, check any existing SQL code to verify if it operates as
+expected under the looser consistency model.
+
+Row counts and other results might not be strongly consistent under the `READ COMMITTED` isolation level while
+this setting is enabled. Thus, you typically enable the setting only while running analytic queries that aggregate large
+amounts of data and don't require absolute precision. If you don't have these kinds of long-running queries
+alongside a write-intensive workload, you probably don't need the `aurora_read_replica_read_committed`
+setting. Without the combination of long-running queries and a write-intensive workload, you're unlikely to encounter
+issues with the length of the history list.
+
+###### Example Queries showing isolation behavior for READ COMMITTED on Aurora Replicas
+
+The following example shows how `READ COMMITTED` queries on an Aurora Replica might return non-repeatable
+results if transactions modify the associated tables at the same time. The table `BIG_TABLE` contains 1
+million rows before any queries start. Other data manipulation language (DML) statements add, remove, or change rows
+while they are running.
+
+The queries on the Aurora primary instance under the `READ COMMITTED` isolation level produce predictable
+results. However, the overhead of keeping the consistent read view for the lifetime of every long-running query can lead
+to expensive garbage collection later.
+
+The queries on the Aurora Replica under the `READ COMMITTED` isolation level are optimized to minimize this
+garbage collection overhead. The tradeoff is that the results might vary depending on whether the queries retrieve rows
+that are added, removed, or reorganized by transactions that are committed while the query is running. The queries are
+allowed to consider these rows, but aren't required to. For demonstration purposes, the queries check only the
+number of rows in the table by using the `COUNT(*)` function.
+
+| Time | DML statement on Aurora primary instance                                                                                      | Query on Aurora primary instance with READ COMMITTED                                                    | Query on Aurora Replica with READ COMMITTED                                                             |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| T1   | `INSERT INTO big_table SELECT<br>• FROM other_table LIMIT 1000000; COMMIT;`                                                   |                                                                                                         |                                                                                                         |
+| T2   |                                                                                                                               | **Q1:**<br>`SELECT COUNT(*) FROM big_table;`                                                            | **Q2:**<br>`SELECT COUNT(*) FROM big_table;`                                                            |
+| T3   | `INSERT INTO big_table (c1, c2) VALUES (1, 'one more row'); COMMIT;`                                                          |                                                                                                         |                                                                                                         |
+| T4   |                                                                                                                               | If Q1 finishes now, result is 1,000,000.                                                                | If Q2 finishes now, result is 1,000,000 or 1,000,001.                                                   |
+| T5   | `DELETE FROM big_table LIMIT 2; COMMIT;`                                                                                      |                                                                                                         |                                                                                                         |
+| T6   |                                                                                                                               | If Q1 finishes now, result is 1,000,000.                                                                | If Q2 finishes now, result is 1,000,000 or 1,000,001 or 999,999 or 999,998.                             |
+| T7   | `UPDATE big_table SET c2 = CONCAT(c2,c2,c2); COMMIT;`                                                                         |                                                                                                         |                                                                                                         |
+| T8   |                                                                                                                               | If Q1 finishes now, result is 1,000,000.                                                                | If Q2 finishes now, result is 1,000,000 or 1,000,001 or 999,999, or possibly some higher number.        |
+| T9   |                                                                                                                               | **Q3:**<br>`SELECT COUNT(*) FROM big_table;`                                                            | **Q4:**<br>`SELECT COUNT(*) FROM big_table;`                                                            |
+| T10  |                                                                                                                               | If Q3 finishes now, result is 999,999.                                                                  | If Q4 finishes now, result is 999,999.                                                                  |
+| T11  |                                                                                                                               | **Q5:**<br>`SELECT COUNT(*) FROM parent_table p JOIN child_table c ON (p.id = c.id) WHERE p.id = 1000;` | **Q6:**<br>`SELECT COUNT(*) FROM parent_table p JOIN child_table c ON (p.id = c.id) WHERE p.id = 1000;` |
+| T12  | `INSERT INTO parent_table (id, s) VALUES (1000, 'hello'); INSERT INTO child_table (id, s) VALUES<br>(1000, 'world'); COMMIT;` |                                                                                                         |                                                                                                         |
+| T13  |                                                                                                                               | If Q5 finishes now, result is 0.                                                                        | If Q6 finishes now, result is 0 or 1.                                                                   |
+
+If the queries finish quickly, before any other transactions perform DML statements and commit, the results are
+predictable and the same between the primary instance and the Aurora Replica. Let's examine the differences in behavior
+in detail, starting with the first query.
+
+The results for Q1 are highly predictable because `READ COMMITTED` on the primary instance uses a strong
+consistency model similar to the `REPEATABLE READ` isolation level.
+
+The results for Q2 might vary depending on what transactions are committed while that query is running. For example,
+suppose that other transactions perform DML statements and commit while the queries are running. In this case, the query
+on the Aurora Replica with the `READ COMMITTED` isolation level might or might not take the changes into
+account. The row counts aren't predictable in the same way as under the `REPEATABLE READ` isolation level.
+They also aren't as predictable as queries running under the `READ COMMITTED` isolation level on the
+primary instance, or on an RDS for MySQL instance.
+
+The `UPDATE` statement at T7 doesn't actually change the number of rows in the table. However, by
+changing the length of a variable-length column, this statement can cause rows to be reorganized internally. A
+long-running `READ COMMITTED` transaction might see the old version of a row, and later within the same query
+see the new version of the same row. The query can also skip both the old and new versions of the row, so the row count
+might be different than expected.
+
+The results of Q5 and Q6 might be identical or slightly different. Query Q6 on the Aurora Replica under `READ
+ COMMITTED` is able to see, but is not required to see, the new rows that are committed while the query is
+running. It might also see the row from one table, but not from the other table. If the join query doesn't find a
+matching row in both tables, it returns a count of zero. If the query does find both the new rows in
+`PARENT_TABLE` and `CHILD_TABLE`, the query returns a count of one. In a long-running query,
+the lookups from the joined tables might happen at widely separated times.
 
 ###### Note
 
-For information on tuning Aurora MySQL performance using wait events, see [Tuning Aurora MySQL with wait events](AuroraMySQL.Managing.Tuning.md "AuroraMySQL.Managing.Tuning.md").
-
-For information about the naming conventions used in MySQL wait events, see [Performance
-Schema instrument naming conventions](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-instrument-naming.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-instrument-naming.html") in the MySQL documentation.
-
-**cpu**
-
-The number of active connections that are ready to run is consistently higher than the number of
-vCPUs. For more information, see [cpu](ams-waits.md "ams-waits.md").
-
-**io/aurora_redo_log_flush**
-
-A session is persisting data to Aurora storage. Typically, this wait event is for a write I/O
-operation in Aurora MySQL. For more information, see [io/aurora_redo_log_flush](ams-waits.md "ams-waits.md").
-
-**io/aurora_respond_to_client**
-
-Query processing has completed and results are being returned to the application client for the following
-Aurora MySQL versions: 2.10.2 and higher 2.10 versions, 2.09.3 and higher 2.09 versions, and 2.07.7 and higher 2.07
-versions. Compare the network bandwidth of the DB instance class with the size of the result set being returned.
-Also, check client-side response times. If the client is unresponsive and can't process the TCP packets, packet
-drops and TCP retransmissions can occur. This situation negatively affects network bandwidth. In versions lower than
-2.10.2, 2.09.3, and 2.07.7, the wait event erroneously includes idle time. To learn how to tune your database when
-this wait is prominent, see [io/aurora_respond_to_client](ams-waits.md "ams-waits.md").
-
-**io/file/csv/data**
-
-Threads are writing to tables in comma-separated value (CSV) format. Check your CSV table usage. A
-typical cause of this event is setting `log_output` on a table.
-
-**io/file/sql/binlog**
-
-A thread is waiting on a binary log (binlog) file that is being written to disk.
-
-**io/redo_log_flush**
-
-A session is persisting data to Aurora storage. Typically, this wait event is for a write I/O operation in
-Aurora MySQL. For more information, see [io/redo_log_flush](ams-waits.md "ams-waits.md").
-
-**io/socket/sql/client_connection**
-
-The `mysqld` program is busy creating threads to handle incoming new client connections.
-For more information, see [io/socket/sql/client_connection](ams-waits.md "ams-waits.md").
-
-**io/table/sql/handler**
-
-The engine is waiting for access to a table. This event occurs regardless of whether the data is
-cached in the buffer pool or accessed on disk. For more information, see [io/table/sql/handler](ams-waits.md "ams-waits.md").
-
-**lock/table/sql/handler**
-
-This wait event is a table lock wait event handler. For more information about atom and molecule events in the Performance Schema, see
-[Performance Schema atom and molecule events](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-atom-molecule-events.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-atom-molecule-events.html") in the MySQL documentation.
-
-**synch/cond/innodb/row_lock_wait**
-
-Multiple data manipulation language (DML) statements are accessing the same database rows at the same time. For
-more information, see [synch/cond/innodb/row_lock_wait](ams-waits.md "ams-waits.md").
-
-**synch/cond/innodb/row_lock_wait_cond**
-
-Multiple DML statements are accessing the same database rows at the same time. For more information, see [synch/cond/innodb/row_lock_wait_cond](ams-waits.md "ams-waits.md").
-
-**synch/cond/sql/MDL_context::COND_wait_status**
-
-Threads are waiting on a table metadata lock. The engine uses this type of lock to manage
-concurrent access to a database schema and to ensure data consistency. For more information, see
-[Optimizing locking operations](https://dev.mysql.com/doc/refman/8.0/en/locking-issues.html "https://dev.mysql.com/doc/refman/8.0/en/locking-issues.html") in
-the MySQL documentation. To learn how to tune your database when this event is prominent, see [synch/cond/sql/MDL_context::COND_wait_status](ams-waits.md "ams-waits.md").
-
-**synch/cond/sql/MYSQL_BIN_LOG::COND_done**
-
-You have turned on binary logging. There might be a high commit throughput, large number
-transactions committing, or replicas reading binlogs. Consider using multirow statements or bundling
-statements into one transaction. In Aurora, use global databases instead of binary log replication,
-or use the `aurora_binlog_*\**` parameters.
-
-**synch/mutex/innodb/aurora_lock_thread_slot_futex**
-
-Multiple DML statements are accessing the same database rows at the same time. For more information, see [synch/mutex/innodb/aurora_lock_thread_slot_futex](ams-waits.md "ams-waits.md").
-
-**synch/mutex/innodb/buf_pool_mutex**
-
-The buffer pool isn't large enough to hold the working data set. Or the workload accesses pages
-from a specific table, which leads to contention in the buffer pool. For more information, see [synch/mutex/innodb/buf_pool_mutex](ams-waits.md "ams-waits.md").
-
-**synch/mutex/innodb/fil_system_mutex**
-
-The process is waiting for access to the tablespace memory cache. For more information, see [synch/mutex/innodb/fil_system_mutex](ams-waits.md "ams-waits.md").
-
-**synch/mutex/innodb/trx_sys_mutex**
-
-Operations are checking, updating, deleting, or adding transaction IDs in InnoDB in a consistent or
-controlled manner. These operations require a `trx_sys` mutex call, which is tracked by
-Performance Schema instrumentation. Operations include management of the transaction system when the
-database starts or shuts down, rollbacks, undo cleanups, row read access, and buffer pool loads. High
-database load with a large number of transactions results in the frequent appearance of this wait
-event. For more information, see [synch/mutex/innodb/trx_sys_mutex](ams-waits.md "ams-waits.md").
-
-**synch/mutex/mysys/KEY_CACHE::cache_lock**
-
-The `keycache->cache_lock` mutex controls access to the key cache for MyISAM tables. While Aurora MySQL
-doesn't allow usage of MyISAM tables to store persistent data, they are used to store internal temporary tables.
-Consider checking the `created_tmp_tables` or `created_tmp_disk_tables` status counters,
-because in certain situations, temporary tables are written to disk when they no longer fit in memory.
-
-**synch/mutex/sql/FILE_AS_TABLE::LOCK_offsets**
-
-The engine acquires this mutex when opening or creating a table metadata file. When this wait event
-occurs with excessive frequency, the number of tables being created or opened has spiked.
-
-**synch/mutex/sql/FILE_AS_TABLE::LOCK_shim_lists**
-
-The engine acquires this mutex while performing operations such as `reset_size`,
-`detach_contents`, or `add_contents` on the internal structure that keeps
-track of opened tables. The mutex synchronizes access to the list contents. When this wait event
-occurs with high frequency, it indicates a sudden change in the set of tables that were previously
-accessed. The engine needs to access new tables or let go of the context related to previously
-accessed tables.
-
-**synch/mutex/sql/LOCK_open**
-
-The number of tables that your sessions are opening exceeds the size of the table definition cache or the table
-open cache. Increase the size of these caches. For more information, see [How MySQL opens and closes tables](https://dev.mysql.com/doc/refman/8.0/en/table-cache.html "https://dev.mysql.com/doc/refman/8.0/en/table-cache.html").
-
-**synch/mutex/sql/LOCK_table_cache**
-
-The number of tables that your sessions are opening exceeds the size of the table definition cache or the table
-open cache. Increase the size of these caches. For more information, see [How MySQL opens and closes tables](https://dev.mysql.com/doc/refman/8.0/en/table-cache.html "https://dev.mysql.com/doc/refman/8.0/en/table-cache.html").
-
-**synch/mutex/sql/LOG**
-
-In this wait event, there are threads waiting on a log lock. For example, a thread might wait for a lock to write to the slow query log file.
-
-**synch/mutex/sql/MYSQL_BIN_LOG::LOCK_commit**
-
-In this wait event, there is a thread that is waiting to acquire a lock
-with the intention of committing to the binary log. Binary logging
-contention can occur on databases with a very high change rate. Depending on
-your version of MySQL, there are certain locks being used to protect the
-consistency and durability of the binary log. In RDS for MySQL, binary logs are
-used for replication and the automated backup process. In Aurora MySQL, binary
-logs are not needed for native replication or backups. They are disabled by
-default but can be enabled and used for external replication or change data
-capture. For more information, see [The binary
-log](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html "https://dev.mysql.com/doc/refman/8.0/en/binary-log.html") in the MySQL documentation.
-
-**sync/mutex/sql/MYSQL_BIN_LOG::LOCK_dump_thread_metrics_collection**
-
-If binary logging is turned on, the engine acquires this mutex when it prints active dump threads
-metrics to the engine error log and to the internal operations map.
-
-**sync/mutex/sql/MYSQL_BIN_LOG::LOCK_inactive_binlogs_map**
-
-If binary logging is turned on, the engine acquires this mutex when it adds to, deletes from, or
-searches through the list of binlog files behind the latest one.
-
-**sync/mutex/sql/MYSQL_BIN_LOG::LOCK_io_cache**
-
-If binary logging is turned on, the engine acquires this mutex during Aurora binlog IO cache
-operations: allocate, resize, free, write, read, purge, and access cache info. If this event occurs
-frequently, the engine is accessing the cache where binlog events are stored. To reduce wait times,
-reduce commits. Try grouping multiple statements into a single transaction.
-
-**synch/mutex/sql/MYSQL_BIN_LOG::LOCK_log**
-
-You have turned on binary logging. There might be high commit throughput, many transactions
-committing, or replicas reading binlogs. Consider using multirow statements or bundling statements
-into one transaction. In Aurora, use global databases instead of binary log replication or use the
-`aurora_binlog_*` parameters.
-
-**synch/mutex/sql/SERVER_THREAD::LOCK_sync**
-
-The mutex `SERVER_THREAD::LOCK_sync` is acquired during the scheduling, processing, or
-launching of threads for file writes. The excessive occurrence of this wait event indicates increased
-write activity in the database.
-
-**synch/mutex/sql/TABLESPACES:lock**
-
-The engine acquires the `TABLESPACES:lock` mutex during the following tablespace
-operations: create, delete, truncate, and extend. The excessive occurrence of this wait event
-indicates a high frequency of tablespace operations. An example is loading a large amount of data
-into the database.
-
-**synch/rwlock/innodb/dict**
-
-In this wait event, there are threads waiting on an rwlock held on the InnoDB data dictionary.
-
-**synch/rwlock/innodb/dict_operation_lock**
-
-In this wait event, there are threads holding locks on InnoDB data dictionary operations.
-
-**synch/rwlock/innodb/dict sys RW lock**
-
-A high number of concurrent data control language statements (DCLs) in data definition language
-code (DDLs) are triggered at the same time. Reduce the application's dependency on DDLs during
-regular application activity.
-
-**synch/rwlock/innodb/index_tree_rw_lock**
-
-A large number of similar data manipulation language (DML) statements are accessing the same
-database object at the same time. Try using multirow statements. Also, spread the workload over
-different database objects. For example, implement partitioning.
-
-**synch/sxlock/innodb/dict_operation_lock**
-
-A high number of concurrent data control language statements (DCLs) in data definition language
-code (DDLs) are triggered at the same time. Reduce the application's dependency on DDLs during
-regular application activity.
-
-**synch/sxlock/innodb/dict_sys_lock**
-
-A high number of concurrent data control language statements (DCLs) in data definition language
-code (DDLs) are triggered at the same time. Reduce the application's dependency on DDLs during
-regular application activity.
-
-**synch/sxlock/innodb/hash_table_locks**
-
-The session couldn't find pages in the buffer pool. The engine either needs to read a file or
-modify the least-recently used (LRU) list for the buffer pool. Consider increasing the buffer cache
-size and improving access paths for the relevant queries.
-
-**synch/sxlock/innodb/index_tree_rw_lock**
-
-Many similar data manipulation language (DML) statements are accessing the same database object at
-the same time. Try using multirow statements. Also, spread the workload over different database
-objects. For example, implement partitioning.
-
-**synch/mutex/innodb/temp_pool_manager_mutex**
-
-This wait event occurs when a session is waiting to acquire a mutex for managing the pool of session temporary tablespaces.
-
-For more information on troubleshooting synch wait events, see
-[Why
-is my MySQL DB instance showing a high number of active sessions waiting on SYNCH wait events in
-Performance Insights?](https://aws.amazon.com/premiumsupport/knowledge-center/aurora-mysql-synch-wait-events/ "https://aws.amazon.com/premiumsupport/knowledge-center/aurora-mysql-synch-wait-events/").
+These differences in behavior depend on the timing of when transactions are committed and when the queries process
+the underlying table rows. Thus, you're most likely to see such differences in report queries that take minutes
+or hours and that run on Aurora clusters processing OLTP transactions at the same time. These are the kinds of mixed
+workloads that benefit the most from the `READ COMMITTED` isolation level on Aurora Replicas.

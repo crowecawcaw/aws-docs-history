@@ -1,30 +1,19 @@
-# Database engine updates for Amazon Aurora MySQL
+# Post-upgrade cleanup for Aurora MySQL version 3
 
-Amazon Aurora releases updates regularly. Updates are applied to Aurora DB clusters during system
-maintenance windows. The timing when updates are applied depends on the region and
-maintenance window setting for the DB cluster, as well as the type of update.
+After you finish upgrading any Aurora MySQL version 2 clusters to Aurora MySQL version 3, you can perform these other cleanup actions:
 
-Amazon Aurora releases are made available to all AWS Regions over the course of multiple days.
-Some Regions might temporarily show an engine version that isn't available in a different Region yet.
+- Create new MySQL 8.0–compatible versions of any custom parameter groups. Apply any necessary custom parameter values to the new parameter
+  groups.
+- Update any CloudWatch alarms, setup scripts, and so on to use the new names for any metrics whose names were affected by inclusive language changes. For
+  a list of such metrics, see [Inclusive language changes for Aurora MySQL version 3](AuroraMySQL.md#AuroraMySQL.8.0-inclusive-language "AuroraMySQL.md#AuroraMySQL.8.0-inclusive-language").
+- Update any AWS CloudFormation templates to use the new names for any configuration parameters whose names were affected by inclusive language changes. For a
+  list of such parameters, see [Inclusive language changes for Aurora MySQL version 3](AuroraMySQL.md#AuroraMySQL.8.0-inclusive-language "AuroraMySQL.md#AuroraMySQL.8.0-inclusive-language").
 
-Updates are applied to all instances in a DB cluster at the same time. An update requires a database restart on
-all instances in a DB cluster, so you experience 20 to 30 seconds of downtime, after which you can resume using
-your DB cluster or clusters. You can view or change your maintenance window settings from the
-[AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+## Spatial indexes
 
-For details about the Aurora MySQL versions that are supported by Amazon Aurora, see the [_Release Notes for Aurora MySQL_](../AuroraMySQLReleaseNotes/Welcome.md "../AuroraMySQLReleaseNotes/Welcome.md").
-
-Following, you can learn how to choose the right Aurora MySQL version for your cluster, how to specify the
-version when you create or upgrade a cluster, and the procedures to upgrade a cluster from one version to
-another with minimal interruption.
-
-###### Topics
-
-- [Checking Aurora MySQL version numbers](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [Long-term support (LTS) and beta releases for Amazon Aurora MySQL](AuroraMySQL.Update.md "AuroraMySQL.Update.md")
-- [Preparing for Amazon Aurora MySQL-Compatible Edition version 2 end of
-  standard support](Aurora.MySQL57.md "Aurora.MySQL57.md")
-- [Preparing for Amazon Aurora MySQL-Compatible Edition version 1 end of life](Aurora.MySQL56.md "Aurora.MySQL56.md")
-- [Upgrading Amazon Aurora MySQL DB clusters](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [Database engine updates and fixes for
-  Amazon Aurora MySQL](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
+After upgrading to Aurora MySQL version 3, check if you need to drop or recreate objects and indexes related to spatial indexes. Before MySQL 8.0,
+Aurora could optimize spatial queries using indexes that didn't contain a spatial resource identifier (SRID). Aurora MySQL version 3 only uses spatial
+indexes containing SRIDs. During an upgrade, Aurora automatically drops any spatial indexes without SRIDs and prints warning messages in the database
+log. If you observe such warning messages, create new spatial indexes with SRIDs after the upgrade. For more information about changes to spatial
+functions and data types in MySQL 8.0, see [Changes in MySQL
+8.0](https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html "https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html") in the _MySQL Reference Manual_.

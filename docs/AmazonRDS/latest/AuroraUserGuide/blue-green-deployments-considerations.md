@@ -12,6 +12,8 @@ database environment.
 ###### Topics
 
 - [Limitations for blue/green deployments](#blue-green-deployments-limitations "#blue-green-deployments-limitations")
+- [Aurora Global Database limitations for
+  blue/green deployments](#blue-green-deployments-limitations-agd "#blue-green-deployments-limitations-agd")
 - [Considerations for blue/green deployments](#blue-green-deployments-consider "#blue-green-deployments-consider")
 
 ## Limitations for blue/green deployments
@@ -60,7 +62,6 @@ The following general limitations apply to blue/green deployments:
   - Amazon RDS Proxy
   - Cross-Region read replicas
   - Aurora Serverless v1 DB clusters
-  - DB clusters that are part of an Aurora global database
   - AWS CloudFormation
 
 ### Aurora MySQL limitations for
@@ -162,6 +163,21 @@ deployments for Aurora PostgreSQL. For more information, see [Restrictions](http
 | Large objects in the blue environment aren't replicated to the green environment. This includes both existing large objects and any newly created or modified large objects during the blue/green deployment process. | If Aurora detects the creation or modification of large objects in the<br>blue environment that are stored in the `pg_largeobject` system<br>table, your green databases enter a state of **Replication<br>degraded**. You must delete the blue/green deployment and all green<br>databases, then recreate it.                                                                                                                                                                 |
 | Refreshing materialized views breaks replication.                                                                                                                                                                     | Refreshing materialized views in the blue environment<br>breaks replication to the green environment. Refrain from refreshing<br>materialized views in the blue environment. After a switchover, you can<br>manually refresh them using the [REFRESH MATERIALIZED VIEW](https://www.postgresql.org/docs/current/sql-refreshmaterializedview.html "https://www.postgresql.org/docs/current/sql-refreshmaterializedview.html") command, or schedule a refresh.                   |
 | UPDATE and DELETE operations aren't permitted on tables that don't have a<br>primary key.                                                                                                                             | Before you create a blue/green deployment, make sure that all tables have<br>a primary key or use `REPLICA IDENTITY FULL`. However, only use<br>`REPLICA IDENTITY FULL` if no primary or unique key exists, as it<br>affects replication performance. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/logical-replication-restrictions.html "https://www.postgresql.org/docs/current/logical-replication-restrictions.html"). |
+
+## Aurora Global Database limitations for
+
+blue/green deployments
+
+In addition to the above stated general and engine specific limitations, the following limitations apply for blue/green deployments for Aurora Global Database:
+
+- All operations must be initiated from the same Region as the writer cluster of the Global Database.
+- Performing a global switchover or a global failover will cause active blue/green deployment to become invalid. The blue-green deployment need to be deleted and recreated from the new primary region.
+- For Aurora PostgreSQL, if you have global write forwarding enabled in your production environment and create a blue/green deployment, write forwarding is disabled on the green cluster. It is enabled in the green environment only after the blue/green switchover when the green environment becomes the new production environment. After switchover, write forwarding is disabled on the `-old1` cluster.
+- Modifying to the topology of the global database after the creation of the blue/green deployment will cause the active blue/green deployment to become invalid. The blue-green deployment would have to be deleted and recreated from the new primary region.
+- Automated snapshots are retained per the backup retention days that was originally configured in old blue environment. Automated snapshots from old blue cluster are not copied to green.
+- Global failover is supported during a blue/green switchover but a global switchover is not supported during a blue/green switchover.
+- Ensure DB cluster and DB parameter groups for the green environment exist in all secondary regions with identical names. If the parameter group in any region is unavailable, the default parameter group in the regions is used.
+- Avoid using RDS Proxy on any global database members during blue/green deployment switchover.
 
 ## Considerations for blue/green deployments
 

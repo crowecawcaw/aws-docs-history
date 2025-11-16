@@ -21,6 +21,8 @@ for applications that connect from widely separated locations around the world.
 - [Using switchover or failover in Amazon Aurora Global Database](aurora-global-database-disaster-recovery.md "aurora-global-database-disaster-recovery.md")
 - [Monitoring an Amazon Aurora global
   database](aurora-global-database-monitoring.md "aurora-global-database-monitoring.md")
+- [Using Blue/Green Deployments for Amazon Aurora Global
+  Database](aurora-global-database-bluegreen.md "aurora-global-database-bluegreen.md")
 - [Using Amazon Aurora global databases with other AWS
   services](aurora-global-database-interop.md "aurora-global-database-interop.md")
 - [Upgrading an Amazon Aurora global database](aurora-global-database-upgrade.md "aurora-global-database-upgrade.md")
