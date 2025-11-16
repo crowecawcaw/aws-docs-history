@@ -19,14 +19,14 @@ backend targets. When you disable client IP preservation, the source IP address
 is the private IP address of the Network Load Balancer.
 
 By default, client IP preservation is enabled (and can't be disabled) for instance
-and IP type target groups with UDP and TCP_UDP protocols. However, you can enable or
+and IP type target groups with UDP, TCP_UDP, QUIC, and TCP_QUIC protocols. However, you can enable or
 disable client IP preservation for TCP and TLS target groups using the
 `preserve_client_ip.enabled` target group attribute.
 
 ###### Default settings
 
 - Instance type target groups: Enabled
-- IP type target groups (UDP, TCP_UDP): Enabled
+- IP type target groups (UDP, TCP_UDP, QUIC, TCP_QUIC): Enabled
 - IP type target groups (TCP, TLS): Disabled
 
 ###### When client IP preservation is enabled
@@ -165,7 +165,8 @@ due to configuration propagation delay. By default, the load balancer changes
 the state of a deregistering target to `unused` after 300 seconds. To change
 the amount of time that the load balancer waits before changing the state of a deregistering
 target to `unused`, update the deregistration delay value. We recommend that you
-specify a value of at least 120 seconds to ensure that requests are completed.
+specify a value of at least 120 seconds to ensure that requests are completed. For QUIC traffic the value is
+always 300 seconds, and can't be adjusted.
 
 If you enable the target group attribute for connection termination, connections to
 deregistered targets are closed shortly after the end of the deregistration
@@ -246,6 +247,8 @@ load balancer.
 
 TLS listeners do not support incoming connections with proxy protocol headers
 sent by the client or any other proxies.
+
+QUIC traffic does not support proxy protocol version 2.
 
 If you specify targets by IP address, the source IP addresses provided to your
 applications depend on the protocol of the target group as follows:
@@ -368,7 +371,7 @@ continuous experience to clients.
   targets with the target group.
 - When the stickiness attribute is turned on for a target group, passive health
   checks are not supported. For more information, see [Health checks for your target groups](target-group-health-checks.md "target-group-health-checks.md").
-- Sticky sessions are not supported for TLS listeners.
+- Sticky sessions are not supported for TLS or QUIC listeners.
 
 Console
 

@@ -30,6 +30,7 @@ and third-party VPN solutions.
 - [Tag a load balancer](load-balancer-tags.md "load-balancer-tags.md")
 - [Delete a load balancer](load-balancer-delete.md "load-balancer-delete.md")
 - [View the resource map](view-resource-map.md "view-resource-map.md")
+- [CloudWatch logs](load-balancer-cloudwatch-logs.md "load-balancer-cloudwatch-logs.md")
 - [Zonal shift](zonal-shift.md "zonal-shift.md")
 - [LCU reservations](capacity-unit-reservation.md "capacity-unit-reservation.md")
 

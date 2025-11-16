@@ -14,6 +14,7 @@ more information, see [IP address type](network-load-balancers.md#ip-address-typ
   addresses](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#ipv6-addressing "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#ipv6-addressing") in the _Amazon EC2 User Guide_.
 - The route tables for the Network Load Balancer subnets must route IPv6 traffic.
 - The network ACLs for the Network Load Balancer subnets must allow IPv6 traffic.
+- There are no QUIC or TCP_QUIC listeners attached to the Network Load Balancer.
 
 Console
 

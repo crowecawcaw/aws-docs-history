@@ -25,6 +25,7 @@ target group](modify-health-check-settings.md "modify-health-check-settings.md")
 - You must use an IPv6 target group with a dualstack load balancer.
 - You can't use an IPv4 target group with a UDP listener for a
   `dualstack` load balancer.
+- You can't use an IPv6 target group with QUIC or TCP_QUIC protocols.
 
 Console
 
@@ -59,6 +60,10 @@ Console
         **TCP_UDP**.
       - If the listener protocol is TCP_UDP, choose
         **TCP_UDP**.
+      - If the listener protocol is QUIC, choose
+        **QUIC**.
+      - If the listener protocol is TCP_QUIC, choose
+        **TCP_QUIC**.
       - If the target type is **Application Load Balancer**, the protocol
         must be TCP.
 

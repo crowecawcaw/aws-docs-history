@@ -43,12 +43,12 @@ sent from your load balancer to the targets that are registered with your TLS li
 can identify these TCP connections because they have the source IP address of your Network Load Balancer and the
 connections do not contain data packets.
 
-For a UDP service, target availability can be tested using non-UDP health checks on your
+For UDP and QUIC services, target availability can be tested using non-UDP health checks on your
 target group. You can use any available health check (TCP, HTTP, or HTTPS), and any port on
-your target to verify the availability of a UDP service. If the service receiving the health
+your target to verify the availability of your service. If the service receiving the health
 check fails, your target is considered unavailable. To improve the accuracy of health checks
-for a UDP service, configure the service listening to the health check port to track the
-status of your UDP service and fail the health check if the service is unavailable.
+for your service, configure the service listening to the health check port to track the
+status of your UDP or QUIC service and fail the health check if the service is unavailable.
 
 For more information, see [Target group health](load-balancer-target-groups.md#target-group-health "load-balancer-target-groups.md#target-group-health").
 

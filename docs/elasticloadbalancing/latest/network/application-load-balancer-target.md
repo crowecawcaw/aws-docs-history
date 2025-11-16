@@ -188,7 +188,12 @@ _Amazon VPC User Guide_.
 ###### Warning
 
 If you don't associate any security groups with your Network Load Balancer
-now, you can't associate them later on. 8. **Listeners and routing**
+now, you can't associate them later on.
+
+###### Warning
+
+To utilize QUIC or TCP_QUIC listeners, your Network Load Balancer must have no
+security groups. 8. **Listeners and routing**
 
     1. The default is a listener that accepts TCP traffic on port 80.
      Only TCP listeners can forward traffic to an Application Load Balancer target group. You

@@ -56,6 +56,11 @@ If you have instances in a VPC that is peered with the load balancer VPC,
 you must register them with your load balancer by IP address, not by
 instance ID.
 
+**The server ID configured doesn't match the ID configured on the target.**
+
+If you are using QUIC listeners, ensure that the ID configured on the target matches
+the ID configured with the Network Load Balancer target group.
+
 ## Targets receive more health check requests than
 
 expected

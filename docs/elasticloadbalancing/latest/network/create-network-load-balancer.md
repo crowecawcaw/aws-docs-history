@@ -28,6 +28,8 @@ target group, such as EC2 instances. For more information, see the [Network Load
   ensure that each Elastic IP address is from Amazon's pool of IPv4
   addresses and that it has the same network border group as the load
   balancer.
+- If you plan to utilize QUIC or TCP_QUIC listeners
+  ensure that the Network Load Balancer uses the `ipv4` address type and has no security groups associated with it.
 
 ## Create the load balancer
 
@@ -102,7 +104,12 @@ _Amazon VPC User Guide_.
 ###### Warning
 
 If you don't associate any security groups with your Network Load Balancer
-now, you can't associate them later on. 8. **Listeners and routing**
+now, you can't associate them later on.
+
+###### Warning
+
+To utilize QUIC or TCP_QUIC listeners, your Network Load Balancer must have no
+security groups. 8. **Listeners and routing**
 
     1. The default is a listener that accepts TCP traffic on port 80. You
      can keep the default listener settings, or modify

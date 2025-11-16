@@ -4,11 +4,11 @@ You can update the listener protocol, listener port or the target group which re
 traffic from the forwarding action. The default action, also known as the default rule,
 forwards requests to the selected target group.
 
-If you change the protocol from TCP or UDP to TLS, you must specify a security policy
-and server certificate. If you change the protocol from TLS to TCP or UDP, the security
+If you change the protocol from TCP, UDP, or QUIC to TLS, you must specify a security policy
+and server certificate. If you change the protocol from TLS to TCP, UDP, or QUIC, the security
 policy and server certificate are removed.
 
-When the target group for the default action of a TCP or TLS listener is updated, new
+When the target group for the default action of a TCP, TLS, or QUIC listener is updated, new
 connections are routed to the newly configured target group. However, this has no effect
 on any active connections that were created prior to this change. These active
 connections remain associated to the target in the original target group for up to one
@@ -16,6 +16,9 @@ hour if traffic is being sent, or up to when the idle-timeout period elapses if 
 traffic is sent, whichever occurs first. The parameter `Connection termination on
  deregistration` is not applied when updating the listener, as it's applied
 when deregistering targets.
+
+Port updates for QUIC or TCP_QUIC listeners are not allowed. To update the port for listeners that handle QUIC traffic, the listener must be
+deleted and re-created with the new port.
 
 Console
 

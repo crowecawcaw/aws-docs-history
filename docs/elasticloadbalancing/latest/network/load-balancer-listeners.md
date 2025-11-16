@@ -25,7 +25,7 @@ routes requests to the targets that you register, such as EC2 instances.
 
 Listeners support the following protocols and ports:
 
-- **Protocols**: TCP, TLS, UDP, TCP_UDP
+- **Protocols**: TCP, TLS, UDP, TCP_UDP, QUIC, TCP_QUIC
 - **Ports**: 1-65535
 
 You can use a TLS listener to offload the work of encryption and decryption to your
@@ -38,12 +38,21 @@ you can create a TCP listener on port 443 instead of creating a TLS listener. Wi
 TCP listener, the load balancer passes encrypted traffic through to the targets without
 decrypting it.
 
+You can use a QUIC listener to accept QUIC traffic. The Network Load Balancer acts as a pass through load balancer in accordance
+with [RFC9000](https://tools.ietf.org/html/rfc9000 "https://tools.ietf.org/html/rfc9000"). Utilize a QUIC listener and QUIC enabled backends
+to enable seamless connection migration for mobile devices.
+
 To support both TCP and UDP on the same port, create a TCP_UDP listener. The target
 groups for a TCP_UDP listener must use the TCP_UDP protocol.
 
+To support both TCP and QUIC on the same port, create a TCP_QUIC listener. The target
+groups for a TCP_QUIC listener must use the TCP_QUIC protocol.
+
 A UDP listener for a dualstack load balancer requires IPv6 target groups.
 
-WebSockets is supported only on TCP, TLS, and TCP_UDP listeners.
+WebSockets is supported only on TCP, TLS, TCP_UDP, and TCP_QUIC listeners.
+
+QUIC traffic does not support version negotiation. QUIC v1 is the only supported QUIC version.
 
 All network traffic sent to a configured listener is classified as intended traffic.
 Network traffic that does not match a configured listener is classified as unintended

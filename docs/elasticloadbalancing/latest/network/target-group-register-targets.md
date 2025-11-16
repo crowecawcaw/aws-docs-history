@@ -187,12 +187,24 @@ see [Use Application Load Balancers as targets](application-load-balancer-target
 - If you register a target by IP address and the IP address is in the same
   VPC as the load balancer, the load balancer verifies that it is from a
   subnet that it can reach.
-- For UDP and TCP_UDP target groups, do not register instances by IP address
+- For UDP, TCP_UDP, QUIC, and TCP_QUIC target groups, do not register instances by IP address
   if they reside outside of the load balancer VPC or if they use one of the
   following instance types: C1, CC1, CC2, CG1, CG2, CR1, G1, G2, HI1, HS1, M1,
   M2, M3, or T1. Targets that reside outside the load balancer VPC or use an
   unsupported instance type might be able to receive traffic from the load
   balancer but then be unable to respond.
+
+###### QUIC specific requirements and considerations
+
+- All targets registered to a QUIC or TCP_QUIC target group must have a server ID specified.
+- Server IDs must be unique for all targets that exist within an Network Load Balancer listener.
+- QUIC server IDs are always 8 bytes. When registering the target, the server ID must be in the form `0x` followed by 16 hexadecimal
+  characters.
+- Once a target is registered with a server ID, the ID is immuatable. To change a target server ID, it must be deregistered first
+  and then registered with the new server ID.
+- A target identifier and port combination must have one server ID. Using a different server ID for the same IP or instance ID and port
+  combination within the same VPC is not supported.
+- Avoid re-using the same server ID for a different target within 6 hours.
 
 Console
 
@@ -215,7 +227,9 @@ Console
 8. If the target type of the target group is `alb`, override
    the default port if needed and select the Application Load Balancer. For more information,
    see [Use Application Load Balancers as targets](application-load-balancer-target.md "application-load-balancer-target.md").
-9. Choose **Register pending targets**.
+9. If the protocol of the target group is QUIC or TCP_QUIC, ensure a
+   server ID is specified.
+10. Choose **Register pending targets**.
 
 AWS CLI
 
@@ -249,6 +263,14 @@ aws elbv2 register-targets \
     --targets Id=`application-load-balancer-arn`
 ```
 
+The following example registers targets into a QUIC or TCP_QUIC target group.
+
+```
+aws elbv2 register-targets \
+    --target-group-arn `target-group-arn` \
+    --targets Id=`10.0.50.10`,QuicServerId=`0xa1b2c3d4e5f65890` Id=`10.0.50.20`,QuicServerId=`0xa1b2c3d4e5f65999`
+```
+
 CloudFormation
 
 ###### To register targets
@@ -272,6 +294,28 @@ Resources:
           Port: 80
         - Id: !GetAtt Instance2.InstanceId
           Port: 80
+```
+
+The following example registers two targets by instance ID into a QUIC or TCP_QUIC protocol target group.
+
+```
+Resources:
+  myTargetGroup:
+    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Properties:
+      Name: my-target-group
+      Protocol: HTTP
+      Port: 80
+      TargetType: instance
+      VpcId: !Ref myVPC
+      Targets:
+        - Id: !GetAtt Instance1.InstanceId
+          Port: 80
+          QuicServerId: 0xa1b2c3d4e5f65999
+        - Id: !GetAtt Instance2.InstanceId
+          Port: 80
+          QuicServerId: 0xa1b2c3d4e5f65000
+
 ```
 
 ## Deregister targets

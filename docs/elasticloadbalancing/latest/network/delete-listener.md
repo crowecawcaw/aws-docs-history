@@ -6,7 +6,7 @@ Before you delete a listener, consider the impact on your application:
   connections on the listener. Any TLS handshakes in progress might fail. Existing
   connections remain open until they naturally close or time out. In-flight
   requests on existing connections complete successfully.
-- [UDP listeners] Any packets in transit might not reach their
+- [UDP and QUIC listeners] Any packets in transit might not reach their
   destination.
 
 Console
