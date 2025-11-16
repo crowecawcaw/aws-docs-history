@@ -1,6 +1,6 @@
 # Scenarios reference
 
-Scenarios included in the scenario library are designed to use [tags](../../../whitepapers/latest/tagging-best-practices/what-are-tags.md "../../../whitepapers/latest/tagging-best-practices/what-are-tags.md") where possible and each scenario describes the required tags in the **Prerequisites** and **How it works** sections of the scenario description. You can tag your resources with those pre-defined tags or you can set your own tags using the bulk parameter editing experience (see [Using a scenario](scenario-library.md#using-a-scenario "scenario-library.md#using-a-scenario")).
+Scenarios included in the scenario library are designed to use [tags](../../../whitepapers/latest/tagging-best-practices/what-are-tags.md "../../../whitepapers/latest/tagging-best-practices/what-are-tags.md") where possible and each scenario describes the required tags in the **Prerequisites** and **How it works** sections of the scenario description. You can tag your resources with those pre-defined tags or you can set your own tags using the shared parameter editing experience (see [Using a scenario](scenario-library.md#using-a-scenario "scenario-library.md#using-a-scenario")).
 
 This reference describes the common scenarios in the AWS FIS scenario library. You can also list the supported scenarios using the AWS FIS console.
 
@@ -48,9 +48,11 @@ In this scenario we will target pods in the current region that are associated w
 - **EKS stress: Network latency** - Explore impact of increased network latency on your EKS based application.
 
 In this scenario we will target pods in the current region that are associated with an application label. In this scenario you can customize an increasing amount of network latency injected on targeted EKS pods for the action duration, by default 5 min for each latency action.
-AWS FIS supports the following scenarios for multi-AZ and multi-Region applications. These scenarios target multiple resource types.
+AWS FIS supports the following scenarios for single-AZ, multi-AZ and multi-Region applications. These scenarios target multiple resource types.
 
 - **AZ Availability: Power Interruption** - Inject the expected symptoms of a complete interruption of power in an Availability Zone (AZ). Learn more about [AZ Availability: Power Interruption](az-availability-scenario.md "az-availability-scenario.md").
+- **AZ: Application Slowdown** - Add latency between resources within a single Availability Zone (AZ) to slow down an application. Learn more about [AZ: Application Slowdown](az-application-slowdown-scenario.md "az-application-slowdown-scenario.md").
+- **Cross-AZ: Traffic Slowdown** - Inject packet loss to disrupt and slow down traffic between Availability Zones (AZs). Learn more about [Cross-AZ: Traffic Slowdown](cross-az-traffic-slowdown-scenario.md "cross-az-traffic-slowdown-scenario.md").
 - **Cross-Region: Connectivity** - Block application network traffic from the experiment Region to the destination Region and pause cross-Region data replication. Learn more about using [Cross-Region: Connectivity](cross-region-scenario.md "cross-region-scenario.md").
   AWS FIS supports the following scenarios for Amazon EBS volumes. These scenarios target volumes using
   tags. You can use your own tags or use the default tags included in the scenario. The target

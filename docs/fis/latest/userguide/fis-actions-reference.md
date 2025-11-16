@@ -834,6 +834,10 @@ information, see [ECS task actions](ecs-task-actions.md "ecs-task-actions.md").
 When `useEcsFaultInjectionEndpoints` is set to `false`, the fault uses
 the `tc` tool, and uses the [AWSFIS-Run-Network-Latency-Sources](https://console.aws.amazon.com/systems-manager/documents/AWSFIS-Run-Network-Latency-Sources/description "https://console.aws.amazon.com/systems-manager/documents/AWSFIS-Run-Network-Latency-Sources/description") SSM document.
 
+Use the `flowsPercent` parameter to add latency on a percentage of the connections. To use the `flowsPercent` parameter, the ECS Agent version should be `1.100.0` or higher.
+
+To use AZ names or AZ IDs in the `sources` parameter, all targets of the action must be on the same VPC.
+
 ###### Resource type
 
 - **aws:ecs:task**
@@ -846,12 +850,14 @@ the `tc` tool, and uses the [AWSFIS-Run-Network-Latency-Sources](https://console
   The default is 200.
 - **jitterMilliseconds** – Optional. The jitter, in milliseconds.
   The default is 10.
+- **flowsPercent** – Optional. The percentage of network flows that will be affected by the action.
+  The default is 100%.
 - **sources** – Optional. The
   sources, separated by commas, without spaces. The possible values are: an IPv4 address,
-  an IPv4 CIDR block, a domain name, `DYNAMODB`, and
+  an IPv4 CIDR block, a domain name, an AZ name (us-east-1a), an AZ ID (use1-az1), ALL, `DYNAMODB`, and
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the
-  current Region. The default is 0.0.0.0/0, which matches all IPv4
+  current Region. The default is ALL, which matches all IPv4
   traffic.
 - **installDependencies** –
   Optional. If this value is `True`, Systems Manager installs the
@@ -865,6 +871,9 @@ the `tc` tool, and uses the [AWSFIS-Run-Network-Latency-Sources](https://console
 ###### Permissions
 
 - `ecs:DescribeTasks`
+- `ecs:DescribeContainerInstances`
+- `ec2:DescribeInstances`
+- `ec2:DescribeSubnets`
 - `ssm:SendCommand`
 - `ssm:ListCommands`
 - `ssm:CancelCommand`
@@ -881,6 +890,10 @@ information, see [ECS task actions](ecs-task-actions.md "ecs-task-actions.md").
 When `useEcsFaultInjectionEndpoints` is set to `false`, the fault uses
 the `tc` tool, and uses the [AWSFIS-Run-Network-Packet-Loss-Sources](https://console.aws.amazon.com/systems-manager/documents/AWSFIS-Run-Network-Packet-Loss-Sources/description "https://console.aws.amazon.com/systems-manager/documents/AWSFIS-Run-Network-Packet-Loss-Sources/description") SSM document.
 
+Use the `flowsPercent` parameter to inject packet loss on a percentage of the connections. To use the `flowsPercent` parameter, the ECS Agent version should be `1.100.0` or higher.
+
+To use AZ names or AZ IDs in the `sources` parameter, all targets of the action must be on the same VPC.
+
 ###### Resource type
 
 - **aws:ecs:task**
@@ -891,12 +904,14 @@ the `tc` tool, and uses the [AWSFIS-Run-Network-Packet-Loss-Sources](https://con
   in ISO 8601 format.
 - **lossPercent** – Optional. The percentage of packet loss.
   The default is 7%.
+- **flowsPercent** – Optional. The percentage of network flows that will be affected by the action.
+  The default is 100%.
 - **sources** – Optional. The
   sources, separated by commas, without spaces. The possible values are: an IPv4 address,
-  an IPv4 CIDR block, a domain name, `DYNAMODB`, and
+  an IPv4 CIDR block, a domain name, an AZ name (us-east-1a), an AZ ID (use1-az1), ALL, `DYNAMODB`, and
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the
-  current Region. The default is 0.0.0.0/0, which matches all IPv4
+  current Region. The default is ALL, which matches all IPv4
   traffic.
 - **installDependencies** –
   Optional. If this value is `True`, Systems Manager installs the
@@ -910,6 +925,9 @@ the `tc` tool, and uses the [AWSFIS-Run-Network-Packet-Loss-Sources](https://con
 ###### Permissions
 
 - `ecs:DescribeTasks`
+- `ecs:DescribeContainerInstances`
+- `ec2:DescribeInstances`
+- `ec2:DescribeSubnets`
 - `ssm:SendCommand`
 - `ssm:ListCommands`
 - `ssm:CancelCommand`
@@ -1211,6 +1229,8 @@ tool for traffic to or from specific sources. Only compatible with the
 [Kubernetes Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/ "https://kubernetes.io/docs/concepts/security/pod-security-standards/") `privileged`policy. For more information, see
 [EKS Pod actions](eks-pod-actions.md "eks-pod-actions.md").
 
+Use the `flowsPercent` parameter to add latency on a percentage of the connections.
+
 ###### Resource type
 
 - **aws:eks:pod**
@@ -1219,20 +1239,22 @@ tool for traffic to or from specific sources. Only compatible with the
 
 - **duration** – The duration of the test,
   in ISO 8601 format.
-- **interface** – Optional. The network interface.
-  The default is `eth0`.
+- **interface** – Optional. The network interfaces, separated by commas. ALL and DEFAULT values are supported.
+  The default is `DEFAULT`, which will target the primary network interface for the Operating System.
 - **delayMilliseconds** – Optional. The delay, in milliseconds.
   The default is 200.
 - **jitterMilliseconds** – Optional. The jitter, in milliseconds.
   The default is 10.
+- **flowsPercent** – Optional. The percentage of network flows that will be affected by the action.
+  The default is 100%.
 - **sources** – Optional. The
   sources, separated by commas, without spaces. The possible values are: an IPv4 address,
-  an IPv4 CIDR block, a domain name, `DYNAMODB`, and
+  an IPv4 CIDR block, a domain name, an AZ name (us-east-1a), an AZ ID (use1-az1), ALL, `DYNAMODB`, and
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the
   current Region. For domain names, 10 DNS resolution attempts are made to collect IP addresses.
   Due to DNS load balancing and rotation, this action may not impair all possible IP addresses the domain could resolve to.
-  The default is 0.0.0.0/0, which matches all IPv4 traffic.
+  The default is ALL, which matches all IPv4 traffic.
 - **kubernetesServiceAccount** – The Kubernetes
   service account. For information about the required permissions, see
   [Configure the Kubernetes service account](eks-pod-actions.md#configure-service-account "eks-pod-actions.md#configure-service-account").
@@ -1263,6 +1285,8 @@ tool for traffic to or from specific sources. Only compatible with the
 Adds packet loss to the network interface using the **tc** tool. Only compatible with the
 [Kubernetes Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/ "https://kubernetes.io/docs/concepts/security/pod-security-standards/") `privileged`policy. For more information, see [EKS Pod actions](eks-pod-actions.md "eks-pod-actions.md").
 
+Use the `flowsPercent` parameter to inject packet loss on a percentage of the connections.
+
 ###### Resource type
 
 - **aws:eks:pod**
@@ -1271,18 +1295,20 @@ Adds packet loss to the network interface using the **tc** tool. Only compatible
 
 - **duration** – The duration of the test,
   in ISO 8601 format.
-- **interface** – Optional. The network interface.
-  The default is `eth0`.
+- **interface** – Optional. The network interfaces, separated by commas. ALL and DEFAULT values are supported.
+  The default is `DEFAULT`, which will target the primary network interface for the Operating System.
 - **lossPercent** – Optional. The percentage of packet loss.
   The default is 7%.
+- **flowsPercent** – Optional. The percentage of network flows that will be affected by the action.
+  The default is 100%.
 - **sources** – Optional. The
   sources, separated by commas, without spaces. The possible values are: an IPv4 address,
-  an IPv4 CIDR block, a domain name, `DYNAMODB`, and
+  an IPv4 CIDR block, a domain name, an AZ name (us-east-1a), an AZ ID (use1-az1), ALL, `DYNAMODB`, and
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the
   current Region. For domain names, 10 DNS resolution attempts are made to collect IP addresses.
   Due to DNS load balancing and rotation, this action may not impair all possible IP addresses the domain could resolve to.
-  The default is 0.0.0.0/0, which matches all IPv4 traffic.
+  The default is ALL, which matches all IPv4 traffic.
 - **kubernetesServiceAccount** – The Kubernetes
   service account. For information about the required permissions, see
   [Configure the Kubernetes service account](eks-pod-actions.md#configure-service-account "eks-pod-actions.md#configure-service-account").

@@ -122,11 +122,11 @@ For a more readable version of the script, see [Reference version of the script]
   `aws:ecs:task-network-packet-loss` actions on Fargate tasks, the action must have
   the `useEcsFaultInjectionEndpoints` parameter set to `true`.
 - When using the `aws:ecs:task-kill-process`, `aws:ecs:task-network-blackhole-port`,
-  `aws:ecs:task-network-latency`, and
+  `aws:ecs:task-network-latency`, or
   `aws:ecs:task-network-packet-loss` actions, the Amazon ECS task definition must have `pidMode` set to `task`.
 - When using the `aws:ecs:task-network-blackhole-port`,
-  `aws:ecs:task-network-latency`, and
-  `aws:ecs:task-network-packet-loss` actions, the Amazon ECS task definition must have `networkMode` set to a value other than `bridge`.
+  `aws:ecs:task-network-latency`, or
+  `aws:ecs:task-network-packet-loss` actions on tasks with EC2 launch type, the [networking option in the task definition](../../../AmazonECS/latest/developerguide/task-networking.md "../../../AmazonECS/latest/developerguide/task-networking.md") must be set to `awsvpc` or `host`.
 
 ## Reference version of the script
 

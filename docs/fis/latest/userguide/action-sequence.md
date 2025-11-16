@@ -125,6 +125,7 @@ AWS FIS actions support the following resource types for action targets:
 - **DBInstances** – Amazon RDS DB instances
 - **Functions** – AWS Lambda functions
 - **Instances** – Amazon EC2 instances
+- **KinesisStreams** – Kinesis data streams
 - **ManagedResources** – Amazon EKS clusters, Amazon EC2 Application and Network Load Balancers, and Amazon EC2 Auto Scaling
   groups that are enabled for ARC zonal shift.
 - **MultiRegionClusters** – Amazon MemoryDB multi-Region clusters

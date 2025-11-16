@@ -396,6 +396,8 @@ The following is an example of the string you can enter in the console.
 Adds latency and jitter to the network interface using the **tc**
 tool for traffic to or from specific sources. Uses the [AWSFIS-Run-Network-Latency-Sources](https://console.aws.amazon.com/systems-manager/documents/AWSFIS-Run-Network-Latency-Sources/description "https://console.aws.amazon.com/systems-manager/documents/AWSFIS-Run-Network-Latency-Sources/description") SSM document.
 
+Use the `FlowsPercent` parameter to add latency on a percentage of the connections.
+
 ###### Action type (console only)
 
 aws:ssm:send-command/AWSFIS-Run-Network-Latency-Sources
@@ -407,14 +409,16 @@ arn:aws:ssm:region::document/AWSFIS-Run-Network-Latency-Sources
 ###### Document parameters
 
 - **Interface** –
-  Optional. The network interface. The default is `eth0`.
+  Optional. The network interfaces, separated by commas. ALL and DEFAULT values are supported. The default is `DEFAULT`, which will target the primary network interface for the Operating System.
 - **DelayMilliseconds** –
   Optional. The delay, in milliseconds. The default is 200.
 - **JitterMilliseconds**
   – Optional. The jitter, in milliseconds. The default is 10.
+- **FlowsPercent**
+  – Optional. The percentage of network flows that will be affected by the action. The default is 100%.
 - **Sources** – Required.
   The sources, separated by commas, without spaces. The possible values are: an IPv4 address,
-  an IPv4 CIDR block, a domain name, `DYNAMODB`, and
+  an IPv4 CIDR block, a domain name, an AZ name (us-east-1a), an AZ ID (use1-az1), ALL, `DYNAMODB`, and
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the current
   Region.
@@ -429,6 +433,11 @@ arn:aws:ssm:region::document/AWSFIS-Run-Network-Latency-Sources
   installed. The default is `True`. The dependencies are
   **atd**, **dig**, **jq**, **lsof**,
   and **tc**.
+
+When using this document, the experiment role requires the following permissions:
+
+- `ec2:DescribeInstances`
+- `ec2:DescribeSubnets`
 
 The following is an example of the string you can enter in the console.
 
@@ -474,6 +483,8 @@ The following is an example of the string you can enter in the console.
 Adds packet loss to the network interface using the **tc** tool for
 traffic to or from specific sources. Uses the [AWSFIS-Run-Network-Packet-Loss-Sources](https://console.aws.amazon.com/systems-manager/documents/AWSFIS-Run-Network-Packet-Loss-Sources/description "https://console.aws.amazon.com/systems-manager/documents/AWSFIS-Run-Network-Packet-Loss-Sources/description") SSM document.
 
+Use the `FlowsPercent` parameter to inject packet loss on a percentage of the connections.
+
 ###### Action type (console only)
 
 aws:ssm:send-command/AWSFIS-Run-Network-Packet-Loss-Sources
@@ -485,12 +496,14 @@ arn:aws:ssm:region::document/AWSFIS-Run-Network-Packet-Loss-Sources
 ###### Document parameters
 
 - **Interface** –
-  Optional. The network interface. The default is `eth0`.
+  Optional. The network interfaces, separated by commas. ALL and DEFAULT values are supported. The default is `DEFAULT`, which will target the primary network interface for the Operating System.
 - **LossPercent** –
   Optional. The percentage of packet loss. The default is 7%.
+- **FlowsPercent**
+  – Optional. The percentage of network flows that will be affected by the action. The default is 100%.
 - **Sources** – Required.
   The sources, separated by commas, without spaces. The possible values are: an IPv4 address,
-  an IPv4 CIDR block, a domain name, `DYNAMODB`, and
+  an IPv4 CIDR block, a domain name, an AZ name (us-east-1a), an AZ ID (use1-az1), ALL, `DYNAMODB`, and
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the current
   Region.
@@ -505,6 +518,11 @@ arn:aws:ssm:region::document/AWSFIS-Run-Network-Packet-Loss-Sources
   `True`. The dependencies are **atd**,
   **dig**, **jq**, **lsof**, and
   **tc**.
+
+When using this document, the experiment role requires the following permissions:
+
+- `ec2:DescribeInstances`
+- `ec2:DescribeSubnets`
 
 The following is an example of the string you can enter in the console.
 
@@ -527,6 +545,60 @@ instance](fis-tutorial-run-cpu-stress.md "fis-tutorial-run-cpu-stress.md").
   - AWSFIS-Run-Network-Latency-Sources
   - AWSFIS-Run-Network-Packet-Loss
   - AWSFIS-Run-Network-Packet-Loss-Sources
+
+## Rollback scripts
+
+AWS FIS SSM documents automatically create rollback scripts as a safety mechanism to restore system state after fault injection experiments. These scripts ensure that injected faults are removed, even if the action fails or is terminated unexpectedly.
+
+### Rollback script creation
+
+Rollback scripts are created automatically when fault injection experiments begin.
+
+###### Creation details
+
+- **Location** – Scripts are created in the `/var/lib/amazon/ssm/` directory.
+- **Naming pattern** – ``FAULT_NAME`-`FAULT_IDENTIFIER`-Rollback.sh`where`FAULT_IDENTIFIER` is a randomly generated 32-character string
+- **Timing** – Created at the beginning of each fault injection experiment, before fault injection starts.
+- **Content** – Contains all necessary environment variables and commands to reverse the specific fault.
+
+For example, a network latency experiment might create a rollback script at `/var/lib/amazon/ssm/NetworkLatency-abc123-Rollback.sh`.
+
+### Rollback logging
+
+Rollback scripts implement dual logging to capture all rollback activities for troubleshooting and audit purposes.
+
+###### Log file locations
+
+When a rollback script executes, it creates logs in two locations:
+
+- **Temporary files** – `/tmp/aws-fis-rollback-`TIMESTAMP`-`PID`.log`
+- **System logs** – Sent to syslog with facility `local0.info`
+
+###### Log file naming
+
+Temporary log files use the following naming convention:
+
+```
+/tmp/aws-fis-rollback-`YYYY-MM-DDTHH:MM:SSZ`-`PID`.log
+```
+
+Where `YYYY-MM-DDTHH:MM:SSZ` is the UTC timestamp and `PID` is the process ID of the rollback script.
+
+###### Syslog configuration
+
+Rollback logs are sent to syslog with the following configuration:
+
+- **Tag** – `aws-fis-rollback`
+- **Priority** – `local0.info`
+- **Format** – `[YYYY-MM-DDTHH:MM:SSZ] `log_message``
+
+###### To view rollback logs
+
+Use the following command to view all rollback logs from the systemd journal:
+
+```
+sudo journalctl -t aws-fis-rollback
+```
 
 ## Troubleshooting
 

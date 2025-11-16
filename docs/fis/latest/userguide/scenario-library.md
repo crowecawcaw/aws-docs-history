@@ -57,10 +57,10 @@ To use a scenario using the console:
    template with scenario**.
 5. In the **Create experiment template** view fill in any
    missing items.
-   1. Some scenarios allow you to bulk edit parameters that are shared
+   1. Some scenarios allow you to edit parameters that are shared
       across multiple actions or targets. This functionality will be disabled
-      once you make any changes to the scenario, including changes by the bulk
-      parameter editing. To use this feature select the **Edit bulk parameters**
+      once you make any changes to the scenario, including changes by the shared
+      parameter editing. To use this feature select the **Edit shared parameters**
       button. Edit parameters in the modal and select the **Save** button.
    2. Some experiment templates may have missing action or target
       parameters, highlighted on each action and target card. Select the **Edit** button for each card, add the missing information,
