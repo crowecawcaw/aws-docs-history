@@ -209,12 +209,13 @@ command in the AWS CLI, follow these steps:
 ###### Prerequisites
 
 Before you run the Image Builder commands in this section to create an image recipe from the
-AWS CLI, you must create the components that the recipe uses. The image recipe example
+AWS CLI, you can optionally create components that the recipe uses. The image recipe example
 in the following step refers to example components that are created in the [Create a custom component from the AWS CLI](create-component.md#create-component-ib-cli "create-component.md#create-component-ib-cli") section
 of this guide.
 
-After you create your components, or if you are using existing components, note the
-ARNs that you want to include in the recipe.
+If you want to include components in your recipe, note the ARNs that you want to include.
+You can also create recipes without any components for testing existing AMIs or distribution-only
+workflows.
 
 1. ###### Create a CLI input JSON file
 
@@ -261,9 +262,10 @@ Here is a summary of the parameters that these examples specify:
      example a value might be `1.0.0`.
      To learn more about semantic versioning for Image Builder resources, see
      [Semantic versioning in Image Builder](ibhow-semantic-versioning.md "ibhow-semantic-versioning.md").
-    * components (array, required) –
-     Contains an array of `ComponentConfiguration` objects. At least one build
-     component must be specified:
+    * components (array, optional) –
+     Contains an array of `ComponentConfiguration` objects. Components
+     are optional - you can create recipes without any components for testing or
+     distribution workflows:
 
 
     ###### Note
@@ -443,6 +445,26 @@ the **create-image-recipe** command.
 	},
 	"userDataOverride": "IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhcg=="
 }
+}
+```
+
+**Example: Recipe without components**
+
+You can create recipes without any components for testing existing AMIs or
+distribution-only workflows. The following example shows a recipe that uses
+an existing AMI without applying any additional components:
+
+```
+{
+	"name": "`Test Distribution Recipe`",
+	"description": "`Recipe for testing and distributing existing AMI without modifications.`",
+	"parentImage": "`ami-1234567890abcdef1`",
+	"semanticVersion": "1.0.0",
+	"additionalInstanceConfiguration": {
+		"systemsManagerAgent": {
+		 	"uninstallAfterBuild": true
+		}
+	}
 }
 ```
 

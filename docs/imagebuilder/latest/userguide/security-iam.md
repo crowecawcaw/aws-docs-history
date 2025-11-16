@@ -8,6 +8,7 @@
 - [Manage data perimeters for S3 bucket
   download access in Image Builder](security-iam-data-perimeter.md "security-iam-data-perimeter.md")
 - [Image Builder identity-based policies](security-iam-identity-based-policies.md "security-iam-identity-based-policies.md")
+- [IAM permissions for custom workflows](#security-iam-custom-workflows "#security-iam-custom-workflows")
 - [Image Builder
   resource-based policies](#security-iam-resource-based-policies "#security-iam-resource-based-policies")
 - [Use AWS managed policies for EC2 Image Builder](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
@@ -31,6 +32,72 @@ How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 For detailed information about how to provide authentication for people and processes
 in your AWS account, see [Identities](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the _IAM User Guide_.
+
+## IAM permissions for custom workflows
+
+When using custom workflows with specific step actions like [RegisterImage](wfdoc-step-actions.md#wfdoc-step-action-register-image "wfdoc-step-actions.md#wfdoc-step-action-register-image"),
+additional IAM permissions may be required beyond the standard Image Builder managed policies. This
+section describes the additional permissions needed for custom workflow step actions.
+
+### RegisterImage step action permissions
+
+The `RegisterImage` step action requires specific Amazon EC2 permissions to register
+AMIs and optionally retrieve snapshot tags. When using the `includeSnapshotTags` parameter,
+additional permissions are needed to describe snapshots.
+
+**Required permissions for RegisterImage step action:**
+
+For all resources, allow the following actions:
+
+- `ec2:RegisterImage`
+- `ec2:DescribeSnapshots`
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:RegisterImage",
+                "ec2:DescribeSnapshots"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateTags"
+            ],
+            "Resource": "arn:aws:ec2:*::image/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:CreateAction": "RegisterImage"
+                }
+            }
+        }
+    ]
+}
+```
+
+**Permission details:**
+
+- `ec2:RegisterImage` - Required to register new AMIs from snapshots
+- `ec2:DescribeSnapshots` - Required when using `includeSnapshotTags: true` to retrieve snapshot tags for merging with AMI tags
+- `ec2:CreateTags` - Required to apply tags to the registered AMI, including both Image Builder default tags and merged snapshot tags
+
+###### Note
+
+The `ec2:DescribeSnapshots` permission is only used when the `includeSnapshotTags` parameter is set to `true`. If you don't use this feature, you can omit this permission.
+
+**Tag merging behavior:**
+
+When `includeSnapshotTags` is enabled, the RegisterImage step action will:
+
+- Retrieve tags from the first snapshot specified in the block device mapping
+- Exclude any AWS reserved tags (those with keys starting with "aws:")
+- Merge snapshot tags with Image Builder's default AMI registration tags
+- Give precedence to Image Builder tags when tag keys conflict
 
 ## Image Builder
 

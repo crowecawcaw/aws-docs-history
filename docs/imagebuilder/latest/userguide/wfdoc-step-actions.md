@@ -19,12 +19,15 @@ Amazon Resource Name
 - [CollectImageScanFindings](#wfdoc-step-action-collect-findings "#wfdoc-step-action-collect-findings")
 - [CreateImage](#wfdoc-step-action-create-img-from-inst "#wfdoc-step-action-create-img-from-inst")
 - [ExecuteComponents](#wfdoc-step-action-exec-components "#wfdoc-step-action-exec-components")
+- [ExecuteStateMachine](#wfdoc-step-action-exec-state-machine "#wfdoc-step-action-exec-state-machine")
 - [LaunchInstance](#wfdoc-step-action-launch-instance "#wfdoc-step-action-launch-instance")
+- [RegisterImage](#wfdoc-step-action-register-image "#wfdoc-step-action-register-image")
 - [RunCommand](#wfdoc-step-action-run-command "#wfdoc-step-action-run-command")
 - [RunSysPrep](#wfdoc-step-action-run-sysprep "#wfdoc-step-action-run-sysprep")
 - [SanitizeInstance](#wfdoc-step-action-sanitize-instance "#wfdoc-step-action-sanitize-instance")
 - [TerminateInstance](#wfdoc-step-action-terminate-instance "#wfdoc-step-action-terminate-instance")
 - [WaitForAction](#wfdoc-step-action-waitfor "#wfdoc-step-action-waitfor")
+- [WaitForSSMAgent](#wfdoc-step-action-wait-for-ssm-agent "#wfdoc-step-action-wait-for-ssm-agent")
 
 ## BootstrapInstanceForContainer
 
@@ -270,6 +273,79 @@ Use output from the step action in the workflow document.
 `$.stepOutputs.`ExecComponentsStep`.status`
 ```
 
+## ExecuteStateMachine
+
+This step action starts execution of an AWS Step Functions state machine from an
+Image Builder workflow. Image Builder uses the Step Functions `StartExecution` API to
+initiate the state machine and waits for it to complete. This is useful for
+integrating complex workflows, compliance validation, or certification processes
+into your image building pipeline.
+
+For more information, see [Learn about state machines
+in Step Functions](../../../step-functions/latest/dg/concepts-statemachines.md "../../../step-functions/latest/dg/concepts-statemachines.md") in the _AWS Step Functions Developer Guide_.
+
+**Default Timeout:** 6 hours
+
+**Max Timeout:** 24 hours
+
+**Rollback:** There is no rollback for this
+step action.
+
+**Inputs:** The following table includes
+supported inputs for this step action.
+
+| Input name      | Description                                             | Type   | Required | Default | Constraints                                        |
+| --------------- | ------------------------------------------------------- | ------ | -------- | ------- | -------------------------------------------------- |
+| stateMachineArn | The ARN of the Step Functions state machine to execute. | String | Yes      |         | Must be a valid state machine ARN.                 |
+| input           | JSON input data to provide to the state machine.        | String | No       | {}      | Must be valid JSON string, maximum length: 16 KiB. |
+
+**Outputs:** The following table includes
+outputs for this step action.
+
+| Output name  | Description                             | Type   |
+| ------------ | --------------------------------------- | ------ |
+| executionArn | The ARN of the state machine execution. | String |
+
+**IAM permissions required**
+
+Your custom execution role must have the following permissions to use this step action:
+
+###### Allow actions
+
+- `states:StartExecution`
+- `states:DescribeExecution`
+
+###### Specify resources
+
+- `arn:aws:states:`us-west-2`:`111122223333`:stateMachine:`state-machine-name``
+- `arn:aws:states:`us-west-2`:`111122223333`:execution:`state-machine-name`:*`
+
+**Example**
+
+Specify the step action in the workflow document.
+
+```
+`- name: `ValidateImageCompliance`
+ action: ExecuteStateMachine
+ timeoutSeconds: 3600
+ onFailure: Abort
+ inputs:
+ stateMachineArn: arn:aws:states:`us-west-2`:`111122223333`:stateMachine:`ImageComplianceValidation`
+ input: |
+ {
+ "imageId": "{{ $.stepOutputs.CreateImageFromInstance.imageId }}",
+ "region": "us-west-2",
+ "complianceLevel": "high",
+ "requiredScans": ["cve", "benchmark", "configuration"]
+ }`
+```
+
+Use the output of the step action value in the workflow document.
+
+```
+`$.stepOutputs.`ValidateImageCompliance`.executionArn`
+```
+
 ## LaunchInstance
 
 This step action launches an instance in your AWS account and waits until the
@@ -322,6 +398,97 @@ Use output from the step action in the workflow document.
 
 ```
 `$.stepOutputs.`LaunchStep`.instanceId`
+```
+
+## RegisterImage
+
+This step action registers a new Amazon Machine Image (AMI) using the Amazon EC2 RegisterImage API. It allows you to create an AMI from an existing snapshot or set of snapshots, specifying various image attributes.
+
+**Default Timeout:** 720 minutes
+
+**Rollback:** There is no rollback for this step action.
+
+**Inputs:** The following table includes supported inputs for this step action.
+
+| Input name          | Description                                                                          | Type    | Required | Default | Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------ | ------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| architecture        | The architecture of the AMI.                                                         | String  | No       |         | Valid values: i386, x86_64, arm64, x86_64_mac, arm64_mac                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| blockDeviceMapping  | The block device mapping entries for the AMI.                                        | Array   | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| bootMode            | The boot mode of the AMI.                                                            | String  | No       |         | Valid values: legacy-bios, uefi, uefi-preferred                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| description         | A description for the AMI.                                                           | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| enaSupport          | Whether enhanced networking with ENA is enabled.                                     | Boolean | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| imageLocation       | The location of the AMI manifest.                                                    | String  | No       |         | Required for S3-backed AMIs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| imdsSupport         | The IMDSv2 support level.                                                            | String  | No       |         | Valid values: v2.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| includeSnapshotTags | Whether to include tags from the first snapshot defined in the block device mapping. | Boolean | No       | FALSE   | When set to true, tags are included as follows:<br>• Tags from the `SnapshotId` of the first EBS volume in the `blockDeviceMapping`<br>list that contains a `SnapshotId` is merged with the AMI registration tags.<br>• AMI registration tags take precedence over snapshot tags with the same key.<br>• AWS reserved tags (those with keys starting with `aws:`) are automatically excluded.<br>• If multiple EBS volumes with `SnapshotId` are defined, only tags from the<br>first EBS volume in the list that contains a `SnapshotId` is included. |
+| kernelId            | The ID of the kernel to use.                                                         | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ramdiskId           | The ID of the RAM disk to use.                                                       | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| rootDeviceName      | The device name of the root device.                                                  | String  | No       |         | Example: /dev/sda1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| sriovNetSupport     | Enhanced networking with the Intel 82599 VF interface.                               | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| tpmSupport          | TPM version support.                                                                 | String  | No       |         | Valid values: v2.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| uefiData            | Base64-encoded UEFI data.                                                            | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| virtualizationType  | The virtualization type.                                                             | String  | No       |         | Valid values: hvm, paravirtual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+**Outputs:** The following table includes outputs for this step action.
+
+| Output name | Description                         | Type   |
+| ----------- | ----------------------------------- | ------ |
+| imageId     | The AMI ID of the registered image. | String |
+
+**Example**
+
+Specify the step action in the workflow document.
+
+```
+- name: RegisterNewImage
+  action: RegisterImage
+  onFailure: Abort
+  inputs:
+    architecture: "x86_64"
+    bootMode: "uefi"
+    blockDeviceMapping:
+      - DeviceName: "/dev/sda1"
+        Ebs:
+          SnapshotId: "`snap-1234567890abcdef0`"
+          VolumeSize: 100
+          VolumeType: "gp3"
+    rootDeviceName: "/dev/sda1"
+    virtualizationType: "hvm"
+```
+
+Use the output of the step action value in the workflow document.
+
+```
+$.stepOutputs.RegisterNewImage.imageId
+```
+
+**Example with a SnapshotId from another step and snapshot tags included in the generated AMI**
+
+```
+- name: CreateSnapshot
+  action: RunCommand
+  onFailure: Abort
+  inputs:
+    instanceId: "`i-1234567890abcdef0`"
+    documentName: "AWS-RunShellScript"
+    parameters:
+      commands:
+        - "aws ec2 create-snapshot --volume-id `vol-1234567890abcdef0` --description 'Snapshot for AMI' --query 'SnapshotId' --output text"
+
+- name: RegisterImageFromSnapshot
+  action: RegisterImage
+  onFailure: Abort
+  inputs:
+    architecture: "x86_64"
+    bootMode: "uefi"
+    blockDeviceMapping:
+      - DeviceName: "/dev/sda1"
+        Ebs:
+          SnapshotId.$: "$.stepOutputs.CreateSnapshot.output[0]"
+          VolumeSize: 100
+          VolumeType: "gp3"
+    includeSnapshotTags: true
+    rootDeviceName: "/dev/sda1"
+    virtualizationType: "hvm"
 ```
 
 ## RunCommand
@@ -512,7 +679,8 @@ This step action pauses the running workflow and waits to receive an
 external action from the Image Builder **SendWorkflowStepAction**
 API action. This step publishes an EventBridge event to your default EventBridge event
 bus with detail type `EC2 Image Builder Workflow Step Waiting`.
-The step can also send an SNS notification if you provide an SNS Topic ARN.
+The step can also send an SNS notification if you provide an SNS Topic ARN,
+or invoke a Lambda function asynchronously if you provide a Lambda function name.
 
 **Default Timeout:** 3 days
 
@@ -522,9 +690,11 @@ step action.
 **Inputs:** The following table includes
 supported inputs for this step action.
 
-| Input name  | Description                                                                            | Type   | Required | Default | Constraints |
-| ----------- | -------------------------------------------------------------------------------------- | ------ | -------- | ------- | ----------- |
-| snsTopicArn | An optional SNS topic ARN to send a notification to when the workflow step is pending. | String | No       |         |             |
+| Input name         | Description                                                                                                                                                                                                                | Type   | Required | Default | Constraints                           |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | ------- | ------------------------------------- |
+| snsTopicArn        | An optional SNS topic ARN to send a notification to when the workflow step is pending.                                                                                                                                     | String | No       |         |                                       |
+| lambdaFunctionName | An optional name or ARN of the Lambda function to invoke asynchronously when the workflow step is pending.                                                                                                                 | String | No       |         |                                       |
+| payload            | JSON string used as message for SNS and payload for Lambda. If provided, a custom payload is wrapped in default message/payload, used for SNS and Lambda respectively. If not provided, generates default message/payload. | String | No       |         | Must be valid JSON string, max 16 KiB |
 
 **Outputs:** The following table includes
 outputs for this step action.
@@ -536,7 +706,7 @@ outputs for this step action.
 
 **Example**
 
-Specify the step action in the workflow document.
+Specify the step action in the workflow document with SNS notification.
 
 ```
 `- name: `SendEventAndWait`
@@ -546,8 +716,71 @@ Specify the step action in the workflow document.
  snsTopicArn: arn:aws:sns:`us-west-2`:`111122223333`:`ExampleTopic``
 ```
 
+Specify the step action in the workflow document with Lambda function invocation.
+
+```
+`- name: `SendEventAndWaitWithLambda`
+ action: WaitForAction
+ onFailure: Abort
+ inputs:
+ lambdaFunctionName: `ExampleFunction`
+ payload: |
+ {
+ "imageId": "{{ $.stepOutputs.CreateImageFromInstance.imageId }}",
+ "region": "us-west-2"
+ }`
+```
+
 Use the output of the step action value in the workflow document.
 
 ```
 `$.stepOutputs.`SendEventAndWait`.reason`
+```
+
+## WaitForSSMAgent
+
+This step action waits for an EC2 instance to become manageable by AWS Systems Manager
+after expected periods of unresponsiveness. It's particularly valuable for
+workflows with known instance interruptions, such as system reboots, OS upgrades,
+or platform-specific operations that temporarily disconnect the instance from SSM.
+Image Builder monitors the instance until it regains SSM connectivity or times out.
+
+**Default Timeout:** 60 minutes
+
+**Max Timeout:** 3 hours
+
+**Rollback:** There is no rollback for this
+step action.
+
+**Inputs:** The following table includes
+supported inputs for this step action.
+
+| Input name | Description                                             | Type   | Required | Default | Constraints                     |
+| ---------- | ------------------------------------------------------- | ------ | -------- | ------- | ------------------------------- |
+| instanceId | The ID of the instance to monitor for SSM connectivity. | String | Yes      |         | Must be a valid EC2 instance ID |
+
+**Outputs:** The following table includes
+outputs for this step action.
+
+| Output name | Description                     | Type   |
+| ----------- | ------------------------------- | ------ |
+| Status      | Connection status of SSM Agent. | String |
+
+**Example**
+
+Specify the step action in the workflow document.
+
+```
+`- name: `WaitForInstanceAfterReboot`
+ action: WaitForSSMAgent
+ onFailure: Abort
+ timeoutInSeconds: 900 # 15 minutes
+ inputs:
+ instanceId.$: $.stepOutputs.LaunchStep.instanceId`
+```
+
+Use the output of the step action value in the workflow document.
+
+```
+`$.stepOutputs.`WaitForInstanceAfterReboot`.Status`
 ```

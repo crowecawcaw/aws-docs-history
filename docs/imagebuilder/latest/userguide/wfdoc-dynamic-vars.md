@@ -1,18 +1,25 @@
 # Use dynamic variables in your workflow document
 
 You can use dynamic variables in your workflow documents to represent values
-that vary at runtime for your image creation process. Dynamic variable values are
-represented as JSONPath selectors with structural nodes that uniquely
-identify the target variable.
+that vary at runtime for your image creation process. String interpolation for dynamic variables
+allows you to embed JSONPath expressions within structured content such as JSON strings.This is
+particularly useful when you need to pass runtime values within complex payloads to step actions
+like `ExecuteStateMachine` or `WaitForAction`.
 
-**JSONPath dynamic workflow variable structure**
+To use string interpolation for dynamic variables, wrap JSONPath expressions in double curly braces
+`"{{...}}"` within your string content. Only JSONPath expressions wrapped in double curly braces are
+processed as variables. Any JSONPath expressions not wrapped in double curly braces are
+treated as literal string content.
+
+**JSONPath dynamic workflow variable syntax**
 
 ```
 `$.<document structure>.[<step name>.]<variable name>`
 ```
 
-The first node after the root ($) refers to the workflow document structure, such as
-`stepOutputs`, or in the case of Image Builder system variables, `imageBuilder`.
+Dynamic variable values are represented as JSONPath selectors with structural nodes that uniquely
+identify the target variable. The first node after the root ($) refers to the workflow document structure,
+such as `stepOutputs`, or in the case of Image Builder system variables, `imageBuilder`.
 The following list contains supported JSONPath workflow document structure nodes.
 
 ###### Document structure nodes
@@ -36,19 +43,61 @@ to output from a prior step action, you might use the following dynamic variable
 `$.stepOutputs.`step-name`.`output-name``
 ```
 
-When an input parameter refers to a dynamic variable, the chaining indicator
-(`.$`) must be attached to the end of the parameter name, as shown in
-the following example.
+###### Important
 
-**Example**
+When an input parameter refers to a dynamic variable, the chaining indicator
+(`.$`) must be attached to the end of the parameter name.
+
+**Example 1: Input parameter chaining indicator**
+
+The following example shows an input parameter that uses string interpolation to
+resolve a dynamic variable in the parameter value at runtime.
 
 ```
  `- name: ApplyTestComponents
  action: ExecuteComponents
  onFailure: Abort
  inputs:
- instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"`
+ instanceId.$: "$.`stepOutputs`.`LaunchTestInstance`.`instanceId`"`
 ```
+
+**Example 2: String interpolation in dynamic variables**
+
+The following example demonstrates how dynamic variables use string interpolation to
+determine values at runtime.
+
+```
+`- name: ValidateImageConfiguration
+ action: ExecuteStateMachine
+ inputs:
+ stateMachineArn: arn:aws:states:`us-east-1`:`111122223333`:stateMachine:ImageValidation
+ input: |
+ {
+ "imageId": "{{ $.stepOutputs.CreateImageFromInstance.imageId }}",
+ "region": "us-east-1",
+ "buildDate": "{{ $.imagebuilder.dateTime }}",
+ "instanceType": "{{ $.stepOutputs.LaunchStep.instanceType }}"
+ }`
+```
+
+In this example, the JSONPath expressions wrapped in double curly braces are resolved
+at runtime:
+
+- `{{ $.stepOutputs.CreateImageFromInstance.imageId }}` - Resolves to the
+  actual image ID from the CreateImageFromInstance step
+- `{{ $.imagebuilder.dateTime }}` - Resolves to the current build timestamp. See
+  [Use Image Builder system variables](#wfdoc-ib-vars "#wfdoc-ib-vars") for a list of Image Builder
+  system variables that you can use.
+- `{{ $.stepOutputs.LaunchStep.instanceType }}` - Resolves to the instance
+  type used in the LaunchStep
+  The literal strings like `"region": "us-east-1"` remain unchanged.
+
+###### Note
+
+String interpolation works with any string content in your workflow document,
+including multiline strings using the YAML pipe (`|`) operator. The
+curly brace requirement acts as an escape mechanism to clearly distinguish between
+JSONPath variables and literal text content.
 
 ## Use Image Builder system variables
 
