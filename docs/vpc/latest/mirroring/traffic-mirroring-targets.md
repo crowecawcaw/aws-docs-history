@@ -33,7 +33,7 @@ The following diagram shows a traffic mirror session where the traffic mirror ta
 network interface for an EC2 instance. Traffic Mirroring filters the traffic from the network interface of
 the mirror source and sends the accepted mirrored traffic to the mirror target.
 
-![A traffic mirror session where the mirror target is an EC2 instance.](/images/vpc/latest/mirroring/images/get-started.png)
+![A traffic mirror session where the mirror target is an EC2 instance.](images/get-started.png)
 
 ## Network Load Balancer
 
