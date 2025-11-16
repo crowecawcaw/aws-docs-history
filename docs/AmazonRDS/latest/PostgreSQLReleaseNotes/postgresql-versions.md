@@ -42,6 +42,8 @@ the PostgreSQL documentation.
 
 ###### Minor versions
 
+- [PostgreSQL version 18.1 on
+  Amazon RDS](#postgresql-versions-version181 "#postgresql-versions-version181")
 - [PostgreSQL version 18.0 in the
   Amazon RDS Preview environment](#postgresql-versions-version180Preview "#postgresql-versions-version180Preview")
 - [PostgreSQL version 18 RC1 in the
@@ -52,6 +54,47 @@ the PostgreSQL documentation.
   Amazon RDS Preview environment](#postgresql-versions-version18Beta2 "#postgresql-versions-version18Beta2")
 - [PostgreSQL version 18 Beta 1 in the
   Amazon RDS Preview environment](#postgresql-versions-version18Beta1 "#postgresql-versions-version18Beta1")
+
+### PostgreSQL version 18.1 on
+
+Amazon RDS
+
+PostgreSQL 18 contains many new features and enhancements that can be seen in the
+following release documentation, [PostgreSQL 18](https://www.postgresql.org/docs/18/release-18.html "https://www.postgresql.org/docs/18/release-18.html").
+
+The following parameters were updated:
+
+- track_cost_delay_timing default is set to on
+- max_active_replication_origins default is set to 20.
+- pclient_connection_check_interval default is set to 60000.
+- log_connections was updated to reflect the new PostgreSQL 18 behavior.
+  The old default value of 0 is equivalent to the new default empty value,
+  and the old value of 1 is equivalent to specifying all three values of receipt,
+  authentication, and authorization.
+- autovacuum_worker_slots,io_workers,io_max_concurrency
+
+The following extensions were added:
+
+- pgcollection
+- roaringbitmap
+
+This version also includes the following extension changes:
+
+- The `pgaudit` updated to version 18.0
+- The `pg_cron` updated to version 1.6.7
+- The `pgvector` updated to version 0.8.1
+- The `pg_tle` updated to version 1.5.2
+- The `mysql_fdw` updated to version 2.9.3.
+- The `tds_fdw` updated to version 2.0.5.
+
+The following extension supported in RDS for PostgreSQL version 17 isn't supported for
+RDS for PostgreSQL version 18:
+
+- `postgis_topology`
+- `plrust`
+
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
+18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
 
 ### PostgreSQL version 18.0 in the
 
@@ -264,6 +307,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 17.7 on Amazon RDS](#postgresql-versions-version177 "#postgresql-versions-version177")
 - [PostgreSQL version 17.6-R2 on
   Amazon RDS](#postgresql-versions-version176R2 "#postgresql-versions-version176R2")
 - [PostgreSQL version 17.6 on Amazon RDS](#postgresql-versions-version176 "#postgresql-versions-version176")
@@ -285,6 +329,25 @@ For version information on all extensions, see [Extensions supported for RDS for
   Amazon RDS Preview environment](#postgresql-versions-version17Beta2 "#postgresql-versions-version17Beta2")
 - [PostgreSQL version 17 Beta 1 in the
   Amazon RDS Preview environment](#postgresql-versions-version17Beta1 "#postgresql-versions-version17Beta1")
+
+### PostgreSQL version 17.7 on Amazon RDS
+
+PostgreSQL version 17.7 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 17.7 release](https://www.postgresql.org/docs/release/17.7/ "https://www.postgresql.org/docs/release/17.7/").
+
+**General enhancements**
+
+- The pgcollection extension is now available for RDS PostgreSQL version 15.15 and above(16.11 and 17.7),
+  providing a memory-optimized data type designed for high-performance use inside PL/pgSQL functions.
+  A collection stores key-value pairs where each key is a unique text string (maximum 32,767 characters) and values can be any PostgreSQL type including composite types,
+  with all elements in a collection required to be of the same type.
+  Collections maintain entries in creation order and can hold an unlimited number of elements constrained only by available database memory,
+  with a maximum persisted size of 1GB when stored as a table column..
+
+This version also includes the following extension changes:
+
+- The `pg_tle` extension was updated to version 1.5.2.
+- The `h3-pg` extension was updated to version 4.2.3.
 
 ### PostgreSQL version 17.6-R2 on
 
@@ -650,6 +713,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 16.11 on Amazon RDS](#postgresql-versions-version1611 "#postgresql-versions-version1611")
 - [PostgreSQL version 16.10-R2 on
   Amazon RDS](#postgresql-versions-version1610R2 "#postgresql-versions-version1610R2")
 - [PostgreSQL version 16.10 on Amazon RDS](#postgresql-versions-version1610 "#postgresql-versions-version1610")
@@ -682,6 +746,25 @@ For version information on all extensions, see [Extensions supported for RDS for
   Amazon RDS Preview environment](#postgresql-versions-version16Beta3 "#postgresql-versions-version16Beta3")
 - [PostgreSQL version 16 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta2 "#postgresql-versions-version16Beta2")
 - [PostgreSQL version 16 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta1 "#postgresql-versions-version16Beta1")
+
+### PostgreSQL version 16.11 on Amazon RDS
+
+PostgreSQL version 16.11 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 16.11 release](https://www.postgresql.org/docs/release/16.11/ "https://www.postgresql.org/docs/release/16.11/").
+
+**General enhancements**
+
+- The pgcollection extension is now available for RDS PostgreSQL version 15.15 and above(16.11 and 17.7),
+  providing a memory-optimized data type designed for high-performance use inside PL/pgSQL functions.
+  A collection stores key-value pairs where each key is a unique text string (maximum 32,767 characters) and values can be any PostgreSQL type including composite types,
+  with all elements in a collection required to be of the same type.
+  Collections maintain entries in creation order and can hold an unlimited number of elements constrained only by available database memory,
+  with a maximum persisted size of 1GB when stored as a table column..
+
+This version also includes the following extension changes:
+
+- The `pg_tle` extension was updated to version 1.5.2.
+- The `h3-pg` extension was updated to version 4.2.3.
 
 ### PostgreSQL version 16.10-R2 on
 
@@ -1211,6 +1294,7 @@ reached the end of standard support or deprecated.)
 
 ###### Minor versions
 
+- [PostgreSQL version 15.15 on Amazon RDS](#postgresql-versions-version1515 "#postgresql-versions-version1515")
 - [PostgreSQL version 15.14-R2 on
   Amazon RDS](#postgresql-versions-version1514R2 "#postgresql-versions-version1514R2")
 - [PostgreSQL version 15.14 on Amazon RDS](#postgresql-versions-version1514 "#postgresql-versions-version1514")
@@ -1243,6 +1327,25 @@ reached the end of standard support or deprecated.)
 - [PostgreSQL version 15.3 on Amazon RDS (Deprecated)](#postgresql-versions-version153 "#postgresql-versions-version153")
 - [PostgreSQL version 15.2-R2 on Amazon RDS (Deprecated)](#postgresql-versions-version152R2 "#postgresql-versions-version152R2")
 - [PostgreSQL version 15.2 on Amazon RDS (Deprecated)](#postgresql-versions-version152 "#postgresql-versions-version152")
+
+### PostgreSQL version 15.15 on Amazon RDS
+
+PostgreSQL version 15.15 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 15.15 release](https://www.postgresql.org/docs/release/15.15/ "https://www.postgresql.org/docs/release/15.15/").
+
+**General enhancements**
+
+- The pgcollection extension is now available for RDS PostgreSQL version 15.15 and above(16.11 and 17.7),
+  providing a memory-optimized data type designed for high-performance use inside PL/pgSQL functions.
+  A collection stores key-value pairs where each key is a unique text string (maximum 32,767 characters) and values can be any PostgreSQL type including composite types,
+  with all elements in a collection required to be of the same type.
+  Collections maintain entries in creation order and can hold an unlimited number of elements constrained only by available database memory,
+  with a maximum persisted size of 1GB when stored as a table column.
+
+This version also includes the following extension changes:
+
+- The `pg_tle` extension was updated to version 1.5.2.
+- The `h3-pg` extension was updated to version 4.2.3.
 
 ### PostgreSQL version 15.14-R2 on
 
@@ -1789,6 +1892,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 14.20 on Amazon RDS](#postgresql-versions-version1420 "#postgresql-versions-version1420")
 - [PostgreSQL version 14.19-R2 on
   Amazon RDS](#postgresql-versions-version1419R2 "#postgresql-versions-version1419R2")
 - [PostgreSQL version 14.19 on Amazon RDS](#postgresql-versions-version1419 "#postgresql-versions-version1419")
@@ -1828,6 +1932,18 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 14.3 on Amazon RDS (Deprecated)](#postgresql-versions-version143 "#postgresql-versions-version143")
 - [PostgreSQL version 14.2 on Amazon RDS (Deprecated)](#postgresql-versions-version142 "#postgresql-versions-version142")
 - [PostgreSQL version 14.1 on Amazon RDS (Deprecated)](#postgresql-versions-version141 "#postgresql-versions-version141")
+
+### PostgreSQL version 14.20 on Amazon RDS
+
+PostgreSQL version 14.20 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 14.20 release](https://www.postgresql.org/docs/release/14.20/ "https://www.postgresql.org/docs/release/14.20/").
+
+**General enhancements**
+
+This version also includes the following extension changes:
+
+- The `pg_tle` extension was updated to version 1.5.2.
+- The `h3-pg` extension was updated to version 4.2.3.
 
 ### PostgreSQL version 14.19-R2 on
 
@@ -2499,6 +2615,7 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 
 ###### Minor versions
 
+- [PostgreSQL version 13.23 on Amazon RDS](#postgresql-versions-version1323 "#postgresql-versions-version1323")
 - [PostgreSQL version 13.22-R2 on
   Amazon RDS](#postgresql-versions-version1322R2 "#postgresql-versions-version1322R2")
 - [PostgreSQL version 13.22 on Amazon RDS](#postgresql-versions-version1322 "#postgresql-versions-version1322")
@@ -2538,6 +2655,18 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 - [PostgreSQL version 13.3 on Amazon RDS (Deprecated)](#postgresql-versions-version133 "#postgresql-versions-version133")
 - [PostgreSQL version 13.2 on Amazon RDS (Deprecated)](#postgresql-versions-version132 "#postgresql-versions-version132")
 - [PostgreSQL version 13.1 on Amazon RDS (Deprecated)](#postgresql-versions-version131 "#postgresql-versions-version131")
+
+### PostgreSQL version 13.23 on Amazon RDS
+
+PostgreSQL version 13.23 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 13.23 release](https://www.postgresql.org/docs/release/13.23/ "https://www.postgresql.org/docs/release/13.23/").
+
+**General enhancements**
+
+This version also includes the following extension changes:
+
+- The `pg_tle` extension was updated to version 1.5.2.
+- The `h3-pg` extension was updated to version 4.2.3.
 
 ### PostgreSQL version 13.22-R2 on
 

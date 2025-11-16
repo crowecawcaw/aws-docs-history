@@ -25,6 +25,7 @@ about support dates for major engine versions by using the AWS CLI or the RDS AP
 
 | PostgreSQL major version     | Community release date | RDS release date | Community end of life date | RDS end of standard support date | RDS start of Extended Support year 1 pricing | RDS start of Extended Support year 3 pricing | RDS end of Extended Support date |
 | ---------------------------- | ---------------------- | ---------------- | -------------------------- | -------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------- |
+| PostgreSQL 18                | 13 November 2025       | 14 November 2025 | November 2030              | 28 February 2031                 | 1 March 2032                                 | 1 March 2033                                 | 28 February 2034                 |
 | PostgreSQL 17                | 26 September 2024      | 14 November 2024 | November 2029              | 28 February 2030                 | 1 March 2030                                 | 1 March 2032                                 | 28 February 2033                 |
 | PostgreSQL 16                | 14 September 2023      | 17 November 2023 | November 2028              | 28 February 2029                 | 1 March 2029                                 | 1 March 2031                                 | 29 February 2032                 |
 | PostgreSQL 15                | 13 October 2022        | 27 February 2023 | November 2027              | 29 February 2028                 | 1 March 2028                                 | 1 March 2030                                 | 28 February 2031                 |
@@ -54,44 +55,41 @@ exact date when it is known.
 
 | PostgreSQL minor engine version | Community release date | RDS release date | RDS end of standard support date |
 | ------------------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 17.6                            | 14 August 2025         | 14 August 2025   | August 2026                      |
+| 17.7                            | 13 Novemeber 2025      | 13 November 2025 | March 2027                       |
+| 17.6                            | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 17.5                            | 08 May 2025            | 08 May 2025      | September 2026                   |
 | 17.4                            | 20 February 2025       | 21 February 2025 | March 2026                       |
 | 17.3\*\*                        | 13 February 2025       | 13 February 2025 | March 2026                       |
 | 17.2                            | 21 November 2024       | 21 November 2024 | March 2026                       |
 | 17.1\*\*                        | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 16.10                           | 14 August 2025         | 14 August 2025   | August 2026                      |
+| 16.11                           | 13 November 2026       | 13 November 2026 | March 2027                       |
+| 16.10                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 16.9                            | 08 May 2025            | 08 May 2025      | September 2026                   |
 | 16.8                            | 20 February 2025       | 21 February 2025 | March 2026                       |
 | 16.7\*\*                        | 13 February 2025       | 13 February 2025 | March 2026                       |
 | 16.6                            | 21 November 2024       | 21 November 2024 | March 2026                       |
 | 16.5\*\*                        | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 16.4                            | 08 August 2024         | 08 August 2024   | October 2025                     |
-| 16.3                            | 09 May 2024            | 09 May 2024      | October 2025                     |
-| 15.14                           | 14 August 2025         | 14 August 2025   | August 2026                      |
+| 15.15                           | 13 Novemeber 2026      | 13 November 2026 | March 2027                       |
+| 15.14                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 15.13                           | 08 May 2025            | 08 May 2025      | September 2026                   |
 | 15.12                           | 20 February 2025       | 21 February 2025 | March 2026                       |
 | 15.11\*\*                       | 13 February 2025       | 13 February 2025 | March 2026                       |
 | 15.10                           | 21 November 2024       | 21 November 2024 | March 2026                       |
 | 15.9\*\*                        | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 15.8                            | 08 August 2024         | 08 August 2024   | October 2025                     |
-| 15.7                            | 09 May 2024            | 09 May 2024      | October 2025                     |
-| 14.19                           | 14 August 2025         | 14 August 2025   | August 2026                      |
+| 14.20                           | 13 November 2025       | 13 November 2025 | March 2027                       |
+| 14.19                           | 14 August 2025         | 14 August 2025   | Septemeber 2026                  |
 | 14.18                           | 08 May 2025            | 08 May 2025      | September 2026                   |
 | 14.17                           | 20 February 2025       | 21 February 2025 | March 2026                       |
 | 14.16\*\*                       | 13 February 2025       | 13 February 2025 | March 2026                       |
 | 14.15                           | 21 November 2024       | 21 November 2024 | March 2026                       |
 | 14.14\*\*                       | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 14.13                           | 08 August 2024         | 08 August 2024   | October 2025                     |
-| 14.12                           | 09 May 2024            | 09 May 2024      | October 2025                     |
-| 13.22                           | 14 August 2025         | 14 August 2025   | 28 February 2026                 |
+| 13.23                           | 13 November 2025       | 13 November 2025 | March 2027                       |
+| 13.22                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 13.21                           | 08 May 2025            | 08 May 2025      | 28 February 2026                 |
 | 13.20                           | 20 February 2025       | 21 February 2025 | 28 February 2026                 |
 | 13.19\*\*                       | 13 February 2025       | 13 February 2025 | 28 February 2026                 |
 | 13.18                           | 21 November 2024       | 21 November 2024 | 28 February 2026                 |
 | 13.17\*\*                       | 14 November 2024       | 14 November 2024 | 28 February 2026                 |
-| 13.16                           | 08 August 2024         | 08 August 2024   | October 2025                     |
-| 13.15                           | 09 May 2024            | 09 May 2024      | October 2025                     |
 | 12.22\*                         | 21 November 2024       | 21 November 2024 | 28 February 2025                 |
 | 11.22\*                         | 09 November 2023       | 17 November 2023 | 29 February 2024                 |
 
@@ -131,32 +129,3 @@ versions. Amazon RDS released this minor version with critical security patches 
 for PostgreSQL databases that are covered under Amazon RDS Extended Support. For more
 information about these minor versions, see [Amazon RDS Extended Support updates](postgresql-extendedsupport.md "postgresql-extendedsupport.md"). For more information about Amazon RDS Extended Support,
 see [Using Amazon RDS Extended Support](../UserGuide/extended-support.md "../UserGuide/extended-support.md").
-
-## Release calendar for
-
-Amazon RDS for PostgreSQL deprecated versions
-
-The following minor versions have reached their end of standard support date and are
-deprecated.
-
-| PostgreSQL minor engine version | Community release date | RDS release date | RDS end of standard support date |
-| ------------------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 16.2                            | 08 February 2024       | 22 February 2024 | 31 March 2025                    |
-| 16.1                            | 09 November 2023       | 17 November 2023 | 31 March 2025                    |
-| 15.6                            | 08 February 2024       | 22 February 2024 | 31 March 2025                    |
-| 15.5                            | 09 November 2023       | 17 November 2023 | 31 March 2025                    |
-| 15.4                            | 10 August 2023         | 24 August 2023   | 31 March 2025                    |
-| 14.11                           | 08 February 2024       | 22 February 2024 | 31 March 2025                    |
-| 14.10                           | 09 November 2023       | 17 November 2023 | 31 March 2025                    |
-| 14.9                            | 10 August 2023         | 24 August 2023   | 31 March 2025                    |
-| 13.14                           | 08 February 2024       | 22 February 2024 | 31 March 2025                    |
-| 13.13                           | 09 November 2023       | 17 November 2023 | 31 March 2025                    |
-| 13.12                           | 10 August 2023         | 24 August 2023   | 31 March 2025                    |
-| 13.11                           | 11 May 2023            | 25 May 2023      | 31 March 2025                    |
-| 12.21                           | 14 November 2024       | 14 November 2024 | 28 February 2025                 |
-| 12.20                           | 08 August 2024         | 08 August 2024   | 28 February 2025                 |
-| 12.19                           | 09 May 2024            | 09 May 2024      | 28 February 2025                 |
-| 12.18                           | 08 February 2024       | 22 February 2024 | 28 February 2025                 |
-| 12.17                           | 09 November 2023       | 17 November 2023 | 28 February 2025                 |
-| 12.16                           | 10 August 2023         | 24 August 2023   | 28 February 2025                 |
-| 12.15                           | 11 May 2023            | 25 May 2023      | 28 February 2025                 |
