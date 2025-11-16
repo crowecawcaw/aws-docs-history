@@ -48,7 +48,7 @@ Collect the assets needed to submit your product. Assets include:
 
 Use your seller account and the AWS Marketplace Management Portal to [Creating an initial SaaS product page on AWS Marketplace](saas-create-product-page.md "saas-create-product-page.md"). AWS Marketplace will publish your product as a limited product, which means that it's
 only available to use for integration and testing. Your product code and
-Amazon Simple Notification Service (SNS) topics will be available to you on the product overview
+Amazon EventBridge event configuration will be available to you on the product overview
 page.
 
 ###### Note

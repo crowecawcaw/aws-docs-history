@@ -1,5 +1,9 @@
 # Listing Container-based AI agent products
 
+## Managing container-based AI agents and tools
+
+Container-based AI agents and tools running on Amazon Bedrock AgentCore Runtime can be managed through the unified **AI agents and tools** products page or the **Server** products page in the AWS Marketplace Management Console. Only products with versions that support Amazon Bedrock AgentCore Runtime will be visible in the **AI agents and tools** product page.
+
 ## Start the listing wizard
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage/ "https://aws.amazon.com/marketplace/management/homepage/") with your AWS seller account.
@@ -114,10 +118,13 @@ Your container images are scanned automatically to see if they meet the [Contain
 
 1. Open the **AI Agents and Tools** products page in the
    AWS Marketplace Management Portal.
-2. Select your container product and click the **Request changes** dropdown menu, select **Update versions**, and select **Add new version**.
-3. In **Delivery options**, enter:
-   - **Version title**
-   - **Release notes**
+
+###### Note
+
+Only container products with versions that support Amazon Bedrock AgentCore Runtime are visible in the **AI Agents and Tools** products page. Before adding the first version, you will only find your product within the **Server** products page in the AWS Marketplace Management Portal. Once you've created the version for Amazon Bedrock AgentCore Runtime, you will find your container product within the **AI Agents and Tools** products page. 2. Select your container product and click the **Request changes** dropdown menu, select **Update versions**, and select **Add new version**. 3. In **Delivery options**, enter:
+
+    * **Version title**
+    * **Release notes**
 
 4. Select **Add delivery option**.
 5. For **Delivery method**, select **Container image** and fill in:

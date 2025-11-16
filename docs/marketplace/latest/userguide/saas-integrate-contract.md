@@ -64,22 +64,18 @@ scenarios with appropriate actions or messaging:
 
 subscriptions
 
-Set up an Amazon Simple Queue Service (Amazon SQS) queue, and subscribe to your product's Amazon SNS topic. Your
-SNS topic information was included in the email message that you received from the AWS Marketplace
-Operations Team when you created your product. For more information, see [Creating a SaaS product in AWS Marketplace](saas-create-product.md "saas-create-product.md"). By subscribing
-to your SNS topic, you receive notifications about changes to customer entitlements,
+###### Important
+
+SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
+
+Set up an Amazon Simple Queue Service (Amazon SQS) queue as a target for your Amazon EventBridge rules to receive events about changes to customer entitlements. Your
+Amazon EventBridge event configuration was provided when you created your product. For more information, see [Creating a SaaS product in AWS Marketplace](saas-create-product.md "saas-create-product.md"). By configuring
+Amazon EventBridge rules, you receive events about changes to customer entitlements,
 including providing or revoking access for specific customers.
-
-###### Note
-
-An SNS topic Amazon Resource Name (ARN) looks like
-`arn:aws:sns:us-east-1:`<account
- id>`:aws-mp-entitlement-notification-`<product
- code>``.
 
 The only notification that you must respond to is:
 
-- `entitlement-updated` – The customer entitlement has
+- License Updated Amazon EventBridge events – The customer entitlement has
   changed, and you must call the `GetEntitlements` API operation to see
   the new status. Update your customer store, and, if applicable (for example, the
   customer's contract has lapsed), follow your practices for shutting down

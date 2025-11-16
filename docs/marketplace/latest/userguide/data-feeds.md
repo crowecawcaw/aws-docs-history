@@ -11,6 +11,8 @@ The following sections describe each data feed.
 - [Account data feed](data-feed-account.md "data-feed-account.md")
 - [Address data feed](data-feed-address.md "data-feed-address.md")
 - [Agreements data feed](data-feed-agreements.md "data-feed-agreements.md")
+- [Agreement Charge data feed](data-feed-agreement-charge.md "data-feed-agreement-charge.md")
+- [Agreement Term data feed](data-feed-agreement-term.md "data-feed-agreement-term.md")
 - [Billing event data feed](data-feed-billing-event.md "data-feed-billing-event.md")
 - [Legacy mapping data feed](data-feed-legacy-mapping.md "data-feed-legacy-mapping.md")
 - [Offer data feed](data-feed-offer.md "data-feed-offer.md")

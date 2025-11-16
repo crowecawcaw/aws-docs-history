@@ -70,25 +70,26 @@ with the expected turnaround time and your contact information. Also send an ema
 message to the customer with the same details. 8. The customer is now signed in to your website using credentials speciﬁc to that SaaS
 product. In your accounts database, you can have an entry for each customer. Your accounts
 database must have a column for the AWS account ID. Verify that no other accounts in
-your system share the AWS account ID. 9. During your seller registration process, you subscribe to Amazon SNS topics that notify
-you when customers subscribe or unsubscribe to your product. These are Amazon SNS notiﬁcations
+your system share the AWS account ID. 9. ###### Important
+
+SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
+
+During your seller registration process, you configure Amazon EventBridge rules to receive events that notify
+you when customers subscribe or unsubscribe to your product. These are Amazon EventBridge events
 in JSON format that inform you of customer actions:
 
     * Entitlement notification – For products with pricing models that include a contract,
      you are notified when buyers create a new contract, upgrade it, renew it, or it expires.
      Your accounts database must have an extra column for the subscription state. For more
-     information, see [Amazon SNS topic:
-     aws-mp-entitlement-notification](saas-notification.md#saas-sns-message-body "saas-notification.md#saas-sns-message-body").
+     information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
     * Subscription notification – For products with any pricing model, including contracts
      and subscriptions, you are notified when a buyer subscribes or unsubscribes to a
-     product. For more information, see [Amazon SNS topic:
-     aws-mp-subscription-notification](saas-notification.md#saas-sns-subscription-message-body "saas-notification.md#saas-sns-subscription-message-body").
+     product. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
 
-We recommend that you use Amazon Simple Queue Service (Amazon SQS) to capture these messages. After you receive
+We recommend that you use Amazon Simple Queue Service (Amazon SQS) as a target for your EventBridge rules to capture these events. After you receive
 a subscription notification with `subscribe-success`, the customer account is
-ready for metering. Records that you send before this notification aren't metered. For
-information about how to do this, see [Step 2: Give permission to the Amazon SNS topic to send messages to the Amazon SQS queue](../../../sns/latest/dg/subscribe-sqs-queue-to-sns-topic.md#SendMessageToSQS.sqs.permissions "../../../sns/latest/dg/subscribe-sqs-queue-to-sns-topic.md#SendMessageToSQS.sqs.permissions") in
-the _Amazon Simple Notification Service Developer Guide_.
+ready for metering. Records that you send before this event aren't metered. For
+information about how to set up EventBridge rules with SQS targets, see [Amazon SQS targets](../../../eventbridge/latest/userguide/eb-targets.md#eb-targets-sqs "../../../eventbridge/latest/userguide/eb-targets.md#eb-targets-sqs") in the _Amazon EventBridge User Guide_.
 
 ###### Note
 

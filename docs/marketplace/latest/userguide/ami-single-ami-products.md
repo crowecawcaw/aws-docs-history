@@ -22,15 +22,16 @@ your product already installed and configured.
 Before you create an AMI product listing, you must complete the following
 prerequisites:
 
-1. Have access to the AWS Marketplace Management Portal. You use the portal to register as a seller and
-   manage the products that you sell on AWS Marketplace. For more information about access,
-   see [Policies and permissions for AWS Marketplace
+1. Have access to the AWS Marketplace Management Portal. This is the tool that you use to register as a
+   seller and manage the products that you sell on AWS Marketplace. To learn more about
+   getting access to the AWS Marketplace Management Portal, see [Policies and permissions for AWS Marketplace
    sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md").
 2. Register as a seller and, if you want to charge for your products, submit your
    tax and banking information. To learn more about becoming a seller, see [Getting started as an AWS Marketplace seller](user-guide-for-sellers.md "user-guide-for-sellers.md").
 3. Have a product that you want to sell. For AMI-based products, this typically
-   means you have created or modified your server software and created an AMI for
-   your customers to use. To learn more about preparing an AMI, see [Best practices for building AMIs for use with AWS Marketplace](best-practices-for-building-your-amis.md "best-practices-for-building-your-amis.md").
+   means you have created or modified your server software, and created an AMI for
+   your customers to use. To learn more about preparing an AMI for use in AWS Marketplace,
+   see [Best practices for building AMIs for use with AWS Marketplace](best-practices-for-building-your-amis.md "best-practices-for-building-your-amis.md").
 
 ## Understand the self-service
 
@@ -39,18 +40,18 @@ experience
 The self-service experience guides you through creating your product on AWS Marketplace. As you
 proceed through the steps, you specify product information and AMI deployment settings,
 such as AWS Region, instance types, and AMI details. You also configure transaction
-details, including the pricing, country availability, EULA, and refund policy. As an
+details including the pricing, country availability, EULA, and refund policy. As an
 option, you can specify an allowlist of AWS account IDs to access and test the product
 while it is in the **Limited** status.
 
 Before you start, review the following key aspects of the self-service experience:
 
 - You can only go to the next step after you complete the required fields in the
-  current step. Page-level validation prevents you from saving or submitting an
-  incomplete step.
+  current step. This requirement is because there is page-level validation at the
+  end of each step. You can't save or submit an incomplete step.
 - If you need to end your session before completing all the steps in the
-  process, choose **Save and exit** to submit the steps that you
-  completed to the staging area.
+  process, you can choose **Save and exit** to submit the steps
+  that you completed to the staging area.
 - A step that is incomplete and doesn't pass validation isn't submitted to the
   system. A partially completed step isn't valid and can't be saved.
 - When you choose **Save and exit**, the **Save and

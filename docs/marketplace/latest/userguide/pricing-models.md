@@ -16,4 +16,3 @@ AWS Marketplace.
 - [Container products pricing for AWS Marketplace](pricing-container-products.md "pricing-container-products.md")
 - [Machine learning product pricing for AWS Marketplace](machine-learning-pricing.md "machine-learning-pricing.md")
 - [SaaS product pricing in AWS Marketplace](saas-pricing-models.md "saas-pricing-models.md")
-- [Pricing professional services products in AWS Marketplace](pricing-proserv-products.md "pricing-proserv-products.md")

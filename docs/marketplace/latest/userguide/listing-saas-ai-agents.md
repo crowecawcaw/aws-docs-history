@@ -30,6 +30,10 @@ Before beginning, ensure that you have the following:
 - Pricing strategy aligned with your business model
   - For information about pricing strategy, see [SaaS product pricing in AWS Marketplace](saas-pricing-models.md "saas-pricing-models.md").
 
+## Managing SaaS API-based AI agents and tools
+
+All SaaS API-based AI agents and tools can be managed through the unified **AI agents and tools** products page or the **SaaS** products page in the AWS Marketplace Management Console.
+
 ## Start the listing wizard
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").

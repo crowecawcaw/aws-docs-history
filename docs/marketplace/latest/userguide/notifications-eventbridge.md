@@ -14,6 +14,8 @@ console.
 - [Events for change sets](#events-changesets "#events-changesets")
 - [Events for security summary report](#events-security-report "#events-security-report")
 - [Events for disbursements](#events-for-disbursements "#events-for-disbursements")
+- [Events for agreements](#events-for-agreements "#events-for-agreements")
+- [Events for licenses](#events-for-licenses "#events-for-licenses")
   This topic
 
 | Action by seller                                                                          | Event received                     | Related topic                                                                           |
@@ -25,6 +27,11 @@ console.
 | Change set fails                                                                          | `Change Set Failed`                | [Events for change sets](#events-changesets "#events-changesets")                       |
 | Change set is cancelled                                                                   | `Change Set Cancelled`             | [Events for change sets](#events-changesets "#events-changesets")                       |
 | Security vulnerabilities were detected on the ISV's product                               | `Products Security Report Created` | [Events for security summary report](#events-security-report "#events-security-report") |
+| Customer subscribes to SaaS product                                                       | `Purchase Agreement Created`       | [Events for agreements](#events-for-agreements "#events-for-agreements")                |
+| Customer's SaaS agreement is amended                                                      | `Purchase Agreement Amended`       | [Events for agreements](#events-for-agreements "#events-for-agreements")                |
+| Customer cancels SaaS subscription                                                        | `Purchase Agreement Ended`         | [Events for agreements](#events-for-agreements "#events-for-agreements")                |
+| Customer's SaaS entitlements change                                                       | `License Updated`                  | [Events for licenses](#events-for-licenses "#events-for-licenses")                      |
+| Customer's SaaS entitlements are revoked                                                  | `License Deprovisioned`            | [Events for licenses](#events-for-licenses "#events-for-licenses")                      |
 
 ## Events for new offers
 
@@ -320,9 +327,7 @@ The following is an example event body for the `Products Security Report
 
 When a disbursement to seller bank account fails due to invalid bank account details, AWS Marketplace ISVs and channel partners may receive an event.
 
-In the following JSON event code, the `source` value for these events is `aws.marketplace`,
-and the `detail-type` value is `Disbursement Paused`.
-The `resources` value shows the invalid bank account Amazon Resource Number (ARN).
+In the following JSON event code, the `source` value for these events is `aws.marketplace`, and the `detail-type` value is `Disbursement Paused`. The `resources` value shows the invalid bank account Amazon Resource Number (ARN).
 
 ```
 {
@@ -345,3 +350,337 @@ The `resources` value shows the invalid bank account Amazon Resource Number (ARN
 To resolve the invalid bank account details issue, add your bank account details in the AWS Marketplace Management Portal. For instructions, see [To add bank account details](email-notifications.md#resolve-invalid-bank-account-details "email-notifications.md#resolve-invalid-bank-account-details").
 
 For more information about creating Amazon EventBridge rules, see [Rules in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") in the _Amazon EventBridge User Guide_.
+
+## Events for agreements
+
+When agreement events occur, sellers can receive notifications for purchase agreement lifecycle changes.
+
+For information on creating EventBridge rules, see [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") in the _Amazon EventBridge User Guide_.
+
+The following is an example event body for **Purchase Agreement Created - Proposer**.
+
+###### Note
+
+Resale Authorization Id in case of Channel Partner Private Offer (CPPO) will be populated, and in case of Marketplace direct offer (MPPO), this value would be null.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Created - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's or CP's account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "intent": "NEW",
+      "status": "ACTIVE",
+      "acceptanceTime": "2024-06-26T21:36:03Z",
+      "startTime": "2024-08-30T21:36:03Z",
+      "endTime": "2025-05-30T21:36:03Z"
+    },
+    "resaleAuthorization": {
+      "id": "resaleauthz-yaxjqxiskysxa"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Created - Manufacturer**.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Created - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "intent": "NEW",
+      "status": "ACTIVE",
+      "acceptanceTime": "2024-06-26T21:36:03Z",
+      "startTime": "2024-08-30T21:36:03Z",
+      "endTime": "2025-05-30T21:36:03Z"
+    },
+    "resaleAuthorization": {
+      "id": "resaleauthz-yaxjqxiskysxa"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Amended - Proposer**.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Amended - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV or CP's account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "intent": "AMEND",
+      "status": "ACTIVE",
+      "acceptanceTime": "2024-06-26T21:36:03Z",
+      "startTime": "2024-08-30T21:36:03Z",
+      "endTime": "2025-05-30T21:36:03Z"
+    },
+    "resaleAuthorization": {
+      "id": "resaleauthz-yaxjqxiskysxa"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Amended - Manufacturer**.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Amended - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "intent": "AMEND",
+      "status": "ACTIVE",
+      "acceptanceTime": "2024-06-26T21:36:03Z",
+      "startTime": "2024-08-30T21:36:03Z",
+      "endTime": "2025-05-30T21:36:03Z"
+    },
+    "resaleAuthorization": {
+      "id": "resaleauthz-yaxjqxiskysxa"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Ended - Proposer**.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Ended - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "status": "CANCELLED"
+    },
+    "resaleAuthorization": {
+      "id": "resaleauthz-yaxjqxiskysxa"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Ended - Manufacturer**.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Ended - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "status": "CANCELLED"
+    },
+    "resaleAuthorization": {
+      "id": "resaleauthz-yaxjqxiskysxa"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    }
+  }
+}
+```
+
+## Events for licenses
+
+When license events occur, sellers can receive notifications for customer entitlement changes.
+
+For information on creating EventBridge rules, see [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") in the _Amazon EventBridge User Guide_.
+
+The following is an example event body for **License Updated - Manufacturer**.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "License Updated - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV/CP account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs"
+    },
+    "product": {
+      "code": "aw4fgf5tyo5w2ap6fEXAMPLE",
+      "id": "prod-qtwveEXAMPLE"
+    },
+    "license": {
+      "arn": "aws:license-manager:us-east-1:123456789012:l-e52ca6f38bf84d0fafb8802ca15ac11x"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "8kkr91jo647j3qxlcjhlqce7y"
+    }
+  }
+}
+```
+
+The following is an example event body for **License Deprovisioned - Manufacturer**.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "License Deprovisioned - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV/CP account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs"
+    },
+    "product": {
+      "code": "aw4fgf5tyo5w2ap6fEXAMPLE",
+      "id": "prod-qtwveEXAMPLE"
+    },
+    "license": {
+      "arn": "aws:license-manager:us-east-1:123456789012:l-e52ca6f38bf84d0fafb8802ca15ac11x"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "8kkr91jo647j3qxlcjhlqce7y"
+    }
+  }
+}
+```

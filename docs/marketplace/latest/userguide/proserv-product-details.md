@@ -109,16 +109,16 @@ requesting refunds (if applicable). You must provide at least one of the followi
 Pricing dimensions for professional services are packages that you offer. For example you
 might offer _Silver_, _Gold_,
 and _Platinum_ support. Or you might offer 10, 20, or 50 hours
-of consulting. For each dimension you want to offer (at least one, up to 200), specify a name and
+of consulting. For each dimension you want to offer (at least one, up to 24), specify a name and
 a description. When you create a private offer for the product by working with a buyer directly,
 you set the actual prices for these dimensions.
 
 ###### Note
 
-For information about how pricing dimensions are used, and how prices are set, see [Creating private offers](proserv-create-offer.md "proserv-create-offer.md").
+For information about how pricing dimensions are used, and how prices are set, see [Create private offers](proserv-getting-started.md#proserv-create-offer "proserv-getting-started.md#proserv-create-offer").
 
 ## Product visibility
 
 Released products can be visible in AWS Marketplace to just your own account, to a small set of test
 accounts, or to all AWS accounts. By default, the product is published in private release. To
-change the product visibility, see [Editing product visibility](proserv-edit-visibility.md "proserv-edit-visibility.md").
+change the product visibility, see [Edit product visibility](proserv-getting-started.md#proserv-edit-visibility "proserv-getting-started.md#proserv-edit-visibility").

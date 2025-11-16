@@ -1,32 +1,23 @@
 # Pricing for SaaS contracts
 
-For software as a service (SaaS) contracts, the customer initiates a purchase of your
-software and enters into an agreement with you. Under the agreement, the customer is entitled to
-a specified quantity of use of your SaaS product. AWS Marketplace communicates these entitlements to your
-SaaS application. This is done through the AWS Marketplace Entitlement Service. When using the SaaS Contract pricing
-model, your application never sends metering records. Instead, it verifies entitlement by
-calling the AWS Marketplace Entitlement Service. You define the usage categories, dimensions, and the length of the
-contract.
+SaaS contracts allow customers to purchase your software through an upfront agreement. Under the agreement, customers are entitled to a specified quantity of use of your SaaS product. You define the usage categories, dimensions, and the length of the contract. AWS Marketplace bills your customers upfront or by the payment schedule that you define. For additional usage above their contract, your software reports the usage through the AWS Marketplace Metering Service (AWS Marketplace Metering Service).
 
-AWS Marketplace bills your customers upfront or by the payment schedule that you define, based on the
-contract between you and your customer. After that point, they're entitled to use those
-resources. For additional usage above their contract, your software needs to report the usage
-and AWS Marketplace bills your customers based on the metering records received by us through the
-AWS Marketplace Metering Service.
+When using the SaaS Contract pricing model, your application never sends metering records. Instead, it verifies entitlement by calling the AWS Marketplace Entitlement Service (AWS Marketplace Entitlement Service). AWS Marketplace communicates these entitlements to your SaaS application.
 
-Before you can publish a SaaS product with contract pricing, you must do the
-following:
+## Creating a SaaS contract product
+
+Before you can publish a SaaS product with contract pricing, you must do the following:
 
 1. Create a new SaaS product in the AWS Marketplace Management Portal, and choose **New SaaS
-   Contract**.
+   contract**.
 2. Complete the fields in the **General** tab with the necessary
    information. Make a note of the product code.
 3. On the **Pricing** tab:
-   1. For **Set Pricing**, choose the **Contract
-      Duration** you want offer customers. You can enter different prices for each
+   1. For **Set pricing**, choose the **Contract
+      duration** you want to offer customers. You can enter different prices for each
       contract duration. You can select one or more of the following options:
       **Monthly**, **1 year**, **2
-      Years**, and **3 Years**. If you are creating a private
+      years**, and **3 years**. If you are creating a private
       offer, you can choose a custom duration in months (up to 60 months).
    2. For **Choose the contract type you want to offer**, choose how you
       want customers to be able to purchase your product from the following options:
@@ -43,46 +34,48 @@ following:
       **Users** (hours). If none of the predefined categories fit your
       needs, you can choose the more generic **Units** category.
 
-4. After you choose a category, define your Pricing Dimensions. Each dimension
-   represents a feature or service that you can set a per-unit price for. Examples of
-   dimensions are users, hosts scanned, and GB of logs ingested. You can define a maximum of 200 dimensions. For each dimension you define,
-   you add a name, a description, a price, and an API name. The name, price, and description
-   are displayed to customers. You use the API name for tracking and reporting with AWS Marketplace as
-   follows:
-   - Calling the [AWS Marketplace Entitlement Service](../../../marketplaceentitlement/latest/APIReference/Welcome.md "../../../marketplaceentitlement/latest/APIReference/Welcome.md") to
-     retrieve the dimensions your customers have purchased.
-   - Calling the [AWS Marketplace Metering Service](../../../marketplacemetering/latest/APIReference/Welcome.md "../../../marketplacemetering/latest/APIReference/Welcome.md") to
-     indicate which dimensions customers used.
-     For each pricing dimension in your contract, you can choose to let customers pay as
-     they go for additional usage of that dimension above their contract. You can also add
-     additional dimensions without contract prices that customers only consume by paying as they
-     go.
+4. Define your pricing dimensions. Each dimension represents a feature or service that you want to price separately. For detailed information about pricing dimensions and the required fields, see [Understanding SaaS contract pricing dimensions](#understanding-saas-contract-pricing-dimensions "#understanding-saas-contract-pricing-dimensions").
 
-When using the wizard to create the contracts for your SaaS product, you must define the
-following fields for your pricing dimensions:
+## Understanding SaaS contract pricing dimensions
 
-    * **Dimension API Name** – The name used when calling the
-     Entitlements API. This name is visible in billing reports and reports that aren't
-     external-facing. The maximum length for the API name is 15 characters. After you set the
-     name, it can't be changed.
+Each pricing dimension represents a feature or service that you can set a per unit price for. Examples of dimensions are users, hosts scanned, and GB of logs ingested. For each dimension you define, you add a name, a description, a price, and an API name. The name, price, and description are displayed to customers. You use the API name for tracking and reporting with AWS Marketplace as follows:
 
+- Calling the [AWS Marketplace Entitlement Service](../../../marketplaceentitlement/latest/APIReference/Welcome.md "../../../marketplaceentitlement/latest/APIReference/Welcome.md") to
+  retrieve the dimensions your customers have purchased.
+- Calling the [AWS Marketplace Metering Service](../../../marketplacemetering/latest/APIReference/Welcome.md "../../../marketplacemetering/latest/APIReference/Welcome.md") to
+  indicate which dimensions customers used.
 
-    * **Dimension Display Name**: – The customer-facing name of a
-     dimension. This name should help the customer understand the dimension for the product.
-     The name should be user-friendly, and its maximum length is 24 characters. This value
-     can be changed.
-    * **Dimension Description**: – The customer-facing description of
-     a dimension that provides additional information about the dimension for the product.
-     The maximum length for the description is 70 characters.
-    * **Dimension - Monthly Price** – The software charge per unit for
-     the 1-month option for this dimension. This ﬁeld supports three decimal places.
-    * **Dimension - 1 Year Price** – The software charge per unit for
-     the 12-month option for this dimension. This ﬁeld supports three decimal places. It's
-     not a monthly charge. The price must reﬂect the 12-month one-time charge price.
-    * **Dimension - 2 Years Price** – The software charge per unit for
-     the 24-month option for this dimension. This ﬁeld supports three decimal places.
-    * **Dimension - 3 Years Price** – The software charge per unit for
-     the 36-month option for this dimension. This ﬁeld supports three decimal places.
+For each pricing dimension in your contract, you can choose to let customers pay as they go for additional usage of that dimension above their contract. You can also add additional dimensions without contract prices that customers only consume by paying as they go.
+
+When using the wizard to create the contracts for your SaaS product, you must define the following fields for your pricing dimensions:
+
+**Dimension API name**
+
+The name used when calling the Entitlements API. This name is visible in billing reports and reports that aren't external-facing. The maximum length for the API name is 15 characters. After you set the name, it can't be changed.
+
+**Dimension display name**
+
+The customer-facing name of a dimension. This name should help the customer understand the dimension for the product. The name should be user-friendly, and its maximum length is 24 characters. This value can be changed.
+
+**Dimension description**
+
+The customer-facing description of a dimension that provides additional information about the dimension for the product. The maximum length for the description is 70 characters.
+
+**Dimension - monthly price**
+
+The software charge per unit for the 1-month option for this dimension. This field supports three decimal places.
+
+**Dimension - 1-year price**
+
+The software charge per unit for the 12-month option for this dimension. This field supports three decimal places. It's not a monthly charge. The price must reflect the 12-month one-time charge price.
+
+**Dimension - 2-year price**
+
+The software charge per unit for the 24-month option for this dimension. This field supports three decimal places.
+
+**Dimension - 3-year price**
+
+The software charge per unit for the 36-month option for this dimension. This field supports three decimal places.
 
 | Example: Data storage application |          | Monthly price | 12-month price | 24-month price    | Pay-as-you-go price for additional usage |
 | --------------------------------- | -------- | ------------- | -------------- | ----------------- | ---------------------------------------- |
@@ -144,7 +137,7 @@ Key points of the SaaS contract cancellation process include the following:
 
 Customers must request refunds within 48 hours through AWS Support.
 
-The full or prorated refund is typically granted in 3–5 business days. 2. Your SaaS product is sent notiﬁcation through the Amazon SNS topic for that
+The full or prorated refund is typically granted in 3–5 business days. 2. Your SaaS product receives notification through Amazon EventBridge events for that
 customer. 3. You have one hour to send a ﬁnal metering record for the customer for any additional
 usage charges. 4. You notify the customer from your product that the cancellation is in progress. If a
 customer indicates that they want to cancel through your product, direct the customer to

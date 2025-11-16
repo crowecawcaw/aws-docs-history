@@ -354,7 +354,7 @@ read -p 'License Arn' LICENSE_ARN
 ROLE_NAME="AWSLicenseManagerConsumptionTestRole"
 ROLE_DESCRIPTION="Role to test AWS License Manager integration on-prem"
 ROLE_POLICY_ARN="arn:aws:iam::aws:policy/service-role/AWSLicenseManagerConsumptionPolicy"
-ROLE_TRUST_POLICY="{\"Version\": \"2012-10-17\"		 	 	 ,\"Statement\": [{ \"Effect\":\"Allow\", \"Principal\": { \"Federated\": \"openid-license-manager.amazonaws.com\" }, \"Action\": \"sts:AssumeRoleWithWebIdentity\",\"Condition\": { \"ForAnyValue:StringLike\": { \"openid-license-manager.amazonaws.com:amr\": \"aws:license-manager:token-issuer-account-id:${TEST_ACCOUNT_ID}\" }}}]}"
+ROLE_TRUST_POLICY="{\"Version\": \"2012-10-17\",\"Statement\": [{ \"Effect\":\"Allow\", \"Principal\": { \"Federated\": \"openid-license-manager.amazonaws.com\" }, \"Action\": \"sts:AssumeRoleWithWebIdentity\",\"Condition\": { \"ForAnyValue:StringLike\": { \"openid-license-manager.amazonaws.com:amr\": \"aws:license-manager:token-issuer-account-id:${TEST_ACCOUNT_ID}\" }}}]}"
 ROLE_SESSION_DURATION=3600
 
 ROLE_ARN=$(aws iam create-role --role-name "$ROLE_NAME" --description "$ROLE_DESCRIPTION" --assume-role-policy-document "$ROLE_TRUST_POLICY" --max-session-duration $ROLE_SESSION_DURATION | jq ".Role" | jq -r ".Arn")

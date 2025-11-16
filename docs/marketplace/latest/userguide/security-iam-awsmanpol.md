@@ -148,6 +148,8 @@ IAM identities.
 This policy grants contributor permissions that allow full access to manage products
 and to the AWS Marketplace Management Portal, and managing the Amazon EC2 AMI used in AMI-based products.
 
+**Permissions details**
+
 To view the permissions for this policy, see [AWSMarketplaceSellerProductsFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceSellerProductsFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceSellerProductsFullAccess.md") in the
 _AWS Managed Policy Reference_.
 
@@ -160,6 +162,8 @@ IAM identities.
 
 This policy grants read-only permissions that allow access to view products on the
 AWS Marketplace Management Portal, and view the Amazon EC2 AMI used in AMI-based products.
+
+**Permissions details**
 
 To view the permissions for this policy, see [AWSMarketplaceSellerProductsReadOnly](../../../aws-managed-policy/latest/reference/AWSMarketplaceSellerProductsReadOnly.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceSellerProductsReadOnly.md") in the
 _AWS Managed Policy Reference_.

@@ -18,16 +18,6 @@ You can deliver AMI-based products in one of the following ways:
 - **Single AMI** – Buyers select and use the AMI as
   a template for an EC2 instance. Buyers can find these products using the **Amazon
   Machine Image** delivery method filter. For more information, see [Creating AMI-based products](ami-single-ami-products.md "ami-single-ami-products.md").
-- **Second-party (2P) AMI** – Independed software vendors (ISVs) create these listings.
-  The listings fall into these categories:
-  - Traditional 2P products that use the "2P" pricing model and don't require marketplace subscriptions.
-    These products are free, but buyers pay for infrastructure costs. The 2P teams create and share regional AMI clones.
-    The Seller of Record is a Marketplace catalog account, but the AMI is stored in the 2P teams' accounts.
-  - Hybrid 2P products, such as SUSE SLES for SAP, use standard AWS Marketplace pricing models that separate OEM
-    software costs from EC2 infrastructure charges. Customers pay for software through AWS Marketplace, while Amazon EC2 bills infrastructure costs directly.
-    This is the standard Marketplace model for 2P products. The AMI is shared with Marketplace, which provisions the AMI and clones it into
-    all supported regions.
-
 - **AWS CloudFormation templates** – You create templates
   that allow buyers to install a system of multiple instances with different roles as a
   single unit. Buyers can find these products using the **CloudFormation**

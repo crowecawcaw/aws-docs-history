@@ -41,13 +41,16 @@ define, you must add the following information:
 
 ## When a SaaS subscription ends
 
+###### Important
+
+SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
+
 A customer can unsubscribe from your SaaS subscription product through the AWS Management Console. Key
 points of the SaaS subscription ending process include the following:
 
-1. Your SaaS product is sent an `unsubscribe-pending` notiﬁcation through the
-   Amazon SNS topic for that customer.
+1. Your default Amazon EventBridge bus will receive a purchase agreement ended event for that customer.
 2. You have one hour to meter any remaining usage for the customer.
-3. After this hour, you receive an `unsubscribe-success` notiﬁcation. At this
+3. After this hour, you receive a license deprovisioned - manufacturer event. At this
    point, you can no longer send metering records for this customer.
 
 It’s up to you to decide how you want to disable functionality in your SaaS product for
@@ -64,7 +67,7 @@ Key points of the SaaS subscription cancellation process include the following:
 1. A customer can cancel their subscription to your SaaS subscription product the
    **Your Marketplace Software** page of the AWS Marketplace website.
 
-Your SaaS product is sent notiﬁcation through the Amazon SNS topic for that
+Your default Amazon EventBridge bus will receive a purchase agreement ended event for that
 customer. 2. You have one hour to meter any remaining usage for the customer. 3. You notify the customer from your product that the cancellation is in progress. If a
 customer indicates that they want to cancel through your product, direct the customer to
 AWS Marketplace. To guarantee that there will be no future charges, customers should conﬁrm the

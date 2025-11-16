@@ -92,8 +92,6 @@ server with Amazon Bedrock AgentCore Gateway by completing these tasks:
 - [Attach a Target](../../../bedrock-agentcore/latest/devguide/gateway-building-adding-targets.md "../../../bedrock-agentcore/latest/devguide/gateway-building-adding-targets.md")
 - [Test your Gateway](../../../bedrock-agentcore/latest/devguide/gateway-building-testing.md "../../../bedrock-agentcore/latest/devguide/gateway-building-testing.md")
 
-You can enable integration with Amazon Bedrock AgentCore by providing OpenAPI spec.
-
 ###### To enable Gateway integration
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
@@ -102,8 +100,7 @@ You can enable integration with Amazon Bedrock AgentCore by providing OpenAPI sp
    select the product to modify.
 4. From the **Request changes** dropdown list, select **Update fulfillment options**.
 5. Choose **Enable tool for Amazon Bedrock AgentCore integration**.
-6. Upload your OpenAPI specification or use your MCP endpoint for MCP servers
-   with OAuth authentication..
+6. Upload your OpenAPI specification. For OAuth enabled MCP Server products this is not required and only the MCP endpoint is required.
 7. Choose **Submit**.
 
 After you submit, the request status appears as **Under review** in the **Requests** tab. When processing completes, the status changes to **Succeeded**.

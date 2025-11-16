@@ -1,5 +1,9 @@
 # Amazon SQS permissions
 
+###### Important
+
+SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
+
 As part of the SaaS product publication process, AWS Marketplace provides you an Amazon SNS topic you
 can use to receive notifications if a customer's subscription or entitlement status changes. You
 can configure one or more Amazon SQS queues to the topic so that the queues can take action on the

@@ -290,8 +290,7 @@ Greetings from AWS Marketplace,
 
 Thank you for subscribing to <product-title>.
 
-We are writing to inform you that, as of <Version-Restriction-Date>, <Seller Name> will no longer offer version(s) "<version-title>" to new subscribers.
-Your use and subscription is unaffected for this version(s), however it is recommended that users upgrade to the latest version on AWS Marketplace.
+We are writing to inform you that, as of <Version-Restriction-Date>, <Seller Name> will no longer offer version(s) "<version-title>" to new subscribers. Your use and subscription is unaffected for this version(s), however it is recommended that users upgrade to the latest version on AWS Marketplace.
 
 For additional questions or upgrade information, please contact <seller-name> directly. Click here<link of seller page on MP> to visit the seller’s profile page on AWS Marketplace.
 

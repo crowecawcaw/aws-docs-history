@@ -104,8 +104,8 @@ information, see [Customer financing is now available in AWS Marketplace](https:
 
 ###### Note
 
-Buyers can only accept an offer before its expiration date. Expired offers move
-to the **Accepted and expired offers** tab.
+An offer can only be accepted before the expiration date. If the offer expires, it's
+moved to the **Accepted and expired offers** tab.
 
 | To view and accept a private offer | The buyer can                                                                                                                                                                                                                                                                                                                                            |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
