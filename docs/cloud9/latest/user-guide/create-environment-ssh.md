@@ -60,7 +60,7 @@ then choose **Create environment**.
 
 In the **welcome** page:
 
-![Choose the Create environment button if the welcome page is displayed](images/create_welcome_env_new_UX.png)
+![Choose the Create environment button if the welcome page is displayed](/images/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
 
 Or in the **Your environments** page:
 

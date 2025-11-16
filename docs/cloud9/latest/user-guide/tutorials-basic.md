@@ -69,7 +69,7 @@ page.
 
 If you already have AWS Cloud9 environments, the button is shown as follows.
 
-![Create environment button in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/console_create_env_new_UX.png) 4. On the **Create environment** page, for **Name**,
+![Create environment button in the AWS Cloud9 console](images/console_create_env_new_UX.png) 4. On the **Create environment** page, for **Name**,
 enter a name for your environment. 5. For **Description**, enter something about your environment. For
 this tutorial, use `This environment is for the AWS Cloud9 tutorial.` 6. For **Environment type**, choose **New EC2 instance** to
 create an Amazon EC2 environment:
