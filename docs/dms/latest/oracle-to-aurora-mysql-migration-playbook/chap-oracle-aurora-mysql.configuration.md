@@ -1,113 +1,70 @@
-# Oracle session parameters and MySQL session variables
+# Oracle instance parameters and Aurora MySQL parameter groups
 
-With AWS DMS, you can configure Oracle session parameters and MySQL session variables to optimize performance, control resource usage, and customize database behavior during migration tasks. Oracle session parameters and MySQL session variables are special configuration settings that influence how the database engine operates and processes data. These settings can be crucial for ensuring efficient data transfer, minimizing resource contention, and adhering to organizational policies or regulatory requirements.
+With AWS DMS, you can configure database settings to optimize performance, security, and resource utilization during and after migrating databases to Amazon Aurora. Oracle instance parameters and Aurora MySQL parameter groups define settings that govern database behavior, such as memory allocation, query optimization, and security policies.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                            |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------------ |
-| One star feature compatibility | N/A                                | N/A                       | `SET` options are significantly different. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                              |
+| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------- |
+| One star feature compatibility | N/A                                | N/A                       | Use cluster and database cluster parameters. |
 
 ## Oracle usage
 
-Certain Oracle database parameters and configuration options are modifiable at the session level using the `ALTER SESSION` command. However, not all Oracle configuration options and parameters can be modified on a per-session basis. To view a list of all configurable parameters that can be set for the scope of a specific session, query the v$parameter view as shown in the following example.
+You can configure Oracle instance and database-level parameters using the `ALTER SYSTEM` command. You can configure certain parameters dynamically and take immediate effect while other parameters require an instance restart.
+
+- All Oracle instance and database-level parameters are stored in a binary file known as the Server Parameter file (`SPFILE`).
+- The binary `SPFILE` can be exported to a text file using the following command:
 
 ```
-SELECT NAME, VALUE FROM V$PARAMETER WHERE ISSES_MODIFIABLE='TRUE';
+CREATE PFILE = 'my_init.ora'
+FROM SPFILE = 's_params.ora';
 ```
+
+When you modify parameters, you can choose the persistence of the changed values with one of the three following options:
+
+- Make the change applicable only after a restart by specifying `scope=spfile`.
+- Make the change dynamically, but not persistent , after a restart by specifying `scope=memory`.
+- Make the change both dynamically and persistent by specifying `scope=both`.
 
 ### Examples
 
-Change the `NLS_LANAUGE` codepage parameter of the current session.
+Use the `ALTER SYSTEM SET` command to configure a value for an Oracle parameter.
 
 ```
-alter session set nls_language='SPANISH'
-
-Sesi≤n modificada.
-
-alter session set nls_language='ENGLISH';
-
-Session altered.
-
-alter session set nls_language='FRENCH';
-
-Session modifiΘe.
-
-alter session set nls_language='GERMAN';
-
-Session wurde geΣndert.
+ALTER SYSTEM SET QUERY_REWRITE_ENABLED = TRUE SCOPE=BOTH;
 ```
 
-Specify the format of date values returned from the database using the `NLS_DATE_FORMAT` session parameter.
-
-```
-select sysdate from dual;
-
-SYSDATE
-SEP-09-17
-
-alter session set nls_date_format='DD-MON-RR';
-Session altered.
-
-select sysdate from dual;
-
-SYSDATE
-09-SEP-17
-
-alter session set nls_date_format='MM-DD-YYYY';
-Session altered.
-
-select sysdate from dual;
-
-SYSDATE
-09-09-2017
-
-alter session set nls_date_format='DAY-MON-RR';
-Session altered.
-```
-
-For more information, see [Changing Parameter Values in a Parameter File](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html#GUID-4C578B21-DE2B-4210-8EB7-EF28D36CC1CB "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html#GUID-4C578B21-DE2B-4210-8EB7-EF28D36CC1CB") in the _Oracle documentation_.
+For more information, see [Initialization Parameters](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/initialization-parameters-2.html#GUID-FD266F6F-D047-4EBB-8D96-B51B1DCA2D61 "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/initialization-parameters-2.html#GUID-FD266F6F-D047-4EBB-8D96-B51B1DCA2D61") and [Changing Parameter Values in a Parameter File](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html") in the _Oracle documentation_.
 
 ## MySQL usage
 
-MySQL provides session-modifiable parameters configured using the `SET SESSION` command. Configuration of parameters using `SET SESSION` is only applicable in the current session. To view the list of parameters that you can set with `SET SESSION`, see [Dynamic System Variables](https://dev.mysql.com/doc/refman/5.7/en/dynamic-system-variables.html "https://dev.mysql.com/doc/refman/5.7/en/dynamic-system-variables.html") and search for variables with session scope.
+When you run MySQL databases as Amazon Aurora clusters, you can use parameter groups to change the cluster-level and database-level parameters.
 
-Examples of commonly used session parameters:
+Most of the MySQL parameters are configurable in an Amazon Aurora MySQL cluster, but some are disabled and cannot be modified. Since Amazon Aurora clusters restrict access to the underlying operating system, modification to MySQL parameters must be made using Parameter Groups.
 
-- `autocommit` — Specify if changes take effect immediately or if an explicit COMMIT command is required.
-- `character_set_client` — Set the character set for the client.
-- `default_storage_engine` — Set the default storage engine.
-- `foreign_key_checks` — Set whether or not to run FK checks.
-- `innodb_lock_wait_timeout` — Set how much time the transaction should wait to acquire a row lock.
+Amazon Aurora is a cluster of database instances and, as a direct result, some of the MySQL parameters apply to the entire cluster while other parameters apply only to a particular database instance.
+
+| Aurora MySQL parameter class                                                                                                                  | Controlled through                                                                                                                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Cluster-level parameters**<br>Single cluster parameter group for each Amazon Aurora cluster                                                 | Managed using cluster parameter groups.<br>Consider the following example:<br>`<br>aurora_load_from_s3_role,<br>default_password_lifetime,<br>default_storage_engine<br>` |
+| **Database instance-level parameters**<br>Every instance in an Amazon Aurora cluster can be associated with a unique database parameter group | Managed using database parameter groups.<br>Consider the following example:<br>`<br>autocommit,<br>connect_timeout,<br>innodb_change_buffer_max_size<br>`                 |
 
 ### Examples
 
-Change the time zone of the connected session.
+**Create and configure a new parameter group**
 
-```
-SELECT now();
+Follow these steps to create and configure an Amazon Aurora database and cluster parameter groups:
 
-now()
-2018-02-26 12:13:25
+1. Sign in to the AWS Management Console, choose **RDS**, and then choose **Databases**.
+2. Choose **Parameter groups**, and choose **Create parameter group**.
 
-SET SESSION TIME_ZONE = '+10:00';
-SELECT now();
+###### Note
 
-now()
-2018-02-26 22:14:03
-```
+You can’t edit the default parameter group. Create a custom parameter group to apply changes to your Amazon Aurora cluster and its database instances. 3. For **Parameter group family**, choose **aurora-mysql5.7**. 4. For **Type**, choose **DB parameter group**. 5. Choose **Create**.
 
-You can also use a time zone name such as `Europe/Helsinki` instead of `+10:00`.
+**Modify an existing parameter group**
 
-## Oracle and MySQL session parameter examples
+1. Sign in to the AWS Management Console, choose **RDS**, and then choose **Databases**.
+2. Choose **Parameter groups**, and choose the name of the parameter to edit.
+3. For **Parameter group actions**, choose **Edit**.
+4. Change parameter values and choose **Save changes**.
 
-| Parameter purpose                                | Oracle                                                                                                                              | MySQL                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Configure time and date format                   | `<br>ALTER SESSION<br>SET nls_date_format = 'dd/mm/yyyy hh24:mi:ss';<br>`                                                           | N/A                                                                                                                                                                                                                                                                                                                      |
-| Configure the current default schema or database | `<br>ALTER SESSION<br>SET current schema='schema_name'<br>`                                                                         | N/A                                                                                                                                                                                                                                                                                                                      |
-| Generate traces for specific errors              | `<br>ALTER SESSION<br>SET events '10053 trace name context forever';<br>`                                                           | N/A                                                                                                                                                                                                                                                                                                                      |
-| Run trace for a SQL statement                    | `<br>ALTER SESSION<br>SET sql_trace=TRUE;<br>ALTER SYSTEM<br>SET EVENTS 'sql_trace [sql:&&sql_id]<br>bind=true,<br>wait=true';<br>` | `<br>SET GLOBAL general_log = 'ON';<br>`                                                                                                                                                                                                                                                                                 |
-| Modify query optimizer cost for index access     | `<br>ALTER SESSION<br>SET optimizer_index_cost_adj = 50<br>`                                                                        | `<br>SET SESSION optimizer_switch= ?<br>`<br>You can turn on and off other strategies. For more information, see [Switchable Optimizations](https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html "https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html") in the _MySQL documentation_. |
-| Modify query optimizer row access strategy       | `<br>ALTER SESSION<br>SET optimizer_mode=all_rows;<br>`                                                                             | `<br>SET SESSION optimizer_switch= ?<br>`<br>You can turn on and off other strategies. For more information, see [Switchable Optimizations](https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html "https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html") in the _MySQL documentation_. |
-| Memory allocated to sort operations              | `<br>ALTER SESSION<br>SET sort_area_size=6321;<br>`                                                                                 | `<br>SET SESSION sort_buffer_size=32768;<br>`                                                                                                                                                                                                                                                                            |
-| Memory allocated to hash-joins                   | `<br>ALTER SESSION<br>SET hash_area_sizee= 1048576000;<br>`                                                                         | `<br>SET SESSION join_buffer_size=1048576000;<br>`                                                                                                                                                                                                                                                                       |
-
-For more information, see [SET Syntax for Variable Assignment](https://dev.mysql.com/doc/refman/5.7/en/set-variable.html "https://dev.mysql.com/doc/refman/5.7/en/set-variable.html") in the _MySQL documentation_.
+For more information, see [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html") in the _MySQL documentation_.
