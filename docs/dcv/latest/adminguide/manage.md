@@ -2,7 +2,7 @@
 
 Amazon DCV runs on a dedicated server that creates user sessions for clients to access their remote desktops. As an administrator, you can manage and control the Amazon DCV servers, and the sessions hosted it, registered to you.
 
-Accessing this management requires your administrator credentials. You must be signed in as the administrator (Windows) or root (Linux) to start, stop, or configure the Amazon DCV server.
+Accessing this management requires your administrator credentials. You must be signed in as the administrator (Windows) or root (Linux; macOS) to start, stop, or configure the Amazon DCV server.
 
 ###### Topics
 

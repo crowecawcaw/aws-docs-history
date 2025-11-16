@@ -95,6 +95,11 @@ configured.
   listed on the [How to
   Buy](https://www.nice-software.com/index.html#buy "https://www.nice-software.com/index.html#buy") page of the Amazon DCV website. The licenses come as a license file that
   must be installed on the Amazon DCV server.
+
+###### Note
+
+When using Amazon DCV on Amazon EC2 Mac instance, Amazon DCV server the instance must have access to the Amazon DCV license S3 bucket. If the instance doesn't have access to the license S3 bucket, it will not be possible to start a Amazon DCV session.
+
 - **Production license**—A production license is a full
   license that you purchase from Amazon DCV. Production licenses are _floating
   licenses_ that are managed by a license server. With floating licenses,

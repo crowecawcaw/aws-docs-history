@@ -35,6 +35,11 @@ Or you can specify the full path when running a command from a different directo
 On Linux Amazon DCV servers, the command line tool is automatically configured in the `$PATH` environment variable. You can
 use the tool from any folder. Open a terminal window and enter the command to run.
 
+## Using the command line on a macOS Amazon DCV Server
+
+On macOS Amazon DCV servers, the command line tool is automatically configured in the `$PATH` environment variable. You can
+use the tool from any folder. Open a terminal window and enter the command to run.
+
 ## Command line tool usage
 
 The following table covers the available command line tool options. This list can be retrieved by using `--help` when calling `dcv`.

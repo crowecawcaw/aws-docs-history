@@ -92,3 +92,35 @@ idle-timeout-warning=`seconds_before_idle_timeout`
 ```
 
 For example, if you want the notification to be sent two minutes before the idle timeout is reached, specify `120`. 3. Save and close the file.
+
+macOS Amazon DCV server
+To change the Amazon DCV server's idle timeout period, you must configure the `idle-timeout` parameter in the `dcv.conf`
+file.
+
+###### To change the idle timeout period on macOS
+
+1. Open `/etc/dcv/dcv.conf` with your preferred text editor.
+2. Locate the `idle-timeout` parameter in the `[connectivity]` section. Then, replace the existing timeout period with
+   the new timeout period (in minutes, decimal).
+
+If there's no `idle-timeout` parameter in the `[connectivity]` section, add it manually using the following
+format:
+
+```
+[connectivity]
+  idle-timeout=`timeout_in_minutes`
+```
+
+To avoid disconnecting idle clients, enter `0`. 3. Save and close the file.
+
+###### (Optional) To configure the Amazon DCV server to send timeout notifications to idle clients
+
+1. Open `/etc/dcv/dcv.conf` with your preferred text editor.
+2. Add the `idle-timeout-warning` parameter to the `[connectivity]` section and specify the number of seconds (decimal)
+   in advance of the disconnection that the associated warning notification is sent.
+
+```
+idle-timeout-warning=`seconds_before_idle_timeout`
+```
+
+For example, if you want the notification to be sent two minutes before the idle timeout is reached, specify `120`. 3. Save and close the file.

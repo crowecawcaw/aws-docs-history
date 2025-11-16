@@ -7,6 +7,7 @@ The following topic describes how to upgrade the Amazon DCV server.
 - [Compatibility considerations](#compatibility-considerations "#compatibility-considerations")
 - [Upgrading the Amazon DCV Server on Windows](#upgrading-windows-upgrade "#upgrading-windows-upgrade")
 - [Upgrading the Amazon DCV Server on Linux](#upgrading-linux "#upgrading-linux")
+- [Upgrading the Amazon DCV Server on macOS](#upgrading-macos "#upgrading-macos")
 
 ## Compatibility considerations
 
@@ -57,6 +58,26 @@ list-sessions` Amazon DCV command to check for any running sessions. If
 4. Back up your Amazon DCV server configuration. Copy the `/etc/dcv/dcv.conf`
    file to a safe location.
 5. Follow the steps described in [Install the Amazon DCV Server](setting-up-installing-linux-server.md#linux-server-install "setting-up-installing-linux-server.md#linux-server-install").
+6. After the installation is complete, confirm that the Amazon DCV server configuration is still
+   correct. Open the file that you copied in step 4 and compare it to the
+   `/etc/dcv/dcv.conf` file.
+7. Test the Amazon DCV server by starting a new Amazon DCV session. For more information, see
+   [Starting Amazon DCV sessions](managing-sessions-start.md "managing-sessions-start.md").
+
+## Upgrading the Amazon DCV Server on macOS
+
+###### To upgrade the Amazon DCV server on macOS
+
+1. Use SSH to sign in to the server using user.
+2. Ensure that there are no running Amazon DCV sessions. Use the `dcv
+list-sessions` Amazon DCV command to check for any running sessions. If
+   there are running sessions, use the `dcv close-session` Amazon DCV
+   command to stop them.
+3. After you confirm that there are no running sessions, stop the Amazon DCV server. For more
+   information, see [Stopping the Amazon DCV Server](manage-stop.md "manage-stop.md").
+4. Back up your Amazon DCV server configuration. Copy the `/etc/dcv/dcv.conf`
+   file to a safe location.
+5. Follow the steps described in [Installing the Amazon DCV Server on macOS](setting-up-installing-macos.md "setting-up-installing-macos.md").
 6. After the installation is complete, confirm that the Amazon DCV server configuration is still
    correct. Open the file that you copied in step 4 and compare it to the
    `/etc/dcv/dcv.conf` file.

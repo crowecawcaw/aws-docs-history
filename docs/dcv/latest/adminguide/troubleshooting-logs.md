@@ -16,7 +16,7 @@ see the `ProgramData` folder, set your file browser to show hidden items.
 Alternatively, enter `%programdata%` in the address bar and press
 **Enter**.
 
-- Linux server
+- Linux and macOS server
 
 ```
 /var/log/dcv/
@@ -128,3 +128,22 @@ level="`verbosity_level`"
 ```
 
 3. Save and close the file.
+
+### For macOS
+
+1. Open a terminal.
+2. Enter the following command to set the level:
+
+```
+sudo dcv set-config --section log --key level "'LEVEL'"
+```
+
+3. Enter the following command to enable debugging:
+
+```
+sudo dcv set-config --section log --key level "'debug'"
+```
+
+###### Note
+
+Make sure you are using both double and single quotation marks.

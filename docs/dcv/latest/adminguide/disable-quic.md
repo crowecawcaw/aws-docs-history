@@ -40,3 +40,20 @@ enable-quic-frontend=false
 
 3. Save and close the file.
 4. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+
+macOS Amazon DCV server
+
+###### To disable the use of QUIC (UDP) for data transport in Amazon DCV
+
+1. Open `/etc/dcv/dcv.conf` with your preferred text editor.
+2. In the `[connectivity]` section, do the following:
+   - For `enable-quic-frontend`, specify `false`.
+
+```
+[connectivity]
+enable-quic-frontend=false
+
+```
+
+3. Save and close the file.
+4. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.

@@ -44,3 +44,24 @@ Use the following command:
 ```
 `$` sudo systemctl disable dcvserver
 ```
+
+macOS Amazon DCV server
+Stop the Amazon DCV server using the command line.
+
+###### To stop the Amazon DCV server on macOS
+
+Use the following command:
+
+```
+`$` sudo launchctl stop com.amazon.dcv.server.dcvserver
+```
+
+Disable automatic Amazon DCV server startup using the command line.
+
+###### To prevent the Amazon DCV server from starting automatically on Linux
+
+Use the following command:
+
+```
+`$` sudo launchctl disable com.amazon.dcv.server.dcvserver
+```

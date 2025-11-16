@@ -9,6 +9,10 @@ permissions separately by creating a custom permissions file at [Adding permissi
 
 This feature is not available on Linux virtual sessions.
 
+###### Note
+
+On macOS, time zone redirection is applied after login.
+
 ###### Enabling time zone redirection
 
 You can enable and disable this feature for all users on a specific session.

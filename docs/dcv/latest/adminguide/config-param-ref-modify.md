@@ -8,6 +8,7 @@ servers, parameter names, types, and valid values, see the [Amazon DCV Server pa
 
 - [Windows Amazon DCV Servers](#config-param-ref-win "#config-param-ref-win")
 - [Linux Amazon DCV servers](#config-param-ref-linux "#config-param-ref-linux")
+- [macOS Amazon DCV servers](#config-param-ref-macos "#config-param-ref-macos")
 
 ## Windows Amazon DCV Servers
 
@@ -54,6 +55,35 @@ PS `C:\>`  New-ItemProperty -Path "Microsoft.PowerShell.Core\Registry::\HKEY_USE
 ## Linux Amazon DCV servers
 
 For Linux Amazon DCV servers, the configuration parameters can be modified using a text editor or a command line tool, such as **crudini**.
+
+###### To modify a configuration parameter using a text editor
+
+1. Open `/etc/dcv/dcv.conf` using your preferred text editor.
+2. Locate the appropriate section in the file. If the section does not exist, add it using the section name described in the [Amazon DCV Server parameter reference](config-param-ref.md "config-param-ref.md").
+
+```
+[`section`]
+```
+
+3. Locate the parameter in the section and modify the value. If the parameter does not exist in the section, add it using the parameter name described in the [Amazon DCV Server parameter reference](config-param-ref.md "config-param-ref.md").
+
+```
+`parameter_name`="`parameter_value`"
+```
+
+4. Save and close the file.
+
+###### To modify a configuration parameter using crudini
+
+Create the section and add the parameter using the section and parameter names described in the [Amazon DCV Server parameter reference](config-param-ref.md "config-param-ref.md").
+
+```
+`$`  sudo crudini --set /etc/dcv/dcv.conf `section_name` `parameter_name` '`parameter_value`'
+```
+
+## macOS Amazon DCV servers
+
+For macOS Amazon DCV servers, the configuration parameters can be modified using a text editor or a command line tool, such as **crudini**.
 
 ###### To modify a configuration parameter using a text editor
 

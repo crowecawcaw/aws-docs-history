@@ -1,7 +1,7 @@
 # Use External Authentication
 
 By default, Amazon DCV client authentication is delegated to the underlying operating system. With
-Windows Amazon DCV servers, authentication is delegated to WinLogon. With Linux Amazon DCV servers,
+Windows Amazon DCV servers, authentication is delegated to WinLogon. With Linux and macOS Amazon DCV servers,
 authentication is delegated to Linux PAM.
 
 You can configure Amazon DCV to use an external authentication server to authenticate clients. This
@@ -44,26 +44,6 @@ In order to use an external authentication server, you must have the following i
 
 You must configure the Amazon DCV server to use the external authentication service.
 
-Linux Amazon DCV server
-
-###### To specify an external authentication server on Linux
-
-1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
-2. Locate the `auth-token-verifier` parameter in the `[security]` section, and replace the existing value
-   with the URL of the external authentication server and the port over which to communicate, in the following format:
-   ``url`:`port``. For example, if you're using the
-   DcvSimpleExternalAuthenticator, specify the following:
-   ``http://127.0.0.1`:`8444``.
-
-If there is no `auth-token-verifier` parameter in the `[security]` section, add it manually
-using the following format:
-
-```
-[security] auth-token-verifier=``url`:`port``
-```
-
-3. Save and close the file.
-
 Windows Amazon DCV server
 
 ###### To specify an external authentication server on Windows
@@ -85,6 +65,46 @@ Windows Amazon DCV server
 5. Close the Windows Registry Editor.
 6. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md")
    the Amazon DCV server.
+
+Linux Amazon DCV server
+
+###### To specify an external authentication server on Linux
+
+1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
+2. Locate the `auth-token-verifier` parameter in the `[security]` section, and replace the existing value
+   with the URL of the external authentication server and the port over which to communicate, in the following format:
+   ``url`:`port``. For example, if you're using the
+   DcvSimpleExternalAuthenticator, specify the following:
+   ``http://127.0.0.1`:`8444``.
+
+If there is no `auth-token-verifier` parameter in the `[security]` section, add it manually
+using the following format:
+
+```
+[security] auth-token-verifier=``url`:`port``
+```
+
+3. Save and close the file.
+
+macOS Amazon DCV server
+
+###### To specify an external authentication server on macOS
+
+1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
+2. Locate the `auth-token-verifier` parameter in the `[security]` section, and replace the existing value
+   with the URL of the external authentication server and the port over which to communicate, in the following format:
+   ``url`:`port``. For example, if you're using the
+   DcvSimpleExternalAuthenticator, specify the following:
+   ``http://127.0.0.1`:`8444``.
+
+If there is no `auth-token-verifier` parameter in the `[security]` section, add it manually
+using the following format:
+
+```
+[security] auth-token-verifier=``url`:`port``
+```
+
+3. Save and close the file.
 
 ## Using the Token
 

@@ -65,7 +65,7 @@ Amazon DCV offers the following features:
 - **Supports file transfer** — Lets you transfer files between the session
   and your local computer.
 - **Provides an HTML5 client** - Offers an HTML5 client that can be used with any
-  modern web browser on Windows and Linux.
+  modern web browser on Windows, Linux and macOS.
 - **Supports modern Linux desktop environments** — Supports modern
   Linux desktops, such as Gnome 3 on RHEL 8.
 

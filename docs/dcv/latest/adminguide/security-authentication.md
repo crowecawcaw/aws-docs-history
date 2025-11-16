@@ -8,7 +8,7 @@ Amazon DCV supports the following authentication methods:
 
 - `system` — This is the default authentication method. Client
   authentication is delegated to the underlying operating system. For Windows Amazon DCV servers,
-  authentication is delegated to WinLogon. For Linux Amazon DCV servers, authentication is
+  authentication is delegated to WinLogon. For Linux and macOS Amazon DCV servers, authentication is
   delegated to PAM. Clients provide their system credentials when connecting to a Amazon DCV session.
   Verify that your clients have the appropriate sign-in credentials for the Amazon DCV server.
 - `none` — No client authentication is required when connecting to a Amazon DCV session. The Amazon DCV server grants access to all clients
@@ -20,6 +20,7 @@ Amazon DCV supports the following authentication methods:
 
 - [Configuring authentication on Windows](#set-authentication-windows "#set-authentication-windows")
 - [Configuring authentication on Linux](#set-authentication-linux "#set-authentication-linux")
+- [Configuring authentication on macOS](#set-authentication-macos "#set-authentication-macos")
 - [Configuring authentication with external
   authenticators](#set-authentication-external "#set-authentication-external")
 - [Use External Authentication](external-authentication.md "external-authentication.md")
@@ -97,6 +98,57 @@ authentication=`method`
 ### PAM service
 
 On Linux, when Amazon DCV `authentication` parameter is set to `system`, the authentication is performed by executing a PAM
+service.
+
+By default, the Privileged Access Management (PAM) service executed by Amazon DCV server is `/etc/pam.d/dcv`.
+
+If you want to change the steps performed by PAM when authenticating a user through Amazon DCV, you can set the `pam-service`
+parameter in the `authentication` section of `dcv.conf`.
+
+###### To change the PAM service
+
+1. As root, navigate to the `/etc/pam.d` directory and create a new file, for instance `dcv-custom`.
+2. Edit the `dcv-custom` file using your preferred text editor. Refer to your system documentation for the syntax of PAM service
+   files.
+3. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
+4. Locate the `pam-service` parameter in the `[authentication]` section. Then, replace the existing service name with
+   the new PAM service name.
+
+If there's no `pam-service` parameter in the `[authentication]` section, add it manually using the following
+format:
+
+```
+[authentication]
+pam-service=`service_name`
+```
+
+###### Note
+
+The PAM service name must match the name of the file you created in `/etc/pam.d`. 5. Save and close the file.
+
+## Configuring authentication on macOS
+
+To change the Amazon DCV server's authentication method, you must configure the `authentication` parameter in the
+`dcv.conf` file.
+
+###### To change the authentication method on macOS
+
+1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
+2. Locate the `authentication` parameter in the `[security]` section. Then, replace the existing value with either
+   `system` or `none`.
+
+If there's no `authentication` parameter in the `[security]` section, add it using the following format.
+
+```
+[security]
+authentication=`method`
+```
+
+3. Save and close the file.
+
+### PAM service
+
+On macOS, when Amazon DCV `authentication` parameter is set to `system`, the authentication is performed by executing a PAM
 service.
 
 By default, the Privileged Access Management (PAM) service executed by Amazon DCV server is `/etc/pam.d/dcv`.

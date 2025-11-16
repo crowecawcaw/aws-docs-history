@@ -8,6 +8,7 @@ while connected to a session.
 
 - [Enabling session storage on Windows](#manage-storage-windows "#manage-storage-windows")
 - [Enabling session storage on Linux](#manage-storage-linux "#manage-storage-linux")
+- [Enabling session storage on macOS](#manage-storage-macos "#manage-storage-macos")
 
 ## Enabling session storage on a Windows Amazon DCV Server
 
@@ -77,6 +78,39 @@ To enable session storage, create the folder to use for session storage and then
    ###### Note
 
    If the specified subdirectory doesn't exist, then session storage is disabled.
+
+3. Save and close the file.
+4. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+5. Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md "managing-sessions-start.md").
+
+## Enabling session storage on a macOS Amazon DCV Server
+
+To enable session storage, create the folder to use for session storage and then configure the `storage-root` parameter in the
+`dcv.conf` file.
+
+###### To enable session storage on macOS
+
+1. Create the folder to use for session storage (for example, `/opt/session-storage/`).
+2. Configure the `storage-root` parameter.
+   1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
+   2. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section. Replace the
+      existing path with the full path to the folder that you created in step 1.
+
+   If there's no `storage-root` parameter in the `[session-management/automatic-console-session]` section, add it
+   manually using the following format.
+
+   ```
+   [session-management/automatic-console-session]
+   storage-root="`/opt/session-storage/`"
+   ```
+
+   ###### Note
+
+   If the specified subdirectory doesn't exist, then session storage is disabled.
+
+   ###### Note
+
+   The `storage-root` value must be an absolute path on macOS.
 
 3. Save and close the file.
 4. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.

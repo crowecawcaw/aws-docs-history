@@ -74,5 +74,5 @@ the webpage. For example, to allow access to the microphone and to fullscreen mo
 modify the iFrame element as follows:
 
 ```
-<iframe src="..." allow="microphone; fullscreen">/iframe>
+<iframe src="..." allow="microphone; fullscreen"></iframe>
 ```

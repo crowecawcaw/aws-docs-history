@@ -18,7 +18,7 @@ If you don't specify a custom permissions file when creating a session, the defa
 permissions file grants only the session owner full access to all features.
 
 You can customize the default permissions file to include custom authorizations. The default permissions file is located in `C:\Program
- Files\NICE\DCV\Server\conf\default.perm` on Windows NICE DCV servers and `/etc/dcv/default.perm` on Linux NICE DCV
+ Files\NICE\DCV\Server\conf\default.perm` on Windows Amazon DCV servers and `/etc/dcv/default.perm` on Linux and macOS Amazon DCV
 servers.
 
 For information about customizing the default permissions file, see [Understanding permissions files](security-authorization-file-create.md "security-authorization-file-create.md").

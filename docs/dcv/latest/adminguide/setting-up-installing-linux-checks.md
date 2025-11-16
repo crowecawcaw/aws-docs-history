@@ -118,7 +118,7 @@ Use the following command:
 
 ```
 gpg1 --import NICE-GPG-KEY-SECRET
-dpkg-sig --verify nice-dcv-server_2024.0.19030-1_amd64.deb
+dpkg-sig --verify nice-dcv-server_2025.0.20103-1_amd64.deb
 ```
 
 This will return a message that includes the term `GOODSIG` to confirm that the signature is verified.

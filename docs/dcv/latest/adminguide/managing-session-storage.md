@@ -24,6 +24,10 @@ For the directory path, you can use `%home%` to specify the home directory of th
 For example, the `%home%/storage/` path resolves to `c:\Users\`username`\storage\`
 on Windows servers. It resolves to `$HOME/storage/` on Linux servers.
 
+###### Note
+
+The `storage-root` value must be an absolute path on macOS.
+
 ## Options
 
 The following options can be used with the `dcv set-storage-root` command

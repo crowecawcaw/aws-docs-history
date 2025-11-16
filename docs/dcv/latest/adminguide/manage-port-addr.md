@@ -100,6 +100,41 @@ quic-port=`port_number`
 
 The UDP port number must be 1024 or higher. 4. Save and close the file. 5. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
 
+macOS Amazon DCV server
+To change the ports that are used by the Amazon DCV server, configure the `web-port` and the `quic-port` parameters in the
+`dcv.conf` file.
+
+###### To change the ports for the server on macOS
+
+1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
+2. Locate the `web-port` parameter in the `[connectivity]` section. Then, replace the existing TCP port number with
+   the new TCP port number.
+
+If there's no `web-port` parameter in the `[connectivity]` section, add it manually using the following
+format:
+
+```
+[connectivity]
+web-port=`port_number`
+```
+
+###### Note
+
+The TCP port number must be 1024 or higher. 3. Locate the `quic-port` parameter in the `[connectivity]` section. Then, replace the existing UDP port number with
+the new UDP port number.
+
+If there's no `quic-port` parameter in the `[connectivity]` section, add it manually using the following
+format:
+
+```
+[connectivity]
+quic-port=`port_number`
+```
+
+###### Note
+
+The UDP port number must be 1024 or higher. 4. Save and close the file. 5. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+
 ## Listening on specific endpoints
 
 To listen only on specific network addresses, you can set the `web-listen-endpoints` and the `quic-listen-endpoints`
@@ -148,6 +183,36 @@ If there's no `quic-listen-endpoints` parameter in the registry key, create one:
 Linux Amazon DCV server
 
 ###### To change the endpoints for the server on Linux
+
+1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
+2. Locate the `web-listen-endpoints` parameter in the `[connectivity]` section. Then, replace the existing list of
+   endpoints.
+
+If there's no `web-listen-endpoints` parameter in the `[connectivity]` section, add it manually using the
+following format:
+
+```
+[connectivity]
+web-listen-endpoints=[`endpoint1`, `endpoint2`]
+```
+
+3. Locate the `quic-listen-endpoints` parameter in the `[connectivity]` section. Then, replace the existing list of
+   endpoints.
+
+If there's no `quic-listen-endpoints` parameter in the `[connectivity]` section, add it manually using the
+following format:
+
+```
+[connectivity]
+quic-listen-endpoints=[`endpoint1`, `endpoint2`]
+```
+
+4. Save and close the file.
+5. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+
+macOS Amazon DCV server
+
+###### To change the endpoints for the server on macOS
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
 2. Locate the `web-listen-endpoints` parameter in the `[connectivity]` section. Then, replace the existing list of

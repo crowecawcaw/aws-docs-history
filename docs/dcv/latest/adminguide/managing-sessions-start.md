@@ -10,7 +10,7 @@ you install the Amazon DCV server, you can enable or disable the [automatic cons
 
 ###### Note
 
-Linux Amazon DCV servers don't get a default console session after installation.
+Linux and macOS Amazon DCV servers don't get a default console session after installation.
 
 Assume that you use a floating license on an on-premises or alternative cloud-based server and exceed the maximum number of concurrent
 sessions that's supported by your license. You might get a `no licenses` error. If you get this error, stop an unused session to
@@ -31,7 +31,7 @@ multiple virtual sessions at the same time.
 It's good practice to run `dcv list-sessions` before creating a session, especially if you're using Windows
 Amazon DCV server.
 
-To create a console or virtual session on a Windows or Linux Amazon DCV server, use the `dcv create-session` command.
+To create a console or virtual session on a Windows, Linux, or macOS Amazon DCV server, use the `dcv create-session` command.
 
 ###### Topics
 
@@ -278,6 +278,27 @@ Windows Amazon DCV server
 Linux Amazon DCV server
 
 ###### To enable an automatic console session on a Linux Amazon DCV server
+
+1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
+2. Add the `create-session` and `owner` parameters to the
+   `[session-management/automatic-console-session]` section using the following format:
+
+```
+
+[session-management]
+create-session = true
+
+[session-management/automatic-console-session]
+owner="`session-owner`"
+
+```
+
+3. Save and close the file.
+4. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+
+macOS Amazon DCV server
+
+###### To enable an automatic console session on a macOS Amazon DCV server
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
 2. Add the `create-session` and `owner` parameters to the

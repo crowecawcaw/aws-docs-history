@@ -49,7 +49,7 @@ Starting March 31st 2025, the following Amazon DCV versions will no longer be su
 If you are running Amazon DCV on AWS, you do not need a license for Amazon DCV. You pay only for the underlying AWS
 resources that you use for your workloads. If you are currently using a Amazon DCV version that is past its EOSL date,
 upgrade to the latest Amazon DCV version using the [Amazon DCV download
-page](http://download.amazondcv.com "http://download.amazondcv.com") or make use of a [Amazon DCV AMI](https://aws.amazon.com/marketplace/search/results?page=1&filters=VendorId&VendorId=74eff437-1315-4130-8b04-27da3fa01de1&searchTerms=nice+dcv "https://aws.amazon.com/marketplace/search/results?page=1&filters=VendorId&VendorId=74eff437-1315-4130-8b04-27da3fa01de1&searchTerms=nice+dcv") from the AWS Marketplace to continue receiving support.
+page](http://download.amazondcv.com "http://download.amazondcv.com") to continue receiving support.
 
 If you are running Amazon DCV on-premises or using a third-party cloud service providers, and the version of Amazon DCV
 that you are currently using is past its EOSL date, contact your reseller or distributor to evaluate your available

@@ -60,6 +60,27 @@ Linux Amazon DCV server
 `$`  sudo chmod 600 dcv.pem dcv.key
 ```
 
+macOS Amazon DCV server
+
+###### To change the server's TLS certificate on macOS
+
+1. Place the certificate and its key in the following location on your macOS Amazon DCV server:
+
+```
+/etc/dcv/
+```
+
+2. Grant ownership of both files to the `dcv` user, and change their permissions to 600 (only the owner can read or write to
+   them).
+
+```
+`$`  sudo chown dcv dcv.pem dcv.key
+```
+
+```
+`$`  sudo chmod 600 dcv.pem dcv.key
+```
+
 ###### Note
 
 Beginning with Amazon DCV 2022.0, if you update a certificate file while the Amazon DCV server is running, the new certificate will be automatically
