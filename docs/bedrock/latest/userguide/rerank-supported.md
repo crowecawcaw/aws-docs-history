@@ -11,9 +11,11 @@ The following list provides links to general information about Regional and mode
 The Amazon Rerank 1.0 model is not supported in the US East (N. Virginia)
 AWS Region. You can only use the Cohere Rerank 3.5 model in this Region.
 
-| Provider | Model      | Regions supporting foundation model                                      |
-| -------- | ---------- | ------------------------------------------------------------------------ |
-| Amazon   | Rerank 1.0 | us-west-2<br>ap-northeast-1<br>ca-central-1<br>eu-central-1              |
-| Cohere   | Rerank 3.5 | us-east-1<br>us-west-2<br>ap-northeast-1<br>ca-central-1<br>eu-central-1 |
+The following table shows model support for reranking:
+
+| Provider | Model      | Model ID             | Single-region model support                                              |
+| -------- | ---------- | -------------------- | ------------------------------------------------------------------------ |
+| Amazon   | Rerank 1.0 | amazon.rerank-v1:0   | ap-northeast-1<br>ca-central-1<br>eu-central-1<br>us-west-2              |
+| Cohere   | Rerank 3.5 | cohere.rerank-v3-5:0 | ap-northeast-1<br>ca-central-1<br>eu-central-1<br>us-east-1<br>us-west-2 |
 
 For more information about reranking with Cohere models and their inference parameters, see [Rerank](https://docs.cohere.com/reference/rerank "https://docs.cohere.com/reference/rerank") on the Cohere documentation website.

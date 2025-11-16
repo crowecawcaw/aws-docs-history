@@ -19,43 +19,32 @@ For best results, we recommend optimizing prompts in English.
 
 ## Supported Regions and models for prompt optimization
 
-Prompt optimization is supported in the following Regions (for more information about Regions supported in Amazon Bedrock see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md")):
+The following table shows model support for prompt optimization:
 
-- US East (N. Virginia)
-- US West (Oregon)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Sydney)
-- Canada (Central)
-- Europe (Frankfurt)
-- Europe (Ireland)
-- Europe (London)
-- Europe (Paris)
-- South America (São Paulo)
-
-Prompt optimization is supported for the following foundation models (to see which Regions support each model, refer to [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")):
-
-- Amazon Nova Lite
-- Amazon Nova Micro
-- Amazon Nova Premier
-- Amazon Nova Pro
-- Anthropic Claude 3 Haiku
-- Anthropic Claude 3 Opus
-- Anthropic Claude 3 Sonnet
-- Anthropic Claude 3.5 Haiku
-- Anthropic Claude 3.5 Sonnet v2
-- Anthropic Claude 3.5 Sonnet
-- Anthropic Claude 3.7 Sonnet
-- Anthropic Claude Opus 4
-- Anthropic Claude Sonnet 4
-- DeepSeek DeepSeek-R1
-- Meta Llama 3 70B Instruct
-- Meta Llama 3.1 70B Instruct
-- Meta Llama 3.2 11B Instruct
-- Meta Llama 3.3 70B Instruct
-- Meta Llama 4 Maverick 17B Instruct
-- Meta Llama 4 Scout 17B Instruct
-- Mistral AI Mistral Large (24.02)
-- Mistral AI Mistral Large (24.07)
+| Provider   | Model                         | Model ID                                  | Single-region model support                                                                                                                |
+| ---------- | ----------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Amazon     | Nova Lite                     | amazon.nova-lite-v1:0                     | ap-southeast-2<br>eu-west-2<br>us-east-1                                                                                                   |
+| Amazon     | Nova Micro                    | amazon.nova-micro-v1:0                    | ap-southeast-2<br>eu-west-2<br>us-east-1                                                                                                   |
+| Amazon     | Nova Premier                  | amazon.nova-premier-v1:0                  |                                                                                                                                            |
+| Amazon     | Nova Pro                      | amazon.nova-pro-v1:0                      | ap-southeast-2<br>eu-west-2<br>us-east-1                                                                                                   |
+| Anthropic  | Claude 3 Haiku                | anthropic.claude-3-haiku-20240307-v1:0    | ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2 |
+| Anthropic  | Claude 3 Opus                 | anthropic.claude-3-opus-20240229-v1:0     | us-west-2                                                                                                                                  |
+| Anthropic  | Claude 3 Sonnet               | anthropic.claude-3-sonnet-20240229-v1:0   | ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2 |
+| Anthropic  | Claude 3.5 Haiku              | anthropic.claude-3-5-haiku-20241022-v1:0  | us-west-2                                                                                                                                  |
+| Anthropic  | Claude 3.5 Sonnet             | anthropic.claude-3-5-sonnet-20240620-v1:0 | eu-central-1<br>us-east-1<br>us-west-2                                                                                                     |
+| Anthropic  | Claude 3.5 Sonnet v2          | anthropic.claude-3-5-sonnet-20241022-v2:0 | ap-southeast-2<br>us-west-2                                                                                                                |
+| Anthropic  | Claude 3.7 Sonnet             | anthropic.claude-3-7-sonnet-20250219-v1:0 | eu-west-2                                                                                                                                  |
+| Anthropic  | Claude Opus 4                 | anthropic.claude-opus-4-20250514-v1:0     |                                                                                                                                            |
+| Anthropic  | Claude Sonnet 4               | anthropic.claude-sonnet-4-20250514-v1:0   |                                                                                                                                            |
+| DeepSeek   | DeepSeek-R1                   | deepseek.r1-v1:0                          |                                                                                                                                            |
+| Meta       | Llama 3 70B Instruct          | meta.llama3-70b-instruct-v1:0             | ap-south-1<br>ca-central-1<br>eu-west-2<br>us-east-1<br>us-west-2                                                                          |
+| Meta       | Llama 3.1 70B Instruct        | meta.llama3-1-70b-instruct-v1:0           | us-west-2                                                                                                                                  |
+| Meta       | Llama 3.2 11B Instruct        | meta.llama3-2-11b-instruct-v1:0           |                                                                                                                                            |
+| Meta       | Llama 3.3 70B Instruct        | meta.llama3-3-70b-instruct-v1:0           |                                                                                                                                            |
+| Meta       | Llama 4 Maverick 17B Instruct | meta.llama4-maverick-17b-instruct-v1:0    |                                                                                                                                            |
+| Meta       | Llama 4 Scout 17B Instruct    | meta.llama4-scout-17b-instruct-v1:0       |                                                                                                                                            |
+| Mistral AI | Mistral Large (24.02)         | mistral.mistral-large-2402-v1:0           | ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2                 |
+| Mistral AI | Mistral Large (24.07)         | mistral.mistral-large-2407-v1:0           | us-west-2                                                                                                                                  |
 
 ## Submit a prompt for optimization
 

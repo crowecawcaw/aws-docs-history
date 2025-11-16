@@ -74,7 +74,7 @@ section of the response object and then see a full, populated response for an
 example document. The first section we'll receive is `metadata`.
 
 ```
-{
+
  "metadata": {
     "asset_id": "0",
     "semantic_modality": "AUDIO",
@@ -85,16 +85,22 @@ example document. The first section we'll receive is `metadata`.
     "number_of_channels": 2,
     "codec": "pcm_s16le",
     "duration_millis": 237560,
-    "format": "wav"
-  },
+    "format": "wav",
+    "dominant_asset_language": "EN",
+    "generative_output_language": "DEFAULT/EN"
+  }
 
 ```
 
 This section breaks down information about the file such as its s3 location,
 bitrate, audio channels, and format. Next we look at `audio_items`.
 
-```
+`dominant_asset_language` indicaties what language is the most present
+in a piece of audio based on length in seconds. `generative_output_language`
+indicates which language the response output will be in. When set to "DEFAULT" it will
+use the dominant language.
 
+```
 
 "audio_items": [
     {
@@ -104,6 +110,8 @@ bitrate, audio channels, and format. Next we look at `audio_items`.
       "start_timestamp_millis": 9,
       "end_timestamp_millis": 119
     },
+    ...
+]
 
 ```
 
@@ -140,8 +148,11 @@ it sits in the segements indicies which we'll discuss next.
         9,
         10,
         11
-      ]
+      ],
+      "language": "EN"
     },
+    ...
+]
 
 ```
 
@@ -167,6 +178,11 @@ in this segment.
             "category": "profanity",
             "confidence": 0.1582
           },
+          ...
+        ]
+      },
+      ...
+]
 
 ```
 
@@ -201,6 +217,8 @@ Our next section is topics.
         10
       ]
     },
+    ...
+]
 
 ```
 

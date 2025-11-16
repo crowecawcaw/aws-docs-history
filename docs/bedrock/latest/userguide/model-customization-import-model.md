@@ -10,12 +10,12 @@ You can use a model that you import with on demand throughput. Use the
 [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") operations to make inference calls to the model. For more information,
 see [Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md").
 
-Amazon Bedrock Custom Model Import is supported in the following Regions (for more information about Regions supported in Amazon Bedrock see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md")):
+Custom model import is supported in the following regions:
 
-- US East (N. Virginia)
-- US East (Ohio)
-- US West (Oregon)
-- Europe (Frankfurt)
+- us-east-1
+- us-east-2
+- us-west-2
+- eu-central-1
 
 ###### Note
 

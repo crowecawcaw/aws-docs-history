@@ -6,13 +6,13 @@ The following list provides links to general information about Regional and mode
 - For a list of Amazon Bedrock model IDs to use when calling Amazon Bedrock API operations, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
   The following table shows the models that you can share and the Regions from which you can share:
 
-| Provider  | Model                          | Regions supporting foundation model                                              |
-| --------- | ------------------------------ | -------------------------------------------------------------------------------- |
-| Amazon    | Titan Multimodal Embeddings G1 | us-east-1<br>us-west-2<br>ap-south-1<br>ap-southeast-2<br>eu-west-1<br>eu-west-3 |
-| Amazon    | Titan Image Generator G1       | us-east-1<br>us-west-2<br>ap-south-1<br>eu-west-1                                |
-| Amazon    | Titan Text G1<br>• Express     | us-east-1<br>us-west-2<br>ap-south-1<br>ap-southeast-2<br>eu-west-1<br>eu-west-3 |
-| Amazon    | Titan Text G1<br>• Lite        | us-east-1<br>us-west-2<br>ap-south-1<br>ap-southeast-2<br>eu-west-1<br>eu-west-3 |
-| Anthropic | Claude 3 Haiku                 | us-east-1<br>us-west-2<br>ap-south-1<br>ap-southeast-2<br>eu-west-1<br>eu-west-2 |
+| Provider  | Model                          | Model ID                               | Single-region model support                                                      |
+| --------- | ------------------------------ | -------------------------------------- | -------------------------------------------------------------------------------- |
+| Amazon    | Titan Image Generator G1       | amazon.titan-image-generator-v1        | ap-south-1<br>eu-west-1<br>us-east-1<br>us-west-2                                |
+| Amazon    | Titan Multimodal Embeddings G1 | amazon.titan-embed-image-v1            | ap-south-1<br>ap-southeast-2<br>eu-west-1<br>eu-west-3<br>us-east-1<br>us-west-2 |
+| Amazon    | Titan Text G1<br>• Express     | amazon.titan-text-express-v1           | ap-south-1<br>ap-southeast-2<br>eu-west-1<br>eu-west-3<br>us-east-1<br>us-west-2 |
+| Amazon    | Titan Text G1<br>• Lite        | amazon.titan-text-lite-v1              | ap-south-1<br>ap-southeast-2<br>eu-west-1<br>eu-west-3<br>us-east-1<br>us-west-2 |
+| Anthropic | Claude 3 Haiku                 | anthropic.claude-3-haiku-20240307-v1:0 | ap-south-1<br>ap-southeast-2<br>eu-west-1<br>eu-west-2<br>us-east-1<br>us-west-2 |
 
 ###### Note
 

@@ -2,57 +2,39 @@
 
 evaluation
 
-This topic lists the AWS Regions and models that model evaluation is supported
-in.
+The following table shows the models that support model evaluation:
 
-Model evaluation is supported in the following Regions (for more information about Regions supported in Amazon Bedrock see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md")):
-
-- US East (N. Virginia)
-- US East (Ohio)
-- US West (Oregon)
-- AWS GovCloud (US-East)
-- AWS GovCloud (US-West)
-- Asia Pacific (Tokyo)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Sydney)
-- Canada (Central)
-- Europe (Frankfurt)
-- Europe (Zurich)
-- Europe (Ireland)
-- Europe (London)
-- Europe (Paris)
-- South America (São Paulo)
-  Model evaluation is supported for the following foundation models (to see which Regions support each model, refer to [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")):
-
-- AI21 Labs Jamba 1.5 Large
-- AI21 Labs Jamba 1.5 Mini
-- Amazon Nova Lite
-- Amazon Nova Micro
-- Amazon Nova Pro
-- Amazon Titan Text G1 - Express
-- Amazon Titan Text G1 - Lite
-- Anthropic Claude 3 Haiku
-- Anthropic Claude 3 Opus
-- Anthropic Claude 3 Sonnet
-- Anthropic Claude 3.5 Haiku
-- Anthropic Claude 3.5 Sonnet v2
-- Anthropic Claude 3.5 Sonnet
-- Anthropic Claude 3.7 Sonnet
-- Cohere Command R+
-- Cohere Command R
-- DeepSeek DeepSeek-R1
-- Meta Llama 3 70B Instruct
-- Meta Llama 3 8B Instruct
-- Meta Llama 3.1 405B Instruct
-- Meta Llama 3.1 70B Instruct
-- Meta Llama 3.1 8B Instruct
-- Meta Llama 3.2 11B Instruct
-- Meta Llama 3.2 1B Instruct
-- Meta Llama 3.2 3B Instruct
-- Meta Llama 3.2 90B Instruct
-- Meta Llama 3.3 70B Instruct
-- Mistral AI Mistral 7B Instruct
-- Mistral AI Mistral Large (24.02)
-- Mistral AI Mistral Large (24.07)
-- Mistral AI Mistral Small (24.02)
-- Mistral AI Mixtral 8x7B Instruct
+| Provider   | Model                      | Model ID                                  | Single-region model support                                                                                                                                                                   |
+| ---------- | -------------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AI21 Labs  | Jamba 1.5 Large            | ai21.jamba-1-5-large-v1:0                 | us-east-1                                                                                                                                                                                     |
+| AI21 Labs  | Jamba 1.5 Mini             | ai21.jamba-1-5-mini-v1:0                  | us-east-1                                                                                                                                                                                     |
+| Amazon     | Nova Lite                  | amazon.nova-lite-v1:0                     | ap-northeast-1<br>ap-southeast-2<br>eu-west-2<br>us-east-1<br>us-gov-west-1                                                                                                                   |
+| Amazon     | Nova Micro                 | amazon.nova-micro-v1:0                    | ap-southeast-2<br>eu-west-2<br>us-east-1<br>us-gov-west-1                                                                                                                                     |
+| Amazon     | Nova Pro                   | amazon.nova-pro-v1:0                      | ap-southeast-2<br>eu-west-2<br>us-east-1<br>us-gov-west-1                                                                                                                                     |
+| Amazon     | Titan Text G1<br>• Express | amazon.titan-text-express-v1              | ap-northeast-1<br>ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2<br>us-gov-west-1                 |
+| Amazon     | Titan Text G1<br>• Lite    | amazon.titan-text-lite-v1                 | ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2                                                    |
+| Anthropic  | Claude 3 Haiku             | anthropic.claude-3-haiku-20240307-v1:0    | ap-northeast-1<br>ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-central-1<br>eu-central-2<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2<br>us-gov-west-1 |
+| Anthropic  | Claude 3 Opus              | anthropic.claude-3-opus-20240229-v1:0     | us-west-2                                                                                                                                                                                     |
+| Anthropic  | Claude 3 Sonnet            | anthropic.claude-3-sonnet-20240229-v1:0   | ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2                                                    |
+| Anthropic  | Claude 3.5 Haiku           | anthropic.claude-3-5-haiku-20241022-v1:0  | us-west-2                                                                                                                                                                                     |
+| Anthropic  | Claude 3.5 Sonnet          | anthropic.claude-3-5-sonnet-20240620-v1:0 | ap-northeast-1<br>eu-central-1<br>eu-central-2<br>us-east-1<br>us-west-2<br>us-gov-west-1                                                                                                     |
+| Anthropic  | Claude 3.5 Sonnet v2       | anthropic.claude-3-5-sonnet-20241022-v2:0 | ap-southeast-2<br>us-west-2                                                                                                                                                                   |
+| Anthropic  | Claude 3.7 Sonnet          | anthropic.claude-3-7-sonnet-20250219-v1:0 | eu-west-2<br>us-gov-west-1                                                                                                                                                                    |
+| Cohere     | Command R                  | cohere.command-r-v1:0                     | us-east-1<br>us-west-2                                                                                                                                                                        |
+| Cohere     | Command R+                 | cohere.command-r-plus-v1:0                | us-east-1<br>us-west-2                                                                                                                                                                        |
+| DeepSeek   | DeepSeek-R1                | deepseek.r1-v1:0                          |                                                                                                                                                                                               |
+| Meta       | Llama 3 70B Instruct       | meta.llama3-70b-instruct-v1:0             | ap-south-1<br>ca-central-1<br>eu-west-2<br>us-east-1<br>us-west-2<br>us-gov-west-1                                                                                                            |
+| Meta       | Llama 3 8B Instruct        | meta.llama3-8b-instruct-v1:0              | ap-south-1<br>ca-central-1<br>eu-west-2<br>us-east-1<br>us-west-2<br>us-gov-west-1                                                                                                            |
+| Meta       | Llama 3.1 405B Instruct    | meta.llama3-1-405b-instruct-v1:0          | us-west-2                                                                                                                                                                                     |
+| Meta       | Llama 3.1 70B Instruct     | meta.llama3-1-70b-instruct-v1:0           | us-west-2                                                                                                                                                                                     |
+| Meta       | Llama 3.1 8B Instruct      | meta.llama3-1-8b-instruct-v1:0            | us-west-2                                                                                                                                                                                     |
+| Meta       | Llama 3.2 11B Instruct     | meta.llama3-2-11b-instruct-v1:0           |                                                                                                                                                                                               |
+| Meta       | Llama 3.2 1B Instruct      | meta.llama3-2-1b-instruct-v1:0            |                                                                                                                                                                                               |
+| Meta       | Llama 3.2 3B Instruct      | meta.llama3-2-3b-instruct-v1:0            |                                                                                                                                                                                               |
+| Meta       | Llama 3.2 90B Instruct     | meta.llama3-2-90b-instruct-v1:0           |                                                                                                                                                                                               |
+| Meta       | Llama 3.3 70B Instruct     | meta.llama3-3-70b-instruct-v1:0           | us-east-2                                                                                                                                                                                     |
+| Mistral AI | Mistral 7B Instruct        | mistral.mistral-7b-instruct-v0:2          | ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2                                                                    |
+| Mistral AI | Mistral Large (24.02)      | mistral.mistral-large-2402-v1:0           | ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2                                                                    |
+| Mistral AI | Mistral Large (24.07)      | mistral.mistral-large-2407-v1:0           | us-west-2                                                                                                                                                                                     |
+| Mistral AI | Mistral Small (24.02)      | mistral.mistral-small-2402-v1:0           | us-east-1                                                                                                                                                                                     |
+| Mistral AI | Mixtral 8x7B Instruct      | mistral.mixtral-8x7b-instruct-v0:1        | ap-south-1<br>ap-southeast-2<br>ca-central-1<br>eu-west-1<br>eu-west-2<br>eu-west-3<br>sa-east-1<br>us-east-1<br>us-west-2                                                                    |

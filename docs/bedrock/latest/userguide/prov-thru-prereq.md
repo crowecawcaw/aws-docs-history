@@ -40,7 +40,8 @@ Before you can purchase and manage Provisioned Throughput, you need to fulfill t
 
     ###### Note
 
-    If you're using Provisioned Throughput with cross-Region inference, you may need additional permissions. See [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md") to learn more.
+    If you're using Provisioned Throughput with cross-Region inference, you may need additional permissions. See [Increase throughput with cross-Region
+    inference](cross-region-inference.md "cross-region-inference.md") to learn more.
 
     (Optional) You can restrict the role's access in the following ways:
 

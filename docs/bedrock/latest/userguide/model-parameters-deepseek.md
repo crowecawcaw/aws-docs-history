@@ -68,7 +68,7 @@ DeepSeek has the following response parameters for a Text Completion inference c
   The response is truncated to `max_tokens`. Increase the value of `max_tokens` and try your request again.
   **Example Code**
 
-This example shows how to call the model.
+This example shows how to call the DeepSeek-R1 model.
 
 ```
 # Use the API to send a text message to DeepSeek-R1.

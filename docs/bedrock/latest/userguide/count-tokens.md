@@ -22,29 +22,16 @@ You can use the `CountTokens` API to do the following:
 
 ## Supported models and Regions for token counting
 
-Count tokens API is supported in the following Regions (for more information about Regions supported in Amazon Bedrock see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md")):
+The following table shows foundation model support for token counting:
 
-- US East (N. Virginia)
-- US East (Ohio)
-- US West (Oregon)
-- Asia Pacific (Tokyo)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Europe (Frankfurt)
-- Europe (Zurich)
-- Europe (Ireland)
-- Europe (London)
-- South America (São Paulo)
-
-Count tokens API is supported for the following foundation models (to see which Regions support each model, refer to [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")):
-
-- Anthropic Claude 3.5 Haiku
-- Anthropic Claude 3.5 Sonnet v2
-- Anthropic Claude 3.5 Sonnet
-- Anthropic Claude 3.7 Sonnet
-- Anthropic Claude Opus 4
-- Anthropic Claude Sonnet 4
+| Provider  | Model                | Model ID                                  | Single-region model support                                                                |
+| --------- | -------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Anthropic | Claude 3.5 Haiku     | anthropic.claude-3-5-haiku-20241022-v1:0  | us-west-2                                                                                  |
+| Anthropic | Claude 3.5 Sonnet    | anthropic.claude-3-5-sonnet-20240620-v1:0 | ap-northeast-1<br>ap-southeast-1<br>eu-central-1<br>eu-central-2<br>us-east-1<br>us-west-2 |
+| Anthropic | Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | ap-southeast-2<br>us-west-2                                                                |
+| Anthropic | Claude 3.7 Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 | eu-west-2                                                                                  |
+| Anthropic | Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     |                                                                                            |
+| Anthropic | Claude Sonnet 4      | anthropic.claude-sonnet-4-20250514-v1:0   |                                                                                            |
 
 ## Count tokens in a request
 

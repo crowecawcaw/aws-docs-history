@@ -43,9 +43,13 @@ For more information about pricing, visit the [pricing page](https://aws.amazon.
 Latency optimized inference for Llama 3.1 405B currently supports requests with total input and
 output token count up to 11K. For larger token count requests, we will fall back to the standard mode.
 
-| Provider  | Model                   | Regions supporting inference profile |
-| --------- | ----------------------- | ------------------------------------ |
-| Amazon    | Nova Pro                | us-east-1<br>us-east-2               |
-| Anthropic | Claude 3.5 Haiku        | us-east-2<br>us-west-2               |
-| Meta      | Llama 3.1 405B Instruct | us-east-2                            |
-| Meta      | Llama 3.1 70B Instruct  | us-east-2<br>us-west-2               |
+The following table shows the inference profiles that support latency optimization:
+
+| Provider  | Model                   | Model ID                                 | Cross-region inference profile support |
+| --------- | ----------------------- | ---------------------------------------- | -------------------------------------- |
+| Amazon    | Nova Pro                | amazon.nova-pro-v1:0                     | us-east-1<br>us-east-2                 |
+| Anthropic | Claude 3.5 Haiku        | anthropic.claude-3-5-haiku-20241022-v1:0 | us-east-2<br>us-west-2                 |
+| Meta      | Llama 3.1 405B Instruct | meta.llama3-1-405b-instruct-v1:0         | us-east-2                              |
+| Meta      | Llama 3.1 70B Instruct  | meta.llama3-1-70b-instruct-v1:0          | us-east-2<br>us-west-2                 |
+
+For more information about inference profiles, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md").

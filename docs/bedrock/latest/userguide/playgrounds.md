@@ -27,7 +27,8 @@ Speech-to-speech models such as Amazon Nova Sonic are only available in chat mod
     **Playgrounds**, choose **Chat/text** or
     **Image**.
 4.  If you're in the **Chat/text** playground, select a **Mode**.
-5.  Choose **Select model** and select a provider, model, and throughput to use. For more information about increasing throughput, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md") and [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md").
+5.  Choose **Select model** and select a provider, model, and throughput to use. For more information about increasing throughput, see [Increase throughput with cross-Region
+    inference](cross-region-inference.md "cross-region-inference.md") and [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md").
 6.  Submit the following information to generate a response:
     - Prompt – One or more sentences of text that set up a scenario, question, or
       task for a model. For information about creating prompts, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").

@@ -13,16 +13,6 @@ This section provides detailed information about the common errors you might enc
 - Verify that your IAM user or role has the necessary permissions for the action you are attempting.
 - If you are using temporary security credentials, ensure they haven't expired.
 
-## BadCScoreException
-
-**HTTP Status Code:** 403
-
-**Cause:** Your account is not authorized to access this model
-
-**Solution:**
-
-- Contact AWS Support for further details
-
 ## FTUFormNotFilled
 
 **HTTP Status Code:** 404

@@ -9,4 +9,5 @@ security](custom-model-job-access-security.md "custom-model-job-access-security.
 
 To use a cross-region inference profile for a teacher model in a Distillation job, your service role must
 have permissions to invoke the inference profile in an AWS Region, in addition to the model in each Region
-in the inference profile. For a policy example, see [(Optional) Permissions to create a Distillation job with a cross-region inference profile](custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions "custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions"). For more information about cross-region inference, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
+in the inference profile. For a policy example, see [(Optional) Permissions to create a Distillation job with a cross-region inference profile](custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions "custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions"). For more information about cross-region inference, see [Increase throughput with cross-Region
+inference](cross-region-inference.md "cross-region-inference.md").

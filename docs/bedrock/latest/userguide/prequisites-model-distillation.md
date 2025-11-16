@@ -8,7 +8,8 @@ Choose a teacher model that's significantly larger and more capable than the stu
 whose accuracy you want to achieve for your use case. To make distillation more effective, choose a
 model that's already trained on tasks similar to your use case.
 
-For some teacher models, you can choose a Cross-Region inference profile ([Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md")).
+For some teacher models, you can choose a Cross-Region inference profile ([Increase throughput with cross-Region
+inference](cross-region-inference.md "cross-region-inference.md")).
 Cross-Region inference automatically selects the optimal AWS Region
 within your geography to process your inference request. This improves customer experience by
 maximizing available resources and model availability. To use a Cross-Region inference profile, your service role must
@@ -27,7 +28,8 @@ distillation](distillation-prepare-datasets.md "distillation-prepare-datasets.md
 
 The following table shows which models and AWS Regions Amazon Bedrock Model Distillation supports for teacher and student
 models. If you use a Cross Region Inference Profile, only System Inference Profiles are supported for model distillation.
-For more information, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
+For more information, see [Increase throughput with cross-Region
+inference](cross-region-inference.md "cross-region-inference.md").
 
 | Provider      | Teacher                                   | Teacher ID                                | Inference profile support            | Student                                                                                                   | Student ID                                                                                                                                     | Region                |
 | ------------- | ----------------------------------------- | ----------------------------------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |

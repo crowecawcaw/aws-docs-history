@@ -58,33 +58,35 @@ To call the Global Anthropic Claude Haiku 4.5 inference profile, specify the fol
 global.anthropic.claude-haiku-4-5-20251001-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                      |
+| Source Regions | Destination Regions                      |
 | -------------- | ---------------------------------------- |
-| us-west-2      | us-west-2<br>Commercial AWS Regions      |
-| us-west-1      | us-west-1<br>Commercial AWS Regions      |
-| us-east-2      | us-east-2<br>Commercial AWS Regions      |
-| us-east-1      | us-east-1<br>Commercial AWS Regions      |
-| sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
-| eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
-| eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
-| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
-| eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
-| eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
-| eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
-| eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
-| eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
-| ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
-| ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
-| ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
-| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
-| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
-| ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
-| ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
-| ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
-| ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
+| ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
+| ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
+| ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
+| ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
+| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
+| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
+| ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
+| ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
+| ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
+| eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
+| eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
+| eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
+| eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
+| eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
+| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
+| eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
+| eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
+| us-east-1      | us-east-1<br>Commercial AWS Regions      |
+| us-east-2      | us-east-2<br>Commercial AWS Regions      |
+| us-west-1      | us-west-1<br>Commercial AWS Regions      |
+| us-west-2      | us-west-2<br>Commercial AWS Regions      |
 
 To call the Global Claude Sonnet 4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -92,15 +94,17 @@ To call the Global Claude Sonnet 4 inference profile, specify the following infe
 global.anthropic.claude-sonnet-4-20250514-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                      |
+| Source Regions | Destination Regions                      |
 | -------------- | ---------------------------------------- |
-| us-west-2      | us-west-2<br>Commercial AWS Regions      |
-| us-east-2      | us-east-2<br>Commercial AWS Regions      |
-| us-east-1      | us-east-1<br>Commercial AWS Regions      |
-| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
+| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
+| us-east-1      | us-east-1<br>Commercial AWS Regions      |
+| us-east-2      | us-east-2<br>Commercial AWS Regions      |
+| us-west-2      | us-west-2<br>Commercial AWS Regions      |
 
 To call the Global Claude Sonnet 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -108,33 +112,35 @@ To call the Global Claude Sonnet 4.5 inference profile, specify the following in
 global.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                      |
+| Source Regions | Destination Regions                      |
 | -------------- | ---------------------------------------- |
-| us-west-2      | us-west-2<br>Commercial AWS Regions      |
-| us-west-1      | us-west-1<br>Commercial AWS Regions      |
-| us-east-2      | us-east-2<br>Commercial AWS Regions      |
-| us-east-1      | us-east-1<br>Commercial AWS Regions      |
-| sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
-| eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
-| eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
-| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
-| eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
-| eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
-| eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
-| eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
-| eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
-| ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
-| ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
-| ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
-| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
-| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
-| ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
-| ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
-| ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
-| ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
+| ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
+| ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
+| ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
+| ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
+| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
+| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
+| ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
+| ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
+| ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
+| eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
+| eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
+| eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
+| eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
+| eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
+| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
+| eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
+| eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
+| us-east-1      | us-east-1<br>Commercial AWS Regions      |
+| us-east-2      | us-east-2<br>Commercial AWS Regions      |
+| us-west-1      | us-west-1<br>Commercial AWS Regions      |
+| us-west-2      | us-west-2<br>Commercial AWS Regions      |
 
 To call the Global Cohere Embed v4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -142,147 +148,35 @@ To call the Global Cohere Embed v4 inference profile, specify the following infe
 global.cohere.embed-v4:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-embed.md "model-parameters-embed.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                      |
+| Source Regions | Destination Regions                      |
 | -------------- | ---------------------------------------- |
-| us-west-2      | us-west-2<br>Commercial AWS Regions      |
-| us-west-1      | us-west-1<br>Commercial AWS Regions      |
-| us-east-2      | us-east-2<br>Commercial AWS Regions      |
-| us-east-1      | us-east-1<br>Commercial AWS Regions      |
-| sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
-| eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
-| eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
-| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
-| eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
-| eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
-| eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
-| eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
-| eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
-| ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
-| ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
-| ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
-| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
-| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
-| ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
-| ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
-| ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
-| ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
-
-To call the US Nova Lite inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.amazon.nova-lite-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
-
-To call the US Nova Micro inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.amazon.nova-micro-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Nova Premier inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.amazon.nova-premier-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Nova Pro inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.amazon.nova-pro-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
-
-To call the US Anthropic Claude 3.5 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.anthropic.claude-3-5-haiku-20241022-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Anthropic Claude 3.5 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.anthropic.claude-3-5-sonnet-20240620-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions    |
-| ------------- | ---------------------- |
-| us-west-2     | us-east-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-west-2 |
-
-To call the US Anthropic Claude 3.5 Sonnet v2 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.anthropic.claude-3-5-sonnet-20241022-v2:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Anthropic Claude 3.7 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.anthropic.claude-3-7-sonnet-20250219-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
+| ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
+| ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
+| ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
+| ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
+| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
+| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
+| ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
+| ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
+| ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
+| eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
+| eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
+| eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
+| eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
+| eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
+| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
+| eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
+| eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
+| us-east-1      | us-east-1<br>Commercial AWS Regions      |
+| us-east-2      | us-east-2<br>Commercial AWS Regions      |
+| us-west-1      | us-west-1<br>Commercial AWS Regions      |
+| us-west-2      | us-west-2<br>Commercial AWS Regions      |
 
 To call the US Anthropic Claude 3 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -290,13 +184,15 @@ To call the US Anthropic Claude 3 Haiku inference profile, specify the following
 us.anthropic.claude-3-haiku-20240307-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-west-2              |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-west-2              |
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-west-2              |
 
 To call the US Anthropic Claude 3 Opus inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -304,12 +200,14 @@ To call the US Anthropic Claude 3 Opus inference profile, specify the following 
 us.anthropic.claude-3-opus-20240229-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions    |
-| ------------- | ---------------------- |
-| us-west-2     | us-east-1<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-west-2 |
+| Source Regions | Destination Regions    |
+| -------------- | ---------------------- |
+| us-east-1      | us-east-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-west-2 |
 
 To call the US Anthropic Claude 3 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -317,12 +215,78 @@ To call the US Anthropic Claude 3 Sonnet inference profile, specify the followin
 us.anthropic.claude-3-sonnet-20240229-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions    |
-| ------------- | ---------------------- |
-| us-west-2     | us-east-1<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-west-2 |
+| Source Regions | Destination Regions    |
+| -------------- | ---------------------- |
+| us-east-1      | us-east-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-west-2 |
+
+To call the US Anthropic Claude 3.5 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-3-5-haiku-20241022-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Anthropic Claude 3.5 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-3-5-sonnet-20240620-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions    |
+| -------------- | ---------------------- |
+| us-east-1      | us-east-1<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-west-2 |
+
+To call the US Anthropic Claude 3.5 Sonnet v2 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-3-5-sonnet-20241022-v2:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Anthropic Claude 3.7 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-3-7-sonnet-20250219-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
 
 To call the US Anthropic Claude Haiku 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -330,57 +294,17 @@ To call the US Anthropic Claude Haiku 4.5 inference profile, specify the followi
 us.anthropic.claude-haiku-4-5-20251001-v1:0
 ```
 
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
-
-To call the US Claude Opus 4.1 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.anthropic.claude-opus-4-1-20250805-v1:0
-```
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Claude Opus 4 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.anthropic.claude-opus-4-20250514-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Claude Sonnet 4 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.anthropic.claude-sonnet-4-20250514-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
+| Source Regions | Destination Regions                                 |
+| -------------- | --------------------------------------------------- |
+| ca-central-1   | us-east-1<br>us-east-2<br>us-west-2<br>ca-central-1 |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2                 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2                 |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2    |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2                 |
 
 To call the US Anthropic Claude Sonnet 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -388,14 +312,66 @@ To call the US Anthropic Claude Sonnet 4.5 inference profile, specify the follow
 us.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
+| Source Regions | Destination Regions                                 |
+| -------------- | --------------------------------------------------- |
+| ca-central-1   | us-east-1<br>us-east-2<br>us-west-2<br>ca-central-1 |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2                 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2                 |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2    |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2                 |
+
+To call the US Claude Opus 4 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-opus-4-20250514-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Claude Opus 4.1 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-opus-4-1-20250805-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Claude Sonnet 4 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-sonnet-4-20250514-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
 
 To call the US Cohere Embed v4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -403,14 +379,16 @@ To call the US Cohere Embed v4 inference profile, specify the following inferenc
 us.cohere.embed-v4:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-embed.md "model-parameters-embed.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
 
 To call the US DeepSeek-R1 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -418,123 +396,15 @@ To call the US DeepSeek-R1 inference profile, specify the following inference pr
 us.deepseek.r1-v1:0
 ```
 
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Meta Llama 3.1 Instruct 405B inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.meta.llama3-1-405b-instruct-v1:0
-```
+For more information about inference profile parameters, see [Link](https://www.deepseek.com/ "https://www.deepseek.com/").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Meta Llama 3.1 70B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.meta.llama3-1-70b-instruct-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Meta Llama 3.1 8B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.meta.llama3-1-8b-instruct-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Meta Llama 3.2 11B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.meta.llama3-2-11b-instruct-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-west-2              |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-west-2              |
-
-To call the US Meta Llama 3.2 1B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.meta.llama3-2-1b-instruct-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-west-2              |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-west-2              |
-
-To call the US Meta Llama 3.2 3B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.meta.llama3-2-3b-instruct-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-west-2              |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-west-2              |
-
-To call the US Meta Llama 3.2 90B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.meta.llama3-2-90b-instruct-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-west-2              |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-west-2              |
-
-To call the US Meta Llama 3.3 70B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.meta.llama3-3-70b-instruct-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
 
 To call the US Llama 4 Maverick 17B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -542,14 +412,16 @@ To call the US Llama 4 Maverick 17B Instruct inference profile, specify the foll
 us.meta.llama4-maverick-17b-instruct-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
 
 To call the US Llama 4 Scout 17B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -557,14 +429,142 @@ To call the US Llama 4 Scout 17B Instruct inference profile, specify the followi
 us.meta.llama4-scout-17b-instruct-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
+
+To call the US Meta Llama 3.1 70B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.meta.llama3-1-70b-instruct-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Meta Llama 3.1 8B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.meta.llama3-1-8b-instruct-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Meta Llama 3.1 Instruct 405B inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.meta.llama3-1-405b-instruct-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Meta Llama 3.2 11B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.meta.llama3-2-11b-instruct-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-west-2              |
+
+To call the US Meta Llama 3.2 1B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.meta.llama3-2-1b-instruct-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-west-2              |
+
+To call the US Meta Llama 3.2 3B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.meta.llama3-2-3b-instruct-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-west-2              |
+
+To call the US Meta Llama 3.2 90B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.meta.llama3-2-90b-instruct-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-west-2              |
+
+To call the US Meta Llama 3.3 70B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.meta.llama3-3-70b-instruct-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
 
 To call the US Mistral Pixtral Large 25.02 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -572,234 +572,81 @@ To call the US Mistral Pixtral Large 25.02 inference profile, specify the follow
 us.mistral.pixtral-large-2502-v1:0
 ```
 
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Conservative Upscale inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-conservative-upscale-v1:0
-```
+For more information about inference profile parameters, see [Link](model-parameters-mistral.md "model-parameters-mistral.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
 
-To call the US Stable Image Creative Upscale inference profile, specify the following inference profile ID in one of the source Regions:
+To call the US Nova Lite inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-us.stability.stable-creative-upscale-v1:0
+us.amazon.nova-lite-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
 
-To call the US Stable Image Fast Upscale inference profile, specify the following inference profile ID in one of the source Regions:
+To call the US Nova Micro inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-us.stability.stable-fast-upscale-v1:0
+us.amazon.nova-micro-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
 
-To call the US Stable Image Control Sketch inference profile, specify the following inference profile ID in one of the source Regions:
+To call the US Nova Premier inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-us.stability.stable-image-control-sketch-v1:0
+us.amazon.nova-premier-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
 
-To call the US Stable Image Control Structure inference profile, specify the following inference profile ID in one of the source Regions:
+To call the US Nova Pro inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-us.stability.stable-image-control-structure-v1:0
+us.amazon.nova-pro-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Erase Object inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-image-erase-object-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Inpaint inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-image-inpaint-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Remove Background inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-image-remove-background-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Search and Recolor inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-image-search-recolor-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Search and Replace inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-image-search-replace-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Style Guide inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-image-style-guide-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Outpaint inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-outpaint-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US Stable Image Style Transfer inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.stability.stable-style-transfer-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2 |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US TwelveLabs Marengo Embed v2.7 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.twelvelabs.marengo-embed-2-7-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-
-To call the US TwelveLabs Marengo Embed 3.0 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.twelvelabs.marengo-embed-3-0-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US TwelveLabs Pegasus v1.2 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us.twelvelabs.pegasus-1-2-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                              |
-| ------------- | ------------------------------------------------ |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
-| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
-| us-east-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
 
 To call the US Palmyra X4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -807,11 +654,13 @@ To call the US Palmyra X4 inference profile, specify the following inference pro
 us.writer.palmyra-x4-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-writer-palmyra.md "model-parameters-writer-palmyra.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
 
 To call the US Palmyra X5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -819,35 +668,266 @@ To call the US Palmyra X5 inference profile, specify the following inference pro
 us.writer.palmyra-x5-v1:0
 ```
 
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                 |
-| ------------- | ----------------------------------- |
-| us-west-2     | us-east-1<br>us-east-2<br>us-west-2 |
-
-To call the US-GOV Claude 3.5 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-us-gov.anthropic.claude-3-5-sonnet-20240620-v1:0
-```
+For more information about inference profile parameters, see [Link](model-parameters-writer-palmyra.md "model-parameters-writer-palmyra.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions            |
-| ------------- | ------------------------------ |
-| us-gov-east-1 | us-gov-east-1<br>us-gov-west-1 |
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
 
-To call the US-GOV Claude 3.7 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
+To call the US Pegasus v1.2 inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-us-gov.anthropic.claude-3-7-sonnet-20250219-v1:0
+us.twelvelabs.pegasus-1-2-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](model-parameters-pegasus.md "model-parameters-pegasus.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions            |
-| ------------- | ------------------------------ |
-| us-gov-east-1 | us-gov-east-1<br>us-gov-west-1 |
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2              |
+
+To call the US Stable Image Conservative Upscale inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-conservative-upscale-v1:0
+```
+
+For more information about inference profile parameters, see [Link](stable-image-services.md "stable-image-services.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Control Sketch inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-image-control-sketch-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Control Structure inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-image-control-structure-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Creative Upscale inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-creative-upscale-v1:0
+```
+
+For more information about inference profile parameters, see [Link](stable-image-services.md "stable-image-services.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Erase Object inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-image-erase-object-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Fast Upscale inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-fast-upscale-v1:0
+```
+
+For more information about inference profile parameters, see [Link](stable-image-services.md "stable-image-services.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Inpaint inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-image-inpaint-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Outpaint inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-outpaint-v1:0
+```
+
+For more information about inference profile parameters, see [Link](stable-image-services.md "stable-image-services.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Remove Background inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-image-remove-background-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Search and Recolor inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-image-search-recolor-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Search and Replace inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-image-search-replace-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Style Guide inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-image-style-guide-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US Stable Image Style Transfer inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.stability.stable-style-transfer-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2 |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US TwelveLabs Marengo Embed 3.0 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.twelvelabs.marengo-embed-3-0-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-marengo.md "model-parameters-marengo.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                 |
+| -------------- | ----------------------------------- |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2 |
+
+To call the US TwelveLabs Marengo Embed v2.7 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.twelvelabs.marengo-embed-2-7-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-marengo.md "model-parameters-marengo.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                              |
+| -------------- | ------------------------------------------------ |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
 
 To call the US-GOV Claude 3 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -855,128 +935,41 @@ To call the US-GOV Claude 3 Haiku inference profile, specify the following infer
 us-gov.anthropic.claude-3-haiku-20240307-v1:0
 ```
 
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions            |
-| ------------- | ------------------------------ |
-| us-gov-east-1 | us-gov-east-1<br>us-gov-west-1 |
-
-To call the APAC Nova Lite inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-apac.amazon.nova-lite-v1:0
-```
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                                                                                                      |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| me-central-1   | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>me-central-1   |
-| ap-southeast-7 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7 |
-| ap-southeast-5 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5 |
-| ap-southeast-4 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-southeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4                   |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-east-2      | ap-east-2<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4      |
+| Source Regions | Destination Regions            |
+| -------------- | ------------------------------ |
+| us-gov-east-1  | us-gov-east-1<br>us-gov-west-1 |
 
-To call the APAC Nova Micro inference profile, specify the following inference profile ID in one of the source Regions:
+To call the US-GOV Claude 3.5 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-apac.amazon.nova-micro-v1:0
+us-gov.anthropic.claude-3-5-sonnet-20240620-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                                                                                                      |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| me-central-1   | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>me-central-1   |
-| ap-southeast-7 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7 |
-| ap-southeast-5 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5 |
-| ap-southeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4                   |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-east-2      | ap-east-2<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4      |
+| Source Regions | Destination Regions            |
+| -------------- | ------------------------------ |
+| us-gov-east-1  | us-gov-east-1<br>us-gov-west-1 |
 
-To call the APAC Nova Pro inference profile, specify the following inference profile ID in one of the source Regions:
+To call the US-GOV Claude 3.7 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-apac.amazon.nova-pro-v1:0
+us-gov.anthropic.claude-3-7-sonnet-20250219-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                                                                                                      |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| me-central-1   | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>me-central-1   |
-| ap-southeast-7 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7 |
-| ap-southeast-5 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5 |
-| ap-southeast-4 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-southeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4                   |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
-| ap-east-2      | ap-east-2<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4      |
-
-To call the APAC Anthropic Claude 3.5 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-apac.anthropic.claude-3-5-sonnet-20240620-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region  | Destination Regions                                                                |
-| -------------- | ---------------------------------------------------------------------------------- |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-
-To call the APAC Anthropic Claude 3.5 Sonnet v2 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-apac.anthropic.claude-3-5-sonnet-20241022-v2:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region  | Destination Regions                                                                                                |
-| -------------- | ------------------------------------------------------------------------------------------------------------------ |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
-| ap-south-2     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
-| ap-northeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
-| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
-
-To call the APAC Anthropic Claude 3.7 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-apac.anthropic.claude-3-7-sonnet-20250219-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region  | Destination Regions                                                                                                |
-| -------------- | ------------------------------------------------------------------------------------------------------------------ |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-south-2     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-northeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
+| Source Regions | Destination Regions            |
+| -------------- | ------------------------------ |
+| us-gov-east-1  | us-gov-east-1<br>us-gov-west-1 |
 
 To call the APAC Anthropic Claude 3 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -984,15 +977,17 @@ To call the APAC Anthropic Claude 3 Haiku inference profile, specify the followi
 apac.anthropic.claude-3-haiku-20240307-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                |
+| Source Regions | Destination Regions                                                                |
 | -------------- | ---------------------------------------------------------------------------------- |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
 | ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
 
 To call the APAC Anthropic Claude 3 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1000,15 +995,75 @@ To call the APAC Anthropic Claude 3 Sonnet inference profile, specify the follow
 apac.anthropic.claude-3-sonnet-20240229-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                |
+| Source Regions | Destination Regions                                                                |
 | -------------- | ---------------------------------------------------------------------------------- |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
 | ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+
+To call the APAC Anthropic Claude 3.5 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+apac.anthropic.claude-3-5-sonnet-20240620-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                |
+| -------------- | ---------------------------------------------------------------------------------- |
+| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2 |
+
+To call the APAC Anthropic Claude 3.5 Sonnet v2 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+apac.anthropic.claude-3-5-sonnet-20241022-v2:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
+| ap-northeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
+| ap-south-2     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2               |
+
+To call the APAC Anthropic Claude 3.7 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+apac.anthropic.claude-3-7-sonnet-20250219-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-northeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-south-2     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2 |
 
 To call the APAC Claude Sonnet 4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1016,35 +1071,96 @@ To call the APAC Claude Sonnet 4 inference profile, specify the following infere
 apac.anthropic.claude-sonnet-4-20250514-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                                                                                                      |
+| Source Regions | Destination Regions                                                                                                                                                      |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| me-central-1   | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>me-central-1   |
-| ap-southeast-7 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7 |
-| ap-southeast-5 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5 |
-| ap-southeast-4 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-southeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4                   |
-| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-south-2     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-northeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
-| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
 | ap-east-2      | ap-east-2<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4      |
+| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-northeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-south-2     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-southeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4                   |
+| ap-southeast-4 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-southeast-5 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5 |
+| ap-southeast-7 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7 |
+| me-central-1   | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>me-central-1   |
 
-To call the APAC TwelveLabs Marengo Embed v2.7 inference profile, specify the following inference profile ID in one of the source Regions:
+To call the APAC Nova Lite inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-apac.twelvelabs.marengo-embed-2-7-v1:0
+apac.amazon.nova-lite-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                                                                                    |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4 |
+| Source Regions | Destination Regions                                                                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ap-east-2      | ap-east-2<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4      |
+| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4                   |
+| ap-southeast-4 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-southeast-5 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5 |
+| ap-southeast-7 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7 |
+| me-central-1   | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>me-central-1   |
+
+To call the APAC Nova Micro inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+apac.amazon.nova-micro-v1:0
+```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ap-east-2      | ap-east-2<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4      |
+| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4                   |
+| ap-southeast-5 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5 |
+| ap-southeast-7 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7 |
+| me-central-1   | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>me-central-1   |
+
+To call the APAC Nova Pro inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+apac.amazon.nova-pro-v1:0
+```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ap-east-2      | ap-east-2<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4      |
+| ap-northeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-south-1     | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-1 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-southeast-1<br>ap-southeast-2                                                                     |
+| ap-southeast-3 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4                   |
+| ap-southeast-4 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4                                     |
+| ap-southeast-5 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5 |
+| ap-southeast-7 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7 |
+| me-central-1   | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>me-central-1   |
 
 To call the APAC Pegasus v1.2 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1052,24 +1168,27 @@ To call the APAC Pegasus v1.2 inference profile, specify the following inference
 apac.twelvelabs.pegasus-1-2-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-pegasus.md "model-parameters-pegasus.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                                                                  |
+| Source Regions | Destination Regions                                                                                                                  |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4 |
 
-To call the AU Anthropic Claude Haiku 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
+To call the APAC TwelveLabs Marengo Embed v2.7 inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
-au.anthropic.claude-haiku-4-5-20251001-v1:0
+apac.twelvelabs.marengo-embed-2-7-v1:0
 ```
+
+For more information about inference profile parameters, see [Link](model-parameters-marengo.md "model-parameters-marengo.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions              |
-| -------------- | -------------------------------- |
-| ap-southeast-4 | ap-southeast-2<br>ap-southeast-4 |
-| ap-southeast-2 | ap-southeast-2<br>ap-southeast-4 |
+| Source Regions | Destination Regions                                                                                                                                    |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ap-northeast-2 | ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4 |
 
 To call the AU AU Anthropic Claude Sonnet 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1077,12 +1196,29 @@ To call the AU AU Anthropic Claude Sonnet 4.5 inference profile, specify the fol
 au.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions              |
+| Source Regions | Destination Regions              |
 | -------------- | -------------------------------- |
-| ap-southeast-4 | ap-southeast-2<br>ap-southeast-4 |
 | ap-southeast-2 | ap-southeast-2<br>ap-southeast-4 |
+| ap-southeast-4 | ap-southeast-2<br>ap-southeast-4 |
+
+To call the AU Anthropic Claude Haiku 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+au.anthropic.claude-haiku-4-5-20251001-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions              |
+| -------------- | -------------------------------- |
+| ap-southeast-2 | ap-southeast-2<br>ap-southeast-4 |
+| ap-southeast-4 | ap-southeast-2<br>ap-southeast-4 |
 
 To call the CA Nova Lite inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1090,94 +1226,13 @@ To call the CA Nova Lite inference profile, specify the following inference prof
 ca.amazon.nova-lite-v1:0
 ```
 
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions       |
-| ------------- | ------------------------- |
-| ca-central-1  | ca-central-1<br>ca-west-1 |
-
-To call the EU Nova Lite inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-eu.amazon.nova-lite-v1:0
-```
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                                                                |
-| ------------- | ---------------------------------------------------------------------------------- |
-| il-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3<br>il-central-1 |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-south-2    | eu-central-1<br>eu-north-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3                 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-
-To call the EU Nova Micro inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-eu.amazon.nova-micro-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                                                                |
-| ------------- | ---------------------------------------------------------------------------------- |
-| il-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3<br>il-central-1 |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-south-2    | eu-central-1<br>eu-north-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3                 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-
-To call the EU Nova Pro inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-eu.amazon.nova-pro-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                                                                |
-| ------------- | ---------------------------------------------------------------------------------- |
-| il-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3<br>il-central-1 |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-south-2    | eu-central-1<br>eu-north-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3                 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
-
-To call the EU Anthropic Claude 3.5 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-eu.anthropic.claude-3-5-sonnet-20240620-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                    |
-| ------------- | -------------------------------------- |
-| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3 |
-
-To call the EU Anthropic Claude 3.7 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-eu.anthropic.claude-3-7-sonnet-20250219-v1:0
-```
-
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                                  |
-| ------------- | ---------------------------------------------------- |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions       |
+| -------------- | ------------------------- |
+| ca-central-1   | ca-central-1<br>ca-west-1 |
 
 To call the EU Anthropic Claude 3 Haiku inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1185,13 +1240,15 @@ To call the EU Anthropic Claude 3 Haiku inference profile, specify the following
 eu.anthropic.claude-3-haiku-20240307-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                    |
-| ------------- | -------------------------------------- |
-| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions                    |
+| -------------- | -------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-3      | eu-central-1<br>eu-west-1<br>eu-west-3 |
 
 To call the EU Anthropic Claude 3 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1199,13 +1256,48 @@ To call the EU Anthropic Claude 3 Sonnet inference profile, specify the followin
 eu.anthropic.claude-3-sonnet-20240229-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                    |
-| ------------- | -------------------------------------- |
-| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions                    |
+| -------------- | -------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-3      | eu-central-1<br>eu-west-1<br>eu-west-3 |
+
+To call the EU Anthropic Claude 3.5 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.anthropic.claude-3-5-sonnet-20240620-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                    |
+| -------------- | -------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-3      | eu-central-1<br>eu-west-1<br>eu-west-3 |
+
+To call the EU Anthropic Claude 3.7 Sonnet inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.anthropic.claude-3-7-sonnet-20250219-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                  |
+| -------------- | ---------------------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
 
 To call the EU Anthropic Claude Haiku 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1213,36 +1305,20 @@ To call the EU Anthropic Claude Haiku 4.5 inference profile, specify the followi
 eu.anthropic.claude-haiku-4-5-20251001-v1:0
 ```
 
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------ |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-west-2     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-2<br>eu-west-3    |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-2    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-central-2  | eu-central-1<br>eu-central-2<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-
-To call the EU Claude Sonnet 4 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-eu.anthropic.claude-sonnet-4-20250514-v1:0
-```
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------ |
-| il-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3<br>il-central-1 |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-2    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| Source Regions | Destination Regions                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-central-2   | eu-central-1<br>eu-central-2<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-2      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-2<br>eu-west-3    |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
 
 To call the EU Anthropic Claude Sonnet 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1250,18 +1326,40 @@ To call the EU Anthropic Claude Sonnet 4.5 inference profile, specify the follow
 eu.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------ |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-west-2     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-2<br>eu-west-3    |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-2    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-south-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
-| eu-central-2  | eu-central-1<br>eu-central-2<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| Source Regions | Destination Regions                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-central-2   | eu-central-1<br>eu-central-2<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-2      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-2<br>eu-west-3    |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+
+To call the EU Claude Sonnet 4 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.anthropic.claude-sonnet-4-20250514-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| il-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3<br>il-central-1 |
 
 To call the EU Cohere Embed v4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1269,16 +1367,18 @@ To call the EU Cohere Embed v4 inference profile, specify the following inferenc
 eu.cohere.embed-v4:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-embed.md "model-parameters-embed.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                                                              |
-| ------------- | -------------------------------------------------------------------------------- |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
-| eu-south-2    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
-| eu-south-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions                                                              |
+| -------------- | -------------------------------------------------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
 
 To call the EU Meta Llama 3.2 1B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1286,13 +1386,15 @@ To call the EU Meta Llama 3.2 1B Instruct inference profile, specify the followi
 eu.meta.llama3-2-1b-instruct-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                    |
-| ------------- | -------------------------------------- |
-| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions                    |
+| -------------- | -------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-3      | eu-central-1<br>eu-west-1<br>eu-west-3 |
 
 To call the EU Meta Llama 3.2 3B Instruct inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1300,13 +1402,15 @@ To call the EU Meta Llama 3.2 3B Instruct inference profile, specify the followi
 eu.meta.llama3-2-3b-instruct-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-meta.md "model-parameters-meta.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                    |
-| ------------- | -------------------------------------- |
-| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions                    |
+| -------------- | -------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-3      | eu-central-1<br>eu-west-1<br>eu-west-3 |
 
 To call the EU Mistral Pixtral Large 25.02 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1314,26 +1418,76 @@ To call the EU Mistral Pixtral Large 25.02 inference profile, specify the follow
 eu.mistral.pixtral-large-2502-v1:0
 ```
 
-The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
-
-| Source Region | Destination Regions                                  |
-| ------------- | ---------------------------------------------------- |
-| eu-west-3     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
-| eu-north-1    | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
-
-To call the EU TwelveLabs Marengo Embed v2.7 inference profile, specify the following inference profile ID in one of the source Regions:
-
-```
-eu.twelvelabs.marengo-embed-2-7-v1:0
-```
+For more information about inference profile parameters, see [Link](model-parameters-mistral.md "model-parameters-mistral.md").
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                                                              |
-| ------------- | -------------------------------------------------------------------------------- |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions                                  |
+| -------------- | ---------------------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3 |
+
+To call the EU Nova Lite inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.amazon.nova-lite-v1:0
+```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                |
+| -------------- | ---------------------------------------------------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3                 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| il-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3<br>il-central-1 |
+
+To call the EU Nova Micro inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.amazon.nova-micro-v1:0
+```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                |
+| -------------- | ---------------------------------------------------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3                 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| il-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3<br>il-central-1 |
+
+To call the EU Nova Pro inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.amazon.nova-pro-v1:0
+```
+
+For more information about inference profile parameters, see [Link](../../../nova/latest/userguide/getting-started-schema.md "../../../nova/latest/userguide/getting-started-schema.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                |
+| -------------- | ---------------------------------------------------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3                 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-west-1<br>eu-west-3                               |
+| il-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3<br>il-central-1 |
 
 To call the EU TwelveLabs Marengo Embed 3.0 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1341,11 +1495,27 @@ To call the EU TwelveLabs Marengo Embed 3.0 inference profile, specify the follo
 eu.twelvelabs.marengo-embed-3-0-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-marengo.md "model-parameters-marengo.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                                                              |
-| ------------- | -------------------------------------------------------------------------------- |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions                                                              |
+| -------------- | -------------------------------------------------------------------------------- |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+
+To call the EU TwelveLabs Marengo Embed v2.7 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.twelvelabs.marengo-embed-2-7-v1:0
+```
+
+For more information about inference profile parameters, see [Link](model-parameters-marengo.md "model-parameters-marengo.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                              |
+| -------------- | -------------------------------------------------------------------------------- |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
 
 To call the EU TwelveLabs Pegasus v1.2 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1353,12 +1523,14 @@ To call the EU TwelveLabs Pegasus v1.2 inference profile, specify the following 
 eu.twelvelabs.pegasus-1-2-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-pegasus.md "model-parameters-pegasus.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region | Destination Regions                                                              |
-| ------------- | -------------------------------------------------------------------------------- |
-| eu-west-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
-| eu-central-1  | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| Source Regions | Destination Regions                                                              |
+| -------------- | -------------------------------------------------------------------------------- |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
 
 To call the JP Anthropic Claude Haiku 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1366,12 +1538,14 @@ To call the JP Anthropic Claude Haiku 4.5 inference profile, specify the followi
 jp.anthropic.claude-haiku-4-5-20251001-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions              |
+| Source Regions | Destination Regions              |
 | -------------- | -------------------------------- |
-| ap-northeast-3 | ap-northeast-1<br>ap-northeast-3 |
 | ap-northeast-1 | ap-northeast-1<br>ap-northeast-3 |
+| ap-northeast-3 | ap-northeast-1<br>ap-northeast-3 |
 
 To call the JP Anthropic Claude Sonnet 4.5 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -1379,35 +1553,33 @@ To call the JP Anthropic Claude Sonnet 4.5 inference profile, specify the follow
 jp.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
+For more information about inference profile parameters, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions              |
+| Source Regions | Destination Regions              |
 | -------------- | -------------------------------- |
-| ap-northeast-3 | ap-northeast-1<br>ap-northeast-3 |
 | ap-northeast-1 | ap-northeast-1<br>ap-northeast-3 |
-
-###### Note
-
-1 In this Region, the specified model can be optimized for latency. For more information, see [Optimize model inference for latency](latency-optimized-inference.md "latency-optimized-inference.md").
+| ap-northeast-3 | ap-northeast-1<br>ap-northeast-3 |
 
 ## Supported Regions and models for application inference profiles
 
-Application inference profiles is supported in the following Regions (for more information about Regions supported in Amazon Bedrock see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md")):
+Application inference profiles can be created for all models in the following AWS Regions:
 
-- US East (N. Virginia)
-- US East (Ohio)
-- US West (Oregon)
-- AWS GovCloud (US-East)
-- Asia Pacific (Tokyo)
-- Asia Pacific (Seoul)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Canada (Central)
-- Europe (Frankfurt)
-- Europe (Ireland)
-- Europe (London)
-- Europe (Paris)
-- South America (São Paulo)
+- us-east-1
+- us-east-2
+- us-west-2
+- us-gov-east-1
+- ap-northeast-1
+- ap-northeast-2
+- ap-south-1
+- ap-southeast-1
+- ap-southeast-2
+- ca-central-1
+- eu-central-1
+- eu-west-1
+- eu-west-2
+- eu-west-3
+- sa-east-1
 
 Application inference profiles can be created from all models and inference profiles supported in Amazon Bedrock. For more information about models supported in Amazon Bedrock, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").

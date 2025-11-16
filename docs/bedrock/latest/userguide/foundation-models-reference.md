@@ -55,7 +55,6 @@ for the feature you are using and also [Code examples for Amazon Bedrock using A
 - [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")
 - [Model support by AWS Region in Amazon Bedrock](models-regions.md "models-regions.md")
 - [Feature support by AWS Region in Amazon Bedrock](features-regions.md "features-regions.md")
-- [Model support by feature](models-features.md "models-features.md")
+- [Model support by feature in Amazon Bedrock](models-features.md "models-features.md")
 - [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md")
-- [Custom model hyperparameters](custom-models-hp.md "custom-models-hp.md")
 - [Model lifecycle](model-lifecycle.md "model-lifecycle.md")

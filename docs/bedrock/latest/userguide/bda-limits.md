@@ -40,14 +40,16 @@ output bucket if the JSON+ option and page granularity are selected.
 | Minimum framerate (Frames per second)                | 1                                                                                                                  |
 | Maximum framerate (Frames per second)                | 60                                                                                                                 |
 
-| Audio file requirements                              | Requirement Description       | Requirement Details |
-| ---------------------------------------------------- | ----------------------------- | ------------------- |
-| Minimum Audio Sample Rate (Hz)                       | 8000                          |
-| Maximum Audio Sample Rate (Hz)                       | 48000                         |
-| Maximum File Size (MB)                               | 2048                          |
-| Maximum Audio Length (Minutes)                       | 240                           |
-| Minimum Audio Length (Milliseconds)                  | 500                           |
-| Supported File Formats                               | AMR, FLAC, M4A, MP3, Ogg, WAV |
-| Maximum Audio Blueprints per Project                 | 1                             |
-| Maximum Audio Blueprints per Start Inference request | 1                             |
-| Maximum Audio Channels for Audio files               | 2                             |
+| Audio file requirements                              | Requirement Description                                                                                                                                          | Requirement Details |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Supported Input Languages                            | English, Germany, Spanish, French, Italian, Portuguese, Japanese, Korean, Chinese, Taiwanese and Cantonese.<br>_\*All locales supported of the above languages._ |
+| Supported Output Languages                           | English, or the dominant language of the audio.                                                                                                                  |
+| Minimum Audio Sample Rate (Hz)                       | 8000                                                                                                                                                             |
+| Maximum Audio Sample Rate (Hz)                       | 48000                                                                                                                                                            |
+| Maximum File Size (MB)                               | 2048                                                                                                                                                             |
+| Maximum Audio Length (Minutes)                       | 240                                                                                                                                                              |
+| Minimum Audio Length (Milliseconds)                  | 500                                                                                                                                                              |
+| Supported File Formats                               | AMR, FLAC, M4A, MP3, Ogg, WAV                                                                                                                                    |
+| Maximum Audio Blueprints per Project                 | 1                                                                                                                                                                |
+| Maximum Audio Blueprints per Start Inference request | 1                                                                                                                                                                |
+| Maximum Audio Channels for Audio files               | 2                                                                                                                                                                |

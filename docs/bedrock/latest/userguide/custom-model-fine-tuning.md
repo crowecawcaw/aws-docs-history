@@ -12,4 +12,5 @@ With Amazon Bedrock, you can train a foundation model to improve performance on 
   and continued pre-training](custom-model-supported.md "custom-model-supported.md")
 - [Prepare your training datasets for fine-tuning and continued
   pre-training](model-customization-prepare.md "model-customization-prepare.md")
+- [Custom model hyperparameters](custom-models-hp.md "custom-models-hp.md")
 - [Submit a model customization job for fine-tuning or continued pre-training](model-customization-submit.md "model-customization-submit.md")

@@ -15,7 +15,7 @@ Refer to the following pages for more information about different models in Amaz
 
 - For a table of models and their IDs to use with the model invocation API operations, the Regions they're supported in, and the general features that they support, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
 - For a table of the Amazon Bedrock Regions that each model is supported in, see [Model support by AWS Region in Amazon Bedrock](models-regions.md "models-regions.md").
-- For a table of the Amazon Bedrock features that each model supports, see [Model support by feature](models-features.md "models-features.md").
+- For a table of the Amazon Bedrock features that each model supports, see [Model support by feature in Amazon Bedrock](models-features.md "models-features.md").
 - To check if the Converse API (`Converse` and `ConverseStream`) supports a specific model, see
   [Supported models and
   model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md").

@@ -25,7 +25,8 @@ When you invoke a model, you choose the AWS Region in which to invoke it. The qu
 - On-demand model inference requests per minute for `${Model}`
 - On-demand InvokeModel tokens per minute for `${Model}`
 
-You can also invoke an inference profile instead of the foundation model itself. An inference profile defines a model and one or more Regions to which the inference profile can route model invocation requests. By invoking an inference profile that includes multiple Regions, you can increase your throughput. For more information, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md"). To see the quotas for the frequency and size of the requests that you can make with an inference profile, search for the following quotas at [Amazon Bedrock service quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock"):
+You can also invoke an inference profile instead of the foundation model itself. An inference profile defines a model and one or more Regions to which the inference profile can route model invocation requests. By invoking an inference profile that includes multiple Regions, you can increase your throughput. For more information, see [Increase throughput with cross-Region
+inference](cross-region-inference.md "cross-region-inference.md"). To see the quotas for the frequency and size of the requests that you can make with an inference profile, search for the following quotas at [Amazon Bedrock service quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock"):
 
 - Cross-Region InvokeModel requests per minute for `${Model}`
 - Cross-Region InvokeModel tokens per minute for `${Model}`

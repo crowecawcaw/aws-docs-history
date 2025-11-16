@@ -2,35 +2,35 @@
 
 and continued pre-training
 
-Fine-tuning is supported in the following Regions (for more information about Regions supported in Amazon Bedrock see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md")):
+The following table shows the foundation models that you can fine-tune:
 
-- US East (N. Virginia)
-- US West (Oregon)
-  Fine-tuning is supported for the following foundation models (to see which Regions support each model, refer to [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")):
+| Provider  | Model                          | Model ID                                    | Single-region model support |
+| --------- | ------------------------------ | ------------------------------------------- | --------------------------- |
+| Amazon    | Nova Canvas                    | amazon.nova-canvas-v1:0                     | us-east-1                   |
+| Amazon    | Nova Lite                      | amazon.nova-lite-v1:0:300k                  | us-east-1                   |
+| Amazon    | Nova Micro                     | amazon.nova-micro-v1:0:128k                 | us-east-1                   |
+| Amazon    | Nova Pro                       | amazon.nova-pro-v1:0:300k                   | us-east-1                   |
+| Amazon    | Titan Image Generator G1       | amazon.titan-image-generator-v1:0           | us-east-1<br>us-west-2      |
+| Amazon    | Titan Image Generator G1 v2    | amazon.titan-image-generator-v2:0           | us-east-1<br>us-west-2      |
+| Amazon    | Titan Multimodal Embeddings G1 | amazon.titan-embed-image-v1:0               | us-east-1<br>us-west-2      |
+| Amazon    | Titan Text G1<br>• Express     | amazon.titan-text-express-v1:0:8k           | us-east-1<br>us-west-2      |
+| Amazon    | Titan Text G1<br>• Lite        | amazon.titan-text-lite-v1:0:4k              | us-east-1<br>us-west-2      |
+| Anthropic | Claude 3 Haiku                 | anthropic.claude-3-haiku-20240307-v1:0:200k | us-west-2                   |
+| Meta      | Llama 3.1 70B Instruct         | meta.llama3-1-70b-instruct-v1:0:128k        | us-west-2                   |
+| Meta      | Llama 3.1 8B Instruct          | meta.llama3-1-8b-instruct-v1:0:128k         | us-west-2                   |
+| Meta      | Llama 3.2 11B Instruct         | meta.llama3-2-11b-instruct-v1:0:128k        | us-west-2                   |
+| Meta      | Llama 3.2 1B Instruct          | meta.llama3-2-1b-instruct-v1:0:128k         | us-west-2                   |
+| Meta      | Llama 3.2 3B Instruct          | meta.llama3-2-3b-instruct-v1:0:128k         | us-west-2                   |
+| Meta      | Llama 3.2 90B Instruct         | meta.llama3-2-90b-instruct-v1:0:128k        | us-west-2                   |
+| Meta      | Llama 3.3 70B Instruct         | meta.llama3-3-70b-instruct-v1:0:128k        | us-west-2                   |
 
-- Amazon Nova Canvas
-- Amazon Nova Lite
-- Amazon Nova Micro
-- Amazon Nova Pro
-- Amazon Titan Image Generator G1 v2
-- Amazon Titan Image Generator G1
-- Amazon Titan Multimodal Embeddings G1
-- Amazon Titan Text G1 - Express
-- Amazon Titan Text G1 - Lite
-- Anthropic Claude 3 Haiku
-- Meta Llama 3.1 70B Instruct
-- Meta Llama 3.1 8B Instruct
-- Meta Llama 3.2 11B Instruct
-- Meta Llama 3.2 1B Instruct
-- Meta Llama 3.2 3B Instruct
-- Meta Llama 3.2 90B Instruct
-- Meta Llama 3.3 70B Instruct
-  Continued pre-training is supported in the following Regions (for more information about Regions supported in Amazon Bedrock see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md")):
+The following table shows the foundation models that you can continuously pre-train:
 
-- US East (N. Virginia)
-- US West (Oregon)
-  Continued pre-training is supported for the following foundation models (to see which Regions support each model, refer to [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")):
+| Provider | Model                      | Model ID                          | Single-region model support |
+| -------- | -------------------------- | --------------------------------- | --------------------------- |
+| Amazon   | Titan Text G1<br>• Express | amazon.titan-text-express-v1:0:8k | us-east-1<br>us-west-2      |
+| Amazon   | Titan Text G1<br>• Lite    | amazon.titan-text-lite-v1:0:4k    | us-east-1<br>us-west-2      |
 
-- Amazon Titan Text G1 - Express
-- Amazon Titan Text G1 - Lite
-  For information about fine-tuning Amazon Nova models, see [Fine-tuning Amazon Nova models](../../../nova/latest/userguide/customize-fine-tune.md "../../../nova/latest/userguide/customize-fine-tune.md").
+For information about fine-tuning Amazon Nova models, see [Fine-tuning Amazon Nova models](../../../nova/latest/userguide/customize-fine-tune.md "../../../nova/latest/userguide/customize-fine-tune.md").
+
+For information about model customization hyperparameters for each model, see [Custom model hyperparameters](custom-models-hp.md "custom-models-hp.md").
