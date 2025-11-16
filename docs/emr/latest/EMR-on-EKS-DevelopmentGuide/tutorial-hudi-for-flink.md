@@ -94,7 +94,7 @@ spec:
     taskmanager.numberOfTaskSlots: "2"
     hudi.enabled: "true"
   executionRoleArn: "`<JobExecutionRole>`"
-  emrReleaseLabel: "emr-7.10.0-flink-latest"
+  emrReleaseLabel: "emr-7.11.0-flink-latest"
   jobManager:
     highAvailabilityEnabled: false
     replicas: 1

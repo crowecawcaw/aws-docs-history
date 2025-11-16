@@ -36,9 +36,9 @@ To set up a secure Livy endpoint, see [Configuring a secure Apache Livy endpoint
 ```
 helm install livy-demo \
   oci://895885662937.dkr.ecr.region-id.amazonaws.com/livy \
-  --version 7.10.0 \
+  --version 7.11.0 \
   --namespace livy-ns \
-  --set image=ECR-registry-account.dkr.ecr.region-id.amazonaws.com/livy/emr-7.10.0:latest \
+  --set image=ECR-registry-account.dkr.ecr.region-id.amazonaws.com/livy/emr-7.11.0:latest \
   --set sparkNamespace=`<spark-ns>` \
   --create-namespace
 ```
@@ -86,7 +86,7 @@ The `helm list` command should return information about your new Helm chart.
 
 ```
 app_version: 0.7.1-incubating
-chart: livy-emr-7.10.0
+chart: livy-emr-7.11.0
 name: livy-demo
 namespace: livy-ns
 revision: "1"

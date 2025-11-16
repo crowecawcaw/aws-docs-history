@@ -1,11 +1,13 @@
-# emr-6.4.0-latest
+# emr-6.4.0-20221219
 
-**Release notes**: `emr-6.4.0-latest` currently
-points to `emr-6.4.0-20240321`.
+**Release notes**: `emr-6.4.0-20221219` was
+released on Jan 27, 2023. Compared to the previous version, this version has been refreshed with
+the recently added Amazon Linux packages.
 
 **Regions:**
-`emr-6.4.0-latest` is available in all Regions supported by Amazon EMR on EKS. For more
+`emr-6.4.0-20221219` is available in all Regions supported by Amazon EMR on EKS. For more
 information, see [Amazon EMR on EKS
 service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
 
-**Container image tag**: `emr-6.4.0:latest`
+**Container image tag**:
+`emr-6.4.0:20221219`
