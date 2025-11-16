@@ -3,6 +3,10 @@
 You can use LinkedIn's Cruise Control to rebalance your Amazon MSK cluster, detect and
 fix anomalies, and monitor the state and health of the cluster.
 
+###### Note
+
+If [intelligent rebalancing](intelligent-rebalancing.md "intelligent-rebalancing.md") is turned on for your newly created Express-based clusters, you won’t be able to use third-party tools, such as Cruise Control, for partition rebalancing. You must first pause intelligent rebalancing to use the partition reassignment API provided by these third-party tools.
+
 ###### To download and build Cruise Control
 
 1. Create an Amazon EC2 instance in the same Amazon VPC as the Amazon MSK cluster.
@@ -149,6 +153,10 @@ You can also use this [CloudFormation template](https://github.com/aws-samples/c
 ### Guidelines for Kafka partition reassignment
 
 Partition reassignment in Kafka can be resource-intensive, as it involves transferring significant data across brokers, potentially causing network congestion and affecting client operations. The following best practices help you manage partition reassignment effectively by tuning throttle rates, leveraging concurrency controls, and understanding reassignment types to minimize disruption to cluster operations.
+
+###### Note
+
+If you have a newly created Express-based cluster, use [intelligent rebalancing](intelligent-rebalancing.md "intelligent-rebalancing.md") for automatic partition distribution as you scale your clusters up or down.
 
 #### Managing concurrency in Cruise Control
 

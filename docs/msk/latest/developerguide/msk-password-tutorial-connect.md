@@ -7,7 +7,7 @@ consume from an example topic.
 
 ###### Topics
 
-- [Connecting a client to cluster using SASL/SCRAM authentication](#w106aab9c13c21c17c13c11b9b7 "#w106aab9c13c21c17c13c11b9b7")
+- [Connecting a client to cluster using SASL/SCRAM authentication](#w112aab9c13c29c17c13c11b9b7 "#w112aab9c13c29c17c13c11b9b7")
 - [Troubleshooting connection issues](#msk-password-tutorial-connect-troubleshooting "#msk-password-tutorial-connect-troubleshooting")
 
 ## Connecting a client to cluster using SASL/SCRAM authentication
