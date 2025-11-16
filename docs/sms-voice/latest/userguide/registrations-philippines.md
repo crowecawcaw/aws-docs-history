@@ -16,7 +16,7 @@ For **Registration form name** enter a friendly name.
 
 Choose **Next**. 3. In the **Sender ID info** section, enter the following:
 
-    * For **Sender ID**, enter the sender ID to request. The sender ID must be between 3 and 11 alphanumeric characters. For more information on sender ID formatting rules, see [Considerations for a sender ID](sender-id.md#sender-id-considerations "sender-id.md#sender-id-considerations")
+    * For **Sender ID**, enter the sender ID to request. The sender ID must be between 3 and 11 alphanumeric characters. For more information on sender ID formatting rules, see [Considerations for a sender ID](sender-id.md#sender-id-considerations "sender-id.md#sender-id-considerations").
     * For **Sender ID description – optional** you can add more details about the connection between the requested sender ID and company name.
 
 Choose **Next**. 4. In the **Philippines specific info** section, enter the following:
