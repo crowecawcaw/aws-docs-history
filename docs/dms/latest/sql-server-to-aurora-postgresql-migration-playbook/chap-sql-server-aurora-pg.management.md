@@ -1,319 +1,135 @@
-# Database mail features
+# Resource governor features
 
-This topic provides reference information about email capabilities in Microsoft SQL Server and their counterparts in Amazon Aurora PostgreSQL. You can understand the differences in email functionality between these two database systems and learn about alternative solutions for sending emails from Aurora PostgreSQL.
+This topic provides reference information comparing resource management capabilities between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand how SQL Server’s Resource Governor functionality, which allows administrators to control and manage resource consumption, differs from Aurora PostgreSQL. While Aurora PostgreSQL doesn’t have built-in resource management equivalent to SQL Server, it leverages cloud economics and flexibility to address similar needs.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                  | Key differences         |
-| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| One star feature compatibility | N/A                                | [SQL Server Mail](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.mail "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.mail") | Use Lambda integration. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                    |
+| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------ |
+| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances. |
 
 ## SQL Server Usage
 
-The Database Mail framework is an email client solution for sending messages directly from SQL Server. Email capabilities and APIs within the database server provide easy management of the following messages:
+SQL Server Resource Governor provides the capability to control and manage resource consumption. Administrators can specify and enforce workload limits on CPU, physical I/O, and Memory. Resource configurations are dynamic and you can change them in real time.
 
-- Server administration messages such as alerts, logs, status reports, and process confirmations.
-- Application messages such as user registration confirmation and action verifications.
+In SQL Server 2019 configurable value for the `REQUEST_MAX_MEMORY_GRANT_PERCENT` option of `CREATE WORKLOAD GROUP` and `ALTER WORKLOAD GROUP` has been changed from an integer to a float data type to allow more granular control of memory limits. For more information, see [ALTER WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15") and [CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
-###### Note
+### Use Cases
 
-Database Mail is turned off by default.
+The following list identifies typical Resource Governor use cases:
 
-The main features of the Database Mail framework are:
+- **Minimize performance bottlenecks and inconsistencies** to better support Service Level Agreements (SLA) for multiple workloads and users.
+- **Protect against runaway queries** that consume a large amount of resources or explicitly throttle I/O intensive operations. For example, consistency checks with DBCC that may bottleneck the I/O subsystem and negatively impact concurrent workloads.
+- **Allow tracking and control for resource-based pricing scenarios** to improve predictability of user charges.
 
-- Database Mail sends messages using the standard and secure Simple Mail Transfer Protocol (SMTP) .
-- The email client engine runs asynchronously and sends messages in a separate process to minimize dependencies.
-- Database Mail supports multiple SMTP Servers for redundancy.
-- Full support and awareness of Windows Server Failover Cluster for high availability environments.
-- Multi-profile support with multiple failover accounts in each profile.
-- Enhanced security management with separate roles in the `msdb` database.
-- Security is enforced for mail profiles.
-- Administrators can monitor and cap attachment sizes.
-- You can add attachment file types to a deny list.
-- You can log Email activity to SQL Server, the Windows application event log, and a set of system tables in the `msdb` database.
-- Supports full auditing capabilities with configurable retention policies.
-- Supports both plain text and HTML messages.
+### Concepts
 
-### Architecture
+The three basic concepts in Resource Governor are Resource Pools, Workload Groups, and Classification.
 
-Database Mail is built on top of the Microsoft SQL Server Service Broker queue management framework.
-
-The system stored procedure `sp_send_dbmail` sends email messages. When you run this stored procedure, it inserts a row to the mail queue and records the Email message.
-
-The queue insert operation triggers the run of the Database Mail process (`DatabaseMail.exe`). The Database Mail process then reads the Email information and sends the message to the SMTP servers.
-
-When the SMTP servers acknowledge or reject the message, the Database Mail process inserts a status row into the status queue, including the result of the send attempt. This insert operation triggers the run of a system stored procedure that updates the status of the Email message send attempt.
-
-Database Mail records all Email attachments in the system tables. SQL Server provides a set of system views and stored procedures for troubleshooting and administration of the Database Mail queue.
-
-### Deprecated SQL Mail framework
-
-The previous SQL Mail framework using `xp_sendmail` has been deprecated as of SQL Server 2008R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
-
-The legacy mail system has been completely replaced by the greatly enhanced DB mail framework described here. The previous system has been out of use for many years because it was prone to synchronous run issues and windows mail profile quirks.
-
-### Syntax
-
-```
-EXECUTE sp_send_dbmail
-    [[,@profile_name =] '<Profile Name>']
-    [,[,@recipients =] '<Recipients>']
-    [,[,@copy_recipients =] '<CC Recipients>']
-    [,[,@blind_copy_recipients =] '<BCC Recipients>']
-    [,[,@from_address =] '<From Address>']
-    [,[,@reply_to =] '<Reply-to Address>']
-    [,[,@subject =] '<Subject>']
-    [,[,@body =] '<Message Body>']
-    [,[,@body_format =] '<Message Body Format>']
-    [,[,@importance =] '<Importance>']
-    [,[,@sensitivity =] '<Sensitivity>']
-    [,[,@file_attachments =] '<Attachments>']
-    [,[,@query =] '<SQL Query>']
-    [,[,@execute_query_database =] '<Execute Query Database>']
-    [,[,@attach_query_result_as_file =] <Attach Query Result as File>]
-    [,[,@query_attachment_filename =] <Query Attachment Filename>]
-    [,[,@query_result_header =] <Query Result Header>]
-    [,[,@query_result_width =] <Query Result Width>]
-    [,[,@query_result_separator =] '<Query Result Separator>']
-    [,[,@exclude_query_output =] <Exclude Query Output>]
-    [,[,@append_query_error =] <Append Query Error>]
-    [,[,@query_no_truncate =] <Query No Truncate>]
-    [,[,@query_result_no_padding =] @<Parameter for Query Result No Padding>]
-    [,[,@mailitem_id =] <Mail item id>] [,OUTPUT]
-```
+- **Resource Pools** represent physical resources. Two built-in resource pools, internal and default, are created when SQL Server is installed. You can create custom user-defined resource pools for specific workload types.
+- **Workload Groups** are logical containers for session requests with similar characteristics. Workload Groups allow aggregate resource monitoring of multiple sessions. Resource limit policies are defined for a Workload Group. Each Workload Group belongs to a Resource Pool.
+- **Classification** is a process that inspects incoming connections and assigns them to a specific Workload Group based on the common attributes. User-defined functions are used to implement Classification. For more information, see [User-Defined Functions](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md").
 
 ### Examples
 
-Create a Database Mail account.
+Enable the Resource Governor.
 
 ```
-EXECUTE msdb.dbo.sysmail_add_account_sp
-    @account_name = 'MailAccount1',
-    @description = 'Mail account for testing DB Mail',
-    @email_address = 'Address@MyDomain.com',
-    @replyto_address = 'ReplyAddress@MyDomain.com',
-    @display_name = 'Mailer for registration messages',
-    @mailserver_name = 'smtp.MyDomain.com' ;
+ALTER RESOURCE GOVERNOR RECONFIGURE;
 ```
 
-Create a Database Mail profile.
+Create a Resource Pool.
 
 ```
-EXECUTE msdb.dbo.sysmail_add_profile_sp
-    @profile_name = 'MailAccount1 Profile',
-    @description = 'Mail Profile for testing DB Mail' ;
+CREATE RESOURCE POOL ReportingWorkloadPool
+    WITH (MAX_CPU_PERCENT = 20);
 ```
 
-Associate the account with the profile.
-
 ```
-EXECUTE msdb.dbo.sysmail_add_profileaccount_sp
-    @profile_name = 'MailAccount1 Profile',
-    @account_name = 'MailAccount1',
-    @sequence_number =1 ;
+ALTER RESOURCE GOVERNOR RECONFIGURE;
 ```
 
-Grant the profile access to the `DBMailUsers` role.
+Create a Workload Group.
 
 ```
-EXECUTE msdb.dbo.sysmail_add_principalprofile_sp
-    @profile_name = 'MailAccount1 Profile',
-    @principal_name = 'ApplicationUser',
-    @is_default = 1 ;
+CREATE WORKLOAD GROUP ReportingWorkloadGroup USING poolAdhoc;
 ```
 
-Send a message with `sp_db_sendmail`.
-
 ```
-EXEC msdb.dbo.sp_send_dbmail
-    @profile_name = 'MailAccount1 Profile',
-    @recipients = 'Recipient@Mydomain.com',
-    @query = 'SELECT * FROM fn_WeeklySalesReport(GETDATE())',
-    @subject = 'Weekly Sales Report',
-    @attach_query_result_as_file = 1 ;
+ALTER RESOURCE GOVERNOR RECONFIGURE;
 ```
 
-For more information, see [Database Mail](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15") in the _SQL Server documentation_.
+Create a classifier function.
+
+```
+CREATE FUNCTION dbo.WorkloadClassifier()
+RETURNS sysname WITH SCHEMABINDING
+AS
+BEGIN
+    RETURN (CASE
+        WHEN HOST_NAME()= 'ReportServer'
+        THEN 'ReportingWorkloadGroup'
+        ELSE 'Default'
+    END)
+END;
+```
+
+Register the classifier function.
+
+```
+ALTER RESOURCE GOVERNOR with (CLASSIFIER_FUNCTION = dbo.WorkloadClassifier);
+```
+
+```
+ALTER RESOURCE GOVERNOR RECONFIGURE;
+```
+
+For more information, see [Resource Governor](https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t provide native support for sending email message from the database. For alerting purposes, use the Event Notification Subscription feature to send email notifications to operators. For more information, see [Alerting](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md").
+PostgreSQL doesn’t have built-in resource management capabilities equivalent to the functionality provided by SQL Server’s Resource Governor. However, due to the elasticity and flexibility provided by cloud economics, workarounds could be applicable and such capabilities might not be as of similar importance to monolithic on-premises databases.
 
-The only way to send an Email from the database is to use AWS Lambda integration. For more information, see [AWS Lambda](https://aws.amazon.com/lambda "https://aws.amazon.com/lambda").
+The SQL Server’s Resource Governor primarily exists because traditionally, SQL Server instances were installed on very powerful monolithic servers that powered multiple applications simultaneously. The monolithic model made the most sense in an environment where the licensing for the SQL Server database was per-CPU and where SQL Server instances were deployed on physical hardware. In these scenarios, it made sense to consolidate as many workloads as possible into fewer servers. With cloud databases, the strict requirement to maximize the usage of each individual server is often not as important and you can use a different approach.
+
+You can deploy individual Amazon Aurora clusters with varying sizes, each dedicated to a specific application or workload. You can use additional read-only Amazon Aurora Replica servers to offload any reporting workloads from the master instance.
+
+With Amazon Aurora, you can deploy separate and dedicated database clusters, each dedicated to a specific application or workload creating isolation between multiple connected sessions and applications.
+
+Each Amazon Aurora instance (primary or replica) can scale independently in terms of CPU and memory resources using different instance types. Because you can instantly deploy multiple Amazon Aurora Instances and much less overhead is associated with the deployment and management of Amazon Aurora instances when compared to physical servers, separating different workloads to different instance classes could be a suitable solution for controlling resource management.
+
+For more information, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+
+In addition, each Amazon Aurora instance can also be directly accessed from your applications using its own endpoint. This capability is especially useful if you have multiple Amazon Aurora read-replicas for a given cluster and you want to use different Amazon Aurora replicas to segment your workload.
+
+You can adjust the resources and some parameters for Amazon Aurora read-replicas in the same cluster to avoid having additional cluster, however, this will allow to be used only for read operations.
 
 ### Examples
 
-The following walkthrough shows how to send an Email from Aurora PostgreSQL using AWS Lambda integration.
+Follow these steps to create an Amazon Aurora cluster.
 
-First, configure Amazon Simple Email Service (Amazon SES). For more information, see [What is Amazon SES?](../../../ses/latest/dg/Welcome.md "../../../ses/latest/dg/Welcome.md") in the _Amazon Simple Email Service Developer Guide_.
+1. In the AWS console, choose **RDS**.
+2. Choose **Databases**, and then choose **Create database**.
+3. Follow the wizard. Your new cluster appears in the **Databases** section.
 
-1. In the AWS console, choose **SES**, **SMTP Settings**, and then choose **Create My SMTP Credentials**. Copy the SMTP server name, which you will use in the AWS Lambda function.
-2. For **IAM User Name**, enter the SMTP user name, and then choose **Create**.
-3. Save the credentials, which you will use to authenticate with the SMTP server. After you leave this page, you can’t retrieve these credentials.
-4. In the AWS console, choose **SES**, **Email Addresses**, and then choose **Verify a New Email Address**. Before you send emails, verify the email address.
-5. After you verify the email, create a table to store messages to be sent by the AWS Lambda function.
+Suppose that you were using a single SQL Server instance for multiple separate applications and used SQL Server Resource Governor to enforce a workload separation, allocating a specific amount of server resources for each application. With Amazon Aurora, you might want to create multiple separate databases for each individual application.
 
-```
-CREATE TABLE emails (title varchar(600), body varchar(600), recipients varchar(600));
-```
+Follow these steps to add additional replica instances to an existing Amazon Aurora cluster:
 
-6. In the AWS console, choose **Lambda**, and then choose **Create function**.
-7. Select **Author from scratch**, enter a name for your project, and select Python 2.7 as the runtime. Make sure that you use a role with the correct permissions. Choose **Create function**.
-8. Download this [GitHub project](https://github.com/alexcasalboni/awslambda-psycopg2 "https://github.com/alexcasalboni/awslambda-psycopg2").
-9. In your local environment, create two files: `main.py` and `db_util.py`. Copy and paste the following content into these files. Make sure that you replace the code placeholders with values for your environment.
+1. In the AWS console, choose **RDS**.
+2. Choose the Amazon Aurora cluster that you want to scale-out by adding an additional read replica.
+3. For **Instance actions**, choose **Create Aurora Replica**.
+4. Select the instance class depending on the amount of compute resources your application requires.
+5. Choose **Create Aurora Replica**.
 
-**main.py**
+### Dedicated Aurora PostgreSQL Instances
 
-```
-#!/usr/bin/python
-import sys
-import logging
-import psycopg2
+| Feature                                                                          | Amazon Aurora instances                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Set the maximum CPU usage for a resource group.                                  | Create a dedicated Amazon Aurora instance for a specific application.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Limit the degree of parallelism for specific queries.                            | `<br>SET max_parallel_workers_per_gather TO x;<br>`<br>Setting the PostgreSQL `max_parallel_workers_per_gather` parameter should be done as part of your application database connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Limit parallel runs                                                              | `<br>SET max_parallel_workers_per_gather TO 0;<br>`<br>or<br>`<br>SET max_parallel_workers TO x; -<br>• for the whole system (since PostgreSQL 10)<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Limit the number of active sessions.                                             | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application DAL itself.<br>`<br>select pid from pg_stat_activity where usename in( select usename from pg_stat_activity<br>where state = 'active' group by usename having count(*) > 10)<br>and state = 'active' order by query_Start;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Restrict maximum runtime of queries.                                             | Manually terminate sessions that exceed the required threshold. You can detect the length of running queries using SQL commands and restrict max run duration using either database procedures or within the application DAL itself.<br>`<br>SELECT pg_terminate_backend(pid)<br>FROM pg_stat_activity<br>WHERE now()-pg_stat_activity.query_start > interval '5 minutes';<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Limit the maximum idle time for sessions.                                        | Manually terminate sessions that exceed the required threshold. You can detect the length of your idle sessions using SQL queries and restrict maximum run using either database procedures or within the application DAL itself.<br>`<br>SELECT pg_terminate_backend(pid)<br>FROM pg_stat_activity<br>WHERE datname = 'regress' AND pid <> pg_backend_pid()<br>AND state = 'idle' AND state_change < current_timestamp<br>• INTERVAL '5' MINUTE;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Limit the time that an idle session holding open locks can block other sessions. | Manually terminate sessions that exceed the required threshold. You can detect the length of blocking idle sessions using SQL queries and restrict max run duration using either database procedures or within the application DAL itself.<br>`<br>SELECT pg_terminate_backend(blocking_locks.pid)<br>FROM pg_catalog.pg_locks AS blocked_locks<br>JOIN pg_catalog.pg_stat_activity AS blocked_activity ON blocked_activity.pid = blocked_locks.pid<br>JOIN pg_catalog.pg_locks AS blocking_locks ON blocking_locks.locktype = blocked_locks.locktype<br>AND blocking_locks.DATABASE IS NOT DISTINCT FROM blocked_locks.DATABASE<br>AND blocking_locks.relation IS NOT DISTINCT FROM blocked_locks.relation<br>AND blocking_locks.page IS NOT DISTINCT FROM blocked_locks.page<br>AND blocking_locks.tuple IS NOT DISTINCT FROM blocked_locks.tuple<br>AND blocking_locks.virtualxid IS NOT DISTINCT FROM blocked_locks.virtualxid<br>AND blocking_locks.transactionid IS NOT DISTINCT FROM blocked_locks.transactionid<br>AND blocking_locks.classid IS NOT DISTINCT FROM blocked_locks.classid<br>AND blocking_locks.objid IS NOT DISTINCT FROM blocked_locks.objid<br>AND blocking_locks.objsubid IS NOT DISTINCT FROM blocked_locks.objsubid<br>AND blocking_locks.pid != blocked_locks.pid<br>JOIN pg_catalog.pg_stat_activity AS blocking_activity<br>ON blocking_activity.pid = blocking_locks.pid<br>WHERE NOT blocked_locks.granted and blocked_activity.state_change < current_timestamp<br>• INTERVAL '5' minute;<br>` |
 
-from db_util import make_conn, fetch_data
-def lambda_handler(event, context):
-    query_cmd = "select * from mails"
-    print query_cmd
-
-    # get a connection, if a connect can't be made an exception will be raised here
-    conn = make_conn()
-
-    result = fetch_data(conn, query_cmd)
-    conn.close()
-
-    return result
-```
-
-**db_util.py:**
-
-```
-#!/usr/bin/python
-import psycopg2
-import smtplib
-import email.utils
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-
-db_host = 'YOUR_RDS_HOST'
-db_port = 'YOUR_RDS_PORT'
-db_name = 'YOUR_RDS_DBNAME'
-db_user = 'YOUR_RDS_USER'
-db_pass = 'YOUR_RDS_PASSWORD'
-
-def sendEmail(recp, sub, message):
-    # Replace sender@example.com with your "From" address.
-    # This address must be verified.
-    SENDER = 'PUT HERE THE VERIFIED EMAIL'
-    SENDERNAME = 'Lambda'
-
-    # Replace recipient@example.com with a "To" address. If your account
-    # is still in the sandbox, this address must be verified.
-    RECIPIENT = recp
-
-    # Replace smtp_username with your Amazon SES SMTP user name.
-    USERNAME_SMTP = "YOUR_SMTP_USERNAME"
-
-    # Replace smtp_password with your Amazon SES SMTP password.
-    PASSWORD_SMTP = "YOUR_SMTP PASSWORD"
-
-    # (Optional) the name of a configuration set to use for this message.
-    # If you comment out this line, you also need to remove or comment out
-    # the "X-SES-CONFIGURATION-SET:" header.
-    CONFIGURATION_SET = "ConfigSet"
-
-    # If you're using Amazon SES in a region other than US West (Oregon),
-    # replace email-smtp.us-west-2.amazonaws.com with the Amazon SES SMTP
-    # endpoint in the appropriate region.
-    HOST = "YOUR_SMTP_SERVERNAME"
-    PORT = 587
-
-    # The subject line of the email.
-    SUBJECT = sub
-
-    # The email body for recipients with non-HTML email clients.
-    BODY_TEXT = ("Amazon SES Test\r\n"
-        "This email was sent through the Amazon SES SMTP "
-        "Interface using the Python smtplib package."
-    )
-
-    # The HTML body of the email.
-    BODY_HTML = """<html>
-    <head></head>
-    <body>
-    <h1>Amazon SES SMTP Email Test</h1>""" + message + """</body>
-    </html>
-        """
-
-    # Create message container - the correct MIME type is multipart/alternative.
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = SUBJECT
-    msg['From'] = email.utils.formataddr((SENDERNAME, SENDER))
-    msg['To'] = RECIPIENT
-    # Comment or delete the next line if you aren't using a configuration set
-    #msg.add_header('X-SES-CONFIGURATION-SET',CONFIGURATION_SET)
-
-    # Record the MIME types of both parts - text/plain and text/html.
-    part1 = MIMEText(BODY_TEXT, 'plain')
-    part2 = MIMEText(BODY_HTML, 'html')
-
-    # Attach parts into message container.
-    # According to RFC 2046, the last part of a multipart message, in this case
-    # the HTML message, is best and preferred.
-    msg.attach(part1)
-    msg.attach(part2)
-
-    # Try to send the message.
-    try:
-        server = smtplib.SMTP(HOST, PORT)
-        server.ehlo()
-        server.starttls()
-        #stmplib docs recommend calling ehlo() before & after starttls()
-        server.ehlo()
-        server.login(USERNAME_SMTP, PASSWORD_SMTP)
-        server.sendmail(SENDER, RECIPIENT, msg.as_string())
-        server.close()
-
-    # Display an error message if something goes wrong.
-    except Exception as e:
-        print ("Error: ", e)
-    else:
-        print ("Email sent!")
-
-def make_conn():
-    conn = None
-    try:
-        conn = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (db_name, db_user, db_host, db_pass))
-    except:
-        print "I am unable to connect to the database"
-    return conn
-
-def fetch_data(conn, query):
-    result = []
-    print "Now running: %s" % (query)
-    cursor = conn.cursor()
-    cursor.execute(query)
-
-    print("Number of new mails to be sent: ", cursor.rowcount)
-
-    raw = cursor.fetchall()
-
-    for line in raw:
-        print(line[0])
-        sendEmail(line[2],line[0],line[1])
-        result.append(line)
-
-    cursor.execute('delete from mails')
-    cursor.execute('commit')
-
-    return result
-```
-
-###### Note
-
-In the body of `db_util.py`, AWS Lambda deletes the content of the mails table. 10. Place the `main.py` and `db_util.py` files inside the GitHub extracted folder and create a new archive file using the ZIP file format that includes your two new files. 11. Return to your Lambda project and change the **Code entry type** to **Upload a .ZIP file**, change the Handler to `mail.lambda_handler`, and upload the file. Choose Save. 12. To test the lambda function, choose **Test** and enter the **Event name**.
-
-###### Note
-
-You can trigger the AWS Lambda function by multiple options. This walkthrough demonstrates how to schedule it to run every minute. Remember, you are paying for each AWS Lambda run. 13. To create a scheduled trigger, use Amazon CloudWatch, enter all details, and choose **Add**.
-
-###### Note
-
-This example runs every minute, but you can use a different interval. For more information, see [Schedule expressions using rate or cron](../../../lambda/latest/dg/services-cloudwatchevents-expressions.md "../../../lambda/latest/dg/services-cloudwatchevents-expressions.md"). 14. Choose **Save**.
+For more information, see [Resource Consumption](https://www.postgresql.org/docs/13/runtime-config-resource.html "https://www.postgresql.org/docs/13/runtime-config-resource.html") in the _PostgreSQL documentation_.
