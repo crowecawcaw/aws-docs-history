@@ -1,6 +1,4 @@
-# Getting started with AWS IAM Identity Center integration for
-
-Amazon EMR
+# Getting started with AWS IAM Identity Center and Amazon EMR
 
 This section helps you configure Amazon EMR to integrate with AWS IAM Identity Center.
 

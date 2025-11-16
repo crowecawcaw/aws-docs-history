@@ -188,7 +188,7 @@ aws s3 cp s3://amzn-s3-demo-bucket/myfilefolder/myfile.jar /mnt1/myfolder
 When you launch the cluster, you specify the script. The following AWS CLI example demonstrates this:
 
 ```
-aws emr create-cluster --name "Test cluster" --release-label `emr-7.10.0` \
+aws emr create-cluster --name "Test cluster" --release-label `emr-7.11.0` \
 --use-default-roles --ec2-attributes KeyName=myKey \
 --applications Name=Hive Name=Pig \
 --instance-count 3 --instance-type m5.xlarge \

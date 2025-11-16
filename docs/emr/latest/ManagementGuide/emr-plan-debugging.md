@@ -126,7 +126,7 @@ using the `--log-uri` parameter.
    pair.
 
 ```
-aws emr create-cluster --name "`Test cluster`" --release-label `emr-7.10.0` --log-uri s3://`DOC-EXAMPLE-BUCKET`/logs --applications Name=`Hadoop` Name=`Hive` Name=`Pig` --use-default-roles --ec2-attributes KeyName=`myKey` --instance-type `m5.xlarge` --instance-count `3`
+aws emr create-cluster --name "`Test cluster`" --release-label `emr-7.11.0` --log-uri s3://`DOC-EXAMPLE-BUCKET`/logs --applications Name=`Hadoop` Name=`Hive` Name=`Pig` --use-default-roles --ec2-attributes KeyName=`myKey` --instance-type `m5.xlarge` --instance-count `3`
 ```
 
 2. When you specify the instance count without using the
@@ -279,7 +279,7 @@ configurations.
 
 ```
 aws emr create-cluster --name "`Test cluster`" \
---release-label `emr-7.10.0` \
+--release-label `emr-7.11.0` \
 --applications Name=`Hadoop` \
 --use-default-roles \
 --ec2-attributes KeyName=`myKey` \

@@ -104,7 +104,7 @@ The following example creates a cluster with unhealthy node replacement enabled:
 Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
 ```
-aws emr create-cluster --name "`SampleCluster`" --release-label `emr-7.10.0` \
+aws emr create-cluster --name "`SampleCluster`" --release-label `emr-7.11.0` \
 --applications Name=`Hadoop` Name=`Hive` Name=`Pig` \
 --use-default-roles --ec2-attributes KeyName=`myKey` --instance-type `m5.xlarge` \
 --instance-count `3` --unhealthy-node-replacement

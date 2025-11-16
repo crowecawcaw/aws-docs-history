@@ -71,7 +71,7 @@ Linux line continuation characters (\) are included for readability. They can be
 
 ```
 aws emr create-cluster --name "`ClusterCustomManagedAndAdditionalSGs`" \
---release-label emr-`emr-7.10.0` --applications Name=`Hue` Name=`Hive` \
+--release-label emr-`emr-7.11.0` --applications Name=`Hue` Name=`Hive` \
 Name=`Pig` --use-default-roles --ec2-attributes \
 SubnetIds=`subnet-xxxxxxxxxxxx`,KeyName=`myKey`,\
 ServiceAccessSecurityGroup=`sg-xxxxxxxxxxxx`,\

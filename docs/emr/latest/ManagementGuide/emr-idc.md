@@ -9,8 +9,8 @@ integration.
 
 - [Overview](#emr-idc-overview "#emr-idc-overview")
 - [Features and benefits](#emr-idc-features "#emr-idc-features")
-- [Getting started with AWS IAM Identity Center integration for
-  Amazon EMR](emr-idc-start.md "emr-idc-start.md")
+- [Getting started with AWS IAM Identity Center and Amazon EMR](emr-idc-start.md "emr-idc-start.md")
+- [User background sessions](user-background-sessions.md "user-background-sessions.md")
 - [Considerations and limitations for Amazon EMR with
   the Identity Center integration](emr-idc-considerations.md "emr-idc-considerations.md")
 

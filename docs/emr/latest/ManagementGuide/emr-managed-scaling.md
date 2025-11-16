@@ -3,7 +3,7 @@
 ###### Important
 
 We strongly recommend that you use the latest Amazon EMR release (Amazon EMR
-7.10.0) for managed scaling. In some early releases, you might
+7.11.0) for managed scaling. In some early releases, you might
 experience intermittent application failures or delays in scaling. Amazon EMR resolved
 this issue with 5.x releases 5.30.2, 5.31.1, 5.32.1, 5.33.1 and higher, and with 6.x
 releases 6.1.1, 6.2.1, 6.3.1 and higher. For more information Region and
