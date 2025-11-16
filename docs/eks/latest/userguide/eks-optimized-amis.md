@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create nodes with pre-built optimized images
 
-You can deploy nodes with pre-built Amazon EKS optimized [Amazon Machine Images](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md") (AMIs) or your own custom AMIs when you use managed node groups or self-managed nodes. If you are running hybrid nodes, see [Prepare operating system for hybrid nodes](hybrid-nodes-os.md "hybrid-nodes-os.md"). For information about each type of Amazon EKS optimized AMI, see one of the following topics. For instructions on how to create your own custom AMI, see [Build a custom Amazon Linux AMI](eks-ami-build-scripts.md "eks-ami-build-scripts.md").
+You can deploy nodes with pre-built Amazon EKS optimized [Amazon Machine Images](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md") (AMIs) or your own custom AMIs when you use managed node groups or self-managed nodes. If you are running hybrid nodes, see [Prepare operating system for hybrid nodes](hybrid-nodes-os.md "hybrid-nodes-os.md"). For information about each type of Amazon EKS optimized AMI, see one of the following topics. For instructions on how to create your own custom AMI, see [Build a custom EKS-optimized Amazon Linux AMI](eks-ami-build-scripts.md "eks-ami-build-scripts.md").
 
 With Amazon EKS Auto Mode, EKS manages the EC2 instance including selecting and updating the AMI.
 

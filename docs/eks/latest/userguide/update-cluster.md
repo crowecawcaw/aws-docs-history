@@ -79,6 +79,7 @@ Use Amazon EKS upgrade insights to identify issues. For more information, see [V
 
 - As a best practice before starting an update, make sure that the `kubelet` on your nodes is at the same Kubernetes version as your control plane.
 - If your cluster is configured with a version of the Amazon VPC CNI plugin for Kubernetes that is earlier than `1.8.0`, then we recommend that you update the plugin to the latest version before updating your cluster. To update the plugin, see [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md "managing-vpc-cni.md").
+- You can take a backup of your Amazon EKS cluster, to allow you to restore your Amazon EKS cluster state and persistent storage in the case of failures during the upgrade process. See [Backup your EKS Clusters with AWS Backup](integration-backup.md "integration-backup.md")
 
 ## Step 3: Update cluster control plane
 

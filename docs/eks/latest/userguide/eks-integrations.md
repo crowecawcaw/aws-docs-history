@@ -15,3 +15,4 @@ In addition to the services covered in other sections, Amazon EKS works with mor
 - [Centralize and analyze EKS security data with Security Lake](integration-securitylake.md "integration-securitylake.md")
 - [Enable secure cross-cluster connectivity with Amazon VPC Lattice](integration-vpc-lattice.md "integration-vpc-lattice.md")
 - [Launch low-latency EKS clusters with AWS Local Zones](local-zones.md "local-zones.md")
+- [Backup your EKS Clusters with AWS Backup](integration-backup.md "integration-backup.md")

@@ -12,7 +12,16 @@ The Calico documentation previously on this page has been moved to the [EKS Hybr
 
 ## Version compatibility
 
-Cilium version `v1.17.x` is supported for EKS Hybrid Nodes for every Kubernetes version supported in Amazon EKS.
+Cilium versions `v1.17.x` and `v1.18.x` are supported for EKS Hybrid Nodes for every Kubernetes version supported in Amazon EKS.
+
+###### Note
+
+**Cilium v1.18.3 kernel requirement**: Due to the kernel requirement (Linux kernel >= 5.10), Cilium v1.18.3 is not supported on:
+
+- Ubuntu 20.04
+- Red Hat Enterprise Linux (RHEL) 8
+
+For system requirements, see [Cilium system requirements](https://docs.cilium.io/en/stable/operations/system_requirements/ "https://docs.cilium.io/en/stable/operations/system_requirements/").
 
 See [Kubernetes version support](kubernetes-versions.md "kubernetes-versions.md") for the Kubernetes versions supported by Amazon EKS. EKS Hybrid Nodes have the same Kubernetes version support as Amazon EKS clusters with cloud nodes.
 
@@ -39,7 +48,12 @@ AWS provides technical support for the default configurations of the following c
 
 ## Cilium considerations
 
-- **Helm repository** - AWS hosts the Cilium Helm chart in the Amazon Elastic Container Registry Public (Amazon ECR Public) at [Amazon EKS Cilium/Cilium](https://gallery.ecr.aws/eks/cilium/cilium "https://gallery.ecr.aws/eks/cilium/cilium"). You can use the following URI in your `helm` commands to use this repository: `oci://public.ecr.aws/eks/cilium/cilium:1.17.6-0`. The commands in this topic use this repository. Note that certain `helm repo` commands aren’t valid for Helm repositores in Amazon ECR Public, so you can’t refer to this repository from a local Helm repo name. Instead, use the full URI in most commands.
+- **Helm repository** - AWS hosts the Cilium Helm chart in the Amazon Elastic Container Registry Public (Amazon ECR Public) at [Amazon EKS Cilium/Cilium](https://gallery.ecr.aws/eks/cilium/cilium "https://gallery.ecr.aws/eks/cilium/cilium"). The available versions include:
+  - Cilium v1.17.9: `oci://public.ecr.aws/eks/cilium/cilium:1.17.9-0`
+  - Cilium v1.18.3: `oci://public.ecr.aws/eks/cilium/cilium:1.18.3-0`
+
+  The commands in this topic use this repository. Note that certain `helm repo` commands aren’t valid for Helm repositores in Amazon ECR Public, so you can’t refer to this repository from a local Helm repo name. Instead, use the full URI in most commands.
+
 - By default, Cilium is configured to run in overlay / tunnel mode with VXLAN as the [encapsulation method](https://docs.cilium.io/en/stable/network/concepts/routing/#encapsulation "https://docs.cilium.io/en/stable/network/concepts/routing/#encapsulation"). This mode has the fewest requirements on the underlying physical network.
 - By default, Cilium [masquerades](https://docs.cilium.io/en/stable/network/concepts/masquerading/ "https://docs.cilium.io/en/stable/network/concepts/masquerading/") the source IP address of all pod traffic leaving the cluster to the IP address of the node. If you disable masquerading, then your pod CIDRs must be routable on your on-premises network.
 - If you are running webhooks on hybrid nodes, your pod CIDRs must be routable on your on-premises network. If your pod CIDRs are not routable on your on-premises network, then it is recommended to run webhooks on cloud nodes in the same cluster. See [Configure webhooks for hybrid nodes](hybrid-nodes-webhooks.md "hybrid-nodes-webhooks.md") and [Prepare networking for hybrid nodes](hybrid-nodes-networking.md "hybrid-nodes-networking.md") for more information.
@@ -97,7 +111,8 @@ AWS provides technical support for the default configurations of the following c
    ```
 
 2. Install Cilium on your cluster.
-   - Replace `CILIUM_VERSION` with a Cilium version (for example `1.17.5`). It is recommended to use the latest patch version for the Cilium minor version. You can find the latest patch release available in your local Helm repository with the `helm search repo cilium/cilium --versions` command.
+   - Replace `CILIUM_VERSION` with a Cilium version (for example `1.17.9-0` or `1.18.3-0`). It is recommended to use the latest patch version for the Cilium minor version.
+   - Ensure your nodes meet the kernel requirements for the version you choose. Cilium v1.18.3 requires Linux kernel >= 5.10.
    - If you are using a specific kubeconfig file, use the `--kubeconfig` flag with the Helm install command.
 
    ```

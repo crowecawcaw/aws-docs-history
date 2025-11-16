@@ -41,4 +41,4 @@ For more information about using Amazon EKS-optimized Amazon Linux AMIs, see the
 - To launch self-managed Amazon Linux nodes, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md "retrieve-ami-id.md").
 - For version information, see [Retrieve Amazon Linux AMI version information](eks-linux-ami-versions.md "eks-linux-ami-versions.md").
 - To retrieve the latest IDs of the Amazon EKS-optimized Amazon Linux AMIs, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md "retrieve-ami-id.md").
-- For open-source scripts that are used to build the Amazon EKS-optimized AMIs, see [Build a custom Amazon Linux AMI](eks-ami-build-scripts.md "eks-ami-build-scripts.md").
+- For open-source scripts that are used to build the Amazon EKS-optimized AMIs, see [Build a custom EKS-optimized Amazon Linux AMI](eks-ami-build-scripts.md "eks-ami-build-scripts.md").

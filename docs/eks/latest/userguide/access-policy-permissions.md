@@ -416,6 +416,30 @@ DaemonSet Access:
 
 This policy is automatically managed by the EKS service for Cluster Insights. For more information, see [Prepare for Kubernetes version upgrades and troubleshoot misconfigurations with cluster insights](cluster-insights.md "cluster-insights.md").
 
+## AWSBackupFullAccessPolicyForBackup
+
+**ARN** – `arn:aws:eks::aws:cluster-access-policy/AWSBackupFullAccessPolicyForBackup`
+
+AWSBackupFullAccessPolicyForBackup
+
+This policy grants the permissions necessary for AWS Backup to manage and create backups of the EKS Cluster. This policy includes the following permissions:
+
+| Kubernetes API groups | Kubernetes resources | Kubernetes verbs (permissions) |
+| --------------------- | -------------------- | ------------------------------ |
+| `*`                   | `*`                  | `list`, `get`                  |
+
+## AWSBackupFullAccessPolicyForRestore
+
+**ARN** – `arn:aws:eks::aws:cluster-access-policy/AWSBackupFullAccessPolicyForRestore`
+
+AWSBackupFullAccessPolicyForRestore
+
+This policy grants the permissions necessary for AWS Backup to manage and restore backups of the EKS Cluster. This policy includes the following permissions:
+
+| Kubernetes API groups | Kubernetes resources | Kubernetes verbs (permissions) |
+| --------------------- | -------------------- | ------------------------------ |
+| `*`                   | `*`                  | `list`, `get`, `create`        |
+
 ## Access policy updates
 
 View details about updates to access policies, since they were introduced. For automatic alerts about changes to this page, subscribe to the RSS feed in [Document history](doc-history.md "doc-history.md").

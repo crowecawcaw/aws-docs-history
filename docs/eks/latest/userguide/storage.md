@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Use application data storage for your cluster
 
-You can use a range of AWS storage services with Amazon EKS for the storage needs of your applications. Through an AWS-supported breadth of Container Storage Interface (CSI) drivers, you can easily use Amazon EBS, Amazon S3, Amazon EFS, Amazon FSX, and Amazon File Cache for the storage needs of your applications running on Amazon EKS.
+You can use a range of AWS storage services with Amazon EKS for the storage needs of your applications. Through an AWS-supported breadth of Container Storage Interface (CSI) drivers, you can easily use Amazon EBS, Amazon S3, Amazon EFS, Amazon FSX, and Amazon File Cache for the storage needs of your applications running on Amazon EKS. To manage backups of your Amazon EKS cluster, see [AWS Backup support for Amazon EKS](../../../aws-backup/latest/devguide/working-with-supported-services.md#working-with-eks "../../../aws-backup/latest/devguide/working-with-supported-services.md#working-with-eks").
 
 This chapter covers storage options for Amazon EKS clusters.
 
