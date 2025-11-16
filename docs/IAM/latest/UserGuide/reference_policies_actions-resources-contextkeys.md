@@ -408,6 +408,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [Amazon SageMaker](list_amazonsagemaker.md "list_amazonsagemaker.md")
 - [Amazon SageMaker data science assistant](list_amazonsagemakerdatascienceassistant.md "list_amazonsagemakerdatascienceassistant.md")
 - [Amazon SageMaker geospatial capabilities](list_amazonsagemakergeospatialcapabilities.md "list_amazonsagemakergeospatialcapabilities.md")
+- [AWS SageMaker Unified Studio MCP is a managed MCP solution for AWS data processing services like EMR, Glue, Athena](list_awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena.md "list_awssagemakerunifiedstudiomcpisamanagedmcpsolutionforawsdataprocessingserviceslikeemr-glue-athena.md")
 - [Amazon SageMaker with MLflow](list_amazonsagemakerwithmlflow.md "list_amazonsagemakerwithmlflow.md")
 - [AWS Savings Plans](list_awssavingsplans.md "list_awssavingsplans.md")
 - [AWS Secrets Manager](list_awssecretsmanager.md "list_awssecretsmanager.md")

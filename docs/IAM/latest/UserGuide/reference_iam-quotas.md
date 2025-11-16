@@ -82,12 +82,13 @@ automatically approved.
 | Customer managed policies per account | 1500            | 5000            |
 | Groups per account                    | 300             | 500             |
 | Instance profiles per account         | 1000            | 5000            |
-| Managed policies per role             | 10              | 20              |
+| Managed policies per role             | 10              | 25              |
 | Managed policies per user             | 10              | 20              |
 | Managed policies per group            | 10              | 10              |
 | Role trust policy length              | 2048 characters | 4096 characters |
 | Roles per account                     | 1000            | 5000            |
 | Server certificates per account       | 20              | 1000            |
+| OpenId connect providers per account  | 100             | 700             |
 
 ## IAM Access Analyzer quotas
 

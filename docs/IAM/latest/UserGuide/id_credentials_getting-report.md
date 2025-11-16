@@ -269,6 +269,12 @@ date-time format](https://en.wikipedia.org/wiki/ISO_8601 "https://en.wikipedia.o
 last changed. If the user does not have a second active signing certificate, the value
 in this field is `N/A` (not applicable).
 
+**additional_credentials_info**
+
+When the user has more than two access keys or certificates, this value is the
+number of additional access keys or certificates and the actions you can use to list the
+access keys or certificates associated with the user.
+
 ## Getting credential reports
 
 (console)
