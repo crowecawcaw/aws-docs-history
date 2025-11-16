@@ -1,12 +1,11 @@
-Effective November 7, 2025, AWS Snowball Edge will only be available to existing customers. If you would like to use AWS Snowball Edge,
-sign up prior to that date. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
+AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
 # AWS Snowball Edge availability change
 
-Effective November 7, 2025, AWS Snowball Edge devices will only be available to existing customers. New customers should explore [DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for secure physical transfers, or AWS Partner solutions. For edge computing workloads, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
+AWS Snowball Edge is no longer available to new customers. New customers should explore [DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-With this change, after November 7, 2025, AWS will no longer be offering any AWS Snow Family devices for new customers to order. This change will not impact customers currently using AWS Snowball Edge to meet their edge compute and data migration needs. AWS continues to invest in security and availability improvements for AWS Snowball Edge devices. However, we recommend evaluating the alternatives below to better meet your needs.
+With this change, AWS will no longer offer any AWS Snow Family devices for new customers to order. This change will not impact customers currently using AWS Snowball Edge to meet their edge compute and data migration needs. AWS continues to invest in security and availability improvements for AWS Snowball Edge devices. However, we recommend evaluating the alternatives below to better meet your needs.
 
 ## AWS Snowball Edge storage optimized alternatives
 
