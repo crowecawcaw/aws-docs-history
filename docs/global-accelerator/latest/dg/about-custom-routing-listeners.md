@@ -1,26 +1,22 @@
-#
+# Listeners for custom routing accelerators in Global Accelerator
 
-Add a listener for a custom routing accelerator in Global Accelerator
+For a custom routing accelerator in AWS Global Accelerator, you configure a listener that specifies a range of listener ports
+with associated protocols that Global Accelerator maps to specific destination Amazon EC2 instances in your VPC subnet endpoints.
+When you add a VPC subnet endpoint, Global Accelerator creates a static port mapping between the port ranges that you define for
+your listener and the destination IP addresses and ports in the subnet.
+Then you can use the port mapping to specify your accelerator static IP addresses together with a
+listener port and protocol to direct user traffic to specific destination Amazon EC2 instance IP addresses and ports
+in your VPC subnet.
 
-This section explains how to add a listener for a custom routing accelerator on the AWS Global Accelerator console. To learn about
-using API operations with AWS Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
+You define a listener when you create your custom routing accelerator, and you can add more listeners at any time. Each listener
+can have one or more endpoint groups, one for each AWS Region in which you have VPC subnet endpoints. A
+listener in a custom routing accelerator supports both TCP and UDP protocols. You specify the protocol or protocols for each
+destination port range that you define: UDP, TCP, or both UDP and TCP.
 
-# To add a listener for a custom routing accelerator
+For more information, see [How custom routing accelerators work in Global Accelerator](about-custom-routing-how-it-works.md "about-custom-routing-how-it-works.md").
 
-The range that you specify when you create a listener defines how many listener port and destination IP address
-combinations that you can use with your custom routing accelerator. For maximum flexibility, we recommend that you specify a large port range.
-Each listener port range that you specify must include a minimum of 16 ports.
+###### Contents
 
-###### Note
-
-After you create a listener, you can edit it to add additional port ranges and associated protocols,
-but you can't decrease existing port ranges.
-
-1. Open the Global Accelerator console at [https://console.aws.amazon.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home "https://console.aws.amazon.com/globalaccelerator/home").
-2. On the **Accelerators** page, choose a custom routing accelerator.
-3. Choose **Add listener**.
-4. On the **Add listener** page, enter the listener port range that you
-   want to associate with the accelerator.
-
-Listeners support ports 1-65535. For maximum flexibility with a custom routing accelerator, we recommend that you specify
-a large port range. 5. Choose **Add listener**.
+- [Add listener](about-custom-routing-listeners.md "about-custom-routing-listeners.md")
+- [Edit listener](about-custom-routing-listeners.md "about-custom-routing-listeners.md")
+- [Remove listener](about-custom-routing-listeners.md "about-custom-routing-listeners.md")

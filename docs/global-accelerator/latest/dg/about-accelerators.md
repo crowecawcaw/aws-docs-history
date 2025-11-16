@@ -1,30 +1,32 @@
-# Compare using global
+#
 
-static IP addresses to regional static IP addresses
+Create accelerator
 
-If you want to use a static IP address in front of an AWS resource, such as an Amazon EC2 instance, you have several
-options. For example, you can allocate an Elastic IP address, which is a static IPv4 or IPv6 address that you can associate
-with an Amazon EC2 instance or network interface in a single AWS Region.
+This section explains how to create a standard accelerator on the console. To work with Global Accelerator
+programmatically, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
 
-If you have a global audience, you can create an accelerator with Global Accelerator to get global static addresses that are
-announced from AWS edge locations around the world. For IPv4, Global Accelerator provides two global static IPv4 addresses. For
-dual-stack, Global Accelerator provides a total of four global static IP addresses: two IPv4
-addresses and two IPv6 addresses. If you already have AWS resources set up for your applications,
-in one or multiple Regions, including Amazon EC2 instances, Network Load Balancers, and Application Load Balancers, you can easily add those to Global Accelerator to front
-them with global static IP addresses. For more information, see [Requirements for resources you add as accelerator endpoints](about-endpoints-caveats.md "about-endpoints-caveats.md").
+# To create a standard accelerator
 
-Opting to use global static IP addresses provisioned by Global Accelerator can also improve the availability and
-performance of your applications. With Global Accelerator, static IP addresses accept incoming traffic onto the AWS global
-network from the edge location that is closest to your users. Maximizing time that traffic is on the AWS network
-can provide a faster and better customer experience. For more information, see [How AWS Global Accelerator works](introduction-how-it-works.md "introduction-how-it-works.md") .
+1.  Open the Global Accelerator console at [https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:](https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome: "https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:").
+2.  Choose **Create accelerator**.
+3.  Provide a name for your accelerator.
+4.  For **Accelerator type**, select **Standard**.
+5.  For **IP address type**, select **IPv4** or **DUAL-STACK**.
+6.  Optionally, if you brought your own IP address ranges to AWS (BYOIP), you can specify a static IP address
+    for your accelerator, one from each address pool. Make this choice for each of the two static IP addresses for your accelerator.
 
-You can add an accelerator from the AWS Management Console or by using API operations with the AWS CLI or SDKs.
-For more information, see [Create accelerator](about-accelerators.md "about-accelerators.md").
+        * For each static IP address, choose the IP address pool to use.
 
-Note the following when you add an accelerator:
 
-- The global static IP addresses provisioned by Global Accelerator remain assigned to you for as long as your accelerator exists,
-  even if you disable the accelerator and it no longer accepts or routes traffic. However, if you delete an accelerator, you
-  lose the static IP addresses that are assigned to it. For more information, see [Delete accelerator](about-accelerators.md "about-accelerators.md").
-- With Global Accelerator, you pay only for what you use. You are charged an hourly rate and data transfer costs for
-  each accelerator in your account. For more information, see [AWS Global Accelerator Pricing](https://aws.amazon.com/global-accelerator/pricing "https://aws.amazon.com/global-accelerator/pricing").
+        ###### Note
+
+        You must choose a different IP address pool for each static IP address. This restriction is because Global Accelerator
+         assigns each address range to a different network zone, for high availability.
+        * If you chose your own IP address pool, also choose a specific IP address from the pool. If you
+         choose the default Amazon IP address pool, Global Accelerator assigns a specific IP address to your accelerator.
+
+    For more information about the requirements for specifying or updating static IP addresses with BYOIP, see
+    [Requirements when you update an accelerator to change the IP address.](using-byoip.md#AGAUpdateAccRequirements "using-byoip.md#AGAUpdateAccRequirements")
+
+7.  Optionally, add one or more tags to help you identify your accelerator resources.
+8.  Choose **Next** to add listeners, endpoint groups, and endpoints.
