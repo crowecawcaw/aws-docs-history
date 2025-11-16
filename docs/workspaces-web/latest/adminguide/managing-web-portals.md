@@ -15,7 +15,7 @@ After you set up your web portal, you can perform the following actions to manag
 - [Configuring in-session localization for Amazon WorkSpaces Secure Browser](session-loc.md "session-loc.md")
 - [Managing IP access controls in Amazon WorkSpaces Secure Browser](ip-access-controls.md "ip-access-controls.md")
 - [Managing the single sign-on extension in Amazon WorkSpaces Secure Browser](allow-extension.md "allow-extension.md")
-- [Setting up URL filtering in Amazon WorkSpaces Secure Browser](url-filtering.md "url-filtering.md")
+- [Web content filtering in Amazon WorkSpaces Secure Browser](web-content-filtering.md "web-content-filtering.md")
 - [Deep links in Amazon WorkSpaces Secure Browser](deep-links.md "deep-links.md")
 - [Using the session management dashboard in Amazon WorkSpaces Secure Browser](session-management.md "session-management.md")
 - [Protecting data in transit with FIPS endpoints and Amazon WorkSpaces Secure Browser](fips-endpoints.md "fips-endpoints.md")

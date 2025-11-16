@@ -10,5 +10,5 @@ browser settings. To do this, append the URL to an allow-listed portal URL in th
 format, where UUID is the portal id:
 https://<uuid>.workspaces-web.com/?deepLinks=https%3A%2F%2Fwww.example.com%2F%3Fquery%3Dtrue
 
-For more information, see [Setting up URL filtering in Amazon WorkSpaces Secure Browser](url-filtering.md "url-filtering.md") and [Allow or block access to
+For more information, see [Web content filtering in Amazon WorkSpaces Secure Browser](web-content-filtering.md "web-content-filtering.md") and [Allow or block access to
 websites](https://support.google.com/chrome/a/answer/7532419?hl=en "https://support.google.com/chrome/a/answer/7532419?hl=en").

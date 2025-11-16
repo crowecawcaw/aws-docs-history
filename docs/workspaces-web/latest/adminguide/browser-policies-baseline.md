@@ -41,15 +41,12 @@ Customers can't make changes to the following policies:
   overwrites any changes to this policy.
 - `DownloadDirectory` – This policy can't be edited. The service
   overwrites any changes to this policy.
-  Customers can update the following policies for their web portal:
+  The baseline `URLAllowlist` and `URLBlocklist` policies can't be overwritten. Note that the JSON browser policy file that is associated with your web portal will not contain these baseline policies. To see a full list of all applied policies and their values, navigate to "chrome://policy" from within a remote browsing session.
+
+Customers can update the following policies for their web portal:
 
 - `DownloadRestrictions` – The default is set to `1` to
   prevent downloads identified as malicious by Chrome Safe Browsing. For more information, see
   [Prevent users from
   downloading harmful files](https://support.google.com/chrome/a/answer/7579271 "https://support.google.com/chrome/a/answer/7579271"). You can set the value from `0` to
   `4`.
-- The `URLAllowlist` and `URLBlocklist` policies can be extended by
-  using the console view URL Filtering feature or JSON upload. However, the baseline URLs can't
-  be overwritten. These policies aren't visible from a JSON file downloaded from your web
-  portal. However, if you visit “chrome://policy” during a session, the remote
-  browser displays the applied policies.
