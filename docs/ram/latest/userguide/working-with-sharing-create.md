@@ -157,7 +157,7 @@ Choose **Create customer managed permission** to
 construct a customer managed permission that meets the requirements of your sharing use case.
 For more information see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp "create-customer-managed-permissions.md#create_cmp"). After completing the process, choose
 
-![Refresh icon](/images/ram/latest/userguide/images/refresh_icon.PNG)
+![Refresh icon](images/refresh_icon.PNG)
 and then you can select your new customer managed permission from the
 **Managed permissions** dropdown list.
 
