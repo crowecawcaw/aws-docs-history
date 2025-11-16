@@ -52,8 +52,7 @@ You can view and monitor file system update requests that are in progress using 
 array lists the 10 most recent update actions for each administrative action type.
 
 The following example shows an excerpt of the response of a
-**describe-file-systems** CLI command show two self-managed Active Directory
-file system updates.
+**describe-file-systems** CLI command. The output shows two self-managed Active Directory file system updates.
 
 ```
 
