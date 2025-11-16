@@ -12,7 +12,7 @@ Complete the following steps to create a room or a group message.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2 "getting-started.md#sign-in-step2").
 2. In the navigation pane, choose
-   ![New icon](images/icon-wickr-new.png)
+   ![New icon](/images/wickr/latest/userguide/images/icon-wickr-new.png)
    , and then choose **New Group Message** or
    **Create a Room**.
 3. (For rooms only) In the **New Room** dialog box that appears,

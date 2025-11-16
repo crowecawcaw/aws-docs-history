@@ -54,45 +54,24 @@ Sign in with SSO
 
 To use the Wickr client on your mobile device and your desktop, you must sign in on
 your mobile device first. Later, if you set up your desktop as the second device, you can
-scan a verification code that
-streamlines
-the initial sign in and configuration process. 2. Choose **Continue with
-SSO**.
-
-![Sign-in page for Wickr with SSO option and work email input field.](images/wickr-sign-in-with-sso.png) 3. Enter your work email address and choose **Continue**.
-
-![Sign-in form with work email input field and orange Continue button.](images/wickr-sign-in-with-sso-email.png) 4. Enter your company's ID and choose **Continue**.
+scan a verification code that streamlines the initial sign in and configuration
+process. 2. Choose **Sign in with SSO**. 3. Enter your work email address and optionally select the AWS Region you would like to
+use for signing in. 4. Choose **Continue**. 5. Enter your company's ID and choose **Continue**.
 
 Contact your company's Wickr administrator or IT support if you don't know your
-company's ID.
-
-![Sign-in form with Company ID input field and orange Continue button.](images/wickr-sign-in-with-sso-company-id.png) 5. At your company's SSO service provider sign in screen, enter your sign-in credentials
+company's ID. 6. At your company's SSO service provider sign in screen, enter your sign-in credentials
 and choose **Sign in**. Okta is shown as the service provider in the
 following example.
-
-![Okta sign-in page with username and password fields, and a blue Sign in button.](images/wickr-sign-in-with-sso-okta.png)
 
 Wickr will send you a verification email after you sign in. You can continue to the
 next step in this procedure. However, be aware that the verification email can take up to 30
 minutes to reach your inbox. Don't choose **Resend email** until at least
 30 minutes have passed. Keep the Wickr client open while waiting for the verification
 email. If you close the client, you must reauthenticate and wait for another verification
-email.
-
-![Email verification screen with blue paper airplane icon and text input field for resending email.](images/wickr-sign-in-with-sso-check-email.png) 6. In the Wickr verification email, choose **Register my account** and
-return to the Wickr client that should be running in the background.
-
-![Registration confirmation email with instructions to click a link and register an account.](images/register-now.png) 7. The Wickr client will refresh to display your
-Master
-Recovery Key (MRK). You can use the MRK to sign in to Wickr on a
-different device than the one you're currently using. Save your MRK in a safe location and
-choose **Continue**.
-
-###### Note
-
-The master recovery key is blurred in the following example.
-
-![Master recovery key dialog box with explanation and checkbox for secure storage.](images/wickr-sign-in-with-sso-mrk.png)
+email. 7. In the Wickr verification email, choose **Register my account** and
+return to the Wickr client that should be running in the background. 8. The Wickr client will refresh to display your Master Recovery Key (MRK). You can use
+the MRK to sign in to Wickr on a different device than the one you're currently using.
+Save your MRK in a safe location and choose **Continue**.
 
 You should now be signed in to the Wickr client.
 
@@ -105,18 +84,24 @@ IT department for help.
 ###### Sign in to the Wickr client
 
 1. Open the Wickr client.
-2. Enter your work email address and choose **Continue**.
+2. Choose **Sign in with email**.
+3. Enter your work email address and optionally select the AWS Region you would like to
+   use for signing in.
+4. Choose **Continue**.
 
 Wickr will send you a verification email. You can continue to the next step in this
 procedure. However, be aware that the verification email can take up to 30 minutes to reach
 your inbox. Don't choose **Resend email** until at least 30 minutes have
 passed. Keep the Wickr client open while waiting for the verification email. If you close
-the client, you must reauthenticate and wait for another verification email. 3. In the Wickr verification email, choose **Register my account** and
+the client, you must reauthenticate and wait for another verification email. 5. In the Wickr verification email, choose **Register my account** and
 return to the Wickr client that should be running in the background.
+
+Using the link from your Wickr verification email automatically selects the AWS Region
+associated with your Wickr network for signing in.
 
 Alternatively, you can copy the verification code from the footer of the Wickr
 invitation email that you received, and paste it into the **Enter invite
-Code** screen in the Wickr client. 4. The Wickr client will refresh to display the password creation page. Enter your
+Code** screen in the Wickr client. 6. The Wickr client will refresh to display the password creation page. Enter your
 chosen password, enter it a second time to confirm, and choose
 **Continue**.
 
