@@ -1,6 +1,6 @@
 # Security Group | Delete
 
-Delete up to 20 security groups. Note: Only security groups with no dependencies are deleted. If one or more security groups have dependencies, the operation fails. This change type does not require a review and can be used instead of the manual, managed automation, change type (ct-3cp96z7r065e4).
+Delete up to 20 security groups. Note: Only security groups with no dependencies are deleted. If one or more security groups have dependencies, the operation fails. This change type does not require a review and can be used instead of the manual, review required, change type (ct-3cp96z7r065e4).
 
 **Full classification:** Management | Advanced stack components | Security group | Delete
 

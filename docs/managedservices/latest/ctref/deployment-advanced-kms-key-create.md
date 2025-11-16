@@ -550,8 +550,13 @@ For detailed information about the execution input parameters, see
     "AllowServiceRolesAccessKMSKeys": [
       "ec2.us-west-2.amazonaws.com",
       "s3.us-west-2.amazonaws.com"
+    ],
+    "Tags": [
+      {
+        "Key": "foo",
+        "Value": "bar"
+      }
     ]
   }
 }
-
 ```

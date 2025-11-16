@@ -126,5 +126,6 @@
 - [Target Group | Detach Instances](management-advanced-target-group-detach-instances.md "management-advanced-target-group-detach-instances.md")
 - [Target Group | Update (For ALB)](management-advanced-target-group-update-for-alb.md "management-advanced-target-group-update-for-alb.md")
 - [Target Group | Update (For NLB)](management-advanced-target-group-update-for-nlb.md "management-advanced-target-group-update-for-nlb.md")
+- [VPC | Delete Route](management-advanced-vpc-delete-route.md "management-advanced-vpc-delete-route.md")
 - [VPC | Manage Subnet Public IPv4 Auto Assignment](management-advanced-vpc-manage-subnet-public-ipv4-auto-assignment.md "management-advanced-vpc-manage-subnet-public-ipv4-auto-assignment.md")
 - [VPC Endpoint | Update Policy (Managed Automation)](management-advanced-vpc-endpoint-update-policy-managed-automation.md "management-advanced-vpc-endpoint-update-policy-managed-automation.md")

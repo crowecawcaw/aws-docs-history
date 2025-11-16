@@ -9,7 +9,7 @@ Create an Amazon Relational Database Service (RDS) DB instance from an RDS snaps
 |                             |                  |
 | --------------------------- | ---------------- |
 | Change type ID              | ct-20san5sgtwd9e |
-| Current version             | 2.0              |
+| Current version             | 3.0              |
 | Expected execution duration | 720 minutes      |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
@@ -203,7 +203,12 @@ For detailed information about the execution input parameters, see
     "DBSubnetIds": ["subnet-a0b1c2d3", "subnet-a0b2c9d8"],
     "DBDomain": "d-1234567890",
     "DBDomainIAMRoleName": "customer_amazon_rds_directory_service_access_role",
-    "DBEngine": "sqlserver-se"
+    "DBEngine": "sqlserver-se",
+    "DBCopyTagsToSnapshot": "false",
+    "DBEnablePerformanceInsights": "false",
+    "DBMultiAZ": "false",
+    "DBPerformanceInsightsKMSKeyId": "abcd1234-5678-90ab-cdef-1234567890ab",
+    "DBPerformanceInsightsRetentionPeriod": "465"
   }
 }
 ```

@@ -8081,6 +8081,96 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
+## Schema for Change Type ct-0vfx8rwd1mcnn
+
+###### Classifications:
+
+- [Management | Monitoring and notification | CloudWatch | Modify log retention period](management-monitoring-cloudwatch-modify-log-retention-period.md "management-monitoring-cloudwatch-modify-log-retention-period.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Modify log retention period",
+  "description": "Modify the retention period for Amazon CloudWatch log groups. This change performs direct API actions whether or not the CloudWatch log group is part of a stack, which can cause stack drift.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-ModifyCloudWatchLogRetentionPeriod.",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-ModifyCloudWatchLogRetentionPeriod"
+      ],
+      "default": "AWSManagedServices-ModifyCloudWatchLogRetentionPeriod"
+    },
+    "Region": {
+      "description": "The AWS Region where the CloudWatch Log groups are located.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "LogGroupNames": {
+          "description": "(Required) List of CloudWatch Log group names (maximum 10). Log group names must be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '.' (period), '-' (hyphen), '/' (slash), '#' (hash), and ':' (colon). AMS-managed log groups are not supported, including: log groups with AMS-specific naming patterns (starting with /ams, /mc, /AMS, /aws/ams, /aws/lambda/AMS, etc.), log groups tagged with ams:resourceOwner=AMS or AMSInfrastructure tags, log groups named after EC2 instances that have AMSResource:true tags.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[\\.\\-_/#A-Za-z0-9:]+"
+          },
+          "minItems": 1,
+          "maxItems": 10
+        },
+        "RetentionDays": {
+          "description": "(Required) Number of days to retain the logs. Accepted values are: 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.",
+          "type": "string",
+          "enum": [
+            "90",
+            "120",
+            "150",
+            "180",
+            "365",
+            "400",
+            "545",
+            "731",
+            "1096",
+            "1827",
+            "2192",
+            "2557",
+            "2922",
+            "3288",
+            "3653"
+          ]
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "LogGroupNames",
+          "RetentionDays"
+        ]
+      },
+      "additionalProperties": false,
+      "required": [
+        "LogGroupNames",
+        "RetentionDays"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
+  ]
+}
+```
+
 ## Schema for Change Type ct-0vzsr2nyraedl
 
 ###### Classifications:
@@ -16975,6 +17065,39 @@ Change type schemas specify the execution input parameters for a change type.
           },
           "minItems": 1,
           "uniqueItems": true
+        },
+        "Tags": {
+          "description": "Up to fifty tags (key/value pairs) to categorize the resource.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Key": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 127
+              },
+              "Value": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 255
+              }
+            },
+            "additionalProperties": false,
+            "metadata": {
+              "ui:order": [
+                "Key",
+                "Value"
+              ]
+            },
+            "required": [
+              "Key",
+              "Value"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 50,
+          "uniqueItems": true
         }
       },
       "metadata": {
@@ -16989,7 +17112,8 @@ Change type schemas specify the execution input parameters for a change type.
           "LimitGrantsToAWSResources",
           "EnforceEncryptionContextKeys",
           "AllowedEncryptionContextKeys",
-          "AllowServiceRolesAccessKMSKeys"
+          "AllowServiceRolesAccessKMSKeys",
+          "Tags"
         ]
       },
       "additionalProperties": false,
@@ -20169,6 +20293,80 @@ Change type schemas specify the execution input parameters for a change type.
     "Region",
     "Parameters"
   ]
+}
+```
+
+## Schema for Change Type ct-1nusoameibz5p
+
+###### Classifications:
+
+- [Management | Advanced stack components | VPC | Delete route](management-advanced-vpc-delete-route.md "management-advanced-vpc-delete-route.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "Delete VPC route",
+  "description": "Delete a route in a route table within a VPC.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-DeleteRoute.",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-DeleteRoute"
+      ],
+      "default": "AWSManagedServices-DeleteRoute"
+    },
+    "Region": {
+      "description": "The AWS Region in which the AWS resource is located, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "RouteTableId": {
+          "description": "The ID of the route table for the route.",
+          "type": "string",
+          "pattern": "^rtb-[a-z0-9]{8,17}$"
+        },
+        "DestinationCidrBlock": {
+          "description": "The IPv4 CIDR address block used for the destination match.",
+          "type": "string",
+          "pattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})|^$"
+        },
+        "DestinationPrefixListId": {
+          "description": "The ID of the prefix list for the route.",
+          "type": "string",
+          "pattern": "^pl-[a-z0-9]{1,17}$|^$"
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "RouteTableId",
+          "DestinationCidrBlock",
+          "DestinationPrefixListId"
+        ]
+      },
+      "required": [
+        "RouteTableId"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
+  ],
+  "additionalProperties": false
 }
 ```
 
@@ -23830,6 +24028,70 @@ Change type schemas specify the execution input parameters for a change type.
           "minItems": 2,
           "maxItems": 20,
           "uniqueItems": true
+        },
+        "DBCopyTagsToSnapshot": {
+          "description": "To copy all DB instance tags to snapshots, choose 'true'. To not copy any DB instance tags to snapshots, keep the default value, which is 'false'.",
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ],
+          "default": "false"
+        },
+        "DBMultiAZ": {
+          "description": "To create a multi-AZ deployment with a standby replica in a different Availability Zone (AZ), choose 'true'. To not create a standby replica in a different AZ, keep the default value, which is 'false'.",
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ],
+          "default": "false"
+        },
+        "DBEnablePerformanceInsights": {
+          "description": "To enable Performance Insights for the new DB instance, choose 'true'. To disable, keep the default value, which is 'false'. Before enabling, see AWS RDS documentation on Performance Insights for supported engines and instance classes. Stack creation fails if enabled for an unsupported configuration.",
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ],
+          "default": "false"
+        },
+        "DBPerformanceInsightsKMSKeyId": {
+          "description": "The KMS key identifier (ARN, name, or alias) for encrypting Performance Insights data. The default RDS KMS key is used if not specified.",
+          "type": "string",
+          "default": ""
+        },
+        "DBPerformanceInsightsRetentionPeriod": {
+          "description": "The retention period for Performance Insights data, in days. For free tier, use '7'. For longer retention, multiply month (1-23) by '31'.",
+          "type": "string",
+          "enum": [
+            "7",
+            "31",
+            "62",
+            "93",
+            "124",
+            "155",
+            "186",
+            "217",
+            "248",
+            "279",
+            "310",
+            "341",
+            "372",
+            "403",
+            "434",
+            "465",
+            "496",
+            "527",
+            "558",
+            "589",
+            "620",
+            "651",
+            "682",
+            "713",
+            "731"
+          ],
+          "default": "7"
         }
       },
       "additionalProperties": false,
@@ -23843,7 +24105,12 @@ Change type schemas specify the execution input parameters for a change type.
           "DBEngine",
           "DBOptionGroupName",
           "DBParameterGroupName",
-          "DBSubnetIds"
+          "DBSubnetIds",
+          "DBCopyTagsToSnapshot",
+          "DBMultiAZ",
+          "DBEnablePerformanceInsights",
+          "DBPerformanceInsightsKMSKeyId",
+          "DBPerformanceInsightsRetentionPeriod"
         ]
       },
       "required": [
@@ -24835,7 +25102,7 @@ Change type schemas specify the execution input parameters for a change type.
     "PreferredMaintenanceWindow": {
       "type": "string",
       "description": "The weekly time range during which system maintenance can occur, in UTC. Must be in the format ddd:hh24:mi-ddd:hh24:mi (Sun:05:00-Sun:05:30), in Universal Coordinated Time (UTC) and must be at least 30 minutes. If you don't specify PreferredMaintenanceWindow, then Amazon RDS assigns a 30-minute maintenance window on a randomly selected day of the week.",
-      "pattern": "[a-zA-Z]{3}:[0-9]{2}:[0-9]{2}-[a-zA-Z]{3}:[0-9]{2}:[0-9]{2}$"
+      "pattern": "^[a-zA-Z]{3}:[0-9]{2}:[0-9]{2}-[a-zA-Z]{3}:[0-9]{2}:[0-9]{2}$"
     },
     "Priority": {
       "description": "The priority of the request. See AMS \"RFC scheduling\" documentation for a definition of the priorities.",
@@ -27424,12 +27691,9 @@ Change type schemas specify the execution input parameters for a change type.
             "db.serverless",
             "db.t2.small",
             "db.t2.medium",
-            "db.t3.micro",
             "db.t3.small",
             "db.t3.medium",
             "db.t3.large",
-            "db.t3.xlarge",
-            "db.t3.2xlarge",
             "db.t4g.medium",
             "db.t4g.large",
             "db.r3.large",
@@ -27464,7 +27728,41 @@ Change type schemas specify the execution input parameters for a change type.
             "db.x2g.4xlarge",
             "db.x2g.8xlarge",
             "db.x2g.12xlarge",
-            "db.x2g.16xlarge"
+            "db.x2g.16xlarge",
+            "db.r6i.large",
+            "db.r6i.xlarge",
+            "db.r6i.2xlarge",
+            "db.r6i.4xlarge",
+            "db.r6i.8xlarge",
+            "db.r6i.12xlarge",
+            "db.r6i.16xlarge",
+            "db.r6i.24xlarge",
+            "db.r6i.32xlarge",
+            "db.r7g.large",
+            "db.r7g.xlarge",
+            "db.r7g.2xlarge",
+            "db.r7g.4xlarge",
+            "db.r7g.8xlarge",
+            "db.r7g.12xlarge",
+            "db.r7g.16xlarge",
+            "db.r7i.large",
+            "db.r7i.xlarge",
+            "db.r7i.2xlarge",
+            "db.r7i.4xlarge",
+            "db.r7i.8xlarge",
+            "db.r7i.12xlarge",
+            "db.r7i.16xlarge",
+            "db.r7i.24xlarge",
+            "db.r7i.48xlarge",
+            "db.r8g.large",
+            "db.r8g.xlarge",
+            "db.r8g.2xlarge",
+            "db.r8g.4xlarge",
+            "db.r8g.8xlarge",
+            "db.r8g.12xlarge",
+            "db.r8g.16xlarge",
+            "db.r8g.24xlarge",
+            "db.r8g.48xlarge"
           ]
         },
         "MasterUserPassword": {
@@ -30353,6 +30651,7 @@ Change type schemas specify the execution input parameters for a change type.
         "amsDiskUsageAutomation",
         "amsDotNetPatchesExclusion",
         "amsDR",
+        "amsDRSRecoveryAutomation",
         "amsDSMlogsToS3snsLambdaStreaming",
         "amsEBSSnapshotDeletion",
         "amsEbsVolumeSnapshotTagger",
@@ -30608,12 +30907,9 @@ Change type schemas specify the execution input parameters for a change type.
             "db.serverless",
             "db.t2.small",
             "db.t2.medium",
-            "db.t3.micro",
             "db.t3.small",
             "db.t3.medium",
             "db.t3.large",
-            "db.t3.xlarge",
-            "db.t3.2xlarge",
             "db.t4g.medium",
             "db.t4g.large",
             "db.r3.large",
@@ -30648,7 +30944,41 @@ Change type schemas specify the execution input parameters for a change type.
             "db.x2g.4xlarge",
             "db.x2g.8xlarge",
             "db.x2g.12xlarge",
-            "db.x2g.16xlarge"
+            "db.x2g.16xlarge",
+            "db.r6i.large",
+            "db.r6i.xlarge",
+            "db.r6i.2xlarge",
+            "db.r6i.4xlarge",
+            "db.r6i.8xlarge",
+            "db.r6i.12xlarge",
+            "db.r6i.16xlarge",
+            "db.r6i.24xlarge",
+            "db.r6i.32xlarge",
+            "db.r7g.large",
+            "db.r7g.xlarge",
+            "db.r7g.2xlarge",
+            "db.r7g.4xlarge",
+            "db.r7g.8xlarge",
+            "db.r7g.12xlarge",
+            "db.r7g.16xlarge",
+            "db.r7i.large",
+            "db.r7i.xlarge",
+            "db.r7i.2xlarge",
+            "db.r7i.4xlarge",
+            "db.r7i.8xlarge",
+            "db.r7i.12xlarge",
+            "db.r7i.16xlarge",
+            "db.r7i.24xlarge",
+            "db.r7i.48xlarge",
+            "db.r8g.large",
+            "db.r8g.xlarge",
+            "db.r8g.2xlarge",
+            "db.r8g.4xlarge",
+            "db.r8g.8xlarge",
+            "db.r8g.12xlarge",
+            "db.r8g.16xlarge",
+            "db.r8g.24xlarge",
+            "db.r8g.48xlarge"
           ],
           "default": "db.r4.large"
         },
@@ -35015,12 +35345,9 @@ Change type schemas specify the execution input parameters for a change type.
             "db.serverless",
             "db.t2.small",
             "db.t2.medium",
-            "db.t3.micro",
             "db.t3.small",
             "db.t3.medium",
             "db.t3.large",
-            "db.t3.xlarge",
-            "db.t3.2xlarge",
             "db.t4g.medium",
             "db.t4g.large",
             "db.r3.large",
@@ -35055,7 +35382,41 @@ Change type schemas specify the execution input parameters for a change type.
             "db.x2g.4xlarge",
             "db.x2g.8xlarge",
             "db.x2g.12xlarge",
-            "db.x2g.16xlarge"
+            "db.x2g.16xlarge",
+            "db.r6i.large",
+            "db.r6i.xlarge",
+            "db.r6i.2xlarge",
+            "db.r6i.4xlarge",
+            "db.r6i.8xlarge",
+            "db.r6i.12xlarge",
+            "db.r6i.16xlarge",
+            "db.r6i.24xlarge",
+            "db.r6i.32xlarge",
+            "db.r7g.large",
+            "db.r7g.xlarge",
+            "db.r7g.2xlarge",
+            "db.r7g.4xlarge",
+            "db.r7g.8xlarge",
+            "db.r7g.12xlarge",
+            "db.r7g.16xlarge",
+            "db.r7i.large",
+            "db.r7i.xlarge",
+            "db.r7i.2xlarge",
+            "db.r7i.4xlarge",
+            "db.r7i.8xlarge",
+            "db.r7i.12xlarge",
+            "db.r7i.16xlarge",
+            "db.r7i.24xlarge",
+            "db.r7i.48xlarge",
+            "db.r8g.large",
+            "db.r8g.xlarge",
+            "db.r8g.2xlarge",
+            "db.r8g.4xlarge",
+            "db.r8g.8xlarge",
+            "db.r8g.12xlarge",
+            "db.r8g.16xlarge",
+            "db.r8g.24xlarge",
+            "db.r8g.48xlarge"
           ],
           "default": "db.r4.large"
         },
@@ -39802,7 +40163,7 @@ Change type schemas specify the execution input parameters for a change type.
         ]
       },
       "minItems": 0,
-      "maxItems": 50,
+      "maxItems": 20,
       "uniqueItems": true
     },
     "RDSInstanceName": {

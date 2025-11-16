@@ -21,7 +21,7 @@ Create a transit gateway (TGW) route table. Use this change type for multi-accou
 
 Screenshot of this change type in the AMS console:
 
-![Create Application Account Route Table interface showing ID, execution mode, version, and classification details.](/images/managedservices/latest/ctref/images/guiMalzNetAcctCreateAppAcctRouteTableRrCT.png)
+![Create Application Account Route Table interface showing ID, execution mode, version, and classification details.](images/guiMalzNetAcctCreateAppAcctRouteTableRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
