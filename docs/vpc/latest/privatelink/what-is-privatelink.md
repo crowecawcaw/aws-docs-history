@@ -1,7 +1,7 @@
 # What is AWS PrivateLink?
 
 AWS PrivateLink is a highly available, scalable technology that you can use to privately
-connect your VPC to services and resources, as if they were in your VPC. You do not need to
+connect your VPC to services and resources as if they were in your VPC. You do not need to
 use an internet gateway, NAT device, public IP address, AWS Direct Connect connection, or AWS Site-to-Site VPN
 connection to allow communication with the service or resource from your private subnets.
 Therefore, you control the specific API endpoints, sites, services, and resources that are

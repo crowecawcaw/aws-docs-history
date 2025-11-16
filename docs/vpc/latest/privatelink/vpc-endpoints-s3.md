@@ -47,11 +47,10 @@ cost. For more information, see [Types of VPC endpoints for Amazon S3](../../../
   a bucket policy for requests to Amazon S3 that traverse a VPC endpoint. Instead, use the
   `aws:VpcSourceIp` condition. Alternatively, you can use route tables to
   control which EC2 instances can access Amazon S3 through the VPC endpoint.
-- Gateway endpoints support only IPv4 traffic.
-- The source IPv4 addresses from instances in your affected subnets as received by
-  Amazon S3 change from public IPv4 addresses to the private IPv4 addresses in your VPC. An
+- The source IPv4 or IPv6 addresses from instances in your affected subnets as received by
+  Amazon S3 change from public addresses to the private addresses in your VPC. An
   endpoint switches network routes, and disconnects open TCP connections. The previous
-  connections that used public IPv4 addresses are not resumed. We recommend that you
+  connections that used public addresses are not resumed. We recommend that you
   do not have any critical tasks running when you create or modify an endpoint; or
   that you test to ensure that your software can automatically reconnect to Amazon S3 after
   the connection break.
@@ -95,10 +94,15 @@ no additional charge.
 
 ###### Private DNS only for the inbound Resolver endpoint
 
-If you configure private DNS only for the inbound Resolver endpoint, requests from your
-on-premises network use the interface endpoint to access Amazon S3, and requests from your VPC
-use the gateway endpoint to access Amazon S3. Therefore, you optimize your costs, because you
-pay to use the interface endpoint only for traffic that can't use the gateway endpoint.
+If you configure private DNS only for the inbound Resolver endpoint, requests from
+your on-premises network use the interface endpoint to access Amazon S3, and requests from your
+VPC use the gateway endpoint to access Amazon S3. Therefore, you optimize your costs, because
+you pay to use the interface endpoint only for traffic that can't use the gateway
+endpoint.
+
+In order to configure this, the DNS record IP type of the gateway endpoint must match the interface endpoint
+or be `service-defined`. AWS PrivateLink doesn't support any other combination.
+For more information, see [DNS record IP type](gateway-endpoints.md#gateway-endpoint-dns-record-ip-type "gateway-endpoints.md#gateway-endpoint-dns-record-ip-type").
 
 ![Amazon S3 request routing with private DNS and an inbound Resolver endpoint.](images/s3-private-dns-inbound-endpoint.png)
 
@@ -118,20 +122,34 @@ Use the following procedure to create a gateway endpoint that connects to Amazon
 2. In the navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint**.
 4. For **Service category**, choose **AWS services**.
-5. For **Services**, add the filter **Type = Gateway**
-   and select **com.amazonaws.**`region`**.s3**.
-6. For **VPC**, select the VPC in which to create the
-   endpoint.
-7. For **Route tables**, select the route tables to be used
+5. For **Services**, add the filter **Type = Gateway**.
+
+If your Amazon S3 data is stored in general purpose buckets, select **com.amazonaws.**`region`**.s3**.
+
+If your Amazon S3 data is stored in directory buckets, select **com.amazonaws.**`region`**.s3express**. 6. For **VPC**, select the VPC in which to create the
+endpoint. 7. For **IP address type**, choose from the following options:
+
+    * **IPv4** – Assign IPv4 addresses to the endpoint network
+     interfaces. This option is supported only if all selected subnets have IPv4 address
+     ranges and the service accepts IPv4 requests.
+    * **IPv6** – Assign IPv6 addresses to the endpoint network
+     interfaces. This option is supported only if all selected subnets are IPv6 only
+     subnets and the service accepts IPv6 requests.
+    * **Dualstack** – Assign both IPv4 and IPv6 addresses to
+     the endpoint network interfaces. This option is supported only if all selected
+     subnets have both IPv4 and IPv6 address ranges and the service accepts both IPv4 and
+     IPv6 requests.
+
+8. For **Route tables**, select the route tables to be used
    by the endpoint. We automatically add a route that points traffic destined for
    the service to the endpoint network interface.
-8. For **Policy**, select **Full access** to allow
+9. For **Policy**, select **Full access** to allow
    all operations by all principals on all resources over the VPC endpoint. Otherwise, select
    **Custom** to attach a VPC endpoint policy that controls the permissions
    that principals have to perform actions on resources over the VPC endpoint.
-9. (Optional) To add a tag, choose **Add new tag** and enter the tag
-   key and the tag value.
-10. Choose **Create endpoint**.
+10. (Optional) To add a tag, choose **Add new tag** and enter the tag
+    key and the tag value.
+11. Choose **Create endpoint**.
 
 ###### To create a gateway endpoint using the command line
 

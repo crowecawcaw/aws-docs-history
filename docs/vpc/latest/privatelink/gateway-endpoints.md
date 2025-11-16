@@ -131,19 +131,56 @@ The IP address type determines which prefix list is associated with your route t
 
 ## DNS record IP type
 
-The DNS record IP type of a gateway is [service-defined](../../../AWSEC2/latest/APIReference/API_DnsOptionsSpecification.md "../../../AWSEC2/latest/APIReference/API_DnsOptionsSpecification.md").
-This means a gateway endpoint returns DNS records based on the service endpoint you call. If
-you create your gateway endpoint using the IPv4 service endpoint, such as
-`dynamodb.us-east-2.amazonaws.com`, DynamoDB returns A records to your clients, and all
+By default, a gateway endpoint returns DNS records based on the service endpoint you call.
+If you create your gateway endpoint using the IPv4 service endpoint, such as
+`s3.us-east-2.amazonaws.com`, Amazon S3 returns A records to your clients, and all
 subnets in your route table use IPv4.
 
 In contrast, if you create your gateway endpoint using the dualstack service endpoint,
-such as `dynamodb.us-east-2.api.aws`, DynamoDB returns both A and AAAA
+such as `s3.dualstack.us-east-2.amazonaws.com`, Amazon S3 returns both A and AAAA
 records to your clients, and the subnets in your route table use IPv4 and IPv6.
 
 ###### Note
 
-IPv6 is only supported for DynamoDB.
+For directory buckets, or S3 Express One Zone, the gateway endpoints for the data plane would be `s3express-use2-az1.us-east-2.amazonaws.com` and `s3express-use2-az1.dualstack.us-east-2.amazonaws.com` respectively.
+
+The DNS record IP type affects how traffic is routed to your clients. If you create a
+gateway endpoint using the IPv4 service endpoint and then call the dualstack service endpoint,
+traffic that uses AAAA records won't be routed through the gateway endpoint. Traffic will be
+dropped or routed over an IPv6-compatible path if one is present. If you use a service-defined
+DNS record IP type, make sure your service can handle variable calls from multiple service
+endpoints.
+
+Instead of the default DNS record IP type setting of [service-defined](../../../AWSEC2/latest/APIReference/API_DnsOptionsSpecification.md "../../../AWSEC2/latest/APIReference/API_DnsOptionsSpecification.md"),
+you can customize the DNS record IP type to choose which records are returned for a specific
+endpoint. The following table shows the
+supported DNS record IP types and the returned record types:
+
+| DNS record IP type | Returned record types                      |
+| ------------------ | ------------------------------------------ |
+| IPv4               | A                                          |
+| IPv6               | AAAA                                       |
+| Dualstack          | A and AAAA                                 |
+| service-defined    | The records depend on the service endpoint |
+
+To choose a DNS record IP type, you must use a compatible IP address type for the endpoint
+service. The following table shows the supported DNS record IP type for each IP address types
+for gateway endpoints:
+
+| IP address type | Supported DNS record IP types            |
+| --------------- | ---------------------------------------- |
+| IPv4            | IPv4, service-defined\*                  |
+| IPv6            | IPv6, service-defined\*                  |
+| Dualstack       | IPv4, IPv6, Dualstack, service-defined\* |
+
+\* Represents the default DNS record IP type.
+
+###### Note
+
+To use DNS record IP types other than service-defined for your Gateway endpoint, you must allow `enableDnsSupport` and `enableDnsHostnames` attributes in your VPC settings.
+
+You can't change the DNS record IP type for a DynamoDB gateway endpoint. DynamoDB
+only supports the DNS record IP type of service-defined.
 
 The DNS record IP type behavior is different for interface endpoints. For more information, see
 [DNS record IP type for interface
