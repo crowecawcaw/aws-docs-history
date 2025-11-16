@@ -21,7 +21,7 @@ of a flower pot sitting on an outdoor potting bench"._
 
 **Input Image**
 
-![Three pots](images/three_pots.jpg)
+![Three pots](/images/nova/latest/userguide/images/three_pots.jpg)
 **Mask Image**
 
 ![mask image](images/three_pots-remove_mask_INVERTED.png)
