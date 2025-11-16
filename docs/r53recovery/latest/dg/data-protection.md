@@ -31,13 +31,8 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 ## Encryption at rest
 
-Customer configuration information is stored in service-owned Amazon DynamoDB global tables, and is encrypted at rest.
-
-Datasets that contain the status of cells in a ARC cluster are written to an Amazon EBS volume for backup. ARC
-uses the default Amazon EBS encryption while the data is at rest.
+Customer configuration information stored by Amazon Application Recovery Controller is encrypted at rest.
 
 ## Encryption in transit
 
-Customer requests and responses—for ARC configuration, readiness status
-queries, cell state updates, and so on—are encrypted during transport throughout
-the service by using TLS.
+Customer requests and responses for Amazon Application Recovery Controller are encrypted during transport throughout the service by using TLS.
