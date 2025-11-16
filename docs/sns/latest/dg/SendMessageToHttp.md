@@ -1,25 +1,33 @@
-# Step 2: Subscribe the HTTP/HTTPS endpoint to the
+# Step 3: Confirm your Amazon SNS subscription
 
-Amazon SNS topic
+To confirm your Amazon SNS subscription, follow these steps to ensure your endpoint can
+successfully receive messages. This process involves setting up your endpoint to handle
+incoming confirmation messages, retrieving the confirmation URL, and confirming the
+subscription. You can confirm the subscription either automatically or manually, depending on
+your setup.
 
-To send messages to an HTTP or HTTPS endpoint through a topic, you must subscribe the
-endpoint to the Amazon SNS topic. You specify the endpoint using its URL. To subscribe to a topic,
-you can use the Amazon SNS console, the [sns-subscribe](../../../cli/latest/reference/sns/subscribe.md "../../../cli/latest/reference/sns/subscribe.md") command, or the [Subscribe](../api/API_Subscribe.md "../api/API_Subscribe.md") API action. Before you start, make sure you have the URL for the endpoint
-that you want to subscribe and that your endpoint is prepared to receive the confirmation and
-notification messages as described in Step 1.
+1. After subscribing to an Amazon SNS topic, Amazon SNS sends a confirmation message to your
+   endpoint. This message contains a `SubscribeURL` that you must use to confirm
+   the subscription.
+2. Your endpoint must be set up to listen for incoming messages from Amazon SNS. When the
+   confirmation message arrives, extract the **`SubscribeURL`** from the message.
+3. Once you have the `SubscribeURL`, you can confirm the subscription in one
+   of two ways:
+   - **Automatic confirmation** – Your endpoint can
+     automatically confirm the subscription by sending an **HTTP GET
+     request** to the `SubscribeURL`.
 
-###### To subscribe an HTTP or HTTPS endpoint to a topic using the Amazon SNS console
+   This method does not require manual intervention.
+   - **Manual confirmation** – If automatic
+     confirmation is not set up, **copy** the **`SubscribeURL`** from the confirmation message and
+     **paste** it into your browser’s address bar.
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. On the navigation panel, choose **Subscriptions**.
-3. Choose the **Create subscription**.
-4. In the **Protocol** drop-down list, select **HTTP**
-   or **HTTPS**.
-5. In the **Endpoint** box, paste in the URL for the endpoint that you
-   want the topic to send messages to and then choose **Create
-   subscription**.
-6. The confirmation message is displayed. Choose **Close**.
+   This will confirm the subscription manually.
 
-Your new subscription's **Subscription ID** displays
-PendingConfirmation. When you confirm the subscription, **Subscription
-ID** will display the subscription ID.
+4. You can also verify the **subscription status** using the
+   Amazon SNS console:
+   1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
+   2. In the navigation pane, choose **Subscriptions**.
+   3. Find your **subscription** in the list.
+      - If confirmed, the `SubscriptionArn` will be displayed.
+      - If still unconfirmed, it will show as `PendingConfirmation`.
