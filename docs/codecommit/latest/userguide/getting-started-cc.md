@@ -189,7 +189,7 @@ create a local copy of a repository.
    tag you want to view from the list. In the following screenshot, the view is set
    to the **main** branch.
 
-![Browse the contents of a repository](images/codecommit-code-browse.png) 3. To view the contents of a file in your repository, choose the file from the
+![Browse the contents of a repository](/images/codecommit/latest/userguide/images/codecommit-code-browse.png) 3. To view the contents of a file in your repository, choose the file from the
 list. To change the color of the displayed code, choose the settings
 icon.
 
