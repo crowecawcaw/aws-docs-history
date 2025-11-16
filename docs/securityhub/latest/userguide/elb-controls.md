@@ -305,7 +305,7 @@ NIST.800-53.r5 CM-2
 
 **Category:** Recover > Resilience
 
-**Severity:** Medium
+**Severity:** Low
 
 **Resource type:**
 `AWS::ElasticLoadBalancing::LoadBalancer`

@@ -252,7 +252,7 @@ up for and enabling Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USE
 
 **Category:** Protect > Data protection > Data deletion protection
 
-**Severity:** Low
+**Severity:** Medium
 
 **Resource type:**
 `AWS::RDS::DBCluster`

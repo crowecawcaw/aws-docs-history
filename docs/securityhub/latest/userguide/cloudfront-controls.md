@@ -199,7 +199,7 @@ SI-7(6), NIST.800-171.r2 3.13.15
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
-**Severity:** Medium
+**Severity:** Low
 
 **Resource type:**
 `AWS::CloudFront::Distribution`

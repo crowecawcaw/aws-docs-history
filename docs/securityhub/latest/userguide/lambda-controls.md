@@ -96,9 +96,10 @@ SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/12.3.4
 
 **Parameters:**
 
-- `runtime`: `dotnet8, java21, java17, java11, java8.al2,
-nodejs22.x, nodejs20.x, python3.13, python3.12, python3.11, python3.10,
-python3.9, ruby3.4, ruby3.3, ruby3.2` (not customizable)
+- `runtime`: `dotnet8, java25, java21, java17, java11,
+java8.al2, nodejs22.x, nodejs20.x, python3.13, python3.12, python3.11,
+python3.10, python3.9, ruby3.4, ruby3.3, ruby3.2` (not
+  customizable)
 
 This control checks whether AWS Lambda function runtime settings match the expected
 values set for the supported runtimes in each language. The control fails if the Lambda

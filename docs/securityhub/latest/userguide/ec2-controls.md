@@ -579,14 +579,18 @@ PCI DSS v4.0.1/1.4.4
 
 **Parameters:** None
 
-This control checks whether the assignment of public IPs in Amazon Virtual Private Cloud (Amazon VPC) subnets
-have `MapPublicIpOnLaunch` set to `FALSE`. The control passes if
-the flag is set to `FALSE`.
+This control checks whether an Amazon Virtual Private Cloud (Amazon VPC) subnet is configured to automatically
+assign public IP addresses. The control fails if the subnet is configured to
+automatically assign public IPv4 or IPv6 addresses.
 
-All subnets have an attribute that determines whether a network interface created in
-the subnet automatically receives a public IPv4 address. Instances that are launched
-into subnets that have this attribute enabled have a public IP address assigned to their
-primary network interface.
+Subnets have attributes that determine whether network interfaces automatically
+receive public IPv4 and IPv6 addresses. For IPv4, this attribute is set to
+`TRUE` for default subnets and `FALSE` for nondefault subnets
+(with an exception for nondefault subnets created through the EC2 launch instance
+wizard, where it's set to `TRUE`). For IPv6, this attribute is set to
+`FALSE` for all subnets by default. When these attributes are enabled,
+instances launched in the subnet automatically receive the corresponding IP addresses
+(IPv4 or IPv6) on their primary network interface.
 
 ### Remediation
 

@@ -130,7 +130,7 @@ To add tags to an SNS topic, see [Configuring Amazon SNS topic tags](../../../sn
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
-**Severity:** High
+**Severity:** Critical
 
 **Resource type:**
 `AWS::SNS::Topic`

@@ -247,7 +247,7 @@ To enable GuardDuty Lambda Protection, see
 
 **Category:** Detect > Detection Services
 
-**Severity:** Medium
+**Severity:** High
 
 **Resource type:** `AWS::GuardDuty::Detector`
 

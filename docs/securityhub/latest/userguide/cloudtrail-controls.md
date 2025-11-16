@@ -185,7 +185,7 @@ Amazon CloudWatch Logs
 
 **Category:** Identify > Logging
 
-**Severity:** Low
+**Severity:** Medium
 
 **Resource type:**
 `AWS::CloudTrail::Trail`

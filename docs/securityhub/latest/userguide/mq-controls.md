@@ -1,8 +1,7 @@
 # Security Hub controls for Amazon MQ
 
-These AWS Security Hub controls evaluate the Amazon MQ service and resources.
-
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
+These AWS Security Hub controls evaluate the Amazon MQ service and resources. The controls might
+not be available in all AWS Regions. For more information, see [Availability of controls by
 Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch
@@ -41,7 +40,7 @@ To stream ActiveMQ broker logs to CloudWatch Logs, see [Configuring Amazon MQ fo
 
 **Category:** Identify > Vulnerability, patch, and version management
 
-**Severity:** Low
+**Severity:** Medium
 
 **Resource type:** `AWS::AmazonMQ::Broker`
 

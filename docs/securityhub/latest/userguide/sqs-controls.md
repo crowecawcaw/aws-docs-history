@@ -80,7 +80,7 @@ To add tags to an existing queue using the Amazon SQS console, see [Configuring 
 
 **Category:** Protect > Secure access management > Resource not publicly accessible
 
-**Severity:** High
+**Severity:** Critical
 
 **Resource type:**
 `AWS::SQS::Queue`

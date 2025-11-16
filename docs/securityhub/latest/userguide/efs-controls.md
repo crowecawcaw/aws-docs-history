@@ -204,13 +204,6 @@ the subnet automatically receives a public IPv4 address. Amazon EFS mount target
 launched into subnets that have this attribute enabled have a public IP address assigned
 to their primary network interface.
 
-###### Note
-
-On August 13, 2025, Security Hub changed the title and description of this control. The
-new title and description more precisely reflect the scope and nature of the check
-that the control performs. Previously, the title of this control was: _EFS mount targets should not be associated with a public
-subnet_.
-
 ### Remediation
 
 To associate an existing mount target with a different subnet, you must create a

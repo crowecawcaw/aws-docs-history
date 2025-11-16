@@ -152,16 +152,11 @@ Management Guide_.
 
 **Schedule type:** Periodic
 
-**Parameters:**
-
-| Parameter             | Description                                                                                                                                                                                                                                   | Type                            | Allowed custom values                                         | Security Hub default value |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------- | -------------------------- |
-| `validAdminUserNames` | A list of admin usernames that Redshift Serverless namespaces should use. The control<br>generates a `FAILED` finding if a namespace uses an admin username that<br>isn't in the list. The list cannot specify the default value,<br>`admin`. | StringList (maximum of 6 items) | 1–6 valid admin usernames for Redshift Serverless namespaces. | No default value           |
+**Parameters:** None
 
 This control checks whether the admin username for an Amazon Redshift Serverless namespace is the default
 admin username, `admin`. The control fails if the admin username for the Redshift Serverless
-namespace is `admin`. You can optionally specify a list of admin usernames for the
-control to include in the evaluation.
+namespace is `admin`.
 
 When creating an Amazon Redshift Serverless namespace, you should specify a custom admin username for the
 namespace. The default admin username is public knowledge. By specifying a custom admin

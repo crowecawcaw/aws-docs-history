@@ -11,7 +11,7 @@ NIST.800-53.r5 CM-8, NIST.800-53.r5 SC-7
 
 **Category:** Protect > Secure access management
 
-**Severity:** High
+**Severity:** Medium
 
 **Resource type:**
 `AWS::ServiceCatalog::Portfolio`

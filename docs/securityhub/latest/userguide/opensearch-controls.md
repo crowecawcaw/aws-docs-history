@@ -303,7 +303,7 @@ To add tags to an OpenSearch Service domain, see [Working with tags](../../../op
 
 **Category:** Identify > Vulnerability, patch, and version management
 
-**Severity:** Low
+**Severity:** Medium
 
 **Resource type:**
 `AWS::OpenSearch::Domain`
