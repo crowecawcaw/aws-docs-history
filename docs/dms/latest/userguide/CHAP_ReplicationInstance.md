@@ -1,35 +1,93 @@
-# Setting an encryption key for a
+# Working with replication
 
-replication instance
+engine versions
 
-AWS DMS encrypts the storage used by a replication instance and the endpoint
-connection information. To encrypt the storage used by a replication instance,
-AWS DMS uses a AWS KMS key that is unique to your AWS account. You can view and manage
-this KMS key with AWS Key Management Service (AWS KMS). You can use the default KMS key in your
-account (`aws/dms`) or a KMS key that you create. If you have an
-existing AWS KMS encryption key, you can also use that key for encryption.
+The _replication engine_ is the core AWS DMS software
+that runs on your replication instance and performs the migration tasks you specify. AWS
+periodically releases new versions of the AWS DMS replication engine software, with new
+features and performance improvements. Each version of the replication engine software
+has its own version number, to distinguish it from other versions.
 
-You can specify your own encryption key by supplying a KMS key identifier to encrypt
-your AWS DMS resources. When you specify your own encryption key, the user account
-used to perform the database migration must have access to that key. For more
-information on creating your own encryption keys and giving users access to an
-encryption key, see the _[AWS KMS
-Developer Guide](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md")_.
+When you launch a new replication instance, it runs the latest AWS DMS engine version
+unless you specify otherwise. For more information, see [Working with an AWS DMS replication
+instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
 
-If you don't specify a KMS key identifier, then AWS DMS uses your default
-encryption key. KMS creates the default encryption key for AWS DMS for your AWS
-account. Your AWS account has a different default encryption key for each AWS Region.
+If you have a replication instance that is currently running, you can upgrade it to a
+more recent engine version. (AWS DMS doesn't support engine version downgrades.) For
+more information about replication engine versions, see [AWS DMS release notes](CHAP_ReleaseNotes.md "CHAP_ReleaseNotes.md").
 
-To manage the keys used for encrypting your AWS DMS resources, you use AWS KMS. You can
-find AWS KMS in the AWS Management Console by searching for **KMS** on the navigation pane.
+## Upgrading the engine version using the
 
-AWS KMS combines secure, highly available hardware and software to provide a key
-management system scaled for the cloud. Using AWS KMS, you can create encryption keys and
-define the policies that control how these keys can be used. AWS KMS supports AWS CloudTrail, so
-you can audit key usage to verify that keys are being used appropriately. Your AWS KMS keys
-can be used in combination with AWS DMS and other supported AWS services. Supported
-AWS services include Amazon RDS, Amazon S3, Amazon Elastic Block Store (Amazon EBS), and Amazon Redshift.
+console
 
-When you have created your AWS DMS resources with a specific encryption key, you
-can't change the encryption key for those resources. Make sure to determine your
-encryption key requirements before you create your AWS DMS resources.
+You can upgrade an AWS DMS replication instance using the AWS Management Console.
+
+###### To upgrade a replication instance using the console
+
+1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+2. In the navigation pane, choose **Replication instances**.
+3. Choose your replication engine, and then choose
+   **Modify**.
+4. For **Engine version**, choose the version
+   number you want, and then choose **Modify**.
+
+###### Note
+
+We recommend that you stop all tasks before upgrading the Replication Instance.
+If you don't stop the task, AWS DMS will stop the task automatically before the upgrade. If you stop
+the task manually, you will need to start the task manually after the upgrade is complete. Upgrading the
+replication instance takes several minutes. When the instance is
+ready, its status changes to **available**.
+
+## Upgrading the engine version using the AWS CLI
+
+You can upgrade an AWS DMS replication instance using the AWS CLI, as follows.
+
+###### To upgrade a replication instance using the AWS CLI
+
+1. Determine the Amazon Resource Name (ARN) of your replication instance by
+   using the following command.
+
+```
+aws dms describe-replication-instances \
+--query "ReplicationInstances[*].[ReplicationInstanceIdentifier,ReplicationInstanceArn,ReplicationInstanceClass]"
+```
+
+In the output, take note of the ARN for the replication instance you want
+to upgrade, for example:
+`arn:aws:dms:us-east-1:123456789012:rep:6EFQQO6U6EDPRCPKLNPL2SCEEY` 2. Determine which replication instance versions are available by using the
+following command.
+
+```
+aws dms describe-orderable-replication-instances \
+--query "OrderableReplicationInstances[*].[ReplicationInstanceClass,EngineVersion]"
+```
+
+In the output, note the engine version number or numbers that are
+available for your replication instance class. You should see this
+information in the output from step 1. 3. Upgrade the replication instance by using the following command.
+
+```
+aws dms modify-replication-instance \
+--replication-instance-arn `arn` \
+--engine-version `n.n.n`
+```
+
+Replace `arn` in the preceding with the actual
+replication instance ARN from the previous step.
+
+Replace `n.n.n` with the engine version number
+that you want, for example: `3.4.5`
+
+###### Note
+
+Upgrading the replication instance takes several minutes. You can view the
+replication instance status using the following command.
+
+```
+aws dms describe-replication-instances \
+--query "ReplicationInstances[*].[ReplicationInstanceIdentifier,ReplicationInstanceStatus]"
+```
+
+When the replication instance is ready, its status changes to
+**available**.

@@ -27,4 +27,4 @@ service.
 ###### Topics
 
 - [Service-linked roles for AWS DMS Fleet Advisor](slr-services-fa.md "slr-services-fa.md")
-- [Service-linked role for AWS DMS Serverless](slr-services-sl.md "slr-services-sl.md")
+- [Service-linked role for AWS DMS](slr-services-sl.md "slr-services-sl.md")

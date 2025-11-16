@@ -1,171 +1,200 @@
-# Target
+# Time Travel task
 
-metadata task settings
+settings
 
-Target metadata settings include the following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+To log and debug replication tasks, you can use AWS DMS Time Travel. In this
+approach, you use Amazon S3 to store logs and encrypt them using your encryption
+keys. Only with access to your Time Travel S3 bucket, can you retrieve your S3
+logs using date-time filters, then view, download, and obfuscate logs as needed.
+By doing this, you can securely "travel back in time" to investigate database
+activities. Time Travel works independently from the CloudWatch logging. For more
+information on CloudWatch logging, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
-- `TargetSchema` – The target table schema name. If
-  this metadata option is empty, the schema from the source table is used.
-  AWS DMS automatically adds the owner prefix for the target database to all
-  tables if no source schema is defined. This option should be left empty
-  for MySQL-type target endpoints. Renaming a schema in data mapping takes
-  precedence over this setting.
-- LOB settings – Settings that determine how large objects (LOBs)
-  are managed. If you set `SupportLobs=true`, you must set one
-  of the following to `true`:
+You can use Time Travel in all AWS Regions with AWS DMS-supported Oracle, Microsoft SQL Server,
+and PostgreSQL source endpoints, and AWS DMS-supported PostgreSQL and MySQL target endpoints.
+You can turn on Time Travel only for full-load and change data capture (CDC) tasks and
+for CDC-only tasks. To turn on Time Travel or to modify any existing Time Travel settings,
+ensure that your replication task is stopped.
 
-      + `FullLobMode` – If you set this option to
-       `true`, then you must enter a value for the
-       `LobChunkSize` option. Enter the size, in kilobytes,
-       of the LOB chunks to use when replicating the data to the target.
-       The `FullLobMode` option works best for very large LOB
-       sizes but tends to cause slower loading. The recommended value for
-       `LobChunkSize` is 64 kilobytes. Increasing the value
-       for `LobChunkSize` above 64 kilobytes can cause task
-       failures.
-      + `InlineLobMaxSize` – This value determines
-       which LOBs AWS DMS transfers inline during a full load.
-       Transferring small LOBs is more efficient than looking them up
-       from a source table. During a full load, AWS DMS checks all
-       LOBs and performs an inline transfer for the LOBs that are
-       smaller than `InlineLobMaxSize`. AWS DMS transfers
-       all LOBs larger than the `InlineLobMaxSize` in
-       `FullLobMode`. The default value for
-       `InlineLobMaxSize` is 0 and the range is 1
-       –102400 kilobytes (100 MB). Set a value for
-       `InlineLobMaxSize` only if you know that most of
-       the LOBs are smaller than the value specified in
-       `InlineLobMaxSize`.
-      + `LimitedSizeLobMode` – If you set this
-       option to `true`, then you must enter a value for the
-       `LobMaxSize` option. Enter the maximum size, in
-       kilobytes, for an individual LOB. The maximum value for
-       `LobMaxSize` is 102400 kilobytes (100 MB).
+The Time Travel settings include the `TTSettings` properties following:
 
-  For more information about the criteria for using these task LOB
-  settings, see [Setting LOB support for source databases in
-  an AWS DMS task](CHAP_Tasks.md "CHAP_Tasks.md"). You can also control the
-  management of LOBs for individual tables. For more information, see
-  [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+- `EnableTT` – If this option is set to
+  `true`, Time Travel logging is turned on for the task.
+  The default value is `false`.
 
-- `BatchApplyEnabled` – Determines if each transaction
-  is applied individually or if changes are committed in batches. The
-  default value is `false`.
+Type: Boolean
 
-When `BatchApplyEnabled` is set to `true`, DMS
-requires a Primary Key (PK) or Unique Key (UK) on the **source** table(s). Without a PK or UK on source tables, only
-batch inserts are applied but not batch updates and deletes.
+Required: No
 
-When `BatchApplyEnabled` is set to `true`, AWS DMS
-generates an error message if a **target**
-table has a unique constraint and a primary key. Target tables with both a
-unique constraint and primary key aren't supported when
-`BatchApplyEnabled` is set to `true`.
+- `EncryptionMode` – The type of server-side
+  encryption being used on your S3 bucket to store your data and logs. You
+  can specify either `"SSE_S3"` (the default) or
+  `"SSE_KMS"`.
 
-When `BatchApplyEnabled` is set to true and AWS DMS encounters
-a data error from a table with the default error-handling policy, the
-AWS DMS task switches from batch mode to one-by-one mode for the rest of
-the tables. To alter this behavior, you can set the
-`"SUSPEND_TABLE"` action on the following policies in the
-`"ErrorBehavior"` group property of the task settings
-JSON file:
+You can change `EncryptionMode` from `"SSE_KMS"`
+to `"SSE_S3"`, but not the reverse.
 
-    + `DataErrorPolicy`
-    + `ApplyErrorDeletePolicy`
-    + `ApplyErrorInsertPolicy`
-    + `ApplyErrorUpdatePolicy`
+Type: String
 
-For more information on this `"ErrorBehavior"` group
-property, see the example task settings JSON file in [Specifying task settings
-for AWS Database Migration Service tasks](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md"). After
-setting these policies to `"SUSPEND_TABLE"`, the AWS DMS task
-then suspends data errors on any tables that raise them and continues in
-batch mode for all tables.
+Required: No
 
-You can use the `BatchApplyEnabled` parameter with the
-`BatchApplyPreserveTransaction` parameter. If
-`BatchApplyEnabled` is set to `true`, then the
-`BatchApplyPreserveTransaction` parameter determines the
-transactional integrity.
+- `ServerSideEncryptionKmsKeyId` – If you specify
+  `"SSE_KMS"` for `EncryptionMode`, provide the
+  ID for your custom managed AWS KMS key. Make sure that the key that you
+  use has an attached policy that
+  turns on AWS Identity and Access Management (IAM) user permissions and allows use of the key.
 
-If `BatchApplyPreserveTransaction` is set to
-`true`, then transactional integrity is preserved and a
-batch is guaranteed to contain all the changes within a transaction from
-the source.
+Only your own custom-managed symmetric KMS key is supported with the
+`"SSE_KMS"` option.
 
-If `BatchApplyPreserveTransaction` is set to
-`false`, then there can be temporary lapses in
-transactional integrity to improve performance.
+Type: String
 
-The `BatchApplyPreserveTransaction` parameter applies only
-to Oracle target endpoints, and is only relevant when the
-`BatchApplyEnabled` parameter is set to
-`true`.
+Required: Only if you set `EncryptionMode` to `"SSE_KMS"`
 
-When LOB columns are included in the replication, you can use
-`BatchApplyEnabled` only in limited LOB mode.
+- `ServiceAccessRoleArn` – The Amazon Resource Name
+  (ARN) used by the service to access the IAM role. Set the role name to
+  `dms-tt-s3-access-role`. This is a required setting that
+  allows AWS DMS to write and read objects from an S3 bucket.
 
-For more information about using these settings for a change data capture
-(CDC) load, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+Type: String
 
-- `MaxFullLoadSubTasks` – indicates the maximum
-  number of tables to load in parallel. The default is 8; the maximum
-  value is 49.
-- `ParallelLoadThreads` – Specifies the number of
-  threads that AWS DMS uses to load each table into the target database.
-  This parameter has maximum values for non-RDBMS targets. The maximum
-  value for a DynamoDB target is 200. The maximum value for an Amazon Kinesis Data Streams,
-  Apache Kafka, or Amazon OpenSearch Service target is 32. You can ask to have this maximum
-  limit increased. `ParallelLoadThreads` applies to Full Load
-  tasks. For information on the settings for parallel load of
-  individual tables, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+Required: If Time Travel is turned on
 
-This setting applies to the following endpoint engine types:
+Following is an example policy for this role.
 
-    + DynamoDB
-    + Amazon Kinesis Data Streams
-    + Amazon MSK
-    + Amazon OpenSearch Service
-    + Amazon Redshift
+JSON
 
-AWS DMS supports `ParallelLoadThreads` for MySQL as an extra connection attribute.
-`ParallelLoadThreads` does not apply to MySQL as a task setting.
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject",
+ "kms:GenerateDataKey",
+ "kms:Decrypt",
+ "s3:ListBucket",
+ "s3:DeleteObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::S3bucketName*",
+ "arn:aws:kms:us-east-1:112233445566:key/1234a1a1-1m2m-1z2z-d1d2-12dmstt1234"
+ ]
+ }
+ ]
+}`
 
-- `ParallelLoadBufferSize` Specifies the maximum
-  number of records to store in the buffer that the parallel load threads
-  use to load data to the target. The default value is 50. The maximum
-  value is 1,000. This setting is currently only valid when DynamoDB, Kinesis,
-  Apache Kafka, or OpenSearch is the target. Use this parameter with
-  `ParallelLoadThreads`.
-  `ParallelLoadBufferSize` is valid only when there is more
-  than one thread. For information on the settings for parallel load of
-  individual tables, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
-- `ParallelLoadQueuesPerThread` – Specifies the number
-  of queues that each concurrent thread accesses to take data records out
-  of queues and generate a batch load for the target. The default is 1.
-  This setting is currently only valid when Kinesis or Apache Kafka is the
-  target.
-- `ParallelApplyThreads` – Specifies the number of
-  concurrent threads that AWS DMS uses during a CDC load to push data
-  records to an Amazon DocumentDB, Kinesis, Amazon MSK, OpenSearch, or Amazon Redshift target endpoint. The
-  default is zero (0).
+```
 
-This setting only applies for CDC-only. This setting does not apply for Full Load.
+Following is an example trust policy for this role.
 
-This setting applies to the following endpoint engine types:
+JSON
 
-    + Amazon DocumentDB (with MongoDB compatibility)
-    + Amazon Kinesis Data Streams
-    + Amazon Managed Streaming for Apache Kafka
-    + Amazon OpenSearch Service
-    + Amazon Redshift
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "dms.amazonaws.com"
+ ]
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
 
-- `ParallelApplyBufferSize` – Specifies the maximum
-  number of records to store in each buffer queue for concurrent threads
-  to push to an Amazon DocumentDB, Kinesis, Amazon MSK, OpenSearch, or Amazon Redshift target endpoint during a
-  CDC load. The default value is 100. The maximum value is 1000. Use this option when
-  `ParallelApplyThreads` specifies more than one thread.
-- `ParallelApplyQueuesPerThread` – Specifies the
-  number of queues that each thread accesses to take data records out of
-  queues and generate a batch load for an Amazon DocumentDB, Kinesis, Amazon MSK, or OpenSearch
-  endpoint during CDC. The default value is 1.
+```
+
+- `BucketName` – The name of the S3 bucket to store
+  Time Travel logs. Make sure to create this S3 bucket before turning on
+  Time Travel logs.
+
+Type: String
+
+Required: If Time Travel is turned on
+
+- `BucketFolder` – An optional parameter to set a
+  folder name in the S3 bucket. If you specify this parameter, DMS creates
+  the Time Travel logs in the path
+  `"/`BucketName`/`BucketFolder`/`taskARN`/`YYYY`/`MM`/`DD`/`hh`"`.
+  If you don't specify this parameter, AWS DMS creates the default path as
+  `"/`BucketName`/dms-time-travel-logs/`taskARN`/`YYYY`/`MM`/`DD`/`hh``.
+
+Type: String
+
+Required: No
+
+- `EnableDeletingFromS3OnTaskDelete` – When this
+  option is set to `true`, AWS DMS deletes the Time Travel logs
+  from S3 if the task is deleted. The default value is
+  `false`.
+
+Type: String
+
+Required: No
+
+- `EnableRawData` – When this option is set to
+  `true`, the data manipulation language (DML) raw data for
+  Time Travel logs appears under the `raw_data` column of the
+  Time Travel logs. For the details, see
+  [Using the Time Travel logs](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md").
+  The default value is `false`. When this option is set to
+  `false`, only the type of DML is captured.
+
+Type: String
+
+Required: No
+
+- `RawDataFormat` – In AWS DMS versions 3.5.0 and higher,
+  when `EnableRawData` is set to `true`. This property
+  specifies a format for the raw data of the DML in a Time Travel log and can be
+  presented as:
+
+      + `"TEXT"` – Parsed, readable column names
+       and values for DML events captured during CDC as `Raw` fields.
+      + `"HEX"` – The original hexidecimal for column names
+       and values captured for DML events during CDC.
+
+  This property applies to Oracle and Microsoft SQL Server database sources.
+
+Type: String
+
+Required: No
+
+- `OperationsToLog` – Specifies the type of DML operations to log in Time Travel logs. You can specify one
+  of the following:
+
+      + `"INSERT"`
+      + `"UPDATE"`
+      + `"DELETE"`
+      + `"COMMIT"`
+      + `"ROLLBACK"`
+      + `"ALL"`
+
+  The default is `"ALL"`.
+
+Type: String
+
+Required: No
+
+- `MaxRecordSize` – Specifies the maximum size
+  of Time Travel log records that are logged for each row. Use this
+  property to control the growth of Time Travel logs for especially
+  busy tables. The default is 64 KB.
+
+Type: Integer
+
+Required: No
+For more information on turning on and using Time Travel logs, see the
+following topics.
+
+###### Topics
+
+- [Turning on the Time Travel logs for a task](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
+- [Using the Time Travel logs](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")
+- [How often AWS DMS uploads Time Travel logs to S3](CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md "CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.md")

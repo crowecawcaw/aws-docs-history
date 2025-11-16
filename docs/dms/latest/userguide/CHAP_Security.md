@@ -1,337 +1,165 @@
-# Security in AWS Database Migration Service
+# Using SSL with AWS Database Migration Service
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
-data center and network architecture that are built to meet the requirements of the most
-security-sensitive organizations.
+You can encrypt connections for source and target endpoints by using Secure Sockets
+Layer (SSL). To do so, you can use the AWS DMS Management Console or AWS DMS API
+to assign a certificate to an endpoint. You can also use the AWS DMS console to
+manage your certificates.
 
-Security is a shared responsibility between AWS and you. The [shared responsibility
-model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security
-_in_ the cloud:
-
-- **Security of the cloud** – AWS is
-  responsible for protecting the infrastructure that runs AWS services in the AWS
-  Cloud. AWS also provides you with services that you can use securely. Third-party
-  auditors regularly test and verify the effectiveness of our security as part of the
-  [AWS compliance
-  programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to AWS DMS,
-  see [AWS services in
-  scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
-- **Security in the cloud** – Your responsibility
-  is determined by the AWS service that you use. You are also responsible for other
-  factors including the sensitivity of your data, your organization's requirements,
-  and applicable laws and regulations.
-  This documentation helps you understand how to apply the shared responsibility model when
-  using AWS DMS. The following topics show you how to configure AWS DMS to meet your security and
-  compliance objectives. You also learn how to use other AWS services that help you monitor
-  and secure your AWS DMS resources.
-
-You can manage access to your AWS DMS resources and your databases (DBs). The method you use
-to manage access depends on the replication task you need to perform with AWS DMS:
-
-- Use AWS Identity and Access Management (IAM) policies to assign permissions that determine who is allowed
-  to manage AWS DMS resources. AWS DMS requires that you have the appropriate permissions
-  if you sign in as an IAM user. For example, you can use IAM to determine who is
-  allowed to create, describe, modify, and delete DB instances and clusters, tag
-  resources, or modify security groups. For more information about IAM and using it
-  with AWS DMS, see [Identity and access management for AWS Database Migration Service](security-iam.md "security-iam.md").
-- AWS DMS uses Secure Sockets Layer (SSL) for your endpoint connections with Transport
-  Layer Security (TLS). For more information about using SSL/TLS with AWS DMS, see [Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md").
-- AWS DMS uses AWS Key Management Service (AWS KMS) encryption keys to encrypt the storage used by your
-  replication instance and its endpoint connection information. AWS DMS also uses AWS KMS
-  encryption keys to secure your target data at rest for Amazon S3 and Amazon Redshift target
-  endpoints. For more information, see [Setting an encryption key and
-  specifying AWS KMS permissions](#CHAP_Security.EncryptionKey "#CHAP_Security.EncryptionKey").
-- AWS DMS always creates your replication instance in a virtual private cloud (VPC)
-  based on the Amazon VPC service for the greatest possible network access
-  control. For your DB instances and instance clusters, use the same VPC as your
-  replication instance, or additional VPCs to match this level of access control. Each
-  Amazon VPC that you use must be associated with a security group that has rules that
-  allow all traffic on all ports to leave (egress) the VPC. This approach allows
-  communication from the replication instance to your source and target database
-  endpoints, as long as correct ingress is enabled on those endpoints.
-
-For more information about available network configurations for AWS DMS, see [Setting up a network for a replication
-instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md"). For more information about
-creating a DB instance or instance cluster in a VPC, see the security and cluster
-management documentation for your Amazon databases at [AWS
-documentation](../../../index.md "../../../index.md"). For more information about network configurations that
-AWS DMS supports, see [Setting up a network for a replication
-instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
-
-- To view database migration logs, you need the appropriate Amazon CloudWatch Logs
-  permissions for the IAM role you are using. For more information about logging for
-  AWS DMS, see [Monitoring replication tasks using Amazon CloudWatch](CHAP_Monitoring.md#CHAP_Monitoring.CloudWatch "CHAP_Monitoring.md#CHAP_Monitoring.CloudWatch").
+Not all databases use SSL in the same way. Amazon Aurora MySQL-Compatible Edition uses the server name,
+the endpoint of the primary instance in the cluster, as the endpoint for SSL. An Amazon Redshift
+endpoint already uses an SSL connection and does not require an SSL connection
+set up by AWS DMS. An Oracle endpoint requires additional steps; for more information, see
+[SSL support for an Oracle
+endpoint](CHAP_Source.md#CHAP_Security.SSL.Oracle "CHAP_Source.md#CHAP_Security.SSL.Oracle").
 
 ###### Topics
 
-- [Data protection in AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
-- [Identity and access management for AWS Database Migration Service](security-iam.md "security-iam.md")
-- [Compliance validation for AWS Database Migration Service](dms-compliance.md "dms-compliance.md")
-- [Resilience in AWS Database Migration Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS Database Migration Service](infrastructure-security.md "infrastructure-security.md")
-- [Fine-grained access control
-  using resource names and tags](CHAP_Security.md "CHAP_Security.md")
-- [Encryption for AWS DMS homogeneous migrations](#CHAP_Security.Migrations "#CHAP_Security.Migrations")
-- [Setting an encryption key and
-  specifying AWS KMS permissions](#CHAP_Security.EncryptionKey "#CHAP_Security.EncryptionKey")
-- [Network security for AWS Database Migration Service](#CHAP_Security.Network "#CHAP_Security.Network")
-- [Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
-- [Changing the database
-  password](#CHAP_Security.ChangingDBPassword "#CHAP_Security.ChangingDBPassword")
-- [Using Kerberos Authentication with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
+- [Limitations on using SSL with
+  AWS DMS](#CHAP_Security.SSL.Limitations "#CHAP_Security.SSL.Limitations")
+- [Managing certificates](#CHAP_Security.SSL.ManagingCerts "#CHAP_Security.SSL.ManagingCerts")
+- [Enabling SSL for a MySQL-compatible,
+  PostgreSQL, or SQL Server endpoint](#CHAP_Security.SSL.Procedure "#CHAP_Security.SSL.Procedure")
+  To establish a secure connection, you provide the root certificate or the chain of
+  intermediate CA certificates leading to the root (as a certificate bundle) that was used
+  to sign the server's SSL certificate at the endpoint. Certificates are accepted as PEM
+  formatted X509 files, only. When you import a certificate, you receive an Amazon
+  Resource Name (ARN) that you can use to specify that certificate for an endpoint. If you
+  use Amazon RDS, you can download the root CA and certificate bundle provided in the
+  `rds-combined-ca-bundle.pem` file hosted by Amazon RDS. For more
+  information about downloading this file, see [Using
+  SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
+  _Amazon RDS User Guide_.
 
-## Encryption for AWS DMS homogeneous migrations
+You can choose from several SSL modes to use for your SSL certificate verification.
 
-AWS DMS homogeneous migrations also encrypt resources used for your data migrations, including storage and other components. If you don't specify a customer managed key, AWS DMS homogeneous migrations automatically use an AWS owned key to encrypt your resources.
+- **none** – The connection is not encrypted. This
+  option is not secure, but requires less overhead.
+- **require** – The connection is encrypted using SSL
+  (TLS) but no CA verification is made. This option is more secure, and requires
+  more overhead.
+- **verify-ca** – The connection is encrypted. This
+  option is more secure, and requires more overhead. This option verifies the
+  server certificate.
+- **verify-full** – The connection is encrypted. This
+  option is more secure, and requires more overhead. This option verifies the
+  server certificate and verifies that the server hostname matches the hostname
+  attribute for the certificate.
+  Not all SSL modes work with all database endpoints. The following table shows which
+  SSL modes are supported for each database engine.
 
-When you use a customer managed key, AWS DMS homogeneous migrations create grants on your key to allow the service to encrypt and decrypt resources as needed. These grants are managed automatically as part of the migration lifecycle.
-
-**Using a customer managed key with homogeneous migrations**
-
-To use a customer managed key for your homogeneous migration, add the following permissions to the IAM permissions that you must grant to the IAM user account to use AWS DMS homogeneous migrations:
-
-```
-{
-    "Effect": "Allow",
-    "Action": [
-        "kms:CreateGrant",
-        "kms:DescribeKey",
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:GenerateDataKeyWithoutPlaintext"
-    ],
-    "Resource": "*",
-    "Condition": {
-        "StringEquals": {
-            "kms:ViaService": [
-                "dms.us-west-2.amazonaws.com",
-                "elasticfilesystem.us-west-2.amazonaws.com"
-            ]
-        }
-    }
-}
-```
-
-DMS will be creating an internal grant for accessing and managing the encryption keys during the migration process. In order to further scope down the CreateGrant operation, the following limitations can be applied to your customer managed key policy:
-
-```
-{
-  "Effect": "Allow",
-  "Principal": {
-    "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
-  },
-  "Action": "kms:CreateGrant",
-  "Resource": "*",
-  "Condition": {
-    "ForAllValues:StringEquals": {
-      "kms:GrantOperations": [
-        "CreateGrant",
-        "DescribeKey",
-        "Encrypt",
-        "Decrypt",
-        "RetireGrant",
-        "GenerateDataKeyWithoutPlaintext"
-      ]
-    },
-    "StringEquals": {
-      "kms:ViaService": [
-            "dms.us-west-2.amazonaws.com",
-            "elasticfilesystem.us-west-2.amazonaws.com"
-      ]
-    }
-  }
-}
-```
-
-###### Important
-
-Additional encryption context constraints are not supported at this time. Including such constraints will cause the migration to fail.
-
-## Setting an encryption key and
-
-specifying AWS KMS permissions
-
-AWS DMS encrypts the storage used by a replication instance and the endpoint connection
-information. To encrypt the storage used by a replication instance, AWS DMS uses an
-AWS Key Management Service (AWS KMS) key that is unique to your AWS account. You can view and manage this
-key with AWS KMS. You can use the default KMS key in your account (`aws/dms`)
-or you can create a custom KMS key. If you have an existing KMS key, you can also
-use that key for encryption.
+| DB engine                         | **none** | **require**     | **verify-ca**   | **verify-full** |
+| --------------------------------- | -------- | --------------- | --------------- | --------------- |
+| MySQL/MariaDB/Amazon Aurora MySQL | Default  | Not supported   | Supported       | Supported       |
+| Microsoft SQL Server              | Default  | Supported       | Not Supported   | Supported       |
+| PostgreSQL                        | Default  | Supported       | Supported       | Supported       |
+| Amazon Redshift                   | Default  | SSL not enabled | SSL not enabled | SSL not enabled |
+| Oracle                            | Default  | Not supported   | Supported       | Not Supported   |
+| SAP ASE                           | Default  | SSL not enabled | SSL not enabled | Supported       |
+| MongoDB                           | Default  | Supported       | Not Supported   | Supported       |
+| Db2 LUW                           | Default  | Not Supported   | Supported       | Not Supported   |
+| Db2 for z/OS                      | Default  | Not Supported   | Supported       | Not Supported   |
 
 ###### Note
 
-Any custom or existing AWS KMS key that you use as an encryption key must be a
-symmetric key. AWS DMS does not support the use of asymmetric encryption keys. For
-more information on symmetric and asymmetric encryption keys, see [https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html](../../../kms/latest/developerguide/symmetric-asymmetric.md "../../../kms/latest/developerguide/symmetric-asymmetric.md")
-in the _AWS Key Management Service Developer Guide_.
+The SSL Mode option on the DMS console or API doesn’t apply to some data streaming
+and NoSQL services like Kinesis, and DynamoDB. They are secure by default, so DMS
+shows the SSL mode setting is equal to none (**SSL
+Mode=None**). You don’t need to provide any additional configuration
+for your endpoint to make use of SSL. For example, when using Kinesis as a target
+endpoint, it is secure by default. All API calls to Kinesis use SSL, so there is no
+need for an additional SSL option in the DMS endpoint. You can securely put data and
+retrieve data through SSL endpoints using the HTTPS protocol, which DMS uses by
+default when connecting to a Kinesis Data Stream.
 
-The default KMS key (`aws/dms`) is created when you first launch a
-replication instance, if you haven't selected a custom KMS key from the
-**Advanced** section of the **Create Replication
-Instance** page. If you use the default KMS key, the only permissions you
-need to grant to the IAM user account you are using for migration are
-`kms:ListAliases` and `kms:DescribeKey`. For more information
-about using the default KMS key, see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions").
+## Limitations on using SSL with
 
-To use a custom KMS key, assign permissions for the custom KMS key using one of
-the following options:
+AWS DMS
 
-- Add the IAM user account used for the migration as a key administrator or key
-  user for the AWS KMS custom key. Doing this ensures that necessary AWS KMS
-  permissions are granted to the IAM user account. This action is in addition to
-  the IAM permissions that you grant to the IAM user account to use AWS DMS. For
-  more information about granting permissions to a key user, see [Allows
-  key users to use the KMS key](../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users "../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users") in the _AWS Key Management Service Developer Guide._
-- If you don't want to add the IAM user account as a key administrator or key
-  user for your custom KMS key, then add the following additional permissions to
-  the IAM permissions that you must grant to the IAM user account to use AWS DMS.
+Following are limitations on using SSL with AWS DMS:
 
-```
-
-{
-            "Effect": "Allow",
-            "Action": [
-                "kms:ListAliases",
-                "kms:DescribeKey",
-                "kms:CreateGrant",
-                "kms:Encrypt",
-                "kms:ReEncrypt*"
-            ],
-            "Resource": "*"
-        },
-
-```
-
-AWS DMS also works with KMS key aliases. For more information about creating your own
-AWS KMS keys and giving users access to a KMS key, see the _[AWS KMS Developer Guide](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md")_.
-
-If you don't specify a KMS key identifier, then AWS DMS uses your default encryption
-key. AWS KMS creates the default encryption key for AWS DMS for your AWS account. Your AWS
-account has a different default encryption key for each AWS Region.
-
-To manage the AWS KMS keys used for encrypting your AWS DMS resources, use the AWS Key Management Service.
-AWS KMS combines secure, highly available hardware and software to provide a key
-management system scaled for the cloud. Using AWS KMS, you can create encryption keys and
-define the policies that control how these keys can be used.
-
-###### You can find AWS KMS in the AWS Management Console
-
-1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
-2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
-3. Choose one of the following options to work with AWS KMS keys:
-   - To view the keys in your account that AWS creates and manages for you, in the navigation pane, choose **AWS managed keys**.
-   - To view the keys in your account that you create and manage, in the navigation
-     pane choose **Customer managed keys**.
-
-AWS KMS supports AWS CloudTrail, so you can audit key usage to verify that keys are being used
-appropriately. Your AWS KMS keys can be used in combination with AWS DMS and supported AWS
-services such as Amazon RDS, Amazon S3, Amazon Redshift, and Amazon EBS.
-
-You can also create custom AWS KMS keys specifically to encrypt target data for the
-following AWS DMS endpoints:
-
-- Amazon Redshift – For more information, see [Creating and using AWS KMS keys to
-  encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys").
-- Amazon S3 – For more information, see [Creating AWS KMS keys to encrypt Amazon S3 target
-  objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
-
-After you have created your AWS DMS resources with a KMS key, you can't change
-the encryption key for those resources. Make sure to determine your encryption key
-requirements before you create your AWS DMS resources.
-
-## Network security for AWS Database Migration Service
-
-The security requirements for the network you create when using AWS Database Migration Service depend on
-how you configure the network. The general rules for network security for AWS DMS are
-as follows:
-
-- The replication instance must have access to the source and target endpoints.
-  The security group for the replication instance must have network ACLs or rules
-  that allow egress from the instance out on the database port to the database
+- SSL connections to Amazon Redshift target endpoints are not supported. AWS DMS uses an
+  Amazon S3 bucket to transfer data to the Amazon Redshift database. This transmission is
+  encrypted by Amazon Redshift by default.
+- SQL timeouts can occur when performing change data capture (CDC) tasks
+  with SSL-enabled Oracle endpoints. If you have an issue where CDC counters
+  don't reflect the expected numbers, set the
+  `MinimumTransactionSize` parameter from the
+  `ChangeProcessingTuning` section of the task settings to a
+  lower value. You can start with a value as low as 100. For more information
+  about the `MinimumTransactionSize` parameter, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+- You can import certificates only in the .pem and .sso (Oracle wallet)
+  formats.
+- In some cases, your server SSL certificate might be signed by an
+  intermediate certificate authority (CA). If so, make sure that the entire
+  certificate chain leading from the intermediate CA up to the root CA is
+  imported as a single .pem file.
+- If you are using self-signed certificates on your server, choose
+  **require** as your SSL mode. The
+  **require** SSL mode implicitly trusts the
+  server's SSL certificate and doesn't try to validate that the
+  certificate was signed by a CA.
+- AWS DMS does not support TLS version 1.3 for MySQL and MariaDb
   endpoints.
-- Database endpoints must include network ACLs and security group rules that
-  allow incoming access from the replication instance. You can achieve this using
-  the replication instance's security group, the private IP address, the public IP
-  address, or the NAT gateway's public address, depending on your configuration.
-- If your network uses a VPN tunnel, the Amazon EC2 instance acting as the NAT
-  gateway must use a security group that has rules that allow the replication
-  instance to send traffic through it.
 
-By default, the VPC security group used by the AWS DMS replication instance has rules
-that allow egress to 0.0.0.0/0 on all ports. If you modify this security group or use
-your own security group, egress must, at a minimum, be permitted to the source and
-target endpoints on the respective database ports.
+## Managing certificates
 
-The network configurations that you can use for database migration each require
-specific security considerations:
+You can use the DMS console to view and manage your SSL certificates. You can also
+import your certificates using the DMS console.
 
-- [Configuration with all database migration
-  components in one VPC](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioAllVPC "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioAllVPC")
-  – The security group used by the endpoints must allow ingress on the
-  database port from the replication instance. Ensure that the security group used
-  by the replication instance has ingress to the endpoints, or you can create a
-  rule in the security group used by the endpoints that allows the private IP
-  address of the replication instance access.
-- [Configuration with
-  multiple VPCs](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioVPCPeer "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioVPCPeer") – The security group used by the replication instance must have a rule
-  for the VPC range and the DB port on the database.
-- [Configuration for a network to a VPC using AWS Direct Connect or a VPN](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioDirect "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioDirect")
-  – a VPN tunnel allowing traffic to tunnel from the VPC into an on-
-  premises VPN. In this configuration, the VPC includes a routing rule that sends
-  traffic destined for a specific IP address or range to a host that can bridge
-  traffic from the VPC into the on-premises VPN. If this case, the NAT host
-  includes its own Security Group settings that must allow traffic from the
-  Replication Instance's private IP address or security group into the NAT
-  instance.
-- [Configuration for a network to a VPC using the internet](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioInternet "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ScenarioInternet") – The VPC security group must include routing rules that send traffic
-  not destined for the VPC to the Internet gateway. In this configuration, the
-  connection to the endpoint appears to come from the public IP address on the
-  replication instance.
-- [Configuration with an RDS DB instance not in a VPC to a DB instance in a
-  VPC using ClassicLink](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ClassicLink "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations.ClassicLink")
-  – When the source or target Amazon RDS DB instance is not in a VPC and
-  does not share a security group with the VPC where the replication instance is
-  located, you can setup a proxy server and use ClassicLink to connect the source
-  and target databases.
-- **Source endpoint is outside the VPC used by the replication
-  instance and uses a NAT gateway** – You can configure a
-  network address translation (NAT) gateway using a single Elastic IP address
-  bound to a single Elastic network interface. This Elastic network interface then
-  receives a NAT identifier (nat-#####). If the VPC includes a default route to
-  that NAT gateway instead of the internet gateway, the replication instance
-  instead appears to contact the database endpoint using the public IP address of
-  the internet gateway. In this case, the ingress to the database endpoint outside
-  the VPC needs to allow ingress from the NAT address instead of the replication
-  instance's public IP address.
-- **VPC endpoints for non-RDBMS engines** –
-  AWS DMS doesn’t support VPC endpoints for non-RDBMS engines.
+![AWS Database Migration Service SSL certificate management](images/datarep-certificatemgr.png)
 
-## Changing the database
+## Enabling SSL for a MySQL-compatible,
 
-password
+PostgreSQL, or SQL Server endpoint
 
-In most situations, changing the database password for your source or target endpoint
-is straightforward. If you need to change the database password for an endpoint that you
-are currently using in a migration or replication task, the process needs a few
-additional steps. The procedure following shows how to do this.
+You can add an SSL connection to a newly created endpoint or to an existing
+endpoint.
 
-###### To change the database password for an endpoint in a migration or replication
+###### To create an AWS DMS endpoint with SSL
 
-task
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+
+If you're signed in as an AWS Identity and Access Management (IAM) user, make sure that you
+have the appropriate permissions to access AWS DMS. For more information about
+the permissions required for database migration, see [IAM permissions needed to use
+AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. In the navigation pane, choose **Certificates**. 3. Choose **Import Certificate**. 4. Upload the certificate you want to use for encrypting the connection to an
+endpoint.
+
+###### Note
+
+You can also upload a certificate using the AWS DMS console when
+you create or modify an endpoint by selecting **Add new CA
+certificate** on the **Create database
+endpoint** page.
+
+For Aurora Serverless as target, get the certificate mentioned in
+[Using TLS/SSL with Aurora Serverless](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md#aurora-serverless.tls "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md#aurora-serverless.tls"). 5. Create an endpoint as described in [Step 2: Specify source and target endpoints](CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Endpoints "CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Endpoints")
+
+###### To modify an existing AWS DMS endpoint to use SSL
 
 1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 
 If you're signed in as an IAM user, make sure that you have the
 appropriate permissions to access AWS DMS. For more information about the
-permissions required, see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. In the navigation pane, choose **Database migration tasks**. 3. Choose the task that uses the endpoint you want to change the database
-password for, and then choose **Stop**. 4. While the task is stopped, you can change the password of the database for the
-endpoint using the native tools you use to work with the database. 5. Return to the DMS Management Console and choose **Endpoints**
-from the navigation pane. 6. Choose the endpoint for the database you changed the password for, and then
-choose **Modify**. 7. Type the new password in the **Password** box, and then
-choose **Save**. 8. Choose **Database migration tasks** from the navigation pane. 9. Choose the task that you stopped previously, and choose
-**Restart/Resume**. 10. Choose either **Restart** or **Resume**,
-depending on how you want to continue the task, and then choose **Start
-task**.
+permissions required for database migration, see [IAM permissions needed to use
+AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. In the navigation pane, choose **Certificates**. 3. Choose **Import Certificate**. 4. Upload the certificate you want to use for encrypting the connection to an
+endpoint.
+
+###### Note
+
+You can also upload a certificate using the AWS DMS console when
+you create or modify an endpoint by selecting **Add new CA
+certificate** on the **Create database
+endpoint** page. 5. In the navigation pane, choose **Endpoints**, select the
+endpoint you want to modify, and choose **Modify**. 6. Choose a value for **SSL mode**.
+
+If you choose **verify-ca** or
+**verify-full** mode, specify the certificate that you
+want to use for **CA certificate**, as shown following.
+
+![AWS Database Migration Service SSL certificate management](images/datarep-certificate2.png) 7. Choose **Modify**. 8. When the endpoint has been modified, choose the endpoint and choose
+**Test connection** to determine if the SSL connection
+is working.
+
+After you create your source and target endpoints, create a task that uses these
+endpoints. For more information about creating a task, see [Step 3: Create a task and migrate data](CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Tasks "CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Tasks").

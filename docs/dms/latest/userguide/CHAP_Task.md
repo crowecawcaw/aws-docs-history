@@ -104,6 +104,32 @@ timestamp to an LSN or SCN as Oracle and SQL Server do.
 When the task is created, AWS DMS marks the CDC start point, and it can't be changed. To
 use a different CDC start point, create a new task.
 
+###### Note
+
+When specifying a CDC (Change Data Capture) start point, the premigration assessment will still
+perform a complete analysis of existing metadata and parameters in the current environment. This
+ensures that all current configurations and settings are evaluated, regardless of the designated CDC
+starting point.
+
+Important: If no assessments have been performed within the last 7 days for a given task, the
+premigration assessment will automatically execute in both resume and reload modes to ensure data
+completeness and consistency.
+
+###### Technical Details:
+
+- Metadata analysis remains comprehensive.
+- Parameter evaluation covers current state.
+- CDC start point does not limit assessment scope.
+- Full system configuration review is maintained.
+- Auto-execution in resume and reload modes if:
+
+Last assessment > 7 days ago.
+
+No previous assessment records found.
+
+This helps ensure accurate migration planning while maintaining data consistency between the specified
+CDC point and current system state.
+
 ### Determining a CDC native start
 
 point
@@ -299,6 +325,31 @@ set a stop time when you create the task.
 It can take up to 40 minutes to initialize all the resources the first time
 you start a new AWS DMS Serverless replication. Note that the `server_time` option is
 only applicable once the resource initialization has completed.
+
+### Starting a task with target reload
+
+You can start an AWS DMS migrate existing data and replicate ongoing changes task with the reload
+option (“reload-target” in DMS API). In this case the migration will start from the beginning,
+reload each tables data and continue data replication using full-load and CDC-enabled tasks settings.
+
+To use task start with reload option, the following conditions must apply:
+
+- The task must be stopped.
+- The migration method for the task must be either full load or full load with CDC.
+
+DMS applies the TargetTablePrepMode setting before reloading the tables. If you set
+`TargetTablePrepMode` to `DO_NOTHING`, you must manually truncate the tables first.
+
+###### Note
+
+When a DMS task is started with the target reload option, the premigration assessment will perform a complete
+analysis of existing metadata and parameters in the current environment. This ensures that all current
+configurations and settings are evaluated, regardless of the actual task status.
+
+###### Important
+
+If no assessments have been performed within the last 7 days for a given task, the premigration assessment
+will automatically execute to ensure data completeness and consistency.
 
 ## Performing bidirectional
 

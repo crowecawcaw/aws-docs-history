@@ -100,7 +100,7 @@ JSON
 policy: AWSDMSServerlessServiceRolePolicy
 
 This policy is attached to the `AWSServiceRoleForDMSServerless` role, which
-allows AWS DMS to perform actions on your behalf. For more information, see [Service-linked role for AWS DMS Serverless](slr-services-sl.md "slr-services-sl.md").
+allows AWS DMS to perform actions on your behalf. For more information, see [Service-linked role for AWS DMS](slr-services-sl.md "slr-services-sl.md").
 
 This policy grants contributor permissions that allow AWS DMS to manage replication
 resources.
@@ -111,129 +111,125 @@ This policy includes the following permissions.
 
 - **AWS DMS** – Allows principals to interact
   with AWS DMS resources.
-- **Amazon S3** – Allows S3 to create an S3
-  bucket to store a serverless premigration assessment. The serverless
-  premigration assessment result will be stored with a
-  `dms-severless-premigration-assessment-<UUID>` prefix. The
-  S3 bucket is created for one user per Region and its bucket policy limits access
-  to only the service's service role.
-
-JSON
+- **Amazon S3** – Allows DMS to create an S3
+  bucket to store a premigration assessment. The S3 bucket is created for one user
+  per Region and its bucket policy limits access to only the service's service role.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "id0",
- "Effect": "Allow",
- "Action": [
- "dms:CreateReplicationInstance",
- "dms:CreateReplicationTask"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "dms:req-tag/ResourceCreatedBy": "DMSServerless"
- }
- }
- },
- {
- "Sid": "id1",
- "Effect": "Allow",
- "Action": [
- "dms:DescribeReplicationInstances",
- "dms:DescribeReplicationTasks"
- ],
- "Resource": "*"
- },
- {
- "Sid": "id2",
- "Effect": "Allow",
- "Action": [
- "dms:StartReplicationTask",
- "dms:StopReplicationTask",
- "dms:ModifyReplicationTask",
- "dms:DeleteReplicationTask",
- "dms:ModifyReplicationInstance",
- "dms:DeleteReplicationInstance"
- ],
- "Resource": [
- "arn:aws:dms:*:*:rep:*",
- "arn:aws:dms:*:*:task:*"
- ],
- "Condition": {
- "StringEqualsIgnoreCase": {
- "aws:ResourceTag/ResourceCreatedBy": "DMSServerless"
- }
- }
- },
- {
- "Sid": "id3",
- "Effect": "Allow",
- "Action": [
- "dms:TestConnection",
- "dms:DeleteConnection"
- ],
- "Resource": [
- "arn:aws:dms:*:*:rep:*",
- "arn:aws:dms:*:*:endpoint:*"
- ]
- },
- {
- "Sid": "id4",
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:DeleteObject",
- "s3:GetObject",
- "s3:PutObjectTagging"
- ],
- "Resource": [
- "arn:aws:s3:::dms-serverless-premigration-results-*"
- ],
- "Condition": {
- "StringEquals": {
- "s3:ResourceAccount": "${aws:PrincipalAccount}"
- }
- }
- },
- {
- "Sid": "id5",
- "Effect": "Allow",
- "Action": [
- "s3:PutBucketPolicy",
- "s3:ListBucket",
- "s3:GetBucketLocation",
- "s3:CreateBucket"
- ],
- "Resource": [
- "arn:aws:s3:::dms-serverless-premigration-results-*"
- ],
- "Condition": {
- "StringEquals": {
- "s3:ResourceAccount": "${aws:PrincipalAccount}"
- }
- }
- },
- {
- "Sid": "id6",
- "Effect": "Allow",
- "Action": [
- "dms:StartReplicationTaskAssessmentRun"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "StringEqualsIgnoreCase": {
- "aws:ResourceTag/ResourceCreatedBy": "DMSServerless"
- }
- }
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "id0",
+            "Effect": "Allow",
+            "Action": [
+                "dms:CreateReplicationInstance",
+                "dms:CreateReplicationTask"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "dms:req-tag/ResourceCreatedBy": "DMSServerless"
+                }
+            }
+        },
+        {
+            "Sid": "id1",
+            "Effect": "Allow",
+            "Action": [
+                "dms:DescribeReplicationInstances",
+                "dms:DescribeReplicationTasks"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "id2",
+            "Effect": "Allow",
+            "Action": [
+                "dms:StartReplicationTask",
+                "dms:StopReplicationTask",
+                "dms:ModifyReplicationTask",
+                "dms:DeleteReplicationTask",
+                "dms:ModifyReplicationInstance",
+                "dms:DeleteReplicationInstance"
+            ],
+            "Resource": [
+                "arn:aws:dms:*:*:rep:*",
+                "arn:aws:dms:*:*:task:*"
+            ],
+            "Condition": {
+                "StringEqualsIgnoreCase": {
+                    "aws:ResourceTag/ResourceCreatedBy": "DMSServerless"
+                }
+            }
+        },
+        {
+            "Sid": "id3",
+            "Effect": "Allow",
+            "Action": [
+                "dms:TestConnection",
+                "dms:DeleteConnection"
+            ],
+            "Resource": [
+                "arn:aws:dms:*:*:rep:*",
+                "arn:aws:dms:*:*:endpoint:*"
+            ]
+        },
+        {
+            "Sid": "id4",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:PutObjectTagging"
+            ],
+            "Resource": [
+                "arn:aws:s3:::dms-serverless-premigration-results-*",
+                "arn:aws:s3:::dms-premigration-results-*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "s3:ResourceAccount": "${aws:PrincipalAccount}"
+                }
+            }
+        },
+        {
+            "Sid": "id5",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutBucketPolicy",
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:CreateBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::dms-serverless-premigration-results-*",
+                "arn:aws:s3:::dms-premigration-results-*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "s3:ResourceAccount": "${aws:PrincipalAccount}"
+                }
+            }
+        },
+        {
+            "Sid": "id6",
+            "Effect": "Allow",
+            "Action": [
+                "dms:StartReplicationTaskAssessmentRun"
+            ],
+            "Resource": [
+                "arn:aws:dms:*:*:task:*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
+                }
+            }
+        }
+    ]
+}
 ```
 
 ## AWS managed
@@ -451,6 +447,7 @@ to the RSS feed on the AWS DMS Document history page.
 
 | Change                                                                                                                                                                           | Description                                                                                                                                                                                                                                                                                                                                           | Date              |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSDMSServerlessServiceRolePolicy](#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy "#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy") – Change              | AWS DMS updated `AWSDMSServerlessServiceRolePolicy`<br>to allow DMS to create S3 buckets and put premigration assessment<br>results into those buckets for replication tasks not related to<br>DMS serverless.                                                                                                                                        | November 5, 2025  |
 | [Service-linked role for AWS DMS Serverless](slr-services-sl.md "slr-services-sl.md") –<br>Change                                                                                | AWS DMS updated `AWSDMSServerlessServiceRolePolicy`<br>to allow `dms:StartReplicationTaskAssessmentRun` to<br>support running premigration assessments. AWS DMS also updated the<br>serverless service-linked role to create S3 buckets and put the<br>premigration assessment results into those buckets.                                            | February 14, 2025 |
 | [AWSDMSServerlessServiceRolePolicy](#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy "#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy") – Change              | AWS DMS added `dms:ModifyReplicationTask` which is<br>required by AWS DMS Serverless to call the<br>`ModifyReplicationTask` operation to modify a<br>replication task. AWS DMS added<br>`dms:ModifyReplicationInstance` which is required by<br>AWS DMS Serverless to call `ModifyReplicationInstance`<br>operation to modify a replication instance. | January 17, 2025  |
 | [AmazonDMSVPCManagementRole](#security-iam-awsmanpol-AmazonDMSVPCManagementRole "#security-iam-awsmanpol-AmazonDMSVPCManagementRole") – Change                                   | AWS DMS added `ec2:DescribeDhcpOptions` and<br>`ec2:DescribeNetworkInterfaces` operations to allow<br>AWS DMS to manage network settings on your behalf.                                                                                                                                                                                              | June 17, 2024     |
