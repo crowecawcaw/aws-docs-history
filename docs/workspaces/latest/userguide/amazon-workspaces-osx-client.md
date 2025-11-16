@@ -15,6 +15,7 @@ application.
 - [Client language](#osx_client_lang "#osx_client_lang")
 - [Display support](#osx-display-support "#osx-display-support")
 - [Proxy servers](#osx_proxy_server "#osx_proxy_server")
+- [IPv6 network settings](#osx_ipv6_settings "#osx_ipv6_settings")
 - [Command shortcuts](#osx_shortcuts "#osx_shortcuts")
 - [Remap the Windows logo key or the Command
   key](#osx_remap_command_key "#osx_remap_command_key")
@@ -270,6 +271,43 @@ proxy server in the macOS client.
 2. In the **Set Proxy** dialog box, select **Use
    proxy server**, enter the proxy server URL or IP address
    and the port, and choose **Save**.
+
+## IPv6 network settings
+
+The WorkSpaces client application supports connecting to your WorkSpace via IPv4, IPv6,
+or dual-stack (both IPv4 and IPv6). By default, IPv4 connections are used for streaming.
+
+###### To enable an IPv6 connection
+
+1. In the WorkSpaces client application, go to **Settings**,
+   **Manage Connection Settings**.
+2. In the **Connection Settings** dialog, under
+   **General Connection Settings**, check the box to
+   **Prefer IPv6-enabled communications**.
+
+This setting is disabled by default, meaning that your client application will
+exclusively use an IPv4 network for your connection. If you enable it, your client
+application will prioritize using an IPv6 network, but will fall back to using an
+IPv4 network if IPv6 is not available.
+
+Alternatively, organizations may also configure this setting using macOS Defaults:
+
+- Namespace: `com.amazon.workspaces`
+- Key: `WSUseDualStackIPv6`
+  - Set its value to `1` to enable IPv6 preferred.
+  - Set its value to `0` to disable IPv6 preferred (meaning it
+    will use IPv4 exclusively).
+
+- Changes will take effect the next time you launch the WorkSpaces client application.
+  Users can modify this setting, but it will revert to the Defaults value when the client
+  is relaunched.
+
+###### Note
+
+- IPv6 connections are supported on the WorkSpaces client application version
+  `5.30.1` or later.
+- IPv6 connection settings need to be changed before connecting to your WorkSpace.
+  They cannot be changed while connected to your WorkSpace.
 
 ## Command shortcuts
 

@@ -43,3 +43,19 @@ WorkSpaces administrator must upgrade your device firmware through a Desktop Acc
 
 To disconnect the zero client from your WorkSpace, you can press Ctrl+Alt+F12.
 Alternatively, you can log off of the WorkSpace, which disconnects the client.
+
+## IPv6 network settings
+
+The WorkSpaces PCoIP zero client application supports connecting to your WorkSpace via IPv4,
+IPv6, or dual-stack (both IPv4 and IPv6).
+
+You can refer to the PCoIP Zero Client documentation to
+[configure IPv6 settings](https://anyware.hp.com/web-help/pcoip_zero_client/tera2/23.06/configuring_ipv6_settings/ "https://anyware.hp.com/web-help/pcoip_zero_client/tera2/23.06/configuring_ipv6_settings/").
+
+###### Note
+
+- IPv6 connections are supported on the Zero Client firmware version
+  `25.10` or later.
+- When IPv6 is enabled for a Zero client application, the system will exclusively
+  use IPv6 networking and will not automatically switch to IPv4 if an IPv6 connection
+  is unavailable.
