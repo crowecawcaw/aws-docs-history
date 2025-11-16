@@ -138,7 +138,8 @@ Nitro v3
 - **Compute Optimized**: C5n
 - **Memory Optimized**: R5dn | R5n | U-3tb1 | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | U-24tb1 | X2iezn
 - **Storage Optimized**: D3 | D3en | I3en
-- **Accelerated Computing**: DL1 | DL2q | G4ad | G4dn | G5 | Inf1 | P3dn | P4d | P4de | VT1
+- **Accelerated Computing**: DL1 | DL2q | G4ad | G4dn | G5 | Inf1 | P4d | P4de | VT1 | P3dn
+- **Previous Generation**: P3dn
 
 Nitro v2
 

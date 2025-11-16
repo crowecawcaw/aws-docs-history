@@ -44,7 +44,7 @@ when you launch new instances. For more information, see [Amazon EC2 Instance Ty
 - [Compute optimized:](co.md "co.md") C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7gn | C7i | C7i-flex | C8g | C8gd | C8gn | C8i | C8i-flex
 - [Memory optimized:](mo.md "mo.md") R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6a | R6g | R6gd | R6i | R6id | R6idn | R6in | R7a | R7g | R7gd | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8i-flex | U-3tb1 | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | U-24tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | U7inh-32tb | X1 | X1e | X2gd | X2idn | X2iedn | X2iezn | X8g | z1d
 - [Storage optimized:](so.md "so.md") D2 | D3 | D3en | H1 | I3 | I3en | I4g | I4i | I7i | I7ie | I8g | I8ge | Im4gn | Is4gen
-- [Accelerated computing:](ac.md "ac.md") DL1 | DL2q | F1 | F2 | G4ad | G4dn | G5 | G5g | G6 | G6e | G6f | Gr6 | Gr6f | Inf1 | Inf2 | P3 | P3dn | P4d | P4de | P5 | P5e | P5en | P6-B200 | P6e-GB200 | Trn1 | Trn1n | Trn2 | Trn2u | VT1
+- [Accelerated computing:](ac.md "ac.md") DL1 | DL2q | F1 | F2 | G4ad | G4dn | G5 | G5g | G6 | G6e | G6f | Gr6 | Gr6f | Inf1 | Inf2 | P4d | P4de | P5 | P5e | P5en | P6-B200 | P6e-GB200 | Trn1 | Trn1n | Trn2 | Trn2u | VT1
 - [High-performance computing:](hpc.md "hpc.md") Hpc6a | Hpc6id | Hpc7a | Hpc7g
 
 ## Previous generation instances
@@ -59,7 +59,7 @@ generation instance type would be a suitable upgrade, see [Previous Generation I
 - **Compute optimized**: C1 | C3 | C4
 - **Memory optimized**: R3 | R4
 - **Storage optimized**: I2
-- **Accelerated computing**: G3
+- **Accelerated computing**: G3 | P3 | P3dn
 
 ## Instance performance
 
@@ -100,6 +100,8 @@ Flex instances running at a high CPU utilization that is consistently above the 
 for long periods of time might see a gradual reduction in the maximum burst CPU throughput.
 For more information, see the following:
 
-- [M7i-flex instances](https://aws.amazon.com/ec2/instance-types/m7i/ "https://aws.amazon.com/ec2/instance-types/m7i/")
 - [C7i-flex instances](https://aws.amazon.com/ec2/instance-types/c7i/ "https://aws.amazon.com/ec2/instance-types/c7i/")
-- [R7i-flex instances](https://aws.amazon.com/ec2/instance-types/r7i/ "https://aws.amazon.com/ec2/instance-types/r7i/")
+- [C8i-flex instances](https://aws.amazon.com/ec2/instance-types/c8i/ "https://aws.amazon.com/ec2/instance-types/c8i/")
+- [M7i-flex instances](https://aws.amazon.com/ec2/instance-types/m7i/ "https://aws.amazon.com/ec2/instance-types/m7i/")
+- [M8i-flex instances](https://aws.amazon.com/ec2/instance-types/m8i/ "https://aws.amazon.com/ec2/instance-types/m8i/")
+- [R8i-flex instances](https://aws.amazon.com/ec2/instance-types/r8i/ "https://aws.amazon.com/ec2/instance-types/r8i/")

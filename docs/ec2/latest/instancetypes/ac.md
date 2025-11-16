@@ -40,8 +40,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | Gr6f            | `gr6f.4xlarge`           |
 | Inf1            | `inf1.xlarge`            | `inf1.2xlarge`  | `inf1.6xlarge`  | `inf1.24xlarge` |
 | Inf2            | `inf2.xlarge`            | `inf2.8xlarge`  | `inf2.24xlarge` | `inf2.48xlarge` |
-| P3              | `p3.2xlarge`             | `p3.8xlarge`    | `p3.16xlarge`   |
-| P3dn            | `p3dn.24xlarge`          |
 | P4d             | `p4d.24xlarge`           |
 | P4de            | `p4de.24xlarge`          |
 | P5              | `p5.4xlarge`             | `p5.48xlarge`   |
@@ -74,8 +72,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | Gr6f            | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux   |
 | Inf1            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | Inf2            | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| P3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| P3dn            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
 | P4d             | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | P4de            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
 | P5              | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows (`p5.4xlarge` only) | Linux 1 |
@@ -159,15 +155,15 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | g6e.24xlarge       | 768.00       | AMD EPYC 7R13               | 96    | 48        | 2                | 4 x NVIDIA L40S GPU                               | 178 GiB (4 x 44 GiB)    |
 | g6e.48xlarge       | 1536.00      | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x NVIDIA L40S GPU                               | 357 GiB (8 x 44 GiB)    |
 | **G6f**            |
-| g6f.large          | 8.00         | AMD EPYC 7R13               | 2     | 1         | 2                | 1 x NVIDIA L4 GPU                                 | 2 GiB (1 x 2 GiB)       |
-| g6f.xlarge         | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 1 x NVIDIA L4 GPU                                 | 2 GiB (1 x 2 GiB)       |
-| g6f.2xlarge        | 32.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 1 x NVIDIA L4 GPU                                 | 5 GiB (1 x 5 GiB)       |
-| g6f.4xlarge        | 64.00        | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA L4 GPU                                 | 11 GiB (1 x 11 GiB)     |
+| g6f.large          | 8.00         | AMD EPYC 7R13               | 2     | 1         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 2 GiB)       |
+| g6f.xlarge         | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 2 GiB)       |
+| g6f.2xlarge        | 32.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 5 GiB)       |
+| g6f.4xlarge        | 64.00        | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 11 GiB)      |
 | **Gr6**            |
 | gr6.4xlarge        | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
 | gr6.8xlarge        | 256.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
 | **Gr6f**           |
-| gr6f.4xlarge       | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA L4 GPU                                 | 11 GiB (1 x 11 GiB)     |
+| gr6f.4xlarge       | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 0 GiB (0 x 11 GiB)      |
 | **Inf1**           |
 | inf1.xlarge        | 8.00         | Intel Xeon P-8259L          | 4     | 2         | 2                | 1 x AWS Inferentia inference accelerator          | 8 GiB (1 x 8 GiB)       |
 | inf1.2xlarge       | 16.00        | Intel Xeon P-8259L          | 8     | 4         | 2                | 1 x AWS Inferentia inference accelerator          | 8 GiB (1 x 8 GiB)       |
@@ -178,12 +174,6 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | inf2.8xlarge       | 128.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x AWS Inferentia2 inference accelerator         | 32 GiB (1 x 32 GiB)     |
 | inf2.24xlarge      | 384.00       | AMD EPYC 7R13               | 96    | 48        | 2                | 6 x AWS Inferentia2 inference accelerator         | 192 GiB (6 x 32 GiB)    |
 | inf2.48xlarge      | 768.00       | AMD EPYC 7R13               | 192   | 96        | 2                | 12 x AWS Inferentia2 inference accelerator        | 384 GiB (12 x 32 GiB)   |
-| **P3**             |
-| p3.2xlarge         | 61.00        | Intel Xeon E5-2686 v4       | 8     | 4         | 2                | 1 x NVIDIA V100 GPU                               | 16 GiB (1 x 16 GiB)     |
-| p3.8xlarge         | 244.00       | Intel Xeon E5-2686 v4       | 32    | 16        | 2                | 4 x NVIDIA V100 GPU                               | 64 GiB (4 x 16 GiB)     |
-| p3.16xlarge        | 488.00       | Intel Xeon E5-2686 v4       | 64    | 32        | 2                | 8 x NVIDIA V100 GPU                               | 128 GiB (8 x 16 GiB)    |
-| **P3dn**           |
-| p3dn.24xlarge      | 768.00       | Intel Xeon Platinum 8175    | 96    | 48        | 2                | 8 x NVIDIA V100 GPU                               | 256 GiB (8 x 32 GiB)    |
 | **P4d**            |
 | p4d.24xlarge       | 1152.00      | Intel Xeon Platinum 8175    | 96    | 48        | 2                | 8 x NVIDIA A100 GPU                               | 320 GiB (8 x 40 GiB)    |
 | **P4de**           |
@@ -297,12 +287,6 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | inf2.8xlarge 1     | 16.667 / 25.0                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | inf2.24xlarge      | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
 | inf2.48xlarge      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **P3**             |
-| p3.2xlarge 1       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| p3.8xlarge         | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| p3.16xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **P3dn**           |
-| p3dn.24xlarge      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
 | **P4d**            |
 | p4d.24xlarge       | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 4             | 60                      | 50                         | ✓ Yes |
 | **P4de**           |
@@ -443,12 +427,6 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | inf2.8xlarge       | 10000.00                            | 1250.00                                           | 40000.00                             | ✓ Yes | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | inf2.24xlarge      | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | inf2.48xlarge      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **P3**             |
-| p3.2xlarge         | 1750.00                             | 218.75                                            | 10000.00                             | ✗ No  | Up to 26 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))      |
-| p3.8xlarge         | 7000.00                             | 875.00                                            | 40000.00                             | ✗ No  | Up to 23 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))      |
-| p3.16xlarge        | 14000.00                            | 1750.00                                           | 80000.00                             | ✗ No  | Up to 19 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))      |
-| **P3dn**           |
-| p3dn.24xlarge      | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | Up to 17 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **P4d**            |
 | p4d.24xlarge       | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | 28 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **P4de**           |
@@ -553,8 +531,6 @@ along with the aggregated IOPS performance with 4,096 byte block size at queue d
 | gr6.8xlarge        | 2 x 450 GB             | NVMe SSD            | 250,000 / 80,000                   |                        | ✓ Yes          |
 | **Gr6f**           |
 | gr6f.4xlarge       | 1 x 450 GB             | NVMe SSD            | 125,000 / 40,000                   |                        | ✓ Yes          |
-| **P3dn**           |
-| p3dn.24xlarge      | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
 | **P4d**            |
 | p4d.24xlarge       | 8 x 1000 GB            | NVMe SSD            | 2,000,000 / 1,600,000              |                        | ✓ Yes          |
 | **P4de**           |
@@ -671,12 +647,6 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | inf2.8xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | inf2.24xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | inf2.48xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **P3**             |
-| p3.2xlarge         | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| p3.8xlarge         | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| p3.16xlarge        | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| **P3dn**           |
-| p3dn.24xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
 | **P4d**            |
 | p4d.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
 | **P4de**           |

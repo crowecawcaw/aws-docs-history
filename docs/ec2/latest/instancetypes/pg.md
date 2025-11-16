@@ -34,6 +34,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M3              | `m3.medium`              | `m3.large`   | `m3.xlarge`   | `m3.2xlarge` |
 | M4              | `m4.large`               | `m4.xlarge`  | `m4.2xlarge`  | `m4.4xlarge` | `m4.10xlarge` | `m4.16xlarge` |
 | P2              | `p2.xlarge`              | `p2.8xlarge` | `p2.16xlarge` |
+| P3              | `p3.2xlarge`             | `p3.8xlarge` | `p3.16xlarge` |
+| P3dn            | `p3dn.24xlarge`          |
 | R3              | `r3.large`               | `r3.xlarge`  | `r3.2xlarge`  | `r3.4xlarge` | `r3.8xlarge`  |
 | R4              | `r4.large`               | `r4.xlarge`  | `r4.2xlarge`  | `r4.4xlarge` | `r4.8xlarge`  | `r4.16xlarge` |
 | T1              | `t1.micro`               |
@@ -53,6 +55,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M4              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | P2              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| P3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| P3dn            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | R3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | R4              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | T1              | Xen                                                         | Intel (i386)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
@@ -117,6 +121,12 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | p2.xlarge     | 61.00        | Intel Xeon E5-2686v4      | 4     | 2         | 2                | 1 x NVIDIA K80 GPU  | 12 GiB (1 x 12 GiB)   |
 | p2.8xlarge    | 488.00       | Intel Xeon E5-2686v4      | 32    | 16        | 2                | 8 x NVIDIA K80 GPU  | 96 GiB (8 x 12 GiB)   |
 | p2.16xlarge   | 732.00       | Intel Xeon E5-2686 v4     | 64    | 32        | 2                | 16 x NVIDIA K80 GPU | 192 GiB (16 x 12 GiB) |
+| **P3**        |
+| p3.2xlarge    | 61.00        | Intel Xeon E5-2686 v4     | 8     | 4         | 2                | 1 x NVIDIA V100 GPU | 16 GiB (1 x 16 GiB)   |
+| p3.8xlarge    | 244.00       | Intel Xeon E5-2686 v4     | 32    | 16        | 2                | 4 x NVIDIA V100 GPU | 64 GiB (4 x 16 GiB)   |
+| p3.16xlarge   | 488.00       | Intel Xeon E5-2686 v4     | 64    | 32        | 2                | 8 x NVIDIA V100 GPU | 128 GiB (8 x 16 GiB)  |
+| **P3dn**      |
+| p3dn.24xlarge | 768.00       | Intel Xeon Platinum 8175  | 96    | 48        | 2                | 8 x NVIDIA V100 GPU | 256 GiB (8 x 32 GiB)  |
 | **R3**        |
 | r3.large      | 15.00        | Intel Xeon E5-2670v2      | 2     | 1         | 2                | ✗ No                | ✗ No                  |
 | r3.xlarge     | 30.50        | Intel Xeon E5-2670v2      | 4     | 2         | 2                | ✗ No                | ✗ No                  |
@@ -135,79 +145,85 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 
 ## Network specifications
 
-| Instance type | Baseline / Burst bandwidth (Gbps) | EFA  | ENA    | ENA Express | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
-| ------------- | --------------------------------- | ---- | ------ | ----------- | ------------- | ----------------------- | -------------------------- | ----- |
+| Instance type | Baseline / Burst bandwidth (Gbps) | EFA   | ENA    | ENA Express | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
+| ------------- | --------------------------------- | ----- | ------ | ----------- | ------------- | ----------------------- | -------------------------- | ----- |
 | **A1**        |
-| a1.medium 1   | 0.5 / 10.0                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
-| a1.large 1    | 0.75 / 10.0                       | ✗ No | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| a1.xlarge 1   | 1.25 / 10.0                       | ✗ No | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| a1.2xlarge 1  | 2.5 / 10.0                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| a1.4xlarge 1  | 5.0 / 10.0                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| a1.metal 1    | 5.0 / 10.0                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| a1.medium 1   | 0.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
+| a1.large 1    | 0.75 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
+| a1.xlarge 1   | 1.25 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| a1.2xlarge 1  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| a1.4xlarge 1  | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| a1.metal 1    | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **C1**        |
-| c1.medium     | Moderate                          | ✗ No | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
-| c1.xlarge     | High                              | ✗ No | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
+| c1.medium     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
+| c1.xlarge     | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
 | **C3**        |
-| c3.large      | Moderate                          | ✗ No | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c3.xlarge     | Moderate                          | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c3.2xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c3.4xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c3.8xlarge    | 10 Gigabit                        | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| c3.large      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
+| c3.xlarge     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| c3.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| c3.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| c3.8xlarge    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **C4**        |
-| c4.large      | Moderate                          | ✗ No | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| c4.xlarge     | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c4.2xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c4.4xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c4.8xlarge    | 10 Gigabit                        | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| c4.large      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
+| c4.xlarge     | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| c4.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| c4.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| c4.8xlarge    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **G3**        |
-| g3.4xlarge 1  | 5.0 / 10.0                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g3.8xlarge    | 10 Gigabit                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| g3.16xlarge   | 25 Gigabit                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
+| g3.4xlarge 1  | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| g3.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| g3.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
 | **I2**        |
-| i2.xlarge     | Moderate                          | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i2.2xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i2.4xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i2.8xlarge    | 10 Gigabit                        | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| i2.xlarge     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| i2.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| i2.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| i2.8xlarge    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **M1**        |
-| m1.small      | Low                               | ✗ No | ✗ No   | ✗ No        | 1             | 2                       | 4                          | ✗ No  |
-| m1.medium     | Moderate                          | ✗ No | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
-| m1.large      | Moderate                          | ✗ No | ✗ No   | ✗ No        | 1             | 3                       | 10                         | ✗ No  |
-| m1.xlarge     | High                              | ✗ No | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
+| m1.small      | Low                               | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 4                          | ✗ No  |
+| m1.medium     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
+| m1.large      | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 3                       | 10                         | ✗ No  |
+| m1.xlarge     | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
 | **M2**        |
-| m2.xlarge     | Moderate                          | ✗ No | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
-| m2.2xlarge    | Moderate                          | ✗ No | ✗ No   | ✗ No        | 1             | 4                       | 30                         | ✗ No  |
-| m2.4xlarge    | High                              | ✗ No | ✗ No   | ✗ No        | 1             | 8                       | 30                         | ✗ No  |
+| m2.xlarge     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
+| m2.2xlarge    | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 30                         | ✗ No  |
+| m2.4xlarge    | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 8                       | 30                         | ✗ No  |
 | **M3**        |
-| m3.medium     | Moderate                          | ✗ No | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
-| m3.large      | Moderate                          | ✗ No | ✗ No   | ✗ No        | 1             | 3                       | 10                         | ✗ No  |
-| m3.xlarge     | High                              | ✗ No | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
-| m3.2xlarge    | High                              | ✗ No | ✗ No   | ✗ No        | 1             | 4                       | 30                         | ✗ No  |
+| m3.medium     | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 6                          | ✗ No  |
+| m3.large      | Moderate                          | ✗ No  | ✗ No   | ✗ No        | 1             | 3                       | 10                         | ✗ No  |
+| m3.xlarge     | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 15                         | ✗ No  |
+| m3.2xlarge    | High                              | ✗ No  | ✗ No   | ✗ No        | 1             | 4                       | 30                         | ✗ No  |
 | **M4**        |
-| m4.large      | Moderate                          | ✗ No | ✗ No 2 | ✗ No        | 1             | 2                       | 10                         | ✓ Yes |
-| m4.xlarge     | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| m4.2xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| m4.4xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| m4.10xlarge   | 10 Gigabit                        | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| m4.16xlarge   | 25 Gigabit                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| m4.large      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 2                       | 10                         | ✓ Yes |
+| m4.xlarge     | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| m4.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| m4.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| m4.10xlarge   | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| m4.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **P2**        |
-| p2.xlarge     | High                              | ✗ No | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| p2.8xlarge    | 10 Gigabit                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| p2.16xlarge   | 25 Gigabit                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| p2.xlarge     | High                              | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| p2.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| p2.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| **P3**        |
+| p3.2xlarge 1  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| p3.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| p3.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| **P3dn**      |
+| p3dn.24xlarge | 100 Gigabit                       | ✓ Yes | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
 | **R3**        |
-| r3.large      | Moderate                          | ✗ No | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| r3.xlarge     | Moderate                          | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| r3.2xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| r3.4xlarge    | High                              | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| r3.8xlarge    | 10 Gigabit                        | ✗ No | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| r3.large      | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
+| r3.xlarge     | Moderate                          | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| r3.2xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| r3.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| r3.8xlarge    | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **R4**        |
-| r4.large 1    | 0.75 / 10.0                       | ✗ No | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
-| r4.xlarge 1   | 1.25 / 10.0                       | ✗ No | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| r4.2xlarge 1  | 2.5 / 10.0                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| r4.4xlarge 1  | 5.0 / 10.0                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| r4.8xlarge    | 10 Gigabit                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| r4.16xlarge   | 25 Gigabit                        | ✗ No | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
+| r4.large 1    | 0.75 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
+| r4.xlarge 1   | 1.25 / 10.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| r4.2xlarge 1  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
+| r4.4xlarge 1  | 5.0 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| r4.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| r4.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
 | **T1**        |
-| t1.micro      | Very Low                          | ✗ No | ✗ No   | ✗ No        | 1             | 2                       | 2                          | ✗ No  |
+| t1.micro      | Very Low                          | ✗ No  | ✗ No   | ✗ No        | 1             | 2                       | 2                          | ✗ No  |
 
 ###### Note
 
@@ -290,6 +306,12 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | p2.xlarge     | 750.00                              | 93.75                                             | 6000.00                              | ✗ No  | Up to 26 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
 | p2.8xlarge    | 5000.00                             | 625.00                                            | 32500.00                             | ✗ No  | Up to 19 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
 | p2.16xlarge   | 10000.00                            | 1250.00                                           | 65000.00                             | ✗ No  | Up to 11 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
+| **P3**        |
+| p3.2xlarge    | 1750.00                             | 218.75                                            | 10000.00                             | ✗ No  | Up to 26 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
+| p3.8xlarge    | 7000.00                             | 875.00                                            | 40000.00                             | ✗ No  | Up to 23 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
+| p3.16xlarge   | 14000.00                            | 1750.00                                           | 80000.00                             | ✗ No  | Up to 19 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
+| **P3dn**      |
+| p3dn.24xlarge | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | Up to 17 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit")) |
 | **R3**        |
 | r3.xlarge     | 500.00                              | 62.50                                             | 4000.00                              | ✗ No  | Up to 39 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
 | r3.2xlarge    | 1000.00                             | 125.00                                            | 8000.00                              | ✗ No  | Up to 39 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
@@ -345,6 +367,8 @@ during or after launch for an additional hourly fee.
 | m3.large      | 1 x 32 GB              | SSD                 |                                    | ✓ Yes                  |                |
 | m3.xlarge     | 2 x 40 GB              | SSD                 |                                    | ✓ Yes                  |                |
 | m3.2xlarge    | 2 x 80 GB              | SSD                 |                                    | ✓ Yes                  |                |
+| **P3dn**      |
+| p3dn.24xlarge | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
 | **R3**        |
 | r3.large      | 1 x 32 GB              | SSD                 |                                    | ✓ Yes                  |                |
 | r3.xlarge     | 1 x 80 GB              | SSD                 |                                    | ✓ Yes                  |                |
@@ -419,6 +443,12 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | p2.xlarge     | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | p2.8xlarge    | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | p2.16xlarge   | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
+| **P3**        |
+| p3.2xlarge    | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
+| p3.8xlarge    | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
+| p3.16xlarge   | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
+| **P3dn**      |
+| p3dn.24xlarge | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
 | **R3**        |
 | r3.large      | ✓ Yes          | ✗ No                         | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | r3.xlarge     | ✓ Yes          | ✗ No                         | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
