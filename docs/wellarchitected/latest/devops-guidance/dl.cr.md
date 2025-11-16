@@ -1,29 +1,22 @@
-# [DL.CR.4] Comprehensive code reviews with an emphasis on business logic
+# [DL.CR.3] Establish clear completion criteria for code tasks
 
-**Category:** FOUNDATIONAL
+**Category:** FOUNDATIONAL
 
-Use automated code review tools to detect potential issues before they are merged
-into the code base. This approach provides fast feedback to developers to fix issues before
-a manual review takes place. This also frees manual reviewers from needing to review for
-trivial issues like code style inconsistencies or syntax errors. Reviewers can instead focus
-on more on complex aspects of the code such as business logic, maintainability, and
-scalability, which may be difficult to automate. This accelerates the review process,
-reduces the feedback loop, and promotes rapid iteration.
+A clear definition of done ensures that developers understand
+the requirements of their task, can consistently meet those
+requirements, and that reviewers have a sense of what they are
+reviewing. It provides the team with shared clarity of purpose
+for each change that they will be making to the code base.
 
-Start by identifying the types of issues that can be automated (like code formatting,
-syntax errors, and potential security vulnerabilities). Then, choose suitable tools that fit
-your code base and your team's needs. Integrate these quality assurance (QA) tools into your
-development lifecycle so that the checks are automatically run when code changes are being
-developed and merged.
+To implement a clear definition of done, initiate discussions among all team members
+during the design phase to identify and agree on the criteria that should be included.  The
+done criteria should include the types of testing that need to be done (like functional,
+non-functional, or security tests), any required documentation (like code comments or user
+manuals), and the standards the code needs to meet (such as performance, availability, or
+team style guides).
 
-Using automated code review tools is recommended for improved
-efficiency and consistency, but is not absolutely required for
-code reviews as DevOps teams can function and conduct manual
-code reviews without them.
-
-**Related information:**
-
-- [Create
-  code reviews in Amazon CodeGuru Reviewer](../../../codeguru/latest/reviewer-ug/create-code-reviews.md "../../../codeguru/latest/reviewer-ug/create-code-reviews.md")
-- [Automate
-  code reviews with Amazon CodeGuru Reviewer](https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/ "https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/")
+Once these criteria are defined and agreed upon, document them, and make this
+definition of done available and visible to all team members. It should be used as a
+checklist during the code review process to ensure that all changes meet the established
+criteria. Having a clear definition of done can streamline the review process and reduce the
+number of issues that need to be addressed in later stages of the development lifecycle.

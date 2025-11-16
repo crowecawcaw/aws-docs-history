@@ -1,28 +1,49 @@
-# [QA.ST.5] Evaluate runtime security with dynamic application security testing
+# [QA.ST.3] Use application risk assessments for secure software design
 
-**Category:** FOUNDATIONAL
+**Category:** FOUNDATIONAL
 
-While other forms of security testing identifies potential vulnerabilities in code
-that hasn't been run, dynamic application security testing (DAST) detects vulnerabilities in
-a running application. DAST works by simulating real-world attacks to identify potential
-security flaws while the application is running, enabling uncovering vulnerabilities that
-may not be detectable through static testing. By proactively uncovering security weaknesses
-during runtime, DAST reduces the likelihood of vulnerabilities being exploited in production
-environments.
+Application risk assessments integrate security considerations
+directly into the software development lifecycle. At the
+earliest stages of the development lifecycle, design reviews
+focus on the planned architecture, features, and flow of the
+application. During these reviews, security experts should
+assist with making design choices to prevent introducing weak
+points that could introduce vulnerabilities. The primary goal
+is to make security-centric design decisions, eliminating
+vulnerabilities before they're developed.
 
-Begin by choosing a DAST tool that offers broad vulnerability coverage, including
-recognition of threats listed in the [OWASP Top 10](https://owasp.org/www-project-top-ten/ "https://owasp.org/www-project-top-ten/"). When selecting a tool, verify that it can integrate seamlessly with
-your existing toolsets, authentication mechanisms, and protocols used by your systems. With
-DAST, false positive rates are generally lower than other forms of security testing since it
-actively exploits known vulnerabilities. Still, pay attention to false positive rates and
-the tool's ability to provide actionable insights. False positives can erode developer trust
-in security testing while detracting from genuine threats and consuming unnecessary
-resources.
+After the design phase, threat modeling dives deeper into
+potential security threats that the finalized design might
+face. This results in a list of possible attack vectors,
+identifying how an attacker might exploit vulnerabilities. An
+inverse approach to threat modeling is attack modeling, which
+identifies specific attacks or vulnerabilities and examines
+how they can be exploited. Both methods offer insights into
+possible vulnerabilities and guide developing protective
+measures.
+
+Once vulnerabilities are identified through design reviews and
+potential threats through modeling, these insights should
+directly inform the software's security requirements. As
+applications evolve or as new threats emerge, periodically
+revisit and update both functional and non-functional
+requirements. Functional requirements involves measures like
+input validation, session management, or error handling.
+Non-functional requirements includes making changes that
+impact to performance, scalability, and reliability under
+security threats.
+
+Translate identified risks into actionable user stories that detail potential abuse
+or misuse scenarios. Add these stories into the backlog for the team to address during
+development. Attach a test case to each story to validate its effective resolution,
+establishing a clear _definition of done_ for developers to adhere to.
 
 **Related information:**
 
-- [Security
-  in every stage of the CI/CD pipeline: DAST](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#dynamic-application-security-testing-dast "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#dynamic-application-security-testing-dast")
-- [Building
-  end-to-end AWS DevSecOps CI/CD pipeline with open source
-  SCA, SAST and DAST tools](https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/ "https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/")
+- [Threat
+  Composer](https://awslabs.github.io/threat-composer "https://awslabs.github.io/threat-composer")
+- [Threat
+  modeling for builders](https://catalog.workshops.aws/threatmodel/ "https://catalog.workshops.aws/threatmodel/")
+- [AWS Security Maturity Model - Threat Modeling](https://maturitymodel.security.aws.dev/en/3.-efficient/threat-modeling/ "https://maturitymodel.security.aws.dev/en/3.-efficient/threat-modeling/")
+- [How
+  to approach threat modeling](https://aws.amazon.com/blogs/security/how-to-approach-threat-modeling/ "https://aws.amazon.com/blogs/security/how-to-approach-threat-modeling/")

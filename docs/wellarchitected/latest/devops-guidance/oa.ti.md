@@ -1,13 +1,12 @@
-# [OA.TI.11] Offer optional opportunities for cross-team collaboration
+# [OA.TI.3] Establish mechanisms for teams to gather and manage customer feedback
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Establish regular communication channels and forums to
-encourage cross-team collaboration and information sharing.
-This can include joint planning sessions, team demos, or
-cross-team retrospectives. Encourage a culture of open
-communication and collaboration across teams, sharing
-knowledge, best practices, and lessons learned. Monitor the
-effectiveness of these cross-team communication and
-collaboration opportunities and adjust the approach as needed
-based on feedback and observed outcomes.
+Establish feedback channels that help teams gather and manage input from both
+internal and external customers of their products. Related processes should be created for
+teams to track, prioritize, and act on the feedback received
+for their respective value stream. Integrate the feedback with collaboration tools and
+existing workflows so that inputs, decisions, and outcomes are documented and prioritized
+with the rest of the value stream work. Embed the feedback into your team norms. Feedback data should
+continually be analyzed to identify trends, prioritize areas for improvement, and
+communicate progress to stakeholders.

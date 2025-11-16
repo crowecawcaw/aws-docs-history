@@ -1,16 +1,35 @@
-# [DL.LD.9] Share tool configurations
+# [DL.LD.8] Generate mock datasets for local development
 
 **Category:** OPTIONAL
 
-Sharing tool configuration among project or team members helps ensure a uniform set
-up of integrated development environment (IDE) settings, text editor preferences, and
-pre-commit hooks. Having these configurations tailored to each code base can reduce
-discrepancies in code styles and promote seamless collaboration and a predictable
-developer experience. This enables any developer working within that repository to begin
-working in the environment quickly while maintaining team norms.
+Mock datasets are synthetic or modified datasets that
+developers can use during the development process, eliminating
+the need to interact with real, sensitive production
+data. Using mock datasets ensures tests are thorough and
+realistic, without compromising security.
 
-Commit tool configuration files to a shared repository.
-Periodically review these shared configurations, ensuring they
-remain updated as tools and practices evolve. While the idea
-promotes consistency, be mindful of the need to occasionally
-tailor configurations for specific tasks and preferences.
+Use data generating tools to create mock datasets. These tools
+can range from random data generators to more advanced methods
+like generative AI. Generative AI can be used to generate
+synthetic datasets that can be used to test applications and
+is especially useful for generating data that is not often
+included in testing datasets, such as defects or edge cases.
+
+If using real-world data is necessary for local development, ensure it is obfuscated.
+Methods such as masking, encrypting, or tokenizing production datasets can transform real
+datasets into mock datasets that are safe for local development. It might be useful to
+store already prepared mock datasets that can be shared between teams or systems to
+perform testing with. This approach creates a realistic local testing environment without
+risking developers handling actual production data.
+
+**Related information:**
+
+- [Testing
+  software and systems at Amazon: Developer
+  environment](https://youtu.be/o1sc3cK9bMU?t=1017 "https://youtu.be/o1sc3cK9bMU?t=1017")
+- [Generate
+  test data using an AWS Glue job and Python](../../../prescriptive-guidance/latest/patterns/generate-test-data-using-an-aws-glue-job-and-python.md "../../../prescriptive-guidance/latest/patterns/generate-test-data-using-an-aws-glue-job-and-python.md")
+- [Foundation
+  Model API Service - Amazon Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/")
+- [What
+  is Generative AI?](https://aws.amazon.com/what-is/generative-ai/ "https://aws.amazon.com/what-is/generative-ai/")

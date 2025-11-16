@@ -1,58 +1,51 @@
-# [QA.NT.2] Validate system reliability with performance testing
+# [QA.NT.4] Enhance user experience gradually through experimentation
 
-**Category:** RECOMMENDED
+**Category:** RECOMMENDED
 
-Performance testing evaluates the responsiveness, throughput, reliability, and
-scalability of a system under a specific load. It helps ensure that the application
-performs adequately when it is subjected to both expected and peak loads without impacting
-user experience. Different performance tests should be run based on the nature of changes
-made to the system:
+Enhancing user experience requires taking a methodical
+approach to assessing how users behave when using your
+application and developing features that resonate with users.
+The goal of running experiments is to identify and implement
+the best possible user experience based on indirect user
+behavior. With experiments, teams can proactively assess the
+impact of new features on a subset of users before a
+full-scale rollout, reducing the risk of making the change and
+negatively impacting user experience.
 
-- **Load testing:** Performance tests evaluating the
-  system's behavior under expected load, such as the typical number of concurrent users
-  or transactions. Integrate automated load testing into your deployment pipeline,
-  ensuring every change undergoes validation of system behavior under expected
-  scenarios.
-- **Stress testing:** Performance tests challenging the
-  system by increasing the load beyond its normal operational capacity. Stress tests
-  identify the system's breaking points, ensuring that even under extreme conditions,
-  the system maintains functionality without abrupt crashes. Schedule stress tests after
-  significant application changes, infrastructure modifications, or periodically—such as
-  once a month—to prepare for unpredictable spikes in traffic or potential DDoS attacks.
-- **Endurance testing:** Performance tests that monitor
-  system behavior over extended periods of time under a specific load. Endurance tests
-  help ensure that there are no latent issues, such as slow memory leaks or performance
-  degradation, which might occur after prolonged operations. Monitor key performance
-  indicators over time and compare against established benchmarks to identify latent
-  issues. Schedule endurance tests after significant changes to the system, especially
-  those that might introduce memory leaks or other long-term issues. Consider running
-  them periodically—such as quarterly or biannually—to ensure system health over
-  prolonged operations.
+A popular technique for conducting experiments is A/B testing,
+also known as split testing. To run split testing experiments,
+present different versions of the application to a small
+segment of real users to gather detailed feedback on specific
+changes. This testing is done in a production environment
+alongside the production application. By directing only a
+small subset of the users to the version of the application
+with the change, teams are able to conduct experiments while
+hiding the new feature from the majority of the user base not
+included in the test. Testing a feature within a smaller
+sample, rather than the entire user group, minimizes potential
+disruptions and yields more detailed data in a real-world
+setting.
 
-All performance tests should be run against a test
-environment mirroring the production setup. Use tailored
-performance testing tools for your application's architecture
-and deployment environment. Regularly analyze test results
-against historical benchmarks and take proactive measures to
-counteract performance regressions.
+Teams can control the experiment
+using [feature
+flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") or dedicated tools
+like [CloudWatch
+Evidently](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md") to control variables and traffic to the
+different versions of the application. Ensure the experiment
+runs for the necessary duration to achieve statistical
+significance and use consistent metrics to track customer
+behavior across the variations to maintain accuracy. Compare
+the metrics after the experiment to make decisions.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF01-BP07 Load test
-  your workload](../performance-efficiency-pillar/perf_performing_architecture_load_test.md "../performance-efficiency-pillar/perf_performing_architecture_load_test.md")
-- [AWS Well-Architected Sustainability Pillar: SUS03-BP03
-  Optimize areas of code that consume the most time or resources](../sustainability-pillar/sus_sus_software_a4.md "../sustainability-pillar/sus_sus_software_a4.md")
-- [AWS Well-Architected Reliability Pillar: REL07-BP04 Load test
-  your workload](../reliability-pillar/rel_adapt_to_changes_load_tested_adapt.md "../reliability-pillar/rel_adapt_to_changes_load_tested_adapt.md")
-- [AWS Well-Architected Reliability Pillar: REL12-BP04 Test
-  scaling and performance requirements](../reliability-pillar/rel_testing_resiliency_test_non_functional.md "../reliability-pillar/rel_testing_resiliency_test_non_functional.md")
-- [Ensure
-  Optimal Application Performance with Distributed Load
-  Testing on AWS](https://aws.amazon.com/blogs/architecture/ensure-optimal-application-performance-with-distributed-load-testing-on-aws/ "https://aws.amazon.com/blogs/architecture/ensure-optimal-application-performance-with-distributed-load-testing-on-aws/")
-- [Stress
-  Testing Tools - AWS Fault Injection Service](https://aws.amazon.com/fis/ "https://aws.amazon.com/fis/")
-- [Find
-  Expensive Code – Amazon CodeGuru Profiler](https://aws.amazon.com/codeguru/features/ "https://aws.amazon.com/codeguru/features/")
-- [Load
-  test your applications in a CI/CD pipeline using CDK
-  pipelines and AWS Distributed Load Testing Solution](https://aws.amazon.com/blogs/devops/load-test-applications-in-cicd-pipeline/ "https://aws.amazon.com/blogs/devops/load-test-applications-in-cicd-pipeline/")
+- [Perform
+  launches and A/B experiments with CloudWatch
+  Evidently](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md")
+- [Feature
+  Flags - AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/ "https://aws.amazon.com/systems-manager/features/appconfig/")
+- [Business
+  Value is IT's Primary Measure of Progress](https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/ "https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/")
+- [Blog: Using
+  A/B testing to measure the efficacy of recommendations
+  generated by Amazon Personalize](https://aws.amazon.com/blogs/machine-learning/using-a-b-testing-to-measure-the-efficacy-of-recommendations-generated-by-amazon-personalize/ "https://aws.amazon.com/blogs/machine-learning/using-a-b-testing-to-measure-the-efficacy-of-recommendations-generated-by-amazon-personalize/")

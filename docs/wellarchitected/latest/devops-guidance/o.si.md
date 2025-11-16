@@ -1,67 +1,48 @@
-# [O.SI.3] Instrument all systems for comprehensive telemetry data collection
+# [O.SI.2] Centralize tooling for streamlined system instrumentation and telemetry data interpretation
 
 **Category:** FOUNDATIONAL
 
-All systems should be fully-instrumented to collect the metrics, logs, events, and
-traces necessary for meeting key performance indicators (KPIs), service level objectives,
-and logging and monitoring strategies. Teams should integrate instrumentation libraries into
-the components of new systems and feature enhancements to capture relevant data points,
-while also ensuring that pipelines and associated tools used during build, testing,
-deployment, and release of the system are also instrumented to track development lifecycle
-metrics and best practices. 
+Centralized observability platforms are able to offer user-friendly, self-service
+capabilities to individual teams that simplify embedding visibility into system components
+and their dependencies. These tools streamline the onboarding process and offer
+auto-instrumentation capabilities to automate the monitoring of applications.
 
-Chosen libraries and tools should support the efficient
-collection, normalization, and aggregation of telemetry data.
-Depending on the workload and existing instrumentation, this
-could involve structured log-based metric reporting, or it
-might rely on other established methods like using StatsD,
-Prometheus exporters, or other monitoring solutions. The
-chosen method should align with the workload's specific needs
-and the complexity involved in instrumenting the solution.
-Strike a balance between thorough monitoring and the amount of
-work required to implement and maintain the monitoring
-solution, to avoid falling into an anti-pattern of excessive
-instrumentation.
+Adopt an observability platform that provides observability to teams using the
+_X as a Service_ (XaaS) interaction mode as defined in the [Team Topologies](https://teamtopologies.com/ "https://teamtopologies.com/") book by Matthew Skelton and
+Manuel Pais. The platform needs to support ingesting the required data sources for effective
+monitoring, and provide the desired level of visibility into the system components and their
+dependencies.
 
-Teams might also consider the use of auto-instrumentation tools to simplify the
-process of collecting data across their systems with little to no manual intervention,
-reducing the risk of human error and inconsistencies. Examples of auto-instrumentation
-include embedding instrumentation tools in shared computer images like AMIs or containers
-being used, automatically gathering telemetry from the compute runtime, or embedding
-instrumentation tools into shared libraries and frameworks.
+Onboarding to the platform should be easy for teams, or support auto-instrumentation
+to automatically monitor applications for a hands-off experience. This enables the
+organization to achieve real-time visibility into system data and improve the ability to
+identify and resolve issues quickly.
 
-Regardless of how the team chooses to implement it, instrumentation should be
-designed to accommodate the needs of the specific workload and business requirements. This
-includes considering factors such as cost, security, data retention, access, compliance, and
-governance requirements. All collected data must always be protected using appropriate
-security measures, including encryption and least-privilege access controls.
+The observability platform should offer capabilities to follow
+requests through the system, the services it interacts with,
+the state of the infrastructure that these services run on,
+and the impact of each of these on user experience. By
+understanding the entire request pathway, teams can identify
+where slowdowns or bottlenecks occur, whether this latency is
+caused by hardware or dependencies between microservices that
+weren't identified during development.
+
+As the observability platform matures, it could begin to offer other capabilities
+such as trend analysis, anomaly detection, and automated responses, ultimately aiming to
+reduce the mean time to detect ([MTTD](../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttd.md "../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttd.md")) and the mean time to resolve ([MTTR](../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttr.md "../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttr.md")) any issues. This can lead to reduced downtime and improved ability to
+achieve desired business outcomes.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF02-BP03 Collect
-  compute-related metrics](../performance-efficiency-pillar/perf_select_compute_collect_metrics.md "../performance-efficiency-pillar/perf_select_compute_collect_metrics.md")
-- [AWS Well-Architected Reliability Pillar: REL06-BP01 Monitor
-  all components for the workload (Generation)](../reliability-pillar/rel_monitor_aws_resources_monitor_resources.md "../reliability-pillar/rel_monitor_aws_resources_monitor_resources.md")
-- [AWS Well-Architected Cost Optimization Pillar: COST05-BP02
-  Analyze all components of the workload](../cost-optimization-pillar/cost_select_service_analyze_all.md "../cost-optimization-pillar/cost_select_service_analyze_all.md")
-- [Instrumenting
-  distributed systems for operational visibility](https://aws.amazon.com/builders-library/instrumenting-distributed-systems-for-operational-visibility/?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/instrumenting-distributed-systems-for-operational-visibility/?did=ba_card&trk=ba_card")
-- [AWS Observability Best Practices: Data Types](https://aws-observability.github.io/observability-best-practices "https://aws-observability.github.io/observability-best-practices")
-- [Embedding
-  metrics within logs](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.md")
-- [Application
-  Insights](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md")
-- [Container
-  Insights](../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md "../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md")
-- [Lambda
-  Insights](../../../AmazonCloudWatch/latest/monitoring/Lambda-Insights.md "../../../AmazonCloudWatch/latest/monitoring/Lambda-Insights.md")
-- [Powertools
-  for AWS Lambda](https://github.com/aws-powertools/powertools-lambda-python "https://github.com/aws-powertools/powertools-lambda-python")
-- [AWS Distro
-  for OpenTelemetry](https://aws-otel.github.io "https://aws-otel.github.io")
-- [Build
-  an observability solution using managed AWS services and
-  the OpenTelemetry standard](https://aws.amazon.com/blogs/mt/build-an-observability-solution-using-managed-aws-services-and-the-opentelemetry-standard/ "https://aws.amazon.com/blogs/mt/build-an-observability-solution-using-managed-aws-services-and-the-opentelemetry-standard/")
+- [AWS observability tools](../management-and-governance-guide/aws-observability-tools.md "../management-and-governance-guide/aws-observability-tools.md")
+- [What
+  is Amazon CloudWatch Application Insights?](../../../AmazonCloudWatch/latest/monitoring/appinsights-what-is.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-what-is.md")
+- [Integrated
+  observability partners](../management-and-governance-guide/integrated-observability-partners.md "../management-and-governance-guide/integrated-observability-partners.md")
+- [Observability
+  Access Manager](https://github.com/aws-samples/cloudwatch-obervability-access-manager-terraform "https://github.com/aws-samples/cloudwatch-obervability-access-manager-terraform")
+- [Apache
+  DevLake](https://devlake.apache.org/ "https://devlake.apache.org/")
 - [The
-  Amazon Software Development Process: Monitor
-  Everything](https://youtu.be/52SC80SFPOw?t=1548 "https://youtu.be/52SC80SFPOw?t=1548")
+  Amazon Software Development Process: Self-Service
+  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")

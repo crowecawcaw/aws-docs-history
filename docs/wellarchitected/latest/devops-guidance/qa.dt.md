@@ -1,39 +1,21 @@
-# [QA.DT.5] Utilize incremental metrics computation
+# [QA.DT.3] Validate data processing rules with data logic tests
 
-**Category:** OPTIONAL
+**Category:** OPTIONAL
 
-Incremental metrics computation allows teams to efficiently
-monitor and maintain data quality without needing to recompute
-metrics on the entire dataset every time data is updated. Use
-this method to significantly reduce computational resources
-and time spent on data quality testing, allowing for more
-agile and responsive data management practices. 
+Data logic tests verify the accuracy and reliability of data
+processing and transformation within your application,
+ensuring that it functions as intended.
 
-Start by identifying the specific data quality metrics that
-are essential for your system. This could include metrics
-related to accuracy, completeness, timeliness, and
-consistency. Depending on your dataset's size and complexity,
-select a tool or framework that supports incremental
-computation. Some modern data processing tools, such
-as [Apache
-Spark](https://spark.apache.org/ "https://spark.apache.org/")
-and [Deequ](https://github.com/awslabs/deequ "https://github.com/awslabs/deequ"),
-provide built-in support for incremental computations.
-
-Segment your data into logical partitions, often based on
-time, such as daily or hourly partitions. As new data is
-added, it becomes a new partition. Automate the computation
-process by setting up triggers that initiate the metric
-computation whenever new data is added or an existing
-partition is updated.
-
-Continuously monitor the updated metrics to help ensure they reflect the true state
-of your data. Periodically validate the results of the incremental metrics computation
-against a full computation to ensure accuracy. As you get more familiar with the process,
-look for ways to optimize the computation to save even more on computational resources.
-This could involve refining your partitions or improving the computation logic.
+Establish test cases for data processing workflows and transformation functions,
+confirming that expected outcomes are achieved. Use version control systems to track
+changes in data logic and collaborate effectively with team members. Implement automated
+data logic tests in development and staging environments, which can be triggered by code
+commits or scheduled intervals, to proactively identify and fix issues before they reach
+production environments.
 
 **Related information:**
 
+- [Test
+  data quality at scale with Deequ](https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/ "https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/")
 - [Deequ
-  stateful metrics computation](https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/algebraic_states_example.md "https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/algebraic_states_example.md")
+  automatic suggestion of constraints](https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/constraint_suggestion_example.md "https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/constraint_suggestion_example.md")

@@ -1,42 +1,27 @@
-# [OA.PPD.1] Encourage collaboration, innovation, learning, and continuous growth to foster a generative culture
+# [OA.PPD.6] Promote knowledge sharing through inter-team interest groups
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-A generative culture, as defined by
-[Dr.
-Ron Westrum's research](https://qualitysafety.bmj.com/content/13/suppl_2/ii22 "https://qualitysafety.bmj.com/content/13/suppl_2/ii22"), provides teams with the
-autonomy and opportunities to experiment and learn from
-failures, creating a space for development and performance
-growth. In a generative culture, individuals feel comfortable
-expressing their ideas and opinions without fear, and
-information is openly shared for improvement.
-This culture is more amenable to successful DevOps adoption
-than pathological and bureaucratic cultures, which are
-characterized by a focus on individual power and authority and
-strict adherence to rules and procedures, respectively.
+Facilitate and support knowledge-sharing opportunities and interest groups, often
+called _skills guilds_, that allow individuals to interact with other
+like-minded people within the organization on topics of interest. These groups
+can partake in activities such as internal blogging, hosting internal conferences,
+attending external events, or group discussions. These opportunities allow for
+individuals to share their experiences, discuss industry trends, and collaborate on
+projects with others outside of their immediate team.
 
-Leaders should promote a culture of openness and inclusivity
-and provide teams the autonomy and opportunities to experiment
-and learn from failures. Encouraging these behaviors allows
-individual contributors to feel comfortable expressing their
-ideas and opinions. Recognize and celebrate successes at all
-levels of the organization, while also providing constructive
-feedback for improvement as part of performance review
-processes. Leaders should model these behaviors and create an
-environment that promotes collaboration, innovation, learning,
-and continuous growth. For example, if individual contributors
-are asked to learn about DevOps, cloud technologies, or
-similar topics, leaders should also strive to become certified
-and knowledgeable about those topics as well, at least at a
-high level.
+Allocate time and resources to support these opportunities and groups tailored based on
+your organization's unique needs and circumstances. This can range from dedicating
+specific hours each week, providing meeting spaces, or assigning budget for professional
+development courses and symposiums. Hosting _lunch and learns_ or
+_tech talks_, where passionate individuals or teams discuss specific
+topics or showcase their projects, can be a great start to facilitating inter-team
+collaboration.
 
-Leaders should model these behaviors and create an environment that promotes
-collaboration, innovation, learning, and continuous growth. For example, if individual
-contributors are asked to learn about DevOps, cloud technologies, or similar topics,
-leaders should also strive to become knowledgeable about those topics as
-well.
-
-**Related information:**
-
-- [A
-  typology of organisational cultures](https://qualitysafety.bmj.com/content/13/suppl_2/ii22 "https://qualitysafety.bmj.com/content/13/suppl_2/ii22")
+We recommend creating groups which focus on each of the DevOps
+Sagas presented in this guidance. Groups may choose to further
+expand into sub-groups to focus on individual capabilities,
+such as continuous deployment, everything-as-code, monitoring,
+or security testing, as they see fit. These opportunities and
+groups help to break down silos and improve cross-team
+collaboration, which can hasten DevOps adoption.

@@ -1,27 +1,33 @@
-# [DL.SCM.9] Implement plans for deprecating and revoking outdated software components
+# [DL.SCM.10] Generate a comprehensive software inventory for each build
 
 **Category:** RECOMMENDED
 
-Maintaining an up-to-date and secure code base requires the proactive management of
-components, including removing outdated artifacts, libraries, and repositories. Not only
-does their removal reduce storage costs, but it also mitigates risks associated with
-deploying outdated or potentially vulnerable software. The removal process of outdated
-components should comply with the organization's data retention policies.
+Maintain a comprehensive inventory of the components and dependencies that make up
+your software assists with identifying vulnerabilities and managing risks. This inventory,
+often taking the form of a [Software Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md"), provides valuable insights into the
+composition of your software.
 
-Develop clear plans for the deprecation and revocation of outdated components. These
-plans should include regular audits of the code base to identify deprecated or unused
-artifacts, libraries, and repositories. Establish timelines for deprecation and final
-removal of identified components. Communicate these plans to your development team and
-ensure that they are aware of the timelines.
+Generate a comprehensive inventory as part of each build. This
+forms a continuous record of your software's composition,
+enabling quick and efficient identification and management of
+potential vulnerabilities or risks. Tracking inventory that is
+machine readable enhances visibility and aids in identifying
+vulnerabilities and risks, enhancing the security posture of
+your software at scale.
 
-Consider automating the removal process where feasible, for example, by using scripts
-or automated governance tools that support such functionality. By implementing such plans,
-you can streamline the code base, making it easier to manage and less prone to errors,
-while ensuring security and reducing the risk of system failures.
+Use a tool to create and manage SBOMs, centralizing them with other build artifacts
+for easier accessibility. Open-source tool sets provided by Open Worldwide Application
+Security Project ([OWASP](https://owasp.org/ "https://owasp.org/")) and the [Linux Foundation](https://www.linuxfoundation.org/ "https://www.linuxfoundation.org/") offer options for
+creating and managing SBOMs in standardized formats.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST04-BP05
-  Enforce data retention policies](../cost-optimization-pillar/cost_decomissioning_resources_data_retention.md "../cost-optimization-pillar/cost_decomissioning_resources_data_retention.md")
-- [AWS Well-Architected Sustainability Pillar: SUS02-BP03 Stop
-  the creation and maintenance of unused assets](../sustainability-pillar/sus_sus_user_a4.md "../sustainability-pillar/sus_sus_user_a4.md")
+- [Exporting
+  SBOMs with Amazon Inspector](../../../inspector/latest/user/sbom-export.md "../../../inspector/latest/user/sbom-export.md")
+- [SPDX
+  Becomes Internationally Recognized Standard for Software
+  Bill of Materials](https://www.linuxfoundation.org/press/featured/spdx-becomes-internationally-recognized-standard-for-software-bill-of-materials "https://www.linuxfoundation.org/press/featured/spdx-becomes-internationally-recognized-standard-for-software-bill-of-materials")
+- [Software
+  Supply Chain Best Practices](https://project.linuxfoundation.org/hubfs/CNCF_SSCP_v1.pdf "https://project.linuxfoundation.org/hubfs/CNCF_SSCP_v1.pdf")
+- [OWASP
+  CycloneDX](https://owasp.org/www-project-cyclonedx/ "https://owasp.org/www-project-cyclonedx/")
