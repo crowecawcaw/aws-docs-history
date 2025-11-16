@@ -82,6 +82,17 @@ The following section describes service quotas for the media recording component
   - Session duration - 1 hour (h)
   - Idle timeout - 3 minutes (h)
 
+**JoinStorageSessionAsViewer**
+
+- API:
+  - Per AWS account - 50 TPS (h)
+  - Per channel - 2 TPS (h)
+
+- Streaming session quotas:
+  - Max concurrent clients in a session - 3 count (h)
+  - Session duration - 1 hour (h)
+  - Idle timeout - 1 minutes (h)
+
 ## Troubleshooting
 
 You can only connect **one** master and **one or more** viewers to a single signaling channel.

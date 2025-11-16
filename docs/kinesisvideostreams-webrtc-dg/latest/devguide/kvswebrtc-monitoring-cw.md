@@ -47,10 +47,21 @@ using CloudWatch Logs.
 
 This section provides information on how to monitor and troubleshoot WebRTC ingestion-related issues using CloudWatch Logs.
 
-| Metric name          | Description                                                                                                                        | Unit  | Dimensions                      |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------------- |
-| **Failure**          | A value of '0' is emitted if the Operation referenced in dimension returns a 200 status code; otherwise a value of '1' is emitted. | Count | Operation, SignalingChannelName |
-| **TotalBitrate**     | Total bitrate sent by the MASTER participant                                                                                       | bps   | Operation, ChannelName          |
-| **TotalPacketCount** | Total number of packets sent by the MASTER participant during the period.                                                          | Count | Operation, ChannelName          |
+| Metric name                | Description                                                                                                                                                                    | Unit         | Dimensions                            |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ------------------------------------- |
+| **Failure**                | '0' is emitted if the Operation mentioned in dimension returns 200 status code response. '1' otherwise.                                                                        | Count        | Operation, SignalingChannelName       |
+| **Latency**                | Measures the time it takes for the service to receive a request and return a response.                                                                                         | Milliseconds | Operation, SignalingChannelName       |
+| **TotalBitrate**           | Total bitrate sent. If Role is specified, this represents the total bitrate sent by the MASTER participant or the aggregate total bitrate sent by the VIEWER participant.      | bps          | Operation, SignalingChannelName, Role |
+| **TotalPacketCount**       | Total packet count sent. If Role is specified, this represents the total bitrate sent by the MASTER participant or the aggregate total bitrate sent by the VIEWER participant. | Count        | Operation, SignalingChannelName, Role |
+| **WebRTCRecordingMinutes** | The number of WebRTCRecordingMinute occured for a channel.                                                                                                                     | Count        | Operation, SignalingChannelName, Role |
+| **WebRTCViewerMinutes**    | The number of WebRTCViewerMinute occured for a channel.                                                                                                                        | Count        | Operation, SignalingChannelName, Role |
 
-For WebRTC ingestion metrics, the `Operation` dimension applies to the following API: `JoinStorageSession`.
+The `Operation` dimension applies to the following APIs:
+
+- JoinStorageSession
+- JoinStorageSessionAsViewer
+
+`Role` dimension:
+
+- MASTER
+- VIEWER

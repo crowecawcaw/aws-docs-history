@@ -11,7 +11,6 @@ through integration with Amazon Rekognition Video and SageMaker AI.
 
 ###### Topics
 
-- [WebRTC ingest with multi-viewer support (Preview)](#ingestion-multi-viewer "#ingestion-multi-viewer")
 - [API operations](#ingestion-apis "#ingestion-apis")
 - [What is Amazon Kinesis Video Streams with WebRTC ingestion and storage?](getting-started-ingestion.md "getting-started-ingestion.md")
 - [Create a signaling channel](ingestion-create-channel.md "ingestion-create-channel.md")
@@ -22,18 +21,6 @@ through integration with Amazon Rekognition Video and SageMaker AI.
 - [Playback ingested media](ingestion-view-media.md "ingestion-view-media.md")
 - [Connect to the storage session](ingestion-initiate.md "ingestion-initiate.md")
 - [Troubleshoot issues connecting with the storage session](troubleshoot-establish-storage.md "troubleshoot-establish-storage.md")
-
-## WebRTC ingest with multi-viewer support (Preview)
-
-###### Note
-
-WebRTC ingest with multi-viewer support (Preview) is being provided in Preview as defined in the AWS Service Terms and is subject to change. It is currently only available in `us-east-1` (IAD).
-
-To participate in the preview, email `<kvs-webrtc-multi-view-preview@amazon.com>`.
-
-Amazon Kinesis Video Streams now offers the ability for multiple viewers to join a real-time video
-streaming session via WebRTC. Each viewer can view streamed video, as well as receive
-and share audio with all participants, while media is ingested to the cloud.
 
 ## API operations
 
