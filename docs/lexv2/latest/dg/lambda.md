@@ -1,4 +1,4 @@
-# Integrating an AWS Lambda function into your bot
+# Integrating an AWS Lambda function into your Amazon Lex V2 bot
 
 With [AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") functions, you can extend and
 better control the behavior of your Amazon Lex V2 bot through custom functions that you define. Amazon Lex V2 uses one Lambda function
@@ -22,6 +22,6 @@ To integrate a Lambda function with your Amazon Lex V2 bot, carry out the follow
 
 - [AWS Lambda input event format for Lex V2](lambda-input-format.md "lambda-input-format.md")
 - [AWS Lambda response format for Lex V2](lambda-response-format.md "lambda-response-format.md")
-- [Common structures in an AWS Lambda function for](lambda-common-structures.md "lambda-common-structures.md")
-- [Creating an AWS Lambda function for your bot](lambda-attach.md "lambda-attach.md")
+- [Common structures in an AWS Lambda function for Amazon Lex V2](lambda-common-structures.md "lambda-common-structures.md")
+- [Creating an AWS Lambda function for your Amazon Lex V2 bot](lambda-attach.md "lambda-attach.md")
 - [Debugging a Lambda function using CloudWatch Logs logs](lambda-debug.md "lambda-debug.md")

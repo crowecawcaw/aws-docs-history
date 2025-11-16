@@ -1,6 +1,6 @@
-# Attach an AWS Lambda function to a bot using the console
+# Attach an AWS Lambda function to a Amazon Lex V2 bot using the console
 
-You must first attach a Lambda function to your bot alias before you can invoke it. You can only
+You must first attach a Lambda function to your Amazon Lex V2 bot alias before you can invoke it. You can only
 attach one Lambda function with each bot alias. Perform these steps to attach the Lambda function
 using the AWS console.
 
@@ -17,7 +17,7 @@ using the AWS console.
    function that you want to use. Then select **Save**. The same Lambda function is used for all intents in a
    language supported by the bot.
 
-###### Setting a intent to invoke a Lambda function using the console
+###### Setting a Amazon Lex V2 intent to invoke a Lambda function using the console
 
 1.  After selecting a bot, select **Intents** in the left side menu under the language of the bot for
     which you want to invoke the Lambda function.

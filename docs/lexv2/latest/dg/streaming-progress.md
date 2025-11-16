@@ -169,6 +169,6 @@ You can leverage the post-fulfillment response to provide a more meaningful resp
 
 ###### Note
 
-If you do not configure a timeout message, throws a 4XX error corresponding to the use case.
+If you do not configure a timeout message, Amazon Lex V2 throws a 4XX error corresponding to the use case.
 
 - **Failure response** – "Unfortunately, we were unable to book your ticket. We have sent an email with details regarding the issue we encountered while booking your reservation."

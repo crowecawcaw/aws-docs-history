@@ -7,8 +7,8 @@ applications to interact with your bots. Use the SDK for Java to build client
 applications for users.
 
 The following application interacts with the OrderFlowers bot that you
-created in [Exercise 1: Create a bot from an
-example](exercise-1.md "exercise-1.md"). It
+created in [Exercise 1: Create a chatbot from a
+template](exercise-1.md "exercise-1.md"). It
 uses the `LexRuntimeV2Client` from the SDK for Java SDK to call
 the [RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md") operation to conduct a
 conversation with the bot.

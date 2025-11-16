@@ -1,6 +1,6 @@
 # Invoke dialog code hook
 
-At each step in the conversation when sends a message to the user, you can use a
+At each step in the conversation when Amazon Lex V2 sends a message to the user, you can use a
 Lambda function as the next step in the conversation. You can use the function to
 implement business logic based on current state of the conversation.
 
@@ -8,7 +8,7 @@ The Lambda function that runs is associated with the bot alias that you are usin
 invoke Lambda function across all dialog code hooks in your intent, you must select
 **Use a Lambda function for initializing and validation** for the
 intent. For more information
-on choosing a Lambda function, see [Creating an AWS Lambda function for your bot](lambda-attach.md "lambda-attach.md").
+on choosing a Lambda function, see [Creating an AWS Lambda function for your Amazon Lex V2 bot](lambda-attach.md "lambda-attach.md").
 
 There are two steps to using a Lambda function. First, you must
 activate the dialog code hook at any point in the conversation. Second, you

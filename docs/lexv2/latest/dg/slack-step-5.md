@@ -13,6 +13,6 @@ your Amazon Lex V2 bot.
 2. Engage in a chat with your Slack application. Your bot
    responds to messages.
 
-If you created the bot using [Exercise 1: Create a bot from an
-example](exercise-1.md "exercise-1.md"), you can use the example
+If you created the bot using [Exercise 1: Create a chatbot from a
+template](exercise-1.md "exercise-1.md"), you can use the example
 conversations from that exercise.

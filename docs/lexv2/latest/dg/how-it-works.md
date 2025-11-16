@@ -1,8 +1,25 @@
 # Amazon Lex V2 core concepts
 
 Amazon Lex V2 enables you to build chat applications (bots) to elicit information from
-users to accomplish a task. For example, you can create a bot to order flowers or
-to book a hotel room. Following are the typical steps for working with Amazon Lex V2:
+users to accomplish a task. For example, you can create a chatbot to provide customer support,
+answer frequently asked questions, or book appointments. Following are the typical steps for working with Amazon Lex V2:
+
+## Quick Start Learning Path
+
+New to Amazon Lex V2? Follow this progressive learning path to get started quickly:
+
+1. **Start with a Template** (5 minutes) – Choose from pre-built chatbot templates like Customer Support FAQ, Appointment Booking, or Order Status. Templates include pre-configured intents, slots, and sample utterances.
+2. **Customize Your Chatbot** (15 minutes) – Modify the template to match your specific use case. Add your own intents, update sample utterances, and configure slot types for your domain.
+3. **Test and Refine** (10 minutes) – Use the built-in test console to have conversations with your chatbot. Enable Assisted NLU for improved understanding with minimal training data.
+4. **Deploy and Integrate** (20 minutes) – Publish your chatbot and integrate it with your preferred platform (Slack, web app, or mobile application).
+
+**Total time to working chatbot: ~50 minutes**
+
+For a more comprehensive understanding, continue with the detailed development process below.
+
+## Detailed Development Process
+
+For more complex bots or when building from scratch, follow this comprehensive development process:
 
 1. Create a bot and add one or more languages. Configure the bot
    so that it understands the user's goal, engages in conversation
@@ -14,8 +31,11 @@ to book a hotel room. Following are the typical steps for working with Amazon Le
 4. Deploy the bot. You can deploy the bot on your own
    applications or messaging platforms such as Facebook Messenger
    or Slack
-   Before you get started, familiarize yourself with the following Amazon Lex V2
-   core concepts and terminology:
+
+## Core Concepts and Terminology
+
+Before you get started, familiarize yourself with the following Amazon Lex V2
+core concepts and terminology:
 
 - **Bot** – A bot performs
   automated tasks such as ordering a pizza, booking a hotel,
@@ -111,6 +131,19 @@ understands the slot value.
   applications use the alias instead of a specific version, all of
   your clients get the new functionality without needing to be
   updated.
-  For a list of the AWS Regions where Amazon Lex V2 is available, see [Amazon Lex V2
-  endpoints and quotas](../../../general/latest/gr/lex.md "../../../general/latest/gr/lex.md") in the _Amazon Web Services
-  General Reference_.
+
+## Advanced Amazon Lex V2 Features
+
+In addition to the core concepts above, Amazon Lex V2 includes advanced features that enhance bot capabilities:
+
+- **Assisted NLU** – Uses Large Language Models (LLMs) to improve intent classification and slot resolution. This feature helps your bot understand user requests more accurately, even when they use different phrasing than your training examples. Assisted NLU works within your configured intents and slots, providing better understanding without requiring extensive training data.
+- **Multi-turn Conversations** – Amazon Lex V2 can maintain context across multiple conversation turns, allowing for natural back-and-forth interactions. Users can provide information gradually, change their mind, or ask clarifying questions without losing the conversation context.
+- **Context Switching** – Advanced bots can handle topic changes within a conversation. For example, a user might start asking about account information, then switch to placing an order, and return to the original topic. Amazon Lex V2 can manage these context switches gracefully.
+- **Fallback Strategies** – When Amazon Lex V2 doesn't understand a user's request, you can configure sophisticated fallback behaviors including clarifying questions, suggestion prompts, or escalation to human agents. This ensures users always have a path forward in the conversation.
+- **Conversation Flow Management** – Use conditional branching and conversation flow controls to create complex dialog patterns without writing code. You can route conversations based on user responses, slot values, or external data.
+
+## Regional Availability
+
+For a list of the AWS Regions where Amazon Lex V2 is available, see [Amazon Lex V2
+endpoints and quotas](../../../general/latest/gr/lex.md "../../../general/latest/gr/lex.md") in the _Amazon Web Services
+General Reference_.

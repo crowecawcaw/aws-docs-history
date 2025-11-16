@@ -12,5 +12,5 @@ Amazon Lex V2 bot
 1. Open the Facebook page that you associated with your bot
    in step 1.
 2. In the Messenger window, use the test utterances provided
-   in [Exercise 1: Create a bot from an
-   example](exercise-1.md "exercise-1.md").
+   in [Exercise 1: Create a chatbot from a
+   template](exercise-1.md "exercise-1.md").

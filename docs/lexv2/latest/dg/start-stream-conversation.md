@@ -9,7 +9,7 @@ information with each other through events.
 
 ###### Note
 
-When using StartConversation, if the utterance audio duration exceeds the configured value for `max-length-ms`, cuts off the audio at the specified duration.
+When using StartConversation, if the utterance audio duration exceeds the configured value for `max-length-ms`, Amazon Lex V2 cuts off the audio at the specified duration.
 
 The `StartConversation` operation is supported only in
 the following SDKs:

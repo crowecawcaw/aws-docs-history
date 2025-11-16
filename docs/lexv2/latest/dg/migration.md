@@ -95,7 +95,7 @@ function is configured in the alias for the language and is
 used for both the dialog and fulfillment code hook. You can
 still choose to enable or disable the dialog and fulfillment
 code hooks independently for each intent. For more
-information, see [Integrating an AWS Lambda function into your bot](lambda.md "lambda.md").
+information, see [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md").
 
 #### Granular settings
 

@@ -91,22 +91,22 @@ about Global Resiliency APIs and Amazon Lex V2 can be found in the
 
 Enable Global Resiliency and creates a replicated bot. Requires `replicaRegion`.
 
-For more information, see [CreateBotReplica](../APIReference/API_CreateBotReplica.md "../APIReference/API_CreateBotReplica.md") in the API Guide.
+For more information, see [CreateBotReplica](../APIReference/API_CreateBotReplica.md "../APIReference/API_CreateBotReplica.md") in the Amazon Lex V2 API Guide.
 
 - **DeleteBotReplica**
 
 Disable Global Resiliency and delete the replicated bot. Requires `replicaRegion` and `botId`.
 
-For more information, see [DeleteBotReplica](../APIReference/API_DeleteBotReplica.md "../APIReference/API_DeleteBotReplica.md") in the API Guide.
+For more information, see [DeleteBotReplica](../APIReference/API_DeleteBotReplica.md "../APIReference/API_DeleteBotReplica.md") in the Amazon Lex V2 API Guide.
 
 - **ListBotReplicas**
 
 List the replicated bots in the secondary zone. Requires `botId`.
 
-For more information, see [ListBotReplicas](../APIReference/API_ListBotReplicas.md "../APIReference/API_ListBotReplicas.md") in the API Guide.
+For more information, see [ListBotReplicas](../APIReference/API_ListBotReplicas.md "../APIReference/API_ListBotReplicas.md") in the Amazon Lex V2 API Guide.
 
 - **DescribeBotReplica**
 
 Summary of information for the replicated bot. Requires `replicaRegion` and `botId`.
 
-For more information, see [DescribeBotReplica](../APIReference/API_DescribeBotReplica.md "../APIReference/API_DescribeBotReplica.md") in the API Guide.
+For more information, see [DescribeBotReplica](../APIReference/API_DescribeBotReplica.md "../APIReference/API_DescribeBotReplica.md") in the Amazon Lex V2 API Guide.

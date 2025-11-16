@@ -29,7 +29,7 @@ replace the Linux line continuation character (\) with a caret (^).
 1. Create a document in the current directory called
    `LexConversationLogsAssumeRolePolicyDocument.json`,
    add the following code to it, and save it. This policy document adds
-   Amazon Lex V2 as a trusted entity to the role. This allows to assume the role
+   Amazon Lex V2 as a trusted entity to the role. This allows Amazon Lex V2 to assume the role
    to deliver logs to the resources configured for conversation logs.
 
 JSON

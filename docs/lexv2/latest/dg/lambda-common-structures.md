@@ -1,4 +1,4 @@
-# Common structures in an AWS Lambda function for
+# Common structures in an AWS Lambda function for Amazon Lex V2
 
 Within the Lambda response, there are a number of structures that recur. Details about these common structures are provided in this section.
 
@@ -117,7 +117,7 @@ The fields in the slot object are described below:
 The shape of the slot. This value is `List` if there are multiple values in the slot (see [Using multiple values in a
 slot](multi-valued-slots.md "multi-valued-slots.md") for more details) and is `Scalar` otherwise.
 
-An object containing information about the value that the user provided for a slot and 's interpretation, in the following format:
+An object containing information about the value that the user provided for a slot and Amazon Lex V2's interpretation, in the following format:
 
 ```
 {
@@ -132,9 +132,9 @@ An object containing information about the value that the user provided for a sl
 
 The fields are described below:
 
-- **originalValue** – The part of the user's response to the slot elicitation that determines is relevant to the slot value.
-- **interpretedValue** – The value that determines for the slot, given the user input.
-- **resolvedValues** – A list of values that determines are possible resolutions for the user input.
+- **originalValue** – The part of the user's response to the slot elicitation that Amazon Lex V2 determines is relevant to the slot value.
+- **interpretedValue** – The value that Amazon Lex V2 determines for the slot, given the user input.
+- **resolvedValues** – A list of values that Amazon Lex V2 determines are possible resolutions for the user input.
   A list of objects containing information about the slots that make up the multi-value slot. The format of each object matches that of a normal slot, with the `shape` and `value` fields described above. `values` only appears if the slot consists of multiple values (see [Using multiple values in a
   slot](multi-valued-slots.md "multi-valued-slots.md") for more details). The following JSON object shows two component slots:
 

@@ -150,7 +150,7 @@ The fields within the structure are as follows:
   - **sentiment** – Indicates whether the sentiment of the utterance is `POSITIVE`, `NEGATIVE`, `NEUTRAL`, or `MIXED`.
   - **sentimentScore** – A structure mapping each sentiment to a number indicating how confident Amazon Lex V2 is that the utterance conveys that sentiment.
 
-- **interpretationSource** – Indicates whether a slot is resolved by or Amazon Bedrock.
+- **interpretationSource** – Indicates whether a slot is resolved by Amazon Lex V2 or Amazon Bedrock.
   If the Lambda function sets the `dialogAction` of the `sessionState` to `Delegate`, this field appears and shows Amazon Lex V2's proposal for the next step in the conversation. Otherwise, the next state depends on the settings that you return in the response from your Lambda function. This structure is only present if both of the following statements are true:
 
 1. The `invocationSource` value is `DialogCodeHook`

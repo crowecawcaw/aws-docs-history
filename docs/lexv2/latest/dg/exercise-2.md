@@ -3,8 +3,8 @@
 flow
 
 In this exercise you review the JSON structures that are sent between
-your client application and the Amazon Lex V2 bot that you created in [Exercise 1: Create a bot from an
-example](exercise-1.md "exercise-1.md"). The conversation
+your client application and the Amazon Lex V2 bot that you created in [Exercise 1: Create a chatbot from a
+template](exercise-1.md "exercise-1.md"). The conversation
 uses the [RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md") operation to generate
 the JSON structures. The [RecognizeUtterance](../APIReference/API_runtime_RecognizeUtterance.md "../APIReference/API_runtime_RecognizeUtterance.md") returns the same
 information as HTTP headers in the response.

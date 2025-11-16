@@ -9,7 +9,7 @@ user to use runtime operations on a specific bot alias.
 
 When you use a resource-based policy you can allow other AWS
 services to access resources in your account. For example, you can
-allow Amazon Connect to access an bot.
+allow Amazon Connect to access an Amazon Lex V2 bot.
 
 To learn how to create a bot or bot alias, see [Working with Amazon Lex V2 bots](building-bots.md "building-bots.md").
 
@@ -25,7 +25,7 @@ To learn how to create a bot or bot alias, see [Working with Amazon Lex V2 bots]
 
 Use the console to specify a resource-based policy
 
-You can use the console to manage the resource-based
+You can use the Amazon Lex V2 console to manage the resource-based
 policies for your bots and bot aliases. You enter the JSON structure
 of a policy and the console associates it with the resource. If
 there is a policy already associated with a resource, you can use
@@ -39,7 +39,7 @@ resource, it returns an error and doesn't save the policy.
 The following shows the resource-based policy editor for a bot in
 the console. The policy editor for a bot alias is similar.
 
-![The console resource-based policy editor.](images/resource-policy-editor.png)
+![The Amazon Lex V2 console resource-based policy editor.](images/resource-policy-editor.png)
 
 ###### To open the policy editor for a bot
 

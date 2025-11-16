@@ -188,9 +188,9 @@ If the slot `{credit-card-number}` contains the value "123456781234":
 ## Sample conditional expressions
 
 Here are some sample conditional expressions. NOTE: `$.` represents the entry
-point to the JSON response. The value following `$.` will be parsed within
-the response to retrieve the value. Conditional expressions using the JSON path reference
-to transcriptions block in the response will only be supported in the same locales which
+point to the Amazon Lex V2 JSON response. The value following `$.` will be parsed within
+the Amazon Lex V2 response to retrieve the value. Conditional expressions using the JSON path reference
+to transcriptions block in the Amazon Lex V2 response will only be supported in the same locales which
 support ASR transcription scores.
 
 | Value type                                 | Use case                                                              | Conditional expression                                                                                       |
@@ -226,6 +226,6 @@ support ASR transcription scores.
 
 ###### Note
 
-`slotName` refers to the name of a slot in the bot. If the slot is not resolved (null),
+`slotName` refers to the name of a slot in the Amazon Lex V2 bot. If the slot is not resolved (null),
 or if the slot does not exist, then the assignments are ignored at runtime. `sessionAttribute` refers
 to the name of the session attribute that is set by the customer at build time.

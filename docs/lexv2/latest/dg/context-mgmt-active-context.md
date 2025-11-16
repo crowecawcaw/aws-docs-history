@@ -2,7 +2,7 @@
 
 context for your Lex V2 bot
 
-You can have trigger intents based on
+You can have Amazon Lex V2 trigger intents based on
 _context_. A _context_ is
 a state variable that can be associated with an intent when you
 define a bot. You configure the contexts for an intent when you
@@ -24,19 +24,19 @@ which an intent can be recognized. An intent can only be recognized
 during a conversation when all of its input contexts are active. An
 intent with no input contexts is always eligible for recognition.
 
-automatically manages the lifecycle of contexts that are
+Amazon Lex V2 automatically manages the lifecycle of contexts that are
 activated by fulfilling intents with output contexts. You can also
 set active contexts in a call to the `RecognizeText` or
 `RecognizeUtterance` operation.
 
 You can also set the context of a conversation using the Lambda
-function for the intent. The output context from is sent to
+function for the intent. The output context from Amazon Lex V2 is sent to
 the Lambda function input event. The Lambda function can send contexts
-in its response. For more information, see [Integrating an AWS Lambda function into your bot](lambda.md "lambda.md").
+in its response. For more information, see [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md").
 
 For example, suppose you have an intent to book a rental car that
 is configured to return an output context called
-"book_car_fulfilled". When the intent is fulfilled, sets the
+"book_car_fulfilled". When the intent is fulfilled, Amazon Lex V2 sets the
 output context variable "book_car_fulfilled". Since
 "book_car_fulfilled" is an active context, an intent with the
 "book_car_fulfilled" context set as an input context is now
@@ -47,7 +47,7 @@ receipt or modifying a reservation.
 
 ## Output context of intents for your Lex V2 bot
 
-makes an intent's output contexts active when the intent
+Amazon Lex V2 makes an intent's output contexts active when the intent
 is fulfilled. You can use the output context to control the
 intents eligible to follow up the current intent.
 
@@ -67,8 +67,8 @@ and returned in the [RecognizeText](../APIReference/API_runtime_RecognizeText.md
 When you define an output context you also define its
 _time to live_, the length of time or
 number of turns that the context is included in responses from
-. A _turn_ is one request from your
-application to . Once the number of turns or the time has
+Amazon Lex V2. A _turn_ is one request from your
+application to Amazon Lex V2. Once the number of turns or the time has
 expired, the context is no longer active.
 
 Your application can use the output context as needed. For
@@ -78,8 +78,8 @@ example, your application can use the output context to:
   context. For example, a travel application could have a
   different action for the context "book_car_fulfilled"
   than "rental_hotel_fulfilled."
-- Return the output context to as the input
-  context for the next utterance. If recognizes the
+- Return the output context to Amazon Lex V2 as the input
+  context for the next utterance. If Amazon Lex V2 recognizes the
   utterance as an attempt to elicit an intent, it uses the
   context to limit the intents that can be returned to
   ones with the specified context.
@@ -102,7 +102,7 @@ context when you call the [RecognizeText](../APIReference/API_runtime_RecognizeT
 
 You can configure the slots in an intent to take default
 values from the current active context. Default values are used
-when recognizes a new intent but doesn't receive a slot
+when Amazon Lex V2 recognizes a new intent but doesn't receive a slot
 value. You specify the context name and slot name in the form
 `#context-name.parameter-name` when you define
 the slot. For more information, see [Using default slot

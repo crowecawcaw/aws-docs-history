@@ -22,7 +22,7 @@ There are three ways that you can update session state.
 - Use a Lambda function with the `RecognizeText` or
   `RecognizeUtterance` operation that is called
   after each turn of the conversation. For more information, see
-  [Integrating an AWS Lambda function into your bot](lambda.md "lambda.md"). The other
+  [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md"). The other
   is to use the Amazon Lex V2 runtime API in your application to make
   changes to the session state.
 - Use operations that enable you to manage session information

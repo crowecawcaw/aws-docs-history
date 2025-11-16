@@ -76,7 +76,7 @@ You can modify the hints by:
 
 ## Adding slot values in context
 
-Add context for your bot by providing expected slot values as runtime hints when your application has information about the user's next likely utterance. Add a Lambda dialog code hook to your bot (see [Integrating an AWS Lambda function into your bot](lambda.md "lambda.md") for more information) and use the **proposedNextState** field in the [AWS Lambda input event format for Lex V2](lambda-input-format.md "lambda-input-format.md") to determine the runtime hints that you should include to improve the conversation with the user.
+Add context for your bot by providing expected slot values as runtime hints when your application has information about the user's next likely utterance. Add a Lambda dialog code hook to your bot (see [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md") for more information) and use the **proposedNextState** field in the [AWS Lambda input event format for Lex V2](lambda-input-format.md "lambda-input-format.md") to determine the runtime hints that you should include to improve the conversation with the user.
 
 For example, in a banking app you can generate a list of account
 nicknames for a specific user, and then use the list when eliciting

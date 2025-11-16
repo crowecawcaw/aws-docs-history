@@ -133,7 +133,7 @@ To use an alternative intent, you specify it in the
 `ConfirmIntent` or the `ElicitSlot`
 dialog action in your Lambda function.
 
-For more information, see [Integrating an AWS Lambda function into your bot](lambda.md "lambda.md").
+For more information, see [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md").
 
 ### Using the Session
 

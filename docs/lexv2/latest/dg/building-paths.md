@@ -50,9 +50,9 @@ information, see [Invoke dialog code hook](paths-code-hook.md "paths-code-hook.m
 
 The following image shows the creation of a path for a slot in the console. In this
 example, Amazon Lex V2 will elicit the slot "age". If the value of the slot is less than 24, Amazon Lex V2
-jumps to the closing response, otherwise will follow the default path.
+jumps to the closing response, otherwise Amazon Lex V2 will follow the default path.
 
-![The console showing the condition editor for a slot.](images/conditional-slot.png)
+![The Amazon Lex V2 console showing the condition editor for a slot.](images/conditional-slot.png)
 
 ###### Note
 

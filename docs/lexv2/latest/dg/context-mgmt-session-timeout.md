@@ -19,7 +19,7 @@ session. If the user returns to the session before it expires, they
 can provide the remaining slot data, and complete the
 purchase.
 
-In the console, you set the session timeout when you create
+In the Amazon Lex V2 console, you set the session timeout when you create
 a bot. With the AWS command line interface (AWS CLI) or API, you set
 the timeout when you create a bot with the [CreateBot](../APIReference/API_CreateBot.md "../APIReference/API_CreateBot.md")
 operation by setting the [idleSessionTTLInSeconds](API_PutBot.md#API_CreateBot.html#lexv2-CreateBot-request-idleSessionTTLInSeconds "API_PutBot.md#API_CreateBot.html#lexv2-CreateBot-request-idleSessionTTLInSeconds") field.

@@ -120,7 +120,7 @@ To use the example code, you must have:
 - The intent should have one slot, "PostalCode", of the
   `AMAZON.UKPostalCode` built-in type.
 - An alias with the Lambda function defined. For more
-  information, see [Creating an AWS Lambda function for your bot](lambda-attach.md "lambda-attach.md").
+  information, see [Creating an AWS Lambda function for your Amazon Lex V2 bot](lambda-attach.md "lambda-attach.md").
 
 ```
 import json

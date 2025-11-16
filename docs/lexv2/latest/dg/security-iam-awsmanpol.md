@@ -540,7 +540,7 @@ JSON
 
 managed policy: AmazonLexV2BedrockAgentPolicy
 
-policy for Amazon Bedrock agents
+Amazon Lex V2 policy for Amazon Bedrock agents
 
 Response
 
@@ -572,7 +572,7 @@ JSON
 
 managed policy: AmazonLexV2BedrockKnowledgeBasePolicy
 
-policy for Amazon Bedrock knowledge bases
+Amazon Lex V2 policy for Amazon Bedrock knowledge bases
 
 Response
 
@@ -604,7 +604,7 @@ JSON
 
 managed policy: AmazonLexV2BedrockAgentPolicyInternal
 
-internal policy for Amazon Bedrock agents
+Amazon Lex V2 internal policy for Amazon Bedrock agents
 
 Response
 
@@ -636,7 +636,7 @@ JSON
 
 managed policy: AmazonLexV2BedrockKnowledgeBasePolicyInternal
 
-internal policy for Amazon Bedrock knowledge bases
+Amazon Lex V2 internal policy for Amazon Bedrock knowledge bases
 
 Response
 

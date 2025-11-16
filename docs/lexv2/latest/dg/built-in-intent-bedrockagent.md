@@ -51,4 +51,4 @@ This setting is critical to allow Agents to ask clarifying or follow-up question
 - `x-amz-lex:bedrock-agent-action-group-invocation-input` - Object containing input values collected by the agent action group. For more information on agent action groups, see ActionGroupInvocationInput.
 - `x-amz-lex:bedrock-agent-knowledge-base-lookup-input` - Object containing the Amazon Bedrock Knowledge Base lookup related details.
 - `x-amz-lex:bedrock-agent-agent-collaborator-details` – Object containing details of the input and output from the sub agents that were invoked as part of Multi-agent collaboration invocations.
-  For more information, see [Using BedrockAgentIntent to use a Bedrock Agent in Amazon Lex V2](bedrock-agent-intent.md "bedrock-agent-intent.md").
+  For more information, see [Using BedrockAgentIntent to use a Bedrock Agent in Amazon Lex](bedrock-agent-intent.md "bedrock-agent-intent.md").

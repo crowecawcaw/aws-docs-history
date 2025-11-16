@@ -1,4 +1,4 @@
-# Understanding bot conversations
+# Understanding Amazon Lex V2 bot conversations
 
 After you build a bot, you integrate your client application with the Amazon Lex V2 runtime operations
 to hold conversations with your bot. When a user starts a conversation with your bot, Amazon Lex V2

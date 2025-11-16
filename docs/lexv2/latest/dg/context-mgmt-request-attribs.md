@@ -4,7 +4,7 @@ attributes for your Lex V2 bot
 
 _Request attributes_ contain request-specific
 information and apply only to the current request. A client
-application sends this information to . Use request attributes
+application sends this information to Amazon Lex V2. Use request attributes
 to pass information that doesn't need to persist for the entire
 session. You can create your own request attributes or you can use
 predefined attributes. To send request attributes, use the
@@ -32,7 +32,7 @@ header of a `RecognizeUtterance` request or in the
 `requestAttributes` field of a
 `RecognizeText` request.
 
-To send request attributes to , you create a
+To send request attributes to Amazon Lex V2, you create a
 string-to-string map of the attributes. The following shows how
 to map request attributes:
 

@@ -23,7 +23,7 @@ button. If you choose **Enabled** for audio logs, you need to specify the Amazon
 the KMS key for encrypting your audio data. Select the check box for **Selectively log utterances** if you are selectively logging audio files.
 
 ![The panels for managing conversation logs.](images/logging/selective-manage-logs.png) 7. Select **Save** in the bottom right corner of the panel to save your selective conversation log capture settings.
-**Activate selective conversation log capture in the console:**
+**Activate selective conversation log capture in the Amazon Lex V2 console:**
 
 1. Go to **Intents** and select the **Intent name**, **Initial Response**, **Advanced Settings**, **Set Values**,
    **Session Attributes**.

@@ -7,14 +7,18 @@ and automatic speech recognition (ASR) so you can build highly engaging
 user experiences with lifelike, conversational interactions, and create
 new categories of products.
 
-Amazon Lex V2 enables any developer to build conversational bots quickly.
+Amazon Lex V2 enables any developer to build conversational chatbots quickly.
 With Amazon Lex V2, no deep learning expertise is necessary—to create a
-bot, you specify the basic conversation flow in the Amazon Lex V2 console.
+chatbot, you specify the basic conversation flow in the Amazon Lex V2 console.
 Amazon Lex V2 manages the dialog and dynamically adjusts the responses in the
 conversation. Using the console, you can build, test, and publish your
 text or voice chatbot. You can then add the conversational interfaces to
-bots on mobile devices, web applications, and chat platforms (for
+chatbots on mobile devices, web applications, and chat platforms (for
 example, Facebook Messenger).
+
+Amazon Lex V2 now includes advanced AI-powered features that make bot building even more powerful and accessible. **Assisted NLU** uses Large Language Models (LLMs) to improve intent classification and slot resolution while staying within your bot's configured intents and slots. This means better understanding of user requests with less training data required. Amazon Lex V2 also supports **custom vocabularies in 17 additional languages**, enabling global deployment with improved speech recognition accuracy across diverse markets.
+
+With **Multi-Region Replication (MRR)**, you can now deploy your bots across multiple AWS regions for improved availability and disaster recovery, ensuring your conversational interfaces remain accessible to users worldwide.
 
 Amazon Lex V2 provides integration with AWS Lambda, and you can integrate with
 many other services on the AWS platform, including Amazon Connect, Amazon Comprehend, and
@@ -78,11 +82,24 @@ conversational interfaces.
   With the Amazon Lex V2 free tier, you can easily try Amazon Lex V2 without any
   initial investment.
 
-## Paying for
+## Common use cases for Amazon Lex V2
 
-Amazon Lex V2 charges you only for the text or speech requests that you make. This model gives you a variable-cost service that can grow with your business while giving you the cost advantages of the AWS infrastructure. For more information, see [Pricing](https://aws.amazon.com/lex/pricing "https://aws.amazon.com/lex/pricing").
+Amazon Lex V2 enables you to build sophisticated conversational interfaces for a wide variety of business scenarios. Here are some popular use cases:
 
-When you sign up for AWS, your AWS account is automatically signed up for all services in AWS, including . However, you are charged only for the services that you use. If you are a new customer, you can get started with for free. For more information, see [AWS free tier](https://aws.amazon.com/free "https://aws.amazon.com/free").
+- **Customer Support** – Create intelligent chatbots that can handle common customer inquiries, troubleshoot issues, and escalate complex problems to human agents. Integrate with your existing CRM and knowledge base systems.
+- **E-commerce and Retail** – Build shopping assistant chatbots that help customers find products, check order status, process returns, and provide personalized recommendations based on purchase history.
+- **Appointment Booking** – Develop scheduling chatbots for healthcare, professional services, or hospitality that can check availability, book appointments, send reminders, and handle cancellations.
+- **IT Helpdesk** – Create internal support chatbots that can reset passwords, provide software installation guidance, track IT tickets, and connect employees with the right technical resources.
+- **Financial Services** – Build banking chatbots that can check account balances, transfer funds, provide transaction history, and offer financial advice while maintaining strict security standards.
+- **HR and Employee Services** – Develop HR assistant chatbots that can answer policy questions, help with benefits enrollment, process time-off requests, and provide onboarding support for new employees.
+
+Amazon Lex V2 integrates seamlessly with popular communication platforms including Slack, Microsoft Teams, WhatsApp, Facebook Messenger, and custom web applications, making it easy to deploy your chatbots where your users already communicate.
+
+## Paying for Amazon Lex V2
+
+Amazon Lex V2 charges you only for the text or speech requests that you make. This model gives you a variable-cost service that can grow with your business while giving you the cost advantages of the AWS infrastructure. For more information, see [Amazon Lex V2 Pricing](https://aws.amazon.com/lex/pricing "https://aws.amazon.com/lex/pricing").
+
+When you sign up for AWS, your AWS account is automatically signed up for all services in AWS, including Amazon Lex V2. However, you are charged only for the services that you use. If you are a new Amazon Lex V2 customer, you can get started with Amazon Lex V2 for free. For more information, see [AWS free tier](https://aws.amazon.com/free "https://aws.amazon.com/free").
 
 To see your bill, go to the Billing and Cost Management Dashboard in the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/"). To learn more about AWS account billing, see the [_AWS Billing User Guide_](../../../awsaccountbilling/latest/aboutv2/billing-what-is.md "../../../awsaccountbilling/latest/aboutv2/billing-what-is.md"). If you have
 questions concerning AWS billing and AWS accounts, contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").

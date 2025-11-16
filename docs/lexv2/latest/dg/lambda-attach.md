@@ -1,4 +1,4 @@
-# Creating an AWS Lambda function for your bot
+# Creating an AWS Lambda function for your Amazon Lex V2 bot
 
 To create a Lambda function for your Amazon Lex V2 bot, access AWS Lambda from your AWS Management Console and create a new function.
 You can refer to the [AWS Lambda developer guide](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md")
@@ -62,7 +62,7 @@ def lambda_handler(event, context):
     return response
 ```
 
-**When to use AWS Lambda functions in bot conversations**
+**When to use AWS Lambda functions in Amazon Lex V2 bot conversations**
 
 You can use Lambda functions at the following points in a conversation with a user:
 
@@ -76,5 +76,5 @@ You can use Lambda functions at the following points in a conversation with a us
 
 ###### Topics
 
-- [Attach an AWS Lambda function to a bot using the console](lambda-attach-console.md "lambda-attach-console.md")
-- [Attach an AWS Lambda function to a bot using API operations](lambda-attach-api.md "lambda-attach-api.md")
+- [Attach an AWS Lambda function to a Amazon Lex V2 bot using the console](lambda-attach-console.md "lambda-attach-console.md")
+- [Attach an AWS Lambda function to a Amazon Lex V2 bot using API operations](lambda-attach-api.md "lambda-attach-api.md")

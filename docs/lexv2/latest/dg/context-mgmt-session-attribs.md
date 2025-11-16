@@ -4,9 +4,9 @@ attributes for your Lex V2 bot
 
 _Session attributes_ contain
 application-specific information that is passed between a bot and a
-client application during a session. passes session attributes
+client application during a session. Amazon Lex V2 passes session attributes
 to all Lambda functions configured for a bot. If a Lambda function
-adds or updates session attributes, passes the new information
+adds or updates session attributes, Amazon Lex V2 passes the new information
 back to the client application.
 
 Use session attributes in your Lambda functions to initialize a bot
@@ -27,7 +27,7 @@ Street"`. The Lambda function uses this information
   substitutes the name for the placeholder. It then sends a
   personalized prompt to the user, "Hey Vivian, which toppings
   would you like?"
-  Session attributes persist for the duration of the session.
+  Session attributes persist for the duration of the session. Amazon Lex V2
   stores them in an encrypted data store until the session ends. The
   client can create session attributes in a request by calling either
   the [RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md") or [RecognizeUtterance](../APIReference/API_runtime_RecognizeUtterance.md "../APIReference/API_runtime_RecognizeUtterance.md")
@@ -37,26 +37,26 @@ Street"`. The Lambda function uses this information
   client or a Lambda function creates a session attribute, the stored
   attribute value is used any time that the client application doesn't
   include `sessionAttribute` field in a request to
-  .
+  Amazon Lex V2.
 
 For example, suppose you have two session attributes, `{"x":
  "1", "y": "2"}`. If the client calls the
 `RecognizeText` or `RecognizeUtterance`
 operation without specifying the `sessionAttributes`
-field, calls the Lambda function with the stored session
+field, Amazon Lex V2 calls the Lambda function with the stored session
 attributes (`{"x": 1, "y": 2}`). If the Lambda function
-doesn't return session attributes, returns the stored session
+doesn't return session attributes, Amazon Lex V2 returns the stored session
 attributes to the client application.
 
 If either the client application or a Lambda function passes
-session attributes, updates the stored session attributes.
+session attributes, Amazon Lex V2 updates the stored session attributes.
 Passing an existing value, such as `{"x": 2}`, updates
 the stored value. If you pass a new set of session attributes, such
 as `{"z": 3}`, the existing values are removed and only
 the new value is kept. When an empty map, `{}`, is
 passed, stored values are erased.
 
-To send session attributes to , you create a string-to-string
+To send session attributes to Amazon Lex V2, you create a string-to-string
 map of the attributes. The following shows how to map session
 attributes:
 

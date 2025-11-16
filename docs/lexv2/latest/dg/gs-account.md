@@ -28,14 +28,7 @@ to create one.
 
 ###### To create an AWS account
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
+- To create an AWS account, see [How do I create and activate a new AWS account?](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html") in the AWS Knowledge Center.
 
 Write down your AWS account ID because you'll need it for
 the next task.
@@ -47,7 +40,7 @@ credentials when you access them so that the service can
 determine whether you have permissions to access the resources
 owned by that service.
 
-Create an IAM user account to access your account for Amazon Lex V2:
+Create an IAM user account to access your account for Amazon Lex V2. For comprehensive guidance on IAM user creation, see [Getting started with IAM](../../../IAM/latest/UserGuide/getting-started.md "../../../IAM/latest/UserGuide/getting-started.md") in the _IAM User Guide_.
 
 - Use AWS Identity and Access Management (IAM) to create an IAM user
 - Add the user to an IAM group with administrative
@@ -75,24 +68,28 @@ console
 2. As a user, you can sign in to the AWS Management Console using a
    special URL. For more information, [How Users Sign In to Your Account](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md") in the
    _IAM User Guide_.
+   For more information about IAM, see the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
 
-For more information about IAM, see the following:
+### Common Setup Issues
 
-- [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")
-- [Getting started with IAM](../../../IAM/latest/UserGuide/getting-started.md "../../../IAM/latest/UserGuide/getting-started.md")
-- [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md")
+If you encounter issues during account setup, here are common solutions:
+
+- **Permission Denied Errors** – Ensure your IAM user has the necessary Amazon Lex V2 permissions. For getting started, administrator permissions are recommended. For detailed information about Amazon Lex V2 permissions, see the Security section in this guide.
+- **Console Access Issues** – Make sure you're signing in with the correct IAM user URL for your account, not the root AWS console. For more information about IAM best practices, see the Security section in this guide.
+- **Region Availability** – Amazon Lex V2 is not available in all AWS regions. Check the [Amazon Lex endpoints and quotas](../../../general/latest/gr/lex.md "../../../general/latest/gr/lex.md") to confirm availability in your preferred region. For information about supported locales, see [Languages and locales supported by
+  Amazon Lex V2](how-languages.md "how-languages.md").
+- **Free Tier Limits** – Monitor your usage to stay within free tier limits: 10,000 text requests and 5,000 speech requests per month. For detailed pricing information, see [Amazon Lex Pricing](https://aws.amazon.com/lex/pricing/ "https://aws.amazon.com/lex/pricing/").
+- **Quota Limits** – If you encounter service limits, review the current quotas and request increases if needed. For more information, see [Guidelines and best practices](quotas.md "quotas.md").
+
+For additional troubleshooting help, see the Monitoring section in this guide for information about error logs and debugging.
 
 ## Grant programmatic access
 
-Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
+For information about how to get your access key ID and secret access key, see [Understanding and getting your AWS credentials](../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys "../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys") in the AWS General Reference.
 
-To grant users programmatic access, choose one of the following options.
+### Developer Environment Setup
 
-| Which user needs programmatic access?                        | To                                                                                                                 | By                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Workforce identity<br>(Users managed in IAM Identity Center) | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                  | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Configuring the AWS CLI to use AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the<br>_AWS Command Line Interface User Guide_.<br>• For AWS SDKs, tools, and AWS APIs, see [IAM Identity Center<br>authentication](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md") in the _AWS SDKs and Tools Reference Guide_.                                                                                                                                                                                                                          |
-| IAM                                                          | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                  | Following the instructions in [Using temporary<br>credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| IAM                                                          | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs. | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the _AWS Command Line Interface User Guide_.<br>• For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>_AWS SDKs and Tools Reference Guide_.<br>• For AWS APIs, see [Managing access keys for<br>IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_. |
+**For Developers:** If you plan to use the AWS CLI or SDKs, you'll also want to configure your development environment. Install the AWS CLI and configure it with your access keys. For detailed instructions, see [Installing the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). For SDK examples, see [Bot examples](examples.md "examples.md").
 
 ## Next step
 

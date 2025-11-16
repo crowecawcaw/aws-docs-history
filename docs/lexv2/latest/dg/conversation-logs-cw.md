@@ -49,7 +49,7 @@ Information about processing this utterance.
 sessionState
 
 The current state of the conversation between the user and the
-bot. For more information, see [Understanding bot conversations](managing-conversations.md "managing-conversations.md").
+bot. For more information, see [Understanding Amazon Lex V2 bot conversations](managing-conversations.md "managing-conversations.md").
 
 interpretations
 
@@ -59,7 +59,7 @@ scores to improve conversation accuracy](confidence-scores.md "confidence-scores
 
 interpretationSource
 
-Indicates whether a slot is resolved by or Amazon Bedrock. Values: Lex | Bedrock
+Indicates whether a slot is resolved by Amazon Lex V2 or Amazon Bedrock. Values: Lex | Bedrock
 
 sessionId
 
@@ -105,7 +105,7 @@ developerOverride
 
 Indicates whether the conversation flow was updated using a
 dialog code hook. For more information on using a dialog code hook,
-see [Integrating an AWS Lambda function into your bot](lambda.md "lambda.md").
+see [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md").
 
 inputMode
 

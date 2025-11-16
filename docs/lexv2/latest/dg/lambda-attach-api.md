@@ -1,6 +1,6 @@
-# Attach an AWS Lambda function to a bot using API operations
+# Attach an AWS Lambda function to a Amazon Lex V2 bot using API operations
 
-You must first attach a Lambda function to your bot alias before you can invoke it. You can only associate
+You must first attach a Lambda function to your Amazon Lex V2 bot alias before you can invoke it. You can only associate
 one Lambda function with each bot alias. Perform these steps to attach the Lambda function using API operations.
 
 If you are creating a new bot alias, use the [CreateBotAlias](../APIReference/API_CreateBotAlias.md "../APIReference/API_CreateBotAlias.md") operation to attach a Lambda function. To attach
@@ -36,7 +36,7 @@ field to contain the correct settings:
    and the name of the function.
 3. To allow Amazon Lex V2 to invoke the Lambda function for the alias, set the `enabled` field to `true`.
 
-###### Setting a intent to invoke a Lambda function using API operations
+###### Setting a Amazon Lex V2 intent to invoke a Lambda function using API operations
 
 To set up the Lambda function invocation during an intent, use the [CreateIntent](../APIReference/API_CreateIntent.md "../APIReference/API_CreateIntent.md") operation
 if you are creating a new intent, or the [UpdateIntent](../APIReference/API_UpdateIntent.md "../APIReference/API_UpdateIntent.md") operation if you are invoking the

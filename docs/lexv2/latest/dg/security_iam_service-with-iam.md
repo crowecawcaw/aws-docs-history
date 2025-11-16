@@ -7,17 +7,17 @@ available to use with Amazon Lex V2.
 
 | IAM features you can use with Amazon Lex V2                                                                                                              | IAM feature | Amazon Lex V2 support |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | Yes         |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | Yes         |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")              | Yes         |
-| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | No          |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                        | No          |
-| [ABAC (tags in policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                     | Yes         |
-| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                 | No          |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                     | Yes         |
-| [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                             | Yes         |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | Partial     |
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | _Yes_       |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | _Yes_       |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | _Yes_       |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")              | _Yes_       |
+| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | _No_        |
+| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                        | _No_        |
+| [ABAC (tags in policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                     | _Yes_       |
+| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                 | _No_        |
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                     | _Yes_       |
+| [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                             | _Yes_       |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | _Partial_   |
 
 To get a high-level view of how Amazon Lex V2 and other AWS services
 work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
@@ -26,8 +26,7 @@ _IAM User Guide_.
 ## Identity-based policies for Amazon Lex V2
 
 **Supports identity-based policies:**
-
-Yes
+_Yes_
 
 Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These
 policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
@@ -48,8 +47,7 @@ policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "sec
 ## Resource-based policies within Amazon Lex V2
 
 **Supports resource-based policies:**
-
-Yes
+_Yes_
 
 Resource-based policies are JSON policy documents that you attach
 to a resource. Examples of resource-based policies are IAM role
@@ -62,11 +60,11 @@ You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_
 Principals can include users, roles, federated users, or AWS
 services.
 
-You can't use cross-account or cross-region policies with .
+You can't use cross-account or cross-region policies with Amazon Lex V2.
 If you create a policy for a resource with a cross-account or
-cross-region ARN, returns an error.
+cross-region ARN, Amazon Lex V2 returns an error.
 
-The service supports resource-based policies called a
+The Amazon Lex V2 service supports resource-based policies called a
 _bot policy_ and a _bot
 alias_ policy, which are attached to a bot or a bot
 alias. These policies define which principals can perform actions on
@@ -76,7 +74,7 @@ Actions can only be used on specific resources. For example, the
 `UpdateBot` action can only be used on bot resources,
 the `UpdateBotAlias` action can only be used on bot alias
 resources. If you specify an action in a policy that can't be used
-on the resource specified in the policy, returns an error. For
+on the resource specified in the policy, Amazon Lex V2 returns an error. For
 the list of actions and the resources that they can be used with,
 see the following table.
 
@@ -158,8 +156,7 @@ To view examples of Amazon Lex V2 resource-based policies, see
 ## Policy actions for Amazon Lex V2
 
 **Supports policy actions:**
-
-Yes
+_Yes_
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -193,8 +190,7 @@ policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "sec
 ## Policy resources for Amazon Lex V2
 
 **Supports policy resources:**
-
-Yes
+_Yes_
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -217,8 +213,7 @@ policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "sec
 ## Policy condition keys for Amazon Lex V2
 
 **Supports service-specific policy condition keys:**
-
-No
+_No_
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -243,8 +238,7 @@ policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "sec
 lists (ACLs) in Amazon Lex V2
 
 **Supports ACLs:**
-
-No
+_No_
 
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
@@ -254,8 +248,7 @@ similar to resource-based policies, although they do not use the JSON policy doc
 access control (ABAC) with Amazon Lex V2
 
 **Supports ABAC (tags in policies):**
-
-Yes
+_Yes_
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions
 based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
@@ -271,8 +264,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 ## Using Temporary credentials with Amazon Lex V2
 
 **Supports temporary credentials:**
-
-No
+_No_
 
 Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you
 dynamically generate temporary credentials instead of using long-term access keys. For
@@ -283,8 +275,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 ## Cross-service principal permissions for Amazon Lex V2
 
 **Supports forward access sessions (FAS):**
-
-Yes
+_Yes_
 
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
@@ -292,8 +283,7 @@ when making FAS requests, see [Forward access sessions](../../../IAM/latest/User
 ## Service roles for Amazon Lex V2
 
 **Supports service roles:**
-
-Yes
+_Yes_
 
 A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
@@ -308,8 +298,7 @@ provides guidance to do so.
 ## Service-linked roles for Amazon Lex V2
 
 **Supports service-linked roles:**
-
-Partial
+_Partial_
 
 A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,

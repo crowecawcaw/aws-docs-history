@@ -199,7 +199,7 @@ specify it in the `ConfirmIntent` or the
 `ElicitSlot` dialog action in your Lambda
 function. To use a slot value from an alternative transcription,
 set the value in the `intent` field in your Lambda
-function response. For more information, see [Integrating an AWS Lambda function into your bot](lambda.md "lambda.md").
+function response. For more information, see [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md").
 
 #### Example code using Lambda with Lex V2
 
@@ -219,7 +219,7 @@ To use the example code, you must have:
 - The intent should have two slots, "BirthMonth" and
   "Name," both of type `AMAZON.AlphaNumeric`.
 - An alias with the Lambda function defined. For more
-  information, see [Creating an AWS Lambda function for your bot](lambda-attach.md "lambda-attach.md").
+  information, see [Creating an AWS Lambda function for your Amazon Lex V2 bot](lambda-attach.md "lambda-attach.md").
 
 ```
 import time

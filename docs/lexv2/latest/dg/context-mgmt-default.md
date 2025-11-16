@@ -52,7 +52,7 @@ following.
    "reservationStartDate" session attribute is used as the
    default value.
 3. If neither of the first two default values are used, then
-   the slot doesn't have a default value and will elicit
+   the slot doesn't have a default value and Amazon Lex V2 will elicit
    a value as usual.
    If a default value is used for the slot, the slot is not elicited
    even if it is required.

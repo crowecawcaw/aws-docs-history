@@ -2,7 +2,7 @@
 
 between intents with your Lex V2 bot
 
-supports sharing information between intents. To share
+Amazon Lex V2 supports sharing information between intents. To share
 between intents, use output contexts or session attributes.
 
 To use output contexts, you define an output context when you
